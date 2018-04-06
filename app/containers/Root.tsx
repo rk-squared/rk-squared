@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Redux from 'react-redux';
+
 import { History } from 'history';
 
 import { Provider } from 'react-redux';
@@ -8,8 +9,8 @@ import Routes from '../routes';
 
 interface IRootType {
   store: Redux.Store<any>;
-  history: History
-};
+  history: History;
+}
 
 export default function Root({ store, history }: IRootType) {
   return (

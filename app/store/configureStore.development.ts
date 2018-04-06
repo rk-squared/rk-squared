@@ -16,7 +16,7 @@ declare const module: NodeModule & {
   }
 };
 
-const actionCreators = Object.assign({}, 
+const actionCreators = Object.assign({},
   {push}
 );
 

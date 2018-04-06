@@ -44,6 +44,7 @@ const server = app.listen(PORT, 'localhost', serverError => {
 
 process.on('SIGTERM', () => {
   console.log('Stopping dev server');
+  // noinspection JSUnresolvedFunction
   wdm.close();
   server.close(() => {
     process.exit(0);

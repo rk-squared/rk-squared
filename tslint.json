@@ -1,0 +1,10 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+    "quotemark": [true, "single"],
+    "member-access": [true, "no-public"],
+    "no-consecutive-blank-lines": [true, 2],
+    "no-var-requires": false,
+    "trailing-comma": false
+  }
+}
