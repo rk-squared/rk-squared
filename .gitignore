@@ -42,4 +42,5 @@ dist
 main.js
 main.js.map
 
-.idea
+.idea/tasks.xml
+.idea/workspace.xml
