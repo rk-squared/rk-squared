@@ -15,13 +15,13 @@
     "build": "npm run build-main && npm run build-renderer",
     "start": "cross-env NODE_ENV=production electron ./app/",
     "start-hot": "cross-env HOT=1 NODE_ENV=development electron ./dist/app/main.development",
-    "postinstall": "npm run build",
     "dev": "npm run hot-server -- --start-hot",
     "package": "npm run build && build --publish never",
     "package-win": "npm run build && build --win --x64",
     "package-linux": "npm run build && build --linux",
     "package-all": "npm run build && build -mwl",
-    "cleanup": "mop -v"
+    "cleanup": "mop -v",
+    "lint": "tslint --project ."
   },
   "jest": {
     "moduleNameMapper": {

@@ -3,9 +3,6 @@
  */
 
 const path = require('path');
-const {
-  dependencies: externals
-} = require('./app/package.json');
 
 module.exports = {
   module: {
@@ -38,5 +35,5 @@ module.exports = {
 
   plugins: [],
 
-  externals: Object.keys(externals || {})
+  externals: {}
 };

@@ -15,7 +15,9 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
 
 
