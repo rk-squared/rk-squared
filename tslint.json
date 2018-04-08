@@ -4,6 +4,7 @@
     "arrow-parens": false,
     "quotemark": [true, "single"],
     "member-access": [true, "no-public"],
+    "no-string-literal": false,
     "no-consecutive-blank-lines": [true, 2],
     "no-var-requires": false,
     "object-literal-sort-keys": false,

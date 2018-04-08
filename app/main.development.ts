@@ -1,4 +1,5 @@
 import { app, BrowserWindow, Menu, shell } from 'electron';
+import { createFfrkProxy } from './proxy/ffrk-proxy';
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
 // const { forwardToRenderer, triggerAlias, replayActionMain } = require('electron-redux');
 
@@ -269,5 +270,7 @@ app.on('ready', () =>
       const menu = Menu.buildFromTemplate(template);
       mainWindow.setMenu(menu);
     }
+
+    createFfrkProxy();
   })
 );
