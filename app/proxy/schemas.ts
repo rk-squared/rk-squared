@@ -45,6 +45,13 @@ export interface GetBattleInit {
           drop_item_list: DropItem[];
         }>;
       }>;
+
+      drop_materias: Array<{
+        buddy_pos: string;    // E.g., "05" for party member 5
+        name: string;
+        description: string;
+        item_id: string;
+      }>;
     }>;
 
     assets: {

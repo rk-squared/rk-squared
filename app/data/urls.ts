@@ -11,3 +11,7 @@ export function relicImage(id: number, rarity: number): string {
 export function magiciteImage(id: number): string {
   return url(`image/beast_active_skill/${id}1/${id}1_128.png`);
 }
+
+export function asset(assetPath: string): string {
+  return url(assetPath.replace('/Content/lang', ''));
+}

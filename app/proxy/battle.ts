@@ -15,8 +15,9 @@ enum DropItemType {
   XPotion = 23,
   Ether = 31,
   HiEther = 32,
-  Treasure = 41,  // includes magicite
+  Treasure = 41,  // includes relics (unconfirmed), upgrade materials (unconfirmed), magicite, growth eggs
   Orb = 51,
+  Gysahl = 61,    // item ID 95001014, rarity 1
 }
 
 const dropItemTypeName = {
@@ -28,6 +29,7 @@ const dropItemTypeName = {
   [DropItemType.HiEther]: 'Hi-Ether',
   [DropItemType.Treasure]: 'Treasure',
   [DropItemType.Orb]: 'Orb',
+  [DropItemType.Gysahl]: 'Gysahl Greens'
 };
 
 const toNumber = (x: number | string | undefined) => x == null ? undefined : +x;
@@ -42,14 +44,14 @@ function normalizeItem(item: schemas.DropItem) {
 }
 
 function assetKey({ type, rarity }: { type: number, rarity: number }) {
-  return `Item ${type}_${rarity}`;
+  return `drop_item_${type}_${rarity}`;
 }
 
 function generateItemName({ item_id, rarity, type }: { item_id?: number, type: number, rarity: number }) {
   if (item_id != null) {
     return `Item ${item_id}`;
   } else {
-    return `Item ${assetKey({type, rarity})}`;
+    return `Item ${type}_${rarity}`;
   }
 }
 
@@ -60,15 +62,16 @@ function convertDropItems(data: schemas.GetBattleInit): DropItem[] {
       for (const children of enemy.children) {
         for (const i of children.drop_item_list) {
           const item = normalizeItem(i);
-          // FIXME: Gysahl greens
+          let imageUrl = urls.asset(data.battle.assets[assetKey(item)]);
           switch (item.type) {
             case DropItemType.Gil:
+            case DropItemType.Gysahl:
               dropItems.push({
                 amount: item.amount,
                 type: item.type,
                 rarity: item.rarity,
                 name: `${item.amount} ${dropItemTypeName[item.type]}`,
-                imageUrl: data.battle.assets[assetKey(item)],
+                imageUrl,
               });
               break;
             case DropItemType.Potion:
@@ -81,13 +84,12 @@ function convertDropItems(data: schemas.GetBattleInit): DropItem[] {
                 type: item.type,
                 rarity: item.rarity,
                 name: `dropItemTypeName[item.type] (round ${item.round})`,
-                imageUrl: data.battle.assets[assetKey(item)],
+                imageUrl,
               });
               break;
             case DropItemType.Treasure: {
               const id = item.item_id as number;
               let name: string;
-              let imageUrl: string;
               if (enlir.magicites[id]) {
                 name = enlir.magicites[id].MagiciteName;
                 imageUrl = urls.magiciteImage(id);
@@ -96,8 +98,8 @@ function convertDropItems(data: schemas.GetBattleInit): DropItem[] {
                 imageUrl = urls.relicImage(id, item.rarity);
               } else {
                 name = generateItemName(item);
-                imageUrl = data.battle.assets[assetKey(item)];
               }
+              // FIXME: Growth eggs, motes
               dropItems.push({
                 amount: item.amount,
                 rarity: item.rarity,
@@ -117,7 +119,7 @@ function convertDropItems(data: schemas.GetBattleInit): DropItem[] {
                 type: item.type,
                 name: generateItemName(item),
                 itemId: item.item_id,
-                imageUrl: data.battle.assets[assetKey(item)],
+                imageUrl,
               });
           }
         }
