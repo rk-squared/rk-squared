@@ -1,8 +1,10 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { createHashHistory } from 'history';
-import { routerMiddleware, push } from 'react-router-redux';
+import { push, routerMiddleware } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
+const { forwardToMain } = require('electron-redux');
+
 import rootReducer from '../reducers';
 
 
@@ -20,7 +22,7 @@ const actionCreators = Object.assign({},
   {push}
 );
 
-const logger = (<any>createLogger)({
+const logger = (<any> createLogger)({
   level: 'info',
   collapsed: true
 });
@@ -37,13 +39,14 @@ const composeEnhancers: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPO
   }) as any :
   compose;
 /* eslint-enable no-underscore-dangle */
+
 const enhancer = composeEnhancers(
-  applyMiddleware(thunk, router, logger)
+  applyMiddleware(forwardToMain, thunk, router, logger)
 );
 
 export = {
   history,
-  configureStore(initialState: Object | void) {
+  configureStore(initialState: object | void) {
     const store = createStore(rootReducer, initialState, enhancer);
 
     if (module.hot) {

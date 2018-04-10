@@ -44,3 +44,7 @@ main.js.map
 
 .idea/tasks.xml
 .idea/workspace.xml
+
+# Externally maintained
+# FIXME: Should this be tracked in Git?  Probably.
+app/data/enlir.json

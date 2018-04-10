@@ -12,6 +12,11 @@ import * as zlib from 'zlib';
 
 const transformerProxy = require('transformer-proxy');
 
+import battle from './battle';
+const handlers = {
+  battle
+};
+
 // FIXME: Proper logging library
 // tslint:disable no-console
 
@@ -87,7 +92,7 @@ function recordCapturedData(data: any, req: http.IncomingMessage) {
 
 const UTF8_BOM = 0xFEFF;
 
-function handleFfrkApiRequest(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
+function handleFfrkApiRequest(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse, dispatch: any) {
   try {
     let decoded = decodeData(data, res).toString();
     if (decoded.charCodeAt(0) === UTF8_BOM) {
@@ -97,6 +102,7 @@ function handleFfrkApiRequest(data: Buffer, req: http.IncomingMessage, res: http
     recordCapturedData(decoded, req)
       .catch(err => console.error(`Failed to save data capture: ${err}`))
       .then(filename => console.log(`Saved to ${filename}`));
+    checkHandlers(decoded, req, res, dispatch);
   } catch (error) {
     console.error(error);
   }
@@ -112,7 +118,17 @@ function extractJson($el: Cheerio) {
   }
 }
 
-function handleFfrkStartupRequest(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
+function checkHandlers(data: {}, req: http.IncomingMessage, res: http.ServerResponse, dispatch: any) {
+  const fragment = path.posix.basename(url.parse(req.url as string).pathname as string);
+  Object.keys(handlers).forEach(k => {
+    // FIXME: Type signatures for handlers - and/or replace with EventEmitter
+    if ((handlers as any)[k][fragment]) {
+      (handlers as any)[k][fragment](data, dispatch);
+    }
+  });
+}
+
+function handleFfrkStartupRequest(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse, dispatch: any) {
   try {
     const decoded = decodeData(data, res).toString();
     const $ = cheerio.load(decoded);
@@ -122,23 +138,24 @@ function handleFfrkStartupRequest(data: Buffer, req: http.IncomingMessage, res: 
     recordCapturedData({appInitData, textMaster}, req)
       .catch(err => console.error(`Failed to save data capture: ${err}`))
       .then(filename => console.log(`Saved to ${filename}`));
+    checkHandlers({appInitData, textMaster}, req, res, dispatch);
   } catch (error) {
     console.error(error);
   }
   return data;
 }
 
-function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
-  if (isFfrkApiRequest(req)) {
-    return handleFfrkApiRequest(data, req, res);
-  } else if (isFfrkStartupRequest(req)) {
-    return handleFfrkStartupRequest(data, req, res);
-  } else {
-    return data;
+export function createFfrkProxy(dispatch: any) {
+  function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
+    if (isFfrkApiRequest(req)) {
+      return handleFfrkApiRequest(data, req, res, dispatch);
+    } else if (isFfrkStartupRequest(req)) {
+      return handleFfrkStartupRequest(data, req, res, dispatch);
+    } else {
+      return data;
+    }
   }
-}
 
-export function createFfrkProxy() {
   const proxy = httpProxy.createProxyServer({});
   proxy.on('error', e => console.log(e));
 

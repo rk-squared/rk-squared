@@ -1,7 +1,8 @@
 import { app, BrowserWindow, Menu, shell } from 'electron';
 import { createFfrkProxy } from './proxy/ffrk-proxy';
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
-// const { forwardToRenderer, triggerAlias, replayActionMain } = require('electron-redux');
+import { configureStore } from './store/configureStore.main';
+const { replayActionMain } = require('electron-redux');
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support'); // eslint-disable-line
@@ -21,6 +22,8 @@ app.on('window-all-closed', () => {
   }
 });
 
+const store = configureStore({});
+replayActionMain(store);
 
 const installExtensions = () => {
   if (process.env.NODE_ENV === 'development') {
@@ -271,6 +274,6 @@ app.on('ready', () =>
       mainWindow.setMenu(menu);
     }
 
-    createFfrkProxy();
+    createFfrkProxy(store.dispatch);
   })
 );

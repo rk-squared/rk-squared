@@ -2,11 +2,13 @@
   "extends": "tslint:latest",
   "rules": {
     "arrow-parens": false,
-    "quotemark": [true, "single"],
+    "interface-name": false,
+    "quotemark": [true, "single", "jsx-double"],
     "member-access": [true, "no-public"],
     "no-string-literal": false,
     "no-consecutive-blank-lines": [true, 2],
     "no-var-requires": false,
+    "no-submodule-imports": [true, "lodash-es"],
     "object-literal-sort-keys": false,
     "trailing-comma": false
   }
