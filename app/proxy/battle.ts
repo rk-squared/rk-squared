@@ -2,7 +2,7 @@ import enlir from '../data/enlir';
 import * as urls from '../data/urls';
 import * as schemas from './schemas';
 
-import { DropItem, setDropItems } from '../actions/battle';
+import { clearDropItems, DropItem, setDropItems } from '../actions/battle';
 
 // FIXME: Proper types for, e.g., dispatch - here and in ffrk-proxy.ts
 // FIXME: Proper logging
@@ -66,6 +66,9 @@ function convertDropItems(data: schemas.GetBattleInit): DropItem[] {
           switch (item.type) {
             case DropItemType.Gil:
             case DropItemType.Gysahl:
+              if (item.type === DropItemType.Gil) {
+               imageUrl = urls.url('image/common_item/92000000.png');
+              }
               dropItems.push({
                 amount: item.amount,
                 type: item.type,
@@ -130,12 +133,26 @@ function convertDropItems(data: schemas.GetBattleInit): DropItem[] {
 }
 
 const battle = {
+  // FIXME: Clear on app start
+
+  escape_battle(data: schemas.GetBattleInit, dispatch: any) {
+    dispatch(clearDropItems());
+  },
+
   get_battle_init_data(data: schemas.GetBattleInit, dispatch: any) {
     const items = convertDropItems(data);
     // FIXME: Proper logging, or remove
     console.log(items);
     dispatch(setDropItems(items));
-  }
+  },
+
+  lose_battle(data: schemas.GetBattleInit, dispatch: any) {
+    dispatch(clearDropItems());
+  },
+
+  win_battle(data: schemas.GetBattleInit, dispatch: any) {
+    dispatch(clearDropItems());
+  },
 };
 
 export default battle;

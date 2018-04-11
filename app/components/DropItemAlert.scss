@@ -1,0 +1,11 @@
+:local {
+  .container {
+    text-align: left;
+  }
+
+  .container > ul {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+}

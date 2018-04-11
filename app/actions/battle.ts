@@ -9,7 +9,7 @@ export interface DropItem {
 
   // Added by RK-Squared
   name: string;
-  imageUrl: string;
+  imageUrl?: string;
 }
 
 export const setDropItems = createAction('SET_DROP_ITEMS', (dropItems: DropItem[]) => ({

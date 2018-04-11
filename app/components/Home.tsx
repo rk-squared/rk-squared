@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import DropItemAlert from './DropItemAlert';
+
 const styles = require('./Home.scss');
 
 export default class Home extends React.Component {
@@ -7,6 +9,7 @@ export default class Home extends React.Component {
     return (
       <div>
         <div className={styles.container} data-tid="container">
+          <DropItemAlert/>
         </div>
       </div>
     );
