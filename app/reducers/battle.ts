@@ -1,6 +1,6 @@
 import { getType } from 'typesafe-actions';
 
-import { clearDropItems, DropItem, setDropItems} from '../actions/battle';
+import { clearDropItems, DropItem, setDropItems } from '../actions/battle';
 
 export interface BattleState {
   dropItems?: DropItem[] | null;

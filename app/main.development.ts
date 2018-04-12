@@ -274,6 +274,6 @@ app.on('ready', () =>
       mainWindow.setMenu(menu);
     }
 
-    createFfrkProxy(store.dispatch);
+    createFfrkProxy(store);
   })
 );

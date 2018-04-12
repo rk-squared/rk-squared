@@ -1,5 +1,8 @@
 type BoolAsString = '0' | '1';
 
+// A `/Content/lang/ww/compile` path
+type ContentPath = string;
+
 export interface DropItem {
   // "1" through "5", corresponding to stars?
   rarity: number;
@@ -27,14 +30,12 @@ export interface DropItem {
 }
 
 export interface GetBattleInit {
-  is_inescapable: BoolAsString;
-  show_timer_type: BoolAsString;
-
   assets: {
     [assetKey: string]: {
       bundle: {
         // `/Content/lang/ww/compile` path to PNG, JSON, or OGG
         [contentPath: string]: {
+          // Hashes are MD5 checksums, base64-encoded, with two trailing `=` stripped.
           hash: string;
         }
       };
@@ -44,7 +45,23 @@ export interface GetBattleInit {
   };
 
   battle: {
+    is_inescapable: BoolAsString;
+    show_timer_type: BoolAsString;
+
+    background: {
+      assets: {
+        [assetKey: string]: ContentPath;
+      }
+      animationTime: number;
+      animation_info: {
+        bgEffectIds: string[];
+        id: string;
+      }
+    }
+
     rounds: Array<{
+      background_change_type: string;  // "0" or "2"; meaning unknown
+
       enemy: Array<{
         children: Array<{
           drop_item_list: DropItem[];
@@ -61,7 +78,7 @@ export interface GetBattleInit {
 
     assets: {
       // Simple mapping of asset key to `/Content/lang/ww/compile` path
-      [assetKey: string]: string;
+      [assetKey: string]: ContentPath;
     }
   };
 }

@@ -10,11 +10,18 @@ import * as path from 'path';
 import * as url from 'url';
 import * as zlib from 'zlib';
 
+import { Store } from 'redux';
+
 const transformerProxy = require('transformer-proxy');
 
 import battle from './battle';
+import options from './options';
+
+import { IState } from '../reducers';
+
 const handlers = {
-  battle
+  battle,
+  options,
 };
 
 // FIXME: Proper logging library
@@ -62,6 +69,14 @@ function decodeData(data: Buffer, res: http.ServerResponse) {
   }
 }
 
+function encodeData(data: string, res: http.ServerResponse) {
+  if (res.getHeader('content-encoding')) {
+    return zlib.gzipSync(data);
+  } else {
+    return Buffer.from(data);
+  }
+}
+
 const capturePath = path.join(__dirname, 'captures');
 if (!fs.existsSync(capturePath)) {
   fs.mkdirSync(capturePath);
@@ -76,11 +91,16 @@ function getCaptureFilename(req: http.IncomingMessage) {
   return path.join(capturePath, datestamp + urlPath + '.json');
 }
 
-function recordCapturedData(data: any, req: http.IncomingMessage) {
+function recordCapturedData(rawData: string, data: any, req: http.IncomingMessage, res: http.ServerResponse) {
   const filename = getCaptureFilename(req);
   const { url, method, headers } = req;  // tslint:disable-line no-shadowed-variable
+  const response = { headers: res.getHeaders() };
+
+  // FIXME: Logging
+  fs.writeFile(filename + '.raw', rawData, err => {});
+
   return new Promise((resolve, reject) => {
-    fs.writeFile(filename, JSON.stringify({ url, method, headers, data }, null, 2), err => {
+    fs.writeFile(filename, JSON.stringify({ url, method, headers, response, data }, null, 2), err => {
       if (err) {
         reject(err);
       } else {
@@ -92,23 +112,6 @@ function recordCapturedData(data: any, req: http.IncomingMessage) {
 
 const UTF8_BOM = 0xFEFF;
 
-function handleFfrkApiRequest(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse, dispatch: any) {
-  try {
-    let decoded = decodeData(data, res).toString();
-    if (decoded.charCodeAt(0) === UTF8_BOM) {
-      decoded = decoded.substr(1);
-    }
-    decoded = JSON.parse(decoded);
-    recordCapturedData(decoded, req)
-      .catch(err => console.error(`Failed to save data capture: ${err}`))
-      .then(filename => console.log(`Saved to ${filename}`));
-    checkHandlers(decoded, req, res, dispatch);
-  } catch (error) {
-    console.error(error);
-  }
-  return data;
-}
-
 function extractJson($el: Cheerio) {
   const rawJson = $el.html();
   if (rawJson == null) {
@@ -118,39 +121,80 @@ function extractJson($el: Cheerio) {
   }
 }
 
-function checkHandlers(data: {}, req: http.IncomingMessage, res: http.ServerResponse, dispatch: any) {
+function checkHandlers(data: {}, req: http.IncomingMessage, res: http.ServerResponse, store: Store<IState>) {
   const fragment = path.posix.basename(url.parse(req.url as string).pathname as string);
+  let changed = false;
   Object.keys(handlers).forEach(k => {
     // FIXME: Type signatures for handlers - and/or replace with EventEmitter
     if ((handlers as any)[k][fragment]) {
-      (handlers as any)[k][fragment](data, dispatch);
+      const newData = (handlers as any)[k][fragment](data, store);
+      if (newData !== undefined) {
+        changed = true;
+        data = newData;
+      }
     }
   });
+  return changed ? data : undefined;
 }
 
-function handleFfrkStartupRequest(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse, dispatch: any) {
+function handleFfrkApiRequest(
+  data: Buffer,
+  req: http.IncomingMessage,
+  res: http.ServerResponse,
+  store: Store<IState>
+) {
   try {
-    const decoded = decodeData(data, res).toString();
-    const $ = cheerio.load(decoded);
+    const rawData = decodeData(data, res).toString();
+    let decoded = rawData;
+    if (decoded.charCodeAt(0) === UTF8_BOM) {
+      decoded = decoded.substr(1);
+    }
+    decoded = JSON.parse(decoded);
 
-    const appInitData = extractJson($('script[data-app-init-data]'));
-    const textMaster = extractJson($('#text-master'));
-    recordCapturedData({appInitData, textMaster}, req)
+    recordCapturedData(rawData, decoded, req, res)
       .catch(err => console.error(`Failed to save data capture: ${err}`))
       .then(filename => console.log(`Saved to ${filename}`));
-    checkHandlers({appInitData, textMaster}, req, res, dispatch);
+
+    const newData = checkHandlers(decoded, req, res, store);
+    if (newData !== undefined) {
+      data = encodeData(String.fromCharCode(UTF8_BOM) + JSON.stringify(newData), res);
+    }
   } catch (error) {
     console.error(error);
   }
   return data;
 }
 
-export function createFfrkProxy(dispatch: any) {
+function handleFfrkStartupRequest(
+  data: Buffer,
+  req: http.IncomingMessage,
+  res: http.ServerResponse,
+  store: Store<IState>
+) {
+  try {
+    const rawData = decodeData(data, res).toString();
+    const $ = cheerio.load(rawData);
+
+    const appInitData = extractJson($('script[data-app-init-data]'));
+    const textMaster = extractJson($('#text-master'));
+    const startupData = { appInitData, textMaster };
+    recordCapturedData(rawData, startupData, req, res)
+      .catch(err => console.error(`Failed to save data capture: ${err}`))
+      .then(filename => console.log(`Saved to ${filename}`));
+
+    checkHandlers(startupData, req, res, store);
+  } catch (error) {
+    console.error(error);
+  }
+  return data;
+}
+
+export function createFfrkProxy(store: Store<IState>) {
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
     if (isFfrkApiRequest(req)) {
-      return handleFfrkApiRequest(data, req, res, dispatch);
+      return handleFfrkApiRequest(data, req, res, store);
     } else if (isFfrkStartupRequest(req)) {
-      return handleFfrkStartupRequest(data, req, res, dispatch);
+      return handleFfrkStartupRequest(data, req, res, store);
     } else {
       return data;
     }
@@ -161,7 +205,7 @@ export function createFfrkProxy(dispatch: any) {
 
   const app = connect();
 
-  app.use(transformerProxy(transformerFunction, {match: /ffrk.denagames.com\/dff/}));
+  app.use(transformerProxy(transformerFunction, {match: /ffrk.denagames.com\/dff/, headers: [{ name: 'ff-chk', value: null}]}));
 
   app.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
     console.log(req.url);

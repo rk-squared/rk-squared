@@ -3,6 +3,8 @@ import * as urls from '../data/urls';
 import * as schemas from './schemas';
 
 import { clearDropItems, DropItem, setDropItems } from '../actions/battle';
+import { Store } from 'redux';
+import { IState } from '../reducers';
 
 // FIXME: Proper types for, e.g., dispatch - here and in ffrk-proxy.ts
 // FIXME: Proper logging
@@ -135,23 +137,23 @@ function convertDropItems(data: schemas.GetBattleInit): DropItem[] {
 const battle = {
   // FIXME: Clear on app start
 
-  escape_battle(data: schemas.GetBattleInit, dispatch: any) {
-    dispatch(clearDropItems());
+  escape_battle(data: schemas.GetBattleInit, store: Store<IState>) {
+    store.dispatch(clearDropItems());
   },
 
-  get_battle_init_data(data: schemas.GetBattleInit, dispatch: any) {
+  get_battle_init_data(data: schemas.GetBattleInit, store: Store<IState>) {
     const items = convertDropItems(data);
     // FIXME: Proper logging, or remove
     console.log(items);
-    dispatch(setDropItems(items));
+    store.dispatch(setDropItems(items));
   },
 
-  lose_battle(data: schemas.GetBattleInit, dispatch: any) {
-    dispatch(clearDropItems());
+  lose_battle(data: schemas.GetBattleInit, store: Store<IState>) {
+    store.dispatch(clearDropItems());
   },
 
-  win_battle(data: schemas.GetBattleInit, dispatch: any) {
-    dispatch(clearDropItems());
+  win_battle(data: schemas.GetBattleInit, store: Store<IState>) {
+    store.dispatch(clearDropItems());
   },
 };
 
