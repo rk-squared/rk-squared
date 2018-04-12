@@ -1,3 +1,5 @@
+type BoolAsString = '0' | '1';
+
 export interface DropItem {
   // "1" through "5", corresponding to stars?
   rarity: number;
@@ -25,6 +27,9 @@ export interface DropItem {
 }
 
 export interface GetBattleInit {
+  is_inescapable: BoolAsString;
+  show_timer_type: BoolAsString;
+
   assets: {
     [assetKey: string]: {
       bundle: {
