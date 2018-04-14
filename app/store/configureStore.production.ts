@@ -1,7 +1,9 @@
 import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
+
 import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'react-router-redux';
+import thunk from 'redux-thunk';
+
 const { forwardToMain } = require('electron-redux');
 
 import rootReducer from '../reducers';

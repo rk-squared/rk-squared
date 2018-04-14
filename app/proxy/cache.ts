@@ -5,11 +5,14 @@
 
 import * as fs from 'fs';
 import * as http from 'http';
-import * as querystring from 'querystring';
 import * as path from 'path';
+import * as querystring from 'querystring';
 import * as url from 'url';
 
 import { decodeData, getStoragePath } from './util';
+
+// FIXME: Proper logging library
+// tslint:disable no-console
 
 const cachePath = getStoragePath('cache');
 
@@ -75,12 +78,14 @@ export function parseFfrkCacheRequest(req: http.IncomingMessage) {
 }
 // tslint:enable max-line-length
 
+// noinspection JSUnusedGlobalSymbols
 export function cacheTransformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
   const resourceUrl = parseFfrkCacheRequest(req);
   if (resourceUrl != null) {
     const decoded = decodeData(data, res);
-    // FIXME: Log promise results
-    recordCacheData(decoded, resourceUrl);
+    recordCacheData(decoded, resourceUrl)
+      .catch(err => console.error(`Failed to save cache capture: ${err}`))
+      .then(filename => console.log(`Saved to ${filename}`));
   }
   return data;
 }

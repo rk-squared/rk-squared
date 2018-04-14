@@ -1,14 +1,13 @@
 import * as React from 'react';
-import * as Redux from 'react-redux';
+import { Provider, Store } from 'react-redux';
 
 import { History } from 'history';
 
-import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import Routes from '../routes';
 
 interface IRootType {
-  store: Redux.Store<any>;
+  store: Store<any>;
   history: History;
 }
 

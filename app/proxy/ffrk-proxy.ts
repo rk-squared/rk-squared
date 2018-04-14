@@ -206,8 +206,8 @@ export function createFfrkProxy(store: Store<IState>) {
         'Proxy-agent: Node.js-Proxy\r\n' +
         '\r\n');
       serverSocket.write(head);
-      // noinspection TypeScriptValidateJSTypes  (WebStorm false positive?)
       serverSocket.pipe(clientSocket);
+      // noinspection TypeScriptValidateJSTypes (WebStorm false positive)
       clientSocket.pipe(serverSocket);
     });
   });

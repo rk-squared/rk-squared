@@ -1,4 +1,5 @@
 import { combineReducers, Reducer } from 'redux';
+
 import { routerReducer as routing } from 'react-router-redux';
 
 // tslint:disable ordered-imports

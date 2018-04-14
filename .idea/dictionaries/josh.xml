@@ -5,6 +5,7 @@
       <w>datestamp</w>
       <w>debuffs</w>
       <w>devtool</w>
+      <w>devtools</w>
       <w>enlir</w>
       <w>eslint</w>
       <w>ffrk</w>
@@ -12,6 +13,7 @@
       <w>magicite</w>
       <w>magicites</w>
       <w>materias</w>
+      <w>precache</w>
       <w>querystring</w>
       <w>redux</w>
       <w>speedrun</w>

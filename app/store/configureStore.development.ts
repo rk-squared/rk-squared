@@ -1,8 +1,10 @@
 import { applyMiddleware, compose, createStore } from 'redux';
-import thunk from 'redux-thunk';
+
 import { createHashHistory } from 'history';
 import { push, routerMiddleware } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
+import thunk from 'redux-thunk';
+
 const { forwardToMain } = require('electron-redux');
 
 import rootReducer from '../reducers';
@@ -18,11 +20,11 @@ declare const module: NodeModule & {
   }
 };
 
-const actionCreators = Object.assign({},
-  {push}
-);
+const actionCreators = {
+  push
+};
 
-const logger = (<any> createLogger)({
+const logger = (createLogger as any)({
   level: 'info',
   collapsed: true
 });
