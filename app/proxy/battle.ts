@@ -1,12 +1,13 @@
 import enlir from '../data/enlir';
 import * as urls from '../data/urls';
 import * as schemas from './schemas';
+import { Handler } from './types';
+
+import { Store } from 'redux';
 
 import { clearDropItems, DropItem, setDropItems } from '../actions/battle';
-import { Store } from 'redux';
 import { IState } from '../reducers';
 
-// FIXME: Proper types for, e.g., dispatch - here and in ffrk-proxy.ts
 // FIXME: Proper logging
 // tslint:disable no-console
 
@@ -134,7 +135,7 @@ function convertDropItems(data: schemas.GetBattleInit): DropItem[] {
   return dropItems;
 }
 
-const battle = {
+const battle: Handler = {
   // FIXME: Clear on app start
 
   escape_battle(data: schemas.GetBattleInit, store: Store<IState>) {

@@ -1,6 +1,9 @@
-import { Store } from 'redux';
-import { IState } from '../reducers';
 import * as schemas from './schemas';
+import { Handler } from './types';
+
+import { Store } from 'redux';
+
+import { IState } from '../reducers';
 
 // Manually copied from Nightmare dungeons
 const staticBackground = {
@@ -31,7 +34,7 @@ const staticBackgroundAsset = {
   assetPath: '/Content/lang/ww/compile/en/ab/bg/10227/10227.json'
 };
 
-const options = {
+const options: Handler = {
   get_battle_init_data(data: schemas.GetBattleInit, store: Store<IState>) {
     const { alwaysShowTimer, staticBattleBackground } = store.getState().options;
     let changed = false;

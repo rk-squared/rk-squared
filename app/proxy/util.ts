@@ -1,8 +1,8 @@
+import * as fs from 'fs';
 import * as http from 'http';
 import * as os from 'os';
+import * as path from 'path';
 import * as zlib from 'zlib';
-import * as path from "path";
-import * as fs from "fs";
 
 /**
  * Returns a list of IP addresses of the host computer, in string form.  Based

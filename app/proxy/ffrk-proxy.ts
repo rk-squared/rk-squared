@@ -16,10 +16,11 @@ import { decodeData, encodeData, getIpAddresses, getStoragePath } from './util';
 
 import battle from './battle';
 import options from './options';
+import { Handler } from './types';
 
 import { IState } from '../reducers';
 
-const handlers = {
+const handlers: { [s: string]: Handler } = {
   battle,
   options,
 };
@@ -81,9 +82,8 @@ function checkHandlers(data: {}, req: http.IncomingMessage, res: http.ServerResp
   const fragment = path.posix.basename(url.parse(req.url as string).pathname as string);
   let changed = false;
   Object.keys(handlers).forEach(k => {
-    // FIXME: Type signatures for handlers - and/or replace with EventEmitter
-    if ((handlers as any)[k][fragment]) {
-      const newData = (handlers as any)[k][fragment](data, store);
+    if (handlers[k][fragment]) {
+      const newData = handlers[k][fragment](data, store);
       if (newData !== undefined) {
         changed = true;
         data = newData;
@@ -193,20 +193,22 @@ export function createFfrkProxy(store: Store<IState>) {
 
   server.on('error', e => console.log(e));
 
-  // Proxy HTTP requests.  For more information:
+  // Proxy (tunnel) HTTPS requests.  For more information:
   // https://nodejs.org/api/http.html#http_event_connect
-  server.on('connect', (req, cltSocket, head) => {
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT
+  server.on('connect', (req, clientSocket, head) => {
     console.log(`CONNECT ${req.url}`);
     // console.log(req.headers);
-    const srvUrl = url.parse(`https://${req.url}`);
-    const srvPort = +(srvUrl.port || 80);
-    const srvSocket = net.connect(srvPort, srvUrl.hostname, () => {
-      cltSocket.write('HTTP/1.1 200 Connection Established\r\n' +
+    const serverUrl = url.parse(`https://${req.url}`);
+    const serverPort = +(serverUrl.port || 80);
+    const serverSocket = net.connect(serverPort, serverUrl.hostname, () => {
+      clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
         'Proxy-agent: Node.js-Proxy\r\n' +
         '\r\n');
-      srvSocket.write(head);
-      srvSocket.pipe(cltSocket);
-      cltSocket.pipe(srvSocket);
+      serverSocket.write(head);
+      // noinspection TypeScriptValidateJSTypes  (WebStorm false positive?)
+      serverSocket.pipe(clientSocket);
+      clientSocket.pipe(serverSocket);
     });
   });
 
