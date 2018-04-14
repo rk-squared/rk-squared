@@ -63,6 +63,9 @@ export interface GetBattleInit {
       background_change_type: string;  // "0" or "2"; meaning unknown
 
       enemy: Array<{
+        deform_animation_info: Array<{}>;
+        is_sp_enemy: BoolAsString;
+
         children: Array<{
           drop_item_list: DropItem[];
         }>;

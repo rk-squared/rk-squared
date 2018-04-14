@@ -5,14 +5,14 @@ import * as http from 'http';
 import * as httpProxy from 'http-proxy';
 import * as moment from 'moment';
 import * as net from 'net';
-import * as os from 'os';
 import * as path from 'path';
 import * as url from 'url';
-import * as zlib from 'zlib';
 
 import { Store } from 'redux';
 
 const transformerProxy = require('transformer-proxy');
+
+import { decodeData, encodeData, getIpAddresses, getStoragePath } from './util';
 
 import battle from './battle';
 import options from './options';
@@ -39,48 +39,7 @@ function isFfrkStartupRequest(req: http.IncomingMessage) {
       && req.headers['accept']!.indexOf('text/html') !== -1;
 }
 
-/**
- * Returns a list of IP addresses, in string form.  Based on
- * https://stackoverflow.com/a/8440736/25507.
- */
-function getIpAddresses() {
-  const interfaces = os.networkInterfaces();
-  const result: string[] = [];
-
-  Object.keys(interfaces).forEach(ifname => {
-    interfaces[ifname].forEach(iface => {
-      if ('IPv4' !== iface.family || iface.internal) {
-        // skip over internal (i.e. 127.0.0.1) and non-IPv4 addresses
-        return;
-      }
-
-      result.push(iface.address);
-    });
-  });
-
-  return result;
-}
-
-function decodeData(data: Buffer, res: http.ServerResponse) {
-  if (res.getHeader('content-encoding')) {
-    return zlib.gunzipSync(data);
-  } else {
-    return data;
-  }
-}
-
-function encodeData(data: string, res: http.ServerResponse) {
-  if (res.getHeader('content-encoding')) {
-    return zlib.gzipSync(data);
-  } else {
-    return Buffer.from(data);
-  }
-}
-
-const capturePath = path.join(__dirname, 'captures');
-if (!fs.existsSync(capturePath)) {
-  fs.mkdirSync(capturePath);
-}
+const capturePath = getStoragePath('captures');
 
 function getCaptureFilename(req: http.IncomingMessage) {
   if (req.url == null) {
@@ -91,13 +50,10 @@ function getCaptureFilename(req: http.IncomingMessage) {
   return path.join(capturePath, datestamp + urlPath + '.json');
 }
 
-function recordCapturedData(rawData: string, data: any, req: http.IncomingMessage, res: http.ServerResponse) {
+function recordCapturedData(data: any, req: http.IncomingMessage, res: http.ServerResponse) {
   const filename = getCaptureFilename(req);
   const { url, method, headers } = req;  // tslint:disable-line no-shadowed-variable
   const response = { headers: res.getHeaders() };
-
-  // FIXME: Logging
-  fs.writeFile(filename + '.raw', rawData, err => {});
 
   return new Promise((resolve, reject) => {
     fs.writeFile(filename, JSON.stringify({ url, method, headers, response, data }, null, 2), err => {
@@ -144,14 +100,13 @@ function handleFfrkApiRequest(
   store: Store<IState>
 ) {
   try {
-    const rawData = decodeData(data, res).toString();
-    let decoded = rawData;
+    let decoded = decodeData(data, res).toString();
     if (decoded.charCodeAt(0) === UTF8_BOM) {
       decoded = decoded.substr(1);
     }
     decoded = JSON.parse(decoded);
 
-    recordCapturedData(rawData, decoded, req, res)
+    recordCapturedData(decoded, req, res)
       .catch(err => console.error(`Failed to save data capture: ${err}`))
       .then(filename => console.log(`Saved to ${filename}`));
 
@@ -172,13 +127,13 @@ function handleFfrkStartupRequest(
   store: Store<IState>
 ) {
   try {
-    const rawData = decodeData(data, res).toString();
-    const $ = cheerio.load(rawData);
+    const decoded = decodeData(data, res).toString();
+    const $ = cheerio.load(decoded);
 
     const appInitData = extractJson($('script[data-app-init-data]'));
     const textMaster = extractJson($('#text-master'));
     const startupData = { appInitData, textMaster };
-    recordCapturedData(rawData, startupData, req, res)
+    recordCapturedData(startupData, req, res)
       .catch(err => console.error(`Failed to save data capture: ${err}`))
       .then(filename => console.log(`Saved to ${filename}`));
 
@@ -188,6 +143,7 @@ function handleFfrkStartupRequest(
   }
   return data;
 }
+
 
 export function createFfrkProxy(store: Store<IState>) {
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
@@ -205,7 +161,9 @@ export function createFfrkProxy(store: Store<IState>) {
 
   const app = connect();
 
-  app.use(transformerProxy(transformerFunction, {match: /ffrk.denagames.com\/dff/, headers: [{ name: 'ff-chk', value: null}]}));
+  app.use(transformerProxy(transformerFunction, { match: /ffrk\.denagames\.com\/dff/ }));
+  // Disabled; not currently functional.
+  // app.use(transformerProxy(cacheTransformerFunction, { match: /127\.0\.0\.1/ }));
 
   app.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
     console.log(req.url);
@@ -213,9 +171,23 @@ export function createFfrkProxy(store: Store<IState>) {
     next();
   });
 
-  app.use((req: http.IncomingMessage, res: http.ServerResponse) => proxy.web(req, res, {
-    target: `http://${req.headers.host}/`
-  }));
+  app.use((req: http.IncomingMessage, res: http.ServerResponse) => {
+    // Disabled; not currently functional.
+    /*
+    const resourceUrl = parseFfrkCacheRequest(req);
+    if (resourceUrl != null) {
+      proxy.web(req, res, {
+        target: `http://ffrk.denagames.com/dff/${resourceUrl}`,
+        ignorePath: true
+      });
+      return;
+    }
+    */
+
+    proxy.web(req, res, {
+      target: `http://${req.headers.host}/`
+    });
+  });
 
   const server = http.createServer(app);
 
