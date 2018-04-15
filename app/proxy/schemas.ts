@@ -97,7 +97,7 @@ export interface Dungeons {
     is_new: boolean;
     is_unlocked: boolean;
     prizes: {
-      [s: string]: {  // FIXME: is is actually a RewardType
+      [s: string]: Array<{  // FIXME: is is actually a RewardType
         type_name: ItemTypeName;
         num: number;
         image_path: RelativeUrlPath;
@@ -105,7 +105,7 @@ export interface Dungeons {
         name: string;
         id: number;
         clear_battle_time?: number;  // Clear time, in milliseconds
-      }
+      }>;
     }
   }>;
 }
@@ -152,6 +152,7 @@ export interface GetBattleInit {
         }>;
       }>;
 
+      drop_item_list: DropItem[];
       drop_materias: Array<{
         buddy_pos: string;    // E.g., "05" for party member 5
         name: string;

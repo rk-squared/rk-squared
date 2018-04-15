@@ -6,6 +6,7 @@ const makeLookup = (sheet: any[]) => _.fromPairs(sheet.map(i => [+i.Id, i]));
 // FIXME: Properly update rawData outside of app; make available within dist; resolve id vs. EnlirId
 
 const enlir = {
+  abilities: makeLookup(rawData.Abilities),
   magicites: makeLookup(rawData.Magicites),
   relics: makeLookup(rawData.Relics),
 };

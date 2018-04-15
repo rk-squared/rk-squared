@@ -15,6 +15,7 @@ const transformerProxy = require('transformer-proxy');
 import { decodeData, encodeData, getIpAddresses, getStoragePath } from './util';
 
 import battle from './battle';
+import itemUpdates from './itemUpdates';
 import options from './options';
 import { Handler } from './types';
 
@@ -22,6 +23,7 @@ import { IState } from '../reducers';
 
 const handlers: { [s: string]: Handler } = {
   battle,
+  itemUpdates,
   options,
 };
 

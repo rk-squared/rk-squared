@@ -28,9 +28,11 @@ export function itemImage(id: number, type: ItemType): string {
       return url(`image/common_item/${id}/${id}.png`);
     case ItemType.GrowthEgg:
       return url(`image/growegg/${id}/${id}_112.png`);
+    case ItemType.Ability:
     case ItemType.Arcana:
     case ItemType.Magicite:
     case ItemType.MemoryCrystal:
+    case ItemType.Mote:
     case ItemType.Orb:
     case ItemType.UpgradeMaterial:
       return url(`image/${type}/${id}/${id}_112.png`);
