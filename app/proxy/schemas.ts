@@ -8,7 +8,7 @@ type ContentPath = string;
 // A `/dff/static/lang/ww/compile` path
 type RelativeUrlPath = string;
 
-enum RewardType {
+export enum RewardType {
   Completion = '1',
   FirstTime = '2',
   Mastery = '3',
