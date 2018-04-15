@@ -21,7 +21,8 @@
     "package-linux": "npm run build && build --linux",
     "package-all": "npm run build && build -mwl",
     "cleanup": "mop -v",
-    "lint": "tslint --project ."
+    "lint": "tslint --project .",
+    "watch": "tsc -w"
   },
   "jest": {
     "moduleNameMapper": {
