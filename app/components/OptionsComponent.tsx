@@ -50,6 +50,16 @@ export class OptionsComponent extends React.Component<Props> {
           Replaces all battle backgrounds with the Nightmare's plain, dark caverns.
           This may help performance on older phones or tablets.
         </div>
+
+        <Checkbox id="hideNewcomerBanners" {...{options, setOption}}>
+          Hide Newcomers' Welcome Relic Draws
+        </Checkbox>
+        <div className="form-text">
+          The relics on the Newcomers' Welcome banners are outdated and are much
+          weaker than relics on current banners.  Most experienced players would
+          recommend not pulling on them.  <strong>All</strong> experienced
+          players would recommend not pulling on them at full price.
+        </div>
       </div>
     );
   }

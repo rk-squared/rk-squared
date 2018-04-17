@@ -158,6 +158,74 @@ export interface Dungeons {
   }>;
 }
 
+export interface GachaShow {
+  series_list: Array<{
+    priority: number;
+    closed_at: Timestamp;
+    rise_message: string;
+    banner_list: Array<{
+      banner_image_type: number;
+      item_id: number;
+      disp_order: number;
+      gacha_series_id: number;
+      image_path: RelativeUrlPath;
+      font_type: number;
+      id: number;
+      type: number;
+      buddy_image_path: RelativeUrlPath;
+    }>;
+    line_up_image_path: RelativeUrlPath;
+    logic_name: string;  // 'plain' (only used for initial freebie) or 'rarity_assurance'
+    box_list: Array<{
+      box_id: number;
+      rarities: number[];
+      entry_point_list: Array<{
+        purchased_count: number;
+        disp_depth: number;
+        closed_at: Timestamp;
+        pay_type_name: string;  // "coin" (gems), "item_and_coin"
+        entry_point_id: number;
+        animation_type_name: string;
+        limit_type_name: string;  // e.g., "total", "infinity"
+        executable_num: number;   // 1 for 100-gem, 99999 otherwise
+        lot_num: number;          // How many items you get
+        image_id: number;
+        pay_id: number;           // 0 for 100-gem, 91000000 for a Mythril pull
+        tag: string;
+        pay_cost: number;         // Number of gems or Mythril
+        name: string;             // "100-Gem Rare Relic Draw", "Rare Relic Draw x11"
+        description: string;
+        opened_at: Timestamp;
+        coin_cost_of_item_and_coin_payment: number;
+        disp_order: number;
+        show_closed_at_flg: boolean;
+        term_limit_num: number    // 1 for a single-time draw (Realm Dungeon Lucky Draw or 100-gem pull), 0 otherwise
+        required_user_item?: {
+          num: number;
+          image_path: RelativeUrlPath;
+          name: string;     // Mythril
+          item_id: number;  // 91000000
+        }
+      }>;
+    }>;
+    is_all_free_payment: false;
+    user_exchange_shop_prize_num: number;
+    show_prob_rise_flg: boolean;
+    additional_appeal_type: number;
+    bgm: string;
+    rise_image_path: RelativeUrlPath;
+    series_name: string;
+    bgm_id: number;
+    total_executable_num: number;  // 1 for a one-time banner (Realm Dungeon Lucky Draw), 0 otherwise
+    appeal_message: string;
+    top_image_path: RelativeUrlPath;
+    series_id: number;
+    opened_at: Timestamp;
+    exchange_shop_id: number;
+    show_closed_at_flg: boolean;
+  }>;
+}
+
 export interface GetBattleInit {
   assets: {
     [assetKey: string]: {
