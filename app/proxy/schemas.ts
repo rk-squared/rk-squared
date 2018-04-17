@@ -8,6 +8,10 @@ type ContentPath = string;
 // A `/dff/static/lang/ww/compile` path
 type RelativeUrlPath = string;
 
+// Unix timestamp
+type Timestamp = number;
+type TimestampString = string;
+
 export enum RewardType {
   Completion = '1',
   FirstTime = '2',
@@ -54,6 +58,50 @@ export interface Main {
     user_stamina_recovery_agents: Array<{
       num: number;
       stamina_recovery_agent_id: number;  // 94100001 for stamina potions
+    }>;
+
+    worlds: Array<{
+      has_brave_series_buddies: boolean;
+      closed_at: Timestamp;
+      bgm: string;
+      dungeon_status_summary: Array<{
+        clear_count: number;
+        master_count: number;
+      }>;
+      door_image_path: RelativeUrlPath;
+      dungeon_term_list?: Array<{
+        closed_at: TimestampString;
+        id: string;
+        type: string;
+        opened: TimestampString;
+      }>;
+      series_formal_name: string;
+      id: number;
+      name: string;
+      has_new_dungeon: boolean;
+      series_id: number;
+      opened_at: number;
+      kept_out_at: Timestamp;
+      is_unlocked: boolean;
+      image_path: RelativeUrlPath;
+      type: number;
+      banner_message: string;
+    }>;
+
+    events: Array<{
+      world_id: number;
+      battle_list_bg_type: number;
+      // challenge (incl. GL Torment), beast, extreme (GL Nightmare), suppress (MO), wday (Power Up Dungeons),
+      // rotation (mote dungeons)
+      type_name: number;
+      has_intro_movie: boolean;
+      ex_opened_at: Timestamp;
+      order_weight: number;
+      image_path: RelativeUrlPath;
+      type: number;
+      id: number;
+      tag: string;        // e.g., "nightmare_dungeon" or "beast_element_dungeon"
+      background_image_path: RelativeUrlPath;
     }>;
   };
   textMaster: {
@@ -166,6 +214,62 @@ export interface GetBattleInit {
       [assetKey: string]: ContentPath;
     }
   };
+}
+
+export interface PartyList {
+  sphere_materials: Array<{
+    created_at: Timestamp;
+    num: number;
+    image_path: RelativeUrlPath;
+    rarity: number;
+    name: string;
+    id: number;
+    description: string;
+  }>;
+  grow_eggs: Array<{
+    exp: number;
+    num: number;
+    name: string;
+    sale_gil: number;
+    description: string;
+    image_path: RelativeUrlPath;
+    rarity: number;
+    id: number;
+  }>;
+  equipment_hyper_evolve_materials: Array<{
+    exp: number;
+    num: number;
+    name: string;
+    sale_gil: number;
+    description: string;
+    created_at: Timestamp;
+    image_path: RelativeUrlPath;
+    rarity: number;
+    id: number;
+  }>;
+  materials: Array<{
+    num: number;
+    name: string;
+    sale_gil: number;
+    description: string;
+    created_at: Timestamp;
+    image_path: RelativeUrlPath;
+    rarity: number;
+    type: number;
+    id: number;
+  }>;
+  equipment_sp_materials: Array<{
+    exp: number;
+    num: number;
+    name: string;
+    sale_gil: number;
+    equipment_type: number;
+    description: string;
+    image_path: RelativeUrlPath;
+    rarity: number;
+    id: number;
+    hammering_num: number;   // How much it increases augments (i.e., 1 for Rosetta, 0 everywhere else)
+  }>;
 }
 
 export interface WorldBattles {

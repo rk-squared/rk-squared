@@ -20,6 +20,7 @@ render(
 
 if ((module as any).hot) {
   (module as any).hot.accept('./containers/Root', () => {
+    // noinspection JSUnusedLocalSymbols
     const NextRoot = require('./containers/Root').default;
     render(
       <AppContainer>

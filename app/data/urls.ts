@@ -30,6 +30,7 @@ export function itemImage(id: number, type: ItemType): string {
       return url(`image/growegg/${id}/${id}_112.png`);
     case ItemType.Ability:
     case ItemType.Arcana:
+    case ItemType.DarkMatter:
     case ItemType.Magicite:
     case ItemType.MemoryCrystal:
     case ItemType.Mote:

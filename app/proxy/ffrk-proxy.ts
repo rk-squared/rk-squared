@@ -80,15 +80,34 @@ function extractJson($el: Cheerio) {
   }
 }
 
+function getFragmentsToCheck(reqUrl: string) {
+  const urlPathname = url.parse(reqUrl as string).pathname as string;
+  const urlParts = urlPathname.split('/');
+
+  // URL fragments to check.  We key most URLs using the last fragment (e.g.,
+  // "/dff/event/challenge/942/get_battle_init_data" becomes
+  // "get_battle_init_data"), but we also check check the last two fragments
+  // to handle cases like "/dff/beast/list".
+  const fragments = [urlParts[urlParts.length - 1]];
+  if (urlParts.length > 1) {
+    fragments.push(urlParts[urlParts.length - 2] + '/' + urlParts[urlParts.length - 1]);
+  }
+
+  return fragments;
+}
+
 function checkHandlers(data: {}, req: http.IncomingMessage, res: http.ServerResponse, store: Store<IState>) {
-  const fragment = path.posix.basename(url.parse(req.url as string).pathname as string);
+  const fragments = getFragmentsToCheck(req.url as string);
+
   let changed = false;
   Object.keys(handlers).forEach(k => {
-    if (handlers[k][fragment]) {
-      const newData = handlers[k][fragment](data, store);
-      if (newData !== undefined) {
-        changed = true;
-        data = newData;
+    for (const fragment of fragments) {
+      if (handlers[k][fragment]) {
+        const newData = handlers[k][fragment](data, store);
+        if (newData !== undefined) {
+          changed = true;
+          data = newData;
+        }
       }
     }
   });
@@ -148,6 +167,7 @@ function handleFfrkStartupRequest(
 
 
 export function createFfrkProxy(store: Store<IState>) {
+  // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
     if (isFfrkApiRequest(req)) {
       return handleFfrkApiRequest(data, req, res, store);
