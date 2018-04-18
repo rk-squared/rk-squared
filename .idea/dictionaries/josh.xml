@@ -3,6 +3,8 @@
     <words>
       <w>adamantite</w>
       <w>bahamut</w>
+      <w>bartz</w>
+      <w>beastmaster</w>
       <w>checksums</w>
       <w>crushdown</w>
       <w>curada</w>
@@ -13,10 +15,14 @@
       <w>eiko</w>
       <w>enlir</w>
       <w>eslint</w>
+      <w>etro</w>
+      <w>feymarch</w>
       <w>ffrk</w>
       <w>followee</w>
       <w>gacha</w>
+      <w>galuf</w>
       <w>gysahl</w>
+      <w>krile</w>
       <w>magicite</w>
       <w>magicites</w>
       <w>materias</w>
@@ -25,10 +31,12 @@
       <w>precache</w>
       <w>querystring</w>
       <w>redux</w>
+      <w>sarisa</w>
       <w>scarletite</w>
       <w>speedrun</w>
       <w>spellblade</w>
       <w>tslint</w>
+      <w>ultima</w>
       <w>valigarmanda</w>
       <w>zlib</w>
     </words>

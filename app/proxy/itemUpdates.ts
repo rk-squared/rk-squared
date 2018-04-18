@@ -5,6 +5,7 @@ import { items, ItemType, ItemTypeLookup, ItemTypeName } from '../data/items';
 import * as schemas from './schemas';
 
 import * as _ from 'lodash';
+import { dressRecordsById } from '../data/dressRecords';
 
 // What's the best place to log these?  Use the console for now.
 // tslint:disable no-console
@@ -36,6 +37,12 @@ function showLocalItem(item: PrizeItem) {
     `{\n  name: '${item.name}',\n  type: ItemType.${type},\n  id: ${item.id}\n},`);
 }
 
+function showLocalDressRecord({dress_record_id, name, buddy_id}
+    : {dress_record_id: number, name: string, buddy_id: number}) {
+  console.log('New (previously unknown) dress record: ' +
+    `{\n  name: '${name}',\n  id: ${dress_record_id},\n  characterId: ${buddy_id},\n},`);
+}
+
 function checkKnownEnlir(item: PrizeItem, enlirData: any) {
   if (enlirData[item.id] == null) {
     showUnknownItem(item);
@@ -55,8 +62,12 @@ function checkItem(item: PrizeItem) {
     checkKnownEnlir(item, enlir.magicites);
   } else if (item.type_name === 'EQUIPMENT') {
     checkKnownEnlir(item, enlir.relics);
+  } else if (item.type_name === 'ABILITY') {
+    checkKnownEnlir(item, enlir.abilities);
   } else if (item.type_name === 'BUDDY' || item.type_name === 'MEMORY_CRYSTAL') {
-    // FIXME: Need an internal-id-indexed version of characters and memory crystals
+    // FIXME: Need an internal-id-indexed version of characters, memory crystals
+  } else if (item.type_name === 'DRESS_RECORD') {
+    // FIXME: Implement
   } else {
     checkKnownItems(item);
   }
@@ -65,6 +76,14 @@ function checkItem(item: PrizeItem) {
 function checkPartyItems(partyItems: Array<{name: string, id: number}>, type: ItemType) {
   for (const i of _.sortBy(partyItems, 'id')) {
     checkKnownItems({name: i.name, id: i.id, type_name: type.toUpperCase() as ItemTypeName });
+  }
+}
+
+function checkPartyDressRecords(data: schemas.PartyList) {
+  for (const i of _.sortBy(data.dress_records, 'dress_record_id')) {
+    if (dressRecordsById[i.dress_record_id] == null) {
+      showLocalDressRecord(i);
+    }
   }
 }
 
@@ -85,6 +104,7 @@ const itemUpdates: Handler = {
     checkPartyItems(data.materials, ItemType.Orb);
     checkPartyItems(data.grow_eggs, ItemType.GrowthEgg);
     checkPartyItems(data.sphere_materials, ItemType.Mote);
+    checkPartyDressRecords(data);
   },
 
   'win_battle'(data: schemas.WinBattle) {

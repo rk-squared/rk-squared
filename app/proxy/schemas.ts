@@ -338,6 +338,13 @@ export interface PartyList {
     id: number;
     hammering_num: number;   // How much it increases augments (i.e., 1 for Rosetta, 0 everywhere else)
   }>;
+  dress_records: Array<{
+    disp_name: string;  // Name with embedded "{n}"
+    image_path: RelativeUrlPath;
+    buddy_id: number;
+    name: string;
+    dress_record_id: number;
+  }>;
 }
 
 export interface WorldBattles {

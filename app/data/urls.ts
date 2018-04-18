@@ -1,5 +1,6 @@
 import enlir from './enlir';
 import { ItemType } from './items';
+import { dressRecordsById } from './dressRecords';
 
 const baseUrl = 'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/';
 
@@ -42,5 +43,10 @@ export function itemImage(id: number, type: ItemType): string {
       return url(`image/equipment/${id}/${id}_${rarity}_112.png`);
     case ItemType.Character:
       return url(`image/buddy/${id}/${id}.png`);
+    case ItemType.DressRecord:
+      // Fall back to dress record ID if it's an unknown dress record.
+      // This will fail but will avoid an error.
+      const buddyId = dressRecordsById[id] ? dressRecordsById[id].characterId : id;
+      return url(`image/buddy/${buddyId}/${id}/${id}.png`);
   }
 }

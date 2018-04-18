@@ -6,6 +6,7 @@ export enum ItemType {
   Character = 'buddy',
   Common = 'common',
   DarkMatter = 'equipment_hyper_evolve_material',
+  DressRecord = 'dress_record',
   GrowthEgg = 'grow_egg',
   Orb = 'ability_material',
   Magicite = 'beast',
@@ -19,6 +20,7 @@ export type ItemTypeName =
   'BEAST_FOOD' |
   'BUDDY' |
   'COMMON' |
+  'DRESS_RECORD' |
   'EQUIPMENT_HYPER_EVOLVE_MATERIAL' |
   'GROW_EGG' |
   'ABILITY_MATERIAL' |
@@ -518,6 +520,11 @@ export const items = [
     id: 40000078
   },
 
+  {
+    name: 'Ultima Record',
+    type: ItemType.Orb,
+    id: 40000079
+  },
   {
     name: 'Crushdown Record',
     type: ItemType.Orb,
