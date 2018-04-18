@@ -43,7 +43,7 @@ const HelpText = ({children}: {children: any}) => (
   </small>
 );
 
-export class OptionsComponent extends React.Component<Props> {
+export class OptionsForm extends React.Component<Props> {
   render() {
     const { options, setOption } = this.props;
     return (
@@ -103,4 +103,4 @@ export default connect(
   dispatch => ({
     setOption: (newOptions: Options) => dispatch(setOption(newOptions))
   })
-)(OptionsComponent);
+)(OptionsForm);

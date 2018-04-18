@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import DropItemAlert from './DropItemAlert';
-import OptionsComponent from './OptionsComponent';
+import OptionsForm from './OptionsForm';
 
 const styles = require('./Home.scss');
 
@@ -11,7 +11,7 @@ export default class Home extends React.Component {
       <div className="container">
         <div className={styles.container} data-tid="container">
           <DropItemAlert/>
-          <OptionsComponent/>
+          <OptionsForm/>
         </div>
       </div>
     );
