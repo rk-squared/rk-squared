@@ -771,6 +771,27 @@ export const items = [
     type: ItemType.Mote,
     id: 132002300
   },
+
+  {
+    name: 'Lesser Arcana',
+    type: ItemType.Arcana,
+    id: 190000002
+  },
+  {
+    name: 'Arcana',
+    type: ItemType.Arcana,
+    id: 190000003
+  },
+  {
+    name: 'Greater Arcana',
+    type: ItemType.Arcana,
+    id: 190000004
+  },
+  {
+    name: 'Major Arcana',
+    type: ItemType.Arcana,
+    id: 190000005
+  },
 ];
 
 export const itemsById = _.zipObject(items.map(i => i.id), items);
