@@ -4,6 +4,17 @@ import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
 import { configureStore } from './store/configureStore.main';
 const { replayActionMain } = require('electron-redux');
 
+/**
+ * Hyperlinks that open in new windows instead open in a web browser.
+ * See https://github.com/electron/electron/issues/1344#issuecomment-171516261.
+ */
+function enableBrowserLinks(webContents: Electron.WebContents) {
+  webContents.on('new-window', (event, url) => {
+    event.preventDefault();
+    shell.openExternal(url);
+  });
+}
+
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support'); // eslint-disable-line
   sourceMapSupport.install();
@@ -59,6 +70,8 @@ app.on('ready', () =>
       // FIXME: What to do here?
       // mainWindow = null;
     });
+
+    enableBrowserLinks(mainWindow.webContents);
 
     if (process.env.NODE_ENV === 'development') {
       mainWindow.webContents.openDevTools();
