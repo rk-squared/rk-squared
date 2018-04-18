@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { DropItem } from '../actions/battle';
+import { IState } from '../reducers';
 
 const styles = require('./DropItemAlert.scss');
 
@@ -16,7 +17,7 @@ export class DropItemAlert extends React.Component<Props> {
       return null;
     }
     return (
-      <div className={`alert alert-primary ${styles.container}`} role="alert">
+      <div className={`alert alert-primary ${styles.component}`} role="alert">
         <h4>Drops for current battle</h4>
         {dropItems.length === 0
           ? <p>None</p>
@@ -31,9 +32,8 @@ export class DropItemAlert extends React.Component<Props> {
   }
 }
 
-// FIXME: Proper types
 export default connect(
-  (state: any) => ({
-      dropItems: state.battle.dropItems
-    })
+  (state: IState) => ({
+    dropItems: state.battle.dropItems
+  })
 )(DropItemAlert);

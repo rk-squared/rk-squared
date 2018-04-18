@@ -9,7 +9,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className={styles.container} data-tid="container">
+        <div className={styles.component} data-tid="container">
           <DropItemAlert/>
           <OptionsForm/>
         </div>

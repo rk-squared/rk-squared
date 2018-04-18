@@ -1,0 +1,5 @@
+:local {
+  .component > :global(.form-group) > :global(.form-check) + :global(small.form-text) {
+    margin-left: 1.25rem;
+  }
+}

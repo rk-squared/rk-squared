@@ -5,7 +5,7 @@ import { Options, setOption } from '../actions/options';
 import { IState } from '../reducers';
 import BrowserLink from './BrowserLink';
 
-// const styles = require('./Options.scss');
+const styles = require('./OptionsForm.scss');
 
 // FIXME: Best approach?
 // tslint:disable no-shadowed-variable
@@ -47,7 +47,7 @@ export class OptionsForm extends React.Component<Props> {
   render() {
     const { options, setOption } = this.props;
     return (
-      <div>
+      <div className={styles.component}>
         <div className="form-group">
           <Checkbox id="alwaysShowTimer" {...{options, setOption}}>
             Always show timer
