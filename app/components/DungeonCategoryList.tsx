@@ -21,6 +21,7 @@ function getSortedDungeons(worlds: {[id: number]: World}, category: WorldCategor
 
   _.forEach(worlds, w => {
     if (w.category === category) {
+      // FIXME: Filter out worlds that aren't open?
       const subcategory = w.subcategory || '';
       subcategories[subcategory] = w.subcategorySortOrder || 0;
       bySubcategory[subcategory] = bySubcategory[subcategory] || [];
@@ -31,28 +32,31 @@ function getSortedDungeons(worlds: {[id: number]: World}, category: WorldCategor
   if (_.isEmpty(bySubcategory)) {
     return null;
   }
-  const result = _.toPairs(bySubcategory);
+  let result = _.toPairs(bySubcategory);
 
   // Sort subcategories - by subcategory sort order if possible, and by
   // subcategory name if not.  Blank goes first.
-  _.sortBy(result, [(i: any) => i[0] === '' ? -Infinity : subcategories[i[0]], (i: any) => i[0]]);
+  result = _.sortBy(result,
+    [(i: any) => i[0] === '' ? -Infinity : subcategories[i[0]], (i: any) => i[0]]
+  ) as any as DungeonsByCategory;
 
   // Sort within each subcategory.
-  for (const r of result) {
-    _.sortBy(r[1], getSorter(r[1][0].category));
+  const sorter = getSorter(category);
+  for (const i of result) {
+    i[1] = sorter(i[1]);
   }
 
   return result;
 }
 
-export default class DungeonCategoryList extends React.Component<Props> {
+export class DungeonCategoryList extends React.Component<Props> {
   render() {
     const { worlds, category } = this.props;
     const bySubcategory = getSortedDungeons(worlds, category);
     if (bySubcategory == null) {
       return null;
     }
-    const id = `dungeon-category-${category}`
+    const id = `dungeon-category-${category}`;
     const collapseId = id + '-collapse';
     const headerId = id + '-header';
     return (
@@ -73,7 +77,7 @@ export default class DungeonCategoryList extends React.Component<Props> {
                 <h6>{subcategory}</h6>
                 <ul>
                   {subWorlds.map((w, j) => (
-                    <li key={j}>{w.name} ({w.id}): {w.openedAt} - {w.closedAt}</li>
+                    <li key={j}>{w.name}</li>
                   ))}
                 </ul>
               </div>

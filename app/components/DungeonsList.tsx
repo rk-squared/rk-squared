@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { sortOrder, World, WorldCategory } from '../actions/worlds';
-import DungeonCategoryList from './DungeonCategoryList';
+import { DungeonCategoryList } from './DungeonCategoryList';
 
 interface Props {
   worlds: {
@@ -13,7 +13,7 @@ export default class DungeonsList extends React.Component<Props> {
   render() {
     const { worlds } = this.props;
     return (
-      <div className="accordion">
+      <div>
         {
           sortOrder.map((category: WorldCategory, i: number) =>
             <DungeonCategoryList worlds={worlds} category={category} key={i}/>

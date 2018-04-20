@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Page from './Page';
+
 import DropItemAlert from '../components/DropItemAlert';
+import Page from './Page';
 
 export default class DropTrackerPage extends React.Component {
   render() {

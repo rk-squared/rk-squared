@@ -12,3 +12,4 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 4. Stateless components
 5. Error reporting (Sentry?)
 6. Responsive (e.g., nav bar collapses)
+7. Standardize React style - default export vs. named export, where to connect

@@ -86,7 +86,7 @@ function getSortOrder(category: WorldCategory) {
   }
 }
 
-export function getSorter(category: WorldCategory): (worlds: World[]) => void {
+export function getSorter(category: WorldCategory): (worlds: World[]) => World[] {
   switch (getSortOrder(category)) {
     case WorldSortOrder.BySeriesId:
       return worlds => _.sortBy(worlds, 'seriesId');

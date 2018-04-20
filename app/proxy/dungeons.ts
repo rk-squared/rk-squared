@@ -62,7 +62,9 @@ const dungeons: Handler = {
       } else if (e.tag.match(/^ff.*_reopen_ww\d+/)) {
         category = WorldCategory.Renewal;
         subcategory = world.series_formal_name;
-        subcategorySortOrder = world.series_id;
+        // Use negative series ID so that newest series are listed first,
+        // to match FFRK's own API.
+        subcategorySortOrder = -world.series_id;
       } else if ((e.type_name === 'challenge' || e.type_name === 'special')) {
         // 'special' was observed with A Heretic Awaits
         if (e.tag !== '') {
@@ -70,7 +72,6 @@ const dungeons: Handler = {
           category = WorldCategory.SpecialEvent;
           subcategory = _.startCase(e.tag);
         } else {
-          // Sort by open time and close time?
           category = WorldCategory.Event;
         }
       } else {
@@ -103,8 +104,6 @@ const dungeons: Handler = {
         };
       }
     }
-
-    // FIXME: Exclude dungeons not yet opened?
 
     if (totalUnknown) {
       console.error(`Found ${totalUnknown} unknown worlds`);
