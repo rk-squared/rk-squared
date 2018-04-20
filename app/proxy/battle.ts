@@ -9,6 +9,8 @@ import { clearDropItems, DropItem, setDropItems } from '../actions/battle';
 import { itemsById, ItemType } from '../data/items';
 import { IState } from '../reducers';
 
+import * as _ from 'lodash';
+
 // FIXME: Proper logging
 // tslint:disable no-console
 
@@ -21,7 +23,7 @@ enum DropItemType {
   HiEther = 32,
   Treasure = 41,  // includes relics (unconfirmed), upgrade materials (unconfirmed), magicite, growth eggs
   Orb = 51,
-  Gysahl = 61,    // item ID 95001014, rarity 1
+  Currency = 61,  // E.g., Gysahl Greens (item ID 95001014, rarity 1), Prismatic Seeds (ID 95001029, rarity 1)
 }
 
 const dropItemTypeName = {
@@ -33,7 +35,7 @@ const dropItemTypeName = {
   [DropItemType.HiEther]: 'Hi-Ether',
   [DropItemType.Treasure]: 'Treasure',
   [DropItemType.Orb]: 'Orb',
-  [DropItemType.Gysahl]: 'Gysahl Greens'
+  [DropItemType.Currency]: 'Currency'
 };
 
 const toNumber = (x: number | string | undefined) => x == null ? undefined : +x;
@@ -73,10 +75,7 @@ function convertDropItemList(data: schemas.GetBattleInit, dropItemData: schemas.
     let imageUrl = urls.asset(data.battle.assets[assetKey(item)]);
     switch (item.type) {
       case DropItemType.Gil:
-      case DropItemType.Gysahl:
-        if (item.type === DropItemType.Gil) {
-          imageUrl = urls.url('image/common_item/92000000.png');
-        }
+        imageUrl = urls.url('image/common_item/92000000.png');
         dropItems.push({
           amount: item.amount,
           type: item.type,
@@ -85,6 +84,21 @@ function convertDropItemList(data: schemas.GetBattleInit, dropItemData: schemas.
           imageUrl,
         });
         break;
+      case DropItemType.Currency: {
+        let name: string | undefined;
+        if (item.item_id != null) {
+          name = _.get(itemsById, [item.item_id, 'name']);
+        }
+        name = name || generateItemName(item);
+        dropItems.push({
+          amount: item.amount,
+          type: item.type,
+          rarity: item.rarity,
+          name: nameWithAmount(name, item.amount),
+          imageUrl,
+        });
+        break;
+      }
       case DropItemType.Potion:
       case DropItemType.HiPotion:
       case DropItemType.XPotion:

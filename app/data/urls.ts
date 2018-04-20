@@ -1,6 +1,6 @@
+import { dressRecordsById } from './dressRecords';
 import enlir from './enlir';
 import { ItemType } from './items';
-import { dressRecordsById } from './dressRecords';
 
 const baseUrl = 'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/';
 
@@ -9,7 +9,7 @@ export function url(subPath: string): string {
 }
 
 export function asset(assetPath?: string): string | undefined {
-  return assetPath == null ? undefined : url(assetPath.replace('/Content/lang/', ''));
+  return assetPath == null ? undefined : url(assetPath.replace(/\/Content\/lang\/ww\/compile\/[a-z]+\//, ''));
 }
 
 export function magiciteImage(id: number): string {

@@ -11,7 +11,7 @@ export default class DropTrackerPage extends React.Component {
         </p>
         <p>
           Item drops are determined when the battle starts and are saved on FFRK's servers.
-          For battles that only cost stamina upon victory, you can take advantage of this to
+          For battles that only deduct stamina if you win, you can take advantage of this to
           flee the battle and restart it until you get the item drop you want.
         </p>
         <DropItemAlert/>
