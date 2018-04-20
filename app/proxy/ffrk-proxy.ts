@@ -15,14 +15,16 @@ const transformerProxy = require('transformer-proxy');
 import { decodeData, encodeData, getIpAddresses, getStoragePath } from './util';
 
 import battle from './battle';
+import dungeons from './dungeons';
 import itemUpdates from './itemUpdates';
 import options from './options';
-import { Handler } from './types';
+import { Handler, StartupHandler } from './types';
 
 import { IState } from '../reducers';
 
 const handlers: { [s: string]: Handler } = {
   battle,
+  dungeons,
   itemUpdates,
   options,
 };
@@ -96,7 +98,12 @@ function getFragmentsToCheck(reqUrl: string) {
   return fragments;
 }
 
-function checkHandlers(data: {}, req: http.IncomingMessage, res: http.ServerResponse, store: Store<IState>) {
+function checkHandlers(
+  data: {},
+  req: http.IncomingMessage,
+  res: http.ServerResponse,
+  store: Store<IState>
+) {
   const fragments = getFragmentsToCheck(req.url as string);
 
   let changed = false;
@@ -108,6 +115,26 @@ function checkHandlers(data: {}, req: http.IncomingMessage, res: http.ServerResp
           changed = true;
           data = newData;
         }
+      }
+    }
+  });
+  return changed ? data : undefined;
+}
+
+function checkSpecialHandlers(
+  data: {},
+  req: http.IncomingMessage,
+  res: http.ServerResponse,
+  store: Store<IState>,
+  special: symbol
+) {
+  let changed = false;
+  Object.keys(handlers).forEach(k => {
+    if (handlers[k][special]) {
+      const newData = handlers[k][special](data, store);
+      if (newData !== undefined) {
+        changed = true;
+        data = newData;
       }
     }
   });
@@ -158,7 +185,7 @@ function handleFfrkStartupRequest(
       .catch(err => console.error(`Failed to save data capture: ${err}`))
       .then(filename => console.log(`Saved to ${filename}`));
 
-    checkHandlers(startupData, req, res, store);
+    checkSpecialHandlers(startupData, req, res, store, StartupHandler);
   } catch (error) {
     console.error(error);
   }

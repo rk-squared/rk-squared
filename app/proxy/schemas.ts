@@ -93,18 +93,20 @@ export interface Main {
       battle_list_bg_type: number;
       // challenge (incl. GL Torment), beast, extreme (GL Nightmare), suppress (MO), wday (Power Up Dungeons),
       // rotation (mote dungeons)
-      type_name: number;
+      type_name: string;
       has_intro_movie: boolean;
       ex_opened_at: Timestamp;
       order_weight: number;
       image_path: RelativeUrlPath;
       type: number;
       id: number;
-      tag: string;        // e.g., "nightmare_dungeon" or "beast_element_dungeon"
+      // e.g., "nightmare_dungeon" (Torment), "beast_element_dungeon", "crystal_tower", "ff4_reopen_ww201804"
+      tag: string;
       background_image_path: RelativeUrlPath;
     }>;
   };
   textMaster: {
+    [s: string]: string;
   };
 }
 
@@ -339,7 +341,7 @@ export interface PartyList {
     hammering_num: number;   // How much it increases augments (i.e., 1 for Rosetta, 0 everywhere else)
   }>;
   dress_records: Array<{
-    disp_name: string;  // Name with embedded "{n}"
+    disp_name: string;       // Name with embedded "{n}"
     image_path: RelativeUrlPath;
     buddy_id: number;
     name: string;

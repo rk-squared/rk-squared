@@ -647,6 +647,11 @@ export const items = [
     type: ItemType.Common,
     id: 95001020
   },
+  {
+    name: 'Prismatic Seed',
+    type: ItemType.Common,
+    id: 95001029
+  },
 
   {
     name: 'Spirit Mote (3★)',

@@ -7,5 +7,8 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 ## To Do
 
 1. Packaging
-2. React error boundaries
-3. Stateless components
+2. Startup instructions
+3. React error boundaries
+4. Stateless components
+5. Error reporting (Sentry?)
+6. Responsive (e.g., nav bar collapses)
