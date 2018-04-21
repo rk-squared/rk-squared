@@ -25,13 +25,13 @@ interface Props {
  *
  * Subcategory may be ''.
  */
-type DungeonsByCategory = Array<[string, World[]]>;
+type WorldsBySubcategory = Array<[string, World[]]>;
 
 /**
  * Gets the list of worlds, sorted and grouped by subcategory, for the given
  * WorldCategory.
  */
-function getSortedDungeons(worlds: {[id: number]: World}, category: WorldCategory): DungeonsByCategory | null {
+function getSortedWorlds(worlds: {[id: number]: World}, category: WorldCategory): WorldsBySubcategory | null {
   // Known subcategories and their sort orders
   const subcategories: {[s: string]: number} = {};
   // Worlds sorted by subcategory
@@ -56,7 +56,7 @@ function getSortedDungeons(worlds: {[id: number]: World}, category: WorldCategor
   // subcategory name if not.  Blank goes first.
   result = _.sortBy(result,
     [(i: any) => i[0] === '' ? -Infinity : subcategories[i[0]], (i: any) => i[0]]
-  ) as any as DungeonsByCategory;
+  ) as any as WorldsBySubcategory;
 
   // Sort within each subcategory.
   const sorter = getSorter(category);
@@ -70,7 +70,7 @@ function getSortedDungeons(worlds: {[id: number]: World}, category: WorldCategor
 export class DungeonCategoryList extends React.Component<Props> {
   render() {
     const { worlds, category } = this.props;
-    const bySubcategory = getSortedDungeons(worlds, category);
+    const bySubcategory = getSortedWorlds(worlds, category);
     if (bySubcategory == null) {
       return null;
     }
