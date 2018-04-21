@@ -35,15 +35,11 @@ const dungeons: Handler = {
       let subcategory: string | undefined;
       let subcategorySortOrder: number | undefined;
 
-      if (e.type_name === 'rotation') {
-        // Only one daily dungeon is visible at a time.
+      if (e.type_name === 'rotation' || e.type_name === 'wday') {
+        // For mote ("rotation") and power up ("wday") dungeons, there are only
+        // two worlds ("Mode Dungeons" and "Power Up Dungeons"), each with only
+        // one dungeon visible at a time.  No need to assign a subcategory.
         category = WorldCategory.PowerUpMote;
-        subcategory = 'Motes';
-        subcategorySortOrder = 1;
-      } else if (e.type_name === 'wday') {
-        category = WorldCategory.PowerUpMote;
-        subcategory = 'Power Up Dungeons';
-        subcategorySortOrder = 0;
       } else if (e.type_name === 'extreme') {
         category = WorldCategory.Nightmare;
       } else if (e.type_name === 'beast') {
