@@ -1,3 +1,9 @@
+/**
+ * @file
+ * Support for applying options (modifications to FFRK), even if those options
+ * would logically fit in another proxy module.
+ */
+
 import * as schemas from './schemas';
 import { Handler } from './types';
 

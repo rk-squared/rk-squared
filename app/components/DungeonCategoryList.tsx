@@ -11,6 +11,12 @@ interface Props {
   category: WorldCategory;
 }
 
+// FIXME: Include banner images?
+// E.g.:
+// http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/crystal_tower/event_list/banner/7.png
+// (determined by crystal_tower_bundles.0.bundle_id???)
+// http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/event/3026.png
+
 type DungeonsByCategory = Array<[string, World[]]>;
 
 function getSortedDungeons(worlds: {[id: number]: World}, category: WorldCategory): DungeonsByCategory | null {

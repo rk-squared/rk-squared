@@ -1,3 +1,8 @@
+/**
+ * @file
+ * Support for tracking battle status, such as item drops
+ */
+
 import enlir from '../data/enlir';
 import { itemsById, ItemType } from '../data/items';
 import * as urls from '../data/urls';

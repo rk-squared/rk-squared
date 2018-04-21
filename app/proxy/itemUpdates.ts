@@ -1,3 +1,10 @@
+/**
+ * @file
+ * Support for listening in on new items
+ *
+ * FIXME: We should record new items ourselves, to make the program more self-healing
+ */
+
 import { Handler } from './types';
 
 import enlir from '../data/enlir';

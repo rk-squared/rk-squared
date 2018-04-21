@@ -6,6 +6,7 @@ import * as httpProxy from 'http-proxy';
 import * as moment from 'moment';
 import * as net from 'net';
 import * as path from 'path';
+import * as querystring from 'querystring';
 import * as url from 'url';
 
 import { Store } from 'redux';
@@ -18,16 +19,19 @@ import battle from './battle';
 import dungeons from './dungeons';
 import itemUpdates from './itemUpdates';
 import options from './options';
-import { Handler, StartupHandler } from './types';
+import { StartupHandler } from './types';
 
 import { IState } from '../reducers';
 
-const handlers: { [s: string]: Handler } = {
+const handlers = [
   battle,
   dungeons,
   itemUpdates,
+
+  // Apply options last so that changes that options make won't interfere with
+  // other processing.
   options,
-};
+];
 
 // FIXME: Proper logging library
 // tslint:disable no-console
@@ -82,8 +86,8 @@ function extractJson($el: Cheerio) {
   }
 }
 
-function getFragmentsToCheck(reqUrl: string) {
-  const urlPathname = url.parse(reqUrl as string).pathname as string;
+function getFragmentsToCheck(reqUrl: url.UrlWithStringQuery) {
+  const urlPathname = reqUrl.pathname as string;
   const urlParts = urlPathname.split('/');
 
   // URL fragments to check.  We key most URLs using the last fragment (e.g.,
@@ -102,42 +106,27 @@ function checkHandlers(
   data: {},
   req: http.IncomingMessage,
   res: http.ServerResponse,
-  store: Store<IState>
+  store: Store<IState>,
+  fragments?: Array<string | symbol>
 ) {
-  const fragments = getFragmentsToCheck(req.url as string);
+  const reqUrl = url.parse(req.url as string);
+  const reqQuery = reqUrl.query ? querystring.parse(reqUrl.query) : undefined;
+  if (fragments == null) {
+    fragments = getFragmentsToCheck(reqUrl);
+  }
 
   let changed = false;
-  Object.keys(handlers).forEach(k => {
+  for (const handler of handlers) {
     for (const fragment of fragments) {
-      if (handlers[k][fragment]) {
-        const newData = handlers[k][fragment](data, store);
+      if (handler[fragment]) {
+        const newData = handler[fragment](data, store, reqQuery);
         if (newData !== undefined) {
           changed = true;
           data = newData;
         }
       }
     }
-  });
-  return changed ? data : undefined;
-}
-
-function checkSpecialHandlers(
-  data: {},
-  req: http.IncomingMessage,
-  res: http.ServerResponse,
-  store: Store<IState>,
-  special: symbol
-) {
-  let changed = false;
-  Object.keys(handlers).forEach(k => {
-    if (handlers[k][special]) {
-      const newData = handlers[k][special](data, store);
-      if (newData !== undefined) {
-        changed = true;
-        data = newData;
-      }
-    }
-  });
+  }
   return changed ? data : undefined;
 }
 
@@ -185,7 +174,7 @@ function handleFfrkStartupRequest(
       .catch(err => console.error(`Failed to save data capture: ${err}`))
       .then(filename => console.log(`Saved to ${filename}`));
 
-    checkSpecialHandlers(startupData, req, res, store, StartupHandler);
+    checkHandlers(startupData, req, res, store, [StartupHandler]);
   } catch (error) {
     console.error(error);
   }

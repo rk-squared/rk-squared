@@ -109,6 +109,8 @@ const dungeons: Handler = {
       console.error(`Found ${totalUnknown} unknown worlds`);
     }
     store.dispatch(updateWorlds(result));
+
+    // FIXME: Track half-price dungeons
   }
 };
 

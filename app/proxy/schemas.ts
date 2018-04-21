@@ -12,6 +12,11 @@ type RelativeUrlPath = string;
 type Timestamp = number;
 type TimestampString = string;
 
+export enum LimitedRateServiceType {
+  HalfPriceDungeonLogic = 14,
+  HalfPriceDungeonBanner = 15,
+}
+
 export enum RewardType {
   Completion = '1',
   FirstTime = '2',
@@ -104,6 +109,23 @@ export interface Main {
       tag: string;
       background_image_path: RelativeUrlPath;
     }>;
+
+    limited_rate_services?: Array<{
+      // For a 1/2 stamina banner image, this is wait_sec_to_close 258570,
+      // img_path, type 15, wait_sec_to_open 0.
+      //
+      // For a 1/2 stamina internal data, this is rate "0.5", dungeon_id_map,
+      // play_mode 0, is_host 0, wait_sec_to_close 258570, type 14,
+      // wait_sec_to_open 0.
+      play_mode?: number;
+      is_host?: number;
+      rate?: string;
+      dungeon_id_map?: { [id: string]: number };
+      img_path?: RelativeUrlPath;
+      type: LimitedRateServiceType;
+      wait_sec_to_open: number;
+      wait_sec_to_close: number;
+    }>;
   };
   textMaster: {
     [s: string]: string;
@@ -146,6 +168,15 @@ export interface Dungeons {
     is_master: boolean;
     is_new: boolean;
     is_unlocked: boolean;
+    type: number;   // Whether it's on page 1 (normal) or page 2 (elite, part 2, etc.)
+
+    // Does not take 1/2 stamina into account.  Summing stamina_list, dividing
+    // by 2 and rounding down, is necessary to handle that.
+    total_stamina: number;
+    stamina_list: number[];
+
+    challenge_level: number;
+    button_style: string;   // "NORMAL", "EXTRA", or "DOOM"
     prizes: {
       [s: string]: Array<{  // FIXME: is is actually a RewardType
         type_name: ItemTypeName;
