@@ -12,6 +12,7 @@ export enum ItemType {
   Magicite = 'beast',
   MemoryCrystal = 'memory_crystal',
   Mote = 'sphere_material',
+  RecordMateria = 'record_materia',
   Relic = 'equipment',
   UpgradeMaterial = 'equipment_sp_material',
 }
@@ -28,6 +29,7 @@ export type ItemTypeName =
   'EQUIPMENT_SP_MATERIAL' |
   'GROW_EGG' |
   'MEMORY_CRYSTAL' |
+  'RECORD_MATERIA' |
   'SPHERE_MATERIAL';
 
 // Looks up from internal type names to ItemType enum values

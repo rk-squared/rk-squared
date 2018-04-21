@@ -21,8 +21,14 @@ export function magiciteImage(id: number): string {
   return itemImage(id, ItemType.Magicite);
 }
 
+// Record materia with an item background, as shown when it first drops
 export function recordMateriaDropImage(id: number): string {
   return url(`image/record_materia/${id}/${id}_112.png`);
+}
+
+// Normal record materia image, as shown on the character screen
+export function recordMateriaImage(id: number): string {
+  return url(`image/record_materia/${id}/${id}_128.png`);
 }
 
 export function relicImage(id: number, rarity: number): string {
@@ -54,5 +60,7 @@ export function itemImage(id: number, type: ItemType): string {
       // This will fail but will avoid an error.
       const buddyId = dressRecordsById[id] ? dressRecordsById[id].characterId : id;
       return url(`image/buddy/${buddyId}/${id}/${id}.png`);
+    case ItemType.RecordMateria:
+      return recordMateriaImage(id);
   }
 }

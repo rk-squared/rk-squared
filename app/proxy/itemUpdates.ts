@@ -64,8 +64,8 @@ function checkItem(item: PrizeItem) {
     checkKnownEnlir(item, enlir.relics);
   } else if (item.type_name === 'ABILITY') {
     checkKnownEnlir(item, enlir.abilities);
-  } else if (item.type_name === 'BUDDY' || item.type_name === 'MEMORY_CRYSTAL') {
-    // FIXME: Need an internal-id-indexed version of characters, memory crystals
+  } else if (item.type_name === 'BUDDY' || item.type_name === 'MEMORY_CRYSTAL' || item.type_name === 'RECORD_MATERIA') {
+    // FIXME: Need an internal-id-indexed version of characters, memory crystals, record materia
   } else if (item.type_name === 'DRESS_RECORD') {
     // FIXME: Implement
   } else {
