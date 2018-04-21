@@ -6,7 +6,7 @@ interface Props {
   children: any;
 }
 
-export default class CollapsibleCard extends React.Component<Props> {
+export class CollapsibleCard extends React.Component<Props> {
   render() {
     const { id, title, children } = this.props;
     const collapseId = id + '-collapse';

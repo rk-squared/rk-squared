@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import CollapsibleCard from './CollapsibleCard';
+import { CollapsibleCard } from './CollapsibleCard';
+import { MaybeWrap } from './MaybeWrap';
 
 import { descriptions, getSorter, World, WorldCategory } from '../actions/worlds';
 
@@ -19,8 +20,17 @@ interface Props {
 // (determined by crystal_tower_bundles.0.bundle_id???)
 // http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/event/3026.png
 
+/**
+ * Worlds grouped by subcategory.
+ *
+ * Subcategory may be ''.
+ */
 type DungeonsByCategory = Array<[string, World[]]>;
 
+/**
+ * Gets the list of worlds, sorted and grouped by subcategory, for the given
+ * WorldCategory.
+ */
 function getSortedDungeons(worlds: {[id: number]: World}, category: WorldCategory): DungeonsByCategory | null {
   // Known subcategories and their sort orders
   const subcategories: {[s: string]: number} = {};
@@ -68,14 +78,16 @@ export class DungeonCategoryList extends React.Component<Props> {
     return (
       <CollapsibleCard id={id} title={descriptions[category]}>
         {bySubcategory.map(([subcategory, subWorlds], i) => (
-          <div key={i}>
-            <h6>{subcategory}</h6>
-            <ul>
+          <MaybeWrap
+            component={CollapsibleCard} test={subcategory !== ''}
+            id={`${id}-${i}`} title={subcategory} key={i}
+          >
+            <ul className="mb-0">
               {subWorlds.map((w, j) => (
                 <li key={j}>{w.name}</li>
               ))}
             </ul>
-          </div>
+          </MaybeWrap>
         ))}
       </CollapsibleCard>
     );
