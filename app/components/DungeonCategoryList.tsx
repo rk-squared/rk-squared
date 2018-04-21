@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import CollapsibleCard from './CollapsibleCard';
+
 import { descriptions, getSorter, World, WorldCategory } from '../actions/worlds';
 
 import * as _ from 'lodash';
@@ -63,34 +65,19 @@ export class DungeonCategoryList extends React.Component<Props> {
       return null;
     }
     const id = `dungeon-category-${category}`;
-    const collapseId = id + '-collapse';
-    const headerId = id + '-header';
     return (
-      <div className="card" id={id}>
-        <div className="card-header" id={headerId}>
-          <h5 className="mb-0">
-            <button className="btn btn-link" type="button" data-toggle="collapse" data-target={'#' + collapseId}
-                    aria-expanded="false" aria-controls={'#' + collapseId}>
-              {descriptions[category]}
-            </button>
-          </h5>
-        </div>
-
-        <div id={collapseId} className="collapse show" aria-labelledby="headingOne" data-parent={'#' + id}>
-          <div className="card-body">
-            {bySubcategory.map(([subcategory, subWorlds], i) => (
-              <div key={i}>
-                <h6>{subcategory}</h6>
-                <ul>
-                  {subWorlds.map((w, j) => (
-                    <li key={j}>{w.name}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+      <CollapsibleCard id={id} title={descriptions[category]}>
+        {bySubcategory.map(([subcategory, subWorlds], i) => (
+          <div key={i}>
+            <h6>{subcategory}</h6>
+            <ul>
+              {subWorlds.map((w, j) => (
+                <li key={j}>{w.name}</li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </div>
+        ))}
+      </CollapsibleCard>
     );
   }
 }
