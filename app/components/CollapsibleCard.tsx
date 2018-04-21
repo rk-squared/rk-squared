@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+const styles = require('./CollapsibleCard.scss');
+
 interface Props {
   id: string;
   title: string | (() => any);
@@ -12,14 +14,15 @@ export class CollapsibleCard extends React.Component<Props> {
     const collapseId = id + '-collapse';
     const headerId = id + '-header';
     return (
-      <div className="card" id={id}>
+      <div className={`card ${styles.component}`} id={id}>
         <div className="card-header" id={headerId}>
-          <h5 className="mb-0">
-            <button className="btn btn-link" type="button" data-toggle="collapse" data-target={'#' + collapseId}
-                    aria-expanded="false" aria-controls={'#' + collapseId}>
-              {typeof title === 'string' ? title : title()}
-            </button>
-          </h5>
+          <button
+            className="btn btn-link btn-block" type="button"
+            data-toggle="collapse" data-target={'#' + collapseId}
+            aria-expanded="false" aria-controls={'#' + collapseId}
+          >
+            {typeof title === 'string' ? title : title()}
+          </button>
         </div>
 
         <div id={collapseId} className="collapse" aria-labelledby="headingOne" data-parent={'#' + id}>

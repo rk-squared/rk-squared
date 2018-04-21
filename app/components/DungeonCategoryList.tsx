@@ -77,18 +77,20 @@ export class DungeonCategoryList extends React.Component<Props> {
     const id = `dungeon-category-${category}`;
     return (
       <CollapsibleCard id={id} title={descriptions[category]}>
-        {bySubcategory.map(([subcategory, subWorlds], i) => (
-          <MaybeWrap
-            component={CollapsibleCard} test={subcategory !== ''}
-            id={`${id}-${i}`} title={subcategory} key={i}
-          >
-            <ul className="mb-0">
-              {subWorlds.map((w, j) => (
-                <li key={j}>{w.name}</li>
-              ))}
-            </ul>
-          </MaybeWrap>
-        ))}
+        <div className="accordion">
+          {bySubcategory.map(([subcategory, subWorlds], i) => (
+            <MaybeWrap
+              component={CollapsibleCard} test={subcategory !== ''}
+              id={`${id}-${i}`} title={subcategory} key={i}
+            >
+              <ul className="mb-0">
+                {subWorlds.map((w, j) => (
+                  <li key={j}>{w.name}</li>
+                ))}
+              </ul>
+            </MaybeWrap>
+          ))}
+        </div>
       </CollapsibleCard>
     );
   }

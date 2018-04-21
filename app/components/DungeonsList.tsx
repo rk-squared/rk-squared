@@ -13,7 +13,7 @@ export default class DungeonsList extends React.Component<Props> {
   render() {
     const { worlds } = this.props;
     return (
-      <div>
+      <div className="accordion">
         {
           sortOrder.map((category: WorldCategory, i: number) =>
             <DungeonCategoryList worlds={worlds} category={category} key={i}/>
