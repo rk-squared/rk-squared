@@ -4,11 +4,13 @@ import { routerReducer as routing } from 'react-router-redux';
 
 // tslint:disable ordered-imports
 import { default as battle, BattleState } from './battle';
+import { default as dungeons, DungeonState } from './dungeons';
 import { default as options, Options } from './options';
 import { default as worlds, WorldState } from './worlds';
 
 const rootReducer = combineReducers({
   battle,
+  dungeons,
   options,
   worlds,
   routing: routing as Reducer<any>
@@ -16,6 +18,7 @@ const rootReducer = combineReducers({
 
 export interface IState {
   battle: BattleState;
+  dungeons: DungeonState;
   options: Options;
   worlds: WorldState;
 }

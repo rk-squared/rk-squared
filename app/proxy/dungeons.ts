@@ -1,14 +1,49 @@
+import { Store } from 'redux';
 import { Handler, StartupHandler } from './types';
 
+import { addWorldDungeons } from '../actions/dungeons';
 import { updateWorlds, World, WorldCategory } from '../actions/worlds';
+import { IState } from '../reducers';
 import * as schemas from './schemas';
 
 import * as _ from 'lodash';
-import { IState } from '../reducers';
-import { Store } from 'redux';
 
 // What's the best place to log these?  Use the console for now.
 // tslint:disable no-console
+
+const buttonStyleSort: {[s: string]: number} = {
+  NORMAL: 0,
+  EXTRA: 1,
+  DOOM: 2,
+};
+
+/**
+ * Gets effective difficulty.  Difficulty 0 mean ???, which sorts after
+ * everything else.
+ */
+const effectiveDifficulty = (difficulty: number) => difficulty === 0 ? Infinity : difficulty;
+
+function sortDungeons(dungeonList: schemas.Dungeon[]) {
+  return _.sortBy(dungeonList, [
+    // Sort by page 1 vs. page 2, Classic vs. Elite, whatever
+    'type',
+    // Then by normal vs. hard vs. DOOM!
+    (d: schemas.Dungeon) => buttonStyleSort[d.button_style],
+    // Then by difficulty
+    (d: schemas.Dungeon) => effectiveDifficulty(d.challenge_level),
+    // Use id to disambiguate magicite
+    'id',
+  ]);
+}
+
+function convertPrizeItems(prizes: schemas.DungeonPrizeItem[]) {
+  return prizes.map(i => ({
+    id: i.id,
+    name: i.name,
+    amount: i.num,
+    type: i.type_name,
+  }));
+}
 
 const dungeons: Handler = {
   [StartupHandler]: (data: schemas.Main, store: Store<IState>) => {
@@ -35,6 +70,7 @@ const dungeons: Handler = {
       let subcategory: string | undefined;
       let subcategorySortOrder: number | undefined;
 
+      // FIXME: Extract into a separate, testable function
       if (e.type_name === 'rotation' || e.type_name === 'wday') {
         // For mote ("rotation") and power up ("wday") dungeons, there are only
         // two worlds ("Mode Dungeons" and "Power Up Dungeons"), each with only
@@ -107,6 +143,34 @@ const dungeons: Handler = {
     store.dispatch(updateWorlds(result));
 
     // FIXME: Track half-price dungeons
+  },
+
+  dungeons(data: schemas.Dungeons, store: Store<IState>, query?: any) {
+    if (!query || !query.world_id) {
+      console.error('Unrecognized dungeons query');
+      return;
+    }
+
+    const newDungeons = sortDungeons(data.dungeons).map(d => ({
+      name: d.name,
+      id: d.id,
+      seriesId: d.series_id,
+      difficulty: d.challenge_level,
+      openedAt: d.opened_at,
+      closedAt: d.closed_at,
+      isUnlocked: d.is_unlocked,
+      isComplete: d.is_clear,
+      isMaster: d.is_master,
+      totalStamina: d.total_stamina,
+      staminaList: d.stamina_list,
+      prizes: {
+        completion: convertPrizeItems(d.prizes[schemas.RewardType.Completion]),
+        firstTime: convertPrizeItems(d.prizes[schemas.RewardType.FirstTime]),
+        mastery: convertPrizeItems(d.prizes[schemas.RewardType.Mastery]),
+      }
+    }));
+
+    store.dispatch(addWorldDungeons(query.world_id, newDungeons));
   }
 };
 

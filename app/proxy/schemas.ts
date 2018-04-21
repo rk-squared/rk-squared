@@ -158,37 +158,46 @@ export interface DropItem {
   item_id?: string;
 }
 
+export interface DungeonPrizeItem {
+  type_name: ItemTypeName;
+  num: number;
+  image_path: RelativeUrlPath;
+  is_got_grade_bonus_prize: number;
+  name: string;
+  id: number;
+  clear_battle_time?: number;  // Clear time, in milliseconds
+}
+
+export interface Dungeon {
+  id: number;
+  name: string;
+  series_id: number;
+  prologue: string;
+  epilogue: string;
+  is_clear: boolean;
+  is_master: boolean;
+  is_new: boolean;
+  is_unlocked: boolean;
+  type: number;   // Whether it's on page 1 (normal) or page 2 (elite, part 2, etc.)
+
+  // Does not take 1/2 stamina into account.  Summing stamina_list, dividing
+  // by 2 and rounding down, minimum 1, is necessary to handle that.
+  total_stamina: number;
+  stamina_list: number[];
+
+  opened_at: Timestamp;
+  closed_at: Timestamp;
+
+  challenge_level: number;
+  button_style: string;   // "NORMAL", "EXTRA", or "DOOM"
+  prizes: {
+    [s in RewardType]: DungeonPrizeItem[];
+  };
+}
+
 // Sample URL: http://ffrk.denagames.com/dff/world/dungeons?world_id=104001
 export interface Dungeons {
-  dungeons: Array<{
-    name: string;
-    prologue: string;
-    epilogue: string;
-    is_clear: boolean;
-    is_master: boolean;
-    is_new: boolean;
-    is_unlocked: boolean;
-    type: number;   // Whether it's on page 1 (normal) or page 2 (elite, part 2, etc.)
-
-    // Does not take 1/2 stamina into account.  Summing stamina_list, dividing
-    // by 2 and rounding down, is necessary to handle that.
-    total_stamina: number;
-    stamina_list: number[];
-
-    challenge_level: number;
-    button_style: string;   // "NORMAL", "EXTRA", or "DOOM"
-    prizes: {
-      [s: string]: Array<{  // FIXME: is is actually a RewardType
-        type_name: ItemTypeName;
-        num: number;
-        image_path: RelativeUrlPath;
-        is_got_grade_bonus_prize: number;
-        name: string;
-        id: number;
-        clear_battle_time?: number;  // Clear time, in milliseconds
-      }>;
-    }
-  }>;
+  dungeons: Dungeon[];
 }
 
 export interface GachaShow {
