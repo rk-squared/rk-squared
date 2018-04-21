@@ -1,4 +1,5 @@
 import enlir from '../data/enlir';
+import { itemsById, ItemType } from '../data/items';
 import * as urls from '../data/urls';
 import * as schemas from './schemas';
 import { Handler } from './types';
@@ -6,7 +7,6 @@ import { Handler } from './types';
 import { Store } from 'redux';
 
 import { clearDropItems, DropItem, setDropItems } from '../actions/battle';
-import { itemsById, ItemType } from '../data/items';
 import { IState } from '../reducers';
 
 import * as _ from 'lodash';
@@ -21,7 +21,7 @@ enum DropItemType {
   XPotion = 23,
   Ether = 31,
   HiEther = 32,
-  Treasure = 41,  // includes relics (unconfirmed), upgrade materials (unconfirmed), magicite, growth eggs
+  Treasure = 41,  // Includes relics (unconfirmed), upgrade materials, magicite, growth eggs
   Orb = 51,
   Currency = 61,  // E.g., Gysahl Greens (item ID 95001014, rarity 1), Prismatic Seeds (ID 95001029, rarity 1)
 }
@@ -121,6 +121,10 @@ function convertDropItemList(data: schemas.GetBattleInit, dropItemData: schemas.
         } else if (enlir.relics[id]) {
           name = enlir.relics[id].Description;
           imageUrl = urls.relicImage(id, item.rarity);
+        } else if (itemsById[id]) {
+          const realItem = itemsById[id];
+          name = realItem.name;
+          imageUrl = urls.itemImage(realItem.id, realItem.type);
         } else {
           name = generateItemName(item);
         }
@@ -172,6 +176,14 @@ function convertDropItemList(data: schemas.GetBattleInit, dropItemData: schemas.
   }
 }
 
+function convertDropMateria(materia: {name: string, item_id: string | number}, dropItems: DropItem[]) {
+  dropItems.push({
+    name: materia.name,
+    imageUrl: urls.recordMateriaDropImage(+materia.item_id),
+    rarity: 3,
+  });
+}
+
 function convertBattleDropItems(data: schemas.GetBattleInit): DropItem[] {
   const dropItems: DropItem[] = [];
   for (const round of data.battle.rounds) {
@@ -180,6 +192,9 @@ function convertBattleDropItems(data: schemas.GetBattleInit): DropItem[] {
       for (const children of enemy.children) {
         convertDropItemList(data, children.drop_item_list, dropItems);
       }
+    }
+    for (const materia of round.drop_materias) {
+      convertDropMateria(materia, dropItems);
     }
   }
   return dropItems;

@@ -17,17 +17,17 @@ export enum ItemType {
 }
 export type ItemTypeName =
   'ABILITY' |
+  'ABILITY_MATERIAL' |
+  'BEAST' |
   'BEAST_FOOD' |
   'BUDDY' |
   'COMMON' |
   'DRESS_RECORD' |
-  'EQUIPMENT_HYPER_EVOLVE_MATERIAL' |
-  'GROW_EGG' |
-  'ABILITY_MATERIAL' |
-  'BEAST' |
-  'MEMORY_CRYSTAL' |
   'EQUIPMENT' |
+  'EQUIPMENT_HYPER_EVOLVE_MATERIAL' |
   'EQUIPMENT_SP_MATERIAL' |
+  'GROW_EGG' |
+  'MEMORY_CRYSTAL' |
   'SPHERE_MATERIAL';
 
 // Looks up from internal type names to ItemType enum values

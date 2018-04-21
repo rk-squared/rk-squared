@@ -3,8 +3,8 @@ import { createAction } from 'typesafe-actions';
 export interface DropItem {
   // FFRK API values
   amount?: number;
-  type: number;
-  rarity: number;
+  type?: number;     // omitted for record materia, which aren't real items
+  rarity?: number;   // omitted for record materia, which aren't real items
   itemId?: number;
 
   // Added by RK-Squared

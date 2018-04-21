@@ -9,7 +9,9 @@ export function url(subPath: string): string {
 }
 
 export function asset(assetPath?: string): string | undefined {
-  return assetPath == null ? undefined : url(assetPath.replace(/\/Content\/lang\/ww\/compile\/[a-z]+\//, ''));
+  return assetPath == null ? undefined : url(assetPath.replace(
+    /^\/Content\/lang\/(ww\/compile\/[a-z]+\/)?/, '')
+  );
 }
 
 export function magiciteImage(id: number): string {
@@ -19,8 +21,12 @@ export function magiciteImage(id: number): string {
   return itemImage(id, ItemType.Magicite);
 }
 
+export function recordMateriaDropImage(id: number): string {
+  return url(`image/record_materia/${id}/${id}_112.png`);
+}
+
 export function relicImage(id: number, rarity: number): string {
-  return url(`equipment/${id}/${id}_${rarity}_112.png`);
+  return url(`image/equipment/${id}/${id}_${rarity}_112.png`);
 }
 
 export function itemImage(id: number, type: ItemType): string {

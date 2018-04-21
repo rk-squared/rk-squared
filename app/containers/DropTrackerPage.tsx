@@ -8,7 +8,8 @@ export default class DropTrackerPage extends React.Component {
     return (
       <Page title="Drops">
         <p>
-          Whenever you're in a battle, the current item drops (if any) will display here.
+          Whenever you're in a battle, the current item drops (if any) that you'll get if
+          you win are displayed here.
         </p>
         <p>
           Item drops are determined when the battle starts and are saved on FFRK's servers.
