@@ -8,9 +8,9 @@ import { Dungeon } from '../actions/dungeons';
 import { World } from '../actions/worlds';
 import { IState } from '../reducers';
 import { CollapsibleCard } from './CollapsibleCard';
+import { DungeonBadge } from './DungeonBadge';
 import { PrizeList } from './PrizeList';
 
-import * as _ from 'lodash';
 
 const styles = require('./DungeonCard.scss');
 
@@ -22,36 +22,10 @@ interface ConnectedProps extends Props {
   dungeons: Dungeon[];
 }
 
-const DungeonCardTitleBadge = ({world, dungeons}: {world: World, dungeons: Dungeon[]}) => {
-  if (!dungeons) {
-    return null;
-  }
-  const total = dungeons.length;
-  const mastered = _.sumBy(dungeons, d => +d.isMaster);
-  if (mastered === total) {
-    return (
-      <span className="badge badge-secondary">
-        {mastered} / {mastered} / {total}
-      </span>
-    );
-  } else {
-    const completed = _.sumBy(dungeons, d => +d.isComplete);
-    const stamina = _.sumBy(dungeons, d => !d.isMaster ? d.totalStamina : 0);
-
-    return (
-      <span className="badge badge-primary">
-        {mastered} / {completed} / {total}
-        <br/>
-        {stamina} stamina
-      </span>
-    );
-  }
-};
-
 const DungeonCardTitle = ({world, dungeons}: {world: World, dungeons: Dungeon[]}) => (
-  <span className={styles.title}>
+  <span>
     {world.name}
-    <DungeonCardTitleBadge world={world} dungeons={dungeons}/>
+    <DungeonBadge dungeons={dungeons}/>
   </span>
 );
 
@@ -93,12 +67,13 @@ export class DungeonCard extends React.Component<ConnectedProps> {
         id={`world-${world.id}-dungeons`}
         title={() => <DungeonCardTitle world={world} dungeons={dungeons}/>}
       >
-        {dungeons &&
-          <ul className="mb-0">
-            {dungeons.map((d, i) => (
-              <DungeonListItem dungeon={d} key={i}/>
-            ))}
-          </ul>
+        {!dungeons
+          ? <p className="mb-0">These dungeons have not been loaded.</p>
+          : <ul className="mb-0">
+              {dungeons.map((d, i) => (
+                <DungeonListItem dungeon={d} key={i}/>
+              ))}
+            </ul>
         }
       </CollapsibleCard>
     );

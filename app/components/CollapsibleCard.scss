@@ -1,11 +1,12 @@
 :local {
-  // HACK: Move default .card-header's padding to .btn
+  // HACK: Move default .card-header's top/bottom padding to .btn
+  // (but leave left/right padding alone, so that it matches contents)
   // FIXME: Get default padding values from Bootstrap SCSS?
   .component > :global(.card-header) {
     padding: 0;
 
     > :global(.btn) {
-      padding: (.75rem + .375rem) (1.25rem + .75rem);
+      padding: (.75rem + .375rem) 1.25rem;
       text-align: left;
     }
   }
