@@ -222,9 +222,13 @@ export function createFfrkProxy(store: Store<IState>) {
     }
     */
 
-    proxy.web(req, res, {
-      target: `http://${req.headers.host}/`
-    });
+    try {
+      proxy.web(req, res, {
+        target: `http://${req.headers.host}/`
+      });
+    } catch (e) {
+      console.error(`Error within proxy.web for ${req.url}: ${e}`);
+    }
   });
 
   const server = http.createServer(app);
@@ -240,13 +244,17 @@ export function createFfrkProxy(store: Store<IState>) {
     const serverUrl = url.parse(`https://${req.url}`);
     const serverPort = +(serverUrl.port || 80);
     const serverSocket = net.connect(serverPort, serverUrl.hostname, () => {
-      clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
-        'Proxy-agent: Node.js-Proxy\r\n' +
-        '\r\n');
-      serverSocket.write(head);
-      serverSocket.pipe(clientSocket);
-      // noinspection TypeScriptValidateJSTypes (WebStorm false positive)
-      clientSocket.pipe(serverSocket);
+      try {
+        clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
+          'Proxy-agent: Node.js-Proxy\r\n' +
+          '\r\n');
+        serverSocket.write(head);
+        serverSocket.pipe(clientSocket);
+        // noinspection TypeScriptValidateJSTypes (WebStorm false positive)
+        clientSocket.pipe(serverSocket);
+      } catch (e) {
+        console.log(`Error within connect for ${req.url}: ${e}`);
+      }
     });
   });
 
