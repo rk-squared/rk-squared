@@ -1,8 +1,8 @@
 import { createAction } from 'typesafe-actions';
-import { ItemTypeName } from '../data/items';
+import { ItemType } from '../data/items';
 
 export interface PrizeItem {
-  type: ItemTypeName;
+  type: ItemType;
   amount: number;
   name: string;
   id: number;

@@ -38,7 +38,7 @@ export function relicImage(id: number, rarity: number): string {
 export function itemImage(id: number, type: ItemType): string {
   switch (type) {
     case ItemType.Common:
-      return url(`image/common_item/${id}/${id}.png`);
+      return url(`image/common_item/${id}.png`);
     case ItemType.GrowthEgg:
       return url(`image/growegg/${id}/${id}_112.png`);
     case ItemType.Ability:
@@ -52,7 +52,7 @@ export function itemImage(id: number, type: ItemType): string {
       return url(`image/${type}/${id}/${id}_112.png`);
     case ItemType.Relic:
       const rarity = enlir.relics[id].Rarity;
-      return url(`image/equipment/${id}/${id}_${rarity}_112.png`);
+      return url(`image/equipment/${id}/${id}_0${rarity}_112.png`);
     case ItemType.Character:
       return url(`image/buddy/${id}/${id}.png`);
     case ItemType.DressRecord:

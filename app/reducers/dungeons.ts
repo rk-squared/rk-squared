@@ -3,10 +3,10 @@ import { getType } from 'typesafe-actions';
 import { addWorldDungeons, Dungeon } from '../actions/dungeons';
 
 export interface DungeonState {
-  dungeons?: {
+  dungeons: {
     [id: number]: Dungeon
   };
-  byWorld?: {
+  byWorld: {
     [id: number]: Dungeon[];
   };
 }

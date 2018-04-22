@@ -7,6 +7,7 @@ import { IState } from '../reducers';
 import * as schemas from './schemas';
 
 import * as _ from 'lodash';
+import { ItemType } from '../data/items';
 
 // What's the best place to log these?  Use the console for now.
 // tslint:disable no-console
@@ -41,7 +42,8 @@ function convertPrizeItems(prizes: schemas.DungeonPrizeItem[]) {
     id: i.id,
     name: i.name,
     amount: i.num,
-    type: i.type_name,
+    // FIXME: cleanly convert item type
+    type: i.type_name.toLowerCase() as ItemType,
   }));
 }
 

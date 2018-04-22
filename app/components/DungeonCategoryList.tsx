@@ -6,6 +6,7 @@ import { MaybeWrap } from './MaybeWrap';
 import { descriptions, getSorter, World, WorldCategory } from '../actions/worlds';
 
 import * as _ from 'lodash';
+import DungeonCard from './DungeonCard';
 
 interface Props {
   worlds: {
@@ -83,11 +84,11 @@ export class DungeonCategoryList extends React.Component<Props> {
               component={CollapsibleCard} test={subcategory !== ''}
               id={`${id}-${i}`} title={subcategory} key={i}
             >
-              <ul className="mb-0">
+              <div className="accordion">
                 {subWorlds.map((w, j) => (
-                  <li key={j}>{w.name}</li>
+                  <DungeonCard world={w} key={j}/>
                 ))}
-              </ul>
+              </div>
             </MaybeWrap>
           ))}
         </div>

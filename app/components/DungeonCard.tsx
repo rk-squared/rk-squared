@@ -1,8 +1,74 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import * as ReactTooltip from 'react-tooltip';
 
-export default class DungeonCard extends React.Component {
+import * as classNames from 'classnames';
+
+import { Dungeon } from '../actions/dungeons';
+import { World } from '../actions/worlds';
+import { IState } from '../reducers';
+import { CollapsibleCard } from './CollapsibleCard';
+import { PrizeList } from './PrizeList';
+
+const styles = require('./DungeonCard.scss');
+
+interface Props {
+  world: World;
+}
+
+interface ConnectedProps extends Props {
+  dungeons: Dungeon[];
+}
+
+const DungeonDetails = ({dungeon}: {dungeon: Dungeon}) => (
+  <p className={styles.details}>
+    <span>Difficulty {dungeon.difficulty === 0 ? '???' : dungeon.difficulty}</span>
+    <span>Stamina {dungeon.totalStamina}</span>
+  </p>
+);
+
+const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
+  const classes = classNames({[styles.completed]: dungeon.isComplete, [styles.mastered]: dungeon.isMaster});
+  const id = `dungeon-item-${dungeon.id}`;
+  const showTooltip = !dungeon.isComplete || !dungeon.isMaster;
+  return (
+    <li className={classes}>
+      <div data-tip={showTooltip} data-for={id}>
+        {dungeon.name}
+        {dungeon.isMaster || <DungeonDetails dungeon={dungeon}/>}
+      </div>
+      {showTooltip &&
+        <ReactTooltip place="right" id={id}>
+          {!dungeon.isComplete && <PrizeList prizes={dungeon.prizes.firstTime}/>}
+          {!dungeon.isMaster && <PrizeList prizes={dungeon.prizes.mastery}/>}
+        </ReactTooltip>
+      }
+    </li>
+  );
+};
+
+/**
+ * Lists all of the dungeons for a single world.
+ */
+export class DungeonCard extends React.Component<ConnectedProps> {
   render() {
+    const { world, dungeons } = this.props;
     return (
+      <CollapsibleCard id={`world-${world.id}-dungeons`} title={world.name}>
+        {dungeons &&
+          <ul className="mb-0">
+            {dungeons.map((d, i) => (
+              <DungeonListItem dungeon={d} key={i}/>
+            ))}
+          </ul>
+        }
+      </CollapsibleCard>
     );
   }
-};
+}
+
+export default connect(
+  (state: IState, ownProps: Props) => ({
+    dungeons: state.dungeons.byWorld[ownProps.world.id]
+  })
+)(DungeonCard);
