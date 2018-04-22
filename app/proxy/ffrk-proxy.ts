@@ -243,19 +243,23 @@ export function createFfrkProxy(store: Store<IState>) {
     // console.log(req.headers);
     const serverUrl = url.parse(`https://${req.url}`);
     const serverPort = +(serverUrl.port || 80);
-    const serverSocket = net.connect(serverPort, serverUrl.hostname, () => {
-      try {
-        clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
-          'Proxy-agent: Node.js-Proxy\r\n' +
-          '\r\n');
-        serverSocket.write(head);
-        serverSocket.pipe(clientSocket);
-        // noinspection TypeScriptValidateJSTypes (WebStorm false positive)
-        clientSocket.pipe(serverSocket);
-      } catch (e) {
-        console.log(`Error within connect for ${req.url}: ${e}`);
-      }
-    });
+    try {
+      const serverSocket = net.connect(serverPort, serverUrl.hostname, () => {
+        try {
+          clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
+            'Proxy-agent: Node.js-Proxy\r\n' +
+            '\r\n');
+          serverSocket.write(head);
+          serverSocket.pipe(clientSocket);
+          // noinspection TypeScriptValidateJSTypes (WebStorm false positive)
+          clientSocket.pipe(serverSocket);
+        } catch (e) {
+          console.log(`Error within connect callback for ${req.url}: ${e}`);
+        }
+      });
+    } catch (e) {
+      console.log(`Error within connect for ${req.url}: ${e}`);
+    }
   });
 
   const port = 8888;

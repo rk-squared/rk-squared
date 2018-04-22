@@ -4,12 +4,11 @@
  * would logically fit in another proxy module.
  */
 
-import * as schemas from './schemas';
-import { Handler } from './types';
-
 import { Store } from 'redux';
 
 import { IState } from '../reducers';
+import * as schemas from './schemas';
+import { Handler } from './types';
 
 // Manually copied from Nightmare dungeons
 const staticBackground = {

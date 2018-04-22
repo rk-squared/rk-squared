@@ -1,13 +1,18 @@
-import { Store } from 'redux';
-import { Handler, StartupHandler } from './types';
+/**
+ * @file
+ * Support for tracking world and dungeon rewards and completion status
+ */
 
-import { addWorldDungeons } from '../actions/dungeons';
+import { Store } from 'redux';
+
+import { addWorldDungeons, updateDungeon } from '../actions/dungeons';
 import { updateWorlds, World, WorldCategory } from '../actions/worlds';
+import { ItemType } from '../data/items';
 import { IState } from '../reducers';
 import * as schemas from './schemas';
+import { Handler, StartupHandler } from './types';
 
 import * as _ from 'lodash';
-import { ItemType } from '../data/items';
 
 // What's the best place to log these?  Use the console for now.
 // tslint:disable no-console
@@ -173,6 +178,20 @@ const dungeons: Handler = {
     }));
 
     store.dispatch(addWorldDungeons(query.world_id, newDungeons));
+  },
+
+  win_battle(data: schemas.WinBattle, store: Store<IState>) {
+    if (data.result.is_dungeon_clear) {
+      store.dispatch(updateDungeon(+data.result.dungeon_id, {
+        isComplete: true,
+        isMaster: data.result.dungeon_rank === 3
+      }));
+      for (const i of data.result.unlock_dungeons) {
+        store.dispatch(updateDungeon(+i.dungeon_id, {
+          isUnlocked: true,
+        }));
+      }
+    }
   }
 };
 

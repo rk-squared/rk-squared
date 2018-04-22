@@ -3,13 +3,13 @@
  * Support for tracking battle status, such as item drops
  */
 
+import { Store } from 'redux';
+
 import enlir from '../data/enlir';
 import { itemsById, ItemType } from '../data/items';
 import * as urls from '../data/urls';
 import * as schemas from './schemas';
 import { Handler } from './types';
-
-import { Store } from 'redux';
 
 import { clearDropItems, DropItem, setDropItems } from '../actions/battle';
 import { IState } from '../reducers';

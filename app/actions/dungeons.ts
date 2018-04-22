@@ -38,3 +38,11 @@ export const addWorldDungeons = createAction('ADD_WORLD_DUNGEONS', (worldId: num
     dungeons
   }
 }));
+
+export const updateDungeon = createAction('UPDATE_DUNGEON', (dungeonId: number, dungeon: Partial<Dungeon>) => ({
+  type: 'UPDATE_DUNGEON',
+  payload: {
+    dungeonId,
+    dungeon
+  }
+}));

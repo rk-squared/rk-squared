@@ -106,7 +106,10 @@ export class DungeonCard extends React.Component<ConnectedProps> {
 }
 
 export default connect(
-  (state: IState, ownProps: Props) => ({
-    dungeons: state.dungeons.byWorld[ownProps.world.id]
-  })
+  (state: IState, ownProps: Props) => {
+    const worldDungeons = state.dungeons.byWorld[ownProps.world.id];
+    return {
+      dungeons: worldDungeons ? worldDungeons.map((i: number) => state.dungeons.dungeons[i]) : undefined
+    };
+  }
 )(DungeonCard);

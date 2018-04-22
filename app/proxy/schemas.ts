@@ -406,6 +406,10 @@ export interface WinBattle {
       can_show_clear_time: number;  // 0 or 1
     };
 
+    dungeon_id: string;
+    dungeon_rank: number;
+    is_dungeon_clear: number | null;
+
     prize_master: {
       [id: string]: {
         type_name: ItemTypeName;
@@ -419,5 +423,13 @@ export interface WinBattle {
         rarity_item_id: any;
       }
     }
+
+    unlock_dungeons: Array<{
+      world_id: string;
+      dungeon_id: string;
+      name: string;
+      is_force: boolean;
+      world_name: string;
+    }>;
   };
 }
