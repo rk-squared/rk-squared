@@ -9,6 +9,7 @@ import { World } from '../actions/worlds';
 import { IState } from '../reducers';
 import { CollapsibleCard } from './CollapsibleCard';
 import { DungeonBadge } from './DungeonBadge';
+import { DungeonPrizeList } from './DungeonPrizeList';
 import { PrizeList } from './PrizeList';
 
 
@@ -69,11 +70,14 @@ export class DungeonCard extends React.Component<ConnectedProps> {
       >
         {!dungeons
           ? <p className="mb-0">These dungeons have not been loaded.</p>
-          : <ul className="mb-0">
-              {dungeons.map((d, i) => (
-                <DungeonListItem dungeon={d} key={i}/>
-              ))}
-            </ul>
+          : <div>
+              <DungeonPrizeList dungeons={dungeons}/>
+              <ul className="mb-0">
+                {dungeons.map((d, i) => (
+                  <DungeonListItem dungeon={d} key={i}/>
+                ))}
+              </ul>
+            </div>
         }
       </CollapsibleCard>
     );

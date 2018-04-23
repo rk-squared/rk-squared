@@ -31,6 +31,35 @@ export interface Dungeon {
   };
 }
 
+export function getAvailablePrizes(dungeons: Dungeon[]): PrizeItem[] {
+  const result: {[id: number]: PrizeItem} = {};
+
+  function addPrizes(prizes: PrizeItem[]) {
+    if (!prizes) {
+      return;
+    }
+    for (const p of prizes) {
+      if (result[p.id]) {
+        result[p.id].amount += p.amount;
+      } else {
+        result[p.id] = {...p};
+      }
+    }
+  }
+
+  for (const d of dungeons) {
+    if (!d.isComplete) {
+      addPrizes(d.prizes.firstTime);
+    }
+    if (!d.isMaster) {
+      addPrizes(d.prizes.mastery);
+    }
+  }
+
+  const ids = Object.keys(result).sort();
+  return ids.map(i => result[+i]);
+}
+
 export const addWorldDungeons = createAction('ADD_WORLD_DUNGEONS', (worldId: number, dungeons: Dungeon[]) => ({
   type: 'ADD_WORLD_DUNGEONS',
   payload: {
