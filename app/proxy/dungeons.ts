@@ -29,10 +29,19 @@ const buttonStyleSort: {[s: string]: number} = {
  */
 const effectiveDifficulty = (difficulty: number) => difficulty === 0 ? Infinity : difficulty;
 
-function sortDungeons(dungeonList: schemas.Dungeon[]) {
-  return _.sortBy(dungeonList, [
+function sortDungeons(dungeonData: schemas.Dungeons) {
+  // Normally, type 1 vs. 2 marks classic vs. elite, page 1 vs. page 2, etc.
+  // But, for Nightmare, 1 is the actual record, and 2 is the buildup.
+  const sortType: ((d: schemas.Dungeon) => number) =
+    dungeonData.room_of_abyss_assets
+    ? d => -d.type
+    : d => d.type;
+
+  return _.sortBy(dungeonData.dungeons, [
     // Sort by page 1 vs. page 2, Classic vs. Elite, whatever
-    'type',
+    sortType,
+    // Realm dungeons are sorted by progress_map_level.
+    'progress_map_level',
     // Then by normal vs. hard vs. DOOM!
     (d: schemas.Dungeon) => buttonStyleSort[d.button_style],
     // Then by difficulty
@@ -42,14 +51,18 @@ function sortDungeons(dungeonList: schemas.Dungeon[]) {
   ]);
 }
 
-function convertPrizeItems(prizes: schemas.DungeonPrizeItem[]) {
-  return prizes.map(i => ({
-    id: i.id,
-    name: i.name,
-    amount: i.num,
-    // FIXME: cleanly convert item type
-    type: i.type_name.toLowerCase() as ItemType,
-  }));
+function convertPrizeItems(prizes?: schemas.DungeonPrizeItem[]) {
+  if (!prizes) {
+    return [];
+  } else {
+    return prizes.map(i => ({
+      id: i.id,
+      name: i.name,
+      amount: i.num,
+      // FIXME: cleanly convert item type
+      type: i.type_name.toLowerCase() as ItemType,
+    }));
+  }
 }
 
 const dungeons: Handler = {
@@ -158,7 +171,7 @@ const dungeons: Handler = {
       return;
     }
 
-    const newDungeons = sortDungeons(data.dungeons).map(d => ({
+    const newDungeons = sortDungeons(data).map(d => ({
       name: d.name,
       id: d.id,
       seriesId: d.series_id,

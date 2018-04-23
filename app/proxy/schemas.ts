@@ -24,6 +24,17 @@ export enum RewardType {
   Bonus = '7'
 }
 
+interface Asset {
+  bundle: {
+    // `/Content/lang/ww/compile` path to PNG, JSON, or OGG
+    [contentPath: string]: {
+      // Hashes are MD5 checksums, base64-encoded, with two trailing `=` stripped.
+      hash: string;
+    }
+  };
+  assetPath: ContentPath;
+}
+
 // Data extracted from the main http://ffrk.denagames.com/dff/ startup request
 export interface Main {
   appInitData: {
@@ -189,6 +200,7 @@ export interface Dungeon {
   closed_at: Timestamp;
 
   challenge_level: number;
+  progress_map_level: number;
   button_style: string;   // "NORMAL", "EXTRA", or "DOOM"
   prizes: {
     [s in RewardType]: DungeonPrizeItem[];
@@ -197,6 +209,18 @@ export interface Dungeon {
 
 // Sample URL: http://ffrk.denagames.com/dff/world/dungeons?world_id=104001
 export interface Dungeons {
+  assets: Asset[];
+
+  // Assets for Nightmare dungeons
+  room_of_abyss_assets?: {
+    common: {
+      [s: string]: Asset;
+    }
+    picture: {
+      [s: string]: Asset;
+    }
+  };
+
   dungeons: Dungeon[];
 }
 
@@ -270,17 +294,7 @@ export interface GachaShow {
 
 export interface GetBattleInit {
   assets: {
-    [assetKey: string]: {
-      bundle: {
-        // `/Content/lang/ww/compile` path to PNG, JSON, or OGG
-        [contentPath: string]: {
-          // Hashes are MD5 checksums, base64-encoded, with two trailing `=` stripped.
-          hash: string;
-        }
-      };
-      // `/Content/lang/ww/compile` path to PNG or JSON
-      assetPath: string;
-    }
+    [assetKey: string]: Asset;
   };
 
   battle: {

@@ -14,9 +14,12 @@ export const DungeonBadge = ({dungeons}: {dungeons: Dungeon[]}) => {
   }
   const total = dungeons.length;
   const mastered = _.sumBy(dungeons, d => +d.isMaster);
+  const hasUnlocked = _.find(dungeons, d => d.isUnlocked && !d.isMaster);
+  // TODO: Highlight in red if about to expire?
+  const classes = `badge ${styles.component} ` + (hasUnlocked ? 'badge-primary' : 'badge-secondary');
   if (mastered === total) {
     return (
-      <span className={`badge badge-secondary ${styles.component}`}>
+      <span className={classes}>
         {mastered} / {mastered} / {total}
       </span>
     );
@@ -25,7 +28,7 @@ export const DungeonBadge = ({dungeons}: {dungeons: Dungeon[]}) => {
     const stamina = _.sumBy(dungeons, d => !d.isMaster ? d.totalStamina : 0);
 
     return (
-      <span className={`badge badge-primary ${styles.component}`}>
+      <span className={classes}>
         {mastered} / {completed} / {total}
         <br/>
         {stamina} stamina
