@@ -7,10 +7,10 @@ interface Props {
   dungeons: Dungeon[];
 }
 
-export class DungeonPrizeList extends React.Component<Props> {
+export class DungeonPrizeList extends React.Component<Props & any> {
   render() {
-    const { dungeons } = this.props;
+    const { dungeons, ...props } = this.props;
     const prizes = getAvailablePrizes(dungeons);
-    return <PrizeList prizes={prizes} showTooltips={true}/>;
+    return <PrizeList {...props} prizes={prizes} showTooltips={true}/>;
   }
 }

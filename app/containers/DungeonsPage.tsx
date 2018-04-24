@@ -2,8 +2,9 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { World } from '../actions/worlds';
-import DungeonsList from '../components/DungeonsList';
+import { DungeonsList } from '../components/DungeonsList';
 import { IState } from '../reducers';
+import { Page } from './Page';
 
 interface Props {
   worlds: {
@@ -15,12 +16,17 @@ export class DungeonsPage extends React.Component<Props> {
   render() {
     const { worlds } = this.props;
     return (
-      <div>
+      <Page title="Dungeon Tracker">
         {worlds == null
           ? <p>No dungeons have been loaded. Please check your proxy settings and restart FFRK.</p>
-          : <DungeonsList worlds={worlds}/>
+          : <div className="row">
+              <DungeonsList className="col-sm-9" worlds={worlds}/>
+              <div className="col-sm-3">
+                Hi
+              </div>
+            </div>
         }
-      </div>
+      </Page>
     );
   }
 }

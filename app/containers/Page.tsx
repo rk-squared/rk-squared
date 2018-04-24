@@ -7,12 +7,12 @@ interface Props {
   children: any;
 }
 
-export default class Page extends React.Component<Props> {
+export class Page extends React.Component<Props> {
   render() {
     const { title, children } = this.props;
     return (
-      <div className={styles.component}>
-        <h2>{title}</h2>
+      <div className={`container ${styles.component}`}>
+        <h2 className="row">{title}</h2>
         {children}
       </div>
     );

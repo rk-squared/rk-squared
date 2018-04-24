@@ -48,7 +48,7 @@ const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
         {dungeon.isMaster || <DungeonDetails dungeon={dungeon}/>}
       </div>
       {showTooltip &&
-        <ReactTooltip place="right" id={id}>
+        <ReactTooltip place="bottom" id={id}>
           {!dungeon.isComplete && <PrizeList prizes={dungeon.prizes.firstTime}/>}
           {!dungeon.isMaster && <PrizeList prizes={dungeon.prizes.mastery}/>}
         </ReactTooltip>
@@ -70,13 +70,19 @@ export class DungeonCard extends React.Component<ConnectedProps> {
       >
         {!dungeons
           ? <p className="mb-0">These dungeons have not been loaded.</p>
-          : <div>
-              <DungeonPrizeList dungeons={dungeons}/>
-              <ul className="mb-0">
-                {dungeons.map((d, i) => (
-                  <DungeonListItem dungeon={d} key={i}/>
-                ))}
-              </ul>
+          : <div className="row">
+              <div className="col-lg">
+                <h6>Dungeons</h6>
+                <ul className="mb-0">
+                  {dungeons.map((d, i) => (
+                    <DungeonListItem dungeon={d} key={i}/>
+                  ))}
+                </ul>
+              </div>
+              <div className="col-lg">
+                <h6>Unclaimed Rewards</h6>
+                <DungeonPrizeList dungeons={dungeons} className="mb-0"/>
+              </div>
             </div>
         }
       </CollapsibleCard>

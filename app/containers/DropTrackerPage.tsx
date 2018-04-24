@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import DropItemAlert from '../components/DropItemAlert';
-import Page from './Page';
+import { Page } from './Page';
 
 export default class DropTrackerPage extends React.Component {
   render() {
     return (
-      <Page title="Drops">
+      <Page title="Drop Tracker">
         <p>
           Whenever you're in a battle, the current item drops (if any) that you'll get if
           you win are displayed here.
