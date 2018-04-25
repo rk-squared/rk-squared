@@ -16,6 +16,8 @@ export const DungeonBadge = ({dungeons}: {dungeons: Dungeon[]}) => {
   const mastered = _.sumBy(dungeons, d => +d.isMaster);
   const hasUnlocked = _.find(dungeons, d => d.isUnlocked && !d.isMaster);
   // TODO: Highlight in red if about to expire?
+  // TODO: Add Cid missions
+  // TODO: Add a tooltip explaining mastered / completed / total syntax
   const classes = `badge ${styles.component} ` + (hasUnlocked ? 'badge-primary' : 'badge-secondary');
   if (mastered === total) {
     return (

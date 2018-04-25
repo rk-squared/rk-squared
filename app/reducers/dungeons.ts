@@ -17,7 +17,7 @@ const initialState = {
 };
 
 // FIXME: Types for actions
-export default function worlds(state: DungeonState = initialState, action: any): DungeonState {
+export default function dungeons(state: DungeonState = initialState, action: any): DungeonState {
   switch (action.type) {
     case getType(addWorldDungeons):
       const newDungeons: {[id: number]: Dungeon} = {...state.dungeons};

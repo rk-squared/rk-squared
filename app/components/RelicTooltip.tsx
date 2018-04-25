@@ -14,11 +14,11 @@ const attributes = ['Attack', 'Defense', 'Magic', 'Resistance', 'Mind', 'Accurac
 
 const separateWithBr = (lines: any[]) => {
   const result: any[] = [];
-  for (const i of lines) {
+  for (let i = 0; i < lines.length; i++) {
     if (result.length) {
-      result.push(<br/>);
+      result.push(<br key={i}/>);
     }
-    result.push(i);
+    result.push(lines[i]);
   }
   return result;
 };

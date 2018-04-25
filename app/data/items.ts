@@ -32,6 +32,23 @@ export type ItemTypeName =
   'RECORD_MATERIA' |
   'SPHERE_MATERIAL';
 
+export const itemTypeDescription: { [t in ItemType]: string } = {
+  [ItemType.Ability]: 'Abilities',
+  [ItemType.Arcana]: 'Arcana',
+  [ItemType.Character]: 'Characters',
+  [ItemType.Common]: 'Mythril, MC Nodes, etc.',
+  [ItemType.DarkMatter]: 'Dark Matter',
+  [ItemType.DressRecord]: 'Dress Records',
+  [ItemType.GrowthEgg]: 'Growth Eggs',
+  [ItemType.Orb]: 'Orbs',
+  [ItemType.Magicite]: 'Magicite',
+  [ItemType.MemoryCrystal]: 'Memory Crystals',
+  [ItemType.Mote]: 'Motes',
+  [ItemType.RecordMateria]: 'Record Materia',
+  [ItemType.Relic]: 'Relics',
+  [ItemType.UpgradeMaterial]: 'Upgrades',
+};
+
 // Looks up from internal type names to ItemType enum values
 function makeItemTypeLookup() {
   const result: {[s: string]: ItemType} = {};

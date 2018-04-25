@@ -20,4 +20,4 @@ export default class DropTrackerPage extends React.Component {
       </Page>
     );
   }
-};
+}
