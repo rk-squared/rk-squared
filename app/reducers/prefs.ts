@@ -17,7 +17,9 @@ export interface PrefsState {
 }
 
 const initialState = {
-  showItemType: _.mapValues(ItemType, () => true) as { [t in ItemType]: boolean }
+  showItemType: _.fromPairs(
+    Object.keys(ItemType).map(i => [ItemType[i as any], true])
+  ) as { [t in ItemType]: boolean }
 };
 
 // FIXME: Types for actions
