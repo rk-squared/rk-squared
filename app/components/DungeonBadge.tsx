@@ -9,7 +9,7 @@ const styles = require('./DungeonBadge.scss');
  * Shows dungeon status as a Bootstrap badge
  */
 export const DungeonBadge = ({dungeons}: {dungeons: Dungeon[]}) => {
-  if (!dungeons) {
+  if (!dungeons || !dungeons.length) {
     return null;
   }
   const total = dungeons.length;

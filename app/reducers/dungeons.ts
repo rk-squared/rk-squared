@@ -16,6 +16,11 @@ const initialState = {
   byWorld: {},
 };
 
+export function getWorldDungeons(state: DungeonState, worldId: number) {
+  const worldDungeons = state.byWorld[worldId];
+  return worldDungeons ? worldDungeons.map((i: number) => state.dungeons[i]) : undefined;
+}
+
 // FIXME: Types for actions
 export default function dungeons(state: DungeonState = initialState, action: any): DungeonState {
   switch (action.type) {

@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import { CollapsibleCard } from './CollapsibleCard';
-import { MaybeWrap } from './MaybeWrap';
-
 import { descriptions, getSorter, World, WorldCategory } from '../actions/worlds';
+import { CollapsibleCard } from './CollapsibleCard';
+import DungeonCard from './DungeonCard';
+import { MaybeWrap } from './MaybeWrap';
+import WorldBadge from './WorldBadge';
 
 import * as _ from 'lodash';
-import DungeonCard from './DungeonCard';
 
 interface Props {
   worlds: {
@@ -68,6 +68,13 @@ function getSortedWorlds(worlds: {[id: number]: World}, category: WorldCategory)
   return result;
 }
 
+const DungeonCategoryTitle = ({title, worlds}: {title: string, worlds: World[]}) => (
+  <span>
+    {title}
+    <WorldBadge worlds={worlds}/>
+  </span>
+);
+
 export class DungeonCategoryList extends React.Component<Props> {
   render() {
     const { worlds, category } = this.props;
@@ -75,14 +82,19 @@ export class DungeonCategoryList extends React.Component<Props> {
     if (bySubcategory == null) {
       return null;
     }
+    const categoryWorlds = _.flatten(bySubcategory.map(([subcategory, subWorlds]) => subWorlds));
     const id = `dungeon-category-${category}`;
     return (
-      <CollapsibleCard id={id} title={descriptions[category]}>
+      <CollapsibleCard
+        id={id}
+        title={() => <DungeonCategoryTitle title={descriptions[category]} worlds={categoryWorlds}/>}
+      >
         <div className="accordion">
           {bySubcategory.map(([subcategory, subWorlds], i) => (
             <MaybeWrap
               component={CollapsibleCard} test={subcategory !== ''}
-              id={`${id}-${i}`} title={subcategory} key={i}
+              id={`${id}-${i}`} key={i}
+              title={() => <DungeonCategoryTitle title={subcategory} worlds={subWorlds}/>}
             >
               <div className="accordion">
                 {subWorlds.map((w, j) => (

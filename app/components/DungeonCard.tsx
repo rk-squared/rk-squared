@@ -7,6 +7,7 @@ import * as classNames from 'classnames';
 import { Dungeon } from '../actions/dungeons';
 import { World } from '../actions/worlds';
 import { IState } from '../reducers';
+import { getWorldDungeons } from '../reducers/dungeons';
 import { CollapsibleCard } from './CollapsibleCard';
 import { DungeonBadge } from './DungeonBadge';
 import DungeonPrizeList from './DungeonPrizeList';
@@ -91,10 +92,7 @@ export class DungeonCard extends React.Component<ConnectedProps> {
 }
 
 export default connect(
-  (state: IState, ownProps: Props) => {
-    const worldDungeons = state.dungeons.byWorld[ownProps.world.id];
-    return {
-      dungeons: worldDungeons ? worldDungeons.map((i: number) => state.dungeons.dungeons[i]) : undefined
-    };
-  }
+  (state: IState, ownProps: Props) => ({
+    dungeons: getWorldDungeons(state.dungeons, ownProps.world.id)
+  })
 )(DungeonCard);
