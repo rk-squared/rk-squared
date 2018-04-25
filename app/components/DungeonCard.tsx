@@ -9,7 +9,7 @@ import { World } from '../actions/worlds';
 import { IState } from '../reducers';
 import { CollapsibleCard } from './CollapsibleCard';
 import { DungeonBadge } from './DungeonBadge';
-import { DungeonPrizeList } from './DungeonPrizeList';
+import DungeonPrizeList from './DungeonPrizeList';
 import { PrizeList } from './PrizeList';
 
 
