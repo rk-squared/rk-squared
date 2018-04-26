@@ -6,7 +6,8 @@ const { replayActionMain } = require('electron-redux');
 
 /**
  * Hyperlinks that open in new windows instead open in a web browser.
- * See https://github.com/electron/electron/issues/1344#issuecomment-171516261.
+ * See https://github.com/electron/electron/issues/1344#issuecomment-171516261
+ * and our BrowserLink (target="_blank").
  */
 function enableBrowserLinks(webContents: Electron.WebContents) {
   webContents.on('new-window', (event, url) => {

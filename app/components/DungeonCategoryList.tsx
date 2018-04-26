@@ -5,6 +5,7 @@ import { CollapsibleCard } from './CollapsibleCard';
 import DungeonCard from './DungeonCard';
 import { MaybeWrap } from './MaybeWrap';
 import WorldBadge from './WorldBadge';
+import WorldPrizeList from './WorldPrizeList';
 
 import * as _ from 'lodash';
 
@@ -90,16 +91,20 @@ export class DungeonCategoryList extends React.Component<Props> {
         title={() => <DungeonCategoryTitle title={descriptions[category]} worlds={categoryWorlds}/>}
       >
         <div className="accordion">
+          <WorldPrizeList worlds={categoryWorlds}/>
           {bySubcategory.map(([subcategory, subWorlds], i) => (
             <MaybeWrap
               component={CollapsibleCard} test={subcategory !== ''}
               id={`${id}-${i}`} key={i}
               title={() => <DungeonCategoryTitle title={subcategory} worlds={subWorlds}/>}
             >
-              <div className="accordion">
-                {subWorlds.map((w, j) => (
-                  <DungeonCard world={w} key={j}/>
-                ))}
+              <div>
+                {subcategory !== '' && <WorldPrizeList worlds={subWorlds}/>}
+                <div className="accordion">
+                  {subWorlds.map((w, j) => (
+                    <DungeonCard world={w} key={j}/>
+                  ))}
+                </div>
               </div>
             </MaybeWrap>
           ))}

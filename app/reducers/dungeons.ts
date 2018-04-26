@@ -1,6 +1,9 @@
 import { getType } from 'typesafe-actions';
 
 import { addWorldDungeons, Dungeon, updateDungeon } from '../actions/dungeons';
+import { World } from '../actions/worlds';
+
+import * as _ from 'lodash';
 
 export interface DungeonState {
   dungeons: {
@@ -16,9 +19,16 @@ const initialState = {
   byWorld: {},
 };
 
-export function getWorldDungeons(state: DungeonState, worldId: number) {
+export function getDungeonsForWorld(state: DungeonState, worldId: number) {
   const worldDungeons = state.byWorld[worldId];
   return worldDungeons ? worldDungeons.map((i: number) => state.dungeons[i]) : undefined;
+}
+
+export function getDungeonsForWorlds(state: DungeonState, worlds: World[]) {
+  const worldDungeons: Array<Dungeon[] | undefined> = worlds.map(
+    w => getDungeonsForWorld(state, w.id)
+  );
+  return _.flatten(_.filter(worldDungeons) as any as Dungeon[][]);
 }
 
 // FIXME: Types for actions

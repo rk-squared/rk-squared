@@ -23,7 +23,17 @@ export class DungeonPrizeList extends React.Component<Props> {
   }
 }
 
-export default connect<{showItemType: { [t in ItemType]: boolean }}, {}, { dungeons: Dungeon[], [s: string]: any }>(
+interface StateProps {
+  showItemType: { [t in ItemType]: boolean }
+}
+
+interface OwnProps {
+  dungeons: Dungeon[],
+
+  [s: string]: any;
+}
+
+export default connect<StateProps, {}, OwnProps>(
   (state: IState) => ({
     showItemType: state.prefs.showItemType
   })
