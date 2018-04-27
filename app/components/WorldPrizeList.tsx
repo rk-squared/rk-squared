@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as Modal from 'react-modal';
 import { connect } from 'react-redux';
 
 import { Dungeon } from '../actions/dungeons';
@@ -8,6 +7,9 @@ import { IState } from '../reducers';
 import { getDungeonsForWorlds } from '../reducers/dungeons';
 import DungeonPrizeList from './DungeonPrizeList';
 import ItemTypeChecklist from './ItemTypeChecklist';
+import { ModalDialog } from './ModalDialog';
+
+const styles = require('./WorldPrizeList.scss');
 
 interface StateProps {
   dungeons: Dungeon[];
@@ -46,29 +48,20 @@ export class WorldPrizeList extends React.Component<StateProps & OwnProps, State
       return <a href="#" onClick={this.handleOpen}>Show all unclaimed rewards</a>;
     }
     return (
-      <Modal
-        isOpen={this.state.isOpen}
-        onRequestClose={this.handleClose}
-        className="modal-dialog modal-lg"
-        style={{overlay: {backgroundColor: 'rgba(0, 0, 0, 0.50)', overflowY: 'auto' }}}
+      <ModalDialog
+        isOpen={this.state.isOpen} onClose={this.handleClose}
+        className="modal-lg"
+        title="Unclaimed Rewards"
       >
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Unclaimed Rewards</h5>
-            <button onClick={this.handleClose} className="close"><span aria-hidden="true">&times;</span></button>
+        <div className="row">
+          <div className="col-md-8">
+            <DungeonPrizeList dungeons={dungeons}/>
           </div>
-          <div className="modal-body">
-            <div className="row">
-              <div className="col-md-8">
-                <DungeonPrizeList dungeons={dungeons}/>
-              </div>
-              <div className="col-md-4" style={{position: 'sticky', top: '3rem'}}>
-                <ItemTypeChecklist/>
-              </div>
-            </div>
+          <div className={`col-md-4 ${styles.right}`}>
+            <ItemTypeChecklist/>
           </div>
         </div>
-      </Modal>
+      </ModalDialog>
     );
   }
 }
