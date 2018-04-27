@@ -7,7 +7,7 @@ import ItemTypeChecklist from '../components/ItemTypeChecklist';
 import { IState } from '../reducers';
 import { Page } from './Page';
 
-const styles = require('./DungeonPage.scss');
+const styles = require('./DungeonsPage.scss');
 
 interface Props {
   worlds: {

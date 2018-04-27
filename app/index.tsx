@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { render } from 'react-dom';
+import * as Modal from 'react-modal';
 const { replayActionRenderer, getInitialStateRenderer } = require('electron-redux');
 import { AppContainer } from 'react-hot-loader';
 
@@ -10,6 +11,8 @@ import './app.global.scss';
 const { configureStore, history } = require('./store/configureStore');
 const store = configureStore(getInitialStateRenderer());
 replayActionRenderer(store);
+
+Modal.setAppElement('#root');
 
 render(
   <AppContainer>
