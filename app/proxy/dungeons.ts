@@ -65,6 +65,28 @@ function convertPrizeItems(prizes?: schemas.DungeonPrizeItem[]) {
   }
 }
 
+export function convertWorldDungeons(data: schemas.Dungeons) {
+  return sortDungeons(data).map(d => ({
+    name: d.name,
+    id: d.id,
+    seriesId: d.series_id,
+    difficulty: d.challenge_level,
+    openedAt: d.opened_at,
+    closedAt: d.closed_at,
+    isUnlocked: d.is_unlocked,
+    isComplete: d.is_clear,
+    isMaster: d.is_master,
+    totalStamina: d.total_stamina,
+    staminaList: d.stamina_list,
+    prizes: {
+      completion: convertPrizeItems(d.prizes[schemas.RewardType.Completion]),
+      firstTime: convertPrizeItems(d.prizes[schemas.RewardType.FirstTime]),
+      mastery: convertPrizeItems(d.prizes[schemas.RewardType.Mastery]),
+    }
+  }));
+}
+
+// noinspection JSUnusedGlobalSymbols
 const dungeons: Handler = {
   [StartupHandler]: (data: schemas.Main, store: Store<IState>) => {
     const result: {[id: number]: World} = {};
@@ -171,24 +193,7 @@ const dungeons: Handler = {
       return;
     }
 
-    const newDungeons = sortDungeons(data).map(d => ({
-      name: d.name,
-      id: d.id,
-      seriesId: d.series_id,
-      difficulty: d.challenge_level,
-      openedAt: d.opened_at,
-      closedAt: d.closed_at,
-      isUnlocked: d.is_unlocked,
-      isComplete: d.is_clear,
-      isMaster: d.is_master,
-      totalStamina: d.total_stamina,
-      staminaList: d.stamina_list,
-      prizes: {
-        completion: convertPrizeItems(d.prizes[schemas.RewardType.Completion]),
-        firstTime: convertPrizeItems(d.prizes[schemas.RewardType.FirstTime]),
-        mastery: convertPrizeItems(d.prizes[schemas.RewardType.Mastery]),
-      }
-    }));
+    const newDungeons = convertWorldDungeons(data);
 
     store.dispatch(addWorldDungeons(query.world_id, newDungeons));
   },

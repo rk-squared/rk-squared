@@ -1,3 +1,8 @@
+/**
+ * @file
+ * URLs for static data and assets
+ */
+
 import { dressRecordsById } from './dressRecords';
 import enlir from './enlir';
 import { ItemType } from './items';

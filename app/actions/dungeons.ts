@@ -75,3 +75,10 @@ export const updateDungeon = createAction('UPDATE_DUNGEON', (dungeonId: number, 
     dungeon
   }
 }));
+
+export const loadDungeons = createAction('LOAD_DUNGEONS', (worldIds: number[]) => ({
+  type: 'LOAD_DUNGEONS',
+  payload: {
+    worldIds
+  }
+}));

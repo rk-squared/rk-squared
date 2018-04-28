@@ -1,7 +1,7 @@
 import { app, BrowserWindow, Menu, shell } from 'electron';
 import { createFfrkProxy } from './proxy/ffrk-proxy';
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
-import { configureStore } from './store/configureStore.main';
+import { configureStore, runSagas } from './store/configureStore.main';
 const { replayActionMain } = require('electron-redux');
 
 /**
@@ -35,6 +35,7 @@ app.on('window-all-closed', () => {
 });
 
 const store = configureStore({});
+runSagas();
 replayActionMain(store);
 
 const installExtensions = () => {
