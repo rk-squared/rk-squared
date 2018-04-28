@@ -66,6 +66,7 @@ export class WorldPrizeList extends React.Component<StateProps & OwnProps, State
   }
 }
 
+// TODO: Use a selector and PureComponent
 export default connect<StateProps, {}, OwnProps>(
   (state: IState, { worlds }: OwnProps) => ({
     dungeons: getDungeonsForWorlds(state.dungeons, worlds)

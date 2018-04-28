@@ -8,7 +8,26 @@ interface Props {
   children: any;
 }
 
-export class CollapsibleCard extends React.Component<Props> {
+interface State {
+  hasShown: boolean;
+}
+
+export class CollapsibleCard extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    // For performance, only render children if we've ever shown.
+    // TODO: This means that the initial expansion is a bit choppy
+    this.state = {
+      hasShown: false
+    };
+  }
+
+  // noinspection UnterminatedStatementJS
+  handleClick = () => {
+    this.setState({hasShown: true});
+  }
+
   render() {
     const { id, title, children } = this.props;
     const collapseId = id + '-collapse';
@@ -18,6 +37,7 @@ export class CollapsibleCard extends React.Component<Props> {
         <div className="card-header" id={headerId}>
           <button
             className="btn btn-link btn-block" type="button"
+            onClick={this.handleClick}
             data-toggle="collapse" data-target={'#' + collapseId}
             aria-expanded="false" aria-controls={'#' + collapseId}
           >
@@ -27,10 +47,10 @@ export class CollapsibleCard extends React.Component<Props> {
 
         <div id={collapseId} className="collapse" aria-labelledby="headingOne" data-parent={'#' + id}>
           <div className="card-body">
-            {children}
+            {this.state.hasShown && children}
           </div>
         </div>
       </div>
     );
   }
-};
+}
