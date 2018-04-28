@@ -403,6 +403,12 @@ export interface PartyList {
   }>;
 }
 
+export interface UpdateUserSession {
+  success: boolean;
+  user_session_key: string;
+  SERVER_TIME: number;
+}
+
 export interface WorldBattles {
   battles: Array<{
     sp_enemy_id: number;

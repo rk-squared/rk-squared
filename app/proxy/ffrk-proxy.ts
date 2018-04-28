@@ -19,6 +19,7 @@ import battle from './battle';
 import dungeons from './dungeons';
 import itemUpdates from './itemUpdates';
 import options from './options';
+import { sessionHandler } from './session';
 import { StartupHandler } from './types';
 
 import { IState } from '../reducers';
@@ -124,6 +125,7 @@ function checkHandlers(
           changed = true;
           data = newData;
         }
+        break;
       }
     }
   }
@@ -146,6 +148,8 @@ function handleFfrkApiRequest(
     recordCapturedData(decoded, req, res)
       .catch(err => console.error(`Failed to save data capture: ${err}`))
       .then(filename => console.log(`Saved to ${filename}`));
+
+    sessionHandler(decoded, req, res, store);
 
     const newData = checkHandlers(decoded, req, res, store);
     if (newData !== undefined) {
@@ -200,7 +204,7 @@ export function createFfrkProxy(store: Store<IState>) {
   const app = connect();
 
   app.use(transformerProxy(transformerFunction, { match: /ffrk\.denagames\.com\/dff/ }));
-  // Disabled; not currently functional.
+  // Disabled; not currently functional:
   // app.use(transformerProxy(cacheTransformerFunction, { match: /127\.0\.0\.1/ }));
 
   app.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
@@ -210,7 +214,7 @@ export function createFfrkProxy(store: Store<IState>) {
   });
 
   app.use((req: http.IncomingMessage, res: http.ServerResponse) => {
-    // Disabled; not currently functional.
+    // Disabled; not currently functional:
     /*
     const resourceUrl = parseFfrkCacheRequest(req);
     if (resourceUrl != null) {
