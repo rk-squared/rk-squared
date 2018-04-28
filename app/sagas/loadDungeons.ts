@@ -3,6 +3,7 @@ import { call, put, select, takeEvery } from 'redux-saga/effects';
 import { getType } from 'typesafe-actions';
 
 import { addWorldDungeons, loadDungeons } from '../actions/dungeons';
+import { setProgress } from '../actions/progress';
 import { Session } from '../actions/session';
 import * as apiUrls from '../proxy/apiUrls';
 import { convertWorldDungeons } from '../proxy/dungeons';
@@ -26,8 +27,14 @@ function sessionConfig(session: Session): AxiosRequestConfig {
 export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
   const session = yield select((state: IState) => state.session);
   // FIXME: Throw an error if any of session is missing
-  for (const worldId of action.payload.worldIds) {
+
+  yield(put(setProgress('dungeons', {current: 0, max: action.payload.worldIds.length})));
+
+  for (let i = 0; i < action.payload.worldIds.length; i++) {
+    const worldId = action.payload.worldIds[i];
+    yield(put(setProgress('dungeons', {current: i, max: action.payload.worldIds.length})));
     console.log(`Getting dungeons for world ${worldId}...`);
+
     const result = yield call(() =>
       axios.get(apiUrls.dungeons(worldId), sessionConfig(session))
       .then(response => {
@@ -43,6 +50,8 @@ export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
       yield put(result);
     }
   }
+
+  yield(put(setProgress('dungeons', undefined)));
 }
 
 export function* watchLoadDungeons() {

@@ -7,6 +7,7 @@ import { default as battle, BattleState } from './battle';
 import { default as dungeons, DungeonState } from './dungeons';
 import { default as options, Options } from './options';
 import { default as prefs, PrefsState } from './prefs';
+import { default as progress, ProgressState } from './progress';
 import { default as session, Session } from './session';
 import { default as worlds, WorldState } from './worlds';
 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   dungeons,
   options,
   prefs,
+  progress,
   session,
   worlds,
   routing: routing as Reducer<any>
@@ -25,6 +27,7 @@ export interface IState {
   dungeons: DungeonState;
   options: Options;
   prefs: PrefsState;
+  progress: ProgressState;
   session: Session;
   worlds: WorldState;
 }
