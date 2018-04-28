@@ -23,7 +23,7 @@ const separateWithBr = (lines: any[]) => {
   return result;
 };
 
-export class RelicTooltip extends React.Component<Props & any> {
+export class RelicTooltip extends React.PureComponent<Props & any> {
   render() {
     const { id, relicId, ...props } = this.props;
     if (!enlir.relics[relicId]) {

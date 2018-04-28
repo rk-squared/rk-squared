@@ -76,7 +76,7 @@ const DungeonCategoryTitle = ({title, worlds}: {title: string, worlds: World[]})
   </span>
 );
 
-export class DungeonCategoryList extends React.Component<Props> {
+export class DungeonCategoryList extends React.PureComponent<Props> {
   render() {
     const { worlds, category } = this.props;
     const bySubcategory = getSortedWorlds(worlds, category);

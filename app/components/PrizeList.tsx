@@ -16,7 +16,7 @@ interface Props {
   className?: string;
 }
 
-export class PrizeList extends React.Component<Props> {
+export class PrizeList extends React.PureComponent<Props> {
   render() {
     const { prizes, showTooltips, className } = this.props;
     return (

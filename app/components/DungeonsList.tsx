@@ -12,7 +12,7 @@ interface Props {
   };
 }
 
-export class DungeonsList extends React.Component<Props> {
+export class DungeonsList extends React.PureComponent<Props> {
   render() {
     const { className, worlds } = this.props;
     return (
