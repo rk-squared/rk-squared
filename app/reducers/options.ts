@@ -5,12 +5,11 @@
 
 import { getType } from 'typesafe-actions';
 
-import { defaultOptions, Options, setOption } from '../actions/options';
+import { defaultOptions, Options, OptionsAction, setOption } from '../actions/options';
 
 export { Options };
 
-// FIXME: Types for actions
-export default function options(state: Options = defaultOptions, action: any): Options {
+export default function options(state: Options = defaultOptions, action: OptionsAction): Options {
   switch (action.type) {
     case getType(setOption):
       return {

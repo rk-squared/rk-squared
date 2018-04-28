@@ -5,7 +5,7 @@
 
 import { getType } from 'typesafe-actions';
 
-import { showItemType, showItemTypes} from '../actions/prefs';
+import { PrefsAction, showItemType, showItemTypes } from '../actions/prefs';
 import { ItemType } from '../data/items';
 
 import * as _ from 'lodash';
@@ -22,8 +22,7 @@ const initialState = {
   ) as { [t in ItemType]: boolean }
 };
 
-// FIXME: Types for actions
-export default function prefs(state: PrefsState = initialState, action: any): PrefsState {
+export default function prefs(state: PrefsState = initialState, action: PrefsAction): PrefsState {
   switch (action.type) {
     case getType(showItemType):
       return {

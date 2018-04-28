@@ -1,6 +1,6 @@
 import { getType } from 'typesafe-actions';
 
-import { addWorldDungeons, Dungeon, updateDungeon } from '../actions/dungeons';
+import { addWorldDungeons, Dungeon, DungeonsAction, updateDungeon } from '../actions/dungeons';
 import { World } from '../actions/worlds';
 
 import * as _ from 'lodash';
@@ -31,8 +31,7 @@ export function getDungeonsForWorlds(state: DungeonState, worlds: World[]) {
   return _.flatten(_.filter(worldDungeons) as any as Dungeon[][]);
 }
 
-// FIXME: Types for actions
-export default function dungeons(state: DungeonState = initialState, action: any): DungeonState {
+export default function dungeons(state: DungeonState = initialState, action: DungeonsAction): DungeonState {
   switch (action.type) {
     case getType(addWorldDungeons):
       const newDungeons: {[id: number]: Dungeon} = {...state.dungeons};
@@ -49,10 +48,8 @@ export default function dungeons(state: DungeonState = initialState, action: any
       };
 
     case getType(updateDungeon):
-      // FIXME: https://github.com/piotrwitek/typesafe-actions#reducer-switch-cases gets strong typing without this?
-      // Or switch other reduces to use this.
-      const payload = (action as ReturnType<typeof updateDungeon>).payload;
-      if (!state.dungeons[payload.dungeonId]) {
+      const { dungeonId, dungeon } = action.payload;
+      if (!state.dungeons[dungeonId]) {
         // Missing dungeon info - no sense in storing incomplete info.
         return state;
       }
@@ -60,9 +57,9 @@ export default function dungeons(state: DungeonState = initialState, action: any
         ...state,
         dungeons: {
           ...state.dungeons,
-          [payload.dungeonId]: {
-            ...state.dungeons[payload.dungeonId],
-            ...payload.dungeon
+          [dungeonId]: {
+            ...state.dungeons[dungeonId],
+            ...dungeon
           }
         }
       };

@@ -12,3 +12,5 @@ export const setProgress = createAction('SET_PROGRESS', (key: string, progress?:
     progress
   }
 }));
+
+export type ProgressAction = ReturnType<typeof setProgress>;

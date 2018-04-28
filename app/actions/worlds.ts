@@ -105,3 +105,5 @@ export const updateWorlds = createAction('UPDATE_WORLDS', (worlds: {[id: number]
     worlds
   }
 }));
+
+export type WorldAction = ReturnType<typeof updateWorlds>;

@@ -1,6 +1,6 @@
 import { getType } from 'typesafe-actions';
 
-import { updateWorlds, World } from '../actions/worlds';
+import { updateWorlds, World, WorldAction } from '../actions/worlds';
 
 export interface WorldState {
   worlds?: {
@@ -8,8 +8,7 @@ export interface WorldState {
   };
 }
 
-// FIXME: Types for actions
-export default function worlds(state: WorldState = {}, action: any): WorldState {
+export default function worlds(state: WorldState = {}, action: WorldAction): WorldState {
   switch (action.type) {
     case getType(updateWorlds):
       // FIXME: Merge, instead of replace, motes and power up dungeons

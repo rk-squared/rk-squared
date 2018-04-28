@@ -5,20 +5,27 @@
 
 import { getType } from 'typesafe-actions';
 
-import { Progress, setProgress } from '../actions/progress';
+import { Progress, ProgressAction, setProgress } from '../actions/progress';
 
 export interface ProgressState {
   [key: string]: Progress;
 }
 
-// FIXME: Types for actions
-export default function progress(state: ProgressState = {}, action: any): ProgressState {
+export default function progress(state: ProgressState = {}, action: ProgressAction): ProgressState {
   switch (action.type) {
     case getType(setProgress):
-      return {
-        ...state,
-        [action.payload.key]: action.payload.progress
-      };
+      if (action.payload.progress) {
+        return {
+          ...state,
+          [action.payload.key]: action.payload.progress
+        };
+      } else {
+        const result = {
+          ...state
+        };
+        delete result[action.payload.key];
+        return result;
+      }
 
     default:
       return state;

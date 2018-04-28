@@ -82,3 +82,5 @@ export const loadDungeons = createAction('LOAD_DUNGEONS', (worldIds: number[]) =
     worldIds
   }
 }));
+
+export type DungeonsAction = ReturnType<typeof addWorldDungeons | typeof updateDungeon | typeof loadDungeons>;

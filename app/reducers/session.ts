@@ -5,12 +5,11 @@
 
 import { getType } from 'typesafe-actions';
 
-import { Session, updateSession } from '../actions/session';
+import { Session, SessionAction, updateSession } from '../actions/session';
 
 export { Session };
 
-// FIXME: Types for actions
-export default function session(state: Session = {}, action: any): Session {
+export default function session(state: Session = {}, action: SessionAction): Session {
   switch (action.type) {
     case getType(updateSession):
       return {

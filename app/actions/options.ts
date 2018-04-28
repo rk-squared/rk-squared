@@ -16,3 +16,5 @@ export const setOption = createAction('SET_OPTION', (newOptions: Options) => ({
   type: 'SET_OPTION',
   payload: newOptions,
 }));
+
+export type OptionsAction = ReturnType<typeof setOption>;

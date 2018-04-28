@@ -16,3 +16,5 @@ export const showItemTypes = createAction('SHOW_ITEM_TYPES', (updates: {[t in It
     updates
   }
 }));
+
+export type PrefsAction = ReturnType<typeof showItemType | typeof showItemTypes>;

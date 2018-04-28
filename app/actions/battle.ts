@@ -20,3 +20,5 @@ export const setDropItems = createAction('SET_DROP_ITEMS', (dropItems: DropItem[
 }));
 
 export const clearDropItems = createAction('CLEAR_DROP_ITEMS');
+
+export type BattleAction = ReturnType<typeof setDropItems | typeof clearDropItems>;
