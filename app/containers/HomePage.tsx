@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import Home from '../components/Home';
+
+import { Home } from '../components/Home';
+import { Page } from './Page';
 
 export class HomePage extends React.Component<RouteComponentProps<any>, void> {
   render() {
     return (
-      <Home />
+      <Page title="Welcome">
+        <Home />
+      </Page>
     );
   }
 }

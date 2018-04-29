@@ -1,0 +1,9 @@
+:local {
+  .component > button:global(.collapsed)::before {
+    content: "▶ ";
+  }
+
+  .component > button:not(:global(.collapsed))::before {
+    content: "▼ ";
+  }
+}

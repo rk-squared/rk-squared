@@ -22,7 +22,10 @@ import options from './options';
 import { sessionHandler } from './session';
 import { StartupHandler } from './types';
 
+import { updateLastTraffic, updateProxyStatus } from '../actions/proxy';
 import { IState } from '../reducers';
+
+import * as _ from 'lodash';
 
 const handlers = [
   battle,
@@ -209,6 +212,7 @@ export function createFfrkProxy(store: Store<IState>) {
 
   app.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
     console.log(req.url);
+    store.dispatch(updateLastTraffic());
     // console.log(req.headers);
     next();
   });
@@ -244,6 +248,7 @@ export function createFfrkProxy(store: Store<IState>) {
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT
   server.on('connect', (req, clientSocket, head) => {
     console.log(`CONNECT ${req.url}`);
+    store.dispatch(updateLastTraffic());
     // console.log(req.headers);
     const serverUrl = url.parse(`https://${req.url}`);
     const serverPort = +(serverUrl.port || 80);
@@ -267,7 +272,18 @@ export function createFfrkProxy(store: Store<IState>) {
   });
 
   const port = 8888;
-  const addresses = getIpAddresses().join(',');
-  console.log(`Listening on ${addresses}, port ${port}`);
+
+  let ipAddress: string[];
+  const updateNetwork = () => {
+    const newIpAddress = getIpAddresses();
+    if (!_.isEqual(newIpAddress, ipAddress)) {
+      ipAddress = newIpAddress;
+      console.log(`Listening on ${ipAddress.join(',')}, port ${port}`);
+      store.dispatch(updateProxyStatus({ ipAddress, port }));
+    }
+  };
+  updateNetwork();
+  setInterval(updateNetwork, 60 * 1000);
+
   server.listen(port);
 }
