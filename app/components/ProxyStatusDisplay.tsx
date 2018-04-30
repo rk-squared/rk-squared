@@ -9,8 +9,6 @@ interface Props {
   proxy: ProxyStatus;
 }
 
-console.log(TimeAgo);
-
 export class ProxyStatusDisplay extends React.Component<Props> {
   render() {
     const { ipAddress, port, lastTraffic } = this.props.proxy;
