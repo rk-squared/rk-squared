@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-typescript-boilerplate",
-  "productName": "ElectronReactTypescript",
+  "name": "rk-squared",
+  "productName": "RK Squared",
   "version": "0.10.0",
-  "description": "Electron application boilerplate based on TypeScript, React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "RK Squared tracker for Final Fantasy Record Keeper",
   "main": "main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test node --trace-warnings ./test/runTests.js",
@@ -45,8 +45,8 @@
     ]
   },
   "build": {
-    "productName": "ElectronReactTypescript",
-    "appId": "io.github.irath96.ElectronReactTypescript",
+    "productName": "RK Squared",
+    "appId": "com.joshkel.rksquared",
     "dmg": {
       "contents": [
         {

@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu, shell } from 'electron';
+import { app, BrowserWindow, dialog, Menu, shell } from 'electron';
 import { createFfrkProxy } from './proxy/ffrk-proxy';
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
 import { configureStore, runSagas } from './store/configureStore.main';
@@ -91,10 +91,16 @@ app.on('ready', () =>
 
     if (process.platform === 'darwin') {
       const template: MenuItemConstructorOptions[] = [{
-        label: 'Electron',
+        label: 'RK Squared',
         submenu: [{
-          label: 'About ElectronReact',
+          label: 'About RK Squared',
           // selector: 'orderFrontStandardAboutPanel:'
+          click() {
+            dialog.showMessageBox({
+              title: 'RK Squared',
+              message: `RK Squared version ${app.getVersion()}`
+            });
+          }
         }, {
           type: 'separator'
         }, {
@@ -103,7 +109,7 @@ app.on('ready', () =>
         }, {
           type: 'separator'
         }, {
-          label: 'Hide ElectronReact',
+          label: 'Hide RK Squared',
           accelerator: 'Command+H',
           // selector: 'hide:'
         }, {
