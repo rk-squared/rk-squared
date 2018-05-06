@@ -3,7 +3,7 @@
   "productName": "RK Squared",
   "version": "0.10.0",
   "description": "RK Squared tracker for Final Fantasy Record Keeper",
-  "main": "main.js",
+  "main": "dist/app/main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test node --trace-warnings ./test/runTests.js",
     "test-all": "npm run test && npm run build && npm run test-e2e",
@@ -14,7 +14,7 @@
     "build-renderer": "cross-env NODE_ENV=production node ./node_modules/webpack/bin/webpack --config webpack.config.production.js --progress --profile --colors",
     "build": "npm run build-main && npm run build-renderer",
     "start": "cross-env NODE_ENV=production electron ./app/",
-    "start-hot": "cross-env HOT=1 NODE_ENV=development electron ./dist/app/main.development",
+    "start-hot": "cross-env HOT=1 NODE_ENV=development electron ./dist/app/main",
     "dev": "npm run hot-server -- --start-hot",
     "package": "npm run build && build --publish never",
     "package-win": "npm run build && build --win --x64",
@@ -202,6 +202,7 @@
     "source-map-support": "^0.5.0",
     "timeago-react": "^2.0.0",
     "transformer-proxy": "^0.3.4",
+    "tslib": "^1.9.0",
     "typesafe-actions": "^1.1.2",
     "utility-types": "^2.0.0"
   },

@@ -9,7 +9,7 @@ const baseConfig = require('./webpack.config.base');
 module.exports = merge(baseConfig, {
   devtool: 'source-map',
 
-  entry: ['./app/main.development'],
+  entry: ['./app/main'],
 
   // 'main.js' in root
   output: {
