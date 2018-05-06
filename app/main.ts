@@ -1,8 +1,13 @@
 import { app, BrowserWindow, dialog, Menu, shell } from 'electron';
-import { createFfrkProxy } from './proxy/ffrk-proxy';
-import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
-import { configureStore, runSagas } from './store/configureStore.main';
+import * as fsExtra from 'fs-extra';
+import * as path from 'path';
+
 const { replayActionMain } = require('electron-redux');
+
+import { createFfrkProxy } from './proxy/ffrk-proxy';
+import { configureStore, runSagas } from './store/configureStore.main';
+
+import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
 
 /**
  * Hyperlinks that open in new windows instead open in a web browser.
@@ -23,9 +28,8 @@ if (process.env.NODE_ENV === 'production') {
 
 if (process.env.NODE_ENV === 'development') {
   require('electron-debug')(); // eslint-disable-line global-require
-  const path = require('path'); // eslint-disable-line
-  const p = path.join(__dirname, '..', 'app', 'node_modules'); // eslint-disable-line
-  require('module').globalPaths.push(p); // eslint-disable-line
+  const p = path.join(__dirname, '..', 'app', 'node_modules');
+  require('module').globalPaths.push(p);
 }
 
 app.on('window-all-closed', () => {
@@ -295,6 +299,8 @@ app.on('ready', () =>
       mainWindow.setMenu(menu);
     }
 
-    createFfrkProxy(store);
+    const userDataPath = app.getPath('userData');
+    fsExtra.ensureDirSync(userDataPath);
+    createFfrkProxy(store, userDataPath);
   })
 );

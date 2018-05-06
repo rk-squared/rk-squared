@@ -13,7 +13,7 @@ import { Store } from 'redux';
 
 const transformerProxy = require('transformer-proxy');
 
-import { decodeData, encodeData, getIpAddresses, getStoragePath } from './util';
+import { decodeData, encodeData, getIpAddresses, getStoragePath, setStoragePath } from './util';
 
 import battle from './battle';
 import dungeons from './dungeons';
@@ -52,11 +52,14 @@ function isFfrkStartupRequest(req: http.IncomingMessage) {
       && req.headers['accept']!.indexOf('text/html') !== -1;
 }
 
-const capturePath = getStoragePath('captures');
+let capturePath: string;
 
 function getCaptureFilename(req: http.IncomingMessage) {
   if (req.url == null) {
     throw new Error('No URL included in request');
+  }
+  if (capturePath == null) {
+    capturePath = getStoragePath('captures');
   }
   const datestamp = moment().format('YYYY-MM-DD-HH-mm-ss-SSS');
   const urlPath = url.parse(req.url).pathname!.replace(/\//g, '_');
@@ -189,7 +192,9 @@ function handleFfrkStartupRequest(
 }
 
 
-export function createFfrkProxy(store: Store<IState>) {
+export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
+  setStoragePath(userDataPath);
+
   // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
     if (isFfrkApiRequest(req)) {

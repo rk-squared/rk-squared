@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import * as fsExtra from 'fs-extra';
 import * as http from 'http';
 import * as os from 'os';
 import * as path from 'path';
@@ -26,12 +26,17 @@ export function getIpAddresses() {
   return result;
 }
 
+// FIXME: Globals are bad
+let storagePath = __dirname;
+
+export function setStoragePath(name: string) {
+  storagePath = name;
+}
+
 export function getStoragePath(name: string) {
-  const storagePath = path.join(__dirname, name);
-  if (!fs.existsSync(storagePath)) {
-    fs.mkdirSync(storagePath);
-  }
-  return storagePath;
+  const result = path.join(storagePath, name);
+  fsExtra.ensureDirSync(result);
+  return result;
 }
 
 export function decodeData(data: Buffer, res: http.ServerResponse) {

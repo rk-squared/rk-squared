@@ -14,9 +14,12 @@ import { decodeData, getStoragePath } from './util';
 // FIXME: Proper logging library
 // tslint:disable no-console
 
-const cachePath = getStoragePath('cache');
+let cachePath: string;
 
 function getCacheFilename(resourceUrl: string) {
+  if (cachePath == null) {
+    cachePath = getStoragePath('gameCache');
+  }
   const urlPath = resourceUrl.replace(/\//g, '_');
   return path.join(cachePath, urlPath);
 }
