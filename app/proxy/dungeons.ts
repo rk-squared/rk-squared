@@ -135,7 +135,8 @@ const dungeons: Handler = {
         category = WorldCategory.Newcomer;
       } else if (e.tag.match(/^ff.*_reopen_ww\d+/)) {
         category = WorldCategory.Renewal;
-        subcategory = world.series_formal_name;
+        // Type-0, at least, has series_formal_name == ''.
+        subcategory = world.series_formal_name || data.textMaster[`sortmodal_short_summary_series_${world.series_id}`];
         // Use negative series ID so that newest series are listed first,
         // to match FFRK's own API.
         subcategorySortOrder = -world.series_id;
