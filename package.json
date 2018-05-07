@@ -63,11 +63,10 @@
       ]
     },
     "files": [
-      "dist/",
+      "dist/app/",
       "node_modules/",
-      "app.html",
-      "main.js",
-      "main.js.map",
+      "app/app.html",
+      "app/dist/",
       "package.json"
     ],
     "directories": {
