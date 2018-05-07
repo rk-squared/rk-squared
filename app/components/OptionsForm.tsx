@@ -17,6 +17,7 @@ const MISTER_P_HELP = 'Open MisterP\'s FFRK PDF in your browser.';
 
 interface Props {
   options: Options;
+  capturePath: string;
   setOption: (newOptions: Options) => any;
 }
 
@@ -45,7 +46,7 @@ const HelpText = ({children}: {children: any}) => (
 
 export class OptionsForm extends React.Component<Props> {
   render() {
-    const { options, setOption } = this.props;
+    const { options, capturePath, setOption } = this.props;
     return (
       <div className={styles.component}>
         <div className="form-group">
@@ -93,13 +94,26 @@ export class OptionsForm extends React.Component<Props> {
             </p>
           </HelpText>
         </div>
+
+        <div className="form-group">
+          <Checkbox id="saveTrafficCaptures" {...{options, setOption}}>
+            Save captured game traffic
+          </Checkbox>
+          <HelpText>
+            <p>
+              Save captured FFRK network traffic
+              {capturePath && <span> under <code>{capturePath}</code></span>}.
+              This can be helpful for testing and troubleshooting but is otherwise not needed.
+            </p>
+          </HelpText>
+        </div>
       </div>
     );
   }
 }
 
 export default connect(
-  ({ options }: IState) => ({ options }),
+  ({ options, proxy }: IState) => ({ options, capturePath: proxy.capturePath }),
   dispatch => ({
     setOption: (newOptions: Options) => dispatch(setOption(newOptions))
   })

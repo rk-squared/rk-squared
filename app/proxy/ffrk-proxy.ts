@@ -151,9 +151,11 @@ function handleFfrkApiRequest(
     }
     decoded = JSON.parse(decoded);
 
-    recordCapturedData(decoded, req, res)
-      .catch(err => console.error(`Failed to save data capture: ${err}`))
-      .then(filename => console.log(`Saved to ${filename}`));
+    if (store.getState().options.saveTrafficCaptures) {
+      recordCapturedData(decoded, req, res)
+        .catch(err => console.error(`Failed to save data capture: ${err}`))
+        .then(filename => console.log(`Saved to ${filename}`));
+    }
 
     sessionHandler(decoded, req, res, store);
 
@@ -180,9 +182,11 @@ function handleFfrkStartupRequest(
     const appInitData = extractJson($('script[data-app-init-data]'));
     const textMaster = extractJson($('#text-master'));
     const startupData = { appInitData, textMaster };
-    recordCapturedData(startupData, req, res)
-      .catch(err => console.error(`Failed to save data capture: ${err}`))
-      .then(filename => console.log(`Saved to ${filename}`));
+    if (store.getState().options.saveTrafficCaptures) {
+      recordCapturedData(startupData, req, res)
+        .catch(err => console.error(`Failed to save data capture: ${err}`))
+        .then(filename => console.log(`Saved to ${filename}`));
+    }
 
     checkHandlers(startupData, req, res, store, [StartupHandler]);
   } catch (error) {
@@ -194,6 +198,7 @@ function handleFfrkStartupRequest(
 
 export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   setStoragePath(userDataPath);
+  store.dispatch(updateProxyStatus({capturePath: userDataPath}));
 
   // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {

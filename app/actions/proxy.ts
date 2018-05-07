@@ -4,6 +4,7 @@ export interface ProxyStatus {
   ipAddress?: string[];
   port?: number;
   lastTraffic?: number;
+  capturePath?: string;
 }
 
 export const updateProxyStatus = createAction('UPDATE_PROXY_STATUS', (status: Partial<ProxyStatus>) => ({
