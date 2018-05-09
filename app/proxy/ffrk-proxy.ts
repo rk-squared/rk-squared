@@ -259,26 +259,41 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   server.on('connect', (req, clientSocket, head) => {
     console.log(`CONNECT ${req.url}`);
     store.dispatch(updateLastTraffic());
-    // console.log(req.headers);
+
     const serverUrl = url.parse(`https://${req.url}`);
     const serverPort = +(serverUrl.port || 80);
-    try {
-      const serverSocket = net.connect(serverPort, serverUrl.hostname, () => {
-        try {
-          clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
-            'Proxy-agent: Node.js-Proxy\r\n' +
-            '\r\n');
-          serverSocket.write(head);
-          serverSocket.pipe(clientSocket);
-          // noinspection TypeScriptValidateJSTypes (WebStorm false positive)
-          clientSocket.pipe(serverSocket);
-        } catch (e) {
-          console.log(`Error within connect callback for ${req.url}: ${e}`);
-        }
-      });
-    } catch (e) {
-      console.log(`Error within connect for ${req.url}: ${e}`);
-    }
+
+    let connected = false;
+    const serverSocket = net.connect(serverPort, serverUrl.hostname, () => {
+      connected = true;
+      try {
+        clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
+          'Proxy-agent: Node.js-Proxy\r\n' +
+          '\r\n');
+        serverSocket.write(head);
+        serverSocket.pipe(clientSocket);
+        clientSocket.pipe(serverSocket);
+      } catch (e) {
+        console.log(`Error within connect callback for ${req.url}: ${e}`);
+      }
+    }).on('error', (e: Error) => {
+      console.log(`Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}: ${e}`);
+      if (!connected) {
+        // Unable to connect to destination - send a clean error back to the client
+        clientSocket.end('HTTP/1.1 502 Bad Gateway\r\n' +
+          'Proxy-agent: Node.js-Proxy\r\n' +
+          '\r\n' +
+          e);
+      } else {
+        // An error occurred in mid-connection - abort the client connection so
+        // the client knows.
+        clientSocket.destroy();
+      }
+    });
+    clientSocket.on('error', (e: Error) => {
+      console.log(`Error communicating with ${serverUrl.hostname}: ${e}`);
+      serverSocket.destroy();
+    });
   });
 
   const port = 8888;
