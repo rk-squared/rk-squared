@@ -65,6 +65,132 @@ interface Asset {
   assetPath: ContentPath;
 }
 
+interface Equipment {
+  name: string;
+  id: number;
+  equipment_id: number;
+  series_id: number;
+  rarity: number;
+  is_locked: boolean;
+  created_at: Timestamp;
+  category_id: number;     // 2 = Sword
+  category_name: string;   // e.g., "Sword"
+  equipment_type: number;  // 1 = weapon, 2 = armor, 3 = accessory
+  is_weapon: boolean;
+  is_armor: boolean;
+  is_accessory: boolean;
+  base_rarity: number;
+  image_path: RelativeUrlPath;
+  detail_image_path: RelativeUrlPath;
+  thumbnail_path: RelativeUrlPath;
+  sale_gil: number;
+  ex_series_id: number;  // always 0
+
+  // Current stats (not counting synergy or augments)
+  hp: number;
+  atk: number;
+  def: number;
+  matk: number;
+  mdef: number;
+  mnd: number;
+  acc: number;
+  eva: number;
+
+  // Synergy stats
+  sp_hp: number;
+  sp_atk: number;
+  sp_def: number;
+  sp_matk: number;
+  sp_mdef: number;
+  sp_mnd: number;
+  sp_acc: number;
+  sp_eva: number;
+
+  // Starting stats
+  hp_min: number;
+  atk_min: number;
+  def_min: number;
+  matk_min: number;
+  mdef_min: number;
+  mnd_min: number;
+  acc_min: number;
+  eva_min: number;
+
+  additional_bonus_hp: number;
+  additional_bonus_atk: number;
+  additional_bonus_def: number;
+  additional_bonus_matk: number;
+  additional_bonus_mdef: number;
+  additional_bonus_mnd: number;
+  additional_bonus_acc: number;
+  additional_bonus_eva: number;
+
+  atk_type: number;  // 0 = not a weapon, 1 = melee, 2 = ranged
+  critical: number;  // 3 for most weapons, 5 for claws (and a few others?), 0 for non-weapons (and some weapons?)
+  atk_ss_point_factor: number;  // always 0
+  def_ss_point_factor: number;  // always 0
+
+  allowed_buddy_id: number;  // always 0
+  has_soul_strike: boolean;
+  has_someones_soul_strike: boolean;
+  soul_strike_id: number;
+  legend_materia_id: number;
+
+  exp: number;
+  level: number;
+  level_max: number;
+  is_max_level: boolean;
+  can_evolve_now: boolean;
+  can_evolve_potentially: boolean;
+  can_hyper_evolve_now: boolean;
+  required_enhancement_base_gil: number;
+  required_evolution_gil: number;
+  is_max_hyper_evolution_num: boolean;
+  hammering_affect_param_key: string;     // e.g., "atk"
+  hammering_num: number;                  // Current number of augments
+  max_hammering_num: number;              // Maximum number of augments
+  series_hammering_num: number;           // Synergy augments - equals ceil(hammering_num * 1.5)
+  max_evolution_num: number;
+  max_hyper_evolution_num: number;
+  evolution_num: number;
+  is_max_evolution_num: boolean;
+  evol_max_level_of_base_rarity: {
+    [s1: string]: {
+      [s2: string]: number
+    }
+  };
+  hyper_evolve_recipe: {
+    materials: Array<{
+      num: number;
+      hyper_evolve_material_id: number;
+    }>
+    gil: number;
+  };
+  is_usable_as_enhancement_src: boolean;       // true for weapons and armor, false for accessories
+  is_usable_as_enhancement_material: boolean;  // true for weapons and armor, false for accessories
+  can_hyper_evolve_potentially: boolean;       // true for weapons and armor, false for accessories
+  is_hammering_item: boolean;                  // always false
+
+  // - Elemental boost: type 1, arg 120 for 20% bonus damage
+  //   100 = fire, 101 = ice, 102 = lightning, 103 = earth, 104 = wind, 105 = water,
+  //   106 = holy, 107 = dark, 108 = poison
+  // - Resist element: type 2, arg 1 for vulnerable, 2 for minor, 4 for moderate, 7 for major
+  // - Inflict debuff: type 3, arg 5 for "small chance"
+  //   200 = poison, 201 = silence, 202 = paralyze, 203 = confuse, 205 = slow, 206 = stop,
+  //   210 = blind, 211 = sleep, 212 = petrify, 214 = instant KO, 242 = interrupt
+  // - Resist debuff: type 4, arg 10 for "moderate amount"
+  attributes: Array<{
+    arg: string;
+    type: string;
+    attribute_id: string;
+  }>;
+  additional_bonus_attributes: Array<{
+    arg: string;
+    type: string;
+    attribute_id: string;
+  }>;
+}
+
 // Data extracted from the main http://ffrk.denagames.com/dff/ startup request
 export interface Main {
   appInitData: {
@@ -128,7 +254,7 @@ export interface Main {
       series_id: number;
       opened_at: number;
       kept_out_at: Timestamp;
-      is_unlocked: boolean;
+      is_unlocked: boolean;  // May be false for events that are not yet entered
       image_path: RelativeUrlPath;
       type: number;
       banner_message: string;
@@ -380,6 +506,7 @@ export interface PartyList {
     id: number;
     description: string;
   }>;
+
   grow_eggs: Array<{
     exp: number;
     num: number;
@@ -390,6 +517,7 @@ export interface PartyList {
     rarity: number;
     id: number;
   }>;
+
   equipment_hyper_evolve_materials: Array<{
     exp: number;
     num: number;
@@ -401,6 +529,7 @@ export interface PartyList {
     rarity: number;
     id: number;
   }>;
+
   materials: Array<{
     num: number;
     name: string;
@@ -412,6 +541,7 @@ export interface PartyList {
     type: number;
     id: number;
   }>;
+
   equipment_sp_materials: Array<{
     exp: number;
     num: number;
@@ -424,6 +554,7 @@ export interface PartyList {
     id: number;
     hammering_num: number;   // How much it increases augments (i.e., 1 for Rosetta, 0 everywhere else)
   }>;
+
   dress_records: Array<{
     disp_name: string;       // Name with embedded "{n}"
     image_path: RelativeUrlPath;
@@ -431,6 +562,8 @@ export interface PartyList {
     name: string;
     dress_record_id: number;
   }>;
+
+  equipments: Array<Equipment>;
 }
 
 // URL: http://ffrk.denagames.com/dff/achievement_room/get_released_record_materia_list
@@ -473,6 +606,24 @@ export interface UpdateUserSession {
   success: boolean;
   user_session_key: string;
   SERVER_TIME: number;
+}
+
+// http://ffrk.denagames.com/dff/warehouse/get_equipment_list
+export interface WarehouseGetEquipmentList {
+  equipments: Array<{
+    equipment_id: number;
+    name: string;
+    category_name: string;
+    series_id: number;
+    equipment_type: number;
+    is_locked: boolean;
+    category_id: number;
+    created_at: Timestamp;
+    image_path: RelativeUrlPath;
+    ex_series_id: number;
+    rarity: number;
+    id: number;
+  }>;
 }
 
 export interface WorldBattles {

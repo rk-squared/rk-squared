@@ -28,11 +28,11 @@ export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
   const session = yield select((state: IState) => state.session);
   // FIXME: Throw an error if any of session is missing
 
-  yield(put(setProgress('dungeons', {current: 0, max: action.payload.worldIds.length})));
+  yield put(setProgress('dungeons', {current: 0, max: action.payload.worldIds.length}));
 
   for (let i = 0; i < action.payload.worldIds.length; i++) {
     const worldId = action.payload.worldIds[i];
-    yield(put(setProgress('dungeons', {current: i, max: action.payload.worldIds.length})));
+    yield put(setProgress('dungeons', {current: i, max: action.payload.worldIds.length}));
     console.log(`Getting dungeons for world ${worldId}...`);
 
     const result = yield call(() =>
@@ -51,7 +51,7 @@ export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
     }
   }
 
-  yield(put(setProgress('dungeons', undefined)));
+  yield put(setProgress('dungeons', undefined));
 }
 
 export function* watchLoadDungeons() {
