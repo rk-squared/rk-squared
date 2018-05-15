@@ -563,7 +563,7 @@ export interface PartyList {
     dress_record_id: number;
   }>;
 
-  equipments: Array<Equipment>;
+  equipments: Equipment[];
 }
 
 // URL: http://ffrk.denagames.com/dff/achievement_room/get_released_record_materia_list

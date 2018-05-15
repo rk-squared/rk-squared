@@ -17,4 +17,4 @@ export default class OptionsPage extends React.Component<RouteComponentProps<any
       </Page>
     );
   }
-};
+}

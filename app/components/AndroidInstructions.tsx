@@ -2,8 +2,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { ProxyStatus } from '../actions/proxy';
-import { CollapsibleLink } from './CollapsibleLink';
 import { IState } from '../reducers';
+import { CollapsibleLink } from './CollapsibleLink';
 
 interface Props {
   proxy: ProxyStatus;

@@ -24,11 +24,11 @@ export class DungeonPrizeList extends React.Component<Props> {
 }
 
 interface StateProps {
-  showItemType: { [t in ItemType]: boolean }
+  showItemType: { [t in ItemType]: boolean };
 }
 
 interface OwnProps {
-  dungeons: Dungeon[],
+  dungeons: Dungeon[];
 
   [s: string]: any;
 }

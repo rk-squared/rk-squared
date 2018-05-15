@@ -38,4 +38,4 @@ export class ModalDialog extends React.Component<Props> {
       </Modal>
     );
   }
-};
+}
