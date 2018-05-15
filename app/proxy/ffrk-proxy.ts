@@ -212,7 +212,10 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   }
 
   const proxy = httpProxy.createProxyServer({});
-  proxy.on('error', e => console.log(e));
+  proxy.on('error', e => {
+    console.log('Error within proxy');
+    console.log(e);
+  });
 
   const app = connect();
 
@@ -228,6 +231,15 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   });
 
   app.use((req: http.IncomingMessage, res: http.ServerResponse) => {
+    req.on('error', e => {
+      console.log('Error within proxy req');
+      console.log(e);
+    });
+    res.on('error', e => {
+      console.log('Error within proxy res');
+      console.log(e);
+    });
+
     // Disabled; not currently functional:
     /*
     const resourceUrl = parseFfrkCacheRequest(req);
@@ -240,18 +252,17 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     }
     */
 
-    try {
-      proxy.web(req, res, {
-        target: `http://${req.headers.host}/`
-      });
-    } catch (e) {
-      console.error(`Error within proxy.web for ${req.url}: ${e}`);
-    }
+    proxy.web(req, res, {
+      target: `http://${req.headers.host}/`
+    });
   });
 
   const server = http.createServer(app);
 
-  server.on('error', e => console.log(e));
+  server.on('error', e => {
+    console.log('Error within server');
+    console.log(e);
+  });
 
   // Proxy (tunnel) HTTPS requests.  For more information:
   // https://nodejs.org/api/http.html#http_event_connect
@@ -266,18 +277,16 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     let connected = false;
     const serverSocket = net.connect(serverPort, serverUrl.hostname, () => {
       connected = true;
-      try {
-        clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
-          'Proxy-agent: Node.js-Proxy\r\n' +
-          '\r\n');
-        serverSocket.write(head);
-        serverSocket.pipe(clientSocket);
-        clientSocket.pipe(serverSocket);
-      } catch (e) {
-        console.log(`Error within connect callback for ${req.url}: ${e}`);
-      }
+
+      clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
+        'Proxy-agent: Node.js-Proxy\r\n' +
+        '\r\n');
+      serverSocket.write(head);
+      serverSocket.pipe(clientSocket);
+      clientSocket.pipe(serverSocket);
     }).on('error', (e: Error) => {
-      console.log(`Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}: ${e}`);
+      console.log(`Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}`);
+      console.log(e);
       if (!connected) {
         // Unable to connect to destination - send a clean error back to the client
         clientSocket.end('HTTP/1.1 502 Bad Gateway\r\n' +
@@ -291,7 +300,8 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
       }
     });
     clientSocket.on('error', (e: Error) => {
-      console.log(`Error communicating with ${serverUrl.hostname}: ${e}`);
+      console.log(`Error communicating with ${serverUrl.hostname}`);
+      console.log(e);
       serverSocket.destroy();
     });
   });
