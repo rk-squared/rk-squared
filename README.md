@@ -6,10 +6,8 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 
 ## To Do
 
-1. Packaging
-2. Startup instructions
-3. React error boundaries
-4. Stateless components
-5. Error reporting (Sentry?)
-6. Responsive (e.g., nav bar collapses)
-7. Standardize React style - default export vs. named export, where to connect
+1. React error boundaries
+2. Stateless components
+3. Error reporting (Sentry?)
+4. Responsive (e.g., nav bar collapses)
+5. Standardize React style - default export vs. named export, where to connect
