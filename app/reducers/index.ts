@@ -12,18 +12,6 @@ import { default as proxy, ProxyStatus } from './proxy';
 import { default as session, Session } from './session';
 import { default as worlds, WorldState } from './worlds';
 
-const rootReducer = combineReducers({
-  battle,
-  dungeons,
-  options,
-  prefs,
-  progress,
-  proxy,
-  session,
-  worlds,
-  routing: routing as Reducer<any>
-});
-
 export interface IState {
   battle: BattleState;
   dungeons: DungeonState;
@@ -35,4 +23,17 @@ export interface IState {
   worlds: WorldState;
 }
 
-export default rootReducer;
+export const rootReducer = combineReducers<IState>({
+  battle,
+  dungeons,
+  options,
+  prefs,
+  progress,
+  proxy,
+  session,
+  worlds,
+  routing: routing as Reducer<any>
+});
+
+/// State keys to exclude from redux-persist
+export const blacklist = ['progress', 'proxy', 'session', 'routing'];
