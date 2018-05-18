@@ -5,9 +5,9 @@ import { getType } from 'typesafe-actions';
 import { addWorldDungeons, loadDungeons } from '../actions/dungeons';
 import { setProgress } from '../actions/progress';
 import { Session } from '../actions/session';
-import * as apiUrls from '../proxy/apiUrls';
+import * as apiUrls from '../api/apiUrls';
+import * as schemas from '../api/schemas';
 import { convertWorldDungeons } from '../proxy/dungeons';
-import * as schemas from '../proxy/schemas';
 import { IState } from '../reducers';
 
 

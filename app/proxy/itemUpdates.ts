@@ -7,14 +7,14 @@
 
 import { Handler } from './types';
 
+import * as schemas from '../api/schemas';
 import enlir from '../data/enlir';
 import { items, ItemType, ItemTypeLookup, ItemTypeName } from '../data/items';
-import * as schemas from './schemas';
 
 import * as _ from 'lodash';
 import { dressRecordsById } from '../data/dressRecords';
 
-// What's the best place to log these?  Use the console for now.
+// FIXME: What's the best place to log these?  Use the console for now.
 // tslint:disable no-console
 
 let localItems = _.clone(items);

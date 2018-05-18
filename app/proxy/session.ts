@@ -9,8 +9,8 @@ import * as http from 'http';
 import { Store } from 'redux';
 
 import { updateSession } from '../actions/session';
+import * as schemas from '../api/schemas';
 import { IState } from '../reducers';
-import * as schemas from './schemas';
 
 /**
  * Session handler.  Unlike other proxy handlers, this needs access to the HTTP

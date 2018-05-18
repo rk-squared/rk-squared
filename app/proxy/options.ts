@@ -6,8 +6,8 @@
 
 import { Store } from 'redux';
 
+import * as schemas from '../api/schemas';
 import { IState } from '../reducers';
-import * as schemas from './schemas';
 import { Handler } from './types';
 
 // Manually copied from Nightmare dungeons
