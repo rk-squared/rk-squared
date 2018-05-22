@@ -12,18 +12,6 @@ import { default as proxy, ProxyStatus } from './proxy';
 import { default as session, Session } from './session';
 import { default as worlds, WorldState } from './worlds';
 
-const rootReducer = combineReducers({
-  battle,
-  dungeons,
-  options,
-  prefs,
-  progress,
-  proxy,
-  session,
-  worlds,
-  routing: routing as Reducer<any>
-});
-
 export interface IState {
   battle: BattleState;
   dungeons: DungeonState;
@@ -35,4 +23,21 @@ export interface IState {
   worlds: WorldState;
 }
 
-export default rootReducer;
+// noinspection JSUnusedGlobalSymbols
+export const rootReducer = combineReducers<IState>({
+  battle,
+  dungeons,
+  options,
+  prefs,
+  progress,
+  proxy,
+  session,
+  worlds,
+  routing: routing as Reducer<any>,
+
+  // redux-persist uses _persist.  Pass a dummy reducer to silence warnings.
+  _persist: (state: any = null) => state
+});
+
+/// State keys to exclude from redux-persist
+export const blacklist = ['progress', 'proxy', 'session', 'routing'];

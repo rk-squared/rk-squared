@@ -38,7 +38,7 @@ app.on('window-all-closed', () => {
   }
 });
 
-const store = configureStore({});
+const { store, persistor } = configureStore();
 runSagas();
 replayActionMain(store);
 
@@ -57,6 +57,10 @@ const installExtensions = () => {
   return Promise.resolve([]);
 };
 
+const quitApp = () => {
+  persistor.flush().then(() => app.quit());
+};
+
 app.on('ready', () =>
   installExtensions().then(() => {
     const mainWindow = new BrowserWindow({
@@ -70,11 +74,6 @@ app.on('ready', () =>
     mainWindow.webContents.on('did-finish-load', () => {
       mainWindow.show();
       mainWindow.focus();
-    });
-
-    mainWindow.on('closed', () => {
-      // FIXME: What to do here?
-      // mainWindow = null;
     });
 
     enableBrowserLinks(mainWindow.webContents);
@@ -129,7 +128,7 @@ app.on('ready', () =>
           label: 'Quit',
           accelerator: 'Command+Q',
           click() {
-            app.quit();
+            quitApp();
           }
         }]
       }, {
@@ -304,3 +303,7 @@ app.on('ready', () =>
     createFfrkProxy(store, userDataPath);
   })
 );
+
+app.on('window-all-closed', () => {
+  quitApp();
+});

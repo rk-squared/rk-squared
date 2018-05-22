@@ -1,21 +1,36 @@
 import { applyMiddleware, createStore, Store } from 'redux';
+import { Persistor, persistReducer, persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
 const { forwardToRenderer } = require('electron-redux');
+const { default: createElectronStorage } = require('redux-persist-electron-storage');
 
-import rootReducer, { IState } from '../reducers';
+import { blacklist, IState, rootReducer } from '../reducers';
 
-import { watchLoadDungeons } from '../sagas/loadDungeons';
+import { allSagas } from '../sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const enhancer = applyMiddleware(thunk, sagaMiddleware, forwardToRenderer);
 
-export function configureStore(initialState: object | void): Store<IState> {
-  // FIXME: Fix type
-  return createStore(rootReducer, initialState, enhancer) as Store<IState>;
+// See https://github.com/rt2zz/redux-persist
+// and https://github.com/psperber/redux-persist-electron-storage
+const persistedReducer = persistReducer({
+  key: 'root',
+  storage: createElectronStorage(),
+  blacklist
+}, rootReducer);
+
+export function configureStore(initialState?: IState): { store: Store<IState>, persistor: Persistor } {
+  const store = initialState == null
+    ? createStore(persistedReducer, enhancer)
+    : createStore(persistedReducer, initialState, enhancer);
+  const persistor = persistStore(store);
+  return { store, persistor };
 }
 
 export function runSagas() {
-  sagaMiddleware.run(watchLoadDungeons);
+  for (const i of allSagas) {
+    sagaMiddleware.run(i);
+  }
 }
