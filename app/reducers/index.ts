@@ -23,6 +23,7 @@ export interface IState {
   worlds: WorldState;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export const rootReducer = combineReducers<IState>({
   battle,
   dungeons,
@@ -32,7 +33,10 @@ export const rootReducer = combineReducers<IState>({
   proxy,
   session,
   worlds,
-  routing: routing as Reducer<any>
+  routing: routing as Reducer<any>,
+
+  // redux-persist uses _persist.  Pass a dummy reducer to silence warnings.
+  _persist: (state: any = null) => state
 });
 
 /// State keys to exclude from redux-persist
