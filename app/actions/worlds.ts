@@ -56,6 +56,7 @@ export interface World {
   openedAt: number;  // FIXME: Proper type for seconds-since-the-epoch
   closedAt: number;
   seriesId: number;
+  isUnlocked: boolean;
 }
 
 enum WorldSortOrder {

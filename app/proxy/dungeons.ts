@@ -164,6 +164,7 @@ const dungeons: Handler = {
         openedAt: world.opened_at,
         closedAt: world.closed_at,
         seriesId: world.series_id,
+        isUnlocked: world.is_unlocked,
       };
     }
 
@@ -176,6 +177,7 @@ const dungeons: Handler = {
           openedAt: w.opened_at,
           closedAt: w.closed_at,
           seriesId: w.series_id,
+          isUnlocked: w.is_unlocked,
         };
       }
     }

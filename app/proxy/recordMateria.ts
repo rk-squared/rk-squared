@@ -12,9 +12,6 @@ import { IState } from '../reducers';
 
 import { Order, RecordMateria, setRecordMateria, Step } from '../actions/recordMateria';
 
-// FIXME: Proper logging
-// tslint:disable no-console
-
 function determineOrder(data: schemas.ReleasedRecordMateriaList, result: { [id: number]: RecordMateria }) {
   const maxStep: { [id: number]: number } = {};
   for (const i of data.record_materias) {

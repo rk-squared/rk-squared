@@ -64,13 +64,17 @@ const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
 export class DungeonCard extends React.Component<ConnectedProps> {
   render() {
     const { world, dungeons } = this.props;
+    const noMessage =
+      !world.isUnlocked ? 'You have not yet entered this dungeon.'
+        : !dungeons ? 'These dungeons have not been loaded.'
+        : undefined;
     return (
       <CollapsibleCard
         id={`world-${world.id}-dungeons`}
         title={() => <DungeonCardTitle world={world} dungeons={dungeons}/>}
       >
-        {!dungeons
-          ? <p className="mb-0">These dungeons have not been loaded.</p>
+        {noMessage
+          ? <p className="mb-0">{noMessage}</p>
           : <div className="row">
               <div className="col-lg">
                 <h6>Dungeons</h6>

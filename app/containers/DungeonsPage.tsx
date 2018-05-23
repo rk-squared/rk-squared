@@ -66,10 +66,10 @@ export class DungeonsPage extends React.Component<Props> {
 export default connect(
   (state: IState) => ({
     worlds: state.worlds.worlds,
-    missingWorlds:
+    missingWorlds:  // FIXME: Use reselect (I think)
       Object.keys(state.worlds.worlds || {})
         .map(i => +i)
-        .filter(i => !state.dungeons.byWorld[i]),
+        .filter(i => (state.worlds.worlds || {})[i].isUnlocked && !state.dungeons.byWorld[i]),
     progress: state.progress.dungeons
   })
 )(DungeonsPage);
