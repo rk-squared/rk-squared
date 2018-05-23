@@ -9,7 +9,7 @@ import { defaultOptions, Options, OptionsAction, setOption } from '../actions/op
 
 export { Options };
 
-export default function options(state: Options = defaultOptions, action: OptionsAction): Options {
+export function options(state: Options = defaultOptions, action: OptionsAction): Options {
   switch (action.type) {
     case getType(setOption):
       return {

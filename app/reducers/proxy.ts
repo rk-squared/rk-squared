@@ -9,7 +9,7 @@ import { ProxyAction, ProxyStatus, updateProxyStatus } from '../actions/proxy';
 
 export { ProxyStatus };
 
-export default function proxy(state: ProxyStatus = {}, action: ProxyAction): ProxyStatus {
+export function proxy(state: ProxyStatus = {}, action: ProxyAction): ProxyStatus {
   switch (action.type) {
     case getType(updateProxyStatus):
       return {

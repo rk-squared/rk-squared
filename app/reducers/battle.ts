@@ -10,7 +10,7 @@ const initialState = {
   dropItems: null
 };
 
-export default function battle(state: BattleState = initialState, action: BattleAction): BattleState {
+export function battle(state: BattleState = initialState, action: BattleAction): BattleState {
   switch (action.type) {
     case getType(setDropItems):
       return {

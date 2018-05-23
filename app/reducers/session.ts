@@ -9,7 +9,7 @@ import { Session, SessionAction, updateSession } from '../actions/session';
 
 export { Session };
 
-export default function session(state: Session = {}, action: SessionAction): Session {
+export function session(state: Session = {}, action: SessionAction): Session {
   switch (action.type) {
     case getType(updateSession):
       return {

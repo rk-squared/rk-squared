@@ -31,7 +31,7 @@ export function getDungeonsForWorlds(state: DungeonState, worlds: World[]) {
   return _.flatten(_.filter(worldDungeons) as any as Dungeon[][]);
 }
 
-export default function dungeons(state: DungeonState = initialState, action: DungeonsAction): DungeonState {
+export function dungeons(state: DungeonState = initialState, action: DungeonsAction): DungeonState {
   switch (action.type) {
     case getType(addWorldDungeons):
       const newDungeons: {[id: number]: Dungeon} = {...state.dungeons};

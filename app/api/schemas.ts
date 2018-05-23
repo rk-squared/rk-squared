@@ -571,7 +571,7 @@ export interface ReleasedRecordMateriaList {
   record_materias: Array<{
     buddy_role_type: number;
     effect_type: RecordMateriaEffectType;
-    step: number;
+    step: number;               // 1-4, giving number of the record materia for that character
     record_materia_id: number;  // identical to ID
     cond_description: string;
     id: number;

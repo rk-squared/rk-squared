@@ -22,7 +22,7 @@ const initialState = {
   ) as { [t in ItemType]: boolean }
 };
 
-export default function prefs(state: PrefsState = initialState, action: PrefsAction): PrefsState {
+export function prefs(state: PrefsState = initialState, action: PrefsAction): PrefsState {
   switch (action.type) {
     case getType(showItemType):
       return {

@@ -8,10 +8,9 @@ export interface WorldState {
   };
 }
 
-export default function worlds(state: WorldState = {}, action: WorldAction): WorldState {
+export function worlds(state: WorldState = {}, action: WorldAction): WorldState {
   switch (action.type) {
     case getType(updateWorlds):
-      // FIXME: Merge, instead of replace, motes and power up dungeons
       return {
         ...state,
         worlds: action.payload.worlds

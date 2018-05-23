@@ -19,6 +19,7 @@ import battle from './battle';
 import dungeons from './dungeons';
 import itemUpdates from './itemUpdates';
 import options from './options';
+import recordMateria from './recordMateria';
 import { sessionHandler } from './session';
 import { StartupHandler } from './types';
 
@@ -31,6 +32,7 @@ const handlers = [
   battle,
   dungeons,
   itemUpdates,
+  recordMateria,
 
   // Apply options last so that changes that options make won't interfere with
   // other processing.

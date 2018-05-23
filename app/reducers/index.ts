@@ -2,15 +2,15 @@ import { combineReducers, Reducer } from 'redux';
 
 import { routerReducer as routing } from 'react-router-redux';
 
-// tslint:disable ordered-imports
-import { default as battle, BattleState } from './battle';
-import { default as dungeons, DungeonState } from './dungeons';
-import { default as options, Options } from './options';
-import { default as prefs, PrefsState } from './prefs';
-import { default as progress, ProgressState } from './progress';
-import { default as proxy, ProxyStatus } from './proxy';
-import { default as session, Session } from './session';
-import { default as worlds, WorldState } from './worlds';
+import { battle, BattleState } from './battle';
+import { dungeons, DungeonState } from './dungeons';
+import { options, Options } from './options';
+import { prefs, PrefsState } from './prefs';
+import { progress, ProgressState } from './progress';
+import { proxy, ProxyStatus } from './proxy';
+import { recordMateria, RecordMateriaState } from './recordMateria';
+import { session, Session } from './session';
+import { worlds, WorldState } from './worlds';
 
 export interface IState {
   battle: BattleState;
@@ -19,6 +19,7 @@ export interface IState {
   prefs: PrefsState;
   progress: ProgressState;
   proxy: ProxyStatus;
+  recordMateria: RecordMateriaState;
   session: Session;
   worlds: WorldState;
 }
@@ -31,6 +32,7 @@ export const rootReducer = combineReducers<IState>({
   prefs,
   progress,
   proxy,
+  recordMateria,
   session,
   worlds,
   routing: routing as Reducer<any>,

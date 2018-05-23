@@ -11,7 +11,7 @@ export interface ProgressState {
   [key: string]: Progress;
 }
 
-export default function progress(state: ProgressState = {}, action: ProgressAction): ProgressState {
+export function progress(state: ProgressState = {}, action: ProgressAction): ProgressState {
   switch (action.type) {
     case getType(setProgress):
       if (action.payload.progress) {
