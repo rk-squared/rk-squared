@@ -27,12 +27,18 @@ export interface World {
   has_brave_series_buddies: boolean;
   closed_at: Timestamp;
   bgm: string;
-  dungeon_status_summary: Array<{
-    clear_count: number;
-    master_count: number;
-  }>;
+  dungeon_status_summary: {
+    '1'?: {
+      clear_count: number
+      master_count: number;
+    };
+    '2'?: {
+      clear_count: number
+      master_count: number;
+    };
+  };
   door_image_path: RelativeUrlPath;
-  dungeon_term_list?: Array<{
+  dungeon_term_list: null | Array<{
     closed_at: TimestampString;
     id: string;
     type: string;

@@ -8,7 +8,7 @@ const makeDataLookup = (sheet: any[]) => _.fromPairs(sheet.map(i => [+i.Id, i]))
 // These lists give IDs that are auto-assigned by the Enlir web service.
 const makeTypeLookup = (types: any[]) => _.fromPairs(types.map(i => [+i.Key, i.Value]));
 
-// FIXME: Properly update rawData outside of app; make available within dist; resolve id vs. EnlirId
+// FIXME: Properly update rawData outside of app; resolve id vs. EnlirId
 
 const enlir = {
   abilities: makeDataLookup(rawData.Abilities),

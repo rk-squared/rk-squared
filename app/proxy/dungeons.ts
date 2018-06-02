@@ -93,6 +93,7 @@ export function convertWorld(event: schemasMain.Event, world: schemasMain.World,
   let category: WorldCategory | undefined;
   let subcategory: string | undefined;
   let subcategorySortOrder: number | undefined;
+  const seriesShortName = textMaster[`sortmodal_short_summary_series_${world.series_id}`];
 
   if (event.type_name === 'rotation' || event.type_name === 'wday') {
     // For mote ("rotation") and power up ("wday") dungeons, there are only
@@ -109,7 +110,7 @@ export function convertWorld(event: schemasMain.Event, world: schemasMain.World,
     category = WorldCategory.JumpStart;
   } else if (event.tag === 'nightmare_dungeon') {
     category = WorldCategory.Torment;
-    name = world.name + ' (' + textMaster[`sortmodal_short_summary_series_${world.series_id}`] + ')';
+    name = world.name + ' (' + seriesShortName + ')';
   } else if (event.tag === 'crystal_tower') {
     category = WorldCategory.CrystalTower;
   } else if (world.name.startsWith('Newcomers\' Dungeons - ')) {
@@ -117,7 +118,7 @@ export function convertWorld(event: schemasMain.Event, world: schemasMain.World,
   } else if (event.tag.match(/^ff.*_reopen_ww\d+/)) {
     category = WorldCategory.Renewal;
     // Type-0, at least, has series_formal_name == ''.
-    subcategory = world.series_formal_name || textMaster[`sortmodal_short_summary_series_${world.series_id}`];
+    subcategory = world.series_formal_name || seriesShortName;
     // Use negative series ID so that newest series are listed first,
     // to match FFRK's own API.
     subcategorySortOrder = -world.series_id;
