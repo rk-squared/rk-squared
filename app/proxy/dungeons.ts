@@ -8,6 +8,7 @@ import { Store } from 'redux';
 import { addWorldDungeons, updateDungeon } from '../actions/dungeons';
 import { unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
 import * as schemas from '../api/schemas';
+import * as schemasMain from '../api/schemas/main';
 import { ItemType } from '../data/items';
 import { IState } from '../reducers';
 import { Handler, StartupHandler } from './types';
@@ -86,6 +87,66 @@ export function convertWorldDungeons(data: schemas.Dungeons) {
   }));
 }
 
+export function convertWorld(event: schemasMain.Event, world: schemasMain.World,
+                             textMaster: schemasMain.TextMaster): World | null {
+  let name = world.name;
+  let category: WorldCategory | undefined;
+  let subcategory: string | undefined;
+  let subcategorySortOrder: number | undefined;
+
+  if (event.type_name === 'rotation' || event.type_name === 'wday') {
+    // For mote ("rotation") and power up ("wday") dungeons, there are only
+    // two worlds ("Mode Dungeons" and "Power Up Dungeons"), each with only
+    // one dungeon visible at a time.  No need to assign a subcategory.
+    category = WorldCategory.PowerUpMote;
+  } else if (event.type_name === 'extreme') {
+    category = WorldCategory.Nightmare;
+  } else if (event.type_name === 'beast') {
+    category = WorldCategory.Magicite;
+  } else if (event.type_name === 'suppress') {
+    category = WorldCategory.Raid;
+  } else if (event.tag === 'full_throttle') {
+    category = WorldCategory.JumpStart;
+  } else if (event.tag === 'nightmare_dungeon') {
+    category = WorldCategory.Torment;
+    name = world.name + ' (' + textMaster[`sortmodal_short_summary_series_${world.series_id}`] + ')';
+  } else if (event.tag === 'crystal_tower') {
+    category = WorldCategory.CrystalTower;
+  } else if (world.name.startsWith('Newcomers\' Dungeons - ')) {
+    category = WorldCategory.Newcomer;
+  } else if (event.tag.match(/^ff.*_reopen_ww\d+/)) {
+    category = WorldCategory.Renewal;
+    // Type-0, at least, has series_formal_name == ''.
+    subcategory = world.series_formal_name || textMaster[`sortmodal_short_summary_series_${world.series_id}`];
+    // Use negative series ID so that newest series are listed first,
+    // to match FFRK's own API.
+    subcategorySortOrder = -world.series_id;
+  } else if ((event.type_name === 'challenge' || event.type_name === 'special')) {
+    // 'special' was observed with A Heretic Awaits
+    if (event.tag !== '') {
+      // Fall back / generic - e.g., third_anniversary
+      category = WorldCategory.SpecialEvent;
+      subcategory = _.startCase(event.tag);
+    } else {
+      category = WorldCategory.Event;
+    }
+  } else {
+    return null;
+  }
+
+  return {
+    id: world.id,
+    name,
+    category,
+    subcategory,
+    subcategorySortOrder,
+    openedAt: world.opened_at,
+    closedAt: world.closed_at,
+    seriesId: world.series_id,
+    isUnlocked: world.is_unlocked,
+  };
+}
+
 // noinspection JSUnusedGlobalSymbols
 const dungeons: Handler = {
   [StartupHandler]: (data: schemas.Main, store: Store<IState>) => {
@@ -94,7 +155,6 @@ const dungeons: Handler = {
     const { worlds, events } = data.appInitData;
 
     const worldsById = _.zipObject(worlds.map(i => i.id), worlds);
-    const seriesShortName = (id: number) => data.textMaster[`sortmodal_short_summary_series_${id}`];
 
     const seenWorlds = new Set<number>();
 
@@ -107,65 +167,14 @@ const dungeons: Handler = {
       }
       seenWorlds.add(e.world_id);
 
-      let name = world.name;
-      let category: WorldCategory | undefined;
-      let subcategory: string | undefined;
-      let subcategorySortOrder: number | undefined;
+      const resultWorld = convertWorld(e, world, data.textMaster);
 
-      // FIXME: Extract into a separate, testable function
-      if (e.type_name === 'rotation' || e.type_name === 'wday') {
-        // For mote ("rotation") and power up ("wday") dungeons, there are only
-        // two worlds ("Mode Dungeons" and "Power Up Dungeons"), each with only
-        // one dungeon visible at a time.  No need to assign a subcategory.
-        category = WorldCategory.PowerUpMote;
-      } else if (e.type_name === 'extreme') {
-        category = WorldCategory.Nightmare;
-      } else if (e.type_name === 'beast') {
-        category = WorldCategory.Magicite;
-      } else if (e.type_name === 'suppress') {
-        category = WorldCategory.Raid;
-      } else if (e.tag === 'full_throttle') {
-        category = WorldCategory.JumpStart;
-      } else if (e.tag === 'nightmare_dungeon') {
-        category = WorldCategory.Torment;
-        name = world.name + ` (${seriesShortName(world.series_id)})`;
-      } else if (e.tag === 'crystal_tower') {
-        category = WorldCategory.CrystalTower;
-      } else if (world.name.startsWith('Newcomers\' Dungeons - ')) {
-        category = WorldCategory.Newcomer;
-      } else if (e.tag.match(/^ff.*_reopen_ww\d+/)) {
-        category = WorldCategory.Renewal;
-        // Type-0, at least, has series_formal_name == ''.
-        subcategory = world.series_formal_name || data.textMaster[`sortmodal_short_summary_series_${world.series_id}`];
-        // Use negative series ID so that newest series are listed first,
-        // to match FFRK's own API.
-        subcategorySortOrder = -world.series_id;
-      } else if ((e.type_name === 'challenge' || e.type_name === 'special')) {
-        // 'special' was observed with A Heretic Awaits
-        if (e.tag !== '') {
-          // Fall back / generic - e.g., third_anniversary
-          category = WorldCategory.SpecialEvent;
-          subcategory = _.startCase(e.tag);
-        } else {
-          category = WorldCategory.Event;
-        }
-      } else {
+      if (resultWorld == null) {
         console.error(`Unknown: ${e.world_id} (${world.name})`);
         totalUnknown++;
-        continue;
+      } else {
+        result[world.id] = resultWorld;
       }
-
-      result[world.id] = {
-        id: world.id,
-        name,
-        category,
-        subcategory,
-        subcategorySortOrder,
-        openedAt: world.opened_at,
-        closedAt: world.closed_at,
-        seriesId: world.series_id,
-        isUnlocked: world.is_unlocked,
-      };
     }
 
     for (const w of worlds) {
