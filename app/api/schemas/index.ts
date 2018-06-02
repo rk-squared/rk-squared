@@ -1,6 +1,7 @@
 import { ItemTypeName } from '../../data/items';
-import { BoolAsString, ContentPath, RelativeUrlPath, Timestamp } from './common';
+import { Asset, BoolAsString, ContentPath, RelativeUrlPath, Timestamp } from './common';
 
+export { Dungeons } from './dungeons';
 export { Main } from './main';
 
 export enum RecordMateriaEffectType {
@@ -32,25 +33,6 @@ export enum RecordMateriaEffectType {
   ExpBonus = 27,
   AttachReplacementHeal = 28,
   ReducedDamage = 29,
-}
-
-export enum RewardType {
-  // noinspection JSUnusedGlobalSymbols
-  Completion = '1',
-  FirstTime = '2',
-  Mastery = '3',
-  Bonus = '7'
-}
-
-interface Asset {
-  bundle: {
-    // `/Content/lang/ww/compile` path to PNG, JSON, or OGG
-    [contentPath: string]: {
-      // Hashes are MD5 checksums, base64-encoded, with two trailing `=` stripped.
-      hash: string;
-    }
-  };
-  assetPath: ContentPath;
 }
 
 interface Equipment {
@@ -203,61 +185,6 @@ export interface DropItem {
 
   // Item ID for magicite
   item_id?: string;
-}
-
-export interface DungeonPrizeItem {
-  type_name: ItemTypeName;
-  num: number;
-  image_path: RelativeUrlPath;
-  is_got_grade_bonus_prize: number;
-  name: string;
-  id: number;
-  clear_battle_time?: number;  // Clear time, in milliseconds
-}
-
-export interface Dungeon {
-  id: number;
-  name: string;
-  series_id: number;
-  prologue: string;
-  epilogue: string;
-  is_clear: boolean;
-  is_master: boolean;
-  is_new: boolean;
-  is_unlocked: boolean;
-  type: number;   // Whether it's on page 1 (normal) or page 2 (elite, part 2, etc.)
-
-  // Does not take 1/2 stamina into account.  Summing stamina_list, dividing
-  // by 2 and rounding down, minimum 1, is necessary to handle that.
-  total_stamina: number;
-  stamina_list: number[];
-
-  opened_at: Timestamp;
-  closed_at: Timestamp;
-
-  challenge_level: number;
-  progress_map_level: number;
-  button_style: string;   // "NORMAL", "EXTRA", or "DOOM"
-  prizes: {
-    [s in RewardType]: DungeonPrizeItem[];
-  };
-}
-
-// Sample URL: http://ffrk.denagames.com/dff/world/dungeons?world_id=104001
-export interface Dungeons {
-  assets: Asset[];
-
-  // Assets for Nightmare dungeons
-  room_of_abyss_assets?: {
-    common: {
-      [s: string]: Asset;
-    }
-    picture: {
-      [s: string]: Asset;
-    }
-  };
-
-  dungeons: Dungeon[];
 }
 
 export interface GachaShow {

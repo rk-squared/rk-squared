@@ -8,7 +8,8 @@ import { Store } from 'redux';
 import { addWorldDungeons, updateDungeon } from '../actions/dungeons';
 import { unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
 import * as schemas from '../api/schemas';
-import * as schemasMain from '../api/schemas/main';
+import * as dungeonsSchemas from '../api/schemas/dungeons';
+import * as mainSchemas from '../api/schemas/main';
 import { ItemType } from '../data/items';
 import { IState } from '../reducers';
 import { Handler, StartupHandler } from './types';
@@ -30,10 +31,10 @@ const buttonStyleSort: {[s: string]: number} = {
  */
 const effectiveDifficulty = (difficulty: number) => difficulty === 0 ? Infinity : difficulty;
 
-function sortDungeons(dungeonData: schemas.Dungeons) {
+function sortDungeons(dungeonData: dungeonsSchemas.Dungeons) {
   // Normally, type 1 vs. 2 marks classic vs. elite, page 1 vs. page 2, etc.
   // But, for Nightmare, 1 is the actual record, and 2 is the buildup.
-  const sortType: ((d: schemas.Dungeon) => number) =
+  const sortType: ((d: dungeonsSchemas.Dungeon) => number) =
     dungeonData.room_of_abyss_assets
     ? d => -d.type
     : d => d.type;
@@ -44,15 +45,15 @@ function sortDungeons(dungeonData: schemas.Dungeons) {
     // Realm dungeons are sorted by progress_map_level.
     'progress_map_level',
     // Then by normal vs. hard vs. DOOM!
-    (d: schemas.Dungeon) => buttonStyleSort[d.button_style],
+    (d: dungeonsSchemas.Dungeon) => buttonStyleSort[d.button_style],
     // Then by difficulty
-    (d: schemas.Dungeon) => effectiveDifficulty(d.challenge_level),
+    (d: dungeonsSchemas.Dungeon) => effectiveDifficulty(d.challenge_level),
     // Use id to disambiguate magicite
     'id',
   ]);
 }
 
-function convertPrizeItems(prizes?: schemas.DungeonPrizeItem[]) {
+function convertPrizeItems(prizes?: dungeonsSchemas.DungeonPrizeItem[]) {
   if (!prizes) {
     return [];
   } else {
@@ -66,7 +67,7 @@ function convertPrizeItems(prizes?: schemas.DungeonPrizeItem[]) {
   }
 }
 
-export function convertWorldDungeons(data: schemas.Dungeons) {
+export function convertWorldDungeons(data: dungeonsSchemas.Dungeons) {
   return sortDungeons(data).map(d => ({
     name: d.name,
     id: d.id,
@@ -80,15 +81,15 @@ export function convertWorldDungeons(data: schemas.Dungeons) {
     totalStamina: d.total_stamina,
     staminaList: d.stamina_list,
     prizes: {
-      completion: convertPrizeItems(d.prizes[schemas.RewardType.Completion]),
-      firstTime: convertPrizeItems(d.prizes[schemas.RewardType.FirstTime]),
-      mastery: convertPrizeItems(d.prizes[schemas.RewardType.Mastery]),
+      completion: convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.Completion]),
+      firstTime: convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.FirstTime]),
+      mastery: convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.Mastery]),
     }
   }));
 }
 
-export function convertWorld(event: schemasMain.Event, world: schemasMain.World,
-                             textMaster: schemasMain.TextMaster): World | null {
+export function convertWorld(event: mainSchemas.Event, world: mainSchemas.World,
+                             textMaster: mainSchemas.TextMaster): World | null {
   let name = world.name;
   let category: WorldCategory | undefined;
   let subcategory: string | undefined;
@@ -152,7 +153,7 @@ export function convertWorld(event: schemasMain.Event, world: schemasMain.World,
 
 // noinspection JSUnusedGlobalSymbols
 const dungeons: Handler = {
-  [StartupHandler]: (data: schemas.Main, store: Store<IState>) => {
+  [StartupHandler]: (data: mainSchemas.Main, store: Store<IState>) => {
     const result: {[id: number]: World} = {};
 
     const { worlds, events } = data.appInitData;
@@ -202,7 +203,7 @@ const dungeons: Handler = {
     // FIXME: Track half-price dungeons
   },
 
-  dungeons(data: schemas.Dungeons, store: Store<IState>, query?: any) {
+  dungeons(data: dungeonsSchemas.Dungeons, store: Store<IState>, query?: any) {
     if (!query || !query.world_id) {
       console.error('Unrecognized dungeons query');
       return;
@@ -212,6 +213,8 @@ const dungeons: Handler = {
 
     store.dispatch(unlockWorld(query.world_id));
     store.dispatch(addWorldDungeons(query.world_id, newDungeons));
+
+    // FIXME: Track remaining Record Dungeon treasures?
   },
 
   win_battle(data: schemas.WinBattle, store: Store<IState>) {
