@@ -5,6 +5,7 @@ export enum ItemType {
   Arcana = 'beast_food',
   Character = 'buddy',
   Common = 'common',
+  CrystalWater = 'record_tear',
   DarkMatter = 'equipment_hyper_evolve_material',
   DressRecord = 'dress_record',
   GrowthEgg = 'grow_egg',
@@ -30,6 +31,7 @@ export type ItemTypeName =
   'GROW_EGG' |
   'MEMORY_CRYSTAL' |
   'RECORD_MATERIA' |
+  'RECORD_TEAR' |
   'SPHERE_MATERIAL';
 
 export const itemTypeDescription: { [t in ItemType]: string } = {
@@ -37,6 +39,7 @@ export const itemTypeDescription: { [t in ItemType]: string } = {
   [ItemType.Arcana]: 'Arcana',
   [ItemType.Character]: 'Characters',
   [ItemType.Common]: 'Mythril, MC Nodes, etc.',
+  [ItemType.CrystalWater]: 'Crystal Water',
   [ItemType.DarkMatter]: 'Dark Matter',
   [ItemType.DressRecord]: 'Dress Records',
   [ItemType.GrowthEgg]: 'Growth Eggs',
@@ -624,6 +627,37 @@ export const items = [
     name: 'Major Growth Egg',
     type: ItemType.GrowthEgg,
     id: 70000005
+  },
+
+  {
+    name: 'Life Crystal Water',
+    type: ItemType.CrystalWater,
+    id: 71000101
+  },
+  {
+    name: 'Power Crystal Water',
+    type: ItemType.CrystalWater,
+    id: 71000201
+  },
+  {
+    name: 'Aegis Crystal Water',
+    type: ItemType.CrystalWater,
+    id: 71000301
+  },
+  {
+    name: 'Magic Crystal Water',
+    type: ItemType.CrystalWater,
+    id: 71000401
+  },
+  {
+    name: 'Null Crystal Water',
+    type: ItemType.CrystalWater,
+    id: 71000501
+  },
+  {
+    name: 'Spirit Crystal Water',
+    type: ItemType.CrystalWater,
+    id: 71000601
   },
 
   {
