@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import * as net from 'net';
 import * as path from 'path';
 import * as querystring from 'querystring';
+import * as streamBuffers from 'stream-buffers';
 import * as url from 'url';
 
 import { Store } from 'redux';
@@ -28,6 +29,10 @@ import { IState } from '../reducers';
 
 import * as _ from 'lodash';
 
+interface ProxyIncomingMessage extends http.IncomingMessage {
+  bodyStream: streamBuffers.WritableStreamBuffer;
+}
+
 const handlers = [
   battle,
   dungeons,
@@ -42,16 +47,18 @@ const handlers = [
 // FIXME: Proper logging library
 // tslint:disable no-console
 
+const ffrkRegex = /ffrk\.denagames\.com\/dff/;
+
 function isFfrkApiRequest(req: http.IncomingMessage) {
   return req.headers['accept']
-      && req.headers['accept']!.indexOf('application/json') !== -1
-      && req.headers['x-requested-with'] === 'XMLHttpRequest';
+    && req.headers['accept']!.indexOf('application/json') !== -1
+    && req.headers['x-requested-with'] === 'XMLHttpRequest';
 }
 
 function isFfrkStartupRequest(req: http.IncomingMessage) {
   return req.url === 'http://ffrk.denagames.com/dff/'
-      && req.headers['accept']
-      && req.headers['accept']!.indexOf('text/html') !== -1;
+    && req.headers['accept']
+    && req.headers['accept']!.indexOf('text/html') !== -1;
 }
 
 let capturePath: string;
@@ -73,8 +80,11 @@ function recordCapturedData(data: any, req: http.IncomingMessage, res: http.Serv
   const { url, method, headers } = req;  // tslint:disable-line no-shadowed-variable
   const response = { headers: res.getHeaders() };
 
+  const proxyReq = req as ProxyIncomingMessage;
+  const requestBody = req.method === 'POST' ? proxyReq.bodyStream.getContentsAsString('utf8') : undefined;
+
   return new Promise((resolve, reject) => {
-    fs.writeFile(filename, JSON.stringify({ url, method, headers, response, data }, null, 2), err => {
+    fs.writeFile(filename, JSON.stringify({ url, method, headers, requestBody, response, data }, null, 2), err => {
       if (err) {
         reject(err);
       } else {
@@ -200,7 +210,7 @@ function handleFfrkStartupRequest(
 
 export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   setStoragePath(userDataPath);
-  store.dispatch(updateProxyStatus({capturePath: userDataPath}));
+  store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
 
   // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
@@ -221,7 +231,7 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
 
   const app = connect();
 
-  app.use(transformerProxy(transformerFunction, { match: /ffrk\.denagames\.com\/dff/ }));
+  app.use(transformerProxy(transformerFunction, { match: ffrkRegex }));
   // Disabled; not currently functional:
   // app.use(transformerProxy(cacheTransformerFunction, { match: /127\.0\.0\.1/ }));
 
@@ -253,6 +263,12 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
       return;
     }
     */
+
+    if (req.url && req.url.match(ffrkRegex) && req.method === 'POST') {
+      const proxyReq = req as ProxyIncomingMessage;
+      proxyReq.bodyStream = new streamBuffers.WritableStreamBuffer();
+      req.pipe(proxyReq.bodyStream);
+    }
 
     proxy.web(req, res, {
       target: `http://${req.headers.host}/`

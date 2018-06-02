@@ -65,7 +65,7 @@ export class DungeonCard extends React.Component<ConnectedProps> {
   render() {
     const { world, dungeons } = this.props;
     const noMessage =
-      !world.isUnlocked ? 'You have not yet entered this dungeon.'
+      !world.isUnlocked ? 'You have not yet entered these dungeons.'
         : !dungeons ? 'These dungeons have not been loaded.'
         : undefined;
     return (

@@ -1,6 +1,8 @@
 import { getType } from 'typesafe-actions';
 
-import { updateWorlds, World, WorldAction } from '../actions/worlds';
+const u = require('updeep');
+
+import { unlockWorld, updateWorlds, World, WorldAction } from '../actions/worlds';
 
 export interface WorldState {
   worlds?: {
@@ -15,6 +17,9 @@ export function worlds(state: WorldState = {}, action: WorldAction): WorldState 
         ...state,
         worlds: action.payload.worlds
       };
+
+    case getType(unlockWorld):
+      return u.updateIn(['worlds', action.payload], {isUnlocked: true}, state);
 
     default:
       return state;

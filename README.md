@@ -7,6 +7,7 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 ## To Do
 
 1. React error boundaries
+    * And optionally a way to recover from corrupt state
 2. Stateless components
 3. Error reporting (Sentry?)
 4. Responsive (e.g., nav bar collapses)

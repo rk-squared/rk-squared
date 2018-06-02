@@ -6,7 +6,7 @@
 import { Store } from 'redux';
 
 import { addWorldDungeons, updateDungeon } from '../actions/dungeons';
-import { updateWorlds, World, WorldCategory } from '../actions/worlds';
+import { unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
 import * as schemas from '../api/schemas';
 import { ItemType } from '../data/items';
 import { IState } from '../reducers';
@@ -198,6 +198,7 @@ const dungeons: Handler = {
 
     const newDungeons = convertWorldDungeons(data);
 
+    store.dispatch(unlockWorld(query.world_id));
     store.dispatch(addWorldDungeons(query.world_id, newDungeons));
   },
 

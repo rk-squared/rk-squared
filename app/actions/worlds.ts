@@ -47,6 +47,7 @@ export const sortOrder = [
   WorldCategory.Newcomer,
 ];
 
+// FIXME: Add eventId - and track "enter" requests to mark dungeons as unlocked - and unit test all of it
 export interface World {
   category: WorldCategory;
   subcategory?: string;
@@ -107,4 +108,9 @@ export const updateWorlds = createAction('UPDATE_WORLDS', (worlds: {[id: number]
   }
 }));
 
-export type WorldAction = ReturnType<typeof updateWorlds>;
+export const unlockWorld = createAction('UNLOCK_WORLD', (worldId: number) => ({
+  type: 'UNLOCK_WORLD',
+  payload: worldId
+}));
+
+export type WorldAction = ReturnType<typeof updateWorlds | typeof unlockWorld>;

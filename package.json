@@ -132,6 +132,7 @@
     "@types/react-tooltip": "^3.3.4",
     "@types/redux-logger": "^3.0.0",
     "@types/sinon": "^4.0.0",
+    "@types/stream-buffers": "^3.0.2",
     "asar": "^0.14.0",
     "concurrently": "^3.1.0",
     "copyfiles": "^2.0.0",
@@ -205,10 +206,12 @@
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.1.0",
     "source-map-support": "^0.5.0",
+    "stream-buffers": "^3.0.2",
     "timeago-react": "^2.0.0",
     "transformer-proxy": "^0.3.4",
     "tslib": "^1.9.0",
     "typesafe-actions": "^1.1.2",
+    "updeep": "^1.0.0",
     "utility-types": "^2.0.0"
   },
   "devEngines": {
