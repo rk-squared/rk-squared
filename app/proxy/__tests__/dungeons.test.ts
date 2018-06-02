@@ -74,5 +74,52 @@ describe('dungeon proxy', () => {
         subcategorySortOrder: undefined,
       });
     });
+
+    it('processes Record Dungeons', () => {
+      const gameEvent = {
+        world_id: 401001,
+        battle_list_bg_type: 1,
+        type_name: 'original_scenario',
+        has_intro_movie: false,
+        ex_opened_at: 0,
+        order_weight: 3000,
+        image_path: '/dff/static/lang/image/event/11001.png',
+        type: 11,
+        id: 11001,
+        tag: '',
+        background_image_path: '/dff/static/lang/image/event/11001_bg.png'
+      };
+      const gameWorld = {
+        has_brave_series_buddies: false,
+        closed_at: 2177420399,
+        bgm: 'bgm_30_002',
+        dungeon_status_summary: {},
+        door_image_path: '/dff/static/lang/image/world/401001_door.png',
+        dungeon_term_list: null,
+        series_formal_name: '',
+        id: 401001,
+        name: 'Untrodden Paths',
+        has_new_dungeon: true,
+        series_id: 1,
+        opened_at: 1527667200,
+        kept_out_at: 2177420399,
+        is_unlocked: true,
+        image_path: '/dff/static/lang/image/world/401001.png',
+        type: 2,
+        banner_message: ''
+      };
+
+      expect(convertWorld(gameEvent, gameWorld, textMaster)).toEqual({
+        category: WorldCategory.Record,
+        closedAt: 2177420399,
+        id: 401001,
+        isUnlocked: true,
+        name: 'Untrodden Paths',
+        openedAt: 1527667200,
+        seriesId: 1,
+        subcategory: undefined,
+        subcategorySortOrder: undefined,
+      });
+    });
   });
 });

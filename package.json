@@ -50,7 +50,7 @@
       "<rootDir>/app/**/*.{ts,tsx}",
       "!**/__tests__/**"
     ],
-    "coverageReporters": ["html", "text"]
+    "coverageReporters": ["html"]
   },
   "build": {
     "productName": "RK Squared",

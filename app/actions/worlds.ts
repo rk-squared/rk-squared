@@ -15,10 +15,11 @@ export enum WorldCategory {
   PowerUpMote,
   Newcomer,
   Renewal,
+  Record,
 }
 
 export const descriptions = {
-  [WorldCategory.Realm]: 'Realms',
+  [WorldCategory.Realm]: 'Realm Dungeons',
   [WorldCategory.Nightmare]: 'Nightmare',
   [WorldCategory.Magicite]: 'Magicite',
   [WorldCategory.Torment]: 'Torments',
@@ -30,6 +31,7 @@ export const descriptions = {
   [WorldCategory.PowerUpMote]: 'Power Up & Mote Dungeons',
   [WorldCategory.Newcomer]: 'Newcomers\' Dungeons',
   [WorldCategory.Renewal]: 'Renewal Dungeons',
+  [WorldCategory.Record]: 'Record Dungeons',
 };
 
 export const sortOrder = [
@@ -40,6 +42,7 @@ export const sortOrder = [
   WorldCategory.Raid,
   WorldCategory.CrystalTower,
   WorldCategory.Realm,
+  WorldCategory.Record,
   WorldCategory.Nightmare,
   WorldCategory.Magicite,
   WorldCategory.Torment,
@@ -80,6 +83,7 @@ function getSortOrder(category: WorldCategory) {
       return WorldSortOrder.BySeriesId;
     case WorldCategory.CrystalTower:
     case WorldCategory.Realm:
+    case WorldCategory.Record:
     case WorldCategory.Nightmare:
     case WorldCategory.Magicite:
     case WorldCategory.PowerUpMote:

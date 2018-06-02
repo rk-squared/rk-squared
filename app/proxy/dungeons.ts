@@ -106,6 +106,8 @@ export function convertWorld(event: schemasMain.Event, world: schemasMain.World,
     category = WorldCategory.Magicite;
   } else if (event.type_name === 'suppress') {
     category = WorldCategory.Raid;
+  } else if (event.type_name === 'original_scenario') {
+    category = WorldCategory.Record;
   } else if (event.tag === 'full_throttle') {
     category = WorldCategory.JumpStart;
   } else if (event.tag === 'nightmare_dungeon') {
