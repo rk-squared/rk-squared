@@ -31,15 +31,65 @@ const buttonStyleSort: {[s: string]: number} = {
  */
 const effectiveDifficulty = (difficulty: number) => difficulty === 0 ? Infinity : difficulty;
 
-function sortDungeons(dungeonData: dungeonsSchemas.Dungeons) {
+export function sortDungeonsByNode(dungeonData: dungeonsSchemas.Dungeons)
+  : [dungeonsSchemas.Dungeon[], dungeonsSchemas.Dungeon[]] {
+  const dungeonList = dungeonData.dungeons;
+  const nodes = _.keyBy(dungeonData.dungeon_list_nodes, 'id');
+
+  // Map dungeon IDs to zero-based sort orders
+  const sortOrder = new Map<number, number>();
+  let nextSortOrder = 0;
+
+  // Breadth-first search
+  const seen = new Map<number, boolean>();
+  const toProcess: number[] = [];
+
+  const root = _.find(nodes, node => node.type === dungeonsSchemas.NodeType.Start);
+  if (root == null) {
+    return [[], dungeonList];
+  }
+
+  seen.set(root.id, true);
+  toProcess.push(root.id);
+
+  while (toProcess.length) {
+    const subtreeRoot = nodes[toProcess.shift() as number];
+
+    // Process sort order
+    if (subtreeRoot.dungeon_id) {
+      sortOrder.set(subtreeRoot.dungeon_id, nextSortOrder);
+      nextSortOrder++;
+    }
+
+    // BFS logic
+    seen.set(subtreeRoot.id, true);
+
+    const pathInfo = subtreeRoot.path_info;
+    if (pathInfo != null) {
+      const nextIds = _.sortBy(Object.keys(pathInfo).map(i => +i), i => +pathInfo[i]);
+      for (const id of nextIds) {
+        if (!seen.has(id)) {
+          toProcess.push(id);
+        }
+      }
+    }
+  }
+
+  return [
+    _.sortBy(dungeonList.filter(i => sortOrder.has(i.id)), i => sortOrder.get(i.id)),
+    dungeonList.filter(i => !sortOrder.has(i.id))
+  ];
+}
+
+function sortDungeonsStandard(dungeonData: dungeonsSchemas.Dungeons, dungeonList: dungeonsSchemas.Dungeon[]) {
   // Normally, type 1 vs. 2 marks classic vs. elite, page 1 vs. page 2, etc.
   // But, for Nightmare, 1 is the actual record, and 2 is the buildup.
   const sortType: ((d: dungeonsSchemas.Dungeon) => number) =
     dungeonData.room_of_abyss_assets
-    ? d => -d.type
-    : d => d.type;
+      ? d => -d.type
+      : d => d.type;
 
-  return _.sortBy(dungeonData.dungeons, [
+  return _.sortBy(dungeonList, [
     // Sort by page 1 vs. page 2, Classic vs. Elite, whatever
     sortType,
     // Realm dungeons are sorted by progress_map_level.
@@ -51,6 +101,19 @@ function sortDungeons(dungeonData: dungeonsSchemas.Dungeons) {
     // Use id to disambiguate magicite
     'id',
   ]);
+}
+
+export function sortDungeons(dungeonData: dungeonsSchemas.Dungeons) {
+  if (dungeonData.dungeon_list_nodes) {
+    const [ sorted, unsorted ] = sortDungeonsByNode(dungeonData);
+    if (unsorted.length) {
+      console.error(`Failed to sort ${unsorted.length} node dungeons`);
+      console.error(unsorted.map(i => i.name));
+    }
+    return sorted.concat(sortDungeonsStandard(dungeonData, unsorted));
+  } else {
+    return sortDungeonsStandard(dungeonData, dungeonData.dungeons);
+  }
 }
 
 function convertPrizeItems(prizes?: dungeonsSchemas.DungeonPrizeItem[]) {

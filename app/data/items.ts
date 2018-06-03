@@ -602,6 +602,36 @@ export const items = [
     type: ItemType.Orb,
     id: 40000090
   },
+  {
+    name: 'Blastspell Strike Record',
+    type: ItemType.Orb,
+    id: 40000099
+  },
+  {
+    name: 'Stormspell Strike Record',
+    type: ItemType.Orb,
+    id: 40000100
+  },
+  {
+    name: 'Inferno Assault Record',
+    type: ItemType.Orb,
+    id: 40000101
+  },
+  {
+    name: 'Voltech Record',
+    type: ItemType.Orb,
+    id: 40000102
+  },
+  {
+    name: 'Chain Firaja Record',
+    type: ItemType.Orb,
+    id: 40000103
+  },
+  {
+    name: 'Chain Thundaja Record',
+    type: ItemType.Orb,
+    id: 40000104
+  },
 
   {
     name: 'Minor Growth Egg',

@@ -3,10 +3,10 @@ import { Asset, NumberAsString, RelativeUrlPath, Timestamp } from './common';
 
 export enum NodeType {
   // noinspection JSUnusedGlobalSymbols
-  Start = '1',
-  Regular = '2',  // Normal "Corrupted" paintings (unconfirmed)
-  Free = '3',     // Free play "Record" paintings (unconfirmed)
-  Final = '4',    // Unconfirmed
+  Start = 1,
+  Regular = 2,  // Normal "Corrupted" paintings (unconfirmed)
+  Free = 3,     // Free play "Record" paintings (unconfirmed)
+  Final = 4,    // Unconfirmed
 }
 
 export enum RewardType {
@@ -55,6 +55,19 @@ export interface Dungeon {
   };
 }
 
+export interface DungeonNode {
+  world_id: number;
+  x: number;
+  y: number;
+  path_info: null | {
+    [id: string]: NumberAsString;  // ID of node reachable from here
+  };
+  dungeon_id: number;   // 0 for starting node
+  id: number;
+  type: NodeType;
+  remaining_treasure_num: number;
+}
+
 // Sample URL: http://ffrk.denagames.com/dff/world/dungeons?world_id=104001
 export interface Dungeons {
   assets: Asset[];
@@ -71,18 +84,8 @@ export interface Dungeons {
 
   dungeons: Dungeon[];
 
-  dungeon_list_nodes?: Array<{
-    world_id: number;
-    x: number;
-    y: number;
-    path_info: null | {
-      [id: string]: NumberAsString;  // ID of node reachable from here
-    };
-    dungeon_id: number;   // 0 for starting node
-    id: number;
-    type: NodeType;
-    remaining_treasure_num: number;
-  }>;
+  // Record Dungeons nodes
+  dungeon_list_nodes?: DungeonNode[];
   dungeon_id_node_id_map?: Array<{
     [id: string]: string;
   }>;

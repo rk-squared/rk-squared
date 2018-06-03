@@ -1,7 +1,8 @@
-import { convertWorld } from '../dungeons';
+import { convertWorld, sortDungeons } from '../dungeons';
 
 import { WorldCategory } from '../../actions/worlds';
 
+// noinspection SpellCheckingInspection
 const textMaster = {
   sortmodal_short_summary_series_113001: 'FF XIII',
   sortmodal_short_summary_series_106001: 'FF VI',
@@ -120,6 +121,38 @@ describe('dungeon proxy', () => {
         subcategory: undefined,
         subcategorySortOrder: undefined,
       });
+    });
+
+    it('sorts Record Dungeons', () => {
+      const data = require('./untrodden_paths_dungeons.json');
+      const sortedDungeonNames = sortDungeons(data).map(i => i.name);
+      // noinspection SpellCheckingInspection
+      expect(sortedDungeonNames).toEqual([
+        'Midgar Sector 1',
+        'Mako Reactor No. 1',
+        'Mako Reactor No. 1 Assault',
+        'Midgar Sector 8',
+        'Narshe',
+        'North Mines',
+        'West Mines 1',
+        'West Mines 2',
+        'Figaro Castle',
+        'Mobliz 1',
+        'Mobliz 2',
+        'Purge Train',
+        'The Hanging Edge 1',
+        'The Hanging Edge 2',
+        'Airship',
+        'Mist Cave',
+        'Sparring with Kain',
+        'Kaipo',
+        'Underground Waterway 1',
+        'Underground Waterway 2',
+        'Underground Waterway 3',
+        'Antlion\'s Den 1',
+        'Antlion\'s Den 2',
+        'The Antlion',
+      ]);
     });
   });
 });
