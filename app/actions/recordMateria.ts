@@ -7,7 +7,7 @@ export interface RecordMateria {
   name: string;
   id: number;
   description: string;
-  condition: string,
+  condition: string;
   characterId: number;
   characterName: string;
   seriesId: number;

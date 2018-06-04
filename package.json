@@ -50,7 +50,9 @@
       "<rootDir>/app/**/*.{ts,tsx}",
       "!**/__tests__/**"
     ],
-    "coverageReporters": ["html"]
+    "coverageReporters": [
+      "html"
+    ]
   },
   "build": {
     "productName": "RK Squared",
@@ -183,6 +185,8 @@
   "dependencies": {
     "@types/lodash": "^4.14.106",
     "@types/lodash-es": "^4.17.0",
+    "ag-grid": "^17.1.1",
+    "ag-grid-react": "^17.1.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.0",
     "cheerio": "^1.0.0-rc.2",
@@ -202,6 +206,7 @@
     "popper.js": "^1.14.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-dom-factories": "^1.0.2",
     "react-modal": "^3.4.4",
     "react-redux": "^5.0.1",
     "react-router": "^4.1.1",

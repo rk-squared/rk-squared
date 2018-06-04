@@ -31,7 +31,7 @@ const buttonStyleSort: {[s: string]: number} = {
  */
 const effectiveDifficulty = (difficulty: number) => difficulty === 0 ? Infinity : difficulty;
 
-export function sortDungeonsByNode(dungeonData: dungeonsSchemas.Dungeons)
+function sortDungeonsByNode(dungeonData: dungeonsSchemas.Dungeons)
   : [dungeonsSchemas.Dungeon[], dungeonsSchemas.Dungeon[]] {
   const dungeonList = dungeonData.dungeons;
   const nodes = _.keyBy(dungeonData.dungeon_list_nodes, 'id');

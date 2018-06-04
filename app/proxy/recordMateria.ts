@@ -15,23 +15,34 @@ import { Order, RecordMateria, setRecordMateria, Step } from '../actions/recordM
 function determineOrder(data: schemas.ReleasedRecordMateriaList, result: { [id: number]: RecordMateria }) {
   const maxStep: { [id: number]: number } = {};
   for (const i of data.record_materias) {
-    maxStep[i.id] = maxStep[i.id] ? i.step : Math.max(i.step, maxStep[i.id]);
+    maxStep[i.buddy_id] = maxStep[i.buddy_id] == null ? i.step : Math.max(i.step, maxStep[i.buddy_id]);
   }
 
   const standardOrder: Order[] = [ '1', '2', '3' ];
   const abOrder: Order[] = [ '1a', '1b', '2', '3' ];
 
-  for (const { id } of data.record_materias) {
-    const thisOrder = maxStep[id] === 4 ? standardOrder : abOrder;
-    result[id].order = thisOrder[result[id].step];
+  for (const { id, buddy_id } of data.record_materias) {
+    const thisOrder = maxStep[buddy_id] === 4 ? abOrder : standardOrder;
+    result[id].order = thisOrder[result[id].step - 1];
   }
 }
 
 function determineObtained(data: schemas.ReleasedRecordMateriaList, result: { [id: number]: RecordMateria }) {
-  Object.keys(data.achieved_record_materia_map).forEach(i => result[+i].obtained = true);
+  Object.keys(data.achieved_record_materia_map).forEach(i => {
+    const id = +i;
+    result[id].obtained = true;
+
+    // HACK: For characters with 4 RMs, the first RM may not be listed in
+    // achieved_record_materia_map.  If any RM is obtained, then we can
+    // assume that the first RM is obtained.
+    const baseId = id - (id % 10);
+    if (result[baseId]) {
+      result[baseId].obtained = true;
+    }
+  });
 }
 
-function convertRecordMateriaList(data: schemas.ReleasedRecordMateriaList): { [id: number]: RecordMateria } {
+export function convertRecordMateriaList(data: schemas.ReleasedRecordMateriaList): { [id: number]: RecordMateria } {
   const result: { [id: number]: RecordMateria } = {};
 
   for (const i of data.record_materias) {

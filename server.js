@@ -1,4 +1,5 @@
-/**@file
+/**
+ * @file
  * Setup and run the development server for Hot-Module-Replacement
  * https://webpack.github.io/docs/hot-module-replacement-with-webpack.html
  */

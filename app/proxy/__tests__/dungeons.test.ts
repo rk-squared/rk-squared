@@ -124,7 +124,7 @@ describe('dungeon proxy', () => {
     });
 
     it('sorts Record Dungeons', () => {
-      const data = require('./untrodden_paths_dungeons.json');
+      const data = require('./data/untrodden_paths_dungeons.json');
       const sortedDungeonNames = sortDungeons(data).map(i => i.name);
       // noinspection SpellCheckingInspection
       expect(sortedDungeonNames).toEqual([
