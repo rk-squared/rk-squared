@@ -116,7 +116,7 @@ export function sortDungeons(dungeonData: dungeonsSchemas.Dungeons) {
   }
 }
 
-function convertPrizeItems(prizes?: dungeonsSchemas.DungeonPrizeItem[]) {
+export function convertPrizeItems(prizes?: dungeonsSchemas.DungeonPrizeItem[]) {
   if (!prizes) {
     return [];
   } else {
@@ -128,6 +128,25 @@ function convertPrizeItems(prizes?: dungeonsSchemas.DungeonPrizeItem[]) {
       type: i.type_name.toLowerCase() as ItemType,
     }));
   }
+}
+
+export function convertGradePrizeItems(dungeon: dungeonsSchemas.Dungeon) {
+  let allPrizes: dungeonsSchemas.DungeonPrizeItem[] = [];
+  for (let i = dungeonsSchemas.MinRewardGrade; i <= dungeonsSchemas.MaxRewardGrade; i++) {
+    const grade = i.toString() as dungeonsSchemas.RewardType;
+    if (dungeon.prizes[grade]) {
+      allPrizes.push(...dungeon.prizes[grade]);
+    }
+  }
+
+  allPrizes = _.sortBy(allPrizes, 'disp_order');
+  const convert = (claimed: boolean) => convertPrizeItems(
+    _.filter(allPrizes, i => !!i.is_got_grade_bonus_prize === claimed)
+  );
+  return {
+    claimedGrade: convert(true),
+    unclaimedGrade: convert(false)
+  };
 }
 
 export function convertWorldDungeons(data: dungeonsSchemas.Dungeons) {
@@ -147,6 +166,7 @@ export function convertWorldDungeons(data: dungeonsSchemas.Dungeons) {
       completion: convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.Completion]),
       firstTime: convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.FirstTime]),
       mastery: convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.Mastery]),
+      ...convertGradePrizeItems(d),
     }
   }));
 }

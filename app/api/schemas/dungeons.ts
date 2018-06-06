@@ -14,14 +14,27 @@ export enum RewardType {
   Completion = '1',
   FirstTime = '2',
   Mastery = '3',
-  Bonus = '7'
+  // Recurring (?) time-based (?) bonuses - e.g., for Magicite
+  Bonus = '7',
+  // One-time (?) damage-based (?) bonuses - e.g., for "Damage Race - Ancient Foes"
+  GradeA = '8',
+  GradeB = '9',
+  GradeC = '10',
+  GradeD = '11',
+  GradeE = '12',
+  GradeF = '13',
 }
+
+export const MinRewardGrade = 8;
+export const MaxRewardGrade = 13;
 
 export interface DungeonPrizeItem {
   type_name: ItemTypeName;
   num: number;
   image_path: RelativeUrlPath;
-  is_got_grade_bonus_prize: number;
+  is_got_grade_bonus_prize: number;  // 1 if an already received 1-time bonus
+  grade_bonus_description?: string;
+  disp_order?: number;
   name: string;
   id: number;
   clear_battle_time?: number;  // Clear time, in milliseconds

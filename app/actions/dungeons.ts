@@ -28,6 +28,8 @@ export interface Dungeon {
     completion: PrizeItem[];
     firstTime: PrizeItem[];
     mastery: PrizeItem[];
+    claimedGrade: PrizeItem[];
+    unclaimedGrade: PrizeItem[];
   };
 }
 
@@ -54,6 +56,7 @@ export function getAvailablePrizes(dungeons: Dungeon[]): PrizeItem[] {
     if (!d.isMaster) {
       addPrizes(d.prizes.mastery);
     }
+    addPrizes(d.prizes.unclaimedGrade);
   }
 
   const ids = Object.keys(result).sort();

@@ -1,4 +1,4 @@
-import { convertWorld, sortDungeons } from '../dungeons';
+import { convertGradePrizeItems, convertWorld, sortDungeons } from '../dungeons';
 
 import { WorldCategory } from '../../actions/worlds';
 
@@ -152,6 +152,18 @@ describe('dungeon proxy', () => {
         'Antlion\'s Den 1',
         'Antlion\'s Den 2',
         'The Antlion',
+      ]);
+    });
+
+    it('handles grade prizes', () => {
+      const data = require('./damage_race_dungeons.json');
+      const prizes = convertGradePrizeItems(data.dungeons[2]);
+      expect(prizes.claimedGrade.map(i => i.name)).toEqual([
+        'Bravery Mote (4★)', 'Spirit Mote (4★)', 'Dexterity Mote (4★)', 'Wisdom Mote (4★)',
+        'Memory Crystal III Lode', 'Memory Crystal II Lode'
+      ]);
+      expect(prizes.unclaimedGrade.map(i => i.name)).toEqual([
+        'Vitality Mote (4★)'
       ]);
     });
   });

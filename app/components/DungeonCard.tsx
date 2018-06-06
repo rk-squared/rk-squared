@@ -52,6 +52,7 @@ const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
         <ReactTooltip place="bottom" id={id}>
           {!dungeon.isComplete && <PrizeList prizes={dungeon.prizes.firstTime}/>}
           {!dungeon.isMaster && <PrizeList prizes={dungeon.prizes.mastery}/>}
+          {dungeon.prizes.unclaimedGrade.length !== 0 && <PrizeList prizes={dungeon.prizes.unclaimedGrade}/>}
         </ReactTooltip>
       }
     </li>

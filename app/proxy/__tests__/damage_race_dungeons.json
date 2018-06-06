@@ -1,0 +1,664 @@
+{
+  "success": true,
+  "assets": [
+    {
+      "bundle": {
+        "/Content/lang/bgm/bgm_ogg/bgm_05_008.ogg": {
+          "hash": "iH+Ht64f2qTQMDEAiVLYRQ"
+        }
+      },
+      "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_05_008.ogg"
+    },
+    {
+      "bundle": {
+        "/Content/lang/bgm/bgm_ogg/bgm_25_010.ogg": {
+          "hash": "1DW84sCptrIiel+F8lALbQ"
+        }
+      },
+      "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_25_010.ogg"
+    },
+    {
+      "bundle": {
+        "/Content/lang/bgm/bgm_ogg/bgm_25_040.ogg": {
+          "hash": "QndLgqMlpFRJYbUP0PFQaA"
+        }
+      },
+      "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_25_040.ogg"
+    }
+  ],
+  "dungeons": [
+    {
+      "unlock_conditions": {},
+      "closed_at": 1528419599,
+      "order_no": 1,
+      "is_restricted": false,
+      "stamina_consume_type": 1,
+      "supporter_type": 4,
+      "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/10048001/10048001_epilogue.png",
+      "bgm": "bgm_25_010",
+      "stamina_list": [
+        1
+      ],
+      "ability_category_bonus_map": {},
+      "unlocked_series_ids": [],
+      "id": 10048001,
+      "world_id": 100480,
+      "button_style": "FULL_THROTTLE",
+      "name": "Ancient Foes, Part 1",
+      "total_stamina": 1,
+      "ss_gauge_type": 3,
+      "type": 1,
+      "epilogue": "<<Not Necessary>>",
+      "progress_map_level": 0,
+      "platform_style": 10000,
+      "is_clear": true,
+      "is_new": false,
+      "prologue": "<<Not Necessary>>",
+      "buddy_additional_status_bonus_level": 0,
+      "challenge_level": 140,
+      "prizes": {
+        "1": [
+          {
+            "type_name": "COMMON",
+            "num": 1500,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          }
+        ],
+        "2": [
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/91000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Mythril",
+            "id": 91000000
+          }
+        ],
+        "8": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Vitality Mote (3★)",
+            "disp_order": 1,
+            "grade_bonus_description": "Grade S<br>Deal 300,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130300100/130300100_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300100
+          }
+        ],
+        "9": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Spirit Mote (3★)",
+            "disp_order": 2,
+            "grade_bonus_description": "Grade A<br>Deal 150,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130100100/130100100_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130100100
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Bravery Mote (3★)",
+            "disp_order": 2,
+            "grade_bonus_description": "Grade A<br>Deal 150,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130500100/130500100_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130500100
+          }
+        ],
+        "10": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Dexterity Mote (3★)",
+            "disp_order": 3,
+            "grade_bonus_description": "Grade B<br>Deal 50,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130200100/130200100_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130200100
+          }
+        ],
+        "11": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Wisdom Mote (3★)",
+            "disp_order": 4,
+            "grade_bonus_description": "Grade C<br>Deal 10,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130400100/130400100_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400100
+          }
+        ],
+        "12": [
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "name": "Memory Crystal II Lode",
+            "disp_order": 5,
+            "grade_bonus_description": "Grade D<br>Deal 5,000+ Damage",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001013.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001013
+          }
+        ],
+        "13": [
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "name": "Memory Crystal Lode",
+            "disp_order": 6,
+            "grade_bonus_description": "Grade E<br>Deal 1,000+ Damage",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001012.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001012
+          }
+        ]
+      },
+      "battle_ticket_id_2_num": {},
+      "battle_drop_items": [],
+      "is_master": true,
+      "series_id": 1,
+      "required_max_stamina": 0,
+      "opened_at": 1527555600,
+      "continue_allowable_type": 1,
+      "is_unlocked": true,
+      "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/10048001/10048001_prologue.png",
+      "rank": 3,
+      "captures": [
+        {
+          "enemy_id": "20648001",
+          "sp_scores": [],
+          "image_path": "/dff/static/lang/image/enemy/20648001.png",
+          "tip_battle": {
+            "group_id": 508372,
+            "html_content": "<div class=\"s-tip-battle-title mb-b4\">Humbaba</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Interrupt </span>\n</div>\n",
+            "id": 508372,
+            "title": "Humbaba (Trial)",
+            "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">・Uses the same attack pattern.</li><li class=\"c-text-indent__inner is-half mb-b\">・The more damage dealt, the more Humbaba's skills increase.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses the group magic attack <span class=\"red\">Thundaga</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses <span class=\"red\">Sleep</span> on party members with the lowest remaining HP.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses <span class=\"red\">Dispel</span> on the entire party.</li><li class=\"c-text-indent__inner is-half mb-b\">・The battle is won when Humbaba flees after a certain amount of time passes or his HP is reduced to 0.</li></ul>"
+          }
+        }
+      ],
+      "background_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/10048001/10048001_bg.png"
+    },
+    {
+      "unlock_conditions": {
+        "10048002": "1"
+      },
+      "closed_at": 1528419599,
+      "order_no": 1,
+      "is_restricted": false,
+      "stamina_consume_type": 1,
+      "supporter_type": 4,
+      "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/10048003/10048003_epilogue.png",
+      "bgm": "bgm_25_010",
+      "stamina_list": [
+        1
+      ],
+      "ability_category_bonus_map": {},
+      "unlocked_series_ids": [],
+      "id": 10048003,
+      "world_id": 100480,
+      "button_style": "FULL_THROTTLE",
+      "name": "Ancient Foes, Part 3",
+      "total_stamina": 1,
+      "ss_gauge_type": 3,
+      "type": 1,
+      "epilogue": "<<Not Necessary>>",
+      "progress_map_level": 0,
+      "platform_style": 10000,
+      "is_clear": false,
+      "is_new": true,
+      "prologue": "<<Not Necessary>>",
+      "buddy_additional_status_bonus_level": 0,
+      "challenge_level": 0,
+      "prizes": {
+        "1": [
+          {
+            "type_name": "COMMON",
+            "num": 1500,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          }
+        ],
+        "2": [
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/91000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Mythril",
+            "id": 91000000
+          }
+        ],
+        "8": [
+          {
+            "type_name": "COMMON",
+            "num": 500000,
+            "name": "Gil",
+            "disp_order": 1,
+            "grade_bonus_description": "Grade S<br>Deal 1,000,000+ Damage",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 92000000
+          }
+        ],
+        "9": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Vitality Mote (5★)",
+            "disp_order": 2,
+            "grade_bonus_description": "Grade A<br>Deal 500,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130300300/130300300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130300300
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Bravery Mote (5★)",
+            "disp_order": 2,
+            "grade_bonus_description": "Grade A<br>Deal 500,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130500300/130500300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130500300
+          }
+        ],
+        "10": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Spirit Mote (5★)",
+            "disp_order": 3,
+            "grade_bonus_description": "Grade B<br>Deal 250,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130100300/130100300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130100300
+          }
+        ],
+        "11": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Dexterity Mote (5★)",
+            "disp_order": 4,
+            "grade_bonus_description": "Grade C<br>Deal 100,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130200300/130200300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130200300
+          }
+        ],
+        "12": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 5,
+            "grade_bonus_description": "Grade D<br>Deal 50,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130400300
+          }
+        ],
+        "13": [
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "name": "Memory Crystal III Lode",
+            "disp_order": 6,
+            "grade_bonus_description": "Grade E<br>Deal 10,000+ Damage",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001020.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001020
+          }
+        ]
+      },
+      "battle_ticket_id_2_num": {},
+      "battle_drop_items": [],
+      "is_master": false,
+      "series_id": 1,
+      "required_max_stamina": 0,
+      "opened_at": 1527901200,
+      "continue_allowable_type": 1,
+      "is_unlocked": true,
+      "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/10048003/10048003_prologue.png",
+      "rank": 0,
+      "captures": [
+        {
+          "enemy_id": "20648001",
+          "sp_scores": [],
+          "image_path": "/dff/static/lang/image/enemy/20648001.png",
+          "tip_battle": {
+            "group_id": 508374,
+            "html_content": "<div class=\"s-tip-battle-title mb-b4\">Humbaba</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Interrupt </span>\n</div>\n",
+            "id": 508374,
+            "title": "Humbaba (Trial)",
+            "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">・The more damage dealt, the more Humbaba's skills increase.</li><li class=\"c-text-indent__inner is-half mb-b\">・The more damage dealt, the more Humbaba's skills increase.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses the group magic attack <span class=\"red\">Thundaga</span></li><li class=\"c-text-indent__inner is-half mb-b\">・Regular attacks have a Sap effect, and are dealt twice.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses <span class=\"red\">Stop</span> on party members with the lowest remaining HP.</li><li class=\"c-text-indent__inner is-half mb-b\">・Repeatedly uses <span class=\"red\">Sleep</span> on the front row and <span class=\"red\">Confuse</span> on the back row.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses <span class=\"red\">Dispel</span> on the entire party.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses the group debuff attack <span class=\"red\">Ultimate Enmity</span>, which inflicts Blind and Silence.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses the group physical attack <span class=\"red\">Ultimate Body Slam</span>, which ignores Mirror Image and inflicts Sap.</li><li class=\"c-text-indent__inner is-half mb-b\">・The battle is won when Humbaba flees after a certain amount of time passes or his HP is reduced to 0.</span></li></ul>"
+          }
+        }
+      ],
+      "background_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/10048003/10048003_bg.png"
+    },
+    {
+      "unlock_conditions": {
+        "10048001": "1"
+      },
+      "closed_at": 1528419599,
+      "order_no": 1,
+      "is_restricted": false,
+      "stamina_consume_type": 1,
+      "supporter_type": 4,
+      "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/10048002/10048002_epilogue.png",
+      "bgm": "bgm_25_010",
+      "stamina_list": [
+        1
+      ],
+      "ability_category_bonus_map": {},
+      "unlocked_series_ids": [],
+      "id": 10048002,
+      "world_id": 100480,
+      "button_style": "FULL_THROTTLE",
+      "name": "Ancient Foes, Part 2",
+      "total_stamina": 1,
+      "ss_gauge_type": 3,
+      "type": 1,
+      "epilogue": "<<Not Necessary>>",
+      "progress_map_level": 0,
+      "platform_style": 10000,
+      "is_clear": true,
+      "is_new": false,
+      "prologue": "<<Not Necessary>>",
+      "buddy_additional_status_bonus_level": 0,
+      "challenge_level": 220,
+      "prizes": {
+        "1": [
+          {
+            "type_name": "COMMON",
+            "num": 1500,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          }
+        ],
+        "2": [
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/91000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Mythril",
+            "id": 91000000
+          }
+        ],
+        "8": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Vitality Mote (4★)",
+            "disp_order": 1,
+            "grade_bonus_description": "Grade S<br>Deal 700,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130300200/130300200_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130300200
+          }
+        ],
+        "9": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Bravery Mote (4★)",
+            "disp_order": 2,
+            "grade_bonus_description": "Grade A<br>Deal 500,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130500200/130500200_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130500200
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Spirit Mote (4★)",
+            "disp_order": 2,
+            "grade_bonus_description": "Grade A<br>Deal 500,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130100200/130100200_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130100200
+          }
+        ],
+        "10": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Dexterity Mote (4★)",
+            "disp_order": 3,
+            "grade_bonus_description": "Grade B<br>Deal 250,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130200200/130200200_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130200200
+          }
+        ],
+        "11": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Wisdom Mote (4★)",
+            "disp_order": 4,
+            "grade_bonus_description": "Grade C<br>Deal 100,000+ Damage",
+            "image_path": "/dff/static/lang/image/sphere_material/130400200/130400200_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400200
+          }
+        ],
+        "12": [
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "name": "Memory Crystal III Lode",
+            "disp_order": 5,
+            "grade_bonus_description": "Grade D<br>Deal 50,000+ Damage",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001020.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001020
+          }
+        ],
+        "13": [
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "name": "Memory Crystal II Lode",
+            "disp_order": 6,
+            "grade_bonus_description": "Grade E<br>Deal 10,000+ Damage",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001013.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001013
+          }
+        ]
+      },
+      "battle_ticket_id_2_num": {},
+      "battle_drop_items": [],
+      "is_master": true,
+      "series_id": 1,
+      "required_max_stamina": 0,
+      "opened_at": 1527555600,
+      "continue_allowable_type": 1,
+      "is_unlocked": true,
+      "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/10048002/10048002_prologue.png",
+      "rank": 3,
+      "captures": [
+        {
+          "enemy_id": "20648001",
+          "sp_scores": [],
+          "image_path": "/dff/static/lang/image/enemy/20648001.png",
+          "tip_battle": {
+            "group_id": 508373,
+            "html_content": "<div class=\"s-tip-battle-title mb-b4\">Humbaba</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Interrupt </span>\n</div>\n",
+            "id": 508373,
+            "title": "Humbaba (Trial)",
+            "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">・Uses the same attack pattern.</li><li class=\"c-text-indent__inner is-half mb-b\">・The more damage dealt, the more Humbaba's skills increase.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses the group magic attack <span class=\"red\">Thundaga</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">・Repeatedly uses <span class=\"red\">Blind</span> on the front row and Silence on the back row.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses <span class=\"red\">Dispel</span> on the entire party.</li><li class=\"c-text-indent__inner is-half mb-b\">・Uses the group physical attack <span class=\"red\">Ultimate Jarring Blow</span>, which inflicts Confuse.</li><li class=\"c-text-indent__inner is-half mb-b\">・The battle is won when Humbaba flees after a certain amount of time passes or his HP is reduced to 0.</li></ul>"
+          }
+        }
+      ],
+      "background_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/10048002/10048002_bg.png"
+    }
+  ],
+  "user_battle_tickets": [],
+  "user": {
+    "stamina_piece": 1052,
+    "soul_piece": 536,
+    "residual_stamina_piece": 2,
+    "start_time_of_today": 1528203600,
+    "stamina_recovery_time": 180,
+    "max_followee_num": 100,
+    "dungeon_id": 0,
+    "id": 5679473043701760,
+    "release_id": 0,
+    "stamina_info": {
+      "additional_stamina": 0,
+      "current_max_stamina": 210,
+      "prev_max_stamina": 210,
+      "got_stamina_piece": 0
+    },
+    "func_tutorial_flags": {
+      "SS_EXP": false,
+      "NIGHTMARE_DUNGEON": true,
+      "EXTREME_CLOSE2": false,
+      "BEAST_DUNGEON_RARITY4_NUM6_CLEAR": false,
+      "ABILITY_MATERIAL_CONVERT": true,
+      "SORTIE_LIMITATION": false,
+      "EXTREME": false,
+      "DUNGEON_LIST": true,
+      "BUDDY_EVOLUTION": true,
+      "FIRST_ENTER_RECORD_DUNGEON": true,
+      "BOOK_ROOM2": true,
+      "SECOND_ANNIVERSARY": false,
+      "GROWEGG": true,
+      "LEGEND_MATERIA": true,
+      "RECORD_DIVE": true,
+      "FELLOW_LIST": true,
+      "OLD_ABILITY_GENERATION": false,
+      "FIRST_ENTER_BEAST_WORLD_LIST_2": true,
+      "DRESS_RECORD": true,
+      "SERIES": true,
+      "STAMINA_RECOVERY_AGENT": true,
+      "FIRST_ENTER_BEAST_DUNGEON_LIST_1": true,
+      "FELLOW": true,
+      "EQUIPMENT_HYPER_EVOLVE": true,
+      "PROGRESS_MAP": true,
+      "ABILITY_CHANGE": false,
+      "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_AFTER_UPDATE": true,
+      "OLD_HOME": true,
+      "RECORD_DUNGEON_FRAME_ART_BREAK": true,
+      "BEAST_DUNGEON_RARITY3_NUM3_CLEAR": true,
+      "PARTY_TOP": true,
+      "BATTLE_OPERATION": true,
+      "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_1": true,
+      "SS_MULTI": false,
+      "WDAY_DUNGEON_EXCHANGE_SHOP": true,
+      "SS_LIMITATION": false,
+      "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_3": true,
+      "EXTREME_MOVIE": true,
+      "COUNTDOWN_2016_DEFEAT_CNT_RESULT": false,
+      "FIRST_ANNIVERSARY": false,
+      "MO_INTRODUCTION_MOVIE": false,
+      "PARTY_MEMORY": true,
+      "BEAST_DUNGEON_RARITY4_ALL_CLEAR_1": false,
+      "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_2": true,
+      "OLD_QUEST": false,
+      "PROFILE": true,
+      "EXTREME_OPENING": true,
+      "ENHANCEMENT": true,
+      "LEGEND_SPHERE": true,
+      "ABILITY_DECOMPOSE": true,
+      "OLD_UI_REBORN": true,
+      "ABILITY_UPGRADE": true,
+      "SECOND_ENTER_BEAST_WORLD_LIST": true,
+      "BATTLE_LIST_2": true,
+      "SECOND_ENTER_BEAST_DUNGEON_LIST": true,
+      "LEAD_TO_SECOND_DUNGEON": true,
+      "MO_FORMAL": false,
+      "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_1": true,
+      "BUDDY_ADDITIONAL_STATUS_BONUS": true,
+      "EXTREME_CLOSING_MOVIE": true,
+      "OLD_ACHIEVEMENT_ROOM": true,
+      "OLD_BUFF_DEBUFF_TRAINING_FOR_BEGINNER": true,
+      "COUNTDOWN_2016_MOVIE": false,
+      "OLD_INVENTORY": false,
+      "ENHANCEMENT_TOP": true,
+      "FIRST_ENTER_BEAST_WORLD_LIST_1": true,
+      "FELLOW_PLUS": true,
+      "ABILITY_GENERATION": true,
+      "TEN_MILLION_DOWNLOAD_MOVIE": false,
+      "BEAST_DUNGEON_RARITY3_ALL_CLEAR_2": true,
+      "NEW_YEAR_2017": false,
+      "HAMMERING": true,
+      "RECORD_DUNGEON_BATTLE_LIST": true,
+      "MASTER_LEGEND_MATERIA": true,
+      "BEAST_DUNGEON_RARITY4_OPEN_2": true,
+      "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_2": true,
+      "EQUIPMENT_CHANGE": true,
+      "BEAST_DUNGEON_RARITY4_NUM6_CLEAR_AFTER_UPDATE": false,
+      "BEAST_DUNGEON_RARITY4_OPEN_1": true,
+      "BATTLE_LIST": true,
+      "PARTY_EDIT": true,
+      "FORCE_DUNGEON": true,
+      "ANYTIME_MUSIC_ROOM": true,
+      "EXTREME_CLOSE1": false,
+      "BEAST_WORLD_OPENING_MOVIE": true,
+      "BRAVE_SERIES_BONUS": true,
+      "FIRST_ENTER_BEAST_DUNGEON_LIST_2": true,
+      "INVENTORY": true,
+      "BEAST_DUNGEON_RARITY3_NUM6_CLEAR": false,
+      "BOOK_ROOM": true,
+      "OLD_ENHANCEMENT": false,
+      "BEAST_DUNGEON_RARITY3_ALL_CLEAR_1": true,
+      "MO_PARTY": true,
+      "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_BEAST_TOP": true,
+      "BEAST_INHERITANCE": true,
+      "EVOLUTION": true,
+      "SUPPRESS": true,
+      "SS_MULTI_AND_EXP": true,
+      "RECORD_TEAR": true,
+      "OLD_MISSION": true
+    },
+    "is_in_dungeon": false,
+    "name": "Brirn",
+    "has_all_clear_ver_to_show": false,
+    "stamina": 67,
+    "can_review": true,
+    "tutorial_step": 255,
+    "followee_num": 88,
+    "stamina_recovery_remaining_time": 25637,
+    "gil": 40432243,
+    "is_update_last_logined_at": false,
+    "last_logined_at": 1528205220,
+    "is_tutorial_finish": true,
+    "max_follower_num": 100,
+    "max_stamina": 210
+  },
+  "world": {
+    "has_brave_series_buddies": false,
+    "closed_at": 1528678799,
+    "name": "Damage Race - Ancient Foes",
+    "has_new_dungeon": false,
+    "series_id": 1,
+    "opened_at": 1527555600,
+    "bgm": "bgm_25_010",
+    "kept_out_at": 1528419599,
+    "is_unlocked": true,
+    "door_image_path": "/dff/static/lang/image/world/100480_door.png",
+    "image_path": "/dff/static/lang/image/world/100480.png",
+    "type": 2,
+    "id": 100480,
+    "series_formal_name": "",
+    "banner_message": ""
+  },
+  "SERVER_TIME": 1528250236
+}
