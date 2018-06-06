@@ -263,7 +263,7 @@ const dungeons: Handler = {
     }
     store.dispatch(updateWorlds(result));
 
-    // FIXME: Track half-price dungeons
+    // FIXME: Track half-price dungeons; exclude dungeons that aren't open
   },
 
   dungeons(data: dungeonsSchemas.Dungeons, store: Store<IState>, query?: any) {

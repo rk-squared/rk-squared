@@ -3,6 +3,7 @@ import { combineReducers, Reducer } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
 
 import { battle, BattleState } from './battle';
+import { characters, CharacterState } from './characters';
 import { dungeons, DungeonState } from './dungeons';
 import { options, Options } from './options';
 import { prefs, PrefsState } from './prefs';
@@ -14,6 +15,7 @@ import { worlds, WorldState } from './worlds';
 
 export interface IState {
   battle: BattleState;
+  characters: CharacterState;
   dungeons: DungeonState;
   options: Options;
   prefs: PrefsState;
@@ -27,6 +29,7 @@ export interface IState {
 // noinspection JSUnusedGlobalSymbols
 export const rootReducer = combineReducers<IState>({
   battle,
+  characters,
   dungeons,
   options,
   prefs,

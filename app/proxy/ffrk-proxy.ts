@@ -17,6 +17,7 @@ const transformerProxy = require('transformer-proxy');
 import { decodeData, encodeData, getIpAddresses, getStoragePath, setStoragePath } from './util';
 
 import battle from './battle';
+import characters from './characters';
 import dungeons from './dungeons';
 import itemUpdates from './itemUpdates';
 import options from './options';
@@ -35,6 +36,7 @@ interface ProxyIncomingMessage extends http.IncomingMessage {
 
 const handlers = [
   battle,
+  characters,
   dungeons,
   itemUpdates,
   recordMateria,
