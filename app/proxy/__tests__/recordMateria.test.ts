@@ -68,5 +68,9 @@ describe('record materia proxy', () => {
       expect(sorted['Ingus']['2'].obtained).toEqual(true);
       expect(sorted['Ingus']['3'].obtained).toEqual(true);
     });
+
+    it('records prerequisites', () => {
+      expect(sorted['Tyro']['2'].prereqs).toEqual([sorted['Tyro']['1a'].id, sorted['Tyro']['1b'].id]);
+    });
   });
 });

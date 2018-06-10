@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { RecordMateria } from '../actions/recordMateria';
+import { getRecordMateriaDetail, RecordMateriaDetail } from '../actions/recordMateria';
 import { RecordMateriaGrid } from '../components/RecordMateriaGrid';
 import { IState } from '../reducers';
 import { Page } from './Page';
@@ -9,7 +9,7 @@ import { Page } from './Page';
 import * as _ from 'lodash';
 
 interface Props {
-  recordMateria: RecordMateria[];
+  recordMateria: RecordMateriaDetail[];
 }
 
 export class RecordMateriaPage extends React.Component<Props> {
@@ -29,8 +29,9 @@ export class RecordMateriaPage extends React.Component<Props> {
   }
 }
 
+// FIXME: Use reselect
 export default connect(
   (state: IState) => ({
-    recordMateria: _.values(state.recordMateria.recordMateria)
+    recordMateria: _.values(getRecordMateriaDetail(state.recordMateria.recordMateria, state.characters.characters)),
   })
 )(RecordMateriaPage);

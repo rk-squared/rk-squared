@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import { ColDef } from 'ag-grid';
 import { AgGridReact } from 'ag-grid-react';
-import { RecordMateria } from '../actions/recordMateria';
+import { RecordMateriaDetail, statusDescription } from '../actions/recordMateria';
 
 interface Props {
-  recordMateria: RecordMateria[];
+  recordMateria: RecordMateriaDetail[];
 }
 
 export class RecordMateriaGrid extends React.Component<Props> {
@@ -17,7 +17,11 @@ export class RecordMateriaGrid extends React.Component<Props> {
       { headerName: 'Name', field: 'name' },
       { headerName: 'Character', field: 'characterName' },
       { headerName: 'RM', field: 'order' },
-      { headerName: 'Obtained', field: 'obtained', valueGetter: ({data}) => data.obtained ? '✔' : '' },
+      {
+        headerName: 'Status',
+        field: 'status',
+        valueGetter: ({data}: { data: RecordMateriaDetail}) => statusDescription[data.status]
+      },
     ];
   }
 
@@ -31,6 +35,7 @@ export class RecordMateriaGrid extends React.Component<Props> {
           width: '100%' }}
       >
         <AgGridReact
+          enableSorting={true}
           columnDefs={this.columnDefs}
           rowData={recordMateria}>
         </AgGridReact>

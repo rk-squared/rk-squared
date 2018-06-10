@@ -34,6 +34,7 @@ function determineOrder(data: recordMateriaSchemas.ReleasedRecordMateriaList, by
   for (const { id, buddy_id } of data.record_materias) {
     const thisOrder = byCharacter[buddy_id].length === 4 ? abOrder : standardOrder;
     result[id].order = thisOrder[result[id].step - 1];
+    result[id].prereqs = byCharacter[buddy_id].slice(0, result[id].step - 1);
   }
 }
 
