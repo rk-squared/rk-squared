@@ -61,18 +61,22 @@ function isLowLevel(recordMateria: RecordMateria, character: Character) {
 }
 
 export function getStatus(recordMateria: RecordMateria, character: Character | undefined,
-                          allRecordMateria: { [id: number]: RecordMateria }) {
+                          prereqs: RecordMateria[]) {
   if (recordMateria.obtained) {
     return RecordMateriaStatus.Collected;
   } else if (!character) {
     return RecordMateriaStatus.Unobtained;
   } else if (isLowLevel(recordMateria, character)) {
     return RecordMateriaStatus.LockedLowLevel;
-  } else if (_.find(recordMateria.prereqs, i => !allRecordMateria[i].obtained)) {
+  } else if (_.find(prereqs, i => !i.obtained)) {
     return RecordMateriaStatus.LockedMissingPrereq;
   } else {
     return RecordMateriaStatus.Unlocked;
   }
+}
+
+export function getPrereqs(recordMateria: RecordMateria, allRecordMateria: { [id: number]: RecordMateria }) {
+  return _.map(recordMateria.prereqs, i => allRecordMateria[i]);
 }
 
 export function getRecordMateriaDetail(
@@ -81,7 +85,7 @@ export function getRecordMateriaDetail(
 ): { [id: number]: RecordMateriaDetail } {
   return _.mapValues(recordMateria, i => ({
     ...i,
-    status: getStatus(i, characters[i.characterId], recordMateria)
+    status: getStatus(i, characters[i.characterId], getPrereqs(i, recordMateria))
   }));
 }
 
