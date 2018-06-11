@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 
 import { PrizeItem } from '../actions/dungeons';
-import enlir from '../data/enlir';
+import { enlir } from '../data';
 import { ItemType } from '../data/items';
 import { itemImage } from '../data/urls';
 import { RelicTooltip } from './RelicTooltip';

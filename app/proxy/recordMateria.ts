@@ -12,6 +12,7 @@ import { Handler } from './types';
 import { IState } from '../reducers';
 
 import { Order, RecordMateria, setRecordMateria, Step } from '../actions/recordMateria';
+import { SeriesId } from '../data/series';
 
 interface MateriaIdsByCharacter {
   [characterId: number]: number[];
@@ -67,7 +68,7 @@ export function convertRecordMateriaList(data: schemas.ReleasedRecordMateriaList
       condition: i.cond_description,
       characterId: i.buddy_id,
       characterName: i.buddy_name,
-      seriesId: i.buddy_series_id,
+      seriesId: i.buddy_series_id as SeriesId,
       step: i.step as Step,
 
       // Placeholders until fully processed

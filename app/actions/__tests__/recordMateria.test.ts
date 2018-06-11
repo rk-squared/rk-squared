@@ -1,4 +1,4 @@
-import { getStatus, RecordMateria, RecordMateriaStatus } from '../recordMateria';
+import { getStatus, RecordMateria, RecordMateriaStatus as Status } from '../recordMateria';
 
 import { Character } from '../characters';
 
@@ -64,14 +64,20 @@ describe('actions/recordMateria', () => {
     levelCap: 80,
   };
 
-  const obtained = (rm: RecordMateria) => ({ ...rm, obtained: true });
   const unobtained = (rm: RecordMateria) => ({ ...rm, obtained: false });
 
   it('determines record materia status', () => {
-    expect(getStatus(attunement1, tyro, [])).toEqual(RecordMateriaStatus.Collected);
-    expect(getStatus(attunement2, tyro, [attunement1])).toEqual(RecordMateriaStatus.Collected);
-    expect(getStatus(dmt, tyro, [attunement1, attunement2])).toEqual(RecordMateriaStatus.Unlocked);
-    expect(getStatus(scholarsBoon, tyro, [attunement1, attunement2, dmt])).toEqual(RecordMateriaStatus.LockedLowLevel);
+    expect(getStatus(scholarsBoon, undefined, []))
+      .toEqual({ status: Status.Unobtained, statusDescription: 'Unobtained' });
+
+    expect(getStatus(attunement1, tyro, []))
+      .toEqual({ status: Status.Collected, statusDescription: 'Collected' });
+    expect(getStatus(attunement2, tyro, [attunement1]))
+      .toEqual({ status: Status.Collected, statusDescription: 'Collected' });
+    expect(getStatus(dmt, tyro, [attunement1, attunement2]))
+      .toEqual({ status: Status.Unlocked, statusDescription: 'Unlocked' });
+    expect(getStatus(scholarsBoon, tyro, [attunement1, attunement2, dmt]))
+      .toEqual({ status: Status.LockedLowLevel, statusDescription: 'Low level (65/99)' });
   });
 
   it('checks record materia levels and level caps', () => {
@@ -82,10 +88,15 @@ describe('actions/recordMateria', () => {
     const tyro6580 = { ...tyro, level: 65, levelCap: 80 };
     const tyro8099 = { ...tyro, level: 80, levelCap: 80 };
     const tyro9999 = { ...tyro, level: 99, levelCap: 80 };
-    expect(getStatus(unobtained(attunement1), tyro5050, [])).toEqual(RecordMateriaStatus.LockedLowLevel);
-    expect(getStatus(unobtained(dmt), tyro6565, dmtPrereqs)).toEqual(RecordMateriaStatus.LockedLowLevel);
-    expect(getStatus(unobtained(dmt), tyro6580, dmtPrereqs)).toEqual(RecordMateriaStatus.Unlocked);
-    expect(getStatus(scholarsBoon, tyro8099, sbPrereqs)).toEqual(RecordMateriaStatus.LockedLowLevel);
-    expect(getStatus(scholarsBoon, tyro9999, sbPrereqs)).toEqual(RecordMateriaStatus.LockedMissingPrereq);
+    expect(getStatus(unobtained(attunement1), tyro5050, []))
+      .toEqual({ status: Status.LockedLowLevel, statusDescription: 'Low level (50/50)' });
+    expect(getStatus(unobtained(dmt), tyro6565, dmtPrereqs))
+      .toEqual({ status: Status.LockedLowLevel, statusDescription: 'Low level (65/65)' });
+    expect(getStatus(unobtained(dmt), tyro6580, dmtPrereqs))
+      .toEqual({ status: Status.Unlocked, statusDescription: 'Unlocked' });
+    expect(getStatus(scholarsBoon, tyro8099, sbPrereqs))
+      .toEqual({ status: Status.LockedLowLevel, statusDescription: 'Low level (80/99)' });
+    expect(getStatus(scholarsBoon, tyro9999, sbPrereqs))
+      .toEqual({ status: Status.LockedMissingPrereq, statusDescription: 'Missing RM 2' });
   });
 });

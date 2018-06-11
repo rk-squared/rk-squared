@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactTooltip from 'react-tooltip';
 
-import enlir from '../data/enlir';
+import { enlir } from '../data';
 
 import * as _ from 'lodash';
 

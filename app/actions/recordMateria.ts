@@ -1,4 +1,6 @@
 import { createAction } from 'typesafe-actions';
+
+import { SeriesId } from '../data/series';
 import { Character } from './characters';
 
 import * as _ from 'lodash';
@@ -16,16 +18,6 @@ export enum RecordMateriaStatus {
   Vault,                // Collected and stashed in vault
 }
 
-export const statusDescription = {
-  [RecordMateriaStatus.Unobtained]: 'Unobtained',
-  [RecordMateriaStatus.LockedLowLevel]: 'Low level',
-  [RecordMateriaStatus.LockedMissingPrereq]: 'Missing prev.',
-  [RecordMateriaStatus.Unlocked]: 'Unlocked',
-  [RecordMateriaStatus.Collected]: 'Collected',
-  [RecordMateriaStatus.Favorite]: 'Favorite',
-  [RecordMateriaStatus.Vault]: 'Vault',
-};
-
 export interface RecordMateria {
   name: string;
   id: number;
@@ -33,7 +25,7 @@ export interface RecordMateria {
   condition: string;
   characterId: number;
   characterName: string;
-  seriesId: number;
+  seriesId: SeriesId;
   obtained: boolean;
   step: Step;
   order: Order;
@@ -45,6 +37,7 @@ export interface RecordMateria {
  */
 export interface RecordMateriaDetail extends RecordMateria {
   status: RecordMateriaStatus;
+  statusDescription: string;
 }
 
 function isLowLevel(recordMateria: RecordMateria, character: Character) {
@@ -60,18 +53,48 @@ function isLowLevel(recordMateria: RecordMateria, character: Character) {
   }
 }
 
+function levelNeeded(orderOrRecordMateria: Order | RecordMateria) {
+  const order = typeof(orderOrRecordMateria) === 'object' ? orderOrRecordMateria.order : orderOrRecordMateria;
+  switch (order) {
+    case '1':
+    case '1a':
+    case '1b':
+      return 50;
+    case '2':
+      return 65;
+    case '3':
+      return 99;
+  }
+}
+
 export function getStatus(recordMateria: RecordMateria, character: Character | undefined,
-                          prereqs: RecordMateria[]) {
+                          prereqs: RecordMateria[]): { status: RecordMateriaStatus, statusDescription: string } {
+  let missingPrereq: RecordMateria | undefined;
   if (recordMateria.obtained) {
-    return RecordMateriaStatus.Collected;
+    return {
+      status: RecordMateriaStatus.Collected,
+      statusDescription: 'Collected',
+    };
   } else if (!character) {
-    return RecordMateriaStatus.Unobtained;
+    return {
+      status: RecordMateriaStatus.Unobtained,
+      statusDescription: 'Unobtained',
+    };
   } else if (isLowLevel(recordMateria, character)) {
-    return RecordMateriaStatus.LockedLowLevel;
-  } else if (_.find(prereqs, i => !i.obtained)) {
-    return RecordMateriaStatus.LockedMissingPrereq;
+    return {
+      status: RecordMateriaStatus.LockedLowLevel,
+      statusDescription: `Low level (${character.level}/${levelNeeded(recordMateria)})`,
+    };
+  } else if ((missingPrereq = _.find(prereqs, i => !i.obtained)) != null) {
+    return {
+      status: RecordMateriaStatus.LockedMissingPrereq,
+      statusDescription: `Missing RM ${missingPrereq.order}`
+    };
   } else {
-    return RecordMateriaStatus.Unlocked;
+    return {
+      status: RecordMateriaStatus.Unlocked,
+      statusDescription: 'Unlocked'
+    };
   }
 }
 
@@ -85,7 +108,7 @@ export function getRecordMateriaDetail(
 ): { [id: number]: RecordMateriaDetail } {
   return _.mapValues(recordMateria, i => ({
     ...i,
-    status: getStatus(i, characters[i.characterId], getPrereqs(i, recordMateria))
+    ...getStatus(i, characters[i.characterId], getPrereqs(i, recordMateria))
   }));
 }
 

@@ -1,11 +1,21 @@
 import * as React from 'react';
 
-import { ColDef } from 'ag-grid';
+import { ColDef, RowNode } from 'ag-grid';
 import { AgGridReact } from 'ag-grid-react';
-import { RecordMateriaDetail, statusDescription } from '../actions/recordMateria';
+
+import { RecordMateriaDetail } from '../actions/recordMateria';
+import { series, SeriesId } from '../data/series';
 
 interface Props {
   recordMateria: RecordMateriaDetail[];
+}
+
+type Comparator = ColDef['comparator'];
+function compareByNumberField(fieldName: string): Comparator {
+  return (valueA, valueB, nodeA, nodeB) => {
+    const getField = (node: RowNode | undefined) => ((node || { data: {} }).data || {})[fieldName];
+    return getField(nodeA) - getField(nodeB);
+  };
 }
 
 export class RecordMateriaGrid extends React.Component<Props> {
@@ -14,13 +24,21 @@ export class RecordMateriaGrid extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
     this.columnDefs = [
+      {
+        headerName: 'Series',
+        width: 100,
+        field: 'characterId',
+        valueGetter: ({data}: {data: RecordMateriaDetail}) => series.short[data.seriesId as SeriesId],
+        comparator: compareByNumberField('characterId'),
+      },
+      { headerName: 'Character', width: 150, field: 'characterName' },
+      { headerName: 'RM', width: 75, field: 'order' },
       { headerName: 'Name', field: 'name' },
-      { headerName: 'Character', field: 'characterName' },
-      { headerName: 'RM', field: 'order' },
       {
         headerName: 'Status',
         field: 'status',
-        valueGetter: ({data}: { data: RecordMateriaDetail}) => statusDescription[data.status]
+        valueGetter: ({data}: {data: RecordMateriaDetail}) => data.statusDescription,
+        comparator: compareByNumberField('status'),
       },
     ];
   }

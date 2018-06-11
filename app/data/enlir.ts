@@ -10,7 +10,7 @@ const makeTypeLookup = (types: any[]) => _.fromPairs(types.map(i => [+i.Key, i.V
 
 // FIXME: Properly update rawData outside of app; resolve id vs. EnlirId
 
-const enlir = {
+export const enlir = {
   abilities: makeDataLookup(rawData.Abilities),
   magicites: makeDataLookup(rawData.Magicites),
   relics: makeDataLookup(rawData.Relics),
@@ -18,5 +18,3 @@ const enlir = {
     relics: makeTypeLookup(rawData.RelicTypeList)
   }
 };
-
-export default enlir;

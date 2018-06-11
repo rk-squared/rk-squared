@@ -6,7 +6,7 @@
 import { Store } from 'redux';
 
 import * as schemas from '../api/schemas';
-import enlir from '../data/enlir';
+import { enlir } from '../data';
 import { itemsById, ItemType } from '../data/items';
 import * as urls from '../data/urls';
 import { Handler } from './types';
@@ -205,6 +205,7 @@ function convertBattleDropItems(data: schemas.GetBattleInit): DropItem[] {
   return dropItems;
 }
 
+// noinspection JSUnusedGlobalSymbols
 const battle: Handler = {
   escape_battle(data: schemas.GetBattleInit, store: Store<IState>) {
     store.dispatch(clearDropItems());

@@ -8,7 +8,7 @@
 import { Handler } from './types';
 
 import * as schemas from '../api/schemas';
-import enlir from '../data/enlir';
+import { enlir } from '../data';
 import { items, ItemType, ItemTypeLookup, ItemTypeName } from '../data/items';
 
 import * as _ from 'lodash';

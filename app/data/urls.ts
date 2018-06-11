@@ -4,7 +4,7 @@
  */
 
 import { dressRecordsById } from './dressRecords';
-import enlir from './enlir';
+import { enlir } from './enlir';
 import { ItemType } from './items';
 
 const baseUrl = 'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/';
