@@ -26,16 +26,23 @@ export class RecordMateriaGrid extends React.Component<Props> {
     this.columnDefs = [
       {
         headerName: 'Series',
-        width: 100,
+        width: 65,
         field: 'characterId',
         valueGetter: ({data}: {data: RecordMateriaDetail}) => series.short[data.seriesId as SeriesId],
         comparator: compareByNumberField('characterId'),
       },
-      { headerName: 'Character', width: 150, field: 'characterName' },
-      { headerName: 'RM', width: 75, field: 'order' },
-      { headerName: 'Name', field: 'name' },
+      { headerName: 'Character', width: 115, field: 'characterName' },
+      { headerName: 'RM', width: 45, field: 'order' },
+      { headerName: 'Name', width: 175, field: 'name' },
+      {
+        headerName: 'Description',
+        width: 330,
+        field: 'description',
+        valueGetter: ({data}: {data: RecordMateriaDetail}) => data.description.replace('<br>', ' '),
+      },
       {
         headerName: 'Status',
+        width: 150,
         field: 'status',
         valueGetter: ({data}: {data: RecordMateriaDetail}) => data.statusDescription,
         comparator: compareByNumberField('status'),
@@ -54,6 +61,7 @@ export class RecordMateriaGrid extends React.Component<Props> {
       >
         <AgGridReact
           enableSorting={true}
+          enableColResize={true}
           columnDefs={this.columnDefs}
           rowData={recordMateria}>
         </AgGridReact>
