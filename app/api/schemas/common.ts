@@ -1,3 +1,4 @@
+export type BoolAsNumber = 0 | 1;
 export type BoolAsString = '0' | '1';
 
 // A number string
@@ -22,4 +23,8 @@ export interface Asset {
     }
   };
   assetPath: ContentPath;
+}
+
+export interface AssetCollection {
+  [assetKey: string]: Asset;
 }

@@ -1,6 +1,7 @@
 import { ItemTypeName } from '../../data/items';
-import { Asset, BoolAsString, ContentPath, NumberAsString, RelativeUrlPath, Timestamp } from './common';
+import { AssetCollection, BoolAsString, ContentPath, RelativeUrlPath, Timestamp } from './common';
 
+import { Buddy, GrowEgg } from './characters';
 export { Dungeons } from './dungeons';
 export { Main } from './main';
 export { ReleasedRecordMateriaList } from './recordMateria';
@@ -226,9 +227,7 @@ export interface GachaShow {
 }
 
 export interface GetBattleInit {
-  assets: {
-    [assetKey: string]: Asset;
-  };
+  assets: AssetCollection;
 
   battle: {
     is_inescapable: BoolAsString;
@@ -274,113 +273,7 @@ export interface GetBattleInit {
 }
 
 export interface PartyList {
-  buddies: Array<{
-    id: number;
-    buddy_id: number;
-    series_id: number;
-    name: string;
-    created_at: Timestamp;
-    row: number;
-    description: string;
-    job_name: string;
-    role_type: number;
-    role_type_name: string;
-    dress_record_id: number;
-    dress_record_name: string;
-    image_path: RelativeUrlPath;
-    default_image_path: RelativeUrlPath;
-
-    exp: number;
-    level: number;
-    level_max: number;
-    evolution_num: number;  // How many times the level cap has been broken
-
-    series_level: number;
-
-    can_equip_record_materia_num: number;
-    record_materia_step: number;
-
-    sp_mnd: number;
-    atk: number;
-    mdef: number;
-    sp_acc: number;
-    sp_matk: number;
-    acc: number;
-    def: number;
-    sp_hp: number;
-    sp_def: number;
-    eva: number;
-    sp_spd: number;
-    matk: number;
-    hp: number;
-    spd: number;
-    sp_mdef: number;
-    sp_atk: number;
-    mnd: number;
-    sp_eva: number;
-
-    weapon_id: number;
-    armor_id: number;
-    accessory_id: number;
-    soul_strike_1_id: number;
-    soul_strike_2_id: number;
-    soul_strike_3_id: number;
-    soul_strike_4_id: number;
-    default_soul_strike_id: number;
-    ability_1_id: number;
-    ability_2_id: number;
-    legend_materia_1_id: number;
-    legend_materia_2_id: number;
-    record_materia_1_id: number;
-
-    is_visitant: boolean;
-    is_guest_visitant: boolean;
-    is_orichara_visitant: boolean;
-    is_fixed_party_slot: boolean;
-
-    sphere_skill_level: number;
-
-    soul_strike_exp_map: {
-      [id: string]: NumberAsString;
-    }
-    legend_materia_exp_map: {
-      [id: string]: NumberAsString;
-    }
-
-    ability_category: {
-      [id: string]: {
-        category_id: number;
-        rarity: number;
-        name: string;
-        is_extended: number;
-      }
-    }
-
-    equipment_category: {
-      [id: string]: {
-        category_id: number;
-        equipment_type: number;
-        is_extended: number;
-        factor: number;
-      }
-    }
-
-    record_tear_boosters: {
-      hp: number;
-      matk: number;
-      atk: number;
-      spd: number;
-      mdef: number;
-      acc: number;
-      mnd: number;
-      def: number;
-      eva: number;
-    };
-
-    brave_series_ids_map: {
-      [id: number]: 1;
-    };
-  }>;
+  buddies: Buddy[];
 
   sphere_materials: Array<{
     created_at: Timestamp;
@@ -392,16 +285,7 @@ export interface PartyList {
     description: string;
   }>;
 
-  grow_eggs: Array<{
-    exp: number;
-    num: number;
-    name: string;
-    sale_gil: number;
-    description: string;
-    image_path: RelativeUrlPath;
-    rarity: number;
-    id: number;
-  }>;
+  grow_eggs: GrowEgg[];
 
   equipment_hyper_evolve_materials: Array<{
     exp: number;

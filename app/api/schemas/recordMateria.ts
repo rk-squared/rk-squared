@@ -1,4 +1,4 @@
-import { RelativeUrlPath } from './common';
+import { RelativeUrlPath, Timestamp } from './common';
 
 export enum RecordMateriaEffectType {
   // noinspection JSUnusedGlobalSymbols
@@ -48,6 +48,12 @@ export interface RecordMateria {
   description: string;
   image_path: RelativeUrlPath;
   disp_name: string;          // name, with {n} for newline
+}
+
+export interface OwnedRecordMateria extends RecordMateria {
+  is_favorite: boolean;
+  created_at: Timestamp;
+  prev_record_materia_name: string;
 }
 
 // URL: http://ffrk.denagames.com/dff/achievement_room/get_released_record_materia_list

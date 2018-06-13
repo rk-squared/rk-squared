@@ -59,6 +59,7 @@ describe('actions/recordMateria', () => {
   };
   const tyro: Character = {
     id: 10000200,
+    uniqueId: 123,
     name: 'Tyro',
     level: 65,
     levelCap: 80,

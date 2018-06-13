@@ -3,6 +3,7 @@ import { createAction } from 'typesafe-actions';
 export interface Character {
   name: string;
   id: number;
+  uniqueId: number;
   level: number;
   levelCap: number;
 }

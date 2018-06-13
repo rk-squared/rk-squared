@@ -19,6 +19,7 @@ export function convertCharacters(data: schemas.PartyList): { [id: number]: Char
     result[i.buddy_id] = {
       name: i.name,
       id: i.buddy_id,
+      uniqueId: i.id,
       level: i.level,
       levelCap: i.level_max,
     };
