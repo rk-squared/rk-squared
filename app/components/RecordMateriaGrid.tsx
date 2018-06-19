@@ -1,9 +1,11 @@
 import * as React from 'react';
 
+const { default: FontAwesomeIcon } = require('@fortawesome/react-fontawesome');
+
 import { ColDef, RowNode } from 'ag-grid';
 import { AgGridReact } from 'ag-grid-react';
 
-import { RecordMateriaDetail } from '../actions/recordMateria';
+import { RecordMateriaDetail, RecordMateriaStatus } from '../actions/recordMateria';
 import { series, SeriesId } from '../data/series';
 
 interface Props {
@@ -20,6 +22,40 @@ function compareByNumberField(fieldName: string): Comparator {
     const getField = (node: RowNode | undefined) => ((node || { data: {} }).data || {})[fieldName];
     return getField(nodeA) - getField(nodeB);
   };
+}
+
+class StatusIcon extends React.Component<{status: RecordMateriaStatus}> {
+  render() {
+    const { status } = this.props;
+    switch (status) {
+      case RecordMateriaStatus.Unobtained:
+        return <FontAwesomeIcon icon="question"/>;
+      case RecordMateriaStatus.LockedLowLevel:
+        return <FontAwesomeIcon icon="arrow-down"/>;
+      case RecordMateriaStatus.LockedMissingPrereq:
+        return <FontAwesomeIcon icon="ellipsis-h"/>;
+      case RecordMateriaStatus.Unlocked:
+        return <FontAwesomeIcon icon="lock-open"/>;
+      case RecordMateriaStatus.Collected:
+        return <FontAwesomeIcon icon="check"/>;
+      case RecordMateriaStatus.Favorite:
+        return <FontAwesomeIcon icon="star"/>;
+      case RecordMateriaStatus.Vault:
+        return <FontAwesomeIcon icon="archive"/>;
+    }
+  }
+}
+
+interface StatusCellProps {
+  value: RecordMateriaStatus;
+  data: RecordMateriaDetail;
+}
+
+class StatusCell extends React.Component<StatusCellProps> {
+  render() {
+    const { data } = this.props;
+    return <span><StatusIcon status={data.status}/> {data.statusDescription}</span>;
+  }
 }
 
 export class RecordMateriaGrid extends React.Component<Props, State> {
@@ -49,6 +85,7 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
         width: 150,
         field: 'status',
         valueGetter: ({data}: {data: RecordMateriaDetail}) => data.statusDescription,
+        cellRendererFramework: StatusCell,
         comparator: compareByNumberField('status'),
       },
     ];
@@ -59,7 +96,7 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
 
   handleFilter = (e: React.FormEvent<HTMLInputElement>) => {
     this.setState({filter: e.currentTarget.value});
-  }
+  };
 
   render() {
     const { recordMateria } = this.props;
