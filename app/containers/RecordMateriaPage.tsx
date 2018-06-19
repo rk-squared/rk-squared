@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { getRecordMateriaDetail, RecordMateriaDetail } from '../actions/recordMateria';
-import { RecordMateriaGrid } from '../components/RecordMateriaGrid';
+import { RecordMateriaGrid } from '../components/recordMateria/RecordMateriaGrid';
 import { IState } from '../reducers';
 import { Page } from './Page';
 
