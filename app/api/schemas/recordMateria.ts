@@ -1,4 +1,5 @@
-import { RelativeUrlPath, Timestamp } from './common';
+import { BoolAsNumber, RelativeUrlPath, Timestamp } from './common';
+import { User } from './user';
 
 export enum RecordMateriaEffectType {
   // noinspection JSUnusedGlobalSymbols
@@ -73,4 +74,17 @@ export interface ReleasedRecordMateriaList {
     is_locked: number;   // always false
     type: number;        // always 7
   }>;
+}
+
+export interface SetFavoriteRecordMateriaPost {
+  id_to_flag: {
+    [id: number]: BoolAsNumber;
+  };
+}
+
+// POST to http://ffrk.denagames.com/dff/inventory/set_favorite_record_materia
+export interface SetFavoriteRecordMateria {
+  // The one updated record materia, *before* the favorite status is applied.
+  record_materias: OwnedRecordMateria[];
+  user: User;
 }

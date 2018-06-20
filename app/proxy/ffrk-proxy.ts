@@ -31,7 +31,8 @@ import { IState } from '../reducers';
 import * as _ from 'lodash';
 
 interface ProxyIncomingMessage extends http.IncomingMessage {
-  bodyStream: streamBuffers.WritableStreamBuffer;
+  bodyStream: streamBuffers.WritableStreamBuffer | undefined;
+  body: any | undefined;
 }
 
 const handlers = [
@@ -77,13 +78,25 @@ function getCaptureFilename(req: http.IncomingMessage) {
   return path.join(capturePath, datestamp + urlPath + '.json');
 }
 
+function checkRequestBody(req: http.IncomingMessage) {
+  const proxyReq = req as ProxyIncomingMessage;
+  if (proxyReq.bodyStream == null) {
+    return;
+  }
+  proxyReq.body = proxyReq.bodyStream.getContentsAsString('utf8');
+  try {
+    proxyReq.body = JSON.parse(proxyReq.body);
+  } catch (e) {
+  }
+}
+
 function recordCapturedData(data: any, req: http.IncomingMessage, res: http.ServerResponse) {
   const filename = getCaptureFilename(req);
   const { url, method, headers } = req;  // tslint:disable-line no-shadowed-variable
   const response = { headers: res.getHeaders() };
 
   const proxyReq = req as ProxyIncomingMessage;
-  const requestBody = req.method === 'POST' ? proxyReq.bodyStream.getContentsAsString('utf8') : undefined;
+  const requestBody = proxyReq.body;
 
   return new Promise((resolve, reject) => {
     fs.writeFile(filename, JSON.stringify({ url, method, headers, requestBody, response, data }, null, 2), err => {
@@ -132,6 +145,7 @@ function checkHandlers(
 ) {
   const reqUrl = url.parse(req.url as string);
   const reqQuery = reqUrl.query ? querystring.parse(reqUrl.query) : undefined;
+  const reqBody = (req as ProxyIncomingMessage).body;
   if (fragments == null) {
     fragments = getFragmentsToCheck(reqUrl);
   }
@@ -140,7 +154,7 @@ function checkHandlers(
   for (const handler of handlers) {
     for (const fragment of fragments) {
       if (handler[fragment]) {
-        const newData = handler[fragment](data, store, reqQuery);
+        const newData = handler[fragment](data, store, reqQuery, reqBody);
         if (newData !== undefined) {
           changed = true;
           data = newData;
@@ -164,6 +178,8 @@ function handleFfrkApiRequest(
       decoded = decoded.substr(1);
     }
     decoded = JSON.parse(decoded);
+
+    checkRequestBody(req);
 
     if (store.getState().options.saveTrafficCaptures) {
       recordCapturedData(decoded, req, res)

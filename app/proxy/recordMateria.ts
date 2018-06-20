@@ -11,10 +11,20 @@ import { Handler } from './types';
 
 import { IState } from '../reducers';
 
-import { Order, RecordMateria, setRecordMateria, Step, updateRecordMateriaInventory } from '../actions/recordMateria';
+import {
+  Order,
+  RecordMateria,
+  setRecordMateria,
+  setRecordMateriaInventory,
+  Step,
+  updateRecordMateriaInventory
+} from '../actions/recordMateria';
 import { SeriesId } from '../data/series';
 
 import * as _ from 'lodash';
+
+// FIXME: What's the best place to log these?  Use the console for now.
+// tslint:disable no-console
 
 interface MateriaIdsByCharacter {
   [characterId: number]: number[];
@@ -94,10 +104,22 @@ const recordMateria: Handler = {
   },
 
   'party/list'(data: schemas.PartyList, store: Store<IState>) {
-    store.dispatch(updateRecordMateriaInventory(
+    store.dispatch(setRecordMateriaInventory(
       _.map(data.record_materias, i => i.id),
       _.map(_.filter(data.record_materias, i => i.is_favorite), i => i.id),
     ));
+  },
+
+  'set_favorite_record_materia'(data: recordMateriaSchemas.SetFavoriteRecordMateria, store: Store<IState>,
+                                query?: any, requestBody?: any) {
+    if (typeof(requestBody) !== 'object' || !requestBody.id_to_flag) {
+      console.warn(`Unknown POST request for set_favorite_record_materia: ${requestBody}`);
+      return;
+    }
+    const post = requestBody as recordMateriaSchemas.SetFavoriteRecordMateriaPost;
+    _.forEach(post.id_to_flag, (value, id) => {
+      store.dispatch(updateRecordMateriaInventory(+id, { favorite: !!value }));
+    });
   },
 
   // FIXME: Update record materia on winning a battle

@@ -56,13 +56,15 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
       },
     ];
     this.state = {
-      filter: undefined
+      filter: ''
     };
   }
 
   handleFilter = (e: React.FormEvent<HTMLInputElement>) => {
     this.setState({filter: e.currentTarget.value});
   };
+
+  getRowNodeId = (row: RecordMateriaDetail) => '' + row.id;
 
   render() {
     const { recordMateria } = this.props;
@@ -82,6 +84,8 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
           columnDefs={this.columnDefs}
           rowData={recordMateria}
           quickFilterText={this.state.filter}
+          deltaRowDataMode={true}
+          getRowNodeId={this.getRowNodeId}
         >
         </AgGridReact>
       </div>

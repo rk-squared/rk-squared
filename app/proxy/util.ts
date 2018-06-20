@@ -54,4 +54,3 @@ export function encodeData(data: string, res: http.ServerResponse) {
     return Buffer.from(data);
   }
 }
-

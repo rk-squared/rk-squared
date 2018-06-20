@@ -144,9 +144,9 @@ export const setRecordMateria = createAction('SET_RECORD_MATERIA',
   })
 );
 
-export const updateRecordMateriaInventory = createAction('UPDATE_RECORD_MATERIA_INVENTORY',
+export const setRecordMateriaInventory = createAction('SET_RECORD_MATERIA_INVENTORY',
   (inventory: number[], favorites: number[]) => ({
-    type: 'UPDATE_RECORD_MATERIA_INVENTORY',
+    type: 'SET_RECORD_MATERIA_INVENTORY',
     payload: {
       inventory,
       favorites,
@@ -154,4 +154,19 @@ export const updateRecordMateriaInventory = createAction('UPDATE_RECORD_MATERIA_
   })
 );
 
-export type RecordMateriaAction = ReturnType<typeof setRecordMateria | typeof updateRecordMateriaInventory>;
+export const updateRecordMateriaInventory = createAction('UPDATE_RECORD_MATERIA_INVENTORY',
+  (id: number, { inventory, favorite }: { inventory?: boolean, favorite?: boolean }) => ({
+    type: 'UPDATE_RECORD_MATERIA_INVENTORY',
+    payload: {
+      id,
+      inventory,
+      favorite
+    }
+  })
+);
+
+export type RecordMateriaAction = ReturnType<
+  typeof setRecordMateria |
+  typeof setRecordMateriaInventory |
+  typeof updateRecordMateriaInventory
+>;
