@@ -11,8 +11,10 @@ import { Handler } from './types';
 
 import { IState } from '../reducers';
 
-import { Order, RecordMateria, setRecordMateria, Step } from '../actions/recordMateria';
+import { Order, RecordMateria, setRecordMateria, Step, updateRecordMateriaInventory } from '../actions/recordMateria';
 import { SeriesId } from '../data/series';
+
+import * as _ from 'lodash';
 
 interface MateriaIdsByCharacter {
   [characterId: number]: number[];
@@ -85,9 +87,17 @@ export function convertRecordMateriaList(data: schemas.ReleasedRecordMateriaList
   return result;
 }
 
+// noinspection JSUnusedGlobalSymbols
 const recordMateria: Handler = {
-  get_released_record_materia_list(data: schemas.ReleasedRecordMateriaList, store: Store<IState>) {
+  'get_released_record_materia_list'(data: schemas.ReleasedRecordMateriaList, store: Store<IState>) {
     store.dispatch(setRecordMateria(convertRecordMateriaList(data)));
+  },
+
+  'party/list'(data: schemas.PartyList, store: Store<IState>) {
+    store.dispatch(updateRecordMateriaInventory(
+      _.map(data.record_materias, i => i.id),
+      _.map(_.filter(data.record_materias, i => i.is_favorite), i => i.id),
+    ));
   },
 
   // FIXME: Update record materia on winning a battle

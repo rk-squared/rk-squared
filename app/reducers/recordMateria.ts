@@ -1,16 +1,33 @@
 import { getType } from 'typesafe-actions';
 
-import { RecordMateria, RecordMateriaAction, setRecordMateria } from '../actions/recordMateria';
+import * as _ from 'lodash';
+
+import {
+  RecordMateria,
+  RecordMateriaAction,
+  setRecordMateria,
+  updateRecordMateriaInventory
+} from '../actions/recordMateria';
 
 export interface RecordMateriaState {
   recordMateria: {
     [id: number]: RecordMateria;
   };
+  favorites: undefined | {
+    [id: number]: boolean;
+  };
+  inventory: undefined | {
+    [id: number]: boolean;
+  };
 }
 
 const initialState = {
-  recordMateria: {}
+  recordMateria: {},
+  favorites: {},
+  inventory: {},
 };
+
+const toSet = (ids: number[]) => _.fromPairs(_.map(ids, i => [i, true]));
 
 export function recordMateria(state: RecordMateriaState = initialState,
                               action: RecordMateriaAction): RecordMateriaState {
@@ -19,6 +36,13 @@ export function recordMateria(state: RecordMateriaState = initialState,
       return {
         ...state,
         recordMateria: action.payload.recordMateria
+      };
+
+    case getType(updateRecordMateriaInventory):
+      return {
+        ...state,
+        inventory: toSet(action.payload.inventory),
+        favorites: toSet(action.payload.favorites),
       };
 
     default:

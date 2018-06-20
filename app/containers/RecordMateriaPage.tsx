@@ -32,6 +32,9 @@ export class RecordMateriaPage extends React.Component<Props> {
 // FIXME: Use reselect
 export default connect(
   (state: IState) => ({
-    recordMateria: _.values(getRecordMateriaDetail(state.recordMateria.recordMateria, state.characters.characters)),
+    recordMateria: _.values(getRecordMateriaDetail(
+      state.recordMateria.recordMateria, state.characters.characters,
+      state.recordMateria.inventory, state.recordMateria.favorites
+    )),
   })
 )(RecordMateriaPage);

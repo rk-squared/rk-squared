@@ -2,6 +2,7 @@ import { ItemTypeName } from '../../data/items';
 import { AssetCollection, BoolAsString, ContentPath, RelativeUrlPath, Timestamp } from './common';
 
 import { Buddy, GrowEgg } from './characters';
+import { OwnedRecordMateria } from './recordMateria';
 export { Dungeons } from './dungeons';
 export { Main } from './main';
 export { ReleasedRecordMateriaList } from './recordMateria';
@@ -274,6 +275,8 @@ export interface GetBattleInit {
 
 export interface PartyList {
   buddies: Buddy[];
+
+  record_materias: OwnedRecordMateria[];
 
   sphere_materials: Array<{
     created_at: Timestamp;

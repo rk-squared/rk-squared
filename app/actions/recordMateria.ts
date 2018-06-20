@@ -67,14 +67,31 @@ function levelNeeded(orderOrRecordMateria: Order | RecordMateria) {
   }
 }
 
-export function getStatus(recordMateria: RecordMateria, character: Character | undefined,
-                          prereqs: RecordMateria[]): { status: RecordMateriaStatus, statusDescription: string } {
+export function getStatus(
+  recordMateria: RecordMateria,
+  character: Character | undefined,
+  prereqs: RecordMateria[],
+  isInInventory: boolean | undefined,
+  isFavorite: boolean | undefined,
+): { status: RecordMateriaStatus, statusDescription: string } {
   let missingPrereq: RecordMateria | undefined;
   if (recordMateria.obtained) {
-    return {
-      status: RecordMateriaStatus.Collected,
-      statusDescription: 'Collected',
-    };
+    if (!isInInventory) {
+      return {
+        status: RecordMateriaStatus.Vault,
+        statusDescription: 'Vault',
+      };
+    } else if (isFavorite) {
+      return {
+        status: RecordMateriaStatus.Favorite,
+        statusDescription: 'Favorite',
+      };
+    } else {
+      return {
+        status: RecordMateriaStatus.Collected,
+        statusDescription: 'Collected',
+      };
+    }
   } else if (!character) {
     return {
       status: RecordMateriaStatus.Unobtained,
@@ -104,12 +121,18 @@ export function getPrereqs(recordMateria: RecordMateria, allRecordMateria: { [id
 
 export function getRecordMateriaDetail(
   recordMateria: { [id: number]: RecordMateria },
-  characters: { [id: number]: Character }
+  characters: { [id: number]: Character },
+  inventory?: { [id: number]: boolean },
+  favorites?: { [id: number]: boolean },
 ): { [id: number]: RecordMateriaDetail } {
-  return _.mapValues(recordMateria, i => ({
-    ...i,
-    ...getStatus(i, characters[i.characterId], getPrereqs(i, recordMateria))
-  }));
+  return _.mapValues(recordMateria, i => {
+    const isInInventory = inventory == null ? true : inventory[i.id];
+    const isFavorite = favorites == null ? false : favorites[i.id];
+    return {
+      ...i,
+      ...getStatus(i, characters[i.characterId], getPrereqs(i, recordMateria), isInInventory, isFavorite)
+    };
+  });
 }
 
 export const setRecordMateria = createAction('SET_RECORD_MATERIA',
@@ -121,4 +144,14 @@ export const setRecordMateria = createAction('SET_RECORD_MATERIA',
   })
 );
 
-export type RecordMateriaAction = ReturnType<typeof setRecordMateria>;
+export const updateRecordMateriaInventory = createAction('UPDATE_RECORD_MATERIA_INVENTORY',
+  (inventory: number[], favorites: number[]) => ({
+    type: 'UPDATE_RECORD_MATERIA_INVENTORY',
+    payload: {
+      inventory,
+      favorites,
+    }
+  })
+);
+
+export type RecordMateriaAction = ReturnType<typeof setRecordMateria | typeof updateRecordMateriaInventory>;
