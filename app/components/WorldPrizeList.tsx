@@ -31,16 +31,14 @@ export class WorldPrizeList extends React.Component<StateProps & OwnProps, State
     };
   }
 
-  // noinspection UnterminatedStatementJS
   handleOpen = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     this.setState({isOpen: true});
-  }
+  };
 
-  // noinspection UnterminatedStatementJS
   handleClose = () => {
     this.setState({isOpen: false});
-  }
+  };
 
   render() {
     const { dungeons } = this.props;

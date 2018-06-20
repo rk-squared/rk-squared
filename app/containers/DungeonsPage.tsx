@@ -23,12 +23,11 @@ interface Props {
 }
 
 export class DungeonsPage extends React.Component<Props> {
-  // noinspection UnterminatedStatementJS
   handleLoad = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const { missingWorlds, dispatch } = this.props;
     dispatch(loadDungeons(missingWorlds));
-  }
+  };
 
   render() {
     const { worlds, missingWorlds, progress } = this.props;

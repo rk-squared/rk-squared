@@ -26,17 +26,15 @@ interface Props {
 }
 
 export class ItemTypeChecklist extends React.Component<Props> {
-  // noinspection UnterminatedStatementJS
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.checked;
     this.props.update({[e.target.name as ItemType]: selected});
-  }
+  };
 
-  // noinspection UnterminatedStatementJS
   handleChangeAll = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.checked;
     this.props.update(_.fromPairs(itemTypes.map(i => [i, selected])));
-  }
+  };
 
   render() {
     const { show, title } = this.props;
