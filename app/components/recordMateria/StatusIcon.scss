@@ -1,0 +1,29 @@
+:local {
+  .unobtained {
+    color: darkred;
+  }
+
+  .lockedLowLevel {
+    color: darkred;
+  }
+
+  .lockedMissingPrereq {
+    color: darkorange;
+  }
+
+  .unlocked {
+    color: goldenrod;
+  }
+
+  .collected {
+    color: green;
+  }
+
+  .favorite {
+    color: deepskyblue;
+  }
+
+  .vault {
+    color: grey;
+  }
+}
