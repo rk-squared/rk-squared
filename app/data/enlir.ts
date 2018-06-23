@@ -14,6 +14,7 @@ export const enlir = {
   abilities: makeDataLookup(rawData.Abilities),
   magicites: makeDataLookup(rawData.Magicites),
   relics: makeDataLookup(rawData.Relics),
+  recordMateria: _.keyBy(rawData.RecordMaterias, 'RecordMateriaName'),
   types: {
     relics: makeTypeLookup(rawData.RelicTypeList)
   }

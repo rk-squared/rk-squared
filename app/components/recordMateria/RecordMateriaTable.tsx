@@ -28,12 +28,13 @@ interface Props {
 }
 
 export class RecordMateriaTable extends React.Component<Props> {
-  renderCell = (row: TableRow, contents: string[], index: number) => {
+  renderCell = (row: TableRow, rowIndex: number, contents: string[], index: number) => {
     const { recordMateria } = this.props;
+    const id = `${this.props.id}-${rowIndex}-${index}`;
     const show = _.filter(_.flatMap(contents, s => row.items[s]));
     return (
       <td key={index}>
-        <RecordMateriaList recordMateria={recordMateria} show={show}/>
+        <RecordMateriaList id={id} recordMateria={recordMateria} show={show}/>
       </td>
     );
   };
@@ -43,7 +44,7 @@ export class RecordMateriaTable extends React.Component<Props> {
     return (
       <tr key={index}>
         <th scope="row">{row.header}</th>
-        {table.contents.map((contents, i) => this.renderCell(row, contents, i))}
+        {table.contents.map((contents, i) => this.renderCell(row, index, contents, i))}
       </tr>
     );
   };

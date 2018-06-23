@@ -1,0 +1,22 @@
+:local {
+  .component {
+    max-width: 50em;
+
+    > img {
+      float: left;
+      width: 64px;
+      height: 64px;
+    }
+
+    > p > svg {
+      margin-right: 0.5em;
+    }
+
+    .gameDescription {
+    }
+
+    .enlirDescription, .unlockCondition {
+      font-style: italic;
+    }
+  }
+}

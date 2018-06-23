@@ -19,6 +19,10 @@ export function asset(assetPath?: string): string | undefined {
   );
 }
 
+export function characterImage(id: number): string {
+  return url(`image/buddy/${id}/${id}.png`);
+}
+
 export function magiciteImage(id: number): string {
   // Magicite skill image: purple circle background
   // return url(`image/beast_active_skill/${id}1/${id}1_128.png`);
@@ -60,7 +64,7 @@ export function itemImage(id: number, type: ItemType): string {
       const rarity = enlir.relics[id].Rarity;
       return url(`image/equipment/${id}/${id}_0${rarity}_112.png`);
     case ItemType.Character:
-      return url(`image/buddy/${id}/${id}.png`);
+      return characterImage(id);
     case ItemType.DressRecord:
       // Fall back to dress record ID if it's an unknown dress record.
       // This will fail but will avoid an error.
