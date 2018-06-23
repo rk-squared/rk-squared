@@ -4,20 +4,28 @@
       <w>adamantite</w>
       <w>aemo</w>
       <w>aerith</w>
+      <w>agrias</w>
       <w>alphinaud</w>
       <w>angeal</w>
       <w>aphmau</w>
+      <w>aranea</w>
       <w>attunement</w>
+      <w>auron</w>
       <w>axios</w>
       <w>bahamut</w>
+      <w>balthier</w>
+      <w>barbariccia</w>
       <w>bartz</w>
       <w>basch</w>
       <w>beastmaster</w>
       <w>berserker</w>
+      <w>blitzball</w>
       <w>braska</w>
       <w>cait</w>
+      <w>celes</w>
       <w>ceodore</w>
       <w>checksums</w>
+      <w>cinque</w>
       <w>crushdown</w>
       <w>curada</w>
       <w>curilla</w>
@@ -28,12 +36,16 @@
       <w>devtool</w>
       <w>devtools</w>
       <w>dorgann</w>
+      <w>dualcast</w>
       <w>edea</w>
       <w>eiko</w>
+      <w>elarra</w>
       <w>enlir</w>
       <w>eslint</w>
+      <w>estinien</w>
       <w>etro</w>
       <w>exdeath</w>
+      <w>faris</w>
       <w>feymarch</w>
       <w>ffrk</w>
       <w>firion</w>
@@ -48,20 +60,28 @@
       <w>golbez</w>
       <w>gysahl</w>
       <w>haurchefant</w>
+      <w>ignis</w>
       <w>ingus</w>
       <w>jecht</w>
       <w>katana</w>
       <w>kefka</w>
       <w>krile</w>
+      <w>kuja</w>
       <w>laguna</w>
       <w>lann</w>
       <w>larsa</w>
+      <w>luneth</w>
+      <w>machina</w>
+      <w>mage</w>
       <w>magicite</w>
       <w>magicites</w>
+      <w>marche</w>
       <w>materia</w>
       <w>materias</w>
+      <w>matoya</w>
       <w>meliadoul</w>
       <w>minfilia</w>
+      <w>minwu</w>
       <w>montblanc</w>
       <w>mythril</w>
       <w>nabaat</w>
@@ -77,34 +97,56 @@
       <w>prereqs</w>
       <w>prompto</w>
       <w>querystring</w>
+      <w>quina</w>
+      <w>quistis</w>
+      <w>raijin</w>
       <w>raines</w>
+      <w>rapha</w>
       <w>redux</w>
+      <w>refia</w>
+      <w>reks</w>
       <w>relm</w>
       <w>reynn</w>
+      <w>rikku</w>
+      <w>riku</w>
+      <w>rinoa</w>
       <w>rubicante</w>
       <w>rydia</w>
       <w>sarisa</w>
       <w>sazh</w>
       <w>scarletite</w>
+      <w>seifer</w>
       <w>selphie</w>
       <w>sephiroth</w>
       <w>serah</w>
+      <w>setzer</w>
+      <w>shantotto</w>
+      <w>shelke</w>
       <w>sith</w>
+      <w>sora</w>
       <w>speedrun</w>
       <w>spellblade</w>
+      <w>strago</w>
       <w>tellah</w>
       <w>thancred</w>
+      <w>tidus</w>
+      <w>tifa</w>
       <w>tslint</w>
       <w>ultima</w>
       <w>umaro</w>
       <w>unobtained</w>
+      <w>vaan</w>
       <w>valigarmanda</w>
       <w>vayne</w>
+      <w>wakka</w>
       <w>wrieg</w>
+      <w>xezat</w>
       <w>ysayle</w>
       <w>yuffie</w>
       <w>yuna</w>
+      <w>zeid</w>
       <w>zell</w>
+      <w>zidane</w>
       <w>zlib</w>
     </words>
   </dictionary>

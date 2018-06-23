@@ -3,6 +3,7 @@ import { Route, RouteComponentProps } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 import { RecordMateriaDetail } from '../actions/recordMateria';
+import { DamageHealing } from '../components/recordMateria/DamageHealing';
 import { RecordMateriaGrid } from '../components/recordMateria/RecordMateriaGrid';
 import { StatBuffs } from '../components/recordMateria/StatBuffs';
 
@@ -15,6 +16,7 @@ interface Props {
 export class RecordMateriaRoutes extends React.Component<Props & RouteComponentProps<Props>> {
   renderAll = () => <RecordMateriaGrid recordMateria={this.props.recordMateria}/>;
   renderStatBuffs = () => <StatBuffs recordMateria={this.props.recordMateria}/>;
+  renderDamageHealing = () => <DamageHealing recordMateria={this.props.recordMateria}/>;
 
   render() {
     const { match } = this.props;
@@ -22,6 +24,7 @@ export class RecordMateriaRoutes extends React.Component<Props & RouteComponentP
     const items: Array<[string, string, () => React.ReactNode]> = [
       ['All', '', this.renderAll],
       ['Stat Buffs', '/statBuffs', this.renderStatBuffs],
+      ['Damage / Healing', '/damageHealing', this.renderDamageHealing],
     ];
 
     return (
