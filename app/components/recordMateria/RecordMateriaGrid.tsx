@@ -7,8 +7,10 @@ import { RecordMateriaDetail } from '../../actions/recordMateria';
 import { series, SeriesId } from '../../data/series';
 import { StatusCell } from './StatusCell';
 
+import * as _ from 'lodash';
+
 interface Props {
-  recordMateria: RecordMateriaDetail[];
+  recordMateria: { [id: number]: RecordMateriaDetail };
 }
 
 interface State {
@@ -23,12 +25,13 @@ function compareByNumberField(fieldName: string): Comparator {
   };
 }
 
-
 export class RecordMateriaGrid extends React.Component<Props, State> {
   columnDefs: ColDef[];
+  objectValues = _.memoize(_.values);
 
   constructor(props: Props) {
     super(props);
+
     this.columnDefs = [
       {
         headerName: 'Series',
@@ -82,7 +85,7 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
           enableSorting={true}
           enableColResize={true}
           columnDefs={this.columnDefs}
-          rowData={recordMateria}
+          rowData={this.objectValues(recordMateria)}
           quickFilterText={this.state.filter}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}

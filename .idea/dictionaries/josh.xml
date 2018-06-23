@@ -2,10 +2,14 @@
   <dictionary name="josh">
     <words>
       <w>adamantite</w>
+      <w>attunement</w>
       <w>axios</w>
       <w>bahamut</w>
       <w>bartz</w>
+      <w>basch</w>
       <w>beastmaster</w>
+      <w>berserker</w>
+      <w>ceodore</w>
       <w>checksums</w>
       <w>crushdown</w>
       <w>curada</w>
@@ -19,16 +23,23 @@
       <w>etro</w>
       <w>feymarch</w>
       <w>ffrk</w>
+      <w>firion</w>
       <w>followee</w>
       <w>fontawesome</w>
       <w>gacha</w>
       <w>galuf</w>
       <w>gysahl</w>
+      <w>jecht</w>
+      <w>katana</w>
       <w>krile</w>
+      <w>laguna</w>
+      <w>lann</w>
+      <w>larsa</w>
       <w>magicite</w>
       <w>magicites</w>
       <w>materia</w>
       <w>materias</w>
+      <w>minfilia</w>
       <w>mythril</w>
       <w>navbar</w>
       <w>palom</w>
@@ -37,16 +48,24 @@
       <w>prefs</w>
       <w>prereq</w>
       <w>prereqs</w>
+      <w>prompto</w>
       <w>querystring</w>
       <w>redux</w>
       <w>sarisa</w>
+      <w>sazh</w>
       <w>scarletite</w>
+      <w>sephiroth</w>
       <w>speedrun</w>
       <w>spellblade</w>
+      <w>thancred</w>
       <w>tslint</w>
       <w>ultima</w>
+      <w>umaro</w>
       <w>unobtained</w>
       <w>valigarmanda</w>
+      <w>vayne</w>
+      <w>wrieg</w>
+      <w>zell</w>
       <w>zlib</w>
     </words>
   </dictionary>

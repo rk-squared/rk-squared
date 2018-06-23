@@ -69,7 +69,7 @@ describe('actions/recordMateria', () => {
 
   it('determines record materia status', () => {
     expect(getStatus(scholarsBoon, undefined, [], false, false))
-      .toEqual({ status: Status.Unobtained, statusDescription: 'Unobtained' });
+      .toEqual({ status: Status.Unknown, statusDescription: 'Unknown' });
 
     expect(getStatus(attunement1, tyro, [], true, true))
       .toEqual({ status: Status.Favorite, statusDescription: 'Favorite' });

@@ -9,7 +9,7 @@ export type Step = 1 | 2 | 3 | 4;
 export type Order = '1' | '1a' | '1b' | '2' | '3';
 
 export enum RecordMateriaStatus {
-  Unobtained,           // Unobtained (unknown reason)
+  Unknown,              // Unknown materia, or unobtained for unknown reason (missing character info)
   LockedLowLevel,       // Locked due to level or level cap too low
   LockedMissingPrereq,  // Locked due to missing prerequisite
   Unlocked,             // Unlocked but not yet collected
@@ -94,8 +94,8 @@ export function getStatus(
     }
   } else if (!character) {
     return {
-      status: RecordMateriaStatus.Unobtained,
-      statusDescription: 'Unobtained',
+      status: RecordMateriaStatus.Unknown,
+      statusDescription: 'Unknown',
     };
   } else if (isLowLevel(recordMateria, character)) {
     return {

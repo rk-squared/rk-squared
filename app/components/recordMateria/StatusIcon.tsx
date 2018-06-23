@@ -9,8 +9,8 @@ export class StatusIcon extends React.Component<{status: RecordMateriaStatus}> {
   render() {
     const { status } = this.props;
     switch (status) {
-      case RecordMateriaStatus.Unobtained:
-        return <FontAwesomeIcon classNames={styles.unobtained} icon="question"/>;
+      case RecordMateriaStatus.Unknown:
+        return <FontAwesomeIcon className={styles.unknown} icon="question"/>;
       case RecordMateriaStatus.LockedLowLevel:
         return <FontAwesomeIcon className={styles.lockedLowLevel} icon="arrow-down"/>;
       case RecordMateriaStatus.LockedMissingPrereq:
