@@ -2,6 +2,11 @@
   <dictionary name="josh">
     <words>
       <w>adamantite</w>
+      <w>aemo</w>
+      <w>aerith</w>
+      <w>alphinaud</w>
+      <w>angeal</w>
+      <w>aphmau</w>
       <w>attunement</w>
       <w>axios</w>
       <w>bahamut</w>
@@ -9,28 +14,44 @@
       <w>basch</w>
       <w>beastmaster</w>
       <w>berserker</w>
+      <w>braska</w>
+      <w>cait</w>
       <w>ceodore</w>
       <w>checksums</w>
       <w>crushdown</w>
       <w>curada</w>
+      <w>curilla</w>
       <w>datestamp</w>
       <w>debuffs</w>
+      <w>delita</w>
+      <w>desch</w>
       <w>devtool</w>
       <w>devtools</w>
+      <w>dorgann</w>
+      <w>edea</w>
       <w>eiko</w>
       <w>enlir</w>
       <w>eslint</w>
       <w>etro</w>
+      <w>exdeath</w>
       <w>feymarch</w>
       <w>ffrk</w>
       <w>firion</w>
       <w>followee</w>
       <w>fontawesome</w>
+      <w>fujin</w>
+      <w>fusoya</w>
+      <w>gabranth</w>
       <w>gacha</w>
       <w>galuf</w>
+      <w>gogo</w>
+      <w>golbez</w>
       <w>gysahl</w>
+      <w>haurchefant</w>
+      <w>ingus</w>
       <w>jecht</w>
       <w>katana</w>
+      <w>kefka</w>
       <w>krile</w>
       <w>laguna</w>
       <w>lann</w>
@@ -39,10 +60,16 @@
       <w>magicites</w>
       <w>materia</w>
       <w>materias</w>
+      <w>meliadoul</w>
       <w>minfilia</w>
+      <w>montblanc</w>
       <w>mythril</w>
+      <w>nabaat</w>
       <w>navbar</w>
+      <w>ovelia</w>
       <w>palom</w>
+      <w>papalymo</w>
+      <w>penelo</w>
       <w>porom</w>
       <w>precache</w>
       <w>prefs</w>
@@ -50,13 +77,22 @@
       <w>prereqs</w>
       <w>prompto</w>
       <w>querystring</w>
+      <w>raines</w>
       <w>redux</w>
+      <w>relm</w>
+      <w>reynn</w>
+      <w>rubicante</w>
+      <w>rydia</w>
       <w>sarisa</w>
       <w>sazh</w>
       <w>scarletite</w>
+      <w>selphie</w>
       <w>sephiroth</w>
+      <w>serah</w>
+      <w>sith</w>
       <w>speedrun</w>
       <w>spellblade</w>
+      <w>tellah</w>
       <w>thancred</w>
       <w>tslint</w>
       <w>ultima</w>
@@ -65,6 +101,9 @@
       <w>valigarmanda</w>
       <w>vayne</w>
       <w>wrieg</w>
+      <w>ysayle</w>
+      <w>yuffie</w>
+      <w>yuna</w>
       <w>zell</w>
       <w>zlib</w>
     </words>

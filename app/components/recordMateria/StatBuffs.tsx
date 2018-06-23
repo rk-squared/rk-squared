@@ -106,6 +106,334 @@ const atkTable: TableDefinition = {
   ]
 };
 
+const atkMagTable: TableDefinition = {
+  title: 'ATK/MAG Buff',
+  headers: ['+13% ATK/MAG', '+10% ATK/MAG', '+10% ATK/MAG (w/ downside)'],
+  contents: [['13'], ['10'], ['10-']],
+  rows: [
+    {
+      header: '(always)',
+      items: {
+        '10': [['Yuffie', '3']],
+        '10-': [['Desch', '2']],
+      }
+    },
+    {
+      header: 'Fists',
+      items: {
+        13: [['Rude', '3']],
+        10: [['Vayne', '2']],
+      }
+    }
+  ],
+};
+
+const magTable: TableDefinition = {
+  title: 'MAG Buff',
+  headers: ['≥ +15% MAG', '+13% MAG/x', '+10-13% MAG', '+10% MAG (w/ downside)'],
+  contents: [['15'], ['13x'], ['13', '10'], ['10-']],
+  rows: [
+    {
+      header: '(always)',
+      items: {
+        '15': [['Vivi', '1b'], ['Echo', '3'], ['Serah', '3']],
+        '13x': [['Ace', '3'], ['Terra', '3']],
+        '10': [['Krile', '2'], ['Montblanc', '2'], ['Reynn', '2']],
+        '10-': [['Ashe', '1'], ['Echo', '2'], ['Serah', '1'], ['Braska', '1'], ['Eiko', '1'], ['Kefka', '1'],
+          ['Ysayle', '1']]
+      }
+    },
+    {
+      header: 'Book',
+      items: {
+        10: [['Alphinaud', '1']]
+      }
+    },
+    {
+      header: 'Bow',
+      items: {
+        15: [['Maria', '3']]
+      }
+    },
+    {
+      header: 'Doll',
+      items: {
+        15: [['Lulu', '3']]
+      }
+    },
+    {
+      header: 'Fists',
+      items: {
+        15: [['Cid Raines', '3']]
+      }
+    },
+    {
+      header: 'Gun',
+      items: {
+        10: [['Vincent', '1']]
+      }
+    },
+    {
+      header: 'Instrument',
+      items: {
+        15: [['Kefka', '3']],
+        10: [['Kefka', '2']],
+      }
+    },
+    {
+      header: 'Rod',
+      items: {
+        '15': [['Palom', '3']],
+        '13x': [['Golbez', '3'], ['Papalymo', '3']],
+        '10': [['Papalymo', '1'], ['Seymour', '1']]
+      }
+    },
+    {
+      header: 'Staff',
+      items: {
+        '15': [['Braska', '3']],
+        '13x': [['Seymour', '3']],
+        '10': [['Onion', '1']],
+      }
+    },
+    {
+      header: 'Sword',
+      items: {
+        15: [['Ashe', '3']],
+        13: [['Nabaat', '2']]
+      }
+    },
+    {
+      header: 'Thrown',
+      items: {
+        '15': [['Hope', '3']],
+        '13x': [['Fujin', '3']],
+        '13': [['Ace', '2']],
+        '10': [['Ace', '1'], ['Edea', '2']],
+      }
+    },
+    {
+      header: 'Whip',
+      items: {
+        '15': [['Krile', '3']],
+        '13x': [['Rydia', '3']],
+        '10': [['Rydia', '2']],
+      }
+    },
+    {
+      header: 'Robe',
+      items: {
+        15: [['Montblanc', '3']],
+      }
+    },
+    {
+      header: 'H. Armor',
+      items: {
+        '13x': [['Exdeath', '3']]
+      }
+    },
+  ],
+};
+
+const magMndTable: TableDefinition = {
+  title: 'MAG/MND Buff',
+  headers: ['+13% MAG/MND', '+10% MAG/MND'],
+  contents: [['13'], ['10']],
+  rows: [
+    {
+      header: '(always)',
+      items: {
+        10: [['Fusoya', '3']],
+      }
+    },
+    {
+      header: 'Book',
+      items: {
+        13: [['Alphinaud', '3']],
+        10: [['Alphinaud', '2']],
+      }
+    },
+    {
+      header: 'Dagger',
+      items: {
+        13: [['Garnet', '3']],
+      }
+    },
+    {
+      header: 'Instrument',
+      items: {
+        13: [['Cait Sith', '3']],
+      }
+    },
+    {
+      header: 'Rod',
+      items: {
+        13: [['Aerith', '3']],
+        10: [['Tellah', '2']],
+      }
+    },
+    {
+      header: 'Staff',
+      items: {
+        13: [['Onion Knight', '3'], ['Tellah', '3']],
+        10: [['Arc', '2']],
+      }
+    },
+    {
+      header: 'Hat',
+      items: {
+        13: [['Gogo', '3']],
+      }
+    },
+    {
+      header: 'Robe',
+      items: {
+        13: [['Arc', '3']],
+      }
+    },
+    {
+      header: 'Lt. Armor',
+      items: {
+        13: [['Rubicante', '3']],
+      }
+    },
+  ]
+};
+
+const mndTable: TableDefinition = {
+  title: 'MND Buff',
+  headers: ['+25% MND', '+10-13% MAG/x', '+20% MND', '+20% MND (w/ downside)', '+10% MND'],
+  contents: [['25'], ['13x', '10x'], ['20'], ['20-'], ['10']],
+  rows: [
+    {
+      header: '(always)',
+      items: {
+        '10x': [['Ceodore', '3'], ['Larsa', '3']],
+        '20': [['Gogo (VI)', '2']],
+        '10': [['Larsa', '2']],
+        '20-': [['Aria', '1'], ['Mog', '2'], ['Penelo', '2'], ['Sarah', '1']],
+      }
+    },
+    {
+      header: 'Bow',
+      items: {
+        25: [['Rosa', '3']],
+        20: [['Rosa', '2']],
+      }
+    },
+    {
+      header: 'Instrument',
+      items: {
+        25: [['Deuce', '3'], ['Eiko', '3']],
+      }
+    },
+    {
+      header: 'Rod',
+      items: {
+        25: [['Aemo', '3'], ['Selphie', '3']],
+        20: [['Yuna', '2']],
+      }
+    },
+    {
+      header: 'Spear',
+      items: {
+        25: [['Mog', '3']],
+      }
+    },
+    {
+      header: 'Staff',
+      items: {
+        '25': [['Aphmau', '3'], ['Sarah', '3']],
+        '10x': [['Alma', '3']],
+        '20': [['Porom', '2']],
+      }
+    },
+    {
+      header: 'Hat',
+      items: {
+        25: [['Porom', '3']],
+      }
+    },
+    {
+      header: 'Robe',
+      items: {
+        '25': [['Relm', '3']],
+        '13x': [['Ovelia', '3']]
+      }
+    },
+  ]
+};
+
+const defResTable: TableDefinition = {
+  title: 'DEF/RES Buff',
+  headers: ['+25% DEF', '+20% DEF/RES', '+20% DEF', '+20% RES'],
+  contents: [['25d'], ['20dr'], ['20d'], ['20r']],
+  rows: [
+    {
+      header: '(always)',
+      items: {
+        '20d': [['Gabranth', '3'], ['Scott', '3'], ['Gladiolus', '1'], ['Leon', '1a'], ['Snow', '1b'], ['Vayne', '1']],
+        '20r': [['Gordon', '1a']]
+      }
+    },
+    {
+      header: 'Gun',
+      items: {
+        '20dr': [['Vincent', '3']],
+      }
+    },
+    {
+      header: 'Sword',
+      items: {
+        '20dr': [['Delita', '3']],
+        '20d': [['Angeal', '2'], ['Curilla', '2']]
+      }
+    },
+    {
+      header: 'Bracer',
+      items: {
+        '25d': [['Angeal', '3']]
+      }
+    },
+    {
+      header: 'Hat',
+      items: {
+        '20dr': [['Gogo (VI)', '3']],
+      }
+    },
+    {
+      header: 'Helm',
+      items: {
+        '25d': [['Knight', '3']],
+      }
+    },
+    {
+      header: 'Lt. Armor',
+      items: {
+        '25d': [['Snow', '3']],
+        '20d': [['Gladiator', '2'], ['Meliadoul', '2']],
+      }
+    },
+    {
+      header: 'H. Armor',
+      items: {
+        '25d': [['Steiner', '3']],
+        '20dr': [['Dorgann', '3'], ['Leo', '3'], ['Ceodore', '2']],
+        '20d': [['Garland', '2']]
+      }
+    },
+    {
+      header: 'Shield',
+      items: {
+        '25d': [['Ingus', '3']],
+        '20dr': [['Basch', '3'], ['Haurchefant', '3']],
+        '20d': [['Haurchefant', '2'], ['Ingus', '2']],
+        '20r': [['Gordon', '2']],
+      }
+    },
+  ]
+};
+
 interface Props {
   recordMateria: { [id: number]: RecordMateriaDetail };
 }
@@ -116,6 +444,11 @@ export class StatBuffs extends React.Component<Props> {
     return (
       <div>
         <RecordMateriaTable id="statBuffAtk" table={atkTable} recordMateria={recordMateria}/>
+        <RecordMateriaTable id="statBuffAtkMag" table={atkMagTable} recordMateria={recordMateria}/>
+        <RecordMateriaTable id="statBuffMag" table={magTable} recordMateria={recordMateria}/>
+        <RecordMateriaTable id="statBuffMagMnd" table={magMndTable} recordMateria={recordMateria}/>
+        <RecordMateriaTable id="statBuffMnd" table={mndTable} recordMateria={recordMateria}/>
+        <RecordMateriaTable id="statBuffDefRes" table={defResTable} recordMateria={recordMateria}/>
       </div>
     );
   }
