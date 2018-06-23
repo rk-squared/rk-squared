@@ -20,18 +20,25 @@ export class RecordMateriaTooltip extends React.Component<Props> {
     const enlirRM = enlir.recordMateria[rm.name];
     return (
       <ReactTooltip id={id} className={styles.component} place="bottom">
-        <img src={urls.characterImage(rm.characterId)}/>
-        <img src={urls.recordMateriaImage(rm.id)}/>
-        <h6>{rm.name}</h6>
-        <BrTextToP text={rm.description} className={styles.gameDescription}/>
-        <p className={styles.enlirDescription}>{enlirRM ? enlirRM.Effect : ''}</p>
-        <p>
-          <StatusIcon status={rm.status}/>
-          {rm.statusDescription}
-          {rm.status === RecordMateriaStatus.Unlocked
-            && <span className={styles.unlockCondition}> ({rm.condition})</span>
-          }
-        </p>
+        <div className={styles.iconsBlock}>
+          <img src={urls.characterImage(rm.characterId)}/>
+          <img src={urls.recordMateriaImage(rm.id)}/>
+        </div>
+
+        <div className={styles.textBlock}>
+          <h6>{rm.name}</h6>
+          <BrTextToP text={rm.description} className={styles.gameDescription}/>
+          <p className={styles.enlirDescription}>{enlirRM ? enlirRM.Effect : ''}</p>
+          <div className={styles.statusBlock}>
+            <StatusIcon status={rm.status}/>
+            <p>
+              {rm.statusDescription}
+              {rm.status === RecordMateriaStatus.Unlocked
+                && <span className={styles.unlockCondition}> ({rm.condition})</span>
+              }
+            </p>
+          </div>
+        </div>
       </ReactTooltip>
     );
   }

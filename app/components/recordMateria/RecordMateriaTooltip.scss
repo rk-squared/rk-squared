@@ -1,15 +1,32 @@
 :local {
   .component {
     max-width: 50em;
+    display: flex;
 
-    > img {
-      float: left;
-      width: 64px;
-      height: 64px;
+    .iconsBlock {
+      margin-right: 1em;
+      max-width: 64px;
+
+      > img {
+        width: 64px;
+        height: 64px;
+      }
     }
 
-    > p > svg {
-      margin-right: 0.5em;
+    .textBlock {
+    }
+
+    .statusBlock {
+      display: flex;
+      align-items: center;
+
+      > svg {
+        margin-right: 0.5em;
+      }
+
+      > p {
+        margin-bottom: 0;
+      }
     }
 
     .gameDescription {

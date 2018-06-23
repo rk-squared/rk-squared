@@ -7,6 +7,11 @@
     color: darkred;
   }
 
+  // Hack: Handle react-tooltip's dark background
+  :global(.type-dark) .lockedLowLevel {
+    color: red;
+  }
+
   .lockedMissingPrereq {
     color: darkorange;
   }
