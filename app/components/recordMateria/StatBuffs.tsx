@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { RecordMateriaDetail } from '../../actions/recordMateria';
-import { RecordMateriaTable, TableDefinition } from './RecordMateriaTable';
+import { TableDefinition } from './RecordMateriaTable';
+import { RecordMateriaTableGroup } from './RecordMateriaTableGroup';
 
 const atkTable: TableDefinition = {
   title: 'ATK Buff',
@@ -434,6 +435,8 @@ const defResTable: TableDefinition = {
   ]
 };
 
+const tables = [atkTable, atkMagTable, magTable, magMndTable, mndTable, defResTable];
+
 interface Props {
   recordMateria: { [id: number]: RecordMateriaDetail };
 }
@@ -441,15 +444,6 @@ interface Props {
 export class StatBuffs extends React.Component<Props> {
   render() {
     const { recordMateria } = this.props;
-    return (
-      <div>
-        <RecordMateriaTable id="statBuffAtk" table={atkTable} recordMateria={recordMateria}/>
-        <RecordMateriaTable id="statBuffAtkMag" table={atkMagTable} recordMateria={recordMateria}/>
-        <RecordMateriaTable id="statBuffMag" table={magTable} recordMateria={recordMateria}/>
-        <RecordMateriaTable id="statBuffMagMnd" table={magMndTable} recordMateria={recordMateria}/>
-        <RecordMateriaTable id="statBuffMnd" table={mndTable} recordMateria={recordMateria}/>
-        <RecordMateriaTable id="statBuffDefRes" table={defResTable} recordMateria={recordMateria}/>
-      </div>
-    );
+    return <RecordMateriaTableGroup id="statBuff" recordMateria={recordMateria} tables={tables}/>;
   }
 }

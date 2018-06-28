@@ -6,6 +6,7 @@ import { RecordMateriaDetail } from '../actions/recordMateria';
 import { DamageHealing } from '../components/recordMateria/DamageHealing';
 import { RecordMateriaGrid } from '../components/recordMateria/RecordMateriaGrid';
 import { StatBuffs } from '../components/recordMateria/StatBuffs';
+import { AttackReplacement } from '../components/recordMateria/AttackReplacement';
 
 const styles = require('./RecordMateriaRoutes.scss');
 
@@ -17,6 +18,7 @@ export class RecordMateriaRoutes extends React.Component<Props & RouteComponentP
   renderAll = () => <RecordMateriaGrid recordMateria={this.props.recordMateria}/>;
   renderStatBuffs = () => <StatBuffs recordMateria={this.props.recordMateria}/>;
   renderDamageHealing = () => <DamageHealing recordMateria={this.props.recordMateria}/>;
+  renderAttackReplacement = () => <AttackReplacement recordMateria={this.props.recordMateria}/>;
 
   render() {
     const { match } = this.props;
@@ -25,6 +27,7 @@ export class RecordMateriaRoutes extends React.Component<Props & RouteComponentP
       ['All', '', this.renderAll],
       ['Stat Buffs', '/statBuffs', this.renderStatBuffs],
       ['Damage / Healing', '/damageHealing', this.renderDamageHealing],
+      ['Atk. Replacement', '/attackReplacement', this.renderAttackReplacement],
     ];
 
     return (

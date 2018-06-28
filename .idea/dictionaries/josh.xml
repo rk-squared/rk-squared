@@ -12,6 +12,7 @@
       <w>attunement</w>
       <w>auron</w>
       <w>axios</w>
+      <w>ayame</w>
       <w>bahamut</w>
       <w>balthier</w>
       <w>barbariccia</w>
@@ -43,6 +44,7 @@
       <w>enlir</w>
       <w>eslint</w>
       <w>estinien</w>
+      <w>esuna</w>
       <w>etro</w>
       <w>exdeath</w>
       <w>faris</w>
@@ -65,6 +67,9 @@
       <w>jecht</w>
       <w>katana</w>
       <w>kefka</w>
+      <w>kelger</w>
+      <w>kimahri</w>
+      <w>kiros</w>
       <w>krile</w>
       <w>kuja</w>
       <w>laguna</w>
@@ -75,17 +80,22 @@
       <w>mage</w>
       <w>magicite</w>
       <w>magicites</w>
+      <w>marach</w>
       <w>marche</w>
       <w>materia</w>
       <w>materias</w>
       <w>matoya</w>
+      <w>meia</w>
       <w>meliadoul</w>
       <w>minfilia</w>
       <w>minwu</w>
       <w>montblanc</w>
+      <w>mustadio</w>
       <w>mythril</w>
       <w>nabaat</w>
       <w>navbar</w>
+      <w>noctis</w>
+      <w>orlandeau</w>
       <w>ovelia</w>
       <w>palom</w>
       <w>papalymo</w>
@@ -95,6 +105,7 @@
       <w>prefs</w>
       <w>prereq</w>
       <w>prereqs</w>
+      <w>prishe</w>
       <w>prompto</w>
       <w>querystring</w>
       <w>quina</w>
@@ -137,6 +148,7 @@
       <w>unobtained</w>
       <w>vaan</w>
       <w>valigarmanda</w>
+      <w>vanille</w>
       <w>vayne</w>
       <w>wakka</w>
       <w>wrieg</w>

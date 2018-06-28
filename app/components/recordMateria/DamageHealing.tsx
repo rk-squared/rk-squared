@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { RecordMateriaDetail } from '../../actions/recordMateria';
-import { RecordMateriaTable, TableDefinition } from './RecordMateriaTable';
+import { TableDefinition } from './RecordMateriaTable';
+import { RecordMateriaTableGroup } from './RecordMateriaTableGroup';
 
 const elementalTable: TableDefinition = {
   title: 'Elemental',
@@ -319,7 +320,7 @@ const physicalTable: TableDefinition = {
   ]
 };
 
-const magicalTable: TableDefinition = {
+const magicTable: TableDefinition = {
   title: 'Magic Damage and Healing',
   headers: ['~1.3x', '1.2x'],
   contents: [['1_3', '1_25'], ['1_2']],
@@ -407,6 +408,8 @@ const magicDualcastTable: TableDefinition = {
   ]
 };
 
+const tables = [elementalTable, abilityTable, physicalTable, magicTable, magicDualcastTable];
+
 interface Props {
   recordMateria: { [id: number]: RecordMateriaDetail };
 }
@@ -414,14 +417,6 @@ interface Props {
 export class DamageHealing extends React.Component<Props> {
   render() {
     const { recordMateria } = this.props;
-    return (
-      <div>
-        <RecordMateriaTable id="damageHealingElemental" table={elementalTable} recordMateria={recordMateria}/>
-        <RecordMateriaTable id="damageHealingAbility" table={abilityTable} recordMateria={recordMateria}/>
-        <RecordMateriaTable id="damageHealingPhysical" table={physicalTable} recordMateria={recordMateria}/>
-        <RecordMateriaTable id="damageHealingMagical" table={magicalTable} recordMateria={recordMateria}/>
-        <RecordMateriaTable id="damageHealingMagicDualcast" table={magicDualcastTable} recordMateria={recordMateria}/>
-      </div>
-    );
+    return <RecordMateriaTableGroup id="damageHealing" recordMateria={recordMateria} tables={tables}/>;
   }
 }
