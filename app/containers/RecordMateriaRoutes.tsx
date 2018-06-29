@@ -3,10 +3,11 @@ import { Route, RouteComponentProps } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 import { RecordMateriaDetail } from '../actions/recordMateria';
+import { AttackReplacement } from '../components/recordMateria/AttackReplacement';
 import { DamageHealing } from '../components/recordMateria/DamageHealing';
+import { Misc } from '../components/recordMateria/Misc';
 import { RecordMateriaGrid } from '../components/recordMateria/RecordMateriaGrid';
 import { StatBuffs } from '../components/recordMateria/StatBuffs';
-import { AttackReplacement } from '../components/recordMateria/AttackReplacement';
 
 const styles = require('./RecordMateriaRoutes.scss');
 
@@ -19,6 +20,7 @@ export class RecordMateriaRoutes extends React.Component<Props & RouteComponentP
   renderStatBuffs = () => <StatBuffs recordMateria={this.props.recordMateria}/>;
   renderDamageHealing = () => <DamageHealing recordMateria={this.props.recordMateria}/>;
   renderAttackReplacement = () => <AttackReplacement recordMateria={this.props.recordMateria}/>;
+  renderMisc = () => <Misc recordMateria={this.props.recordMateria}/>;
 
   render() {
     const { match } = this.props;
@@ -28,6 +30,7 @@ export class RecordMateriaRoutes extends React.Component<Props & RouteComponentP
       ['Stat Buffs', '/statBuffs', this.renderStatBuffs],
       ['Damage / Healing', '/damageHealing', this.renderDamageHealing],
       ['Atk. Replacement', '/attackReplacement', this.renderAttackReplacement],
+      ['Misc.', '/misc', this.renderMisc],
     ];
 
     return (
