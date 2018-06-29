@@ -51,14 +51,15 @@ export class RecordMateriaTable extends React.Component<Props> {
 
   render() {
     const { table } = this.props;
+    const style = { width: (100 / (table.headers.length + 1)).toFixed(1) + '%' };
     return (
       <>
         <h4>{table.title}</h4>
         <table className={`table table-bordered ${styles.component}`}>
           <tbody>
             <tr>
-              <th/>
-              {table.headers.map((header, i) => <th key={i}>{header}</th>)}
+              <th style={style}/>
+              {table.headers.map((header, i) => <th key={i} style={style}>{header}</th>)}
             </tr>
             {table.rows.map(this.renderRow)}
           </tbody>
