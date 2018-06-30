@@ -30,7 +30,7 @@ const physicalNonElementalTable: TableDefinition = {
         3: [['Kimahri', '3'], ['Prishe', '3'], ['Master', '3'], ['Gladiator', '3']],
         2: [['Sazh', '2'], ['Ranger', '2'], ['Noel', '2']],
         1: [['Josef', '1b'], ['Lion', '1'], ['Cecil (Dark Knight)', '1b'], ['Shadow', '1'], ['Squall', '1a'],
-          ['Wakka', '1b']]
+          ['Wakka', '1b'], ['Viking', '1b'], ['Cecil (Dark Knight)', '1a']],
       }
     }
   ]
@@ -59,8 +59,8 @@ const physicalPercentNonElementalTable: TableDefinition = {
       header: '% p2.0+',
       items: {
         3: [['Ranger', '3'], ['Ward', '3'], ['Lion', '3'], ['Rikku', '3'], ['Freya', '3'], ['Gau', '3']],
-        2: [['Fran', '2'], ['Wol', '2'], ['Kiros', '2']],
-        1: [['Ranger', '1b'], ['Gladiator', '1b'], ['Master', '1']],
+        2: [['Fran', '2'], ['Wol', '2'], ['Kiros', '2'], ['Kimahri', '2']],
+        1: [['Ranger', '1b'], ['Gladiator', '1b'], ['Master', '1'], ['Ricard', '1b'], ['Cinque', '1']],
       }
     },
     {
@@ -68,7 +68,13 @@ const physicalPercentNonElementalTable: TableDefinition = {
       items: {
         3: [['Queen', '3'], ['Shelke', '3'], ['Quina', '3'], ['Dark Knight', '3']],
         2: [['Prishe', '2'], ['Thief', '2'], ['Dark Knight', '2']],
-        1: [['Mustadio', '1'], ['Meliadoul', '1']],
+        1: [['Mustadio', '1'], ['Meliadoul', '1'], ['Quina', '1a'], ['Tidus', '1b']],
+      }
+    },
+    {
+      header: '% p1.0-',
+      items: {
+        1: [['Dark Knight', '1b'], ['Cecil (Paladin)', '1b'], ['Rinoa', '1']],
       }
     }
   ]
@@ -89,7 +95,7 @@ const physicalPercentElementalTable: TableDefinition = {
       header: 'Dark',
       items: {
         3: [['Kiros', '3']],
-        1: [['Leon', '1b']],
+        1: [['Leon', '1b'], ['Garland', '1']],
       }
     },
     {
@@ -103,13 +109,14 @@ const physicalPercentElementalTable: TableDefinition = {
       items: {
         3: [['Galuf', '3']],
         2: [['Scott', '2'], ['Spellblade', '2']],
+        1: [['Seifer', '1']],
       }
     },
     {
       header: 'Holy',
       items: {
         3: [['Beatrix', '3']],
-        1: [['Warrior of Light', '1b']],
+        1: [['Warrior of Light', '1b'], ['Agrias', '1']],
       }
     },
     {
@@ -154,9 +161,15 @@ const blackNonElementalTable: TableDefinition = {
     {
       header: 'Single',
       items: {
-        3: [['Cloud of Darkness', '3'], ['Bard', '3']]
+        3: [['Cloud of Darkness', '3'], ['Bard', '3']],
       }
-    }
+    },
+    {
+      header: '% Single',
+      items: {
+        1: [['Cloud of Darkness', '1'], ['Cait Sith', '1']],
+      }
+    },
   ]
 };
 
@@ -178,14 +191,14 @@ const blackElementalTable: TableDefinition = {
     },
     {
       header: 'Earth',
-      items: {},
+      items: {}
     },
     {
       header: 'Fire',
       items: {
         3: [['Black Mage', '3'], ['Magus', '3'], ['Red Mage', '3']],
         2: [['Black Mage', '2'], ['Maria', '2'], ['Magus', '2']],
-        1: [['Rubicante', '1']]
+        1: [['Rubicante', '1'], ['Red Mage', '1'], ['Selphie', '1']]
       }
     },
     {
@@ -197,13 +210,15 @@ const blackElementalTable: TableDefinition = {
       items: {
         3: [['Magus', '3'], ['Red Mage', '3'], ['Ysayle', '3']],
         2: [['Magus', '2']],
+        1: [['Tellah', '1'], ['Edea', '1'], ['Selphie', '1']],
       }
     },
     {
       header: 'Lightning',
       items: {
         3: [['Magus', '3'], ['Red Mage', '3'], ['Marach', '3'], ['Rapha', '3'], ['Desch', '3']],
-        2: [['Magus', '2'], ['Marach', '2']],
+        2: [['Magus', '2'], ['Marach', '2'], ['Selphie', '1']],
+        1: [['Marach', '1']],
       },
     },
     {
@@ -222,7 +237,8 @@ const blackElementalTable: TableDefinition = {
     {
       header: '(various)',
       items: {
-        2: [['Seymour', '2']]
+        3: [['Summoner', '3']],
+        2: [['Seymour', '2']],
       }
     }
   ]
@@ -273,7 +289,7 @@ const healTable: TableDefinition = {
       items: {
         3: [['White Mage', '3'], ['Red Mage', '3']],
         2: [['Iris', '2'], ['Sarah', '2'], ['Vanille', '2'], ['White Mage', '2']],
-        1: [['Raijin', '1']],
+        1: [['Raijin', '1'], ['Garnet', '1b']],
       }
     },
     {

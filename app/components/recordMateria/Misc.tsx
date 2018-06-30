@@ -6,15 +6,17 @@ import { RecordMateriaTableGroup } from './RecordMateriaTableGroup';
 
 const statusTable: TableDefinition = {
   title: 'Status',
-  headers: ['RM3', 'RM1-2'],
-  contents: [['3'], ['2', '1']],
+  headers: ['Start (RM3)', 'Start (RM1-2)', 'Low HP or Counter'],
+  contents: [['3'], ['2', '1'], ['counter', 'low']],
   rows: [
     {
       header: 'Haste',
       items: {
-        3: [['Gilgamesh', '3'], ['Marcus', '3'], ['Zack', '3'], ['Noel', '3'], ['Iris', '3']],
+        3: [['Gilgamesh', '3'], ['Marcus', '3'], ['Zack', '3'], ['Noel', '3']],
         2: [['Gau', '2'], ['Lion', '2'], ['Thief (I)', '2'], ['Montblanc', '2'], ['Ranger', '2']],
         1: [['Balthier', '1'], ['Luneth', '1b'], ['Orlandeau', '1'], ['Zidane', '1']],
+        low: [['Tidus', '1a']],
+        counter: [['Iris', '3']]
       }
     },
     {
@@ -22,7 +24,9 @@ const statusTable: TableDefinition = {
       items: {
         3: [['Gilgamesh', '3']],
         2: [['Knight', '2'], ['Gladiolus', '2']],
-        1: [['Gordon', '1b'], ['Refia', '1b'], ['Steiner', '1b'], ['Angeal', '1'], ['Gogo (VI)', '1']],
+        1: [['Gordon', '1b'], ['Refia', '1b']],
+        counter: [['Steiner', '1b'], ['Angeal', '1'], ['Gogo (VI)', '1']],
+        low: [['Cecil (Paladin)', '1a'], ['Edgar', '1']],
       }
     },
     {
@@ -31,6 +35,7 @@ const statusTable: TableDefinition = {
         3: [['Gilgamesh', '3']],
         2: [['Rude', '2']],
         1: [['Arc', '1b']],
+        low: [['Warrior of Light', '1a'], ['Rydia', '1a']],
       }
     },
     {
@@ -43,12 +48,28 @@ const statusTable: TableDefinition = {
       header: 'Regen (hi)',
       items: {
         2: [['Cait Sith', '2'], ['Lenna', '2']],
+        low: [['Red XIII', '1b'], ['Wakka', '2']],
+      }
+    },
+    {
+      header: 'Regen (mid)',
+      items: {
+        1: [['Ingus', '1b']],
+      }
+    },
+    {
+      header: 'Regen (lo)',
+      items: {
+        2: [['Rude', '2'], ['Gogo', '2']],
+        1: [['Sabin', '1'], ['Prishe', '1'], ['Noel', '1'], ['Lann', '1']],
+        low: [['Garnet', '1a'], ['Sazh', '1']],
       }
     },
     {
       header: 'Retaliate',
       items: {
         2: [['Gogo', '2']],
+        low: [['Cyan', '1b']],
       }
     },
     {
@@ -67,6 +88,7 @@ const statusTable: TableDefinition = {
       header: 'P. Blink',
       items: {
         3: [['Ace', '3'], ['Yuffie', '3']],
+        low: [['Ninja', '1b']],
       }
     },
     {
@@ -74,6 +96,7 @@ const statusTable: TableDefinition = {
       items: {
         3: [['Vayne', '3']],
         1: [['Ovelia', '1'], ['Reynn', '1']],
+        low: [['Kimahri', '1b']],
       }
     },
     {
@@ -100,6 +123,12 @@ const statusTable: TableDefinition = {
         3: [['Scott', '3']],
       }
     },
+    {
+      header: 'Berserk',
+      items: {
+        1: [['Galuf', '1a'], ['Umaro', '1'], ['Cid (VII)', '1a']],
+      }
+    }
   ]
 };
 
@@ -142,12 +171,14 @@ const selfHealTable: TableDefinition = {
       items: {
         3: [['Emperor', '3']],
         2: [['Prishe', '2'], ['Thief', '2'], ['Dark Knight', '2']],
+        1: [['Dark Knight', '1b'], ['Rinoa', '1'], ['Quina', '1a']],
       }
     },
     {
       header: 'Heal',
       items: {
         2: [['Noctis', '2']],
+        1: [['Cecil (Paladin)', '1b']],
       }
     }
   ]
@@ -163,7 +194,34 @@ const counterTable: TableDefinition = {
       items: {
         3: [['Gaffgarion', '3']],
         2: [['Samurai', '2'], ['Ignis', '2']],
-        1: [['Emperor', '1']],
+        1: [['Galuf', '1b'], ['Cloud', '1b']],
+      }
+    },
+    {
+      header: 'MAG',
+      items: {
+        1: [['Emperor', '1'], ['Strago', '1b']],
+      }
+    },
+    {
+      header: 'Self heal',
+      items: {
+        3: [['Gaffgarion', '3'], ['Monk', '3']],
+        2: [['Cecil (Paladin)', '2'], ['Monk', '2']],
+        1: [['Vanille', '1']],
+      }
+    },
+    {
+      header: 'Reduce dmg.',
+      items: {
+        2: [['Zack', '2']],
+      }
+    },
+    {
+      header: 'Gain status',
+      items: {
+        3: [['Iris', '3']],
+        1: [['Steiner', '1b'], ['Angeal', '1'], ['Gogo (VI)', '1']],
       }
     }
   ]

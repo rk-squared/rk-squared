@@ -12,12 +12,19 @@ const atkTable: TableDefinition = {
     {
       header: '(always)',
       items: {
-        '15': [['Ricard', '1a'], ['Firion', '3'], ['Josef', '3']],
-        '13x': [['Vayne', '3']],
+        '13x': [['Vayne', '3'], ['Firion', '3']],
         '10x': [['Ceodore', '3'], ['Larsa', '3'], ['Marcus', '3'], ['Noel', '3'], ['Zack', '3'],
           ['Firion', '2'], ['Josef', '1a'], ['Laguna', '2'], ['Irvine', '1a'], ['Leo', '1'], ['Sephiroth', '1']],
         '10': [['Firion', '1'], ['Zell', '1a'], ['Bard', '2'], ['Gau', '2'], ['Lann', '2'], ['Lion', '2'],
-          ['Thief (I)', '2'], ['Berserker', '3']],
+          ['Thief (I)', '2']],
+      }
+    },
+    {
+      header: '(downside)',
+      items: {
+        '15': [['Ricard', '1a'], ['Josef', '3']],
+        '10x': [['Kain', '1b'], ['Irvine', '2'], ['Cid (XIV)', '1'], ['Noctis', '1']],
+        '10': [['Berserker', '2'], ['Guy', '1'], ['Leon', '2'], ['Gau', '1'], ['Delita', '1'], ['Nine', '1']],
       }
     },
     {
@@ -30,6 +37,7 @@ const atkTable: TableDefinition = {
       header: 'Dagger',
       items: {
         '13x': [['Thancred', '3'], ['Thief (I)', '3']],
+        '10': [['Marcus', '1']],
       }
     },
     {
@@ -74,6 +82,7 @@ const atkTable: TableDefinition = {
       header: 'Sword',
       items: {
         '13x': [['Warrior of Light', '3']],
+        '10': [['Queen', '1']],
       }
     },
     {
@@ -120,10 +129,10 @@ const atkMagTable: TableDefinition = {
       }
     },
     {
-      header: 'Fists',
+      header: 'Fist',
       items: {
         13: [['Rude', '3']],
-        10: [['Vayne', '2']],
+        10: [['Vayne', '2'], ['Cid Raines', '2']],
       }
     }
   ],
@@ -141,7 +150,7 @@ const magTable: TableDefinition = {
         '13x': [['Ace', '3'], ['Terra', '3']],
         '10': [['Krile', '2'], ['Montblanc', '2'], ['Reynn', '2']],
         '10-': [['Ashe', '1'], ['Echo', '2'], ['Serah', '1'], ['Braska', '1'], ['Eiko', '1'], ['Kefka', '1'],
-          ['Ysayle', '1']]
+          ['Ysayle', '1'], ['Barbariccia', '1'], ['Golbez', '1']],
       }
     },
     {
@@ -320,12 +329,20 @@ const mndTable: TableDefinition = {
       items: {
         25: [['Rosa', '3']],
         20: [['Rosa', '2']],
+        10: [['Rosa', '1']],
+      }
+    },
+    {
+      header: 'Dagger',
+      items: {
+        10: [['Rem', '1']],
       }
     },
     {
       header: 'Instrument',
       items: {
         25: [['Deuce', '3'], ['Eiko', '3']],
+        10: [['Deuce', '2']],
       }
     },
     {
@@ -333,6 +350,7 @@ const mndTable: TableDefinition = {
       items: {
         25: [['Aemo', '3'], ['Selphie', '3']],
         20: [['Yuna', '2']],
+        10: [['Relm', '1']],
       }
     },
     {
@@ -347,6 +365,7 @@ const mndTable: TableDefinition = {
         '25': [['Aphmau', '3'], ['Sarah', '3']],
         '10x': [['Alma', '3']],
         '20': [['Porom', '2']],
+        '10': [['Minwu', '1'], ['Aphmau', '1']],
       }
     },
     {
@@ -367,20 +386,28 @@ const mndTable: TableDefinition = {
 
 const defResTable: TableDefinition = {
   title: 'DEF/RES Buff',
-  headers: ['+25% DEF', '+20% DEF/RES', '+20% DEF', '+20% RES'],
-  contents: [['25d'], ['20dr'], ['20d'], ['20r']],
+  headers: ['+25% DEF', '+20% DEF/RES', '+20% DEF', '+20% RES', '+10% DEF or RES'],
+  contents: [['25d'], ['20dr'], ['20d'], ['20r'], ['10dr', '10d']],
   rows: [
     {
       header: '(always)',
       items: {
         '20d': [['Gabranth', '3'], ['Scott', '3'], ['Gladiolus', '1'], ['Leon', '1a'], ['Snow', '1b'], ['Vayne', '1']],
-        '20r': [['Gordon', '1a']]
+        '20r': [['Gordon', '1a']],
+        '10dr': [['Edward', '2']],
+        '10d': [['Snow', '1a']],
       }
     },
     {
       header: 'Gun',
       items: {
         '20dr': [['Vincent', '3']],
+      }
+    },
+    {
+      header: 'Spear',
+      items: {
+        '10d': [['Wrieg', '1']],
       }
     },
     {
@@ -406,6 +433,7 @@ const defResTable: TableDefinition = {
       header: 'Helm',
       items: {
         '25d': [['Knight', '3']],
+        '10d': [['Dark Knight', '1a'], ['Knight', '1']],
       }
     },
     {
@@ -413,6 +441,7 @@ const defResTable: TableDefinition = {
       items: {
         '25d': [['Snow', '3']],
         '20d': [['Gladiator', '2'], ['Meliadoul', '2']],
+        '10d': [['Wol', '1']]
       }
     },
     {
@@ -420,7 +449,8 @@ const defResTable: TableDefinition = {
       items: {
         '25d': [['Steiner', '3']],
         '20dr': [['Dorgann', '3'], ['Leo', '3'], ['Ceodore', '2']],
-        '20d': [['Garland', '2']]
+        '20d': [['Garland', '2']],
+        '10d': [['Gilgamesh', '1'], ['Steiner', '1a']],
       }
     },
     {

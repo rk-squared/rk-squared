@@ -6,14 +6,15 @@ import { RecordMateriaTableGroup } from './RecordMateriaTableGroup';
 
 const elementalTable: TableDefinition = {
   title: 'Elemental',
-  headers: ['1.3x', '1.2x'],
-  contents: [['13'], ['12']],
+  headers: ['1.3x', '1.2x', '1.1x'],
+  contents: [['13'], ['12'], ['11']],
   rows: [
     {
-      header: '(always)',
+      header: '(vs. weakness)',
       items: {
         13: [['Tyro', '3']],
         12: [['Luneth', '2'], ['Reks', '2'], ['Tyro', '1b']],
+        11: [['Tyro', '1a'], ['Quistis', '1'], ['Nabaat', '1']],
       }
     },
     {
@@ -27,12 +28,14 @@ const elementalTable: TableDefinition = {
       items: {
         13: [['Garland', '3'], ['Riku', '3']],
         12: [['Gabranth', '2'], ['Golbez', '2'], ['Kuja', '2'], ['Riku', '2']],
+        11: [['Kuja', '1'], ['Riku', '1']],
       }
     },
     {
       header: 'Earth',
       items: {
         13: [['Tifa', '3']],
+        11: [['Ingus', '1a'], ['Rude', '1']],
       }
     },
     {
@@ -40,6 +43,7 @@ const elementalTable: TableDefinition = {
       items: {
         13: [['Vivi', '3']],
         12: [['Edge', '2']],
+        11: [['Refia', '1a'], ['Rubicante', '1'], ['Lulu', '1']],
       }
     },
     {
@@ -47,6 +51,7 @@ const elementalTable: TableDefinition = {
       items: {
         13: [['Cecil (Paladin)', '3']],
         12: [['Warrior of Light', '2']],
+        11: [['Dorgann', '2'], ['Aerith', '1']],
       }
     },
     {
@@ -61,6 +66,7 @@ const elementalTable: TableDefinition = {
       items: {
         13: [['Lightning', '3']],
         12: [['Ashe', '2'], ['Raijin', '2']],
+        11: [['Echo', '1']],
       }
     },
     {
@@ -68,6 +74,7 @@ const elementalTable: TableDefinition = {
       items: {
         13: [['Tidus', '3']],
         12: [['Strago', '2']],
+        11: [['Arc', '1a'], ['Strago', '1a']],
       }
     },
     {
@@ -75,6 +82,7 @@ const elementalTable: TableDefinition = {
       items: {
         13: [['Bartz', '3']],
         12: [['Barbariccia', '2'], ['Cid (VII)', '2'], ['Fujin', '2'], ['Thancred', '2']],
+        11: [['Luneth', '1a'], ['Bartz', '1']],
       }
     },
   ]
@@ -82,15 +90,15 @@ const elementalTable: TableDefinition = {
 
 const abilityTable: TableDefinition = {
   title: 'Abilities',
-  headers: ['~1.4x', '~1.3x', '13% Dualcast'],
-  contents: [['1_4', '1_35'], ['1_3', '1_25', '1_2', '1_15'], ['w']],
+  headers: ['~1.4x', '~1.3x', '1.15x', '13% Dualcast', '8% Dualcast'],
+  contents: [['1_4', '1_35'], ['1_3', '1_25', '1_2'], ['1_15'], ['13w'], ['8w']],
   rows: [
     {
       header: 'Celerity',
       items: {
         '1_35': [['Locke', '3']],
         '1_25': [['Shelke', '2']],
-        'w': [['Vaan', '2']],
+        '13w': [['Vaan', '2']],
       }
     },
     {
@@ -98,7 +106,8 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Cecil (Dark Knight)', '3'], ['Zeid', '3']],
         '1_3': [['Seifer', '2']],
-        'w': [['Exdeath', '2'], ['Zeid', '2']],
+        '1_15': [['Zeid', '1'], ['Gaffgarion', '1']],
+        '13w': [['Exdeath', '2'], ['Zeid', '2']],
       }
     },
     {
@@ -106,7 +115,7 @@ const abilityTable: TableDefinition = {
       items: {
         '1_35': [['Cid (VII)', '3'], ['Estinien', '3']],
         '1_3': [['Aranea', '2'], ['Fang', '2'], ['Ricard', '2'], ['Wrieg', '2']],
-        '1_15': [['Freya', '1']],
+        '1_15': [['Freya', '1'], ['Ward', '1']],
       }
     },
     {
@@ -129,7 +138,8 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Agrias', '3']],
         '1_3': [['Agrias', '2'], ['Dorgann', '2'], ['Marche', '2']],
-        'w': [['Basch', '2']],
+        '1_15': [['Curilla', '1'], ['Haurchefant', '1']],
+        '13w': [['Basch', '2']],
       }
     },
     {
@@ -137,7 +147,8 @@ const abilityTable: TableDefinition = {
       items: {
         '1_35': [['Laguna', '3']],
         '1_3': [['Setzer', '2']],
-        'w': [['Balthier', '2'], ['Prompto', '2']],
+        '1_15': [['Cid (IV)', '1']],
+        '13w': [['Balthier', '2'], ['Prompto', '2']],
       }
     },
     {
@@ -146,7 +157,8 @@ const abilityTable: TableDefinition = {
         '1_4': [['Sabin', '3']],
         '1_3': [['Zell', '2']],
         '1_15': [['Monk', '1a'], ['Yda', '1']],
-        'w': [['Master', '2'], ['Sabin', '2']],
+        '13w': [['Master', '2'], ['Sabin', '2']],
+        '8w': [['Monk', '1b']],
       }
     },
     {
@@ -154,6 +166,7 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Edge', '3']],
         '1_3': [['Shadow', '2']],
+        '1_15': [['Kiros', '1']],
       }
     },
     {
@@ -161,7 +174,8 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Auron', '3']],
         '1_3': [['Cyan', '2']],
-        'w': [['Auron', '2']],
+        '1_15': [['Ayame', '1']],
+        '13w': [['Auron', '2']],
       }
     },
     {
@@ -169,6 +183,7 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Irvine', '3']],
         '1_3': [['Rufus', '2']],
+        '1_15': [['Rufus', '1']],
       }
     },
     {
@@ -176,7 +191,8 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Celes', '3'], ['Machina', '3'], ['Sora', '3']],
         '1_3': [['Celes', '2'], ['Paine', '2'], ['Sora', '2'], ['Xezat', '2']],
-        'w': [['Bartz', '2']],
+        '1_15': [['Scott', '1'], ['Paine', '1'], ['Machina', '1'], ['Sora', '1']],
+        '13w': [['Bartz', '2']],
       }
     },
     {
@@ -191,7 +207,8 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Zidane', '3']],
         '1_3': [['Rikku', '2']],
-        'w': [['Zidane', '2']],
+        '1_15': [['Thief (I)', '1']],
+        '13w': [['Zidane', '2']],
       }
     },
     {
@@ -199,6 +216,7 @@ const abilityTable: TableDefinition = {
       items: {
         '1_35': [['Edea', '3']],
         '1_3': [['Rapha', '2']],
+        '8w': [['Rapha', '1']],
       }
     },
   ]
@@ -206,20 +224,22 @@ const abilityTable: TableDefinition = {
 
 const physicalTable: TableDefinition = {
   title: 'Physical Damage',
-  headers: ['1.3x', '1.2x'],
-  contents: [['1_3'], ['1_2']],
+  headers: ['1.3x', '1.2x', '1.1x'],
+  contents: [['1_3'], ['1_2'], ['1_1']],
   rows: [
     {
       header: 'PHY Axe',
       items: {
         '1_3': [['Berserker', '3'], ['Guy', '3']],
         '1_2': [['Berserker', '1b']],
+        '1_1': [['Berserker', '1a'], ['Gladiator', '1a']],
       }
     },
     {
       header: 'PHY Blitzball',
       items: {
-        '1_3': [['Wakka', '3']]
+        '1_3': [['Wakka', '3']],
+        '1_1': [['Jecht', '1']],
       }
     },
     {
@@ -227,6 +247,7 @@ const physicalTable: TableDefinition = {
       items: {
         '1_3': [['Fran', '3']],
         '1_2': [['Faris', '2'], ['Fran', '1b']],
+        '1_1': [['Ranger', '1a'], ['Maria', '1b']],
       }
     },
     {
@@ -234,13 +255,15 @@ const physicalTable: TableDefinition = {
       items: {
         '1_3': [['Ignis', '3'], ['Vaan', '3']],
         '1_2': [['Leila', '2'], ['Locke', '2'], ['Marcus', '2']],
+        '1_1': [['Leila', '1'], ['Thancred', '1'], ['Ignis', '1']],
       }
     },
     {
-      header: 'PHY Fists',
+      header: 'PHY Fist',
       items: {
         '1_3': [['Zell', '3']],
         '1_2': [['Galuf', '2'], ['Tifa', '2']],
+        '1_1': [['Tifa', '1'], ['Amarant', '1']],
       }
     },
     {
@@ -248,6 +271,7 @@ const physicalTable: TableDefinition = {
       items: {
         '1_3': [['Balthier', '3'], ['Prompto', '3']],
         '1_2': [['Elena', '2'], ['Irvine', '1b'], ['Vincent', '2']],
+        '1_1': [['Laguna', '1'], ['King', '1']],
       }
     },
     {
@@ -267,6 +291,7 @@ const physicalTable: TableDefinition = {
       header: 'PHY Hammer',
       items: {
         '1_2': [['Cid (IV)', '2']],
+        '1_1': [['Viking', '1a']],
       }
     },
     {
@@ -274,6 +299,7 @@ const physicalTable: TableDefinition = {
       items: {
         '1_3': [['Edward', '3']],
         '1_2': [['Eiko', '2']],
+        '1_1': [['Bard', '1a']],
       }
     },
     {
@@ -281,6 +307,7 @@ const physicalTable: TableDefinition = {
       items: {
         '1_3': [['Sephiroth', '3']],
         '1_2': [['Sephiroth', '2']],
+        '1_1': [['Cyan', '1a'], ['Auron', '1']],
       }
     },
     {
@@ -288,6 +315,7 @@ const physicalTable: TableDefinition = {
       items: {
         '1_3': [['Fang', '3']],
         '1_2': [['Edgar', '2'], ['Nine', '2'], ['Quina', '2']],
+        '1_1': [['Kimahri', '1a'], ['Fang', '1'], ['Estinien', '1'], ['Aranea', '1']],
       }
     },
     {
@@ -295,6 +323,7 @@ const physicalTable: TableDefinition = {
       items: {
         '1_3': [['Cloud', '3'], ['Warrior', '3']],
         '1_2': [['Beatrix', '2'], ['Cecil (Dark Knight)', '2']],
+        '1_1': [['Warrior', '1'], ['Cloud', '1a'], ['Zack', '1'], ['Marche', '1'], ['Morrow', '1']],
       }
     },
     {
@@ -302,6 +331,7 @@ const physicalTable: TableDefinition = {
       items: {
         '1_3': [['Refia', '3']],
         '1_2': [['Ninja', '2'], ['Refia', '2']],
+        '1_1': [['Ninja', '1a'], ['Yuffie', '1']],
       }
     },
     {
@@ -317,30 +347,45 @@ const physicalTable: TableDefinition = {
         '1_2': [['Viking', '2']],
       }
     },
+    {
+      header: 'PHY Lt. Armor',
+      items: {
+        '1_1': [['Ursula', '1']],
+      }
+    },
   ]
 };
 
 const magicTable: TableDefinition = {
   title: 'Magic Damage and Healing',
-  headers: ['~1.3x', '1.2x'],
-  contents: [['1_3', '1_25'], ['1_2']],
+  headers: ['~1.3x', '1.2x', '~1.1x'],
+  contents: [['1_3', '1_25'], ['1_2'], ['1_15', '1_1']],
   rows: [
     {
       header: 'BLK (always)',
       items: {
         '1_25': [['Rinoa', '3']],
+        '1_15': [['Rinoa', '2']],
+      }
+    },
+    {
+      header: 'BLK Dagger',
+      items: {
+        '1_1': [['Palom', '1']]
       }
     },
     {
       header: 'BLK Bow',
       items: {
         '1_2': [['Serah', '2']],
+        '1_1': [['Maria', '1a'], ['Maria', '1b']],
       }
     },
     {
       header: 'BLK Rod',
       items: {
         '1_2': [['Papalymo', '2'], ['Reno', '2']],
+        '1_1': [['Meia', '1'], ['Fusoya', '2'], ['Vivi', '1a']],
       }
     },
     {
@@ -348,6 +393,13 @@ const magicTable: TableDefinition = {
       items: {
         '1_3': [['Matoya', '3'], ['Shantotto', '3']],
         '1_2': [['Shantotto', '2']],
+        '1_1': [['Shantotto', '1'], ['Montblanc', '1']],
+      }
+    },
+    {
+      header: 'BLK Sword',
+      items: {
+        '1_1': [['Desch', '1']],
       }
     },
     {
@@ -355,6 +407,13 @@ const magicTable: TableDefinition = {
       items: {
         '1_3': [['Reynn', '3']],
         '1_2': [['Hope', '2']],
+        '1_1': [['Hope', '1']],
+      }
+    },
+    {
+      header: 'BLK Lt. Armor',
+      items: {
+        '1_1': [['Cid Raines', '1']],
       }
     },
     {
@@ -362,6 +421,13 @@ const magicTable: TableDefinition = {
       items: {
         '1_3': [['Yuna', '3']],
         '1_2': [['Braska', '2'], ['Rydia', '1b'], ['Summoner', '2']],
+        '1_1': [['Meia', '1'], ['Krile', '1']],
+      }
+    },
+    {
+      header: 'SUM Rod',
+      items: {
+        '1_1': [['Meia', '2']],
       }
     },
     {
@@ -372,10 +438,17 @@ const magicTable: TableDefinition = {
       }
     },
     {
+      header: 'BLK/WHT Damage',
+      items: {
+        '1_1': [['Fusoya', '2']],
+      }
+    },
+    {
       header: 'WHT Healing',
       items: {
         '1_3': [['Aria', '3'], ['Lenna', '3'], ['Minwu', '3']],
         '1_2': [['Aemo', '2'], ['Aerith', '2'], ['Elarra', '2'], ['Minwu', '2']],
+        '1_1': [['Elarra', '1'], ['Lenna', '1'], ['Yuna', '1'], ['Y\'shtola', '1'], ['Alma', '1'], ['Deuce', '1']],
       }
     },
   ]
@@ -383,14 +456,15 @@ const magicTable: TableDefinition = {
 
 const magicDualcastTable: TableDefinition = {
   title: 'Black, Summon, White Dualcast',
-  headers: ['20%', '15%', '13%'],
-  contents: [['20w'], ['15w'], ['13w']],
+  headers: ['20%', '15%', '13%', '8%'],
+  contents: [['20w'], ['15w'], ['13w'], ['8w']],
   rows: [
     {
       header: 'Black Magic',
       items: {
         '15w': [['Magus', '1b'], ['Matoya', '2']],
         '13w': [['Red Mage', '2'], ['Terra', '2']],
+        '8w': [['Magus', '1a']],
       }
     },
     {
@@ -402,7 +476,8 @@ const magicDualcastTable: TableDefinition = {
     {
       header: 'White Magic',
       items: {
-        '15w': [['Alma', '2'], ['Devout', '1b']]
+        '15w': [['Alma', '2'], ['Devout', '1b']],
+        '8w': [['Devout', '1a'], ['Porom', '1']],
       }
     }
   ]
