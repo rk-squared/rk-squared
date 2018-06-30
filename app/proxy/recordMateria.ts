@@ -123,13 +123,37 @@ const recordMateria: Handler = {
     });
   },
 
-  win_battle(data: schemas.WinBattle, store: Store<IState>) {
+  'win_battle'(data: schemas.WinBattle, store: Store<IState>) {
     const obtainedIds = _.map(
       _.filter(data.result.prize_master, i => i.type_name === 'RECORD_MATERIA'),
         i => +i.item_id
     );
     store.dispatch(obtainRecordMateria(obtainedIds));
-  }
+  },
+
+  'warehouse/store_record_materias'(data: schemas.WarehouseStoreRecordMaterias, store: Store<IState>,
+                                    query?: any, requestBody?: any) {
+    if (typeof(requestBody) !== 'object' || !requestBody.ids) {
+      console.warn(`Unknown POST request for warehouse/store_record_materias: ${requestBody}`);
+      return;
+    }
+    const post = requestBody as schemas.WarehouseStoreRecordMateriasPost;
+    _.forEach(post.ids, id => {
+      store.dispatch(updateRecordMateriaInventory(id, { inventory: false }));
+    });
+  },
+
+  'warehouse/bring_record_materias'(data: schemas.WarehouseBringRecordMaterias, store: Store<IState>,
+                                    query?: any, requestBody?: any) {
+    if (typeof(requestBody) !== 'object' || !requestBody.ids) {
+      console.warn(`Unknown POST request for warehouse/bring_record_materias: ${requestBody}`);
+      return;
+    }
+    const post = requestBody as schemas.WarehouseBringRecordMateriasPost;
+    _.forEach(post.ids, id => {
+      store.dispatch(updateRecordMateriaInventory(id, { inventory: true }));
+    });
+  },
 };
 
 export default recordMateria;

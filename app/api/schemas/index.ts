@@ -3,9 +3,11 @@ import { AssetCollection, BoolAsString, ContentPath, RelativeUrlPath, Timestamp 
 
 import { Buddy, GrowEgg } from './characters';
 import { OwnedRecordMateria } from './recordMateria';
+
 export { Dungeons } from './dungeons';
 export { Main } from './main';
 export { ReleasedRecordMateriaList } from './recordMateria';
+export * from './warehouse';
 
 interface Equipment {
   name: string;
@@ -342,24 +344,6 @@ export interface UpdateUserSession {
   success: boolean;
   user_session_key: string;
   SERVER_TIME: number;
-}
-
-// http://ffrk.denagames.com/dff/warehouse/get_equipment_list
-export interface WarehouseGetEquipmentList {
-  equipments: Array<{
-    equipment_id: number;
-    name: string;
-    category_name: string;
-    series_id: number;
-    equipment_type: number;
-    is_locked: boolean;
-    category_id: number;
-    created_at: Timestamp;
-    image_path: RelativeUrlPath;
-    ex_series_id: number;
-    rarity: number;
-    id: number;
-  }>;
 }
 
 export interface WorldBattles {

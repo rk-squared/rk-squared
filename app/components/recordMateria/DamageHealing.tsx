@@ -28,7 +28,7 @@ const elementalTable: TableDefinition = {
       items: {
         13: [['Garland', '3'], ['Riku', '3']],
         12: [['Gabranth', '2'], ['Golbez', '2'], ['Kuja', '2'], ['Riku', '2']],
-        11: [['Kuja', '1'], ['Riku', '1']],
+        11: [['Kuja', '1'], ['Riku', '1'], ['Gabranth', '1']],
       }
     },
     {
@@ -51,7 +51,7 @@ const elementalTable: TableDefinition = {
       items: {
         13: [['Cecil (Paladin)', '3']],
         12: [['Warrior of Light', '2']],
-        11: [['Dorgann', '2'], ['Aerith', '1']],
+        11: [['Dorgann', '1'], ['Aerith', '1']],
       }
     },
     {
@@ -90,8 +90,8 @@ const elementalTable: TableDefinition = {
 
 const abilityTable: TableDefinition = {
   title: 'Abilities',
-  headers: ['~1.4x', '~1.3x', '1.15x', '13% Dualcast', '8% Dualcast'],
-  contents: [['1_4', '1_35'], ['1_3', '1_25', '1_2'], ['1_15'], ['13w'], ['8w']],
+  headers: ['~1.4x', '~1.3x', '~1.15x', '13% Dualcast', '8% Dualcast'],
+  contents: [['1_4', '1_35'], ['1_3', '1_25'], ['1_2', '1_15'], ['13w'], ['8w']],
   rows: [
     {
       header: 'Celerity',
@@ -191,7 +191,7 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Celes', '3'], ['Machina', '3'], ['Sora', '3']],
         '1_3': [['Celes', '2'], ['Paine', '2'], ['Sora', '2'], ['Xezat', '2']],
-        '1_15': [['Scott', '1'], ['Paine', '1'], ['Machina', '1'], ['Sora', '1']],
+        '1_15': [['Scott', '1'], ['Paine', '1'], ['Reks', '1'], ['Machina', '1'], ['Sora', '1']],
         '13w': [['Bartz', '2']],
       }
     },
@@ -358,8 +358,8 @@ const physicalTable: TableDefinition = {
 
 const magicTable: TableDefinition = {
   title: 'Magic Damage and Healing',
-  headers: ['~1.3x', '1.2x', '~1.1x'],
-  contents: [['1_3', '1_25'], ['1_2'], ['1_15', '1_1']],
+  headers: ['~1.3x', '~1.2x', '~1.1x'],
+  contents: [['1_3', '1_25'], ['1_2', '1_15'], ['1_1']],
   rows: [
     {
       header: 'BLK (always)',
@@ -448,7 +448,8 @@ const magicTable: TableDefinition = {
       items: {
         '1_3': [['Aria', '3'], ['Lenna', '3'], ['Minwu', '3']],
         '1_2': [['Aemo', '2'], ['Aerith', '2'], ['Elarra', '2'], ['Minwu', '2']],
-        '1_1': [['Elarra', '1'], ['Lenna', '1'], ['Yuna', '1'], ['Y\'shtola', '1'], ['Alma', '1'], ['Deuce', '1']],
+        '1_1': [['Elarra', '1'], ['Lenna', '1'], ['Yuna', '1'], ['Y\'shtola', '1'], ['Iris', '1'], ['Alma', '1'],
+          ['Deuce', '1']],
       }
     },
   ]

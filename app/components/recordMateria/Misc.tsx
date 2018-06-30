@@ -14,7 +14,7 @@ const statusTable: TableDefinition = {
       items: {
         3: [['Gilgamesh', '3'], ['Marcus', '3'], ['Zack', '3'], ['Noel', '3']],
         2: [['Gau', '2'], ['Lion', '2'], ['Thief (I)', '2'], ['Montblanc', '2'], ['Ranger', '2']],
-        1: [['Balthier', '1'], ['Luneth', '1b'], ['Orlandeau', '1'], ['Zidane', '1']],
+        1: [['Luneth', '1b'], ['Zidane', '1'], ['Balthier', '1'], ['Orlandeau', '1']],
         low: [['Tidus', '1a']],
         counter: [['Iris', '3']]
       }
