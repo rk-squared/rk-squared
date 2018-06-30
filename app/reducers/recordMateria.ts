@@ -49,7 +49,7 @@ const toObtainedUpdate = (rm: { [id: number]: RecordMateria }, ids: number[]) =>
 });
 
 const toInventoryListUpdate = (ids: number[]) => ({
-  inventory: _.toPairs(_.map(ids, i => [i, true]))
+  inventory: _.fromPairs(_.map(ids, i => [i, true]))
 });
 
 const toInventoryUpdate = (id: number, inventory: boolean | undefined, favorite: boolean | undefined) => {
@@ -71,7 +71,7 @@ export function recordMateria(state: RecordMateriaState = initialState,
 
       state = u.update(toObtainedUpdate(state.recordMateria, ids), state);
 
-      if (state.favorites != null) {
+      if (state.inventory != null) {
         state = u.update(toInventoryListUpdate(ids), state);
       }
 
