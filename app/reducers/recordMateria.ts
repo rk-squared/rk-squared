@@ -39,7 +39,13 @@ const initialState = {
   inventory: {},
 };
 
-const toSet = (ids: number[]) => _.fromPairs(_.map(ids, i => [i, true]));
+const toSet = (ids: number[]) =>
+  _.fromPairs(_.map(ids, i => [i, true]));
+
+/// If a record materia is in our inventory, then we know that we've obtained it.
+const toObtainedUpdate = (rm: { [id: number]: RecordMateria }, ids: number[]) => ({
+  recordMateria: _.fromPairs(_.map(_.filter(ids, id => rm[id]), id => [id, { obtained: true }]))
+});
 
 export function recordMateria(state: RecordMateriaState = initialState,
                               action: RecordMateriaAction): RecordMateriaState {
@@ -50,14 +56,15 @@ export function recordMateria(state: RecordMateriaState = initialState,
         recordMateria: action.payload.recordMateria
       };
 
-    case getType(setRecordMateriaInventory):
+    case getType(setRecordMateriaInventory): {
       return {
-        ...state,
+        ...u.update(toObtainedUpdate(state.recordMateria, action.payload.inventory), state),
         inventory: toSet(action.payload.inventory),
         favorites: toSet(action.payload.favorites),
       };
+    }
 
-    case getType(updateRecordMateriaInventory):
+    case getType(updateRecordMateriaInventory): {
       const update: any = {};
       if (action.payload.inventory != null) {
         update.inventory = { [action.payload.id]: action.payload.inventory };
@@ -66,6 +73,7 @@ export function recordMateria(state: RecordMateriaState = initialState,
         update.favorites = { [action.payload.id]: action.payload.favorite };
       }
       return u.update(update, state);
+    }
 
     default:
       return state;
