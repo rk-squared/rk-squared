@@ -1,25 +1,12 @@
 import * as React from 'react';
 
-import { Order, RecordMateriaDetail } from '../../actions/recordMateria';
+import { RecordMateriaDetail } from '../../actions/recordMateria';
 import { RecordMateriaList } from './RecordMateriaList';
+import { TableDefinition, TableRow } from './RecordMateriaTableDefinitions';
 
 import * as _ from 'lodash';
 
 const styles = require('./RecordMateriaTable.scss');
-
-interface TableRow {
-  header: string;
-  items: {
-    [content: string]: Array<[string, Order]>;
-  };
-}
-
-export interface TableDefinition {
-  title: string;
-  headers: string[];
-  contents: string[][];
-  rows: TableRow[];
-}
 
 interface Props {
   id: string;

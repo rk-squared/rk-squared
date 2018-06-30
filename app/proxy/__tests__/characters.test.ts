@@ -18,10 +18,30 @@ const growEggUsePost = {
   current_exp: 379325,
   exec: 1
 };
+const winBattleData = require('./data/challenge_win_battle.json');
 const buddyEvolve50 = require('./data/buddy_evolve_50.json');
 const buddyEvolve50Preview = require('./data/buddy_evolve_50_preview.json');
 
 describe('characters proxy handler', () => {
+  describe('win_battle', () => {
+    it('updates characters', () => {
+      const mockStore = configureStore<IState>();
+      const store = mockStore();
+
+      charactersHandler['win_battle'](winBattleData, store as Redux.Store<IState>, undefined, growEggUsePost);
+
+      expect(store.getActions()).toEqual([{
+        type: 'UPDATE_CHARACTER',
+        payload: {
+          id: 10600900,
+          character: {
+            level: 83,
+          },
+        }
+      }]);
+    });
+  });
+
   describe('grow_egg/use', () => {
     it ('updates characters', () => {
       const mockStore = configureStore<IState>();

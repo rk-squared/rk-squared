@@ -11,7 +11,7 @@ import { Handler } from './types';
 
 import { IState } from '../reducers';
 
-import { Character, setCharacter, setCharacters } from '../actions/characters';
+import { Character, setCharacter, setCharacters, updateCharacter } from '../actions/characters';
 
 import * as _ from 'lodash';
 
@@ -35,6 +35,16 @@ export function convertCharacters(data: schemas.PartyList): { [id: number]: Char
 const characters: Handler = {
   'party/list'(data: schemas.PartyList, store: Store<IState>) {
     store.dispatch(setCharacters(convertCharacters(data)));
+  },
+
+  'win_battle'(data: schemas.WinBattle, store: Store<IState>) {
+    for (const buddy of data.result.buddy) {
+      if (+buddy.exp.current_level !== +buddy.exp.previous_level) {
+        store.dispatch(updateCharacter(+buddy.buddy_id, {
+          level: +buddy.exp.current_level
+        }));
+      }
+    }
   },
 
   'grow_egg/use'(data: charactersSchemas.GrowEggUse, store: Store<IState>, query?: any, requestBody?: any) {
@@ -64,8 +74,6 @@ const characters: Handler = {
 
     store.dispatch(setCharacter(convertCharacter(data.buddy)));
   },
-
-  // FIXME: Update characters when winning battles
 };
 
 export default characters;

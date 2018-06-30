@@ -24,4 +24,14 @@ export const setCharacter = createAction('SET_CHARACTER',
   })
 );
 
-export type CharacterAction = ReturnType<typeof setCharacter | typeof setCharacters>;
+export const updateCharacter = createAction('UPDATE_CHARACTER',
+  (id: number, character: Partial<Character>) => ({
+    type: 'UPDATE_CHARACTER',
+    payload: {
+      id,
+      character
+    }
+  })
+);
+
+export type CharacterAction = ReturnType<typeof setCharacter | typeof setCharacters | typeof updateCharacter>;

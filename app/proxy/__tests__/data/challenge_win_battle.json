@@ -2526,7 +2526,7 @@
             "type_name": "SERIES",
             "boost_rate": 150
           },
-          "current_level": 82,
+          "current_level": 83,
           "level_to_hp_max": {
             "82": 5785,
             "83": 5854

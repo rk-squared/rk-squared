@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { RecordMateriaDetail } from '../../actions/recordMateria';
-import { RecordMateriaTable, TableDefinition } from './RecordMateriaTable';
+import { RecordMateriaTable } from './RecordMateriaTable';
+import { TableDefinition } from './RecordMateriaTableDefinitions';
 
 interface Props {
   id: string;

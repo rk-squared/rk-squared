@@ -1,5 +1,4 @@
 #!/usr/bin/env npx ts-node
-
 /**
  * @file
  * Take a captured JSON, strip out uninteresting and sensitive bits, and save it

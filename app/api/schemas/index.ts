@@ -1,5 +1,13 @@
 import { ItemTypeName } from '../../data/items';
-import { AssetCollection, BoolAsString, ContentPath, RelativeUrlPath, Timestamp } from './common';
+import {
+  AssetCollection,
+  BoolAsNumber,
+  BoolAsString,
+  ContentPath,
+  NumberAsString,
+  RelativeUrlPath,
+  Timestamp
+} from './common';
 
 import { Buddy, GrowEgg } from './characters';
 import { OwnedRecordMateria } from './recordMateria';
@@ -8,6 +16,21 @@ export { Dungeons } from './dungeons';
 export { Main } from './main';
 export { ReleasedRecordMateriaList } from './recordMateria';
 export * from './warehouse';
+
+export enum DebuffType {
+  // noinspection JSUnusedGlobalSymbols
+  Poison = '200',
+  Silence = '201',
+  Paralyze = '202',
+  Confuse = '203',
+  Slow = '205',
+  Stop = '206',
+  Blind = '210',
+  Sleep = '211',
+  Petrify = '212',
+  InstantKO = '214',
+  Interrupt = '242',
+}
 
 interface Equipment {
   name: string;
@@ -119,9 +142,7 @@ interface Equipment {
   //   100 = fire, 101 = ice, 102 = lightning, 103 = earth, 104 = wind, 105 = water,
   //   106 = holy, 107 = dark, 108 = poison
   // - Resist element: type 2, arg 1 for vulnerable, 2 for minor, 4 for moderate, 7 for major
-  // - Inflict debuff: type 3, arg 5 for "small chance"
-  //   200 = poison, 201 = silence, 202 = paralyze, 203 = confuse, 205 = slow, 206 = stop,
-  //   210 = blind, 211 = sleep, 212 = petrify, 214 = instant KO, 242 = interrupt
+  // - Inflict debuff: type 3, arg 5 for "small chance".  attribute_id gives DebuffType.
   // - Resist debuff: type 4, arg 10 for "moderate amount"
   attributes: Array<{
     arg: string;
@@ -366,6 +387,96 @@ export interface WinBattle {
     dungeon_id: string;
     dungeon_rank: number;
     is_dungeon_clear: number | null;
+
+    buddy: Array<{
+      name: string;
+      buddy_id: NumberAsString;
+      id: NumberAsString;
+      hp: number;
+      max_hp: number;
+      status_ailments: DebuffType[];
+      exp: {
+        previous_exp: NumberAsString;
+        previous_level: number;
+        current_exp: number;
+        current_level: number;
+        exp_bonus_info: {
+          type_name: 'NORMAL' | 'SERIES';
+          boost_rate: number | null; // E.g., 150 for 150% experience
+        }
+        is_level_max: '' | '1';
+        level_to_hp_max: {
+          [level: string]: number;
+        }
+        level_to_exp: {
+          [level: string]: number;
+        }
+      };
+      is_dead: BoolAsNumber;
+      status_bonus_flg_of: {
+        buddy: BoolAsNumber;
+        weapon: BoolAsNumber;
+        armor: BoolAsNumber;
+        accessory: BoolAsNumber;
+      };
+      status_bonus_type_of: BoolAsNumber;
+
+      soul_strike_exps: Array<{
+        soul_strike_name: string;
+        soul_strike_disp_name: string;
+        soul_strike_description: string;
+        equipment_id: NumberAsString;
+        soul_strike_id: NumberAsString;
+
+        previous_exp: NumberAsString;
+        disp_exp: NumberAsString;
+        new_exp: NumberAsString;
+        required_exp: NumberAsString;
+
+        evolution_num: NumberAsString;
+        is_level_up: string;
+        is_already_mastered: BoolAsString;
+
+        assets: AssetCollection;
+        param_booster: {};
+      }>;
+      legend_materia_exps: Array<{
+        legend_materia_name: string;
+        legend_materia_disp_name: string;
+        legend_materia_description: string;
+        equipment_id: NumberAsString;
+        soul_strike_id: NumberAsString;
+
+        previous_exp: NumberAsString;
+        disp_exp: NumberAsString;
+        new_exp: NumberAsString;
+        required_exp: NumberAsString;
+
+        evolution_num: NumberAsString;
+        is_level_up: string;
+        is_already_mastered: BoolAsString;
+
+        assets: AssetCollection;
+        param_booster: {};
+      }>;
+
+      is_guest_visitant: BoolAsNumber;
+
+      animation: {
+        buddy_id: NumberAsString;
+        path: NumberAsString;
+        dress_record_id: NumberAsString;
+        left_1_offset_x: NumberAsString;
+        left_1_offset_y: NumberAsString;
+        right_1_offset_x: NumberAsString;
+        right_1_offset_y: NumberAsString;
+        left_2_offset_x: NumberAsString;
+        left_2_offset_y: NumberAsString;
+        right_2_offset_x: NumberAsString;
+        right_2_offset_y: NumberAsString;
+        assets: AssetCollection;
+      }
+    }>;
 
     prize_master: {
       [id: string]: {

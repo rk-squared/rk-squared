@@ -129,7 +129,9 @@ const recordMateria: Handler = {
       _.filter(data.result.prize_master, i => i.type_name === 'RECORD_MATERIA'),
         i => +i.item_id
     );
-    store.dispatch(obtainRecordMateria(obtainedIds));
+    if (obtainedIds.length) {
+      store.dispatch(obtainRecordMateria(obtainedIds));
+    }
   },
 
   'warehouse/store_record_materias'(data: schemas.WarehouseStoreRecordMaterias, store: Store<IState>,
