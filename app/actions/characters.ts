@@ -17,4 +17,11 @@ export const setCharacters = createAction('SET_CHARACTERS',
   })
 );
 
-export type CharacterAction = ReturnType<typeof setCharacters>;
+export const setCharacter = createAction('SET_CHARACTER',
+  (character: Character) => ({
+    type: 'SET_CHARACTER',
+    payload: character
+  })
+);
+
+export type CharacterAction = ReturnType<typeof setCharacter | typeof setCharacters>;

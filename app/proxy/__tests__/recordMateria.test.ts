@@ -1,4 +1,4 @@
-import { convertRecordMateriaList, default as recordMateriaProxy } from '../recordMateria';
+import { convertRecordMateriaList, default as recordMateriaHandler } from '../recordMateria';
 
 import { Order, RecordMateria } from '../../actions/recordMateria';
 import { IState } from '../../reducers';
@@ -20,7 +20,7 @@ function sortRecordMateria(recordMateria: {[id: number]: RecordMateria}) {
   return result;
 }
 
-describe('record materia proxy', () => {
+describe('recordMateria proxy handler', () => {
   describe('get_released_record_materia_list', () => {
     const recordMateria = convertRecordMateriaList(recordMateriaListData);
     const sorted = sortRecordMateria(recordMateria);
@@ -83,8 +83,8 @@ describe('record materia proxy', () => {
     const mockStore = configureStore<IState>();
     const store = mockStore();
 
-    // TODO: A bug in redux-mock-store typings means we need this explicit cast
-    recordMateriaProxy.win_battle(winBattleData, store as Redux.Store<IState>);
+    // TODO: A bug in redux-mock-store typings means we need this explicit cast (here and elsewhere)
+    recordMateriaHandler.win_battle(winBattleData, store as Redux.Store<IState>);
 
     expect(store.getActions()).toEqual([{payload: {id: [111050021]}, type: 'OBTAIN_RECORD_MATERIA'}]);
   });

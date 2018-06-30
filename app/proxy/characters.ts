@@ -6,31 +6,49 @@
 import { Store } from 'redux';
 
 import * as schemas from '../api/schemas';
+import * as charactersSchemas from '../api/schemas/characters';
 import { Handler } from './types';
 
 import { IState } from '../reducers';
 
-import { Character, setCharacters } from '../actions/characters';
+import { Character, setCharacter, setCharacters } from '../actions/characters';
+
+import * as _ from 'lodash';
+
+// FIXME: What's the best place to log these?  Use the console for now.
+// tslint:disable no-console
+
+function convertCharacter(data: charactersSchemas.Buddy): Character {
+  return {
+    name: data.name,
+    id: data.buddy_id,
+    uniqueId: data.id,
+    level: data.level,
+    levelCap: data.level_max,
+  };
+}
 
 export function convertCharacters(data: schemas.PartyList): { [id: number]: Character } {
-  const result: { [id: number]: Character } = {};
-
-  for (const i of data.buddies) {
-    result[i.buddy_id] = {
-      name: i.name,
-      id: i.buddy_id,
-      uniqueId: i.id,
-      level: i.level,
-      levelCap: i.level_max,
-    };
-  }
-
-  return result;
+  return _.keyBy(data.buddies.map(i => convertCharacter(i)), 'id');
 }
 
 const characters: Handler = {
   'party/list'(data: schemas.PartyList, store: Store<IState>) {
     store.dispatch(setCharacters(convertCharacters(data)));
+  },
+
+  'grow_egg/use'(data: charactersSchemas.GrowEggUse, store: Store<IState>, query?: any, requestBody?: any) {
+    if (typeof(requestBody) !== 'object' || requestBody.exec == null) {
+      console.warn(`Unknown POST request for grow_egg/use: ${requestBody}`);
+      return;
+    }
+    const post = requestBody as charactersSchemas.GrowEggUsePost;
+
+    if (!post.exec) {
+      return;
+    }
+
+    store.dispatch(setCharacter(convertCharacter(data.buddy)));
   },
 };
 

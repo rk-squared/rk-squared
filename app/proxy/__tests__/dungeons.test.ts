@@ -27,7 +27,7 @@ const textMaster = {
   sortmodal_short_summary_series_160001: 'Type-0',
 };
 
-describe('dungeon proxy', () => {
+describe('dungeons proxy handler', () => {
   describe('StartupHandler', () => {
     it('processes Torment dungeons', () => {
       const gameEvent = {

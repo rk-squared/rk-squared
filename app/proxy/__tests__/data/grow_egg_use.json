@@ -1,0 +1,251 @@
+{
+  "success": true,
+  "grow_eggs": [
+    {
+      "exp": 500,
+      "num": 59,
+      "name": "Minor Growth Egg",
+      "sale_gil": 250,
+      "description": "A minor egg that bestows EXP.",
+      "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000001/70000001_112.png",
+      "rarity": 1,
+      "id": 70000001
+    },
+    {
+      "exp": 2500,
+      "num": 164,
+      "name": "Lesser Growth Egg",
+      "sale_gil": 500,
+      "description": "A lesser egg that bestows EXP.",
+      "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000002/70000002_112.png",
+      "rarity": 2,
+      "id": 70000002
+    },
+    {
+      "exp": 10000,
+      "num": 4405,
+      "name": "Growth Egg",
+      "sale_gil": 1000,
+      "description": "An egg that bestows EXP.",
+      "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000003/70000003_112.png",
+      "rarity": 3,
+      "id": 70000003
+    },
+    {
+      "exp": 50000,
+      "num": 920,
+      "name": "Greater Growth Egg",
+      "sale_gil": 1500,
+      "description": "A greater egg that bestows EXP.",
+      "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000004/70000004_112.png",
+      "rarity": 4,
+      "id": 70000004
+    },
+    {
+      "exp": 250000,
+      "num": 79,
+      "name": "Major Growth Egg",
+      "sale_gil": 2500,
+      "description": "A major egg that bestows EXP.",
+      "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000005/70000005_112.png",
+      "rarity": 5,
+      "id": 70000005
+    }
+  ],
+  "buddy": {
+    "ability_1_id": 0,
+    "can_equip_record_materia_num": 0,
+    "record_materia_step": 1,
+    "soul_strike_2_id": 0,
+    "sp_def": 70,
+    "row": 2,
+    "eva": 22,
+    "id": 47884939,
+    "exp": 1129108,
+    "is_visitant": false,
+    "soul_strike_exp_map": {},
+    "legend_materia_exp_map": {},
+    "name": "Maria",
+    "sphere_skill_level": 0,
+    "ability_category": {
+      "1": {
+        "category_id": 1,
+        "rarity": 6,
+        "name": "Black Magic",
+        "is_extended": 1
+      },
+      "2": {
+        "category_id": 2,
+        "rarity": 3,
+        "name": "White Magic",
+        "is_extended": 0
+      },
+      "19": {
+        "category_id": 19,
+        "rarity": 5,
+        "name": "Sharpshooter",
+        "is_extended": 0
+      },
+      "20": {
+        "category_id": 20,
+        "rarity": 4,
+        "name": "Witch",
+        "is_extended": 0
+      }
+    },
+    "dress_record_id": 0,
+    "evolution_num": 0,
+    "description": "Proficient with a variety of weapons and armor, with a focus on rods and bows. Can use rare black magic abilities, buffing her Magic to deal heavy elemental magic damage.",
+    "weapon_id": 0,
+    "level": 50,
+    "level_max": 50,
+    "record_tear_boosters": {
+      "hp": 0,
+      "matk": 0,
+      "atk": 0,
+      "spd": 0,
+      "mdef": 0,
+      "acc": 0,
+      "mnd": 0,
+      "def": 0,
+      "eva": 0
+    },
+    "is_guest_visitant": false,
+    "equipment_category": {
+      "1": {
+        "category_id": 1,
+        "equipment_type": 1,
+        "is_extended": 0,
+        "factor": 100
+      },
+      "2": {
+        "category_id": 2,
+        "equipment_type": 1,
+        "is_extended": 0,
+        "factor": 100
+      },
+      "6": {
+        "category_id": 6,
+        "equipment_type": 1,
+        "is_extended": 0,
+        "factor": 100
+      },
+      "8": {
+        "category_id": 8,
+        "equipment_type": 1,
+        "is_extended": 0,
+        "factor": 100
+      },
+      "9": {
+        "category_id": 9,
+        "equipment_type": 1,
+        "is_extended": 0,
+        "factor": 100
+      },
+      "10": {
+        "category_id": 10,
+        "equipment_type": 1,
+        "is_extended": 0,
+        "factor": 100
+      },
+      "51": {
+        "category_id": 51,
+        "equipment_type": 2,
+        "is_extended": 0,
+        "factor": 100
+      },
+      "53": {
+        "category_id": 53,
+        "equipment_type": 2,
+        "is_extended": 0,
+        "factor": 100
+      },
+      "55": {
+        "category_id": 55,
+        "equipment_type": 2,
+        "is_extended": 0,
+        "factor": 100
+      },
+      "56": {
+        "category_id": 56,
+        "equipment_type": 2,
+        "is_extended": 0,
+        "factor": 100
+      },
+      "80": {
+        "category_id": 80,
+        "equipment_type": 3,
+        "is_extended": 0,
+        "factor": 100
+      }
+    },
+    "ability_2_id": 0,
+    "series_level": 60,
+    "is_fixed_party_slot": false,
+    "sp_mnd": 107,
+    "atk": 83,
+    "mdef": 98,
+    "sp_acc": 23,
+    "sp_matk": 144,
+    "default_image_path": "/dff/static/lang/ww/compile/en/image/buddy/10200200/10200200.png",
+    "acc": 22,
+    "legend_materia_2_id": 0,
+    "created_at": 1503973983,
+    "record_materia_1_id": 0,
+    "role_type_name": "Offensive Magic",
+    "def": 58,
+    "job_name": "Rebel Warrior",
+    "sp_hp": 3473,
+    "role_type": 6,
+    "armor_id": 0,
+    "sp_spd": 118,
+    "soul_strike_1_id": 20560001,
+    "matk": 125,
+    "hp": 2914,
+    "soul_strike_3_id": 0,
+    "buddy_id": 10200200,
+    "spd": 112,
+    "sp_mdef": 116,
+    "series_id": 102001,
+    "dress_record_name": "Basic",
+    "accessory_id": 0,
+    "soul_strike_4_id": 0,
+    "image_path": "/dff/static/lang/ww/compile/en/image/buddy/10200200/10200200.png",
+    "sp_atk": 98,
+    "mnd": 91,
+    "default_soul_strike_id": 20560001,
+    "legend_materia_1_id": 0,
+    "sp_eva": 23,
+    "brave_series_ids_map": {
+      "900016": 1,
+      "900020": 1,
+      "900023": 1,
+      "900024": 1,
+      "900025": 1,
+      "900026": 1,
+      "900027": 1,
+      "900031": 1,
+      "900036": 1,
+      "900037": 1,
+      "900042": 1,
+      "900050": 1,
+      "900051": 1,
+      "900052": 1,
+      "900053": 1,
+      "900054": 1,
+      "900055": 1,
+      "900056": 1,
+      "900057": 1,
+      "900073": 1,
+      "900081": 1,
+      "900082": 1,
+      "900083": 1,
+      "900088": 1,
+      "900089": 1
+    },
+    "is_orichara_visitant": false
+  },
+  "achieved_book_ids": [],
+  "SERVER_TIME": 1530373898,
+  "achieved_book_mission_ids": []
+}

@@ -1,6 +1,6 @@
 import { getType } from 'typesafe-actions';
 
-import { Character, CharacterAction, setCharacters } from '../actions/characters';
+import { Character, CharacterAction, setCharacter, setCharacters } from '../actions/characters';
 
 export interface CharacterState {
   characters: {
@@ -14,6 +14,15 @@ const initialState = {
 
 export function characters(state: CharacterState = initialState, action: CharacterAction): CharacterState {
   switch (action.type) {
+    case getType(setCharacter):
+      return {
+        ...state,
+        characters: {
+          ...state.characters,
+          [action.payload.id]: action.payload,
+        }
+      };
+
     case getType(setCharacters):
       return {
         ...state,
