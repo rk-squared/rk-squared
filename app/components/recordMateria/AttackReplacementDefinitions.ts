@@ -56,7 +56,8 @@ const physicalPercentNonElementalTable: TableDefinition = {
       items: {
         3: [['Ranger', '3'], ['Ward', '3'], ['Lion', '3'], ['Rikku', '3'], ['Freya', '3'], ['Gau', '3']],
         2: [['Fran', '2'], ['Wol', '2'], ['Kiros', '2'], ['Kimahri', '2']],
-        1: [['Ranger', '1b'], ['Gladiator', '1b'], ['Master', '1'], ['Ricard', '1b'], ['Cinque', '1']],
+        1: [['Ranger', '1b'], ['Gladiator', '1b'], ['Master', '1'], ['Ricard', '1b'], ['Squall', '1b'],
+          ['Cinque', '1']],
       }
     },
     {
@@ -158,6 +159,7 @@ const blackNonElementalTable: TableDefinition = {
       header: 'Single',
       items: {
         3: [['Cloud of Darkness', '3'], ['Bard', '3']],
+        2: [['Vivi', '2']],
       }
     },
     {
@@ -193,8 +195,8 @@ const blackElementalTable: TableDefinition = {
       header: 'Fire',
       items: {
         3: [['Black Mage', '3'], ['Magus', '3'], ['Red Mage', '3']],
-        2: [['Black Mage', '2'], ['Maria', '2'], ['Magus', '2']],
-        1: [['Rubicante', '1'], ['Red Mage', '1'], ['Selphie', '1']]
+        2: [['Black Mage', '2'], ['Magus', '2'], ['Maria', '2'], ['Rubicante', '2']],
+        1: [['Red Mage', '1'], ['Selphie', '1']]
       }
     },
     {
@@ -307,7 +309,7 @@ const inflictStatusTable: TableDefinition = {
     {
       header: 'KO',
       items: {
-        2: [['Exdeath', '2']],
+        1: [['Exdeath', '1']],
       }
     },
     {

@@ -31,6 +31,7 @@ const elementalTable: TableDefinition = {
       header: 'Earth',
       items: {
         13: [['Tifa', '3']],
+        12: [['Cinque', '2']],
         11: [['Ingus', '1a'], ['Rude', '1']],
       }
     },

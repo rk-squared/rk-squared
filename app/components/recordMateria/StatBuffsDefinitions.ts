@@ -20,7 +20,8 @@ const atkTable: TableDefinition = {
       items: {
         '15': [['Ricard', '1a'], ['Josef', '3']],
         '10x': [['Kain', '1b'], ['Irvine', '2'], ['Cid (XIV)', '1'], ['Noctis', '1']],
-        '10': [['Berserker', '2'], ['Guy', '1'], ['Leon', '2'], ['Gau', '1'], ['Delita', '1'], ['Nine', '1']],
+        '10': [['Berserker', '2'], ['Guy', '1'], ['Leon', '2'], ['Gau', '1'], ['Vaan', '1'], ['Delita', '1'],
+          ['Nine', '1']],
       }
     },
     {
@@ -37,10 +38,12 @@ const atkTable: TableDefinition = {
       }
     },
     {
-      header: 'Fists',
+      header: 'Fist',
       items: {
         '15': [['Elena', '3']],
         '13x': [['Jecht', '3']],
+        '13': [['Ursula', '2']],
+        '10x': [['Snow', '2']],
       }
     },
     {
@@ -49,7 +52,7 @@ const atkTable: TableDefinition = {
         '15': [['Rufus', '3']],
         '13x': [['Cid (XIV)', '3']],
         '10x': [['Sazh', '3']],
-        '13': [['Cid (XIV)', '3']],
+        '13': [['Cid (XIV)', '2']],
         '10': [['Prompto', '1']],
       }
     },
@@ -199,7 +202,7 @@ const magTable: TableDefinition = {
       items: {
         '15': [['Braska', '3']],
         '13x': [['Seymour', '3']],
-        '10': [['Onion', '1']],
+        '10': [['Onion Knight', '1']],
       }
     },
     {
@@ -361,7 +364,7 @@ const mndTable: TableDefinition = {
         '25': [['Aphmau', '3'], ['Sarah', '3']],
         '10x': [['Alma', '3']],
         '20': [['Porom', '2']],
-        '10': [['Minwu', '1'], ['Aphmau', '1']],
+        '10': [['Minwu', '1'], ['Aphmau', '1'], ['Penelo', '1']],
       }
     },
     {
@@ -447,6 +450,12 @@ const defResTable: TableDefinition = {
         '20dr': [['Dorgann', '3'], ['Leo', '3'], ['Ceodore', '2']],
         '20d': [['Garland', '2']],
         '10d': [['Gilgamesh', '1'], ['Steiner', '1a']],
+      }
+    },
+    {
+      header: 'Robe',
+      items: {
+        '20dr': [['Y\'shtola', '3']],
       }
     },
     {

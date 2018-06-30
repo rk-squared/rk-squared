@@ -71,7 +71,7 @@ const statusTable: TableDefinition = {
     {
       header: 'Draw Fire',
       items: {
-        2: [['Delita', '2']],
+        2: [['Amarant', '2'], ['Delita', '2']],
       }
     },
     {
@@ -122,7 +122,7 @@ const statusTable: TableDefinition = {
     {
       header: 'Berserk',
       items: {
-        1: [['Galuf', '1a'], ['Umaro', '1'], ['Cid (VII)', '1a']],
+        1: [['Galuf', '1a'], ['Umaro', '1'], ['Cid (VII)', '1a'], ['Fran', '1a']],
       }
     }
   ]
@@ -158,7 +158,7 @@ const selfHealTable: TableDefinition = {
       header: 'Counter',
       items: {
         3: [['Gaffgarion', '3'], ['Monk', '3']],
-        2: [['Cecil (Paladin)', '2'], ['Monk', '2']],
+        2: [['Cecil (Paladin)', '2'], ['Monk', '2'], ['Gaffgarion', '2']],
         1: [['Vanille', '1']],
       }
     },
@@ -189,7 +189,7 @@ const counterTable: TableDefinition = {
       header: 'PHY',
       items: {
         3: [['Gaffgarion', '3']],
-        2: [['Samurai', '2'], ['Ignis', '2']],
+        2: [['Samurai', '2'], ['Ignis', '2'], ['Gaffgarion', '2']],
         1: [['Galuf', '1b'], ['Cloud', '1b']],
       }
     },
@@ -203,7 +203,7 @@ const counterTable: TableDefinition = {
       header: 'Self heal',
       items: {
         3: [['Gaffgarion', '3'], ['Monk', '3']],
-        2: [['Cecil (Paladin)', '2'], ['Monk', '2']],
+        2: [['Monk', '2'], ['Cecil (Paladin)', '2'], ['Gaffgarion', '2']],
         1: [['Vanille', '1']],
       }
     },
