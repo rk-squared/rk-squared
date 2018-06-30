@@ -18,6 +18,8 @@ const growEggUsePost = {
   current_exp: 379325,
   exec: 1
 };
+const buddyEvolve50 = require('./data/buddy_evolve_50.json');
+const buddyEvolve50Preview = require('./data/buddy_evolve_50_preview.json');
 
 describe('characters proxy handler', () => {
   describe('grow_egg/use', () => {
@@ -37,6 +39,39 @@ describe('characters proxy handler', () => {
           uniqueId: 47884939,
         }
       }]);
+    });
+  });
+
+  describe('buddy/evolve', () => {
+    it('updates characters', () => {
+      const mockStore = configureStore<IState>();
+      const store = mockStore();
+
+      charactersHandler['buddy/evolve'](
+        buddyEvolve50.data, store as Redux.Store<IState>, undefined, buddyEvolve50.requestBody
+      );
+
+      expect(store.getActions()).toEqual([{
+        type: 'SET_CHARACTER',
+        payload: {
+          id: 10200200,
+          level: 50,
+          levelCap: 65,
+          name: 'Maria',
+          uniqueId: 47884939,
+        }
+      }]);
+    });
+
+    it('does nothing on previews', () => {
+      const mockStore = configureStore<IState>();
+      const store = mockStore();
+
+      charactersHandler['buddy/evolve'](
+        buddyEvolve50Preview.data, store as Redux.Store<IState>, undefined, buddyEvolve50Preview.requestBody
+      );
+
+      expect(store.getActions()).toEqual([]);
     });
   });
 });

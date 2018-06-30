@@ -1,0 +1,401 @@
+{
+  "data": {
+    "success": true,
+    "record_materia": {
+      "buddy_role_type": 6,
+      "is_favorite": false,
+      "effect_type": 18,
+      "created_at": 1530379536,
+      "step": 1,
+      "record_materia_id": 111020020,
+      "cond_description": "Awarded for breaking character level cap.",
+      "id": 111020020,
+      "disp_type": 1,
+      "buddy_image_path": "/dff/static/lang/ww/compile/en/image/buddy/10200200/10200200.png",
+      "command_icon_path": "/dff/static/lang/image/record_materia/111020020/111020020_128.png",
+      "buddy_id": 10200200,
+      "buddy_series_id": 102001,
+      "name": "Archer Mage",
+      "buddy_name": "Maria",
+      "description": "Deal slightly more black magic damage when a bow is equipped.",
+      "disp_name": "Archer Mage",
+      "image_path": "/dff/static/lang/image/record_materia/111020020/111020020_112.png",
+      "previous_record_materia_name": ""
+    },
+    "assets": {
+      "animation-buddy-10200200": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/102002/base.sajson": {
+            "hash": "7QQvdjd1vOGjKIQwcUSQHw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/102002/img_chara.png": {
+            "hash": "uieyhy4JBk3dsZhAktdKnQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/102002/img_chara.json": {
+            "hash": "jK07pmjHTIJxOiMHuPrUzQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/102002/base.sajson"
+      },
+      "memory-crystal-battle-result-modal-101020020": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/memory_crystal/101020020/101020020_170.png": {
+            "hash": "YrFuf1RyQ/iLT+uGVA8GFg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/memory_crystal/101020020/101020020_170.png"
+      },
+      "buddy_evolve": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+            "hash": "MsDaWdAq52FE3rZDizThoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+            "hash": "V08fQyTG4T6GDMosX2YVxg"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_ground_light_03.json": {
+            "hash": "nKxXjYrOX/F7g7qaBUsmaw"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_ground_light_front.json": {
+            "hash": "K8Rldz/CxzsbfIEStq5sIw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.png": {
+            "hash": "j+HBYS1K5ZE+aiEuxnu4DQ"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_start_light.json": {
+            "hash": "IpRm9lRsZeJUSdtX+s2oVw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.json": {
+            "hash": "JJirDrM1e/OlIjYhVRis9w"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+            "hash": "6bAULnwkhXKcYlElSbEtDA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
+            "hash": "ca2IYwaOt0fx1YN5Get1IQ"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_start_light_04.json": {
+            "hash": "zUKkOpctEm91Oj+KOYZtrg"
+          },
+          "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+            "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/buddy_evolution.json": {
+            "hash": "uzJVvlTDV7DFPY9zSh5TJw"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_ground_light_front_04.json": {
+            "hash": "UMPQ/xZ7lTBwn5U5CDWNqw"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_ground_light_front_03.json": {
+            "hash": "+o2BBuz9hbi7HI0+aDG4hg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_ground_light.json": {
+            "hash": "dnGwlceIC0hnXicX2m4KEw"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_ground_light_04.json": {
+            "hash": "2i2jg+OfRzm442BN33D3+w"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_back_eff_04.json": {
+            "hash": "sAFNedp3YJqT2isAkOiQVw"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_ground_light_front_02.json": {
+            "hash": "KelW4MGrJtOPO5pw1r2XfQ"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00020.ogg": {
+            "hash": "+z4IanVQUWHn6KNSQ+anKg"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_start_light_02.json": {
+            "hash": "mtFZZIOTvUkj6A8EUdI1wg"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00740.ogg": {
+            "hash": "3PGpgqi3m6AY9et4CXehUg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+            "hash": "5W889sndvoo+0O/fwwRDBg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.json": {
+            "hash": "7VzCDmEK9bZXfq+QvbOm9g"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_ground_light_02.json": {
+            "hash": "AR0MCGWdUm3jtyIfsmq6AA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+            "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.png": {
+            "hash": "lKeVc4YW31UgmCScKaDGlQ"
+          },
+          "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_start_light_03.json": {
+            "hash": "8Oaxf74Pp6uUviAzX2HNlQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/buddy_evolution/buddy_evolution.json"
+      },
+      "memory-crystal-buddy-101020020": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/102002/base.sajson": {
+            "hash": "7QQvdjd1vOGjKIQwcUSQHw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/102002/img_chara.png": {
+            "hash": "uieyhy4JBk3dsZhAktdKnQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/102002/img_chara.json": {
+            "hash": "jK07pmjHTIJxOiMHuPrUzQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/102002/base.sajson"
+      },
+      "memory-crystal-evolve-101020020": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/memory_crystal/101020020/101020020_512.png": {
+            "hash": "F/3wzVzYA2l6g1kG0FmHJQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/memory_crystal/101020020/101020020_512.png"
+      },
+      "item-101020020": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/memory_crystal/101020020/101020020_112.png": {
+            "hash": "fyHlHk/VU4DErS++ZOXj2Q"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/memory_crystal/101020020/101020020_112.png"
+      }
+    },
+    "buddy": {
+      "ability_1_id": 0,
+      "can_equip_record_materia_num": 1,
+      "record_materia_step": 1,
+      "soul_strike_2_id": 0,
+      "sp_def": 70,
+      "row": 2,
+      "eva": 22,
+      "id": 47884939,
+      "exp": 1129108,
+      "is_visitant": false,
+      "soul_strike_exp_map": {},
+      "legend_materia_exp_map": {},
+      "name": "Maria",
+      "sphere_skill_level": 0,
+      "ability_category": {
+        "1": {
+          "category_id": 1,
+          "rarity": 6,
+          "name": "Black Magic",
+          "is_extended": 1
+        },
+        "2": {
+          "category_id": 2,
+          "rarity": 3,
+          "name": "White Magic",
+          "is_extended": 0
+        },
+        "19": {
+          "category_id": 19,
+          "rarity": 5,
+          "name": "Sharpshooter",
+          "is_extended": 0
+        },
+        "20": {
+          "category_id": 20,
+          "rarity": 4,
+          "name": "Witch",
+          "is_extended": 0
+        }
+      },
+      "dress_record_id": 0,
+      "evolution_num": 1,
+      "description": "Proficient with a variety of weapons and armor, with a focus on rods and bows. Can use rare black magic abilities, buffing her Magic to deal heavy elemental magic damage.",
+      "weapon_id": 0,
+      "level": 50,
+      "level_max": 65,
+      "record_tear_boosters": {
+        "hp": 0,
+        "matk": 0,
+        "atk": 0,
+        "spd": 0,
+        "mdef": 0,
+        "acc": 0,
+        "mnd": 0,
+        "def": 0,
+        "eva": 0
+      },
+      "is_guest_visitant": false,
+      "equipment_category": {
+        "1": {
+          "category_id": 1,
+          "equipment_type": 1,
+          "is_extended": 0,
+          "factor": 100
+        },
+        "2": {
+          "category_id": 2,
+          "equipment_type": 1,
+          "is_extended": 0,
+          "factor": 100
+        },
+        "6": {
+          "category_id": 6,
+          "equipment_type": 1,
+          "is_extended": 0,
+          "factor": 100
+        },
+        "8": {
+          "category_id": 8,
+          "equipment_type": 1,
+          "is_extended": 0,
+          "factor": 100
+        },
+        "9": {
+          "category_id": 9,
+          "equipment_type": 1,
+          "is_extended": 0,
+          "factor": 100
+        },
+        "10": {
+          "category_id": 10,
+          "equipment_type": 1,
+          "is_extended": 0,
+          "factor": 100
+        },
+        "51": {
+          "category_id": 51,
+          "equipment_type": 2,
+          "is_extended": 0,
+          "factor": 100
+        },
+        "53": {
+          "category_id": 53,
+          "equipment_type": 2,
+          "is_extended": 0,
+          "factor": 100
+        },
+        "55": {
+          "category_id": 55,
+          "equipment_type": 2,
+          "is_extended": 0,
+          "factor": 100
+        },
+        "56": {
+          "category_id": 56,
+          "equipment_type": 2,
+          "is_extended": 0,
+          "factor": 100
+        },
+        "80": {
+          "category_id": 80,
+          "equipment_type": 3,
+          "is_extended": 0,
+          "factor": 100
+        }
+      },
+      "ability_2_id": 0,
+      "series_level": 60,
+      "is_fixed_party_slot": false,
+      "sp_mnd": 107,
+      "atk": 83,
+      "mdef": 98,
+      "sp_acc": 23,
+      "sp_matk": 144,
+      "default_image_path": "/dff/static/lang/ww/compile/en/image/buddy/10200200/10200200.png",
+      "acc": 22,
+      "legend_materia_2_id": 0,
+      "created_at": 1503973983,
+      "record_materia_1_id": 0,
+      "role_type_name": "Offensive Magic",
+      "def": 58,
+      "job_name": "Rebel Warrior",
+      "sp_hp": 3473,
+      "role_type": 6,
+      "armor_id": 0,
+      "sp_spd": 118,
+      "soul_strike_1_id": 20560001,
+      "matk": 125,
+      "hp": 2914,
+      "soul_strike_3_id": 0,
+      "buddy_id": 10200200,
+      "spd": 112,
+      "sp_mdef": 116,
+      "series_id": 102001,
+      "dress_record_name": "Basic",
+      "accessory_id": 0,
+      "soul_strike_4_id": 0,
+      "image_path": "/dff/static/lang/ww/compile/en/image/buddy/10200200/10200200.png",
+      "sp_atk": 98,
+      "mnd": 91,
+      "default_soul_strike_id": 20560001,
+      "legend_materia_1_id": 0,
+      "sp_eva": 23,
+      "brave_series_ids_map": {
+        "900016": 1,
+        "900020": 1,
+        "900023": 1,
+        "900024": 1,
+        "900025": 1,
+        "900026": 1,
+        "900027": 1,
+        "900031": 1,
+        "900036": 1,
+        "900037": 1,
+        "900042": 1,
+        "900050": 1,
+        "900051": 1,
+        "900052": 1,
+        "900053": 1,
+        "900054": 1,
+        "900055": 1,
+        "900056": 1,
+        "900057": 1,
+        "900073": 1,
+        "900081": 1,
+        "900082": 1,
+        "900083": 1,
+        "900088": 1,
+        "900089": 1
+      },
+      "is_orichara_visitant": false
+    },
+    "user_memory_crystal": {
+      "buddy_role_type": 6,
+      "memory_crystal_id": 101020020,
+      "buddy_id": 10200200,
+      "name": "Maria Memory Crystal",
+      "series_id": 102001,
+      "buddy_name": "Maria",
+      "description": "The crystalized essence of Maria's memories.",
+      "created_at": 1509249934,
+      "image_path": "/dff/static/lang/image/memory_crystal/101020020/101020020_112.png"
+    },
+    "next_record_materia": {
+      "buddy_role_type": 6,
+      "effect_type": 21,
+      "step": 2,
+      "record_materia_id": 111020021,
+      "cond_description": "Obtain the Archer Mage Record Materia. Chance to obtain with Maria in your party.",
+      "id": 111020021,
+      "buddy_image_path": "/dff/static/lang/ww/compile/en/image/buddy/10200200/10200200.png",
+      "disp_type": 1,
+      "command_icon_path": "/dff/static/lang/image/record_materia/111020021/111020021_128.png",
+      "buddy_id": 10200200,
+      "buddy_series_id": 102001,
+      "name": "Rebel Sharpshooter",
+      "buddy_name": "Maria",
+      "description": "Deal slightly more physical and black magic damage when a bow is equipped.",
+      "image_path": "/dff/static/lang/image/record_materia/111020021/111020021_112.png",
+      "disp_name": "Rebel Sharpshooter"
+    },
+    "achieved_book_ids": [],
+    "SERVER_TIME": 1530379536,
+    "achieved_book_mission_ids": []
+  },
+  "requestBody": {
+    "user_buddy_id": 47884939,
+    "user_memory_crystal_ids": [
+      101020020
+    ],
+    "exec": 1
+  }
+}
