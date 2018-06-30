@@ -50,6 +50,22 @@ const characters: Handler = {
 
     store.dispatch(setCharacter(convertCharacter(data.buddy)));
   },
+
+  'buddy/evolve'(data: charactersSchemas.BuddyEvolve, store: Store<IState>, query?: any, requestBody?: any) {
+    if (typeof(requestBody) !== 'object' || requestBody.exec == null) {
+      console.warn(`Unknown POST request for buddy/evolve: ${requestBody}`);
+      return;
+    }
+    const post = requestBody as charactersSchemas.BuddyEvolvePost;
+
+    if (!post.exec) {
+      return;
+    }
+
+    store.dispatch(setCharacter(convertCharacter(data.buddy)));
+  },
+
+  // FIXME: Update characters when winning battles
 };
 
 export default characters;

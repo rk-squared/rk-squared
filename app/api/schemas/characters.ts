@@ -145,8 +145,11 @@ export interface BuddyEvolveExec extends BuddyEvolve {
     created_at: Timestamp;
     image_path: RelativeUrlPath;
   };
-  new_record_materia: OwnedRecordMateria;
+
+  record_materia?: OwnedRecordMateria;      // newly acquired record materia
+  new_record_materia?: OwnedRecordMateria;  // newly unlocked record materia
   next_record_materia: RecordMateria;
+
   achieved_book_ids: number[];
   achieved_book_mission_ids: number[];
 }

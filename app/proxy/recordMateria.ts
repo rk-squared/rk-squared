@@ -6,6 +6,7 @@
 import { Store } from 'redux';
 
 import * as schemas from '../api/schemas';
+import * as charactersSchemas from '../api/schemas/characters';
 import * as recordMateriaSchemas from '../api/schemas/recordMateria';
 import { Handler } from './types';
 
@@ -153,6 +154,23 @@ const recordMateria: Handler = {
     _.forEach(post.ids, id => {
       store.dispatch(updateRecordMateriaInventory(id, { inventory: true }));
     });
+  },
+
+  'buddy/evolve'(data: charactersSchemas.BuddyEvolve, store: Store<IState>, query?: any, requestBody?: any) {
+    if (typeof(requestBody) !== 'object' || requestBody.exec == null) {
+      console.warn(`Unknown POST request for buddy/evolve: ${requestBody}`);
+      return;
+    }
+    const post = requestBody as charactersSchemas.BuddyEvolvePost;
+
+    if (!post.exec) {
+      return;
+    }
+
+    const execData = data as charactersSchemas.BuddyEvolveExec;
+    if (execData.record_materia) {
+      store.dispatch(updateRecordMateriaInventory(execData.record_materia.id, { inventory: true }));
+    }
   },
 };
 
