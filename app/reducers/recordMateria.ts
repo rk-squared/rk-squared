@@ -3,6 +3,7 @@ import { getType } from 'typesafe-actions';
 import * as _ from 'lodash';
 
 import {
+  obtainRecordMateria,
   RecordMateria,
   RecordMateriaAction,
   setRecordMateria,
@@ -35,8 +36,8 @@ export interface RecordMateriaState {
 
 const initialState = {
   recordMateria: {},
-  favorites: {},
-  inventory: {},
+  favorites: undefined,
+  inventory: undefined,
 };
 
 const toSet = (ids: number[]) =>
@@ -47,9 +48,35 @@ const toObtainedUpdate = (rm: { [id: number]: RecordMateria }, ids: number[]) =>
   recordMateria: _.fromPairs(_.map(_.filter(ids, id => rm[id]), id => [id, { obtained: true }]))
 });
 
+const toInventoryListUpdate = (ids: number[]) => ({
+  inventory: _.toPairs(_.map(ids, i => [i, true]))
+});
+
+const toInventoryUpdate = (id: number, inventory: boolean | undefined, favorite: boolean | undefined) => {
+  const update: any = {};
+  if (inventory != null) {
+    update.inventory = { [id]: inventory };
+  }
+  if (favorite != null) {
+    update.favorites = { [id]: favorite };
+  }
+  return update;
+};
+
 export function recordMateria(state: RecordMateriaState = initialState,
                               action: RecordMateriaAction): RecordMateriaState {
   switch (action.type) {
+    case getType(obtainRecordMateria):
+      const ids = Array.isArray(action.payload.id) ? action.payload.id : [action.payload.id];
+
+      state = u.update(toObtainedUpdate(state.recordMateria, ids), state);
+
+      if (state.favorites != null) {
+        state = u.update(toInventoryListUpdate(ids), state);
+      }
+
+      return state;
+
     case getType(setRecordMateria):
       return {
         ...state,
@@ -65,14 +92,13 @@ export function recordMateria(state: RecordMateriaState = initialState,
     }
 
     case getType(updateRecordMateriaInventory): {
-      const update: any = {};
-      if (action.payload.inventory != null) {
-        update.inventory = { [action.payload.id]: action.payload.inventory };
+      if (state.favorites == null) {
+        // Never saw inventory - can't do a partial update.
+        return state;
       }
-      if (action.payload.favorite != null) {
-        update.favorites = { [action.payload.id]: action.payload.favorite };
-      }
-      return u.update(update, state);
+
+      const { id, inventory, favorite } = action.payload;
+      return u.update(toInventoryUpdate(id, inventory, favorite), state);
     }
 
     default:

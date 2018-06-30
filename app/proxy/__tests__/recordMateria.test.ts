@@ -1,10 +1,15 @@
-import { convertRecordMateriaList } from '../recordMateria';
+import { convertRecordMateriaList, default as recordMateriaProxy } from '../recordMateria';
 
 import { Order, RecordMateria } from '../../actions/recordMateria';
+import { IState } from '../../reducers';
+
+import * as Redux from 'redux';
+import configureStore from 'redux-mock-store';
 
 import * as _ from 'lodash';
 
-const data = require('./data/released_record_materia_list.json');
+const recordMateriaListData = require('./data/released_record_materia_list.json');
+const winBattleData = require('./data/challenge_win_battle.json');
 
 function sortRecordMateria(recordMateria: {[id: number]: RecordMateria}) {
   const result: { [character: string]: { [order in Order]: RecordMateria } } = {};
@@ -17,7 +22,7 @@ function sortRecordMateria(recordMateria: {[id: number]: RecordMateria}) {
 
 describe('record materia proxy', () => {
   describe('get_released_record_materia_list', () => {
-    const recordMateria = convertRecordMateriaList(data);
+    const recordMateria = convertRecordMateriaList(recordMateriaListData);
     const sorted = sortRecordMateria(recordMateria);
 
     it('handles characters with 2 record materia', () => {
@@ -72,5 +77,15 @@ describe('record materia proxy', () => {
     it('records prerequisites', () => {
       expect(sorted['Tyro']['2'].prereqs).toEqual([sorted['Tyro']['1a'].id, sorted['Tyro']['1b'].id]);
     });
+  });
+
+  describe('win_battle', () => {
+    const mockStore = configureStore<IState>();
+    const store = mockStore();
+
+    // TODO: A bug in redux-mock-store typings means we need this explicit cast
+    recordMateriaProxy.win_battle(winBattleData, store as Redux.Store<IState>);
+
+    expect(store.getActions()).toEqual([{payload: {id: [111050021]}, type: 'OBTAIN_RECORD_MATERIA'}]);
   });
 });

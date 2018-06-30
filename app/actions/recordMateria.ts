@@ -135,6 +135,7 @@ export function getRecordMateriaDetail(
   });
 }
 
+/// Sets the master list of all record materia
 export const setRecordMateria = createAction('SET_RECORD_MATERIA',
   (recordMateria: { [id: number]: RecordMateria }) => ({
     type: 'SET_RECORD_MATERIA',
@@ -144,6 +145,17 @@ export const setRecordMateria = createAction('SET_RECORD_MATERIA',
   })
 );
 
+/// Obtained one or more record materia (for example, from winning a battle)
+export const obtainRecordMateria = createAction('OBTAIN_RECORD_MATERIA',
+  (id: number | number[]) => ({
+    type: 'OBTAIN_RECORD_MATERIA',
+    payload: {
+      id
+    }
+  })
+);
+
+/// Sets the list of record materia currently in inventory and record materia favorites
 export const setRecordMateriaInventory = createAction('SET_RECORD_MATERIA_INVENTORY',
   (inventory: number[], favorites: number[]) => ({
     type: 'SET_RECORD_MATERIA_INVENTORY',
@@ -154,6 +166,7 @@ export const setRecordMateriaInventory = createAction('SET_RECORD_MATERIA_INVENT
   })
 );
 
+/// Updates a single record materia's inventory and favorite status
 export const updateRecordMateriaInventory = createAction('UPDATE_RECORD_MATERIA_INVENTORY',
   (id: number, { inventory, favorite }: { inventory?: boolean, favorite?: boolean }) => ({
     type: 'UPDATE_RECORD_MATERIA_INVENTORY',
@@ -166,6 +179,7 @@ export const updateRecordMateriaInventory = createAction('UPDATE_RECORD_MATERIA_
 );
 
 export type RecordMateriaAction = ReturnType<
+  typeof obtainRecordMateria |
   typeof setRecordMateria |
   typeof setRecordMateriaInventory |
   typeof updateRecordMateriaInventory

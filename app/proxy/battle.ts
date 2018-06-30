@@ -220,7 +220,7 @@ const battle: Handler = {
     store.dispatch(clearDropItems());
   },
 
-  win_battle(data: schemas.GetBattleInit, store: Store<IState>) {
+  win_battle(data: schemas.WinBattle, store: Store<IState>) {
     store.dispatch(clearDropItems());
   },
 };

@@ -12,6 +12,7 @@ import { Handler } from './types';
 import { IState } from '../reducers';
 
 import {
+  obtainRecordMateria,
   Order,
   RecordMateria,
   setRecordMateria,
@@ -122,7 +123,13 @@ const recordMateria: Handler = {
     });
   },
 
-  // FIXME: Update record materia on winning a battle
+  win_battle(data: schemas.WinBattle, store: Store<IState>) {
+    const obtainedIds = _.map(
+      _.filter(data.result.prize_master, i => i.type_name === 'RECORD_MATERIA'),
+        i => +i.item_id
+    );
+    store.dispatch(obtainRecordMateria(obtainedIds));
+  }
 };
 
 export default recordMateria;
