@@ -28,8 +28,8 @@ export interface Dungeon {
     completion: PrizeItem[];
     firstTime: PrizeItem[];
     mastery: PrizeItem[];
-    claimedGrade: PrizeItem[];
-    unclaimedGrade: PrizeItem[];
+    claimedGrade?: PrizeItem[];    // One-time grade-based prizes
+    unclaimedGrade?: PrizeItem[];  // (speed, damage done, etc.)
   };
 }
 
@@ -56,7 +56,7 @@ export function getAvailablePrizes(dungeons: Dungeon[]): PrizeItem[] {
     if (!d.isMaster) {
       addPrizes(d.prizes.mastery);
     }
-    addPrizes(d.prizes.unclaimedGrade);
+    addPrizes(d.prizes.unclaimedGrade || []);
   }
 
   const ids = Object.keys(result).sort();

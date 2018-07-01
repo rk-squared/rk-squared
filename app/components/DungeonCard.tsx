@@ -42,6 +42,7 @@ const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
   const classes = classNames({[styles.completed]: dungeon.isComplete, [styles.mastered]: dungeon.isMaster});
   const id = `dungeon-item-${dungeon.id}`;
   const showTooltip = !dungeon.isComplete || !dungeon.isMaster;
+  const unclaimedGrade = dungeon.prizes.unclaimedGrade || [];
   return (
     <li className={classes}>
       <div data-tip={showTooltip} data-for={id}>
@@ -52,7 +53,7 @@ const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
         <ReactTooltip place="bottom" id={id}>
           {!dungeon.isComplete && <PrizeList prizes={dungeon.prizes.firstTime}/>}
           {!dungeon.isMaster && <PrizeList prizes={dungeon.prizes.mastery}/>}
-          {dungeon.prizes.unclaimedGrade.length !== 0 && <PrizeList prizes={dungeon.prizes.unclaimedGrade}/>}
+          {unclaimedGrade.length !== 0 && <PrizeList prizes={unclaimedGrade}/>}
         </ReactTooltip>
       }
     </li>
