@@ -23,10 +23,9 @@ export class CollapsibleCard extends React.Component<Props, State> {
     };
   }
 
-  // noinspection UnterminatedStatementJS
   handleClick = () => {
     this.setState({hasShown: true});
-  }
+  };
 
   render() {
     const { id, title, children } = this.props;

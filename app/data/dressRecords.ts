@@ -13,6 +13,11 @@ export const dressRecords: DressRecord[] = [
     characterId: 10000200,
   },
   {
+    name: 'Classic Crimson',
+    id: 120100100,
+    characterId: 10100100,
+  },
+  {
     name: 'Chosen of Feymarch',
     id: 120400100,
     characterId: 10400400,
@@ -26,6 +31,16 @@ export const dressRecords: DressRecord[] = [
     name: 'Cosmic Paladin',
     id: 120400300,
     characterId: 10400200,
+  },
+  {
+    name: 'Grown-Up Palom',
+    id: 120400400,
+    characterId: 10400900,
+  },
+  {
+    name: 'Grown-Up Porom',
+    id: 120400500,
+    characterId: 10401000,
   },
   {
     name: 'Freelancer Lenna',

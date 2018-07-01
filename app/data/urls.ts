@@ -4,7 +4,7 @@
  */
 
 import { dressRecordsById } from './dressRecords';
-import enlir from './enlir';
+import { enlir } from './enlir';
 import { ItemType } from './items';
 
 const baseUrl = 'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/';
@@ -17,6 +17,10 @@ export function asset(assetPath?: string): string | undefined {
   return assetPath == null ? undefined : url(assetPath.replace(
     /^\/Content\/lang\/(ww\/compile\/[a-z]+\/)?/, '')
   );
+}
+
+export function characterImage(id: number): string {
+  return url(`image/buddy/${id}/${id}.png`);
 }
 
 export function magiciteImage(id: number): string {
@@ -60,7 +64,7 @@ export function itemImage(id: number, type: ItemType): string {
       const rarity = enlir.relics[id].Rarity;
       return url(`image/equipment/${id}/${id}_0${rarity}_112.png`);
     case ItemType.Character:
-      return url(`image/buddy/${id}/${id}.png`);
+      return characterImage(id);
     case ItemType.DressRecord:
       // Fall back to dress record ID if it's an unknown dress record.
       // This will fail but will avoid an error.

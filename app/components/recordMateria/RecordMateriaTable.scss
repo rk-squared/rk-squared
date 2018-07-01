@@ -1,0 +1,9 @@
+:local {
+  .component td > ul:last-child {
+    margin-bottom: 0;
+  }
+
+  .component td > ul > li {
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,10 @@
+:local {
+  .component {
+    list-style: none;
+    padding-left: 0;
+
+    > li > svg {
+      margin-right: 0.5em;
+    }
+  }
+}

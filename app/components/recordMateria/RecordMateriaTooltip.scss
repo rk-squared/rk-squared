@@ -1,0 +1,39 @@
+:local {
+  .component {
+    max-width: 50em;
+    display: flex;
+
+    .iconsBlock {
+      margin-right: 1em;
+      max-width: 64px;
+
+      > img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    .textBlock {
+    }
+
+    .statusBlock {
+      display: flex;
+      align-items: center;
+
+      > svg {
+        margin-right: 0.5em;
+      }
+
+      > p {
+        margin-bottom: 0;
+      }
+    }
+
+    .gameDescription {
+    }
+
+    .enlirDescription, .unlockCondition {
+      font-style: italic;
+    }
+  }
+}

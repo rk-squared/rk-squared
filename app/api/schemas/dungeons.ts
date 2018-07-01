@@ -1,5 +1,5 @@
 import { ItemTypeName } from '../../data/items';
-import { Asset, NumberAsString, RelativeUrlPath, Timestamp } from './common';
+import { Asset, AssetCollection, NumberAsString, RelativeUrlPath, Timestamp } from './common';
 
 export enum NodeType {
   // noinspection JSUnusedGlobalSymbols
@@ -87,12 +87,8 @@ export interface Dungeons {
 
   // Assets for Nightmare dungeons
   room_of_abyss_assets?: {
-    common: {
-      [s: string]: Asset;
-    }
-    picture: {
-      [s: string]: Asset;
-    }
+    common: AssetCollection;
+    picture: AssetCollection;
   };
 
   dungeons: Dungeon[];

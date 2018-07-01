@@ -10,7 +10,9 @@
       "dom.iterable",
       "scripthost"
     ],
-    "types": [],
+    "types": [
+      "node"
+    ],
 
     "alwaysStrict": true,
     "strictNullChecks": true,

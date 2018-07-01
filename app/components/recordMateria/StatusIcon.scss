@@ -1,0 +1,34 @@
+:local {
+  .unknown {
+    color: lightslategrey;
+  }
+
+  .lockedLowLevel {
+    color: darkred;
+  }
+
+  // Hack: Handle react-tooltip's dark background
+  :global(.type-dark) .lockedLowLevel {
+    color: red;
+  }
+
+  .lockedMissingPrereq {
+    color: darkorange;
+  }
+
+  .unlocked {
+    color: goldenrod;
+  }
+
+  .collected {
+    color: green;
+  }
+
+  .favorite {
+    color: deepskyblue;
+  }
+
+  .vault {
+    color: grey;
+  }
+}
