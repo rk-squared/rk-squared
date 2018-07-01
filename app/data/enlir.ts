@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 const makeDataLookup = (sheet: any[]) => _.fromPairs(sheet.map(i => [+i.Id, i]));
 
 // Given a list of Key/Value pairs from the Enlir JSON, make a lookup by ID.
-// These lists give IDs that are auto-assigned by the Enlir web service.
+// These lists give IDs that are auto-assigned by the Enlir / FFRK API web service.
 const makeTypeLookup = (types: any[]) => _.fromPairs(types.map(i => [+i.Key, i.Value]));
 
 // FIXME: Properly update rawData outside of app; resolve id vs. EnlirId

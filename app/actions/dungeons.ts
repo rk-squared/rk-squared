@@ -63,6 +63,9 @@ export function getAvailablePrizes(dungeons: Dungeon[]): PrizeItem[] {
   return ids.map(i => result[+i]);
 }
 
+/**
+ * Add (replace) the list of dungeons for a world.
+ */
 export const addWorldDungeons = createAction('ADD_WORLD_DUNGEONS', (worldId: number, dungeons: Dungeon[]) => ({
   type: 'ADD_WORLD_DUNGEONS',
   payload: {
@@ -71,6 +74,9 @@ export const addWorldDungeons = createAction('ADD_WORLD_DUNGEONS', (worldId: num
   }
 }));
 
+/**
+ * Update the information on a single known dungeon.
+ */
 export const updateDungeon = createAction('UPDATE_DUNGEON', (dungeonId: number, dungeon: Partial<Dungeon>) => ({
   type: 'UPDATE_DUNGEON',
   payload: {
@@ -79,6 +85,9 @@ export const updateDungeon = createAction('UPDATE_DUNGEON', (dungeonId: number, 
   }
 }));
 
+/**
+ * Instruct the app to load all unknown dungeons from the FFRK servers.
+ */
 export const loadDungeons = createAction('LOAD_DUNGEONS', (worldIds: number[]) => ({
   type: 'LOAD_DUNGEONS',
   payload: {
