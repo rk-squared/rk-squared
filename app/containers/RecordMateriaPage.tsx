@@ -7,22 +7,39 @@ import { IState } from '../reducers';
 import { Page } from './Page';
 import { RecordMateriaRoutes } from './RecordMateriaRoutes';
 
+import * as _ from 'lodash';
+
 interface Props {
-  recordMateria: RecordMateriaDetail[];
+  recordMateria: { [id: number]: RecordMateriaDetail };
+  hasInventory: boolean;
 }
 
 export class RecordMateriaPage extends React.Component<Props & RouteComponentProps<Props>> {
+  renderContents() {
+    const { recordMateria, hasInventory, match, location, history } = this.props;
+    if (_.isEmpty(recordMateria)) {
+      return (
+        <>
+          <p>Record materia information has not been loaded.</p>
+          <p>Within FFRK, please go under the Annex, under the Library, and choose Record Materia.</p>
+        </>
+      );
+    } else if (!hasInventory) {
+      return (
+        <>
+          <p>Record materia inventory has not been loaded.</p>
+          <p>Please restart FFRK then go under Party, or go under the Annex, under the Library.</p>
+        </>
+      );
+    } else {
+      return <RecordMateriaRoutes recordMateria={recordMateria} match={match} location={location} history={history}/>;
+    }
+  }
+
   render() {
-    const { recordMateria, match, location, history} = this.props;
     return (
       <Page title="Record Materia">
-        {recordMateria.length === 0
-          ? <div>
-              <p>Record materia information has not been loaded.</p>
-              <p>Within FFRK, please go under the Annex, under the Library, and choose Record Materia.</p>
-            </div>
-          : <RecordMateriaRoutes recordMateria={recordMateria} match={match} location={location} history={history}/>
-        }
+        {this.renderContents()}
       </Page>
     );
   }
@@ -35,5 +52,6 @@ export default connect(
       state.recordMateria.recordMateria, state.characters.characters,
       state.recordMateria.inventory, state.recordMateria.favorites
     ),
+    hasInventory: state.recordMateria.inventory != null,
   })
 )(RecordMateriaPage);

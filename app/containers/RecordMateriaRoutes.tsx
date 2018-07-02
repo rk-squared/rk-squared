@@ -12,7 +12,7 @@ import { StatBuffs } from '../components/recordMateria/StatBuffs';
 const styles = require('./RecordMateriaRoutes.scss');
 
 interface Props {
-  recordMateria: RecordMateriaDetail[];
+  recordMateria: { [id: number]: RecordMateriaDetail };
 }
 
 export class RecordMateriaRoutes extends React.Component<Props & RouteComponentProps<Props>> {
