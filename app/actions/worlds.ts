@@ -75,7 +75,6 @@ function getSortOrder(category: WorldCategory) {
     case WorldCategory.Renewal:
       return WorldSortOrder.ByReverseId;
     case WorldCategory.Event:
-    case WorldCategory.JumpStart:
     case WorldCategory.SpecialEvent:
     case WorldCategory.Raid:
       return WorldSortOrder.ByTime;
@@ -89,6 +88,10 @@ function getSortOrder(category: WorldCategory) {
     case WorldCategory.PowerUpMote:
     case WorldCategory.Newcomer:
       return WorldSortOrder.ById;
+    case WorldCategory.JumpStart:
+      // Jump Starts were ByTime, but, now that they're all open, by series
+      // makes more sense.
+      return WorldSortOrder.BySeriesId;
   }
 }
 
