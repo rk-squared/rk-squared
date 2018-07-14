@@ -33,7 +33,14 @@ export interface Dungeon {
   };
 }
 
-export function getAvailablePrizes(dungeons: Dungeon[]): PrizeItem[] {
+export function hasAvailablePrizes(dungeon: Dungeon): boolean {
+  const unclaimedGrade = dungeon.prizes.unclaimedGrade || [];
+  return !dungeon.isComplete || !dungeon.isMaster || unclaimedGrade.length != 0;
+}
+
+export function getAvailablePrizes(dungeonOrDungeons: Dungeon | Dungeon[]): PrizeItem[] {
+  const dungeons = Array.isArray(dungeonOrDungeons) ? dungeonOrDungeons : [dungeonOrDungeons];
+
   const result: {[id: number]: PrizeItem} = {};
 
   function addPrizes(prizes: PrizeItem[]) {

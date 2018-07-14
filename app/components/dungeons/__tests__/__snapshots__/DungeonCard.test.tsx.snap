@@ -36,202 +36,12 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
       >
         <img
           height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001020.png"
-          width={32}
-        />
-        Memory Crystal III Lode
-         ×
-        1
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/92000000.png"
-          width={32}
-        />
-        Gil
-         ×
-        100000
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/91000000.png"
-          width={32}
-        />
-        Mythril
-         ×
-        1
-      </li>
-    </ul>
-    <ul
-      className="component"
-    >
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001020.png"
-          width={32}
-        />
-        Memory Crystal III Lode
-         ×
-        1
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png"
-          width={32}
-        />
-        Power Crystal
-         ×
-        2
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/92000000.png"
-          width={32}
-        />
-        Gil
-         ×
-        100000
-      </li>
-    </ul>
-    <ul
-      className="component"
-    >
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001080.png"
-          width={32}
-        />
-        Record Rubies
-         ×
-        20
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/92000000.png"
-          width={32}
-        />
-        Gil
-         ×
-        100000
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130300300/130300300_112.png"
           width={32}
         />
         Vitality Mote (5★)
          ×
-        30
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/92000000.png"
-          width={32}
-        />
-        Gil
-         ×
-        100000
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130300300/130300300_112.png"
-          width={32}
-        />
-        Vitality Mote (5★)
-         ×
-        30
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001080.png"
-          width={32}
-        />
-        Record Rubies
-         ×
-        20
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png"
-          width={32}
-        />
-        Major Holy Orb
-         ×
-        7
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130300300/130300300_112.png"
-          width={32}
-        />
-        Vitality Mote (5★)
-         ×
-        30
-      </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
-        <img
-          height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png"
-          width={32}
-        />
-        Major Holy Orb
-         ×
-        2
+        95
       </li>
       <li
         data-for={undefined}
@@ -252,12 +62,77 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
       >
         <img
           height={32}
-          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130300300/130300300_112.png"
+          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png"
           width={32}
         />
-        Vitality Mote (5★)
+        Major Holy Orb
          ×
-        5
+        9
+      </li>
+      <li
+        data-for={undefined}
+        data-tip={undefined}
+      >
+        <img
+          height={32}
+          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png"
+          width={32}
+        />
+        Power Crystal
+         ×
+        2
+      </li>
+      <li
+        data-for={undefined}
+        data-tip={undefined}
+      >
+        <img
+          height={32}
+          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/91000000.png"
+          width={32}
+        />
+        Mythril
+         ×
+        1
+      </li>
+      <li
+        data-for={undefined}
+        data-tip={undefined}
+      >
+        <img
+          height={32}
+          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/92000000.png"
+          width={32}
+        />
+        Gil
+         ×
+        400000
+      </li>
+      <li
+        data-for={undefined}
+        data-tip={undefined}
+      >
+        <img
+          height={32}
+          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001020.png"
+          width={32}
+        />
+        Memory Crystal III Lode
+         ×
+        2
+      </li>
+      <li
+        data-for={undefined}
+        data-tip={undefined}
+      >
+        <img
+          height={32}
+          src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001080.png"
+          width={32}
+        />
+        Record Rubies
+         ×
+        40
       </li>
     </ul>
   </div>

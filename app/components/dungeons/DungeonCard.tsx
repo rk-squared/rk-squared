@@ -4,7 +4,7 @@ import * as ReactTooltip from 'react-tooltip';
 
 import * as classNames from 'classnames';
 
-import { Dungeon } from '../../actions/dungeons';
+import { Dungeon, getAvailablePrizes, hasAvailablePrizes } from '../../actions/dungeons';
 import { World } from '../../actions/worlds';
 import { IState } from '../../reducers';
 import { getDungeonsForWorld } from '../../reducers/dungeons';
@@ -41,8 +41,7 @@ const DungeonDetails = ({dungeon}: {dungeon: Dungeon}) => (
 export const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
   const classes = classNames({[styles.completed]: dungeon.isComplete, [styles.mastered]: dungeon.isMaster});
   const id = `dungeon-item-${dungeon.id}`;
-  const showTooltip = !dungeon.isComplete || !dungeon.isMaster;
-  const unclaimedGrade = dungeon.prizes.unclaimedGrade || [];
+  const showTooltip = hasAvailablePrizes(dungeon);
   return (
     <li className={classes}>
       <div data-tip={showTooltip} data-for={id}>
@@ -51,9 +50,7 @@ export const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
       </div>
       {showTooltip &&
         <ReactTooltip place="bottom" id={id}>
-          {!dungeon.isComplete && <PrizeList prizes={dungeon.prizes.firstTime}/>}
-          {!dungeon.isMaster && <PrizeList prizes={dungeon.prizes.mastery}/>}
-          {unclaimedGrade.length !== 0 && <PrizeList prizes={unclaimedGrade}/>}
+          <PrizeList prizes={getAvailablePrizes(dungeon)}/>
         </ReactTooltip>
       }
     </li>
@@ -63,7 +60,7 @@ export const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
 /**
  * Lists all of the dungeons for a single world.
  */
-export class DungeonCard extends React.Component<ConnectedProps> {
+export class DungeonCard extends React.PureComponent<ConnectedProps> {
   render() {
     const { world, dungeons } = this.props;
     const noMessage =
