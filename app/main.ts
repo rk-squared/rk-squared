@@ -92,6 +92,8 @@ app.on('ready', () =>
       });
     }
 
+    // FIXME: Remaining standard menus - see https://github.com/electron/electron/blob/master/docs/api/menu.md
+
     if (process.platform === 'darwin') {
       const template: MenuItemConstructorOptions[] = [{
         label: 'RK Squared',
@@ -133,33 +135,15 @@ app.on('ready', () =>
         }]
       }, {
         label: 'Edit',
-        submenu: [{
-          label: 'Undo',
-          accelerator: 'Command+Z',
-          // selector: 'undo:'
-        }, {
-          label: 'Redo',
-          accelerator: 'Shift+Command+Z',
-          // selector: 'redo:'
-        }, {
-          type: 'separator'
-        }, {
-          label: 'Cut',
-          accelerator: 'Command+X',
-          // selector: 'cut:'
-        }, {
-          label: 'Copy',
-          accelerator: 'Command+C',
-          // selector: 'copy:'
-        }, {
-          label: 'Paste',
-          accelerator: 'Command+V',
-          // selector: 'paste:'
-        }, {
-          label: 'Select All',
-          accelerator: 'Command+A',
-          // selector: 'selectAll:'
-        }]
+        submenu: [
+          { role: 'undo' },
+          { role: 'redo' },
+          { type: 'separator' },
+          { role: 'cut' },
+          { role: 'copy' },
+          { role: 'paste' },
+          { role: 'selectall' }
+        ]
       }, {
         label: 'View',
         submenu: (process.env.NODE_ENV === 'development') ? [{
@@ -189,20 +173,12 @@ app.on('ready', () =>
         }]
       }, {
         label: 'Window',
-        submenu: [{
-          label: 'Minimize',
-          accelerator: 'Command+M',
-          // selector: 'performMiniaturize:'
-        }, {
-          label: 'Close',
-          accelerator: 'Command+W',
-          // selector: 'performClose:'
-        }, {
-          type: 'separator'
-        }, {
-          label: 'Bring All to Front',
-          // selector: 'arrangeInFront:'
-        }]
+        submenu: [
+          { role: 'minimize' },
+          { role: 'close' },
+          { type: 'separator' },
+          { role: 'front' },
+        ]
       }, {
         label: 'Help',
         submenu: [{
