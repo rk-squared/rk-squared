@@ -38,7 +38,7 @@ const DungeonDetails = ({dungeon}: {dungeon: Dungeon}) => (
   </p>
 );
 
-const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
+export const DungeonListItem = ({dungeon}: {dungeon: Dungeon}) => {
   const classes = classNames({[styles.completed]: dungeon.isComplete, [styles.mastered]: dungeon.isMaster});
   const id = `dungeon-item-${dungeon.id}`;
   const showTooltip = !dungeon.isComplete || !dungeon.isMaster;
