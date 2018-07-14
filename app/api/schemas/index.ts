@@ -17,6 +17,10 @@ export { Main } from './main';
 export { ReleasedRecordMateriaList } from './recordMateria';
 export * from './warehouse';
 
+/**
+ * Debuffs.  These could also be extracted from appInitData's
+ * constants.STATUS_AILMENTS.TYPE_OF.
+ */
 export enum DebuffType {
   // noinspection JSUnusedGlobalSymbols
   Poison = '200',

@@ -196,6 +196,10 @@ export function convertWorld(event: mainSchemas.Event, world: mainSchemas.World,
     category = WorldCategory.JumpStart;
   } else if (event.tag === 'nightmare_dungeon') {
     category = WorldCategory.Torment;
+    subcategory = 'Classic Torments';
+    name = world.name + ' (' + seriesShortName + ')';
+  } else if (event.tag === 'regular_nightmare_dungeon') {
+    category = WorldCategory.Torment;
     name = world.name + ' (' + seriesShortName + ')';
   } else if (event.tag === 'crystal_tower') {
     category = WorldCategory.CrystalTower;

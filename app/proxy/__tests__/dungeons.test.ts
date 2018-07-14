@@ -29,7 +29,7 @@ const textMaster = {
 
 describe('dungeons proxy handler', () => {
   describe('StartupHandler', () => {
-    it('processes Torment dungeons', () => {
+    it('processes old Torment dungeons', () => {
       const gameEvent = {
         world_id: 109428,
         battle_list_bg_type: 2,
@@ -71,6 +71,53 @@ describe('dungeons proxy handler', () => {
         name: 'Herald of Doom (FF IX)',
         openedAt: 1520643600,
         seriesId: 109001,
+        subcategory: 'Classic Torments',
+        subcategorySortOrder: undefined,
+      });
+    });
+
+    it('processes new Torment dungeons', () => {
+      const gameEvent = {
+        world_id: 150486,
+        battle_list_bg_type: 2,
+        type_name: 'challenge',
+        has_intro_movie: false,
+        ex_opened_at: 0,
+        order_weight: 575,
+        image_path: '/dff/static/lang/image/event/486.png',
+        type: 2,
+        id: 486,
+        tag: 'regular_nightmare_dungeon',
+        background_image_path: '/dff/static/lang/image/event/486_bg.png'
+      };
+      const gameWorld = {
+        has_brave_series_buddies: false,
+        closed_at: 2145938400,
+        bgm: 'bgm_25_069',
+        dungeon_status_summary: {},
+        door_image_path: '/dff/static/lang/image/world/150486_door.png',
+        dungeon_term_list: null,
+        series_formal_name: 'FINAL FANTASY TACTICS',
+        id: 150486,
+        name: 'Tyranny of the Impure',  // misspelled in the original
+        has_new_dungeon: true,
+        series_id: 150001,
+        opened_at: 1531357200,
+        kept_out_at: 2145938400,
+        is_unlocked: true,
+        image_path: '/dff/static/lang/image/world/150486.png',
+        type: 2,
+        banner_message: ''
+      };
+
+      expect(convertWorld(gameEvent, gameWorld, textMaster)).toEqual({
+        category: WorldCategory.Torment,
+        closedAt: 2145938400,
+        id: 150486,
+        isUnlocked: true,
+        name: 'Tyranny of the Impure (FF T)',
+        openedAt: 1531357200,
+        seriesId: 150001,
         subcategory: undefined,
         subcategorySortOrder: undefined,
       });

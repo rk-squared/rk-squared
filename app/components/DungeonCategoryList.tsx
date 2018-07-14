@@ -16,7 +16,7 @@ interface Props {
   category: WorldCategory;
 }
 
-// FIXME: Include banner images?
+// TODO: Include banner images?
 // E.g.:
 // http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/crystal_tower/event_list/banner/7.png
 // (determined by crystal_tower_bundles.0.bundle_id???)
