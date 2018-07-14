@@ -14,9 +14,18 @@ import * as process from 'process';
 const repoDir = path.normalize(path.join(__dirname, '..'));
 
 function convertFile(filename: string) {
-  let newFilename = path.basename(filename).replace(/^[0-9\-]+_dff_/, '');
+  let newFilename = path.basename(filename);
+  if (newFilename.endsWith('_dff_.json')) {
+    newFilename = 'startup.json';
+  } else {
+    newFilename = newFilename.replace(/^[0-9\-]+_dff_/, '');
+  }
   newFilename = path.join(repoDir, 'app', 'proxy', '__tests__', 'data', newFilename);
   console.log(newFilename);
+
+  if (!fs.existsSync(filename)) {
+    filename = path.join(repoDir, 'captures', filename);
+  }
 
   const capture = fs.readJsonSync(filename);
 
