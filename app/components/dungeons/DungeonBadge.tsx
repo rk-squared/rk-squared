@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Dungeon } from '../actions/dungeons';
+
+import { Dungeon } from '../../actions/dungeons';
 
 import * as _ from 'lodash';
 

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import { World } from '../actions/worlds';
-import { IState } from '../reducers';
-import { getDungeonsForWorlds } from '../reducers/dungeons';
+import { World } from '../../actions/worlds';
+import { IState } from '../../reducers';
+import { getDungeonsForWorlds } from '../../reducers/dungeons';
 import { DungeonBadge } from './DungeonBadge';
 
 interface Props {

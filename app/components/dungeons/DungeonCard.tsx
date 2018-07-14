@@ -4,11 +4,11 @@ import * as ReactTooltip from 'react-tooltip';
 
 import * as classNames from 'classnames';
 
-import { Dungeon } from '../actions/dungeons';
-import { World } from '../actions/worlds';
-import { IState } from '../reducers';
-import { getDungeonsForWorld } from '../reducers/dungeons';
-import { CollapsibleCard } from './CollapsibleCard';
+import { Dungeon } from '../../actions/dungeons';
+import { World } from '../../actions/worlds';
+import { IState } from '../../reducers';
+import { getDungeonsForWorld } from '../../reducers/dungeons';
+import { CollapsibleCard } from '../common/CollapsibleCard';
 import { DungeonBadge } from './DungeonBadge';
 import DungeonPrizeList from './DungeonPrizeList';
 import { PrizeList } from './PrizeList';

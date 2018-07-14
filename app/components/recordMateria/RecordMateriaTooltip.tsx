@@ -4,7 +4,7 @@ import * as ReactTooltip from 'react-tooltip';
 import { RecordMateriaDetail, RecordMateriaStatus } from '../../actions/recordMateria';
 import { enlir } from '../../data';
 import * as urls from '../../data/urls';
-import { BrTextToP } from '../util/BrTextToP';
+import { BrTextToP } from '../common/BrTextToP';
 import { StatusIcon } from './StatusIcon';
 
 const styles = require('./RecordMateriaTooltip.scss');

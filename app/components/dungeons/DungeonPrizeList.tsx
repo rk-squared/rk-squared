@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Dungeon, getAvailablePrizes, PrizeItem } from '../actions/dungeons';
-import { ItemType } from '../data/items';
-import { IState } from '../reducers';
+import { Dungeon, getAvailablePrizes, PrizeItem } from '../../actions/dungeons';
+import { ItemType } from '../../data/items';
+import { IState } from '../../reducers';
 import { PrizeList } from './PrizeList';
 
 import * as _ from 'lodash';

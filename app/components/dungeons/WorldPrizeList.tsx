@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Dungeon } from '../actions/dungeons';
-import { World } from '../actions/worlds';
-import { IState } from '../reducers';
-import { getDungeonsForWorlds } from '../reducers/dungeons';
+import { Dungeon } from '../../actions/dungeons';
+import { World } from '../../actions/worlds';
+import { IState } from '../../reducers';
+import { getDungeonsForWorlds } from '../../reducers/dungeons';
+
+import { ModalDialog } from '../common/ModalDialog';
 import DungeonPrizeList from './DungeonPrizeList';
 import ItemTypeChecklist from './ItemTypeChecklist';
-import { ModalDialog } from './ModalDialog';
 
 const styles = require('./WorldPrizeList.scss');
 

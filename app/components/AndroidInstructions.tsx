@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { ProxyStatus } from '../actions/proxy';
 import { IState } from '../reducers';
-import { CollapsibleLink } from './CollapsibleLink';
+import { CollapsibleLink } from './common/CollapsibleLink';
 
 interface Props {
   proxy: ProxyStatus;

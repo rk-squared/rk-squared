@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { showItemTypes } from '../actions/prefs';
-import { ItemType, itemTypeDescription } from '../data/items';
-import { IState } from '../reducers';
+import { showItemTypes } from '../../actions/prefs';
+import { ItemType, itemTypeDescription } from '../../data/items';
+import { IState } from '../../reducers/index';
 
 import * as _ from 'lodash';
 

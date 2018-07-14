@@ -5,10 +5,11 @@ import { Dispatch } from 'redux';
 import { loadDungeons } from '../actions/dungeons';
 import { Progress } from '../actions/progress';
 import { World } from '../actions/worlds';
-import { DungeonsList } from '../components/DungeonsList';
-import ItemTypeChecklist from '../components/ItemTypeChecklist';
-import { ProgressBar } from '../components/ProgressBar';
 import { IState } from '../reducers';
+
+import { ProgressBar } from '../components/common/ProgressBar';
+import { DungeonsList } from '../components/dungeons/DungeonsList';
+import ItemTypeChecklist from '../components/dungeons/ItemTypeChecklist';
 import { Page } from './Page';
 
 const styles = require('./DungeonsPage.scss');

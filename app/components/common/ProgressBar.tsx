@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Progress } from '../actions/progress';
+import { Progress } from '../../actions/progress';
 
 interface Props {
   progress?: Progress;

@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import * as classNames from 'classnames';
 
-import { PrizeItem } from '../actions/dungeons';
-import { enlir } from '../data';
-import { ItemType } from '../data/items';
-import { itemImage } from '../data/urls';
-import { RelicTooltip } from './RelicTooltip';
+import { PrizeItem } from '../../actions/dungeons';
+import { enlir } from '../../data';
+import { ItemType } from '../../data/items';
+import { itemImage } from '../../data/urls';
+import { RelicTooltip } from '../shared/RelicTooltip';
 
 const styles = require('./PrizeList.scss');
 

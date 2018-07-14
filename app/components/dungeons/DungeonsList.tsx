@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as classNames from 'classnames';
 
-import { sortOrder, World, WorldCategory } from '../actions/worlds';
+import { sortOrder, World, WorldCategory } from '../../actions/worlds';
 import { DungeonCategoryList } from './DungeonCategoryList';
 
 interface Props {

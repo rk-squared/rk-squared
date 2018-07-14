@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { descriptions, getSorter, World, WorldCategory } from '../actions/worlds';
-import { CollapsibleCard } from './CollapsibleCard';
+import { descriptions, getSorter, World, WorldCategory } from '../../actions/worlds';
+import { CollapsibleCard } from '../common/CollapsibleCard';
+import { MaybeWrap } from '../common/MaybeWrap';
 import DungeonCard from './DungeonCard';
-import { MaybeWrap } from './MaybeWrap';
 import WorldBadge from './WorldBadge';
 import WorldPrizeList from './WorldPrizeList';
 
