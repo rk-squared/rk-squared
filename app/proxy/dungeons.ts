@@ -239,7 +239,7 @@ export function convertWorld(event: mainSchemas.Event, world: mainSchemas.World,
 }
 
 // noinspection JSUnusedGlobalSymbols
-const dungeons: Handler = {
+const dungeonsHandler: Handler = {
   [StartupHandler]: (data: mainSchemas.Main, store: Store<IState>) => {
     const result: {[id: number]: World} = {};
 
@@ -319,4 +319,4 @@ const dungeons: Handler = {
   }
 };
 
-export default dungeons;
+export default dungeonsHandler;

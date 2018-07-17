@@ -94,7 +94,7 @@ function checkPartyDressRecords(data: schemas.PartyList) {
   }
 }
 
-const itemUpdates: Handler = {
+const itemUpdatesHandler: Handler = {
   'dungeons'(data: schemas.Dungeons) {
     for (const d of data.dungeons) {
       _.forEach(d.prizes, prizeList => {
@@ -121,4 +121,4 @@ const itemUpdates: Handler = {
   }
 };
 
-export default itemUpdates;
+export default itemUpdatesHandler;

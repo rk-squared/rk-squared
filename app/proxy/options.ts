@@ -21,6 +21,7 @@ const staticBackground = {
     id: 'bg-10227'
   }
 };
+// noinspection SpellCheckingInspection
 const staticBackgroundAsset = {
   bundle: {
     '/Content/lang/ww/compile/en/ab/bg/common/img_wipe.png': {
@@ -39,7 +40,7 @@ const staticBackgroundAsset = {
   assetPath: '/Content/lang/ww/compile/en/ab/bg/10227/10227.json'
 };
 
-const options: Handler = {
+const optionsHandler: Handler = {
   'get_battle_init_data'(data: schemas.GetBattleInit, store: Store<IState>) {
     const { alwaysShowTimer, staticBattleBackground } = store.getState().options;
     let changed = false;
@@ -79,4 +80,4 @@ const options: Handler = {
   }
 };
 
-export default options;
+export default optionsHandler;

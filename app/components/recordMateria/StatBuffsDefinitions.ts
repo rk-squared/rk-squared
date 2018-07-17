@@ -311,7 +311,7 @@ const magMndTable: TableDefinition = {
 
 const mndTable: TableDefinition = {
   title: 'MND Buff',
-  headers: ['+25% MND', '+10-13% MAG/x', '+20% MND', '+20% MND (w/ downside)', '+10% MND'],
+  headers: ['+25% MND', '+10-13% MND/x', '+20% MND', '+20% MND (w/ downside)', '+10% MND'],
   contents: [['25'], ['13x', '10x'], ['20'], ['20-'], ['10']],
   rows: [
     {

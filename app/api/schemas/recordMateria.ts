@@ -71,7 +71,7 @@ export interface ReleasedRecordMateriaList {
     release_id: number;
     item_id: number;
     opened_at: number;   // always 0
-    is_locked: number;   // always false
+    is_locked: boolean;  // always false
     type: number;        // always 7
   }>;
 }

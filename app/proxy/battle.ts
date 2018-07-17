@@ -206,7 +206,7 @@ function convertBattleDropItems(data: schemas.GetBattleInit): DropItem[] {
 }
 
 // noinspection JSUnusedGlobalSymbols
-const battle: Handler = {
+const battleHandler: Handler = {
   escape_battle(data: schemas.GetBattleInit, store: Store<IState>) {
     store.dispatch(clearDropItems());
   },
@@ -225,4 +225,4 @@ const battle: Handler = {
   },
 };
 
-export default battle;
+export default battleHandler;

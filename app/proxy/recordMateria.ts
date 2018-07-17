@@ -59,9 +59,11 @@ function determineObtained(data: schemas.ReleasedRecordMateriaList, byCharacter:
     const id = +i;
     result[id].obtained = true;
 
-    // HACK: For characters with 4 RMs, the first RM may not be listed in
+    // HACK: Each character's first RM may not be listed in
     // achieved_record_materia_map.  If any RM is obtained, then we can
-    // assume that the previous RMs are obtained.
+    // assume that the previous RMs are obtained.  (This still may not
+    // handle the case of a character who's obtained RM 1 but not 2 or 3;
+    // we need to separately check level caps for that.)
     for (const j of byCharacter[result[id].characterId]) {
       if (j === id) {
         break;
@@ -99,10 +101,29 @@ export function convertRecordMateriaList(data: schemas.ReleasedRecordMateriaList
   return result;
 }
 
+export function checkLevel50RecordMateria(
+  store: Store<IState>, recordMateria: { [id: number]: RecordMateria }, level50Characters: number[]
+) {
+  const level50CharactersSet = _.fromPairs(level50Characters.map(i => [i, true]));
+
+  const obtained = _.filter(recordMateria, rm => level50CharactersSet[rm.characterId] && rm.step === 1)
+    .map(rm => rm.id);
+
+  if (obtained.length) {
+    store.dispatch(obtainRecordMateria(obtained));
+  }
+}
+
 // noinspection JSUnusedGlobalSymbols
-const recordMateria: Handler = {
+const recordMateriaHandler: Handler = {
   'get_released_record_materia_list'(data: schemas.ReleasedRecordMateriaList, store: Store<IState>) {
-    store.dispatch(setRecordMateria(convertRecordMateriaList(data)));
+    const newRecordMateria = convertRecordMateriaList(data);
+    store.dispatch(setRecordMateria(newRecordMateria));
+
+    const level50Characters = _.values(store.getState().characters.characters)
+      .filter(i => i.levelCap > 50)
+      .map(i => i.id);
+    checkLevel50RecordMateria(store, newRecordMateria, level50Characters);
   },
 
   'party/list'(data: schemas.PartyList, store: Store<IState>) {
@@ -110,6 +131,11 @@ const recordMateria: Handler = {
       _.map(data.record_materias, i => i.id),
       _.map(_.filter(data.record_materias, i => i.is_favorite), i => i.id),
     ));
+
+    const level50Characters = data.buddies
+      .filter(i => i.level_max > 50)
+      .map(i => i.buddy_id);
+    checkLevel50RecordMateria(store, store.getState().recordMateria.recordMateria, level50Characters);
   },
 
   'set_favorite_record_materia'(data: recordMateriaSchemas.SetFavoriteRecordMateria, store: Store<IState>,
@@ -176,4 +202,4 @@ const recordMateria: Handler = {
   },
 };
 
-export default recordMateria;
+export default recordMateriaHandler;

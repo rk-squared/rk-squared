@@ -32,7 +32,7 @@ export function convertCharacters(data: schemas.PartyList): { [id: number]: Char
   return _.keyBy(data.buddies.map(i => convertCharacter(i)), 'id');
 }
 
-const characters: Handler = {
+const charactersHandler: Handler = {
   'party/list'(data: schemas.PartyList, store: Store<IState>) {
     store.dispatch(setCharacters(convertCharacters(data)));
   },
@@ -76,4 +76,4 @@ const characters: Handler = {
   },
 };
 
-export default characters;
+export default charactersHandler;
