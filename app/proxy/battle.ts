@@ -16,9 +16,6 @@ import { IState } from '../reducers';
 
 import * as _ from 'lodash';
 
-// FIXME: Proper logging
-// tslint:disable no-console
-
 enum DropItemType {
   Gil = 11,
   Potion = 21,

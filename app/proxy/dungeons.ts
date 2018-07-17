@@ -15,9 +15,7 @@ import { IState } from '../reducers';
 import { Handler, StartupHandler } from './types';
 
 import * as _ from 'lodash';
-
-// What's the best place to log these?  Use the console for now.
-// tslint:disable no-console
+import { logger } from '../utils/logger';
 
 const buttonStyleSort: {[s: string]: number} = {
   NORMAL: 0,
@@ -107,8 +105,8 @@ export function sortDungeons(dungeonData: dungeonsSchemas.Dungeons) {
   if (dungeonData.dungeon_list_nodes) {
     const [ sorted, unsorted ] = sortDungeonsByNode(dungeonData);
     if (unsorted.length) {
-      console.error(`Failed to sort ${unsorted.length} node dungeons`);
-      console.error(unsorted.map(i => i.name));
+      logger.error(`Failed to sort ${unsorted.length} node dungeons`);
+      logger.error(unsorted.map(i => i.name));
     }
     return sorted.concat(sortDungeonsStandard(dungeonData, unsorted));
   } else {
@@ -253,7 +251,7 @@ const dungeonsHandler: Handler = {
     for (const e of events) {
       const world = worldsById[e.world_id];
       if (world == null) {
-        console.error(`Unknown world for {e.id}`);
+        logger.error(`Unknown world for {e.id}`);
         continue;
       }
       seenWorlds.add(e.world_id);
@@ -261,7 +259,7 @@ const dungeonsHandler: Handler = {
       const resultWorld = convertWorld(e, world, data.textMaster);
 
       if (resultWorld == null) {
-        console.error(`Unknown: ${e.world_id} (${world.name})`);
+        logger.error(`Unknown: ${e.world_id} (${world.name})`);
         totalUnknown++;
       } else {
         result[world.id] = resultWorld;
@@ -283,7 +281,7 @@ const dungeonsHandler: Handler = {
     }
 
     if (totalUnknown) {
-      console.error(`Found ${totalUnknown} unknown worlds`);
+      logger.error(`Found ${totalUnknown} unknown worlds`);
     }
     store.dispatch(updateWorlds(result));
 
@@ -292,7 +290,7 @@ const dungeonsHandler: Handler = {
 
   dungeons(data: dungeonsSchemas.Dungeons, store: Store<IState>, query?: any) {
     if (!query || !query.world_id) {
-      console.error('Unrecognized dungeons query');
+      logger.error('Unrecognized dungeons query');
       return;
     }
 

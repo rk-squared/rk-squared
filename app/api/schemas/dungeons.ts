@@ -68,6 +68,7 @@ export interface Dungeon {
   };
 }
 
+// A node in a record dungeon's graph
 export interface DungeonNode {
   world_id: number;
   x: number;

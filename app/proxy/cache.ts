@@ -9,10 +9,8 @@ import * as path from 'path';
 import * as querystring from 'querystring';
 import * as url from 'url';
 
+import { logger } from '../utils/logger';
 import { decodeData, getStoragePath } from './util';
-
-// FIXME: Proper logging library
-// tslint:disable no-console
 
 let cachePath: string;
 
@@ -87,8 +85,8 @@ export function cacheTransformerFunction(data: Buffer, req: http.IncomingMessage
   if (resourceUrl != null) {
     const decoded = decodeData(data, res);
     recordCacheData(decoded, resourceUrl)
-      .catch(err => console.error(`Failed to save cache capture: ${err}`))
-      .then(filename => console.log(`Saved to ${filename}`));
+      .catch(err => logger.error(`Failed to save cache capture: ${err}`))
+      .then(filename => logger.debug(`Saved to ${filename}`));
   }
   return data;
 }

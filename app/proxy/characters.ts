@@ -14,9 +14,7 @@ import { IState } from '../reducers';
 import { Character, setCharacter, setCharacters, updateCharacter } from '../actions/characters';
 
 import * as _ from 'lodash';
-
-// FIXME: What's the best place to log these?  Use the console for now.
-// tslint:disable no-console
+import { logger } from '../utils/logger';
 
 function convertCharacter(data: charactersSchemas.Buddy): Character {
   return {
@@ -49,7 +47,7 @@ const charactersHandler: Handler = {
 
   'grow_egg/use'(data: charactersSchemas.GrowEggUse, store: Store<IState>, query?: any, requestBody?: any) {
     if (typeof(requestBody) !== 'object' || requestBody.exec == null) {
-      console.warn(`Unknown POST request for grow_egg/use: ${requestBody}`);
+      logger.warn(`Unknown POST request for grow_egg/use: ${requestBody}`);
       return;
     }
     const post = requestBody as charactersSchemas.GrowEggUsePost;
@@ -63,7 +61,7 @@ const charactersHandler: Handler = {
 
   'buddy/evolve'(data: charactersSchemas.BuddyEvolve, store: Store<IState>, query?: any, requestBody?: any) {
     if (typeof(requestBody) !== 'object' || requestBody.exec == null) {
-      console.warn(`Unknown POST request for buddy/evolve: ${requestBody}`);
+      logger.warn(`Unknown POST request for buddy/evolve: ${requestBody}`);
       return;
     }
     const post = requestBody as charactersSchemas.BuddyEvolvePost;

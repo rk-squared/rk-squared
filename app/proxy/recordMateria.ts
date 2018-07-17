@@ -24,9 +24,7 @@ import {
 import { SeriesId } from '../data/series';
 
 import * as _ from 'lodash';
-
-// FIXME: What's the best place to log these?  Use the console for now.
-// tslint:disable no-console
+import { logger } from '../utils/logger';
 
 interface MateriaIdsByCharacter {
   [characterId: number]: number[];
@@ -141,7 +139,7 @@ const recordMateriaHandler: Handler = {
   'set_favorite_record_materia'(data: recordMateriaSchemas.SetFavoriteRecordMateria, store: Store<IState>,
                                 query?: any, requestBody?: any) {
     if (typeof(requestBody) !== 'object' || !requestBody.id_to_flag) {
-      console.warn(`Unknown POST request for set_favorite_record_materia: ${requestBody}`);
+      logger.warn(`Unknown POST request for set_favorite_record_materia: ${requestBody}`);
       return;
     }
     const post = requestBody as recordMateriaSchemas.SetFavoriteRecordMateriaPost;
@@ -163,7 +161,7 @@ const recordMateriaHandler: Handler = {
   'warehouse/store_record_materias'(data: schemas.WarehouseStoreRecordMaterias, store: Store<IState>,
                                     query?: any, requestBody?: any) {
     if (typeof(requestBody) !== 'object' || !requestBody.ids) {
-      console.warn(`Unknown POST request for warehouse/store_record_materias: ${requestBody}`);
+      logger.warn(`Unknown POST request for warehouse/store_record_materias: ${requestBody}`);
       return;
     }
     const post = requestBody as schemas.WarehouseStoreRecordMateriasPost;
@@ -175,7 +173,7 @@ const recordMateriaHandler: Handler = {
   'warehouse/bring_record_materias'(data: schemas.WarehouseBringRecordMaterias, store: Store<IState>,
                                     query?: any, requestBody?: any) {
     if (typeof(requestBody) !== 'object' || !requestBody.ids) {
-      console.warn(`Unknown POST request for warehouse/bring_record_materias: ${requestBody}`);
+      logger.warn(`Unknown POST request for warehouse/bring_record_materias: ${requestBody}`);
       return;
     }
     const post = requestBody as schemas.WarehouseBringRecordMateriasPost;
@@ -186,7 +184,7 @@ const recordMateriaHandler: Handler = {
 
   'buddy/evolve'(data: charactersSchemas.BuddyEvolve, store: Store<IState>, query?: any, requestBody?: any) {
     if (typeof(requestBody) !== 'object' || requestBody.exec == null) {
-      console.warn(`Unknown POST request for buddy/evolve: ${requestBody}`);
+      logger.warn(`Unknown POST request for buddy/evolve: ${requestBody}`);
       return;
     }
     const post = requestBody as charactersSchemas.BuddyEvolvePost;

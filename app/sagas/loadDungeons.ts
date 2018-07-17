@@ -9,10 +9,7 @@ import * as apiUrls from '../api/apiUrls';
 import * as schemas from '../api/schemas';
 import { convertWorldDungeons } from '../proxy/dungeons';
 import { IState } from '../reducers';
-
-
-// FIXME: What's the best place to log these?  Use the console for now.
-// tslint:disable no-console
+import { logger } from '../utils/logger';
 
 function sessionConfig(session: Session): AxiosRequestConfig {
   return {
@@ -33,7 +30,7 @@ export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
   for (let i = 0; i < action.payload.worldIds.length; i++) {
     const worldId = action.payload.worldIds[i];
     yield put(setProgress('dungeons', {current: i, max: action.payload.worldIds.length}));
-    console.log(`Getting dungeons for world ${worldId}...`);
+    logger.info(`Getting dungeons for world ${worldId}...`);
 
     const result = yield call(() =>
       axios.get(apiUrls.dungeons(worldId), sessionConfig(session))
@@ -42,7 +39,7 @@ export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
         return addWorldDungeons(worldId, convertWorldDungeons(response.data as schemas.Dungeons));
       })
       .catch(e => {
-        console.error(e);
+        logger.error(e);
         return undefined;
       })
     );

@@ -13,9 +13,7 @@ import { items, ItemType, ItemTypeLookup, ItemTypeName } from '../data/items';
 
 import * as _ from 'lodash';
 import { dressRecordsById } from '../data/dressRecords';
-
-// FIXME: What's the best place to log these?  Use the console for now.
-// tslint:disable no-console
+import { logger } from '../utils/logger';
 
 let localItems = _.clone(items);
 const localItemsById = _.zipObject(items.map(i => i.id), localItems);
@@ -27,7 +25,7 @@ interface PrizeItem {
 }
 
 function showUnknownItem(item: PrizeItem) {
-  console.warn(`Unknown ${item.type_name.toLowerCase()}: ${item.name} (ID ${item.id})`);
+  logger.warn(`Unknown ${item.type_name.toLowerCase()}: ${item.name} (ID ${item.id})`);
 }
 
 function addLocalItem({name, type_name, id}: PrizeItem) {
@@ -40,13 +38,13 @@ function addLocalItem({name, type_name, id}: PrizeItem) {
 
 function showLocalItem(item: PrizeItem) {
   const type = ItemTypeLookup[item.type_name];
-  console.log('New (previously unknown) item: ' +
+  logger.info('New (previously unknown) item: ' +
     `{\n  name: '${item.name}',\n  type: ItemType.${type},\n  id: ${item.id}\n},`);
 }
 
 function showLocalDressRecord({dress_record_id, name, buddy_id}
     : {dress_record_id: number, name: string, buddy_id: number}) {
-  console.log('New (previously unknown) dress record: ' +
+  logger.info('New (previously unknown) dress record: ' +
     `{\n  name: '${name}',\n  id: ${dress_record_id},\n  characterId: ${buddy_id},\n},`);
 }
 

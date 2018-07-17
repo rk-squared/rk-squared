@@ -29,6 +29,7 @@ import { updateLastTraffic, updateProxyStatus } from '../actions/proxy';
 import { IState } from '../reducers';
 
 import * as _ from 'lodash';
+import { logger } from '../utils/logger';
 
 interface ProxyIncomingMessage extends http.IncomingMessage {
   bodyStream: streamBuffers.WritableStreamBuffer | undefined;
@@ -46,9 +47,6 @@ const handlers = [
   // other processing.
   options,
 ];
-
-// FIXME: Proper logging library
-// tslint:disable no-console
 
 const ffrkRegex = /ffrk\.denagames\.com\/dff/;
 
@@ -183,8 +181,8 @@ function handleFfrkApiRequest(
 
     if (store.getState().options.saveTrafficCaptures) {
       recordCapturedData(decoded, req, res)
-        .catch(err => console.error(`Failed to save data capture: ${err}`))
-        .then(filename => console.log(`Saved to ${filename}`));
+        .catch(err => logger.error(`Failed to save data capture: ${err}`))
+        .then(filename => logger.debug(`Saved to ${filename}`));
     }
 
     sessionHandler(decoded, req, res, store);
@@ -194,7 +192,7 @@ function handleFfrkApiRequest(
       data = encodeData(String.fromCharCode(UTF8_BOM) + JSON.stringify(newData), res);
     }
   } catch (error) {
-    console.error(error);
+    logger.error(error);
   }
   return data;
 }
@@ -214,13 +212,13 @@ function handleFfrkStartupRequest(
     const startupData = { appInitData, textMaster };
     if (store.getState().options.saveTrafficCaptures) {
       recordCapturedData(startupData, req, res)
-        .catch(err => console.error(`Failed to save data capture: ${err}`))
-        .then(filename => console.log(`Saved to ${filename}`));
+        .catch(err => logger.error(`Failed to save data capture: ${err}`))
+        .then(filename => logger.debug(`Saved to ${filename}`));
     }
 
     checkHandlers(startupData, req, res, store, [StartupHandler]);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
   }
   return data;
 }
@@ -243,8 +241,8 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
 
   const proxy = httpProxy.createProxyServer({});
   proxy.on('error', e => {
-    console.log('Error within proxy');
-    console.log(e);
+    logger.debug('Error within proxy');
+    logger.debug(e);
   });
 
   const app = connect();
@@ -254,7 +252,7 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   // app.use(transformerProxy(cacheTransformerFunction, { match: /127\.0\.0\.1/ }));
 
   app.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
-    console.log(req.url);
+    logger.debug(req.url as string);
     store.dispatch(updateLastTraffic());
     // console.log(req.headers);
     next();
@@ -262,12 +260,12 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
 
   app.use((req: http.IncomingMessage, res: http.ServerResponse) => {
     req.on('error', e => {
-      console.log('Error within proxy req');
-      console.log(e);
+      logger.debug('Error within proxy req');
+      logger.debug(e);
     });
     res.on('error', e => {
-      console.log('Error within proxy res');
-      console.log(e);
+      logger.debug('Error within proxy res');
+      logger.debug(e);
     });
 
     // Disabled; not currently functional:
@@ -296,15 +294,15 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   const server = http.createServer(app);
 
   server.on('error', e => {
-    console.log('Error within server');
-    console.log(e);
+    logger.debug('Error within server');
+    logger.debug(e);
   });
 
   // Proxy (tunnel) HTTPS requests.  For more information:
   // https://nodejs.org/api/http.html#http_event_connect
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT
   server.on('connect', (req, clientSocket, head) => {
-    console.log(`CONNECT ${req.url}`);
+    logger.debug(`CONNECT ${req.url}`);
     store.dispatch(updateLastTraffic());
 
     const serverUrl = url.parse(`https://${req.url}`);
@@ -321,8 +319,8 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
       serverSocket.pipe(clientSocket);
       clientSocket.pipe(serverSocket);
     }).on('error', (e: Error) => {
-      console.log(`Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}`);
-      console.log(e);
+      logger.debug(`Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}`);
+      logger.debug(e);
       if (!connected) {
         // Unable to connect to destination - send a clean error back to the client
         clientSocket.end('HTTP/1.1 502 Bad Gateway\r\n' +
@@ -336,8 +334,8 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
       }
     });
     clientSocket.on('error', (e: Error) => {
-      console.log(`Error communicating with ${serverUrl.hostname}`);
-      console.log(e);
+      logger.debug(`Error communicating with ${serverUrl.hostname}`);
+      logger.debug(e);
       serverSocket.destroy();
     });
   });
@@ -349,7 +347,7 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     const newIpAddress = getIpAddresses();
     if (!_.isEqual(newIpAddress, ipAddress)) {
       ipAddress = newIpAddress;
-      console.log(`Listening on ${ipAddress.join(',')}, port ${port}`);
+      logger.info(`Listening on ${ipAddress.join(',')}, port ${port}`);
       store.dispatch(updateProxyStatus({ ipAddress, port }));
     }
   };
