@@ -35,7 +35,7 @@ export interface Dungeon {
 
 export function hasAvailablePrizes(dungeon: Dungeon): boolean {
   const unclaimedGrade = dungeon.prizes.unclaimedGrade || [];
-  return !dungeon.isComplete || !dungeon.isMaster || unclaimedGrade.length != 0;
+  return !dungeon.isComplete || !dungeon.isMaster || unclaimedGrade.length !== 0;
 }
 
 export function getAvailablePrizes(dungeonOrDungeons: Dungeon | Dungeon[]): PrizeItem[] {

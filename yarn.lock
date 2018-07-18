@@ -4833,7 +4833,7 @@ log-symbols@^2.1.0:
   dependencies:
     chalk "^2.0.1"
 
-logform@^1.9.0:
+logform@^1.9.0, logform@^1.9.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/logform/-/logform-1.9.1.tgz#58b29d7b11c332456d7a217e17b48a13ad69d60a"
   dependencies:
