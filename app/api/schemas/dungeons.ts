@@ -16,17 +16,21 @@ export enum RewardType {
   Mastery = '3',
   // Recurring (?) time-based (?) bonuses - e.g., for Magicite
   Bonus = '7',
-  // One-time (?) damage-based (?) bonuses - e.g., for "Damage Race - Ancient Foes"
-  GradeA = '8',
-  GradeB = '9',
-  GradeC = '10',
-  GradeD = '11',
-  GradeE = '12',
-  GradeF = '13',
+  // One-time bonuses - e.g., for Neo Torments, or damage-based for
+  // "Damage Race - Ancient Foes",
+  GradeAOrSub30 = '8',
+  GradeBOrSub40 = '9',
+  GradeCOrSub50 = '10',
+  GradeDOrSub60 = '11',
+  GradeEOrHp100 = '12',
+  GradeFOrHp90 = '13',
+  Hp80 = '14',
+  Hp70 = '15',
+  Hp60 = '16',
+  Hp50 = '17',
 }
 
 export const MinRewardGrade = 8;
-export const MaxRewardGrade = 13;
 
 export interface DungeonPrizeItem {
   type_name: ItemTypeName;

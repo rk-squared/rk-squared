@@ -1,0 +1,1343 @@
+{
+  "success": true,
+  "assets": [
+    {
+      "bundle": {
+        "/Content/lang/bgm/bgm_ogg/bgm_24_063.ogg": {
+          "hash": "8xo8xAYHpcxOepRoO2ZYVA"
+        }
+      },
+      "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_24_063.ogg"
+    },
+    {
+      "bundle": {
+        "/Content/lang/bgm/bgm_ogg/bgm_24_054.ogg": {
+          "hash": "x7OukKWGs6RRZZG4Bhdbng"
+        }
+      },
+      "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_24_054.ogg"
+    },
+    {
+      "bundle": {
+        "/Content/lang/bgm/bgm_ogg/bgm_25_069.ogg": {
+          "hash": "NIao7WMg4XNzPjrY8+fPMw"
+        }
+      },
+      "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_25_069.ogg"
+    }
+  ],
+  "dungeons": [
+    {
+      "unlock_conditions": {},
+      "closed_at": 2145938400,
+      "order_no": 1,
+      "is_restricted": false,
+      "stamina_consume_type": 1,
+      "supporter_type": 31,
+      "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048601/15048601_epilogue.png",
+      "bgm": "bgm_25_069",
+      "stamina_list": [
+        1
+      ],
+      "ability_category_bonus_map": {},
+      "unlocked_series_ids": [],
+      "id": 15048601,
+      "world_id": 150486,
+      "button_style": "RUIN",
+      "name": "Tyrrany of the Impure, Part 1",
+      "total_stamina": 1,
+      "ss_gauge_type": 0,
+      "type": 1,
+      "epilogue": "<<Not Necessary>>",
+      "progress_map_level": 0,
+      "platform_style": 10007,
+      "is_clear": true,
+      "is_new": false,
+      "prologue": "<<Not Necessary>>",
+      "buddy_additional_status_bonus_level": 0,
+      "challenge_level": 240,
+      "prizes": {
+        "1": [
+          {
+            "type_name": "COMMON",
+            "num": 1500,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          }
+        ],
+        "2": [
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001020.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Memory Crystal III Lode",
+            "id": 95001020
+          },
+          {
+            "type_name": "COMMON",
+            "num": 100000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          },
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/91000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Mythril",
+            "id": 91000000
+          }
+        ],
+        "3": [
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001020.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Memory Crystal III Lode",
+            "id": 95001020
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Power Crystal",
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 100000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          }
+        ],
+        "8": [
+          {
+            "type_name": "COMMON",
+            "num": 20,
+            "name": "Record Rubies",
+            "disp_order": 1,
+            "grade_bonus_description": "Defeat enemy in 30 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001080
+          }
+        ],
+        "9": [
+          {
+            "type_name": "COMMON",
+            "num": 100000,
+            "name": "Gil",
+            "disp_order": 2,
+            "grade_bonus_description": "Defeat enemy in 40 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 92000000
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Vitality Mote (5★)",
+            "disp_order": 2,
+            "grade_bonus_description": "Defeat enemy in 40 seconds or less",
+            "image_path": "/dff/static/lang/image/sphere_material/130300300/130300300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300300
+          }
+        ],
+        "10": [
+          {
+            "type_name": "COMMON",
+            "num": 100000,
+            "name": "Gil",
+            "disp_order": 3,
+            "grade_bonus_description": "Defeat enemy in 50 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 92000000
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Vitality Mote (5★)",
+            "disp_order": 3,
+            "grade_bonus_description": "Defeat enemy in 50 seconds or less",
+            "image_path": "/dff/static/lang/image/sphere_material/130300300/130300300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300300
+          }
+        ],
+        "11": [
+          {
+            "type_name": "COMMON",
+            "num": 20,
+            "name": "Record Rubies",
+            "disp_order": 4,
+            "grade_bonus_description": "Defeat enemy in 1 minute or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001080
+          }
+        ],
+        "12": [
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 7,
+            "name": "Major Holy Orb",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 40000060
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Vitality Mote (5★)",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/image/sphere_material/130300300/130300300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300300
+          }
+        ],
+        "13": [
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Major Holy Orb",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 40000060
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Wisdom Mote (4★)",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400200/130400200_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400200
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 5,
+            "name": "Vitality Mote (5★)",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130300300/130300300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300300
+          }
+        ],
+        "14": [
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Major Holy Orb",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 40000060
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Wisdom Mote (4★)",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400200/130400200_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400200
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 5,
+            "name": "Vitality Mote (5★)",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130300300/130300300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300300
+          }
+        ],
+        "15": [
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Major Holy Orb",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 40000060
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Vitality Mote (4★)",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130300200/130300200_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300200
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 5,
+            "name": "Vitality Mote (5★)",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130300300/130300300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300300
+          }
+        ],
+        "16": [
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Major Holy Orb",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 40000060
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Vitality Mote (4★)",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130300200/130300200_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300200
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 5,
+            "name": "Vitality Mote (5★)",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130300300/130300300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300300
+          }
+        ],
+        "17": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Knight Mote (5★)",
+            "disp_order": 10,
+            "grade_bonus_description": "Deal 50% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/131011300/131011300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 131011300
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Vitality Mote (5★)",
+            "disp_order": 10,
+            "grade_bonus_description": "Deal 50% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130300300/130300300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300300
+          }
+        ]
+      },
+      "battle_ticket_id_2_num": {},
+      "battle_drop_items": [
+        {
+          "type_name": "ABILITY_MATERIAL",
+          "num": 1,
+          "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000004/40000004_112.png",
+          "name": "Greater Power Orb",
+          "id": 40000004
+        }
+      ],
+      "is_master": true,
+      "series_id": 150001,
+      "required_max_stamina": 0,
+      "opened_at": 1531357200,
+      "continue_allowable_type": 1,
+      "is_unlocked": true,
+      "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048601/15048601_prologue.png",
+      "rank": 3,
+      "captures": [
+        {
+          "enemy_id": "25048601",
+          "sp_scores": [
+            {
+              "battle_id": 1504860101,
+              "title": "Finish the battle with 1 or more heroes not KO'd."
+            }
+          ],
+          "image_path": "/dff/static/lang/image/enemy/25048601.png",
+          "tip_battle": {
+            "group_id": 508567,
+            "html_content": "",
+            "id": 508567,
+            "title": "Cúchulainn (Incubus)",
+            "message": ""
+          }
+        }
+      ],
+      "background_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048601/15048601_bg.png"
+    },
+    {
+      "unlock_conditions": {
+        "15048602": "1"
+      },
+      "closed_at": 2145938400,
+      "order_no": 1,
+      "is_restricted": false,
+      "stamina_consume_type": 1,
+      "supporter_type": 31,
+      "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048603/15048603_epilogue.png",
+      "bgm": "bgm_25_069",
+      "stamina_list": [
+        1
+      ],
+      "ability_category_bonus_map": {},
+      "unlocked_series_ids": [],
+      "id": 15048603,
+      "world_id": 150486,
+      "button_style": "DARK_RED",
+      "name": "Tyrrany of the Impure, Part 3",
+      "total_stamina": 1,
+      "ss_gauge_type": 0,
+      "type": 1,
+      "epilogue": "<<Not Necessary>>",
+      "progress_map_level": 0,
+      "platform_style": 10007,
+      "is_clear": false,
+      "is_new": false,
+      "prologue": "<<Not Necessary>>",
+      "buddy_additional_status_bonus_level": 0,
+      "challenge_level": 0,
+      "prizes": {
+        "1": [
+          {
+            "type_name": "COMMON",
+            "num": 1500,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          }
+        ],
+        "2": [
+          {
+            "type_name": "COMMON",
+            "num": 20,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Record Rubies",
+            "id": 95001080
+          },
+          {
+            "type_name": "COMMON",
+            "num": 200000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          },
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/91000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Mythril",
+            "id": 91000000
+          }
+        ],
+        "3": [
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 8,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Power Crystal",
+            "id": 40000066
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 10,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Major Holy Orb",
+            "id": 40000060
+          },
+          {
+            "type_name": "COMMON",
+            "num": 200000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          }
+        ],
+        "8": [
+          {
+            "type_name": "COMMON",
+            "num": 40,
+            "name": "Record Rubies",
+            "disp_order": 1,
+            "grade_bonus_description": "Defeat enemy in 30 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 25,
+            "name": "Spirit Mote (5★)",
+            "disp_order": 1,
+            "grade_bonus_description": "Defeat enemy in 30 seconds or less",
+            "image_path": "/dff/static/lang/image/sphere_material/130100300/130100300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130100300
+          }
+        ],
+        "9": [
+          {
+            "type_name": "COMMON",
+            "num": 40,
+            "name": "Record Rubies",
+            "disp_order": 2,
+            "grade_bonus_description": "Defeat enemy in 40 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          },
+          {
+            "type_name": "COMMON",
+            "num": 200000,
+            "name": "Gil",
+            "disp_order": 2,
+            "grade_bonus_description": "Defeat enemy in 40 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 92000000
+          }
+        ],
+        "10": [
+          {
+            "type_name": "COMMON",
+            "num": 40,
+            "name": "Record Rubies",
+            "disp_order": 3,
+            "grade_bonus_description": "Defeat enemy in 50 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          },
+          {
+            "type_name": "COMMON",
+            "num": 200000,
+            "name": "Gil",
+            "disp_order": 3,
+            "grade_bonus_description": "Defeat enemy in 50 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 92000000
+          }
+        ],
+        "11": [
+          {
+            "type_name": "COMMON",
+            "num": 40,
+            "name": "Record Rubies",
+            "disp_order": 4,
+            "grade_bonus_description": "Defeat enemy in 1 minute or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 25,
+            "name": "Spirit Mote (5★)",
+            "disp_order": 4,
+            "grade_bonus_description": "Defeat enemy in 1 minute or less",
+            "image_path": "/dff/static/lang/image/sphere_material/130100300/130100300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130100300
+          }
+        ],
+        "12": [
+          {
+            "type_name": "COMMON",
+            "num": 40,
+            "name": "Record Rubies",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 4,
+            "name": "Dark Crystal",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000078/40000078_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 40000078
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 25,
+            "name": "Spirit Mote (5★)",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/image/sphere_material/130100300/130100300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130100300
+          }
+        ],
+        "13": [
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Spirit Mote (5★)",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130100300/130100300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130100300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 4,
+            "name": "Earth Crystal",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000075/40000075_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 40000075
+          }
+        ],
+        "14": [
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 4,
+            "name": "Lightning Crystal",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000074/40000074_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 40000074
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Spirit Mote (5★)",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130100300/130100300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130100300
+          }
+        ],
+        "15": [
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Spirit Mote (5★)",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130100300/130100300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130100300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 4,
+            "name": "Ice Crystal",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000073/40000073_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 40000073
+          }
+        ],
+        "16": [
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Spirit Mote (5★)",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130100300/130100300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130100300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 4,
+            "name": "Fire Crystal",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000072/40000072_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 40000072
+          }
+        ],
+        "17": [
+          {
+            "type_name": "COMMON",
+            "num": 20,
+            "name": "Record Rubies",
+            "disp_order": 10,
+            "grade_bonus_description": "Deal 50% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 25,
+            "name": "Spirit Mote (5★)",
+            "disp_order": 10,
+            "grade_bonus_description": "Deal 50% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130100300/130100300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130100300
+          }
+        ]
+      },
+      "battle_ticket_id_2_num": {},
+      "battle_drop_items": [
+        {
+          "type_name": "ABILITY_MATERIAL",
+          "num": 1,
+          "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000014/40000014_112.png",
+          "name": "Greater Black Orb",
+          "id": 40000014
+        }
+      ],
+      "is_master": false,
+      "series_id": 150001,
+      "required_max_stamina": 0,
+      "opened_at": 1531357200,
+      "continue_allowable_type": 1,
+      "is_unlocked": false,
+      "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048603/15048603_prologue.png",
+      "rank": 0,
+      "captures": [
+        {
+          "enemy_id": "25048602",
+          "sp_scores": [
+            {
+              "battle_id": 1504860301,
+              "title": "Finish the battle with 1 or more heroes not KO'd."
+            }
+          ],
+          "image_path": "/dff/static/lang/image/enemy/25048602.png",
+          "tip_battle": {
+            "group_id": 508568,
+            "html_content": "",
+            "id": 508568,
+            "title": "Cúchulainn (Incubus)",
+            "message": ""
+          }
+        }
+      ],
+      "background_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048603/15048603_bg.png"
+    },
+    {
+      "unlock_conditions": {
+        "15048601": "1"
+      },
+      "closed_at": 2145938400,
+      "order_no": 1,
+      "is_restricted": false,
+      "stamina_consume_type": 1,
+      "supporter_type": 31,
+      "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048602/15048602_epilogue.png",
+      "bgm": "bgm_25_069",
+      "stamina_list": [
+        1
+      ],
+      "ability_category_bonus_map": {},
+      "unlocked_series_ids": [],
+      "id": 15048602,
+      "world_id": 150486,
+      "button_style": "RUIN",
+      "name": "Tyrrany of the Impure, Part 2",
+      "total_stamina": 1,
+      "ss_gauge_type": 0,
+      "type": 1,
+      "epilogue": "<<Not Necessary>>",
+      "progress_map_level": 0,
+      "platform_style": 10007,
+      "is_clear": false,
+      "is_new": true,
+      "prologue": "<<Not Necessary>>",
+      "buddy_additional_status_bonus_level": 0,
+      "challenge_level": 280,
+      "prizes": {
+        "1": [
+          {
+            "type_name": "COMMON",
+            "num": 1500,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          }
+        ],
+        "2": [
+          {
+            "type_name": "EQUIPMENT_HYPER_EVOLVE_MATERIAL",
+            "num": 3,
+            "image_path": "/dff/static/lang/image/equipment_hyper_evolve_material/25096005/25096005_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Dark Matter (5★)",
+            "id": 25096005
+          },
+          {
+            "type_name": "COMMON",
+            "num": 150000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          },
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/91000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Mythril",
+            "id": 91000000
+          }
+        ],
+        "3": [
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 10,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Major Holy Orb",
+            "id": 40000060
+          },
+          {
+            "type_name": "COMMON",
+            "num": 150000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 4,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000072/40000072_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Fire Crystal",
+            "id": 40000072
+          }
+        ],
+        "8": [
+          {
+            "type_name": "COMMON",
+            "num": 30,
+            "name": "Record Rubies",
+            "disp_order": 1,
+            "grade_bonus_description": "Defeat enemy in 30 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          }
+        ],
+        "9": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 2,
+            "grade_bonus_description": "Defeat enemy in 40 seconds or less",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130400300
+          },
+          {
+            "type_name": "COMMON",
+            "num": 150000,
+            "name": "Gil",
+            "disp_order": 2,
+            "grade_bonus_description": "Defeat enemy in 40 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 92000000
+          }
+        ],
+        "10": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 3,
+            "grade_bonus_description": "Defeat enemy in 50 seconds or less",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130400300
+          },
+          {
+            "type_name": "COMMON",
+            "num": 150000,
+            "name": "Gil",
+            "disp_order": 3,
+            "grade_bonus_description": "Defeat enemy in 50 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 92000000
+          }
+        ],
+        "11": [
+          {
+            "type_name": "COMMON",
+            "num": 30,
+            "name": "Record Rubies",
+            "disp_order": 4,
+            "grade_bonus_description": "Defeat enemy in 1 minute or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          }
+        ],
+        "12": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130400300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Power Crystal",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 30,
+            "name": "Record Rubies",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          }
+        ],
+        "13": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130400300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Power Crystal",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          }
+        ],
+        "14": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130400300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Power Crystal",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          }
+        ],
+        "15": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130400300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Power Crystal",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          }
+        ],
+        "16": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130400300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Power Crystal",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          }
+        ],
+        "17": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 10,
+            "grade_bonus_description": "Deal 50% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 130400300
+          },
+          {
+            "type_name": "COMMON",
+            "num": 30,
+            "name": "Record Rubies",
+            "disp_order": 10,
+            "grade_bonus_description": "Deal 50% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 95001080
+          }
+        ]
+      },
+      "battle_ticket_id_2_num": {},
+      "battle_drop_items": [
+        {
+          "type_name": "ABILITY_MATERIAL",
+          "num": 1,
+          "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000009/40000009_112.png",
+          "name": "Greater White Orb",
+          "id": 40000009
+        }
+      ],
+      "is_master": false,
+      "series_id": 150001,
+      "required_max_stamina": 0,
+      "opened_at": 1531357200,
+      "continue_allowable_type": 1,
+      "is_unlocked": true,
+      "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048602/15048602_prologue.png",
+      "rank": 0,
+      "captures": [
+        {
+          "enemy_id": "25048601",
+          "sp_scores": [
+            {
+              "battle_id": 1504860201,
+              "title": "Finish the battle with 1 or more heroes not KO'd."
+            }
+          ],
+          "image_path": "/dff/static/lang/image/enemy/25048601.png",
+          "tip_battle": {
+            "group_id": 508620,
+            "html_content": "",
+            "id": 508620,
+            "title": "Cúchulainn (Incubus)",
+            "message": ""
+          }
+        }
+      ],
+      "background_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048602/15048602_bg.png"
+    }
+  ],
+  "user_battle_tickets": [],
+  "user": {
+    "stamina_piece": 1060,
+    "soul_piece": 220,
+    "residual_stamina_piece": 0,
+    "start_time_of_today": 1531832400,
+    "stamina_recovery_time": 180,
+    "max_followee_num": 100,
+    "dungeon_id": 0,
+    "id": 5679473043701760,
+    "release_id": 0,
+    "stamina_info": {
+      "additional_stamina": 0,
+      "current_max_stamina": 212,
+      "prev_max_stamina": 212,
+      "got_stamina_piece": 0
+    },
+    "func_tutorial_flags": {
+      "SS_EXP": false,
+      "NIGHTMARE_DUNGEON": true,
+      "EXTREME_CLOSE2": false,
+      "BEAST_DUNGEON_RARITY4_NUM6_CLEAR": true,
+      "ABILITY_MATERIAL_CONVERT": true,
+      "SORTIE_LIMITATION": false,
+      "EXTREME": false,
+      "DUNGEON_LIST": true,
+      "BUDDY_EVOLUTION": true,
+      "FIRST_ENTER_RECORD_DUNGEON": true,
+      "BOOK_ROOM2": true,
+      "SECOND_ANNIVERSARY": false,
+      "GROWEGG": true,
+      "LEGEND_MATERIA": true,
+      "RECORD_DIVE": true,
+      "FELLOW_LIST": true,
+      "OLD_ABILITY_GENERATION": false,
+      "FIRST_ENTER_BEAST_WORLD_LIST_2": true,
+      "DRESS_RECORD": true,
+      "SERIES": true,
+      "STAMINA_RECOVERY_AGENT": true,
+      "FIRST_ENTER_BEAST_DUNGEON_LIST_1": true,
+      "FELLOW": true,
+      "EQUIPMENT_HYPER_EVOLVE": true,
+      "PROGRESS_MAP": true,
+      "ABILITY_CHANGE": false,
+      "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_AFTER_UPDATE": true,
+      "OLD_HOME": true,
+      "RECORD_DUNGEON_FRAME_ART_BREAK": true,
+      "BEAST_DUNGEON_RARITY3_NUM3_CLEAR": true,
+      "PARTY_TOP": true,
+      "BATTLE_OPERATION": true,
+      "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_1": true,
+      "SS_MULTI": false,
+      "WDAY_DUNGEON_EXCHANGE_SHOP": true,
+      "SS_LIMITATION": true,
+      "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_3": true,
+      "EXTREME_MOVIE": true,
+      "COUNTDOWN_2016_DEFEAT_CNT_RESULT": false,
+      "FIRST_ANNIVERSARY": false,
+      "MO_INTRODUCTION_MOVIE": false,
+      "PARTY_MEMORY": true,
+      "BEAST_DUNGEON_RARITY4_ALL_CLEAR_1": false,
+      "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_2": true,
+      "OLD_QUEST": false,
+      "PROFILE": true,
+      "EXTREME_OPENING": true,
+      "ENHANCEMENT": true,
+      "LEGEND_SPHERE": true,
+      "ABILITY_DECOMPOSE": true,
+      "OLD_UI_REBORN": true,
+      "ABILITY_UPGRADE": true,
+      "SECOND_ENTER_BEAST_WORLD_LIST": true,
+      "BATTLE_LIST_2": true,
+      "SECOND_ENTER_BEAST_DUNGEON_LIST": true,
+      "LEAD_TO_SECOND_DUNGEON": true,
+      "MO_FORMAL": false,
+      "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_1": true,
+      "BUDDY_ADDITIONAL_STATUS_BONUS": true,
+      "EXTREME_CLOSING_MOVIE": true,
+      "OLD_ACHIEVEMENT_ROOM": true,
+      "OLD_BUFF_DEBUFF_TRAINING_FOR_BEGINNER": true,
+      "COUNTDOWN_2016_MOVIE": false,
+      "OLD_INVENTORY": false,
+      "ENHANCEMENT_TOP": true,
+      "FIRST_ENTER_BEAST_WORLD_LIST_1": true,
+      "FELLOW_PLUS": true,
+      "ABILITY_GENERATION": true,
+      "TEN_MILLION_DOWNLOAD_MOVIE": false,
+      "BEAST_DUNGEON_RARITY3_ALL_CLEAR_2": true,
+      "NEW_YEAR_2017": false,
+      "HAMMERING": true,
+      "RECORD_DUNGEON_BATTLE_LIST": true,
+      "MASTER_LEGEND_MATERIA": true,
+      "BEAST_DUNGEON_RARITY4_OPEN_2": true,
+      "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_2": true,
+      "EQUIPMENT_CHANGE": true,
+      "BEAST_DUNGEON_RARITY4_NUM6_CLEAR_AFTER_UPDATE": true,
+      "BEAST_DUNGEON_RARITY4_OPEN_1": true,
+      "BATTLE_LIST": true,
+      "PARTY_EDIT": true,
+      "FORCE_DUNGEON": true,
+      "ANYTIME_MUSIC_ROOM": true,
+      "EXTREME_CLOSE1": false,
+      "BEAST_WORLD_OPENING_MOVIE": true,
+      "BRAVE_SERIES_BONUS": true,
+      "FIRST_ENTER_BEAST_DUNGEON_LIST_2": true,
+      "INVENTORY": true,
+      "BEAST_DUNGEON_RARITY3_NUM6_CLEAR": false,
+      "BOOK_ROOM": true,
+      "OLD_ENHANCEMENT": false,
+      "BEAST_DUNGEON_RARITY3_ALL_CLEAR_1": true,
+      "MO_PARTY": true,
+      "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_BEAST_TOP": true,
+      "BEAST_INHERITANCE": true,
+      "EVOLUTION": true,
+      "SUPPRESS": true,
+      "SS_MULTI_AND_EXP": true,
+      "RECORD_TEAR": true,
+      "OLD_MISSION": true
+    },
+    "is_in_dungeon": false,
+    "name": "Brirn",
+    "has_all_clear_ver_to_show": false,
+    "stamina": 201,
+    "can_review": true,
+    "tutorial_step": 255,
+    "followee_num": 95,
+    "stamina_recovery_remaining_time": 1866,
+    "gil": 69362148,
+    "is_update_last_logined_at": false,
+    "last_logined_at": 1531832458,
+    "is_tutorial_finish": true,
+    "max_follower_num": 100,
+    "max_stamina": 212
+  },
+  "world": {
+    "has_brave_series_buddies": false,
+    "closed_at": 2145938400,
+    "name": "Tyrrany of the Impure",
+    "has_new_dungeon": false,
+    "series_id": 150001,
+    "opened_at": 1531357200,
+    "bgm": "bgm_25_069",
+    "kept_out_at": 2145938400,
+    "is_unlocked": true,
+    "door_image_path": "/dff/static/lang/image/world/150486_door.png",
+    "image_path": "/dff/static/lang/image/world/150486.png",
+    "type": 2,
+    "id": 150486,
+    "series_formal_name": "FINAL FANTASY TACTICS",
+    "banner_message": ""
+  },
+  "SERVER_TIME": 1531882014
+}

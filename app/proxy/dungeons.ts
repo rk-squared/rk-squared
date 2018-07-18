@@ -130,11 +130,12 @@ export function convertPrizeItems(prizes?: dungeonsSchemas.DungeonPrizeItem[]) {
 
 export function convertGradePrizeItems(dungeon: dungeonsSchemas.Dungeon) {
   let allPrizes: dungeonsSchemas.DungeonPrizeItem[] = [];
-  for (let i = dungeonsSchemas.MinRewardGrade; i <= dungeonsSchemas.MaxRewardGrade; i++) {
+  for (let i = dungeonsSchemas.MinRewardGrade; ; i++) {
     const grade = i.toString() as dungeonsSchemas.RewardType;
-    if (dungeon.prizes[grade]) {
-      allPrizes.push(...dungeon.prizes[grade]);
+    if (!dungeon.prizes[grade]) {
+      break;
     }
+    allPrizes.push(...dungeon.prizes[grade]);
   }
 
   allPrizes = _.sortBy(allPrizes, 'disp_order');

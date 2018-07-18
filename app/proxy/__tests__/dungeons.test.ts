@@ -2,6 +2,8 @@ import { convertGradePrizeItems, convertWorld, sortDungeons } from '../dungeons'
 
 import { WorldCategory } from '../../actions/worlds';
 
+import * as _ from 'lodash';
+
 // noinspection SpellCheckingInspection
 const textMaster = {
   sortmodal_short_summary_series_113001: 'FF XIII',
@@ -202,8 +204,8 @@ describe('dungeons proxy handler', () => {
       ]);
     });
 
-    it('handles grade prizes', () => {
-      const data = require('./damage_race_dungeons.json');
+    it('handles damage-based grade prizes', () => {
+      const data = require('./data/damage_race_dungeons.json');
       const prizes = convertGradePrizeItems(data.dungeons[2]);
       expect(prizes.claimedGrade.map(i => i.name)).toEqual([
         'Bravery Mote (4★)', 'Spirit Mote (4★)', 'Dexterity Mote (4★)', 'Wisdom Mote (4★)',
@@ -212,6 +214,16 @@ describe('dungeons proxy handler', () => {
       expect(prizes.unclaimedGrade.map(i => i.name)).toEqual([
         'Vitality Mote (4★)'
       ]);
+    });
+
+    it('handles Neo Torment grade prizes', () => {
+      const data = require('./data/neo_torment_dungeons.json');
+
+      const prizes = convertGradePrizeItems(data.dungeons[2]);
+
+      const totalCount = (name: string) => _.sum(prizes.unclaimedGrade.filter(i => i.name === name).map(i => i.amount));
+      expect(totalCount('Record Rubies')).toEqual(160);
+      expect(totalCount('Power Crystal')).toEqual(10);
     });
   });
 });
