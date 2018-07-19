@@ -82,6 +82,14 @@ export const addWorldDungeons = createAction('ADD_WORLD_DUNGEONS', (worldId: num
 }));
 
 /**
+ * Remove (forget) the list of dungeons for a world.
+ */
+export const forgetWorldDungeons = createAction('FORGET_WORLD_DUNGEONS', (worldId: number) => ({
+  type: 'FORGET_WORLD_DUNGEONS',
+  payload: worldId
+}));
+
+/**
  * Update the information on a single known dungeon.
  */
 export const updateDungeon = createAction('UPDATE_DUNGEON', (dungeonId: number, dungeon: Partial<Dungeon>) => ({
@@ -102,4 +110,9 @@ export const loadDungeons = createAction('LOAD_DUNGEONS', (worldIds: number[]) =
   }
 }));
 
-export type DungeonsAction = ReturnType<typeof addWorldDungeons | typeof updateDungeon | typeof loadDungeons>;
+export type DungeonsAction = ReturnType<
+  typeof addWorldDungeons |
+  typeof forgetWorldDungeons |
+  typeof updateDungeon |
+  typeof loadDungeons
+>;

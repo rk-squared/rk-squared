@@ -237,6 +237,39 @@ export function convertWorld(event: mainSchemas.Event, world: mainSchemas.World,
   };
 }
 
+/**
+ * Checks the status summary counts for Realm worlds against the last loaded
+ * dungeon lists for each world to update them if needed.
+ */
+function checkForUpdatedWorldDungeons(store: Store<IState>, worlds: mainSchemas.World[]) {
+  const describe = (description: string, summary: { master_count: number, clear_count: number } | undefined) =>
+    summary ? ` ${description} ${summary.master_count}/${summary.clear_count}/x,` : '';
+
+  const dungeons = store.getState().dungeons;
+
+  for (const w of _.sortBy(worlds, 'id')) {
+    const summary1 = (w.dungeon_status_summary || {})[1];
+    const summary2 = (w.dungeon_status_summary || {})[2];
+    if (!summary1 || !summary2 || !w.dungeon_term_list || w.dungeon_term_list.length === 0) {
+      continue;
+    }
+
+    logger.debug(`World ${w.name}:`
+      + describe('normal', summary1)
+      + describe('elite', summary2)
+      + ` ${w.dungeon_term_list ? w.dungeon_term_list.length : '?'} total`);
+
+    if (!dungeons.byWorld[w.id]) {
+      continue;
+    }
+
+    const worldDungeons = dungeons.byWorld[w.id].map(i => dungeons.dungeons[i]);
+    const completed = _.sumBy(worldDungeons, i => +i.isComplete);
+    const mastered = _.sumBy(worldDungeons, i => +i.isMaster);
+    logger.debug(`  loaded ${worldDungeons.length}, completed ${completed}, mastered ${mastered}`);
+  }
+}
+
 // noinspection JSUnusedGlobalSymbols
 const dungeonsHandler: Handler = {
   [StartupHandler]: (data: mainSchemas.Main, store: Store<IState>) => {
@@ -286,6 +319,7 @@ const dungeonsHandler: Handler = {
     }
     store.dispatch(updateWorlds(result));
 
+    checkForUpdatedWorldDungeons(store, worlds);
     // FIXME: Track half-price dungeons; exclude dungeons that aren't open
   },
 

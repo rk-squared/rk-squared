@@ -1,6 +1,6 @@
 import { getType } from 'typesafe-actions';
 
-import { addWorldDungeons, Dungeon, DungeonsAction, updateDungeon } from '../actions/dungeons';
+import { addWorldDungeons, Dungeon, DungeonsAction, forgetWorldDungeons, updateDungeon } from '../actions/dungeons';
 import { World } from '../actions/worlds';
 
 import * as _ from 'lodash';
@@ -45,6 +45,15 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
           ...state.byWorld,
           [action.payload.worldId]: action.payload.dungeons.map((i: Dungeon) => i.id)
         }
+      };
+
+    case getType(forgetWorldDungeons):
+      if (!state.byWorld[action.payload]) {
+        return state;
+      }
+      return {
+        dungeons: _.omit(state.dungeons, state.byWorld[action.payload]),
+        byWorld: _.omit(state.byWorld, action.payload),
       };
 
     case getType(updateDungeon):
