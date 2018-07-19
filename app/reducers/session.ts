@@ -17,6 +17,7 @@ export function session(state: Session = {}, action: SessionAction): Session {
         ...action.payload
       };
 
+    /* istanbul ignore next */
     default:
       return state;
   }

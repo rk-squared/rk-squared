@@ -64,6 +64,7 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
         }
       };
 
+    /* istanbul ignore next */
     default:
       return state;
   }

@@ -42,6 +42,7 @@ export function prefs(state: PrefsState = initialState, action: PrefsAction): Pr
         }
       };
 
+    /* istanbul ignore next */
     default:
       return state;
   }

@@ -17,6 +17,7 @@ export function options(state: Options = defaultOptions, action: OptionsAction):
         ...action.payload
       };
 
+    /* istanbul ignore next */
     default:
       return state;
   }

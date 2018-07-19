@@ -34,6 +34,7 @@ export function characters(state: CharacterState = initialState, action: Charact
     case getType(updateCharacter):
       return u.update({ characters: { [action.payload.id]: action.payload.character } }, state);
 
+    /* istanbul ignore next */
     default:
       return state;
   }

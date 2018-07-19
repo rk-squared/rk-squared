@@ -27,6 +27,7 @@ export function progress(state: ProgressState = {}, action: ProgressAction): Pro
         return result;
       }
 
+    /* istanbul ignore next */
     default:
       return state;
   }

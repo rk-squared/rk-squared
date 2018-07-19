@@ -24,6 +24,7 @@ export function battle(state: BattleState = initialState, action: BattleAction):
         dropItems: null
       };
 
+    /* istanbul ignore next */
     default:
       return state;
   }

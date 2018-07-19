@@ -21,6 +21,7 @@ export function worlds(state: WorldState = {}, action: WorldAction): WorldState 
     case getType(unlockWorld):
       return u.updateIn(['worlds', action.payload], {isUnlocked: true}, state);
 
+    /* istanbul ignore next */
     default:
       return state;
   }

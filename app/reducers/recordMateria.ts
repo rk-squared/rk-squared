@@ -101,6 +101,7 @@ export function recordMateria(state: RecordMateriaState = initialState,
       return u.update(toInventoryUpdate(id, inventory, favorite), state);
     }
 
+    /* istanbul ignore next */
     default:
       return state;
   }

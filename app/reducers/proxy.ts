@@ -17,6 +17,7 @@ export function proxy(state: ProxyStatus = {}, action: ProxyAction): ProxyStatus
         ...action.payload
       };
 
+    /* istanbul ignore next */
     default:
       return state;
   }
