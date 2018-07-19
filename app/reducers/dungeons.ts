@@ -1,9 +1,18 @@
 import { getType } from 'typesafe-actions';
 
-import { addWorldDungeons, Dungeon, DungeonsAction, forgetWorldDungeons, updateDungeon } from '../actions/dungeons';
+import {
+  addWorldDungeons,
+  Dungeon,
+  DungeonsAction,
+  finishWorldDungeons,
+  forgetWorldDungeons,
+  updateDungeon
+} from '../actions/dungeons';
 import { World } from '../actions/worlds';
 
 import * as _ from 'lodash';
+
+const u = require('updeep');
 
 export interface DungeonState {
   dungeons: {
@@ -45,6 +54,26 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
           ...state.byWorld,
           [action.payload.worldId]: action.payload.dungeons.map((i: Dungeon) => i.id)
         }
+      };
+
+    case getType(finishWorldDungeons):
+      const { worldId, isComplete, isMaster } = action.payload;
+
+      const dungeonUpdate: Partial<Dungeon> = {};
+      if (isComplete) {
+        dungeonUpdate.isComplete = true;
+      }
+      if (isMaster) {
+        dungeonUpdate.isMaster = true;
+      }
+
+      const updates = _.zipObject(
+        state.byWorld[worldId],
+        _.times(state.byWorld[worldId].length, () => dungeonUpdate)
+      );
+      return {
+        ...state,
+        dungeons: u.update(updates, state.dungeons),
       };
 
     case getType(forgetWorldDungeons):

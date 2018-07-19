@@ -1,6 +1,6 @@
 import { dungeons, DungeonState } from '../dungeons';
 
-import { Dungeon, forgetWorldDungeons } from '../../actions/dungeons';
+import { Dungeon, finishWorldDungeons, forgetWorldDungeons } from '../../actions/dungeons';
 
 function makeDungeon(id: number, name: string, isComplete = false, isMaster = false): Dungeon {
   return {
@@ -43,6 +43,36 @@ function makeDungeonState(): DungeonState {
 }
 
 describe('dungeons reducer', () => {
+  describe('finishWorldDungeons', () => {
+    it('updates completed', () => {
+      const state = makeDungeonState();
+
+      const newState = dungeons(state, finishWorldDungeons(100, { isComplete: true }));
+
+      expect(newState.dungeons[1].isComplete).toEqual(true);
+      expect(newState.dungeons[2].isComplete).toEqual(true);
+      expect(newState.dungeons[1].isMaster).toEqual(false);
+      expect(newState.dungeons[2].isMaster).toEqual(false);
+
+      expect(newState.dungeons[3].isComplete).toEqual(false);
+      expect(newState.dungeons[4].isComplete).toEqual(false);
+    });
+
+    it('updates completed and mastered', () => {
+      const state = makeDungeonState();
+
+      const newState = dungeons(state, finishWorldDungeons(100, { isComplete: true, isMaster: true }));
+
+      expect(newState.dungeons[1].isComplete).toEqual(true);
+      expect(newState.dungeons[2].isComplete).toEqual(true);
+      expect(newState.dungeons[1].isMaster).toEqual(true);
+      expect(newState.dungeons[2].isMaster).toEqual(true);
+
+      expect(newState.dungeons[3].isComplete).toEqual(false);
+      expect(newState.dungeons[4].isComplete).toEqual(false);
+    });
+  });
+
   describe('forgetWorldDungeons', () => {
     it('forgets loaded dungeons', () => {
       const state = makeDungeonState();
