@@ -12,11 +12,11 @@ import * as dungeonsSchemas from '../api/schemas/dungeons';
 import * as mainSchemas from '../api/schemas/main';
 import { ItemType } from '../data/items';
 import { IState } from '../reducers';
+import { DungeonState } from '../reducers/dungeons';
 import { Handler, StartupHandler } from './types';
 
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';
-import { DungeonState } from '../reducers/dungeons';
 
 const buttonStyleSort: {[s: string]: number} = {
   NORMAL: 0,
@@ -290,7 +290,8 @@ function convertWorlds(worlds: mainSchemas.World[], events: mainSchemas.Event[],
  * Checks the status summary counts for Realm worlds against the last loaded
  * dungeon lists for each world to update them if needed.
  */
-function checkForUpdatedWorldDungeons(worlds: mainSchemas.World[], dungeons: DungeonState, dispatch: Dispatch<IState>) {
+function checkForUpdatedWorldDungeons(worlds: mainSchemas.World[], dungeons: DungeonState, dispatch: Dispatch<IState>,
+                                      now: number = Date.now()) {
   const describe = (description: string, summary: { master_count: number, clear_count: number } | undefined) =>
     summary ? ` ${description} ${summary.master_count}/${summary.clear_count}/x,` : '';
 
@@ -301,16 +302,16 @@ function checkForUpdatedWorldDungeons(worlds: mainSchemas.World[], dungeons: Dun
       continue;
     }
 
+    const newLength = w.dungeon_term_list.filter(i => +i.opened_at < (now / 1000)).length;
     logger.debug(`World ${w.name}:`
       + describe('normal', summary1)
       + describe('elite', summary2)
-      + ` ${w.dungeon_term_list.length} total`);
+      + ` ${w.dungeon_term_list.length} total, ${newLength} current`);
 
     if (!dungeons.byWorld[w.id]) {
       continue;
     }
 
-    const newLength = w.dungeon_term_list.length;
     const newCompleted = summary1.clear_count + summary2.clear_count;
     const newMastered = summary1.master_count + summary2.master_count;
 
