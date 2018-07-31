@@ -71,7 +71,7 @@ export function recordMateria(state: RecordMateriaState = initialState,
 
       state = u.update(toObtainedUpdate(state.recordMateria, ids), state);
 
-      if (state.inventory != null) {
+      if (action.payload.updateInventory && state.inventory != null) {
         state = u.update(toInventoryListUpdate(ids), state);
       }
 

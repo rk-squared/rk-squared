@@ -147,10 +147,11 @@ export const setRecordMateria = createAction('SET_RECORD_MATERIA',
 
 /// Obtained one or more record materia (for example, from winning a battle)
 export const obtainRecordMateria = createAction('OBTAIN_RECORD_MATERIA',
-  (id: number | number[]) => ({
+  (id: number | number[], updateInventory = true) => ({
     type: 'OBTAIN_RECORD_MATERIA',
     payload: {
-      id
+      id,
+      updateInventory
     }
   })
 );

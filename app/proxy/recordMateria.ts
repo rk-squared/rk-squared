@@ -108,7 +108,7 @@ export function checkLevel50RecordMateria(
     .map(rm => rm.id);
 
   if (obtained.length) {
-    store.dispatch(obtainRecordMateria(obtained));
+    store.dispatch(obtainRecordMateria(obtained, false));
   }
 }
 

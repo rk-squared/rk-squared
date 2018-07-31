@@ -300,10 +300,19 @@ export interface GetBattleInit {
   };
 }
 
+// http://ffrk.denagames.com/dff/party/list
+// Record dungeons use a similar but restricted schema.  For example:
+// http://ffrk.denagames.com/dff/event/original_scenario/11002/party/list?dungeon_id=40100217
 export interface PartyList {
   buddies: Buddy[];
 
+  // Not present for original_scenario
   record_materias: OwnedRecordMateria[];
+
+  // Not present for original_scenario
+  record_materias_warehouse: Array<{
+    record_materia_id: number;
+  }>;
 
   sphere_materials: Array<{
     created_at: Timestamp;

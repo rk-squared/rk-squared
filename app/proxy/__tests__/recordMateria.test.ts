@@ -89,7 +89,9 @@ describe('recordMateria proxy handler', () => {
     // TODO: A bug in redux-mock-store typings means we need this explicit cast (here and elsewhere)
     recordMateriaHandler.win_battle(winBattleData, store as Redux.Store<IState>);
 
-    expect(store.getActions()).toEqual([{payload: {id: [111050021]}, type: 'OBTAIN_RECORD_MATERIA'}]);
+    expect(store.getActions()).toEqual([
+      {payload: {id: [111050021], updateInventory: true}, type: 'OBTAIN_RECORD_MATERIA'}
+    ]);
   });
 
   describe('buddy/evolve', () => {
