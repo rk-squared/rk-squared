@@ -3,15 +3,16 @@
  * Support for tracking world and dungeon rewards and completion status
  */
 
-import { Store } from 'redux';
+import { Dispatch, Store } from 'redux';
 
-import { addWorldDungeons, updateDungeon } from '../actions/dungeons';
+import { addWorldDungeons, finishWorldDungeons, forgetWorldDungeons, updateDungeon } from '../actions/dungeons';
 import { unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
 import * as schemas from '../api/schemas';
 import * as dungeonsSchemas from '../api/schemas/dungeons';
 import * as mainSchemas from '../api/schemas/main';
 import { ItemType } from '../data/items';
 import { IState } from '../reducers';
+import { DungeonState } from '../reducers/dungeons';
 import { Handler, StartupHandler } from './types';
 
 import * as _ from 'lodash';
@@ -237,55 +238,116 @@ export function convertWorld(event: mainSchemas.Event, world: mainSchemas.World,
   };
 }
 
+function convertWorlds(worlds: mainSchemas.World[], events: mainSchemas.Event[],
+                       textMaster: mainSchemas.TextMaster): {[id: number]: World} {
+  const result: {[id: number]: World} = {};
+
+  const worldsById = _.zipObject(worlds.map(i => i.id), worlds);
+
+  const seenWorlds = new Set<number>();
+
+  let totalUnknown = 0;
+  for (const e of events) {
+    const world = worldsById[e.world_id];
+    if (world == null) {
+      logger.error(`Unknown world for {e.id}`);
+      continue;
+    }
+    seenWorlds.add(e.world_id);
+
+    const resultWorld = convertWorld(e, world, textMaster);
+
+    if (resultWorld == null) {
+      logger.error(`Unknown: ${e.world_id} (${world.name})`);
+      totalUnknown++;
+    } else {
+      result[world.id] = resultWorld;
+    }
+  }
+
+  for (const w of worlds) {
+    if (!seenWorlds.has(w.id)) {
+      result[w.id] = {
+        id: w.id,
+        name: w.name,
+        category: WorldCategory.Realm,
+        openedAt: w.opened_at,
+        closedAt: w.closed_at,
+        seriesId: w.series_id,
+        isUnlocked: w.is_unlocked,
+      };
+    }
+  }
+
+  if (totalUnknown) {
+    logger.error(`Found ${totalUnknown} unknown worlds`);
+  }
+
+  return result;
+}
+
+/**
+ * Checks the status summary counts for Realm worlds against the last loaded
+ * dungeon lists for each world to update them if needed.
+ */
+function checkForUpdatedWorldDungeons(worlds: mainSchemas.World[], dungeons: DungeonState, dispatch: Dispatch<IState>,
+                                      now: number = Date.now()) {
+  const describe = (description: string, summary: { master_count: number, clear_count: number } | undefined) =>
+    summary ? ` ${description} ${summary.master_count}/${summary.clear_count}/x,` : '';
+
+  for (const w of _.sortBy(worlds, 'id')) {
+    const summary1 = (w.dungeon_status_summary || {})[1];
+    const summary2 = (w.dungeon_status_summary || {})[2];
+    if (!summary1 || !summary2 || !w.dungeon_term_list || w.dungeon_term_list.length === 0) {
+      continue;
+    }
+
+    const newLength = w.dungeon_term_list.filter(i => +i.opened_at < (now / 1000)).length;
+    logger.debug(`World ${w.name}:`
+      + describe('normal', summary1)
+      + describe('elite', summary2)
+      + ` ${w.dungeon_term_list.length} total, ${newLength} current`);
+
+    if (!dungeons.byWorld[w.id]) {
+      continue;
+    }
+
+    const newCompleted = summary1.clear_count + summary2.clear_count;
+    const newMastered = summary1.master_count + summary2.master_count;
+
+    const worldDungeons = dungeons.byWorld[w.id].map(i => dungeons.dungeons[i]);
+    const oldLength = worldDungeons.length;
+    const oldCompleted = _.sumBy(worldDungeons, i => +i.isComplete);
+    const oldMastered = _.sumBy(worldDungeons, i => +i.isMaster);
+    logger.debug(`  loaded ${worldDungeons.length}, completed ${oldCompleted}, mastered ${oldMastered}`);
+
+    if (oldLength > newLength) {
+      logger.warn(`Unexpected world / dungeon results for ${w.id}: ${oldLength} vs. ${newLength}`);
+      dispatch(forgetWorldDungeons(w.id));
+    } else if (newLength > oldLength) {
+      logger.debug(`  New dungeons have been released for ${w.id}`);
+      dispatch(forgetWorldDungeons(w.id));
+    } else {
+      const isNewComplete = newCompleted === newLength && newCompleted > oldCompleted;
+      const isNewMaster = newMastered === newLength && newMastered > oldMastered;
+      if (isNewComplete || isNewMaster) {
+        // Note: This log message simplifies isNewComplete vs. isNewMaster, but it should suffice.
+        logger.debug(`  ${w.id} was ${isNewMaster ? 'mastered' : 'completed'} without our knowledge`);
+        dispatch(finishWorldDungeons(w.id, { isComplete: isNewComplete, isMaster: isNewMaster }));
+      }
+      // TODO? Could do even more here - e.g., if all of summary1 is completed, mark all non-elite as complete
+    }
+  }
+}
+
 // noinspection JSUnusedGlobalSymbols
 const dungeonsHandler: Handler = {
   [StartupHandler]: (data: mainSchemas.Main, store: Store<IState>) => {
-    const result: {[id: number]: World} = {};
-
     const { worlds, events } = data.appInitData;
 
-    const worldsById = _.zipObject(worlds.map(i => i.id), worlds);
+    store.dispatch(updateWorlds(convertWorlds(worlds, events, data.textMaster)));
 
-    const seenWorlds = new Set<number>();
-
-    let totalUnknown = 0;
-    for (const e of events) {
-      const world = worldsById[e.world_id];
-      if (world == null) {
-        logger.error(`Unknown world for {e.id}`);
-        continue;
-      }
-      seenWorlds.add(e.world_id);
-
-      const resultWorld = convertWorld(e, world, data.textMaster);
-
-      if (resultWorld == null) {
-        logger.error(`Unknown: ${e.world_id} (${world.name})`);
-        totalUnknown++;
-      } else {
-        result[world.id] = resultWorld;
-      }
-    }
-
-    for (const w of worlds) {
-      if (!seenWorlds.has(w.id)) {
-        result[w.id] = {
-          id: w.id,
-          name: w.name,
-          category: WorldCategory.Realm,
-          openedAt: w.opened_at,
-          closedAt: w.closed_at,
-          seriesId: w.series_id,
-          isUnlocked: w.is_unlocked,
-        };
-      }
-    }
-
-    if (totalUnknown) {
-      logger.error(`Found ${totalUnknown} unknown worlds`);
-    }
-    store.dispatch(updateWorlds(result));
-
+    checkForUpdatedWorldDungeons(worlds, store.getState().dungeons, store.dispatch);
     // FIXME: Track half-price dungeons; exclude dungeons that aren't open
   },
 

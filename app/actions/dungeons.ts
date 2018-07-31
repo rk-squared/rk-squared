@@ -82,6 +82,14 @@ export const addWorldDungeons = createAction('ADD_WORLD_DUNGEONS', (worldId: num
 }));
 
 /**
+ * Remove (forget) the list of dungeons for a world.
+ */
+export const forgetWorldDungeons = createAction('FORGET_WORLD_DUNGEONS', (worldId: number) => ({
+  type: 'FORGET_WORLD_DUNGEONS',
+  payload: worldId
+}));
+
+/**
  * Update the information on a single known dungeon.
  */
 export const updateDungeon = createAction('UPDATE_DUNGEON', (dungeonId: number, dungeon: Partial<Dungeon>) => ({
@@ -93,6 +101,20 @@ export const updateDungeon = createAction('UPDATE_DUNGEON', (dungeonId: number, 
 }));
 
 /**
+ * Mark an entire world's dungeons as completed and/or mastered.
+ */
+export const finishWorldDungeons = createAction('FINISH_WORLD_DUNGEONS',
+  (worldId: number, { isComplete, isMaster }: { isComplete?: boolean, isMaster?: boolean }) => ({
+    type: 'FINISH_WORLD_DUNGEONS',
+    payload: {
+      worldId,
+      isComplete,
+      isMaster,
+    },
+  })
+);
+
+/**
  * Instruct the app to load all unknown dungeons from the FFRK servers.
  */
 export const loadDungeons = createAction('LOAD_DUNGEONS', (worldIds: number[]) => ({
@@ -102,4 +124,10 @@ export const loadDungeons = createAction('LOAD_DUNGEONS', (worldIds: number[]) =
   }
 }));
 
-export type DungeonsAction = ReturnType<typeof addWorldDungeons | typeof updateDungeon | typeof loadDungeons>;
+export type DungeonsAction = ReturnType<
+  typeof addWorldDungeons |
+  typeof finishWorldDungeons |
+  typeof forgetWorldDungeons |
+  typeof updateDungeon |
+  typeof loadDungeons
+>;

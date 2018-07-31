@@ -43,7 +43,7 @@ export interface World {
     closed_at: TimestampString;
     id: string;
     type: string;
-    opened: TimestampString;
+    opened_at: TimestampString;
   }>;
   series_formal_name: string;
   id: number;
