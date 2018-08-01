@@ -13,7 +13,7 @@ import * as mainSchemas from '../api/schemas/main';
 import { ItemType } from '../data/items';
 import { IState } from '../reducers';
 import { DungeonState } from '../reducers/dungeons';
-import { Handler, StartupHandler } from './types';
+import { Handler, HandlerRequest, StartupHandler } from './types';
 
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';
@@ -351,7 +351,7 @@ const dungeonsHandler: Handler = {
     // FIXME: Track half-price dungeons; exclude dungeons that aren't open
   },
 
-  dungeons(data: dungeonsSchemas.Dungeons, store: Store<IState>, query?: any) {
+  dungeons(data: dungeonsSchemas.Dungeons, store: Store<IState>, { query }: HandlerRequest) {
     if (!query || !query.world_id) {
       logger.error('Unrecognized dungeons query');
       return;

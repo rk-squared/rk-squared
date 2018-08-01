@@ -8,7 +8,7 @@ import { Store } from 'redux';
 import * as schemas from '../api/schemas';
 import * as charactersSchemas from '../api/schemas/characters';
 import * as recordMateriaSchemas from '../api/schemas/recordMateria';
-import { Handler } from './types';
+import { Handler, HandlerRequest } from './types';
 
 import { IState } from '../reducers';
 
@@ -137,12 +137,12 @@ const recordMateriaHandler: Handler = {
   },
 
   'set_favorite_record_materia'(data: recordMateriaSchemas.SetFavoriteRecordMateria, store: Store<IState>,
-                                query?: any, requestBody?: any) {
-    if (typeof(requestBody) !== 'object' || !requestBody.id_to_flag) {
-      logger.warn(`Unknown POST request for set_favorite_record_materia: ${requestBody}`);
+                                request: HandlerRequest) {
+    if (typeof(request.body) !== 'object' || !request.body.id_to_flag) {
+      logger.warn(`Unknown POST request for set_favorite_record_materia: ${request.body}`);
       return;
     }
-    const post = requestBody as recordMateriaSchemas.SetFavoriteRecordMateriaPost;
+    const post = request.body as recordMateriaSchemas.SetFavoriteRecordMateriaPost;
     _.forEach(post.id_to_flag, (value, id) => {
       store.dispatch(updateRecordMateriaInventory(+id, { favorite: !!value }));
     });
@@ -159,35 +159,35 @@ const recordMateriaHandler: Handler = {
   },
 
   'warehouse/store_record_materias'(data: schemas.WarehouseStoreRecordMaterias, store: Store<IState>,
-                                    query?: any, requestBody?: any) {
-    if (typeof(requestBody) !== 'object' || !requestBody.ids) {
-      logger.warn(`Unknown POST request for warehouse/store_record_materias: ${requestBody}`);
+                                    request: HandlerRequest) {
+    if (typeof(request.body) !== 'object' || !request.body.ids) {
+      logger.warn(`Unknown POST request for warehouse/store_record_materias: ${request.body}`);
       return;
     }
-    const post = requestBody as schemas.WarehouseStoreRecordMateriasPost;
+    const post = request.body as schemas.WarehouseStoreRecordMateriasPost;
     _.forEach(post.ids, id => {
       store.dispatch(updateRecordMateriaInventory(id, { inventory: false }));
     });
   },
 
   'warehouse/bring_record_materias'(data: schemas.WarehouseBringRecordMaterias, store: Store<IState>,
-                                    query?: any, requestBody?: any) {
-    if (typeof(requestBody) !== 'object' || !requestBody.ids) {
-      logger.warn(`Unknown POST request for warehouse/bring_record_materias: ${requestBody}`);
+                                    request: HandlerRequest) {
+    if (typeof(request.body) !== 'object' || !request.body.ids) {
+      logger.warn(`Unknown POST request for warehouse/bring_record_materias: ${request.body}`);
       return;
     }
-    const post = requestBody as schemas.WarehouseBringRecordMateriasPost;
+    const post = request.body as schemas.WarehouseBringRecordMateriasPost;
     _.forEach(post.ids, id => {
       store.dispatch(updateRecordMateriaInventory(id, { inventory: true }));
     });
   },
 
-  'buddy/evolve'(data: charactersSchemas.BuddyEvolve, store: Store<IState>, query?: any, requestBody?: any) {
-    if (typeof(requestBody) !== 'object' || requestBody.exec == null) {
-      logger.warn(`Unknown POST request for buddy/evolve: ${requestBody}`);
+  'buddy/evolve'(data: charactersSchemas.BuddyEvolve, store: Store<IState>, request: HandlerRequest) {
+    if (typeof(request.body) !== 'object' || request.body.exec == null) {
+      logger.warn(`Unknown POST request for buddy/evolve: ${request.body}`);
       return;
     }
-    const post = requestBody as charactersSchemas.BuddyEvolvePost;
+    const post = request.body as charactersSchemas.BuddyEvolvePost;
 
     if (!post.exec) {
       return;

@@ -152,7 +152,7 @@ function checkHandlers(
   for (const handler of handlers) {
     for (const fragment of fragments) {
       if (handler[fragment]) {
-        const newData = handler[fragment](data, store, reqQuery, reqBody);
+        const newData = handler[fragment](data, store, { query: reqQuery, body: reqBody, url: reqUrl });
         if (newData !== undefined) {
           changed = true;
           data = newData;

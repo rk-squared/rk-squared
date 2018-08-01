@@ -7,7 +7,7 @@ import { Store } from 'redux';
 
 import * as schemas from '../api/schemas';
 import * as charactersSchemas from '../api/schemas/characters';
-import { Handler } from './types';
+import { Handler, HandlerRequest } from './types';
 
 import { IState } from '../reducers';
 
@@ -45,12 +45,12 @@ const charactersHandler: Handler = {
     }
   },
 
-  'grow_egg/use'(data: charactersSchemas.GrowEggUse, store: Store<IState>, query?: any, requestBody?: any) {
-    if (typeof(requestBody) !== 'object' || requestBody.exec == null) {
-      logger.warn(`Unknown POST request for grow_egg/use: ${requestBody}`);
+  'grow_egg/use'(data: charactersSchemas.GrowEggUse, store: Store<IState>, request: HandlerRequest) {
+    if (typeof(request.body) !== 'object' || request.body.exec == null) {
+      logger.warn(`Unknown POST request for grow_egg/use: ${request.body}`);
       return;
     }
-    const post = requestBody as charactersSchemas.GrowEggUsePost;
+    const post = request.body as charactersSchemas.GrowEggUsePost;
 
     if (!post.exec) {
       return;
@@ -59,12 +59,12 @@ const charactersHandler: Handler = {
     store.dispatch(setCharacter(convertCharacter(data.buddy)));
   },
 
-  'buddy/evolve'(data: charactersSchemas.BuddyEvolve, store: Store<IState>, query?: any, requestBody?: any) {
-    if (typeof(requestBody) !== 'object' || requestBody.exec == null) {
-      logger.warn(`Unknown POST request for buddy/evolve: ${requestBody}`);
+  'buddy/evolve'(data: charactersSchemas.BuddyEvolve, store: Store<IState>, request: HandlerRequest) {
+    if (typeof(request.body) !== 'object' || request.body.exec == null) {
+      logger.warn(`Unknown POST request for buddy/evolve: ${request.body}`);
       return;
     }
-    const post = requestBody as charactersSchemas.BuddyEvolvePost;
+    const post = request.body as charactersSchemas.BuddyEvolvePost;
 
     if (!post.exec) {
       return;

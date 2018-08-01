@@ -87,7 +87,7 @@ describe('recordMateria proxy handler', () => {
     const store = mockStore();
 
     // TODO: A bug in redux-mock-store typings means we need this explicit cast (here and elsewhere)
-    recordMateriaHandler.win_battle(winBattleData, store as Redux.Store<IState>);
+    recordMateriaHandler.win_battle(winBattleData, store as Redux.Store<IState>, {});
 
     expect(store.getActions()).toEqual([
       {payload: {id: [111050021], updateInventory: true}, type: 'OBTAIN_RECORD_MATERIA'}
@@ -100,7 +100,7 @@ describe('recordMateria proxy handler', () => {
       const store = mockStore();
 
       recordMateriaHandler['buddy/evolve'](
-        buddyEvolve50.data, store as Redux.Store<IState>, undefined, buddyEvolve50.requestBody
+        buddyEvolve50.data, store as Redux.Store<IState>, { body: buddyEvolve50.requestBody }
       );
 
       expect(store.getActions()).toEqual([{
@@ -118,7 +118,7 @@ describe('recordMateria proxy handler', () => {
       const store = mockStore();
 
       recordMateriaHandler['buddy/evolve'](
-        buddyEvolve50Preview.data, store as Redux.Store<IState>, undefined, buddyEvolve50Preview.requestBody
+        buddyEvolve50Preview.data, store as Redux.Store<IState>, { body: buddyEvolve50Preview.requestBody }
       );
 
       expect(store.getActions()).toEqual([]);
@@ -129,7 +129,7 @@ describe('recordMateria proxy handler', () => {
       const store = mockStore();
 
       recordMateriaHandler['buddy/evolve'](
-        buddyEvolve65.data, store as Redux.Store<IState>, undefined, buddyEvolve65.requestBody
+        buddyEvolve65.data, store as Redux.Store<IState>, { body: buddyEvolve65.requestBody }
       );
 
       // Whether materia are unlocked is derived from character information, so

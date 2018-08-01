@@ -28,7 +28,7 @@ describe('characters proxy handler', () => {
       const mockStore = configureStore<IState>();
       const store = mockStore();
 
-      charactersHandler['win_battle'](winBattleData, store as Redux.Store<IState>, undefined, growEggUsePost);
+      charactersHandler['win_battle'](winBattleData, store as Redux.Store<IState>, { body: growEggUsePost });
 
       expect(store.getActions()).toEqual([{
         type: 'UPDATE_CHARACTER',
@@ -47,7 +47,7 @@ describe('characters proxy handler', () => {
       const mockStore = configureStore<IState>();
       const store = mockStore();
 
-      charactersHandler['grow_egg/use'](growEggUseData, store as Redux.Store<IState>, undefined, growEggUsePost);
+      charactersHandler['grow_egg/use'](growEggUseData, store as Redux.Store<IState>, { body: growEggUsePost });
 
       expect(store.getActions()).toEqual([{
         type: 'SET_CHARACTER',
@@ -68,7 +68,7 @@ describe('characters proxy handler', () => {
       const store = mockStore();
 
       charactersHandler['buddy/evolve'](
-        buddyEvolve50.data, store as Redux.Store<IState>, undefined, buddyEvolve50.requestBody
+        buddyEvolve50.data, store as Redux.Store<IState>, { body: buddyEvolve50.requestBody }
       );
 
       expect(store.getActions()).toEqual([{
@@ -88,7 +88,7 @@ describe('characters proxy handler', () => {
       const store = mockStore();
 
       charactersHandler['buddy/evolve'](
-        buddyEvolve50Preview.data, store as Redux.Store<IState>, undefined, buddyEvolve50Preview.requestBody
+        buddyEvolve50Preview.data, store as Redux.Store<IState>, { body: buddyEvolve50Preview.requestBody }
       );
 
       expect(store.getActions()).toEqual([]);
