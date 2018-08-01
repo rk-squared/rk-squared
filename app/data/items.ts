@@ -16,6 +16,9 @@ export enum ItemType {
   RecordMateria = 'record_materia',
   Relic = 'equipment',
   UpgradeMaterial = 'equipment_sp_material',
+
+  // Special case: Not a normal item, but useful for cases like dungeon chests
+  DropItem = 'drop_item',
 }
 export type ItemTypeName =
   'ABILITY' |
@@ -34,6 +37,10 @@ export type ItemTypeName =
   'RECORD_TEAR' |
   'SPHERE_MATERIAL';
 
+export enum DropItemId {
+  Chest1Star = 100007,
+}
+
 export const itemTypeDescription: { [t in ItemType]: string } = {
   [ItemType.Ability]: 'Abilities',
   [ItemType.Arcana]: 'Arcana',
@@ -42,6 +49,7 @@ export const itemTypeDescription: { [t in ItemType]: string } = {
   [ItemType.CrystalWater]: 'Crystal Water',
   [ItemType.DarkMatter]: 'Dark Matter',
   [ItemType.DressRecord]: 'Dress Records',
+  [ItemType.DropItem]: 'Item Drops',
   [ItemType.GrowthEgg]: 'Growth Eggs',
   [ItemType.Orb]: 'Orbs',
   [ItemType.Magicite]: 'Magicite',

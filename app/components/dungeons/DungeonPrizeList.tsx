@@ -8,6 +8,8 @@ import { PrizeList } from './PrizeList';
 
 import * as _ from 'lodash';
 
+const alwaysShow = (type: ItemType) => type === ItemType.DropItem;
+
 interface Props {
   dungeons: Dungeon[];
   showItemType: { [t in ItemType]: boolean };
@@ -18,7 +20,7 @@ interface Props {
 export class DungeonPrizeList extends React.Component<Props> {
   render() {
     const { dungeons, showItemType, ...props } = this.props;
-    const prizes = _.filter(getAvailablePrizes(dungeons), (p: PrizeItem) => showItemType[p.type]);
+    const prizes = _.filter(getAvailablePrizes(dungeons), (p: PrizeItem) => alwaysShow(p.type) || showItemType[p.type]);
     return <PrizeList {...props} prizes={prizes} showTooltips={true}/>;
   }
 }
