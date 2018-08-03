@@ -5,7 +5,13 @@
 
 import { Dispatch, Store } from 'redux';
 
-import { addWorldDungeons, finishWorldDungeons, forgetWorldDungeons, updateDungeon } from '../actions/dungeons';
+import {
+  addWorldDungeons,
+  Dungeon,
+  finishWorldDungeons,
+  forgetWorldDungeons, openDungeonChest,
+  updateDungeon
+} from '../actions/dungeons';
 import { unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
 import * as schemas from '../api/schemas';
 import * as dungeonsSchemas from '../api/schemas/dungeons';
@@ -30,6 +36,11 @@ const buttonStyleSort: {[s: string]: number} = {
  */
 const effectiveDifficulty = (difficulty: number) => difficulty === 0 ? Infinity : difficulty;
 
+/**
+ * Sorts record dungeons using the dungeon node map.  Returns a list of sorted
+ * dungeons, followed by a list of dungeons that couldn't be sorted.  (That
+ * should never happen.)
+ */
 function sortDungeonsByNode(dungeonData: dungeonsSchemas.Dungeons)
   : [dungeonsSchemas.Dungeon[], dungeonsSchemas.Dungeon[]] {
   const dungeonList = dungeonData.dungeons;
@@ -149,8 +160,21 @@ export function convertGradePrizeItems(dungeon: dungeonsSchemas.Dungeon) {
   };
 }
 
-export function convertWorldDungeons(data: dungeonsSchemas.Dungeons) {
-  return sortDungeons(data).map(d => ({
+export function addRecordDungeonChests(dungeons: Dungeon[], nodes: dungeonsSchemas.DungeonNode[]) {
+  const dungeonObject = _.keyBy(dungeons, 'id');
+  for (const i of nodes) {
+    if (i.remaining_treasure_num) {
+      if (!dungeonObject[i.dungeon_id]) {
+        logger.warn(`Saw dungeon chests for unknown dungeon ${i.dungeon_id}`);
+      } else {
+        dungeonObject[i.dungeon_id].dungeonChests = i.remaining_treasure_num;
+      }
+    }
+  }
+}
+
+export function convertWorldDungeons(data: dungeonsSchemas.Dungeons): Dungeon[] {
+  const dungeons = sortDungeons(data).map(d => ({
     name: d.name,
     id: d.id,
     seriesId: d.series_id,
@@ -169,6 +193,12 @@ export function convertWorldDungeons(data: dungeonsSchemas.Dungeons) {
       ...convertGradePrizeItems(d),
     }
   }));
+
+  if (data.dungeon_list_nodes) {
+    addRecordDungeonChests(dungeons, data.dungeon_list_nodes);
+  }
+
+  return dungeons;
 }
 
 export function convertWorld(event: mainSchemas.Event, world: mainSchemas.World,
@@ -361,8 +391,6 @@ const dungeonsHandler: Handler = {
 
     store.dispatch(unlockWorld(query.world_id));
     store.dispatch(addWorldDungeons(query.world_id, newDungeons));
-
-    // FIXME: Track remaining Record Dungeon treasures?
   },
 
   win_battle(data: schemas.WinBattle, store: Store<IState>) {
@@ -377,7 +405,13 @@ const dungeonsHandler: Handler = {
         }));
       }
     }
-  }
+  },
+
+  progress_battle_list_gimmick(data: dungeonsSchemas.ProgressBattleListGimmick, store: Store<IState>) {
+    if (data.gimmick_effect.effect && data.gimmick_effect.effect.prize_master) {
+      store.dispatch(openDungeonChest(data.user.dungeon_id));
+    }
+  },
 };
 
 export default dungeonsHandler;

@@ -1,8 +1,8 @@
 import { dungeons, DungeonState } from '../dungeons';
 
-import { Dungeon, finishWorldDungeons, forgetWorldDungeons } from '../../actions/dungeons';
+import { Dungeon, finishWorldDungeons, forgetWorldDungeons, openDungeonChest } from '../../actions/dungeons';
 
-function makeDungeon(id: number, name: string, isComplete = false, isMaster = false): Dungeon {
+function makeDungeon(id: number, name: string, dungeonChests = 0): Dungeon {
   return {
     name,
     id,
@@ -12,12 +12,14 @@ function makeDungeon(id: number, name: string, isComplete = false, isMaster = fa
     seriesId: 0,
 
     isUnlocked: true,
-    isComplete: isComplete || false,
-    isMaster: isMaster || false,
+    isComplete: false,
+    isMaster: false,
 
     difficulty: 0,
     totalStamina: 1,
     staminaList: [1],
+
+    dungeonChests,
 
     prizes: {
       completion: [],
@@ -34,10 +36,12 @@ function makeDungeonState(): DungeonState {
       2: makeDungeon(2, 'Two'),
       3: makeDungeon(3, 'Alpha'),
       4: makeDungeon(4, 'Beta'),
+      5: makeDungeon(5, 'Record', 2),
     },
     byWorld: {
       100: [1, 2],
       200: [3, 4],
+      300: [5],
     }
   };
 }
@@ -100,6 +104,16 @@ describe('dungeons reducer', () => {
 
       expect(newState.byWorld[100]).toEqual([1, 2]);
       expect(newState.byWorld[200]).toEqual([3, 4]);
+    });
+  });
+
+  describe('openDungeonChest', () => {
+    it('updates dungeon chest count', () => {
+      const state = makeDungeonState();
+
+      const newState = dungeons(state, openDungeonChest(5));
+
+      expect(newState.dungeons[5].dungeonChests).toEqual(1);
     });
   });
 });

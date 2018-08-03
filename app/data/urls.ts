@@ -23,6 +23,10 @@ export function characterImage(id: number): string {
   return url(`image/buddy/${id}/${id}.png`);
 }
 
+export function dropItemImage(id: number): string {
+  return url(`ab/battle/drop_icon/${id}.png`);
+}
+
 export function magiciteImage(id: number): string {
   // Magicite skill image: purple circle background
   // return url(`image/beast_active_skill/${id}1/${id}1_128.png`);
@@ -72,5 +76,7 @@ export function itemImage(id: number, type: ItemType): string {
       return url(`image/buddy/${buddyId}/${id}/${id}.png`);
     case ItemType.RecordMateria:
       return recordMateriaImage(id);
+    case ItemType.DropItem:
+      return dropItemImage(id);
   }
 }

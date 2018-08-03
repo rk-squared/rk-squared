@@ -1,5 +1,6 @@
 import { ItemTypeName } from '../../data/items';
 import { Asset, AssetCollection, NumberAsString, RelativeUrlPath, Timestamp } from './common';
+import { User } from './user';
 
 export enum NodeType {
   // noinspection JSUnusedGlobalSymbols
@@ -103,4 +104,29 @@ export interface Dungeons {
   dungeon_id_node_id_map?: Array<{
     [id: string]: string;
   }>;
+}
+
+// Sample URL: http://ffrk.denagames.com/dff/event/original_scenario/11002/progress_battle_list_gimmick
+export interface ProgressBattleListGimmick {
+  user: User;
+  gimmick: {
+    id: number;
+    has_shown: number;
+  };
+  gimmick_effect: {
+    // We've only ever observed one gimmick (treasure chests), but others may
+    // exist, so leave lots of flexibility in what we expect here.
+    item_possession_limits?: Array<{
+      current_num: number;
+      item_type_name: string;
+      max_num: number;
+      enable_give_num: number;
+    }>;
+    effect?: {
+      assets: AssetCollection;
+      prize_master: {
+        [id: string]: DungeonPrizeItem;
+      };
+    };
+  };
 }
