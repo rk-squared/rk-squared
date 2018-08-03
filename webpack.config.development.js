@@ -151,9 +151,12 @@ module.exports = merge(baseConfig, {
 
     new webpack.NoEmitOnErrorsPlugin(),
 
-    // NODE_ENV should be production so that modules do not perform certain development checks
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
+      // NODE_ENV should be non-production so that modules perform certain development checks
+      'process.env.NODE_ENV': JSON.stringify('development'),
+
+      // ag-Grid depends on being able to temporarily mutate objects.
+      'process.env.UPDEEP_MODE': JSON.stringify('dangerously_never_freeze'),
     }),
 
     new webpack.LoaderOptionsPlugin({
