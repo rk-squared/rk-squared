@@ -3,6 +3,7 @@ import { default as charactersHandler } from '../characters';
 
 import * as Redux from 'redux';
 import configureStore from 'redux-mock-store';
+import * as url from 'url';
 
 const growEggUseData = require('./data/grow_egg_use.json');
 const growEggUsePost = {
@@ -21,8 +22,23 @@ const growEggUsePost = {
 const winBattleData = require('./data/challenge_win_battle.json');
 const buddyEvolve50 = require('./data/buddy_evolve_50.json');
 const buddyEvolve50Preview = require('./data/buddy_evolve_50_preview.json');
+const recordDungeonPartyList = require('./data/record_dungeon_party_list.json');
 
 describe('characters proxy handler', () => {
+  describe('party/list', () => {
+    it('does nothing for Record Dungeons', () => {
+      const mockStore = configureStore<IState>();
+      const store = mockStore();
+
+      charactersHandler['party/list'](
+        recordDungeonPartyList, store as Redux.Store<IState>,
+        { url: url.parse(recordDungeonPartyList.url) }
+      );
+
+      expect(store.getActions()).toEqual([]);
+    });
+  });
+
   describe('win_battle', () => {
     it('updates characters', () => {
       const mockStore = configureStore<IState>();

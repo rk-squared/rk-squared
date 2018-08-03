@@ -29,7 +29,7 @@ function convertFile(filename: string) {
 
   const capture = fs.readJsonSync(filename);
 
-  const newData: any = { data: capture.data };
+  const newData: any = { url: capture.url, data: capture.data };
   if (capture.requestBody) {
     newData.requestBody = capture.requestBody;
   }

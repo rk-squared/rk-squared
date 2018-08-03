@@ -31,7 +31,10 @@ export function convertCharacters(data: schemas.PartyList): { [id: number]: Char
 }
 
 const charactersHandler: Handler = {
-  'party/list'(data: schemas.PartyList, store: Store<IState>) {
+  'party/list'(data: schemas.PartyList, store: Store<IState>, request: HandlerRequest) {
+    if (schemas.isRecordDungeonPartyList(request.url)) {
+      return;
+    }
     store.dispatch(setCharacters(convertCharacters(data)));
   },
 

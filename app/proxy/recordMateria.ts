@@ -124,7 +124,11 @@ const recordMateriaHandler: Handler = {
     checkLevel50RecordMateria(store, newRecordMateria, level50Characters);
   },
 
-  'party/list'(data: schemas.PartyList, store: Store<IState>) {
+  'party/list'(data: schemas.PartyList, store: Store<IState>, request: HandlerRequest) {
+    if (schemas.isRecordDungeonPartyList(request.url)) {
+      return;
+    }
+
     store.dispatch(setRecordMateriaInventory(
       _.map(data.record_materias, i => i.id),
       _.map(_.filter(data.record_materias, i => i.is_favorite), i => i.id),

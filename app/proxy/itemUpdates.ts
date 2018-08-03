@@ -104,6 +104,8 @@ const itemUpdatesHandler: Handler = {
   },
 
   'party/list'(data: schemas.PartyList) {
+    // No need to check isRecordDungeonPartyList, as long as we're only
+    // looking for new / previously unknown items.
     checkPartyItems(data.equipment_hyper_evolve_materials, ItemType.DarkMatter);
     checkPartyItems(data.equipment_sp_materials, ItemType.UpgradeMaterial);
     checkPartyItems(data.materials, ItemType.Orb);

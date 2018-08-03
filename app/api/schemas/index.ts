@@ -1,3 +1,5 @@
+import { UrlWithStringQuery } from 'url';
+
 import { ItemTypeName } from '../../data/items';
 import {
   AssetCollection,
@@ -298,6 +300,10 @@ export interface GetBattleInit {
       [assetKey: string]: ContentPath;
     }
   };
+}
+
+export function isRecordDungeonPartyList(url: UrlWithStringQuery | undefined) {
+  return url && url.pathname && url.pathname.includes('original_scenario/');
 }
 
 // http://ffrk.denagames.com/dff/party/list
