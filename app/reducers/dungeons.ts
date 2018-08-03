@@ -5,7 +5,7 @@ import {
   Dungeon,
   DungeonsAction,
   finishWorldDungeons,
-  forgetWorldDungeons,
+  forgetWorldDungeons, openDungeonChest,
   updateDungeon
 } from '../actions/dungeons';
 import { World } from '../actions/worlds';
@@ -56,7 +56,7 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
         }
       };
 
-    case getType(finishWorldDungeons):
+    case getType(finishWorldDungeons): {
       const { worldId, isComplete, isMaster } = action.payload;
 
       const dungeonUpdate: Partial<Dungeon> = {};
@@ -75,6 +75,7 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
         ...state,
         dungeons: u.update(updates, state.dungeons),
       };
+    }
 
     case getType(forgetWorldDungeons):
       if (!state.byWorld[action.payload]) {
@@ -85,7 +86,16 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
         byWorld: _.omit(state.byWorld, action.payload),
       };
 
-    case getType(updateDungeon):
+    case getType(openDungeonChest): {
+      const { dungeonId } = action.payload;
+      const dungeon = (state.dungeons[dungeonId] || {});
+      if (!dungeon.dungeonChests) {
+        return state;
+      }
+      return u.updateIn(['dungeons', dungeonId, 'dungeonChests'], dungeon.dungeonChests - 1, state);
+    }
+
+    case getType(updateDungeon): {
       const { dungeonId, dungeon } = action.payload;
       if (!state.dungeons[dungeonId]) {
         // Missing dungeon info - no sense in storing incomplete info.
@@ -101,6 +111,7 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
           }
         }
       };
+    }
 
     /* istanbul ignore next */
     default:

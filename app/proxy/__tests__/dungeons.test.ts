@@ -1,6 +1,11 @@
-import { convertGradePrizeItems, convertWorld, sortDungeons } from '../dungeons';
+import { convertGradePrizeItems, convertWorld, default as dungeonsHandler, sortDungeons } from '../dungeons';
+
+import * as Redux from 'redux';
+import configureStore from 'redux-mock-store';
 
 import { WorldCategory } from '../../actions/worlds';
+
+import { IState } from '../../reducers';
 
 import * as _ from 'lodash';
 
@@ -171,7 +176,9 @@ describe('dungeons proxy handler', () => {
         subcategorySortOrder: undefined,
       });
     });
+  });
 
+  describe('dungeons handler', () => {
     it('sorts Record Dungeons', () => {
       const data = require('./data/untrodden_paths_dungeons.json');
       const sortedDungeonNames = sortDungeons(data).map(i => i.name);
@@ -224,6 +231,24 @@ describe('dungeons proxy handler', () => {
       const totalCount = (name: string) => _.sum(prizes.unclaimedGrade.filter(i => i.name === name).map(i => i.amount));
       expect(totalCount('Record Rubies')).toEqual(160);
       expect(totalCount('Power Crystal')).toEqual(10);
+    });
+  });
+
+  describe('battle gimmick handler', () => {
+    it('handles Record Dungeon chests', () => {
+      const data = require('./data/progress_battle_list_gimmick.json');
+
+      const mockStore = configureStore<IState>();
+      const store = mockStore();
+
+      dungeonsHandler['progress_battle_list_gimmick'](data.data, store as Redux.Store<IState>, {});
+
+      expect(store.getActions()).toEqual([{
+        type: 'OPEN_DUNGEON_CHEST',
+        payload: {
+          dungeonId: 40100225,
+        },
+      }]);
     });
   });
 });

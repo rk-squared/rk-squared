@@ -25,7 +25,7 @@ export interface Dungeon {
   difficulty: number;
   totalStamina: number;
   staminaList: number[];
-  recordDungeonChests?: number | undefined;     // Unclaimed record dungeon chests
+  dungeonChests?: number | undefined;     // Unclaimed record dungeon chests
 
   prizes: {
     completion: PrizeItem[];
@@ -36,7 +36,7 @@ export interface Dungeon {
   };
 }
 
-function makeRecordDungeonChestPrizeItem(amount: number): PrizeItem {
+function makeDungeonChestPrizeItem(amount: number): PrizeItem {
   return {
     type: ItemType.DropItem,
     amount,
@@ -49,7 +49,7 @@ export function hasAvailablePrizes(dungeon: Dungeon): boolean {
   const unclaimedGrade = dungeon.prizes.unclaimedGrade || [];
   return !dungeon.isComplete || !dungeon.isMaster
     || unclaimedGrade.length !== 0
-    || (dungeon.recordDungeonChests || 0) !== 0;
+    || (dungeon.dungeonChests || 0) !== 0;
 }
 
 export function getAvailablePrizes(dungeonOrDungeons: Dungeon | Dungeon[]): PrizeItem[] {
@@ -83,9 +83,9 @@ export function getAvailablePrizes(dungeonOrDungeons: Dungeon | Dungeon[]): Priz
   const ids = Object.keys(result).sort();
   const sortedPrizes = ids.map(i => result[+i]);
 
-  const recordDungeonChests = _.sumBy(dungeons, 'recordDungeonChests');
-  if (recordDungeonChests) {
-    sortedPrizes.push(makeRecordDungeonChestPrizeItem(recordDungeonChests));
+  const dungeonChests = _.sumBy(dungeons, i => i.dungeonChests || 0);
+  if (dungeonChests) {
+    sortedPrizes.push(makeDungeonChestPrizeItem(dungeonChests));
   }
 
   return sortedPrizes;
@@ -145,10 +145,18 @@ export const loadDungeons = createAction('LOAD_DUNGEONS', (worldIds: number[]) =
   }
 }));
 
+export const openDungeonChest = createAction('OPEN_DUNGEON_CHEST', (dungeonId: number) => ({
+  type: 'OPEN_DUNGEON_CHEST',
+  payload: {
+    dungeonId
+  }
+}));
+
 export type DungeonsAction = ReturnType<
   typeof addWorldDungeons |
   typeof finishWorldDungeons |
   typeof forgetWorldDungeons |
+  typeof openDungeonChest |
   typeof updateDungeon |
   typeof loadDungeons
 >;

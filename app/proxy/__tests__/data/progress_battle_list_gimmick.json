@@ -1,0 +1,219 @@
+{
+  "data": {
+    "success": true,
+    "has_just_progress": true,
+    "user": {
+      "stamina_piece": 1070,
+      "soul_piece": 271,
+      "residual_stamina_piece": 0,
+      "start_time_of_today": 1533128400,
+      "stamina_recovery_time": 180,
+      "max_followee_num": 100,
+      "dungeon_id": 40100225,
+      "id": 5679473043701760,
+      "release_id": 7000,
+      "stamina_info": {
+        "additional_stamina": 0,
+        "current_max_stamina": 214,
+        "prev_max_stamina": 214,
+        "got_stamina_piece": 0
+      },
+      "func_tutorial_flags": {
+        "SS_EXP": false,
+        "NIGHTMARE_DUNGEON": true,
+        "EXTREME_CLOSE2": false,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR": true,
+        "ABILITY_MATERIAL_CONVERT": true,
+        "SORTIE_LIMITATION": false,
+        "EXTREME": false,
+        "DUNGEON_LIST": true,
+        "BUDDY_EVOLUTION": true,
+        "FIRST_ENTER_RECORD_DUNGEON": true,
+        "BOOK_ROOM2": true,
+        "SECOND_ANNIVERSARY": false,
+        "GROWEGG": true,
+        "LEGEND_MATERIA": true,
+        "RECORD_DIVE": true,
+        "FELLOW_LIST": true,
+        "OLD_ABILITY_GENERATION": false,
+        "FIRST_ENTER_BEAST_WORLD_LIST_2": true,
+        "DRESS_RECORD": true,
+        "SERIES": true,
+        "STAMINA_RECOVERY_AGENT": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_1": true,
+        "FELLOW": true,
+        "EQUIPMENT_HYPER_EVOLVE": true,
+        "PROGRESS_MAP": true,
+        "ABILITY_CHANGE": false,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_AFTER_UPDATE": true,
+        "OLD_HOME": true,
+        "RECORD_DUNGEON_FRAME_ART_BREAK": true,
+        "BEAST_DUNGEON_RARITY3_NUM3_CLEAR": true,
+        "PARTY_TOP": true,
+        "BATTLE_OPERATION": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_1": true,
+        "SS_MULTI": false,
+        "WDAY_DUNGEON_EXCHANGE_SHOP": true,
+        "SS_LIMITATION": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_3": true,
+        "EXTREME_MOVIE": true,
+        "COUNTDOWN_2016_DEFEAT_CNT_RESULT": false,
+        "FIRST_ANNIVERSARY": false,
+        "MO_INTRODUCTION_MOVIE": false,
+        "PARTY_MEMORY": true,
+        "BEAST_DUNGEON_RARITY4_ALL_CLEAR_1": false,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_2": true,
+        "OLD_QUEST": false,
+        "PROFILE": true,
+        "EXTREME_OPENING": true,
+        "ENHANCEMENT": true,
+        "LEGEND_SPHERE": true,
+        "ABILITY_DECOMPOSE": true,
+        "OLD_UI_REBORN": true,
+        "ABILITY_UPGRADE": true,
+        "SECOND_ENTER_BEAST_WORLD_LIST": true,
+        "BATTLE_LIST_2": true,
+        "SECOND_ENTER_BEAST_DUNGEON_LIST": true,
+        "LEAD_TO_SECOND_DUNGEON": true,
+        "MO_FORMAL": false,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_1": true,
+        "BUDDY_ADDITIONAL_STATUS_BONUS": true,
+        "EXTREME_CLOSING_MOVIE": true,
+        "OLD_ACHIEVEMENT_ROOM": true,
+        "OLD_BUFF_DEBUFF_TRAINING_FOR_BEGINNER": true,
+        "COUNTDOWN_2016_MOVIE": false,
+        "OLD_INVENTORY": false,
+        "ENHANCEMENT_TOP": true,
+        "FIRST_ENTER_BEAST_WORLD_LIST_1": true,
+        "FELLOW_PLUS": true,
+        "ABILITY_GENERATION": true,
+        "TEN_MILLION_DOWNLOAD_MOVIE": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_2": true,
+        "NEW_YEAR_2017": false,
+        "HAMMERING": true,
+        "RECORD_DUNGEON_BATTLE_LIST": true,
+        "MASTER_LEGEND_MATERIA": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_2": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_2": true,
+        "EQUIPMENT_CHANGE": true,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR_AFTER_UPDATE": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_1": true,
+        "BATTLE_LIST": true,
+        "PARTY_EDIT": true,
+        "FORCE_DUNGEON": true,
+        "ANYTIME_MUSIC_ROOM": true,
+        "EXTREME_CLOSE1": false,
+        "BEAST_WORLD_OPENING_MOVIE": true,
+        "BRAVE_SERIES_BONUS": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_2": true,
+        "INVENTORY": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR": false,
+        "BOOK_ROOM": true,
+        "OLD_ENHANCEMENT": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_1": true,
+        "MO_PARTY": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_BEAST_TOP": true,
+        "BEAST_INHERITANCE": true,
+        "EVOLUTION": true,
+        "SUPPRESS": true,
+        "SS_MULTI_AND_EXP": true,
+        "RECORD_TEAR": true,
+        "OLD_MISSION": true
+      },
+      "is_in_dungeon": true,
+      "name": "Yehosua",
+      "has_all_clear_ver_to_show": true,
+      "stamina": 103,
+      "can_review": true,
+      "tutorial_step": 255,
+      "followee_num": 97,
+      "stamina_recovery_remaining_time": 19835,
+      "gil": 75659256,
+      "is_update_last_logined_at": false,
+      "last_logined_at": 1533128875,
+      "is_tutorial_finish": true,
+      "max_follower_num": 100,
+      "max_stamina": 214
+    },
+    "SERVER_TIME": 1533172675,
+    "gimmick": {
+      "id": 210022503,
+      "has_shown": 1
+    },
+    "gimmick_effect": {
+      "item_possession_limits": [
+        {
+          "current_num": 5,
+          "item_type_name": "stamina_recovery_agent_amount_100",
+          "max_num": 5,
+          "enable_give_num": 0
+        },
+        {
+          "current_num": 94,
+          "item_type_name": "warehouse_of_beast",
+          "max_num": 150,
+          "enable_give_num": 56
+        },
+        {
+          "current_num": 100,
+          "item_type_name": "beast",
+          "max_num": 100,
+          "enable_give_num": 0
+        },
+        {
+          "current_num": 438,
+          "item_type_name": "warehouse_of_equipment",
+          "max_num": 450,
+          "enable_give_num": 12
+        },
+        {
+          "current_num": 157,
+          "item_type_name": "ability",
+          "max_num": 165,
+          "enable_give_num": 8
+        },
+        {
+          "current_num": 148,
+          "item_type_name": "equipment",
+          "max_num": 150,
+          "enable_give_num": 2
+        },
+        {
+          "current_num": 14,
+          "item_type_name": "beast_battle_ticket",
+          "max_num": 15,
+          "enable_give_num": 1
+        }
+      ],
+      "effect": {
+        "assets": {
+          "item-71000401": {
+            "bundle": {
+              "/Content/lang/ww/compile/en/image/record_tear/71000401/71000401_112.png": {
+                "hash": "2aGBfHwSbX2Vs9SOmHn6vw"
+              }
+            },
+            "assetPath": "/Content/lang/ww/compile/en/image/record_tear/71000401/71000401_112.png"
+          }
+        },
+        "prize_master": {
+          "71000401": {
+            "type_name": "RECORD_TEAR",
+            "addon_skill_id": 150000021,
+            "num": 3,
+            "name": "Magic Crystal Water",
+            "description": "Increases Magic by 1.",
+            "item_id": 71000401,
+            "assets": {
+              "item-71000401": "/Content/lang/ww/compile/en/image/record_tear/71000401/71000401_112.png"
+            },
+            "rarity": 1
+          }
+        }
+      }
+    }
+  },
+  "requestBody": {
+    "battle_list_gimmick_id": 210022503
+  }
+}

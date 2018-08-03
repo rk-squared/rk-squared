@@ -9,7 +9,7 @@ import {
   addWorldDungeons,
   Dungeon,
   finishWorldDungeons,
-  forgetWorldDungeons,
+  forgetWorldDungeons, openDungeonChest,
   updateDungeon
 } from '../actions/dungeons';
 import { unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
@@ -167,7 +167,7 @@ export function addRecordDungeonChests(dungeons: Dungeon[], nodes: dungeonsSchem
       if (!dungeonObject[i.dungeon_id]) {
         logger.warn(`Saw dungeon chests for unknown dungeon ${i.dungeon_id}`);
       } else {
-        dungeonObject[i.dungeon_id].recordDungeonChests = i.remaining_treasure_num;
+        dungeonObject[i.dungeon_id].dungeonChests = i.remaining_treasure_num;
       }
     }
   }
@@ -405,7 +405,13 @@ const dungeonsHandler: Handler = {
         }));
       }
     }
-  }
+  },
+
+  progress_battle_list_gimmick(data: dungeonsSchemas.ProgressBattleListGimmick, store: Store<IState>) {
+    if (data.gimmick_effect.effect && data.gimmick_effect.effect.prize_master) {
+      store.dispatch(openDungeonChest(data.user.dungeon_id));
+    }
+  },
 };
 
 export default dungeonsHandler;
