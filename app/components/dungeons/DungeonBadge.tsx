@@ -19,6 +19,8 @@ export const DungeonBadge = ({dungeons}: {dungeons: Dungeon[]}) => {
   // TODO: Highlight in red if about to expire?
   // TODO: Add Cid missions
   // TODO: Add a tooltip explaining mastered / completed / total syntax
+  // TODO: Mark dungeons that are not yet entered but that should be unlocked? (see access-controls branch)
+  // TODO: Dungeons that are mastered but have grade rewards should show as incomplete, here and in list
   const classes = `badge ${styles.component} ` + (hasUnlocked ? 'badge-primary' : 'badge-secondary');
   if (mastered === total) {
     return (
