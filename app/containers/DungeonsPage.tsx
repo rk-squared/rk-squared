@@ -6,6 +6,7 @@ import { loadDungeons } from '../actions/dungeons';
 import { Progress } from '../actions/progress';
 import { World } from '../actions/worlds';
 import { IState } from '../reducers';
+import { hasSessionState } from '../reducers/session';
 
 import { ProgressBar } from '../components/common/ProgressBar';
 import { DungeonsList } from '../components/dungeons/DungeonsList';
@@ -20,6 +21,7 @@ interface Props {
   };
   missingWorlds: number[];
   progress: Progress;
+  hasSession: boolean;
   dispatch: Dispatch<IState>;
 }
 
@@ -31,11 +33,11 @@ export class DungeonsPage extends React.Component<Props> {
   };
 
   render() {
-    const { worlds, missingWorlds, progress } = this.props;
+    const { worlds, missingWorlds, progress, hasSession } = this.props;
     const missingPrompt = missingWorlds.length === 1 ? '1 realm or event' : `${missingWorlds.length} realms and events`;
     return (
       <Page title="Dungeon Tracker">
-        {missingWorlds.length !== 0 && !progress &&
+        {missingWorlds.length !== 0 && hasSession && !progress &&
           <p>
             Dungeons for {missingPrompt} have not been loaded.{' '}
             <a href="#" onClick={this.handleLoad}>Load now?</a>
@@ -70,6 +72,7 @@ export default connect(
       Object.keys(state.worlds.worlds || {})
         .map(i => +i)
         .filter(i => (state.worlds.worlds || {})[i].isUnlocked && !state.dungeons.byWorld[i]),
-    progress: state.progress.dungeons
+    progress: state.progress.dungeons,
+    hasSession: hasSessionState(state.session),
   })
 )(DungeonsPage);
