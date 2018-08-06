@@ -65,15 +65,6 @@ export interface TextMaster {
 // Data extracted from the main http://ffrk.denagames.com/dff/ startup request
 export interface Main {
   appInitData: {
-    user: User;
-
-    user_stamina_recovery_agents: Array<{
-      num: number;
-      stamina_recovery_agent_id: number;  // 94100001 for stamina potions
-    }>;
-
-    worlds: World[];
-
     events: Event[];
 
     limited_rate_services?: Array<{
@@ -92,6 +83,15 @@ export interface Main {
       wait_sec_to_open: number;
       wait_sec_to_close: number;
     }>;
+
+    user: User;
+
+    user_stamina_recovery_agents: Array<{
+      num: number;
+      stamina_recovery_agent_id: number;  // 94100001 for stamina potions
+    }>;
+
+    worlds: World[];
   };
   textMaster: TextMaster;
 }
