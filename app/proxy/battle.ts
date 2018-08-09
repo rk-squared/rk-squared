@@ -202,24 +202,27 @@ function convertBattleDropItems(data: schemas.GetBattleInit): DropItem[] {
   return dropItems;
 }
 
+function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
+  store.dispatch(clearDropItems());
+}
+
 // noinspection JSUnusedGlobalSymbols
 const battleHandler: Handler = {
-  escape_battle(data: schemas.GetBattleInit, store: Store<IState>) {
+  'escape_battle'(data: schemas.GetBattleInit, store: Store<IState>) {
     store.dispatch(clearDropItems());
   },
 
-  get_battle_init_data(data: schemas.GetBattleInit, store: Store<IState>) {
+  'get_battle_init_data'(data: schemas.GetBattleInit, store: Store<IState>) {
     const items = convertBattleDropItems(data);
     store.dispatch(setDropItems(items));
   },
 
-  lose_battle(data: schemas.GetBattleInit, store: Store<IState>) {
+  'lose_battle'(data: schemas.GetBattleInit, store: Store<IState>) {
     store.dispatch(clearDropItems());
   },
 
-  win_battle(data: schemas.WinBattle, store: Store<IState>) {
-    store.dispatch(clearDropItems());
-  },
+  'win_battle': handleWinBattle,
+  'battle/win': handleWinBattle,
 };
 
 export default battleHandler;

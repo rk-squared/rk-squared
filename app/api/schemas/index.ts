@@ -396,6 +396,9 @@ export interface WorldBattles {
   }>;
 }
 
+// A POST of encoded data to a URL like
+// http://ffrk.denagames.com/dff/event/wday/607/win_battle or
+// http://ffrk.denagames.com/dff/battle/win
 export interface WinBattle {
   result: {
     clear_time_info: {
