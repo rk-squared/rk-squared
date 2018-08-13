@@ -106,7 +106,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
         />
         Gil
          ×
-        400000
+        400,000
       </li>
       <li
         data-for={undefined}

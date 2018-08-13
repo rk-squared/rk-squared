@@ -16,6 +16,11 @@ interface Props {
   className?: string;
 }
 
+// Gil amounts in particular can be quite large, so it's nice to include
+// commas.  However, toLocaleString is significantly slower than toString.
+// To accommodate, we'll try only invoking it if it looks likt we need it.
+const formatAmount = (amount: number) => amount >= 1000 ? amount.toLocaleString() : amount.toString();
+
 export class PrizeList extends React.PureComponent<Props> {
   render() {
     const { prizes, showTooltips, className } = this.props;
@@ -24,7 +29,7 @@ export class PrizeList extends React.PureComponent<Props> {
         {prizes.map((prize, i) =>
           <li key={i} data-tip={showTooltips} data-for={showTooltips ? `prize-tooltip-${prize.id}` : undefined}>
             <img src={itemImage(prize.id, prize.type)} width={32} height={32}/>
-            {prize.name} ×{prize.amount}
+            {prize.name} ×{formatAmount(prize.amount)}
             {showTooltips && prize.type === ItemType.Relic && enlir.relics[prize.id] &&
               <RelicTooltip id={`prize-tooltip-${prize.id}`} relicId={prize.id} place="bottom"/>
             }
