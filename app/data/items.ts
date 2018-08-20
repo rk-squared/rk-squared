@@ -13,6 +13,7 @@ export enum ItemType {
   Magicite = 'beast',
   MemoryCrystal = 'memory_crystal',
   Mote = 'sphere_material',
+  Music = 'music_ticket',
   RecordMateria = 'record_materia',
   Relic = 'equipment',
   UpgradeMaterial = 'equipment_sp_material',
@@ -33,6 +34,7 @@ export type ItemTypeName =
   'EQUIPMENT_SP_MATERIAL' |
   'GROW_EGG' |
   'MEMORY_CRYSTAL' |
+  'MUSIC_TICKET' |
   'RECORD_MATERIA' |
   'RECORD_TEAR' |
   'SPHERE_MATERIAL';
@@ -55,6 +57,7 @@ export const itemTypeDescription: { [t in ItemType]: string } = {
   [ItemType.Magicite]: 'Magicite',
   [ItemType.MemoryCrystal]: 'Memory Crystals',
   [ItemType.Mote]: 'Motes',
+  [ItemType.Music]: 'Music Records',
   [ItemType.RecordMateria]: 'Record Materia',
   [ItemType.Relic]: 'Relics',
   [ItemType.UpgradeMaterial]: 'Upgrades',

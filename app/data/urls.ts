@@ -78,5 +78,7 @@ export function itemImage(id: number, type: ItemType): string {
       return recordMateriaImage(id);
     case ItemType.DropItem:
       return dropItemImage(id);
+    case ItemType.Music:
+      return url('image/music_ticket/music_ticket.png');
   }
 }
