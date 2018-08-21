@@ -1,0 +1,33 @@
+:local {
+  :global(html), :global(body), :global(#root) {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  // Hack: Bootstrap expects its .navbar to be at the top or bottom,
+  // but we can override that to appear on the left.
+  .nav {
+    align-items: left;
+    flex-flow: column;
+
+    > :global(.navbar-brand) {
+      display: block;
+    }
+
+    > :global(.navbar-collapse) {
+      align-items: left;
+    }
+  }
+
+  .component {
+    height: 100%;
+
+    > :global(.row) {
+      height: 100%;
+
+      > .content {
+        overflow-y: auto;
+      }
+    }
+  }
+}
