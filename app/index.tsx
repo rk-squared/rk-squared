@@ -15,7 +15,7 @@ import * as faQuestion from '@fortawesome/fontawesome-free-solid/faQuestion';
 import * as faStar from '@fortawesome/fontawesome-free-solid/faStar';
 import * as faUnlock from '@fortawesome/fontawesome-free-solid/faUnlock';
 
-import Root from './containers/Root';
+import { Root } from './containers/Root';
 
 import './app.global.scss';
 
