@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy" rel="stylesheet">
+        <style>
+            h1 {
+                font-size: 12em;
+                color: transparent;
+                background: linear-gradient(#b8db4c, black);
+                -webkit-background-clip: text;
+                font-family: 'Sorts Mill Goudy';
+                -webkit-text-stroke-color: white;
+                -webkit-text-stroke-width: 0.5px;
+                paint-order: stroke fill;
+            }
+            h1.background {
+                position: absolute;
+                top: 0;
+                z-index: -1;
+                text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black,
+                    1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="background">RK²</h1>
+        <h1>RK²</h1>
+    </body>
+</html>

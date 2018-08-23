@@ -4,14 +4,14 @@ import { Provider, Store } from 'react-redux';
 import { History } from 'history';
 
 import { ConnectedRouter } from 'react-router-redux';
-import Routes from '../routes';
+import { Routes } from '../routes';
 
 interface IRootType {
   store: Store<any>;
   history: History;
 }
 
-export default function Root({ store, history }: IRootType) {
+export function Root({ store, history }: IRootType) {
   return (
     <Provider store={store}>
       <ConnectedRouter history={history}>

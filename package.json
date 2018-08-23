@@ -12,7 +12,7 @@
     "build-renderer": "cross-env NODE_ENV=production node ./node_modules/webpack/bin/webpack --config webpack.config.production.js --progress --profile --colors",
     "copy-json": "copyfiles --flat \"./app/data/*.json\" ./dist/app/data",
     "build": "tsc && npm run copy-json && npm run build-renderer",
-    "start": "cross-env NODE_ENV=production electron ./app/",
+    "start": "cross-env NODE_ENV=production electron .",
     "start-hot": "cross-env HOT=1 NODE_ENV=development electron .",
     "dev": "npm run hot-server -- --start-hot",
     "predev": "npm run copy-json",
