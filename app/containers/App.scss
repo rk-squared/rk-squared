@@ -7,11 +7,12 @@
   }
 
   // Hack: Bootstrap expects its .navbar to be at the top or bottom, but we can
-  // override that to appear on the left.
+  // override that to appear on the left.  Use !important to supersede
+  // Bootstrap's @media styles.
   .nav {
-    align-items: left;
-    flex-flow: column;
-    padding-top: $margin-top;
+    align-items: left !important;
+    flex-flow: column !important;
+    padding-top: $margin-top !important;
 
     > :global(.navbar-brand) {
       display: block;
