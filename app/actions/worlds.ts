@@ -79,7 +79,9 @@ function getSortOrder(category: WorldCategory) {
     case WorldCategory.Raid:
       return WorldSortOrder.ByTime;
     case WorldCategory.Torment:
-      return WorldSortOrder.BySeriesId;
+      // Old torments were sorted by series, but Neo Torments are listed by
+      // time.
+      return WorldSortOrder.ByTime;
     case WorldCategory.CrystalTower:
     case WorldCategory.Realm:
     case WorldCategory.Record:
@@ -89,7 +91,7 @@ function getSortOrder(category: WorldCategory) {
     case WorldCategory.Newcomer:
       return WorldSortOrder.ById;
     case WorldCategory.JumpStart:
-      // Jump Starts were ByTime, but, now that they're all open, by series
+      // Jump Starts were ByTime, but, once they were all open, by series
       // makes more sense.
       return WorldSortOrder.BySeriesId;
   }
