@@ -38,13 +38,13 @@ function addLocalItem({name, type_name, id}: PrizeItem) {
 
 function showLocalItem(item: PrizeItem) {
   const type = ItemTypeLookup[item.type_name];
-  logger.info('New (previously unknown) item: ' +
+  logger.info('New (previously unknown) item:\n' +
     `{\n  name: '${item.name}',\n  type: ItemType.${type},\n  id: ${item.id}\n},`);
 }
 
 function showLocalDressRecord({dress_record_id, name, buddy_id}
     : {dress_record_id: number, name: string, buddy_id: number}) {
-  logger.info('New (previously unknown) dress record: ' +
+  logger.info('New (previously unknown) dress record:\n' +
     `{\n  name: '${name}',\n  id: ${dress_record_id},\n  characterId: ${buddy_id},\n},`);
 }
 
@@ -56,6 +56,11 @@ function checkKnownEnlir(item: PrizeItem, enlirData: any) {
 
 function checkKnownItems(item: PrizeItem) {
   if (localItemsById[item.id] == null) {
+    if (item.type_name === 'MUSIC_TICKET') {
+      // Music tickets are regularly released and are easy to dynamically add,
+      // so we won't try tracking them ourselves.
+      return;
+    }
     showUnknownItem(item);
     addLocalItem(item);
     showLocalItem(item);

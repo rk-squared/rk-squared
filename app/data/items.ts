@@ -643,6 +643,36 @@ export const items = [
     type: ItemType.Orb,
     id: 40000104
   },
+  {
+    name: 'Chain Stoneja Record',
+    type: ItemType.Orb,
+    id: 40000105
+  },
+  {
+    name: 'Ironfist Earth Record',
+    type: ItemType.Orb,
+    id: 40000106
+  },
+  {
+    name: 'Ironfist Fire Record',
+    type: ItemType.Orb,
+    id: 40000107
+  },
+  {
+    name: 'Flash Disaster Record',
+    type: ItemType.Orb,
+    id: 40000108
+  },
+  {
+    name: 'Fire Assault Record',
+    type: ItemType.Orb,
+    id: 40000109
+  },
+  {
+    name: 'Storm Assault Record',
+    type: ItemType.Orb,
+    id: 40000110
+  },
 
   {
     name: 'Minor Growth Egg',
