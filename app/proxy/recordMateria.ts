@@ -76,7 +76,7 @@ export function convertRecordMateriaList(data: schemas.ReleasedRecordMateriaList
 
   for (const i of data.record_materias) {
     result[i.id] = {
-      name: i.name,
+      name: i.name.trim(), // Hack: Names like Yang's "Feat of Fabul " have a space on the end.
       id: i.id,
       description: i.description,
       condition: i.cond_description,
