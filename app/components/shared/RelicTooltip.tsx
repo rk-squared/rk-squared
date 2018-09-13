@@ -26,10 +26,10 @@ const separateWithBr = (lines: any[]) => {
 export class RelicTooltip extends React.PureComponent<Props & any> {
   render() {
     const { id, relicId, ...props } = this.props;
-    if (!enlir.relics[relicId]) {
+    const relic = enlir.relics[relicId];
+    if (!relic) {
       return null;
     }
-    const relic = enlir.relics[relicId];
 
     const lines = _.filter([
       `${relic.Rarity}★ ${enlir.types.relics[relic.RelicType]}`,

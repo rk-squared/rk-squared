@@ -64,9 +64,17 @@ export function itemImage(id: number, type: ItemType): string {
     case ItemType.Orb:
     case ItemType.UpgradeMaterial:
       return url(`image/${type}/${id}/${id}_112.png`);
-    case ItemType.Relic:
-      const rarity = enlir.relics[id].Rarity;
+    case ItemType.Relic: {
+      const relic = enlir.relics[id];
+
+      // For Octopath Traveler, a new collaboration event resulted in a 5*
+      // accessory that wasn't in Enlir.  It's probably safe to assume that any
+      // unknown relics are of that sort and that JP foresight will take care
+      // of the rest.
+      const rarity = relic ? relic.Rarity : 5;
+
       return url(`image/equipment/${id}/${id}_0${rarity}_112.png`);
+    }
     case ItemType.Character:
       return characterImage(id);
     case ItemType.DressRecord:
