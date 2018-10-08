@@ -12,6 +12,7 @@ import { Handler, HandlerRequest } from './types';
 
 import { IState } from '../reducers';
 
+import { setCharacter } from '../actions/characters';
 import {
   obtainRecordMateria,
   Order,
@@ -200,6 +201,22 @@ const recordMateriaHandler: Handler = {
     const execData = data as charactersSchemas.BuddyEvolveExec;
     if (execData.record_materia) {
       store.dispatch(updateRecordMateriaInventory(execData.record_materia.id, { inventory: true }));
+    }
+  },
+
+  'grow_egg/use'(data: charactersSchemas.GrowEggUse, store: Store<IState>, request: HandlerRequest) {
+    if (typeof(request.body) !== 'object' || request.body.exec == null) {
+      logger.warn(`Unknown POST request for grow_egg/use: ${request.body}`);
+      return;
+    }
+    const post = request.body as charactersSchemas.GrowEggUsePost;
+
+    if (!post.exec) {
+      return;
+    }
+
+    if (data.record_materia) {
+      store.dispatch(updateRecordMateriaInventory(data.record_materia.id, { inventory: true }));
     }
   },
 };

@@ -168,6 +168,7 @@ export interface GrowEggUsePost {
 export interface GrowEggUse {
   grow_eggs: GrowEgg[];
   buddy: Buddy;
+  record_materia?: RecordMateria;
   achieved_book_ids: number[];
   achieved_book_mission_ids: number[];
 }
