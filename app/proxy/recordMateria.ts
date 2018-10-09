@@ -12,7 +12,6 @@ import { Handler, HandlerRequest } from './types';
 
 import { IState } from '../reducers';
 
-import { setCharacter } from '../actions/characters';
 import {
   obtainRecordMateria,
   Order,
