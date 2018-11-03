@@ -33,10 +33,14 @@ export function setStoragePath(name: string) {
   storagePath = name;
 }
 
-export function getStoragePath(name: string) {
-  const result = path.join(storagePath, name);
-  fsExtra.ensureDirSync(result);
-  return result;
+export function getStoragePath(name?: string) {
+  if (name == null) {
+    return storagePath;
+  } else {
+    const result = path.join(storagePath, name);
+    fsExtra.ensureDirSync(result);
+    return result;
+  }
 }
 
 export function decodeData(data: Buffer, res: http.ServerResponse) {

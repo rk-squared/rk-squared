@@ -210,6 +210,7 @@
     "lodash-es": "^4.17.8",
     "logform": "^1.9.1",
     "moment": "^2.22.0",
+    "node-forge": "^0.7.6",
     "popper.js": "^1.14.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

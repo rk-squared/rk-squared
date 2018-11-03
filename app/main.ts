@@ -5,6 +5,7 @@ import * as path from 'path';
 const { replayActionMain } = require('electron-redux');
 
 import { createFfrkProxy } from './proxy/ffrk-proxy';
+import { createOrLoadCertificate } from './proxy/tls';
 import { configureStore, runSagas } from './store/configureStore.main';
 
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
@@ -276,6 +277,7 @@ app.on('ready', () =>
 
     const userDataPath = app.getPath('userData');
     fsExtra.ensureDirSync(userDataPath);
+    createOrLoadCertificate(userDataPath);
     createFfrkProxy(store, userDataPath);
   })
 );

@@ -32,6 +32,7 @@ export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
     yield put(setProgress('dungeons', {current: i, max: action.payload.worldIds.length}));
     logger.info(`Getting dungeons for world ${worldId}...`);
 
+    // FIXME: Show message on error
     const result = yield call(() =>
       axios.get(apiUrls.dungeons(worldId), sessionConfig(session))
       .then(response => {

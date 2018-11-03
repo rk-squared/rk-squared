@@ -3,6 +3,7 @@ import * as connect from 'connect';
 import * as fs from 'fs';
 import * as http from 'http';
 import * as httpProxy from 'http-proxy';
+import * as https from 'https';
 import * as moment from 'moment';
 import * as net from 'net';
 import * as path from 'path';
@@ -30,6 +31,7 @@ import { IState } from '../reducers';
 
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';
+import { getCertificate, tlsSites } from './tls';
 
 interface ProxyIncomingMessage extends http.IncomingMessage {
   bodyStream: streamBuffers.WritableStreamBuffer | undefined;
@@ -49,6 +51,8 @@ const handlers = [
 ];
 
 const ffrkRegex = /ffrk\.denagames\.com\/dff/;
+const port = 8888;
+const httpsPort = 8889;
 
 function isFfrkApiRequest(req: http.IncomingMessage) {
   return req.headers['accept']
@@ -292,6 +296,12 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   });
 
   const server = http.createServer(app);
+  const [ certPem, keyPem ] = getCertificate();
+  const httpsServer = https.createServer({
+    key: keyPem,
+    cert: certPem,
+    ca: certPem
+  }, app);
 
   server.on('error', e => {
     logger.debug('Error within server');
@@ -305,7 +315,11 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     logger.debug(`CONNECT ${req.url}`);
     store.dispatch(updateLastTraffic());
 
-    const serverUrl = url.parse(`https://${req.url}`);
+    let serverUrl = url.parse(`https://${req.url}`);
+    // Check for FFRK HTTPS requests in particular and proxy them internally.
+    if (serverUrl.hostname && tlsSites.indexOf(serverUrl.hostname) !== -1) {
+      serverUrl = url.parse(`https://127.0.0.1:${httpsPort}`);
+    }
     const serverPort = +(serverUrl.port || 80);
 
     let connected = false;
@@ -340,8 +354,6 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     });
   });
 
-  const port = 8888;
-
   let ipAddress: string[];
   const updateNetwork = () => {
     const newIpAddress = getIpAddresses();
@@ -355,4 +367,5 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   setInterval(updateNetwork, 60 * 1000);
 
   server.listen(port);
+  httpsServer.listen(httpsPort, '127.0.0.1');
 }
