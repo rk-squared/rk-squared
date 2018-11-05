@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-const pki = require('node-forge').pki;
+const { md, pki } = require('node-forge');
 
 import { logger } from '../utils/logger';
 
@@ -106,7 +106,7 @@ function createCertificate(): [string, string] {
     {
       name: 'subjectAltName',
       altNames: [
-        ...tlsSites.splice(1).map(site => ({
+        ...tlsSites.map(site => ({
           type: 2, // DNS - see https://tools.ietf.org/html/rfc5280#section-4.2.1.6
           value: site
         })),
@@ -120,7 +120,7 @@ function createCertificate(): [string, string] {
       name: 'subjectKeyIdentifier'
     }
   ]);
-  cert.sign(keys.privateKey);
+  cert.sign(keys.privateKey, md.sha256.create());
 
   return [
     pki.certificateToPem(cert),

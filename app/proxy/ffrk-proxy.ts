@@ -61,7 +61,7 @@ function isFfrkApiRequest(req: http.IncomingMessage) {
 }
 
 function isFfrkStartupRequest(req: http.IncomingMessage) {
-  return req.url === 'http://ffrk.denagames.com/dff/'
+  return (req.url === 'http://ffrk.denagames.com/dff/' || req.url === 'https://ffrk.denagames.com/dff/')
     && req.headers['accept']
     && req.headers['accept']!.indexOf('text/html') !== -1;
 }
@@ -290,9 +290,20 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
       req.pipe(proxyReq.bodyStream);
     }
 
+    const reqUrl = url.parse(req.url as string);
     proxy.web(req, res, {
-      target: `http://${req.headers.host}/`
+      target: reqUrl.protocol + '//' + reqUrl.host
     });
+  });
+
+  const tlsApp = connect();
+
+  tlsApp.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
+    const reqUrl = req.url as string;
+    const host = req.headers.host;
+    logger.debug(`TLS proxy: ${reqUrl}, Host: ${host}`);
+    req.url = `https://${host}${reqUrl}`;
+    app(req, res, next);
   });
 
   const server = http.createServer(app);
@@ -301,7 +312,7 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     key: keyPem,
     cert: certPem,
     ca: certPem
-  }, app);
+  }, tlsApp);
 
   server.on('error', e => {
     logger.debug('Error within server');
