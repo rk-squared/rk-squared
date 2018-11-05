@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { ProxyStatus } from '../actions/proxy';
 import { IState } from '../reducers';
 import { CollapsibleLink } from './common/CollapsibleLink';
+import { ProxyBypass, ProxyPort, ProxyServer } from './ProxyInstructions';
 
 interface Props {
   proxy: ProxyStatus;
@@ -22,14 +23,9 @@ export class AndroidInstructions extends React.Component<Props> {
           <li>
             Enter the following information:
             <ul>
-              <li>
-                Proxy host name:{' '}
-                {(proxy.ipAddress || []).map((ip, i) =>
-                  <span key={i}>{i === 0 ? '' : 'or '}<strong>{ip}</strong></span>
-                )}
-              </li>
-              <li>Proxy port: <strong>{proxy.port || ''}</strong></li>
-              <li>Bypass proxy for: <strong>127.0.0.1</strong></li>
+              <li>Proxy host name: <ProxyServer proxy={proxy}/></li>
+              <li>Proxy port: <ProxyPort proxy={proxy}/></li>
+              <li>Bypass proxy for: <ProxyBypass/></li>
             </ul>
           </li>
           <li>Tap &ldquo;Save.&rdquo;</li>

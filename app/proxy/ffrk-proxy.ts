@@ -227,10 +227,29 @@ function handleFfrkStartupRequest(
   return data;
 }
 
+function handleInternalRequests(req: http.IncomingMessage, res: http.ServerResponse, certPem: string) {
+  if (!req.url) {
+    return false;
+  }
+
+  const reqUrl = url.parse(req.url);
+  if ((reqUrl.host === 'www.rk-squared.com' || reqUrl.host === 'rk-squared.com')
+    && reqUrl.pathname === '/cert') {
+    res.setHeader('Content-Type', 'application/x-pem-file');
+    res.setHeader('Content-Disposition', 'attachment; filename=RKSquared.cer');
+    res.write(Buffer.from(certPem));
+    res.end();
+    return true;
+  }
+
+  return false;
+}
 
 export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   setStoragePath(userDataPath);
   store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
+
+  const [ certPem, keyPem ] = getCertificate();
 
   // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
@@ -284,6 +303,10 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     }
     */
 
+    if (handleInternalRequests(req, res, certPem)) {
+      return;
+    }
+
     if (req.url && req.url.match(ffrkRegex) && req.method === 'POST') {
       const proxyReq = req as ProxyIncomingMessage;
       proxyReq.bodyStream = new streamBuffers.WritableStreamBuffer();
@@ -307,7 +330,6 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   });
 
   const server = http.createServer(app);
-  const [ certPem, keyPem ] = getCertificate();
   const httpsServer = https.createServer({
     key: keyPem,
     cert: certPem,

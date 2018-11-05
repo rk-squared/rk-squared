@@ -128,6 +128,6 @@ function createCertificate(): [string, string] {
   ];
 }
 
-export function getCertificate() {
+export function getCertificate(): [string, string] {
   return [certPem, keyPem];
 }
