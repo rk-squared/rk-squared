@@ -59,7 +59,7 @@ function createCertificate(): [string, string] {
   const attrs = [
     {
       name: 'commonName',
-      value: tlsSites[0],
+      value: 'RK Squared',
     },
     {
       name: 'countryName',
@@ -88,20 +88,20 @@ function createCertificate(): [string, string] {
     {
       name: 'extKeyUsage',
       serverAuth: true,
-      clientAuth: true,
-      codeSigning: true,
-      emailProtection: true,
+      clientAuth: false,
+      codeSigning: false,
+      emailProtection: false,
       timeStamping: true
     },
     {
       name: 'nsCertType',
-      client: true,
+      client: false,
       server: true,
-      email: true,
-      objsign: true,
+      email: false,
+      objsign: false,
       sslCA: true,
-      emailCA: true,
-      objCA: true
+      emailCA: false,
+      objCA: false
     },
     {
       name: 'subjectAltName',
