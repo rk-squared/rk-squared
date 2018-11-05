@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import AndroidInstructions from './AndroidInstructions';
+import IosInstructions from './IosInstructions';
 import ProxyStatusDisplay from './ProxyStatusDisplay';
 
 export class Home extends React.Component {
@@ -13,12 +14,17 @@ export class Home extends React.Component {
         </p>
 
         <p>
-          Once that's done, it can automatically track and help you manage your game progress.
+          Depending on which mobile device you're using, you may also need to install a
+          <em>certificate</em> to let RK&sup2; impersonate the FFRK servers.
+        </p>
+
+        <p>
+          Once this is done, it can automatically track and help you manage your game progress.
         </p>
 
         <ProxyStatusDisplay/>
         <AndroidInstructions/>
-        <p>iPhone is not currently supported.</p>
+        <IosInstructions/>
       </div>
     );
   }

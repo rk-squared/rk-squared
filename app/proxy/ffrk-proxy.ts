@@ -3,6 +3,7 @@ import * as connect from 'connect';
 import * as fs from 'fs';
 import * as http from 'http';
 import * as httpProxy from 'http-proxy';
+import * as https from 'https';
 import * as moment from 'moment';
 import * as net from 'net';
 import * as path from 'path';
@@ -30,6 +31,7 @@ import { IState } from '../reducers';
 
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';
+import { getCertificate, tlsSites } from './tls';
 
 interface ProxyIncomingMessage extends http.IncomingMessage {
   bodyStream: streamBuffers.WritableStreamBuffer | undefined;
@@ -49,6 +51,8 @@ const handlers = [
 ];
 
 const ffrkRegex = /ffrk\.denagames\.com\/dff/;
+const port = 8888;
+const httpsPort = 8889;
 
 function isFfrkApiRequest(req: http.IncomingMessage) {
   return req.headers['accept']
@@ -57,7 +61,7 @@ function isFfrkApiRequest(req: http.IncomingMessage) {
 }
 
 function isFfrkStartupRequest(req: http.IncomingMessage) {
-  return req.url === 'http://ffrk.denagames.com/dff/'
+  return (req.url === 'http://ffrk.denagames.com/dff/' || req.url === 'https://ffrk.denagames.com/dff/')
     && req.headers['accept']
     && req.headers['accept']!.indexOf('text/html') !== -1;
 }
@@ -223,10 +227,29 @@ function handleFfrkStartupRequest(
   return data;
 }
 
+function handleInternalRequests(req: http.IncomingMessage, res: http.ServerResponse, certPem: string) {
+  if (!req.url) {
+    return false;
+  }
+
+  const reqUrl = url.parse(req.url);
+  if ((reqUrl.host === 'www.rk-squared.com' || reqUrl.host === 'rk-squared.com')
+    && reqUrl.pathname === '/cert') {
+    res.setHeader('Content-Type', 'application/x-pem-file');
+    res.setHeader('Content-Disposition', 'attachment; filename=RKSquared.cer');
+    res.write(Buffer.from(certPem));
+    res.end();
+    return true;
+  }
+
+  return false;
+}
 
 export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   setStoragePath(userDataPath);
   store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
+
+  const [ certPem, keyPem ] = getCertificate();
 
   // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
@@ -280,18 +303,38 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     }
     */
 
+    if (handleInternalRequests(req, res, certPem)) {
+      return;
+    }
+
     if (req.url && req.url.match(ffrkRegex) && req.method === 'POST') {
       const proxyReq = req as ProxyIncomingMessage;
       proxyReq.bodyStream = new streamBuffers.WritableStreamBuffer();
       req.pipe(proxyReq.bodyStream);
     }
 
+    const reqUrl = url.parse(req.url as string);
     proxy.web(req, res, {
-      target: `http://${req.headers.host}/`
+      target: reqUrl.protocol + '//' + reqUrl.host
     });
   });
 
+  const tlsApp = connect();
+
+  tlsApp.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
+    const reqUrl = req.url as string;
+    const host = req.headers.host;
+    logger.debug(`TLS proxy: ${reqUrl}, Host: ${host}`);
+    req.url = `https://${host}${reqUrl}`;
+    app(req, res, next);
+  });
+
   const server = http.createServer(app);
+  const httpsServer = https.createServer({
+    key: keyPem,
+    cert: certPem,
+    ca: certPem
+  }, tlsApp);
 
   server.on('error', e => {
     logger.debug('Error within server');
@@ -305,7 +348,11 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     logger.debug(`CONNECT ${req.url}`);
     store.dispatch(updateLastTraffic());
 
-    const serverUrl = url.parse(`https://${req.url}`);
+    let serverUrl = url.parse(`https://${req.url}`);
+    // Check for FFRK HTTPS requests in particular and proxy them internally.
+    if (serverUrl.hostname && tlsSites.indexOf(serverUrl.hostname) !== -1) {
+      serverUrl = url.parse(`https://127.0.0.1:${httpsPort}`);
+    }
     const serverPort = +(serverUrl.port || 80);
 
     let connected = false;
@@ -340,8 +387,6 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     });
   });
 
-  const port = 8888;
-
   let ipAddress: string[];
   const updateNetwork = () => {
     const newIpAddress = getIpAddresses();
@@ -355,4 +400,5 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   setInterval(updateNetwork, 60 * 1000);
 
   server.listen(port);
+  httpsServer.listen(httpsPort, '127.0.0.1');
 }
