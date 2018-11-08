@@ -1,14 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Options, setOption } from '../actions/options';
+import { Options, setOption as setOptionAction } from '../actions/options';
 import { IState } from '../reducers';
 import BrowserLink from './BrowserLink';
 
 const styles = require('./OptionsForm.scss');
-
-// FIXME: Best approach?
-// tslint:disable no-shadowed-variable
 
 const ENLIR = 'https://docs.google.com/spreadsheets/d/16K1Zryyxrh7vdKVF1f7eRrUAOC5wuzvC3q2gFLch6LQ/edit';
 const ENLIR_HELP = 'Open Enlir\'s Google Docs spreadsheet in your browser.';
@@ -115,6 +112,6 @@ export class OptionsForm extends React.Component<Props> {
 export default connect(
   ({ options, proxy }: IState) => ({ options, capturePath: proxy.capturePath }),
   dispatch => ({
-    setOption: (newOptions: Options) => dispatch(setOption(newOptions))
+    setOption: (newOptions: Options) => dispatch(setOptionAction(newOptions))
   })
 )(OptionsForm);
