@@ -18,7 +18,7 @@ const atkTable: TableDefinition = {
     {
       header: '(downside)',
       items: {
-        '15': [['Ricard', '1a'], ['Josef', '3']],
+        '15': [['Ricard', '1a'], ['Josef', '3'], ['Sice', '3']],
         '10x': [['Kain', '1b'], ['Irvine', '2'], ['Cid (XIV)', '1'], ['Noctis', '1']],
         '10': [['Berserker', '2'], ['Guy', '1'], ['Leon', '2'], ['Gau', '1'], ['Vaan', '1'], ['Delita', '1'],
           ['Nine', '1']],
@@ -226,7 +226,7 @@ const magTable: TableDefinition = {
       items: {
         '15': [['Krile', '3']],
         '13x': [['Rydia', '3']],
-        '10': [['Rydia', '2']],
+        '10': [['Rydia', '2'], ['Seven', '2']],
       }
     },
     {
@@ -341,7 +341,7 @@ const mndTable: TableDefinition = {
       header: 'Instrument',
       items: {
         25: [['Deuce', '3'], ['Eiko', '3']],
-        10: [['Deuce', '2']],
+        10: [['Deuce', '2'], ['Hilda', '1']],
       }
     },
     {

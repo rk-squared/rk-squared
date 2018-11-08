@@ -103,8 +103,8 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Cecil (Dark Knight)', '3'], ['Zeid', '3']],
         '1_3': [['Seifer', '2']],
-        '1_15': [['Zeid', '1'], ['Gaffgarion', '1']],
-        '13w': [['Exdeath', '2'], ['Zeid', '2']],
+        '1_15': [['Zeid', '1'], ['Gaffgarion', '1'], ['Sice', '1']],
+        '13w': [['Exdeath', '2'], ['Zeid', '2'], ['Sice', '2']],
       }
     },
     {
@@ -408,6 +408,12 @@ const magicTable: TableDefinition = {
       }
     },
     {
+      header: 'BLK Whip',
+      items: {
+        '1_3': [['Seven', '3']],
+      }
+    },
+    {
       header: 'BLK Lt. Armor',
       items: {
         '1_1': [['Cid Raines', '1']],
@@ -453,7 +459,7 @@ const magicTable: TableDefinition = {
 };
 
 const magicDualcastTable: TableDefinition = {
-  title: 'Black, Summon, White Dualcast',
+  title: 'Magic Dualcast',
   headers: ['20%', '15%', '13%', '8%'],
   contents: [['20w'], ['15w'], ['13w'], ['8w']],
   rows: [
@@ -477,7 +483,13 @@ const magicDualcastTable: TableDefinition = {
         '15w': [['Alma', '2'], ['Devout', '1b']],
         '8w': [['Devout', '1a'], ['Porom', '1']],
       }
-    }
+    },
+    {
+      header: 'Bard',
+      items: {
+        '13w': [['Hilda', '2']]
+      }
+    },
   ]
 };
 

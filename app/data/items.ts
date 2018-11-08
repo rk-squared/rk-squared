@@ -673,6 +673,36 @@ export const items = [
     type: ItemType.Orb,
     id: 40000110
   },
+  {
+    name: 'Lunar Leviathan Record',
+    type: ItemType.Orb,
+    id: 40000111
+  },
+  {
+    name: 'Sapphire Bullet Record',
+    type: ItemType.Orb,
+    id: 40000112
+  },
+  {
+    name: 'Chain Waterja Record',
+    type: ItemType.Orb,
+    id: 40000113
+  },
+  {
+    name: 'Dark Valefor Record',
+    type: ItemType.Orb,
+    id: 40000114
+  },
+  {
+    name: 'Lunatic Thunder Record',
+    type: ItemType.Orb,
+    id: 40000115
+  },
+  {
+    name: 'Tremor Assault Record',
+    type: ItemType.Orb,
+    id: 40000116
+  },
 
   {
     name: 'Minor Growth Egg',

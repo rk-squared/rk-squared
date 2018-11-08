@@ -77,8 +77,8 @@ const physicalPercentNonElementalTable: TableDefinition = {
   ]
 };
 
-const physicalPercentElementalTable: TableDefinition = {
-  title: '% PHY Elemental',
+const physicalElementalTable: TableDefinition = {
+  title: 'PHY Elemental and % PHY Elemental',
   headers: ['RM3', 'RM1-2'],
   contents: [['3'], ['2', '1']],
   rows: [
@@ -158,7 +158,7 @@ const blackNonElementalTable: TableDefinition = {
     {
       header: 'Single',
       items: {
-        3: [['Cloud of Darkness', '3'], ['Bard', '3']],
+        3: [['Cloud of Darkness', '3'], ['Bard', '3'], ['Hilda', '3']],
         2: [['Vivi', '2']],
       }
     },
@@ -341,6 +341,6 @@ const inflictStatusTable: TableDefinition = {
 };
 
 export default [
-  physicalNonElementalTable, physicalPercentNonElementalTable, physicalPercentElementalTable,
+  physicalNonElementalTable, physicalPercentNonElementalTable, physicalElementalTable,
   blackNonElementalTable, blackElementalTable, ninjaElementalTable, whiteDamageTable, healTable, inflictStatusTable
 ];

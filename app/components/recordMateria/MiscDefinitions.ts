@@ -91,7 +91,7 @@ const statusTable: TableDefinition = {
       header: 'M. Blink',
       items: {
         3: [['Vayne', '3']],
-        1: [['Ovelia', '1'], ['Reynn', '1']],
+        1: [['Ovelia', '1'], ['Reynn', '1'], ['Seven', '1']],
         low: [['Kimahri', '1b']],
       }
     },

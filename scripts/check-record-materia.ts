@@ -21,6 +21,7 @@ const allCharactersAndOrders = _.flatten(_.flatten(allRows.map(i => _.values(i.i
 const byCharacter: { [character: string]: { [order in Order]: boolean } } = {};
 for (const [ character, order ] of allCharactersAndOrders) {
   byCharacter[character] = byCharacter[character] || {};
+  // Note that it is not an error for an RM to appear in more than one category.
   byCharacter[character][order] = true;
 }
 
@@ -34,6 +35,6 @@ for (const character of _.sortBy(Object.keys(byCharacter))) {
   const orders = byCharacter[character];
   if (!hasAllOrders(orders)) {
     const orderString = _.sortBy(Object.keys(orders)).join(', ');
-    console.log(`${character}: have ${orderString}`);
+    console.log(`${character} is incomplete: have ${orderString}`);
   }
 }
