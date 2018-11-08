@@ -76,23 +76,6 @@ export class OptionsForm extends React.Component<Props> {
         </div>
 
         <div className="form-group">
-          <Checkbox id="hideNewcomerBanners" {...{options, setOption}}>
-            Hide Newcomers' Welcome Relic Draws
-          </Checkbox>
-          <HelpText>
-            <p>
-              The relics on the Newcomers' Welcome banners are outdated and are much
-              weaker than relics on current banners.  Most experienced players would
-              recommend not pulling on them.  <em>All</em> experienced players would
-              recommend not pulling on them at full price.
-            </p>
-            <p>
-              If you're not going to pull on them, why look at them?
-            </p>
-          </HelpText>
-        </div>
-
-        <div className="form-group">
           <Checkbox id="saveTrafficCaptures" {...{options, setOption}}>
             Save captured game traffic
           </Checkbox>

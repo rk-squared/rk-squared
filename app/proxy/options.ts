@@ -41,7 +41,7 @@ const staticBackgroundAsset = {
 };
 
 const optionsHandler: Handler = {
-  'get_battle_init_data'(data: schemas.GetBattleInit, store: Store<IState>) {
+  get_battle_init_data(data: schemas.GetBattleInit, store: Store<IState>) {
     const { alwaysShowTimer, staticBattleBackground } = store.getState().options;
     let changed = false;
 
@@ -65,19 +65,6 @@ const optionsHandler: Handler = {
 
     return undefined;
   },
-
-  'gacha/show'(data: schemas.GachaShow, store: Store<IState>) {
-    const { hideNewcomerBanners } = store.getState().options;
-
-    if (hideNewcomerBanners) {
-      data.series_list = data.series_list.filter(
-        i => !i.series_name.match(/^Newcomers' Welcome Relic Draw/)
-      );
-      return data;
-    }
-
-    return undefined;
-  }
 };
 
 export default optionsHandler;
