@@ -1,5 +1,7 @@
 import { createAction } from 'typesafe-actions';
 
+import { TimeT } from '../utils/timeUtils';
+
 import * as _ from 'lodash';
 
 export enum WorldCategory {
@@ -57,8 +59,8 @@ export interface World {
   subcategorySortOrder?: number;
   name: string;
   id: number;
-  openedAt: number;  // FIXME: Proper type for seconds-since-the-epoch
-  closedAt: number;
+  openedAt: TimeT;
+  closedAt: TimeT;
   seriesId: number;
   isUnlocked: boolean;
 }

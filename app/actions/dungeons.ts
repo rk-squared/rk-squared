@@ -1,5 +1,6 @@
 import { createAction } from 'typesafe-actions';
 import { DropItemId, ItemType } from '../data/items';
+import { TimeT } from '../utils/timeUtils';
 
 import * as _ from 'lodash';
 
@@ -14,8 +15,8 @@ export interface Dungeon {
   name: string;
   id: number;
 
-  openedAt: number;  // FIXME: Proper type for seconds-since-the-epoch
-  closedAt: number;
+  openedAt: TimeT;
+  closedAt: TimeT;
   seriesId: number;
 
   isUnlocked: boolean;
