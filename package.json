@@ -1,7 +1,7 @@
 {
   "name": "rk-squared",
   "productName": "RK Squared",
-  "version": "0.20.0",
+  "version": "1.0.0",
   "description": "RK Squared tracker for Final Fantasy Record Keeper",
   "main": "dist/app/main.js",
   "scripts": {
@@ -98,16 +98,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/irath96/electron-react-typescript-boilerplate.git"
+    "url": "git+https://github.com/rk-squared/rk-squared.git"
   },
   "author": {
-    "name": "Alexander Rath",
-    "email": "irath96@gmail.com",
-    "url": "https://github.com/irath96"
+    "name": "Josh Kelley",
+    "url": "https://github.com/joshkel"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/irath96/electron-react-typescript-boilerplate/issues"
+    "url": "https://github.com/rk-squared/rk-squared/issues"
   },
   "keywords": [
     "electron",
@@ -118,7 +117,7 @@
     "webpack",
     "react-hot"
   ],
-  "homepage": "https://github.com/irath96/electron-react-typescript-boilerplate#readme",
+  "homepage": "https://github.com/rk-squared/rk-squared#readme",
   "devDependencies": {
     "@types/cheerio": "^0.22.7",
     "@types/classnames": "^2.2.3",
