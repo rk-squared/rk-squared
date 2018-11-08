@@ -11,6 +11,7 @@
     "no-implicit-dependencies": [true, "dev"],
     "no-string-literal": false,
     "no-submodule-imports": [true, "@fortawesome/fontawesome-free-solid", "lodash-es", "redux-saga"],
+    "no-unused-expression": [true, "allow-fast-null-checks"],
     "no-var-requires": false,
     "object-literal-sort-keys": false,
     "semicolon": [true, "strict-bound-class-methods"],

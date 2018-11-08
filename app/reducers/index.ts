@@ -5,6 +5,7 @@ import { routerReducer as routing } from 'react-router-redux';
 import { battle, BattleState } from './battle';
 import { characters, CharacterState } from './characters';
 import { dungeons, DungeonState } from './dungeons';
+import { messages, MessagesState } from './messages';
 import { options, Options } from './options';
 import { prefs, PrefsState } from './prefs';
 import { progress, ProgressState } from './progress';
@@ -17,6 +18,7 @@ export interface IState {
   battle: BattleState;
   characters: CharacterState;
   dungeons: DungeonState;
+  messages: MessagesState;
   options: Options;
   prefs: PrefsState;
   progress: ProgressState;
@@ -32,6 +34,7 @@ export const rootReducer = combineReducers<IState>({
   characters,
   dungeons,
   options,
+  messages,
   prefs,
   progress,
   proxy,
@@ -45,4 +48,4 @@ export const rootReducer = combineReducers<IState>({
 });
 
 /// State keys to exclude from redux-persist
-export const blacklist = ['progress', 'proxy', 'session', 'routing'];
+export const blacklist = ['messages', 'progress', 'proxy', 'session', 'routing'];

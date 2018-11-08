@@ -10,11 +10,10 @@ let keyPem: string;
 
 export const tlsSites = ['ffrk.denagames.com'];
 
-export function createOrLoadCertificate(userDataPath: string) {
+export function createOrLoadCertificate(userDataPath: string, errorCallback?: (error: string) => void) {
   const certFilename = path.join(userDataPath, 'ffrk-cert.pem');
   const keyFilename = path.join(userDataPath, 'ffrk-key.pem');
 
-  // FIXME: Show message on error
   if (fs.existsSync(certFilename) && fs.existsSync(keyFilename)) {
     try {
       certPem = fs.readFileSync(certFilename).toString();
@@ -23,6 +22,7 @@ export function createOrLoadCertificate(userDataPath: string) {
     } catch (e) {
       logger.error('Failed to load certificates');
       logger.error(e);
+      errorCallback && errorCallback('Failed to load certificates: ' + e.what);
     }
   }
 
@@ -32,8 +32,9 @@ export function createOrLoadCertificate(userDataPath: string) {
     fs.writeFileSync(certFilename, certPem);
     fs.writeFileSync(keyFilename, keyPem);
   } catch (e) {
-    logger.error('Failed to load certificates');
+    logger.error('Failed to save certificates');
     logger.error(e);
+    errorCallback && errorCallback('Failed to save certificates: ' + e.what);
   }
 }
 

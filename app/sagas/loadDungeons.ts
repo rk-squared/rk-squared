@@ -3,6 +3,7 @@ import { call, put, select, takeEvery } from 'redux-saga/effects';
 import { getType } from 'typesafe-actions';
 
 import { addWorldDungeons, loadDungeons } from '../actions/dungeons';
+import { showDanger } from '../actions/messages';
 import { setProgress } from '../actions/progress';
 import { Session } from '../actions/session';
 import * as apiUrls from '../api/apiUrls';
@@ -32,7 +33,6 @@ export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
     yield put(setProgress('dungeons', {current: i, max: action.payload.worldIds.length}));
     logger.info(`Getting dungeons for world ${worldId}...`);
 
-    // FIXME: Show message on error
     const result = yield call(() =>
       axios.get(apiUrls.dungeons(worldId), sessionConfig(session))
       .then(response => {
@@ -41,7 +41,7 @@ export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
       })
       .catch(e => {
         logger.error(e);
-        return undefined;
+        return showDanger(e.message);
       })
     );
     if (result != null) {

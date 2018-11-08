@@ -9,6 +9,7 @@ import { createOrLoadCertificate } from './proxy/tls';
 import { configureStore, runSagas } from './store/configureStore.main';
 
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
+import { showDanger } from './actions/messages';
 
 /**
  * Hyperlinks that open in new windows instead open in a web browser.
@@ -277,7 +278,7 @@ app.on('ready', () =>
 
     const userDataPath = app.getPath('userData');
     fsExtra.ensureDirSync(userDataPath);
-    createOrLoadCertificate(userDataPath);
+    createOrLoadCertificate(userDataPath, (error: string) => store.dispatch(showDanger(error)));
     createFfrkProxy(store, userDataPath);
   })
 );
