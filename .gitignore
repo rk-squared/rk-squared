@@ -39,3 +39,7 @@ dist
 
 # RK Squared data
 captures
+
+# Credentials and temporary download data
+credentials.json
+scripts/tmp
