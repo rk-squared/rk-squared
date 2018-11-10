@@ -99,6 +99,16 @@ function getSortOrder(category: WorldCategory) {
   }
 }
 
+/**
+ * Far-future timestamps indicate a world that never closes - but different
+ * worlds may have different far-future timestamps.  (E.g., the FF15 torment's
+ * is a bit before the FF13 torment's.)  We want these to sort the same, so
+ * special-case far-future timestamps to accommodate.
+ *
+ * 2000000000 was chosen semi-arbitrarily; it corresponds to May 17, 2033.
+ */
+const getClosedAt = (world: any) => world.closedAt > 2000000000 ? Infinity : world.closedAt;
+
 export function getSorter(category: WorldCategory): (worlds: World[]) => World[] {
   switch (getSortOrder(category)) {
     case WorldSortOrder.BySeriesId:
@@ -108,7 +118,7 @@ export function getSorter(category: WorldCategory): (worlds: World[]) => World[]
     case WorldSortOrder.ByReverseId:
       return worlds => _.sortBy(worlds, i => -i.id);
     case WorldSortOrder.ByTime:
-      return worlds => _.sortBy(worlds, [(i: any) => -i.closedAt, (i: any) => -i.openedAt, 'id']);
+      return worlds => _.sortBy(worlds, [(i: any) => -getClosedAt(i), (i: any) => -i.openedAt, 'id']);
   }
 }
 
