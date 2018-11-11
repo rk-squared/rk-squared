@@ -71,7 +71,7 @@ export function itemImage(id: number, type: ItemType): string {
       // accessory that wasn't in Enlir.  It's probably safe to assume that any
       // unknown relics are of that sort and that JP foresight will take care
       // of the rest.
-      const rarity = relic ? relic.Rarity : 5;
+      const rarity = relic ? relic.rarity : 5;
 
       return url(`image/equipment/${id}/${id}_0${rarity}_112.png`);
     }

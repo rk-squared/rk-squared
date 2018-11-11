@@ -403,6 +403,13 @@ function convertRelics(rows: any[]): any[] {
 
       const field = _.camelCase(col);
       if (isStat(col)) {
+        // Hack: Duplicate the "normal" rarity at the relic level - it often
+        // make more sense there, especially for non-upgradeable relics like
+        // accessories.
+        if (field === 'rarity') {
+          item.rarity = toStat(field, rows[i][j]);
+        }
+
         item.stats = item.stats || {};
         item.stats[field] = toStat(field, rows[i][j]);
       } else if (isAltStat(col)) {
