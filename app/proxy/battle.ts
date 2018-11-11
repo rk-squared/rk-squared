@@ -42,7 +42,17 @@ const dropItemTypeName = {
 
 const toNumber = (x: number | string | undefined) => x == null ? undefined : +x;
 
-function normalizeItem(item: schemas.DropItem) {
+interface NormalizedItem {
+  rarity: number;
+  uid?: string;
+  type: number;
+  round?: number;
+  amount?: number;
+  num?: string;
+  item_id: number | undefined;
+}
+
+function normalizeItem(item: schemas.DropItem): NormalizedItem {
   return {
     ...item,
     item_id: toNumber(item.item_id),
@@ -68,6 +78,30 @@ function nameWithAmount(name: string, amount?: number) {
     return name;
   } else {
     return `${amount}× ${name}`;
+  }
+}
+
+function getTreasureDetails(id: number, item: NormalizedItem) {
+  if (enlir.magicites[id]) {
+    return {
+      name: enlir.magicites[id].MagiciteName,
+      imageUrl: urls.magiciteImage(id),
+    };
+  } else if (enlir.relics[id]) {
+    return {
+      name: enlir.relics[id].Description,
+      imageUrl: urls.relicImage(id, item.rarity),
+    };
+  } else if (itemsById[id]) {
+    const realItem = itemsById[id];
+    return {
+      name: realItem.name,
+      imageUrl: urls.itemImage(realItem.id, realItem.type),
+    };
+  } else {
+    return {
+      name: generateItemName(item)
+    };
   }
 }
 
@@ -116,28 +150,14 @@ function convertDropItemList(data: schemas.GetBattleInit, dropItemData: schemas.
         break;
       case DropItemType.Treasure: {
         const id = item.item_id as number;
-        let name: string;
-        if (enlir.magicites[id]) {
-          name = enlir.magicites[id].MagiciteName;
-          imageUrl = urls.magiciteImage(id);
-        } else if (enlir.relics[id]) {
-          name = enlir.relics[id].Description;
-          imageUrl = urls.relicImage(id, item.rarity);
-        } else if (itemsById[id]) {
-          const realItem = itemsById[id];
-          name = realItem.name;
-          imageUrl = urls.itemImage(realItem.id, realItem.type);
-        } else {
-          name = generateItemName(item);
-        }
-        // FIXME: Growth eggs, motes
+        const details = getTreasureDetails(id, item);
         dropItems.push({
           amount: item.amount,
           rarity: item.rarity,
           type: item.type,
-          name: nameWithAmount(name, item.amount),
+          name: nameWithAmount(details.name, item.amount),
           itemId: item.item_id,
-          imageUrl,
+          imageUrl: details.imageUrl || imageUrl,
         });
         break;
       }
@@ -186,7 +206,7 @@ function convertDropMateria(materia: {name: string, item_id: string | number}, d
   });
 }
 
-function convertBattleDropItems(data: schemas.GetBattleInit): DropItem[] {
+export function convertBattleDropItems(data: schemas.GetBattleInit): DropItem[] {
   const dropItems: DropItem[] = [];
   for (const round of data.battle.rounds) {
     convertDropItemList(data, round.drop_item_list, dropItems);

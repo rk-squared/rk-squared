@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RelicTooltip renders an accessory tooltip 1`] = `
+<div
+  className="__react_component_tooltip place-top type-dark "
+  data-id="tooltip"
+  id="test"
+>
+  <strong>
+    Star Pendant - Type-0
+  </strong>
+  <br />
+  4★ Accessory
+  <br />
+  Resistance 10
+  <br />
+  Poison immunity (moderate)
+</div>
+`;
+
+exports[`RelicTooltip renders nothing when given an unknown relic 1`] = `null`;
