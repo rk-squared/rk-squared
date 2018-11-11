@@ -39,6 +39,7 @@ const tokenPath = path.join(workPath, 'token.json');
 // Load client secrets from a local file.
 const enlirCredentials = require('../credentials.json');
 
+// noinspection SpellCheckingInspection
 const enlirSpreadsheetId = '16K1Zryyxrh7vdKVF1f7eRrUAOC5wuzvC3q2gFLch6LQ';
 
 interface GoogleApiCredentials {
@@ -101,6 +102,71 @@ async function getNewToken(oAuth2Client: OAuth2Client): Promise<OAuth2Client> {
 
 const toBool = (value: string) => value === 'Y';
 const toInt = (value: string) => value === '' ? null : +value;
+const toFloat = (value: string) => value === '' ? null : Number.parseFloat(value.replace(',', '.'));
+const toString = (value: string) => value === '' ? null : value;
+const checkToBool = (value: string) => value === '✓';
+
+function toStringWithDecimals(value: string) {
+  if (value === '') {
+    return null;
+  } else {
+    return value.replace(/(\d+),(\d+)/, '$1.$2');
+  }
+}
+
+const stats = new Set(['HP', 'ATK', 'DEF', 'MAG', 'RES', 'MND', 'ACC', 'EVA', 'SPD']);
+
+const shouldAlwaysSkip = (col: string) => col === '✓' || col === 'Img';
+
+function convertAbilities(rows: any[]): any[] {
+  const abilities = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+
+    let orb: string | null = null;
+
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+      if (shouldAlwaysSkip(col)) {
+        continue;
+      }
+
+      const field = _.camelCase(col);
+      if (col === 'Counter') {
+        item[field] = toBool(rows[i][j]);
+      } else if (col === 'Rarity' || col === 'SB' || col === 'Uses' || col === 'Max') {
+        item[field] = toInt(rows[i][j]);
+      } else if (col === 'Multiplier' || col === 'Time') {
+        item[field] = toFloat(rows[i][j]);
+      } else if (col.match(/Orb \d+ Required/)) {
+        item.orbs = item.orbs || {};
+        orb = rows[i][j];
+        if (orb) {
+          item.orbs[orb] = [];
+        }
+      } else if (col === '' && rows[i][j]) {
+        if (orb == null || orb === '') {
+          throw new Error(`Got orb count with no orb at ${i} ${j}`);
+        } else {
+          item.orbs[orb].push(toInt(rows[i][j]));
+        }
+      } else if (field === 'effects') {
+        item[field] = toStringWithDecimals(rows[i][j]);
+      } else if (field === 'id') {
+        item[field] = toInt(rows[i][j]);
+      } else if (field === 'gl') {
+        item[field] = checkToBool(rows[i][j]);
+      } else {
+        item[field] = rows[i][j];
+      }
+    }
+
+    abilities.push(item);
+  }
+
+  return abilities;
+}
 
 function convertCharacters(rows: any[]): any[] {
   const characters = [];
@@ -114,16 +180,15 @@ function convertCharacters(rows: any[]): any[] {
     'Introducing Event (Legend Spheres)',
   ]);
   let currentStatGroup: string | null = null;
-  const stats = new Set(['HP', 'ATK', 'DEF', 'MAG', 'RES', 'MND', 'ACC', 'EVA', 'SPD']);
 
   let inEquipment = false;
   let inSkills = false;
 
   for (let i = 1; i < rows.length; i++) {
-    const character: any = {};
+    const item: any = {};
     for (let j = 0; j < rows[0].length; j++) {
       const col = rows[0][j];
-      if (col === '✓') {
+      if (shouldAlwaysSkip(col)) {
         continue;
       }
 
@@ -149,31 +214,130 @@ function convertCharacters(rows: any[]): any[] {
       // Process the columns.
       const field = _.camelCase(col);
       if (currentStatGroup && !statGroups.has(col)) {
-        character[currentStatGroup] = character[currentStatGroup] || {};
-        character[currentStatGroup][field] = toInt(rows[i][j]);
+        item[currentStatGroup] = item[currentStatGroup] || {};
+        item[currentStatGroup][field] = toInt(rows[i][j]);
       } else if (inSkills) {
-        character['skills'] = character['skills'] || {};
-        character['skills'][field] = toInt(rows[i][j]);
+        item['skills'] = item['skills'] || {};
+        item['skills'][field] = toInt(rows[i][j]);
       } else if (inEquipment) {
-        character['equipment'] = character['equipment'] || {};
-        character['equipment'][field] = toBool(rows[i][j]);
+        item['equipment'] = item['equipment'] || {};
+        item['equipment'][field] = toBool(rows[i][j]);
       } else if (field === 'id') {
-        character[field] = toInt(rows[i][j]);
+        item[field] = toInt(rows[i][j]);
       } else {
-        character[field] = rows[i][j];
+        item[field] = toString(rows[i][j]);
       }
     }
-    characters.push(character);
+    characters.push(item);
   }
 
   return characters;
 }
 
+function convertMagicite(rows: any[]): any[] {
+  return rows;
+}
+
+function convertRelics(rows: any[]): any[] {
+  const statAlias: { [col: string]: string } = {
+    rar: 'Rarity',
+    lv: 'Level',
+  };
+
+  function isStat(col: string): boolean {
+    return stats.has(col.toUpperCase()) || col === 'Level' || col === 'Rarity';
+  }
+
+  // If this is an alternate stat (e.g., Blv for base level, or Matk for
+  // maximum attack), then see what the stat would be.
+  function colAsAltStat(col: string): string {
+    const result = col.substr(1);
+    return statAlias[result] || result;
+  }
+
+  function altStatField(col: string): string | null {
+    if (col[0] === 'M') {
+      return 'maxStats';
+    } else if (col[0] === 'B') {
+      return 'baseStats';
+    } else {
+      return null;
+    }
+  }
+
+  function isAltStat(col: string): boolean {
+    return !!altStatField(col) && isStat(colAsAltStat(col));
+  }
+
+  function toStat(field: string, value: string): number | 'S' | null {
+    if (field === 'rarity' && value === 'S') {
+      return 'S';
+    } else {
+      return toInt(value);
+    }
+  }
+
+  const relics = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+      if (shouldAlwaysSkip(col)) {
+        continue;
+      }
+      if (col === 'Synergy' || col === 'Combine') {
+        if (rows[i][j]) {
+          throw new Error(`Unexpected data for row ${i} column ${j}: ${rows[i][j]}`);
+        }
+        continue;
+      }
+
+      const field = _.camelCase(col);
+      if (isStat(col)) {
+        item.stats = item.stats || {};
+        item.stats[field] = toStat(field, rows[i][j]);
+      } else if (isAltStat(col)) {
+        const f1 = altStatField(col) as string;
+        const f2 = _.camelCase(colAsAltStat(col));
+        item[f1] = item[f1] || {};
+        item[f1][f2] = toStat(f2, rows[i][j]);
+      } else if (field === 'id') {
+        item[field] = toInt(rows[i][j]);
+      } else if (field === 'gl') {
+        item[field] = checkToBool(rows[i][j]);
+      } else {
+        item[field] = toString(rows[i][j]);
+      }
+    }
+
+    relics.push(item);
+  }
+
+  return relics;
+}
+
 const dataTypes = [
+  {
+    sheet: 'Abilities',
+    localName: 'abilities',
+    converter: convertAbilities,
+  },
   {
     sheet: 'Characters',
     localName: 'characters',
-    converter: convertCharacters
+    converter: convertCharacters,
+  },
+  {
+    sheet: 'Magicite',
+    localName: 'magicite',
+    converter: convertMagicite,
+  },
+  {
+    sheet: 'Relics',
+    localName: 'relics',
+    converter: convertRelics,
   }
 ];
 
