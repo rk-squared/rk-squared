@@ -10,7 +10,7 @@ interface Props {
   relicId: number;
 }
 
-const attributes = ['Attack', 'Defense', 'Magic', 'Resistance', 'Mind', 'Accuracy', 'Evasion'];
+const attributes = ['atk', 'def', 'mag', 'res', 'mnd', 'acc', 'eva'];
 
 const separateWithBr = (lines: any[]) => {
   const result: any[] = [];
@@ -32,14 +32,14 @@ export class RelicTooltip extends React.PureComponent<Props & any> {
     }
 
     const lines = _.filter([
-      `${relic.Rarity}★ ${enlir.types.relics[relic.RelicType]}`,
-      _.filter(attributes.map(i => relic[i] ? `${i} ${relic[i]}` : '')).join(', '),
-      relic.Effect
+      `${relic.rarity}★ ${relic.type}`,
+      _.filter(attributes.map(i => relic.stats[i] ? `${i} ${relic.stats[i]}` : '')).join(', '),
+      relic.effect
     ]);
 
     return (
       <ReactTooltip id={id} {...props}>
-        <strong>{relic.Description}</strong><br/>
+        <strong>{relic.name}</strong><br/>
         {separateWithBr(lines)}
       </ReactTooltip>
     );
