@@ -1,10 +1,16 @@
 #!/usr/bin/env npx ts-node
+/**
+ * @file
+ * Download data from the Enlir spreadsheet and convert to JSON.
+ *
+ * @see https://developers.google.com/sheets/api/quickstart/nodejs
+ */
 
 import * as fs from 'fs-extra';
 import { google } from 'googleapis';
-import { APIEndpoint } from 'googleapis-common';
 import * as path from 'path';
 import * as readline from 'readline';
+import * as yargs from 'yargs';
 
 import * as _ from 'lodash';
 
@@ -163,31 +169,48 @@ function convertCharacters(rows: any[]): any[] {
   return characters;
 }
 
-/**
- * Prints the names and majors of students in a sample spreadsheet:
- * @see https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
- */
+const dataTypes = [
+  {
+    sheet: 'Characters',
+    localName: 'characters',
+    converter: convertCharacters
+  }
+];
+
 async function downloadEnlir(auth: OAuth2Client) {
   const sheets = google.sheets({ version: 'v4', auth });
 
-  for (const sheet of ['Characters']) {
+  for (const { sheet, localName } of dataTypes) {
+    console.log(`Downloading ${localName}...`);
     const res = await sheets.spreadsheets.values.get({
       spreadsheetId: enlirSpreadsheetId,
       range: sheet,
     });
-    await fs.writeJson(path.join(workPath, _.camelCase(sheet) + '.json'), res.data);
+    await fs.writeJson(path.join(workPath, localName + '.json'), res.data);
   }
 }
 
 async function convertEnlir() {
-  const characterData = fs.readJsonSync(path.join(workPath, 'characters.json'));
-  const characters = convertCharacters(characterData.values);
-  fs.writeJsonSync(path.join(outPath, 'characters.json'), characters, {spaces: 2});
+  for (const {localName, converter} of dataTypes) {
+    console.log(`Converting ${localName}...`);
+    const rawData = fs.readJsonSync(path.join(workPath, localName + '.json'));
+    const data = converter(rawData.values);
+    fs.writeJsonSync(path.join(outPath, localName + '.json'), data, {spaces: 2});
+  }
 }
 
+const argv = yargs
+  .option('download', {
+    alias: 'd',
+    default: true
+  })
+  .argv;
+
 async function main() {
-  //const auth = await authorize(enlirCredentials);
-  //await downloadEnlir(auth);
+  if (argv.download) {
+    const auth = await authorize(enlirCredentials);
+    await downloadEnlir(auth);
+  }
   await convertEnlir();
 }
 
