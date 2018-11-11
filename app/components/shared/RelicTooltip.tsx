@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactTooltip from 'react-tooltip';
 
 import { enlir } from '../../data';
+import { formatRelicName } from '../../data/items';
 
 import * as _ from 'lodash';
 
@@ -33,13 +34,13 @@ export class RelicTooltip extends React.PureComponent<Props & any> {
 
     const lines = _.filter([
       `${relic.rarity}★ ${relic.type}`,
-      _.filter(attributes.map(i => relic.stats[i] ? `${i} ${relic.stats[i]}` : '')).join(', '),
+      _.filter(attributes.map(i => relic.stats[i] ? `${i.toUpperCase()} ${relic.stats[i]}` : '')).join(', '),
       relic.effect
     ]);
 
     return (
       <ReactTooltip id={id} {...props}>
-        <strong>{relic.name}</strong><br/>
+        <strong>{formatRelicName(relic)}</strong><br/>
         {separateWithBr(lines)}
       </ReactTooltip>
     );

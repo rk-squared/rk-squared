@@ -10,7 +10,7 @@
     "test-watch": "jest --watch",
     "hot-server": "cross-env NODE_ENV=development node --max_old_space_size=2096 server.js",
     "build-renderer": "cross-env NODE_ENV=production node ./node_modules/webpack/bin/webpack --config webpack.config.production.js --progress --profile --colors",
-    "copy-json": "copyfiles --flat \"./app/data/*.json\" ./dist/app/data",
+    "copy-json": "copyfiles --flat \"./app/data/enlir/*.json\" ./dist/app/data/enlir",
     "build": "tsc && npm run copy-json && npm run build-renderer",
     "start": "cross-env NODE_ENV=production electron .",
     "start-hot": "cross-env HOT=1 NODE_ENV=development electron .",

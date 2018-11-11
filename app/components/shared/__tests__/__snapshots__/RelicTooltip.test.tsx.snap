@@ -7,12 +7,12 @@ exports[`RelicTooltip renders an accessory tooltip 1`] = `
   id="test"
 >
   <strong>
-    Star Pendant - Type-0
+    Star Pendant (Type-0)
   </strong>
   <br />
   4★ Accessory
   <br />
-  Resistance 10
+  RES 10
   <br />
   Poison immunity (moderate)
 </div>
