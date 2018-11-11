@@ -128,6 +128,19 @@ function toCommon(field: string, value: string) {
 
 const stats = new Set(['HP', 'ATK', 'DEF', 'MAG', 'RES', 'MND', 'ACC', 'EVA', 'SPD']);
 
+const skillFields: { [col: string]: (value: string) => any } = {
+  'Type': toString,
+  'Target': toString,
+  'Formula': toString,
+  'Multiplier': toFloat,
+  'Element': toString,
+  'Time': toFloat,
+  'Effects': toStringWithDecimals,
+  'Counter': toBool,
+  'Auto Target': toString,
+  'SB': toInt,
+};
+
 const shouldAlwaysSkip = (col: string) => col === '✓' || col === 'Img';
 
 function convertAbilities(rows: any[]): any[] {
@@ -145,12 +158,10 @@ function convertAbilities(rows: any[]): any[] {
       }
 
       const field = _.camelCase(col);
-      if (col === 'Counter') {
-        item[field] = toBool(rows[i][j]);
-      } else if (col === 'Rarity' || col === 'SB' || col === 'Uses' || col === 'Max') {
+      if (col === 'Rarity' || col === 'Uses' || col === 'Max') {
         item[field] = toInt(rows[i][j]);
-      } else if (col === 'Multiplier' || col === 'Time') {
-        item[field] = toFloat(rows[i][j]);
+      } else if (skillFields[col]) {
+        item[field] = skillFields[col](rows[i][j]);
       } else if (col.match(/Orb \d+ Required/)) {
         item.orbs = item.orbs || {};
         orb = rows[i][j];
@@ -189,11 +200,12 @@ function convertCharacters(rows: any[]): any[] {
   ]);
   let currentStatGroup: string | null = null;
 
-  let inEquipment = false;
-  let inSkills = false;
-
   for (let i = 1; i < rows.length; i++) {
     const item: any = {};
+
+    let inEquipment = false;
+    let inSkills = false;
+
     for (let j = 0; j < rows[0].length; j++) {
       const col = rows[0][j];
       if (shouldAlwaysSkip(col)) {
@@ -250,13 +262,23 @@ function convertMagicite(rows: any[]): any[] {
       // Skip explanatory text at the bottom of the sheet.
       break;
     }
-    console.log(rows[i]);
 
     const item: any = {};
+
+    let inUltraSkill = false;
+    let skipUltraSkill = false;
+
     for (let j = 0; j < rows[0].length; j++) {
       const col = rows[0][j];
       if (shouldAlwaysSkip(col)) {
         continue;
+      }
+
+      if (col === 'Magicite Ultra Skill') {
+        inUltraSkill = true;
+        skipUltraSkill = rows[i][j] === '-';
+      } else if (col === 'Name (JP)') {
+        inUltraSkill = false;
       }
 
       const field = _.camelCase(col);
@@ -278,14 +300,22 @@ function convertMagicite(rows: any[]): any[] {
           }
           item.passives[passive][+col] = toInt(rows[i][j]);
         }
-      } else if (col === 'Cooldown' || col === 'Duration' || col === 'Multiplier' || col === 'Time') {
+      } else if (col === 'Cooldown' || col === 'Duration') {
         item[field] = toFloat(rows[i][j]);
-      } else if (col === 'Counter') {
-        item[field] = toBool(rows[i][j]);
+      } else if (col === 'Magicite Ultra Skill') {
+        if (!skipUltraSkill) {
+          item.magiciteUltraSkill = {
+            name: rows[i][j]
+          };
+        }
+      } else if (inUltraSkill) {
+        if (!skipUltraSkill) {
+          const converter = skillFields[col] || toCommon;
+          item.magiciteUltraSkill[field] = converter(rows[i][j]);
+        }
       } else {
         item[field] = toCommon(field, rows[i][j]);
       }
-      console.log([item[field], field, rows[i][j]]);
     }
 
     magicite.push(item);
