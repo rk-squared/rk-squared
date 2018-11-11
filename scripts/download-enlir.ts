@@ -114,6 +114,18 @@ function toStringWithDecimals(value: string) {
   }
 }
 
+function toCommon(field: string, value: string) {
+  if (field === 'effects' || field === 'effect') {
+    return toStringWithDecimals(value);
+  } else if (field === 'id') {
+    return toInt(value);
+  } else if (field === 'gl') {
+    return checkToBool(value);
+  } else {
+    return toString(value);
+  }
+}
+
 const stats = new Set(['HP', 'ATK', 'DEF', 'MAG', 'RES', 'MND', 'ACC', 'EVA', 'SPD']);
 
 const shouldAlwaysSkip = (col: string) => col === '✓' || col === 'Img';
@@ -145,20 +157,16 @@ function convertAbilities(rows: any[]): any[] {
         if (orb) {
           item.orbs[orb] = [];
         }
-      } else if (col === '' && rows[i][j]) {
-        if (orb == null || orb === '') {
-          throw new Error(`Got orb count with no orb at ${i} ${j}`);
-        } else {
-          item.orbs[orb].push(toInt(rows[i][j]));
+      } else if (col === '') {
+        if (rows[i][j]) {
+          if (orb == null || orb === '') {
+            throw new Error(`Got orb count with no orb at ${i} ${j}`);
+          } else {
+            item.orbs[orb].push(toInt(rows[i][j]));
+          }
         }
-      } else if (field === 'effects') {
-        item[field] = toStringWithDecimals(rows[i][j]);
-      } else if (field === 'id') {
-        item[field] = toInt(rows[i][j]);
-      } else if (field === 'gl') {
-        item[field] = checkToBool(rows[i][j]);
       } else {
-        item[field] = rows[i][j];
+        item[field] = toCommon(field, rows[i][j]);
       }
     }
 
@@ -222,10 +230,8 @@ function convertCharacters(rows: any[]): any[] {
       } else if (inEquipment) {
         item['equipment'] = item['equipment'] || {};
         item['equipment'][field] = toBool(rows[i][j]);
-      } else if (field === 'id') {
-        item[field] = toInt(rows[i][j]);
       } else {
-        item[field] = toString(rows[i][j]);
+        item[field] = toCommon(field, rows[i][j]);
       }
     }
     characters.push(item);
@@ -236,6 +242,27 @@ function convertCharacters(rows: any[]): any[] {
 
 function convertMagicite(rows: any[]): any[] {
   return rows;
+}
+
+function convertRecordMateria(rows: any[]): any[] {
+  const recordMateria: any[] = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+      if (shouldAlwaysSkip(col)) {
+        continue;
+      }
+
+      const field = _.camelCase(col);
+      item[field] = toCommon(field, rows[i][j]);
+    }
+
+    recordMateria.push(item);
+  }
+
+  return recordMateria;
 }
 
 function convertRelics(rows: any[]): any[] {
@@ -303,12 +330,8 @@ function convertRelics(rows: any[]): any[] {
         const f2 = _.camelCase(colAsAltStat(col));
         item[f1] = item[f1] || {};
         item[f1][f2] = toStat(f2, rows[i][j]);
-      } else if (field === 'id') {
-        item[field] = toInt(rows[i][j]);
-      } else if (field === 'gl') {
-        item[field] = checkToBool(rows[i][j]);
       } else {
-        item[field] = toString(rows[i][j]);
+        item[field] = toCommon(field, rows[i][j]);
       }
     }
 
@@ -335,10 +358,15 @@ const dataTypes = [
     converter: convertMagicite,
   },
   {
+    sheet: 'Record Materia',
+    localName: 'recordMateria',
+    converter: convertRecordMateria,
+  },
+  {
     sheet: 'Relics',
     localName: 'relics',
     converter: convertRelics,
-  }
+  },
 ];
 
 async function downloadEnlir(auth: OAuth2Client) {

@@ -31,7 +31,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ファイア",
     "id": 30111001,
@@ -69,7 +68,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ファイラ",
     "id": 30111002,
@@ -107,7 +105,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "ファイガ",
     "id": 30111003,
@@ -145,7 +142,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Operation Mi'ihen",
     "nameJp": "ファイジャ",
     "id": 30111004,
@@ -183,7 +179,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ブリザド",
     "id": 30111011,
@@ -221,7 +216,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ブリザラ",
     "id": 30111012,
@@ -259,7 +253,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "ブリザガ",
     "id": 30111013,
@@ -297,7 +290,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Operation Mi'ihen",
     "nameJp": "ブリザジャ",
     "id": 30111014,
@@ -335,7 +327,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "サンダー",
     "id": 30111021,
@@ -373,7 +364,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "サンダラ",
     "id": 30111022,
@@ -411,7 +401,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "サンダガ",
     "id": 30111023,
@@ -449,7 +438,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "The Pulse Fal'Cie",
     "nameJp": "サンダジャ",
     "id": 30111024,
@@ -494,7 +482,6 @@
         18
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ウォータ",
     "id": 30111031,
@@ -539,7 +526,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ウォタラ",
     "id": 30111032,
@@ -584,7 +570,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #4",
     "nameJp": "ウォタガ",
     "id": 30111033,
@@ -629,7 +614,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The Dreadnought Leviathan",
     "nameJp": "ウォタジャ",
     "id": 30111034,
@@ -667,7 +651,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "バイオ",
     "id": 30111041,
@@ -705,7 +688,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "バイオラ",
     "id": 30111042,
@@ -743,7 +725,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Man in Black",
     "nameJp": "バイオガ",
     "id": 30111043,
@@ -788,7 +769,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "ダーク",
     "id": 30111051,
@@ -833,7 +813,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Third Pilgrimage",
     "nameJp": "ダーラ",
     "id": 30111052,
@@ -845,9 +824,9 @@
     "rarity": 4,
     "type": "BLK",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Causes Instant KO (70%)",
     "counter": true,
@@ -878,7 +857,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "デス",
     "id": 30111061,
@@ -923,7 +901,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "フレア",
     "id": 30111071,
@@ -935,9 +912,9 @@
     "rarity": 1,
     "type": "BLK",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Causes Sleep (30%)",
     "counter": true,
@@ -968,7 +945,6 @@
         18
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "スリプル",
     "id": 30111081,
@@ -980,9 +956,9 @@
     "rarity": 1,
     "type": "BLK",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Causes Poison (30%)",
     "counter": true,
@@ -1006,7 +982,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ポイズン",
     "id": 30111091,
@@ -1018,9 +993,9 @@
     "rarity": 1,
     "type": "BLK",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Causes Confuse (30%)",
     "counter": true,
@@ -1044,7 +1019,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "コンフュ",
     "id": 30111101,
@@ -1056,9 +1030,9 @@
     "rarity": 3,
     "type": "BLK",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Damages for 50% of the target's current HP, resisted via Instant KO",
     "counter": true,
@@ -1089,7 +1063,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "グラビデ",
     "id": 30111111,
@@ -1101,9 +1074,9 @@
     "rarity": 3,
     "type": "BLK",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Causes Stop (70%)",
     "counter": true,
@@ -1134,7 +1107,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ストップ",
     "id": 30111121,
@@ -1179,7 +1151,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "コメット",
     "id": 30111131,
@@ -1191,9 +1162,9 @@
     "rarity": 4,
     "type": "BLK",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Causes Petrify (25%)",
     "counter": true,
@@ -1224,7 +1195,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ブレイク",
     "id": 30111141,
@@ -1269,7 +1239,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "クエイク",
     "id": 30111151,
@@ -1307,7 +1276,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Evil of Mardias",
     "nameJp": "ファイアボール",
     "id": 30111161,
@@ -1345,7 +1313,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Evil of Mardias",
     "nameJp": "レインコール",
     "id": 30111171,
@@ -1408,9 +1375,9 @@
     "rarity": 1,
     "type": "BLK",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Causes Blind (30%)",
     "counter": true,
@@ -1434,7 +1401,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Touched by Magic",
     "nameJp": "ブライン",
     "id": 30111201,
@@ -1446,9 +1412,9 @@
     "rarity": 3,
     "type": "BLK",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Causes Blind (60%)",
     "counter": true,
@@ -1472,7 +1438,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Touched by Magic",
     "nameJp": "ブライガ",
     "id": 30111202,
@@ -1517,7 +1482,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Chasing Hope",
     "nameJp": "ルイン",
     "id": 30111211,
@@ -1562,7 +1526,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Chasing Hope",
     "nameJp": "ルインガ",
     "id": 30111213,
@@ -1600,7 +1563,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #13",
     "nameJp": "陽気なスノーボール",
     "id": 30111221,
@@ -1638,7 +1600,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #16",
     "nameJp": "いかずち",
     "id": 30111231,
@@ -1785,7 +1746,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Go Go Gullwings!",
     "nameJp": "連続ブリザガ",
     "id": 30111261,
@@ -1881,7 +1841,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Friendship Ribbon",
     "nameJp": "連続ファイガ",
     "id": 30111271,
@@ -1970,7 +1929,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Thorns of the Rose",
     "nameJp": "ストーン",
     "id": 30111291,
@@ -2008,7 +1966,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Thorns of the Rose",
     "nameJp": "ストンラ",
     "id": 30111292,
@@ -2046,7 +2003,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Thorns of the Rose",
     "nameJp": "ストンガ",
     "id": 30111293,
@@ -2084,7 +2040,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Thorns of the Rose",
     "nameJp": "ストンジャ",
     "id": 30111294,
@@ -2129,7 +2084,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Thorns of the Rose",
     "nameJp": "連続ストンガ",
     "id": 30111295,
@@ -2174,7 +2128,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Heir of the Dynast-King",
     "nameJp": "連続サンダガ",
     "id": 30111301,
@@ -2270,7 +2223,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Lion Wakes",
     "nameJp": "連続バイオラ",
     "id": 30111311,
@@ -2315,7 +2267,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Scouring the Dephts",
     "nameJp": "連続ウォタガ",
     "id": 30111321,
@@ -2411,7 +2362,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Triumph over Darkness",
     "nameJp": "トルネド",
     "id": 30111331,
@@ -2602,7 +2552,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "ドレイン",
     "id": 30991001,
@@ -2640,7 +2589,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Touched by Magic",
     "nameJp": "ドレイガ",
     "id": 30991003,
@@ -2678,7 +2626,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ケアル",
     "id": 30121001,
@@ -2716,7 +2663,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ケアルラ",
     "id": 30121002,
@@ -2761,7 +2707,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ケアルダ",
     "id": 30121003,
@@ -2806,7 +2751,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "ケアルガ",
     "id": 30121004,
@@ -2869,9 +2813,9 @@
     "rarity": 1,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Removes Silence",
     "counter": false,
@@ -2895,7 +2839,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ボキャル",
     "id": 30121010,
@@ -2907,9 +2850,9 @@
     "rarity": 1,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Removes Poison",
     "counter": false,
@@ -2933,7 +2876,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ポイゾナ",
     "id": 30121020,
@@ -2945,9 +2887,9 @@
     "rarity": 1,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Removes Blind",
     "counter": false,
@@ -2971,7 +2913,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ブラナ",
     "id": 30121030,
@@ -2983,9 +2924,9 @@
     "rarity": 1,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Grants Protect",
     "counter": true,
@@ -3009,7 +2950,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "プロテス",
     "id": 30121040,
@@ -3021,9 +2961,9 @@
     "rarity": 4,
     "type": "WHT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Grants Protect",
     "counter": true,
@@ -3047,7 +2987,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "プロテガ",
     "id": 30121042,
@@ -3059,9 +2998,9 @@
     "rarity": 1,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Grants Shell",
     "counter": true,
@@ -3092,7 +3031,6 @@
         18
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "シェル",
     "id": 30121051,
@@ -3104,9 +3042,9 @@
     "rarity": 4,
     "type": "WHT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Grants Shell",
     "counter": true,
@@ -3137,7 +3075,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The Battle Arena",
     "nameJp": "シェルガ",
     "id": 30121052,
@@ -3149,9 +3086,9 @@
     "rarity": 1,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Causes Silence (30%)",
     "counter": true,
@@ -3175,7 +3112,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "サイレス",
     "id": 30121061,
@@ -3187,9 +3123,9 @@
     "rarity": 3,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Causes Silence (60%)",
     "counter": true,
@@ -3213,7 +3149,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "サイレガ",
     "id": 30121062,
@@ -3225,9 +3160,9 @@
     "rarity": 1,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Causes Slow (30%)",
     "counter": true,
@@ -3251,7 +3186,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "スロウ",
     "id": 30121071,
@@ -3263,9 +3197,9 @@
     "rarity": 4,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Causes Slow (80%)",
     "counter": true,
@@ -3289,7 +3223,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "スロウガ",
     "id": 30121072,
@@ -3301,9 +3234,9 @@
     "rarity": 2,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Grants Low Regen",
     "counter": true,
@@ -3327,7 +3260,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "リジェネ",
     "id": 30121081,
@@ -3339,9 +3271,9 @@
     "rarity": 2,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Removes Petrify",
     "counter": false,
@@ -3365,7 +3297,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ストナ",
     "id": 30121091,
@@ -3377,9 +3308,9 @@
     "rarity": 3,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Grants Haste",
     "counter": true,
@@ -3403,7 +3334,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ヘイスト",
     "id": 30121101,
@@ -3415,9 +3345,9 @@
     "rarity": 5,
     "type": "WHT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Grants Haste",
     "counter": true,
@@ -3448,7 +3378,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Summer Sun Festival",
     "nameJp": "ヘイスガ",
     "id": 30121102,
@@ -3460,9 +3389,9 @@
     "rarity": 3,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Removes negative effects",
     "counter": true,
@@ -3493,7 +3422,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "エスナ",
     "id": 30121111,
@@ -3505,9 +3433,9 @@
     "rarity": 4,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Removes KO (20% HP), causes Instant KO (100%) to undeads",
     "counter": true,
@@ -3531,7 +3459,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "レイズ",
     "id": 30121121,
@@ -3576,7 +3503,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "ホーリー",
     "id": 30121131,
@@ -3588,9 +3514,9 @@
     "rarity": 2,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Causes Paralyze (1%)",
     "counter": true,
@@ -3621,7 +3547,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "ホールド",
     "id": 30121141,
@@ -3666,7 +3591,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "ディア",
     "id": 30121161,
@@ -3711,7 +3635,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Marriage of Convenience",
     "nameJp": "アディア",
     "id": 30121162,
@@ -3756,7 +3679,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Footsteps of the Cetra",
     "nameJp": "ダディア",
     "id": 30121164,
@@ -3768,9 +3690,9 @@
     "rarity": 3,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Removes positive effects",
     "counter": true,
@@ -3801,7 +3723,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Man in Black",
     "nameJp": "デスペル",
     "id": 30121171,
@@ -3813,9 +3734,9 @@
     "rarity": 3,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Causes Berserk (50%)",
     "counter": true,
@@ -3839,7 +3760,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #4",
     "nameJp": "バーサク",
     "id": 30121181,
@@ -3851,9 +3771,9 @@
     "rarity": 3,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "ATK +30% for 25 seconds",
     "counter": true,
@@ -3877,7 +3797,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Evil of Mardias",
     "nameJp": "力の水",
     "id": 30121191,
@@ -3889,9 +3808,9 @@
     "rarity": 3,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "MAG +20% for 25 seconds",
     "counter": false,
@@ -3915,7 +3834,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Footsteps of the Cetra",
     "nameJp": "フェイス",
     "id": 30121203,
@@ -3960,7 +3878,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #13",
     "nameJp": "セラピーケアル",
     "id": 30121211,
@@ -3972,9 +3889,9 @@
     "rarity": 3,
     "type": "WHT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Grants Low Regen",
     "counter": false,
@@ -4005,7 +3922,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #16",
     "nameJp": "祈りのメメント",
     "id": 30121221,
@@ -4017,9 +3933,9 @@
     "rarity": 5,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Removes KO (100% HP), causes Instant KO (100%) to undeads",
     "counter": true,
@@ -4050,7 +3966,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Seer of Destiny",
     "nameJp": "アレイズ",
     "id": 30121231,
@@ -4062,9 +3977,9 @@
     "rarity": 6,
     "type": "WHT",
     "target": "Single ally",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Grants Reraise: 80%",
     "counter": false,
@@ -4146,7 +4061,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The Miraculous Artist",
     "nameJp": "マレイズ",
     "id": 30121251,
@@ -4191,7 +4105,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "A Dream for Spira",
     "nameJp": "ウルトラキュアー",
     "id": 30121291,
@@ -4203,9 +4116,9 @@
     "rarity": 3,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "MND +20% for 25 seconds",
     "counter": false,
@@ -4236,7 +4149,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "A Name Etched in Time",
     "nameJp": "グレイス",
     "id": 30121301,
@@ -4281,7 +4193,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Clad in Red",
     "nameJp": "デディア",
     "id": 30121311,
@@ -4344,9 +4255,9 @@
     "rarity": 3,
     "type": "WHT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Grants Reflect",
     "counter": true,
@@ -4370,7 +4281,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "リフレク",
     "id": 30991002,
@@ -4408,7 +4318,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "みねうち",
     "id": 30151011,
@@ -4446,7 +4355,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "体当たり",
     "id": 30151021,
@@ -4484,7 +4392,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "チャージ",
     "id": 30151031,
@@ -4522,7 +4429,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "連続斬り",
     "id": 30151041,
@@ -4560,7 +4466,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ぜんぎり",
     "id": 30151051,
@@ -4605,7 +4510,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "マジックブレイク",
     "id": 30151061,
@@ -4650,7 +4554,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "アーマーブレイク",
     "id": 30151071,
@@ -4695,7 +4598,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "パワーブレイク",
     "id": 30151081,
@@ -4740,7 +4642,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "メンタルブレイク",
     "id": 30151091,
@@ -4785,7 +4686,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Festival of Gold",
     "nameJp": "叩き潰す",
     "id": 30151101,
@@ -4830,7 +4730,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "みだれうち",
     "id": 30151111,
@@ -4842,9 +4741,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Damages for 25% of the target's current HP, resisted via Instant KO",
     "counter": true,
@@ -4875,7 +4774,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "ぶちかます",
     "id": 30151121,
@@ -4920,7 +4818,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Evil of Mardias",
     "nameJp": "邪剣波",
     "id": 30151131,
@@ -4965,7 +4862,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Lightning Strikes",
     "nameJp": "スマッシュアッパー",
     "id": 30151141,
@@ -5010,7 +4906,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Lost Memories",
     "nameJp": "肉斬骨断",
     "id": 30151151,
@@ -5106,7 +5001,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Window on the Past",
     "nameJp": "フルチャージ",
     "id": 30151171,
@@ -5151,7 +5045,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Ward of the Four Crystals",
     "nameJp": "マインドブレイク",
     "id": 30151181,
@@ -5247,7 +5140,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Fang's Oath",
     "nameJp": "エンドアスピル",
     "id": 30171111,
@@ -5259,9 +5151,9 @@
     "rarity": 1,
     "type": "NAT",
     "target": "Self",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Restores HP (50)",
     "counter": true,
@@ -5285,7 +5177,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "手当て",
     "id": 30161011,
@@ -5297,9 +5188,9 @@
     "rarity": 1,
     "type": "NAT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "ATK +25% for 25 seconds",
     "counter": true,
@@ -5323,7 +5214,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "おうえん",
     "id": 30161021,
@@ -5335,9 +5225,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Causes Paralyze (50%)",
     "counter": true,
@@ -5361,7 +5251,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "いあつ",
     "id": 30161031,
@@ -5399,7 +5288,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "スリプルアタック",
     "id": 30161041,
@@ -5437,7 +5325,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "サイレスアタック",
     "id": 30161051,
@@ -5475,7 +5362,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ベノムアタック",
     "id": 30161061,
@@ -5513,7 +5399,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ブラインアタック",
     "id": 30161071,
@@ -5525,9 +5410,9 @@
     "rarity": 4,
     "type": "NAT",
     "target": "Self",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "ATK +3% for 15 seconds",
     "counter": false,
@@ -5551,7 +5436,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "いかり",
     "id": 30161081,
@@ -5563,9 +5447,9 @@
     "rarity": 5,
     "type": "NAT",
     "target": "Another ally",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Transfers the user's Soul Break points to the target",
     "counter": false,
@@ -5596,7 +5480,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "たくす",
     "id": 30161091,
@@ -5608,9 +5491,9 @@
     "rarity": 2,
     "type": "NAT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Causes Confuse (30%)",
     "counter": true,
@@ -5641,7 +5524,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "うそなき",
     "id": 30161101,
@@ -5679,7 +5561,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "サイレスバスター",
     "id": 30161112,
@@ -5717,7 +5598,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "ブラインバスター",
     "id": 30161122,
@@ -5762,7 +5642,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "ベノムバスター",
     "id": 30161132,
@@ -5807,7 +5686,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "スリプルバスター",
     "id": 30161142,
@@ -5852,7 +5730,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "ハイメンタルブレイク",
     "id": 30161152,
@@ -5897,7 +5774,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "ハイマジックブレイク",
     "id": 30161162,
@@ -5942,7 +5818,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The Jenova Project",
     "nameJp": "ハイパワーブレイク",
     "id": 30161172,
@@ -5987,7 +5862,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The SeeD Exam Homecoming",
     "nameJp": "ハイアーマーブレイク",
     "id": 30161182,
@@ -5999,9 +5873,9 @@
     "rarity": 2,
     "type": "NAT",
     "target": "Single ally",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Removes KO (10% HP)",
     "counter": true,
@@ -6025,7 +5899,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "The SeeD Exam Homecoming",
     "nameJp": "蘇生",
     "id": 30161191,
@@ -6037,9 +5910,9 @@
     "rarity": 2,
     "type": "NAT",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Low Regen",
     "counter": true,
@@ -6063,7 +5936,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Evil of Mardias",
     "nameJp": "生命波",
     "id": 30161201,
@@ -6108,7 +5980,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Take Memories Back",
     "nameJp": "フルブレイク",
     "id": 30161211,
@@ -6255,7 +6126,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Ward of the Four Crystals",
     "nameJp": "ハイマインドブレイク",
     "id": 30161241,
@@ -6293,7 +6163,6 @@
         45
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ねらう",
     "id": 30171001,
@@ -6305,9 +6174,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "Self",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.2,
     "effects": "Grants Haste",
     "counter": true,
@@ -6331,7 +6200,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ちょこまかうごく",
     "id": 30171011,
@@ -6369,7 +6237,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "影縫い",
     "id": 30171021,
@@ -6407,7 +6274,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "かまいたち",
     "id": 30171031,
@@ -6445,7 +6311,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "足を狙う",
     "id": 30171051,
@@ -6483,7 +6348,6 @@
         150
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "クイックトリック",
     "id": 30171061,
@@ -6521,7 +6385,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Aspiring Hero",
     "nameJp": "ダガーショット",
     "id": 30171071,
@@ -6566,7 +6429,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Aspiring Hero",
     "nameJp": "デュアルディレイ",
     "id": 30171081,
@@ -6611,7 +6473,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Aspiring Hero",
     "nameJp": "断動",
     "id": 30171091,
@@ -6656,7 +6517,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Defying Fate",
     "nameJp": "パラライズショット",
     "id": 30171101,
@@ -6752,7 +6612,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Window on the Past",
     "nameJp": "チェーンスターター",
     "id": 30171131,
@@ -6848,7 +6707,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Shield of the King",
     "nameJp": "リッパーラッシュ",
     "id": 30171171,
@@ -6893,7 +6751,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "3rd Anniversary Carnival",
     "nameJp": "リッパーブラスト",
     "id": 30171181,
@@ -6989,7 +6846,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Spark in the Void",
     "nameJp": "リッパーボルト",
     "id": 30171201,
@@ -7027,7 +6883,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ゴブリン ",
     "id": 30131001,
@@ -7065,7 +6920,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "チョコボ",
     "id": 30131011,
@@ -7103,7 +6957,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ドラゴン",
     "id": 30131021,
@@ -7141,7 +6994,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ボム",
     "id": 30131031,
@@ -7179,7 +7031,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "シヴァ",
     "id": 30131041,
@@ -7217,7 +7068,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ラムウ",
     "id": 30131051,
@@ -7255,7 +7105,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "イフリート",
     "id": 30131061,
@@ -7300,7 +7149,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "シルドラ",
     "id": 30131071,
@@ -7345,7 +7193,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "リヴァイアサン",
     "id": 30131081,
@@ -7357,9 +7204,9 @@
     "rarity": 2,
     "type": "SUM",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Grants Low Regen",
     "counter": false,
@@ -7390,7 +7237,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "キリン",
     "id": 30131101,
@@ -7428,7 +7274,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "マディン",
     "id": 30131121,
@@ -7473,7 +7318,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "オーディン",
     "id": 30131131,
@@ -7587,9 +7431,9 @@
     "rarity": 4,
     "type": "SUM",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Grants Reflect",
     "counter": false,
@@ -7613,7 +7457,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Princess of Alexandria",
     "nameJp": "カーバンクル",
     "id": 30131171,
@@ -7811,7 +7654,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #8",
     "nameJp": "バハムート",
     "id": 30131211,
@@ -7823,9 +7665,9 @@
     "rarity": 4,
     "type": "SUM",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Three group attacks that deal 1000 damage each",
     "counter": false,
@@ -7856,7 +7698,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Festival of Gold 2",
     "nameJp": "サボテンダー",
     "id": 30131221,
@@ -7901,7 +7742,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Anniversary Celebration",
     "nameJp": "オルトロス",
     "id": 30131231,
@@ -7997,7 +7837,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Festive Fantasy",
     "nameJp": "デブチョコボ",
     "id": 30131241,
@@ -8042,7 +7881,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Seven Heroes",
     "nameJp": "ノエル",
     "id": 30131291,
@@ -8087,7 +7925,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Reclaiming the Skies",
     "nameJp": "タイタン",
     "id": 30131301,
@@ -8183,7 +8020,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Ward of the Four Crystals",
     "nameJp": "アルテマウェポン",
     "id": 30131321,
@@ -8228,7 +8064,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Lady of the Vortex",
     "nameJp": "ティアマット",
     "id": 30131331,
@@ -8273,7 +8108,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Like Father Like Daughter",
     "nameJp": "タイダリアサン",
     "id": 30131341,
@@ -8318,7 +8152,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Protect the Espers!",
     "nameJp": "マディーン",
     "id": 30131351,
@@ -8465,7 +8298,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Champions of the Sky",
     "nameJp": " バハムート【VI】",
     "id": 30131381,
@@ -8612,7 +8444,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ファイア剣",
     "id": 30141001,
@@ -8657,7 +8488,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "ファイラ剣",
     "id": 30141002,
@@ -8702,7 +8532,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Back to the Skies",
     "nameJp": "ファイガ剣",
     "id": 30141003,
@@ -8747,7 +8576,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ブリザド剣",
     "id": 30141011,
@@ -8792,7 +8620,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Magitek Facility Infiltration",
     "nameJp": "ブリザラ剣",
     "id": 30141012,
@@ -8837,7 +8664,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Successors of the Dawn",
     "nameJp": "ブリザガ剣",
     "id": 30141013,
@@ -8882,7 +8708,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "サンダー剣",
     "id": 30141021,
@@ -8927,7 +8752,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Festival of Gold",
     "nameJp": "サンダラ剣",
     "id": 30141022,
@@ -8972,7 +8796,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Big Bridge Showdown",
     "nameJp": "サンダガ剣",
     "id": 30141023,
@@ -9017,7 +8840,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ドレイン剣",
     "id": 30141031,
@@ -9062,7 +8884,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "フレア剣",
     "id": 30141041,
@@ -9107,7 +8928,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "ウォータ剣",
     "id": 30141051,
@@ -9152,7 +8972,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Back to the Skies",
     "nameJp": "ウォタラ剣",
     "id": 30141052,
@@ -9197,7 +9016,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Kingdom of Swords and Sorcery",
     "nameJp": "ウォタガ剣",
     "id": 30141053,
@@ -9235,7 +9053,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "エアロ剣",
     "id": 30141061,
@@ -9280,7 +9097,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Lost Memories",
     "nameJp": "エアロラ剣",
     "id": 30141062,
@@ -9325,7 +9141,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Lightning Strikes",
     "nameJp": "ブレイク剣",
     "id": 30141071,
@@ -9370,7 +9185,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Successors of the Dawn",
     "nameJp": "バイオ剣",
     "id": 30141081,
@@ -9415,7 +9229,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Broken Chains",
     "nameJp": "バイオラ剣",
     "id": 30141082,
@@ -9460,7 +9273,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Four as One",
     "nameJp": "クエイク剣",
     "id": 30141091,
@@ -9505,7 +9317,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Kingdom of Swords and Sorcery",
     "nameJp": "トルネド剣",
     "id": 30141101,
@@ -9550,7 +9361,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Five Dooms",
     "nameJp": "二刀魔法剣・吹雪",
     "id": 30141111,
@@ -9595,7 +9405,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Flash of Defiance",
     "nameJp": "連続魔法剣・雷鳴",
     "id": 30141121,
@@ -9640,7 +9449,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Where the Heart Lies",
     "nameJp": "連続魔法剣・豪炎",
     "id": 30141131,
@@ -9685,7 +9493,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "A Dream for Spira",
     "nameJp": "連続魔法剣・水燕",
     "id": 30141141,
@@ -9730,7 +9537,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Torch Burns On",
     "nameJp": "フリーズ剣",
     "id": 30141151,
@@ -9775,7 +9581,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "A Name Etched in Time",
     "nameJp": "連続魔法剣・砂紋",
     "id": 30141161,
@@ -9820,7 +9625,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Summer Sun Festival",
     "nameJp": "連続魔法剣・狂風",
     "id": 30141171,
@@ -10069,7 +9873,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "4th Anniversary Memory",
     "nameJp": "連続魔法剣・凍芯",
     "id": 30141231,
@@ -10114,7 +9917,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ジャンプ",
     "id": 30181001,
@@ -10159,7 +9961,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Big Bridge Showdown",
     "nameJp": "ジャンプ・風",
     "id": 30181011,
@@ -10204,7 +10005,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #13",
     "nameJp": "渾身ジャンプ",
     "id": 30181021,
@@ -10249,7 +10049,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The Burning Blade!",
     "nameJp": "ジャンプ・氷",
     "id": 30181031,
@@ -10294,7 +10093,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Fang's Oath",
     "nameJp": "ジャンプ・雷",
     "id": 30181041,
@@ -10339,7 +10137,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "A Summoner Reborn",
     "nameJp": "スカイグランダー",
     "id": 30181051,
@@ -10384,7 +10181,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "A Summoner Reborn",
     "nameJp": "ドレインダイブ",
     "id": 30181061,
@@ -10429,7 +10225,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "A Summoner Grown",
     "nameJp": "ドラグーンジャンプ",
     "id": 30181071,
@@ -10474,7 +10269,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "A Summoner Grown",
     "nameJp": "竜の血",
     "id": 30181081,
@@ -10519,7 +10313,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Five Dooms",
     "nameJp": "スカイハイ",
     "id": 30181091,
@@ -10564,7 +10357,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Reclaiming the Skies",
     "nameJp": "ライトニングダイブ",
     "id": 30181101,
@@ -10609,7 +10401,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Masters of the Planet",
     "nameJp": "エアリアルダイブ",
     "id": 30181121,
@@ -10654,7 +10445,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Resolution Blooms",
     "nameJp": "サイクロンボルト",
     "id": 30181131,
@@ -10692,7 +10482,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "ひっさつ",
     "id": 30191001,
@@ -10730,7 +10519,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "The Battle Arena",
     "nameJp": "気孔弾",
     "id": 30191011,
@@ -10768,7 +10556,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "The Battle Arena",
     "nameJp": "チャクラ",
     "id": 30191021,
@@ -10806,7 +10593,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "The Battle Arena",
     "nameJp": "点穴",
     "id": 30191031,
@@ -10851,7 +10637,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "A Place to Call Home",
     "nameJp": "練気拳",
     "id": 30191041,
@@ -10896,7 +10681,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "A Place to Call Home",
     "nameJp": "けり",
     "id": 30191051,
@@ -10908,9 +10692,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "Self",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "ATK +30% for 25 seconds",
     "counter": false,
@@ -10934,7 +10718,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #16",
     "nameJp": "力のメメント",
     "id": 30191061,
@@ -10979,7 +10762,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Forgotten Bond",
     "nameJp": "爆裂正拳突き",
     "id": 30191071,
@@ -11024,7 +10806,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Destiny's Path",
     "nameJp": "鎧通し",
     "id": 30191081,
@@ -11069,7 +10850,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Five Dooms",
     "nameJp": "乱命拳",
     "id": 30191091,
@@ -11114,7 +10894,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Go Go Gullwings!",
     "nameJp": "メテオクラッシュ",
     "id": 30191101,
@@ -11159,7 +10938,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Aspiring Knight",
     "nameJp": "内丹気砲",
     "id": 30191111,
@@ -11204,7 +10982,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Maiden of Water",
     "nameJp": "バーニングラッシュ",
     "id": 30191121,
@@ -11249,7 +11026,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Like Father Like Daughter",
     "nameJp": "ガイアラッシュ",
     "id": 30191131,
@@ -11294,7 +11070,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "3rd Anniversary Carnival",
     "nameJp": "アイシクルラッシュ",
     "id": 30191141,
@@ -11441,7 +11216,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Words that Started It All",
     "nameJp": "スパークラッシュ",
     "id": 30191171,
@@ -11486,7 +11260,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Inherited Martial Arts",
     "nameJp": "外丹気砲",
     "id": 30191181,
@@ -11524,7 +11297,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Kingdom Reborn",
     "nameJp": "HPを盗む",
     "id": 30201001,
@@ -11536,9 +11308,9 @@
     "rarity": 3,
     "type": "PHY",
     "target": "Single enemy",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.2,
     "effects": "Causes Slow (50%), if successful grants Haste to the user",
     "counter": false,
@@ -11569,7 +11341,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Kingdom Reborn",
     "nameJp": "時間を盗む",
     "id": 30201011,
@@ -11581,9 +11352,9 @@
     "rarity": 4,
     "type": "PHY",
     "target": "Single enemy",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.2,
     "effects": "DEF -40% for 20 seconds, DEF +50% to the user for 20 seconds",
     "counter": false,
@@ -11614,7 +11385,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Kingdom Reborn",
     "nameJp": "守りを盗む",
     "id": 30201021,
@@ -11626,9 +11396,9 @@
     "rarity": 4,
     "type": "PHY",
     "target": "Single enemy",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.2,
     "effects": "ATK -40% for 20 seconds, ATK +50% to the user for 20 seconds",
     "counter": false,
@@ -11659,7 +11429,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "A Place to Call Home",
     "nameJp": "力を盗む",
     "id": 30201031,
@@ -11704,7 +11473,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Jet-Black Assassin",
     "nameJp": "時間をぶんどる",
     "id": 30201041,
@@ -11749,7 +11517,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Seer of Destiny",
     "nameJp": "シーフズレイド",
     "id": 30201051,
@@ -11794,7 +11561,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Five Dooms",
     "nameJp": "闘志をぶんどる",
     "id": 30201061,
@@ -11839,7 +11605,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Where the Heart Lies",
     "nameJp": "ダッシュバイト",
     "id": 30201071,
@@ -11884,7 +11649,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Scheming Tyrant",
     "nameJp": "ポイズンリーフ",
     "id": 30201081,
@@ -11929,7 +11693,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Strike Back at the Empire",
     "nameJp": "ソウルバーン",
     "id": 30201091,
@@ -12076,7 +11839,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dragons of Ruin",
     "nameJp": "ヒートバイト",
     "id": 30201121,
@@ -12088,9 +11850,9 @@
     "rarity": 2,
     "type": "NAT",
     "target": "Self",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Protect",
     "counter": false,
@@ -12114,7 +11876,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #1",
     "nameJp": "まもり",
     "id": 30211001,
@@ -12126,9 +11887,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "Self",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Draw Fire for 25 seconds",
     "counter": false,
@@ -12152,7 +11913,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "To the Holy Land",
     "nameJp": "ひきつける",
     "id": 30211002,
@@ -12164,9 +11924,9 @@
     "rarity": 4,
     "type": "PHY",
     "target": "Single",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Damages for 2 * (user's maximum HP - user's current HP)",
     "counter": true,
@@ -12197,7 +11957,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "To the Holy Land",
     "nameJp": "サガク剣",
     "id": 30211011,
@@ -12242,7 +12001,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Gunblade of the Sorceress",
     "nameJp": "メンタルバッシュ",
     "id": 30211021,
@@ -12254,9 +12012,9 @@
     "rarity": 4,
     "type": "NAT",
     "target": "Self",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Magic Lure for 25 seconds",
     "counter": false,
@@ -12287,7 +12045,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Gunblade of the Sorceress",
     "nameJp": "魔法ひきつけ",
     "id": 30211031,
@@ -12299,9 +12056,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "Single ally",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "DEF and RES +50% for 25 seconds",
     "counter": false,
@@ -12325,7 +12082,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #16",
     "nameJp": "守りのメメント",
     "id": 30211041,
@@ -12370,7 +12126,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Someone to Protect",
     "nameJp": "バニシュレイド",
     "id": 30211051,
@@ -12415,7 +12170,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Someone to Protect",
     "nameJp": "アーマーストライク",
     "id": 30211061,
@@ -12460,7 +12214,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Someone to Protect",
     "nameJp": "シールドバッシュ",
     "id": 30211071,
@@ -12505,7 +12258,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "By Stone Revealed",
     "nameJp": "セイントクロス",
     "id": 30211081,
@@ -12550,7 +12302,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "The Five Dooms",
     "nameJp": "イージスストライク",
     "id": 30211091,
@@ -12595,7 +12346,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Aspiring Knight",
     "nameJp": "ガイアクロス",
     "id": 30211101,
@@ -12640,7 +12390,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Family Secrets",
     "nameJp": "ガードブリンガー",
     "id": 30211111,
@@ -12685,7 +12434,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "FF 30th Anniversary Parade",
     "nameJp": "ディバインクロス",
     "id": 30211121,
@@ -12730,7 +12478,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "The Onion Knight Rises",
     "nameJp": "アースブリンガー",
     "id": 30211131,
@@ -12775,7 +12522,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Trapped by the Past",
     "nameJp": "アサルトセイバー",
     "id": 30211141,
@@ -12820,7 +12566,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Strike Back at the Empire",
     "nameJp": "アースセイバー",
     "id": 30211151,
@@ -12883,9 +12628,9 @@
     "rarity": 2,
     "type": "NAT",
     "target": "Self",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Retaliate for 15 seconds",
     "counter": true,
@@ -12916,7 +12661,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "かまえる",
     "id": 30221001,
@@ -12961,7 +12705,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Ultimate Guardian",
     "nameJp": "居合い抜き",
     "id": 30221011,
@@ -13006,7 +12749,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Ultimate Guardian",
     "nameJp": "雪風",
     "id": 30221021,
@@ -13051,7 +12793,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Malice Within",
     "nameJp": "剣閃",
     "id": 30221031,
@@ -13096,7 +12837,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The Malice Within",
     "nameJp": "明鏡",
     "id": 30221041,
@@ -13141,7 +12881,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Festive Fantasy",
     "nameJp": "-",
     "id": 30221051,
@@ -13186,7 +12925,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The Lone Wolf's Lament",
     "nameJp": "花焔",
     "id": 30221061,
@@ -13231,7 +12969,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Five Dooms",
     "nameJp": "羅刹",
     "id": 30221081,
@@ -13276,7 +13013,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Women of the World",
     "nameJp": "氷雨",
     "id": 30221091,
@@ -13321,7 +13057,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The More the Merrier",
     "nameJp": "抜刀・乱炎",
     "id": 30221101,
@@ -13366,7 +13101,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The More the Merrier",
     "nameJp": "構え・焔月",
     "id": 30221111,
@@ -13411,7 +13145,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dream Meet Despair",
     "nameJp": "抜刀・乱氷",
     "id": 30221121,
@@ -13456,7 +13189,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dream Meet Despair",
     "nameJp": "構え・冷月",
     "id": 30221131,
@@ -13501,7 +13233,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "A Promise Kept",
     "nameJp": "業火",
     "id": 30221141,
@@ -13546,7 +13277,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "A Promise Kept",
     "nameJp": "居合・獄炎",
     "id": 30221151,
@@ -13591,7 +13321,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Come, Dancing Princess!",
     "nameJp": "居合・獄氷",
     "id": 30221161,
@@ -13738,7 +13467,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #2",
     "nameJp": "手裏剣",
     "id": 30231001,
@@ -13776,7 +13504,6 @@
         75
       ]
     },
-    "": "",
     "introducingEvent": "Assassin in Black",
     "nameJp": "散華",
     "id": 30231011,
@@ -13821,7 +13548,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Assassin in Black",
     "nameJp": "雷迅",
     "id": 30231021,
@@ -13866,7 +13592,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The Burning Blade!",
     "nameJp": "水遁",
     "id": 30231031,
@@ -13911,7 +13636,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The Burning Blade!",
     "nameJp": "影刃",
     "id": 30231041,
@@ -13956,7 +13680,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Hidden Resolve",
     "nameJp": "火遁",
     "id": 30231051,
@@ -14001,7 +13724,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Hidden Resolve",
     "nameJp": "幻夢",
     "id": 30231061,
@@ -14046,7 +13768,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Miraculous Artist",
     "nameJp": "狂影刃",
     "id": 30231071,
@@ -14091,7 +13812,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "The Lord of Crags",
     "nameJp": "旋風",
     "id": 30231081,
@@ -14136,7 +13856,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "The Five Dooms",
     "nameJp": "快刀乱麻",
     "id": 30231091,
@@ -14181,7 +13900,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Lady of the Vortex",
     "nameJp": "かえんじん",
     "id": 30231101,
@@ -14226,7 +13944,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Cutting Winds, Soaring Lightning",
     "nameJp": "ぼうふうじん",
     "id": 30231111,
@@ -14271,7 +13988,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Fate Calls, Power Awakens",
     "nameJp": "みなもうつし",
     "id": 30231121,
@@ -14316,7 +14032,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Fate Calls, Power Awakens",
     "nameJp": "げきりゅうじん",
     "id": 30231131,
@@ -14361,7 +14076,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "The More the Merrier",
     "nameJp": "みかげうつし",
     "id": 30231141,
@@ -14406,7 +14120,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "The More the Merrier",
     "nameJp": "しっこくじん",
     "id": 30231151,
@@ -14451,7 +14164,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Enduring Bonds",
     "nameJp": "すなかげろう",
     "id": 30231161,
@@ -14496,7 +14208,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Enduring Bonds",
     "nameJp": "さばくじん",
     "id": 30231171,
@@ -14534,7 +14245,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "To the Holy Land",
     "nameJp": "レクイエム",
     "id": 30241001,
@@ -14546,9 +14256,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "ATK +15% for 25 seconds",
     "counter": true,
@@ -14579,7 +14289,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "To the Holy Land",
     "nameJp": "ちからのうた",
     "id": 30241002,
@@ -14591,9 +14300,9 @@
     "rarity": 2,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.5,
     "effects": "Causes Sleep (20%)",
     "counter": false,
@@ -14617,7 +14326,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #11",
     "nameJp": "子守歌",
     "id": 30241011,
@@ -14629,9 +14337,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "MAG +15% for 25 seconds",
     "counter": false,
@@ -14662,7 +14370,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #11",
     "nameJp": "魔力の歌",
     "id": 30241021,
@@ -14674,9 +14381,9 @@
     "rarity": 4,
     "type": "NAT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Shell",
     "counter": false,
@@ -14707,7 +14414,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #11",
     "nameJp": "耐魔のエチュード",
     "id": 30241031,
@@ -14719,9 +14425,9 @@
     "rarity": 4,
     "type": "NAT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Protect",
     "counter": false,
@@ -14752,7 +14458,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Defying Fate",
     "nameJp": "堅守のエチュード",
     "id": 30241041,
@@ -14764,9 +14469,9 @@
     "rarity": 5,
     "type": "NAT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants High Regen",
     "counter": true,
@@ -14797,7 +14502,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Spark Before Fire",
     "nameJp": "天使の詩",
     "id": 30241061,
@@ -14809,9 +14513,9 @@
     "rarity": 6,
     "type": "NAT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Magical Quick Cast 3",
     "counter": true,
@@ -14842,7 +14546,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Dark Mage",
     "nameJp": "アレグロコンモート",
     "id": 30241071,
@@ -14854,9 +14557,9 @@
     "rarity": 5,
     "type": "NAT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Hymn MAG +10/20/30/40/50%, grants Mystic Bard 1/2/3/4/4 to the user if the user has Mystic Bard 0/1/2/3/4",
     "counter": true,
@@ -14887,7 +14590,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Limelit Stage",
     "nameJp": "魔神の賛歌",
     "id": 30241081,
@@ -14899,9 +14601,9 @@
     "rarity": 5,
     "type": "NAT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Hymn ATK +10/20/30/40/50%, grants Battle Bard 1/2/3/4/4 to the user if the user has Battle Bard 0/1/2/3/4",
     "counter": true,
@@ -14932,7 +14634,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Limelit Stage",
     "nameJp": "鬼神の戦歌",
     "id": 30241091,
@@ -14944,9 +14645,9 @@
     "rarity": 5,
     "type": "NAT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Hymn MND +10/20/30/40/50%, grants Sacred Bard 1/2/3/4/4 to the user if the user has Sacred Bard 0/1/2/3/4",
     "counter": true,
@@ -14977,7 +14678,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Clad in Red",
     "nameJp": "女神の聖歌",
     "id": 30241101,
@@ -14989,9 +14689,9 @@
     "rarity": 5,
     "type": "NAT",
     "target": "All allies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "Grants Critical Chance 10/20/30/40/50%, grants Tactical Bard 1/2/3/4/4 to the user if the user has Tactical Bard 0/1/2/3/4",
     "counter": true,
@@ -15022,7 +14722,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Summer Sun Festival",
     "nameJp": "武神の凱歌",
     "id": 30241111,
@@ -15034,9 +14733,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "DEF -30% for 15 seconds",
     "counter": false,
@@ -15067,7 +14766,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #11",
     "nameJp": "ボックスステップ",
     "id": 30251021,
@@ -15079,9 +14777,9 @@
     "rarity": 4,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "DEF -40% for 15 seconds",
     "counter": false,
@@ -15112,7 +14810,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "A Brewing Nightmare",
     "nameJp": "ハイボックスステップ",
     "id": 30251022,
@@ -15124,9 +14821,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "RES -30% for 15 seconds",
     "counter": false,
@@ -15157,7 +14854,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dungeons Update #11",
     "nameJp": "スタッターステップ",
     "id": 30251031,
@@ -15169,9 +14865,9 @@
     "rarity": 4,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "RES -50% for 15 seconds",
     "counter": false,
@@ -15202,7 +14898,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Forgotten Bond",
     "nameJp": "ハイスタッターステップ",
     "id": 30251032,
@@ -15214,9 +14909,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "ATK -30% for 15 seconds",
     "counter": false,
@@ -15247,7 +14942,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Defying Fate",
     "nameJp": "ウィークポルカ",
     "id": 30251041,
@@ -15259,9 +14953,9 @@
     "rarity": 4,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "ATK -40% for 15 seconds",
     "counter": false,
@@ -15292,7 +14986,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Forgotten Bond",
     "nameJp": "ハイウィークポルカ",
     "id": 30251042,
@@ -15304,9 +14997,9 @@
     "rarity": 4,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.8,
     "effects": "Causes Stop (70%)",
     "counter": false,
@@ -15337,7 +15030,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Tempered Resolve",
     "nameJp": "ストップルンバ",
     "id": 30251051,
@@ -15349,9 +15041,9 @@
     "rarity": 3,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "MAG -30% for 15 seconds",
     "counter": false,
@@ -15382,7 +15074,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Tempered Resolve",
     "nameJp": "アンフェイス",
     "id": 30251061,
@@ -15394,9 +15085,9 @@
     "rarity": 4,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "MAG -50% for 15 seconds",
     "counter": false,
@@ -15427,7 +15118,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "A Brewing Nightmare",
     "nameJp": "ハイアンフェイス",
     "id": 30251062,
@@ -15439,9 +15129,9 @@
     "rarity": 5,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "ATK, DEF, MAG and RES -30% for 15 seconds",
     "counter": false,
@@ -15472,7 +15162,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "A Brewing Nightmare",
     "nameJp": "ブレイクフィーバー",
     "id": 30251071,
@@ -15484,9 +15173,9 @@
     "rarity": 5,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "DEF and RES -50% for 10 seconds",
     "counter": false,
@@ -15517,7 +15206,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Unswayed by Phantoms",
     "nameJp": "クラッシュタンゴ",
     "id": 30251081,
@@ -15529,9 +15217,9 @@
     "rarity": 5,
     "type": "NAT",
     "target": "All enemies",
-    "formula": "",
+    "formula": null,
     "multiplier": null,
-    "element": "",
+    "element": null,
     "time": 1.65,
     "effects": "ATK and MAG -50% for 10 seconds",
     "counter": false,
@@ -15562,7 +15250,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Unswayed by Phantoms",
     "nameJp": "スマッシュジルバ",
     "id": 30251091,
@@ -15607,7 +15294,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "A Meeting Beyond Time",
     "nameJp": "ブライン弾",
     "id": 30261011,
@@ -15652,7 +15338,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "A Meeting Beyond Time",
     "nameJp": "サイレス弾",
     "id": 30261021,
@@ -15697,7 +15382,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Eternal Calm",
     "nameJp": "ポイズン弾",
     "id": 30261031,
@@ -15742,7 +15426,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Consorting with Sky Pirates",
     "nameJp": "コンフュ弾",
     "id": 30261041,
@@ -15787,7 +15470,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Two Sides of a Coin",
     "nameJp": "バイオグレネード",
     "id": 30261051,
@@ -15832,7 +15514,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "The Five Dooms",
     "nameJp": "ペナルティスナイプ",
     "id": 30261061,
@@ -15877,7 +15558,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "A Sword for Peace",
     "nameJp": "ラピッドファイア",
     "id": 30261071,
@@ -15922,7 +15602,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Family Secrets",
     "nameJp": "テンペストスナイプ",
     "id": 30261081,
@@ -15967,7 +15646,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Road Trip to Remember",
     "nameJp": "スパークオファ",
     "id": 30261091,
@@ -16012,7 +15690,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Borrowed Dreams",
     "nameJp": "コールドオファ",
     "id": 30261101,
@@ -16057,7 +15734,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Unswayed by Phantoms",
     "nameJp": "ヒートオファ",
     "id": 30261111,
@@ -16102,7 +15778,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Unswayed by Phantoms",
     "nameJp": "バーニングスナイプ",
     "id": 30261121,
@@ -16147,7 +15822,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Unswayed by Phantoms",
     "nameJp": "フリージングスナイプ",
     "id": 30261131,
@@ -16294,7 +15968,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Twin Stars of Mysidia",
     "nameJp": "ダークレイド",
     "id": 30271001,
@@ -16339,7 +16012,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Twin Stars of Mysidia",
     "nameJp": "ブラッディクロス",
     "id": 30271011,
@@ -16384,7 +16056,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Gaia's Angel of Death",
     "nameJp": "ダークゾーン",
     "id": 30271021,
@@ -16429,7 +16100,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Gaia's Angel of Death",
     "nameJp": "メメント・モリ",
     "id": 30271031,
@@ -16474,7 +16144,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "In the Footsteps of Greatness",
     "nameJp": "死中活",
     "id": 30271041,
@@ -16519,7 +16188,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "In the Footsteps of Greatness",
     "nameJp": "告死の大鎌",
     "id": 30271051,
@@ -16564,7 +16232,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Flash of Defiance",
     "nameJp": "イービルカウント",
     "id": 30271061,
@@ -16609,7 +16276,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Destroyer of Light and Dark",
     "nameJp": "ドレッドヒール",
     "id": 30271071,
@@ -16654,7 +16320,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Awakening Cloud",
     "nameJp": "残魂の連打",
     "id": 30271081,
@@ -16699,7 +16364,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Awakening Cloud",
     "nameJp": "ネクロフィアー",
     "id": 30271091,
@@ -16744,7 +16408,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "The Shadow Stirs",
     "nameJp": "ドレッドウェポン",
     "id": 30271101,
@@ -16789,7 +16452,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Inherited Flaming Will",
     "nameJp": "クリムゾンクロス",
     "id": 30271111,
@@ -16834,7 +16496,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Fal'Cie Puppets",
     "nameJp": "暗黒の烙印",
     "id": 30271121,
@@ -16981,7 +16642,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "This Is Our Story",
     "nameJp": "サファイアシュート",
     "id": 30281001,
@@ -17026,7 +16686,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "This Is Our Story",
     "nameJp": "アクアバースト",
     "id": 30281011,
@@ -17071,7 +16730,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Dreaming's End",
     "nameJp": "ブルードライブ",
     "id": 30281021,
@@ -17116,7 +16774,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Pawn Among Kings",
     "nameJp": "アイシクルショット",
     "id": 30281051,
@@ -17161,7 +16818,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Type-0: Into the Fray",
     "nameJp": "ルビースパイク",
     "id": 30281061,
@@ -17206,7 +16862,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Type-0: Into the Fray",
     "nameJp": "フレイムバースト",
     "id": 30281071,
@@ -17302,7 +16957,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Women of the World",
     "nameJp": "ヘルサンダー",
     "id": 30301001,
@@ -17347,7 +17001,6 @@
         100
       ]
     },
-    "": "",
     "introducingEvent": "Women of the World",
     "nameJp": "レシオブリザド",
     "id": 30301011,
@@ -17392,7 +17045,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Women of the World",
     "nameJp": "ファストサンダー",
     "id": 30301021,
@@ -17437,7 +17089,6 @@
         50
       ]
     },
-    "": "",
     "introducingEvent": "Women of the World",
     "nameJp": "ファストブリザド",
     "id": 30301031,
@@ -17584,7 +17235,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Solitary Lion",
     "nameJp": "ファストサンダラ",
     "id": 30301061,
@@ -17629,7 +17279,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Solitary Lion",
     "nameJp": "ファストブリザラ",
     "id": 30301071,
@@ -17674,7 +17323,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Key to Another World",
     "nameJp": "グランドチャージ",
     "id": 30311001,
@@ -17719,7 +17367,6 @@
         30
       ]
     },
-    "": "",
     "introducingEvent": "Key to Another World",
     "nameJp": "ヘヴィチャージ",
     "id": 30311011,
@@ -17764,7 +17411,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Key to Another World",
     "nameJp": "ギガントスイング",
     "id": 30311021,
@@ -17809,7 +17455,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Key to Another World",
     "nameJp": "ブラストバーン",
     "id": 30311031,
@@ -17854,7 +17499,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Sailing the Skies",
     "nameJp": "イービルスイング",
     "id": 30311041,
@@ -17899,7 +17543,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Sailing the Skies",
     "nameJp": "ダークインパクト",
     "id": 30311051,
@@ -17944,7 +17587,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Autumn Festival 2018",
     "nameJp": "ストーンプレス",
     "id": 30311061,
@@ -17989,7 +17631,6 @@
         60
       ]
     },
-    "": "",
     "introducingEvent": "Dawn of Conflict",
     "nameJp": "イービルプレス",
     "id": 30311071,
