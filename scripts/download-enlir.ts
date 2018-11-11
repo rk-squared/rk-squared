@@ -160,7 +160,7 @@ function convertAbilities(rows: any[]): any[] {
       } else if (col === '') {
         if (rows[i][j]) {
           if (orb == null || orb === '') {
-            throw new Error(`Got orb count with no orb at ${i} ${j}`);
+            throw new Error(`Got orb count with no orb at row ${i} column ${j}`);
           } else {
             item.orbs[orb].push(toInt(rows[i][j]));
           }
@@ -241,7 +241,57 @@ function convertCharacters(rows: any[]): any[] {
 }
 
 function convertMagicite(rows: any[]): any[] {
-  return rows;
+  const magicite: any[] = [];
+
+  let passive: string | null = null;
+
+  for (let i = 1; i < rows.length; i++) {
+    if (!rows[i].length) {
+      // Skip explanatory text at the bottom of the sheet.
+      break;
+    }
+    console.log(rows[i]);
+
+    const item: any = {};
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+      if (shouldAlwaysSkip(col)) {
+        continue;
+      }
+
+      const field = _.camelCase(col);
+      if (col === 'Rarity') {
+        item[field] = toInt(rows[i][j]);
+      } else if (stats.has(col)) {
+        item.stats = item.stats || {};
+        item.stats[field] = toInt(rows[i][j]);
+      } else if (col.match(/Passive \d+/)) {
+        passive = rows[i][j];
+        if (passive) {
+          item.passives = item.passives || {};
+          item.passives[passive] = {};
+        }
+      } else if (col.match(/^\d+$/)) {
+        if (rows[i][j]) {
+          if (!passive) {
+            throw new Error(`Missing passive at row ${i} column ${j}`);
+          }
+          item.passives[passive][+col] = toInt(rows[i][j]);
+        }
+      } else if (col === 'Cooldown' || col === 'Duration' || col === 'Multiplier' || col === 'Time') {
+        item[field] = toFloat(rows[i][j]);
+      } else if (col === 'Counter') {
+        item[field] = toBool(rows[i][j]);
+      } else {
+        item[field] = toCommon(field, rows[i][j]);
+      }
+      console.log([item[field], field, rows[i][j]]);
+    }
+
+    magicite.push(item);
+  }
+
+  return magicite;
 }
 
 function convertRecordMateria(rows: any[]): any[] {
