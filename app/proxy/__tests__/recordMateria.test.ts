@@ -104,11 +104,10 @@ describe('recordMateria proxy handler', () => {
       );
 
       expect(store.getActions()).toEqual([{
-        type: 'UPDATE_RECORD_MATERIA_INVENTORY',
+        type: 'OBTAIN_RECORD_MATERIA',
         payload: {
-          id: 111020020,
-          inventory: true,
-          favorite: undefined
+          id: [111020020],
+          updateInventory: true,
         }
       }]);
     });

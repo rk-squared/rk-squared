@@ -199,7 +199,7 @@ const recordMateriaHandler: Handler = {
 
     const execData = data as charactersSchemas.BuddyEvolveExec;
     if (execData.record_materia) {
-      store.dispatch(updateRecordMateriaInventory(execData.record_materia.id, { inventory: true }));
+      store.dispatch(obtainRecordMateria([execData.record_materia.id]));
     }
   },
 
@@ -215,7 +215,7 @@ const recordMateriaHandler: Handler = {
     }
 
     if (data.record_materia) {
-      store.dispatch(updateRecordMateriaInventory(data.record_materia.id, { inventory: true }));
+      store.dispatch(obtainRecordMateria([data.record_materia.id]));
     }
   },
 };
