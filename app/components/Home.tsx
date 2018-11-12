@@ -14,8 +14,8 @@ export class Home extends React.Component {
         </p>
 
         <p>
-          Depending on which mobile device you're using, you may also need to install a
-          <em>certificate</em> to let RK&sup2; impersonate the FFRK servers.
+          Depending on which mobile device you're using, you may also need to install
+          a <em>certificate</em> to let RK&sup2; impersonate the FFRK servers.
         </p>
 
         <p>
