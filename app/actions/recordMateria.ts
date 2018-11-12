@@ -158,11 +158,12 @@ export const obtainRecordMateria = createAction('OBTAIN_RECORD_MATERIA',
 
 /// Sets the list of record materia currently in inventory and record materia favorites
 export const setRecordMateriaInventory = createAction('SET_RECORD_MATERIA_INVENTORY',
-  (inventory: number[], favorites: number[]) => ({
+  (inventory: number[], favorites: number[], warehouse: number[]) => ({
     type: 'SET_RECORD_MATERIA_INVENTORY',
     payload: {
       inventory,
       favorites,
+      warehouse,
     }
   })
 );

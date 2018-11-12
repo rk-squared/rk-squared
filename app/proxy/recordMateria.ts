@@ -132,8 +132,10 @@ const recordMateriaHandler: Handler = {
     store.dispatch(setRecordMateriaInventory(
       _.map(data.record_materias, i => i.id),
       _.map(_.filter(data.record_materias, i => i.is_favorite), i => i.id),
+      _.map(data.record_materias_warehouse, i => i.record_materia_id),
     ));
 
+    // TODO: Now that we process record_materias_warehouse, this should no longer be needed.
     const level50Characters = data.buddies
       .filter(i => i.level_max > 50)
       .map(i => i.buddy_id);

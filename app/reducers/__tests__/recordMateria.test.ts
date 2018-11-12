@@ -43,7 +43,7 @@ describe('recordMateria reducer', () => {
         favorites: undefined,
       };
 
-      const newState = recordMateria(initialState, setRecordMateriaInventory([attunement1.id], []));
+      const newState = recordMateria(initialState, setRecordMateriaInventory([attunement1.id], [], []));
 
       expect(newState.recordMateria[attunement1.id].obtained).toBeTruthy();
       expect(newState.inventory).toBeTruthy();

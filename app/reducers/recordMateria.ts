@@ -85,7 +85,9 @@ export function recordMateria(state: RecordMateriaState = initialState,
 
     case getType(setRecordMateriaInventory): {
       return {
-        ...u.update(toObtainedUpdate(state.recordMateria, action.payload.inventory), state),
+        ...u.update(
+          toObtainedUpdate(state.recordMateria, [...action.payload.inventory, ...action.payload.warehouse]), state
+        ),
         inventory: toSet(action.payload.inventory),
         favorites: toSet(action.payload.favorites),
       };
