@@ -28,7 +28,7 @@ export class RecordMateriaTooltip extends React.Component<Props> {
         <div className={styles.textBlock}>
           <h6>{rm.name}</h6>
           <BrTextToP text={rm.description} className={styles.gameDescription}/>
-          <p className={styles.enlirDescription}>{enlirRM ? enlirRM.Effect : ''}</p>
+          <p className={styles.enlirDescription}>{enlirRM ? enlirRM.effect : ''}</p>
           <div className={styles.statusBlock}>
             <StatusIcon status={rm.status}/>
             <p>

@@ -7,7 +7,7 @@ import { Store } from 'redux';
 
 import * as schemas from '../api/schemas';
 import { enlir } from '../data';
-import { itemsById, ItemType } from '../data/items';
+import { formatRelicName, itemsById, ItemType } from '../data/items';
 import * as urls from '../data/urls';
 import { Handler } from './types';
 
@@ -84,12 +84,12 @@ function nameWithAmount(name: string, amount?: number) {
 function getTreasureDetails(id: number, item: NormalizedItem) {
   if (enlir.magicites[id]) {
     return {
-      name: enlir.magicites[id].MagiciteName,
+      name: enlir.magicites[id].name,
       imageUrl: urls.magiciteImage(id),
     };
   } else if (enlir.relics[id]) {
     return {
-      name: enlir.relics[id].Description,
+      name: formatRelicName(enlir.relics[id]),
       imageUrl: urls.relicImage(id, item.rarity),
     };
   } else if (itemsById[id]) {

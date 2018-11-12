@@ -74,6 +74,10 @@ function makeItemTypeLookup() {
 }
 export const ItemTypeLookup = makeItemTypeLookup();
 
+export function formatRelicName({name, realm}: {name: string, realm: string | null}): string {
+  return (realm && realm !== '-') ? `${name} (${realm})` : name;
+}
+
 export const items = [
   {
     name: 'Dark Matter (1★)',

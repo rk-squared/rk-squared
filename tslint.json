@@ -8,7 +8,7 @@
     "no-empty": [true, "allow-empty-catch"],
     "no-consecutive-blank-lines": [true, 2],
     "no-conditional-assignment": false,
-    "no-implicit-dependencies": [true, "dev"],
+    "no-implicit-dependencies": [true, "dev", ["googleapis-common"]],
     "no-string-literal": false,
     "no-submodule-imports": [true, "@fortawesome/fontawesome-free-solid", "lodash-es", "redux-saga"],
     "no-unused-expression": [true, "allow-fast-null-checks"],

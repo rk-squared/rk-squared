@@ -10,7 +10,7 @@
     "test-watch": "jest --watch",
     "hot-server": "cross-env NODE_ENV=development node --max_old_space_size=2096 server.js",
     "build-renderer": "cross-env NODE_ENV=production node ./node_modules/webpack/bin/webpack --config webpack.config.production.js --progress --profile --colors",
-    "copy-json": "copyfiles --flat \"./app/data/*.json\" ./dist/app/data",
+    "copy-json": "copyfiles --flat \"./app/data/enlir/*.json\" ./dist/app/data/enlir",
     "build": "tsc && npm run copy-json && npm run build-renderer",
     "start": "cross-env NODE_ENV=production electron .",
     "start-hot": "cross-env HOT=1 NODE_ENV=development electron .",
@@ -143,6 +143,7 @@
     "@types/redux-mock-store": "^1.0.0",
     "@types/sinon": "^4.0.0",
     "@types/stream-buffers": "^3.0.2",
+    "@types/yargs": "^12.0.1",
     "asar": "^0.14.0",
     "concurrently": "^3.1.0",
     "copyfiles": "^2.0.0",
@@ -159,6 +160,8 @@
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.5",
+    "google-auth-library": "^2.0.1",
+    "googleapis": "^35.0.0",
     "html-webpack-plugin": "^2.24.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.0.4",
@@ -182,7 +185,8 @@
     "webpack": "^3.3.0",
     "webpack-dev-middleware": "^2.0.3",
     "webpack-hot-middleware": "^2.13.2",
-    "webpack-merge": "^4.1.1"
+    "webpack-merge": "^4.1.1",
+    "yargs": "^12.0.2"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
