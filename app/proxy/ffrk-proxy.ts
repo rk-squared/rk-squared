@@ -31,7 +31,7 @@ import { IState } from '../reducers';
 
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';
-import { getCertificate, tlsSites } from './tls';
+import { tlsCert, tlsSites } from './tls';
 
 interface ProxyIncomingMessage extends http.IncomingMessage {
   bodyStream: streamBuffers.WritableStreamBuffer | undefined;
@@ -249,8 +249,6 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   setStoragePath(userDataPath);
   store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
 
-  const [ certPem, keyPem ] = getCertificate();
-
   // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
     if (isFfrkApiRequest(req)) {
@@ -303,7 +301,7 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     }
     */
 
-    if (handleInternalRequests(req, res, certPem)) {
+    if (handleInternalRequests(req, res, tlsCert.ca)) {
       return;
     }
 
@@ -330,11 +328,7 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   });
 
   const server = http.createServer(app);
-  const httpsServer = https.createServer({
-    key: keyPem,
-    cert: certPem,
-    ca: certPem
-  }, tlsApp);
+  const httpsServer = https.createServer(tlsCert, tlsApp);
 
   server.on('error', e => {
     logger.debug('Error within server');

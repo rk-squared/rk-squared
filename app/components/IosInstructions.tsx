@@ -34,7 +34,7 @@ export class IosInstructions extends React.Component<Props> {
         <h6>Install the RK&sup2; certificate</h6>
         <ol>
           <li>
-            Open Safari on your phone or tablet and navigate to <code>rk-squared/cert</code>.
+            Open Safari on your phone or tablet and navigate to <code>rk-squared.com/cert</code>.
             (This <code>cert</code> page isn't a &ldquo;real&rdquo; web page;
             it's handled within RK&sup2; and is only accessible if you've
             configured your proxy.)
@@ -51,8 +51,7 @@ export class IosInstructions extends React.Component<Props> {
             Tap &ldquo;Allow.&rdquo;
           </li>
           <li>
-            An &ldquo;Install Profile&rdquo; screen should pop up, saying that
-            the profile is signed by RK Squared and is not verified.  Follow
+            An &ldquo;Install Profile&rdquo; screen should pop up.  Follow
             the on-screen prompts to install the profile.
           </li>
           <li>
