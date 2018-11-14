@@ -17,7 +17,7 @@ interface Props {
 export class RecordMateriaTooltip extends React.Component<Props> {
   render() {
     const { id, rm } = this.props;
-    const enlirRM = enlir.recordMateria[rm.name];
+    const enlirRM = enlir.recordMateria[rm.name.toLowerCase()];
     return (
       <ReactTooltip id={id} className={styles.component} place="bottom">
         <div className={styles.iconsBlock}>
