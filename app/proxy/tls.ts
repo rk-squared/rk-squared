@@ -50,7 +50,8 @@ export function createOrLoadCertificate(userDataPath: string, errorCallback?: (e
   const certFilename = path.join(userDataPath, 'ffrk-cert.pem');
   const keyFilename = path.join(userDataPath, 'ffrk-key.pem');
 
-  if (fs.existsSync(certFilename) && fs.existsSync(keyFilename)) {
+  const filesExist = +fs.existsSync(caFilename) + +fs.existsSync(certFilename) + +fs.existsSync(keyFilename);
+  if (filesExist === 3) {
     try {
       tlsCert.ca = fs.readFileSync(caFilename).toString();
       tlsCert.cert = fs.readFileSync(certFilename).toString();
@@ -59,8 +60,11 @@ export function createOrLoadCertificate(userDataPath: string, errorCallback?: (e
     } catch (e) {
       logger.error('Failed to load certificates');
       logger.error(e);
-      errorCallback && errorCallback('Failed to load certificates: ' + e.what);
+      errorCallback && errorCallback('Failed to load certificates: ' + e.message);
     }
+  } else if (filesExist) {
+    logger.error(`Unexpected certificates: only ${filesExist} are present`);
+    errorCallback && errorCallback(`Unexpected certificates: only ${filesExist} are present`);
   }
 
   const [ caCert, caKey ] = createCaCertificate('RK Squared');
@@ -76,7 +80,7 @@ export function createOrLoadCertificate(userDataPath: string, errorCallback?: (e
   } catch (e) {
     logger.error('Failed to save certificates');
     logger.error(e);
-    errorCallback && errorCallback('Failed to save certificates: ' + e.what);
+    errorCallback && errorCallback('Failed to save certificates: ' + e.message);
   }
 }
 
