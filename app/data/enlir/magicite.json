@@ -569,7 +569,7 @@
     },
     "nameJp": "【契】地獄の火炎",
     "id": 161000085,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Fire",
@@ -625,7 +625,7 @@
     },
     "nameJp": "【契】転生の炎",
     "id": 161000086,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Ice",
@@ -3132,7 +3132,7 @@
       "multiplier": 85,
       "element": "Wind",
       "time": 2.5,
-      "effects": "One group attack (85.00) capped at 99999, 102,00 multiplier if Faris is alive, causes Imperil Wind 20% for 25 seconds",
+      "effects": "One group attack (85.00) capped at 99999, 102.00 multiplier if Faris is alive, causes Imperil Wind 20% for 25 seconds",
       "counter": false
     },
     "nameJp": "【契】サンダーストーム",

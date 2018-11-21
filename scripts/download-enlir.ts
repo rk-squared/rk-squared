@@ -110,7 +110,7 @@ function toStringWithDecimals(value: string) {
   if (value === '') {
     return null;
   } else {
-    return value.replace(/(\d+),(\d+)/, '$1.$2');
+    return value.replace(/(\d+),(\d+)/g, '$1.$2');
   }
 }
 
