@@ -22,3 +22,27 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 * [FFRKreeper](https://ffrkreeper.com/), and [how to use it with macOS](https://www.reddit.com/r/FFRecordKeeper/comments/7bxi5m/setting_up_ffrkreeper_in_mac_with_burp/)
 * [SoulBreak Search](https://www.reddit.com/r/FFRecordKeeper/comments/94twzj/soulbreak_search_version_151_release_now_with/)
 * [DJVDT's FFRK Go-To](https://www.reddit.com/r/FFRecordKeeper/comments/9koigt/djvdts_ffrk_goto_a_few_new_things/)
+
+## Viewing Logs
+
+In macOS:
+
+1. Press Command-Space to bring up Spotlight Search.
+2. Type "terminal", without the quotes, and click on the Terminal application.
+3. Paste the following command into your terminal window and press Enter:
+    ```
+    /Applications/RK\ Squared.app/Contents/MacOS/RK\ Squared
+    ```
+4. Retry whatever operation was resulting in the error.
+5. Copy the log contents from your terminal window.
+
+In Windows:
+
+1. Click the Start menu.
+2. Type "cmd", without the quotes, and press Enter.
+3. Paste the following command (_including_ quotes), then press Enter:
+    ```
+    "%LocalAppData%\Programs\rk-squared\RK Squared.exe"
+    ```
+4. Retry whatever operation was resulting in the error.
+5. Copy the log contents from your command prompt window.
