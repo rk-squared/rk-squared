@@ -14,6 +14,7 @@
     "no-unused-expression": [true, "allow-fast-null-checks"],
     "no-var-requires": false,
     "object-literal-sort-keys": false,
+    "prefer-conditional-expression": false,
     "semicolon": [true, "strict-bound-class-methods"],
     "trailing-comma": false
   }
