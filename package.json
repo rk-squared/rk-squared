@@ -6,8 +6,8 @@
   "main": "dist/app/main.js",
   "scripts": {
     "test": "jest",
-    "test-all": "npm run test && npm run build && npm run test-e2e",
-    "test-watch": "jest --watch",
+    "test:all": "npm run test && npm run build && npm run test-e2e",
+    "test:watch": "jest --watch",
     "hot-server": "cross-env NODE_ENV=development node --max_old_space_size=2096 server.js",
     "build-renderer": "cross-env NODE_ENV=production node ./node_modules/webpack/bin/webpack --config webpack.config.production.js --progress --profile --colors",
     "copy-json": "copyfiles --flat \"./app/data/enlir/*.json\" ./dist/app/data/enlir",
@@ -17,11 +17,11 @@
     "dev": "npm run hot-server -- --start-hot",
     "predev": "npm run copy-json",
     "package": "npm run build && build --publish never",
-    "package-win": "npm run build && build --win --x64",
-    "package-linux": "npm run build && build --linux",
-    "package-all": "npm run build && build -mw",
+    "package:win": "npm run build && build --win --x64",
+    "package:linux": "npm run build && build --linux",
+    "package:all": "npm run build && build -mw",
     "lint": "tslint --project .",
-    "watch": "tsc -w"
+    "build:watch": "tsc -w"
   },
   "jest": {
     "roots": [
