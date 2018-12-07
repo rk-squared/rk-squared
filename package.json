@@ -54,6 +54,11 @@
       "html"
     ]
   },
+  "prettier": {
+    "printWidth": 100,
+    "trailingComma": "all",
+    "singleQuote": true
+  },
   "build": {
     "productName": "RK Squared",
     "appId": "com.joshkel.rksquared",
@@ -169,6 +174,7 @@
     "json-loader": "^0.5.4",
     "minimist": "^1.2.0",
     "node-sass": "^4.1.1",
+    "prettier": "^1.15.3",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-test-renderer": "^16.0.0",
     "redux-logger": "^3.0.6",
