@@ -22,7 +22,7 @@ import { OAuth2Client } from 'google-auth-library';
 // tslint:disable no-console
 
 function questionAsync(r: readline.ReadLine, query: string): Promise<string> {
-  return new Promise<string>((resolve) => {
+  return new Promise<string>(resolve => {
     r.question(query, resolve);
   });
 }
@@ -101,9 +101,10 @@ async function getNewToken(oAuth2Client: OAuth2Client): Promise<OAuth2Client> {
 }
 
 const toBool = (value: string) => value === 'Y';
-const toInt = (value: string) => value === '' ? null : +value;
-const toFloat = (value: string) => value === '' ? null : Number.parseFloat(value.replace(',', '.'));
-const toString = (value: string) => value === '' ? null : value;
+const toInt = (value: string) => (value === '' ? null : +value);
+const toFloat = (value: string) =>
+  value === '' ? null : Number.parseFloat(value.replace(',', '.'));
+const toString = (value: string) => (value === '' ? null : value);
 const checkToBool = (value: string) => value === '✓';
 
 function toStringWithDecimals(value: string) {
@@ -129,16 +130,16 @@ function toCommon(field: string, value: string) {
 const stats = new Set(['HP', 'ATK', 'DEF', 'MAG', 'RES', 'MND', 'ACC', 'EVA', 'SPD']);
 
 const skillFields: { [col: string]: (value: string) => any } = {
-  'Type': toString,
-  'Target': toString,
-  'Formula': toString,
-  'Multiplier': toFloat,
-  'Element': toString,
-  'Time': toFloat,
-  'Effects': toStringWithDecimals,
-  'Counter': toBool,
+  Type: toString,
+  Target: toString,
+  Formula: toString,
+  Multiplier: toFloat,
+  Element: toString,
+  Time: toFloat,
+  Effects: toStringWithDecimals,
+  Counter: toBool,
   'Auto Target': toString,
-  'SB': toInt,
+  SB: toInt,
 };
 
 const shouldAlwaysSkip = (col: string) => col === '✓' || col === 'Img';
@@ -246,6 +247,7 @@ function convertCharacters(rows: any[]): any[] {
         item[field] = toCommon(field, rows[i][j]);
       }
     }
+
     characters.push(item);
   }
 
@@ -305,7 +307,7 @@ function convertMagicite(rows: any[]): any[] {
       } else if (col === 'Magicite Ultra Skill') {
         if (!skipUltraSkill) {
           item.magiciteUltraSkill = {
-            name: rows[i][j]
+            name: rows[i][j],
           };
         }
       } else if (inUltraSkill) {
@@ -470,20 +472,18 @@ async function downloadEnlir(auth: OAuth2Client) {
 }
 
 async function convertEnlir() {
-  for (const {localName, converter} of dataTypes) {
+  for (const { localName, converter } of dataTypes) {
     console.log(`Converting ${localName}...`);
     const rawData = fs.readJsonSync(path.join(workPath, localName + '.json'));
     const data = converter(rawData.values);
-    fs.writeJsonSync(path.join(outPath, localName + '.json'), data, {spaces: 2});
+    fs.writeJsonSync(path.join(outPath, localName + '.json'), data, { spaces: 2 });
   }
 }
 
-const argv = yargs
-  .option('download', {
-    alias: 'd',
-    default: true
-  })
-  .argv;
+const argv = yargs.option('download', {
+  alias: 'd',
+  default: true,
+}).argv;
 
 async function main() {
   if (argv.download) {
