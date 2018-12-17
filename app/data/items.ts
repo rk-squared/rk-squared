@@ -811,6 +811,11 @@ export const items = [
     id: 95001029
   },
   {
+    name: 'Present',
+    type: ItemType.Common,
+    id: 95001075
+  },
+  {
     name: 'Record Rubies',
     type: ItemType.Common,
     id: 95001080
