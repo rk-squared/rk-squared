@@ -23,6 +23,10 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 * [SoulBreak Search](https://www.reddit.com/r/FFRecordKeeper/comments/94twzj/soulbreak_search_version_151_release_now_with/)
 * [DJVDT's FFRK Go-To](https://www.reddit.com/r/FFRecordKeeper/comments/9koigt/djvdts_ffrk_goto_a_few_new_things/)
 
+Data mining:
+
+* [Buffs and debuffs](https://www.reddit.com/r/FFRecordKeeper/comments/aa5ctk/psa_buffdebuff_duration_lms_do_not_extend_crit/)
+
 ## Viewing Logs
 
 In macOS:
