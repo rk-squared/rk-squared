@@ -12,23 +12,42 @@ export interface MessagesState {
   messages: Message[];
 }
 
-const initialState = {
+export const initialState = {
   messages: [],
 };
 
-export function messages(state: MessagesState = initialState, action: MessagesAction): MessagesState {
+export function messages(
+  state: MessagesState = initialState,
+  action: MessagesAction,
+): MessagesState {
   switch (action.type) {
-    case getType(showMessage):
-      return {
-        ...state,
-        messages: [...state.messages, { ...action.message }]
-      };
+    case getType(showMessage): {
+      // If this message has an ID, then discard any previous messages with
+      // that ID.
+      const newMessages = action.payload.id
+        ? _.filter(state.messages, i => i.id !== action.payload.id)
+        : state.messages.slice();
 
-    case getType(hideMessage):
+      newMessages.push(action.payload);
       return {
         ...state,
-        messages: _.omit(state.messages, action.messageId)
+        messages: newMessages,
       };
+    }
+
+    case getType(hideMessage): {
+      let newMessages: Message[];
+      const messageIdOrIndex = action.payload;
+      if (typeof messageIdOrIndex === 'number') {
+        newMessages = _.omit(state.messages, messageIdOrIndex);
+      } else {
+        newMessages = _.filter(state.messages, i => i.id !== messageIdOrIndex);
+      }
+      return {
+        ...state,
+        messages: newMessages,
+      };
+    }
 
     /* istanbul ignore next */
     default:

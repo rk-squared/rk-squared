@@ -129,6 +129,7 @@ function toCommon(field: string, value: string) {
 
 const stats = new Set(['HP', 'ATK', 'DEF', 'MAG', 'RES', 'MND', 'ACC', 'EVA', 'SPD']);
 
+// noinspection JSUnusedGlobalSymbols
 const skillFields: { [col: string]: (value: string) => any } = {
   Type: toString,
   Target: toString,
@@ -246,6 +247,12 @@ function convertCharacters(rows: any[]): any[] {
       } else {
         item[field] = toCommon(field, rows[i][j]);
       }
+    }
+
+    if (item['name'] == null && (item['id'] == null || Number.isNaN(item['id']))) {
+      // A footer row indicating an upcoming balance change, and not an actual
+      // character.
+      continue;
     }
 
     characters.push(item);
