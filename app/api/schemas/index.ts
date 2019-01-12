@@ -38,6 +38,49 @@ export enum DebuffType {
   Interrupt = '242',
 }
 
+/**
+ * Damage codes.  Aka "EXERCISE_TYPE."  These can be found in battle.js.
+ */
+export enum DamageType {
+  // noinspection JSUnusedGlobalSymbols
+  PHY = 1,
+  WHT = 3,
+  BLK = 4,
+  BLU = 5,
+  SUM = 6,
+  NAT = 7,  // aka "Inborn"
+  NIN = 8,
+  NONE = 9,
+}
+
+/**
+ * Ability schools.  Aka "ABILITY_CATEGORY_ID."
+ */
+export enum SchoolType {
+  BLACK_MAGIC = 1,
+  WHITE_MAGIC = 2,
+  SUMMONING = 3,
+  SPELLBLADE = 4,
+  COMBAT = 5,
+  SUPPORT = 6,
+  CELERITY = 7,
+  DRAGOON = 8,
+  MONK = 9,
+  THIEF = 10,
+  KNIGHT = 11,
+  SAMURAI = 12,
+  NINJA = 13,
+  BARD = 14,
+  DANCER = 15,
+  MACHINIST = 16,
+  DARKNESS = 17,
+  SHOOTER = 19,
+  WITCH = 20,
+  HEAVY = 21,
+  BURST_MODE = 51,
+  ATTACK = 53,
+}
+
 interface Equipment {
   name: string;
   id: number;

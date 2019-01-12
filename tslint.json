@@ -1,9 +1,12 @@
 {
-  "extends": "tslint:latest",
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
   "rules": {
     "arrow-parens": false,
     "interface-name": false,
-    "quotemark": [true, "single", "jsx-double"],
+    "quotemark": [true, "single", "jsx-double", "avoid-escape"],
     "member-access": [true, "no-public"],
     "no-empty": [true, "allow-empty-catch"],
     "no-consecutive-blank-lines": [true, 2],
@@ -14,6 +17,7 @@
     "no-unused-expression": [true, "allow-fast-null-checks"],
     "no-var-requires": false,
     "object-literal-sort-keys": false,
+    "prefer-conditional-expression": false,
     "semicolon": [true, "strict-bound-class-methods"],
     "trailing-comma": false
   }
