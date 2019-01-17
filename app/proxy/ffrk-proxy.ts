@@ -55,15 +55,20 @@ const port = 8888;
 const httpsPort = 8889;
 
 function isFfrkApiRequest(req: http.IncomingMessage) {
-  return req.headers['accept']
-    && req.headers['accept']!.indexOf('application/json') !== -1
-    && req.headers['x-requested-with'] === 'XMLHttpRequest';
+  return (
+    req.headers['accept'] &&
+    req.headers['accept']!.indexOf('application/json') !== -1 &&
+    req.headers['x-requested-with'] === 'XMLHttpRequest'
+  );
 }
 
 function isFfrkStartupRequest(req: http.IncomingMessage) {
-  return (req.url === 'http://ffrk.denagames.com/dff/' || req.url === 'https://ffrk.denagames.com/dff/')
-    && req.headers['accept']
-    && req.headers['accept']!.indexOf('text/html') !== -1;
+  return (
+    (req.url === 'http://ffrk.denagames.com/dff/' ||
+      req.url === 'https://ffrk.denagames.com/dff/') &&
+    req.headers['accept'] &&
+    req.headers['accept']!.indexOf('text/html') !== -1
+  );
 }
 
 let capturePath: string;
@@ -88,30 +93,33 @@ function checkRequestBody(req: http.IncomingMessage) {
   proxyReq.body = proxyReq.bodyStream.getContentsAsString('utf8');
   try {
     proxyReq.body = JSON.parse(proxyReq.body);
-  } catch (e) {
-  }
+  } catch (e) {}
 }
 
 function recordCapturedData(data: any, req: http.IncomingMessage, res: http.ServerResponse) {
   const filename = getCaptureFilename(req);
-  const { url, method, headers } = req;  // tslint:disable-line no-shadowed-variable
+  const { url, method, headers } = req; // tslint:disable-line no-shadowed-variable
   const response = { headers: res.getHeaders() };
 
   const proxyReq = req as ProxyIncomingMessage;
   const requestBody = proxyReq.body;
 
   return new Promise((resolve, reject) => {
-    fs.writeFile(filename, JSON.stringify({ url, method, headers, requestBody, response, data }, null, 2), err => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(filename);
-      }
-    });
+    fs.writeFile(
+      filename,
+      JSON.stringify({ url, method, headers, requestBody, response, data }, null, 2),
+      err => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(filename);
+        }
+      },
+    );
   });
 }
 
-const UTF8_BOM = 0xFEFF;
+const UTF8_BOM = 0xfeff;
 
 function extractJson($el: Cheerio) {
   const rawJson = $el.html();
@@ -143,7 +151,7 @@ function checkHandlers(
   req: http.IncomingMessage,
   res: http.ServerResponse,
   store: Store<IState>,
-  fragments?: Array<string | symbol>
+  fragments?: Array<string | symbol>,
 ) {
   const reqUrl = url.parse(req.url as string);
   const reqQuery = reqUrl.query ? querystring.parse(reqUrl.query) : undefined;
@@ -156,7 +164,11 @@ function checkHandlers(
   for (const handler of handlers) {
     for (const fragment of fragments) {
       if (handler[fragment]) {
-        const newData = handler[fragment](data, store, { query: reqQuery, body: reqBody, url: reqUrl });
+        const newData = handler[fragment](data, store, {
+          query: reqQuery,
+          body: reqBody,
+          url: reqUrl,
+        });
         if (newData !== undefined) {
           changed = true;
           data = newData;
@@ -172,7 +184,7 @@ function handleFfrkApiRequest(
   data: Buffer,
   req: http.IncomingMessage,
   res: http.ServerResponse,
-  store: Store<IState>
+  store: Store<IState>,
 ) {
   try {
     let decoded = decodeData(data, res).toString();
@@ -205,7 +217,7 @@ function handleFfrkStartupRequest(
   data: Buffer,
   req: http.IncomingMessage,
   res: http.ServerResponse,
-  store: Store<IState>
+  store: Store<IState>,
 ) {
   try {
     const decoded = decodeData(data, res).toString();
@@ -227,14 +239,20 @@ function handleFfrkStartupRequest(
   return data;
 }
 
-function handleInternalRequests(req: http.IncomingMessage, res: http.ServerResponse, certPem: string) {
+function handleInternalRequests(
+  req: http.IncomingMessage,
+  res: http.ServerResponse,
+  certPem: string,
+) {
   if (!req.url) {
     return false;
   }
 
   const reqUrl = url.parse(req.url);
-  if ((reqUrl.host === 'www.rk-squared.com' || reqUrl.host === 'rk-squared.com')
-    && reqUrl.pathname === '/cert') {
+  if (
+    (reqUrl.host === 'www.rk-squared.com' || reqUrl.host === 'rk-squared.com') &&
+    reqUrl.pathname === '/cert'
+  ) {
     res.setHeader('Content-Type', 'application/x-pem-file');
     res.setHeader('Content-Disposition', 'attachment; filename=RKSquared.cer');
     res.write(Buffer.from(certPem));
@@ -313,7 +331,7 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
 
     const reqUrl = url.parse(req.url as string);
     proxy.web(req, res, {
-      target: reqUrl.protocol + '//' + reqUrl.host
+      target: reqUrl.protocol + '//' + reqUrl.host,
     });
   });
 
@@ -350,30 +368,37 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
     const serverPort = +(serverUrl.port || 80);
 
     let connected = false;
-    const serverSocket = net.connect(serverPort, serverUrl.hostname, () => {
-      connected = true;
+    const serverSocket = net
+      .connect(
+        serverPort,
+        serverUrl.hostname,
+        () => {
+          connected = true;
 
-      clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
-        'Proxy-agent: Node.js-Proxy\r\n' +
-        '\r\n');
-      serverSocket.write(head);
-      serverSocket.pipe(clientSocket);
-      clientSocket.pipe(serverSocket);
-    }).on('error', (e: Error) => {
-      logger.debug(`Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}`);
-      logger.debug(e);
-      if (!connected) {
-        // Unable to connect to destination - send a clean error back to the client
-        clientSocket.end('HTTP/1.1 502 Bad Gateway\r\n' +
-          'Proxy-agent: Node.js-Proxy\r\n' +
-          '\r\n' +
-          e);
-      } else {
-        // An error occurred in mid-connection - abort the client connection so
-        // the client knows.
-        clientSocket.destroy();
-      }
-    });
+          clientSocket.write(
+            'HTTP/1.1 200 Connection Established\r\n' + 'Proxy-agent: Node.js-Proxy\r\n' + '\r\n',
+          );
+          serverSocket.write(head);
+          serverSocket.pipe(clientSocket);
+          clientSocket.pipe(serverSocket);
+        },
+      )
+      .on('error', (e: Error) => {
+        logger.debug(
+          `Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}`,
+        );
+        logger.debug(e);
+        if (!connected) {
+          // Unable to connect to destination - send a clean error back to the client
+          clientSocket.end(
+            'HTTP/1.1 502 Bad Gateway\r\n' + 'Proxy-agent: Node.js-Proxy\r\n' + '\r\n' + e,
+          );
+        } else {
+          // An error occurred in mid-connection - abort the client connection so
+          // the client knows.
+          clientSocket.destroy();
+        }
+      });
     clientSocket.on('error', (e: Error) => {
       logger.debug(`Error communicating with ${serverUrl.hostname}`);
       logger.debug(e);
@@ -384,6 +409,14 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   let ipAddress: string[];
   const updateNetwork = () => {
     const newIpAddress = getIpAddresses();
+
+    // macOS, for example, may briefly report no IP addresses when it first
+    // wakes from sleep.  To avoid spamming bogus messages in that case, don't
+    // dispatch updates if no IP addresses are available.
+    if (!newIpAddress.length) {
+      return;
+    }
+
     if (!_.isEqual(newIpAddress, ipAddress)) {
       ipAddress = newIpAddress;
       logger.info(`Listening on ${ipAddress.join(',')}, port ${port}`);
