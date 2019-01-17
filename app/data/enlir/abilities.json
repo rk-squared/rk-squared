@@ -6852,6 +6852,55 @@
     "gl": true
   },
   {
+    "school": "Celerity",
+    "name": "Ripper Plasma",
+    "rarity": 6,
+    "type": "?",
+    "target": "?",
+    "formula": "?",
+    "multiplier": null,
+    "element": "Lightning",
+    "time": null,
+    "effects": "4/5/6 single attacks (? each) if the user used ?/? damaging actions",
+    "counter": false,
+    "autoTarget": null,
+    "sb": null,
+    "uses": null,
+    "max": null,
+    "orbs": {
+      "Power Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Non-Elemental Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Lightning Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "id": null,
+    "gl": false
+  },
+  {
     "school": "Summoning",
     "name": "Goblin",
     "rarity": 1,
@@ -8257,7 +8306,7 @@
     "introducingEvent": "Descent of the Ultimate Fantasy",
     "nameJp": "H・ヴァルファーレ",
     "id": 30131371,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Summoning",
@@ -8352,7 +8401,7 @@
     "introducingEvent": "Crusher of Hopes",
     "nameJp": "ルナイフリート",
     "id": 30131391,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Summoning",
@@ -9785,7 +9834,7 @@
   },
   {
     "school": "Spellblade",
-    "name": "Sundering Assault",
+    "name": "Tremor Assault",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -9832,7 +9881,7 @@
     "introducingEvent": "Descent of the Ultimate Fantasy",
     "nameJp": "至高魔法剣・裂砕 ",
     "id": 30141221,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Spellblade",
@@ -10449,6 +10498,94 @@
     "nameJp": "サイクロンボルト",
     "id": 30181131,
     "gl": true
+  },
+  {
+    "school": "Dragoon",
+    "name": "Impulse Drive",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6,
+    "element": "Lightning",
+    "time": 1.5,
+    "effects": "Six single ranged jump attacks (1.00 each), air time (2.50 sec.)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Lightning Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        24,
+        36,
+        60
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        24,
+        36,
+        60
+      ]
+    },
+    "introducingEvent": "New Year Party 2019",
+    "nameJp": "インパルスダイブ",
+    "id": 30181141,
+    "gl": false
+  },
+  {
+    "school": "Dragoon",
+    "name": "Rainy Screw",
+    "rarity": 5,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.2,
+    "element": "Water",
+    "time": 0.01,
+    "effects": "Four single ranged jump attacks (0.80 each), air time (1.65 sec.)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Major Fire": [
+        10,
+        20,
+        40,
+        60,
+        100
+      ],
+      "Major Ice": [
+        6,
+        12,
+        24,
+        36,
+        60
+      ],
+      "Major Wind": [
+        6,
+        12,
+        24,
+        36,
+        60
+      ]
+    },
+    "introducingEvent": "Hornless' Unbroken Spirit",
+    "nameJp": "レイニースクリュー",
+    "id": 30181151,
+    "gl": false
   },
   {
     "school": "Monk",
@@ -11266,6 +11403,50 @@
     "gl": false
   },
   {
+    "school": "Monk",
+    "name": "Ironfist Frost",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": "Ice",
+    "time": 1.65,
+    "effects": "Five single attacks (0.80/0.87/0.94 each) scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        6,
+        12,
+        24,
+        36,
+        60
+      ],
+      "Ice Crystal": [
+        10,
+        20,
+        40,
+        60,
+        100
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        24,
+        36,
+        60
+      ]
+    },
+    "introducingEvent": "New Year Party 2019",
+    "nameJp": "剛拳・氷の型",
+    "id": 30191191,
+    "gl": false
+  },
+  {
     "school": "Thief",
     "name": "Steal HP",
     "rarity": 2,
@@ -11842,7 +12023,7 @@
     "introducingEvent": "Dragons of Ruin",
     "nameJp": "ヒートバイト",
     "id": 30201121,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Knight",
@@ -12573,7 +12754,7 @@
   },
   {
     "school": "Knight",
-    "name": "Enhancing Strike",
+    "name": "Healing Smite",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -12620,7 +12801,7 @@
     "introducingEvent": "Glory Feast",
     "nameJp": "エンハンスレイド",
     "id": 30211161,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Samurai",
@@ -13328,7 +13509,7 @@
   },
   {
     "school": "Samurai",
-    "name": "Warring Burst",
+    "name": "Fire-Touched Blade",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13375,7 +13556,7 @@
     "introducingEvent": "Crusher of Hopes",
     "nameJp": "抜刀ノ弐・火閃",
     "id": 30221171,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Samurai",
@@ -15829,7 +16010,7 @@
   },
   {
     "school": "Machinist",
-    "name": "Heat Offering",
+    "name": "Burnt Offering",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -15876,7 +16057,7 @@
     "introducingEvent": "Crusher of Hopes",
     "nameJp": "フレイムオファ",
     "id": 30261141,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Machinist",
@@ -15927,6 +16108,56 @@
     "introducingEvent": "Incarnation of Hatred",
     "nameJp": "フロストオファ",
     "id": 30261151,
+    "gl": false
+  },
+  {
+    "school": "Machinist",
+    "name": "Plasma Offering",
+    "rarity": 6,
+    "type": "?",
+    "target": "?",
+    "formula": "?",
+    "multiplier": null,
+    "element": "Lightning",
+    "time": null,
+    "effects": "Four single ranged attacks (? each), ?% chance to cause Imperil Lightning ?% for ? seconds",
+    "counter": false,
+    "autoTarget": null,
+    "sb": null,
+    "uses": null,
+    "max": null,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Lightning Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Electrifying Wishes",
+    "id": null,
     "gl": false
   },
   {
@@ -17143,7 +17374,7 @@
     "introducingEvent": "Descent of the Ultimate Fantasy",
     "nameJp": "ルナティックサンダー",
     "id": 30301041,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Witch",

@@ -31,7 +31,7 @@ const workPath = path.join(__dirname, 'tmp');
 const outPath = path.join(__dirname, '..', 'app', 'data', 'enlir');
 fs.ensureDirSync(workPath);
 
-// The file token.json stores the user's access and refresh tokens, and is
+// The file token.json stores the user's access and refresh tokens.  It's
 // created automatically when the authorization flow completes for the first
 // time.
 const tokenPath = path.join(workPath, 'token.json');
@@ -40,7 +40,10 @@ const tokenPath = path.join(workPath, 'token.json');
 const enlirCredentials = require('../credentials.json');
 
 // noinspection SpellCheckingInspection
-const enlirSpreadsheetId = '16K1Zryyxrh7vdKVF1f7eRrUAOC5wuzvC3q2gFLch6LQ';
+const enlirSpreadsheetIds: { [name: string]: string } = {
+  enlir: '16K1Zryyxrh7vdKVF1f7eRrUAOC5wuzvC3q2gFLch6LQ',
+  community: '1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk',
+};
 
 interface GoogleApiCredentials {
   installed: {
@@ -130,6 +133,9 @@ function toCommon(field: string, value: string) {
 const stats = new Set(['HP', 'ATK', 'DEF', 'MAG', 'RES', 'MND', 'ACC', 'EVA', 'SPD']);
 
 // noinspection JSUnusedGlobalSymbols
+/**
+ * Fields common to "skills" - abilities, soul breaks, etc.
+ */
 const skillFields: { [col: string]: (value: string) => any } = {
   Type: toString,
   Target: toString,
@@ -141,8 +147,11 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Counter: toBool,
   'Auto Target': toString,
   SB: toInt,
+  Points: toInt,
 };
 
+// The '✓' column indicates whether a row has been confirmed (e.g., verified
+// via data mining, instead of just being written up from descriptions).
 const shouldAlwaysSkip = (col: string) => col === '✓' || col === 'Img';
 
 function convertAbilities(rows: any[]): any[] {
@@ -465,13 +474,13 @@ const dataTypes = [
   },
 ];
 
-async function downloadEnlir(auth: OAuth2Client) {
+async function downloadEnlir(auth: OAuth2Client, spreadsheetId: string) {
   const sheets = google.sheets({ version: 'v4', auth });
 
   for (const { sheet, localName } of dataTypes) {
     console.log(`Downloading ${localName}...`);
     const res = await sheets.spreadsheets.values.get({
-      spreadsheetId: enlirSpreadsheetId,
+      spreadsheetId,
       range: sheet,
     });
     await fs.writeJson(path.join(workPath, localName + '.json'), res.data);
@@ -495,7 +504,7 @@ const argv = yargs.option('download', {
 async function main() {
   if (argv.download) {
     const auth = await authorize(enlirCredentials);
-    await downloadEnlir(auth);
+    await downloadEnlir(auth, enlirSpreadsheetIds.community);
   }
   await convertEnlir();
 }

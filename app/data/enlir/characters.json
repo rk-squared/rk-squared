@@ -8684,15 +8684,15 @@
       "res": 14,
       "mnd": 10
     },
-    "introducingEventLegendSpheres": null,
+    "introducingEventLegendSpheres": "Encounter With the Stars",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 500,
+      "atk": 0,
+      "def": 20,
+      "mag": 40,
+      "res": 30,
+      "mnd": 20,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -11434,7 +11434,7 @@
       "res": 5,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Dragons of Ruin",
+    "introducingEventLegendSpheres": "Dragons of Death",
     "legendSpheres": {
       "hp": 800,
       "atk": 35,
@@ -12059,7 +12059,7 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Dragons of Ruin",
+    "introducingEventLegendSpheres": "Dragons of Death",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -13366,7 +13366,7 @@
       "ninja": null,
       "bard": null,
       "dancer": null,
-      "machinist": null,
+      "machinist": 5,
       "darkness": 6,
       "sharpshooter": 6,
       "witch": null,
@@ -13977,12 +13977,12 @@
     },
     "skills": {
       "blackMagic": null,
-      "whiteMagic": null,
+      "whiteMagic": 4,
       "combat": 5,
       "support": null,
       "celerity": null,
       "summoning": null,
-      "spellblade": 3,
+      "spellblade": 5,
       "dragoon": null,
       "monk": null,
       "thief": null,
@@ -14491,7 +14491,7 @@
       "ninja": null,
       "bard": null,
       "dancer": null,
-      "machinist": null,
+      "machinist": 5,
       "darkness": null,
       "sharpshooter": 6,
       "witch": null,
@@ -14602,7 +14602,7 @@
     },
     "skills": {
       "blackMagic": 2,
-      "whiteMagic": 2,
+      "whiteMagic": 3,
       "combat": 5,
       "support": null,
       "celerity": 3,
@@ -15362,7 +15362,7 @@
       "monk": null,
       "thief": null,
       "knight": 5,
-      "samurai": null,
+      "samurai": 5,
       "ninja": null,
       "bard": null,
       "dancer": null,
@@ -23862,7 +23862,7 @@
       "monk": null,
       "thief": null,
       "knight": null,
-      "samurai": null,
+      "samurai": 5,
       "ninja": null,
       "bard": null,
       "dancer": null,
@@ -23870,7 +23870,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": null
+      "heavy": 5
     },
     "id": 11500100
   },
@@ -27502,7 +27502,7 @@
   {
     "realm": "Type-0",
     "name": "Jack",
-    "introducingEventLv50": "Scarlet Blade",
+    "introducingEventLv50": "Slash of Crimson",
     "lv50": {
       "hp": 3769,
       "atk": 117,
@@ -27514,7 +27514,7 @@
       "eva": 22,
       "spd": 99
     },
-    "introducingEventLv65": "Scarlet Blade",
+    "introducingEventLv65": "Slash of Crimson",
     "lv65": {
       "hp": 4686,
       "atk": 149,
@@ -27526,7 +27526,7 @@
       "eva": 23,
       "spd": 105
     },
-    "introducingEventLv80": "Scarlet Blade",
+    "introducingEventLv80": "Slash of Crimson",
     "lv80": {
       "hp": 5571,
       "atk": 181,
@@ -27538,7 +27538,7 @@
       "eva": 24,
       "spd": 112
     },
-    "introducingEventLv99": "Scarlet Blade",
+    "introducingEventLv99": "Slash of Crimson",
     "lv99": {
       "hp": 6659,
       "atk": 222,
@@ -27550,7 +27550,7 @@
       "eva": 25,
       "spd": 120
     },
-    "introducingEventRecordSpheres": "Scarlet Blade",
+    "introducingEventRecordSpheres": "Slash of Crimson",
     "recordSpheres": {
       "hp": 530,
       "atk": 47,

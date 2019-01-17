@@ -412,7 +412,7 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
 
     // macOS, for example, may briefly report no IP addresses when it first
     // wakes from sleep.  To avoid spamming bogus messages in that case, don't
-    // dispatch updates if no IP addresses are available.
+    // dispatch updates if no IP addresses ardoe available.
     if (!newIpAddress.length) {
       return;
     }

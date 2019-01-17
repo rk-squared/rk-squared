@@ -7137,7 +7137,7 @@
     "unlockCriteria": "Use Jack's Memory Crystal",
     "nameJp": "ポジティブ思考",
     "id": 111600110,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -7147,17 +7147,17 @@
     "unlockCriteria": "Use Jack's Memory Crystal II, chance to obtain with Jack in party",
     "nameJp": "前向きな未来",
     "id": 111600111,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Jack",
-    "name": "Ignorant Power",
+    "name": "Power Untold",
     "effect": "Samurai abilities deal 40% more damage",
     "unlockCriteria": "Bring Jack to level 99",
     "nameJp": "無知なる力を司る者",
     "id": 111600112,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

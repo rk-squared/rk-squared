@@ -1185,7 +1185,7 @@
     "cooldown": 10,
     "duration": 20,
     "magiciteUltraSkill": {
-      "name": "Ultra Frost Breath",
+      "name": "Ultra Blazing Breath",
       "type": "PHY",
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
@@ -1197,7 +1197,7 @@
     },
     "nameJp": "【契】ブレイズブレス",
     "id": 161000087,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Ice",
@@ -1253,7 +1253,7 @@
     },
     "nameJp": "【契】凍てつく波動",
     "id": 161000088,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Lightning",
@@ -1507,7 +1507,7 @@
       "multiplier": 50.4,
       "element": "Lightning",
       "time": 2.5,
-      "effects": "Four group attacks (? each), grants Medium Resist Water to all allies",
+      "effects": "Four group attacks (12.60 each), grants Medium Resist Water to all allies",
       "counter": false
     },
     "nameJp": "【契】激怒の嵐",
@@ -1869,7 +1869,7 @@
     "cooldown": 10,
     "duration": 20,
     "magiciteUltraSkill": {
-      "name": "Ultra Thunder Storm",
+      "name": "Ultra Thunderstorm",
       "type": "NAT",
       "autoTarget": "All enemies",
       "formula": "Magical",
@@ -3081,7 +3081,7 @@
     },
     "nameJp": "【契】はないき",
     "id": 161000089,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Wind",
@@ -3137,7 +3137,7 @@
     },
     "nameJp": "【契】サンダーストーム",
     "id": 161000090,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Water",
@@ -4326,13 +4326,13 @@
     "duration": 20,
     "magiciteUltraSkill": {
       "name": "Ultra Terra Homing",
-      "type": "?",
+      "type": "PHY",
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
-      "multiplier": null,
+      "multiplier": 40.6,
       "element": "Holy",
-      "time": null,
-      "effects": "One single ranged attack (?) capped at 99999, causes Medium Debuff Dark",
+      "time": 2.5,
+      "effects": "One single ranged attack (40.60) capped at 99999, causes Medium Debuff Dark",
       "counter": false
     },
     "nameJp": "【契】テラホーミング",
@@ -4382,13 +4382,13 @@
     "duration": 20,
     "magiciteUltraSkill": {
       "name": "Ultra Alluring Embrace",
-      "type": "?",
+      "type": "NAT",
       "autoTarget": "All enemies",
       "formula": "Magical",
-      "multiplier": null,
+      "multiplier": 85,
       "element": "Holy",
-      "time": null,
-      "effects": "One single attack (?) capped at 99999, grants Astra to all allies",
+      "time": 2.5,
+      "effects": "One single attack (85.00) capped at 99999, grants Astra to all allies",
       "counter": false
     },
     "nameJp": "【契】みわくのほうよう",
@@ -4965,18 +4965,18 @@
     "duration": 20,
     "magiciteUltraSkill": {
       "name": "Ultra Eternal Darkness",
-      "type": "?",
+      "type": "PHY",
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
-      "multiplier": null,
+      "multiplier": 40.6,
       "element": "Dark",
-      "time": null,
-      "effects": "One single ranged attack (?) capped at 99999, grants Holy Blink 1 to all allies",
+      "time": 2.5,
+      "effects": "One single ranged attack (40.60) capped at 99999, grants Holy Blink 1 to all allies",
       "counter": false
     },
     "nameJp": "【契】暗黒の運命",
     "id": 161000095,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Dark",
@@ -5021,13 +5021,13 @@
     "duration": 20,
     "magiciteUltraSkill": {
       "name": "Ultra Ominous Encounter",
-      "type": "?",
+      "type": "NAT",
       "autoTarget": "All enemies",
       "formula": "Magical",
-      "multiplier": null,
+      "multiplier": 85,
       "element": "Dark",
-      "time": null,
-      "effects": "One group attack (?) capped at 99999, causes Medium Debuff Holy",
+      "time": 2.5,
+      "effects": "One group attack (85.00) capped at 99999, causes Medium Debuff Holy",
       "counter": false
     },
     "nameJp": "【契】不吉なる邂逅",
