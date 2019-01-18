@@ -13,7 +13,7 @@
     "copy-json": "copyfiles --flat \"./app/data/enlir/*.json\" ./dist/app/data/enlir",
     "build": "tsc && npm run copy-json && npm run build-renderer",
     "start": "cross-env NODE_ENV=production electron .",
-    "start-hot": "cross-env HOT=1 NODE_ENV=development electron .",
+    "start:hot": "cross-env HOT=1 NODE_ENV=development electron .",
     "dev": "npm run hot-server -- --start-hot",
     "predev": "npm run copy-json",
     "package": "npm run build && build --publish never",

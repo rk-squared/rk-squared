@@ -1,0 +1,1413 @@
+{
+  "url": "http://ffrk.denagames.com/dff/world/battles",
+  "data": {
+    "success": true,
+    "user_dungeon": {
+      "unlock_conditions": {
+        "15048601": "1"
+      },
+      "closed_at": 2145938400,
+      "order_no": 1,
+      "is_restricted": false,
+      "stamina_consume_type": 1,
+      "supporter_type": 31,
+      "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048602/15048602_epilogue.png",
+      "bgm": "bgm_25_069",
+      "stamina_list": [
+        1
+      ],
+      "ability_category_bonus_map": {},
+      "unlocked_series_ids": [],
+      "id": 15048602,
+      "world_id": 150486,
+      "button_style": "RUIN",
+      "name": "Tyranny of the Impure, Part 2",
+      "total_stamina": 1,
+      "ss_gauge_type": 0,
+      "has_battle": true,
+      "type": 1,
+      "epilogue": "<<Not Necessary>>",
+      "progress_map_level": 0,
+      "platform_style": 10007,
+      "is_clear": true,
+      "is_new": false,
+      "prologue": "<<Not Necessary>>",
+      "buddy_additional_status_bonus_level": 0,
+      "challenge_level": 280,
+      "prizes": {
+        "1": [
+          {
+            "type_name": "COMMON",
+            "num": 1500,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          }
+        ],
+        "2": [
+          {
+            "type_name": "EQUIPMENT_HYPER_EVOLVE_MATERIAL",
+            "num": 3,
+            "image_path": "/dff/static/lang/image/equipment_hyper_evolve_material/25096005/25096005_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Dark Matter (5★)",
+            "id": 25096005
+          },
+          {
+            "type_name": "COMMON",
+            "num": 150000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          },
+          {
+            "type_name": "COMMON",
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/91000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Mythril",
+            "id": 91000000
+          }
+        ],
+        "3": [
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 10,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Major Holy Orb",
+            "id": 40000060
+          },
+          {
+            "type_name": "COMMON",
+            "num": 150000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 4,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000072/40000072_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Fire Crystal",
+            "id": 40000072
+          }
+        ],
+        "8": [
+          {
+            "type_name": "COMMON",
+            "num": 30,
+            "name": "Record Rubies",
+            "disp_order": 1,
+            "grade_bonus_description": "Defeat enemy in 30 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001080
+          }
+        ],
+        "9": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 2,
+            "grade_bonus_description": "Defeat enemy in 40 seconds or less",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400300
+          },
+          {
+            "type_name": "COMMON",
+            "num": 150000,
+            "name": "Gil",
+            "disp_order": 2,
+            "grade_bonus_description": "Defeat enemy in 40 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 92000000
+          }
+        ],
+        "10": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 30,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 3,
+            "grade_bonus_description": "Defeat enemy in 50 seconds or less",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400300
+          },
+          {
+            "type_name": "COMMON",
+            "num": 150000,
+            "name": "Gil",
+            "disp_order": 3,
+            "grade_bonus_description": "Defeat enemy in 50 seconds or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 92000000
+          }
+        ],
+        "11": [
+          {
+            "type_name": "COMMON",
+            "num": 30,
+            "name": "Record Rubies",
+            "disp_order": 4,
+            "grade_bonus_description": "Defeat enemy in 1 minute or less",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001080
+          }
+        ],
+        "12": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Power Crystal",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 30,
+            "name": "Record Rubies",
+            "disp_order": 5,
+            "grade_bonus_description": "Defeat enemy",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001080
+          }
+        ],
+        "13": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Power Crystal",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 90% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001080
+          }
+        ],
+        "14": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Power Crystal",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 80% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001080
+          }
+        ],
+        "15": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Power Crystal",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 70% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001080
+          }
+        ],
+        "16": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 10,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400300
+          },
+          {
+            "type_name": "ABILITY_MATERIAL",
+            "num": 2,
+            "name": "Power Crystal",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 40000066
+          },
+          {
+            "type_name": "COMMON",
+            "num": 10,
+            "name": "Record Rubies",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 60% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001080
+          }
+        ],
+        "17": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 20,
+            "name": "Wisdom Mote (5★)",
+            "disp_order": 10,
+            "grade_bonus_description": "Deal 50% damage or more",
+            "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130400300
+          },
+          {
+            "type_name": "COMMON",
+            "num": 30,
+            "name": "Record Rubies",
+            "disp_order": 10,
+            "grade_bonus_description": "Deal 50% damage or more",
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95001080.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95001080
+          }
+        ]
+      },
+      "battle_ticket_id_2_num": {},
+      "battle_drop_items": [
+        {
+          "type_name": "ABILITY_MATERIAL",
+          "num": 1,
+          "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000009/40000009_112.png",
+          "name": "Greater White Orb",
+          "id": 40000009
+        }
+      ],
+      "is_master": true,
+      "series_id": 150001,
+      "required_max_stamina": 0,
+      "opened_at": 1531357200,
+      "continue_allowable_type": 1,
+      "is_unlocked": true,
+      "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048602/15048602_prologue.png",
+      "rank": 3,
+      "captures": [
+        {
+          "enemy_id": "25048601",
+          "sp_scores": [
+            {
+              "battle_id": 1504860201,
+              "title": "Finish the battle with 1 or more heroes not KO'd."
+            }
+          ],
+          "image_path": "/dff/static/lang/image/enemy/25048601.png",
+          "tip_battle": {
+            "group_id": 508620,
+            "html_content": "<div class=\"s-tip-battle-title mb-b4\">Cúchulainn (Synergy: 5 Heroes)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n<div class=\"s-element-icon-box\">\n<div class=\"p-icon-shield img-rep\">盾</div>\n</div>\n<div class=\"s-element-icon-list\">\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-fire img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-ice img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-soil img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-wind img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-water img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-holy img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-poison img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n</div>\n</div>\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-atk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-def img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-matk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-mdef img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-spt img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n</div>\n</div>\n<div class=\"s-tip-battle-title mb-b4\">Cúchulainn (Synergy: 4 Heroes)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n<div class=\"s-element-icon-box\">\n<div class=\"p-icon-shield img-rep\">盾</div>\n</div>\n<div class=\"s-element-icon-list\">\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-fire img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-ice img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-soil img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-wind img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-water img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-holy img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-poison img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n</div>\n</div>\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-atk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-6 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-def img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-6 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-matk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-6 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-mdef img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-6 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-spt img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-6 img-rep mlr-a\"></div></div>\n</div>\n</div>\n<div class=\"s-tip-battle-title mb-b4\">Cúchulainn (Synergy: 3 Heroes)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n<div class=\"s-element-icon-box\">\n<div class=\"p-icon-shield img-rep\">盾</div>\n</div>\n<div class=\"s-element-icon-list\">\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-fire img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-ice img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-soil img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-wind img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-water img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-holy img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-poison img-rep mlr-a m\"></div>\n<div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n</div>\n</div>\n</div>\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-atk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-def img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-matk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-mdef img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-spt img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n</div>\n</div>\n<div class=\"s-tip-battle-title mb-b4\">Cúchulainn (Synergy: 2 Heroes)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n<div class=\"s-element-icon-box\">\n<div class=\"p-icon-shield img-rep\">盾</div>\n</div>\n<div class=\"s-element-icon-list\">\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-fire img-rep mlr-a m\"></div>\n<div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-ice img-rep mlr-a m\"></div>\n<div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n<div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-soil img-rep mlr-a m\"></div>\n<div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-wind img-rep mlr-a m\"></div>\n<div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-water img-rep mlr-a m\"></div>\n<div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-holy img-rep mlr-a m\"></div>\n<div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n<div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-poison img-rep mlr-a m\"></div>\n<div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n</div>\n</div>\n</div>\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-atk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-8 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-def img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-8 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-matk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-8 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-mdef img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-8 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-spt img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-8 img-rep mlr-a\"></div></div>\n</div>\n</div>\n<div class=\"s-tip-battle-title mb-b4\">Cúchulainn (Synergy: 1 Hero)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n<div class=\"s-element-icon-box\">\n<div class=\"p-icon-shield img-rep\">盾</div>\n</div>\n<div class=\"s-element-icon-list\">\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-fire img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-ice img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-soil img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-wind img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-water img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-holy img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-poison img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n</div>\n</div>\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-atk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-9 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-def img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-9 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-matk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-9 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-mdef img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-9 img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-spt img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-9 img-rep mlr-a\"></div></div>\n</div>\n</div>\n<div class=\"s-tip-battle-title mb-b4\">Cúchulainn (Synergy: 0 Heroes)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n<div class=\"s-element-icon-box\">\n<div class=\"p-icon-shield img-rep\">盾</div>\n</div>\n<div class=\"s-element-icon-list\">\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-fire img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-ice img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-soil img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-wind img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-water img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-holy img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n<div class=\"s-element-icon-list__children\">\n<div class=\"p-icon-poison img-rep mlr-a m\"></div>\n<div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n</div>\n</div>\n</div>\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-atk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-void img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-def img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-void img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-matk img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-void img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-mdef img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-void img-rep mlr-a\"></div></div>\n</div>\n<div class=\"s-break-resistance-table__children\">\n<div class=\"s-break-resistance-table__category\">\n<div class=\"p-text-spt img-rep mlr-a\"></div>\n</div>\n<div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-void img-rep mlr-a\"></div></div>\n</div>\n</div>\n<div class=\"s-tip-battle-title mb-b4\">Cúchulainn (Shared)</div>\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Interrupt </span>\n</div>\n",
+            "id": 508620,
+            "title": "Cúchulainn (Incubus)",
+            "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-The more heroes with Record Synergy in the party, the <span class=\"red\">more the enemy's resistance to break debuffs and elemental damage will be lowered</span>, and the <span class=\"red\">more damage you will deal to them</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses strong dark and poison attacks.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses attacks that <span class=\"red\">ignore resistances</span> and <span class=\"red\">Poison</span>, <span class=\"red\">Slow</span>, <span class=\"red\">Stop</span>, and <span class=\"red\">Doom</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">Incubus Gravija</span>, which ignores resistances, Mirror Image, and Magic Barrier, dealing damage proportional to the current HP of those hit.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">Incubus Unholy Darkness</span>, which ignores Magic Barrier, and lowers the Doom countdown.</li><li class=\"c-text-indent__inner is-half mb-b\">-If the fight drags on without you reducing the HP of the enemy enough, they strike the entire party with <span class=\"red\">Incubus Dead End</span>, which <span class=\"red\">can break the damage cap</span>, <span class=\"red\">ignores resistances</span>, and <span class=\"red\">Instantly KO</span>.</li></ul>"
+          }
+        }
+      ],
+      "background_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/15048602/15048602_bg.png"
+    },
+    "party": {
+      "beast_id_main": "3984980",
+      "slot_to_beast_id_sub": {
+        "1": 9044338,
+        "2": 9793422,
+        "3": 8826758,
+        "4": 14094279
+      },
+      "slot_to_buddy_id": {
+        "1": 47345627,
+        "2": 47148436,
+        "3": 49536443,
+        "4": 47250481,
+        "5": 48042183
+      },
+      "user_id": 5679473043701760
+    },
+    "assets": {
+      "boss-1050009_1": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/boss/1050009/pb_dead_bomb_2.json": {
+            "hash": "/BkMPh8ejss93p956qw2+w"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+            "hash": "V08fQyTG4T6GDMosX2YVxg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_thunder_w.png": {
+            "hash": "q105Cj6GrhcvOhkbp/i4ag"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/1050009/img_wave_circle.png": {
+            "hash": "W0Glfmo+R1AD22q/ugdSTA"
+          },
+          "/Content/lang/se/se_ogg/se_battle_101010.ogg": {
+            "hash": "X+QfwFwBvpEl9osuZ5ITIQ"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00451.ogg": {
+            "hash": "60wM88nNbiIBiwRQz2MpDg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/1050009/pb_dead_bomb_1.json": {
+            "hash": "Yjovt+zI0G1uhsmSvKVmqw"
+          },
+          "/Content/lang/se/se_ogg/se_battle_101019.ogg": {
+            "hash": "Tl1luHK1tYZD6pg/NVicBg"
+          },
+          "/Content/lang/se/se_ogg/se_common_100025.ogg": {
+            "hash": "HzKwHc+o7CowaQjx8mowcA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/1050009/pb_dead_particle.json": {
+            "hash": "4SV5ht5SMxs8nBd04dt4hw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/1050009/img_1050009.json": {
+            "hash": "QnWSezbUAMgvYO4rfRqFog"
+          },
+          "/Content/lang/se/se_ogg/se_battle_101008.ogg": {
+            "hash": "84IOdLLQMm8K/1T3apq2Dg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks_alpha.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00740.ogg": {
+            "hash": "3PGpgqi3m6AY9et4CXehUg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_fire_01.png": {
+            "hash": "08/miY2rj6zb2Xt/64NwjA"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00630.ogg": {
+            "hash": "y8GCPaX/OwI1zUklq27uQQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/common/img_shadow.png": {
+            "hash": "9VR2DDhy7NiAMx9m+wUZ6A"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_thunder_w.json": {
+            "hash": "Gw1yzUbB27GVniDJQsJDLw"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00190.ogg": {
+            "hash": "m6SUx1SRxY/OzTSzbq8hKA"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00520.ogg": {
+            "hash": "a/fu2wAUtTM6voD7mRSl0w"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/1050009/img_1050009.png": {
+            "hash": "6ufK8pOP45ChiXczmMTTRQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+            "hash": "6bAULnwkhXKcYlElSbEtDA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks_alpha.json": {
+            "hash": "Zg1ityaMBYEaRrKDpMk4uA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+            "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/1050009/1050009_1.json": {
+            "hash": "4eG73fWsV7KUPYNn4yykjQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/1050009/pb_front.json": {
+            "hash": "SqnjacOcBz1a/OLWzLFnyQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_anima.json": {
+            "hash": "8o5sJFjzbX1TwFjGP50/GQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/1050009/pb_back.json": {
+            "hash": "O8RSq2AMs9XR30SJcm5wDA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.json": {
+            "hash": "7VzCDmEK9bZXfq+QvbOm9g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+            "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_anima.png": {
+            "hash": "3SVokOXRh0uHeGEYQQzN8g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.png": {
+            "hash": "lKeVc4YW31UgmCScKaDGlQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/boss/1050009/1050009_1.json"
+      },
+      "animation-buddy-11300100": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/113001/img_chara.png": {
+            "hash": "ApwqX544kbf8LMbRv1Skwg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/113001/base.sajson": {
+            "hash": "oONyzqpEWLNIYNSMLV4e7Q"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/113001/img_chara.json": {
+            "hash": "PTu8eeSxaiwvAPQjPKZv6Q"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/113001/base.sajson"
+      },
+      "battle_list": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+            "hash": "V08fQyTG4T6GDMosX2YVxg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+            "hash": "MsDaWdAq52FE3rZDizThoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_thunder_w.png": {
+            "hash": "q105Cj6GrhcvOhkbp/i4ag"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/result_ico_eff.json": {
+            "hash": "0RVHLx7Rp+oCXh8nde9WVQ"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_force_bg_eff.json": {
+            "hash": "oyV6B5y0uueIQsbdsesSgA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+            "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_touch_eff_front.json": {
+            "hash": "D/SwPw1/x46BCAfrlqeCWA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_battle_list.png": {
+            "hash": "e1pcD7i7/sNSezUKsmR6Ew"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_eff.json": {
+            "hash": "InLC5O6P2494AZary/WuFA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_nightmare_top.json": {
+            "hash": "UhLRTJB78vSiRrZvc36MVw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_light_circle.png": {
+            "hash": "iPeWXyrfqsz6NqCOeM/pfA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_chaos_bg_eff.json": {
+            "hash": "dlOLLNl4PQjUPwDabde6CQ"
+          },
+          "/Content/lang/ww/compile/en/ab/battle/drop_icon/95001006.png": {
+            "hash": "1ozd2xntBFA3pzIX6wS/9Q"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+            "hash": "Sjv72DvWV55JpDKAYs1tmA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_touch_eff.json": {
+            "hash": "Gf8k7EKyt4hcMtoQRFg2hg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_white_ring.png": {
+            "hash": "b2t6M5+SAlzp/UT22tEZ6w"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_atlas.png": {
+            "hash": "4gmQUiLpzgZ3rQ345KDJiw"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/txt_evaluation.sajson": {
+            "hash": "itsNxDJtf8CeFjPcKPvs/Q"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/battle_list.json": {
+            "hash": "xB2bdn2edNibKGqsYg6H3w"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_magicite.png": {
+            "hash": "LyUH6D4gg+sQgufvbGHxvg"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_atlas.json": {
+            "hash": "aW89hEbFQ+RA8151BQWihA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_platform_eff.json": {
+            "hash": "nWHMLSqU+f7th4duV+DRhQ"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_front_boss_eff.json": {
+            "hash": "TOpcuN4cRDMvLUptLzWFGQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+            "hash": "5W889sndvoo+0O/fwwRDBg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+            "hash": "GujndlRehOCpugEsLAHIVg"
+          },
+          "/Content/lang/se/se_ogg/se_common_100007.ogg": {
+            "hash": "GZUuGjtrxQtds9smsa9gNg"
+          },
+          "/Content/lang/se/se_ogg/se_common_100038.ogg": {
+            "hash": "Fp6KrTSloEyQeN2UeuV44g"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_back_boss_eff.json": {
+            "hash": "TpcfLhII8uGazqbxInyS8A"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_chaos.png": {
+            "hash": "Ub//iFqR9SvPfU0HAkSQIA"
+          },
+          "/Content/lang/se/se_ogg/se_battle_common_101063.ogg": {
+            "hash": "idxolqWzm35wNrRzYdgJmQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_light05.png": {
+            "hash": "Q5QSHLMLo5VM1GJAGRoaAA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_clear_03.json": {
+            "hash": "AVf3MTP/Q+liGILQsTt7iw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.json": {
+            "hash": "DPbdpQaVg6X9+/H6Djwh1g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_circle02.png": {
+            "hash": "mTAvA/KoudjpNqfBj1A/oA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+            "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+            "hash": "lqlI1yYIl8hfQIawA1sRlg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_thunder_w.json": {
+            "hash": "Gw1yzUbB27GVniDJQsJDLw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.json": {
+            "hash": "JJirDrM1e/OlIjYhVRis9w"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_back_clear_eff.json": {
+            "hash": "2pGpfVD0IP0j7IYoMZXMOw"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_chaos.json": {
+            "hash": "vqhsk6sXa5H6QrHFDXW29w"
+          },
+          "/Content/lang/se/se_ogg/se_common_100039.ogg": {
+            "hash": "rmTTeOqBHq5iTz8AtTwTDw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+            "hash": "6bAULnwkhXKcYlElSbEtDA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_front_eff.json": {
+            "hash": "yXsHKenwFPLJaymOe3KtLg"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_nightmare_bottom.json": {
+            "hash": "ALcCv+b1RqleWInwEixg7w"
+          },
+          "/Content/lang/ww/compile/en/ab/event/countdown2016/battle/img_count.png": {
+            "hash": "Kqq7QjOsMF4jzrjk013E1A"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.png": {
+            "hash": "+PsJP5CHMDA4Jz3wKtOQmg"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_battle_list.json": {
+            "hash": "35ltqtYNI9DU9FiVr16Q7w"
+          },
+          "/Content/lang/ww/compile/en/ab/event/countdown2016/battle/sa_count_num.sajson": {
+            "hash": "BPj4rxVwHEVwXqkn3dyzig"
+          },
+          "/Content/lang/ww/compile/en/ab/event/countdown2016/battle/img_count.json": {
+            "hash": "etqqHKWc4WBwf/OUyweHqQ"
+          },
+          "/Content/lang/font/gillsansstd_for_ab.ttf": {
+            "hash": "WkG5Tec3NUt1ie9hJyv/3g"
+          },
+          "/Content/lang/se/se_ogg/se_common_100031.ogg": {
+            "hash": "81IQhQ7YVqUkPQTXRKtd1w"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+            "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.json": {
+            "hash": "7VzCDmEK9bZXfq+QvbOm9g"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_clear_02.json": {
+            "hash": "kGgg64cfvC88Ivnpjt90DA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.png": {
+            "hash": "lKeVc4YW31UgmCScKaDGlQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/battle_list/battle_list.json"
+      },
+      "player_common_battle_list": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/107015/img_chara.png": {
+            "hash": "KZGN6uH8AKVRSI63/tzu5Q"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_round.png": {
+            "hash": "R+wta9Mi7cf5tzLT8P7kNg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/common/img_shadow.png": {
+            "hash": "9VR2DDhy7NiAMx9m+wUZ6A"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/107015/img_chara.json": {
+            "hash": "9PIr/7Hwz46q0zC9R81o0g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.json": {
+            "hash": "DPbdpQaVg6X9+/H6Djwh1g"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00001.ogg": {
+            "hash": "O7wxtzhfVHwkFxZlV70bPQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.json": {
+            "hash": "JJirDrM1e/OlIjYhVRis9w"
+          },
+          "/Content/lang/ww/compile/en/ab/character/common/resist_sword.png": {
+            "hash": "foDI6r0roFofZ4232ej89w"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00261.ogg": {
+            "hash": "JQLf5QWnooPbU1CQh1fUXQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_wind_i.json": {
+            "hash": "i95hg+TqIYSbNIoKxPvNoA"
+          },
+          "/Content/lang/se/se_ogg/se_ability_10100.ogg": {
+            "hash": "KAZUru9Y0Y596UJUcD29tQ"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00582.ogg": {
+            "hash": "QiCZpBCSNt68NNH/vAi36A"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_round.json": {
+            "hash": "Wo2J09Y+ovWJ7fNqRulJfg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_wind_i.png": {
+            "hash": "B5xB0zDlG20PzTVaomukPQ"
+          },
+          "/Content/lang/ww/compile/en/ab/equip/weapon/100166/img_100166.png": {
+            "hash": "o3Vd19fUtZJ9nTFxBcDpkQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.png": {
+            "hash": "+PsJP5CHMDA4Jz3wKtOQmg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/pb_launch_dash.json": {
+            "hash": "J+KWiPXvOwiyfRsIDGbsfg"
+          },
+          "/Content/lang/ww/compile/en/ab/equip/weapon/100166/img_100166.json": {
+            "hash": "DgC+CfxProzd4SWVC0S21w"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/pb_land_dash.json": {
+            "hash": "G5O+SKQh3ykkJRFnlTlRvg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/107015/base.sajson": {
+            "hash": "HvqiDJPuQIARxzUL0pIr7Q"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/player_common.json": {
+            "hash": "fJkM3Mpz5CMH0AnPHRCa+A"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00530.ogg": {
+            "hash": "Zy81G6rSVjh2XpXKG4I1qA"
+          },
+          "/Content/lang/ww/compile/en/ab/equip/weapon/900002/shield.png": {
+            "hash": "UyvsKIMOJtiTsZlMVLc7kg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.json": {
+            "hash": "7VzCDmEK9bZXfq+QvbOm9g"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00640.ogg": {
+            "hash": "DE4Qr37g6fjGvKd3hZ0DWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.png": {
+            "hash": "lKeVc4YW31UgmCScKaDGlQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/player_common.json"
+      },
+      "dungeon-pf-10007": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/battle_list/platform/10007/img_10007.png": {
+            "hash": "K6qWb0OsPIib2s+wRyyQqA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/platform/10007/10007.json": {
+            "hash": "99EAwrP5dJI1CDAZKTjRDQ"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/platform/10007/img_10007.json": {
+            "hash": "UvWd6wGGMII3/WIZF/5EYQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/battle_list/platform/10007/10007.json"
+      },
+      "dungeon-bg-15048602": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/dungeon/15048602/15048602_bg.png": {
+            "hash": "yNVbtwbqPJGB1hh3mPP+Fw"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/dungeon/15048602/15048602_bg.png"
+      },
+      "tutorial_arrow": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/tutorial/img_tutorial_1.png": {
+            "hash": "oxfxx70MuICPoYmedgy2uA"
+          },
+          "/Content/lang/ww/compile/en/ab/tutorial/img_tutorial_1.json": {
+            "hash": "+qNs4BGd8rBjI84E1bfYMg"
+          },
+          "/Content/lang/ww/compile/en/ab/tutorial/an_arrow.json": {
+            "hash": "VWGTDfUuFsqPPQXN0bNdwA"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/tutorial/an_arrow.json"
+      }
+    },
+    "dungeon_session": {
+      "closed_at": 2145938400,
+      "party_status": {
+        "1": {
+          "hp": 7945,
+          "no": 1,
+          "soul_strike_gauge": 0,
+          "max_hp": 7945,
+          "ability_1_max_num": 6,
+          "soul_strike_id_to_rest_num": {
+            "20600001": "-1",
+            "20600003": "-1",
+            "20600009": "-1",
+            "20600010": "-1"
+          },
+          "status_ailments": [],
+          "ability_2_num": 4,
+          "user_buddy_id": 47345627,
+          "ability_1_num": 6,
+          "ability_2_max_num": 4
+        },
+        "2": {
+          "hp": 8445,
+          "no": 2,
+          "soul_strike_gauge": 500,
+          "max_hp": 8445,
+          "ability_1_max_num": 6,
+          "soul_strike_id_to_rest_num": {
+            "20140001": "-1",
+            "20140004": "-1",
+            "20140010": "-1",
+            "20140011": "-1",
+            "20140014": "-1"
+          },
+          "status_ailments": [],
+          "ability_2_num": 4,
+          "user_buddy_id": 47148436,
+          "ability_1_num": 6,
+          "ability_2_max_num": 4
+        },
+        "3": {
+          "hp": 8162,
+          "no": 3,
+          "soul_strike_gauge": 500,
+          "max_hp": 8162,
+          "ability_1_max_num": 6,
+          "soul_strike_id_to_rest_num": {
+            "20610007": "-1",
+            "20660001": "-1",
+            "20660005": "-1",
+            "20660006": "-1"
+          },
+          "status_ailments": [],
+          "ability_2_num": 6,
+          "user_buddy_id": 49536443,
+          "ability_1_num": 6,
+          "ability_2_max_num": 6
+        },
+        "4": {
+          "hp": 8435,
+          "no": 4,
+          "soul_strike_gauge": 0,
+          "max_hp": 8435,
+          "ability_1_max_num": 0,
+          "soul_strike_id_to_rest_num": {
+            "22820001": "-1",
+            "22820003": "-1"
+          },
+          "status_ailments": [],
+          "ability_2_num": 6,
+          "user_buddy_id": 47250481,
+          "ability_1_num": 0,
+          "ability_2_max_num": 6
+        },
+        "5": {
+          "hp": 9457,
+          "no": 5,
+          "soul_strike_gauge": 0,
+          "max_hp": 9457,
+          "ability_1_max_num": 6,
+          "soul_strike_id_to_rest_num": {
+            "22550001": "-1",
+            "22550003": "-1",
+            "22550005": "-1"
+          },
+          "status_ailments": [],
+          "ability_2_num": 6,
+          "user_buddy_id": 48042183,
+          "ability_1_num": 6,
+          "ability_2_max_num": 6
+        }
+      },
+      "max_active_skill_num": 2,
+      "is_restricted": 0,
+      "ability_category_bonus_map": {},
+      "battle_id": 1504860201,
+      "unlocked_series_ids": [],
+      "buddy_additional_status_bonus_level": 0,
+      "dungeon_id": 15048602,
+      "remain_active_skill_num": 2,
+      "max_supporter_ss_gauge": 3,
+      "world_id": 150486,
+      "supporter_ss_gauge": 3,
+      "series_id": 150001,
+      "opened_at": 1531357200,
+      "kept_out_at": 2145938400,
+      "should_show_progress_effect": false
+    },
+    "user_battle_tickets": [],
+    "battles": [
+      {
+        "battle_ticket_id_2_num": {},
+        "round_num": 1,
+        "sp_enemy_id": 25048601,
+        "order_no": 2,
+        "play_mode": 0,
+        "name": "Tyrrany of the Impure, Part 2",
+        "grade_score_type": 4,
+        "grade_score": {
+          "maxHp": 1000000,
+          "elapsedBattleTimeFromBeginning": 22683,
+          "isDefeated": true,
+          "decreasedAmountOfHp": 1000000
+        },
+        "has_boss": 1,
+        "stamina": 1,
+        "is_unlocked": true,
+        "dungeon_id": 15048602,
+        "has_battle_ticket": 0,
+        "id": 1504860201,
+        "show_timer_type": 1
+      }
+    ],
+    "fellow_session": {
+      "has_fellow": false,
+      "fellow_profile": {
+        "supporter_buddy_weapon_hammering_num": 0,
+        "supporter_buddy_armor_hammering_num": 0,
+        "supporter_buddy_sp_mdef": 68,
+        "supporter_buddy_accessory_level": 0,
+        "supporter_buddy_brave_series_ids_map": {
+          "900050": 1,
+          "900051": 1,
+          "900052": 1,
+          "900053": 1,
+          "900054": 1,
+          "900055": 1,
+          "900056": 1,
+          "900057": 1,
+          "900073": 1,
+          "900088": 1
+        },
+        "supporter_buddy_armor_max_level": 0,
+        "supporter_buddy_accessory_name": "",
+        "supporter_buddy_sp_spd": 105,
+        "supporter_buddy_def": 68,
+        "supporter_buddy_series_id": 200001,
+        "supporter_buddy_sp_atk": 69,
+        "supporter_buddy_armor_image_path": "",
+        "supporter_buddy_dress_record": 0,
+        "supporter_buddy_atk": 69,
+        "supporter_buddy_role_type_name": "Physical/Magic Hybrid",
+        "soul_strike_exp": 0,
+        "via_battle": false,
+        "supporter_buddy_evolution_num": 0,
+        "supporter_buddy_hp": 3460,
+        "supporter_buddy_role_type": 8,
+        "supporter_buddy_armor_name": "",
+        "supporter_buddy_accessory_id": 0,
+        "supporter_buddy_matk": 68,
+        "supporter_buddy_mnd": 68,
+        "supporter_buddy_accessory_series_id": 0,
+        "supporter_buddy_sp_def": 68,
+        "supporter_buddy_armor_series_id": 0,
+        "supporter_buddy_accessory_image_path": "",
+        "user_id": 152,
+        "supporter_buddy_ability_category": {},
+        "supporter_buddy_armor_id": 0,
+        "supporter_buddy_id": 10003800,
+        "supporter_buddy_sp_acc": 22,
+        "supporter_buddy_level": 50,
+        "last_logged_in_at": 0,
+        "profile_message": "Hello there!",
+        "supporter_buddy_eva": 22,
+        "supporter_buddy_weapon_max_hammering_num": 0,
+        "supporter_buddy_weapon_name": "",
+        "supporter_buddy_sp_mnd": 68,
+        "soul_strike": {
+          "allowed_buddy_id": 10003800,
+          "is_common_soul_strike": false,
+          "soul_strike_category_name": "COMBO",
+          "is_unique_soul_strike": false,
+          "has_broken_max_damage_threshold_soul_strike": false,
+          "is_super_soul_strike": false,
+          "recommend_priority": 114,
+          "id": 23060009,
+          "is_sengi_soul_strike": false,
+          "allowed_buddy_name": "Dr. Mog",
+          "name": "Bonds of Historia",
+          "soul_strike_category_id": 8,
+          "is_param_booster_soul_strike": false,
+          "description": "Activate a FFT realm chain up to 150 hits long that increases the damage of allies from the FFT realm a moderate amount.",
+          "consume_ss_gauge": 2,
+          "combo_explanations": [
+            {
+              "image_path": "/dff/static/lang/ww/compile/en/image/combo/series/150001/150001_40.png",
+              "condition_text": "FINAL FANTASY Tactics Hero Attacks",
+              "effect_text": "Increases the damage of FINAL FANTASY Tactics heroes a moderate amount."
+            }
+          ],
+          "required_exp": 10000,
+          "is_combo_soul_strike": true,
+          "consume_ss_point": 500,
+          "usable_num": -1,
+          "extensive_description": "Activate a FFT realm chain up to 150 hits long that increases the damage of allies from the FFT realm a moderate amount.",
+          "is_default_soul_strike": false,
+          "disabled_image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/23060009/23060009_256_disable.png",
+          "is_burst_soul_strike": false,
+          "is_overflow_ougi_soul_strike": false,
+          "is_ultra_soul_strike": false,
+          "supporter_usable_num": 3,
+          "disp_name": "Bonds of{n}Historia",
+          "image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/23060009/23060009_256.png",
+          "is_overflow_soul_strike": false,
+          "ability_animation_id": 10000,
+          "is_someones_soul_strike": true,
+          "is_standard_soul_strike": false
+        },
+        "supporter_buddy_weapon_ex_series_id": 0,
+        "supporter_buddy_accessory_max_level": 0,
+        "supporter_buddy_armor_max_hammering_num": 0,
+        "supporter_buddy_job_name": "Keeper",
+        "nickname": "Dr. Mog",
+        "supporter_buddy_weapon_max_level": 0,
+        "supporter_buddy_weapon_id": 0,
+        "supporter_buddy_image_path": "/dff/static/lang/ww/compile/en/image/buddy/10003800/10003800.png",
+        "supporter_buddy_weapon_level": 0,
+        "supporter_buddy_acc": 22,
+        "supporter_buddy_sp_hp": 3460,
+        "supporter_buddy_weapon_series_id": 0,
+        "supporter_buddy_spd": 105,
+        "supporter_buddy_armor_level": 0,
+        "supporter_buddy_accessory_ex_series_id": 0,
+        "supporter_buddy_sp_matk": 68,
+        "supporter_buddy_sp_eva": 22,
+        "supporter_buddy_mdef": 68,
+        "default_soul_strike_id": 23060001,
+        "supporter_buddy_weapon_image_path": "",
+        "supporter_buddy_armor_ex_series_id": 0
+      },
+      "can_follow": false,
+      "status": 1,
+      "can_remake_fellow_list": false,
+      "has_supporter": true
+    },
+    "sp_enemies": [
+      {
+        "deform_animation_info": [
+          {
+            "enemy_id": "25048601",
+            "is_random": true,
+            "deform_tag": "in",
+            "id": "105000901",
+            "path": "1050009_1.json",
+            "state": [
+              "1"
+            ]
+          }
+        ],
+        "children": [
+          {
+            "params": [
+              {
+                "disp_name": "Cúchulainn",
+                "animation_info": {
+                  "enemy_status_id": "250486011",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "1050009_1",
+                  "assets": {
+                    "boss-1050009_1": "/Content/lang/ww/compile/en/ab/character/boss/1050009/1050009_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Cúchulainn",
+                "animation_info": {
+                  "enemy_status_id": "250486012",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "1050009_1",
+                  "assets": {
+                    "boss-1050009_1": "/Content/lang/ww/compile/en/ab/character/boss/1050009/1050009_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Cúchulainn",
+                "animation_info": {
+                  "enemy_status_id": "250486013",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "1050009_1",
+                  "assets": {
+                    "boss-1050009_1": "/Content/lang/ww/compile/en/ab/character/boss/1050009/1050009_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Cúchulainn",
+                "animation_info": {
+                  "enemy_status_id": "250486014",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "1050009_1",
+                  "assets": {
+                    "boss-1050009_1": "/Content/lang/ww/compile/en/ab/character/boss/1050009/1050009_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Cúchulainn",
+                "animation_info": {
+                  "enemy_status_id": "250486015",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "1050009_1",
+                  "assets": {
+                    "boss-1050009_1": "/Content/lang/ww/compile/en/ab/character/boss/1050009/1050009_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Cúchulainn",
+                "animation_info": {
+                  "enemy_status_id": "250486016",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "1050009_1",
+                  "assets": {
+                    "boss-1050009_1": "/Content/lang/ww/compile/en/ab/character/boss/1050009/1050009_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              }
+            ],
+            "enemy_id": "25048601",
+            "child_pos_id": "1"
+          }
+        ],
+        "id": "25048601",
+        "battle_list_adjustment": {
+          "init_tag": "",
+          "offset_y": -5,
+          "enemy_id": 25048601,
+          "hidden_children": [],
+          "scale": 1,
+          "alter_type": 0,
+          "offset_x": 15,
+          "arrange_type": 0,
+          "alter_asset_key": ""
+        },
+        "ai_arguments": [
+          {
+            "arg_type": "3",
+            "tag": "def_attributes_map_of_break",
+            "arg_value": "all:11,11,11,11,11,8"
+          },
+          {
+            "arg_type": "2",
+            "tag": "increase_rates_of_inflict_damage",
+            "arg_value": "500,400,300,200,150,100"
+          },
+          {
+            "arg_type": "1",
+            "tag": "decreased_hp_rate_to_victory",
+            "arg_value": "20"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ability_target_map_in_phase_1",
+            "arg_value": "1:1,5\n3:1,2,3,4,5\n6:3"
+          },
+          {
+            "arg_type": "1",
+            "tag": "hp_rate_to_phase_4",
+            "arg_value": "40"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ability_target_map_in_phase_2",
+            "arg_value": "1:2,4\n3:1,2,3,4,5\n6:3"
+          },
+          {
+            "arg_type": "1",
+            "tag": "hp_rate_to_phase_5",
+            "arg_value": "20"
+          },
+          {
+            "arg_type": "1",
+            "tag": "hp_rate_to_phase_2",
+            "arg_value": "80"
+          },
+          {
+            "arg_type": "2",
+            "tag": "series_ids",
+            "arg_value": "150001"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ability_target_map_in_phase_3",
+            "arg_value": "1:3\n3:1,2,3,4,5"
+          },
+          {
+            "arg_type": "3",
+            "tag": "def_attributes_map_of_element",
+            "arg_value": "all:9,7,5,3,0,29"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ability_target_map_in_phase_4",
+            "arg_value": "6:1,2,3,4,5"
+          },
+          {
+            "arg_type": "1",
+            "tag": "hp_rate_to_phase_3",
+            "arg_value": "60"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ability_target_map_in_phase_5",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "2",
+            "tag": "decrease_rates_of_receive_damage",
+            "arg_value": "500,400,300,200,150,100"
+          }
+        ]
+      }
+    ],
+    "user": {
+      "stamina_piece": 1125,
+      "soul_piece": 295,
+      "residual_stamina_piece": 0,
+      "start_time_of_today": 1547730000,
+      "stamina_recovery_time": 180,
+      "max_followee_num": 100,
+      "dungeon_id": 15048602,
+      "id": 5679473043701760,
+      "release_id": 0,
+      "func_tutorial_flags": {
+        "SS_EXP": false,
+        "NIGHTMARE_DUNGEON": true,
+        "EXTREME_CLOSE2": false,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR": true,
+        "ABILITY_MATERIAL_CONVERT": true,
+        "SORTIE_LIMITATION": false,
+        "EXTREME": false,
+        "DUNGEON_LIST": true,
+        "BUDDY_EVOLUTION": true,
+        "FIRST_ENTER_RECORD_DUNGEON": true,
+        "BOOK_ROOM2": true,
+        "SECOND_ANNIVERSARY": false,
+        "GROWEGG": true,
+        "LEGEND_MATERIA": true,
+        "RECORD_DIVE": true,
+        "FELLOW_LIST": true,
+        "OLD_ABILITY_GENERATION": false,
+        "FIRST_ENTER_BEAST_WORLD_LIST_2": true,
+        "DRESS_RECORD": true,
+        "SERIES": true,
+        "STAMINA_RECOVERY_AGENT": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_1": true,
+        "FELLOW": true,
+        "EQUIPMENT_HYPER_EVOLVE": true,
+        "PROGRESS_MAP": true,
+        "ABILITY_CHANGE": false,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_AFTER_UPDATE": true,
+        "OLD_HOME": true,
+        "RECORD_DUNGEON_FRAME_ART_BREAK": true,
+        "BEAST_DUNGEON_RARITY3_NUM3_CLEAR": true,
+        "PARTY_TOP": true,
+        "BATTLE_OPERATION": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_1": true,
+        "SS_MULTI": false,
+        "WDAY_DUNGEON_EXCHANGE_SHOP": true,
+        "SS_LIMITATION": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_3": true,
+        "EXTREME_MOVIE": true,
+        "COUNTDOWN_2016_DEFEAT_CNT_RESULT": false,
+        "FIRST_ANNIVERSARY": false,
+        "MO_INTRODUCTION_MOVIE": false,
+        "PARTY_MEMORY": true,
+        "RECORD_DUNGEON_PARTY_EDIT": true,
+        "BEAST_DUNGEON_RARITY4_ALL_CLEAR_1": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_2": true,
+        "OLD_QUEST": false,
+        "PROFILE": true,
+        "EXTREME_OPENING": true,
+        "ENHANCEMENT": true,
+        "LEGEND_SPHERE": true,
+        "ABILITY_DECOMPOSE": true,
+        "OLD_UI_REBORN": true,
+        "ABILITY_UPGRADE": true,
+        "SECOND_ENTER_BEAST_WORLD_LIST": true,
+        "BATTLE_LIST_2": true,
+        "SECOND_ENTER_BEAST_DUNGEON_LIST": true,
+        "LEAD_TO_SECOND_DUNGEON": true,
+        "MO_FORMAL": false,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_1": true,
+        "BUDDY_ADDITIONAL_STATUS_BONUS": true,
+        "EXTREME_CLOSING_MOVIE": true,
+        "OLD_ACHIEVEMENT_ROOM": true,
+        "OLD_BUFF_DEBUFF_TRAINING_FOR_BEGINNER": true,
+        "COUNTDOWN_2016_MOVIE": false,
+        "OLD_INVENTORY": false,
+        "ENHANCEMENT_TOP": true,
+        "FIRST_ENTER_BEAST_WORLD_LIST_1": true,
+        "FELLOW_PLUS": true,
+        "ABILITY_GENERATION": true,
+        "TEN_MILLION_DOWNLOAD_MOVIE": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_2": true,
+        "NEW_YEAR_2017": false,
+        "HAMMERING": true,
+        "RECORD_DUNGEON_BATTLE_LIST": true,
+        "MASTER_LEGEND_MATERIA": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_2": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_2": true,
+        "EQUIPMENT_CHANGE": true,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR_AFTER_UPDATE": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_1": true,
+        "BATTLE_LIST": true,
+        "PARTY_EDIT": true,
+        "FORCE_DUNGEON": true,
+        "ANYTIME_MUSIC_ROOM": true,
+        "EXTREME_CLOSE1": false,
+        "BEAST_WORLD_OPENING_MOVIE": true,
+        "BRAVE_SERIES_BONUS": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_2": true,
+        "INVENTORY": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR": false,
+        "BOOK_ROOM": true,
+        "OLD_ENHANCEMENT": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_1": true,
+        "MO_PARTY": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_BEAST_TOP": true,
+        "BEAST_INHERITANCE": true,
+        "EVOLUTION": true,
+        "SUPPRESS": true,
+        "SS_MULTI_AND_EXP": true,
+        "RECORD_TEAR": true,
+        "OLD_MISSION": true
+      },
+      "stamina_info": {
+        "additional_stamina": 0,
+        "current_max_stamina": 225,
+        "prev_max_stamina": 225,
+        "got_stamina_piece": 0
+      },
+      "is_in_dungeon": true,
+      "name": "Yehosua",
+      "has_all_clear_ver_to_show": false,
+      "stamina": 80,
+      "can_review": true,
+      "tutorial_step": 255,
+      "followee_num": 81,
+      "stamina_recovery_remaining_time": 26034,
+      "gil": 189114861,
+      "is_update_last_logined_at": false,
+      "last_logined_at": 1547731423,
+      "is_tutorial_finish": true,
+      "max_follower_num": 100,
+      "max_stamina": 225
+    },
+    "SERVER_TIME": 1547773059
+  }
+}

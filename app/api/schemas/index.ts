@@ -8,12 +8,13 @@ import {
   ContentPath,
   NumberAsString,
   RelativeUrlPath,
-  Timestamp
+  Timestamp,
 } from './common';
 
 import { Buddy, GrowEgg } from './characters';
 import { OwnedRecordMateria } from './recordMateria';
 
+export { Battles } from './battles';
 export { Dungeons } from './dungeons';
 export { Main } from './main';
 export { ReleasedRecordMateriaList } from './recordMateria';
@@ -48,7 +49,7 @@ export enum DamageType {
   BLK = 4,
   BLU = 5,
   SUM = 6,
-  NAT = 7,  // aka "Inborn"
+  NAT = 7, // aka "Inborn"
   NIN = 8,
   NONE = 9,
 }
@@ -89,9 +90,9 @@ interface Equipment {
   rarity: number;
   is_locked: boolean;
   created_at: Timestamp;
-  category_id: number;     // 2 = Sword
-  category_name: string;   // e.g., "Sword"
-  equipment_type: number;  // 1 = weapon, 2 = armor, 3 = accessory
+  category_id: number; // 2 = Sword
+  category_name: string; // e.g., "Sword"
+  equipment_type: number; // 1 = weapon, 2 = armor, 3 = accessory
   is_weapon: boolean;
   is_armor: boolean;
   is_accessory: boolean;
@@ -100,7 +101,7 @@ interface Equipment {
   detail_image_path: RelativeUrlPath;
   thumbnail_path: RelativeUrlPath;
   sale_gil: number;
-  ex_series_id: number;  // always 0
+  ex_series_id: number; // always 0
 
   // Current stats (not counting synergy or augments)
   hp: number;
@@ -141,12 +142,12 @@ interface Equipment {
   additional_bonus_acc: number;
   additional_bonus_eva: number;
 
-  atk_type: number;  // 0 = not a weapon, 1 = melee, 2 = ranged
-  critical: number;  // 3 for most weapons, 5 for claws (and a few others?), 0 for non-weapons (and some weapons?)
-  atk_ss_point_factor: number;  // always 0
-  def_ss_point_factor: number;  // always 0
+  atk_type: number; // 0 = not a weapon, 1 = melee, 2 = ranged
+  critical: number; // 3 for most weapons, 5 for claws (and a few others?), 0 for non-weapons (and some weapons?)
+  atk_ss_point_factor: number; // always 0
+  def_ss_point_factor: number; // always 0
 
-  allowed_buddy_id: number;  // always 0
+  allowed_buddy_id: number; // always 0
   has_soul_strike: boolean;
   has_someones_soul_strike: boolean;
   soul_strike_id: number;
@@ -162,30 +163,30 @@ interface Equipment {
   required_enhancement_base_gil: number;
   required_evolution_gil: number;
   is_max_hyper_evolution_num: boolean;
-  hammering_affect_param_key: string;     // e.g., "atk"
-  hammering_num: number;                  // Current number of augments
-  max_hammering_num: number;              // Maximum number of augments
-  series_hammering_num: number;           // Synergy augments - equals ceil(hammering_num * 1.5)
+  hammering_affect_param_key: string; // e.g., "atk"
+  hammering_num: number; // Current number of augments
+  max_hammering_num: number; // Maximum number of augments
+  series_hammering_num: number; // Synergy augments - equals ceil(hammering_num * 1.5)
   max_evolution_num: number;
   max_hyper_evolution_num: number;
   evolution_num: number;
   is_max_evolution_num: boolean;
   evol_max_level_of_base_rarity: {
     [s1: string]: {
-      [s2: string]: number
-    }
+      [s2: string]: number;
+    };
   };
   hyper_evolve_recipe: {
     materials: Array<{
       num: number;
       hyper_evolve_material_id: number;
-    }>
+    }>;
     gil: number;
   };
-  is_usable_as_enhancement_src: boolean;       // true for weapons and armor, false for accessories
-  is_usable_as_enhancement_material: boolean;  // true for weapons and armor, false for accessories
-  can_hyper_evolve_potentially: boolean;       // true for weapons and armor, false for accessories
-  is_hammering_item: boolean;                  // always false
+  is_usable_as_enhancement_src: boolean; // true for weapons and armor, false for accessories
+  is_usable_as_enhancement_material: boolean; // true for weapons and armor, false for accessories
+  can_hyper_evolve_potentially: boolean; // true for weapons and armor, false for accessories
+  is_hammering_item: boolean; // always false
 
   // - Elemental boost: type 1, arg 120 for 20% bonus damage
   //   100 = fire, 101 = ice, 102 = lightning, 103 = earth, 104 = wind, 105 = water,
@@ -248,7 +249,7 @@ export interface GachaShow {
       buddy_image_path: RelativeUrlPath;
     }>;
     line_up_image_path: RelativeUrlPath;
-    logic_name: string;  // 'plain' (only used for initial freebie) or 'rarity_assurance'
+    logic_name: string; // 'plain' (only used for initial freebie) or 'rarity_assurance'
     box_list: Array<{
       box_id: number;
       rarities: number[];
@@ -256,29 +257,29 @@ export interface GachaShow {
         purchased_count: number;
         disp_depth: number;
         closed_at: Timestamp;
-        pay_type_name: string;  // "coin" (gems), "item_and_coin"
+        pay_type_name: string; // "coin" (gems), "item_and_coin"
         entry_point_id: number;
         animation_type_name: string;
-        limit_type_name: string;  // e.g., "total", "infinity"
-        executable_num: number;   // 1 for 100-gem, 99999 otherwise
-        lot_num: number;          // How many items you get
+        limit_type_name: string; // e.g., "total", "infinity"
+        executable_num: number; // 1 for 100-gem, 99999 otherwise
+        lot_num: number; // How many items you get
         image_id: number;
-        pay_id: number;           // 0 for 100-gem, 91000000 for a Mythril pull
+        pay_id: number; // 0 for 100-gem, 91000000 for a Mythril pull
         tag: string;
-        pay_cost: number;         // Number of gems or Mythril
-        name: string;             // "100-Gem Rare Relic Draw", "Rare Relic Draw x11"
+        pay_cost: number; // Number of gems or Mythril
+        name: string; // "100-Gem Rare Relic Draw", "Rare Relic Draw x11"
         description: string;
         opened_at: Timestamp;
         coin_cost_of_item_and_coin_payment: number;
         disp_order: number;
         show_closed_at_flg: boolean;
-        term_limit_num: number    // 1 for a single-time draw (Realm Dungeon Lucky Draw or 100-gem pull), 0 otherwise
+        term_limit_num: number; // 1 for a single-time draw (Realm Dungeon Lucky Draw or 100-gem pull), 0 otherwise
         required_user_item?: {
           num: number;
           image_path: RelativeUrlPath;
-          name: string;     // Mythril
-          item_id: number;  // 91000000
-        }
+          name: string; // Mythril
+          item_id: number; // 91000000
+        };
       }>;
     }>;
     is_all_free_payment: false;
@@ -289,7 +290,7 @@ export interface GachaShow {
     rise_image_path: RelativeUrlPath;
     series_name: string;
     bgm_id: number;
-    total_executable_num: number;  // 1 for a one-time banner (Realm Dungeon Lucky Draw), 0 otherwise
+    total_executable_num: number; // 1 for a one-time banner (Realm Dungeon Lucky Draw), 0 otherwise
     appeal_message: string;
     top_image_path: RelativeUrlPath;
     series_id: number;
@@ -309,16 +310,16 @@ export interface GetBattleInit {
     background: {
       assets: {
         [assetKey: string]: ContentPath;
-      }
+      };
       animationTime: number;
       animation_info: {
         bgEffectIds: string[];
         id: string;
-      }
-    }
+      };
+    };
 
     rounds: Array<{
-      background_change_type: string;  // "0" or "2"; meaning unknown
+      background_change_type: string; // "0" or "2"; meaning unknown
 
       enemy: Array<{
         deform_animation_info: Array<{}>;
@@ -331,7 +332,7 @@ export interface GetBattleInit {
 
       drop_item_list: DropItem[];
       drop_materias: Array<{
-        buddy_pos: string;    // E.g., "05" for party member 5
+        buddy_pos: string; // E.g., "05" for party member 5
         name: string;
         description: string;
         item_id: string;
@@ -341,7 +342,7 @@ export interface GetBattleInit {
     assets: {
       // Simple mapping of asset key to `/Content/lang/ww/compile` path
       [assetKey: string]: ContentPath;
-    }
+    };
   };
 }
 
@@ -409,11 +410,11 @@ export interface PartyList {
     image_path: RelativeUrlPath;
     rarity: number;
     id: number;
-    hammering_num: number;   // How much it increases augments (i.e., 1 for Rosetta, 0 everywhere else)
+    hammering_num: number; // How much it increases augments (i.e., 1 for Rosetta, 0 everywhere else)
   }>;
 
   dress_records: Array<{
-    disp_name: string;       // Name with embedded "{n}"
+    disp_name: string; // Name with embedded "{n}"
     image_path: RelativeUrlPath;
     buddy_id: number;
     name: string;
@@ -432,8 +433,8 @@ export interface UpdateUserSession {
 export interface WorldBattles {
   battles: Array<{
     sp_enemy_id: number;
-    name: string;             // e.g., "Liquid Flame Record"
-    user_clear_time: number;  // Clear time in milliseconds
+    name: string; // e.g., "Liquid Flame Record"
+    user_clear_time: number; // Clear time in milliseconds
     dungeon_id: number;
     id: number;
   }>;
@@ -445,8 +446,8 @@ export interface WorldBattles {
 export interface WinBattle {
   result: {
     clear_time_info: {
-      clear_battle_time: number;    // Clear time in milliseconds
-      can_show_clear_time: number;  // 0 or 1
+      clear_battle_time: number; // Clear time in milliseconds
+      can_show_clear_time: number; // 0 or 1
     };
 
     dungeon_id: string;
@@ -468,14 +469,14 @@ export interface WinBattle {
         exp_bonus_info: {
           type_name: 'NORMAL' | 'SERIES';
           boost_rate: number | null; // E.g., 150 for 150% experience
-        }
+        };
         is_level_max: '' | '1';
         level_to_hp_max: {
           [level: string]: number;
-        }
+        };
         level_to_exp: {
           [level: string]: number;
-        }
+        };
       };
       is_dead: BoolAsNumber;
       status_bonus_flg_of: {
@@ -540,7 +541,7 @@ export interface WinBattle {
         right_2_offset_x: NumberAsString;
         right_2_offset_y: NumberAsString;
         assets: AssetCollection;
-      }
+      };
     }>;
 
     prize_master: {
@@ -554,8 +555,8 @@ export interface WinBattle {
         rarity: number | string;
         type?: string;
         rarity_item_id: any;
-      }
-    }
+      };
+    };
 
     unlock_dungeons: Array<{
       world_id: string;
