@@ -24,6 +24,12 @@ interface Props {
   tormentScores: TormentWorldWithScore[];
 }
 
+const dColumnDef = {
+  width: 85,
+  cellRendererFramework: TormentScoreCellRenderer,
+  cellStyle: { textAlign: 'right' },
+};
+
 export class TormentGrid extends React.Component<Props> {
   columnDefs: ColDef[];
   objectValues = _.memoize(_.values);
@@ -46,21 +52,18 @@ export class TormentGrid extends React.Component<Props> {
       },
       {
         headerName: 'D240',
-        width: 65,
         field: 'd240',
-        cellRendererFramework: TormentScoreCellRenderer,
+        ...dColumnDef,
       },
       {
         headerName: 'D280',
-        width: 65,
         field: 'd280',
-        cellRendererFramework: TormentScoreCellRenderer,
+        ...dColumnDef,
       },
       {
         headerName: 'D???',
-        width: 65,
         field: 'dUnknown',
-        cellRendererFramework: TormentScoreCellRenderer,
+        ...dColumnDef,
       },
     ];
   }
@@ -74,7 +77,7 @@ export class TormentGrid extends React.Component<Props> {
   render() {
     const { tormentScores } = this.props;
     return (
-      <div style={{ height: '500px', width: '100%' }} className="ag-theme-balham">
+      <div className="ag-theme-balham">
         <AgGridReact
           enableSorting={true}
           enableColResize={true}
@@ -83,6 +86,7 @@ export class TormentGrid extends React.Component<Props> {
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
           onViewportChanged={ReactTooltip.rebuild}
+          domLayout="autoHeight"
         />
         <ReactTooltip
           place="bottom"

@@ -16,6 +16,12 @@ export interface DungeonScore {
   won: boolean;
 }
 
+export function isSub30(score: DungeonScore): boolean {
+  // FFRK shows hundredths of seconds but manipulates milliseconds, and I
+  // *think* it truncates down to hundredth...
+  return score.won && score.time != null && score.time < 30 * 1000 + 10;
+}
+
 function formatTime(time?: number): string {
   if (time == null) {
     return '';
