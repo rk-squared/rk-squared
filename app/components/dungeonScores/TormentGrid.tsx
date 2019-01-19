@@ -3,8 +3,14 @@ import * as React from 'react';
 import { ColDef } from 'ag-grid';
 import { AgGridReact } from 'ag-grid-react';
 import { connect } from 'react-redux';
+import * as ReactTooltip from 'react-tooltip';
 
-import { formatDifficulty, getSortableDifficulty } from '../../actions/dungeons';
+import {
+  Dungeon,
+  formatDifficulty,
+  getAvailablePrizes,
+  getSortableDifficulty,
+} from '../../actions/dungeons';
 import { WorldCategory } from '../../actions/worlds';
 import { series } from '../../data';
 import { SeriesId } from '../../data/series';
@@ -13,6 +19,7 @@ import {
   DungeonWithScore,
   makeDungeonsWithScoresSelector,
 } from '../../selectors/dungeonsWithScore';
+import { PrizeList } from '../dungeons/PrizeList';
 import { TormentScoreCellRenderer } from './TormentScoreCellRenderer';
 
 import * as _ from 'lodash';
@@ -20,6 +27,7 @@ import * as _ from 'lodash';
 const getTormentDungeonScores = makeDungeonsWithScoresSelector(WorldCategory.Torment);
 
 interface Props {
+  dungeons: { [id: number]: Dungeon };
   dungeonScores: DungeonWithScore[];
 }
 
@@ -55,9 +63,14 @@ export class TormentGrid extends React.Component<Props> {
   }
 
   getRowNodeId = (row: DungeonWithScore) => '' + row.id;
+  getTooltipContent = (dungeonId: string) =>
+    this.props.dungeons[+dungeonId] ? (
+      <PrizeList prizes={getAvailablePrizes(this.props.dungeons[+dungeonId])} />
+    ) : null;
 
   render() {
     const { dungeonScores } = this.props;
+    // setInterval(() => ReactTooltip.rebuild(), 1000);
     return (
       <div style={{ height: '500px', width: '100%' }} className="ag-theme-balham">
         <AgGridReact
@@ -67,6 +80,12 @@ export class TormentGrid extends React.Component<Props> {
           rowData={this.objectValues(dungeonScores)}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
+          onViewportChanged={ReactTooltip.rebuild}
+        />
+        <ReactTooltip
+          place="bottom"
+          id={TormentScoreCellRenderer.ID}
+          getContent={this.getTooltipContent as ReactTooltip.GetContent}
         />
       </div>
     );
@@ -74,5 +93,6 @@ export class TormentGrid extends React.Component<Props> {
 }
 
 export default connect((state: IState) => ({
+  dungeons: state.dungeons.dungeons,
   dungeonScores: getTormentDungeonScores(state),
 }))(TormentGrid);
