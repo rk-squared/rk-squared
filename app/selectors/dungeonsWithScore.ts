@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
 import { Dungeon } from '../actions/dungeons';
-import { DungeonScore } from '../actions/dungeonScores';
+import { DungeonScore, estimateScore } from '../actions/dungeonScores';
 import { getSorter, World, WorldCategory } from '../actions/worlds';
 import { IState } from '../reducers';
 import { DungeonState, getDungeonsForWorld } from '../reducers/dungeons';
@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 
 export interface DungeonWithScore extends Dungeon {
   score: DungeonScore | undefined;
+  estimatedScore: DungeonScore | undefined;
 }
 
 export interface TormentWorldWithScore extends World {
@@ -23,15 +24,16 @@ export interface TormentWorldWithScore extends World {
 function getDungeonsWithScoreForWorld(
   dungeonState: DungeonState,
   scoresState: DungeonScoreState,
-  worldId: number,
+  world: World,
 ) {
-  const dungeons = getDungeonsForWorld(dungeonState, worldId);
+  const dungeons = getDungeonsForWorld(dungeonState, world.id);
   if (!dungeons) {
     return undefined;
   }
   return dungeons.map(d => ({
     ...d,
     score: scoresState.scores[d.id],
+    estimatedScore: estimateScore(d, world) || undefined,
   }));
 }
 
@@ -52,8 +54,8 @@ export const getTormentScores = createSelector<
       _.values(worldsState.worlds).filter(i => i.category === WorldCategory.Torment),
     );
     return worlds.map(w => {
-      const dungeons = _.keyBy(
-        getDungeonsWithScoreForWorld(dungeonsState, scoresState, w.id) || [],
+      const dungeons: { [dungeonId: number]: DungeonWithScore } = _.keyBy(
+        getDungeonsWithScoreForWorld(dungeonsState, scoresState, w) || [],
         'difficulty',
       );
       return {

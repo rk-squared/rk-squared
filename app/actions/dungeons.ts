@@ -41,10 +41,6 @@ export function formatDifficulty(dungeon: Dungeon): string {
   return dungeon.difficulty === 0 ? '???' : dungeon.difficulty.toString();
 }
 
-export function getSortableDifficulty(dungeon: Dungeon): number {
-  return dungeon.difficulty === 0 ? Infinity : dungeon.difficulty;
-}
-
 function makeDungeonChestPrizeItem(amount: number): PrizeItem {
   return {
     type: ItemType.DropItem,
