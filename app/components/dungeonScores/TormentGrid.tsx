@@ -70,7 +70,6 @@ export class TormentGrid extends React.Component<Props> {
 
   render() {
     const { dungeonScores } = this.props;
-    // setInterval(() => ReactTooltip.rebuild(), 1000);
     return (
       <div style={{ height: '500px', width: '100%' }} className="ag-theme-balham">
         <AgGridReact
@@ -85,7 +84,7 @@ export class TormentGrid extends React.Component<Props> {
         <ReactTooltip
           place="bottom"
           id={TormentScoreCellRenderer.ID}
-          getContent={this.getTooltipContent as ReactTooltip.GetContent}
+          getContent={this.getTooltipContent}
         />
       </div>
     );
