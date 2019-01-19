@@ -18,8 +18,8 @@ export class TormentScoreCellRenderer extends React.Component<ICellRendererParam
   }
 
   render() {
-    const { data } = this.props;
-    const dungeon = data as DungeonWithScore;
+    const { value } = this.props;
+    const dungeon = value as DungeonWithScore;
     const showTooltips = dungeon.score && !isTormentComplete(dungeon.score);
     return (
       <div data-tip={showTooltips ? dungeon.id : undefined} data-for={TormentScoreCellRenderer.ID}>
