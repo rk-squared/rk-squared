@@ -44,8 +44,8 @@ export interface Battle {
 
 export enum GradeScoreType {
   // noinspection JSUnusedGlobalSymbols
-  DECREASED_HP = 3, // Observed with Bomb Brigade
-  DECREASED_HP_AND_CLEAR_TIME = 4, // Standard for Neo Torments
+  DecreasedHp = 3, // Observed with Bomb Brigade
+  DecreasedHpAndClearTime = 4, // Standard for Neo Torments
 }
 
 export interface GradeScore {

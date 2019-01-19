@@ -456,7 +456,7 @@ describe('actions/dungeonScores', () => {
       const estimatedScore = estimateScore(fftDUnknownTormentDungeon, fftTormentWorld);
 
       expect(estimatedScore).toEqual({
-        type: DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME,
+        type: DungeonScoreType.PercentHpOrClearTime,
         maxHp: 2000000,
         totalDamage: 1400000,
         won: false,
@@ -473,7 +473,7 @@ describe('actions/dungeonScores', () => {
       const estimatedScore = estimateScore(ff8D280TormentDungeon, ff8TormentWorld);
 
       expect(estimatedScore).toEqual({
-        type: DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME,
+        type: DungeonScoreType.PercentHpOrClearTime,
         time: 40000,
         maxHp: 1000000,
         totalDamage: 1000000,
@@ -491,7 +491,7 @@ describe('actions/dungeonScores', () => {
   describe('formatScore', () => {
     it('shows HP percent for incomplete Torments', () => {
       const score = {
-        type: DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME,
+        type: DungeonScoreType.PercentHpOrClearTime,
         maxHp: 2000000,
         time: 35355,
         totalDamage: 1432340,
@@ -502,7 +502,7 @@ describe('actions/dungeonScores', () => {
 
     it('shows time for completed Torments', () => {
       const score = {
-        type: DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME,
+        type: DungeonScoreType.PercentHpOrClearTime,
         maxHp: 1000000,
         time: 22683,
         totalDamage: 1000000,
@@ -513,7 +513,7 @@ describe('actions/dungeonScores', () => {
 
     it('handles damage races like Bomb Brigade', () => {
       const score = {
-        type: DungeonScoreType.TOTAL_DAMAGE,
+        type: DungeonScoreType.TotalDamage,
         totalDamage: 460895,
         won: true,
       };
@@ -522,7 +522,7 @@ describe('actions/dungeonScores', () => {
 
     it('handles slow magicite wins', () => {
       const score = {
-        type: DungeonScoreType.CLEAR_TIME,
+        type: DungeonScoreType.ClearTime,
         time: 60 * 1000 + 2345,
         won: true,
       };

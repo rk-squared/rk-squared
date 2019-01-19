@@ -8,10 +8,10 @@ import { Handler } from './types';
 
 function gradeToScoreType(type: GradeScoreType): DungeonScoreType | null {
   switch (type) {
-    case GradeScoreType.DECREASED_HP:
-      return DungeonScoreType.TOTAL_DAMAGE;
-    case GradeScoreType.DECREASED_HP_AND_CLEAR_TIME:
-      return DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME;
+    case GradeScoreType.DecreasedHp:
+      return DungeonScoreType.TotalDamage;
+    case GradeScoreType.DecreasedHpAndClearTime:
+      return DungeonScoreType.PercentHpOrClearTime;
   }
   return null;
 }
@@ -22,7 +22,7 @@ const dungeonScoresHandler: Handler = {
       if (i.user_clear_time) {
         store.dispatch(
           setDungeonScore(i.dungeon_id, {
-            type: DungeonScoreType.CLEAR_TIME,
+            type: DungeonScoreType.ClearTime,
             time: i.user_clear_time,
             won: true,
           }),

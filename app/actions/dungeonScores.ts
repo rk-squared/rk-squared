@@ -7,9 +7,9 @@ import { World, WorldCategory } from './worlds';
 import * as _ from 'lodash';
 
 export enum DungeonScoreType {
-  CLEAR_TIME = 1,
-  PERCENT_HP_OR_CLEAR_TIME = 2,
-  TOTAL_DAMAGE = 3,
+  ClearTime = 1,
+  PercentHpOrClearTime = 2,
+  TotalDamage = 3,
 }
 
 export interface DungeonScore {
@@ -75,7 +75,7 @@ export function estimateScore(dungeon: Dungeon, world: World): DungeonScore | nu
   for (const [time, count] of timePrizes) {
     if (totalSeen === unclaimed) {
       return {
-        type: DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME,
+        type: DungeonScoreType.PercentHpOrClearTime,
         won: true,
         time: time * 1000,
         maxHp,
@@ -87,7 +87,7 @@ export function estimateScore(dungeon: Dungeon, world: World): DungeonScore | nu
   for (const [percent, count] of percentPrizes) {
     if (totalSeen === unclaimed) {
       return {
-        type: DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME,
+        type: DungeonScoreType.PercentHpOrClearTime,
         won: false,
         maxHp,
         totalDamage: (maxHp * percent) / 100,
@@ -133,13 +133,13 @@ function formatPercent(totalDamage?: number, maxHp?: number): string {
 
 export function formatScore(score: DungeonScore): string {
   switch (score.type) {
-    case DungeonScoreType.CLEAR_TIME:
+    case DungeonScoreType.ClearTime:
       return formatTime(score.time);
 
-    case DungeonScoreType.TOTAL_DAMAGE:
+    case DungeonScoreType.TotalDamage:
       return formatDamage(score.totalDamage);
 
-    case DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME:
+    case DungeonScoreType.PercentHpOrClearTime:
       return score.won ? formatTime(score.time) : formatPercent(score.totalDamage, score.maxHp);
   }
 }
@@ -147,13 +147,13 @@ export function formatScore(score: DungeonScore): string {
 export function formatEstimatedScore(score: DungeonScore): string {
   const maybe = (op: string, result: string) => (result ? op + result : result);
   switch (score.type) {
-    case DungeonScoreType.CLEAR_TIME:
+    case DungeonScoreType.ClearTime:
       return maybe('≤', formatTime(score.time));
 
-    case DungeonScoreType.TOTAL_DAMAGE:
+    case DungeonScoreType.TotalDamage:
       return maybe('≥', formatTime(score.totalDamage));
 
-    case DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME: {
+    case DungeonScoreType.PercentHpOrClearTime: {
       return score.won
         ? maybe('≤', formatTime(score.time))
         : maybe('≥', formatPercent(score.totalDamage, score.maxHp));
@@ -185,11 +185,11 @@ export function shouldUseEstimatedScore(
   };
 
   switch (score.type) {
-    case DungeonScoreType.CLEAR_TIME:
+    case DungeonScoreType.ClearTime:
       return isEstimatedBetter(_.lt, score.time, estimatedScore.time);
-    case DungeonScoreType.TOTAL_DAMAGE:
+    case DungeonScoreType.TotalDamage:
       return isEstimatedBetter(_.gt, score.totalDamage, estimatedScore.totalDamage);
-    case DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME:
+    case DungeonScoreType.PercentHpOrClearTime:
       if (score.won && !estimatedScore.won) {
         return false;
       } else if (score.won) {
