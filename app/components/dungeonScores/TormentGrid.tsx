@@ -14,6 +14,7 @@ import {
   getTormentScores,
   TormentWorldWithScore,
 } from '../../selectors/dungeonsWithScore';
+import { GridContainer } from '../common/GridContainer';
 import { PrizeList } from '../dungeons/PrizeList';
 import { TormentScoreCellRenderer } from './TormentScoreCellRenderer';
 
@@ -77,7 +78,7 @@ export class TormentGrid extends React.Component<Props> {
   render() {
     const { tormentScores } = this.props;
     return (
-      <div className="ag-theme-balham">
+      <GridContainer>
         <AgGridReact
           enableSorting={true}
           enableColResize={true}
@@ -93,7 +94,7 @@ export class TormentGrid extends React.Component<Props> {
           id={TormentScoreCellRenderer.ID}
           getContent={this.getTooltipContent}
         />
-      </div>
+      </GridContainer>
     );
   }
 }
