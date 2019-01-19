@@ -4,7 +4,7 @@ import * as ReactTooltip from 'react-tooltip';
 
 import * as classNames from 'classnames';
 
-import { Dungeon, getAvailablePrizes, hasAvailablePrizes } from '../../actions/dungeons';
+import { Dungeon, formatDifficulty, getAvailablePrizes, hasAvailablePrizes } from '../../actions/dungeons';
 import { World } from '../../actions/worlds';
 import { IState } from '../../reducers';
 import { getDungeonsForWorld } from '../../reducers/dungeons';
@@ -33,7 +33,7 @@ const DungeonCardTitle = ({world, dungeons}: {world: World, dungeons: Dungeon[]}
 
 const DungeonDetails = ({dungeon}: {dungeon: Dungeon}) => (
   <p className={styles.details}>
-    <span>Difficulty {dungeon.difficulty === 0 ? '???' : dungeon.difficulty}</span>
+    <span>Difficulty {formatDifficulty(dungeon)}</span>
     <span>Stamina {dungeon.totalStamina}</span>
   </p>
 );
