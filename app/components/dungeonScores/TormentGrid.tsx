@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { ColDef } from 'ag-grid';
 import { AgGridReact } from 'ag-grid-react';
+import { connect } from 'react-redux';
 
 import { formatDifficulty, getSortableDifficulty } from '../../actions/dungeons';
-import { formatScore } from '../../actions/dungeonScores';
 import { WorldCategory } from '../../actions/worlds';
 import { series } from '../../data';
 import { SeriesId } from '../../data/series';
@@ -13,9 +13,9 @@ import {
   DungeonWithScore,
   makeDungeonsWithScoresSelector,
 } from '../../selectors/dungeonsWithScore';
+import { TormentScoreCellRenderer } from './TormentScoreCellRenderer';
 
 import * as _ from 'lodash';
-import { connect } from 'react-redux';
 
 const getTormentDungeonScores = makeDungeonsWithScoresSelector(WorldCategory.Torment);
 
@@ -49,8 +49,7 @@ export class TormentGrid extends React.Component<Props> {
         headerName: 'Score',
         width: 65,
         field: 'score',
-        valueFormatter: ({ data }: { data: DungeonWithScore }) =>
-          data.score ? formatScore(data.score) : '',
+        cellRendererFramework: TormentScoreCellRenderer,
       },
     ];
   }
