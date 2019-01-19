@@ -3,7 +3,12 @@ import * as React from 'react';
 import { ICellRendererParams } from 'ag-grid';
 import * as ReactTooltip from 'react-tooltip';
 
-import { formatEstimatedScore, formatScore, isSub30 } from '../../actions/dungeonScores';
+import {
+  formatEstimatedScore,
+  formatScore,
+  isSub30,
+  shouldUseEstimatedScore,
+} from '../../actions/dungeonScores';
 import { DungeonWithScore } from '../../selectors/dungeonsWithScore';
 import { TormentScoreIcon } from './TormentScoreIcon';
 
@@ -17,7 +22,7 @@ export class TormentScoreCellRenderer extends React.Component<ICellRendererParam
   render() {
     const { value } = this.props;
     const dungeon = value as DungeonWithScore;
-    const useEstimated = !dungeon.score;
+    const useEstimated = shouldUseEstimatedScore(dungeon.score, dungeon.estimatedScore);
     const score = useEstimated ? dungeon.estimatedScore : dungeon.score;
     if (!score) {
       return null;

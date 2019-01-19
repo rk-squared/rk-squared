@@ -37,6 +37,14 @@ export function estimateScore(dungeon: Dungeon, world: World): DungeonScore | nu
   const claimed = dungeon.prizes.claimedGrade.length;
   const unclaimed = dungeon.prizes.unclaimedGrade.length;
 
+  // Count the number of prizes claimed vs. expected, and use that to estimate
+  // completion status.
+  //
+  // Hack: We hard-code the number of prizes expected.  (FFRK doesn't provide a
+  // machine-readable list of prizes.  We didn't want to parse the string
+  // descriptions that it does provide, and we haven't necessarily saved them
+  // and don't want to make the user re-scan dungeons to get them.)
+  //
   // Prizes: 1 or 2 (D???) for sub 30, 2 each for sub 40 and 50, 1 or 2 (D???) for 1 minute
   // 2 (D240) or 3 for victory, 3 each for 90%, 80%, 70%, 60%, 2 for 50%
   const timePrizes = [[30, 1], [40, 2], [50, 2], [60, 1]];
@@ -150,6 +158,45 @@ export function formatEstimatedScore(score: DungeonScore): string {
         ? maybe('≤', formatTime(score.time))
         : maybe('≥', formatPercent(score.totalDamage, score.maxHp));
     }
+  }
+}
+
+export function shouldUseEstimatedScore(
+  score: DungeonScore | undefined,
+  estimatedScore: DungeonScore | undefined,
+): boolean {
+  if (!estimatedScore) {
+    return false;
+  } else if (!score) {
+    return true;
+  } else if (estimatedScore.type !== score.type) {
+    return false;
+  }
+
+  type Op<T> = (a: T, b: T) => boolean;
+  const isEstimatedBetter = (f: Op<number>, a: number | undefined, b: number | undefined) => {
+    if (b == null) {
+      return false;
+    } else if (a == null) {
+      return true;
+    } else {
+      return a !== b && !f(a, b);
+    }
+  };
+
+  switch (score.type) {
+    case DungeonScoreType.CLEAR_TIME:
+      return isEstimatedBetter(_.lt, score.time, estimatedScore.time);
+    case DungeonScoreType.TOTAL_DAMAGE:
+      return isEstimatedBetter(_.gt, score.totalDamage, estimatedScore.totalDamage);
+    case DungeonScoreType.PERCENT_HP_OR_CLEAR_TIME:
+      if (score.won && !estimatedScore.won) {
+        return false;
+      } else if (score.won) {
+        return isEstimatedBetter(_.lt, score.time, estimatedScore.time);
+      } else {
+        return isEstimatedBetter(_.gt, score.totalDamage, estimatedScore.totalDamage);
+      }
   }
 }
 
