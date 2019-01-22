@@ -14,10 +14,10 @@ export class MagiciteScoreCellRenderer extends React.Component<ICellRendererPara
     }
     const sub30 = isSub30(score);
     return (
-      <div>
+      <span>
         {formatScore(score)}
-        <CheckIcon checked={sub30} />
-      </div>
+        <CheckIcon checked={sub30} className={'ml-1'} />
+      </span>
     );
   }
 }

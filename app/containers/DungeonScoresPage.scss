@@ -1,6 +1,8 @@
 :local {
-  h4:not(.firstHeader) {
-    margin-top: 1em;
+  .component {
+    > h4:not(.firstHeader) {
+      margin-top: 1em;
+    }
   }
 
   .howToTip {

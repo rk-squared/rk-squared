@@ -28,7 +28,7 @@ interface Props {
 const dColumnDef = {
   width: 85,
   cellRendererFramework: TormentScoreCellRenderer,
-  cellStyle: { textAlign: 'right' },
+  cellClass: 'text-right',
 };
 
 export class TormentGrid extends React.Component<Props> {

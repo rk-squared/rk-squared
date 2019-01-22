@@ -30,10 +30,10 @@ export class TormentScoreCellRenderer extends React.Component<ICellRendererParam
     const sub30 = isSub30(score);
     const showTooltips = !sub30;
     return (
-      <div data-tip={showTooltips ? dungeon.id : undefined} data-for={TormentScoreCellRenderer.ID}>
+      <span data-tip={showTooltips ? dungeon.id : undefined} data-for={TormentScoreCellRenderer.ID}>
         {useEstimated ? formatEstimatedScore(score) : formatScore(score)}
-        <CheckIcon checked={sub30} />
-      </div>
+        <CheckIcon checked={sub30} className={'ml-1'} />
+      </span>
     );
   }
 }

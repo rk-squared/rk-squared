@@ -54,20 +54,21 @@ export class MagiciteGrid extends React.Component<Props> {
         headerName: 'Completed',
         width: 90,
         field: 'isComplete',
-        cellStyle: { textAlign: 'center' },
+        cellClass: 'text-center',
         cellRendererFramework: CheckIconCellRenderer,
       },
       {
         headerName: 'Mastered',
         width: 90,
         field: 'isMaster',
-        cellStyle: { textAlign: 'center' },
+        cellClass: 'text-center',
         cellRendererFramework: CheckIconCellRenderer,
       },
       {
         headerName: 'Time',
         width: 85,
         field: 'score',
+        cellClass: 'text-right',
         cellRendererFramework: MagiciteScoreCellRenderer,
       },
     ];
