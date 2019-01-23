@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { ICellRendererParams } from 'ag-grid';
-// import * as ReactTooltip from 'react-tooltip';
 
 import {
   formatEstimatedScore,
@@ -14,10 +13,6 @@ import { CheckIcon } from './CheckIcon';
 
 export class TormentScoreCellRenderer extends React.Component<ICellRendererParams> {
   static ID = 'TORMENT_SCORE_CELL';
-
-  // componentDidMount() {
-  //   ReactTooltip.rebuild();
-  // }
 
   render() {
     const { value } = this.props;

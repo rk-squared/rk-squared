@@ -5,6 +5,8 @@ import { AgGridReact } from 'ag-grid-react';
 import { connect } from 'react-redux';
 import * as ReactTooltip from 'react-tooltip';
 
+import * as _ from 'lodash';
+
 import { Dungeon, getAvailablePrizes } from '../../actions/dungeons';
 import { series } from '../../data';
 import { SeriesId } from '../../data/series';
@@ -17,8 +19,6 @@ import {
 import { GridContainer } from '../common/GridContainer';
 import { PrizeList } from '../dungeons/PrizeList';
 import { TormentScoreCellRenderer } from './TormentScoreCellRenderer';
-
-import * as _ from 'lodash';
 
 interface Props {
   dungeons: { [id: number]: Dungeon };
