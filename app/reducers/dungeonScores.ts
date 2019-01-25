@@ -1,6 +1,12 @@
 import { getType } from 'typesafe-actions';
 
-import { DungeonScore, DungeonScoresAction, setDungeonScore } from '../actions/dungeonScores';
+import {
+  DungeonScore,
+  DungeonScoresAction,
+  isScoreBetterThan,
+  setDungeonScore,
+  updateDungeonScore,
+} from '../actions/dungeonScores';
 
 export interface DungeonScoreState {
   scores: {
@@ -8,7 +14,7 @@ export interface DungeonScoreState {
   };
 }
 
-const initialState = {
+export const initialState: DungeonScoreState = {
   scores: {},
 };
 
@@ -27,6 +33,22 @@ export function dungeonScores(
         },
       };
     }
+
+    case getType(updateDungeonScore): {
+      const { dungeonId, newScore } = action.payload;
+      if (state.scores[dungeonId] && isScoreBetterThan(state.scores[dungeonId], newScore)) {
+        return state;
+      }
+      return {
+        ...state,
+        scores: {
+          ...state.scores,
+          [dungeonId]: newScore,
+        },
+      };
+    }
+
+    /* istanbul ignore next */
     default:
       return state;
   }

@@ -1,5 +1,5 @@
 {
-  "url": "/dff/#event/challenge/106076/battles/10607608",
+  "url": "http://ffrk.denagames.com/dff/event/beast/823/win_battle",
   "data": {
     "success": true,
     "assets": {
@@ -11,61 +11,27 @@
         },
         "assetPath": "/Content/lang/ab_image/common_item/94000000.png"
       },
-      "buddy-105007_211": {
+      "item-161000017": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.png": {
-            "hash": "p4fkFjEt8A56Zq2DM+Oc+A"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.json": {
-            "hash": "r9DD7PMllYmrbONPuSpHIg"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/sleep.sajson": {
-            "hash": "5KcD+mWMf3Ncyzl1LS/yCA"
+          "/Content/lang/ww/compile/en/image/beast/161000017/161000017_112.png": {
+            "hash": "ACZSVsbZAMl832KrnRicLQ"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/sleep.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000017/161000017_112.png"
       },
-      "buddy-115001_221": {
+      "buddy-106004_211": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/mini.sajson": {
-            "hash": "abUoZSP0wUPdUiwL5ZT4vA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.png": {
+            "hash": "Pi5bNHiY5zGQtFH4wVe9Rg"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.png": {
-            "hash": "hgBTQYxcHf5BooK++lwCQQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/sleep.sajson": {
+            "hash": "CeO5zx7uo48L8lQsyid4XA"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.json": {
-            "hash": "v/0Nrciyz9vrJSipMFRY6w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.json": {
+            "hash": "P0iBubFY71nxybsroZiuRw"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/mini.sajson"
-      },
-      "buddy-150001": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/base.sajson": {
-            "hash": "T5k5q4L6szKjV+sHNCb6Aw"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.json": {
-            "hash": "nR/UwlSzvITTSSr2bqJSOw"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.png": {
-            "hash": "Su4mD6u75CpAHBYUs1XbaA"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/base.sajson"
-      },
-      "buddy-150001_222": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.json": {
-            "hash": "nR/UwlSzvITTSSr2bqJSOw"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/frog.sajson": {
-            "hash": "vXEIGddLpEIILLdbXXT0MQ"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.png": {
-            "hash": "Su4mD6u75CpAHBYUs1XbaA"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/frog.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/sleep.sajson"
       },
       "treasurebox_3": {
         "bundle": {
@@ -81,19 +47,19 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasurebox_3.sajson"
       },
-      "buddy-105002_210": {
+      "buddy-100001_212": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.json": {
-            "hash": "3eMzSSqVZUaYn2Apotbd5w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.png": {
+            "hash": "rZP7kfysxpDzjmdX1ZjNHA"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/glass.sajson": {
-            "hash": "D1/GRDodUj1uS+nOBupYuQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/stone.sajson": {
+            "hash": "xbrS7K9ymW1wwaWxBwh1xQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.png": {
-            "hash": "r+Z8tLd0T2yHyeFpXhwIpA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.json": {
+            "hash": "xgeVFycFL323i6td0DhKxg"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/glass.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/stone.sajson"
       },
       "command_icon_defense": {
         "bundle": {
@@ -102,6 +68,20 @@
           }
         },
         "assetPath": "/Content/lang/image/ability/common/defense.png"
+      },
+      "buddy-106004_210": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/glass.sajson": {
+            "hash": "4YkISbF9kKsgT6dvcqFvEA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.png": {
+            "hash": "Pi5bNHiY5zGQtFH4wVe9Rg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.json": {
+            "hash": "P0iBubFY71nxybsroZiuRw"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/glass.sajson"
       },
       "treasureorb_6": {
         "bundle": {
@@ -117,6 +97,14 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasureorb_6.sajson"
       },
+      "beast_161000076": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/beast/161000076/161000076_112.png": {
+            "hash": "F9cIwfMrwjGvLFF4dgbsyg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000076/161000076_112.png"
+      },
       "treasurebox_5": {
         "bundle": {
           "/Content/lang/ww/compile/en/ab/battle_result/treasurebox_5.sajson": {
@@ -130,62 +118,6 @@
           }
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasurebox_5.sajson"
-      },
-      "buddy-106009_212": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/stone.sajson": {
-            "hash": "O+L48iVZ8kykQqzJ6D2oRw"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.png": {
-            "hash": "PwNlLRbTokTYQGY03avrOA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.json": {
-            "hash": "dmlzuYXTKkG6kkrUfg1/Sg"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/stone.sajson"
-      },
-      "buddy-106009_210_left_arm": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.png": {
-            "hash": "PwNlLRbTokTYQGY03avrOA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.json": {
-            "hash": "dmlzuYXTKkG6kkrUfg1/Sg"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/glass_left_arm.sajson": {
-            "hash": "hfm+OAKj7VhLEvXNqdDMww"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/glass_left_arm.sajson"
-      },
-      "buddy-105007_left_arm": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.png": {
-            "hash": "p4fkFjEt8A56Zq2DM+Oc+A"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.json": {
-            "hash": "r9DD7PMllYmrbONPuSpHIg"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/base_left_arm.sajson": {
-            "hash": "ryCjWoI1qsN4weil3SIUsA"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/base_left_arm.sajson"
-      },
-      "buddy-105007_210": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.png": {
-            "hash": "p4fkFjEt8A56Zq2DM+Oc+A"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.json": {
-            "hash": "r9DD7PMllYmrbONPuSpHIg"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/glass.sajson": {
-            "hash": "1qMMLYWBOCbvImt8v3DM8A"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/glass.sajson"
       },
       "chara_growegg": {
         "bundle": {
@@ -202,7 +134,7 @@
             "hash": "rgEDOkdibIlBDEoHm6kxGg"
           },
           "/Content/lang/ww/compile/en/ab/battle_result/chara_growegg.json": {
-            "hash": "6Zxy8ubRsoq/vkR1MNWc+A"
+            "hash": "fzjvKYtr6iSEblq6xrW6rw"
           },
           "/Content/lang/ww/compile/en/ab/buddy_evolution/pb_start_light.json": {
             "hash": "IpRm9lRsZeJUSdtX+s2oVw"
@@ -264,47 +196,135 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/chara_growegg.json"
       },
-      "buddy-105002_212": {
+      "beast_161000084": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.json": {
-            "hash": "3eMzSSqVZUaYn2Apotbd5w"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/stone.sajson": {
-            "hash": "27LRJVCe4fXVIBCpZKLXsQ"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.png": {
-            "hash": "r+Z8tLd0T2yHyeFpXhwIpA"
+          "/Content/lang/ww/compile/en/image/beast/161000084/161000084_112.png": {
+            "hash": "YP+NDWlsbAsnkHbX6/sh3g"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/stone.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000084/161000084_112.png"
       },
-      "buddy-106009": {
+      "item-190000002": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/base.sajson": {
-            "hash": "qBrVgr9u1mzq2OK3s9dcSg"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.png": {
-            "hash": "PwNlLRbTokTYQGY03avrOA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.json": {
-            "hash": "dmlzuYXTKkG6kkrUfg1/Sg"
+          "/Content/lang/ww/compile/en/image/beast_food/190000002/190000002_112.png": {
+            "hash": "kPI/sc1qvRCjjMTkW/6b4w"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/base.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/image/beast_food/190000002/190000002_112.png"
       },
-      "buddy-150001_left_arm": {
+      "buddy-100001_222": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/base_left_arm.sajson": {
-            "hash": "04Gy8PjlGDWtuTAjAYeGow"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/frog.sajson": {
+            "hash": "Olb+NDj61Wvq3qvsEfZxdg"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.json": {
-            "hash": "nR/UwlSzvITTSSr2bqJSOw"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.png": {
+            "hash": "rZP7kfysxpDzjmdX1ZjNHA"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.png": {
-            "hash": "Su4mD6u75CpAHBYUs1XbaA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.json": {
+            "hash": "xgeVFycFL323i6td0DhKxg"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/base_left_arm.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/frog.sajson"
+      },
+      "buddy-108001_221": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/mini.sajson": {
+            "hash": "O2NwefPNUdp+pnQS717rcw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.png": {
+            "hash": "THG0rqQsjNHdkGHYyeeMoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.json": {
+            "hash": "boMVOp7AbbJlMEsH8HY1Zg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/mini.sajson"
+      },
+      "buddy-106004_212": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/stone.sajson": {
+            "hash": "hjODOPvwjp2vOs9zcUYzQw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.png": {
+            "hash": "Pi5bNHiY5zGQtFH4wVe9Rg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.json": {
+            "hash": "P0iBubFY71nxybsroZiuRw"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/stone.sajson"
+      },
+      "item-161000018": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/beast/161000018/161000018_112.png": {
+            "hash": "ibYetdEv9awmGI8tgXBq2Q"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000018/161000018_112.png"
+      },
+      "buddy-108009": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.png": {
+            "hash": "fc7cGoZK+S9yXFDahAngWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/base.sajson": {
+            "hash": "NdpsjYMlCTjKX40y+sotOQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.json": {
+            "hash": "421y0gijYgnXmBStgWmsEg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/base.sajson"
+      },
+      "buddy-100039_221": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.png": {
+            "hash": "1l87wX+//CYtW5t+zv58DQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.json": {
+            "hash": "snPCh9GOXoXgA+UAJpwBoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/mini.sajson": {
+            "hash": "e4Sdn3GuDxazPbfOymIF4w"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/mini.sajson"
+      },
+      "beast_161000060": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/beast/161000060/161000060_112.png": {
+            "hash": "nVGrHCl9MTO4+lx045mHbg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000060/161000060_112.png"
+      },
+      "buddy-108009_211": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.png": {
+            "hash": "fc7cGoZK+S9yXFDahAngWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/sleep.sajson": {
+            "hash": "rg2zTkrG2wHvYt7J3xRJsg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.json": {
+            "hash": "421y0gijYgnXmBStgWmsEg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/sleep.sajson"
+      },
+      "buddy-100039_211": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/sleep.sajson": {
+            "hash": "pL9tJAu46kzAPYbKxczhiA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.png": {
+            "hash": "1l87wX+//CYtW5t+zv58DQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.json": {
+            "hash": "snPCh9GOXoXgA+UAJpwBoQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/sleep.sajson"
       },
       "treasureorb_3": {
         "bundle": {
@@ -320,43 +340,69 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasureorb_3.sajson"
       },
-      "equipment_20220007": {
+      "buddy-108001_222": {
         "bundle": {
-          "/Content/lang/ww/compile/en/image/equipment/21003055/21003055_06_112.png": {
-            "hash": "y/GULqAiXtRUkt2FaD4oDw"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/image/equipment/21003055/21003055_06_112.png"
-      },
-      "item-25098003": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/image/equipment_sp_material/25098003/25098003_112.png": {
-            "hash": "rLEYNssw3jPizpcpQXISFQ"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/image/equipment_sp_material/25098003/25098003_112.png"
-      },
-      "buddy-115001_212": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.png": {
-            "hash": "hgBTQYxcHf5BooK++lwCQQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/frog.sajson": {
+            "hash": "pHWc0XJShOS5t86MRc7wiw"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.json": {
-            "hash": "v/0Nrciyz9vrJSipMFRY6w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.png": {
+            "hash": "THG0rqQsjNHdkGHYyeeMoQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/stone.sajson": {
-            "hash": "pjfBnPtYYtIDPe3BvbLl2A"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.json": {
+            "hash": "boMVOp7AbbJlMEsH8HY1Zg"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/stone.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/frog.sajson"
       },
-      "item-111050021": {
+      "buddy-108009_left_arm": {
         "bundle": {
-          "/Content/lang/ww/compile/en/image/record_materia/111050021/111050021_112.png": {
-            "hash": "xiqcJx3WwQ7vOOs7rN3p0w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.png": {
+            "hash": "fc7cGoZK+S9yXFDahAngWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.json": {
+            "hash": "421y0gijYgnXmBStgWmsEg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/base_left_arm.sajson": {
+            "hash": "8UdrFmfXLkqIYylvRcIjZQ"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/image/record_materia/111050021/111050021_112.png"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/base_left_arm.sajson"
+      },
+      "soul_strike_22100007": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/soulstrike/22100007/22100007_256.png": {
+            "hash": "I0hBfQgCDjAbZ5tt/HHVnA"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/soulstrike/22100007/22100007_256.png"
+      },
+      "buddy-108009_210_left_arm": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.png": {
+            "hash": "fc7cGoZK+S9yXFDahAngWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/glass_left_arm.sajson": {
+            "hash": "vgVsnh3E4HOsTSwQY7Hn9Q"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.json": {
+            "hash": "421y0gijYgnXmBStgWmsEg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/glass_left_arm.sajson"
+      },
+      "buddy-100001_211": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.png": {
+            "hash": "rZP7kfysxpDzjmdX1ZjNHA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/sleep.sajson": {
+            "hash": "0nWdMDq5JLm/XZVclXk/Zw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.json": {
+            "hash": "xgeVFycFL323i6td0DhKxg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/sleep.sajson"
       },
       "battle_result_assets": {
         "bundle": {
@@ -493,7 +539,7 @@
             "hash": "odmTSrWxFY8Mnnnk7zQgpw"
           },
           "/Content/lang/ww/compile/en/ab/battle_result/img_battle_result_new_2.png": {
-            "hash": "yhf6SbruOY/d9qtJ9vkpOQ"
+            "hash": "eggAG+tA6bvDeB3pYickYw"
           },
           "/Content/lang/ww/compile/en/ab/battle_result/pb_open_light_front_4.json": {
             "hash": "RW+bTQRECdVzo1OQmmXYig"
@@ -520,7 +566,7 @@
             "hash": "U+wLm2022lfkVXuvgf1GeA"
           },
           "/Content/lang/ww/compile/en/ab/battle_result/img_battle_result_new_2.json": {
-            "hash": "P2lScIHKQOYdIck+BEdubw"
+            "hash": "3lHOCR9zhH9YnDat2W3XBw"
           },
           "/Content/lang/ww/compile/en/ab/battle_result/pb_back_light_front_6.json": {
             "hash": "ZqSywJ18HHl46/k3xtXEWA"
@@ -558,19 +604,19 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/battle_result_assets.json"
       },
-      "buddy-105002_210_left_arm": {
+      "buddy-100039_left_arm": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.json": {
-            "hash": "3eMzSSqVZUaYn2Apotbd5w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.png": {
+            "hash": "1l87wX+//CYtW5t+zv58DQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/glass_left_arm.sajson": {
-            "hash": "wlyeIEMTyk36urzRUcugoQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.json": {
+            "hash": "snPCh9GOXoXgA+UAJpwBoQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.png": {
-            "hash": "r+Z8tLd0T2yHyeFpXhwIpA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/base_left_arm.sajson": {
+            "hash": "d2/L0B5ccR0gXydD7WMLlQ"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/glass_left_arm.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/base_left_arm.sajson"
       },
       "treasurebox_4": {
         "bundle": {
@@ -586,19 +632,41 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasurebox_4.sajson"
       },
-      "buddy-115001_210_left_arm": {
+      "buddy-100039_222": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/glass_left_arm.sajson": {
-            "hash": "2kc08j7mMb8iqGAvPD0xcQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.png": {
+            "hash": "1l87wX+//CYtW5t+zv58DQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.png": {
-            "hash": "hgBTQYxcHf5BooK++lwCQQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.json": {
+            "hash": "snPCh9GOXoXgA+UAJpwBoQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.json": {
-            "hash": "v/0Nrciyz9vrJSipMFRY6w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/frog.sajson": {
+            "hash": "b5e9SzbSmoP84Gc2SUOzFw"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/glass_left_arm.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/frog.sajson"
+      },
+      "buddy-106004_210_left_arm": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.png": {
+            "hash": "Pi5bNHiY5zGQtFH4wVe9Rg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/glass_left_arm.sajson": {
+            "hash": "+2+iikjbyuLlD7rNW51xfQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.json": {
+            "hash": "P0iBubFY71nxybsroZiuRw"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/glass_left_arm.sajson"
+      },
+      "beast_161000013": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/beast/161000013/161000013_112.png": {
+            "hash": "mKMxdUwT2ZpPbygXjHXgtA"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000013/161000013_112.png"
       },
       "materia_get": {
         "bundle": {
@@ -683,27 +751,13 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle/menu_window/materia_get.json"
       },
-      "buddy-106009_211": {
+      "item-190000004": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/sleep.sajson": {
-            "hash": "jWA5vGeOTT/soTKuOyy5AQ"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.png": {
-            "hash": "PwNlLRbTokTYQGY03avrOA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.json": {
-            "hash": "dmlzuYXTKkG6kkrUfg1/Sg"
+          "/Content/lang/ww/compile/en/image/beast_food/190000004/190000004_112.png": {
+            "hash": "4/8tY2D8GuEANEx2PZHjmg"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/sleep.sajson"
-      },
-      "item-40000053": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/image/ability_material/40000053/40000053_112.png": {
-            "hash": "VpiBIh5JOruYmb93UNAc+w"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/image/ability_material/40000053/40000053_112.png"
+        "assetPath": "/Content/lang/ww/compile/en/image/beast_food/190000004/190000004_112.png"
       },
       "tut_res_1": {
         "bundle": {
@@ -716,27 +770,47 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/tutorial/result_1.json"
       },
-      "item-40000052": {
+      "buddy-108009_221": {
         "bundle": {
-          "/Content/lang/ww/compile/en/image/ability_material/40000052/40000052_112.png": {
-            "hash": "RSwWq46dQ2qNN+8eSHt23g"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.png": {
+            "hash": "fc7cGoZK+S9yXFDahAngWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/mini.sajson": {
+            "hash": "s0ur28/bkzJAarqinydZ1g"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.json": {
+            "hash": "421y0gijYgnXmBStgWmsEg"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/image/ability_material/40000052/40000052_112.png"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/mini.sajson"
       },
-      "buddy-106009_left_arm": {
+      "buddy-100001_210_left_arm": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/base_left_arm.sajson": {
-            "hash": "WAqXz7V/LFr/zesaYlK7QA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/glass_left_arm.sajson": {
+            "hash": "9VTFNhSu87G42moUdViapQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.png": {
-            "hash": "PwNlLRbTokTYQGY03avrOA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.png": {
+            "hash": "rZP7kfysxpDzjmdX1ZjNHA"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.json": {
-            "hash": "dmlzuYXTKkG6kkrUfg1/Sg"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.json": {
+            "hash": "xgeVFycFL323i6td0DhKxg"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/base_left_arm.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/glass_left_arm.sajson"
+      },
+      "buddy-108009_212": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/stone.sajson": {
+            "hash": "D2uZkZnnn1uXa9OyFjm6Cw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.png": {
+            "hash": "fc7cGoZK+S9yXFDahAngWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.json": {
+            "hash": "421y0gijYgnXmBStgWmsEg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/stone.sajson"
       },
       "role_eff_chara": {
         "bundle": {
@@ -861,61 +935,27 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/character/series_eff/chara_eff.json"
       },
-      "buddy-105002": {
+      "buddy-100039": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/base.sajson": {
-            "hash": "BNGHjLHYhoWtWrQCaP2Q0g"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.png": {
+            "hash": "1l87wX+//CYtW5t+zv58DQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.json": {
-            "hash": "3eMzSSqVZUaYn2Apotbd5w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.json": {
+            "hash": "snPCh9GOXoXgA+UAJpwBoQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.png": {
-            "hash": "r+Z8tLd0T2yHyeFpXhwIpA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/base.sajson": {
+            "hash": "yql7sYHomDP1qsjj3sMyGQ"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/base.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/base.sajson"
       },
-      "buddy-150001_221": {
+      "item-190000003": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.json": {
-            "hash": "nR/UwlSzvITTSSr2bqJSOw"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/mini.sajson": {
-            "hash": "xuAimdZ2deUcvv3hJjpTkQ"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.png": {
-            "hash": "Su4mD6u75CpAHBYUs1XbaA"
+          "/Content/lang/ww/compile/en/image/beast_food/190000003/190000003_112.png": {
+            "hash": "8kIP+fB+hhD0vWmiTZ48cA"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/mini.sajson"
-      },
-      "buddy-150001_211": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.json": {
-            "hash": "nR/UwlSzvITTSSr2bqJSOw"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/sleep.sajson": {
-            "hash": "D+rE0cSyiOsaSlD3Qh+hFg"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.png": {
-            "hash": "Su4mD6u75CpAHBYUs1XbaA"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/sleep.sajson"
-      },
-      "buddy-150001_212": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.json": {
-            "hash": "nR/UwlSzvITTSSr2bqJSOw"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/stone.sajson": {
-            "hash": "0qXIk4kRWSaLdCTY2Wpx1w"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.png": {
-            "hash": "Su4mD6u75CpAHBYUs1XbaA"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/stone.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/image/beast_food/190000003/190000003_112.png"
       },
       "treasurebox_6": {
         "bundle": {
@@ -930,14 +970,6 @@
           }
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasurebox_6.sajson"
-      },
-      "beast_161000034": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/image/beast/161000034/161000034_112.png": {
-            "hash": "7tvGHyZnF4/7p/zP8k65vw"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000034/161000034_112.png"
       },
       "chara_get": {
         "bundle": {
@@ -990,7 +1022,7 @@
             "hash": "b2t6M5+SAlzp/UT22tEZ6w"
           },
           "/Content/lang/ww/compile/en/ab/battle/chara_get/result_status.png": {
-            "hash": "HYhHCHA9rcJEEH9RHQ51cA"
+            "hash": "HlsweK6po4+xsntGLA3BsA"
           },
           "/Content/lang/se/se_ogg/se_ability_launch_100005.ogg": {
             "hash": "FJBAp2vx1rdb9Cja7uOYig"
@@ -1028,27 +1060,69 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle/chara_get/chara_get.json"
       },
-      "buddy-105007_221": {
+      "equipment_22100007": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.png": {
-            "hash": "p4fkFjEt8A56Zq2DM+Oc+A"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.json": {
-            "hash": "r9DD7PMllYmrbONPuSpHIg"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/mini.sajson": {
-            "hash": "iGHWeyd18jKLIE9Lee/eXA"
+          "/Content/lang/ww/compile/en/image/equipment/21015047/21015047_06_112.png": {
+            "hash": "rqIDF57Cbf8yaf3IOujg5A"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/mini.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/image/equipment/21015047/21015047_06_112.png"
       },
-      "beast_161000012": {
+      "buddy-106004_left_arm": {
         "bundle": {
-          "/Content/lang/ww/compile/en/image/beast/161000012/161000012_112.png": {
-            "hash": "ASfDVv+j2PmbSSGb8+b6xg"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.png": {
+            "hash": "Pi5bNHiY5zGQtFH4wVe9Rg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/base_left_arm.sajson": {
+            "hash": "EyOGOGW5TuR+ZBZ4a06N/g"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.json": {
+            "hash": "P0iBubFY71nxybsroZiuRw"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000012/161000012_112.png"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/base_left_arm.sajson"
+      },
+      "buddy-108001_212": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/stone.sajson": {
+            "hash": "FEGbluAvvtsihxHXlJ9SSA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.png": {
+            "hash": "THG0rqQsjNHdkGHYyeeMoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.json": {
+            "hash": "boMVOp7AbbJlMEsH8HY1Zg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/stone.sajson"
+      },
+      "buddy-108009_222": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.png": {
+            "hash": "fc7cGoZK+S9yXFDahAngWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.json": {
+            "hash": "421y0gijYgnXmBStgWmsEg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/frog.sajson": {
+            "hash": "9rLLEajMY5piCSDEBqAFpQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/frog.sajson"
+      },
+      "buddy-108001": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/base.sajson": {
+            "hash": "Byuuej0+oW3vv2rVurNt8g"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.png": {
+            "hash": "THG0rqQsjNHdkGHYyeeMoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.json": {
+            "hash": "boMVOp7AbbJlMEsH8HY1Zg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/base.sajson"
       },
       "battle_result_modal": {
         "bundle": {
@@ -1206,13 +1280,27 @@
             "hash": "JtvYZQ21e4oxAweGJxIdWQ"
           },
           "/Content/lang/ww/compile/en/ab/battle_result/battle_result_modal.json": {
-            "hash": "6DehYP9qJYrutJYYpP9JMQ"
+            "hash": "4IXd935MN09oIAEtOSLJeA"
           },
           "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
             "hash": "oYuoUdiFfAgAeZt5vHlJLA"
           }
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/battle_result_modal.json"
+      },
+      "buddy-108009_210": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.png": {
+            "hash": "fc7cGoZK+S9yXFDahAngWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/glass.sajson": {
+            "hash": "q9NYIIauhf1iA0UIjTlFGg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108009/img_chara.json": {
+            "hash": "421y0gijYgnXmBStgWmsEg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/glass.sajson"
       },
       "crystal_get": {
         "bundle": {
@@ -1330,27 +1418,27 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle/menu_window/crystal_get.json"
       },
-      "buddy-105002_left_arm": {
+      "item-161000065": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.json": {
-            "hash": "3eMzSSqVZUaYn2Apotbd5w"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/base_left_arm.sajson": {
-            "hash": "iJFIMyVHDUKqd9b0iAtkLQ"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.png": {
-            "hash": "r+Z8tLd0T2yHyeFpXhwIpA"
+          "/Content/lang/ww/compile/en/image/beast/161000065/161000065_112.png": {
+            "hash": "CCGYGa7SG6ksQZjX7Vx0Dg"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/base_left_arm.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000065/161000065_112.png"
       },
-      "beast_161000020": {
+      "buddy-108001_211": {
         "bundle": {
-          "/Content/lang/ww/compile/en/image/beast/161000020/161000020_112.png": {
-            "hash": "SJ4TcU5af1LbPTHxIGG8iQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/sleep.sajson": {
+            "hash": "maOksgt6jKe6Ns7IVGgEIA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.png": {
+            "hash": "THG0rqQsjNHdkGHYyeeMoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.json": {
+            "hash": "boMVOp7AbbJlMEsH8HY1Zg"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000020/161000020_112.png"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/sleep.sajson"
       },
       "treasureorb_5": {
         "bundle": {
@@ -1366,6 +1454,20 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasureorb_5.sajson"
       },
+      "buddy-106004_222": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.png": {
+            "hash": "Pi5bNHiY5zGQtFH4wVe9Rg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.json": {
+            "hash": "P0iBubFY71nxybsroZiuRw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/frog.sajson": {
+            "hash": "BcAiZ8G82kf+hBR8G9LutA"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/frog.sajson"
+      },
       "item-92000000": {
         "bundle": {
           "/Content/lang/ww/compile/en/image/common_item/92000000.png": {
@@ -1374,21 +1476,28 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/image/common_item/92000000.png"
       },
-      "beast_161000028": {
+      "tut_res_msg_1": {
         "bundle": {
-          "/Content/lang/ww/compile/en/image/beast/161000028/161000028_112.png": {
-            "hash": "z6q018SNY7w0PfIWkp1ASA"
+          "/Content/lang/ww/compile/en/ab/tutorial/img_tutorial_1.png": {
+            "hash": "oxfxx70MuICPoYmedgy2uA"
+          },
+          "/Content/lang/font/gillsansstd_for_ab.ttf": {
+            "hash": "WkG5Tec3NUt1ie9hJyv/3g"
+          },
+          "/Content/lang/ww/compile/en/ab/tutorial/msg_result_1.json": {
+            "hash": "Klu8a0u1zcq/a+ISOVdEnw"
+          },
+          "/Content/lang/ww/compile/en/ab/tutorial/img_tutorial_1.json": {
+            "hash": "+qNs4BGd8rBjI84E1bfYMg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_mogu.png": {
+            "hash": "rSZK3yJN3VTjP2GWJOCiSg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_mogu.json": {
+            "hash": "FfQpJ61Tabwp16vi6vaTpA"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000028/161000028_112.png"
-      },
-      "item-128-111050021": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/image/record_materia/111050021/111050021_128.png": {
-            "hash": "vEsyvnNeLEYfXGJROjXfWA"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/image/record_materia/111050021/111050021_128.png"
+        "assetPath": "/Content/lang/ww/compile/en/ab/tutorial/msg_result_1.json"
       },
       "battle_result": {
         "bundle": {
@@ -1429,7 +1538,7 @@
             "hash": "yCnPLr9YzlEzlGKqdl0SeA"
           },
           "/Content/lang/ww/compile/en/ab/battle_result/img_battle_result_new_2.png": {
-            "hash": "yhf6SbruOY/d9qtJ9vkpOQ"
+            "hash": "eggAG+tA6bvDeB3pYickYw"
           },
           "/Content/lang/ww/compile/en/ab/battle_result/pb_symbol_gold.json": {
             "hash": "VPi9SVEmhPL9VqAGf5JPsA"
@@ -1444,7 +1553,7 @@
             "hash": "3/p+hIGIuJEH+rXZmHUAeg"
           },
           "/Content/lang/ww/compile/en/ab/battle_result/img_battle_result_new_2.json": {
-            "hash": "P2lScIHKQOYdIck+BEdubw"
+            "hash": "3lHOCR9zhH9YnDat2W3XBw"
           },
           "/Content/lang/ww/compile/en/ab/effect_image/img_cloud.json": {
             "hash": "zJOamnGK1uLa7kWZJ2D6Sg"
@@ -1503,70 +1612,33 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/battle_result.json"
       },
-      "tut_res_msg_1": {
+      "buddy-100001_221": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/tutorial/img_tutorial_1.png": {
-            "hash": "oxfxx70MuICPoYmedgy2uA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.png": {
+            "hash": "rZP7kfysxpDzjmdX1ZjNHA"
           },
-          "/Content/lang/font/gillsansstd_for_ab.ttf": {
-            "hash": "WkG5Tec3NUt1ie9hJyv/3g"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.json": {
+            "hash": "xgeVFycFL323i6td0DhKxg"
           },
-          "/Content/lang/ww/compile/en/ab/tutorial/msg_result_1.json": {
-            "hash": "Klu8a0u1zcq/a+ISOVdEnw"
-          },
-          "/Content/lang/ww/compile/en/ab/tutorial/img_tutorial_1.json": {
-            "hash": "+qNs4BGd8rBjI84E1bfYMg"
-          },
-          "/Content/lang/ww/compile/en/ab/effect_image/img_mogu.png": {
-            "hash": "rSZK3yJN3VTjP2GWJOCiSg"
-          },
-          "/Content/lang/ww/compile/en/ab/effect_image/img_mogu.json": {
-            "hash": "FfQpJ61Tabwp16vi6vaTpA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/mini.sajson": {
+            "hash": "z1jUisubBaOKjgGG5lkH7A"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/tutorial/msg_result_1.json"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/mini.sajson"
       },
-      "buddy-105007_212": {
+      "buddy-106004": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/stone.sajson": {
-            "hash": "Zki+5sLEed8bpmqHTFHSkQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/base.sajson": {
+            "hash": "encHB66WB+HH+n8T9PNgVA"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.png": {
-            "hash": "p4fkFjEt8A56Zq2DM+Oc+A"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.png": {
+            "hash": "Pi5bNHiY5zGQtFH4wVe9Rg"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.json": {
-            "hash": "r9DD7PMllYmrbONPuSpHIg"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.json": {
+            "hash": "P0iBubFY71nxybsroZiuRw"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/stone.sajson"
-      },
-      "buddy-115001": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.png": {
-            "hash": "hgBTQYxcHf5BooK++lwCQQ"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/base.sajson": {
-            "hash": "urPbohsbcIrVzFEih/IYGA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.json": {
-            "hash": "v/0Nrciyz9vrJSipMFRY6w"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/base.sajson"
-      },
-      "buddy-106009_210": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/glass.sajson": {
-            "hash": "M4MMqw5VoH2CDms1iEftqA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.png": {
-            "hash": "PwNlLRbTokTYQGY03avrOA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.json": {
-            "hash": "dmlzuYXTKkG6kkrUfg1/Sg"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/glass.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/base.sajson"
       },
       "treasurebox_1": {
         "bundle": {
@@ -1582,6 +1654,28 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasurebox_1.sajson"
       },
+      "item-190000005": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/beast_food/190000005/190000005_112.png": {
+            "hash": "8PiTGANgtZfNve1qKaZ2rQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/beast_food/190000005/190000005_112.png"
+      },
+      "buddy-108001_210": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/glass.sajson": {
+            "hash": "cDvDR+gy1B6jBsOOdwVBGw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.png": {
+            "hash": "THG0rqQsjNHdkGHYyeeMoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.json": {
+            "hash": "boMVOp7AbbJlMEsH8HY1Zg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/glass.sajson"
+      },
       "treasureorb_4": {
         "bundle": {
           "/Content/lang/ww/compile/en/ab/battle_result/img_orb_symbol.json": {
@@ -1595,20 +1689,6 @@
           }
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasureorb_4.sajson"
-      },
-      "buddy-106009_222": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/frog.sajson": {
-            "hash": "jNqAHT+NyazCN0jIG+FNPQ"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.png": {
-            "hash": "PwNlLRbTokTYQGY03avrOA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.json": {
-            "hash": "dmlzuYXTKkG6kkrUfg1/Sg"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/frog.sajson"
       },
       "crystal_growegg": {
         "bundle": {
@@ -1645,6 +1725,9 @@
           "/Content/lang/ww/compile/en/ab/battle_result/pb_back_light_front_4.json": {
             "hash": "lgGLPZHWFLb+fILIIOh5eQ"
           },
+          "/Content/lang/ww/compile/en/ab/common/ui/img_btnset_classic.json": {
+            "hash": "62sYQOW0+MCrl8PRqfwfWA"
+          },
           "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
             "hash": "ca2IYwaOt0fx1YN5Get1IQ"
           },
@@ -1653,6 +1736,9 @@
           },
           "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
             "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+          },
+          "/Content/lang/ww/compile/en/ab/common/ui/img_btnset_classic.png": {
+            "hash": "yCnPLr9YzlEzlGKqdl0SeA"
           },
           "/Content/lang/se/se_ogg/se_battle_common_101067.ogg": {
             "hash": "KCYjUb5d3MromnLLEVrYIw"
@@ -1681,17 +1767,11 @@
           "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
             "hash": "uW4g5yUFE8OWYhD1p06WNg"
           },
-          "/Content/lang/ww/compile/en/ab/battle/menu_window/img_menu_window_2.json": {
-            "hash": "C0kPMxQ8FatErt2pTKfkVw"
-          },
           "/Content/lang/ww/compile/en/ab/battle_result/crystal_growegg.json": {
-            "hash": "zy/0dOHpLid4LhfDw3MCoQ"
+            "hash": "F56/hSkCSBdTYAgRValQng"
           },
           "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
             "hash": "5W889sndvoo+0O/fwwRDBg"
-          },
-          "/Content/lang/ww/compile/en/ab/battle/menu_window/img_menu_window_2.png": {
-            "hash": "+vLGfLFC57wpzBLOWTCu0Q"
           },
           "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
             "hash": "oYuoUdiFfAgAeZt5vHlJLA"
@@ -1699,27 +1779,33 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/crystal_growegg.json"
       },
-      "buddy-105007_222": {
+      "buddy-108001_210_left_arm": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.png": {
-            "hash": "p4fkFjEt8A56Zq2DM+Oc+A"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/glass_left_arm.sajson": {
+            "hash": "unZkLOW7ehRlNxgrEr8BDw"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.json": {
-            "hash": "r9DD7PMllYmrbONPuSpHIg"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.png": {
+            "hash": "THG0rqQsjNHdkGHYyeeMoQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/frog.sajson": {
-            "hash": "zz4huK7dv3uL//lCriB4yQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.json": {
+            "hash": "boMVOp7AbbJlMEsH8HY1Zg"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/frog.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/glass_left_arm.sajson"
       },
-      "beast_161000005": {
+      "buddy-100001": {
         "bundle": {
-          "/Content/lang/ww/compile/en/image/beast/161000005/161000005_112.png": {
-            "hash": "naPjMAAiPguycIhhODIcAA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.png": {
+            "hash": "rZP7kfysxpDzjmdX1ZjNHA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.json": {
+            "hash": "xgeVFycFL323i6td0DhKxg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/base.sajson": {
+            "hash": "YPRqv1SNiPDakaU4T4/zZA"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000005/161000005_112.png"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/base.sajson"
       },
       "item_get": {
         "bundle": {
@@ -1867,34 +1953,6 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle/item_get/item_get.json"
       },
-      "buddy-115001_211": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.png": {
-            "hash": "hgBTQYxcHf5BooK++lwCQQ"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/sleep.sajson": {
-            "hash": "BUEmXO03+nIq7/3dJGwcWQ"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.json": {
-            "hash": "v/0Nrciyz9vrJSipMFRY6w"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/sleep.sajson"
-      },
-      "buddy-150001_210": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.json": {
-            "hash": "nR/UwlSzvITTSSr2bqJSOw"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.png": {
-            "hash": "Su4mD6u75CpAHBYUs1XbaA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/glass.sajson": {
-            "hash": "YYT8DDHs3ffA9MBFpbcEvw"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/glass.sajson"
-      },
       "player_common": {
         "bundle": {
           "/Content/lang/ww/compile/en/ab/character/player/sab/107015/img_chara.png": {
@@ -1961,7 +2019,7 @@
             "hash": "HvqiDJPuQIARxzUL0pIr7Q"
           },
           "/Content/lang/ww/compile/en/ab/character/player/player_common.json": {
-            "hash": "+ke2PxRRoaM3MMfZVZtC4g"
+            "hash": "fJkM3Mpz5CMH0AnPHRCa+A"
           },
           "/Content/lang/se/se_ogg/se_ability_00530.ogg": {
             "hash": "Zy81G6rSVjh2XpXKG4I1qA"
@@ -1981,6 +2039,20 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/character/player/player_common.json"
       },
+      "buddy-100001_left_arm": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.png": {
+            "hash": "rZP7kfysxpDzjmdX1ZjNHA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.json": {
+            "hash": "xgeVFycFL323i6td0DhKxg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/base_left_arm.sajson": {
+            "hash": "tRwfGR8kiq7vCx8+1BJSEw"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/base_left_arm.sajson"
+      },
       "treasureorb_2": {
         "bundle": {
           "/Content/lang/ww/compile/en/ab/battle_result/img_orb_symbol.json": {
@@ -1994,34 +2066,6 @@
           }
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasureorb_2.sajson"
-      },
-      "buddy-106009_221": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/mini.sajson": {
-            "hash": "mCdn1JTZuOO01R9qsurmsA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.png": {
-            "hash": "PwNlLRbTokTYQGY03avrOA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/106009/img_chara.json": {
-            "hash": "dmlzuYXTKkG6kkrUfg1/Sg"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/mini.sajson"
-      },
-      "buddy-150001_210_left_arm": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.json": {
-            "hash": "nR/UwlSzvITTSSr2bqJSOw"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/img_chara.png": {
-            "hash": "Su4mD6u75CpAHBYUs1XbaA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/150001/glass_left_arm.sajson": {
-            "hash": "WxBP1l7/8DGdubinKIdPqw"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/glass_left_arm.sajson"
       },
       "treasurebox_2": {
         "bundle": {
@@ -2037,33 +2081,41 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasurebox_2.sajson"
       },
-      "buddy-105007": {
+      "beast_161000062": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.png": {
-            "hash": "p4fkFjEt8A56Zq2DM+Oc+A"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.json": {
-            "hash": "r9DD7PMllYmrbONPuSpHIg"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/base.sajson": {
-            "hash": "b9yqID9XZiN5HZedh1BbwQ"
+          "/Content/lang/ww/compile/en/image/beast/161000062/161000062_112.png": {
+            "hash": "Iln02RkqPI02727YMGKFiA"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/base.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/image/beast/161000062/161000062_112.png"
       },
-      "buddy-105007_210_left_arm": {
+      "buddy-106004_221": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.png": {
-            "hash": "p4fkFjEt8A56Zq2DM+Oc+A"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/mini.sajson": {
+            "hash": "pGJgvACk1x261T5GaBqoXg"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/img_chara.json": {
-            "hash": "r9DD7PMllYmrbONPuSpHIg"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.png": {
+            "hash": "Pi5bNHiY5zGQtFH4wVe9Rg"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105007/glass_left_arm.sajson": {
-            "hash": "V9wibgxdpssuHompaGiH+Q"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106004/img_chara.json": {
+            "hash": "P0iBubFY71nxybsroZiuRw"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/glass_left_arm.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/mini.sajson"
+      },
+      "buddy-108001_left_arm": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/base_left_arm.sajson": {
+            "hash": "md78Kxqineokwpvl353qWg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.png": {
+            "hash": "THG0rqQsjNHdkGHYyeeMoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/108001/img_chara.json": {
+            "hash": "boMVOp7AbbJlMEsH8HY1Zg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/base_left_arm.sajson"
       },
       "treasureorb_1": {
         "bundle": {
@@ -2079,267 +2131,231 @@
         },
         "assetPath": "/Content/lang/ww/compile/en/ab/battle_result/treasureorb_1.sajson"
       },
-      "buddy-115001_222": {
+      "buddy-100001_210": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.png": {
-            "hash": "hgBTQYxcHf5BooK++lwCQQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.png": {
+            "hash": "rZP7kfysxpDzjmdX1ZjNHA"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.json": {
-            "hash": "v/0Nrciyz9vrJSipMFRY6w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/img_chara.json": {
+            "hash": "xgeVFycFL323i6td0DhKxg"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/frog.sajson": {
-            "hash": "sEgmYqvtov6g/bbRz4SY4w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100001/glass.sajson": {
+            "hash": "vYOpfIXze1fiMV/+4LU3WA"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/frog.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/glass.sajson"
       },
-      "buddy-115001_210": {
+      "buddy-100039_210_left_arm": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.png": {
-            "hash": "hgBTQYxcHf5BooK++lwCQQ"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.png": {
+            "hash": "1l87wX+//CYtW5t+zv58DQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.json": {
-            "hash": "v/0Nrciyz9vrJSipMFRY6w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.json": {
+            "hash": "snPCh9GOXoXgA+UAJpwBoQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/glass.sajson": {
-            "hash": "6BAQAUr+wdDRJxMITYm5hg"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/glass_left_arm.sajson": {
+            "hash": "KkKGxPGs991kNM6B1VVQYw"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/glass.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/glass_left_arm.sajson"
       },
-      "buddy-105002_222": {
+      "buddy-100039_212": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.json": {
-            "hash": "3eMzSSqVZUaYn2Apotbd5w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.png": {
+            "hash": "1l87wX+//CYtW5t+zv58DQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/frog.sajson": {
-            "hash": "KxZ+aqKHWp/Vi4NpbgHIBA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.json": {
+            "hash": "snPCh9GOXoXgA+UAJpwBoQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.png": {
-            "hash": "r+Z8tLd0T2yHyeFpXhwIpA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/stone.sajson": {
+            "hash": "tbN2s0I3IyUikUgd+cHCGA"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/frog.sajson"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/stone.sajson"
       },
-      "buddy-105002_211": {
+      "buddy-100039_210": {
         "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.json": {
-            "hash": "3eMzSSqVZUaYn2Apotbd5w"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/glass.sajson": {
+            "hash": "w0WLOHtfxjmt0nE6IukOmw"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/sleep.sajson": {
-            "hash": "uisFx3izs1o5zDDLqX0Khg"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.png": {
+            "hash": "1l87wX+//CYtW5t+zv58DQ"
           },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.png": {
-            "hash": "r+Z8tLd0T2yHyeFpXhwIpA"
+          "/Content/lang/ww/compile/en/ab/character/player/sab/100039/img_chara.json": {
+            "hash": "snPCh9GOXoXgA+UAJpwBoQ"
           }
         },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/sleep.sajson"
-      },
-      "buddy-105002_221": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.json": {
-            "hash": "3eMzSSqVZUaYn2Apotbd5w"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/img_chara.png": {
-            "hash": "r+Z8tLd0T2yHyeFpXhwIpA"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/105002/mini.sajson": {
-            "hash": "r36BoygLTUu95Ap0D2rjwQ"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/mini.sajson"
-      },
-      "buddy-115001_left_arm": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.png": {
-            "hash": "hgBTQYxcHf5BooK++lwCQQ"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/img_chara.json": {
-            "hash": "v/0Nrciyz9vrJSipMFRY6w"
-          },
-          "/Content/lang/ww/compile/en/ab/character/player/sab/115001/base_left_arm.sajson": {
-            "hash": "N7asq3pJVVugGco5uzgSSA"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/base_left_arm.sajson"
-      },
-      "soul_strike_20220007": {
-        "bundle": {
-          "/Content/lang/ww/compile/en/image/soulstrike/20220007/20220007_256.png": {
-            "hash": "u0L1GmKxp3OQV5CjYO6liw"
-          }
-        },
-        "assetPath": "/Content/lang/ww/compile/en/image/soulstrike/20220007/20220007_256.png"
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/glass.sajson"
       }
     },
-    "SERVER_TIME": 1524273077,
+    "url": "/dff/#event/beast/100823/dungeon/list/1/10082302",
+    "SERVER_TIME": 1547961535,
     "result": {
-      "clear_battle_time_prize_item_id_to_num": {},
-      "total_devided_exp": 22300,
+      "clear_battle_time_prize_item_id_to_num": {
+        "92000000": "150000",
+        "161000017": "1",
+        "161000018": "1",
+        "190000002": "20",
+        "190000003": "10",
+        "190000004": "10",
+        "190000005": "2"
+      },
+      "total_devided_exp": 46950,
       "drop_item_id_to_num": {
-        "25098003": 1,
-        "40000052": 2,
-        "40000053": 1
+        "161000065": 1
       },
-      "is_dungeon_clear": null,
+      "is_dungeon_clear": 1,
+      "achieved_book_ids": [],
       "first_clear_prize_item_id_to_num": {},
-      "drop_record_materia_item_id_to_num": {
-        "111050021": 1
-      },
+      "drop_record_materia_item_id_to_num": {},
       "gil_optional_info": null,
-      "score_exp_with_bonus": 22296,
+      "score_exp_with_bonus": 46948,
       "clear_time_info": {
-        "clear_battle_time": null,
+        "clear_battle_time": 21033,
         "can_show_clear_time": 0
       },
       "event": {
-        "type_name": "challenge",
-        "event_id": "76"
+        "type_name": "beast",
+        "event_id": "823"
       },
       "beasts": [
         {
           "exp": {
-            "previous_exp": "8113631",
+            "previous_exp": "12089233",
             "level_to_exp": {
-              "92": 7893709,
-              "93": 8357283
+              "99": 12089233
             },
-            "current_exp": 8118091,
-            "previous_level": "92",
-            "is_level_max": "",
+            "current_exp": 12089233,
+            "previous_level": "99",
+            "is_level_max": "1",
             "exp_bonus_info": {
               "type_name": "NORMAL",
               "boost_rate": null
             },
-            "current_level": "92"
+            "current_level": "99"
           },
           "status_bonus_type_of": 1,
           "status_bonus_flg_of": {
             "beast": 0
           },
-          "beast_id": "161000034",
-          "name": "Enlil (XIII)",
+          "beast_id": "161000013",
+          "name": "Wendigo (XII)",
           "assets": {
-            "beast_161000034": "/Content/lang/ww/compile/en/image/beast/161000034/161000034_112.png"
+            "beast_161000013": "/Content/lang/ww/compile/en/image/beast/161000013/161000013_112.png"
           },
-          "id": "3654063",
+          "id": "3753771",
           "new_skills": []
         },
         {
           "exp": {
-            "previous_exp": "1627071",
+            "previous_exp": "18428708",
             "level_to_exp": {
-              "61": 1612256,
-              "62": 1697929
+              "99": 18428708
             },
-            "current_exp": 1631530,
-            "previous_level": "61",
-            "is_level_max": "",
+            "current_exp": 18428708,
+            "previous_level": "99",
+            "is_level_max": "1",
             "exp_bonus_info": {
               "type_name": "NORMAL",
               "boost_rate": null
             },
-            "current_level": "61"
+            "current_level": "99"
           },
           "status_bonus_type_of": 1,
           "status_bonus_flg_of": {
             "beast": 0
           },
-          "beast_id": "161000005",
-          "name": "Salamander (III)",
+          "beast_id": "161000062",
+          "name": "Isgebind (XIV)",
           "assets": {
-            "beast_161000005": "/Content/lang/ww/compile/en/image/beast/161000005/161000005_112.png"
+            "beast_161000062": "/Content/lang/ww/compile/en/image/beast/161000062/161000062_112.png"
           },
-          "id": "3840213",
+          "id": "8159478",
           "new_skills": []
         },
         {
           "exp": {
-            "previous_exp": "10024553",
+            "previous_exp": "18428708",
             "level_to_exp": {
-              "95": 9469639,
-              "96": 10055140
+              "99": 18428708
             },
-            "current_exp": 10029012,
-            "previous_level": "95",
-            "is_level_max": "",
+            "current_exp": 18428708,
+            "previous_level": "99",
+            "is_level_max": "1",
             "exp_bonus_info": {
               "type_name": "NORMAL",
               "boost_rate": null
             },
-            "current_level": "95"
+            "current_level": "99"
           },
           "status_bonus_type_of": 1,
           "status_bonus_flg_of": {
             "beast": 0
           },
-          "beast_id": "161000020",
-          "name": "Enkidu (V)",
+          "beast_id": "161000060",
+          "name": "Krysta (VIII)",
           "assets": {
-            "beast_161000020": "/Content/lang/ww/compile/en/image/beast/161000020/161000020_112.png"
+            "beast_161000060": "/Content/lang/ww/compile/en/image/beast/161000060/161000060_112.png"
           },
-          "id": "3984980",
+          "id": "8159480",
           "new_skills": []
         },
         {
           "exp": {
-            "previous_exp": "4662257",
+            "previous_exp": "18428708",
             "level_to_exp": {
-              "82": 4435236,
-              "83": 4685152
+              "99": 18428708
             },
-            "current_exp": 4666716,
-            "previous_level": "82",
-            "is_level_max": "",
+            "current_exp": 18428708,
+            "previous_level": "99",
+            "is_level_max": "1",
             "exp_bonus_info": {
               "type_name": "NORMAL",
               "boost_rate": null
             },
-            "current_level": "82"
+            "current_level": "99"
           },
           "status_bonus_type_of": 1,
           "status_bonus_flg_of": {
             "beast": 0
           },
-          "beast_id": "161000028",
-          "name": "Golem (V)",
+          "beast_id": "161000076",
+          "name": "Evrae (X)",
           "assets": {
-            "beast_161000028": "/Content/lang/ww/compile/en/image/beast/161000028/161000028_112.png"
+            "beast_161000076": "/Content/lang/ww/compile/en/image/beast/161000076/161000076_112.png"
           },
-          "id": "4005613",
+          "id": "9044338",
           "new_skills": []
         },
         {
           "exp": {
-            "previous_exp": "7814645",
+            "previous_exp": "18428708",
             "level_to_exp": {
-              "91": 7444919,
-              "92": 7893709
+              "99": 18428708
             },
-            "current_exp": 7819104,
-            "previous_level": "91",
-            "is_level_max": "",
+            "current_exp": 18428708,
+            "previous_level": "99",
+            "is_level_max": "1",
             "exp_bonus_info": {
               "type_name": "NORMAL",
               "boost_rate": null
             },
-            "current_level": "91"
+            "current_level": "99"
           },
           "status_bonus_type_of": 1,
           "status_bonus_flg_of": {
             "beast": 0
           },
-          "beast_id": "161000012",
-          "name": "Taharka (IX)",
+          "beast_id": "161000084",
+          "name": "Famfrit (XII)",
           "assets": {
-            "beast_161000012": "/Content/lang/ww/compile/en/image/beast/161000012/161000012_112.png"
+            "beast_161000084": "/Content/lang/ww/compile/en/image/beast/161000084/161000084_112.png"
           },
-          "id": "4574169",
+          "id": "14094279",
           "new_skills": []
         }
       ],
       "is_first_clear": null,
-      "achieved_mission_modal_info_list": [],
       "buddy": [
         {
           "exp": {
@@ -2352,7 +2368,7 @@
             },
             "current_level": 99,
             "level_to_hp_max": {
-              "99": 8188
+              "99": 8357
             },
             "level_to_exp": {
               "99": 12044907
@@ -2367,235 +2383,37 @@
             "armor": 0
           },
           "status_bonus_type_of": 1,
-          "hp": 8188,
-          "buddy_id": "11500100",
+          "hp": 6564,
+          "buddy_id": "10600400",
           "legend_materia_exps": [],
-          "name": "Noctis",
-          "path": "115001",
+          "name": "Celes",
+          "path": "106004",
           "soul_strike_exps": [],
-          "max_hp": 8188,
+          "max_hp": 8357,
+          "is_guest_visitant": 0,
           "status_ailments": [],
-          "id": "47378438",
+          "id": "49518440",
           "animation": {
-            "left_2_offset_x": "-5",
-            "right_2_offset_y": "-8",
-            "right_1_offset_x": "1",
-            "left_1_offset_y": "-20",
-            "right_1_offset_y": "-20",
-            "buddy_id": "11500100",
-            "path": "115001",
-            "dress_record_id": "0",
-            "right_2_offset_x": "-7",
-            "assets": {
-              "buddy-115001_221": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/mini.sajson",
-              "buddy-115001_211": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/sleep.sajson",
-              "buddy-115001_222": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/frog.sajson",
-              "buddy-115001": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/base.sajson",
-              "buddy-115001_210_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/glass_left_arm.sajson",
-              "buddy-115001_210": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/glass.sajson",
-              "buddy-115001_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/base_left_arm.sajson",
-              "buddy-115001_212": "/Content/lang/ww/compile/en/ab/character/player/sab/115001/stone.sajson"
-            },
-            "left_1_offset_x": "6",
-            "left_2_offset_y": "-7"
-          }
-        },
-        {
-          "exp": {
-            "previous_exp": "5964907",
-            "previous_level": 80,
-            "is_level_max": "1",
-            "exp_bonus_info": {
-              "type_name": "NORMAL",
-              "boost_rate": null
-            },
-            "current_level": 80,
-            "level_to_hp_max": {
-              "80": 6484
-            },
-            "level_to_exp": {
-              "80": 5964907
-            },
-            "current_exp": 5964907
-          },
-          "is_dead": 0,
-          "status_bonus_flg_of": {
-            "weapon": 1,
-            "buddy": 0,
-            "accessory": 0,
-            "armor": 0
-          },
-          "status_bonus_type_of": 1,
-          "hp": 6484,
-          "buddy_id": "10500700",
-          "legend_materia_exps": [],
-          "name": "Gilgamesh",
-          "path": "105007",
-          "soul_strike_exps": [],
-          "max_hp": 6484,
-          "status_ailments": [],
-          "id": "47918930",
-          "animation": {
-            "left_2_offset_x": "-5",
-            "right_2_offset_y": "-7",
-            "right_1_offset_x": "0",
-            "left_1_offset_y": "-19",
-            "right_1_offset_y": "-20",
-            "buddy_id": "10500700",
-            "path": "105007",
-            "dress_record_id": "0",
-            "right_2_offset_x": "-7",
-            "assets": {
-              "buddy-105007": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/base.sajson",
-              "buddy-105007_211": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/sleep.sajson",
-              "buddy-105007_221": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/mini.sajson",
-              "buddy-105007_212": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/stone.sajson",
-              "buddy-105007_210_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/glass_left_arm.sajson",
-              "buddy-105007_210": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/glass.sajson",
-              "buddy-105007_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/base_left_arm.sajson",
-              "buddy-105007_222": "/Content/lang/ww/compile/en/ab/character/player/sab/105007/frog.sajson"
-            },
-            "left_1_offset_x": "5",
-            "left_2_offset_y": "-6"
-          }
-        },
-        {
-          "exp": {
-            "previous_exp": "5964907",
-            "previous_level": 80,
-            "is_level_max": "1",
-            "exp_bonus_info": {
-              "type_name": "NORMAL",
-              "boost_rate": null
-            },
-            "current_level": 80,
-            "level_to_hp_max": {
-              "80": 4220
-            },
-            "level_to_exp": {
-              "80": 5964907
-            },
-            "current_exp": 5964907
-          },
-          "is_dead": 0,
-          "status_bonus_flg_of": {
-            "weapon": 0,
-            "buddy": 0,
-            "accessory": 0,
-            "armor": 0
-          },
-          "status_bonus_type_of": 1,
-          "hp": 4220,
-          "buddy_id": "10500200",
-          "legend_materia_exps": [],
-          "name": "Lenna",
-          "path": "105002",
-          "soul_strike_exps": [],
-          "max_hp": 4220,
-          "status_ailments": [],
-          "id": "49506548",
-          "animation": {
-            "left_2_offset_x": "-5",
+            "left_2_offset_x": "-4",
             "right_2_offset_y": "-6",
             "right_1_offset_x": "1",
             "left_1_offset_y": "-18",
             "right_1_offset_y": "-19",
-            "buddy_id": "10500200",
-            "path": "105002",
+            "buddy_id": "10600400",
+            "path": "106004",
             "dress_record_id": "0",
             "right_2_offset_x": "-6",
             "assets": {
-              "buddy-105002_210_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/glass_left_arm.sajson",
-              "buddy-105002": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/base.sajson",
-              "buddy-105002_210": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/glass.sajson",
-              "buddy-105002_211": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/sleep.sajson",
-              "buddy-105002_222": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/frog.sajson",
-              "buddy-105002_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/base_left_arm.sajson",
-              "buddy-105002_221": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/mini.sajson",
-              "buddy-105002_212": "/Content/lang/ww/compile/en/ab/character/player/sab/105002/stone.sajson"
+              "buddy-106004_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/base_left_arm.sajson",
+              "buddy-106004_211": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/sleep.sajson",
+              "buddy-106004_221": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/mini.sajson",
+              "buddy-106004_210_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/glass_left_arm.sajson",
+              "buddy-106004_212": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/stone.sajson",
+              "buddy-106004": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/base.sajson",
+              "buddy-106004_210": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/glass.sajson",
+              "buddy-106004_222": "/Content/lang/ww/compile/en/ab/character/player/sab/106004/frog.sajson"
             },
             "left_1_offset_x": "3",
-            "left_2_offset_y": "-6"
-          }
-        },
-        {
-          "exp": {
-            "previous_exp": "6642480",
-            "previous_level": 82,
-            "is_level_max": "",
-            "exp_bonus_info": {
-              "type_name": "SERIES",
-              "boost_rate": 150
-            },
-            "current_level": 83,
-            "level_to_hp_max": {
-              "82": 5785,
-              "83": 5854
-            },
-            "level_to_exp": {
-              "82": 6564107,
-              "83": 6867307
-            },
-            "current_exp": 6649170
-          },
-          "is_dead": 0,
-          "status_bonus_flg_of": {
-            "weapon": 1,
-            "buddy": 1,
-            "accessory": 0,
-            "armor": 0
-          },
-          "status_bonus_type_of": 1,
-          "hp": 6473,
-          "buddy_id": "10600900",
-          "legend_materia_exps": [],
-          "name": "Cyan",
-          "path": "106009",
-          "soul_strike_exps": [
-            {
-              "previous_exp": "30000",
-              "equipment_id": "21003055",
-              "soul_strike_id": "20220007",
-              "param_booster": {},
-              "disp_exp": 669,
-              "new_exp": "30000",
-              "evolution_num": "0",
-              "assets": {
-                "equipment_20220007": "/Content/lang/ww/compile/en/image/equipment/21003055/21003055_06_112.png",
-                "soul_strike_20220007": "/Content/lang/ww/compile/en/image/soulstrike/20220007/20220007_256.png"
-              },
-              "soul_strike_name": "Bushido Oblivion",
-              "soul_strike_disp_name": "Bushido{n}Oblivion",
-              "required_exp": "30000",
-              "is_level_up": "",
-              "soul_strike_description": "Deal eight physical fire and non-elemental attacks to one target, temporarily infuse the user with the power of fire, enter a major Retaliate stance, and increase the damage of the user's critical hits.",
-              "is_already_mastered": "1"
-            }
-          ],
-          "max_hp": 6473,
-          "status_ailments": [],
-          "id": "47293440",
-          "animation": {
-            "left_2_offset_x": "-4",
-            "right_2_offset_y": "-7",
-            "right_1_offset_x": "0",
-            "left_1_offset_y": "-19",
-            "right_1_offset_y": "-20",
-            "buddy_id": "10600900",
-            "path": "106009",
-            "dress_record_id": "0",
-            "right_2_offset_x": "-7",
-            "assets": {
-              "buddy-106009": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/base.sajson",
-              "buddy-106009_210": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/glass.sajson",
-              "buddy-106009_221": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/mini.sajson",
-              "buddy-106009_211": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/sleep.sajson",
-              "buddy-106009_212": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/stone.sajson",
-              "buddy-106009_210_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/glass_left_arm.sajson",
-              "buddy-106009_222": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/frog.sajson",
-              "buddy-106009_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/106009/base_left_arm.sajson"
-            },
-            "left_1_offset_x": "4",
             "left_2_offset_y": "-6"
           }
         },
@@ -2610,7 +2428,7 @@
             },
             "current_level": 99,
             "level_to_hp_max": {
-              "99": 7530
+              "99": 8215
             },
             "level_to_exp": {
               "99": 12044907
@@ -2625,92 +2443,263 @@
             "armor": 0
           },
           "status_bonus_type_of": 1,
-          "hp": 7530,
-          "buddy_id": "15000100",
+          "hp": 6415,
+          "buddy_id": "10800100",
           "legend_materia_exps": [],
-          "name": "Ramza",
-          "path": "150001",
+          "name": "Squall",
+          "path": "108001",
           "soul_strike_exps": [],
-          "max_hp": 7530,
+          "max_hp": 8215,
+          "is_guest_visitant": 0,
           "status_ailments": [],
-          "id": "47955170",
+          "id": "48535692",
+          "animation": {
+            "left_2_offset_x": "-4",
+            "right_2_offset_y": "-7",
+            "right_1_offset_x": "0",
+            "left_1_offset_y": "-19",
+            "right_1_offset_y": "-20",
+            "buddy_id": "10800100",
+            "path": "108001",
+            "dress_record_id": "0",
+            "right_2_offset_x": "-7",
+            "assets": {
+              "buddy-108001_210_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/glass_left_arm.sajson",
+              "buddy-108001_212": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/stone.sajson",
+              "buddy-108001_221": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/mini.sajson",
+              "buddy-108001": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/base.sajson",
+              "buddy-108001_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/base_left_arm.sajson",
+              "buddy-108001_222": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/frog.sajson",
+              "buddy-108001_210": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/glass.sajson",
+              "buddy-108001_211": "/Content/lang/ww/compile/en/ab/character/player/sab/108001/sleep.sajson"
+            },
+            "left_1_offset_x": "4",
+            "left_2_offset_y": "-6"
+          }
+        },
+        {
+          "exp": {
+            "previous_exp": "13140060",
+            "previous_level": 99,
+            "is_level_max": "1",
+            "exp_bonus_info": {
+              "type_name": "NORMAL",
+              "boost_rate": null
+            },
+            "current_level": 99,
+            "level_to_hp_max": {
+              "99": 7413
+            },
+            "level_to_exp": {
+              "99": 13140060
+            },
+            "current_exp": 13140060
+          },
+          "is_dead": 0,
+          "status_bonus_flg_of": {
+            "weapon": 0,
+            "buddy": 0,
+            "accessory": 0,
+            "armor": 0
+          },
+          "status_bonus_type_of": 1,
+          "hp": 5638,
+          "buddy_id": "10004000",
+          "legend_materia_exps": [],
+          "name": "Elarra",
+          "path": "100039",
+          "soul_strike_exps": [],
+          "max_hp": 7413,
+          "is_guest_visitant": 0,
+          "status_ailments": [],
+          "id": "54116173",
+          "animation": {
+            "left_2_offset_x": "-3",
+            "right_2_offset_y": "-4",
+            "right_1_offset_x": "1",
+            "left_1_offset_y": "-12",
+            "right_1_offset_y": "-14",
+            "buddy_id": "10004000",
+            "path": "100039",
+            "dress_record_id": "0",
+            "right_2_offset_x": "-6",
+            "assets": {
+              "buddy-100039_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/base_left_arm.sajson",
+              "buddy-100039_222": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/frog.sajson",
+              "buddy-100039": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/base.sajson",
+              "buddy-100039_221": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/mini.sajson",
+              "buddy-100039_211": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/sleep.sajson",
+              "buddy-100039_210_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/glass_left_arm.sajson",
+              "buddy-100039_212": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/stone.sajson",
+              "buddy-100039_210": "/Content/lang/ww/compile/en/ab/character/player/sab/100039/glass.sajson"
+            },
+            "left_1_offset_x": "4",
+            "left_2_offset_y": "-4"
+          }
+        },
+        {
+          "exp": {
+            "previous_exp": "12044907",
+            "previous_level": 99,
+            "is_level_max": "1",
+            "exp_bonus_info": {
+              "type_name": "NORMAL",
+              "boost_rate": null
+            },
+            "current_level": 99,
+            "level_to_hp_max": {
+              "99": 7240
+            },
+            "level_to_exp": {
+              "99": 12044907
+            },
+            "current_exp": 12044907
+          },
+          "is_dead": 0,
+          "status_bonus_flg_of": {
+            "weapon": 0,
+            "buddy": 0,
+            "accessory": 0,
+            "armor": 0
+          },
+          "status_bonus_type_of": 1,
+          "hp": 5462,
+          "buddy_id": "10800900",
+          "legend_materia_exps": [],
+          "name": "Laguna",
+          "path": "108009",
+          "soul_strike_exps": [
+            {
+              "previous_exp": "30000",
+              "equipment_id": "21015047",
+              "soul_strike_id": "22100007",
+              "param_booster": {},
+              "disp_exp": 939,
+              "new_exp": "30000",
+              "evolution_num": "0",
+              "assets": {
+                "equipment_22100007": "/Content/lang/ww/compile/en/image/equipment/21015047/21015047_06_112.png",
+                "soul_strike_22100007": "/Content/lang/ww/compile/en/image/soulstrike/22100007/22100007_256.png"
+              },
+              "soul_strike_name": "Ragnarok Buster",
+              "soul_strike_disp_name": "Ragnarok {n}Buster",
+              "required_exp": "30000",
+              "is_level_up": "",
+              "soul_strike_description": "Deal seven ranged physical ice and non-elemental attacks to all enemies, temporarily lower their ice resistance level by 2, reduce delay of the user's actions for one turn, raise the user's Attack a moderate amount and Resistance a small amount, and reduce delay of the user's actions for one turn when using an ice attack.",
+              "is_already_mastered": "1"
+            }
+          ],
+          "max_hp": 7240,
+          "is_guest_visitant": 0,
+          "status_ailments": [],
+          "id": "49546858",
           "animation": {
             "left_2_offset_x": "-5",
             "right_2_offset_y": "-7",
             "right_1_offset_x": "0",
-            "left_1_offset_y": "-20",
+            "left_1_offset_y": "-19",
             "right_1_offset_y": "-20",
-            "buddy_id": "15000100",
-            "path": "150001",
+            "buddy_id": "10800900",
+            "path": "108009",
             "dress_record_id": "0",
-            "right_2_offset_x": "-7",
+            "right_2_offset_x": "-6",
             "assets": {
-              "buddy-150001_210": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/glass.sajson",
-              "buddy-150001_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/base_left_arm.sajson",
-              "buddy-150001": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/base.sajson",
-              "buddy-150001_222": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/frog.sajson",
-              "buddy-150001_211": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/sleep.sajson",
-              "buddy-150001_221": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/mini.sajson",
-              "buddy-150001_212": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/stone.sajson",
-              "buddy-150001_210_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/150001/glass_left_arm.sajson"
+              "buddy-108009_212": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/stone.sajson",
+              "buddy-108009_222": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/frog.sajson",
+              "buddy-108009": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/base.sajson",
+              "buddy-108009_211": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/sleep.sajson",
+              "buddy-108009_210": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/glass.sajson",
+              "buddy-108009_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/base_left_arm.sajson",
+              "buddy-108009_221": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/mini.sajson",
+              "buddy-108009_210_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/108009/glass_left_arm.sajson"
             },
-            "left_1_offset_x": "6",
-            "left_2_offset_y": "-7"
+            "left_1_offset_x": "5",
+            "left_2_offset_y": "-6"
+          }
+        },
+        {
+          "exp": {
+            "previous_exp": "13140060",
+            "previous_level": 99,
+            "is_level_max": "1",
+            "exp_bonus_info": {
+              "type_name": "NORMAL",
+              "boost_rate": null
+            },
+            "current_level": 99,
+            "level_to_hp_max": {
+              "99": 8445
+            },
+            "level_to_exp": {
+              "99": 13140060
+            },
+            "current_exp": 13140060
+          },
+          "is_dead": 0,
+          "status_bonus_flg_of": {
+            "weapon": 0,
+            "buddy": 0,
+            "accessory": 0,
+            "armor": 0
+          },
+          "status_bonus_type_of": 1,
+          "hp": 8206,
+          "buddy_id": "10000200",
+          "legend_materia_exps": [],
+          "name": "Yehosua",
+          "path": "100001",
+          "soul_strike_exps": [],
+          "max_hp": 8445,
+          "is_guest_visitant": 0,
+          "status_ailments": [],
+          "id": "47148436",
+          "animation": {
+            "left_2_offset_x": "-4",
+            "right_2_offset_y": "-4",
+            "right_1_offset_x": "-4",
+            "left_1_offset_y": "-12",
+            "right_1_offset_y": "-9",
+            "buddy_id": "10000200",
+            "path": "100001",
+            "dress_record_id": "0",
+            "right_2_offset_x": "-6",
+            "assets": {
+              "buddy-100001_211": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/sleep.sajson",
+              "buddy-100001": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/base.sajson",
+              "buddy-100001_222": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/frog.sajson",
+              "buddy-100001_210": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/glass.sajson",
+              "buddy-100001_212": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/stone.sajson",
+              "buddy-100001_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/base_left_arm.sajson",
+              "buddy-100001_221": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/mini.sajson",
+              "buddy-100001_210_left_arm": "/Content/lang/ww/compile/en/ab/character/player/sab/100001/glass_left_arm.sajson"
+            },
+            "left_1_offset_x": "3",
+            "left_2_offset_y": "-4"
           }
         }
       ],
       "giftbox_items": {},
-      "gil": 2372,
+      "gil": 0,
       "prize_buddy_info_list": [],
-      "has_new_mission": null,
       "unlock_dungeons": [],
       "google_play_achievements": [],
-      "clear_prize_item_id_to_num": {},
+      "clear_prize_item_id_to_num": {
+        "92000000": "200000",
+        "190000004": "3"
+      },
       "buddy_level_record_materia_item_id_to_num": {},
       "grade_bonus_item_id_to_num": {},
       "is_first_clear_master": null,
-      "total_beast_devided_exp": 22296,
-      "dungeon_id": "10607608",
+      "total_beast_devided_exp": 46948,
+      "dungeon_id": "10082302",
       "new_items": {},
       "stamina_info": {
         "additional_stamina": 0,
-        "current_max_stamina": 207,
-        "prev_max_stamina": 207,
+        "current_max_stamina": 225,
+        "prev_max_stamina": 225,
         "got_stamina_piece": 0
       },
       "drop_item_id_to_equip_bonus": {},
-      "score": {
-        "general": [
-          {
-            "title": "Actions Taken",
-            "medal_num": "3",
-            "id": "1001",
-            "battle_specific_score_id": null,
-            "code_name": "ability_num"
-          },
-          {
-            "title": "Damage Taken",
-            "medal_num": "3",
-            "id": "1002",
-            "battle_specific_score_id": null,
-            "code_name": "damaged_rate"
-          },
-          {
-            "title": "Characters KO'd",
-            "medal_num": "3",
-            "id": "1004",
-            "battle_specific_score_id": null,
-            "code_name": "defeat_num"
-          }
-        ],
-        "total_medal": {
-          "whole": 9,
-          "rate": 1,
-          "got": 9
-        },
-        "specific": [],
-        "rank": 3
-      },
       "CONST": {
         "RANK": {
           "EXCELLENT": {
@@ -2730,7 +2719,50 @@
           }
         }
       },
-      "score_base_exp": 11148,
+      "score": {
+        "general": [
+          {
+            "battle_id": "1008230201",
+            "title": "Actions Taken",
+            "medal_num": "3",
+            "id": "1001",
+            "battle_specific_score_id": null,
+            "code_name": "ability_num"
+          },
+          {
+            "battle_id": "1008230201",
+            "title": "Damage Taken",
+            "medal_num": "3",
+            "id": "1002",
+            "battle_specific_score_id": null,
+            "code_name": "damaged_rate"
+          },
+          {
+            "battle_id": "1008230201",
+            "title": "Characters KO'd",
+            "medal_num": "3",
+            "id": "1004",
+            "battle_specific_score_id": null,
+            "code_name": "defeat_num"
+          }
+        ],
+        "total_medal": {
+          "whole": 12,
+          "rate": 1,
+          "got": 12
+        },
+        "specific": [
+          {
+            "battle_id": "1008230201",
+            "title": "Attack Tiamat with an ice attack.",
+            "medal_num": "3",
+            "id": "2003",
+            "battle_specific_score_id": "283103",
+            "code_name": "enemy_ability"
+          }
+        ],
+        "rank": 3
+      },
       "assets": {
         "battle_result_assets": "/Content/lang/ab/battle_result/battle_result_assets.json",
         "stamina_piece": "/Content/lang/ab_image/common_item/94000000.png",
@@ -2762,53 +2794,12 @@
         "crystal_growegg": "/Content/lang/ab/battle_result/crystal_growegg.json",
         "chara_get": "/Content/lang/ab/battle/chara_get/chara_get.json"
       },
+      "score_base_exp": 23474,
+      "dungeon_rank": 3,
       "unlock_worlds": [],
       "score_record_materia_item_id_to_num": {},
       "first_master_prize_item_id_to_num": {},
       "prize_master": {
-        "25098003": {
-          "exp": "1000",
-          "type_name": "EQUIPMENT_SP_MATERIAL",
-          "name": "Scarletite",
-          "description": "Upgrade material.",
-          "item_id": "25098003",
-          "assets": {
-            "item-25098003": "/Content/lang/ww/compile/en/image/equipment_sp_material/25098003/25098003_112.png"
-          },
-          "is_new": 0,
-          "rarity": "3",
-          "remap_item_id": null
-        },
-        "40000052": {
-          "type_name": "ABILITY_MATERIAL",
-          "name": "Lesser Wind Orb",
-          "description": "A lesser orb infused with the power of wind.",
-          "sale_gil": "500",
-          "item_id": "40000052",
-          "assets": {
-            "item-40000052": "/Content/lang/ww/compile/en/image/ability_material/40000052/40000052_112.png"
-          },
-          "is_new": 0,
-          "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000052/40000052_112.png",
-          "rarity": "2",
-          "type": "11",
-          "remap_item_id": null
-        },
-        "40000053": {
-          "type_name": "ABILITY_MATERIAL",
-          "name": "Wind Orb",
-          "description": "An orb infused with the power of wind.",
-          "sale_gil": "1000",
-          "item_id": "40000053",
-          "assets": {
-            "item-40000053": "/Content/lang/ww/compile/en/image/ability_material/40000053/40000053_112.png"
-          },
-          "is_new": 0,
-          "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000053/40000053_112.png",
-          "rarity": "3",
-          "type": "11",
-          "remap_item_id": null
-        },
         "92000000": {
           "type_name": "COMMON",
           "name": "Gil",
@@ -2821,24 +2812,90 @@
           "rarity": 1,
           "remap_item_id": null
         },
-        "111050021": {
-          "type_name": "RECORD_MATERIA",
-          "buddy_id": "10500200",
-          "name": "Empathic Soul",
-          "buddy_name": "Lenna",
-          "item_id": "111050021",
+        "161000017": {
+          "type_name": "BEAST",
           "assets": {
-            "item-111050021": "/Content/lang/ww/compile/en/image/record_materia/111050021/111050021_112.png",
-            "item-128-111050021": "/Content/lang/ww/compile/en/image/record_materia/111050021/111050021_128.png"
+            "item-161000017": "/Content/lang/ww/compile/en/image/beast/161000017/161000017_112.png"
           },
           "is_new": 0,
-          "image_path": "/dff/static/lang/image/record_materia/111050021/111050021_112.png",
-          "cond_description": "Break Lenna's level cap 2 time(s) and obtain the Oath of Tycoon record materia. Chance to obtain with Lenna in your party.",
-          "rarity": 1,
+          "rarity": "2",
+          "name": "Zu (V)",
           "remap_item_id": null,
-          "cond_type": "2"
+          "item_id": "161000017"
+        },
+        "161000018": {
+          "type_name": "BEAST",
+          "assets": {
+            "item-161000018": "/Content/lang/ww/compile/en/image/beast/161000018/161000018_112.png"
+          },
+          "is_new": 0,
+          "rarity": "2",
+          "name": "Rapps (VII)",
+          "remap_item_id": null,
+          "item_id": "161000018"
+        },
+        "161000065": {
+          "type_name": "BEAST",
+          "assets": {
+            "item-161000065": "/Content/lang/ww/compile/en/image/beast/161000065/161000065_112.png"
+          },
+          "is_new": 0,
+          "rarity": "4",
+          "name": "Tiamat (IX)",
+          "remap_item_id": null,
+          "item_id": "161000065"
+        },
+        "190000002": {
+          "type_name": "BEAST_FOOD",
+          "assets": {
+            "item-190000002": "/Content/lang/ww/compile/en/image/beast_food/190000002/190000002_112.png"
+          },
+          "is_new": 0,
+          "rarity": "2",
+          "name": "Lesser Arcana",
+          "remap_item_id": null,
+          "item_id": "190000002"
+        },
+        "190000003": {
+          "type_name": "BEAST_FOOD",
+          "assets": {
+            "item-190000003": "/Content/lang/ww/compile/en/image/beast_food/190000003/190000003_112.png"
+          },
+          "is_new": 0,
+          "rarity": "3",
+          "name": "Arcana",
+          "remap_item_id": null,
+          "item_id": "190000003"
+        },
+        "190000004": {
+          "type_name": "BEAST_FOOD",
+          "assets": {
+            "item-190000004": "/Content/lang/ww/compile/en/image/beast_food/190000004/190000004_112.png"
+          },
+          "is_new": 0,
+          "rarity": "4",
+          "name": "Greater Arcana",
+          "remap_item_id": null,
+          "item_id": "190000004"
+        },
+        "190000005": {
+          "type_name": "BEAST_FOOD",
+          "assets": {
+            "item-190000005": "/Content/lang/ww/compile/en/image/beast_food/190000005/190000005_112.png"
+          },
+          "is_new": 0,
+          "rarity": "5",
+          "name": "Major Arcana",
+          "remap_item_id": null,
+          "item_id": "190000005"
         }
-      }
+      },
+      "achieved_book_mission_ids": [
+        "2001000126"
+      ]
     }
+  },
+  "requestBody": {
+    "results": ""
   }
 }

@@ -161,6 +161,39 @@ export function formatEstimatedScore(score: DungeonScore): string {
   }
 }
 
+export function isScoreBetterThan(scoreA: DungeonScore, scoreB: DungeonScore): boolean {
+  if (scoreA.type !== scoreB.type) {
+    // Arguably a precondition violation...
+    return false;
+  }
+
+  type Op<T> = (a: T, b: T) => boolean;
+  const isBetter = (f: Op<number>, a: number | undefined, b: number | undefined) => {
+    if (b == null) {
+      return true;
+    } else if (a == null) {
+      return false;
+    } else {
+      return a !== b && f(a, b);
+    }
+  };
+
+  switch (scoreA.type) {
+    case DungeonScoreType.ClearTime:
+      return isBetter(_.lt, scoreA.time, scoreB.time);
+    case DungeonScoreType.TotalDamage:
+      return isBetter(_.gt, scoreA.totalDamage, scoreB.totalDamage);
+    case DungeonScoreType.PercentHpOrClearTime:
+      if (scoreA.won && !scoreB.won) {
+        return true;
+      } else if (scoreA.won) {
+        return isBetter(_.lt, scoreA.time, scoreB.time);
+      } else {
+        return isBetter(_.gt, scoreA.totalDamage, scoreB.totalDamage);
+      }
+  }
+}
+
 export function shouldUseEstimatedScore(
   score: DungeonScore | undefined,
   estimatedScore: DungeonScore | undefined,
@@ -171,32 +204,8 @@ export function shouldUseEstimatedScore(
     return true;
   } else if (estimatedScore.type !== score.type) {
     return false;
-  }
-
-  type Op<T> = (a: T, b: T) => boolean;
-  const isEstimatedBetter = (f: Op<number>, a: number | undefined, b: number | undefined) => {
-    if (b == null) {
-      return false;
-    } else if (a == null) {
-      return true;
-    } else {
-      return a !== b && !f(a, b);
-    }
-  };
-
-  switch (score.type) {
-    case DungeonScoreType.ClearTime:
-      return isEstimatedBetter(_.lt, score.time, estimatedScore.time);
-    case DungeonScoreType.TotalDamage:
-      return isEstimatedBetter(_.gt, score.totalDamage, estimatedScore.totalDamage);
-    case DungeonScoreType.PercentHpOrClearTime:
-      if (score.won && !estimatedScore.won) {
-        return false;
-      } else if (score.won) {
-        return isEstimatedBetter(_.lt, score.time, estimatedScore.time);
-      } else {
-        return isEstimatedBetter(_.gt, score.totalDamage, estimatedScore.totalDamage);
-      }
+  } else {
+    return isScoreBetterThan(estimatedScore, score);
   }
 }
 
@@ -211,4 +220,15 @@ export const setDungeonScore = createAction(
   }),
 );
 
-export type DungeonScoresAction = ReturnType<typeof setDungeonScore>;
+export const updateDungeonScore = createAction(
+  'UPDATE_DUNGEON_SCORE',
+  (dungeonId: number, newScore: DungeonScore) => ({
+    type: 'UPDATE_DUNGEON_SCORE',
+    payload: {
+      dungeonId,
+      newScore,
+    },
+  }),
+);
+
+export type DungeonScoresAction = ReturnType<typeof setDungeonScore | typeof updateDungeonScore>;

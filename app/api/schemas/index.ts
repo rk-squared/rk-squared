@@ -446,7 +446,7 @@ export interface WorldBattles {
 export interface WinBattle {
   result: {
     clear_time_info: {
-      clear_battle_time: number; // Clear time in milliseconds
+      clear_battle_time: number | null; // Clear time in milliseconds
       can_show_clear_time: number; // 0 or 1
     };
 

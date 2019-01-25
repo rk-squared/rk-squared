@@ -41,6 +41,11 @@ export function getDungeonsForWorlds(state: DungeonState, worlds: World[]) {
   return _.flatten((_.filter(worldDungeons) as any) as Dungeon[][]);
 }
 
+export function getWorldIdForDungeon(state: DungeonState, dungeonId: number): number | undefined {
+  const result = _.findKey(state.byWorld, i => i.indexOf(dungeonId) !== -1);
+  return result ? +result : undefined;
+}
+
 export function dungeons(state: DungeonState = initialState, action: DungeonsAction): DungeonState {
   switch (action.type) {
     case getType(addWorldDungeons):

@@ -1,13 +1,18 @@
-import { convertGradePrizeItems, convertWorld, default as dungeonsHandler, sortDungeons } from '../dungeons';
+import {
+  convertGradePrizeItems,
+  convertWorld,
+  default as dungeonsHandler,
+  sortDungeons,
+} from '../dungeons';
 
 import * as Redux from 'redux';
 import configureStore from 'redux-mock-store';
 
+import * as _ from 'lodash';
+
 import { WorldCategory } from '../../actions/worlds';
 
 import { IState } from '../../reducers';
-
-import * as _ from 'lodash';
 
 // noinspection SpellCheckingInspection
 const textMaster = {
@@ -48,7 +53,7 @@ describe('dungeons proxy handler', () => {
         type: 2,
         id: 428,
         tag: 'nightmare_dungeon',
-        background_image_path: '/dff/static/lang/image/event/428_bg.png'
+        background_image_path: '/dff/static/lang/image/event/428_bg.png',
       };
       const gameWorld = {
         has_brave_series_buddies: false,
@@ -67,7 +72,7 @@ describe('dungeons proxy handler', () => {
         is_unlocked: true,
         image_path: '/dff/static/lang/image/world/109428.png',
         type: 2,
-        banner_message: ''
+        banner_message: '',
       };
 
       expect(convertWorld(gameEvent, gameWorld, textMaster)).toEqual({
@@ -95,7 +100,7 @@ describe('dungeons proxy handler', () => {
         type: 2,
         id: 486,
         tag: 'regular_nightmare_dungeon',
-        background_image_path: '/dff/static/lang/image/event/486_bg.png'
+        background_image_path: '/dff/static/lang/image/event/486_bg.png',
       };
       const gameWorld = {
         has_brave_series_buddies: false,
@@ -106,7 +111,7 @@ describe('dungeons proxy handler', () => {
         dungeon_term_list: null,
         series_formal_name: 'FINAL FANTASY TACTICS',
         id: 150486,
-        name: 'Tyranny of the Impure',  // misspelled in the original
+        name: 'Tyranny of the Impure', // misspelled in the original
         has_new_dungeon: true,
         series_id: 150001,
         opened_at: 1531357200,
@@ -114,7 +119,7 @@ describe('dungeons proxy handler', () => {
         is_unlocked: true,
         image_path: '/dff/static/lang/image/world/150486.png',
         type: 2,
-        banner_message: ''
+        banner_message: '',
       };
 
       expect(convertWorld(gameEvent, gameWorld, textMaster)).toEqual({
@@ -142,7 +147,7 @@ describe('dungeons proxy handler', () => {
         type: 11,
         id: 11001,
         tag: '',
-        background_image_path: '/dff/static/lang/image/event/11001_bg.png'
+        background_image_path: '/dff/static/lang/image/event/11001_bg.png',
       };
       const gameWorld = {
         has_brave_series_buddies: false,
@@ -161,7 +166,7 @@ describe('dungeons proxy handler', () => {
         is_unlocked: true,
         image_path: '/dff/static/lang/image/world/401001.png',
         type: 2,
-        banner_message: ''
+        banner_message: '',
       };
 
       expect(convertWorld(gameEvent, gameWorld, textMaster)).toEqual({
@@ -205,8 +210,8 @@ describe('dungeons proxy handler', () => {
         'Underground Waterway 1',
         'Underground Waterway 2',
         'Underground Waterway 3',
-        'Antlion\'s Den 1',
-        'Antlion\'s Den 2',
+        "Antlion's Den 1",
+        "Antlion's Den 2",
         'The Antlion',
       ]);
     });
@@ -215,12 +220,14 @@ describe('dungeons proxy handler', () => {
       const data = require('./data/damage_race_dungeons.json');
       const prizes = convertGradePrizeItems(data.dungeons[2]);
       expect(prizes.claimedGrade.map(i => i.name)).toEqual([
-        'Bravery Mote (4★)', 'Spirit Mote (4★)', 'Dexterity Mote (4★)', 'Wisdom Mote (4★)',
-        'Memory Crystal III Lode', 'Memory Crystal II Lode'
+        'Bravery Mote (4★)',
+        'Spirit Mote (4★)',
+        'Dexterity Mote (4★)',
+        'Wisdom Mote (4★)',
+        'Memory Crystal III Lode',
+        'Memory Crystal II Lode',
       ]);
-      expect(prizes.unclaimedGrade.map(i => i.name)).toEqual([
-        'Vitality Mote (4★)'
-      ]);
+      expect(prizes.unclaimedGrade.map(i => i.name)).toEqual(['Vitality Mote (4★)']);
     });
 
     it('handles Neo Torment grade prizes', () => {
@@ -228,7 +235,8 @@ describe('dungeons proxy handler', () => {
 
       const prizes = convertGradePrizeItems(data.dungeons[2]);
 
-      const totalCount = (name: string) => _.sum(prizes.unclaimedGrade.filter(i => i.name === name).map(i => i.amount));
+      const totalCount = (name: string) =>
+        _.sum(prizes.unclaimedGrade.filter(i => i.name === name).map(i => i.amount));
       expect(totalCount('Record Rubies')).toEqual(160);
       expect(totalCount('Power Crystal')).toEqual(10);
     });
@@ -243,12 +251,14 @@ describe('dungeons proxy handler', () => {
 
       dungeonsHandler['progress_battle_list_gimmick'](data.data, store as Redux.Store<IState>, {});
 
-      expect(store.getActions()).toEqual([{
-        type: 'OPEN_DUNGEON_CHEST',
-        payload: {
-          dungeonId: 40100225,
+      expect(store.getActions()).toEqual([
+        {
+          type: 'OPEN_DUNGEON_CHEST',
+          payload: {
+            dungeonId: 40100225,
+          },
         },
-      }]);
+      ]);
     });
   });
 });

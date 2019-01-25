@@ -3,6 +3,7 @@ import {
   estimateScore,
   formatEstimatedScore,
   formatScore,
+  shouldUseEstimatedScore,
 } from '../dungeonScores';
 
 import { ItemType } from '../../data/items';
@@ -527,6 +528,51 @@ describe('actions/dungeonScores', () => {
         won: true,
       };
       expect(formatScore(score)).toEqual('1:02.34');
+    });
+  });
+
+  describe('shouldUseEstimatedScore', () => {
+    it('handles Torment scores', () => {
+      const estimatedIncomplete = {
+        type: DungeonScoreType.PercentHpOrClearTime,
+        maxHp: 2000000,
+        totalDamage: 1400000,
+        won: false,
+      };
+      const betterIncomplete = {
+        ...estimatedIncomplete,
+        totalDamage: estimatedIncomplete.totalDamage + 10000,
+        time: 35355,
+      };
+      const worseIncomplete = {
+        ...estimatedIncomplete,
+        totalDamage: estimatedIncomplete.totalDamage - 10000,
+        time: 35355,
+      };
+      const estimatedComplete = {
+        type: DungeonScoreType.PercentHpOrClearTime,
+        maxHp: 2000000,
+        totalDamage: 2000000,
+        time: 50000,
+        won: true,
+      };
+      const betterComplete = {
+        ...estimatedComplete,
+        time: estimatedComplete.time - 5,
+      };
+      const worseComplete = {
+        ...estimatedComplete,
+        time: estimatedComplete.time + 5,
+      };
+
+      expect(shouldUseEstimatedScore(betterIncomplete, estimatedIncomplete)).toEqual(false);
+      expect(shouldUseEstimatedScore(worseIncomplete, estimatedIncomplete)).toEqual(true);
+
+      expect(shouldUseEstimatedScore(betterComplete, estimatedComplete)).toEqual(false);
+      expect(shouldUseEstimatedScore(worseComplete, estimatedComplete)).toEqual(true);
+
+      expect(shouldUseEstimatedScore(betterComplete, estimatedIncomplete)).toEqual(false);
+      expect(shouldUseEstimatedScore(betterIncomplete, estimatedComplete)).toEqual(true);
     });
   });
 });
