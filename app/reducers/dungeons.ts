@@ -5,8 +5,9 @@ import {
   Dungeon,
   DungeonsAction,
   finishWorldDungeons,
-  forgetWorldDungeons, openDungeonChest,
-  updateDungeon
+  forgetWorldDungeons,
+  openDungeonChest,
+  updateDungeon,
 } from '../actions/dungeons';
 import { World } from '../actions/worlds';
 
@@ -16,7 +17,7 @@ const u = require('updeep');
 
 export interface DungeonState {
   dungeons: {
-    [id: number]: Dungeon
+    [id: number]: Dungeon;
   };
   byWorld: {
     [id: number]: number[];
@@ -34,16 +35,16 @@ export function getDungeonsForWorld(state: DungeonState, worldId: number) {
 }
 
 export function getDungeonsForWorlds(state: DungeonState, worlds: World[]) {
-  const worldDungeons: Array<Dungeon[] | undefined> = worlds.map(
-    w => getDungeonsForWorld(state, w.id)
+  const worldDungeons: Array<Dungeon[] | undefined> = worlds.map(w =>
+    getDungeonsForWorld(state, w.id),
   );
-  return _.flatten(_.filter(worldDungeons) as any as Dungeon[][]);
+  return _.flatten((_.filter(worldDungeons) as any) as Dungeon[][]);
 }
 
 export function dungeons(state: DungeonState = initialState, action: DungeonsAction): DungeonState {
   switch (action.type) {
     case getType(addWorldDungeons):
-      const newDungeons: {[id: number]: Dungeon} = {...state.dungeons};
+      const newDungeons: { [id: number]: Dungeon } = { ...state.dungeons };
       for (const i of action.payload.dungeons) {
         newDungeons[i.id] = i;
       }
@@ -52,8 +53,8 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
         dungeons: newDungeons,
         byWorld: {
           ...state.byWorld,
-          [action.payload.worldId]: action.payload.dungeons.map((i: Dungeon) => i.id)
-        }
+          [action.payload.worldId]: action.payload.dungeons.map((i: Dungeon) => i.id),
+        },
       };
 
     case getType(finishWorldDungeons): {
@@ -69,7 +70,7 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
 
       const updates = _.zipObject(
         state.byWorld[worldId],
-        _.times(state.byWorld[worldId].length, () => dungeonUpdate)
+        _.times(state.byWorld[worldId].length, () => dungeonUpdate),
       );
       return {
         ...state,
@@ -88,7 +89,7 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
 
     case getType(openDungeonChest): {
       const { dungeonId } = action.payload;
-      const dungeon = (state.dungeons[dungeonId] || {});
+      const dungeon = state.dungeons[dungeonId] || {};
       if (!dungeon.dungeonChests) {
         return state;
       }
@@ -107,9 +108,9 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
           ...state.dungeons,
           [dungeonId]: {
             ...state.dungeons[dungeonId],
-            ...dungeon
-          }
-        }
+            ...dungeon,
+          },
+        },
       };
     }
 

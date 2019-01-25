@@ -9,8 +9,9 @@ import {
   addWorldDungeons,
   Dungeon,
   finishWorldDungeons,
-  forgetWorldDungeons, openDungeonChest,
-  updateDungeon
+  forgetWorldDungeons,
+  openDungeonChest,
+  updateDungeon,
 } from '../actions/dungeons';
 import { unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
 import * as schemas from '../api/schemas';
@@ -24,7 +25,7 @@ import { Handler, HandlerRequest, StartupHandler } from './types';
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';
 
-const buttonStyleSort: {[s: string]: number} = {
+const buttonStyleSort: { [s: string]: number } = {
   NORMAL: 0,
   EXTRA: 1,
   DOOM: 2,
@@ -34,15 +35,16 @@ const buttonStyleSort: {[s: string]: number} = {
  * Gets effective difficulty.  Difficulty 0 mean ???, which sorts after
  * everything else.
  */
-const effectiveDifficulty = (difficulty: number) => difficulty === 0 ? Infinity : difficulty;
+const effectiveDifficulty = (difficulty: number) => (difficulty === 0 ? Infinity : difficulty);
 
 /**
  * Sorts record dungeons using the dungeon node map.  Returns a list of sorted
  * dungeons, followed by a list of dungeons that couldn't be sorted.  (That
  * should never happen.)
  */
-function sortDungeonsByNode(dungeonData: dungeonsSchemas.Dungeons)
-  : [dungeonsSchemas.Dungeon[], dungeonsSchemas.Dungeon[]] {
+function sortDungeonsByNode(
+  dungeonData: dungeonsSchemas.Dungeons,
+): [dungeonsSchemas.Dungeon[], dungeonsSchemas.Dungeon[]] {
   const dungeonList = dungeonData.dungeons;
   const nodes = _.keyBy(dungeonData.dungeon_list_nodes, 'id');
 
@@ -87,17 +89,19 @@ function sortDungeonsByNode(dungeonData: dungeonsSchemas.Dungeons)
 
   return [
     _.sortBy(dungeonList.filter(i => sortOrder.has(i.id)), i => sortOrder.get(i.id)),
-    dungeonList.filter(i => !sortOrder.has(i.id))
+    dungeonList.filter(i => !sortOrder.has(i.id)),
   ];
 }
 
-function sortDungeonsStandard(dungeonData: dungeonsSchemas.Dungeons, dungeonList: dungeonsSchemas.Dungeon[]) {
+function sortDungeonsStandard(
+  dungeonData: dungeonsSchemas.Dungeons,
+  dungeonList: dungeonsSchemas.Dungeon[],
+) {
   // Normally, type 1 vs. 2 marks classic vs. elite, page 1 vs. page 2, etc.
   // But, for Nightmare, 1 is the actual record, and 2 is the buildup.
-  const sortType: ((d: dungeonsSchemas.Dungeon) => number) =
-    dungeonData.room_of_abyss_assets
-      ? d => -d.type
-      : d => d.type;
+  const sortType: ((d: dungeonsSchemas.Dungeon) => number) = dungeonData.room_of_abyss_assets
+    ? d => -d.type
+    : d => d.type;
 
   return _.sortBy(dungeonList, [
     // Sort by page 1 vs. page 2, Classic vs. Elite, whatever
@@ -115,7 +119,7 @@ function sortDungeonsStandard(dungeonData: dungeonsSchemas.Dungeons, dungeonList
 
 export function sortDungeons(dungeonData: dungeonsSchemas.Dungeons) {
   if (dungeonData.dungeon_list_nodes) {
-    const [ sorted, unsorted ] = sortDungeonsByNode(dungeonData);
+    const [sorted, unsorted] = sortDungeonsByNode(dungeonData);
     if (unsorted.length) {
       logger.error(`Failed to sort ${unsorted.length} node dungeons`);
       logger.error(unsorted.map(i => i.name));
@@ -151,12 +155,11 @@ export function convertGradePrizeItems(dungeon: dungeonsSchemas.Dungeon) {
   }
 
   allPrizes = _.sortBy(allPrizes, 'disp_order');
-  const convert = (claimed: boolean) => convertPrizeItems(
-    _.filter(allPrizes, i => !!i.is_got_grade_bonus_prize === claimed)
-  );
+  const convert = (claimed: boolean) =>
+    convertPrizeItems(_.filter(allPrizes, i => !!i.is_got_grade_bonus_prize === claimed));
   return {
     claimedGrade: convert(true),
-    unclaimedGrade: convert(false)
+    unclaimedGrade: convert(false),
   };
 }
 
@@ -191,7 +194,7 @@ export function convertWorldDungeons(data: dungeonsSchemas.Dungeons): Dungeon[] 
       firstTime: convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.FirstTime]),
       mastery: convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.Mastery]),
       ...convertGradePrizeItems(d),
-    }
+    },
   }));
 
   if (data.dungeon_list_nodes) {
@@ -201,8 +204,11 @@ export function convertWorldDungeons(data: dungeonsSchemas.Dungeons): Dungeon[] 
   return dungeons;
 }
 
-export function convertWorld(event: mainSchemas.Event, world: mainSchemas.World,
-                             textMaster: mainSchemas.TextMaster): World | null {
+export function convertWorld(
+  event: mainSchemas.Event,
+  world: mainSchemas.World,
+  textMaster: mainSchemas.TextMaster,
+): World | null {
   let name = world.name;
   let category: WorldCategory | undefined;
   let subcategory: string | undefined;
@@ -233,7 +239,7 @@ export function convertWorld(event: mainSchemas.Event, world: mainSchemas.World,
     name = world.name + ' (' + seriesShortName + ')';
   } else if (event.tag === 'crystal_tower') {
     category = WorldCategory.CrystalTower;
-  } else if (world.name.startsWith('Newcomers\' Dungeons - ')) {
+  } else if (world.name.startsWith("Newcomers' Dungeons - ")) {
     category = WorldCategory.Newcomer;
   } else if (event.tag.match(/^ff.*_reopen_ww\d+/)) {
     category = WorldCategory.Renewal;
@@ -242,7 +248,7 @@ export function convertWorld(event: mainSchemas.Event, world: mainSchemas.World,
     // Use negative series ID so that newest series are listed first,
     // to match FFRK's own API.
     subcategorySortOrder = -world.series_id;
-  } else if ((event.type_name === 'challenge' || event.type_name === 'special')) {
+  } else if (event.type_name === 'challenge' || event.type_name === 'special') {
     // 'special' was observed with A Heretic Awaits
     if (event.tag !== '') {
       // Fall back / generic - e.g., third_anniversary
@@ -268,9 +274,12 @@ export function convertWorld(event: mainSchemas.Event, world: mainSchemas.World,
   };
 }
 
-function convertWorlds(worlds: mainSchemas.World[], events: mainSchemas.Event[],
-                       textMaster: mainSchemas.TextMaster): {[id: number]: World} {
-  const result: {[id: number]: World} = {};
+function convertWorlds(
+  worlds: mainSchemas.World[],
+  events: mainSchemas.Event[],
+  textMaster: mainSchemas.TextMaster,
+): { [id: number]: World } {
+  const result: { [id: number]: World } = {};
 
   const worldsById = _.zipObject(worlds.map(i => i.id), worlds);
 
@@ -320,10 +329,16 @@ function convertWorlds(worlds: mainSchemas.World[], events: mainSchemas.Event[],
  * Checks the status summary counts for Realm worlds against the last loaded
  * dungeon lists for each world to update them if needed.
  */
-function checkForUpdatedWorldDungeons(worlds: mainSchemas.World[], dungeons: DungeonState, dispatch: Dispatch<IState>,
-                                      now: number = Date.now()) {
-  const describe = (description: string, summary: { master_count: number, clear_count: number } | undefined) =>
-    summary ? ` ${description} ${summary.master_count}/${summary.clear_count}/x,` : '';
+function checkForUpdatedWorldDungeons(
+  worlds: mainSchemas.World[],
+  dungeons: DungeonState,
+  dispatch: Dispatch<IState>,
+  now: number = Date.now(),
+) {
+  const describe = (
+    description: string,
+    summary: { master_count: number; clear_count: number } | undefined,
+  ) => (summary ? ` ${description} ${summary.master_count}/${summary.clear_count}/x,` : '');
 
   for (const w of _.sortBy(worlds, 'id')) {
     const summary1 = (w.dungeon_status_summary || {})[1];
@@ -332,11 +347,13 @@ function checkForUpdatedWorldDungeons(worlds: mainSchemas.World[], dungeons: Dun
       continue;
     }
 
-    const newLength = w.dungeon_term_list.filter(i => +i.opened_at < (now / 1000)).length;
-    logger.debug(`World ${w.name}:`
-      + describe('normal', summary1)
-      + describe('elite', summary2)
-      + ` ${w.dungeon_term_list.length} total, ${newLength} current`);
+    const newLength = w.dungeon_term_list.filter(i => +i.opened_at < now / 1000).length;
+    logger.debug(
+      `World ${w.name}:` +
+        describe('normal', summary1) +
+        describe('elite', summary2) +
+        ` ${w.dungeon_term_list.length} total, ${newLength} current`,
+    );
 
     if (!dungeons.byWorld[w.id]) {
       continue;
@@ -349,7 +366,9 @@ function checkForUpdatedWorldDungeons(worlds: mainSchemas.World[], dungeons: Dun
     const oldLength = worldDungeons.length;
     const oldCompleted = _.sumBy(worldDungeons, i => +i.isComplete);
     const oldMastered = _.sumBy(worldDungeons, i => +i.isMaster);
-    logger.debug(`  loaded ${worldDungeons.length}, completed ${oldCompleted}, mastered ${oldMastered}`);
+    logger.debug(
+      `  loaded ${worldDungeons.length}, completed ${oldCompleted}, mastered ${oldMastered}`,
+    );
 
     if (oldLength > newLength) {
       logger.warn(`Unexpected world / dungeon results for ${w.id}: ${oldLength} vs. ${newLength}`);
@@ -362,7 +381,9 @@ function checkForUpdatedWorldDungeons(worlds: mainSchemas.World[], dungeons: Dun
       const isNewMaster = newMastered === newLength && newMastered > oldMastered;
       if (isNewComplete || isNewMaster) {
         // Note: This log message simplifies isNewComplete vs. isNewMaster, but it should suffice.
-        logger.debug(`  ${w.id} was ${isNewMaster ? 'mastered' : 'completed'} without our knowledge`);
+        logger.debug(
+          `  ${w.id} was ${isNewMaster ? 'mastered' : 'completed'} without our knowledge`,
+        );
         dispatch(finishWorldDungeons(w.id, { isComplete: isNewComplete, isMaster: isNewMaster }));
       }
       // TODO? Could do even more here - e.g., if all of summary1 is completed, mark all non-elite as complete
@@ -395,19 +416,26 @@ const dungeonsHandler: Handler = {
 
   win_battle(data: schemas.WinBattle, store: Store<IState>) {
     if (data.result.is_dungeon_clear) {
-      store.dispatch(updateDungeon(+data.result.dungeon_id, {
-        isComplete: true,
-        isMaster: data.result.dungeon_rank === 3
-      }));
+      store.dispatch(
+        updateDungeon(+data.result.dungeon_id, {
+          isComplete: true,
+          isMaster: data.result.dungeon_rank === 3,
+        }),
+      );
       for (const i of data.result.unlock_dungeons) {
-        store.dispatch(updateDungeon(+i.dungeon_id, {
-          isUnlocked: true,
-        }));
+        store.dispatch(
+          updateDungeon(+i.dungeon_id, {
+            isUnlocked: true,
+          }),
+        );
       }
     }
   },
 
-  progress_battle_list_gimmick(data: dungeonsSchemas.ProgressBattleListGimmick, store: Store<IState>) {
+  progress_battle_list_gimmick(
+    data: dungeonsSchemas.ProgressBattleListGimmick,
+    store: Store<IState>,
+  ) {
     if (data.gimmick_effect.effect && data.gimmick_effect.effect.prize_master) {
       store.dispatch(openDungeonChest(data.user.dungeon_id));
     }
