@@ -157,6 +157,11 @@ export const dressRecords: DressRecord[] = [
     id: 125000100,
     characterId: 15000100,
   },
+  {
+    name: 'Knight Delita',
+    id: 125000200,
+    characterId: 15000300,
+  },
 ];
 
 export const dressRecordsById = _.zipObject(dressRecords.map(i => i.id), dressRecords);

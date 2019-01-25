@@ -5,6 +5,7 @@ import { AgGridReact } from 'ag-grid-react';
 
 import { RecordMateriaDetail } from '../../actions/recordMateria';
 import { series, SeriesId } from '../../data/series';
+import { GridContainer } from '../common/GridContainer';
 import { StatusCell } from './StatusCell';
 
 import * as _ from 'lodash';
@@ -37,7 +38,8 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
         headerName: 'Series',
         width: 65,
         field: 'characterId',
-        valueGetter: ({data}: {data: RecordMateriaDetail}) => series.short[data.seriesId as SeriesId],
+        valueGetter: ({ data }: { data: RecordMateriaDetail }) =>
+          series.short[data.seriesId as SeriesId],
         comparator: compareByNumberField('characterId'),
       },
       { headerName: 'Character', width: 115, field: 'characterName' },
@@ -47,24 +49,25 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
         headerName: 'Description',
         width: 330,
         field: 'description',
-        valueGetter: ({data}: {data: RecordMateriaDetail}) => data.description.replace('<br>', ' '),
+        valueGetter: ({ data }: { data: RecordMateriaDetail }) =>
+          data.description.replace('<br>', ' '),
       },
       {
         headerName: 'Status',
         width: 150,
         field: 'status',
-        valueGetter: ({data}: {data: RecordMateriaDetail}) => data.statusDescription,
+        valueGetter: ({ data }: { data: RecordMateriaDetail }) => data.statusDescription,
         cellRendererFramework: StatusCell,
         comparator: compareByNumberField('status'),
       },
     ];
     this.state = {
-      filter: ''
+      filter: '',
     };
   }
 
   handleFilter = (e: React.FormEvent<HTMLInputElement>) => {
-    this.setState({filter: e.currentTarget.value});
+    this.setState({ filter: e.currentTarget.value });
   };
 
   getRowNodeId = (row: RecordMateriaDetail) => '' + row.id;
@@ -72,7 +75,7 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
   render() {
     const { recordMateria } = this.props;
     return (
-      <div style={{ height: '500px', width: '100%' }} className="ag-theme-balham">
+      <GridContainer style={{ height: '500px', width: '100%' }}>
         <div className="form-group">
           <input
             className="form-control form-control-sm"
@@ -89,9 +92,8 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
           quickFilterText={this.state.filter}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
-        >
-        </AgGridReact>
-      </div>
+        />
+      </GridContainer>
     );
   }
 }

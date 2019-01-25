@@ -9,12 +9,12 @@ import configureStore from 'redux-mock-store';
 import * as _ from 'lodash';
 
 const recordMateriaListData = require('./data/released_record_materia_list.json');
-const winBattleData = require('./data/challenge_win_battle.json');
+const winBattle = require('./data/challenge_win_battle.json');
 const buddyEvolve50 = require('./data/buddy_evolve_50.json');
 const buddyEvolve50Preview = require('./data/buddy_evolve_50_preview.json');
 const buddyEvolve65 = require('./data/buddy_evolve_65.json');
 
-function sortRecordMateria(recordMateria: {[id: number]: RecordMateria}) {
+function sortRecordMateria(recordMateria: { [id: number]: RecordMateria }) {
   const result: { [character: string]: { [order in Order]: RecordMateria } } = {};
   _.values(recordMateria).forEach(i => {
     result[i.characterName] = result[i.characterName] || {};
@@ -24,13 +24,15 @@ function sortRecordMateria(recordMateria: {[id: number]: RecordMateria}) {
 }
 
 describe('recordMateria proxy handler', () => {
+  const mockStore = configureStore<IState>();
+
   describe('get_released_record_materia_list', () => {
     const recordMateria = convertRecordMateriaList(recordMateriaListData);
     const sorted = sortRecordMateria(recordMateria);
 
     it('handles characters with 2 record materia', () => {
-      expect(sorted['Warrior']['1'].name).toEqual('Blade\'s Edge');
-      expect(sorted['Warrior']['2'].name).toEqual('Warrior\'s Drive');
+      expect(sorted['Warrior']['1'].name).toEqual("Blade's Edge");
+      expect(sorted['Warrior']['2'].name).toEqual("Warrior's Drive");
 
       expect(sorted['Warrior']['1a']).toBeUndefined();
       expect(sorted['Warrior']['1b']).toBeUndefined();
@@ -49,8 +51,8 @@ describe('recordMateria proxy handler', () => {
     it('handles characters with 4 record materia', () => {
       expect(sorted['Tyro']['1a'].name).toEqual('Attunement I');
       expect(sorted['Tyro']['1b'].name).toEqual('Attunement II');
-      expect(sorted['Tyro']['2'].name).toEqual('Dr. Mog\'s Teachings');
-      expect(sorted['Tyro']['3'].name).toEqual('Scholar\'s Boon');
+      expect(sorted['Tyro']['2'].name).toEqual("Dr. Mog's Teachings");
+      expect(sorted['Tyro']['3'].name).toEqual("Scholar's Boon");
 
       expect(sorted['Tyro']['1']).toBeUndefined();
     });
@@ -78,58 +80,63 @@ describe('recordMateria proxy handler', () => {
     });
 
     it('records prerequisites', () => {
-      expect(sorted['Tyro']['2'].prereqs).toEqual([sorted['Tyro']['1a'].id, sorted['Tyro']['1b'].id]);
+      expect(sorted['Tyro']['2'].prereqs).toEqual([
+        sorted['Tyro']['1a'].id,
+        sorted['Tyro']['1b'].id,
+      ]);
     });
   });
 
   describe('win_battle', () => {
-    const mockStore = configureStore<IState>();
-    const store = mockStore();
+    it('handles record materia obtained in battle', () => {
+      const store = mockStore();
 
-    // TODO: A bug in redux-mock-store typings means we need this explicit cast (here and elsewhere)
-    recordMateriaHandler.win_battle(winBattleData, store as Redux.Store<IState>, {});
+      // TODO: A bug in redux-mock-store typings means we need this explicit cast (here and elsewhere)
+      recordMateriaHandler.win_battle(winBattle.data, store as Redux.Store<IState>, {});
 
-    expect(store.getActions()).toEqual([
-      {payload: {id: [111050021], updateInventory: true}, type: 'OBTAIN_RECORD_MATERIA'}
-    ]);
+      expect(store.getActions()).toEqual([
+        { payload: { id: [111050021], updateInventory: true }, type: 'OBTAIN_RECORD_MATERIA' },
+      ]);
+    });
   });
 
   describe('buddy/evolve', () => {
     it('handles newly acquired record materia', () => {
-      const mockStore = configureStore<IState>();
       const store = mockStore();
 
-      recordMateriaHandler['buddy/evolve'](
-        buddyEvolve50.data, store as Redux.Store<IState>, { body: buddyEvolve50.requestBody }
-      );
+      recordMateriaHandler['buddy/evolve'](buddyEvolve50.data, store as Redux.Store<IState>, {
+        body: buddyEvolve50.requestBody,
+      });
 
-      expect(store.getActions()).toEqual([{
-        type: 'OBTAIN_RECORD_MATERIA',
-        payload: {
-          id: [111020020],
-          updateInventory: true,
-        }
-      }]);
+      expect(store.getActions()).toEqual([
+        {
+          type: 'OBTAIN_RECORD_MATERIA',
+          payload: {
+            id: [111020020],
+            updateInventory: true,
+          },
+        },
+      ]);
     });
 
     it('does nothing on previews', () => {
-      const mockStore = configureStore<IState>();
       const store = mockStore();
 
       recordMateriaHandler['buddy/evolve'](
-        buddyEvolve50Preview.data, store as Redux.Store<IState>, { body: buddyEvolve50Preview.requestBody }
+        buddyEvolve50Preview.data,
+        store as Redux.Store<IState>,
+        { body: buddyEvolve50Preview.requestBody },
       );
 
       expect(store.getActions()).toEqual([]);
     });
 
     it('handles newly unlocked record materia', () => {
-      const mockStore = configureStore<IState>();
       const store = mockStore();
 
-      recordMateriaHandler['buddy/evolve'](
-        buddyEvolve65.data, store as Redux.Store<IState>, { body: buddyEvolve65.requestBody }
-      );
+      recordMateriaHandler['buddy/evolve'](buddyEvolve65.data, store as Redux.Store<IState>, {
+        body: buddyEvolve65.requestBody,
+      });
 
       // Whether materia are unlocked is derived from character information, so
       // we expect the record materia handler to take no action.

@@ -23,7 +23,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
     </p>
   </div>
   <div
-    className="__react_component_tooltip place-top type-dark "
+    className="__react_component_tooltip place-bottom type-dark "
     data-id="tooltip"
     id="dungeon-item-15048601"
   >

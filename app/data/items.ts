@@ -707,6 +707,26 @@ export const items = [
     type: ItemType.Orb,
     id: 40000116,
   },
+  {
+    name: 'Healing Smite Record',
+    type: ItemType.Orb,
+    id: 40000117,
+  },
+  {
+    name: 'Fire-Touched Blade Record',
+    type: ItemType.Orb,
+    id: 40000118,
+  },
+  {
+    name: 'Burnt Offering Record',
+    type: ItemType.Orb,
+    id: 40000119,
+  },
+  {
+    name: 'Lunar Ifrit Record',
+    type: ItemType.Orb,
+    id: 40000120,
+  },
 
   {
     name: 'Minor Growth Egg',

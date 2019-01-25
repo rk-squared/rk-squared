@@ -23,6 +23,9 @@ export class App extends React.Component {
                   <Link className="nav-link" to="/dungeons">Dungeons</Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/dungeonScores">Scores</Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/recordMateria">Record Materia</Link>
                 </li>
                 <li className="nav-item">

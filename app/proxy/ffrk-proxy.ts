@@ -20,6 +20,7 @@ import { decodeData, encodeData, getIpAddresses, getStoragePath, setStoragePath 
 import battle from './battle';
 import characters from './characters';
 import dungeons from './dungeons';
+import dungeonScores from './dungeonScores';
 import itemUpdates from './itemUpdates';
 import options from './options';
 import recordMateria from './recordMateria';
@@ -44,6 +45,7 @@ const handlers = [
   dungeons,
   itemUpdates,
   recordMateria,
+  dungeonScores,
 
   // Apply options last so that changes that options make won't interfere with
   // other processing.

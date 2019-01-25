@@ -5,6 +5,7 @@ import { routerReducer as routing } from 'react-router-redux';
 import { battle, BattleState } from './battle';
 import { characters, CharacterState } from './characters';
 import { dungeons, DungeonState } from './dungeons';
+import { dungeonScores, DungeonScoreState } from './dungeonScores';
 import { messages, MessagesState } from './messages';
 import { options, Options } from './options';
 import { prefs, PrefsState } from './prefs';
@@ -18,6 +19,7 @@ export interface IState {
   battle: BattleState;
   characters: CharacterState;
   dungeons: DungeonState;
+  dungeonScores: DungeonScoreState;
   messages: MessagesState;
   options: Options;
   prefs: PrefsState;
@@ -33,6 +35,7 @@ export const rootReducer = combineReducers<IState>({
   battle,
   characters,
   dungeons,
+  dungeonScores,
   options,
   messages,
   prefs,
@@ -44,7 +47,7 @@ export const rootReducer = combineReducers<IState>({
   routing: routing as Reducer<any>,
 
   // redux-persist uses _persist.  Pass a dummy reducer to silence warnings.
-  _persist: (state: any = null) => state
+  _persist: (state: any = null) => state,
 });
 
 /// State keys to exclude from redux-persist
