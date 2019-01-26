@@ -26151,7 +26151,7 @@
       "eva": 23,
       "spd": 136
     },
-    "introducingEventLv80": "Those Who Won't Lie",
+    "introducingEventLv80": "Revealers of Truth",
     "lv80": {
       "hp": 4169,
       "atk": 75,
@@ -26163,7 +26163,7 @@
       "eva": 24,
       "spd": 146
     },
-    "introducingEventLv99": "Those Who Won't Lie",
+    "introducingEventLv99": "Revealers of Truth",
     "lv99": {
       "hp": 5134,
       "atk": 93,
@@ -26175,7 +26175,7 @@
       "eva": 25,
       "spd": 160
     },
-    "introducingEventRecordSpheres": "Those Who Won't Lie",
+    "introducingEventRecordSpheres": "Revealers of Truth",
     "recordSpheres": {
       "hp": 355,
       "atk": 0,
@@ -26184,7 +26184,7 @@
       "res": 23,
       "mnd": 32
     },
-    "introducingEventLegendSpheres": "Those Who Won't Lie",
+    "introducingEventLegendSpheres": "Revealers of Truth",
     "legendSpheres": {
       "hp": 500,
       "atk": 0,
