@@ -9,19 +9,18 @@ import * as _ from 'lodash';
 const styles = require('./RecordMateriaTable.scss');
 
 interface Props {
-  id: string;
+  tooltipId: string;
   recordMateria: { [id: number]: RecordMateriaDetail };
   table: TableDefinition;
 }
 
 export class RecordMateriaTable extends React.Component<Props> {
   renderCell = (row: TableRow, rowIndex: number, contents: string[], index: number) => {
-    const { recordMateria } = this.props;
-    const id = `${this.props.id}-${rowIndex}-${index}`;
+    const { tooltipId, recordMateria } = this.props;
     const show = _.filter(_.flatMap(contents, s => row.items[s]));
     return (
       <td key={index}>
-        <RecordMateriaList id={id} recordMateria={recordMateria} show={show}/>
+        <RecordMateriaList tooltipId={tooltipId} recordMateria={recordMateria} show={show} />
       </td>
     );
   };
@@ -45,8 +44,12 @@ export class RecordMateriaTable extends React.Component<Props> {
         <table className={`table table-bordered ${styles.component}`}>
           <tbody>
             <tr>
-              <th style={style}/>
-              {table.headers.map((header, i) => <th key={i} style={style}>{header}</th>)}
+              <th style={style} />
+              {table.headers.map((header, i) => (
+                <th key={i} style={style}>
+                  {header}
+                </th>
+              ))}
             </tr>
             {table.rows.map(this.renderRow)}
           </tbody>

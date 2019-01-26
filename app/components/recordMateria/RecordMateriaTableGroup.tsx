@@ -3,6 +3,7 @@ import * as React from 'react';
 import { RecordMateriaDetail } from '../../actions/recordMateria';
 import { RecordMateriaTable } from './RecordMateriaTable';
 import { TableDefinition } from './RecordMateriaTableDefinitions';
+import { RecordMateriaTooltip } from './RecordMateriaTooltip';
 
 interface Props {
   id: string;
@@ -11,15 +12,20 @@ interface Props {
 }
 
 export class RecordMateriaTableGroup extends React.Component<Props> {
-  getId = (index: number) => this.props.id + '-' + index;
-
   render() {
-    const { recordMateria, tables } = this.props;
+    const { id, recordMateria, tables } = this.props;
+    const tooltipId = `${id}-tooltips`;
     return (
       <>
-        {tables.map((t, i) =>
-          <RecordMateriaTable key={i} id={this.getId(i)} table={t} recordMateria={recordMateria}/>
-        )}
+        {tables.map((t, i) => (
+          <RecordMateriaTable
+            key={i}
+            tooltipId={tooltipId}
+            table={t}
+            recordMateria={recordMateria}
+          />
+        ))}
+        <RecordMateriaTooltip id={tooltipId} recordMateria={recordMateria} />;
       </>
     );
   }

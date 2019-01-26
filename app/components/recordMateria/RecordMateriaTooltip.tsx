@@ -11,35 +11,50 @@ const styles = require('./RecordMateriaTooltip.scss');
 
 interface Props {
   id: string;
-  rm: RecordMateriaDetail;
+  recordMateria: { [id: number]: RecordMateriaDetail };
 }
 
 export class RecordMateriaTooltip extends React.Component<Props> {
-  render() {
-    const { id, rm } = this.props;
+  getContent = (recordMateriaId: string) => {
+    const rm = this.props.recordMateria[+recordMateriaId];
+    if (!rm) {
+      return null;
+    }
     const enlirRM = enlir.recordMateria[rm.name.toLowerCase()];
     return (
-      <ReactTooltip id={id} className={styles.component} place="bottom">
+      <>
         <div className={styles.iconsBlock}>
-          <img src={urls.characterImage(rm.characterId)}/>
-          <img src={urls.recordMateriaImage(rm.id)}/>
+          <img src={urls.characterImage(rm.characterId)} />
+          <img src={urls.recordMateriaImage(rm.id)} />
         </div>
 
         <div className={styles.textBlock}>
           <h6>{rm.name}</h6>
-          <BrTextToP text={rm.description} className={styles.gameDescription}/>
+          <BrTextToP text={rm.description} className={styles.gameDescription} />
           <p className={styles.enlirDescription}>{enlirRM ? enlirRM.effect : ''}</p>
           <div className={styles.statusBlock}>
-            <StatusIcon status={rm.status}/>
+            <StatusIcon status={rm.status} />
             <p>
               {rm.statusDescription}
-              {rm.status === RecordMateriaStatus.Unlocked
-                && <span className={styles.unlockCondition}> ({rm.condition})</span>
-              }
+              {rm.status === RecordMateriaStatus.Unlocked && (
+                <span className={styles.unlockCondition}> ({rm.condition})</span>
+              )}
             </p>
           </div>
         </div>
-      </ReactTooltip>
+      </>
+    );
+  };
+
+  render() {
+    const { id } = this.props;
+    return (
+      <ReactTooltip
+        id={id}
+        className={styles.component}
+        place="bottom"
+        getContent={this.getContent}
+      />
     );
   }
 }
