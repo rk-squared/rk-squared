@@ -132,6 +132,12 @@ const recordMateriaHandler: Handler = {
     const newRecordMateria = convertRecordMateriaList(data);
     store.dispatch(setRecordMateria(newRecordMateria));
 
+    // The record materia library may not correctly indicate some materia that
+    // have been earned and vaulted.  To compensate, check materia that we know
+    // we've obtained from looking at characters' levels.
+    // FIXME: This is still unreliable - a character with an RM 1b and an RM 2, both vaulted, shows as unobtained
+    // The right fix, I think, is to stop trying to derive obtained from here
+    // and just get it from record_materias_warehouse.
     const level50Characters = _.values(store.getState().characters.characters)
       .filter(i => i.levelCap > 50)
       .map(i => i.id);
