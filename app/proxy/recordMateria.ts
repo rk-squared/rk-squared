@@ -19,7 +19,7 @@ import {
   setRecordMateria,
   setRecordMateriaInventory,
   Step,
-  updateRecordMateriaInventory
+  updateRecordMateriaInventory,
 } from '../actions/recordMateria';
 import { SeriesId } from '../data/series';
 
@@ -30,7 +30,9 @@ interface MateriaIdsByCharacter {
   [characterId: number]: number[];
 }
 
-function sortRecordMateriaByCharacter(rawRecordMateria: recordMateriaSchemas.RecordMateria[]): MateriaIdsByCharacter {
+function sortRecordMateriaByCharacter(
+  rawRecordMateria: recordMateriaSchemas.RecordMateria[],
+): MateriaIdsByCharacter {
   const result: { [characterId: number]: number[] } = [];
   for (const i of rawRecordMateria) {
     result[i.buddy_id] = result[i.buddy_id] || [];
@@ -39,10 +41,13 @@ function sortRecordMateriaByCharacter(rawRecordMateria: recordMateriaSchemas.Rec
   return result;
 }
 
-function determineOrder(data: recordMateriaSchemas.ReleasedRecordMateriaList, byCharacter: MateriaIdsByCharacter,
-                        result: { [id: number]: RecordMateria }) {
-  const standardOrder: Order[] = [ '1', '2', '3' ];
-  const abOrder: Order[] = [ '1a', '1b', '2', '3' ];
+function determineOrder(
+  data: recordMateriaSchemas.ReleasedRecordMateriaList,
+  byCharacter: MateriaIdsByCharacter,
+  result: { [id: number]: RecordMateria },
+) {
+  const standardOrder: Order[] = ['1', '2', '3'];
+  const abOrder: Order[] = ['1a', '1b', '2', '3'];
 
   for (const { id, buddy_id } of data.record_materias) {
     const thisOrder = byCharacter[buddy_id].length === 4 ? abOrder : standardOrder;
@@ -51,8 +56,11 @@ function determineOrder(data: recordMateriaSchemas.ReleasedRecordMateriaList, by
   }
 }
 
-function determineObtained(data: schemas.ReleasedRecordMateriaList, byCharacter: MateriaIdsByCharacter,
-                           result: { [id: number]: RecordMateria }) {
+function determineObtained(
+  data: schemas.ReleasedRecordMateriaList,
+  byCharacter: MateriaIdsByCharacter,
+  result: { [id: number]: RecordMateria },
+) {
   Object.keys(data.achieved_record_materia_map).forEach(i => {
     const id = +i;
     result[id].obtained = true;
@@ -71,7 +79,9 @@ function determineObtained(data: schemas.ReleasedRecordMateriaList, byCharacter:
   });
 }
 
-export function convertRecordMateriaList(data: schemas.ReleasedRecordMateriaList): { [id: number]: RecordMateria } {
+export function convertRecordMateriaList(
+  data: schemas.ReleasedRecordMateriaList,
+): { [id: number]: RecordMateria } {
   const result: { [id: number]: RecordMateria } = {};
 
   for (const i of data.record_materias) {
@@ -100,12 +110,16 @@ export function convertRecordMateriaList(data: schemas.ReleasedRecordMateriaList
 }
 
 export function checkLevel50RecordMateria(
-  store: Store<IState>, recordMateria: { [id: number]: RecordMateria }, level50Characters: number[]
+  store: Store<IState>,
+  recordMateria: { [id: number]: RecordMateria },
+  level50Characters: number[],
 ) {
   const level50CharactersSet = _.fromPairs(level50Characters.map(i => [i, true]));
 
-  const obtained = _.filter(recordMateria, rm => level50CharactersSet[rm.characterId] && rm.step === 1)
-    .map(rm => rm.id);
+  const obtained = _.filter(
+    recordMateria,
+    rm => level50CharactersSet[rm.characterId] && rm.step === 1,
+  ).map(rm => rm.id);
 
   if (obtained.length) {
     store.dispatch(obtainRecordMateria(obtained, false));
@@ -114,7 +128,7 @@ export function checkLevel50RecordMateria(
 
 // noinspection JSUnusedGlobalSymbols
 const recordMateriaHandler: Handler = {
-  'get_released_record_materia_list'(data: schemas.ReleasedRecordMateriaList, store: Store<IState>) {
+  get_released_record_materia_list(data: schemas.ReleasedRecordMateriaList, store: Store<IState>) {
     const newRecordMateria = convertRecordMateriaList(data);
     store.dispatch(setRecordMateria(newRecordMateria));
 
@@ -129,22 +143,29 @@ const recordMateriaHandler: Handler = {
       return;
     }
 
-    store.dispatch(setRecordMateriaInventory(
-      _.map(data.record_materias, i => i.id),
-      _.map(_.filter(data.record_materias, i => i.is_favorite), i => i.id),
-      _.map(data.record_materias_warehouse, i => i.record_materia_id),
-    ));
+    store.dispatch(
+      setRecordMateriaInventory(
+        _.map(data.record_materias, i => i.id),
+        _.map(_.filter(data.record_materias, i => i.is_favorite), i => i.id),
+        _.map(data.record_materias_warehouse, i => i.record_materia_id),
+      ),
+    );
 
     // TODO: Now that we process record_materias_warehouse, this should no longer be needed.
-    const level50Characters = data.buddies
-      .filter(i => i.level_max > 50)
-      .map(i => i.buddy_id);
-    checkLevel50RecordMateria(store, store.getState().recordMateria.recordMateria, level50Characters);
+    const level50Characters = data.buddies.filter(i => i.level_max > 50).map(i => i.buddy_id);
+    checkLevel50RecordMateria(
+      store,
+      store.getState().recordMateria.recordMateria,
+      level50Characters,
+    );
   },
 
-  'set_favorite_record_materia'(data: recordMateriaSchemas.SetFavoriteRecordMateria, store: Store<IState>,
-                                request: HandlerRequest) {
-    if (typeof(request.body) !== 'object' || !request.body.id_to_flag) {
+  set_favorite_record_materia(
+    data: recordMateriaSchemas.SetFavoriteRecordMateria,
+    store: Store<IState>,
+    request: HandlerRequest,
+  ) {
+    if (typeof request.body !== 'object' || !request.body.id_to_flag) {
       logger.warn(`Unknown POST request for set_favorite_record_materia: ${request.body}`);
       return;
     }
@@ -154,19 +175,22 @@ const recordMateriaHandler: Handler = {
     });
   },
 
-  'win_battle'(data: schemas.WinBattle, store: Store<IState>) {
+  win_battle(data: schemas.WinBattle, store: Store<IState>) {
     const obtainedIds = _.map(
       _.filter(data.result.prize_master, i => i.type_name === 'RECORD_MATERIA'),
-        i => +i.item_id
+      i => +i.item_id,
     );
     if (obtainedIds.length) {
       store.dispatch(obtainRecordMateria(obtainedIds));
     }
   },
 
-  'warehouse/store_record_materias'(data: schemas.WarehouseStoreRecordMaterias, store: Store<IState>,
-                                    request: HandlerRequest) {
-    if (typeof(request.body) !== 'object' || !request.body.ids) {
+  'warehouse/store_record_materias'(
+    data: schemas.WarehouseStoreRecordMaterias,
+    store: Store<IState>,
+    request: HandlerRequest,
+  ) {
+    if (typeof request.body !== 'object' || !request.body.ids) {
       logger.warn(`Unknown POST request for warehouse/store_record_materias: ${request.body}`);
       return;
     }
@@ -176,9 +200,12 @@ const recordMateriaHandler: Handler = {
     });
   },
 
-  'warehouse/bring_record_materias'(data: schemas.WarehouseBringRecordMaterias, store: Store<IState>,
-                                    request: HandlerRequest) {
-    if (typeof(request.body) !== 'object' || !request.body.ids) {
+  'warehouse/bring_record_materias'(
+    data: schemas.WarehouseBringRecordMaterias,
+    store: Store<IState>,
+    request: HandlerRequest,
+  ) {
+    if (typeof request.body !== 'object' || !request.body.ids) {
       logger.warn(`Unknown POST request for warehouse/bring_record_materias: ${request.body}`);
       return;
     }
@@ -188,8 +215,12 @@ const recordMateriaHandler: Handler = {
     });
   },
 
-  'buddy/evolve'(data: charactersSchemas.BuddyEvolve, store: Store<IState>, request: HandlerRequest) {
-    if (typeof(request.body) !== 'object' || request.body.exec == null) {
+  'buddy/evolve'(
+    data: charactersSchemas.BuddyEvolve,
+    store: Store<IState>,
+    request: HandlerRequest,
+  ) {
+    if (typeof request.body !== 'object' || request.body.exec == null) {
       logger.warn(`Unknown POST request for buddy/evolve: ${request.body}`);
       return;
     }
@@ -205,8 +236,12 @@ const recordMateriaHandler: Handler = {
     }
   },
 
-  'grow_egg/use'(data: charactersSchemas.GrowEggUse, store: Store<IState>, request: HandlerRequest) {
-    if (typeof(request.body) !== 'object' || request.body.exec == null) {
+  'grow_egg/use'(
+    data: charactersSchemas.GrowEggUse,
+    store: Store<IState>,
+    request: HandlerRequest,
+  ) {
+    if (typeof request.body !== 'object' || request.body.exec == null) {
       logger.warn(`Unknown POST request for grow_egg/use: ${request.body}`);
       return;
     }
