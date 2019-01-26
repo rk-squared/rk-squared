@@ -30,6 +30,18 @@ export function convertCharacters(data: schemas.PartyList): { [id: number]: Char
   return _.keyBy(data.buddies.map(i => convertCharacter(i)), 'id');
 }
 
+function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
+  for (const buddy of data.result.buddy) {
+    if (+buddy.exp.current_level !== +buddy.exp.previous_level) {
+      store.dispatch(
+        updateCharacter(+buddy.buddy_id, {
+          level: +buddy.exp.current_level,
+        }),
+      );
+    }
+  }
+}
+
 const charactersHandler: Handler = {
   'party/list'(data: schemas.PartyList, store: Store<IState>, request: HandlerRequest) {
     if (schemas.isRecordDungeonPartyList(request.url)) {
@@ -38,18 +50,15 @@ const charactersHandler: Handler = {
     store.dispatch(setCharacters(convertCharacters(data)));
   },
 
-  'win_battle'(data: schemas.WinBattle, store: Store<IState>) {
-    for (const buddy of data.result.buddy) {
-      if (+buddy.exp.current_level !== +buddy.exp.previous_level) {
-        store.dispatch(updateCharacter(+buddy.buddy_id, {
-          level: +buddy.exp.current_level
-        }));
-      }
-    }
-  },
+  win_battle: handleWinBattle,
+  'battle/win': handleWinBattle,
 
-  'grow_egg/use'(data: charactersSchemas.GrowEggUse, store: Store<IState>, request: HandlerRequest) {
-    if (typeof(request.body) !== 'object' || request.body.exec == null) {
+  'grow_egg/use'(
+    data: charactersSchemas.GrowEggUse,
+    store: Store<IState>,
+    request: HandlerRequest,
+  ) {
+    if (typeof request.body !== 'object' || request.body.exec == null) {
       logger.warn(`Unknown POST request for grow_egg/use: ${request.body}`);
       return;
     }
@@ -62,8 +71,12 @@ const charactersHandler: Handler = {
     store.dispatch(setCharacter(convertCharacter(data.buddy)));
   },
 
-  'buddy/evolve'(data: charactersSchemas.BuddyEvolve, store: Store<IState>, request: HandlerRequest) {
-    if (typeof(request.body) !== 'object' || request.body.exec == null) {
+  'buddy/evolve'(
+    data: charactersSchemas.BuddyEvolve,
+    store: Store<IState>,
+    request: HandlerRequest,
+  ) {
+    if (typeof request.body !== 'object' || request.body.exec == null) {
       logger.warn(`Unknown POST request for buddy/evolve: ${request.body}`);
       return;
     }

@@ -391,6 +391,24 @@ function checkForUpdatedWorldDungeons(
   }
 }
 
+function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
+  if (data.result.is_dungeon_clear) {
+    store.dispatch(
+      updateDungeon(+data.result.dungeon_id, {
+        isComplete: true,
+        isMaster: data.result.dungeon_rank === 3,
+      }),
+    );
+    for (const i of data.result.unlock_dungeons) {
+      store.dispatch(
+        updateDungeon(+i.dungeon_id, {
+          isUnlocked: true,
+        }),
+      );
+    }
+  }
+}
+
 // noinspection JSUnusedGlobalSymbols
 const dungeonsHandler: Handler = {
   [StartupHandler]: (data: mainSchemas.Main, store: Store<IState>) => {
@@ -414,23 +432,8 @@ const dungeonsHandler: Handler = {
     store.dispatch(addWorldDungeons(query.world_id, newDungeons));
   },
 
-  win_battle(data: schemas.WinBattle, store: Store<IState>) {
-    if (data.result.is_dungeon_clear) {
-      store.dispatch(
-        updateDungeon(+data.result.dungeon_id, {
-          isComplete: true,
-          isMaster: data.result.dungeon_rank === 3,
-        }),
-      );
-      for (const i of data.result.unlock_dungeons) {
-        store.dispatch(
-          updateDungeon(+i.dungeon_id, {
-            isUnlocked: true,
-          }),
-        );
-      }
-    }
-  },
+  win_battle: handleWinBattle,
+  'battle/win': handleWinBattle,
 
   progress_battle_list_gimmick(
     data: dungeonsSchemas.ProgressBattleListGimmick,

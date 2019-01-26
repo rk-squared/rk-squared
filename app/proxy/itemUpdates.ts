@@ -129,6 +129,17 @@ function checkPartyDressRecords(data: schemas.PartyList) {
   }
 }
 
+function handleWinBattle(data: schemas.WinBattle) {
+  _.forEach(data.result.prize_master, item => {
+    checkItem({
+      id: +item.item_id,
+      type_name: item.type_name,
+      name: item.name,
+      image_path: item.image_path,
+    });
+  });
+}
+
 const itemUpdatesHandler: Handler = {
   dungeons(data: schemas.Dungeons) {
     for (const d of data.dungeons) {
@@ -151,16 +162,8 @@ const itemUpdatesHandler: Handler = {
     checkPartyDressRecords(data);
   },
 
-  win_battle(data: schemas.WinBattle) {
-    _.forEach(data.result.prize_master, item => {
-      checkItem({
-        id: +item.item_id,
-        type_name: item.type_name,
-        name: item.name,
-        image_path: item.image_path,
-      });
-    });
-  },
+  win_battle: handleWinBattle,
+  'battle/win': handleWinBattle,
 };
 
 export default itemUpdatesHandler;

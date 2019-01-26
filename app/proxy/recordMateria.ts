@@ -126,6 +126,16 @@ export function checkLevel50RecordMateria(
   }
 }
 
+function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
+  const obtainedIds = _.map(
+    _.filter(data.result.prize_master, i => i.type_name === 'RECORD_MATERIA'),
+    i => +i.item_id,
+  );
+  if (obtainedIds.length) {
+    store.dispatch(obtainRecordMateria(obtainedIds));
+  }
+}
+
 // noinspection JSUnusedGlobalSymbols
 const recordMateriaHandler: Handler = {
   get_released_record_materia_list(data: schemas.ReleasedRecordMateriaList, store: Store<IState>) {
@@ -181,15 +191,8 @@ const recordMateriaHandler: Handler = {
     });
   },
 
-  win_battle(data: schemas.WinBattle, store: Store<IState>) {
-    const obtainedIds = _.map(
-      _.filter(data.result.prize_master, i => i.type_name === 'RECORD_MATERIA'),
-      i => +i.item_id,
-    );
-    if (obtainedIds.length) {
-      store.dispatch(obtainRecordMateria(obtainedIds));
-    }
-  },
+  win_battle: handleWinBattle,
+  'battle/win': handleWinBattle,
 
   'warehouse/store_record_materias'(
     data: schemas.WarehouseStoreRecordMaterias,

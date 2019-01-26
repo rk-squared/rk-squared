@@ -23,9 +23,9 @@ enum DropItemType {
   XPotion = 23,
   Ether = 31,
   HiEther = 32,
-  Treasure = 41,  // Includes relics (unconfirmed), upgrade materials, magicite, growth eggs
+  Treasure = 41, // Includes relics (unconfirmed), upgrade materials, magicite, growth eggs
   Orb = 51,
-  Currency = 61,  // E.g., Gysahl Greens (item ID 95001014, rarity 1), Prismatic Seeds (ID 95001029, rarity 1)
+  Currency = 61, // E.g., Gysahl Greens (item ID 95001014, rarity 1), Prismatic Seeds (ID 95001029, rarity 1)
 }
 
 const dropItemTypeName = {
@@ -37,10 +37,10 @@ const dropItemTypeName = {
   [DropItemType.HiEther]: 'Hi-Ether',
   [DropItemType.Treasure]: 'Treasure',
   [DropItemType.Orb]: 'Orb',
-  [DropItemType.Currency]: 'Currency'
+  [DropItemType.Currency]: 'Currency',
 };
 
-const toNumber = (x: number | string | undefined) => x == null ? undefined : +x;
+const toNumber = (x: number | string | undefined) => (x == null ? undefined : +x);
 
 interface NormalizedItem {
   rarity: number;
@@ -61,11 +61,19 @@ function normalizeItem(item: schemas.DropItem): NormalizedItem {
   };
 }
 
-function assetKey({ type, rarity }: { type: number, rarity: number }) {
+function assetKey({ type, rarity }: { type: number; rarity: number }) {
   return `drop_item_${type}_${rarity}`;
 }
 
-function generateItemName({ item_id, rarity, type }: { item_id?: number, type: number, rarity: number }) {
+function generateItemName({
+  item_id,
+  rarity,
+  type,
+}: {
+  item_id?: number;
+  type: number;
+  rarity: number;
+}) {
   if (item_id != null) {
     return `Item ${item_id}`;
   } else {
@@ -100,12 +108,16 @@ function getTreasureDetails(id: number, item: NormalizedItem) {
     };
   } else {
     return {
-      name: generateItemName(item)
+      name: generateItemName(item),
     };
   }
 }
 
-function convertDropItemList(data: schemas.GetBattleInit, dropItemData: schemas.DropItem[], dropItems: DropItem[]) {
+function convertDropItemList(
+  data: schemas.GetBattleInit,
+  dropItemData: schemas.DropItem[],
+  dropItems: DropItem[],
+) {
   for (const i of dropItemData) {
     const item = normalizeItem(i);
     let imageUrl = urls.asset(data.battle.assets[assetKey(item)]);
@@ -198,7 +210,10 @@ function convertDropItemList(data: schemas.GetBattleInit, dropItemData: schemas.
   }
 }
 
-function convertDropMateria(materia: {name: string, item_id: string | number}, dropItems: DropItem[]) {
+function convertDropMateria(
+  materia: { name: string; item_id: string | number },
+  dropItems: DropItem[],
+) {
   dropItems.push({
     name: materia.name,
     imageUrl: urls.recordMateriaDropImage(+materia.item_id),
@@ -228,20 +243,20 @@ function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
 
 // noinspection JSUnusedGlobalSymbols
 const battleHandler: Handler = {
-  'escape_battle'(data: schemas.GetBattleInit, store: Store<IState>) {
+  escape_battle(data: schemas.GetBattleInit, store: Store<IState>) {
     store.dispatch(clearDropItems());
   },
 
-  'get_battle_init_data'(data: schemas.GetBattleInit, store: Store<IState>) {
+  get_battle_init_data(data: schemas.GetBattleInit, store: Store<IState>) {
     const items = convertBattleDropItems(data);
     store.dispatch(setDropItems(items));
   },
 
-  'lose_battle'(data: schemas.GetBattleInit, store: Store<IState>) {
+  lose_battle(data: schemas.GetBattleInit, store: Store<IState>) {
     store.dispatch(clearDropItems());
   },
 
-  'win_battle': handleWinBattle,
+  win_battle: handleWinBattle,
   'battle/win': handleWinBattle,
 };
 

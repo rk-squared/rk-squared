@@ -46,6 +46,10 @@ function checkForMagiciteWin(data: schemas.WinBattle, store: Store<IState>) {
   );
 }
 
+function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
+  checkForMagiciteWin(data, store);
+}
+
 const dungeonScoresHandler: Handler = {
   battles(data: schemas.Battles, store: Store<IState>) {
     for (const i of data.battles) {
@@ -74,9 +78,8 @@ const dungeonScoresHandler: Handler = {
     }
   },
 
-  win_battle(data: schemas.WinBattle, store: Store<IState>) {
-    checkForMagiciteWin(data, store);
-  },
+  win_battle: handleWinBattle,
+  'battle/win': handleWinBattle,
 };
 
 export default dungeonScoresHandler;
