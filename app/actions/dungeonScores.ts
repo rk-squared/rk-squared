@@ -161,37 +161,44 @@ export function formatEstimatedScore(score: DungeonScore): string {
   }
 }
 
-export function isScoreBetterThan(scoreA: DungeonScore, scoreB: DungeonScore): boolean {
+export function compareScore(scoreA: DungeonScore, scoreB: DungeonScore): number {
   if (scoreA.type !== scoreB.type) {
     // Arguably a precondition violation...
-    return false;
+    return 0;
   }
 
+  // Returns 1, 0, or -1, if f indicates that a is better, equal to, or worse than b.
   type Op<T> = (a: T, b: T) => boolean;
-  const isBetter = (f: Op<number>, a: number | undefined, b: number | undefined) => {
+  const compare = (f: Op<number>, a: number | undefined, b: number | undefined): number => {
     if (b == null) {
-      return true;
+      return 1;
     } else if (a == null) {
-      return false;
+      return -1;
+    } else if (a === b) {
+      return 0;
     } else {
-      return a !== b && f(a, b);
+      return f(a, b) ? 1 : -1;
     }
   };
 
   switch (scoreA.type) {
     case DungeonScoreType.ClearTime:
-      return isBetter(_.lt, scoreA.time, scoreB.time);
+      return compare(_.lt, scoreA.time, scoreB.time);
     case DungeonScoreType.TotalDamage:
-      return isBetter(_.gt, scoreA.totalDamage, scoreB.totalDamage);
+      return compare(_.gt, scoreA.totalDamage, scoreB.totalDamage);
     case DungeonScoreType.PercentHpOrClearTime:
       if (scoreA.won && !scoreB.won) {
-        return true;
+        return 1;
       } else if (scoreA.won) {
-        return isBetter(_.lt, scoreA.time, scoreB.time);
+        return compare(_.lt, scoreA.time, scoreB.time);
       } else {
-        return isBetter(_.gt, scoreA.totalDamage, scoreB.totalDamage);
+        return compare(_.gt, scoreA.totalDamage, scoreB.totalDamage);
       }
   }
+}
+
+export function isScoreBetterThan(scoreA: DungeonScore, scoreB: DungeonScore): boolean {
+  return compareScore(scoreA, scoreB) > 0;
 }
 
 export function shouldUseEstimatedScore(

@@ -1,7 +1,12 @@
 import { createSelector } from 'reselect';
 
 import { Dungeon } from '../actions/dungeons';
-import { DungeonScore, estimateScore } from '../actions/dungeonScores';
+import {
+  compareScore,
+  DungeonScore,
+  estimateScore,
+  shouldUseEstimatedScore,
+} from '../actions/dungeonScores';
 import { getSorter, World, WorldCategory } from '../actions/worlds';
 import { IState } from '../reducers';
 import { DungeonState, getDungeonsForWorld } from '../reducers/dungeons';
@@ -9,6 +14,7 @@ import { DungeonScoreState } from '../reducers/dungeonScores';
 import { WorldState } from '../reducers/worlds';
 
 import * as _ from 'lodash';
+import { compareWithUndefined } from '../utils/typeUtils';
 
 export interface DungeonWithScore extends Dungeon {
   score: DungeonScore | undefined;
@@ -60,6 +66,21 @@ function getHighestUnlocked(dungeons: MagiciteDungeonWithScore[]): number | null
     }
   }
   return null;
+}
+
+export function getEffectiveScore(dungeon: DungeonWithScore) {
+  return shouldUseEstimatedScore(dungeon.score, dungeon.estimatedScore)
+    ? dungeon.estimatedScore
+    : dungeon.score;
+}
+
+export function compareDungeonsWithScore(
+  dungeonA: DungeonWithScore | undefined,
+  dungeonB: DungeonWithScore | undefined,
+): number {
+  const scoreA = dungeonA ? getEffectiveScore(dungeonA) : undefined;
+  const scoreB = dungeonB ? getEffectiveScore(dungeonB) : undefined;
+  return compareWithUndefined(compareScore)(scoreA, scoreB);
 }
 
 export const getMagiciteScores = createSelector<

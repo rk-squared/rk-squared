@@ -7,12 +7,14 @@ import { connect } from 'react-redux';
 import * as _ from 'lodash';
 
 import { Dungeon } from '../../actions/dungeons';
+import { compareScore } from '../../actions/dungeonScores';
 import { IState } from '../../reducers';
 import {
   DungeonWithScore,
   getMagiciteScores,
   MagiciteDungeonWithScore,
 } from '../../selectors/dungeonsWithScore';
+import { compareWithUndefined } from '../../utils/typeUtils';
 import { GridContainer } from '../common/GridContainer';
 import { CheckIconCellRenderer } from './CheckIconCellRenderer';
 import { MagiciteElementCellRenderer } from './MagiciteElementCellRenderer';
@@ -33,7 +35,7 @@ export class MagiciteGrid extends React.Component<Props> {
     this.columnDefs = [
       {
         headerName: 'Element',
-        width: 90,
+        width: 95,
         field: 'worldId', // World IDs correspond to elements and have a good sort order.
         cellRendererFramework: MagiciteElementCellRenderer,
       },
@@ -70,6 +72,7 @@ export class MagiciteGrid extends React.Component<Props> {
         field: 'score',
         cellClass: 'text-right',
         cellRendererFramework: MagiciteScoreCellRenderer,
+        comparator: compareWithUndefined(compareScore),
       },
     ];
   }

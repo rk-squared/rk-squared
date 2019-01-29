@@ -12,6 +12,7 @@ import { series } from '../../data';
 import { SeriesId } from '../../data/series';
 import { IState } from '../../reducers';
 import {
+  compareDungeonsWithScore,
   DungeonWithScore,
   getTormentScores,
   TormentWorldWithScore,
@@ -29,6 +30,7 @@ const dColumnDef = {
   width: 85,
   cellRendererFramework: TormentScoreCellRenderer,
   cellClass: 'text-right',
+  comparator: compareDungeonsWithScore,
 };
 
 export class TormentGrid extends React.Component<Props> {
@@ -41,7 +43,7 @@ export class TormentGrid extends React.Component<Props> {
     this.columnDefs = [
       {
         headerName: 'Series',
-        width: 65,
+        width: 85,
         field: 'seriesId',
         valueFormatter: ({ value }: { value: SeriesId }) => series.short[value],
       },
