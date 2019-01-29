@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ColDef, RowNode } from 'ag-grid';
+import { ColDef, GridApi, GridReadyEvent, RowNode } from 'ag-grid';
 import { AgGridReact } from 'ag-grid-react';
 
 import { RecordMateriaDetail } from '../../actions/recordMateria';
@@ -16,6 +16,7 @@ interface Props {
 
 interface State {
   filter: string | undefined;
+  count: number | undefined;
 }
 
 type Comparator = ColDef['comparator'];
@@ -29,6 +30,7 @@ function compareByNumberField(fieldName: string): Comparator {
 export class RecordMateriaGrid extends React.Component<Props, State> {
   columnDefs: ColDef[];
   objectValues = _.memoize(_.values);
+  api: GridApi | undefined;
 
   constructor(props: Props) {
     super(props);
@@ -63,8 +65,14 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
     ];
     this.state = {
       filter: '',
+      count: undefined,
     };
   }
+
+  handleGridReady = ({ api }: GridReadyEvent) => {
+    this.api = api;
+    this.setState({ count: api.getDisplayedRowCount() });
+  };
 
   handleFilter = (e: React.FormEvent<HTMLInputElement>) => {
     this.setState({ filter: e.currentTarget.value });
@@ -72,8 +80,18 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
 
   getRowNodeId = (row: RecordMateriaDetail) => '' + row.id;
 
+  componentDidUpdate() {
+    if (this.api) {
+      const newCount = this.api.getDisplayedRowCount();
+      if (this.state.count !== newCount) {
+        this.setState({ count: newCount });
+      }
+    }
+  }
+
   render() {
     const { recordMateria } = this.props;
+    const { count } = this.state;
     return (
       <GridContainer style={{ height: '500px', width: '100%' }}>
         <div className="form-group">
@@ -92,7 +110,9 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
           quickFilterText={this.state.filter}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
+          onGridReady={this.handleGridReady}
         />
+        <div className="text-right mt-1 text-muted">{count != null && count + ' materia'}</div>
       </GridContainer>
     );
   }
