@@ -8,9 +8,13 @@ interface Props {
   data: RecordMateriaDetail;
 }
 
-export class StatusCell extends React.Component<Props> {
+export class StatusCell extends React.PureComponent<Props> {
   render() {
     const { data } = this.props;
-    return <span><StatusIcon status={data.status}/> {data.statusDescription}</span>;
+    return (
+      <span>
+        <StatusIcon status={data.status} /> {data.statusDescription}
+      </span>
+    );
   }
 }

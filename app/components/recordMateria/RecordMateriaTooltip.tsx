@@ -12,6 +12,7 @@ const styles = require('./RecordMateriaTooltip.scss');
 interface Props {
   id: string;
   recordMateria: { [id: number]: RecordMateriaDetail };
+  descriptionOnly?: boolean;
 }
 
 export class RecordMateriaTooltip extends React.Component<Props> {
@@ -21,6 +22,18 @@ export class RecordMateriaTooltip extends React.Component<Props> {
       return null;
     }
     const enlirRM = enlir.recordMateria[rm.name.toLowerCase()];
+
+    const gameDescription = <BrTextToP text={rm.description} className={styles.gameDescription} />;
+    const enlirDescription = enlirRM && <p className={styles.enlirDescription}>{enlirRM.effect}</p>;
+
+    if (this.props.descriptionOnly) {
+      return (
+        <div className={styles.textBlock}>
+          {gameDescription}
+          {enlirDescription}
+        </div>
+      );
+    }
     return (
       <>
         <div className={styles.iconsBlock}>
@@ -30,8 +43,8 @@ export class RecordMateriaTooltip extends React.Component<Props> {
 
         <div className={styles.textBlock}>
           <h6>{rm.name}</h6>
-          <BrTextToP text={rm.description} className={styles.gameDescription} />
-          <p className={styles.enlirDescription}>{enlirRM ? enlirRM.effect : ''}</p>
+          {gameDescription}
+          {enlirDescription}
           <div className={styles.statusBlock}>
             <StatusIcon status={rm.status} />
             <p>

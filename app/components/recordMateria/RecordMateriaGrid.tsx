@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { ColDef, GridApi, GridReadyEvent, RowNode } from 'ag-grid';
 import { AgGridReact } from 'ag-grid-react';
+import * as ReactTooltip from 'react-tooltip';
 
 import { RecordMateriaDetail } from '../../actions/recordMateria';
 import { series, SeriesId } from '../../data/series';
@@ -9,6 +10,8 @@ import { GridContainer } from '../common/GridContainer';
 import { StatusCell } from './StatusCell';
 
 import * as _ from 'lodash';
+import { DescriptionCell } from './DescriptionCell';
+import { RecordMateriaTooltip } from './RecordMateriaTooltip';
 
 interface Props {
   recordMateria: { [id: number]: RecordMateriaDetail };
@@ -53,6 +56,7 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
         field: 'description',
         valueGetter: ({ data }: { data: RecordMateriaDetail }) =>
           data.description.replace('<br>', ' '),
+        cellRendererFramework: DescriptionCell,
       },
       {
         headerName: 'Status',
@@ -81,6 +85,10 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
   getRowNodeId = (row: RecordMateriaDetail) => '' + row.id;
 
   componentDidUpdate() {
+    this.updateCount();
+  }
+
+  updateCount() {
     if (this.api) {
       const newCount = this.api.getDisplayedRowCount();
       if (this.state.count !== newCount) {
@@ -111,8 +119,14 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
           onGridReady={this.handleGridReady}
+          onViewportChanged={ReactTooltip.rebuild}
         />
         <div className="text-right mt-1 text-muted">{count != null && count + ' materia'}</div>
+        <RecordMateriaTooltip
+          id={DescriptionCell.ID}
+          descriptionOnly={true}
+          recordMateria={recordMateria}
+        />
       </GridContainer>
     );
   }
