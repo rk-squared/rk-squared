@@ -81,6 +81,9 @@ export class MagiciteGrid extends React.Component<Props> {
 
   render() {
     const { magiciteScores } = this.props;
+    if (!magiciteScores.length) {
+      return <div>No magicite dungeons have been loaded.</div>;
+    }
     return (
       <GridContainer>
         <AgGridReact

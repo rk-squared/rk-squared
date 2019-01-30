@@ -52,7 +52,7 @@ const handlers = [
   options,
 ];
 
-const ffrkRegex = /ffrk\.denagames\.com\/dff/;
+const ffrkRegex = /ffrk\.denagames\.com\/dff|dff\.sp\.mbga\.jp\/dff/;
 const port = 8888;
 const httpsPort = 8889;
 
@@ -67,7 +67,9 @@ function isFfrkApiRequest(req: http.IncomingMessage) {
 function isFfrkStartupRequest(req: http.IncomingMessage) {
   return (
     (req.url === 'http://ffrk.denagames.com/dff/' ||
-      req.url === 'https://ffrk.denagames.com/dff/') &&
+      req.url === 'https://ffrk.denagames.com/dff/' ||
+      req.url === 'http://dff.sp.mbga.jp/dff/' ||
+      req.url === 'https://dff.sp.mbga.jp/dff/') &&
     req.headers['accept'] &&
     req.headers['accept']!.indexOf('text/html') !== -1
   );
@@ -221,6 +223,11 @@ function handleFfrkStartupRequest(
   res: http.ServerResponse,
   store: Store<IState>,
 ) {
+  if (res.statusCode === 302 && res.hasHeader('Location')) {
+    logger.debug(`Redirected to ${res.getHeader('Location')} on startup; ignoring`);
+    return data;
+  }
+
   try {
     const decoded = decodeData(data, res).toString();
     const $ = cheerio.load(decoded);

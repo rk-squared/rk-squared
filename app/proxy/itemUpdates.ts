@@ -163,6 +163,7 @@ const itemUpdatesHandler: Handler = {
   },
 
   win_battle: handleWinBattle,
+  battle_win: handleWinBattle,
   'battle/win': handleWinBattle,
 };
 

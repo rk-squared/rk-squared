@@ -60,7 +60,7 @@ const magiciteStarsByDifficulty: { [difficulty: number]: number } = {
 };
 
 function getHighestUnlocked(dungeons: MagiciteDungeonWithScore[]): number | null {
-  for (let stars = 5; stars >= 3; stars++) {
+  for (let stars = 5; stars >= 3; stars--) {
     if (_.some(dungeons, i => i.stars && i.stars >= stars && i.isUnlocked)) {
       return stars;
     }

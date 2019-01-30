@@ -14,9 +14,9 @@ export function url(subPath: string): string {
 }
 
 export function asset(assetPath?: string): string | undefined {
-  return assetPath == null ? undefined : url(assetPath.replace(
-    /^\/Content\/lang\/(ww\/compile\/[a-z]+\/)?/, '')
-  );
+  return assetPath == null
+    ? undefined
+    : url(assetPath.replace(/^\/Content\/lang\/(ww\/compile\/[a-z]+\/)?/, ''));
 }
 
 export function characterImage(id: number): string {
@@ -45,7 +45,7 @@ export function recordMateriaImage(id: number): string {
 }
 
 export function relicImage(id: number, rarity: number): string {
-  return url(`image/equipment/${id}/${id}_${rarity}_112.png`);
+  return url(`image/equipment/${id}/${id}_0${rarity}_112.png`);
 }
 
 export function itemImage(id: number, type: ItemType): string {
@@ -73,7 +73,7 @@ export function itemImage(id: number, type: ItemType): string {
       // of the rest.
       const rarity = relic ? relic.rarity : 5;
 
-      return url(`image/equipment/${id}/${id}_0${rarity}_112.png`);
+      return relicImage(id, rarity);
     }
     case ItemType.Character:
       return characterImage(id);

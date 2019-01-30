@@ -79,6 +79,9 @@ export class TormentGrid extends React.Component<Props> {
 
   render() {
     const { tormentScores } = this.props;
+    if (!tormentScores.length) {
+      return <div>No torment dungeons have been loaded.</div>;
+    }
     return (
       <GridContainer>
         <AgGridReact

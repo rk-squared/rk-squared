@@ -433,6 +433,7 @@ const dungeonsHandler: Handler = {
   },
 
   win_battle: handleWinBattle,
+  battle_win: handleWinBattle,
   'battle/win': handleWinBattle,
 
   progress_battle_list_gimmick(
