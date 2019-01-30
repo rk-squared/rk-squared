@@ -5,7 +5,7 @@ import { getType } from 'typesafe-actions';
 import { addWorldDungeons, loadDungeons } from '../actions/dungeons';
 import { showDanger } from '../actions/messages';
 import { setProgress } from '../actions/progress';
-import { Session } from '../actions/session';
+import { getLang, Session } from '../actions/session';
 import * as apiUrls from '../api/apiUrls';
 import * as schemas from '../api/schemas';
 import { convertWorldDungeons } from '../proxy/dungeons';
@@ -25,6 +25,7 @@ function sessionConfig(session: Session): AxiosRequestConfig {
 export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
   const session = yield select((state: IState) => state.session);
   // FIXME: Throw an error if any of session is missing
+  const lang = getLang(session);
 
   yield put(setProgress('dungeons', { current: 0, max: action.payload.worldIds.length }));
 
@@ -35,7 +36,7 @@ export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
 
     const result = yield call(() =>
       axios
-        .get(apiUrls.dungeons(worldId), sessionConfig(session))
+        .get(apiUrls.dungeons(lang, worldId), sessionConfig(session))
         .then(response => {
           // FIXME: Validate data
           return addWorldDungeons(worldId, convertWorldDungeons(response.data as schemas.Dungeons));

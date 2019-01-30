@@ -3,57 +3,61 @@
  * URLs for static data and assets
  */
 
+import { BaseUrl, LangType } from '../api/apiUrls';
 import { dressRecordsById } from './dressRecords';
 import { enlir } from './enlir';
 import { ItemType } from './items';
 
-const baseUrl = 'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/';
+const baseUrl: BaseUrl = {
+  [LangType.Jp]: 'http://dff.sp.mbga.jp/dff/static/lang/',
+  [LangType.Gl]: 'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/',
+};
 
-export function url(subPath: string): string {
-  return baseUrl + subPath;
+export function url(lang: LangType, subPath: string): string {
+  return baseUrl[lang] + subPath;
 }
 
-export function asset(assetPath?: string): string | undefined {
+export function asset(lang: LangType, assetPath?: string): string | undefined {
   return assetPath == null
     ? undefined
-    : url(assetPath.replace(/^\/Content\/lang\/(ww\/compile\/[a-z]+\/)?/, ''));
+    : url(lang, assetPath.replace(/^\/Content\/lang\/(ww\/compile\/[a-z]+\/)?/, ''));
 }
 
-export function characterImage(id: number): string {
-  return url(`image/buddy/${id}/${id}.png`);
+export function characterImage(lang: LangType, id: number): string {
+  return url(lang, `image/buddy/${id}/${id}.png`);
 }
 
-export function dropItemImage(id: number): string {
-  return url(`ab/battle/drop_icon/${id}.png`);
+export function dropItemImage(lang: LangType, id: number): string {
+  return url(lang, `ab/battle/drop_icon/${id}.png`);
 }
 
-export function magiciteImage(id: number): string {
+export function magiciteImage(lang: LangType, id: number): string {
   // Magicite skill image: purple circle background
-  // return url(`image/beast_active_skill/${id}1/${id}1_128.png`);
+  // return url(lang, `image/beast_active_skill/${id}1/${id}1_128.png`);
   // Item image: brown circle in a square, with element and rarity overlay icons
-  return itemImage(id, ItemType.Magicite);
+  return itemImage(lang, id, ItemType.Magicite);
 }
 
 // Record materia with an item background, as shown when it first drops
-export function recordMateriaDropImage(id: number): string {
-  return url(`image/record_materia/${id}/${id}_112.png`);
+export function recordMateriaDropImage(lang: LangType, id: number): string {
+  return url(lang, `image/record_materia/${id}/${id}_112.png`);
 }
 
 // Normal record materia image, as shown on the character screen
-export function recordMateriaImage(id: number): string {
-  return url(`image/record_materia/${id}/${id}_128.png`);
+export function recordMateriaImage(lang: LangType, id: number): string {
+  return url(lang, `image/record_materia/${id}/${id}_128.png`);
 }
 
-export function relicImage(id: number, rarity: number): string {
-  return url(`image/equipment/${id}/${id}_0${rarity}_112.png`);
+export function relicImage(lang: LangType, id: number, rarity: number): string {
+  return url(lang, `image/equipment/${id}/${id}_0${rarity}_112.png`);
 }
 
-export function itemImage(id: number, type: ItemType): string {
+export function itemImage(lang: LangType, id: number, type: ItemType): string {
   switch (type) {
     case ItemType.Common:
-      return url(`image/common_item/${id}.png`);
+      return url(lang, `image/common_item/${id}.png`);
     case ItemType.GrowthEgg:
-      return url(`image/growegg/${id}/${id}_112.png`);
+      return url(lang, `image/growegg/${id}/${id}_112.png`);
     case ItemType.Ability:
     case ItemType.Arcana:
     case ItemType.CrystalWater:
@@ -63,7 +67,7 @@ export function itemImage(id: number, type: ItemType): string {
     case ItemType.Mote:
     case ItemType.Orb:
     case ItemType.UpgradeMaterial:
-      return url(`image/${type}/${id}/${id}_112.png`);
+      return url(lang, `image/${type}/${id}/${id}_112.png`);
     case ItemType.Relic: {
       const relic = enlir.relics[id];
 
@@ -73,20 +77,24 @@ export function itemImage(id: number, type: ItemType): string {
       // of the rest.
       const rarity = relic ? relic.rarity : 5;
 
-      return relicImage(id, rarity);
+      return relicImage(lang, id, rarity);
     }
     case ItemType.Character:
-      return characterImage(id);
+      return characterImage(lang, id);
     case ItemType.DressRecord:
+      // Dress record URLs embed the character ID, but tracking and passing
+      // that through to here would complicate the code, so we instead maintain
+      // a list of known dress record IDs.
+      //
       // Fall back to dress record ID if it's an unknown dress record.
       // This will fail but will avoid an error.
       const buddyId = dressRecordsById[id] ? dressRecordsById[id].characterId : id;
-      return url(`image/buddy/${buddyId}/${id}/${id}.png`);
+      return url(lang, `image/buddy/${buddyId}/${id}/${id}.png`);
     case ItemType.RecordMateria:
-      return recordMateriaImage(id);
+      return recordMateriaImage(lang, id);
     case ItemType.DropItem:
-      return dropItemImage(id);
+      return dropItemImage(lang, id);
     case ItemType.Music:
-      return url('image/music_ticket/music_ticket.png');
+      return url(lang, 'image/music_ticket/music_ticket.png');
   }
 }

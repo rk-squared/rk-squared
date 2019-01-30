@@ -14,7 +14,7 @@ import { IState } from '../reducers';
 
 /**
  * Session handler.  Unlike other proxy handlers, this needs access to the HTTP
- * headers, so we treat it specially.
+ * response headers, so we treat it specially.
  */
 export function sessionHandler(
   data: {},
@@ -23,6 +23,7 @@ export function sessionHandler(
   store: Store<IState>,
 ) {
   const reqUrl = req.url as string;
+  const reqUrlObject = new URL(reqUrl);
   const resHeaders = res.getHeaders();
 
   const userId = resHeaders['x-gunya-user-id']
@@ -43,5 +44,7 @@ export function sessionHandler(
     userSession = req.headers['user-session'] as string;
   }
 
-  store.dispatch(updateSession({ userId, userSession, sessionCookie }));
+  const isJp = reqUrlObject.hostname.endsWith('.jp');
+
+  store.dispatch(updateSession({ userId, isJp, userSession, sessionCookie }));
 }

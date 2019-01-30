@@ -5,7 +5,7 @@ import { md, pki } from 'node-forge';
 
 import { logger } from '../utils/logger';
 
-export const tlsSites = ['ffrk.denagames.com'];
+export const tlsSites = ['ffrk.denagames.com', 'dff.sp.mbga.jp'];
 
 export const tlsCert = {
   key: '',

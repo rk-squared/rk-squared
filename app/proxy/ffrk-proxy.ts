@@ -241,6 +241,8 @@ function handleFfrkStartupRequest(
         .then(filename => logger.debug(`Saved to ${filename}`));
     }
 
+    sessionHandler(decoded, req, res, store);
+
     checkHandlers(startupData, req, res, store, [StartupHandler]);
   } catch (error) {
     logger.error(error);
