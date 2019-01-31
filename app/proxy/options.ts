@@ -8,36 +8,36 @@ import { Store } from 'redux';
 
 import * as schemas from '../api/schemas';
 import { IState } from '../reducers';
-import { Handler } from './types';
+import { Handler } from './common';
 
 // Manually copied from Nightmare dungeons
 const staticBackground = {
   assets: {
-    'bg-10227': '/Content/lang/ww/compile/en/ab/bg/10227/10227.json'
+    'bg-10227': '/Content/lang/ww/compile/en/ab/bg/10227/10227.json',
   },
   animationTime: 2000,
   animation_info: {
     bgEffectIds: [],
-    id: 'bg-10227'
-  }
+    id: 'bg-10227',
+  },
 };
 // noinspection SpellCheckingInspection
 const staticBackgroundAsset = {
   bundle: {
     '/Content/lang/ww/compile/en/ab/bg/common/img_wipe.png': {
-      hash: 'xVibBIDBXrZY17YTSndAXw'
+      hash: 'xVibBIDBXrZY17YTSndAXw',
     },
     '/Content/lang/ww/compile/en/ab/bg/10227/10227.json': {
-      hash: 'J/XA+KO8dRtc5oYhum0FKA'
+      hash: 'J/XA+KO8dRtc5oYhum0FKA',
     },
     '/Content/lang/ww/compile/en/ab/bg/10227/img_10227_01_02.png': {
-      hash: 'kYCceguzDOA9PJLQEeUSjA'
+      hash: 'kYCceguzDOA9PJLQEeUSjA',
     },
     '/Content/lang/ww/compile/en/ab/bg/10227/img_10227_01_03.png': {
-      hash: 'A6yf/IlIbbgYYWddMXu6hQ'
-    }
+      hash: 'A6yf/IlIbbgYYWddMXu6hQ',
+    },
   },
-  assetPath: '/Content/lang/ww/compile/en/ab/bg/10227/10227.json'
+  assetPath: '/Content/lang/ww/compile/en/ab/bg/10227/10227.json',
 };
 
 const optionsHandler: Handler = {

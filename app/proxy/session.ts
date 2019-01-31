@@ -11,6 +11,7 @@ import { Store } from 'redux';
 import { updateSession } from '../actions/session';
 import * as schemas from '../api/schemas';
 import { IState } from '../reducers';
+import { isUrlJp } from './common';
 
 /**
  * Session handler.  Unlike other proxy handlers, this needs access to the HTTP
@@ -44,7 +45,7 @@ export function sessionHandler(
     userSession = req.headers['user-session'] as string;
   }
 
-  const isJp = reqUrlObject.hostname.endsWith('.jp');
+  const isJp = isUrlJp(reqUrlObject);
 
   store.dispatch(updateSession({ userId, isJp, userSession, sessionCookie }));
 }

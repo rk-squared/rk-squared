@@ -20,7 +20,7 @@ import * as mainSchemas from '../api/schemas/main';
 import { ItemType } from '../data/items';
 import { IState } from '../reducers';
 import { DungeonState } from '../reducers/dungeons';
-import { Handler, HandlerRequest, StartupHandler } from './types';
+import { Handler, HandlerRequest, StartupHandler } from './common';
 
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';

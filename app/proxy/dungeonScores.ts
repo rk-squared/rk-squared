@@ -1,3 +1,9 @@
+/**
+ * @file
+ * Support for tracking dungeon scores (torment and magicite completion times
+ * and percents)
+ */
+
 import { Store } from 'redux';
 
 import { DungeonScoreType, setDungeonScore, updateDungeonScore } from '../actions/dungeonScores';
@@ -6,7 +12,7 @@ import * as schemas from '../api/schemas';
 import { GradeScoreType } from '../api/schemas/battles';
 import { IState } from '../reducers';
 import { getWorldIdForDungeon } from '../reducers/dungeons';
-import { Handler } from './types';
+import { Handler } from './common';
 
 function gradeToScoreType(type: GradeScoreType): DungeonScoreType | null {
   switch (type) {

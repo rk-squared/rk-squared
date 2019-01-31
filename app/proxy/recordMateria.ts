@@ -8,7 +8,7 @@ import { Store } from 'redux';
 import * as schemas from '../api/schemas';
 import * as charactersSchemas from '../api/schemas/characters';
 import * as recordMateriaSchemas from '../api/schemas/recordMateria';
-import { Handler, HandlerRequest } from './types';
+import { Handler, HandlerRequest } from './common';
 
 import { IState } from '../reducers';
 

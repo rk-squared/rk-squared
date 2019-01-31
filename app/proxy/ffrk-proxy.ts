@@ -19,13 +19,13 @@ import { decodeData, encodeData, getIpAddresses, getStoragePath, setStoragePath 
 
 import battle from './battle';
 import characters from './characters';
+import { StartupHandler } from './common';
 import dungeons from './dungeons';
 import dungeonScores from './dungeonScores';
 import itemUpdates from './itemUpdates';
 import options from './options';
 import recordMateria from './recordMateria';
 import { sessionHandler } from './session';
-import { StartupHandler } from './types';
 
 import { updateLastTraffic, updateProxyStatus } from '../actions/proxy';
 import { IState } from '../reducers';

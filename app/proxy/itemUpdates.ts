@@ -5,14 +5,14 @@
  * FIXME: We should record new items ourselves, to make the program more self-healing
  */
 
-import { Handler } from './types';
+import { Handler } from './common';
 
 import * as schemas from '../api/schemas';
 import { enlir } from '../data';
+import { dressRecordsById } from '../data/dressRecords';
 import { items, ItemType, ItemTypeLookup, ItemTypeName } from '../data/items';
 
 import * as _ from 'lodash';
-import { dressRecordsById } from '../data/dressRecords';
 import { logger } from '../utils/logger';
 
 let localItems = _.clone(items);

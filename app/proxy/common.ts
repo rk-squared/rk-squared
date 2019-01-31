@@ -1,5 +1,10 @@
+/**
+ * @file
+ * Common types and helper functions shared by proxy handlers
+ */
+
 import { Store } from 'redux';
-import { UrlWithStringQuery } from 'url';
+import { Url, UrlWithStringQuery } from 'url';
 
 import { LangType } from '../api/apiUrls';
 import { IState } from '../reducers';
@@ -21,8 +26,10 @@ export interface Handler {
   [endpoint: string]: HandlerFunction;
 }
 
+export function isUrlJp(url: URL | Url): boolean {
+  return !!url.hostname && url.hostname.endsWith('.jp');
+}
+
 export function getRequestLang(request: HandlerRequest): LangType {
-  return request.url && request.url.hostname && request.url.hostname.endsWith('.jp')
-    ? LangType.Jp
-    : LangType.Gl;
+  return request.url && isUrlJp(request.url) ? LangType.Jp : LangType.Gl;
 }

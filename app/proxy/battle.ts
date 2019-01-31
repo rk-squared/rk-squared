@@ -12,7 +12,7 @@ import * as schemas from '../api/schemas';
 import { enlir } from '../data';
 import { formatRelicName, itemsById, ItemType } from '../data/items';
 import * as urls from '../data/urls';
-import { getRequestLang, Handler, HandlerRequest } from './types';
+import { getRequestLang, Handler, HandlerRequest } from './common';
 
 import { clearDropItems, DropItem, setDropItems } from '../actions/battle';
 import { IState } from '../reducers';

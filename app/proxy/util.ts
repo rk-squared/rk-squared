@@ -1,3 +1,9 @@
+/**
+ * @file
+ * Generic utility functions shared by proxy handlers.  Some overlap with
+ * common.ts - we try to keep domain-specific logic there instead of here.
+ */
+
 import * as fsExtra from 'fs-extra';
 import * as http from 'http';
 import * as os from 'os';
