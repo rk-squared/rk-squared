@@ -329,7 +329,7 @@ function convertWorlds(
  * Checks the status summary counts for Realm worlds against the last loaded
  * dungeon lists for each world to update them if needed.
  */
-function checkForUpdatedWorldDungeons(
+function checkForUpdatedRealmDungeons(
   worlds: mainSchemas.World[],
   dungeons: DungeonState,
   dispatch: Dispatch<IState>,
@@ -391,6 +391,35 @@ function checkForUpdatedWorldDungeons(
   }
 }
 
+/**
+ * Checks Record worlds to see if any are listing new dungeons.
+ */
+function checkForUpdatedRecordDungeons(
+  worlds: mainSchemas.World[],
+  newWorlds: { [id: number]: World },
+  dungeons: DungeonState,
+  dispatch: Dispatch<IState>,
+) {
+  for (const w of _.sortBy(worlds, 'id')) {
+    if (
+      !newWorlds[w.id] ||
+      newWorlds[w.id].category !== WorldCategory.Record ||
+      !dungeons.byWorld[w.id]
+    ) {
+      continue;
+    }
+
+    const worldDungeons = dungeons.byWorld[w.id].map(i => dungeons.dungeons[i]);
+    const oldLength = worldDungeons.length;
+    const oldCompleted = _.sumBy(worldDungeons, i => +i.isComplete);
+
+    if (oldLength === oldCompleted && w.has_new_dungeon) {
+      logger.debug(`World ${w.name} has new dungeons (was at ${oldCompleted}/${oldLength})`);
+      dispatch(forgetWorldDungeons(w.id));
+    }
+  }
+}
+
 function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
   if (data.result.is_dungeon_clear) {
     store.dispatch(
@@ -414,10 +443,12 @@ const dungeonsHandler: Handler = {
   [StartupHandler]: (data: mainSchemas.Main, store: Store<IState>) => {
     const { worlds, events } = data.appInitData;
 
-    store.dispatch(updateWorlds(convertWorlds(worlds, events, data.textMaster)));
+    const newWorlds = convertWorlds(worlds, events, data.textMaster);
+    store.dispatch(updateWorlds(newWorlds));
 
-    checkForUpdatedWorldDungeons(worlds, store.getState().dungeons, store.dispatch);
-    // FIXME: Track half-price dungeons; exclude dungeons that aren't open
+    checkForUpdatedRealmDungeons(worlds, store.getState().dungeons, store.dispatch);
+    checkForUpdatedRecordDungeons(worlds, newWorlds, store.getState().dungeons, store.dispatch);
+    // FIXME: Track half-price dungeons
   },
 
   dungeons(data: dungeonsSchemas.Dungeons, store: Store<IState>, { query }: HandlerRequest) {

@@ -39,6 +39,7 @@ dist
 
 # RK Squared data
 captures
+support
 
 # Credentials and temporary download data
 credentials.json
