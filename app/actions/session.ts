@@ -13,7 +13,7 @@ export interface Session {
 
 export const updateSession = createAction('UPDATE_SESSION', (session: Session) => ({
   type: 'UPDATE_SESSION',
-  payload: session
+  payload: session,
 }));
 
 export type SessionAction = ReturnType<typeof updateSession>;

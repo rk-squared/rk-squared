@@ -25,19 +25,23 @@ export function sessionHandler(
   const reqUrl = req.url as string;
   const resHeaders = res.getHeaders();
 
-  const userId = resHeaders['x-gunya-user-id'] ? (resHeaders['x-gunya-user-id'] as any).toString() : undefined;
+  const userId = resHeaders['x-gunya-user-id']
+    ? (resHeaders['x-gunya-user-id'] as any).toString()
+    : undefined;
 
-  const cookies = typeof(req.headers.cookie) === 'string' ? cookie.parse(req.headers.cookie) : {};
+  const cookies = typeof req.headers.cookie === 'string' ? cookie.parse(req.headers.cookie) : {};
   const sessionCookie = cookies['http_session_sid'];
 
   let userSession: string | undefined;
   if (reqUrl.endsWith('/update_user_session')) {
     userSession = (data as schemas.UpdateUserSession).user_session_key;
-  } else if (req.headers['user-session']
-    && typeof(req.headers['user-session']) === 'string'
-    && req.headers['user-session'] !== 'UNDEFINED_IN_API_JS') {
+  } else if (
+    req.headers['user-session'] &&
+    typeof req.headers['user-session'] === 'string' &&
+    req.headers['user-session'] !== 'UNDEFINED_IN_API_JS'
+  ) {
     userSession = req.headers['user-session'] as string;
   }
 
-  store.dispatch(updateSession({userId, userSession, sessionCookie}));
+  store.dispatch(updateSession({ userId, userSession, sessionCookie }));
 }

@@ -11,7 +11,11 @@ export interface HandlerRequest {
   body?: any;
   url?: UrlWithStringQuery;
 }
-export type HandlerFunction = (data: {}, store: Store<IState>, request: HandlerRequest) => {} | void;
+export type HandlerFunction = (
+  data: {},
+  store: Store<IState>,
+  request: HandlerRequest,
+) => {} | void;
 export interface Handler {
   [endpoint: string]: HandlerFunction;
 }

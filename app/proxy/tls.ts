@@ -10,7 +10,7 @@ export const tlsSites = ['ffrk.denagames.com'];
 export const tlsCert = {
   key: '',
   cert: '',
-  ca: ''
+  ca: '',
 };
 
 function setCommon(cert: pki.Certificate, commonName: string, issuer?: pki.Certificate) {
@@ -30,12 +30,12 @@ function setCommon(cert: pki.Certificate, commonName: string, issuer?: pki.Certi
     },
     {
       name: 'countryName',
-      value: 'US'
+      value: 'US',
     },
     {
       name: 'organizationName',
-      value: 'RK Squared'
-    }
+      value: 'RK Squared',
+    },
   ];
   cert.setSubject(attrs);
   if (issuer) {
@@ -45,12 +45,16 @@ function setCommon(cert: pki.Certificate, commonName: string, issuer?: pki.Certi
   }
 }
 
-export function createOrLoadCertificate(userDataPath: string, errorCallback?: (error: string) => void) {
+export function createOrLoadCertificate(
+  userDataPath: string,
+  errorCallback?: (error: string) => void,
+) {
   const caFilename = path.join(userDataPath, 'ffrk-ca.pem');
   const certFilename = path.join(userDataPath, 'ffrk-cert.pem');
   const keyFilename = path.join(userDataPath, 'ffrk-key.pem');
 
-  const filesExist = +fs.existsSync(caFilename) + +fs.existsSync(certFilename) + +fs.existsSync(keyFilename);
+  const filesExist =
+    +fs.existsSync(caFilename) + +fs.existsSync(certFilename) + +fs.existsSync(keyFilename);
   if (filesExist === 3) {
     try {
       tlsCert.ca = fs.readFileSync(caFilename).toString();
@@ -67,8 +71,8 @@ export function createOrLoadCertificate(userDataPath: string, errorCallback?: (e
     errorCallback && errorCallback(`Unexpected certificates: only ${filesExist} are present`);
   }
 
-  const [ caCert, caKey ] = createCaCertificate('RK Squared');
-  const [ siteCert, siteKey ] = createSiteCertificate(caCert, caKey, tlsSites);
+  const [caCert, caKey] = createCaCertificate('RK Squared');
+  const [siteCert, siteKey] = createSiteCertificate(caCert, caKey, tlsSites);
   tlsCert.ca = pki.certificateToPem(caCert);
   tlsCert.cert = pki.certificateToPem(siteCert);
   tlsCert.key = pki.privateKeyToPem(siteKey.privateKey);
@@ -98,7 +102,7 @@ function createCaCertificate(caName: string): [pki.Certificate, pki.KeyPair] {
   cert.setExtensions([
     {
       name: 'basicConstraints',
-      cA: true
+      cA: true,
     },
     {
       name: 'keyUsage',
@@ -106,7 +110,7 @@ function createCaCertificate(caName: string): [pki.Certificate, pki.KeyPair] {
       digitalSignature: true,
       nonRepudiation: true,
       keyEncipherment: true,
-      dataEncipherment: true
+      dataEncipherment: true,
     },
     {
       name: 'extKeyUsage',
@@ -114,7 +118,7 @@ function createCaCertificate(caName: string): [pki.Certificate, pki.KeyPair] {
       clientAuth: false,
       codeSigning: false,
       emailProtection: false,
-      timeStamping: true
+      timeStamping: true,
     },
     {
       name: 'nsCertType',
@@ -124,15 +128,15 @@ function createCaCertificate(caName: string): [pki.Certificate, pki.KeyPair] {
       objsign: false,
       sslCA: true,
       emailCA: false,
-      objCA: false
+      objCA: false,
     },
     {
-      name: 'subjectKeyIdentifier'
-    }
+      name: 'subjectKeyIdentifier',
+    },
   ]);
   cert.sign(keys.privateKey, md.sha256.create());
 
-  return [ cert, keys ];
+  return [cert, keys];
 }
 
 /**
@@ -140,7 +144,9 @@ function createCaCertificate(caName: string): [pki.Certificate, pki.KeyPair] {
  * Based on https://github.com/digitalbazaar/forge#x509
  */
 function createSiteCertificate(
-  caCert: pki.Certificate, caKey: pki.KeyPair, sites: string[]
+  caCert: pki.Certificate,
+  caKey: pki.KeyPair,
+  sites: string[],
 ): [pki.Certificate, pki.KeyPair] {
   const keys = pki.rsa.generateKeyPair(2048);
   const cert = pki.createCertificate();
@@ -151,7 +157,7 @@ function createSiteCertificate(
   cert.setExtensions([
     {
       name: 'basicConstraints',
-      cA: false
+      cA: false,
     },
     {
       name: 'keyUsage',
@@ -159,7 +165,7 @@ function createSiteCertificate(
       digitalSignature: true,
       nonRepudiation: true,
       keyEncipherment: true,
-      dataEncipherment: true
+      dataEncipherment: true,
     },
     {
       name: 'extKeyUsage',
@@ -167,7 +173,7 @@ function createSiteCertificate(
       clientAuth: false,
       codeSigning: false,
       emailProtection: false,
-      timeStamping: true
+      timeStamping: true,
     },
     {
       name: 'nsCertType',
@@ -177,26 +183,26 @@ function createSiteCertificate(
       objsign: false,
       sslCA: false,
       emailCA: false,
-      objCA: false
+      objCA: false,
     },
     {
       name: 'subjectAltName',
       altNames: [
         ...tlsSites.map(site => ({
           type: 2, // DNS - see https://tools.ietf.org/html/rfc5280#section-4.2.1.6
-          value: site
+          value: site,
         })),
         // {
         //   type: 7, // IP
         //   ip: '127.0.0.1'
         // }
-      ]
+      ],
     },
     {
-      name: 'subjectKeyIdentifier'
-    }
+      name: 'subjectKeyIdentifier',
+    },
   ]);
   cert.sign(caKey.privateKey, md.sha256.create());
 
-  return [ cert, keys ];
+  return [cert, keys];
 }
