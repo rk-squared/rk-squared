@@ -1,53 +1,28 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const styles = require('./App.scss');
-const logo = require('../images/logo.png');
+import { getLang } from '../actions/session';
+import { LangType } from '../api/apiUrls';
+import { LangContext } from '../contexts/LangContext';
+import { IState } from '../reducers';
+import { AppLayout } from './AppLayout';
 
-export class App extends React.Component {
+interface Props {
+  lang: LangType;
+  children: any;
+}
+
+export class App extends React.Component<Props> {
   render() {
+    const { lang, children } = this.props;
     return (
-      <div className={`container-fluid ${styles.component}`}>
-        <div className="row">
-          <nav className={`col-auto navbar navbar-expand-sm navbar-light bg-light ${styles.nav}`}>
-            <Link className="navbar-brand" to="/">
-              <img src={logo} alt="RK²" className={styles.logo} />
-            </Link>
-
-            <div className="collapse navbar-collapse">
-              <ul className="navbar-nav mr-auto flex-column">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/dropTracker">
-                    Drops
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/dungeons">
-                    Dungeons
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/dungeonScores">
-                    Scores
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/recordMateria">
-                    Record Materia
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/options">
-                    Options
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
-
-          <div className={`col ${styles.content}`}>{this.props.children}</div>
-        </div>
-      </div>
+      <LangContext.Provider value={lang}>
+        <AppLayout>{children}</AppLayout>
+      </LangContext.Provider>
     );
   }
 }
+
+export default connect((state: IState) => ({
+  lang: getLang(state.session),
+}))(App);

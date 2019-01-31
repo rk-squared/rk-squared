@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router';
 
-import { App } from './containers/App';
+import App from './containers/App';
 import DropTrackerPage from './containers/DropTrackerPage';
 import DungeonScoresPage from './containers/DungeonScoresPage';
 import DungeonsPage from './containers/DungeonsPage';

@@ -2,6 +2,8 @@ import * as React from 'react';
 import * as ReactTooltip from 'react-tooltip';
 
 import { RecordMateriaDetail, RecordMateriaStatus } from '../../actions/recordMateria';
+import { LangType } from '../../api/apiUrls';
+import { LangContext } from '../../contexts/LangContext';
 import { enlir } from '../../data';
 import * as urls from '../../data/urls';
 import { BrTextToP } from '../common/BrTextToP';
@@ -16,11 +18,16 @@ interface Props {
 }
 
 export class RecordMateriaTooltip extends React.Component<Props> {
+  // noinspection JSUnusedGlobalSymbols
+  static contextType = LangContext;
+  context!: React.ContextType<typeof LangContext>;
+
   getContent = (recordMateriaId: string) => {
     const rm = this.props.recordMateria[+recordMateriaId];
     if (!rm) {
       return null;
     }
+    const lang = this.context as LangType;
     const enlirRM = enlir.recordMateria[rm.name.toLowerCase()];
 
     const gameDescription = <BrTextToP text={rm.description} className={styles.gameDescription} />;
@@ -37,8 +44,8 @@ export class RecordMateriaTooltip extends React.Component<Props> {
     return (
       <>
         <div className={styles.iconsBlock}>
-          <img src={urls.characterImage(rm.characterId)} />
-          <img src={urls.recordMateriaImage(rm.id)} />
+          <img src={urls.characterImage(lang, rm.characterId)} />
+          <img src={urls.recordMateriaImage(lang, rm.id)} />
         </div>
 
         <div className={styles.textBlock}>

@@ -136,8 +136,8 @@
     "@types/jest": "^22.0.0",
     "@types/node": "^8.0.2",
     "@types/node-forge": "^0.7.7",
-    "@types/react": "^16.0.5",
-    "@types/react-dom": "16.0.3",
+    "@types/react": "^16.6.0",
+    "@types/react-dom": "^16.0.3",
     "@types/react-hot-loader": "^3.0.4",
     "@types/react-modal": "^3.1.2",
     "@types/react-redux": "^5.0.4",
@@ -225,8 +225,8 @@
     "moment": "^2.22.0",
     "node-forge": "^0.7.6",
     "popper.js": "^1.14.3",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-dom-factories": "^1.0.2",
     "react-modal": "^3.4.4",
     "react-redux": "^5.0.1",
@@ -254,5 +254,8 @@
   "devEngines": {
     "node": ">=6.x",
     "npm": ">=3.x"
+  },
+  "resolutions": {
+    "@types/react": "^16.6.0"
   }
 }
