@@ -217,9 +217,14 @@ export function convertWorld(
 
   if (event.type_name === 'rotation' || event.type_name === 'wday') {
     // For mote ("rotation") and power up ("wday") dungeons, there are only
-    // two worlds ("Mode Dungeons" and "Power Up Dungeons"), each with only
+    // two worlds ("Mote Dungeons" and "Power Up Dungeons"), each with only
     // one dungeon visible at a time.  No need to assign a subcategory.
     category = WorldCategory.PowerUpMote;
+  } else if (event.type_name === 'fragment') {
+    // Full open "fragment" (mote) dungeons - JP only as of January 2019.
+    // Put them in their own subcategory for now; we may improve this later.
+    category = WorldCategory.PowerUpMote;
+    subcategory = 'Mote Dungeons';
   } else if (event.type_name === 'extreme') {
     category = WorldCategory.Nightmare;
   } else if (event.type_name === 'beast') {

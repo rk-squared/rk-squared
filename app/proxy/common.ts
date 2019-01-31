@@ -4,7 +4,7 @@
  */
 
 import { Store } from 'redux';
-import { Url, UrlWithStringQuery } from 'url';
+import { Url, URL, UrlWithStringQuery } from 'url';
 
 import { LangType } from '../api/apiUrls';
 import { IState } from '../reducers';

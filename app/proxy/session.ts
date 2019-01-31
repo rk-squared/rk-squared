@@ -5,6 +5,7 @@
 
 import * as cookie from 'cookie';
 import * as http from 'http';
+import { URL } from 'url';
 
 import { Store } from 'redux';
 
