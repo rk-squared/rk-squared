@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 // FIXME: Interfaces for remaining Enlir types
 interface EnlirRecordMateria {
   realm: string;
@@ -18,13 +20,12 @@ const rawData = {
   relics: require('./enlir/relics.json'),
 };
 
-import * as _ from 'lodash';
-
 // FIXME: Properly update rawData outside of app
 
 export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
+  characters: _.keyBy(rawData.characters, 'id'),
   magicites: _.keyBy(rawData.magicite, 'id'),
   relics: _.keyBy(rawData.relics, 'id'),
-  recordMateria: _.keyBy(rawData.recordMateria, i => i.name.toLowerCase()),
+  recordMateria: _.keyBy(rawData.recordMateria, 'id'),
 };

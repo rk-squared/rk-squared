@@ -9,13 +9,27 @@ export type Step = 1 | 2 | 3 | 4;
 export type Order = '1' | '1a' | '1b' | '2' | '3';
 
 export enum RecordMateriaStatus {
-  Unknown,              // Unknown materia, or unobtained for unknown reason (missing character info)
-  LockedLowLevel,       // Locked due to level or level cap too low
-  LockedMissingPrereq,  // Locked due to missing prerequisite
-  Unlocked,             // Unlocked but not yet collected
-  Collected,            // Collected / obtained and in inventory
-  Favorite,             // Collected, in inventory, and starred
-  Vault,                // Collected and stashed in vault
+  // Unknown materia, or unobtained for unknown reason (e.g., missing character
+  // info because the character is not yet obtained)
+  Unknown,
+
+  // Locked due to level or level cap too low
+  LockedLowLevel,
+
+  // Locked due to missing prerequisite
+  LockedMissingPrereq,
+
+  // Unlocked but not yet collected
+  Unlocked,
+
+  // Collected / obtained and in inventory
+  Collected,
+
+  // Collected, in inventory, and starred
+  Favorite,
+
+  // Collected and stashed in vault
+  Vault,
 }
 
 export interface RecordMateria {
@@ -29,7 +43,7 @@ export interface RecordMateria {
   obtained: boolean;
   step: Step;
   order: Order;
-  prereqs?: number[];  // IDs of prerequisite record materia
+  prereqs?: number[]; // IDs of prerequisite record materia
 }
 
 /**
@@ -54,7 +68,8 @@ function isLowLevel(recordMateria: RecordMateria, character: Character) {
 }
 
 function levelNeeded(orderOrRecordMateria: Order | RecordMateria) {
-  const order = typeof(orderOrRecordMateria) === 'object' ? orderOrRecordMateria.order : orderOrRecordMateria;
+  const order =
+    typeof orderOrRecordMateria === 'object' ? orderOrRecordMateria.order : orderOrRecordMateria;
   switch (order) {
     case '1':
     case '1a':
@@ -73,7 +88,7 @@ export function getStatus(
   prereqs: RecordMateria[],
   isInInventory: boolean | undefined,
   isFavorite: boolean | undefined,
-): { status: RecordMateriaStatus, statusDescription: string } {
+): { status: RecordMateriaStatus; statusDescription: string } {
   let missingPrereq: RecordMateria | undefined;
   if (recordMateria.obtained) {
     if (!isInInventory) {
@@ -93,9 +108,13 @@ export function getStatus(
       };
     }
   } else if (!character) {
+    // We can't really distinguish between out-of-date character info that's
+    // missing characters, or botched static data within our app, or a
+    // character who's not yet obtained - but a character who's not yet
+    // obtained is far more likely.  Display text accordingly
     return {
       status: RecordMateriaStatus.Unknown,
-      statusDescription: 'Unknown',
+      statusDescription: 'Character not yet obtained',
     };
   } else if (isLowLevel(recordMateria, character)) {
     return {
@@ -105,17 +124,20 @@ export function getStatus(
   } else if ((missingPrereq = _.find(prereqs, i => !i.obtained)) != null) {
     return {
       status: RecordMateriaStatus.LockedMissingPrereq,
-      statusDescription: `Missing RM ${missingPrereq.order}`
+      statusDescription: `Missing RM ${missingPrereq.order}`,
     };
   } else {
     return {
       status: RecordMateriaStatus.Unlocked,
-      statusDescription: 'Unlocked'
+      statusDescription: 'Unlocked',
     };
   }
 }
 
-export function getPrereqs(recordMateria: RecordMateria, allRecordMateria: { [id: number]: RecordMateria }) {
+export function getPrereqs(
+  recordMateria: RecordMateria,
+  allRecordMateria: { [id: number]: RecordMateria },
+) {
   return _.map(recordMateria.prereqs, i => allRecordMateria[i]);
 }
 
@@ -130,59 +152,69 @@ export function getRecordMateriaDetail(
     const isFavorite = favorites == null ? false : favorites[i.id];
     return {
       ...i,
-      ...getStatus(i, characters[i.characterId], getPrereqs(i, recordMateria), isInInventory, isFavorite)
+      ...getStatus(
+        i,
+        characters[i.characterId],
+        getPrereqs(i, recordMateria),
+        isInInventory,
+        isFavorite,
+      ),
     };
   });
 }
 
 /// Sets the master list of all record materia
-export const setRecordMateria = createAction('SET_RECORD_MATERIA',
+export const setRecordMateria = createAction(
+  'SET_RECORD_MATERIA',
   (recordMateria: { [id: number]: RecordMateria }) => ({
     type: 'SET_RECORD_MATERIA',
     payload: {
-      recordMateria
-    }
-  })
+      recordMateria,
+    },
+  }),
 );
 
 /// Obtained one or more record materia (for example, from winning a battle)
-export const obtainRecordMateria = createAction('OBTAIN_RECORD_MATERIA',
+export const obtainRecordMateria = createAction(
+  'OBTAIN_RECORD_MATERIA',
   (id: number | number[], updateInventory = true) => ({
     type: 'OBTAIN_RECORD_MATERIA',
     payload: {
       id,
-      updateInventory
-    }
-  })
+      updateInventory,
+    },
+  }),
 );
 
 /// Sets the list of record materia currently in inventory and record materia favorites
-export const setRecordMateriaInventory = createAction('SET_RECORD_MATERIA_INVENTORY',
+export const setRecordMateriaInventory = createAction(
+  'SET_RECORD_MATERIA_INVENTORY',
   (inventory: number[], favorites: number[], warehouse: number[]) => ({
     type: 'SET_RECORD_MATERIA_INVENTORY',
     payload: {
       inventory,
       favorites,
       warehouse,
-    }
-  })
+    },
+  }),
 );
 
 /// Updates a single record materia's inventory and favorite status
-export const updateRecordMateriaInventory = createAction('UPDATE_RECORD_MATERIA_INVENTORY',
-  (id: number, { inventory, favorite }: { inventory?: boolean, favorite?: boolean }) => ({
+export const updateRecordMateriaInventory = createAction(
+  'UPDATE_RECORD_MATERIA_INVENTORY',
+  (id: number, { inventory, favorite }: { inventory?: boolean; favorite?: boolean }) => ({
     type: 'UPDATE_RECORD_MATERIA_INVENTORY',
     payload: {
       id,
       inventory,
-      favorite
-    }
-  })
+      favorite,
+    },
+  }),
 );
 
 export type RecordMateriaAction = ReturnType<
-  typeof obtainRecordMateria |
-  typeof setRecordMateria |
-  typeof setRecordMateriaInventory |
-  typeof updateRecordMateriaInventory
+  | typeof obtainRecordMateria
+  | typeof setRecordMateria
+  | typeof setRecordMateriaInventory
+  | typeof updateRecordMateriaInventory
 >;

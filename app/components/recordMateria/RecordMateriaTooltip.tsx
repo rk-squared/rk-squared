@@ -28,7 +28,7 @@ export class RecordMateriaTooltip extends React.Component<Props> {
       return null;
     }
     const lang = this.context as LangType;
-    const enlirRM = enlir.recordMateria[rm.name.toLowerCase()];
+    const enlirRM = enlir.recordMateria[rm.id];
 
     const gameDescription = <BrTextToP text={rm.description} className={styles.gameDescription} />;
     const enlirDescription = enlirRM && <p className={styles.enlirDescription}>{enlirRM.effect}</p>;
