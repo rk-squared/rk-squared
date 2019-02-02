@@ -1,3 +1,13 @@
+# v1.1.0
+
+* Add Dungeon Score Tracker
+* Add JP support
+* Display a pop-up notification if your IP address changes, since that means your proxy needs to be reconfigured.
+* Add tooltips giving details for Record Materia Tracker grid's effects
+* Add new characters to the Record Materia Tracker
+* Replace Enlir links with FFRK Community spreadsheet
+* Performance improvements
+
 # v1.0.0
 
 Version 1.0.0 adds iOS support and includes several fixes:

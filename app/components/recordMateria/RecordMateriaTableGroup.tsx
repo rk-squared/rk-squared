@@ -25,7 +25,7 @@ export class RecordMateriaTableGroup extends React.Component<Props> {
             recordMateria={recordMateria}
           />
         ))}
-        <RecordMateriaTooltip id={tooltipId} recordMateria={recordMateria} />;
+        <RecordMateriaTooltip id={tooltipId} recordMateria={recordMateria} />
       </>
     );
   }

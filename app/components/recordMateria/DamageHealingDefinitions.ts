@@ -9,7 +9,7 @@ const elementalTable: TableDefinition = {
       header: '(vs. weakness)',
       items: {
         13: [['Tyro', '3']],
-        12: [['Luneth', '2'], ['Reks', '2'], ['Tyro', '1b']],
+        12: [['Luneth', '2'], ['Reks', '2'], ['Tyro', '1b'], ['Dr. Mog', '2']],
         11: [['Tyro', '1a'], ['Quistis', '1'], ['Nabaat', '1']],
       },
     },
@@ -32,7 +32,7 @@ const elementalTable: TableDefinition = {
       items: {
         13: [['Tifa', '3']],
         12: [['Cinque', '2']],
-        11: [['Ingus', '1a'], ['Rude', '1']],
+        11: [['Ingus', '1a'], ['Rude', '1'], ['Enna', '1']],
       },
     },
     {
@@ -77,7 +77,7 @@ const elementalTable: TableDefinition = {
     {
       header: 'Wind',
       items: {
-        13: [['Bartz', '3']],
+        13: [['Bartz', '3'], ['Wedge', '3']],
         12: [['Barbariccia', '2'], ['Cid (VII)', '2'], ['Fujin', '2'], ['Thancred', '2']],
         11: [['Luneth', '1a'], ['Bartz', '1']],
       },
@@ -133,7 +133,7 @@ const abilityTable: TableDefinition = {
     {
       header: 'Knight',
       items: {
-        '1_4': [['Agrias', '3']],
+        '1_4': [['Agrias', '3'], ['Biggs', '3']],
         '1_3': [['Agrias', '2'], ['Dorgann', '2'], ['Marche', '2']],
         '1_15': [['Curilla', '1'], ['Haurchefant', '1']],
         '13w': [['Basch', '2']],
@@ -151,10 +151,10 @@ const abilityTable: TableDefinition = {
     {
       header: 'Monk',
       items: {
-        '1_4': [['Sabin', '3']],
+        '1_4': [['Sabin', '3'], ['Eight', '3']],
         '1_3': [['Zell', '2']],
         '1_15': [['Monk', '1a'], ['Yda', '1']],
-        '13w': [['Master', '2'], ['Sabin', '2']],
+        '13w': [['Master', '2'], ['Sabin', '2'], ['Eight', '2']],
         '8w': [['Monk', '1b']],
       },
     },
@@ -250,7 +250,7 @@ const physicalTable: TableDefinition = {
     {
       header: 'PHY Dagger',
       items: {
-        '1_3': [['Ignis', '3'], ['Vaan', '3']],
+        '1_3': [['Ignis', '3'], ['Vaan', '3'], ['Lilisette', '3']],
         '1_2': [['Leila', '2'], ['Locke', '2'], ['Marcus', '2']],
         '1_1': [['Leila', '1'], ['Thancred', '1'], ['Ignis', '1']],
       },
@@ -266,9 +266,9 @@ const physicalTable: TableDefinition = {
     {
       header: 'PHY Gun',
       items: {
-        '1_3': [['Balthier', '3'], ['Prompto', '3']],
+        '1_3': [['Balthier', '3'], ['Prompto', '3'], ['Cater', '3']],
         '1_2': [['Elena', '2'], ['Irvine', '1b'], ['Vincent', '2']],
-        '1_1': [['Laguna', '1'], ['King', '1']],
+        '1_1': [['Laguna', '1'], ['King', '1'], ['Cater', '1']],
       },
     },
     {
@@ -319,8 +319,15 @@ const physicalTable: TableDefinition = {
       header: 'PHY Sword',
       items: {
         '1_3': [['Cloud', '3'], ['Warrior', '3']],
-        '1_2': [['Beatrix', '2'], ['Cecil (Dark Knight)', '2']],
-        '1_1': [['Warrior', '1'], ['Cloud', '1a'], ['Zack', '1'], ['Marche', '1'], ['Morrow', '1']],
+        '1_2': [['Beatrix', '2'], ['Cecil (Dark Knight)', '2'], ['Biggs', '2']],
+        '1_1': [
+          ['Warrior', '1'],
+          ['Cloud', '1a'],
+          ['Zack', '1'],
+          ['Marche', '1'],
+          ['Morrow', '1'],
+          ['Biggs', '1'],
+        ],
       },
     },
     {
@@ -335,6 +342,12 @@ const physicalTable: TableDefinition = {
       header: 'PHY Whip',
       items: {
         '1_2': [['Quistis', '2']],
+      },
+    },
+    {
+      header: 'PHY Hat',
+      items: {
+        '1_1': [['Wedge', '1']],
       },
     },
     {
@@ -362,6 +375,7 @@ const magicTable: TableDefinition = {
       header: 'BLK (always)',
       items: {
         '1_25': [['Rinoa', '3']],
+        '1_2': [['Dr. Mog', '2']],
         '1_15': [['Rinoa', '2']],
       },
     },
@@ -414,6 +428,12 @@ const magicTable: TableDefinition = {
       },
     },
     {
+      header: 'BLK Hat',
+      items: {
+        '1_2': [['Wedge', '2']],
+      },
+    },
+    {
       header: 'BLK Lt. Armor',
       items: {
         '1_1': [['Cid Raines', '1']],
@@ -450,7 +470,7 @@ const magicTable: TableDefinition = {
       header: 'WHT Healing',
       items: {
         '1_3': [['Aria', '3'], ['Lenna', '3'], ['Minwu', '3']],
-        '1_2': [['Aemo', '2'], ['Aerith', '2'], ['Elarra', '2'], ['Minwu', '2']],
+        '1_2': [['Aemo', '2'], ['Aerith', '2'], ['Elarra', '2'], ['Minwu', '2'], ['Dr. Mog', '2']],
         '1_1': [
           ['Elarra', '1'],
           ['Lenna', '1'],

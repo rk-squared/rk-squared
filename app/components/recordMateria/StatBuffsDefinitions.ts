@@ -251,7 +251,7 @@ const magTable: TableDefinition = {
       items: {
         '15': [['Hope', '3']],
         '13x': [['Fujin', '3']],
-        '13': [['Ace', '2']],
+        '13': [['Ace', '2'], ['Enna', '2']],
         '10': [['Ace', '1'], ['Edea', '2']],
       },
     },
@@ -293,7 +293,7 @@ const magMndTable: TableDefinition = {
       header: 'Book',
       items: {
         13: [['Alphinaud', '3']],
-        10: [['Alphinaud', '2']],
+        10: [['Alphinaud', '2'], ['Dr. Mog', '1']],
       },
     },
     {
@@ -337,7 +337,7 @@ const magMndTable: TableDefinition = {
     {
       header: 'Lt. Armor',
       items: {
-        13: [['Rubicante', '3']],
+        13: [['Rubicante', '3'], ['Tama', '3']],
       },
     },
   ],
@@ -391,7 +391,7 @@ const mndTable: TableDefinition = {
       items: {
         25: [['Aemo', '3'], ['Selphie', '3']],
         20: [['Yuna', '2']],
-        10: [['Relm', '1']],
+        10: [['Relm', '1'], ['Tama', '1']],
       },
     },
     {
