@@ -14,7 +14,7 @@ const error = format((info: TransformableInfo) => {
       message: `${info.name}: ${info.message}\n${info.stack}`,
       rawMessage: info.message,
       name: info.name,
-      stack: info.stack
+      stack: info.stack,
     };
   }
   return info;
@@ -29,13 +29,10 @@ const logFormat = winston.format.combine(
   // Or use winston.format.json() for pure JSON.
 );
 
-
 const logger = winston.createLogger({
   level: 'debug',
   format: logFormat,
-  transports: [
-    new winston.transports.Console(),
-  ],
+  transports: [new winston.transports.Console()],
 });
 
 export { logger };

@@ -43,4 +43,6 @@ support
 
 # Credentials and temporary download data
 credentials.json
-scripts/tmp
+tmp/
+scripts/tmp/
+app/data/enlir/*.json.bak

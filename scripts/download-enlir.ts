@@ -12,6 +12,8 @@ import * as path from 'path';
 import * as readline from 'readline';
 import * as yargs from 'yargs';
 
+import { logger } from './logger';
+
 import * as _ from 'lodash';
 
 // This is equivalent to `typeof google.auth.OAuth2`, but importing it directly
@@ -27,17 +29,13 @@ function questionAsync(r: readline.ReadLine, query: string): Promise<string> {
   });
 }
 
-const workPath = path.join(__dirname, 'tmp');
-const outPath = path.join(__dirname, '..', 'app', 'data', 'enlir');
+const workPath = path.join(__dirname, '..', 'tmp');
 fs.ensureDirSync(workPath);
 
 // The file token.json stores the user's access and refresh tokens.  It's
 // created automatically when the authorization flow completes for the first
 // time.
 const tokenPath = path.join(workPath, 'token.json');
-
-// Load client secrets from a local file.
-const enlirCredentials = require('../credentials.json');
 
 // noinspection SpellCheckingInspection
 const enlirSpreadsheetIds: { [name: string]: string } = {
@@ -98,7 +96,7 @@ async function getNewToken(oAuth2Client: OAuth2Client): Promise<OAuth2Client> {
 
   // Store the token to disk for later program executions
   await fs.writeFile(tokenPath, JSON.stringify(token));
-  console.log('Token stored to', tokenPath);
+  logger.info(`Token stored to ${tokenPath}`);
 
   return oAuth2Client;
 }
@@ -467,6 +465,31 @@ function convertRelics(rows: any[]): any[] {
   return relics;
 }
 
+function convertSoulBreaks(rows: any[]): any[] {
+  const soulBreaks: any[] = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+      if (shouldAlwaysSkip(col)) {
+        continue;
+      }
+
+      const field = _.camelCase(col);
+      if (skillFields[col]) {
+        item[field] = skillFields[col](rows[i][j]);
+      } else {
+        item[field] = toCommon(field, rows[i][j]);
+      }
+    }
+
+    soulBreaks.push(item);
+  }
+
+  return soulBreaks;
+}
+
 interface DataType {
   sheet: string;
   localName: string;
@@ -501,13 +524,18 @@ const dataTypes: DataType[] = [
     localName: 'relics',
     converter: convertRelics,
   },
+  {
+    sheet: 'Soul Breaks',
+    localName: 'soulBreaks',
+    converter: convertSoulBreaks,
+  },
 ];
 
 async function downloadEnlir(auth: OAuth2Client, spreadsheetId: string) {
   const sheets = google.sheets({ version: 'v4', auth });
 
   for (const { sheet, localName } of dataTypes) {
-    console.log(`Downloading ${localName}...`);
+    logger.info(`Downloading ${localName}...`);
     const res = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: sheet,
@@ -516,10 +544,12 @@ async function downloadEnlir(auth: OAuth2Client, spreadsheetId: string) {
   }
 }
 
-async function convertEnlir() {
+async function convertEnlir(outputDirectory: string) {
+  await fs.ensureDir(outputDirectory);
+
   const allData: { [name: string]: any[] } = {};
   for (const { localName, converter } of dataTypes) {
-    console.log(`Converting ${localName}...`);
+    logger.info(`Converting ${localName}...`);
     const rawData = await fs.readJson(path.join(workPath, localName + '.json'));
     allData[localName] = converter(rawData.values);
   }
@@ -528,27 +558,61 @@ async function convertEnlir() {
     if (!postProcessor) {
       continue;
     }
-    console.log(`Post-processing ${localName}...`);
+    logger.info(`Post-processing ${localName}...`);
     postProcessor(allData[localName], allData);
   }
 
   for (const { localName } of dataTypes) {
-    console.log(`Writing ${localName}...`);
-    fs.writeJsonSync(path.join(outPath, localName + '.json'), allData[localName], { spaces: 2 });
+    logger.info(`Writing ${localName}...`);
+    const outputFile = path.join(outputDirectory, localName + '.json');
+    if (fs.existsSync(outputFile)) {
+      fs.renameSync(outputFile, outputFile + '.bak');
+    }
+    await fs.writeJson(outputFile, allData[localName], { spaces: 2 });
   }
 }
 
-const argv = yargs.option('download', {
-  alias: 'd',
-  default: true,
-}).argv;
+const argv = yargs
+  .option('download', {
+    alias: 'd',
+    default: true,
+    description: 'Download latest. Use --no-download to only convert previous downloaded data.',
+  })
+  .option('sheet', {
+    default: 'community',
+    choices: Object.keys(enlirSpreadsheetIds),
+    description: 'Sheets to download: original Enlir data or new Community sheet.',
+  })
+  .option('output-directory', {
+    alias: 'o',
+    description: 'output directory',
+    demandOption: true,
+  }).argv;
+
+// To do: Should we use an API key, rather than OAuth2 credentials, since we're only using public data?
+async function loadEnlirCredentials() {
+  const enlirCredentialsFilename = path.resolve(__dirname, '..', 'credentials.json');
+  try {
+    return await fs.readJson(enlirCredentialsFilename);
+  } catch (e) {
+    console.error(e.message);
+    console.error('Please create a credentials.json file, following the instructions at');
+    console.error('https://developers.google.com/sheets/api/quickstart/nodejs');
+    return null;
+  }
+}
 
 async function main() {
   if (argv.download) {
+    const enlirCredentials = await loadEnlirCredentials();
+    if (!enlirCredentials) {
+      return;
+    }
+
     const auth = await authorize(enlirCredentials);
-    await downloadEnlir(auth, enlirSpreadsheetIds.community);
+    await downloadEnlir(auth, enlirSpreadsheetIds[argv.sheet]);
   }
-  await convertEnlir();
+  await convertEnlir(argv.outputDirectory);
 }
 
 main().catch(e => console.error(e));
