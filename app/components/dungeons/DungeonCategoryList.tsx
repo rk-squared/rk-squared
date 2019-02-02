@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import * as _ from 'lodash';
+
 import { descriptions, getSorter, World, WorldCategory } from '../../actions/worlds';
 import { CollapsibleCard } from '../common/CollapsibleCard';
 import { MaybeWrap } from '../common/MaybeWrap';
@@ -7,7 +9,19 @@ import DungeonCard from './DungeonCard';
 import WorldBadge from './WorldBadge';
 import WorldPrizeList from './WorldPrizeList';
 
-import * as _ from 'lodash';
+const categoryImages: { [category: string]: string } = {
+  [WorldCategory.CrystalTower]: require('../../images/game-icons/white-tower.svg'),
+  [WorldCategory.Event]: require('../../images/game-icons/book-cover.svg'),
+  [WorldCategory.PowerUpMote]: require('../../images/game-icons/orb-direction.svg'),
+  [WorldCategory.Magicite]: require('../../images/game-icons/triple-yin.svg'),
+  [WorldCategory.Newcomer]: require('../../images/game-icons/big-egg.svg'),
+  [WorldCategory.Nightmare]: require('../../images/game-icons/spectre.svg'),
+  [WorldCategory.Raid]: require('../../images/game-icons/swords-emblem.svg'),
+  [WorldCategory.Realm]: require('../../images/game-icons/closed-doors.svg'),
+  [WorldCategory.Record]: require('../../images/game-icons/galleon.svg'),
+  [WorldCategory.SpecialEvent]: require('../../images/game-icons/star-formation.svg'),
+  [WorldCategory.Torment]: require('../../images/game-icons/daemon-skull.svg'),
+};
 
 interface Props {
   worlds: {
@@ -33,11 +47,14 @@ type WorldsBySubcategory = Array<[string, World[]]>;
  * Gets the list of worlds, sorted and grouped by subcategory, for the given
  * WorldCategory.
  */
-function getSortedWorlds(worlds: {[id: number]: World}, category: WorldCategory): WorldsBySubcategory | null {
+function getSortedWorlds(
+  worlds: { [id: number]: World },
+  category: WorldCategory,
+): WorldsBySubcategory | null {
   // Known subcategories and their sort orders
-  const subcategories: {[s: string]: number} = {};
+  const subcategories: { [s: string]: number } = {};
   // Worlds sorted by subcategory
-  const bySubcategory: {[s: string]: World[]} = {};
+  const bySubcategory: { [s: string]: World[] } = {};
 
   _.forEach(worlds, w => {
     if (w.category === category) {
@@ -56,9 +73,10 @@ function getSortedWorlds(worlds: {[id: number]: World}, category: WorldCategory)
 
   // Sort subcategories - by subcategory sort order if possible, and by
   // subcategory name if not.  Blank goes first.
-  result = _.sortBy(result,
-    [(i: any) => i[0] === '' ? -Infinity : subcategories[i[0]], (i: any) => i[0]]
-  ) as any as WorldsBySubcategory;
+  result = (_.sortBy(result, [
+    (i: any) => (i[0] === '' ? -Infinity : subcategories[i[0]]),
+    (i: any) => i[0],
+  ]) as any) as WorldsBySubcategory;
 
   // Sort within each subcategory.
   const sorter = getSorter(category);
@@ -69,11 +87,29 @@ function getSortedWorlds(worlds: {[id: number]: World}, category: WorldCategory)
   return result;
 }
 
-const DungeonCategoryTitle = ({title, worlds}: {title: string, worlds: World[]}) => (
-  <span>
-    {title}
-    <WorldBadge worlds={worlds}/>
-  </span>
+const DungeonCategoryTitle = ({
+  category,
+  title,
+  worlds,
+}: {
+  category?: WorldCategory;
+  title: string;
+  worlds: World[];
+}) => (
+  <div className="d-flex justify-content-between align-items-center">
+    <div>
+      {category != null && (
+        <img
+          src={categoryImages[category]}
+          width={32}
+          height={32}
+          style={{ paddingRight: '0.5em' }}
+        />
+      )}
+      {title}
+    </div>
+    <WorldBadge worlds={worlds} />
+  </div>
 );
 
 export class DungeonCategoryList extends React.PureComponent<Props> {
@@ -88,21 +124,29 @@ export class DungeonCategoryList extends React.PureComponent<Props> {
     return (
       <CollapsibleCard
         id={id}
-        title={() => <DungeonCategoryTitle title={descriptions[category]} worlds={categoryWorlds}/>}
+        title={() => (
+          <DungeonCategoryTitle
+            category={category}
+            title={descriptions[category]}
+            worlds={categoryWorlds}
+          />
+        )}
       >
         <div className="accordion">
-          <WorldPrizeList worlds={categoryWorlds}/>
+          <WorldPrizeList worlds={categoryWorlds} />
           {bySubcategory.map(([subcategory, subWorlds], i) => (
             <MaybeWrap
-              component={CollapsibleCard} test={subcategory !== ''}
-              id={`${id}-${i}`} key={i}
-              title={() => <DungeonCategoryTitle title={subcategory} worlds={subWorlds}/>}
+              component={CollapsibleCard}
+              test={subcategory !== ''}
+              id={`${id}-${i}`}
+              key={i}
+              title={() => <DungeonCategoryTitle title={subcategory} worlds={subWorlds} />}
             >
               <div>
-                {subcategory !== '' && <WorldPrizeList worlds={subWorlds}/>}
+                {subcategory !== '' && <WorldPrizeList worlds={subWorlds} />}
                 <div className="accordion">
                   {subWorlds.map((w, j) => (
-                    <DungeonCard world={w} key={j}/>
+                    <DungeonCard world={w} key={j} />
                   ))}
                 </div>
               </div>
