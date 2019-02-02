@@ -8,6 +8,7 @@ import fontawesome from '@fortawesome/fontawesome';
 import * as faArchive from '@fortawesome/fontawesome-free-solid/faArchive';
 import * as faArrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown';
 import * as faCheck from '@fortawesome/fontawesome-free-solid/faCheck';
+import * as faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee';
 import * as faEllipsisH from '@fortawesome/fontawesome-free-solid/faEllipsisH';
 import * as faLock from '@fortawesome/fontawesome-free-solid/faLock';
 import * as faLockOpen from '@fortawesome/fontawesome-free-solid/faLockOpen';
@@ -19,7 +20,18 @@ import { Root } from './containers/Root';
 
 import './app.global.scss';
 
-fontawesome.library.add(faArchive, faArrowDown, faCheck, faEllipsisH, faLock, faLockOpen, faQuestion, faStar, faUnlock);
+fontawesome.library.add(
+  faArchive,
+  faArrowDown,
+  faCheck,
+  faCoffee,
+  faEllipsisH,
+  faLock,
+  faLockOpen,
+  faQuestion,
+  faStar,
+  faUnlock,
+);
 
 const { configureStore, history } = require('./store/configureStore');
 const store = configureStore(getInitialStateRenderer());
@@ -31,7 +43,7 @@ render(
   <AppContainer>
     <Root store={store} history={history} />
   </AppContainer>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 if ((module as any).hot) {
@@ -42,7 +54,7 @@ if ((module as any).hot) {
       <AppContainer>
         <NextRoot store={store} history={history} />
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('root'),
     );
   });
 }
