@@ -13,7 +13,7 @@
     "no-conditional-assignment": false,
     "no-implicit-dependencies": [true, "dev", ["googleapis-common"]],
     "no-string-literal": false,
-    "no-submodule-imports": [true, "@fortawesome/fontawesome-free-solid", "lodash-es", "redux-saga"],
+    "no-submodule-imports": [true, "@fortawesome/pro-solid-svg-icons", "lodash-es", "redux-saga"],
     "no-unused-expression": [true, "allow-fast-null-checks"],
     "no-var-requires": false,
     "object-literal-sort-keys": false,
