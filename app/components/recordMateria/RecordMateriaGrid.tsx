@@ -120,6 +120,7 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
           getRowNodeId={this.getRowNodeId}
           onGridReady={this.handleGridReady}
           onViewportChanged={ReactTooltip.rebuild}
+          onFilterChanged={ReactTooltip.rebuild}
         />
         <div className="text-right mt-1 text-muted">{count != null && count + ' materia'}</div>
         <RecordMateriaTooltip
