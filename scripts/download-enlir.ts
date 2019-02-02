@@ -270,6 +270,27 @@ function convertCharacters(rows: any[]): any[] {
   return characters;
 }
 
+/**
+ * Post-process character data to add whether each character is in GL.  The
+ * Characters sheet itself doesn't have a GL column, and the Google Sheets API
+ * doesn't appear to offer a way to get at the formatting (background color)
+ * that indicates whether a character is in GL.  Instead, we can look at
+ * per-character items (specifically, record materia) to see if those are in
+ * GL.
+ */
+function postProcessCharacters(characters: any[], allData: { [localName: string]: any[] }) {
+  const isCharacterInGl: { [character: string]: boolean } = {};
+  _.forEach(allData.recordMateria, i => {
+    if (i.gl) {
+      isCharacterInGl[i.character] = true;
+    }
+  });
+
+  for (const c of characters) {
+    c.gl = isCharacterInGl[c.name] || false;
+  }
+}
+
 function convertMagicite(rows: any[]): any[] {
   const magicite: any[] = [];
 
@@ -446,7 +467,14 @@ function convertRelics(rows: any[]): any[] {
   return relics;
 }
 
-const dataTypes = [
+interface DataType {
+  sheet: string;
+  localName: string;
+  converter: (rows: any[]) => any[];
+  postProcessor?: (data: any[], allData: { [localName: string]: any[] }) => void;
+}
+
+const dataTypes: DataType[] = [
   {
     sheet: 'Abilities',
     localName: 'abilities',
@@ -456,6 +484,7 @@ const dataTypes = [
     sheet: 'Characters',
     localName: 'characters',
     converter: convertCharacters,
+    postProcessor: postProcessCharacters,
   },
   {
     sheet: 'Magicite',
@@ -488,11 +517,24 @@ async function downloadEnlir(auth: OAuth2Client, spreadsheetId: string) {
 }
 
 async function convertEnlir() {
+  const allData: { [name: string]: any[] } = {};
   for (const { localName, converter } of dataTypes) {
     console.log(`Converting ${localName}...`);
-    const rawData = fs.readJsonSync(path.join(workPath, localName + '.json'));
-    const data = converter(rawData.values);
-    fs.writeJsonSync(path.join(outPath, localName + '.json'), data, { spaces: 2 });
+    const rawData = await fs.readJson(path.join(workPath, localName + '.json'));
+    allData[localName] = converter(rawData.values);
+  }
+
+  for (const { localName, postProcessor } of dataTypes) {
+    if (!postProcessor) {
+      continue;
+    }
+    console.log(`Post-processing ${localName}...`);
+    postProcessor(allData[localName], allData);
+  }
+
+  for (const { localName } of dataTypes) {
+    console.log(`Writing ${localName}...`);
+    fs.writeJsonSync(path.join(outPath, localName + '.json'), allData[localName], { spaces: 2 });
   }
 }
 

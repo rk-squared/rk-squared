@@ -1091,7 +1091,7 @@
       "def": 0,
       "mag": 0,
       "res": 0,
-      "mnd": 97,
+      "mnd": 0,
       "acc": 95,
       "eva": 0
     },
@@ -1106,7 +1106,7 @@
       "def": null,
       "mag": null,
       "res": null,
-      "mnd": 62,
+      "mnd": null,
       "acc": 95,
       "eva": null
     },
@@ -1117,7 +1117,7 @@
       "def": null,
       "mag": null,
       "res": null,
-      "mnd": 97,
+      "mnd": null,
       "acc": 95,
       "eva": null
     },
@@ -11202,7 +11202,7 @@
       "eva": null
     },
     "id": 21002446,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Twin Lance+",
@@ -11247,7 +11247,7 @@
       "eva": null
     },
     "id": 21002445,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Cutting Trigger+",
@@ -13048,6 +13048,51 @@
     },
     "id": 21002418,
     "gl": true
+  },
+  {
+    "name": "Liberator",
+    "realm": "XIII",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Lightning damage +20%",
+    "character": "Lightning",
+    "soulBreak": "Legion of One",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002432,
+    "gl": false
   },
   {
     "name": "Excalibur Zeta",
@@ -19212,7 +19257,7 @@
       "eva": null
     },
     "id": 21002407,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Squall's Hyperion",
@@ -19952,8 +19997,8 @@
     },
     "effect": null,
     "character": "Steiner",
-    "soulBreak": "Self-Conviction",
-    "legendMateria": null,
+    "soulBreak": null,
+    "legendMateria": "Self-Conviction",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -39122,7 +39167,7 @@
     },
     "effect": "Fire damage +20%",
     "character": "Refia",
-    "soulBreak": "Triple Flamefist",
+    "soulBreak": "Trine Flamefist",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -40497,6 +40542,141 @@
       "eva": null
     },
     "id": 21007101,
+    "gl": false
+  },
+  {
+    "name": "Seraphim Claw",
+    "realm": "XIII",
+    "type": "Fist",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 122,
+      "def": 0,
+      "mag": 172,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Cid Raines",
+    "soulBreak": "Angel of Death",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 91,
+      "def": null,
+      "mag": 127,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 134,
+      "def": null,
+      "mag": 190,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007167,
+    "gl": false
+  },
+  {
+    "name": "Warrior's Emblem",
+    "realm": "XIII",
+    "type": "Fist",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 28,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Ice damage +20%",
+    "character": "Snow",
+    "soulBreak": "Diamond Geyser",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": 28,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": 28,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007158,
+    "gl": false
+  },
+  {
+    "name": "Midnight Sun",
+    "realm": "XIII",
+    "type": "Fist",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 28,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Snow",
+    "soulBreak": "Hero's Fist",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": 28,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": 28,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007129,
     "gl": false
   },
   {
@@ -44007,6 +44187,51 @@
       "eva": null
     },
     "id": 21007162,
+    "gl": false
+  },
+  {
+    "name": "Umbra",
+    "realm": "XIII",
+    "type": "Fist",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 147,
+      "def": 20,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Snow",
+    "soulBreak": "Icicle Guard",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 112,
+      "def": 20,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 164,
+      "def": 20,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007161,
     "gl": false
   },
   {
@@ -51477,7 +51702,7 @@
       "eva": null
     },
     "id": 21008212,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rod of Darkness",
@@ -51522,7 +51747,7 @@
       "eva": null
     },
     "id": 21008180,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Oak Staff",
@@ -58992,7 +59217,7 @@
       "eva": null
     },
     "id": 21009138,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Judgment Staff",
@@ -65807,7 +66032,7 @@
     },
     "effect": null,
     "character": "Deuce",
-    "soulBreak": "Platinum Piccolo",
+    "soulBreak": "Vivace",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -68732,7 +68957,7 @@
     },
     "effect": null,
     "character": "Rydia",
-    "soulBreak": "Secrets of Mist",
+    "soulBreak": "Secret of Mist",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -71007,7 +71232,7 @@
       "eva": null
     },
     "id": 21013077,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Twin Viper",
@@ -73212,7 +73437,7 @@
       "eva": null
     },
     "id": 21013052,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Pinwheel",
@@ -76607,7 +76832,7 @@
     },
     "effect": null,
     "character": "Irvine",
-    "soulBreak": "Dark Shot",
+    "soulBreak": "Dark Shot (VIII)",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -94590,6 +94815,96 @@
     "gl": false
   },
   {
+    "name": "Snow's Guise",
+    "realm": "XIII",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 151,
+      "mag": 0,
+      "res": 151,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Ice damage +20%",
+    "character": "Snow",
+    "soulBreak": "Crushing Ice Fist!",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 110,
+      "mag": null,
+      "res": 110,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 167,
+      "mag": null,
+      "res": 167,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053338,
+    "gl": false
+  },
+  {
+    "name": "Guardian Corps Uniform",
+    "realm": "XIII",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 152,
+      "mag": 0,
+      "res": 152,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Lightning",
+    "soulBreak": "Lightning Rend",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 111,
+      "mag": null,
+      "res": 111,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 168,
+      "mag": null,
+      "res": 168,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053318,
+    "gl": false
+  },
+  {
     "name": "Gaia Gear",
     "realm": "FFT",
     "type": "Light Armor",
@@ -94677,6 +94992,51 @@
       "eva": 100
     },
     "id": 22053319,
+    "gl": false
+  },
+  {
+    "name": "Ace's Guise",
+    "realm": "Type-0",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 152,
+      "mag": 19,
+      "res": 152,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Ace",
+    "soulBreak": "We Have Arrived",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 111,
+      "mag": 10,
+      "res": 111,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 168,
+      "mag": 22,
+      "res": 168,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053342,
     "gl": false
   },
   {
@@ -99762,7 +100122,7 @@
       "eva": 100
     },
     "id": 22053356,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Vishnu Vest",
@@ -109257,10 +109617,10 @@
       "eva": 105
     },
     "id": 22055106,
-    "gl": false
+    "gl": true
   },
   {
-    "name": "Adel's Nightmare",
+    "name": "Phantasmal Garment I",
     "realm": "VIII",
     "type": "Robe",
     "rarity": 6,
@@ -109302,7 +109662,7 @@
       "eva": 105
     },
     "id": 22055094,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Sage's Robe",
@@ -117852,6 +118212,51 @@
       "eva": 105
     },
     "id": 22056243,
+    "gl": false
+  },
+  {
+    "name": "Magician's Mark",
+    "realm": "XIII",
+    "type": "Bracer",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 24,
+      "def": 99,
+      "mag": 28,
+      "res": 95,
+      "mnd": 18,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Cid Raines",
+    "soulBreak": "Dark Shift",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 16,
+      "def": 81,
+      "mag": 21,
+      "res": 71,
+      "mnd": 11,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 28,
+      "def": 107,
+      "mag": 31,
+      "res": 107,
+      "mnd": 21,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056248,
     "gl": false
   },
   {
@@ -130137,6 +130542,51 @@
       "eva": null
     },
     "id": 23080534,
+    "gl": false
+  },
+  {
+    "name": "Amulet of Peace",
+    "realm": "XIII",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 15,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Instant KO immunity (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 15,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 15,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080492,
     "gl": false
   },
   {

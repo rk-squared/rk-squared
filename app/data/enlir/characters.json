@@ -122,7 +122,8 @@
       "witch": 6,
       "heavy": 5
     },
-    "id": 10000200
+    "id": 10000200,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -247,7 +248,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10000300
+    "id": 10000300,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -372,7 +374,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10000400
+    "id": 10000400,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -497,7 +500,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10000600
+    "id": 10000600,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -622,7 +626,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10000900
+    "id": 10000900,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -747,7 +752,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10001100
+    "id": 10001100,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -872,7 +878,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10001200
+    "id": 10001200,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -997,7 +1004,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10001400
+    "id": 10001400,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1122,7 +1130,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10001500
+    "id": 10001500,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1247,7 +1256,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10001700
+    "id": 10001700,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1372,7 +1382,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10001900
+    "id": 10001900,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1497,7 +1508,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10002000
+    "id": 10002000,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1622,7 +1634,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10002200
+    "id": 10002200,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1747,7 +1760,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10002300
+    "id": 10002300,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1872,7 +1886,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10002400
+    "id": 10002400,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1997,7 +2012,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10002500
+    "id": 10002500,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -2122,7 +2138,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10002600
+    "id": 10002600,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -2247,7 +2264,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10002700
+    "id": 10002700,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -2372,7 +2390,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10002800
+    "id": 10002800,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -2497,7 +2516,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10003000
+    "id": 10003000,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -2622,7 +2642,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10003300
+    "id": 10003300,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -2747,7 +2768,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10004000
+    "id": 10004000,
+    "gl": true
   },
   {
     "realm": "Core",
@@ -2872,7 +2894,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10004300
+    "id": 10004300,
+    "gl": false
   },
   {
     "realm": "Core",
@@ -2997,7 +3020,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10004400
+    "id": 10004400,
+    "gl": false
   },
   {
     "realm": "Core",
@@ -3122,7 +3146,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10004500
+    "id": 10004500,
+    "gl": false
   },
   {
     "realm": "I",
@@ -3247,7 +3272,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10100100
+    "id": 10100100,
+    "gl": true
   },
   {
     "realm": "I",
@@ -3372,7 +3398,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10100200
+    "id": 10100200,
+    "gl": true
   },
   {
     "realm": "I",
@@ -3497,7 +3524,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10100300
+    "id": 10100300,
+    "gl": true
   },
   {
     "realm": "I",
@@ -3622,7 +3650,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10100400
+    "id": 10100400,
+    "gl": true
   },
   {
     "realm": "I",
@@ -3747,7 +3776,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10100500
+    "id": 10100500,
+    "gl": true
   },
   {
     "realm": "I",
@@ -3872,7 +3902,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10100600
+    "id": 10100600,
+    "gl": true
   },
   {
     "realm": "I",
@@ -3997,7 +4028,8 @@
       "witch": 6,
       "heavy": null
     },
-    "id": 10100700
+    "id": 10100700,
+    "gl": true
   },
   {
     "realm": "I",
@@ -4122,7 +4154,8 @@
       "witch": 4,
       "heavy": null
     },
-    "id": 10100800
+    "id": 10100800,
+    "gl": true
   },
   {
     "realm": "I",
@@ -4247,7 +4280,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10100900
+    "id": 10100900,
+    "gl": true
   },
   {
     "realm": "II",
@@ -4372,7 +4406,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10200100
+    "id": 10200100,
+    "gl": true
   },
   {
     "realm": "II",
@@ -4497,7 +4532,8 @@
       "witch": 4,
       "heavy": null
     },
-    "id": 10200200
+    "id": 10200200,
+    "gl": true
   },
   {
     "realm": "II",
@@ -4622,7 +4658,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10200300
+    "id": 10200300,
+    "gl": true
   },
   {
     "realm": "II",
@@ -4747,7 +4784,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10200400
+    "id": 10200400,
+    "gl": true
   },
   {
     "realm": "II",
@@ -4872,7 +4910,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10200500
+    "id": 10200500,
+    "gl": true
   },
   {
     "realm": "II",
@@ -4997,7 +5036,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10200600
+    "id": 10200600,
+    "gl": true
   },
   {
     "realm": "II",
@@ -5122,7 +5162,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10200700
+    "id": 10200700,
+    "gl": true
   },
   {
     "realm": "II",
@@ -5247,7 +5288,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10200800
+    "id": 10200800,
+    "gl": true
   },
   {
     "realm": "II",
@@ -5372,7 +5414,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10200900
+    "id": 10200900,
+    "gl": true
   },
   {
     "realm": "II",
@@ -5497,7 +5540,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10201000
+    "id": 10201000,
+    "gl": true
   },
   {
     "realm": "II",
@@ -5622,7 +5666,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10201100
+    "id": 10201100,
+    "gl": true
   },
   {
     "realm": "II",
@@ -5747,7 +5792,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10201200
+    "id": 10201200,
+    "gl": true
   },
   {
     "realm": "III",
@@ -5872,7 +5918,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10300100
+    "id": 10300100,
+    "gl": true
   },
   {
     "realm": "III",
@@ -5997,7 +6044,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10300200
+    "id": 10300200,
+    "gl": true
   },
   {
     "realm": "III",
@@ -6122,7 +6170,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10300300
+    "id": 10300300,
+    "gl": true
   },
   {
     "realm": "III",
@@ -6247,7 +6296,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10300400
+    "id": 10300400,
+    "gl": true
   },
   {
     "realm": "III",
@@ -6372,7 +6422,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10300500
+    "id": 10300500,
+    "gl": true
   },
   {
     "realm": "III",
@@ -6497,7 +6548,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10300600
+    "id": 10300600,
+    "gl": true
   },
   {
     "realm": "III",
@@ -6622,7 +6674,8 @@
       "witch": 6,
       "heavy": null
     },
-    "id": 10300700
+    "id": 10300700,
+    "gl": true
   },
   {
     "realm": "III",
@@ -6747,7 +6800,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10300900
+    "id": 10300900,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -6872,7 +6926,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10400100
+    "id": 10400100,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -6997,7 +7052,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10400200
+    "id": 10400200,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -7122,7 +7178,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10400300
+    "id": 10400300,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -7247,7 +7304,8 @@
       "witch": 4,
       "heavy": null
     },
-    "id": 10400400
+    "id": 10400400,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -7372,7 +7430,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10400600
+    "id": 10400600,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -7497,7 +7556,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10400700
+    "id": 10400700,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -7622,7 +7682,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10400800
+    "id": 10400800,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -7747,7 +7808,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10400900
+    "id": 10400900,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -7872,7 +7934,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10401000
+    "id": 10401000,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -7997,7 +8060,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10401100
+    "id": 10401100,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -8122,7 +8186,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10401200
+    "id": 10401200,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -8247,7 +8312,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10401300
+    "id": 10401300,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -8372,7 +8438,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10401400
+    "id": 10401400,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -8497,7 +8564,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10401500
+    "id": 10401500,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -8622,7 +8690,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10401800
+    "id": 10401800,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -8747,7 +8816,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10402000
+    "id": 10402000,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -8872,7 +8942,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10402100
+    "id": 10402100,
+    "gl": true
   },
   {
     "realm": "IV",
@@ -8997,7 +9068,8 @@
       "witch": 4,
       "heavy": null
     },
-    "id": 10402200
+    "id": 10402200,
+    "gl": true
   },
   {
     "realm": "V",
@@ -9122,7 +9194,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10500200
+    "id": 10500200,
+    "gl": true
   },
   {
     "realm": "V",
@@ -9247,7 +9320,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10500500
+    "id": 10500500,
+    "gl": true
   },
   {
     "realm": "V",
@@ -9372,7 +9446,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10500600
+    "id": 10500600,
+    "gl": true
   },
   {
     "realm": "V",
@@ -9497,7 +9572,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10500700
+    "id": 10500700,
+    "gl": true
   },
   {
     "realm": "V",
@@ -9622,7 +9698,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10500800
+    "id": 10500800,
+    "gl": true
   },
   {
     "realm": "V",
@@ -9747,7 +9824,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10500900
+    "id": 10500900,
+    "gl": true
   },
   {
     "realm": "V",
@@ -9872,7 +9950,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10501000
+    "id": 10501000,
+    "gl": true
   },
   {
     "realm": "V",
@@ -9997,7 +10076,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10501100
+    "id": 10501100,
+    "gl": true
   },
   {
     "realm": "V",
@@ -10122,7 +10202,8 @@
       "witch": 4,
       "heavy": null
     },
-    "id": 10501200
+    "id": 10501200,
+    "gl": true
   },
   {
     "realm": "V",
@@ -10247,7 +10328,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10501600
+    "id": 10501600,
+    "gl": true
   },
   {
     "realm": "V",
@@ -10372,7 +10454,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10501700
+    "id": 10501700,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -10497,7 +10580,8 @@
       "witch": 4,
       "heavy": null
     },
-    "id": 10600100
+    "id": 10600100,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -10622,7 +10706,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10600300
+    "id": 10600300,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -10747,7 +10832,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10600400
+    "id": 10600400,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -10872,7 +10958,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10600500
+    "id": 10600500,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -10997,7 +11084,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10600600
+    "id": 10600600,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -11122,7 +11210,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10600700
+    "id": 10600700,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -11247,7 +11336,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10600800
+    "id": 10600800,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -11372,7 +11462,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10600900
+    "id": 10600900,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -11497,7 +11588,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10601000
+    "id": 10601000,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -11622,7 +11714,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10601100
+    "id": 10601100,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -11747,7 +11840,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10601200
+    "id": 10601200,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -11872,7 +11966,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10601300
+    "id": 10601300,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -11997,7 +12092,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10601400
+    "id": 10601400,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -12122,7 +12218,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10601500
+    "id": 10601500,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -12247,7 +12344,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10601600
+    "id": 10601600,
+    "gl": true
   },
   {
     "realm": "VI",
@@ -12372,7 +12470,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10601700
+    "id": 10601700,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -12497,7 +12596,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10700100
+    "id": 10700100,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -12622,7 +12722,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10700200
+    "id": 10700200,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -12747,7 +12848,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10700300
+    "id": 10700300,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -12872,7 +12974,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10700400
+    "id": 10700400,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -12997,7 +13100,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10700500
+    "id": 10700500,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -13122,7 +13226,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10700600
+    "id": 10700600,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -13247,7 +13352,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10700700
+    "id": 10700700,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -13372,7 +13478,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10700800
+    "id": 10700800,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -13497,7 +13604,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10700900
+    "id": 10700900,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -13622,7 +13730,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10701000
+    "id": 10701000,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -13747,7 +13856,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10701100
+    "id": 10701100,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -13872,7 +13982,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10701200
+    "id": 10701200,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -13997,7 +14108,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10701500
+    "id": 10701500,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -14122,7 +14234,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10701800
+    "id": 10701800,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -14247,7 +14360,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10701900
+    "id": 10701900,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -14372,7 +14486,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10702000
+    "id": 10702000,
+    "gl": true
   },
   {
     "realm": "VII",
@@ -14497,7 +14612,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10702100
+    "id": 10702100,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -14622,7 +14738,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10800100
+    "id": 10800100,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -14747,7 +14864,8 @@
       "witch": 6,
       "heavy": null
     },
-    "id": 10800200
+    "id": 10800200,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -14872,7 +14990,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10800300
+    "id": 10800300,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -14997,7 +15116,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10800400
+    "id": 10800400,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -15122,7 +15242,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10800500
+    "id": 10800500,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -15247,7 +15368,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10800600
+    "id": 10800600,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -15372,7 +15494,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10800700
+    "id": 10800700,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -15497,7 +15620,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10800900
+    "id": 10800900,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -15622,7 +15746,8 @@
       "witch": 6,
       "heavy": null
     },
-    "id": 10801000
+    "id": 10801000,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -15747,7 +15872,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10801200
+    "id": 10801200,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -15872,7 +15998,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10801300
+    "id": 10801300,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -15997,7 +16124,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10801500
+    "id": 10801500,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -16122,7 +16250,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 10801600
+    "id": 10801600,
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -16247,7 +16376,8 @@
       "witch": 6,
       "heavy": null
     },
-    "id": 10802000
+    "id": 10802000,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -16372,7 +16502,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10900100
+    "id": 10900100,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -16497,7 +16628,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10900200
+    "id": 10900200,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -16622,7 +16754,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10900300
+    "id": 10900300,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -16747,7 +16880,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10900400
+    "id": 10900400,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -16872,7 +17006,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10900500
+    "id": 10900500,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -16997,7 +17132,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10900600
+    "id": 10900600,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -17122,7 +17258,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10900700
+    "id": 10900700,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -17247,7 +17384,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10900800
+    "id": 10900800,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -17372,7 +17510,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10900900
+    "id": 10900900,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -17497,7 +17636,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10901000
+    "id": 10901000,
+    "gl": true
   },
   {
     "realm": "IX",
@@ -17622,7 +17762,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 10901500
+    "id": 10901500,
+    "gl": true
   },
   {
     "realm": "X",
@@ -17747,7 +17888,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11000100
+    "id": 11000100,
+    "gl": true
   },
   {
     "realm": "X",
@@ -17872,7 +18014,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11000200
+    "id": 11000200,
+    "gl": true
   },
   {
     "realm": "X",
@@ -17997,7 +18140,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11000300
+    "id": 11000300,
+    "gl": true
   },
   {
     "realm": "X",
@@ -18122,7 +18266,8 @@
       "witch": 6,
       "heavy": null
     },
-    "id": 11000400
+    "id": 11000400,
+    "gl": true
   },
   {
     "realm": "X",
@@ -18247,7 +18392,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11000500
+    "id": 11000500,
+    "gl": true
   },
   {
     "realm": "X",
@@ -18372,7 +18518,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11000600
+    "id": 11000600,
+    "gl": true
   },
   {
     "realm": "X",
@@ -18497,7 +18644,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11000700
+    "id": 11000700,
+    "gl": true
   },
   {
     "realm": "X",
@@ -18622,7 +18770,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11001000
+    "id": 11001000,
+    "gl": true
   },
   {
     "realm": "X",
@@ -18747,7 +18896,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11001200
+    "id": 11001200,
+    "gl": true
   },
   {
     "realm": "X",
@@ -18872,7 +19022,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11001500
+    "id": 11001500,
+    "gl": true
   },
   {
     "realm": "X",
@@ -18997,7 +19148,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11001800
+    "id": 11001800,
+    "gl": true
   },
   {
     "realm": "XI",
@@ -19122,7 +19274,8 @@
       "witch": 6,
       "heavy": null
     },
-    "id": 11100100
+    "id": 11100100,
+    "gl": true
   },
   {
     "realm": "XI",
@@ -19247,7 +19400,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11100200
+    "id": 11100200,
+    "gl": true
   },
   {
     "realm": "XI",
@@ -19372,7 +19526,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11100300
+    "id": 11100300,
+    "gl": true
   },
   {
     "realm": "XI",
@@ -19497,7 +19652,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11100400
+    "id": 11100400,
+    "gl": true
   },
   {
     "realm": "XI",
@@ -19622,7 +19778,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11100500
+    "id": 11100500,
+    "gl": true
   },
   {
     "realm": "XI",
@@ -19747,7 +19904,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11100600
+    "id": 11100600,
+    "gl": true
   },
   {
     "realm": "XI",
@@ -19872,7 +20030,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 11100700
+    "id": 11100700,
+    "gl": true
   },
   {
     "realm": "XI",
@@ -19997,7 +20156,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11100800
+    "id": 11100800,
+    "gl": false
   },
   {
     "realm": "XII",
@@ -20122,7 +20282,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11200100
+    "id": 11200100,
+    "gl": true
   },
   {
     "realm": "XII",
@@ -20247,7 +20408,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11200200
+    "id": 11200200,
+    "gl": true
   },
   {
     "realm": "XII",
@@ -20372,7 +20534,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11200300
+    "id": 11200300,
+    "gl": true
   },
   {
     "realm": "XII",
@@ -20497,7 +20660,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11200400
+    "id": 11200400,
+    "gl": true
   },
   {
     "realm": "XII",
@@ -20622,7 +20786,8 @@
       "witch": 4,
       "heavy": null
     },
-    "id": 11200500
+    "id": 11200500,
+    "gl": true
   },
   {
     "realm": "XII",
@@ -20747,7 +20912,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11200600
+    "id": 11200600,
+    "gl": true
   },
   {
     "realm": "XII",
@@ -20872,7 +21038,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 11200700
+    "id": 11200700,
+    "gl": true
   },
   {
     "realm": "XII",
@@ -20997,7 +21164,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11200800
+    "id": 11200800,
+    "gl": true
   },
   {
     "realm": "XII",
@@ -21122,7 +21290,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11201000
+    "id": 11201000,
+    "gl": true
   },
   {
     "realm": "XII",
@@ -21247,7 +21416,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11201100
+    "id": 11201100,
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -21372,7 +21542,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11300100
+    "id": 11300100,
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -21497,7 +21668,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11300200
+    "id": 11300200,
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -21622,7 +21794,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11300300
+    "id": 11300300,
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -21747,7 +21920,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11300400
+    "id": 11300400,
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -21872,7 +22046,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11300500
+    "id": 11300500,
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -21997,7 +22172,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11300600
+    "id": 11300600,
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -22122,7 +22298,8 @@
       "witch": 4,
       "heavy": null
     },
-    "id": 11300700
+    "id": 11300700,
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -22247,7 +22424,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11301000
+    "id": 11301000,
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -22372,7 +22550,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11301100
+    "id": 11301100,
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -22497,7 +22676,8 @@
       "witch": 4,
       "heavy": null
     },
-    "id": 11301200
+    "id": 11301200,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -22622,7 +22802,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11400100
+    "id": 11400100,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -22747,7 +22928,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11400200
+    "id": 11400200,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -22872,7 +23054,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11400300
+    "id": 11400300,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -22997,7 +23180,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11400500
+    "id": 11400500,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -23122,7 +23306,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11400600
+    "id": 11400600,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -23247,7 +23432,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11400700
+    "id": 11400700,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -23372,7 +23558,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11400800
+    "id": 11400800,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -23497,7 +23684,8 @@
       "witch": 6,
       "heavy": null
     },
-    "id": 11400900
+    "id": 11400900,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -23622,7 +23810,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11401000
+    "id": 11401000,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -23747,7 +23936,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11401100
+    "id": 11401100,
+    "gl": true
   },
   {
     "realm": "XV",
@@ -23872,7 +24062,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 11500100
+    "id": 11500100,
+    "gl": true
   },
   {
     "realm": "XV",
@@ -23997,7 +24188,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 11500200
+    "id": 11500200,
+    "gl": true
   },
   {
     "realm": "XV",
@@ -24122,7 +24314,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11500300
+    "id": 11500300,
+    "gl": true
   },
   {
     "realm": "XV",
@@ -24247,7 +24440,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11500400
+    "id": 11500400,
+    "gl": true
   },
   {
     "realm": "XV",
@@ -24372,7 +24566,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11500500
+    "id": 11500500,
+    "gl": true
   },
   {
     "realm": "XV",
@@ -24497,7 +24692,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 11500600
+    "id": 11500600,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -24622,7 +24818,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15000100
+    "id": 15000100,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -24747,7 +24944,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15000200
+    "id": 15000200,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -24872,7 +25070,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15000300
+    "id": 15000300,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -24997,7 +25196,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15000400
+    "id": 15000400,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -25122,7 +25322,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15000500
+    "id": 15000500,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -25247,7 +25448,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15000600
+    "id": 15000600,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -25372,7 +25574,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15000700
+    "id": 15000700,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -25497,7 +25700,8 @@
       "witch": 6,
       "heavy": null
     },
-    "id": 15000900
+    "id": 15000900,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -25622,7 +25826,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15001000
+    "id": 15001000,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -25747,7 +25952,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 15001100
+    "id": 15001100,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -25872,7 +26078,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15001200
+    "id": 15001200,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -25997,7 +26204,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15001300
+    "id": 15001300,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -26122,7 +26330,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15001400
+    "id": 15001400,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -26247,7 +26456,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 15002800
+    "id": 15002800,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -26372,7 +26582,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16000100
+    "id": 16000100,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -26497,7 +26708,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16000200
+    "id": 16000200,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -26622,7 +26834,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16000300
+    "id": 16000300,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -26747,7 +26960,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16000400
+    "id": 16000400,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -26872,7 +27086,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16000500
+    "id": 16000500,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -26997,7 +27212,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16000600
+    "id": 16000600,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -27122,7 +27338,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16000700
+    "id": 16000700,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -27247,7 +27464,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 16000800
+    "id": 16000800,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -27372,7 +27590,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16000900
+    "id": 16000900,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -27497,7 +27716,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16001000
+    "id": 16001000,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -27622,7 +27842,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16001100
+    "id": 16001100,
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -27747,7 +27968,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16001200
+    "id": 16001200,
+    "gl": false
   },
   {
     "realm": "Type-0",
@@ -27872,7 +28094,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 16001300
+    "id": 16001300,
+    "gl": false
   },
   {
     "realm": "KH",
@@ -27997,7 +28220,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 17000100
+    "id": 17000100,
+    "gl": true
   },
   {
     "realm": "KH",
@@ -28122,7 +28346,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 17000200
+    "id": 17000200,
+    "gl": true
   },
   {
     "realm": "Beyond",
@@ -28247,7 +28472,8 @@
       "witch": 4,
       "heavy": null
     },
-    "id": 19000500
+    "id": 19000500,
+    "gl": true
   },
   {
     "realm": "Beyond",
@@ -28372,7 +28598,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 19000600
+    "id": 19000600,
+    "gl": true
   },
   {
     "realm": "Beyond",
@@ -28497,7 +28724,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 19001100
+    "id": 19001100,
+    "gl": true
   },
   {
     "realm": "Beyond",
@@ -28622,7 +28850,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 19001200
+    "id": 19001200,
+    "gl": true
   },
   {
     "realm": "Beyond",
@@ -28747,7 +28976,8 @@
       "witch": null,
       "heavy": 5
     },
-    "id": 19001300
+    "id": 19001300,
+    "gl": true
   },
   {
     "realm": "Beyond",
@@ -28872,7 +29102,8 @@
       "witch": null,
       "heavy": null
     },
-    "id": 19001600
+    "id": 19001600,
+    "gl": false
   },
   {
     "realm": "Beyond",
@@ -28997,6 +29228,7 @@
       "witch": 6,
       "heavy": null
     },
-    "id": 19001700
+    "id": 19001700,
+    "gl": false
   }
 ]
