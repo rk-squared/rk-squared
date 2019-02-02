@@ -7,9 +7,9 @@ import { BrowserLink } from './BrowserLink';
 
 const styles = require('./OptionsForm.scss');
 
-const ENLIR =
-  'https://docs.google.com/spreadsheets/d/16K1Zryyxrh7vdKVF1f7eRrUAOC5wuzvC3q2gFLch6LQ/edit';
-const ENLIR_HELP = "Open Enlir's Google Docs spreadsheet in your browser.";
+const FFRK_COMMUNITY =
+  'https://docs.google.com/spreadsheets/d/1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk';
+const FFRK_COMMUNITY_HELP = 'Open the FFRK Community Google Docs spreadsheet in your browser.';
 const MISTER_P = 'http://happypluto.com/~misterp/r/ffrk.pdf';
 const MISTER_P_HELP = "Open MisterP's FFRK PDF in your browser.";
 
@@ -61,8 +61,8 @@ export class OptionsForm extends React.Component<Props> {
           <HelpText>
             Besides self-imposed speedrun challenges, this can be useful for tracking when buffs and
             debuffs might expire. Check{' '}
-            <BrowserLink href={ENLIR} title={ENLIR_HELP}>
-              Enlir
+            <BrowserLink href={FFRK_COMMUNITY} title={FFRK_COMMUNITY_HELP}>
+              FFRK Community
             </BrowserLink>{' '}
             or{' '}
             <BrowserLink href={MISTER_P} title={MISTER_P_HELP}>
