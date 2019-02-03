@@ -12,6 +12,7 @@ import WorldPrizeList from './WorldPrizeList';
 const categoryImages: { [category: string]: string } = {
   [WorldCategory.CrystalTower]: require('../../images/game-icons/white-tower.svg'),
   [WorldCategory.Event]: require('../../images/game-icons/book-cover.svg'),
+  [WorldCategory.JumpStart]: require('../../images/game-icons/lob-arrow.svg'),
   [WorldCategory.PowerUpMote]: require('../../images/game-icons/orb-direction.svg'),
   [WorldCategory.Magicite]: require('../../images/game-icons/triple-yin.svg'),
   [WorldCategory.Newcomer]: require('../../images/game-icons/big-egg.svg'),
@@ -19,6 +20,7 @@ const categoryImages: { [category: string]: string } = {
   [WorldCategory.Raid]: require('../../images/game-icons/swords-emblem.svg'),
   [WorldCategory.Realm]: require('../../images/game-icons/closed-doors.svg'),
   [WorldCategory.Record]: require('../../images/game-icons/galleon.svg'),
+  [WorldCategory.Renewal]: require('../../images/game-icons/calendar.svg'),
   [WorldCategory.SpecialEvent]: require('../../images/game-icons/star-formation.svg'),
   [WorldCategory.Torment]: require('../../images/game-icons/daemon-skull.svg'),
 };
