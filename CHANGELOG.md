@@ -1,8 +1,8 @@
 # v1.1.0
 
-* Add Dungeon Score Tracker
+* Add Dungeon Score Tracker - view all your torment progress and magicite completion times on a single page to help you see where to focus next
 * Add JP support
-* Display a pop-up notification if your IP address changes, since that means your proxy needs to be reconfigured.
+* Display a pop-up notification if your IP address changes, to let you know that your proxy needs to be reconfigured
 * Add tooltips giving details for Record Materia Tracker grid's effects
 * Add new characters to the Record Materia Tracker
 * Replace Enlir links with FFRK Community spreadsheet
