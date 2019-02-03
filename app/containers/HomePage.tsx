@@ -1,17 +1,19 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
 
+import { DonationInfo } from '../components/DonationInfo';
 import { Home } from '../components/Home';
 import { Page } from './Page';
 
-export class HomePage extends React.Component<RouteComponentProps<any>, void> {
+export class HomePage extends React.Component {
+  renderFooter = () => <DonationInfo />;
+
   render() {
     return (
-      <Page title="Welcome">
+      <Page title="Welcome" footer={this.renderFooter}>
         <Home />
       </Page>
     );
   }
 }
 
-export default (HomePage as any as React.StatelessComponent<RouteComponentProps<any>>);
+export default HomePage;

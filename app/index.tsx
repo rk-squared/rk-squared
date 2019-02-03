@@ -4,22 +4,36 @@ import * as Modal from 'react-modal';
 const { replayActionRenderer, getInitialStateRenderer } = require('electron-redux');
 import { AppContainer } from 'react-hot-loader';
 
-import fontawesome from '@fortawesome/fontawesome';
-import * as faArchive from '@fortawesome/fontawesome-free-solid/faArchive';
-import * as faArrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown';
-import * as faCheck from '@fortawesome/fontawesome-free-solid/faCheck';
-import * as faEllipsisH from '@fortawesome/fontawesome-free-solid/faEllipsisH';
-import * as faLock from '@fortawesome/fontawesome-free-solid/faLock';
-import * as faLockOpen from '@fortawesome/fontawesome-free-solid/faLockOpen';
-import * as faQuestion from '@fortawesome/fontawesome-free-solid/faQuestion';
-import * as faStar from '@fortawesome/fontawesome-free-solid/faStar';
-import * as faUnlock from '@fortawesome/fontawesome-free-solid/faUnlock';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faArchive,
+  faArrowDown,
+  faCheck,
+  faCoffeeTogo,
+  faEllipsisH,
+  faLock,
+  faLockOpen,
+  faQuestion,
+  faStar,
+  faUnlock,
+} from '@fortawesome/pro-solid-svg-icons';
 
 import { Root } from './containers/Root';
 
 import './app.global.scss';
 
-fontawesome.library.add(faArchive, faArrowDown, faCheck, faEllipsisH, faLock, faLockOpen, faQuestion, faStar, faUnlock);
+library.add(
+  faArchive,
+  faArrowDown,
+  faCheck,
+  faCoffeeTogo,
+  faEllipsisH,
+  faLock,
+  faLockOpen,
+  faQuestion,
+  faStar,
+  faUnlock,
+);
 
 const { configureStore, history } = require('./store/configureStore');
 const store = configureStore(getInitialStateRenderer());
@@ -31,7 +45,7 @@ render(
   <AppContainer>
     <Root store={store} history={history} />
   </AppContainer>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 if ((module as any).hot) {
@@ -42,7 +56,7 @@ if ((module as any).hot) {
       <AppContainer>
         <NextRoot store={store} history={history} />
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('root'),
     );
   });
 }
