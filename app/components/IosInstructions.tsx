@@ -24,8 +24,12 @@ export class IosInstructions extends React.Component<Props> {
           <li>
             Enter the following information:
             <ul>
-              <li>Server: <ProxyServer proxy={proxy}/></li>
-              <li>Port: <ProxyPort proxy={proxy}/></li>
+              <li>
+                Server: <ProxyServer proxy={proxy} />
+              </li>
+              <li>
+                Port: <ProxyPort proxy={proxy} />
+              </li>
             </ul>
           </li>
           <li>Tap &ldquo;Save.&rdquo;</li>
@@ -35,36 +39,37 @@ export class IosInstructions extends React.Component<Props> {
         <ol>
           <li>
             Open Safari on your phone or tablet and navigate to <code>rk-squared.com/cert</code>.
-            (This <code>cert</code> page isn't a &ldquo;real&rdquo; web page;
-            it's handled within RK&sup2; and is only accessible if you've
-            configured your proxy.)
+            (This <code>cert</code> page isn't a &ldquo;real&rdquo; web page; it's handled within
+            RK&sup2; and is only accessible if you've configured your proxy.)
           </li>
           <li>
             You should see a message similar to the following:
             {/* Hack: ul/li is bad semantics, but it looks nice enough with the other <ul>s. */}
             <ul>
               <li>
-                This website is trying to open Settings to show you a configuration
-                profile. Do you want to allow this?
+                This website is trying to open Settings to show you a configuration profile. Do you
+                want to allow this?
               </li>
             </ul>
             Tap &ldquo;Allow.&rdquo;
           </li>
           <li>
-            An &ldquo;Install Profile&rdquo; screen should pop up.  Follow
-            the on-screen prompts to install the profile.
+            An &ldquo;Install Profile&rdquo; screen should pop up. Follow the on-screen prompts to
+            install the profile.
+          </li>
+          <li>Go under Settings, under General, under About, under Certificate Trust Settings.</li>
+          <li>
+            Under &ldquo;Enable Full Trust for Root Certificates,&rdquo; make sure that &ldquo;RK
+            Squared&rdquo; is selected.
           </li>
           <li>
-            Go under Settings, under General, under About, under Certificate Trust
-            Settings.
+            The key for this certificate is stored locally on this computer. If you ever run
+            RK&sup2; on a different computer or under a different device on this computer, you'll
+            need to repeat these steps.
           </li>
           <li>
-            Under &ldquo;Enable Full Trust for Root Certificates,&rdquo; make sure
-            that &ldquo;RK Squared&rdquo; is selected.
-          </li>
-          <li>
-            If you ever want to remove this certificate, you can do so by going
-            under Settings, under General, under Profiles &amp; Device Management.
+            If you ever want to remove this certificate, you can do so by going under Settings,
+            under General, under Profiles &amp; Device Management.
           </li>
         </ol>
 
@@ -75,8 +80,6 @@ export class IosInstructions extends React.Component<Props> {
   }
 }
 
-export default connect(
-  (state: IState) => ({
-    proxy: state.proxy
-  })
-)(IosInstructions);
+export default connect((state: IState) => ({
+  proxy: state.proxy,
+}))(IosInstructions);
