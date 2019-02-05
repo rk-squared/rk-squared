@@ -77,7 +77,7 @@ function isFfrkStartupRequest(req: http.IncomingMessage) {
 
 let capturePath: string;
 
-function getCaptureFilename(req: http.IncomingMessage) {
+function getCaptureFilename(req: http.IncomingMessage, extension: string) {
   if (req.url == null) {
     throw new Error('No URL included in request');
   }
@@ -86,7 +86,7 @@ function getCaptureFilename(req: http.IncomingMessage) {
   }
   const datestamp = moment().format('YYYY-MM-DD-HH-mm-ss-SSS');
   const urlPath = url.parse(req.url).pathname!.replace(/\//g, '_');
-  return path.join(capturePath, datestamp + urlPath + '.json');
+  return path.join(capturePath, datestamp + urlPath + extension);
 }
 
 function checkRequestBody(req: http.IncomingMessage) {
@@ -100,27 +100,32 @@ function checkRequestBody(req: http.IncomingMessage) {
   } catch (e) {}
 }
 
+function recordRawCapturedData(data: any, req: http.IncomingMessage, extension: string) {
+  const filename = getCaptureFilename(req, extension);
+
+  return new Promise((resolve, reject) => {
+    fs.writeFile(filename, data, err => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(filename);
+      }
+    });
+  });
+}
+
 function recordCapturedData(data: any, req: http.IncomingMessage, res: http.ServerResponse) {
-  const filename = getCaptureFilename(req);
   const { url, method, headers } = req; // tslint:disable-line no-shadowed-variable
   const response = { headers: res.getHeaders() };
 
   const proxyReq = req as ProxyIncomingMessage;
   const requestBody = proxyReq.body;
 
-  return new Promise((resolve, reject) => {
-    fs.writeFile(
-      filename,
-      JSON.stringify({ url, method, headers, requestBody, response, data }, null, 2),
-      err => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(filename);
-        }
-      },
-    );
-  });
+  return recordRawCapturedData(
+    JSON.stringify({ url, method, headers, requestBody, response, data }, null, 2),
+    req,
+    '.json',
+  );
 }
 
 const UTF8_BOM = 0xfeff;
@@ -236,6 +241,13 @@ function handleFfrkStartupRequest(
     const textMaster = extractJson($('#text-master'));
     const startupData = { appInitData, textMaster };
     if (store.getState().options.saveTrafficCaptures) {
+      // Optionally save full startup data.  Disabled by default; it's big and
+      // hard to work with.
+      if (0) {
+        recordRawCapturedData(decoded, req, '.html')
+          .catch(err => logger.error(`Failed to save raw data capture: ${err}`))
+          .then(filename => logger.debug(`Saved to ${filename}`));
+      }
       recordCapturedData(startupData, req, res)
         .catch(err => logger.error(`Failed to save data capture: ${err}`))
         .then(filename => logger.debug(`Saved to ${filename}`));

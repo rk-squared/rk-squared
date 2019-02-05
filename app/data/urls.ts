@@ -98,3 +98,16 @@ export function itemImage(lang: LangType, id: number, type: ItemType): string {
       return url(lang, 'image/music_ticket/music_ticket.png');
   }
 }
+
+export function seriesIcon(lang: LangType, seriesId: number): string | null {
+  if (seriesId >= 101001 && seriesId <= 115001 && seriesId % 1000 === 1) {
+    const series = Math.floor((seriesId - 100000) / 1000);
+    return url(lang, `image/event_intro/common/pict/icon_series_${series}.png`);
+  } else if (seriesId === 150001) {
+    return url(lang, `image/event_intro/common/pict/icon_series_fft.png`);
+  } else if (seriesId === 160001) {
+    return url(lang, `image/event_intro/common/pict/icon_series_type0.png`);
+  } else {
+    return null;
+  }
+}

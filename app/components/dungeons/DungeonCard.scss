@@ -1,4 +1,18 @@
 :local {
+  /* Size of images like
+   * http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/event_intro/common/pict/icon_series_10.png
+   */
+  $series-icon-width: 460px;
+  $series-icon-height: 112px;
+  /* We want the icons to come out to about 40px, to match the size of the
+   * game-icons we use for world categories.  Taking into account the internal
+   * padding of FFRK's series icons, this works out to 42px.
+   */
+  $scaled-icon-size: 42px;
+
+  /* X offset to position the icon against the left edge. */
+  $icon-left: -($series-icon-width / 2 * $scaled-icon-size / $series-icon-height) + $scaled-icon-size;
+
   li.completed {
   }
 
@@ -14,5 +28,14 @@
       display: inline-block;
       width: 8em;
     }
+  }
+
+  .title {
+    background: no-repeat $icon-left;
+    background-size: auto $scaled-icon-size;
+  }
+
+  .titleText {
+    padding-left: calc(#{$scaled-icon-size} + 1rem);
   }
 }
