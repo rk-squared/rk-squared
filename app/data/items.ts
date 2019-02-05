@@ -841,6 +841,28 @@ export const items = [
     id: 95001080,
   },
 
+  // Items only in JP - unconfirmed in GL
+  {
+    name: 'Anima Lens Lv1',
+    type: ItemType.Common,
+    id: 95004001,
+  },
+  {
+    name: 'Anima Lens Lv2',
+    type: ItemType.Common,
+    id: 95004002,
+  },
+  {
+    name: 'Anima Lens Lv3',
+    type: ItemType.Common,
+    id: 95004003,
+  },
+  {
+    name: 'Sacred Lithograph',
+    type: ItemType.Common,
+    id: 98000000,
+  },
+
   {
     name: 'Spirit Mote (3★)',
     type: ItemType.Mote,
