@@ -4,7 +4,14 @@
     "Persistor",
     "ffrk",
     "prefs"
+    "AASB",
+    "AOSB",
+    "Enlir",
+    "Grimoire",
+    "magicite",
+    "magicites"
   ],
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": true
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2
 }
