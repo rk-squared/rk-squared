@@ -31,12 +31,12 @@ const numbers: { [s: string]: number } = {
 };
 
 const elementShortName: { [element: string]: string } = {
-  Lightning: 'light',
-  NE: 'non',
+  lightning: 'light',
+  ne: 'non',
 };
 
 const elementAbbreviation: { [element: string]: string } = {
-  Water: 'wa',
+  water: 'wa',
 };
 
 export function parseNumberString(s: string): number | null {
@@ -62,7 +62,7 @@ function elementToShortName(element: string): string {
   return element
     .split(', ')
     .map(i => elementShortName[i.toLowerCase()] || i.toLowerCase())
-    .join(' + ');
+    .join('+');
 }
 
 interface MrPSoulBreak {
@@ -72,26 +72,39 @@ interface MrPSoulBreak {
 
 export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null {
   let m: RegExpMatchArray | null;
+  let damage = '';
+  const other = [];
+
   if (
     (m = sb.effects.match(
-      /^([A-Za-z\-]+) (group )?(random )?(ranged )?attacks? \(([0-9\.]+(?: each)?)\)$/,
+      /([A-Za-z\-]+) ((?:group|random|single) )?(ranged )?attacks? \(([0-9\.]+(?: each)?)\)/,
     ))
   ) {
-    const [, numAttacksString, group, random, ranged, damageString] = m;
+    const [, numAttacksString, attackType, ranged, damageString] = m;
     const numAttacks = parseNumberString(numAttacksString);
     if (numAttacks == null || sb.formula == null || sb.multiplier == null) {
       return null;
     }
-    let damage = '';
-    damage += group ? 'AoE ' : '';
+    damage += attackType === 'group' ? 'AoE ' : '';
     damage += sb.formula === 'Physical' ? 'phys' : 'magic';
-    damage += ' ' + sb.multiplier.toFixed(2);
-    damage += numAttacks !== 1 ? ' / ' + numAttacks : '';
+    damage += ' ' + toMrPFixed(sb.multiplier);
+    damage += numAttacks !== 1 ? '/' + numAttacks : '';
     damage += sb.element && sb.element !== '-' ? ' ' + elementToShortName(sb.element) : '';
     damage += ranged ? ' ranged' : '';
-    return {
-      damage,
-    };
   }
-  return null;
+
+  if ((m = sb.effects.match(/heals the user for (\d+)% of the damage dealt/))) {
+    const [, healPercent] = m;
+    other.push(`self heal ${healPercent}% of dmg`);
+  }
+
+  if ((m = sb.effects.match(/damages the user for ([0-9.]+)% max HP/))) {
+    const [, damagePercent] = m;
+    other.push(`self lose ${damagePercent}% max HP`);
+  }
+
+  return {
+    damage: damage || undefined,
+    other: other.length ? other.join(', ') : undefined,
+  };
 }
