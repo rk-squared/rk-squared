@@ -66,8 +66,33 @@ function elementToShortName(element: string): string {
 }
 
 interface MrPSoulBreak {
+  instant?: boolean;
   damage?: string;
   other?: string;
+}
+
+function describeDamage(damageString: string, numAttacks: number) {
+  const multiplier = parseFloat(damageString) * numAttacks;
+  return toMrPFixed(multiplier) + (numAttacks !== 1 ? '/' + numAttacks : '');
+}
+
+function describeFollowUp(effects: string): string | null {
+  const m = effects.match(
+    /followed by ([A-Za-z\-]+) ((?:group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
+  );
+  if (!m) {
+    return null;
+  }
+  const [, numAttacksString, attackType, ranged, jump, damageString, overstrike] = m;
+  const numAttacks = parseNumberString(numAttacksString);
+  if (numAttacks == null) {
+    return null;
+  }
+
+  let damage = '';
+  damage += overstrike ? 'overstrike ' : '';
+  damage += describeDamage(damageString, numAttacks);
+  return damage;
 }
 
 export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null {
@@ -77,20 +102,37 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
 
   if (
     (m = sb.effects.match(
-      /([A-Za-z\-]+) ((?:group|random|single) )?(ranged )?attacks? \(([0-9\.]+(?: each)?)\)/,
+      /([A-Za-z\-]+) ((?:group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
     ))
   ) {
-    const [, numAttacksString, attackType, ranged, damageString] = m;
+    const [, numAttacksString, attackType, ranged, jump, damageString, overstrike] = m;
     const numAttacks = parseNumberString(numAttacksString);
     if (numAttacks == null || sb.formula == null || sb.multiplier == null) {
       return null;
     }
     damage += attackType === 'group' ? 'AoE ' : '';
     damage += sb.formula === 'Physical' ? 'phys' : 'magic';
-    damage += ' ' + toMrPFixed(sb.multiplier);
-    damage += numAttacks !== 1 ? '/' + numAttacks : '';
+    damage += ' ' + describeDamage(damageString, numAttacks);
+
+    const followUp = describeFollowUp(sb.effects);
+    if (followUp) {
+      damage += ', then ' + followUp + ',';
+    }
+
     damage += sb.element && sb.element !== '-' ? ' ' + elementToShortName(sb.element) : '';
-    damage += ranged ? ' ranged' : '';
+    damage += ranged && !jump ? ' ranged' : '';
+    damage += jump ? ' jump' : '';
+    damage += overstrike ? ' overstrike' : '';
+  }
+
+  if ((m = sb.effects.match(/Attach (\w+) Stacking/))) {
+    const [, element] = m;
+    other.push(`${element.toLowerCase()} infuse stacking 25s`);
+  }
+
+  if ((m = sb.effects.match(/Attach (\w+) (?!Stacking)/))) {
+    const [, element] = m;
+    other.push(`${element.toLowerCase()} infuse 25s`);
   }
 
   if ((m = sb.effects.match(/heals the user for (\d+)% of the damage dealt/))) {
@@ -104,6 +146,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   }
 
   return {
+    instant: sb.time <= 0.01 ? true : undefined,
     damage: damage || undefined,
     other: other.length ? other.join(', ') : undefined,
   };
