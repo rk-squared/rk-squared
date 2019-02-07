@@ -2,6 +2,8 @@
 
 RK Squared is a record keeper for Final Fantasy Record Keeper.
 
+You can download it from the [Releases page](https://github.com/rk-squared/rk-squared/releases).
+
 Current features:
 
 * Dungeon tracker - track dungeon completion status and unclaimed reward
