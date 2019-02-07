@@ -4,14 +4,14 @@ import { ColDef, GridApi, GridReadyEvent, RowNode } from 'ag-grid';
 import { AgGridReact } from 'ag-grid-react';
 import * as ReactTooltip from 'react-tooltip';
 
+import * as _ from 'lodash';
+
 import { RecordMateriaDetail } from '../../actions/recordMateria';
 import { series, SeriesId } from '../../data/series';
 import { GridContainer } from '../common/GridContainer';
-import { StatusCell } from './StatusCell';
-
-import * as _ from 'lodash';
 import { DescriptionCell } from './DescriptionCell';
 import { RecordMateriaTooltip } from './RecordMateriaTooltip';
+import { StatusCell } from './StatusCell';
 
 interface Props {
   recordMateria: { [id: number]: RecordMateriaDetail };
@@ -120,6 +120,7 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
           getRowNodeId={this.getRowNodeId}
           onGridReady={this.handleGridReady}
           onViewportChanged={ReactTooltip.rebuild}
+          onRowDataChanged={ReactTooltip.rebuild}
           onFilterChanged={ReactTooltip.rebuild}
         />
         <div className="text-right mt-1 text-muted">{count != null && count + ' materia'}</div>

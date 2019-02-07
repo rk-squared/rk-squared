@@ -92,6 +92,7 @@ export class TormentGrid extends React.Component<Props> {
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
           onViewportChanged={ReactTooltip.rebuild}
+          onRowDataChanged={ReactTooltip.rebuild}
           domLayout="autoHeight"
         />
         <ReactTooltip
