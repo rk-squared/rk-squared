@@ -23,9 +23,8 @@ describe('mrP', () => {
     });
 
     it('converts Overstrikes', () => {
-      // This is a deviation; the original Mysterious Mr. P omits "overstrike"
-      // for OSBs.  But, as overstrike becomes more common, it makes sense to
-      // be consistent.
+      // Deviation: MMP omits "overstrike" for OSBs.  But, as overstrike
+      // on non-OSBs becomes more common, it makes sense to be consistent.
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Paladin) - Arc of Light'])).toEqual({
         damage: 'phys 12.0 holy+non ranged overstrike',
       });
@@ -48,6 +47,15 @@ describe('mrP', () => {
         instant: true,
         damage: 'phys 3.12/6 wind+non',
         other: 'wind infuse stacking 25s, wind infuse 25s',
+      });
+    });
+
+    it('converts stat changes', () => {
+      // Deviation: MMP omits durations here (to save space?) but includes them
+      // for some effects.
+      expect(describeEnlirSoulBreak(soulBreaks['Dorgann - Winds of Home'])).toEqual({
+        damage: 'phys 7.68/6 wind',
+        other: 'party +30% ATK/MAG 25s, self -30% DEF 25s',
       });
     });
   });

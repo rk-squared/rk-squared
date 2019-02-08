@@ -95,10 +95,18 @@ function describeFollowUp(effects: string): string | null {
   return damage;
 }
 
+function addGroup(outGroup: string[], inGroup: string[], description: string) {
+  if (inGroup.length) {
+    outGroup.push(description + ' ' + inGroup.join(', '));
+  }
+}
+
 export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null {
   let m: RegExpMatchArray | null;
   let damage = '';
-  const other = [];
+  const other: string[] = [];
+  const selfOther: string[] = [];
+  const partyOther: string[] = [];
 
   if (
     (m = sb.effects.match(
@@ -144,6 +152,29 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     const [, damagePercent] = m;
     other.push(`self lose ${damagePercent}% max HP`);
   }
+
+  const statusEffectRe = /((?:[A-Z]{3}(?:, | and ))*[A-Z]{3}) ([+-]\d+)% (to the user |to all allies )?for (\d+) seconds/g;
+  while ((m = statusEffectRe.exec(sb.effects))) {
+    const [, stats, percent, who, duration] = m;
+    const combinedStats = stats.match(/[A-Z]{3}/g)!.join('/');
+    let statMod = percent + '% ';
+    statMod += combinedStats;
+    statMod += ` ${duration}s`;
+
+    if (who === 'to the user ' || (!who && sb.target === 'Self')) {
+      selfOther.push(statMod);
+    } else if (who === 'to all allies ' || (!who && sb.target === 'All allies')) {
+      partyOther.push(statMod);
+    } else if (sb.target === 'All enemies') {
+      other.push('AoE ' + statMod);
+    } else {
+      // Fallback - may not always be correct
+      other.push(statMod);
+    }
+  }
+
+  addGroup(other, partyOther, 'party');
+  addGroup(other, selfOther, 'self');
 
   return {
     instant: sb.time <= 0.01 ? true : undefined,
