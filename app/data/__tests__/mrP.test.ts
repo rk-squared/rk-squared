@@ -78,5 +78,21 @@ describe('mrP', () => {
         other: 'party h55, Magic blink 1, self +30% RES/MND 25s',
       });
     });
+
+    it('converts multiple statuses', () => {
+      expect(describeEnlirSoulBreak(soulBreaks["Tyro - Warder's Apocrypha"])).toEqual({
+        other: 'party Haste, Status blink 1, Autoheal 2k, self instacast 2',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Tyro - Divine Veil Grimoire'])).toEqual({
+        other: 'party Haste, Protect, Shell, +200% DEF/RES 25s',
+      });
+    });
+
+    it('converts multiple stat buffs', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Tyro - Fantasy Unbound'])).toEqual({
+        damage: 'phys 6.29/17',
+        other: 'party Haste, +15% A/D/M/R/MND 25s',
+      });
+    });
   });
 });

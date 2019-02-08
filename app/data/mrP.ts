@@ -117,13 +117,45 @@ function checkBurstMode(selfOther: string[]): string[] {
     : selfOther;
 }
 
-function describeEnlirStatus(status: string) {
+function describeStats(stats: string[]): string {
+  const result = stats.join('/');
+  if (result === 'ATK/DEF/MAG/RES/MND') {
+    return 'A/D/M/R/MND';
+  } else if (result === 'ATK/DEF/MAG/RES') {
+    return 'A/D/M/R';
+  } else {
+    return result;
+  }
+}
+
+function describeEnlirStatus(status: string): string {
   let m: RegExpMatchArray | null;
   if ((m = status.match(/Magical Blink (\d+)/i))) {
     return 'Magic blink ' + m[1];
+  } else if (status === 'Astra') {
+    return 'Status blink 1';
+  } else if ((m = status.match(/Instant Cast (\d+)/i))) {
+    return 'instacast ' + m[1];
+  } else if ((m = status.match(/HP Stock \((\d+)\)/))) {
+    return 'Autoheal ' + +m[1] / 1000 + 'k';
+  } else if ((m = status.match(/Stoneskin: (\d+)%/))) {
+    return 'Negate dmg ' + m[1] + '%';
   } else {
     return status;
   }
+}
+
+/**
+ * Status effect sort orders - we usually follow Enlir's order, but listing
+ * effects here can cause them to be sorted before (more negative) or after
+ * (more positive) other effects.
+ */
+const statusSortOrder: { [status: string]: number } = {
+  Haste: -1,
+};
+
+function sortStatus(a: string, b: string): number {
+  return (statusSortOrder[a] || 0) - (statusSortOrder[b] || 0);
 }
 
 export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null {
@@ -197,6 +229,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     const status = statusString
       .split(/,? and |, /)
       .filter(includeStatus)
+      .sort(sortStatus)
       .map(describeEnlirStatus);
     if (who === ' to the user' || (!who && sb.target === 'Self')) {
       selfOther.push(...status);
@@ -210,7 +243,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   const statModRe = /((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([+-]\d+)% (to the user |to all allies )?for (\d+) seconds/g;
   while ((m = statModRe.exec(sb.effects))) {
     const [, stats, percent, who, duration] = m;
-    const combinedStats = stats.match(/[A-Z]{3}/g)!.join('/');
+    const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
     let statMod = percent + '% ';
     statMod += combinedStats;
     statMod += ` ${duration}s`;
@@ -227,8 +260,13 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     }
   }
 
-  addGroup(other, partyOther, 'party');
-  addGroup(other, checkBurstMode(selfOther), 'self');
+  if (!damage && !other.length && !partyOther.length) {
+    // If it's only self effects (e.g., some glints), then "self" is redundant.
+    other.push(...checkBurstMode(selfOther));
+  } else {
+    addGroup(other, partyOther, 'party');
+    addGroup(other, checkBurstMode(selfOther), 'self');
+  }
 
   return {
     instant: sb.time <= 0.01 ? true : undefined,
