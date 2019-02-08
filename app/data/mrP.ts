@@ -110,7 +110,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
 
   if (
     (m = sb.effects.match(
-      /([A-Za-z\-]+) ((?:group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
+      /([A-Za-z\-]+) (?:(group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
     ))
   ) {
     const [, numAttacksString, attackType, ranged, jump, damageString, overstrike] = m;
@@ -145,12 +145,12 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
 
   if ((m = sb.effects.match(/heals the user for (\d+)% of the damage dealt/))) {
     const [, healPercent] = m;
-    other.push(`self heal ${healPercent}% of dmg`);
+    selfOther.push(`heal ${healPercent}% of dmg`);
   }
 
   if ((m = sb.effects.match(/damages the user for ([0-9.]+)% max HP/))) {
     const [, damagePercent] = m;
-    other.push(`self lose ${damagePercent}% max HP`);
+    selfOther.push(`lose ${damagePercent}% max HP`);
   }
 
   const statusEffectRe = /((?:[A-Z]{3}(?:, | and ))*[A-Z]{3}) ([+-]\d+)% (to the user |to all allies )?for (\d+) seconds/g;

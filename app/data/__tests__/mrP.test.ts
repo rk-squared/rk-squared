@@ -58,5 +58,13 @@ describe('mrP', () => {
         other: 'party +30% ATK/MAG 25s, self -30% DEF 25s',
       });
     });
+
+    it('converts multiple self effects', () => {
+      // Deviation: MMP lists some recoil as fractions instead of percents.
+      expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Dark Flame'])).toEqual({
+        damage: 'AoE phys 7.84/8 dark+fire',
+        other: 'self lose 25% max HP, +30% ATK/RES 25s',
+      });
+    });
   });
 });
