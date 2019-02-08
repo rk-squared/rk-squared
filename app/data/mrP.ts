@@ -31,7 +31,7 @@ const numbers: { [s: string]: number } = {
 };
 
 const elementShortName: { [element: string]: string } = {
-  lightning: 'light',
+  lightning: 'lgt',
   ne: 'non',
 };
 
@@ -52,7 +52,7 @@ export function parseNumberString(s: string): number | null {
 
 function toMrPFixed(n: number): string {
   let result = n.toFixed(2);
-  if (result.endsWith('.00')) {
+  if (result.endsWith('0')) {
     result = result.substr(0, result.length - 1);
   }
   return result;
@@ -119,7 +119,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       return null;
     }
     damage += attackType === 'group' ? 'AoE ' : '';
-    damage += sb.formula === 'Physical' ? 'phys' : 'magic';
+    damage += sb.formula === 'Physical' ? 'phys' : sb.type === 'WHT' ? 'white' : 'magic';
     damage += ' ' + describeDamage(damageString, numAttacks);
 
     const followUp = describeFollowUp(sb.effects);
@@ -131,6 +131,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     damage += ranged && !jump ? ' ranged' : '';
     damage += jump ? ' jump' : '';
     damage += overstrike ? ' overstrike' : '';
+    damage += sb.type === 'SUM' ? ' (SUM)' : '';
   }
 
   if ((m = sb.effects.match(/Attach (\w+) Stacking/))) {

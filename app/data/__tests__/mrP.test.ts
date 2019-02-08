@@ -17,7 +17,7 @@ describe('mrP', () => {
   describe('describeEnlirSoulBreak', () => {
     it('converts HP-draining attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Blood Weapon'])).toEqual({
-        damage: 'phys 1.60',
+        damage: 'phys 1.6',
         other: 'self heal 25% of dmg',
       });
     });
@@ -38,7 +38,7 @@ describe('mrP', () => {
 
     it('converts 3-hit Arcane Overstrikes', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Rinoa - Angel Wing Comet'])).toEqual({
-        damage: 'magic 79.50/3 ice+earth overstrike',
+        damage: 'magic 79.5/3 ice+earth overstrike',
       });
     });
 
@@ -64,6 +64,12 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Dark Flame'])).toEqual({
         damage: 'AoE phys 7.84/8 dark+fire',
         other: 'self lose 25% max HP, +30% ATK/RES 25s',
+      });
+    });
+
+    it('converts summons', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Braska - Aeon of Storms'])).toEqual({
+        damage: 'AoE magic 1.1/2 lgt (SUM)',
       });
     });
   });
