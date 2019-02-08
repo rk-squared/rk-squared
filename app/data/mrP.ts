@@ -1,4 +1,6 @@
-import { enlir, EnlirSoulBreak } from './enlir';
+import { EnlirSoulBreak } from './enlir';
+
+import * as _ from 'lodash';
 
 const numbers: { [s: string]: number } = {
   one: 1,
@@ -101,6 +103,29 @@ function addGroup(outGroup: string[], inGroup: string[], description: string) {
   }
 }
 
+/**
+ * Status effects which should be omitted from the regular status list
+ */
+function includeStatus(status: string): boolean {
+  // En-Element is listed separately
+  return !status.startsWith('Attach ');
+}
+
+function checkBurstMode(selfOther: string[]): string[] {
+  return selfOther.indexOf('Burst Mode') !== -1
+    ? _.filter(selfOther, i => i !== 'Burst Mode' && i !== 'Haste')
+    : selfOther;
+}
+
+function describeEnlirStatus(status: string) {
+  let m: RegExpMatchArray | null;
+  if ((m = status.match(/Magical Blink (\d+)/i))) {
+    return 'Magic blink ' + m[1];
+  } else {
+    return status;
+  }
+}
+
 export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null {
   let m: RegExpMatchArray | null;
   let damage = '';
@@ -154,8 +179,36 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     selfOther.push(`lose ${damagePercent}% max HP`);
   }
 
-  const statusEffectRe = /((?:[A-Z]{3}(?:, | and ))*[A-Z]{3}) ([+-]\d+)% (to the user |to all allies )?for (\d+) seconds/g;
+  if ((m = sb.effects.match(/Restores HP \((\d+)\)/))) {
+    const [, healAmount] = m;
+    const heal = 'h' + healAmount;
+    if (sb.target === 'All allies') {
+      partyOther.push(heal);
+    } else if (sb.target === 'Self') {
+      selfOther.push(heal);
+    } else {
+      other.push(heal);
+    }
+  }
+
+  const statusEffectRe = /[Gg]rants ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?=, grants|, [A-Z]{3}|$)/g;
   while ((m = statusEffectRe.exec(sb.effects))) {
+    const [, statusString, who] = m;
+    const status = statusString
+      .split(/,? and |, /)
+      .filter(includeStatus)
+      .map(describeEnlirStatus);
+    if (who === ' to the user' || (!who && sb.target === 'Self')) {
+      selfOther.push(...status);
+    } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(...status);
+    } else {
+      other.push(...status);
+    }
+  }
+
+  const statModRe = /((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([+-]\d+)% (to the user |to all allies )?for (\d+) seconds/g;
+  while ((m = statModRe.exec(sb.effects))) {
     const [, stats, percent, who, duration] = m;
     const combinedStats = stats.match(/[A-Z]{3}/g)!.join('/');
     let statMod = percent + '% ';
@@ -175,7 +228,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   }
 
   addGroup(other, partyOther, 'party');
-  addGroup(other, selfOther, 'self');
+  addGroup(other, checkBurstMode(selfOther), 'self');
 
   return {
     instant: sb.time <= 0.01 ? true : undefined,

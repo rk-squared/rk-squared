@@ -72,5 +72,11 @@ describe('mrP', () => {
         damage: 'AoE magic 1.1/2 lgt (SUM)',
       });
     });
+
+    it('converts heals plus status effects', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Sarah - Age-old Hymn'])).toEqual({
+        other: 'party h55, Magic blink 1, self +30% RES/MND 25s',
+      });
+    });
   });
 });
