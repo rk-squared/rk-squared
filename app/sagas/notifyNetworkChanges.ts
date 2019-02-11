@@ -22,7 +22,7 @@ export function* doNotifyNetworkChanges(action: ReturnType<typeof updateProxySta
       id: 'notifyNetworkChanges',
       text:
         `Your network configuration has changed. RK² is now running at ${where}. ` +
-        "Please update your devices' proxy settings if needed.",
+        "Please update your module device's proxy settings if needed.",
       color: 'info',
     }),
   );
