@@ -12,7 +12,19 @@ export interface EnlirRecordMateria {
   gl: boolean;
 }
 
-type EnlirSoulBreakTier =
+export type EnlirElement =
+  | 'Fire'
+  | 'Ice'
+  | 'Lightning'
+  | 'Earth'
+  | 'Wind'
+  | 'Water'
+  | 'Holy'
+  | 'Dark'
+  | 'Poison'
+  | 'NE';
+
+export type EnlirSoulBreakTier =
   | 'Default'
   | 'SB'
   | 'BSB'
@@ -31,7 +43,7 @@ export interface EnlirSoulBreak {
   target: string;
   formula: string | null;
   multiplier: number | null;
-  element: string | null;
+  element: EnlirElement[] | null;
   time: number;
   effects: string;
   counter: boolean;

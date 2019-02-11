@@ -1,8 +1,9 @@
-import { enlir, EnlirSoulBreak, EnlirStatus } from '../enlir';
+import { enlir, EnlirElement, EnlirSoulBreak, EnlirStatus } from '../enlir';
 
-import { andList, lowerCaseFirst, parseNumberString, toMrPFixed } from './util';
+import { andList, lowerCaseFirst } from './util';
 
 import * as _ from 'lodash';
+import { parseEnlirAttack } from './attack';
 
 const elementShortName: { [element: string]: string } = {
   lightning: 'lgt',
@@ -13,11 +14,8 @@ const elementAbbreviation: { [element: string]: string } = {
   water: 'wa',
 };
 
-function elementToShortName(element: string): string {
-  return element
-    .split(', ')
-    .map(i => elementShortName[i.toLowerCase()] || i.toLowerCase())
-    .join('+');
+function elementToShortName(element: EnlirElement[]): string {
+  return element.map(i => elementShortName[i.toLowerCase()] || i.toLowerCase()).join('+');
 }
 
 interface MrPSoulBreak {
@@ -26,37 +24,9 @@ interface MrPSoulBreak {
   other?: string;
 }
 
-function describeDamage(damageString: string, numAttacks: number) {
-  const multiplier = parseFloat(damageString) * numAttacks;
-  return toMrPFixed(multiplier) + (numAttacks !== 1 ? '/' + numAttacks : '');
-}
-
-/**
- * Describes the "followed by" portion of an attack.  This is used for 20+1
- * AOSBs.
- */
-function describeFollowedByAttack(effects: string): string | null {
-  const m = effects.match(
-    /followed by ([A-Za-z\-]+) ((?:group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
-  );
-  if (!m) {
-    return null;
-  }
-  const [, numAttacksString, attackType, ranged, jump, damageString, overstrike] = m;
-  const numAttacks = parseNumberString(numAttacksString);
-  if (numAttacks == null) {
-    return null;
-  }
-
-  let damage = '';
-  damage += overstrike ? 'overstrike ' : '';
-  damage += describeDamage(damageString, numAttacks);
-  return damage;
-}
-
-function addGroup(outGroup: string[], inGroup: string[], description: string) {
+function prependGroup(outGroup: string[], inGroup: string[], description: string) {
   if (inGroup.length) {
-    outGroup.push(description + ' ' + inGroup.join(', '));
+    outGroup.splice(0, 0, description + ' ' + inGroup.join(', '));
   }
 }
 
@@ -170,30 +140,16 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   const selfOther: string[] = [];
   const partyOther: string[] = [];
 
-  if (
-    (m = sb.effects.match(
-      /([A-Za-z\-]+) (?:(group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
-    ))
-  ) {
-    const [, numAttacksString, attackType, ranged, jump, damageString, overstrike] = m;
-    const numAttacks = parseNumberString(numAttacksString);
-    if (numAttacks == null || sb.formula == null || sb.multiplier == null) {
-      return null;
-    }
-    damage += attackType === 'group' ? 'AoE ' : '';
-    damage += sb.formula === 'Physical' ? 'phys' : sb.type === 'WHT' ? 'white' : 'magic';
-    damage += ' ' + describeDamage(damageString, numAttacks);
+  const attack = parseEnlirAttack(sb.effects, sb);
+  if (attack) {
+    damage += attack.isAoE ? 'AoE ' : '';
+    damage += attack.damageType + ' ' + attack.damage;
 
-    const followedBy = describeFollowedByAttack(sb.effects);
-    if (followedBy) {
-      damage += ', then ' + followedBy + ',';
-    }
-
-    damage += sb.element && sb.element !== '-' ? ' ' + elementToShortName(sb.element) : '';
-    damage += ranged && !jump ? ' ranged' : '';
-    damage += jump ? ' jump' : '';
-    damage += overstrike ? ' overstrike' : '';
-    damage += sb.type === 'SUM' ? ' (SUM)' : '';
+    damage += attack.element ? ' ' + elementToShortName(attack.element) : '';
+    damage += attack.isRanged ? ' ranged' : '';
+    damage += attack.isJump ? ' jump' : '';
+    damage += attack.isOverstrike ? ' overstrike' : '';
+    damage += attack.isSummon ? ' (SUM)' : '';
   }
 
   if ((m = sb.effects.match(/Attach (\w+) Stacking/))) {
@@ -277,8 +233,8 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     // If it's only self effects (e.g., some glints), then "self" is redundant.
     other.push(...checkBurstMode(selfOther));
   } else {
-    addGroup(other, partyOther, 'party');
-    addGroup(other, checkBurstMode(selfOther), 'self');
+    prependGroup(other, checkBurstMode(selfOther), 'self');
+    prependGroup(other, partyOther, 'party');
   }
 
   return {

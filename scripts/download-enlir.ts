@@ -146,7 +146,7 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Target: toString,
   Formula: toString,
   Multiplier: toFloat,
-  Element: toString,
+  Element: dashNull(toCommaSeparatedArray(toString)),
   Time: toFloat,
   Effects: toStringWithDecimals,
   Counter: toBool,
