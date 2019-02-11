@@ -2453,7 +2453,7 @@
     },
     "nameJp": "【契】大地の咆哮",
     "id": 161000091,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Earth",
@@ -2509,7 +2509,7 @@
     },
     "nameJp": "【契】ガイアサルヴォー",
     "id": 161000092,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Wind",

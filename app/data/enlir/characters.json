@@ -3587,7 +3587,7 @@
       "res": 2,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "A Prophecy of Hope",
+    "introducingEventLegendSpheres": "Prophecy of Hope",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -3632,7 +3632,7 @@
       "blackMagic": null,
       "whiteMagic": null,
       "combat": 3,
-      "support": 4,
+      "support": 5,
       "celerity": 4,
       "summoning": null,
       "spellblade": null,
@@ -7402,7 +7402,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -9383,7 +9383,7 @@
       "res": 8,
       "mnd": 23
     },
-    "introducingEventLegendSpheres": "Four Lights Rekindled",
+    "introducingEventLegendSpheres": "Light Reborn",
     "legendSpheres": {
       "hp": 500,
       "atk": 0,
@@ -9418,7 +9418,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -20036,7 +20036,7 @@
   {
     "realm": "XI",
     "name": "Lilisette",
-    "introducingEventLv50": "Come, Dancing Princess!",
+    "introducingEventLv50": "Queen of the Dance",
     "lv50": {
       "hp": 3302,
       "atk": 104,
@@ -20048,7 +20048,7 @@
       "eva": 29,
       "spd": 154
     },
-    "introducingEventLv65": "Come, Dancing Princess!",
+    "introducingEventLv65": "Queen of the Dance",
     "lv65": {
       "hp": 4253,
       "atk": 132,
@@ -20060,7 +20060,7 @@
       "eva": 30,
       "spd": 164
     },
-    "introducingEventLv80": "Come, Dancing Princess!",
+    "introducingEventLv80": "Queen of the Dance",
     "lv80": {
       "hp": 5203,
       "atk": 160,
@@ -20072,7 +20072,7 @@
       "eva": 31,
       "spd": 174
     },
-    "introducingEventLv99": "Come, Dancing Princess!",
+    "introducingEventLv99": "Queen of the Dance",
     "lv99": {
       "hp": 6407,
       "atk": 197,
@@ -20084,7 +20084,7 @@
       "eva": 33,
       "spd": 186
     },
-    "introducingEventRecordSpheres": "Come, Dancing Princess!",
+    "introducingEventRecordSpheres": "Queen of the Dance",
     "recordSpheres": {
       "hp": 440,
       "atk": 30,
@@ -20093,7 +20093,7 @@
       "res": 0,
       "mnd": 23
     },
-    "introducingEventLegendSpheres": "Come, Dancing Princess!",
+    "introducingEventLegendSpheres": "Queen of the Dance",
     "legendSpheres": {
       "hp": 800,
       "atk": 35,
@@ -21776,7 +21776,7 @@
       "blackMagic": 4,
       "whiteMagic": 5,
       "combat": null,
-      "support": 2,
+      "support": 4,
       "celerity": null,
       "summoning": 3,
       "spellblade": null,
@@ -22278,7 +22278,7 @@
     },
     "skills": {
       "blackMagic": 5,
-      "whiteMagic": 3,
+      "whiteMagic": 4,
       "combat": null,
       "support": null,
       "celerity": null,

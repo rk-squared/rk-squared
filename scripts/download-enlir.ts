@@ -347,7 +347,7 @@ function convertMagicite(rows: any[]): any[] {
         }
       } else if (inUltraSkill) {
         if (!skipUltraSkill) {
-          const converter = skillFields[col] || toCommon;
+          const converter = skillFields[col] || toCommon.bind(undefined, field);
           item.magiciteUltraSkill[field] = converter(rows[i][j]);
         }
       } else {

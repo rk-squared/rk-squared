@@ -10332,10 +10332,10 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": 4.72,
+    "multiplier": 5.9,
     "element": "Wind, NE",
     "time": 1.5,
-    "effects": "Four single ranged jump attacks (1.18 each), air time (3.50 sec.), 1.29/1.41/1.53/1.65/1.77 multiplier if 1/2/3/4/5 allies in air",
+    "effects": "Five single ranged jump attacks (1.18 each), air time (3.50 sec.), 1.29/1.41/1.53/1.65/1.77 multiplier if 1/2/3/4/5 allies in air",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 100,
@@ -11362,7 +11362,7 @@
   },
   {
     "school": "Monk",
-    "name": "Fires Without",
+    "name": "Earthen Rebuke",
     "rarity": 5,
     "type": "PHY",
     "target": "Single enemy",
@@ -11399,10 +11399,10 @@
         100
       ]
     },
-    "introducingEvent": "Inherited Martial Arts",
+    "introducingEvent": "Blood of the Monk",
     "nameJp": "外丹気砲",
     "id": 30191181,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Monk",
@@ -13504,7 +13504,7 @@
         60
       ]
     },
-    "introducingEvent": "Come, Dancing Princess!",
+    "introducingEvent": "Queen of the Dance",
     "nameJp": "居合・獄氷",
     "id": 30221161,
     "gl": false
@@ -13606,7 +13606,7 @@
         0
       ]
     },
-    "introducingEvent": "Incarnation of Hatred",
+    "introducingEvent": "Hatred Incarnate",
     "nameJp": "抜刀ノ弐・冷閃",
     "id": 30221181,
     "gl": false
@@ -16107,7 +16107,7 @@
         0
       ]
     },
-    "introducingEvent": "Incarnation of Hatred",
+    "introducingEvent": "Hatred Incarnate",
     "nameJp": "フロストオファ",
     "id": 30261151,
     "gl": false
@@ -16838,6 +16838,57 @@
     "gl": false
   },
   {
+    "school": "Darkness",
+    "name": "Mark of Shadow",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": "Dark",
+    "time": null,
+    "effects": "Three single hybrid attacks (?/? each), causes Imperil Dark 10% for 15 seconds every two uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Fire Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": null,
+    "nameJp": "常闇の烙印",
+    "id": 30271151,
+    "gl": false
+  },
+  {
     "school": "Sharpshooter",
     "name": "Sapphire Shot",
     "rarity": 5,
@@ -17153,6 +17204,57 @@
     "gl": true
   },
   {
+    "school": "Sharpshooter",
+    "name": "Icicle Bullet",
+    "rarity": 6,
+    "type": null,
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": "Ice",
+    "time": null,
+    "effects": "Five single ranged attacks (? each), ? multiplier when equipping a ranged weapon",
+    "counter": true,
+    "autoTarget": null,
+    "sb": 90,
+    "uses": null,
+    "max": null,
+    "orbs": {
+      "Ice Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Lightning Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": null,
+    "nameJp": "アイシクルブリット",
+    "id": 30281111,
+    "gl": false
+  },
+  {
     "school": "Witch",
     "name": "Hell Thunder",
     "rarity": 5,
@@ -17425,7 +17527,7 @@
         0
       ]
     },
-    "introducingEvent": "Incarnation of Hatred",
+    "introducingEvent": "Hatred Incarnate",
     "nameJp": "スケアリーブリザド",
     "id": 30301051,
     "gl": false
