@@ -1,4 +1,4 @@
-import { EnlirSoulBreak } from './enlir';
+import { enlir, EnlirSoulBreak, EnlirStatus } from './enlir';
 
 import * as _ from 'lodash';
 
@@ -128,7 +128,7 @@ function describeStats(stats: string[]): string {
   }
 }
 
-function describeEnlirStatus(status: string): string {
+function describeEnlirStatus(status: string) {
   let m: RegExpMatchArray | null;
   if ((m = status.match(/Magical Blink (\d+)/i))) {
     return 'Magic blink ' + m[1];
@@ -143,6 +143,29 @@ function describeEnlirStatus(status: string): string {
   } else {
     return status;
   }
+}
+
+interface ParsedEnlirStatus {
+  description: string;
+  isEx: boolean;
+}
+
+const isFollowUp = ({ codedName }: EnlirStatus) =>
+  codedName.startsWith('CHASE_') || codedName.endsWith('_CHASE');
+
+function parseEnlirStatus(status: string): ParsedEnlirStatus {
+  const description = describeEnlirStatus(status);
+  const enlirStatus = enlir.statusByName[status];
+
+  let isEx = status.startsWith('EX: ');
+  if (enlirStatus) {
+    isEx = isEx || isFollowUp(enlirStatus);
+  }
+
+  return {
+    description,
+    isEx,
+  };
 }
 
 /**
@@ -223,20 +246,28 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     }
   }
 
-  const statusEffectRe = /[Gg]rants ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?=, grants|, [A-Z]{3}|$)/g;
+  const statusEffectRe = /[Gg]rants ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?: for (\d+) seconds)?(?=, grants|, [A-Z]{3}|$)/g;
   while ((m = statusEffectRe.exec(sb.effects))) {
-    const [, statusString, who] = m;
+    const [, statusString, who, duration] = m;
     const status = statusString
       .split(/,? and |, /)
       .filter(includeStatus)
       .sort(sortStatus)
-      .map(describeEnlirStatus);
-    if (who === ' to the user' || (!who && sb.target === 'Self')) {
-      selfOther.push(...status);
-    } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
-      partyOther.push(...status);
-    } else {
-      other.push(...status);
+      .map(parseEnlirStatus);
+    for (let { description, isEx } of status) {
+      if (duration) {
+        description = `${duration}s: ` + description;
+      }
+      if (isEx) {
+        // Implied 'self'
+        other.push(description);
+      } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
+        selfOther.push(description);
+      } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+        partyOther.push(description);
+      } else {
+        other.push(description);
+      }
     }
   }
 

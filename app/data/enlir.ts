@@ -45,6 +45,18 @@ export interface EnlirSoulBreak {
   gl: boolean;
 }
 
+export interface EnlirStatus {
+  id: number;
+  commonName: string;
+  effects: string;
+  defaultDuration: number | null;
+  mndModifier: number | null;
+  mndModifierIsOpposed: boolean;
+  exclusiveStatus: string[] | null;
+  codedName: string;
+  notes: string | null;
+}
+
 const rawData = {
   abilities: require('./enlir/abilities.json'),
   characters: require('./enlir/characters.json'),
@@ -52,6 +64,7 @@ const rawData = {
   recordMateria: require('./enlir/recordMateria.json') as EnlirRecordMateria[],
   relics: require('./enlir/relics.json'),
   soulBreaks: require('./enlir/soulBreaks.json') as EnlirSoulBreak[],
+  status: require('./enlir/status.json') as EnlirStatus[],
 };
 
 // FIXME: Properly update rawData outside of app
@@ -64,4 +77,5 @@ export const enlir = {
   relics: _.keyBy(rawData.relics, 'id'),
   recordMateria: _.keyBy(rawData.recordMateria, 'id'),
   soulBreaks: _.keyBy(rawData.soulBreaks, 'id'),
+  statusByName: _.keyBy(rawData.status, 'name'),
 };

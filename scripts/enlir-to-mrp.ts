@@ -4,7 +4,7 @@ import { describeEnlirSoulBreak } from '../app/data/mrP';
 
 import * as _ from 'lodash';
 
-for (const sb of Object.values(enlir.soulBreaks)) {
+for (const sb of _.sortBy(Object.values(enlir.soulBreaks), 'character')) {
   console.log(sb.character + ': ' + sb.name);
   const mrP = describeEnlirSoulBreak(sb);
   let text = _.filter([mrP && mrP.damage, mrP && mrP.other]).join(', ');

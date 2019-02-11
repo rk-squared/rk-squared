@@ -521,6 +521,9 @@ function convertStatus(rows: any[]): any[] {
       if (field === 'mndModifier') {
         item['mndModifier'] = toFloat(rows[i][j].replace('± ', '').replace('%', ''));
         item['mndModifierIsOpposed'] = rows[i][j].startsWith('± ');
+      } else if (field === 'commonName') {
+        // Rename for consistency with other Enlir sheets
+        item['name'] = rows[i][j];
       } else {
         const converter = statusFields[field] || toCommon.bind(undefined, field);
         item[field] = converter(rows[i][j]);
