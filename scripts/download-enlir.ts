@@ -108,6 +108,13 @@ const toFloat = (value: string) =>
 const toString = (value: string) => (value === '' ? null : value);
 const checkToBool = (value: string) => value === '✓';
 
+function dashNull<T>(f: (value: string) => T): (value: string) => T | null {
+  return (value: string) => (value === '-' ? null : f(value));
+}
+function toCommaSeparatedArray<T>(f: (value: string) => T): (value: string) => T[] | null {
+  return (value: string) => (value === '' ? null : value.split(', ').map(f));
+}
+
 function toStringWithDecimals(value: string) {
   if (value === '') {
     return null;
@@ -490,6 +497,41 @@ function convertSoulBreaks(rows: any[]): any[] {
   return soulBreaks;
 }
 
+function convertStatus(rows: any[]): any[] {
+  const status: any[] = [];
+
+  const statusFields: { [field: string]: (value: string) => any } = {
+    defaultDuration: dashNull(toInt),
+    exclusiveStatus: dashNull(toCommaSeparatedArray(toString)),
+    notes: dashNull(toString),
+  };
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+
+    // Skip placeholder rows, notes, etc.
+    if (!rows[i][0]) {
+      continue;
+    }
+
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+
+      const field = _.camelCase(col);
+      if (field === 'mndModifier') {
+        item['mndModifier'] = toFloat(rows[i][j].replace('± ', '').replace('%', ''));
+        item['mndModifierIsOpposed'] = rows[i][j].startsWith('± ');
+      } else {
+        const converter = statusFields[field] || toCommon.bind(undefined, field);
+        item[field] = converter(rows[i][j]);
+      }
+    }
+
+    status.push(item);
+  }
+  return status;
+}
+
 interface DataType {
   sheet: string;
   localName: string;
@@ -528,6 +570,11 @@ const dataTypes: DataType[] = [
     sheet: 'Soul Breaks',
     localName: 'soulBreaks',
     converter: convertSoulBreaks,
+  },
+  {
+    sheet: 'Status',
+    localName: 'status',
+    converter: convertStatus,
   },
 ];
 
