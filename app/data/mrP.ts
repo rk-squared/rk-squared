@@ -2,6 +2,8 @@ import { enlir, EnlirSoulBreak, EnlirStatus } from './enlir';
 
 import * as _ from 'lodash';
 
+const listRegex = /,? and |, /;
+
 const numbers: { [s: string]: number } = {
   one: 1,
   two: 2,
@@ -58,6 +60,10 @@ function toMrPFixed(n: number): string {
     result = result.substr(0, result.length - 1);
   }
   return result;
+}
+
+function lowerCaseFirst(s: string): string {
+  return s.replace(/^([A-Z])/, c => c.toLowerCase());
 }
 
 function elementToShortName(element: string): string {
@@ -128,18 +134,33 @@ function describeStats(stats: string[]): string {
   }
 }
 
+/**
+ * Maps from Enlir status names to MMP aliases.  Some Enlir statuses have
+ * embedded numbers and so can't use a simple string lookup like this.
+ */
+const enlirStatusAlias: { [status: string]: string } = {
+  Astra: 'Status blink 1',
+  'Cast speed *2': 'Fastcast', // used within Soul Break sheet
+  'cast speed x2.00': 'Fastcast', // used within Status sheet
+};
+
 function describeEnlirStatus(status: string) {
   let m: RegExpMatchArray | null;
-  if ((m = status.match(/Magical Blink (\d+)/i))) {
+  if (enlirStatusAlias[status]) {
+    return enlirStatusAlias[status];
+  } else if ((m = status.match(/Magical Blink (\d+)/i))) {
     return 'Magic blink ' + m[1];
-  } else if (status === 'Astra') {
-    return 'Status blink 1';
   } else if ((m = status.match(/Instant Cast (\d+)/i))) {
     return 'instacast ' + m[1];
   } else if ((m = status.match(/HP Stock \((\d+)\)/))) {
     return 'Autoheal ' + +m[1] / 1000 + 'k';
   } else if ((m = status.match(/Stoneskin: (\d+)%/))) {
     return 'Negate dmg ' + m[1] + '%';
+  } else if ((m = status.match(/((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([-+]\d+%)/))) {
+    // Status effects: e.g., "MAG +30%" from EX: Attack Hand
+    // Reorganize stats into, e.g., +30% MAG to match MMP
+    const [, stat, amount] = m;
+    return amount + ' ' + stat.split(listRegex).join('/');
   } else {
     return status;
   }
@@ -148,23 +169,33 @@ function describeEnlirStatus(status: string) {
 interface ParsedEnlirStatus {
   description: string;
   isEx: boolean;
+  isFollowUp: boolean;
 }
 
-const isFollowUp = ({ codedName }: EnlirStatus) =>
+const isFollowUpStatus = ({ codedName }: EnlirStatus) =>
   codedName.startsWith('CHASE_') || codedName.endsWith('_CHASE');
 
 function parseEnlirStatus(status: string): ParsedEnlirStatus {
-  const description = describeEnlirStatus(status);
+  let description = describeEnlirStatus(status);
   const enlirStatus = enlir.statusByName[status];
 
-  let isEx = status.startsWith('EX: ');
-  if (enlirStatus) {
-    isEx = isEx || isFollowUp(enlirStatus);
+  const isEx = status.startsWith('EX: ');
+  const isFollowUp = !!enlirStatus && isFollowUpStatus(enlirStatus);
+
+  if (isEx && enlirStatus) {
+    description =
+      'EX: ' +
+      enlirStatus.effects
+        .split(listRegex)
+        .map(describeEnlirStatus)
+        .map(lowerCaseFirst)
+        .join(', ');
   }
 
   return {
     description,
     isEx,
+    isFollowUp,
   };
 }
 
@@ -250,15 +281,15 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   while ((m = statusEffectRe.exec(sb.effects))) {
     const [, statusString, who, duration] = m;
     const status = statusString
-      .split(/,? and |, /)
+      .split(listRegex)
       .filter(includeStatus)
       .sort(sortStatus)
       .map(parseEnlirStatus);
-    for (let { description, isEx } of status) {
+    for (let { description, isEx, isFollowUp } of status) {
       if (duration) {
         description = `${duration}s: ` + description;
       }
-      if (isEx) {
+      if (isEx || isFollowUp) {
         // Implied 'self'
         other.push(description);
       } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
