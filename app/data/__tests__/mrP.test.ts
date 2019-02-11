@@ -1,4 +1,5 @@
-import { describeEnlirSoulBreak, parseNumberString } from '../mrP';
+import { describeEnlirSoulBreak } from '../mrP';
+import { parseNumberString } from '../mrP/util';
 
 import { enlir } from '../enlir';
 
