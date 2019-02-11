@@ -145,7 +145,8 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     damage += attack.isAoE ? 'AoE ' : '';
     damage += attack.damageType + ' ' + attack.damage;
 
-    damage += attack.element ? ' ' + elementToShortName(attack.element) : '';
+    damage +=
+      attack.element && attack.element.length ? ' ' + elementToShortName(attack.element) : '';
     damage += attack.isRanged ? ' ranged' : '';
     damage += attack.isJump ? ' jump' : '';
     damage += attack.isOverstrike ? ' overstrike' : '';

@@ -108,9 +108,13 @@ const toFloat = (value: string) =>
 const toString = (value: string) => (value === '' ? null : value);
 const checkToBool = (value: string) => value === '✓';
 
-function dashNull<T>(f: (value: string) => T): (value: string) => T | null {
-  return (value: string) => (value === '-' ? null : f(value));
+function dashAs<TDash, TValue>(
+  dashValue: TDash,
+  f: (value: string) => TValue,
+): (value: string) => TValue | TDash {
+  return (value: string) => (value === '-' ? dashValue : f(value));
 }
+const dashNull = <T>(f: (value: string) => T) => dashAs(null, f);
 function toCommaSeparatedArray<T>(f: (value: string) => T): (value: string) => T[] | null {
   return (value: string) => (value === '' ? null : value.split(', ').map(f));
 }
@@ -146,7 +150,7 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Target: toString,
   Formula: toString,
   Multiplier: toFloat,
-  Element: dashNull(toCommaSeparatedArray(toString)),
+  Element: dashAs([], toCommaSeparatedArray(toString)),
   Time: toFloat,
   Effects: toStringWithDecimals,
   Counter: toBool,
