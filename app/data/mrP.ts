@@ -84,7 +84,11 @@ function describeDamage(damageString: string, numAttacks: number) {
   return toMrPFixed(multiplier) + (numAttacks !== 1 ? '/' + numAttacks : '');
 }
 
-function describeFollowUp(effects: string): string | null {
+/**
+ * Describes the "followed by" portion of an attack.  This is used for 20+1
+ * AOSBs.
+ */
+function describeFollowedByAttack(effects: string): string | null {
   const m = effects.match(
     /followed by ([A-Za-z\-]+) ((?:group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
   );
@@ -233,9 +237,9 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     damage += sb.formula === 'Physical' ? 'phys' : sb.type === 'WHT' ? 'white' : 'magic';
     damage += ' ' + describeDamage(damageString, numAttacks);
 
-    const followUp = describeFollowUp(sb.effects);
-    if (followUp) {
-      damage += ', then ' + followUp + ',';
+    const followedBy = describeFollowedByAttack(sb.effects);
+    if (followedBy) {
+      damage += ', then ' + followedBy + ',';
     }
 
     damage += sb.element && sb.element !== '-' ? ' ' + elementToShortName(sb.element) : '';

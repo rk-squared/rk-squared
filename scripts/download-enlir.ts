@@ -368,6 +368,32 @@ function convertMagicite(rows: any[]): any[] {
   return magicite;
 }
 
+function convertOtherSkills(rows: any[]): any[] {
+  const otherSkills = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+      if (shouldAlwaysSkip(col)) {
+        continue;
+      }
+
+      const field = _.camelCase(col);
+      if (skillFields[col]) {
+        item[field] = skillFields[col](rows[i][j]);
+      } else {
+        item[field] = toCommon(field, rows[i][j]);
+      }
+    }
+
+    otherSkills.push(item);
+  }
+
+  return otherSkills;
+}
+
 function convertRecordMateria(rows: any[]): any[] {
   const recordMateria: any[] = [];
 
@@ -558,6 +584,11 @@ const dataTypes: DataType[] = [
     sheet: 'Magicite',
     localName: 'magicite',
     converter: convertMagicite,
+  },
+  {
+    sheet: 'Other',
+    localName: 'otherSkills',
+    converter: convertOtherSkills,
   },
   {
     sheet: 'Record Materia',
