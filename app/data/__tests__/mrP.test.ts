@@ -97,6 +97,10 @@ describe('mrP', () => {
     });
 
     it('converts EX modes and follow-up attacks', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Squall - Brutal Blast'])).toEqual({
+        damage: 'phys 7.47/9 ice+non',
+        other: 'self hi fastcast 2, EX: (every 2 Spellblade ⤇ AoE p2.6/4 i+n Spellblade)',
+      });
       expect(describeEnlirSoulBreak(soulBreaks['Ace - Jackpot Triad'])).toEqual({
         damage: 'magic 17.0/10 fire+non',
         other:

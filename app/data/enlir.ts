@@ -24,6 +24,8 @@ export type EnlirElement =
   | 'Poison'
   | 'NE';
 
+export type EnlirSkillType = 'BLK' | 'NAT' | 'NIN' | 'PHY' | 'SUM' | 'WHT';
+
 export type EnlirSoulBreakTier =
   | 'Default'
   | 'SB'
@@ -35,11 +37,30 @@ export type EnlirSoulBreakTier =
   | 'AASB'
   | 'Glint+';
 
+export interface EnlirOtherSkill {
+  sourceType: string;
+  source: string;
+  name: string;
+  type: EnlirSkillType | null;
+  target: string;
+  formula: string | null;
+  multiplier: number | null;
+  element: EnlirElement[] | null;
+  time: number;
+  effects: string;
+  counter: boolean;
+  autoTarget: string;
+  sb: number;
+  school: string;
+  id: number;
+  gl: boolean;
+}
+
 export interface EnlirSoulBreak {
   realm: string;
   character: string;
   name: string;
-  type: string;
+  type: EnlirSkillType | null;
   target: string;
   formula: string | null;
   multiplier: number | null;
@@ -73,7 +94,7 @@ const rawData = {
   abilities: require('./enlir/abilities.json'),
   characters: require('./enlir/characters.json'),
   magicite: require('./enlir/magicite.json'),
-  otherSkills: require('./enlir/otherSkills.json'),
+  otherSkills: require('./enlir/otherSkills.json') as EnlirOtherSkill[],
   recordMateria: require('./enlir/recordMateria.json') as EnlirRecordMateria[],
   relics: require('./enlir/relics.json'),
   soulBreaks: require('./enlir/soulBreaks.json') as EnlirSoulBreak[],

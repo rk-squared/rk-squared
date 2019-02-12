@@ -1,4 +1,4 @@
-import { EnlirElement, EnlirSoulBreak } from '../enlir';
+import { EnlirElement, EnlirOtherSkill, EnlirSoulBreak } from '../enlir';
 import { parseNumberString, toMrPFixed } from './util';
 
 export interface ParsedEnlirAttack {
@@ -40,7 +40,10 @@ function describeFollowedByAttack(effects: string): string | null {
   return damage;
 }
 
-export function parseEnlirAttack(effects: string, sb: EnlirSoulBreak): ParsedEnlirAttack | null {
+export function parseEnlirAttack(
+  effects: string,
+  skill: EnlirOtherSkill | EnlirSoulBreak,
+): ParsedEnlirAttack | null {
   const m = effects.match(
     /([A-Za-z\-]+) (?:(group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
   );
@@ -50,24 +53,24 @@ export function parseEnlirAttack(effects: string, sb: EnlirSoulBreak): ParsedEnl
 
   const [, numAttacksString, attackType, ranged, jump, damageString, overstrike] = m;
   const numAttacks = parseNumberString(numAttacksString);
-  if (numAttacks == null || sb.formula == null || sb.multiplier == null) {
+  if (numAttacks == null || skill.formula == null || skill.multiplier == null) {
     return null;
   }
 
   let damage = describeDamage(damageString, numAttacks);
-  const followedBy = describeFollowedByAttack(sb.effects);
+  const followedBy = describeFollowedByAttack(skill.effects);
   if (followedBy) {
     damage += ', then ' + followedBy + ',';
   }
 
   return {
     isAoE: attackType === 'group',
-    damageType: sb.formula === 'Physical' ? 'phys' : sb.type === 'WHT' ? 'white' : 'magic',
+    damageType: skill.formula === 'Physical' ? 'phys' : skill.type === 'WHT' ? 'white' : 'magic',
     damage,
-    element: sb.element,
+    element: skill.element,
     isRanged: !!ranged && !jump,
     isJump: !!jump,
     isOverstrike: !!overstrike,
-    isSummon: sb.type === 'SUM',
+    isSummon: skill.type === 'SUM',
   };
 }

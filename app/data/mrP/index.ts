@@ -65,14 +65,18 @@ const enlirStatusAlias: { [status: string]: string } = {
   'cast speed x2.00': 'Fastcast', // used within Status sheet
 };
 
+const enlirStatusAliasWithNumbers: { [status: string]: string } = {
+  'High Quick Cast': 'hi fastcast',
+  'Instant Cast': 'instacast',
+  'Magical Blink': 'Magic blink',
+};
+
 function describeEnlirStatus(status: string) {
   let m: RegExpMatchArray | null;
   if (enlirStatusAlias[status]) {
     return enlirStatusAlias[status];
-  } else if ((m = status.match(/Magical Blink (\d+)/i))) {
-    return 'Magic blink ' + m[1];
-  } else if ((m = status.match(/Instant Cast (\d+)/i))) {
-    return 'instacast ' + m[1];
+  } else if ((m = status.match(/^(.*) (\d+)$/)) && enlirStatusAliasWithNumbers[m[1]]) {
+    return enlirStatusAliasWithNumbers[m[1]] + ' ' + m[2];
   } else if ((m = status.match(/HP Stock \((\d+)\)/))) {
     return 'Autoheal ' + +m[1] / 1000 + 'k';
   } else if ((m = status.match(/Stoneskin: (\d+)%/))) {
