@@ -99,14 +99,18 @@ describe('mrP', () => {
     it('converts EX modes with simple follow-up attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Squall - Brutal Blast'])).toEqual({
         damage: 'phys 7.47/9 ice+non',
-        other: 'self hi fastcast 2, EX: (2 Spellblade ⤇ AoE p2.6/4 i+n Combat)',
+        other: 'self hi fastcast 2, 15s: EX: (2 Spellblade ⤇ AoE p2.6/4 i+n Combat no miss)',
       });
     });
 
     it('converts EX modes with skill boosts and 100% hit rate follow-up attacks', () => {
+      // Discrepancy: MMP often omits "no miss" (due to error? lack of space?)
+      // and doesn't show "self" for Ability Boost.  However, it's probably
+      // more consistent and certainly more thorough to include it.
       expect(describeEnlirSoulBreak(soulBreaks['Leo - Shock Imperial'])).toEqual({
         damage: 'phys 7.1/10 earth+holy',
-        other: 'party +30% ATK/DEF 25s',
+        other:
+          'party +30% ATK/DEF 25s, self 1.3x Knight dmg, 15s: (Knight ⤇ p1.96/4 e+h+n Knight no miss)',
       });
     });
 

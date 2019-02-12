@@ -109,6 +109,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
 interface ParsedEnlirStatus {
   description: string;
   isExLike: boolean;
+  defaultDuration: number | null;
 }
 
 function describeExLike(enlirStatus: EnlirStatus): string {
@@ -187,6 +188,7 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   return {
     description,
     isExLike,
+    defaultDuration: enlirStatus ? enlirStatus.defaultDuration : null,
   };
 }
 

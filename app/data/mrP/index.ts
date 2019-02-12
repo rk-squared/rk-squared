@@ -87,10 +87,11 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       .filter(includeStatus)
       .sort(sortStatus)
       .map(parseEnlirStatus);
-    for (let { description, isExLike } of status) {
-      if (duration) {
-        description = `${duration}s: ` + description;
+    for (let { description, isExLike, defaultDuration } of status) {
+      if (duration || (defaultDuration && isExLike)) {
+        description = `${duration || defaultDuration}s: ` + description;
       }
+
       if (isExLike) {
         // Implied 'self'
         other.push(description);
