@@ -1,4 +1,4 @@
-import { allEnlirElements, enlir, EnlirElement, EnlirStatus } from '../enlir';
+import { allEnlirElements, allEnlirSchools, enlir, EnlirElement, EnlirStatus } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import { appendElement, damageTypeAbbreviation, getElementAbbreviation } from './types';
 import { andList, lowerCaseFirst, parseNumberString } from './util';
@@ -28,9 +28,12 @@ export function describeStats(stats: string[]): string {
  */
 const enlirStatusAlias: { [status: string]: string } = {
   Astra: 'Status blink 1',
-  'Cast speed *2': 'Fastcast', // used within Soul Break sheet
-  'cast speed x2.00': 'Fastcast', // used within Status sheet
+  'Cast speed *2': 'Fastcast',
 };
+
+for (const i of allEnlirSchools) {
+  enlirStatusAlias[`${i} +30% Boost`] = `1.3x ${i} dmg`;
+}
 
 const enlirStatusAliasWithNumbers: { [status: string]: string } = {
   'High Quick Cast': 'hi fastcast',
@@ -38,14 +41,20 @@ const enlirStatusAliasWithNumbers: { [status: string]: string } = {
   'Magical Blink': 'Magic blink',
 };
 
+const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
+  'cast speed x2.00': 'Fastcast',
+};
+
 const isFollowUpStatus = (status: string) => !!status.match(/[cC]asts .* after using/);
 
-function describeEnlirStatus(status: string, enlirStatus: EnlirStatus | null) {
+/**
+ * Describes a "well-known" or common Enlir status name.
+ *
+ * One-off statuses instead need to be looked up and their effects processed
+ * via describeEnlirStatusEffect.
+ */
+function describeEnlirStatus(status: string) {
   let m: RegExpMatchArray | null;
-
-  if (enlirStatus && isFollowUpStatus(status)) {
-    return describeFollowUp(enlirStatus);
-  }
 
   // Generic statuses
   if (enlirStatusAlias[status]) {
@@ -70,6 +79,30 @@ function describeEnlirStatus(status: string, enlirStatus: EnlirStatus | null) {
   return status;
 }
 
+function describeEnlirStatusEffect(status: string, enlirStatus: EnlirStatus | null) {
+  let m: RegExpMatchArray | null;
+
+  if (enlirStatus && isFollowUpStatus(status)) {
+    return describeFollowUp(enlirStatus);
+  }
+
+  // Generic status effects
+  if (enlirStatusEffectAlias[status]) {
+    return enlirStatusEffectAlias[status];
+  }
+
+  // Special cases
+  if ((m = status.match(/((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([-+]\d+%)/))) {
+    // Status effects: e.g., "MAG +30%" from EX: Attack Hand
+    // Reorganize stats into, e.g., +30% MAG to match MMP
+    const [, stat, amount] = m;
+    return amount + ' ' + stat.split(andList).join('/');
+  }
+
+  // Fallback
+  return status;
+}
+
 interface ParsedEnlirStatus {
   description: string;
   isEx: boolean;
@@ -80,7 +113,7 @@ function describeExMode(enlirStatus: EnlirStatus): string {
     'EX: ' +
     enlirStatus.effects
       .split(andList)
-      .map(i => describeEnlirStatus(i, enlirStatus))
+      .map(i => describeEnlirStatusEffect(i, enlirStatus))
       .map(lowerCaseFirst)
       .join(', ')
   );
@@ -139,7 +172,7 @@ function describeFollowUp(enlirStatus: EnlirStatus): string {
 
 export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   const enlirStatus = enlir.statusByName[status];
-  let description = describeEnlirStatus(status, enlirStatus);
+  let description = describeEnlirStatus(status);
 
   const isEx = status.startsWith('EX: ');
 

@@ -24,6 +24,54 @@ export const allEnlirElements: EnlirElement[] = [
   'NE',
 ];
 
+export type EnlirSchool =
+  | '?'
+  | 'Bard'
+  | 'Black Magic'
+  | 'Celerity'
+  | 'Combat'
+  | 'Dancer'
+  | 'Darkness'
+  | 'Dragoon'
+  | 'Heavy'
+  | 'Knight'
+  | 'Machinist'
+  | 'Monk'
+  | 'Ninja'
+  | 'Samurai'
+  | 'Sharpshooter'
+  | 'Special'
+  | 'Spellblade'
+  | 'Summoning'
+  | 'Support'
+  | 'Thief'
+  | 'White Magic'
+  | 'Witch';
+export const allEnlirSchools: EnlirSchool[] = [
+  '?',
+  'Bard',
+  'Black Magic',
+  'Celerity',
+  'Combat',
+  'Dancer',
+  'Darkness',
+  'Dragoon',
+  'Heavy',
+  'Knight',
+  'Machinist',
+  'Monk',
+  'Ninja',
+  'Samurai',
+  'Sharpshooter',
+  'Special',
+  'Spellblade',
+  'Summoning',
+  'Support',
+  'Thief',
+  'White Magic',
+  'Witch',
+];
+
 export type EnlirSkillType = 'BLK' | 'NAT' | 'NIN' | 'PHY' | 'SUM' | 'WHT';
 
 export type EnlirSoulBreakTier =
