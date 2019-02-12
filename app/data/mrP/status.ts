@@ -1,4 +1,4 @@
-import { enlir, EnlirStatus } from '../enlir';
+import { allEnlirElements, enlir, EnlirElement, EnlirStatus } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import { appendElement, damageTypeAbbreviation, getElementAbbreviation } from './types';
 import { andList, lowerCaseFirst, parseNumberString } from './util';
@@ -38,8 +38,14 @@ const enlirStatusAliasWithNumbers: { [status: string]: string } = {
   'Magical Blink': 'Magic blink',
 };
 
-function describeEnlirStatus(status: string) {
+const isFollowUpStatus = (status: string) => !!status.match(/[cC]asts .* after using/);
+
+function describeEnlirStatus(status: string, enlirStatus: EnlirStatus | null) {
   let m: RegExpMatchArray | null;
+
+  if (enlirStatus && isFollowUpStatus(status)) {
+    return describeFollowUp(enlirStatus);
+  }
 
   // Generic statuses
   if (enlirStatusAlias[status]) {
@@ -67,20 +73,14 @@ function describeEnlirStatus(status: string) {
 interface ParsedEnlirStatus {
   description: string;
   isEx: boolean;
-  isFollowUp: boolean;
 }
-
-const isFollowUpStatus = ({ codedName, effects }: EnlirStatus) =>
-  codedName.startsWith('CHASE_') ||
-  codedName.endsWith('_CHASE') ||
-  !!effects.match(/Casts .* after using/);
 
 function describeExMode(enlirStatus: EnlirStatus): string {
   return (
     'EX: ' +
     enlirStatus.effects
       .split(andList)
-      .map(describeEnlirStatus)
+      .map(i => describeEnlirStatus(i, enlirStatus))
       .map(lowerCaseFirst)
       .join(', ')
   );
@@ -93,10 +93,14 @@ function describeFollowUpTrigger(trigger: string): string {
 
   trigger = trigger
     .split(' ')
+    .map(i => (allEnlirElements.indexOf(i as EnlirElement) !== -1 ? i.toLowerCase() : i))
     .map(i => parseNumberString(i) || i)
     .join(' ');
 
-  return trigger.replace(/ (abilities|ability)$/, '').replace(' or ', '/');
+  return trigger
+    .replace(/ (abilities|ability|attacks|attack)$/, '')
+    .replace(' or ', '/')
+    .replace(/^a /, '');
 }
 
 function describeFollowUpAttack(attackName: string): string {
@@ -130,28 +134,22 @@ function describeFollowUp(enlirStatus: EnlirStatus): string {
   if (!m) {
     return enlirStatus.effects;
   }
-  return 'EX: (' + describeFollowUpTrigger(m[2]) + ' ⤇ ' + describeFollowUpAttack(m[1]) + ')';
+  return '(' + describeFollowUpTrigger(m[2]) + ' ⤇ ' + describeFollowUpAttack(m[1]) + ')';
 }
 
 export function parseEnlirStatus(status: string): ParsedEnlirStatus {
-  let description = describeEnlirStatus(status);
   const enlirStatus = enlir.statusByName[status];
+  let description = describeEnlirStatus(status, enlirStatus);
 
   const isEx = status.startsWith('EX: ');
-  const isFollowUp = !!enlirStatus && isFollowUpStatus(enlirStatus);
 
-  if (enlirStatus) {
-    if (isFollowUp) {
-      description = describeFollowUp(enlirStatus);
-    } else if (isEx) {
-      description = describeExMode(enlirStatus);
-    }
+  if (enlirStatus && isEx) {
+    description = describeExMode(enlirStatus);
   }
 
   return {
     description,
     isEx,
-    isFollowUp,
   };
 }
 

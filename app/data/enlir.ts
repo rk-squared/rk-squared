@@ -1,17 +1,5 @@
 import * as _ from 'lodash';
 
-// FIXME: Interfaces for remaining Enlir types
-export interface EnlirRecordMateria {
-  realm: string;
-  character: string;
-  name: string;
-  effect: string;
-  unlockCriteria: string;
-  nameJp: string;
-  id: number;
-  gl: boolean;
-}
-
 export type EnlirElement =
   | 'Fire'
   | 'Ice'
@@ -23,6 +11,18 @@ export type EnlirElement =
   | 'Dark'
   | 'Poison'
   | 'NE';
+export const allEnlirElements: EnlirElement[] = [
+  'Fire',
+  'Ice',
+  'Lightning',
+  'Earth',
+  'Wind',
+  'Water',
+  'Holy',
+  'Dark',
+  'Poison',
+  'NE',
+];
 
 export type EnlirSkillType = 'BLK' | 'NAT' | 'NIN' | 'PHY' | 'SUM' | 'WHT';
 
@@ -36,6 +36,8 @@ export type EnlirSoulBreakTier =
   | 'AOSB'
   | 'AASB'
   | 'Glint+';
+
+// FIXME: Interfaces for remaining Enlir types
 
 export interface EnlirOtherSkill {
   sourceType: string;
@@ -52,6 +54,17 @@ export interface EnlirOtherSkill {
   autoTarget: string;
   sb: number;
   school: string;
+  id: number;
+  gl: boolean;
+}
+
+export interface EnlirRecordMateria {
+  realm: string;
+  character: string;
+  name: string;
+  effect: string;
+  unlockCriteria: string;
+  nameJp: string;
   id: number;
   gl: boolean;
 }

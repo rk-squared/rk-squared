@@ -86,11 +86,11 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       .filter(includeStatus)
       .sort(sortStatus)
       .map(parseEnlirStatus);
-    for (let { description, isEx, isFollowUp } of status) {
+    for (let { description, isEx } of status) {
       if (duration) {
         description = `${duration}s: ` + description;
       }
-      if (isEx || isFollowUp) {
+      if (isEx) {
         // Implied 'self'
         other.push(description);
       } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
@@ -137,3 +137,5 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     other: other.length ? other.join(', ') : undefined,
   };
 }
+
+// TODO: school abbreviations for follow-ups (BMag or B.Magic?), finishers, Yuna's follow-up

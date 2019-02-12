@@ -103,6 +103,13 @@ describe('mrP', () => {
       });
     });
 
+    it('converts EX modes with skill boosts and 100% hit rate follow-up attacks', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Leo - Shock Imperial'])).toEqual({
+        damage: 'phys 7.1/10 earth+holy',
+        other: 'party +30% ATK/DEF 25s',
+      });
+    });
+
     it('converts EX modes with random follow-up attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Ace - Jackpot Triad'])).toEqual({
         damage: 'magic 17.0/10 fire+non',
