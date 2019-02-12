@@ -1,22 +1,10 @@
 import * as _ from 'lodash';
 
-import { EnlirElement, EnlirSoulBreak } from '../enlir';
+import { EnlirSoulBreak } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import { describeStats, includeStatus, parseEnlirStatus, sortStatus } from './status';
+import { appendElement, getElementShortName } from './types';
 import { andList } from './util';
-
-const elementShortName: { [element: string]: string } = {
-  lightning: 'lgt',
-  ne: 'non',
-};
-
-const elementAbbreviation: { [element: string]: string } = {
-  water: 'wa',
-};
-
-function elementToShortName(element: EnlirElement[]): string {
-  return element.map(i => elementShortName[i.toLowerCase()] || i.toLowerCase()).join('+');
-}
 
 interface MrPSoulBreak {
   instant?: boolean;
@@ -51,8 +39,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     damage += attack.isAoE ? 'AoE ' : '';
     damage += attack.damageType + ' ' + attack.damage;
 
-    damage +=
-      attack.element && attack.element.length ? ' ' + elementToShortName(attack.element) : '';
+    damage += appendElement(attack.element, getElementShortName);
     damage += attack.isRanged ? ' ranged' : '';
     damage += attack.isJump ? ' jump' : '';
     damage += attack.isOverstrike ? ' overstrike' : '';

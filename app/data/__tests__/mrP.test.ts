@@ -96,15 +96,26 @@ describe('mrP', () => {
       });
     });
 
-    it('converts EX modes and follow-up attacks', () => {
+    it('converts EX modes with simple follow-up attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Squall - Brutal Blast'])).toEqual({
         damage: 'phys 7.47/9 ice+non',
-        other: 'self hi fastcast 2, EX: (every 2 Spellblade ⤇ AoE p2.6/4 i+n Spellblade)',
+        other: 'self hi fastcast 2, EX: (2 Spellblade ⤇ AoE p2.6/4 i+n Combat)',
       });
+    });
+
+    it('converts EX modes with random follow-up attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Ace - Jackpot Triad'])).toEqual({
         damage: 'magic 17.0/10 fire+non',
         other:
           'fire infuse 25s, 15s: (any ability ⤇ 74-25-1% m0.55-1.1/2-7.15/13 f+n), 15s: EX: +30% MAG, fastcast',
+      });
+    });
+
+    it('converts EX modes with unusual follow-up attacks', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Cloud - Climirage'])).toEqual({
+        damage: 'phys 7.2/15 wind',
+        other:
+          'wind infuse 25s, 15s: EX: +30% ATK, (wind ⤇ p1.6/4 or 3.2/8 wi+n overstrike Combat no miss)',
       });
     });
   });

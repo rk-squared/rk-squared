@@ -5,6 +5,7 @@ export interface ParsedEnlirAttack {
   damageType: 'phys' | 'white' | 'magic';
   damage: string;
   element: EnlirElement[] | null;
+  school?: string;
   isAoE: boolean;
   isRanged: boolean;
   isJump: boolean;
@@ -68,6 +69,7 @@ export function parseEnlirAttack(
     damageType: skill.formula === 'Physical' ? 'phys' : skill.type === 'WHT' ? 'white' : 'magic',
     damage,
     element: skill.element,
+    school: 'school' in skill ? skill.school : undefined,
     isRanged: !!ranged && !jump,
     isJump: !!jump,
     isOverstrike: !!overstrike,

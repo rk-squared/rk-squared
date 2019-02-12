@@ -1,5 +1,7 @@
 import { enlir, EnlirStatus } from '../enlir';
-import { andList, lowerCaseFirst } from './util';
+import { parseEnlirAttack } from './attack';
+import { appendElement, damageTypeAbbreviation, getElementAbbreviation } from './types';
+import { andList, lowerCaseFirst, parseNumberString } from './util';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -68,8 +70,68 @@ interface ParsedEnlirStatus {
   isFollowUp: boolean;
 }
 
-const isFollowUpStatus = ({ codedName }: EnlirStatus) =>
-  codedName.startsWith('CHASE_') || codedName.endsWith('_CHASE');
+const isFollowUpStatus = ({ codedName, effects }: EnlirStatus) =>
+  codedName.startsWith('CHASE_') ||
+  codedName.endsWith('_CHASE') ||
+  !!effects.match(/Casts .* after using/);
+
+function describeExMode(enlirStatus: EnlirStatus): string {
+  return (
+    'EX: ' +
+    enlirStatus.effects
+      .split(andList)
+      .map(describeEnlirStatus)
+      .map(lowerCaseFirst)
+      .join(', ')
+  );
+}
+
+function describeFollowUpTrigger(trigger: string): string {
+  if (trigger === 'an ability') {
+    return 'any ability';
+  }
+
+  trigger = trigger
+    .split(' ')
+    .map(i => parseNumberString(i) || i)
+    .join(' ');
+
+  return trigger.replace(/ (abilities|ability)$/, '').replace(' or ', '/');
+}
+
+function describeFollowUpAttack(attackName: string): string {
+  const attackSkill = enlir.otherSkillsByName[attackName];
+  if (!attackSkill) {
+    return attackName;
+  }
+
+  const attack = parseEnlirAttack(attackSkill.effects, attackSkill);
+  if (!attack) {
+    return attackName;
+  }
+
+  let damage = '';
+  damage += attack.isAoE ? 'AoE ' : '';
+  damage += damageTypeAbbreviation(attack.damageType) + attack.damage;
+
+  damage += appendElement(attack.element, getElementAbbreviation);
+  damage += attack.isRanged ? ' rngd' : '';
+  damage += attack.isJump ? ' jmp' : '';
+  damage += attack.isOverstrike ? ' overstrike' : '';
+  damage += attack.school ? ' ' + attack.school : '';
+  damage += attack.isSummon ? ' (SUM)' : '';
+  // TODO: Include "No Miss"?
+
+  return damage;
+}
+
+function describeFollowUp(enlirStatus: EnlirStatus): string {
+  const m = enlirStatus.effects.match(/[cC]asts (.*) after using (.*)/);
+  if (!m) {
+    return enlirStatus.effects;
+  }
+  return 'EX: (' + describeFollowUpTrigger(m[2]) + ' ⤇ ' + describeFollowUpAttack(m[1]) + ')';
+}
 
 export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   let description = describeEnlirStatus(status);
@@ -78,14 +140,12 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   const isEx = status.startsWith('EX: ');
   const isFollowUp = !!enlirStatus && isFollowUpStatus(enlirStatus);
 
-  if (isEx && enlirStatus) {
-    description =
-      'EX: ' +
-      enlirStatus.effects
-        .split(andList)
-        .map(describeEnlirStatus)
-        .map(lowerCaseFirst)
-        .join(', ');
+  if (enlirStatus) {
+    if (isFollowUp) {
+      description = describeFollowUp(enlirStatus);
+    } else if (isEx) {
+      description = describeExMode(enlirStatus);
+    }
   }
 
   return {
