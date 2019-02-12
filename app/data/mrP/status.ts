@@ -45,7 +45,10 @@ const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
   'cast speed x2.00': 'Fastcast',
 };
 
-const isFollowUpStatus = (status: string) => !!status.match(/[cC]asts .* after using/);
+const isFollowUpEffect = (effect: string) => !!effect.match(/[cC]asts .* after using/);
+
+const isFollowUpStatus = ({ effects, codedName }: EnlirStatus) =>
+  isFollowUpEffect(effects) || codedName.endsWith('_CHASE') || codedName.startsWith('CHASE_MODE_');
 
 /**
  * Describes a "well-known" or common Enlir status name.
@@ -79,20 +82,20 @@ function describeEnlirStatus(status: string) {
   return status;
 }
 
-function describeEnlirStatusEffect(status: string, enlirStatus: EnlirStatus | null) {
+function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | null) {
   let m: RegExpMatchArray | null;
 
-  if (enlirStatus && isFollowUpStatus(status)) {
+  if (enlirStatus && isFollowUpEffect(effect)) {
     return describeFollowUp(enlirStatus);
   }
 
   // Generic status effects
-  if (enlirStatusEffectAlias[status]) {
-    return enlirStatusEffectAlias[status];
+  if (enlirStatusEffectAlias[effect]) {
+    return enlirStatusEffectAlias[effect];
   }
 
   // Special cases
-  if ((m = status.match(/((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([-+]\d+%)/))) {
+  if ((m = effect.match(/((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([-+]\d+%)/))) {
     // Status effects: e.g., "MAG +30%" from EX: Attack Hand
     // Reorganize stats into, e.g., +30% MAG to match MMP
     const [, stat, amount] = m;
@@ -100,23 +103,20 @@ function describeEnlirStatusEffect(status: string, enlirStatus: EnlirStatus | nu
   }
 
   // Fallback
-  return status;
+  return effect;
 }
 
 interface ParsedEnlirStatus {
   description: string;
-  isEx: boolean;
+  isExLike: boolean;
 }
 
-function describeExMode(enlirStatus: EnlirStatus): string {
-  return (
-    'EX: ' +
-    enlirStatus.effects
-      .split(andList)
-      .map(i => describeEnlirStatusEffect(i, enlirStatus))
-      .map(lowerCaseFirst)
-      .join(', ')
-  );
+function describeExLike(enlirStatus: EnlirStatus): string {
+  return enlirStatus.effects
+    .split(andList)
+    .map(i => describeEnlirStatusEffect(i, enlirStatus))
+    .map(lowerCaseFirst)
+    .join(', ');
 }
 
 function describeFollowUpTrigger(trigger: string): string {
@@ -156,8 +156,8 @@ function describeFollowUpAttack(attackName: string): string {
   damage += attack.isJump ? ' jmp' : '';
   damage += attack.isOverstrike ? ' overstrike' : '';
   damage += attack.school ? ' ' + attack.school : '';
+  damage += attack.isNoMiss ? ' no miss' : '';
   damage += attack.isSummon ? ' (SUM)' : '';
-  // TODO: Include "No Miss"?
 
   return damage;
 }
@@ -175,14 +175,18 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   let description = describeEnlirStatus(status);
 
   const isEx = status.startsWith('EX: ');
+  const isExLike = isEx || isFollowUpStatus(enlirStatus);
 
-  if (enlirStatus && isEx) {
-    description = describeExMode(enlirStatus);
+  if (enlirStatus && isExLike) {
+    description = describeExLike(enlirStatus);
+    if (isEx) {
+      description = 'EX: ' + description;
+    }
   }
 
   return {
     description,
-    isEx,
+    isExLike,
   };
 }
 

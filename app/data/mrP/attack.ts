@@ -11,6 +11,7 @@ export interface ParsedEnlirAttack {
   isJump: boolean;
   isOverstrike: boolean;
   isSummon: boolean;
+  isNoMiss: boolean;
 }
 
 function describeDamage(damageString: string, numAttacks: number) {
@@ -46,13 +47,13 @@ export function parseEnlirAttack(
   skill: EnlirOtherSkill | EnlirSoulBreak,
 ): ParsedEnlirAttack | null {
   const m = effects.match(
-    /([A-Za-z\-]+) (?:(group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
+    /([A-Za-z\-]+) (?:(group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?(, 100% hit rate)?/,
   );
   if (!m) {
     return null;
   }
 
-  const [, numAttacksString, attackType, ranged, jump, damageString, overstrike] = m;
+  const [, numAttacksString, attackType, ranged, jump, damageString, overstrike, noMiss] = m;
   const numAttacks = parseNumberString(numAttacksString);
   if (numAttacks == null || skill.formula == null || skill.multiplier == null) {
     return null;
@@ -74,5 +75,6 @@ export function parseEnlirAttack(
     isJump: !!jump,
     isOverstrike: !!overstrike,
     isSummon: skill.type === 'SUM',
+    isNoMiss: !!noMiss,
   };
 }

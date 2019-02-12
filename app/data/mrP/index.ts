@@ -43,6 +43,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     damage += attack.isRanged ? ' ranged' : '';
     damage += attack.isJump ? ' jump' : '';
     damage += attack.isOverstrike ? ' overstrike' : '';
+    damage += attack.isNoMiss ? ' no miss' : '';
     damage += attack.isSummon ? ' (SUM)' : '';
   }
 
@@ -86,11 +87,11 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       .filter(includeStatus)
       .sort(sortStatus)
       .map(parseEnlirStatus);
-    for (let { description, isEx } of status) {
+    for (let { description, isExLike } of status) {
       if (duration) {
         description = `${duration}s: ` + description;
       }
-      if (isEx) {
+      if (isExLike) {
         // Implied 'self'
         other.push(description);
       } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
