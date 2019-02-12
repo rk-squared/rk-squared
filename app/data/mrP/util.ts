@@ -1,4 +1,5 @@
 export const andList = /,? and |, /;
+export const orList = /,? or |, /;
 
 const numbers: { [s: string]: number } = {
   one: 1,
@@ -41,6 +42,22 @@ export function parseNumberString(s: string): number | null {
       return null;
     }
     result += numbers[i];
+  }
+  return result;
+}
+
+export function parsePercentageCounts(s: string): Array<[number, number]> | null {
+  const result: Array<[number, number]> = [];
+  for (const i of s.split(orList)) {
+    const m = i.match(/([A-Za-z\-]+) \((\d+)%\)/);
+    if (!m) {
+      return null;
+    }
+    const count = parseNumberString(m[1]);
+    if (count == null) {
+      return null;
+    }
+    result.push([count, +m[2]]);
   }
   return result;
 }
