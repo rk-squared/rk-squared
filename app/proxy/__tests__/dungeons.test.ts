@@ -5,7 +5,6 @@ import {
   sortDungeons,
 } from '../dungeons';
 
-import * as Redux from 'redux';
 import configureStore from 'redux-mock-store';
 
 import * as _ from 'lodash';
@@ -249,7 +248,7 @@ describe('dungeons proxy handler', () => {
       const mockStore = configureStore<IState>();
       const store = mockStore();
 
-      dungeonsHandler['progress_battle_list_gimmick'](data.data, store as Redux.Store<IState>, {});
+      dungeonsHandler['progress_battle_list_gimmick'](data.data, store, {});
 
       expect(store.getActions()).toEqual([
         {

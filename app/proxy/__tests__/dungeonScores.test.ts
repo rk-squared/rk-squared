@@ -1,4 +1,3 @@
-import * as Redux from 'redux';
 import configureStore from 'redux-mock-store';
 
 import { DungeonScoreType } from '../../actions/dungeonScores';
@@ -18,7 +17,7 @@ describe('dungeonScores proxy handler', () => {
     it('handles magicite', () => {
       const store = mockStore();
 
-      dungeonScoresHandler.battles(magiciteWorldBattles.data, store as Redux.Store<IState>, {});
+      dungeonScoresHandler.battles(magiciteWorldBattles.data, store, {});
 
       expect(store.getActions()).toEqual([
         {
@@ -38,7 +37,7 @@ describe('dungeonScores proxy handler', () => {
     it('handles mastered Neo Torments', () => {
       const store = mockStore();
 
-      dungeonScoresHandler.battles(neoTormentT280Battles.data, store as Redux.Store<IState>, {});
+      dungeonScoresHandler.battles(neoTormentT280Battles.data, store, {});
 
       expect(store.getActions()).toEqual([
         {
@@ -60,7 +59,7 @@ describe('dungeonScores proxy handler', () => {
     it('handles percent completed Neo Torments', () => {
       const store = mockStore();
 
-      dungeonScoresHandler.battles(neoTormentTUnkBattles.data, store as Redux.Store<IState>, {});
+      dungeonScoresHandler.battles(neoTormentTUnkBattles.data, store, {});
 
       expect(store.getActions()).toEqual([
         {
@@ -108,7 +107,7 @@ describe('dungeonScores proxy handler', () => {
 
       const store = mockStore(initialState);
 
-      dungeonScoresHandler.win_battle(magiciteWinBattle.data, store as Redux.Store<IState>, {});
+      dungeonScoresHandler.win_battle(magiciteWinBattle.data, store, {});
 
       expect(store.getActions()).toEqual([
         {
