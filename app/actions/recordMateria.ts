@@ -163,7 +163,7 @@ export function getRecordMateriaDetail(
   });
 }
 
-/// Sets the master list of all record materia
+/// Sets the master list of all record materia from the Library page
 export const setRecordMateria = createAction(
   'SET_RECORD_MATERIA',
   (recordMateria: { [id: number]: RecordMateria }) => ({
@@ -177,11 +177,10 @@ export const setRecordMateria = createAction(
 /// Obtained one or more record materia (for example, from winning a battle)
 export const obtainRecordMateria = createAction(
   'OBTAIN_RECORD_MATERIA',
-  (id: number | number[], updateInventory = true) => ({
+  (id: number | number[]) => ({
     type: 'OBTAIN_RECORD_MATERIA',
     payload: {
       id,
-      updateInventory,
     },
   }),
 );

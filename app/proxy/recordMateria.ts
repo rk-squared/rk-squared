@@ -109,23 +109,6 @@ export function convertRecordMateriaList(
   return result;
 }
 
-export function checkLevel50RecordMateria(
-  store: Store<IState>,
-  recordMateria: { [id: number]: RecordMateria },
-  level50Characters: number[],
-) {
-  const level50CharactersSet = _.fromPairs(level50Characters.map(i => [i, true]));
-
-  const obtained = _.filter(
-    recordMateria,
-    rm => level50CharactersSet[rm.characterId] && rm.step === 1,
-  ).map(rm => rm.id);
-
-  if (obtained.length) {
-    store.dispatch(obtainRecordMateria(obtained, false));
-  }
-}
-
 function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
   const obtainedIds = _.map(
     _.filter(data.result.prize_master, i => i.type_name === 'RECORD_MATERIA'),
@@ -141,17 +124,6 @@ const recordMateriaHandler: Handler = {
   get_released_record_materia_list(data: schemas.ReleasedRecordMateriaList, store: Store<IState>) {
     const newRecordMateria = convertRecordMateriaList(data);
     store.dispatch(setRecordMateria(newRecordMateria));
-
-    // The record materia library may not correctly indicate some materia that
-    // have been earned and vaulted.  To compensate, check materia that we know
-    // we've obtained from looking at characters' levels.
-    // FIXME: This is still unreliable - a character with an RM 1b and an RM 2, both vaulted, shows as unobtained
-    // The right fix, I think, is to stop trying to derive obtained from here
-    // and just get it from record_materias_warehouse.
-    const level50Characters = _.values(store.getState().characters.characters)
-      .filter(i => i.levelCap > 50)
-      .map(i => i.id);
-    checkLevel50RecordMateria(store, newRecordMateria, level50Characters);
   },
 
   'party/list'(data: schemas.PartyList, store: Store<IState>, request: HandlerRequest) {
@@ -165,14 +137,6 @@ const recordMateriaHandler: Handler = {
         _.map(_.filter(data.record_materias, i => i.is_favorite), i => i.id),
         _.map(data.record_materias_warehouse, i => i.record_materia_id),
       ),
-    );
-
-    // TODO: Now that we process record_materias_warehouse, this should no longer be needed.
-    const level50Characters = data.buddies.filter(i => i.level_max > 50).map(i => i.buddy_id);
-    checkLevel50RecordMateria(
-      store,
-      store.getState().recordMateria.recordMateria,
-      level50Characters,
     );
   },
 

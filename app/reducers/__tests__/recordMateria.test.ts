@@ -46,9 +46,13 @@ describe('recordMateria reducer', () => {
         recordMateria: _.keyBy([attunement1], 'id'),
         inventory: undefined,
         favorites: undefined,
+        obtained: undefined,
       };
 
-      const newState = recordMateria(initialState, setRecordMateriaInventory([attunement1.id], [], []));
+      const newState = recordMateria(
+        initialState,
+        setRecordMateriaInventory([attunement1.id], [], []),
+      );
 
       expect(newState.recordMateria[attunement1.id].obtained).toBeTruthy();
       expect(newState.inventory).toBeTruthy();
@@ -64,6 +68,7 @@ describe('recordMateria reducer', () => {
         recordMateria: _.keyBy([obtained(attunement1), attunement2], 'id'),
         inventory: {},
         favorites: {},
+        obtained: {},
       };
 
       const newState = recordMateria(initialState, obtainRecordMateria(attunement2.id));
@@ -78,6 +83,7 @@ describe('recordMateria reducer', () => {
         recordMateria: _.keyBy([obtained(attunement1), attunement2], 'id'),
         inventory: { [attunement1.id]: true },
         favorites: {},
+        obtained: {},
       };
 
       const newState = recordMateria(initialState, obtainRecordMateria([]));

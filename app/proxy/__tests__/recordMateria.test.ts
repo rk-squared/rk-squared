@@ -93,7 +93,7 @@ describe('recordMateria proxy handler', () => {
       recordMateriaHandler.win_battle(winBattle.data, store, {});
 
       expect(store.getActions()).toEqual([
-        { payload: { id: [111050021], updateInventory: true }, type: 'OBTAIN_RECORD_MATERIA' },
+        { type: 'OBTAIN_RECORD_MATERIA', payload: { id: [111050021] } },
       ]);
     });
   });
@@ -107,13 +107,7 @@ describe('recordMateria proxy handler', () => {
       });
 
       expect(store.getActions()).toEqual([
-        {
-          type: 'OBTAIN_RECORD_MATERIA',
-          payload: {
-            id: [111020020],
-            updateInventory: true,
-          },
-        },
+        { type: 'OBTAIN_RECORD_MATERIA', payload: { id: [111020020] } },
       ]);
     });
 
