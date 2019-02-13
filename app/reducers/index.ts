@@ -1,6 +1,6 @@
-import { combineReducers, Reducer } from 'redux';
+import { Action, combineReducers, Reducer } from 'redux';
 
-import { routerReducer as routing } from 'react-router-redux';
+import { routerReducer as routing, RouterState } from 'react-router-redux';
 
 import { battle, BattleState } from './battle';
 import { characters, CharacterState } from './characters';
@@ -28,10 +28,17 @@ export interface IState {
   recordMateria: RecordMateriaState;
   session: Session;
   worlds: WorldState;
+  routing: RouterState;
+}
+
+// Hack: redux-persist uses _persist.  Pass a dummy reducer to silence
+// warnings, and add an interface for this to make it type-check.
+interface PersistState {
+  _persist: (state: any) => any;
 }
 
 // noinspection JSUnusedGlobalSymbols
-export const rootReducer = combineReducers<IState>({
+export const rootReducer: Reducer<IState, Action> = combineReducers<IState & PersistState>({
   battle,
   characters,
   dungeons,
@@ -44,9 +51,9 @@ export const rootReducer = combineReducers<IState>({
   recordMateria,
   session,
   worlds,
-  routing: routing as Reducer<any>,
+  routing,
 
-  // redux-persist uses _persist.  Pass a dummy reducer to silence warnings.
+  // redux-persist uses _persist - see "PersistState" above
   _persist: (state: any = null) => state,
 });
 

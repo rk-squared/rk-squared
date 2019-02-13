@@ -14,14 +14,16 @@ interface Props {
   hasInventory: boolean;
 }
 
-export class RecordMateriaPage extends React.Component<Props & RouteComponentProps<Props>> {
+export class RecordMateriaPage extends React.Component<Props & RouteComponentProps> {
   renderContents() {
     const { recordMateria, hasInventory, match, location, history } = this.props;
     if (_.isEmpty(recordMateria)) {
       return (
         <>
           <p>Record materia information has not been loaded.</p>
-          <p>Within FFRK, please go under the Annex, under the Library, and choose Record Materia.</p>
+          <p>
+            Within FFRK, please go under the Annex, under the Library, and choose Record Materia.
+          </p>
         </>
       );
     } else if (!hasInventory) {
@@ -32,26 +34,29 @@ export class RecordMateriaPage extends React.Component<Props & RouteComponentPro
         </>
       );
     } else {
-      return <RecordMateriaRoutes recordMateria={recordMateria} match={match} location={location} history={history}/>;
+      return (
+        <RecordMateriaRoutes
+          recordMateria={recordMateria}
+          match={match}
+          location={location}
+          history={history}
+        />
+      );
     }
   }
 
   render() {
-    return (
-      <Page title="Record Materia">
-        {this.renderContents()}
-      </Page>
-    );
+    return <Page title="Record Materia">{this.renderContents()}</Page>;
   }
 }
 
 // FIXME: Use reselect
-export default connect(
-  (state: IState) => ({
-    recordMateria: getRecordMateriaDetail(
-      state.recordMateria.recordMateria, state.characters.characters,
-      state.recordMateria.inventory, state.recordMateria.favorites
-    ),
-    hasInventory: state.recordMateria.inventory != null,
-  })
-)(RecordMateriaPage);
+export default connect((state: IState) => ({
+  recordMateria: getRecordMateriaDetail(
+    state.recordMateria.recordMateria,
+    state.characters.characters,
+    state.recordMateria.inventory,
+    state.recordMateria.favorites,
+  ),
+  hasInventory: state.recordMateria.inventory != null,
+}))(RecordMateriaPage);

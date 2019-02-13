@@ -23,7 +23,7 @@ interface Props {
   missingWorlds: number[];
   progress: Progress;
   hasSession: boolean;
-  dispatch: Dispatch<IState>;
+  dispatch: Dispatch;
 }
 
 export class DungeonsPage extends React.Component<Props> {

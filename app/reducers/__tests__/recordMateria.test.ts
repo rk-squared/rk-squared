@@ -1,6 +1,10 @@
 import { recordMateria } from '../recordMateria';
 
-import { obtainRecordMateria, RecordMateria, setRecordMateriaInventory } from '../../actions/recordMateria';
+import {
+  obtainRecordMateria,
+  RecordMateria,
+  setRecordMateriaInventory,
+} from '../../actions/recordMateria';
 
 import * as _ from 'lodash';
 
@@ -8,7 +12,7 @@ const attunement1: RecordMateria = {
   characterId: 10000200,
   characterName: 'Tyro',
   condition: 'Awarded for breaking character level cap.',
-  description: 'Deal slightly more damage when attacking with an enemy\'s elemental weakness.',
+  description: "Deal slightly more damage when attacking with an enemy's elemental weakness.",
   id: 111000020,
   name: 'Attunement I',
   obtained: false,
@@ -21,8 +25,9 @@ const attunement1: RecordMateria = {
 const attunement2: RecordMateria = {
   characterId: 10000200,
   characterName: 'Tyro',
-  condition: 'Obtain the Attunement I Record Materia. Chance to obtain with the Keeper in your party.',
-  description: 'Deal significantly more damage when attacking with an enemy\'s elemental weakness.',
+  condition:
+    'Obtain the Attunement I Record Materia. Chance to obtain with the Keeper in your party.',
+  description: "Deal significantly more damage when attacking with an enemy's elemental weakness.",
   id: 111000021,
   name: 'Attunement II',
   obtained: false,
@@ -32,7 +37,7 @@ const attunement2: RecordMateria = {
   seriesId: 200001,
 };
 
-const obtained = (rm: RecordMateria) => ({...rm, obtained: true});
+const obtained = (rm: RecordMateria) => ({ ...rm, obtained: true });
 
 describe('recordMateria reducer', () => {
   describe('setRecordMateriaInventory', () => {

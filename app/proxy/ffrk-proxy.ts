@@ -160,7 +160,7 @@ function checkHandlers(
   req: http.IncomingMessage,
   res: http.ServerResponse,
   store: Store<IState>,
-  fragments?: Array<string | symbol>,
+  fragments?: string[],
 ) {
   const reqUrl = url.parse(req.url as string);
   const reqQuery = reqUrl.query ? querystring.parse(reqUrl.query) : undefined;

@@ -18,5 +18,5 @@ export = {
     return initialState == null
       ? createStore(rootReducer, enhancer)
       : createStore(rootReducer, initialState, enhancer);
-  }
+  },
 };
