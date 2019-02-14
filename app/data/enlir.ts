@@ -1,5 +1,7 @@
 import * as _ from 'lodash';
 
+// TODO: Try removing duplicating in unions and arrays - see https://stackoverflow.com/a/45486495/25507
+
 export type EnlirElement =
   | 'Fire'
   | 'Ice'
