@@ -37,6 +37,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   const attack = parseEnlirAttack(sb.effects, sb);
   if (attack) {
     damage += attack.isAoE ? 'AoE ' : '';
+    damage += attack.randomChances ? attack.randomChances + ' ' : '';
     damage += attack.damageType + ' ' + attack.damage;
 
     damage += appendElement(attack.element, getElementShortName);
@@ -140,4 +141,4 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   };
 }
 
-// TODO: school abbreviations for follow-ups (BMag or B.Magic?), finishers, Yuna's follow-up
+// TODO: finishers, Yuna's follow-up

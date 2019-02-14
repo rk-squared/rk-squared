@@ -1,13 +1,14 @@
 import * as _ from 'lodash';
 
-import { EnlirElement, EnlirOtherSkill, EnlirSoulBreak } from '../enlir';
+import { EnlirElement, EnlirOtherSkill, EnlirSchool, EnlirSoulBreak } from '../enlir';
 import { parseNumberString, parsePercentageCounts, toMrPFixed } from './util';
 
 export interface ParsedEnlirAttack {
   damageType: 'phys' | 'white' | 'magic';
+  randomChances?: string;
   damage: string;
   element: EnlirElement[] | null;
-  school?: string;
+  school?: EnlirSchool;
   isAoE: boolean;
   isRanged: boolean;
   isJump: boolean;
@@ -16,19 +17,22 @@ export interface ParsedEnlirAttack {
   isNoMiss: boolean;
 }
 
-function describeDamage(damageString: string, numAttacks: number) {
-  const multiplier = parseFloat(damageString) * numAttacks;
+function describeDamage(attackMultiplier: number, numAttacks: number) {
+  const multiplier = attackMultiplier * numAttacks;
   return toMrPFixed(multiplier) + (numAttacks !== 1 ? '/' + numAttacks : '');
 }
 
-function describeRandomDamage(damageString: string, randomAttacks: Array<[number, number]>) {
+function describeRandomDamage(
+  attackMultiplier: number,
+  randomAttacks: Array<[number, number]>,
+): [string | undefined, string] {
   const percents = randomAttacks.map(([, percent]) => percent);
-  const damages = randomAttacks.map(([count]) => describeDamage(damageString, count));
+  const damages = randomAttacks.map(([count]) => describeDamage(attackMultiplier, count));
   const allSamePercentage = _.every(percents, i => i === percents[0]);
   if (allSamePercentage) {
-    return damages.join(' or ');
+    return [undefined, damages.join(' or ')];
   } else {
-    return percents.join('-') + '% ' + damages.join('-');
+    return [percents.join('-') + '%', damages.join('-')];
   }
 }
 
@@ -43,7 +47,8 @@ function describeFollowedByAttack(effects: string): string | null {
   if (!m) {
     return null;
   }
-  const [, numAttacksString, attackType, ranged, jump, damageString, overstrike] = m;
+  const [, numAttacksString, attackType, ranged, jump, attackMultiplierString, overstrike] = m;
+  const attackMultiplier = parseFloat(attackMultiplierString);
   const numAttacks = parseNumberString(numAttacksString);
   if (numAttacks == null) {
     return null;
@@ -51,7 +56,7 @@ function describeFollowedByAttack(effects: string): string | null {
 
   let damage = '';
   damage += overstrike ? 'overstrike ' : '';
-  damage += describeDamage(damageString, numAttacks);
+  damage += describeDamage(attackMultiplier, numAttacks);
   return damage;
 }
 
@@ -66,16 +71,31 @@ export function parseEnlirAttack(
     return null;
   }
 
-  const [, numAttacksString, attackType, ranged, jump, damageString, overstrike, noMiss] = m;
+  const [
+    ,
+    numAttacksString,
+    attackType,
+    ranged,
+    jump,
+    attackMultiplierString,
+    overstrike,
+    noMiss,
+  ] = m;
   const randomAttacks = parsePercentageCounts(numAttacksString);
+  const attackMultiplier = parseFloat(attackMultiplierString);
   const numAttacks = parseNumberString(numAttacksString);
   if ((randomAttacks == null && numAttacks == null) || skill.formula == null) {
     return null;
   }
 
-  let damage = randomAttacks
-    ? describeRandomDamage(damageString, randomAttacks)
-    : describeDamage(damageString, numAttacks!);
+  let randomChances: string | undefined;
+  let damage: string;
+  if (randomAttacks) {
+    [randomChances, damage] = describeRandomDamage(attackMultiplier, randomAttacks);
+  } else {
+    randomChances = undefined;
+    damage = describeDamage(attackMultiplier, numAttacks!);
+  }
   const followedBy = describeFollowedByAttack(skill.effects);
   if (followedBy) {
     damage += ', then ' + followedBy + ',';
@@ -85,8 +105,9 @@ export function parseEnlirAttack(
     isAoE: attackType === 'group',
     damageType: skill.formula === 'Physical' ? 'phys' : skill.type === 'WHT' ? 'white' : 'magic',
     damage,
+    randomChances,
     element: skill.element,
-    school: 'school' in skill ? skill.school : undefined,
+    school: 'school' in skill ? (skill.school as EnlirSchool) : undefined,
     isRanged: !!ranged && !jump,
     isJump: !!jump,
     isOverstrike: !!overstrike,

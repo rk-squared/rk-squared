@@ -1,6 +1,11 @@
 import { allEnlirElements, allEnlirSchools, enlir, EnlirElement, EnlirStatus } from '../enlir';
 import { parseEnlirAttack } from './attack';
-import { appendElement, damageTypeAbbreviation, getElementAbbreviation } from './types';
+import {
+  appendElement,
+  damageTypeAbbreviation,
+  getElementAbbreviation,
+  getSchoolAbbreviation,
+} from './types';
 import { andList, lowerCaseFirst, parseNumberString } from './util';
 
 /**
@@ -150,13 +155,14 @@ function describeFollowUpAttack(attackName: string): string {
 
   let damage = '';
   damage += attack.isAoE ? 'AoE ' : '';
+  damage += attack.randomChances ? attack.randomChances + ' ' : '';
   damage += damageTypeAbbreviation(attack.damageType) + attack.damage;
 
   damage += appendElement(attack.element, getElementAbbreviation);
   damage += attack.isRanged ? ' rngd' : '';
   damage += attack.isJump ? ' jmp' : '';
   damage += attack.isOverstrike ? ' overstrike' : '';
-  damage += attack.school ? ' ' + attack.school : '';
+  damage += attack.school ? ' ' + getSchoolAbbreviation(attack.school) : '';
   damage += attack.isNoMiss ? ' no miss' : '';
   damage += attack.isSummon ? ' (SUM)' : '';
 

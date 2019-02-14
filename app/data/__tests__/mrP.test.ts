@@ -128,7 +128,7 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Ace - Jackpot Triad'])).toEqual({
         damage: 'magic 17.0/10 fire+non',
         other:
-          'fire infuse 25s, 15s: (any ability ⤇ 74-25-1% m0.55-1.1/2-7.15/13 f+n), 15s: EX: +30% MAG, fastcast',
+          'fire infuse 25s, 15s: (any ability ⤇ 74-25-1% m0.55-1.1/2-7.15/13 f+n B.Mag), 15s: EX: +30% MAG, fastcast',
       });
     });
 
