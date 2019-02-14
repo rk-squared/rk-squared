@@ -1,6 +1,7 @@
 import { Action, combineReducers, Reducer } from 'redux';
 
-import { routerReducer as routing, RouterState } from 'react-router-redux';
+import { connectRouter, RouterState } from 'connected-react-router';
+import { History } from 'history';
 
 import { battle, BattleState } from './battle';
 import { characters, CharacterState } from './characters';
@@ -28,7 +29,7 @@ export interface IState {
   recordMateria: RecordMateriaState;
   session: Session;
   worlds: WorldState;
-  routing: RouterState;
+  router: RouterState;
 }
 
 // Hack: redux-persist uses _persist.  Pass a dummy reducer to silence
@@ -38,24 +39,31 @@ interface PersistState {
 }
 
 // noinspection JSUnusedGlobalSymbols
-export const rootReducer: Reducer<IState, Action> = combineReducers<IState & PersistState>({
-  battle,
-  characters,
-  dungeons,
-  dungeonScores,
-  options,
-  messages,
-  prefs,
-  progress,
-  proxy,
-  recordMateria,
-  session,
-  worlds,
-  routing,
+export const createRootReducer: (history?: History) => Reducer<IState, Action> = (
+  history?: History,
+) =>
+  combineReducers<IState & PersistState>({
+    battle,
+    characters,
+    dungeons,
+    dungeonScores,
+    options,
+    messages,
+    prefs,
+    progress,
+    proxy,
+    recordMateria,
+    session,
+    worlds,
 
-  // redux-persist uses _persist - see "PersistState" above
-  _persist: (state: any = null) => state,
-});
+    // Avoid requiring a history for the Electron main process's store -
+    // routing and browser history don't make much sense there.  (I don't know
+    // if this is the right way to handle this, but it seems to work...)
+    router: history ? connectRouter(history) : (state: any = null) => state,
+
+    // redux-persist uses _persist - see "PersistState" above
+    _persist: (state: any = null) => state,
+  });
 
 /// State keys to exclude from redux-persist
-export const blacklist = ['messages', 'progress', 'proxy', 'session', 'routing'];
+export const blacklist = ['messages', 'progress', 'proxy', 'session', 'router'];

@@ -1,13 +1,13 @@
 import { applyMiddleware, compose, createStore, Store } from 'redux';
 
+import { push, routerMiddleware } from 'connected-react-router';
 import { createHashHistory } from 'history';
-import { push, routerMiddleware } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
 const { forwardToMain } = require('electron-redux');
 
-import { IState, rootReducer } from '../reducers';
+import { createRootReducer, IState } from '../reducers';
 
 declare const window: Window & {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?(a: any): void;
@@ -48,8 +48,8 @@ export = {
   configureStore(initialState?: IState): Store<IState> {
     const store =
       initialState == null
-        ? createStore(rootReducer, enhancer)
-        : createStore(rootReducer, initialState, enhancer);
+        ? createStore(createRootReducer(history), enhancer)
+        : createStore(createRootReducer(history), initialState, enhancer);
 
     if (module.hot) {
       module.hot.accept(

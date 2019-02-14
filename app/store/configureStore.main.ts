@@ -1,11 +1,11 @@
-import { Action, applyMiddleware, createStore, Store } from 'redux';
+import { Action, applyMiddleware, createStore, Reducer, Store } from 'redux';
 import { Persistor, persistReducer, persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
 const { forwardToRenderer } = require('electron-redux');
 const { default: createElectronStorage } = require('redux-persist-electron-storage');
 
-import { blacklist, IState, rootReducer } from '../reducers';
+import { blacklist, createRootReducer, IState } from '../reducers';
 
 import { allSagas } from '../sagas';
 
@@ -15,13 +15,13 @@ const enhancer = applyMiddleware(thunk, sagaMiddleware, forwardToRenderer);
 
 // See https://github.com/rt2zz/redux-persist
 // and https://github.com/psperber/redux-persist-electron-storage
-const persistedReducer = persistReducer<IState, Action>(
+const persistedReducer: Reducer<IState, Action> = persistReducer<IState, Action>(
   {
     key: 'root',
     storage: createElectronStorage(),
     blacklist,
   },
-  rootReducer,
+  createRootReducer(),
 );
 
 export function configureStore(
