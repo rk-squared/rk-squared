@@ -1,3 +1,4 @@
+import { logger } from '../../utils/logger';
 import { allEnlirElements, allEnlirSchools, enlir, EnlirElement, EnlirStatus } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import {
@@ -111,7 +112,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
   return effect;
 }
 
-interface ParsedEnlirStatus {
+export interface ParsedEnlirStatus {
   description: string;
   isExLike: boolean;
   defaultDuration: number | null;
@@ -179,10 +180,13 @@ function describeFollowUp(enlirStatus: EnlirStatus): string {
 
 export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   const enlirStatus = enlir.statusByName[status];
+  if (!enlirStatus) {
+    logger.warn(`Unknown status: ${status}`);
+  }
   let description = describeEnlirStatus(status);
 
   const isEx = status.startsWith('EX: ');
-  const isExLike = isEx || isFollowUpStatus(enlirStatus);
+  const isExLike = isEx || (enlirStatus && isFollowUpStatus(enlirStatus));
 
   if (enlirStatus && isExLike) {
     description = describeExLike(enlirStatus);
