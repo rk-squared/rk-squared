@@ -727,6 +727,21 @@ export const items = [
     type: ItemType.Orb,
     id: 40000120,
   },
+  {
+    name: 'Frost-Touched Blade Record',
+    type: ItemType.Orb,
+    id: 40000121,
+  },
+  {
+    name: 'Icy Offering Record',
+    type: ItemType.Orb,
+    id: 40000122,
+  },
+  {
+    name: 'Chilling Blizzard Record',
+    type: ItemType.Orb,
+    id: 40000123,
+  },
 
   {
     name: 'Minor Growth Egg',
