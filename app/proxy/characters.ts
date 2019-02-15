@@ -26,7 +26,9 @@ function convertCharacter(data: charactersSchemas.Buddy): Character {
   };
 }
 
-export function convertCharacters(data: schemas.PartyList): { [id: number]: Character } {
+export function convertCharacters(
+  data: schemas.PartyList | schemas.PartyListBuddy,
+): { [id: number]: Character } {
   return _.keyBy(data.buddies.map(i => convertCharacter(i)), 'id');
 }
 
@@ -44,6 +46,15 @@ function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
 
 const charactersHandler: Handler = {
   'party/list'(data: schemas.PartyList, store: Store<IState>, request: HandlerRequest) {
+    if (schemas.isRecordDungeonPartyList(request.url)) {
+      return;
+    }
+    store.dispatch(setCharacters(convertCharacters(data)));
+  },
+
+  'party/list_buddy'(data: schemas.PartyListBuddy, store: Store<IState>, request: HandlerRequest) {
+    // As of February 2019, party/list_buddy isn't used for record dungeons,
+    // but we'll be paranoid and check anyway.
     if (schemas.isRecordDungeonPartyList(request.url)) {
       return;
     }

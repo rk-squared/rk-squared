@@ -17,12 +17,14 @@ export interface User {
   func_tutorial_flags: {
     [s: string]: boolean;
   };
+  is_in_dungeon?: boolean;
   name: string;
   has_all_clear_ver_to_show: false;
   stamina: number;
   can_review: true;
   tutorial_step: number;
   followee_num: number;
+  sacred_lithograph?: number;
   stamina_recovery_remaining_time: number;
   gil: number;
   is_update_last_logined_at: false;

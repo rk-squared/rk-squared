@@ -119,6 +119,19 @@ function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
   }
 }
 
+function processRecordMateriaInventory(
+  store: Store<IState>,
+  data: schemas.PartyList | schemas.PartyListOther,
+) {
+  store.dispatch(
+    setRecordMateriaInventory(
+      _.map(data.record_materias, i => i.id),
+      _.map(_.filter(data.record_materias, i => i.is_favorite), i => i.id),
+      _.map(data.record_materias_warehouse, i => i.record_materia_id),
+    ),
+  );
+}
+
 // noinspection JSUnusedGlobalSymbols
 const recordMateriaHandler: Handler = {
   get_released_record_materia_list(data: schemas.ReleasedRecordMateriaList, store: Store<IState>) {
@@ -130,14 +143,16 @@ const recordMateriaHandler: Handler = {
     if (schemas.isRecordDungeonPartyList(request.url)) {
       return;
     }
+    processRecordMateriaInventory(store, data);
+  },
 
-    store.dispatch(
-      setRecordMateriaInventory(
-        _.map(data.record_materias, i => i.id),
-        _.map(_.filter(data.record_materias, i => i.is_favorite), i => i.id),
-        _.map(data.record_materias_warehouse, i => i.record_materia_id),
-      ),
-    );
+  'party/list_other'(data: schemas.PartyListOther, store: Store<IState>, request: HandlerRequest) {
+    // As of February 2019, party/list_other isn't used for record dungeons,
+    // but we'll be paranoid and check anyway.
+    if (schemas.isRecordDungeonPartyList(request.url)) {
+      return;
+    }
+    processRecordMateriaInventory(store, data);
   },
 
   set_favorite_record_materia(

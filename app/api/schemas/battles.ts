@@ -1,5 +1,6 @@
 import { AssetCollection } from './common';
 import { DungeonPrizeItem } from './dungeons';
+import { Party } from './party';
 import { User } from './user';
 
 // Sample URL: http://ffrk.denagames.com/dff/world/battles
@@ -200,13 +201,6 @@ export interface ComboExplanation {
   image_path: string;
   condition_text: string;
   effect_text: string;
-}
-
-export interface Party {
-  beast_id_main: string;
-  slot_to_beast_id_sub: { [key: string]: number };
-  slot_to_buddy_id: { [key: string]: number };
-  user_id: number;
 }
 
 export interface SPEnemy {
