@@ -392,20 +392,16 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
 
     let connected = false;
     const serverSocket = net
-      .connect(
-        serverPort,
-        serverUrl.hostname,
-        () => {
-          connected = true;
+      .connect(serverPort, serverUrl.hostname, () => {
+        connected = true;
 
-          clientSocket.write(
-            'HTTP/1.1 200 Connection Established\r\n' + 'Proxy-agent: Node.js-Proxy\r\n' + '\r\n',
-          );
-          serverSocket.write(head);
-          serverSocket.pipe(clientSocket);
-          clientSocket.pipe(serverSocket);
-        },
-      )
+        clientSocket.write(
+          'HTTP/1.1 200 Connection Established\r\n' + 'Proxy-agent: Node.js-Proxy\r\n' + '\r\n',
+        );
+        serverSocket.write(head);
+        serverSocket.pipe(clientSocket);
+        clientSocket.pipe(serverSocket);
+      })
       .on('error', (e: Error) => {
         logger.debug(
           `Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}`,

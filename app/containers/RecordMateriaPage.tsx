@@ -2,12 +2,13 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
-import { getRecordMateriaDetail, RecordMateriaDetail } from '../actions/recordMateria';
+import * as _ from 'lodash';
+
+import { RecordMateriaDetail } from '../actions/recordMateria';
 import { IState } from '../reducers';
+import { getRecordMateriaDetail } from '../selectors/recordMateriaDetail';
 import { Page } from './Page';
 import { RecordMateriaRoutes } from './RecordMateriaRoutes';
-
-import * as _ from 'lodash';
 
 interface Props {
   recordMateria: { [id: number]: RecordMateriaDetail };
@@ -50,13 +51,7 @@ export class RecordMateriaPage extends React.Component<Props & RouteComponentPro
   }
 }
 
-// FIXME: Use reselect
 export default connect((state: IState) => ({
-  recordMateria: getRecordMateriaDetail(
-    state.recordMateria.recordMateria,
-    state.characters.characters,
-    state.recordMateria.inventory,
-    state.recordMateria.favorites,
-  ),
+  recordMateria: getRecordMateriaDetail(state),
   hasInventory: state.recordMateria.inventory != null,
 }))(RecordMateriaPage);

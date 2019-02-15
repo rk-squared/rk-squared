@@ -82,15 +82,32 @@ function levelNeeded(orderOrRecordMateria: Order | RecordMateria) {
   }
 }
 
+/**
+ * Gets the record materia status.
+ *
+ * @param recordMateria
+ * @param character
+ * @param prereqs
+ * @param isInInventory
+ *   Is this in inventory, as reported by party list?  See
+ *   RecordMateriaState.inventory.
+ * @param isFavorite
+ *   Is this a favorite (starred), as reported by party list?  See
+ *   RecordMateriaState.inventory.
+ * @param isObtained
+ *   Is this obtained, as reported by party list?  See
+ *   RecordMateriaState.inventory.
+ */
 export function getStatus(
   recordMateria: RecordMateria,
   character: Character | undefined,
   prereqs: RecordMateria[],
   isInInventory: boolean | undefined,
   isFavorite: boolean | undefined,
+  isObtained: boolean | undefined,
 ): { status: RecordMateriaStatus; statusDescription: string } {
   let missingPrereq: RecordMateria | undefined;
-  if (recordMateria.obtained) {
+  if (recordMateria.obtained || isObtained) {
     if (!isInInventory) {
       return {
         status: RecordMateriaStatus.Vault,
@@ -111,7 +128,7 @@ export function getStatus(
     // We can't really distinguish between out-of-date character info that's
     // missing characters, or botched static data within our app, or a
     // character who's not yet obtained - but a character who's not yet
-    // obtained is far more likely.  Display text accordingly
+    // obtained is far more likely.  Display text accordingly.
     return {
       status: RecordMateriaStatus.Unknown,
       statusDescription: 'Character not yet obtained',
@@ -139,28 +156,6 @@ export function getPrereqs(
   allRecordMateria: { [id: number]: RecordMateria },
 ) {
   return _.map(recordMateria.prereqs, i => allRecordMateria[i]);
-}
-
-export function getRecordMateriaDetail(
-  recordMateria: { [id: number]: RecordMateria },
-  characters: { [id: number]: Character },
-  inventory?: { [id: number]: boolean },
-  favorites?: { [id: number]: boolean },
-): { [id: number]: RecordMateriaDetail } {
-  return _.mapValues(recordMateria, i => {
-    const isInInventory = inventory == null ? true : inventory[i.id];
-    const isFavorite = favorites == null ? false : favorites[i.id];
-    return {
-      ...i,
-      ...getStatus(
-        i,
-        characters[i.characterId],
-        getPrereqs(i, recordMateria),
-        isInInventory,
-        isFavorite,
-      ),
-    };
-  });
 }
 
 /// Sets the master list of all record materia from the Library page
