@@ -195,8 +195,13 @@ describe('mrP', () => {
         damage: 'AoE phys 5.48/4 holy, or p6.12/4 if no allies KO',
         other: '+20% holy vuln. 25s',
       });
-      expect(describeEnlirSoulBreak(soulBreaks['Kuja - Final Requiem'])).toEqual({});
-      expect(describeEnlirSoulBreak(soulBreaks['Lann - Mega Mirage Zantetsuken'])).toEqual({});
+      expect(describeEnlirSoulBreak(soulBreaks['Kuja - Final Requiem'])).toEqual({
+        damage: 'magic 38.0 dark+non overstrike, or m44.0 if Doomed',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Lann - Mega Mirage Zantetsuken'])).toEqual({
+        damage: 'phys 12.6 overstrike, or p13.6 if Reynn alive',
+        other: '60% KO',
+      });
       expect(describeEnlirSoulBreak(soulBreaks['Mustadio - Seal Evil (FFT)'])).toEqual({});
     });
   });

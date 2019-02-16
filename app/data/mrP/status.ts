@@ -5,6 +5,7 @@ import {
   appendElement,
   damageTypeAbbreviation,
   getElementAbbreviation,
+  getElementShortName,
   getSchoolAbbreviation,
 } from './types';
 import { andList, lowerCaseFirst, parseNumberString } from './util';
@@ -34,10 +35,8 @@ export function describeStats(stats: string[]): string {
  */
 const enlirStatusAlias: { [status: string]: string } = {
   Astra: 'Status blink 1',
-  'Physical Blink 1': 'Phys blink 1',
 
   'Cast speed *2': 'fastcast',
-  'Quick Cast 2': 'fastcast 2',
 
   'Low Regen': 'Regen (lo)',
   'Medium Regen': 'Regen (med)',
@@ -51,10 +50,19 @@ for (const i of allEnlirSchools) {
 }
 
 const enlirStatusAliasWithNumbers: { [status: string]: string } = {
-  'High Quick Cast': 'hi fastcast',
-  'Instant Cast': 'instacast',
-  'Magical Blink': 'Magic blink',
+  'Quick Cast {X}': 'fastcast {X}',
+  'High Quick Cast {X}': 'hi fastcast {X}',
+  'Instant Cast {X}': 'instacast {X}',
+
+  'Magical Blink {X}': 'Magic blink {X}',
+  'Physical Blink {X}': 'Phys blink {X}',
+
+  'Stoneskin: {X}%': 'Negate dmg {X}%',
 };
+
+for (const i of allEnlirElements) {
+  enlirStatusAliasWithNumbers[`Imperil ${i} {X}%`] = `+{X}% ${getElementShortName(i)} vuln.`;
+}
 
 const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
   'cast speed x2.00': 'Fastcast',
@@ -77,15 +85,16 @@ function describeEnlirStatus(status: string) {
   // Generic statuses
   if (enlirStatusAlias[status]) {
     return enlirStatusAlias[status];
-  } else if ((m = status.match(/^(.*) (\d+)$/)) && enlirStatusAliasWithNumbers[m[1]]) {
-    return enlirStatusAliasWithNumbers[m[1]] + ' ' + m[2];
+  } else if ((m = status.match(/(\d+)/))) {
+    const statusText = status.replace(/\d+/, '{X}');
+    if (enlirStatusAliasWithNumbers[statusText]) {
+      return enlirStatusAliasWithNumbers[statusText].replace('{X}', m[1]);
+    }
   }
 
   // Special cases
   if ((m = status.match(/HP Stock \((\d+)\)/))) {
     return 'Autoheal ' + +m[1] / 1000 + 'k';
-  } else if ((m = status.match(/Stoneskin: (\d+)%/))) {
-    return 'Negate dmg ' + m[1] + '%';
   } else if ((m = status.match(/((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([-+]\d+%)/))) {
     // Status effects: e.g., "MAG +30%" from EX: Attack Hand
     // Reorganize stats into, e.g., +30% MAG to match MMP
@@ -187,15 +196,35 @@ function describeFollowUp(enlirStatus: EnlirStatus): string {
   return '(' + describeFollowUpTrigger(m[2]) + ' ⤇ ' + describeFollowUpAttack(m[1]) + ')';
 }
 
+function getEnlirStatusByName(status: string): EnlirStatus | undefined {
+  if (enlir.statusByName[status]) {
+    return enlir.statusByName[status];
+  }
+
+  status = status.replace(/\d+/, 'X');
+  if (enlir.statusByName[status]) {
+    return enlir.statusByName[status];
+  }
+
+  for (const i of allEnlirElements) {
+    status = status.replace(i, '[Element]');
+  }
+  if (enlir.statusByName[status]) {
+    return enlir.statusByName[status];
+  }
+
+  return undefined;
+}
+
 export function parseEnlirStatus(status: string): ParsedEnlirStatus {
-  const enlirStatus = enlir.statusByName[status];
+  const enlirStatus = getEnlirStatusByName(status);
   if (!enlirStatus) {
     logger.warn(`Unknown status: ${status}`);
   }
   let description = describeEnlirStatus(status);
 
   const isEx = status.startsWith('EX: ');
-  const isExLike = isEx || (enlirStatus && isFollowUpStatus(enlirStatus));
+  const isExLike = isEx || (!!enlirStatus && isFollowUpStatus(enlirStatus));
 
   if (enlirStatus && isExLike) {
     description = describeExLike(enlirStatus);

@@ -79,8 +79,12 @@ function describeOrCondition(orCondition: string): string {
     return 'vs. weak';
   } else if (orCondition === 'all allies are alive') {
     return 'if no allies KO';
+  } else if (orCondition === 'the user has any Doom') {
+    return 'if Doomed';
   } else if ((m = orCondition.match(/(\d+) or more (.*) are in the party/))) {
     return 'if ' + m[1] + ' ' + m[2] + ' in party';
+  } else if ((m = orCondition.match(/(.*) is alive/))) {
+    return 'if ' + m[1] + ' alive';
   } else {
     return 'if ' + orCondition;
   }

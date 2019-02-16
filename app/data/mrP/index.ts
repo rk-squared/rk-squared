@@ -123,7 +123,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     }
   }
 
-  const statusEffectRe = /[Gg]rants ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?: for (\d+) seconds)?(?=, grants|, [A-Z]{3}|$)/g;
+  const statusEffectRe = /(?:[Gg]rants|[Cc]auses) ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?: for (\d+) seconds)?(?=, grants|, [A-Z]{3}|$)/g;
   while ((m = statusEffectRe.exec(sb.effects))) {
     const [, statusString, who, duration] = m;
     const status = statusString
@@ -132,12 +132,17 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       .sort(sortStatus)
       .map(parseEnlirStatus);
     for (let { description, isExLike, defaultDuration } of status) {
+      const isDetail = isExLike;
       if (duration || (defaultDuration && isExLike)) {
-        description = `${duration || defaultDuration}s: ` + description;
+        if (isDetail) {
+          description = `${duration || defaultDuration}s: ` + description;
+        } else {
+          description = description + ` ${duration || defaultDuration}s`;
+        }
       }
 
-      if (isExLike) {
-        // Implied 'self'
+      if (isDetail) {
+        // (Always?) has implied 'self'
         detailOther.push(description);
       } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
         selfOther.push(description);
