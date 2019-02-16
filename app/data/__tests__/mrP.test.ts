@@ -43,7 +43,7 @@ describe('mrP', () => {
 
     it('converts 20+1 Arcane Overstrikes', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Luneth - Storm of Blades'])).toEqual({
-        damage: 'phys 11.0/20, then overstrike 8.0, wind ranged',
+        damage: 'phys 11.0/20, then 8.0 overstrike, wind ranged',
       });
     });
 
@@ -137,6 +137,13 @@ describe('mrP', () => {
         damage: 'phys 7.2/15 wind',
         other:
           'wind infuse 25s, 15s: EX: +30% ATK, (wind ⤇ p1.6/4 or 3.2/8 wi+n overstrike Combat no miss)',
+      });
+    });
+
+    it('converts percent heals', () => {
+      // Discrepancy: MMP sometimes says "40%" or "40% HP" or "40% max HP"
+      expect(describeEnlirSoulBreak(soulBreaks['Prishe - Rigorous Reverie'])).toEqual({
+        other: 'party heal 40% HP, Regen (hi), Last stand',
       });
     });
   });

@@ -1,9 +1,6 @@
 {
   "typescript.tsdk": "./node_modules/typescript/lib",
   "cSpell.words": [
-    "Persistor",
-    "ffrk",
-    "prefs"
     "AASB",
     "AOSB",
     "AOSBs",
@@ -19,15 +16,19 @@
     "MMP's",
     "OSBs",
     "Overstrikes",
+    "Persistor",
+    "Prishe",
     "Regen",
     "Regenga",
     "Rinoa",
     "Spellblade",
     "Stoneskin",
     "fastcast",
+    "ffrk",
     "instacast",
     "magicite",
-    "magicites"
+    "magicites",
+    "prefs"
   ],
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,

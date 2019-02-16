@@ -35,6 +35,10 @@ export function describeStats(stats: string[]): string {
 const enlirStatusAlias: { [status: string]: string } = {
   Astra: 'Status blink 1',
   'Cast speed *2': 'Fastcast',
+  'Low Regen': 'Regen (lo)',
+  'Medium Regen': 'Regen (med)',
+  'High Regen': 'Regen (hi)',
+  'Last Stand': 'Last stand',
 };
 
 for (const i of allEnlirSchools) {
@@ -209,6 +213,7 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
  */
 const statusSortOrder: { [status: string]: number } = {
   Haste: -1,
+  'Last Stand': 1,
 };
 
 export function sortStatus(a: string, b: string): number {

@@ -58,6 +58,23 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     other.push(`${element.toLowerCase()} infuse 25s`);
   }
 
+  if (
+    (m = sb.effects.match(
+      /Restores HP( to all allies| to the user)? for (\d+)% of (?:their|the target's|the user's) maximum HP/i,
+    ))
+  ) {
+    const [, who, healPercent] = m;
+    const heal = `heal ${healPercent}% HP`;
+    if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(heal);
+    } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
+      selfOther.push(heal);
+    } else {
+      // Fallback
+      other.push(heal);
+    }
+  }
+
   if ((m = sb.effects.match(/heals the user for (\d+)% of the damage dealt/))) {
     const [, healPercent] = m;
     selfOther.push(`heal ${healPercent}% of dmg`);

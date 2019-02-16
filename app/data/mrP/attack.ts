@@ -47,7 +47,16 @@ function describeFollowedByAttack(effects: string): string | null {
   if (!m) {
     return null;
   }
-  const [, numAttacksString, attackType, ranged, jump, attackMultiplierString, overstrike] = m;
+  // prettier-ignore
+  const [
+    ,
+    numAttacksString,
+    /*attackType*/,
+    /*ranged*/,
+    /*jump*/,
+    attackMultiplierString,
+    overstrike
+  ] = m;
   const attackMultiplier = parseFloat(attackMultiplierString);
   const numAttacks = parseNumberString(numAttacksString);
   if (numAttacks == null) {
@@ -55,8 +64,8 @@ function describeFollowedByAttack(effects: string): string | null {
   }
 
   let damage = '';
-  damage += overstrike ? 'overstrike ' : '';
   damage += describeDamage(attackMultiplier, numAttacks);
+  damage += overstrike ? ' overstrike' : '';
   return damage;
 }
 
