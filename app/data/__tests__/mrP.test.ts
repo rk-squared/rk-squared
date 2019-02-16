@@ -175,5 +175,29 @@ describe('mrP', () => {
         other: 'party Haste, +30% ATK/MAG 25s',
       });
     });
+
+    it('converts conditional attacks', () => {
+      // Deviation: MMP sometimes uses parentheses and sometimes ", or "
+      expect(describeEnlirSoulBreak(soulBreaks['Ace - Firaga SHG'])).toEqual({
+        damage: 'magic 14.0/8 fire+non, or m16.16/8 if in front row',
+        other: 'party +30% ATK/MAG 25s',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Zidane - Meo Twister'])).toEqual({
+        damage: 'phys 11.8 wind+non overstrike, or p12.8 if 4 females in party',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Steiner - Imbued Blade'])).toEqual({
+        damage: 'phys 10.5 fire+lgt+ice overstrike, or p13.0 vs. weak',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Matoya - Inner Eye'])).toEqual({
+        damage: 'magic 16.0/8 fire+ice+lgt, or m20.0/10 vs. weak',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Beatrix - Knight Protector'])).toEqual({
+        damage: 'AoE phys 5.48/4 holy, or p6.12/4 if no allies KO',
+        other: '+20% holy vuln. 25s',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Kuja - Final Requiem'])).toEqual({});
+      expect(describeEnlirSoulBreak(soulBreaks['Lann - Mega Mirage Zantetsuken'])).toEqual({});
+      expect(describeEnlirSoulBreak(soulBreaks['Mustadio - Seal Evil (FFT)'])).toEqual({});
+    });
   });
 });

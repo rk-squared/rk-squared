@@ -7,6 +7,8 @@ export interface ParsedEnlirAttack {
   damageType: 'phys' | 'white' | 'magic';
   randomChances?: string;
   damage: string;
+  orDamage?: string;
+  orCondition?: string;
   element: EnlirElement[] | null;
   school?: EnlirSchool;
   isAoE: boolean;
@@ -69,6 +71,43 @@ function describeFollowedByAttack(effects: string): string | null {
   return damage;
 }
 
+function describeOrCondition(orCondition: string): string {
+  let m: RegExpMatchArray | null;
+  if (orCondition === 'the user is in the front row') {
+    return 'if in front row';
+  } else if (orCondition === 'exploiting elemental weakness') {
+    return 'vs. weak';
+  } else if (orCondition === 'all allies are alive') {
+    return 'if no allies KO';
+  } else if ((m = orCondition.match(/(\d+) or more (.*) are in the party/))) {
+    return 'if ' + m[1] + ' ' + m[2] + ' in party';
+  } else {
+    return 'if ' + orCondition;
+  }
+}
+
+function describeOr(
+  effects: string,
+  attackMultiplier: number,
+  numAttacks: number | null,
+): [string | undefined, string | undefined] {
+  const m = effects.match(/(?:([0-9\.]+) (?:multiplier|mult\.)|([a-z\-]+) attacks) if ([^,]+)/);
+  if (!m) {
+    return [undefined, undefined];
+  }
+
+  const [, orMultiplier, orNumAttacksString, orCondition] = m;
+  const orNumAttacks = orNumAttacksString && parseNumberString(orNumAttacksString);
+  let orDamage: string | undefined;
+  if (orMultiplier && numAttacks) {
+    orDamage = describeDamage(parseFloat(orMultiplier), numAttacks);
+  } else if (orNumAttacks) {
+    orDamage = describeDamage(attackMultiplier, orNumAttacks);
+  }
+
+  return [orDamage, describeOrCondition(orCondition)];
+}
+
 export function parseEnlirAttack(
   effects: string,
   skill: EnlirOtherSkill | EnlirSoulBreak,
@@ -110,11 +149,15 @@ export function parseEnlirAttack(
     damage += ', then ' + followedBy + ',';
   }
 
+  const [orDamage, orCondition] = describeOr(skill.effects, attackMultiplier, numAttacks);
+
   return {
     isAoE: attackType === 'group',
     damageType: skill.formula === 'Physical' ? 'phys' : skill.type === 'WHT' ? 'white' : 'magic',
     damage,
     randomChances,
+    orDamage,
+    orCondition,
     element: skill.element,
     school: 'school' in skill ? (skill.school as EnlirSchool) : undefined,
     isRanged: !!ranged && !jump,

@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import { allEnlirElements, EnlirElement, EnlirSoulBreak } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import { describeStats, includeStatus, parseEnlirStatus, sortStatus } from './status';
-import { appendElement, getElementShortName } from './types';
+import { appendElement, damageTypeAbbreviation, getElementShortName } from './types';
 import { andList, toMrPFixed } from './util';
 
 interface MrPSoulBreak {
@@ -55,6 +55,14 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     damage += attack.isOverstrike ? ' overstrike' : '';
     damage += attack.isNoMiss ? ' no miss' : '';
     damage += attack.isSummon ? ' (SUM)' : '';
+    if (attack.orDamage && attack.orCondition) {
+      damage +=
+        ', or ' +
+        damageTypeAbbreviation(attack.damageType) +
+        attack.orDamage +
+        ' ' +
+        attack.orCondition;
+    }
   }
 
   if ((m = sb.effects.match(/Activates (.*?) Chain \(max (\d+), field \+(\d+)%\)/))) {
@@ -161,7 +169,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     }
   }
 
-  if (!damage && !other.length && !partyOther.length) {
+  if (!damage && !other.length && !partyOther.length && !detailOther.length) {
     // If it's only self effects (e.g., some glints), then "self" is redundant.
     other.push(...checkBurstMode(selfOther));
   } else {
