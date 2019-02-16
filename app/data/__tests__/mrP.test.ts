@@ -179,8 +179,9 @@ describe('mrP', () => {
     it('converts status ailments', () => {
       expect(describeEnlirSoulBreak(soulBreaks["Seymour - Anima's Pain"])).toEqual({
         damage: 'magic 17.44/8 dark+non (SUM)',
-        other: '53% (9%x8) KO, +20% dark vuln. 25s',
+        other: '53% (9% × 8) KO, +20% dark vuln. 25s',
       });
+      // 'Mustadio - Seal Evil (FFT)' has some additional checks.
     });
 
     it('converts conditional attacks', () => {
@@ -209,7 +210,11 @@ describe('mrP', () => {
         damage: 'phys 12.6 overstrike, or p13.6 if Reynn alive',
         other: '60% KO',
       });
-      expect(describeEnlirSoulBreak(soulBreaks['Mustadio - Seal Evil (FFT)'])).toEqual({});
+      // This also has some required checks for status ailment handling.
+      expect(describeEnlirSoulBreak(soulBreaks['Mustadio - Seal Evil (FFT)'])).toEqual({
+        damage: 'phys 7.92/8, or p8.56/8 vs. status',
+        other: '100% Stop/Silence/Paralyze',
+      });
     });
   });
 });

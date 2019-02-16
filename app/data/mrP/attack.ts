@@ -104,6 +104,10 @@ function describeOrCondition(orCondition: string): string {
     return 'if no allies KO';
   } else if (orCondition === 'the user has any Doom') {
     return 'if Doomed';
+  } else if (orCondition.startsWith('the target has ')) {
+    // In practice, this is always the same status ailments that the attack
+    // itself inflicts.
+    return 'vs. status';
   } else if ((m = orCondition.match(/(\d+) or more (.*) are in the party/))) {
     return 'if ' + m[1] + ' ' + m[2] + ' in party';
   } else if ((m = orCondition.match(/(.*) is alive/))) {
@@ -118,7 +122,9 @@ function describeOr(
   attackMultiplier: number,
   numAttacks: number | null,
 ): [string | undefined, string | undefined] {
-  const m = effects.match(/(?:([0-9\.]+) (?:multiplier|mult\.)|([a-z\-]+) attacks) if ([^,]+)/);
+  const m = effects.match(
+    /(?:([0-9\.]+) (?:multiplier|mult\.)|([a-z\-]+) attacks) if (.*?)(?=, grants|, causes|, [A-Z]{3}|$)/,
+  );
   if (!m) {
     return [undefined, undefined];
   }

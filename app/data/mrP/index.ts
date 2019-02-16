@@ -19,6 +19,21 @@ function appendGroup(outGroup: string[], inGroup: string[], description?: string
   }
 }
 
+interface StatusInfliction {
+  description: string;
+  chance: number;
+  chanceDescription: string;
+}
+
+function formatStatusInfliction(status: StatusInfliction[]): string {
+  const allSame = _.every(status, i => i.chance === status[0].chance);
+  if (allSame) {
+    return status[0].chanceDescription + ' ' + status.map(i => i.description).join('/');
+  } else {
+    return status.map(i => i.chanceDescription + ' ' + i.description).join(', ');
+  }
+}
+
 /**
  * Enlir lists Burst Mode and Haste for all BSBs, but MMP's format doesn't.
  */
@@ -32,6 +47,8 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   let m: RegExpMatchArray | null;
   let chain: string | undefined;
   let damage = '';
+
+  const statusInfliction: StatusInfliction[] = [];
 
   // The components of MrPSoulBreak.other, as lists.  We break them up like
   // this so that we can sort general items (e.g., elemental infuse), then
@@ -132,13 +149,14 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       .sort(sortStatus)
       .map(parseEnlirStatus);
     for (let { description, isExLike, defaultDuration, chance } of status) {
+      let chanceDescription = '';
       if (chance) {
         if (chance !== 100 && attack && attack.numAttacks && attack.numAttacks > 1) {
           const totalChanceFraction = 1 - (1 - chance / 100) ** attack.numAttacks;
           const totalChance = Math.round(totalChanceFraction * 100);
-          description = `${totalChance}% (${chance}% × ${attack.numAttacks}) ` + description;
+          chanceDescription = `${totalChance}% (${chance}% × ${attack.numAttacks})`;
         } else {
-          description = `${chance}% ` + description;
+          chanceDescription = `${chance}%`;
         }
       }
 
@@ -151,7 +169,9 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
         }
       }
 
-      if (isDetail) {
+      if (chance) {
+        statusInfliction.push({ description, chanceDescription, chance });
+      } else if (isDetail) {
         // (Always?) has implied 'self'
         detailOther.push(description);
       } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
@@ -182,6 +202,10 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       // Fallback - may not always be correct
       other.push(statMod);
     }
+  }
+
+  if (statusInfliction.length) {
+    other.splice(0, 0, formatStatusInfliction(statusInfliction));
   }
 
   if (!damage && !other.length && !partyOther.length && !detailOther.length) {
