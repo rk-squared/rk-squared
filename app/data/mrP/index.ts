@@ -12,9 +12,9 @@ interface MrPSoulBreak {
   other?: string;
 }
 
-function prependGroup(outGroup: string[], inGroup: string[], description: string) {
+function appendGroup(outGroup: string[], inGroup: string[], description?: string) {
   if (inGroup.length) {
-    outGroup.splice(0, 0, description + ' ' + inGroup.join(', '));
+    outGroup.push((description ? description + ' ' : '') + inGroup.join(', '));
   }
 }
 
@@ -30,9 +30,16 @@ function checkBurstMode(selfOther: string[]): string[] {
 export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null {
   let m: RegExpMatchArray | null;
   let damage = '';
+
+  // The components of MrPSoulBreak.other, as lists.  We break them up like
+  // this so that we can sort general items (e.g., elemental infuse), then
+  // self statuses, then party statuses, then "details" (e.g., EX modes).
+  //
+  // We may start returning these as is so callers can deal with them.
   const other: string[] = [];
   const selfOther: string[] = [];
   const partyOther: string[] = [];
+  const detailOther: string[] = [];
 
   const attack = parseEnlirAttack(sb.effects, sb);
   if (attack) {
@@ -112,7 +119,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
 
       if (isExLike) {
         // Implied 'self'
-        other.push(description);
+        detailOther.push(description);
       } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
         selfOther.push(description);
       } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
@@ -147,8 +154,9 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     // If it's only self effects (e.g., some glints), then "self" is redundant.
     other.push(...checkBurstMode(selfOther));
   } else {
-    prependGroup(other, checkBurstMode(selfOther), 'self');
-    prependGroup(other, partyOther, 'party');
+    appendGroup(other, partyOther, 'party');
+    appendGroup(other, checkBurstMode(selfOther), 'self');
+    appendGroup(other, detailOther);
   }
 
   return {

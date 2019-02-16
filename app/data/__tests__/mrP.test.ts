@@ -106,6 +106,13 @@ describe('mrP', () => {
       });
     });
 
+    it('converts debuffs with buffs', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Barret - Height of Anger'])).toEqual({
+        damage: 'phys 6.75/15 fire+wind ranged',
+        other: '-70% DEF/RES 8s, party instacast 1',
+      });
+    });
+
     it('converts EX modes with simple follow-up attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Squall - Brutal Blast'])).toEqual({
         damage: 'phys 7.47/9 ice+non',
