@@ -1,7 +1,6 @@
 import { IState } from '../../reducers';
 import { default as charactersHandler } from '../characters';
 
-import * as Redux from 'redux';
 import configureStore from 'redux-mock-store';
 import * as url from 'url';
 
@@ -31,7 +30,7 @@ describe('characters proxy handler', () => {
     it('does nothing for Record Dungeons', () => {
       const store = mockStore();
 
-      charactersHandler['party/list'](recordDungeonPartyList, store as Redux.Store<IState>, {
+      charactersHandler['party/list'](recordDungeonPartyList, store, {
         url: url.parse(recordDungeonPartyList.url),
       });
 
@@ -43,7 +42,7 @@ describe('characters proxy handler', () => {
     it('updates characters', () => {
       const store = mockStore();
 
-      charactersHandler['win_battle'](winBattle.data, store as Redux.Store<IState>, {
+      charactersHandler['win_battle'](winBattle.data, store, {
         body: growEggUsePost,
       });
 
@@ -65,7 +64,7 @@ describe('characters proxy handler', () => {
     it('updates characters', () => {
       const store = mockStore();
 
-      charactersHandler['grow_egg/use'](growEggUseData, store as Redux.Store<IState>, {
+      charactersHandler['grow_egg/use'](growEggUseData, store, {
         body: growEggUsePost,
       });
 
@@ -88,7 +87,7 @@ describe('characters proxy handler', () => {
     it('updates characters', () => {
       const store = mockStore();
 
-      charactersHandler['buddy/evolve'](buddyEvolve50.data, store as Redux.Store<IState>, {
+      charactersHandler['buddy/evolve'](buddyEvolve50.data, store, {
         body: buddyEvolve50.requestBody,
       });
 
@@ -109,7 +108,7 @@ describe('characters proxy handler', () => {
     it('does nothing on previews', () => {
       const store = mockStore();
 
-      charactersHandler['buddy/evolve'](buddyEvolve50Preview.data, store as Redux.Store<IState>, {
+      charactersHandler['buddy/evolve'](buddyEvolve50Preview.data, store, {
         body: buddyEvolve50Preview.requestBody,
       });
 

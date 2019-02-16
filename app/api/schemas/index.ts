@@ -11,8 +11,23 @@ import {
   Timestamp,
 } from './common';
 
-import { Buddy, GrowEgg } from './characters';
+import { Buddy, GrowEgg, LegendMateria } from './characters';
+import {
+  Ability,
+  BeastFood,
+  DressRecord,
+  EquipmentHyperEvolveMaterial,
+  EquipmentSpMaterial,
+  ItemPossessionLimit,
+  Material,
+  MemoryCrystal,
+  Party,
+  PartySoulStrike,
+  RecordMateriaWarehouse,
+  SphereMaterial,
+} from './party';
 import { OwnedRecordMateria } from './recordMateria';
+import { User } from './user';
 
 export { Battles } from './battles';
 export { Dungeons } from './dungeons';
@@ -353,6 +368,8 @@ export function isRecordDungeonPartyList(url: UrlWithStringQuery | undefined) {
 // http://ffrk.denagames.com/dff/party/list
 // Record dungeons use a similar but restricted schema.  For example:
 // http://ffrk.denagames.com/dff/event/original_scenario/11002/party/list?dungeon_id=40100217
+// As of February 2019, this appears to be discontinued in favor of
+// party/list_buddy, party/list_equipment, and party/list_other
 export interface PartyList {
   buddies: Buddy[];
 
@@ -360,68 +377,56 @@ export interface PartyList {
   record_materias: OwnedRecordMateria[];
 
   // Not present for original_scenario
-  record_materias_warehouse: Array<{
-    record_materia_id: number;
-  }>;
+  record_materias_warehouse: RecordMateriaWarehouse[];
 
-  sphere_materials: Array<{
-    created_at: Timestamp;
-    num: number;
-    image_path: RelativeUrlPath;
-    rarity: number;
-    name: string;
-    id: number;
-    description: string;
-  }>;
+  mo_buddy_info: any; // not yet implemented
 
+  // Note: Some of the following may not be present for original_scenario
+  user_supporter_buddy: Buddy;
+  memory_crystals: MemoryCrystal[];
+  item_possession_limits: ItemPossessionLimit[];
+  abilities: Ability[];
+  sphere_materials: SphereMaterial[];
   grow_eggs: GrowEgg[];
-
-  equipment_hyper_evolve_materials: Array<{
-    exp: number;
-    num: number;
-    name: string;
-    sale_gil: number;
-    description: string;
-    created_at: Timestamp;
-    image_path: RelativeUrlPath;
-    rarity: number;
-    id: number;
-  }>;
-
-  materials: Array<{
-    num: number;
-    name: string;
-    sale_gil: number;
-    description: string;
-    created_at: Timestamp;
-    image_path: RelativeUrlPath;
-    rarity: number;
-    type: number;
-    id: number;
-  }>;
-
-  equipment_sp_materials: Array<{
-    exp: number;
-    num: number;
-    name: string;
-    sale_gil: number;
-    equipment_type: number;
-    description: string;
-    image_path: RelativeUrlPath;
-    rarity: number;
-    id: number;
-    hammering_num: number; // How much it increases augments (i.e., 1 for Rosetta, 0 everywhere else)
-  }>;
-
-  dress_records: Array<{
-    disp_name: string; // Name with embedded "{n}"
-    image_path: RelativeUrlPath;
-    buddy_id: number;
-    name: string;
-    dress_record_id: number;
-  }>;
-
+  equipment_hyper_evolve_materials: EquipmentHyperEvolveMaterial[];
+  materials: Material[];
+  equipment_sp_materials: EquipmentSpMaterial[];
+  dress_records: DressRecord[];
   equipments: Equipment[];
+  soul_strikes: PartySoulStrike[];
+  legend_materias: LegendMateria[];
+}
+
+// Sample URL: http://ffrk.denagames.com/dff/party/list_buddy
+export interface PartyListBuddy {
+  soul_strikes: PartySoulStrike[];
+  legend_materias: LegendMateria[];
+  buddies: Buddy[];
+}
+
+// Sample URL: http://ffrk.denagames.com/dff/party/list_equipment
+export interface PartyListEquipment {
+  equipments: Equipment[];
+}
+
+// Sample URL: http://ffrk.denagames.com/dff/party/list_other
+export interface PartyListOther {
+  abilities: Ability[];
+  beast_foods: BeastFood[];
+  dress_records: DressRecord[];
+  equipment_hyper_evolve_materials: EquipmentHyperEvolveMaterial[];
+  equipment_sp_materials: EquipmentSpMaterial[];
+  grow_eggs: GrowEgg[];
+  item_possession_limits: ItemPossessionLimit[];
+  materials: Material[];
+  memory_crystals: MemoryCrystal[];
+  mo_buddy_info: any; // not yet implemented
+  party: Party;
+  record_materias: OwnedRecordMateria[];
+  record_materias_warehouse: RecordMateriaWarehouse[];
+  sphere_materials: SphereMaterial[];
+  user: User;
+  user_supporter_buddy: Buddy;
 }
 
 export interface UpdateUserSession {

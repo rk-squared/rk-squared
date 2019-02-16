@@ -99,7 +99,7 @@ function sortDungeonsStandard(
 ) {
   // Normally, type 1 vs. 2 marks classic vs. elite, page 1 vs. page 2, etc.
   // But, for Nightmare, 1 is the actual record, and 2 is the buildup.
-  const sortType: ((d: dungeonsSchemas.Dungeon) => number) = dungeonData.room_of_abyss_assets
+  const sortType: (d: dungeonsSchemas.Dungeon) => number = dungeonData.room_of_abyss_assets
     ? d => -d.type
     : d => d.type;
 
@@ -337,7 +337,7 @@ function convertWorlds(
 function checkForUpdatedRealmDungeons(
   worlds: mainSchemas.World[],
   dungeons: DungeonState,
-  dispatch: Dispatch<IState>,
+  dispatch: Dispatch,
   now: number = Date.now(),
 ) {
   const describe = (
@@ -403,7 +403,7 @@ function checkForUpdatedRecordDungeons(
   worlds: mainSchemas.World[],
   newWorlds: { [id: number]: World },
   dungeons: DungeonState,
-  dispatch: Dispatch<IState>,
+  dispatch: Dispatch,
 ) {
   for (const w of _.sortBy(worlds, 'id')) {
     if (

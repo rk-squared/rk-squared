@@ -1,4 +1,10 @@
-import { AssetCollection, BoolAsNumber, NumberAsString, RelativeUrlPath, Timestamp } from './common';
+import {
+  AssetCollection,
+  BoolAsNumber,
+  NumberAsString,
+  RelativeUrlPath,
+  Timestamp,
+} from './common';
 import { OwnedRecordMateria, RecordMateria } from './recordMateria';
 
 export interface Buddy {
@@ -20,7 +26,7 @@ export interface Buddy {
   exp: number;
   level: number;
   level_max: number;
-  evolution_num: number;  // How many times the level cap has been broken
+  evolution_num: number; // How many times the level cap has been broken
 
   series_level: number;
 
@@ -80,7 +86,7 @@ export interface Buddy {
       rarity: number;
       name: string;
       is_extended: number;
-    }
+    };
   };
 
   equipment_category: {
@@ -89,7 +95,7 @@ export interface Buddy {
       equipment_type: number;
       is_extended: number;
       factor: number;
-    }
+    };
   };
 
   record_tear_boosters: {
@@ -107,6 +113,36 @@ export interface Buddy {
   brave_series_ids_map: {
     [id: number]: 1;
   };
+
+  magia_point?: number;
+  magia_exp?: number;
+  magia_crystal_skill?: [];
+}
+
+export interface LegendMateria {
+  id: number;
+  name: string;
+  buddy_id: number;
+  buddy_name: string;
+  description: string;
+  disp_name: string;
+  effect_type: number;
+  recommend_priority: number;
+
+  image_path: RelativeUrlPath;
+  command_icon_path: RelativeUrlPath;
+  required_exp: number;
+
+  has_param_booster: boolean;
+  atk_boost: number;
+  matk_boost: number;
+  def_boost: number;
+  mdef_boost: number;
+  mnd_boost: number;
+  acc_boost: number;
+  spd_boost: number;
+  eva_boost: number;
+  hp_boost: number;
 }
 
 export interface GrowEgg {
@@ -146,8 +182,8 @@ export interface BuddyEvolveExec extends BuddyEvolve {
     image_path: RelativeUrlPath;
   };
 
-  record_materia?: OwnedRecordMateria;      // newly acquired record materia
-  new_record_materia?: OwnedRecordMateria;  // newly unlocked record materia
+  record_materia?: OwnedRecordMateria; // newly acquired record materia
+  new_record_materia?: OwnedRecordMateria; // newly unlocked record materia
   next_record_materia: RecordMateria;
 
   achieved_book_ids: number[];

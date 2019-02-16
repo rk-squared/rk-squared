@@ -1,14 +1,13 @@
 import { applyMiddleware, compose, createStore, Store } from 'redux';
 
+import { push, routerMiddleware } from 'connected-react-router';
 import { createHashHistory } from 'history';
-import { push, routerMiddleware } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
 const { forwardToMain } = require('electron-redux');
 
-import { IState, rootReducer } from '../reducers';
-
+import { createRootReducer, IState } from '../reducers';
 
 declare const window: Window & {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?(a: any): void;
@@ -17,16 +16,16 @@ declare const window: Window & {
 declare const module: NodeModule & {
   hot?: {
     accept(...args: any[]): any;
-  }
+  };
 };
 
 const actionCreators = {
-  push
+  push,
 };
 
 const logger = (createLogger as any)({
   level: 'info',
-  collapsed: true
+  collapsed: true,
 });
 
 const history = createHashHistory();
@@ -34,31 +33,31 @@ const router = routerMiddleware(history);
 
 // If Redux DevTools Extension is installed use it, otherwise use Redux compose
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-    // Options: http://zalmoxisus.github.io/redux-devtools-extension/API/Arguments.html
-    actionCreators
-  }) as any :
-  compose;
+const composeEnhancers: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  ? (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+      // Options: http://zalmoxisus.github.io/redux-devtools-extension/API/Arguments.html
+      actionCreators,
+    }) as any)
+  : compose;
 /* eslint-enable no-underscore-dangle */
 
-const enhancer = composeEnhancers(
-  applyMiddleware(forwardToMain, thunk, router, logger)
-);
+const enhancer = composeEnhancers(applyMiddleware(forwardToMain, thunk, router, logger));
 
 export = {
   history,
   configureStore(initialState?: IState): Store<IState> {
-    const store = initialState == null
-      ? createStore(rootReducer, enhancer)
-      : createStore(rootReducer, initialState, enhancer);
+    const store =
+      initialState == null
+        ? createStore(createRootReducer(history), enhancer)
+        : createStore(createRootReducer(history), initialState, enhancer);
 
     if (module.hot) {
-      module.hot.accept('../reducers', () =>
-        store.replaceReducer(require('../reducers')) // eslint-disable-line global-require
+      module.hot.accept(
+        '../reducers',
+        () => store.replaceReducer(require('../reducers')), // eslint-disable-line global-require
       );
     }
 
     return store;
-  }
+  },
 };

@@ -1,3 +1,10 @@
 {
-  "typescript.tsdk": "./node_modules/typescript/lib"
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "cSpell.words": [
+    "Persistor",
+    "ffrk",
+    "prefs"
+  ],
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true
 }

@@ -121,12 +121,23 @@ function checkPartyItems(
   }
 }
 
-function checkPartyDressRecords(data: schemas.PartyList) {
+function checkPartyDressRecords(data: schemas.PartyList | schemas.PartyListOther) {
   for (const i of _.sortBy(data.dress_records, 'dress_record_id')) {
     if (dressRecordsById[i.dress_record_id] == null) {
       showLocalDressRecord(i);
     }
   }
+}
+
+function checkAllPartyItems(data: schemas.PartyList | schemas.PartyListOther) {
+  // No need to check isRecordDungeonPartyList, as long as we're only
+  // looking for new / previously unknown items.
+  checkPartyItems(data.equipment_hyper_evolve_materials, ItemType.DarkMatter);
+  checkPartyItems(data.equipment_sp_materials, ItemType.UpgradeMaterial);
+  checkPartyItems(data.materials, ItemType.Orb);
+  checkPartyItems(data.grow_eggs, ItemType.GrowthEgg);
+  checkPartyItems(data.sphere_materials, ItemType.Mote);
+  checkPartyDressRecords(data);
 }
 
 function handleWinBattle(data: schemas.WinBattle) {
@@ -151,16 +162,8 @@ const itemUpdatesHandler: Handler = {
     }
   },
 
-  'party/list'(data: schemas.PartyList) {
-    // No need to check isRecordDungeonPartyList, as long as we're only
-    // looking for new / previously unknown items.
-    checkPartyItems(data.equipment_hyper_evolve_materials, ItemType.DarkMatter);
-    checkPartyItems(data.equipment_sp_materials, ItemType.UpgradeMaterial);
-    checkPartyItems(data.materials, ItemType.Orb);
-    checkPartyItems(data.grow_eggs, ItemType.GrowthEgg);
-    checkPartyItems(data.sphere_materials, ItemType.Mote);
-    checkPartyDressRecords(data);
-  },
+  'party/list': checkAllPartyItems,
+  'party/list_other': checkAllPartyItems,
 
   win_battle: handleWinBattle,
   battle_win: handleWinBattle,

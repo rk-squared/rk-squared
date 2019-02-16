@@ -1,5 +1,6 @@
 import { getType } from 'typesafe-actions';
 
+import { produce } from 'immer';
 import * as _ from 'lodash';
 
 import {
@@ -8,10 +9,9 @@ import {
   RecordMateriaAction,
   setRecordMateria,
   setRecordMateriaInventory,
-  updateRecordMateriaInventory
+  updateRecordMateriaInventory,
 } from '../actions/recordMateria';
-
-const u = require('updeep');
+import { arrayify } from '../utils/typeUtils';
 
 export interface RecordMateriaState {
   recordMateria: {
@@ -26,85 +26,102 @@ export interface RecordMateriaState {
   //
   // (The alternative would be to process the record materia list from the party
   // list, vault (if possible), and Enlir.)
-  favorites: undefined | {
-    [id: number]: boolean;
-  };
-  inventory: undefined | {
-    [id: number]: boolean;
-  };
+  favorites:
+    | undefined
+    | {
+        [id: number]: boolean;
+      };
+  inventory:
+    | undefined
+    | {
+        [id: number]: boolean;
+      };
+
+  // Whether each record materia is obtained.  We used to derive this from the
+  // Library page and store it with RecordMateria, but it's not consistently
+  // reported here, so we also track it here, derived from the party list, and
+  // use this to help maintain RecordMateria.obtained.
+  obtained:
+    | undefined
+    | {
+        [id: number]: boolean;
+      };
 }
 
 const initialState = {
   recordMateria: {},
   favorites: undefined,
   inventory: undefined,
+  obtained: undefined,
 };
 
-const toSet = (ids: number[]) =>
-  _.fromPairs(_.map(ids, i => [i, true]));
+const toSet = (ids: number[]) => _.fromPairs(_.map(ids, i => [i, true]));
 
-/// If a record materia is in our inventory, then we know that we've obtained it.
-const toObtainedUpdate = (rm: { [id: number]: RecordMateria }, ids: number[]) => ({
-  recordMateria: _.fromPairs(_.map(_.filter(ids, id => rm[id]), id => [id, { obtained: true }]))
-});
+export function recordMateria(
+  state: RecordMateriaState = initialState,
+  action: RecordMateriaAction,
+): RecordMateriaState {
+  return produce(state, (draft: RecordMateriaState) => {
+    switch (action.type) {
+      case getType(obtainRecordMateria):
+        const ids = arrayify(action.payload.id);
 
-const toInventoryListUpdate = (ids: number[]) => ({
-  inventory: _.fromPairs(_.map(ids, i => [i, true]))
-});
+        for (const i of ids) {
+          if (draft.recordMateria[i]) {
+            draft.recordMateria[i].obtained = true;
+          }
+        }
 
-const toInventoryUpdate = (id: number, inventory: boolean | undefined, favorite: boolean | undefined) => {
-  const update: any = {};
-  if (inventory != null) {
-    update.inventory = { [id]: inventory };
-  }
-  if (favorite != null) {
-    update.favorites = { [id]: favorite };
-  }
-  return update;
-};
+        if (draft.obtained != null) {
+          for (const i of ids) {
+            draft.obtained[i] = true;
+          }
+        }
 
-export function recordMateria(state: RecordMateriaState = initialState,
-                              action: RecordMateriaAction): RecordMateriaState {
-  switch (action.type) {
-    case getType(obtainRecordMateria):
-      const ids = Array.isArray(action.payload.id) ? action.payload.id : [action.payload.id];
+        if (draft.inventory != null) {
+          for (const i of ids) {
+            draft.inventory[i] = true;
+          }
+        }
 
-      state = u.update(toObtainedUpdate(state.recordMateria, ids), state);
+        return;
 
-      if (action.payload.updateInventory && state.inventory != null) {
-        state = u.update(toInventoryListUpdate(ids), state);
+      case getType(setRecordMateria):
+        draft.recordMateria = action.payload.recordMateria;
+
+        // Record materia as obtained from
+
+        return;
+
+      case getType(setRecordMateriaInventory): {
+        const all = [...action.payload.inventory, ...action.payload.warehouse];
+
+        for (const i of all) {
+          if (draft.recordMateria[i]) {
+            draft.recordMateria[i].obtained = true;
+          }
+        }
+
+        draft.inventory = toSet(action.payload.inventory);
+        draft.favorites = toSet(action.payload.favorites);
+        draft.obtained = toSet(all);
+
+        return;
       }
 
-      return state;
-
-    case getType(setRecordMateria):
-      return {
-        ...state,
-        recordMateria: action.payload.recordMateria
-      };
-
-    case getType(setRecordMateriaInventory): {
-      return {
-        ...u.update(
-          toObtainedUpdate(state.recordMateria, [...action.payload.inventory, ...action.payload.warehouse]), state
-        ),
-        inventory: toSet(action.payload.inventory),
-        favorites: toSet(action.payload.favorites),
-      };
-    }
-
-    case getType(updateRecordMateriaInventory): {
-      if (state.favorites == null) {
-        // Never saw inventory - can't do a partial update.
-        return state;
+      case getType(updateRecordMateriaInventory): {
+        const { id, inventory, favorite } = action.payload;
+        if (draft.inventory != null && inventory != null) {
+          draft.inventory[id] = inventory;
+        }
+        if (draft.favorites != null && favorite != null) {
+          draft.favorites[id] = favorite;
+        }
+        if (draft.obtained != null && (inventory != null || favorite != null)) {
+          draft.obtained[id] = true;
+        }
+        return;
       }
-
-      const { id, inventory, favorite } = action.payload;
-      return u.update(toInventoryUpdate(id, inventory, favorite), state);
     }
-
-    /* istanbul ignore next */
-    default:
-      return state;
-  }
+  });
 }

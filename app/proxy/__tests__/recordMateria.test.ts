@@ -3,7 +3,6 @@ import { convertRecordMateriaList, default as recordMateriaHandler } from '../re
 import { Order, RecordMateria } from '../../actions/recordMateria';
 import { IState } from '../../reducers';
 
-import * as Redux from 'redux';
 import configureStore from 'redux-mock-store';
 
 import * as _ from 'lodash';
@@ -91,11 +90,10 @@ describe('recordMateria proxy handler', () => {
     it('handles record materia obtained in battle', () => {
       const store = mockStore();
 
-      // TODO: A bug in redux-mock-store typings means we need this explicit cast (here and elsewhere)
-      recordMateriaHandler.win_battle(winBattle.data, store as Redux.Store<IState>, {});
+      recordMateriaHandler.win_battle(winBattle.data, store, {});
 
       expect(store.getActions()).toEqual([
-        { payload: { id: [111050021], updateInventory: true }, type: 'OBTAIN_RECORD_MATERIA' },
+        { type: 'OBTAIN_RECORD_MATERIA', payload: { id: [111050021] } },
       ]);
     });
   });
@@ -104,29 +102,21 @@ describe('recordMateria proxy handler', () => {
     it('handles newly acquired record materia', () => {
       const store = mockStore();
 
-      recordMateriaHandler['buddy/evolve'](buddyEvolve50.data, store as Redux.Store<IState>, {
+      recordMateriaHandler['buddy/evolve'](buddyEvolve50.data, store, {
         body: buddyEvolve50.requestBody,
       });
 
       expect(store.getActions()).toEqual([
-        {
-          type: 'OBTAIN_RECORD_MATERIA',
-          payload: {
-            id: [111020020],
-            updateInventory: true,
-          },
-        },
+        { type: 'OBTAIN_RECORD_MATERIA', payload: { id: [111020020] } },
       ]);
     });
 
     it('does nothing on previews', () => {
       const store = mockStore();
 
-      recordMateriaHandler['buddy/evolve'](
-        buddyEvolve50Preview.data,
-        store as Redux.Store<IState>,
-        { body: buddyEvolve50Preview.requestBody },
-      );
+      recordMateriaHandler['buddy/evolve'](buddyEvolve50Preview.data, store, {
+        body: buddyEvolve50Preview.requestBody,
+      });
 
       expect(store.getActions()).toEqual([]);
     });
@@ -134,7 +124,7 @@ describe('recordMateria proxy handler', () => {
     it('handles newly unlocked record materia', () => {
       const store = mockStore();
 
-      recordMateriaHandler['buddy/evolve'](buddyEvolve65.data, store as Redux.Store<IState>, {
+      recordMateriaHandler['buddy/evolve'](buddyEvolve65.data, store, {
         body: buddyEvolve65.requestBody,
       });
 

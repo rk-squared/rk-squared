@@ -9,7 +9,10 @@ import { Url, URL, UrlWithStringQuery } from 'url';
 import { LangType } from '../api/apiUrls';
 import { IState } from '../reducers';
 
-const StartupHandler = Symbol();
+// We'd like to make this a Symbol(), but TypeScript doesn't support using
+// symbols as indexes: https://github.com/Microsoft/TypeScript/issues/24587
+const StartupHandler = '__STARTUP';
+
 export { StartupHandler };
 
 export interface HandlerRequest {
