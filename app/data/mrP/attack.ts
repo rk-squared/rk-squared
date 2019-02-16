@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 
 import { EnlirElement, EnlirOtherSkill, EnlirSchool, EnlirSoulBreak } from '../enlir';
+import { getElementShortName } from './types';
 import { parseNumberString, parsePercentageCounts, toMrPFixed } from './util';
 
 export interface ParsedEnlirAttack {
@@ -32,6 +33,9 @@ export interface ParsedEnlirAttack {
    */
   orCondition?: string;
 
+  scaleToDamage?: string;
+  scaleType?: string;
+
   element: EnlirElement[] | null;
   school?: EnlirSchool;
   isAoE: boolean;
@@ -42,9 +46,13 @@ export interface ParsedEnlirAttack {
   isNoMiss: boolean;
 }
 
-function describeDamage(attackMultiplier: number, numAttacks: number) {
+function describeDamage(
+  attackMultiplier: number,
+  numAttacks: number,
+  includeNumAttacks: boolean = true,
+) {
   const multiplier = attackMultiplier * numAttacks;
-  return toMrPFixed(multiplier) + (numAttacks !== 1 ? '/' + numAttacks : '');
+  return toMrPFixed(multiplier) + (includeNumAttacks && numAttacks !== 1 ? '/' + numAttacks : '');
 }
 
 function describeRandomDamage(
@@ -141,12 +149,25 @@ function describeOr(
   return [orDamage, describeOrCondition(orCondition)];
 }
 
+function describeScaleType(scaleType: string): string {
+  let m: RegExpMatchArray | null;
+  if (scaleType === ' scaling with HP%') {
+    return '@ 1% HP';
+  } else if ((m = scaleType.match(/scaling with (\w+) attacks used/))) {
+    return `w/ ${getElementShortName(m[1] as EnlirElement)} atks used`;
+  } else if ((m = scaleType.match(/scaling with (\w+) abilities used/))) {
+    return `w/ ${m[1]} used`;
+  } else {
+    return scaleType;
+  }
+}
+
 export function parseEnlirAttack(
   effects: string,
   skill: EnlirOtherSkill | EnlirSoulBreak,
 ): ParsedEnlirAttack | null {
   const m = effects.match(
-    /([Rr]andomly deals .*|[A-Za-z\-]+) (?:(group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?(, 100% hit rate)?/,
+    /([Rr]andomly deals .*|[A-Za-z\-]+) (?:(group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+)(?:~([0-9\.]+))?(?: each)?( scaling with[^)]+)?\)( capped at 99999)?(, 100% hit rate)?/,
   );
   if (!m) {
     return null;
@@ -159,11 +180,14 @@ export function parseEnlirAttack(
     ranged,
     jump,
     attackMultiplierString,
+    scaleToAttackMultiplierString,
+    scaleType,
     overstrike,
     noMiss,
   ] = m;
   const randomAttacks = parsePercentageCounts(numAttacksString);
   const attackMultiplier = parseFloat(attackMultiplierString);
+  const scaleToAttackMultiplier = parseFloat(scaleToAttackMultiplierString);
   const numAttacks = parseNumberString(numAttacksString);
   if ((randomAttacks == null && numAttacks == null) || skill.formula == null) {
     return null;
@@ -184,17 +208,30 @@ export function parseEnlirAttack(
 
   const [orDamage, orCondition] = describeOr(skill.effects, attackMultiplier, numAttacks);
 
+  const scaleToDamage =
+    scaleToAttackMultiplierString && numAttacks
+      ? // Omit number of attacks - it's always the same as the main attack.
+        describeDamage(scaleToAttackMultiplier, numAttacks, false)
+      : undefined;
+
   return {
     isAoE: attackType === 'group',
     damageType: skill.formula === 'Physical' ? 'phys' : skill.type === 'WHT' ? 'white' : 'magic',
+
     numAttacks,
     attackMultiplier,
     damage,
     randomChances,
+
     orDamage,
     orCondition,
+
+    scaleToDamage,
+    scaleType: scaleType ? describeScaleType(scaleType) : undefined,
+
     element: skill.element,
     school: 'school' in skill ? (skill.school as EnlirSchool) : undefined,
+
     isRanged: !!ranged && !jump,
     isJump: !!jump,
     isOverstrike: !!overstrike,

@@ -37,13 +37,13 @@ describe('mrP', () => {
       // Deviation: MMP omits "overstrike" for OSBs.  But, as overstrike
       // on non-OSBs becomes more common, it makes sense to be consistent.
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Paladin) - Arc of Light'])).toEqual({
-        damage: 'phys 12.0 holy+non ranged overstrike',
+        damage: 'phys 12.0 holy+non rngd overstrike',
       });
     });
 
     it('converts 20+1 Arcane Overstrikes', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Luneth - Storm of Blades'])).toEqual({
-        damage: 'phys 11.0/20, then 8.0 overstrike, wind ranged',
+        damage: 'phys 11.0/20, then 8.0 overstrike, wind rngd',
       });
     });
 
@@ -114,7 +114,7 @@ describe('mrP', () => {
 
     it('converts debuffs with buffs', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Barret - Height of Anger'])).toEqual({
-        damage: 'phys 6.75/15 fire+wind ranged',
+        damage: 'phys 6.75/15 fire+wind rngd',
         other: '-70% DEF/RES 8s, party instacast 1',
       });
     });
@@ -187,8 +187,17 @@ describe('mrP', () => {
     it('converts scaling attacks', () => {
       // Deviation: MMP lists 'self heal 70% max HP' first
       expect(describeEnlirSoulBreak(soulBreaks['Seifer - Forbidden Fellslash'])).toEqual({
-        damage: 'phys 6.58 / 7 dark+fire (up to p10.5 @ 1% HP)',
+        damage: 'phys 6.58/7 dark+fire, up to p10.5 @ 1% HP',
         other: 'dark infuse 25s, self heal 70% HP',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Luneth - Heavenly Gust'])).toEqual({
+        damage: 'phys 11.2 wind+non jump overstrike, up to p14.5 w/ wind atks used',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Paine - Grand Storm'])).toEqual({
+        damage: 'AoE phys 5.4/6 water+earth+wind, up to p6.6 w/ Spellblade used',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Jecht - Blitz King'])).toEqual({
+        damage: 'phys 11.7 dark+fire rngd overstrike, up to p13.0 @ 3 SB bars',
       });
     });
 

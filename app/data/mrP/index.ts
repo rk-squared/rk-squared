@@ -67,7 +67,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     damage += attack.damageType + ' ' + attack.damage;
 
     damage += appendElement(attack.element, getElementShortName);
-    damage += attack.isRanged ? ' ranged' : '';
+    damage += attack.isRanged ? ' rngd' : '';
     damage += attack.isJump ? ' jump' : '';
     damage += attack.isOverstrike ? ' overstrike' : '';
     damage += attack.isNoMiss ? ' no miss' : '';
@@ -79,6 +79,14 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
         attack.orDamage +
         ' ' +
         attack.orCondition;
+    }
+    if (attack.scaleToDamage && attack.scaleType) {
+      damage +=
+        ', up to ' +
+        damageTypeAbbreviation(attack.damageType) +
+        attack.scaleToDamage +
+        ' ' +
+        attack.scaleType;
     }
   }
 
