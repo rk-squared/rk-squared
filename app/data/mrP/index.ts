@@ -140,7 +140,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     }
   }
 
-  const statusEffectRe = /(?:[Gg]rants|[Cc]auses) ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?: for (\d+) seconds)?(?=, grants|, causes|, [A-Z]{3}|$)/g;
+  const statusEffectRe = /(?:[Gg]rants|[Cc]auses) ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?: for (\d+) seconds)?(?=, grants|, causes|, restores HP |, damages the user |, heals the user |, [A-Z]{3}|$)/g;
   while ((m = statusEffectRe.exec(sb.effects))) {
     const [, statusString, who, duration] = m;
     const status = statusString
@@ -225,4 +225,4 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   };
 }
 
-// TODO: finishers, Yuna's follow-up
+// TODO: finishers, Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB

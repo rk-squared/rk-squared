@@ -184,6 +184,14 @@ describe('mrP', () => {
       // 'Mustadio - Seal Evil (FFT)' has some additional checks.
     });
 
+    it('converts scaling attacks', () => {
+      // Deviation: MMP lists 'self heal 70% max HP' first
+      expect(describeEnlirSoulBreak(soulBreaks['Seifer - Forbidden Fellslash'])).toEqual({
+        damage: 'phys 6.58 / 7 dark+fire (up to p10.5 @ 1% HP)',
+        other: 'dark infuse 25s, self heal 70% HP',
+      });
+    });
+
     it('converts conditional attacks', () => {
       // Deviation: MMP sometimes uses parentheses and sometimes ", or "
       expect(describeEnlirSoulBreak(soulBreaks['Ace - Firaga SHG'])).toEqual({

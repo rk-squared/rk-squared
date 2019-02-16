@@ -123,7 +123,7 @@ function describeOr(
   numAttacks: number | null,
 ): [string | undefined, string | undefined] {
   const m = effects.match(
-    /(?:([0-9\.]+) (?:multiplier|mult\.)|([a-z\-]+) attacks) if (.*?)(?=, grants|, causes|, [A-Z]{3}|$)/,
+    /(?:([0-9\.]+) (?:multiplier|mult\.)|([a-z\-]+) attacks) if (.*?)(?=, grants|, causes|, restores HP |, damages the user |, heals the user |, [A-Z]{3}|$)/,
   );
   if (!m) {
     return [undefined, undefined];
