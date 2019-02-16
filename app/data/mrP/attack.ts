@@ -6,9 +6,32 @@ import { parseNumberString, parsePercentageCounts, toMrPFixed } from './util';
 export interface ParsedEnlirAttack {
   damageType: 'phys' | 'white' | 'magic';
   randomChances?: string;
+
+  /**
+   * "Normal" multiplier per attack
+   */
+  attackMultiplier: number;
+
+  /**
+   * "Normal" number of attacks.  Null if a random number of attacks.
+   */
+  numAttacks: number | null;
+
+  /**
+   * Text description of total multiplier / number of attacks
+   */
   damage: string;
+
+  /**
+   * Conditional / alternate damage string
+   */
   orDamage?: string;
+
+  /**
+   * Condition under which orDamage applies
+   */
   orCondition?: string;
+
   element: EnlirElement[] | null;
   school?: EnlirSchool;
   isAoE: boolean;
@@ -158,6 +181,8 @@ export function parseEnlirAttack(
   return {
     isAoE: attackType === 'group',
     damageType: skill.formula === 'Physical' ? 'phys' : skill.type === 'WHT' ? 'white' : 'magic',
+    numAttacks,
+    attackMultiplier,
     damage,
     randomChances,
     orDamage,

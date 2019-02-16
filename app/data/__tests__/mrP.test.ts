@@ -176,6 +176,13 @@ describe('mrP', () => {
       });
     });
 
+    it('converts status ailments', () => {
+      expect(describeEnlirSoulBreak(soulBreaks["Seymour - Anima's Pain"])).toEqual({
+        damage: 'magic 17.44/8 dark+non (SUM)',
+        other: '53% (9%x8) KO, +20% dark vuln. 25s',
+      });
+    });
+
     it('converts conditional attacks', () => {
       // Deviation: MMP sometimes uses parentheses and sometimes ", or "
       expect(describeEnlirSoulBreak(soulBreaks['Ace - Firaga SHG'])).toEqual({

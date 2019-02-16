@@ -43,6 +43,8 @@ const enlirStatusAlias: { [status: string]: string } = {
   'High Regen': 'Regen (hi)',
 
   'Last Stand': 'Last stand',
+
+  'Instant KO': 'KO',
 };
 
 for (const i of allEnlirSchools) {
@@ -134,6 +136,7 @@ export interface ParsedEnlirStatus {
   description: string;
   isExLike: boolean;
   defaultDuration: number | null;
+  chance?: number;
 }
 
 function describeExLike(enlirStatus: EnlirStatus): string {
@@ -217,6 +220,13 @@ function getEnlirStatusByName(status: string): EnlirStatus | undefined {
 }
 
 export function parseEnlirStatus(status: string): ParsedEnlirStatus {
+  const m = status.match(/(.*) \((\d+)%\)$/);
+  let chance: number | undefined;
+  if (m) {
+    status = m[1];
+    chance = +m[2];
+  }
+
   const enlirStatus = getEnlirStatusByName(status);
   if (!enlirStatus) {
     logger.warn(`Unknown status: ${status}`);
@@ -237,6 +247,7 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
     description,
     isExLike,
     defaultDuration: enlirStatus ? enlirStatus.defaultDuration : null,
+    chance,
   };
 }
 

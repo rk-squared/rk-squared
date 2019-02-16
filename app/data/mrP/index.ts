@@ -123,7 +123,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     }
   }
 
-  const statusEffectRe = /(?:[Gg]rants|[Cc]auses) ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?: for (\d+) seconds)?(?=, grants|, [A-Z]{3}|$)/g;
+  const statusEffectRe = /(?:[Gg]rants|[Cc]auses) ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?: for (\d+) seconds)?(?=, grants|, causes|, [A-Z]{3}|$)/g;
   while ((m = statusEffectRe.exec(sb.effects))) {
     const [, statusString, who, duration] = m;
     const status = statusString
@@ -131,7 +131,17 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       .filter(includeStatus)
       .sort(sortStatus)
       .map(parseEnlirStatus);
-    for (let { description, isExLike, defaultDuration } of status) {
+    for (let { description, isExLike, defaultDuration, chance } of status) {
+      if (chance) {
+        if (chance !== 100 && attack && attack.numAttacks && attack.numAttacks > 1) {
+          const totalChanceFraction = 1 - (1 - chance / 100) ** attack.numAttacks;
+          const totalChance = Math.round(totalChanceFraction * 100);
+          description = `${totalChance}% (${chance}% × ${attack.numAttacks}) ` + description;
+        } else {
+          description = `${chance}% ` + description;
+        }
+      }
+
       const isDetail = isExLike;
       if (duration || (defaultDuration && isExLike)) {
         if (isDetail) {
