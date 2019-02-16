@@ -197,7 +197,7 @@ describe('mrP', () => {
         damage: 'AoE phys 5.4/6 water+earth+wind, up to p6.6 w/ Spellblade used',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Jecht - Blitz King'])).toEqual({
-        damage: 'phys 11.7 dark+fire rngd overstrike, up to p13.0 @ 3 SB bars',
+        damage: 'phys 11.7 dark+fire rngd overstrike, up to p13.0 @ 6 SB bars',
       });
     });
 

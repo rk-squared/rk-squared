@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 
 import { EnlirElement, EnlirOtherSkill, EnlirSchool, EnlirSoulBreak } from '../enlir';
-import { getElementShortName } from './types';
+import { getElementShortName, SB_BAR_SIZE } from './types';
 import { parseNumberString, parsePercentageCounts, toMrPFixed } from './util';
 
 export interface ParsedEnlirAttack {
@@ -88,7 +88,7 @@ function describeFollowedByAttack(effects: string): string | null {
     /*ranged*/,
     /*jump*/,
     attackMultiplierString,
-    overstrike
+    overstrike,
   ] = m;
   const attackMultiplier = parseFloat(attackMultiplierString);
   const numAttacks = parseNumberString(numAttacksString);
@@ -167,7 +167,7 @@ export function parseEnlirAttack(
   skill: EnlirOtherSkill | EnlirSoulBreak,
 ): ParsedEnlirAttack | null {
   const m = effects.match(
-    /([Rr]andomly deals .*|[A-Za-z\-]+) (?:(group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+)(?:~([0-9\.]+))?(?: each)?( scaling with[^)]+)?\)( capped at 99999)?(, 100% hit rate)?/,
+    /([Rr]andomly deals .*|[A-Za-z\-]+) (?:(group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+)(?:~([0-9\.]+))?(?: each)?( scaling with[^)]+)?\)(,? capped at 99999)?(, 100% hit rate)?(?:, multiplier increased by ([0-9.]+) for every SB point(?: \(max is ([0-9.]+)\))?)?/,
   );
   if (!m) {
     return null;
@@ -181,9 +181,11 @@ export function parseEnlirAttack(
     jump,
     attackMultiplierString,
     scaleToAttackMultiplierString,
-    scaleType,
+    rawScaleType,
     overstrike,
     noMiss,
+    sbMultiplierIncreaseString,
+    maxSbMultiplierString,
   ] = m;
   const randomAttacks = parsePercentageCounts(numAttacksString);
   const attackMultiplier = parseFloat(attackMultiplierString);
@@ -208,11 +210,37 @@ export function parseEnlirAttack(
 
   const [orDamage, orCondition] = describeOr(skill.effects, attackMultiplier, numAttacks);
 
-  const scaleToDamage =
-    scaleToAttackMultiplierString && numAttacks
-      ? // Omit number of attacks - it's always the same as the main attack.
-        describeDamage(scaleToAttackMultiplier, numAttacks, false)
-      : undefined;
+  let scaleType: string | undefined;
+  let scaleToDamage: string | undefined;
+  if (sbMultiplierIncreaseString) {
+    const sbMultiplierIncrease = parseFloat(sbMultiplierIncreaseString);
+    let maxSbMultiplier: number;
+    if (maxSbMultiplierString) {
+      maxSbMultiplier = parseFloat(maxSbMultiplierString);
+      const maxBars = Math.round(
+        (maxSbMultiplier - attackMultiplier) / sbMultiplierIncrease / SB_BAR_SIZE,
+      );
+      scaleType = `@ ${maxBars} bars`;
+    } else {
+      maxSbMultiplier = attackMultiplier + sbMultiplierIncrease * 6 * SB_BAR_SIZE;
+      scaleType = '@ 6 SB bars';
+    }
+    if (numAttacks) {
+      scaleToDamage = numAttacks ? describeDamage(maxSbMultiplier, numAttacks, false) : undefined;
+      if ('points' in skill) {
+        // Re-adjust the displayed number to reflect actual SB.
+        damage = describeDamage(attackMultiplier + skill.points * sbMultiplierIncrease, numAttacks);
+      }
+    }
+  } else {
+    if (rawScaleType) {
+      scaleType = describeScaleType(rawScaleType);
+    }
+    if (scaleToAttackMultiplierString && numAttacks) {
+      // Omit number of attacks - it's always the same as the main attack.
+      scaleToDamage = describeDamage(scaleToAttackMultiplier, numAttacks, false);
+    }
+  }
 
   return {
     isAoE: attackType === 'group',
@@ -227,7 +255,7 @@ export function parseEnlirAttack(
     orCondition,
 
     scaleToDamage,
-    scaleType: scaleType ? describeScaleType(scaleType) : undefined,
+    scaleType,
 
     element: skill.element,
     school: 'school' in skill ? (skill.school as EnlirSchool) : undefined,
