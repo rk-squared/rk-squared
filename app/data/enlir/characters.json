@@ -19589,7 +19589,7 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Conquer Absolute Virtue",
+    "introducingEventLegendSpheres": "Queen of the Dance",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -19967,7 +19967,7 @@
       "res": 7,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Conquer Absolute Virtue",
+    "introducingEventLegendSpheres": "Queen of the Dance",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -20157,7 +20157,7 @@
       "heavy": null
     },
     "id": 11100800,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",

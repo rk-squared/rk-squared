@@ -59,6 +59,12 @@ describe('mrP', () => {
         damage: 'phys 3.12/6 wind+non',
         other: 'wind infuse stacking 25s, wind infuse 25s',
       });
+      // Deviation: MMP describes this as
+      // "hi fastcast 2, instant fire infuse stacking 25s, fire infuse 25s"
+      expect(describeEnlirSoulBreak(soulBreaks['Krile - Boundless Love'])).toEqual({
+        instant: true,
+        other: 'fire infuse stacking 25s, fire infuse 25s, self hi fastcast 2',
+      });
     });
 
     it('converts stat changes', () => {
@@ -121,7 +127,7 @@ describe('mrP', () => {
     });
 
     it('converts EX modes with skill boosts and 100% hit rate follow-up attacks', () => {
-      // Discrepancy: MMP often omits "no miss" (due to error? lack of space?)
+      // Deviation: MMP often omits "no miss" (due to error? lack of space?)
       // and doesn't show "self" for Ability Boost.  However, it's probably
       // more consistent and certainly more thorough to include it.
       expect(describeEnlirSoulBreak(soulBreaks['Leo - Shock Imperial'])).toEqual({
@@ -148,9 +154,25 @@ describe('mrP', () => {
     });
 
     it('converts percent heals', () => {
-      // Discrepancy: MMP sometimes says "40%" or "40% HP" or "40% max HP"
+      // Deviation: MMP sometimes says "40%" or "40% HP" or "40% max HP"
       expect(describeEnlirSoulBreak(soulBreaks['Prishe - Rigorous Reverie'])).toEqual({
         other: 'party heal 40% HP, Regen (hi), Last stand',
+      });
+    });
+
+    it('converts chains', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Krile - Unbroken Chain'])).toEqual({
+        chain: 'fire chain 1.2x',
+        damage: 'magic 17.93/11 fire',
+        other: 'party fastcast 2',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Kain - Impulse Drive'])).toEqual({
+        chain: 'lgt chain 1.2x',
+        damage: 'phys 7.92/22 lgt jump',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Ace - We Have Arrived'])).toEqual({
+        chain: 'Type-0 chain 1.5x',
+        other: 'party Haste, +30% ATK/MAG 25s',
       });
     });
   });

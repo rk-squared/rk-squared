@@ -10613,8 +10613,8 @@
   },
   {
     "id": 50492,
-    "name": "Tidal Master Follow-Up",
-    "effects": "Casts Tidal Master after using three Water attacks",
+    "name": "Tidal Stream Follow-Up",
+    "effects": "Casts Tidal Stream after using three Water attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

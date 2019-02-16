@@ -13845,7 +13845,7 @@
     "introducingEvent": "Queen of the Dance",
     "nameJp": "居合・獄氷",
     "id": 30221161,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Samurai",
@@ -13902,7 +13902,7 @@
   },
   {
     "school": "Samurai",
-    "name": "Warring Cold",
+    "name": "Frost-Touched Blade",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13951,7 +13951,7 @@
     "introducingEvent": "Hatred Incarnate",
     "nameJp": "抜刀ノ弐・冷閃",
     "id": 30221181,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Ninja",
@@ -16445,7 +16445,7 @@
   },
   {
     "school": "Machinist",
-    "name": "Cold Offering",
+    "name": "Icy Offering",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -16494,7 +16494,7 @@
     "introducingEvent": "Hatred Incarnate",
     "nameJp": "フロストオファ",
     "id": 30261151,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Machinist",
@@ -17927,7 +17927,7 @@
   },
   {
     "school": "Witch",
-    "name": "Scary Blizzard",
+    "name": "Chilling Blizzard",
     "rarity": 6,
     "type": "BLK",
     "target": "Single",
@@ -17976,7 +17976,7 @@
     "introducingEvent": "Hatred Incarnate",
     "nameJp": "スケアリーブリザド",
     "id": 30301051,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Witch",

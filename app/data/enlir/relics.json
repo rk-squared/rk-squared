@@ -2202,7 +2202,7 @@
       "eva": null
     },
     "id": 21001122,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Shikari Nagasa",
@@ -4542,7 +4542,7 @@
       "eva": null
     },
     "id": 21001124,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Danjuro",
@@ -12282,7 +12282,7 @@
       "eva": null
     },
     "id": 21002249,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Durandal",
@@ -26142,7 +26142,7 @@
       "eva": null
     },
     "id": 21003076,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Yagyu Darkblade",
@@ -28032,7 +28032,7 @@
       "eva": null
     },
     "id": 21003059,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Omokage",
@@ -28077,7 +28077,7 @@
       "eva": null
     },
     "id": 21003074,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Kogarasumaru",
@@ -62910,7 +62910,7 @@
     "gl": true
   },
   {
-    "name": "Hunting Bow",
+    "name": "Hunting Crossbow",
     "realm": "XII",
     "type": "Bow",
     "rarity": 6,
@@ -83922,7 +83922,7 @@
       "eva": 112
     },
     "id": 22050054,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Kaiser Shield",
@@ -89142,7 +89142,7 @@
       "eva": 105
     },
     "id": 22051126,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Lamia's Tiara",
@@ -91302,7 +91302,7 @@
       "eva": 105
     },
     "id": 22052051,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Gaffgarion's Helm",
@@ -94722,7 +94722,7 @@
       "eva": 100
     },
     "id": 22053165,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Hermes' Suit",
@@ -101853,7 +101853,7 @@
     "effect": null,
     "character": "Prishe",
     "soulBreak": null,
-    "legendMateria": "Crystal's Might",
+    "legendMateria": "Magicite Might",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -101877,7 +101877,7 @@
       "eva": 100
     },
     "id": 22053166,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Black Cloak",

@@ -1,3 +1,4 @@
+import { arrayify } from '../../utils/typeUtils';
 import { EnlirElement, EnlirSchool } from '../enlir';
 
 export const damageTypeAbbreviation = (damageType: 'phys' | 'white' | 'magic') => damageType[0];
@@ -16,11 +17,13 @@ const schoolAbbreviation: { [school in EnlirSchool]?: string } = {
   'Black Magic': 'B.Mag',
 };
 
-export function getElementShortName(element: EnlirElement[]): string {
+export function getElementShortName(element: EnlirElement | EnlirElement[]): string {
+  element = arrayify(element);
   return element.map(i => elementShortName[i.toLowerCase()] || i.toLowerCase()).join('+');
 }
 
-export function getElementAbbreviation(element: EnlirElement[]): string {
+export function getElementAbbreviation(element: EnlirElement | EnlirElement[]): string {
+  element = arrayify(element);
   return element.map(i => elementAbbreviation[i.toLowerCase()] || i[0].toLowerCase()).join('+');
 }
 

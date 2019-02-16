@@ -1764,6 +1764,69 @@
   },
   {
     "realm": "I",
+    "character": "Warrior of Light",
+    "name": "Oversoul",
+    "type": "?",
+    "target": "?",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": null,
+    "effects": "? single attacks (? each), grants Attach Holy, Awaken Holy, Damage Cap 19999 to the user and grants Major Buff Holy to all allies",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "?",
+    "nameJp": "オーバーソウル",
+    "id": 20330016,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Warrior of Light",
+    "name": "Crystal Wave",
+    "type": "NAT",
+    "target": null,
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 2.5,
+    "effects": "Activates I Chain (max 150, field +50%), grants Haste, ATK and MAG +30% for 25 seconds",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "tier": "CSB",
+    "master": "ATK +10",
+    "relic": "Ultima Blade (I)",
+    "nameJp": "クリスタルウェーブ",
+    "id": 20330017,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Warrior of Light",
+    "name": "Remain Soul",
+    "type": "?",
+    "target": "?",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Last Stand, grants Instant Cast 1 to the user",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "ATK +10",
+    "relic": "?",
+    "nameJp": "リマインソウル",
+    "id": 20330018,
+    "gl": false
+  },
+  {
+    "realm": "I",
     "character": "Garland",
     "name": "Dire Strike",
     "type": "NAT",
@@ -2209,6 +2272,48 @@
     "relic": "Rune Staff (I)",
     "nameJp": "コーネリアへの慈愛",
     "id": 22300008,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Sarah",
+    "name": "Aria of Reunion",
+    "type": "?",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (?), grants Regenga, grants Quick Cast ? to the user. Grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, grants Medium Buff Holy and Medium Buff Dark if both are in the party",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 500,
+    "tier": "USB",
+    "master": "MND +10",
+    "relic": "?",
+    "nameJp": "再会を願う歌",
+    "id": 22300009,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Sarah",
+    "name": "Rondo of Light",
+    "type": "?",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Magical Blink 1 and Haste to all allies",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "MND +10",
+    "relic": "?",
+    "nameJp": "光のロンド",
+    "id": 22300010,
     "gl": false
   },
   {
@@ -5692,7 +5797,7 @@
     "character": "Desch",
     "name": "Lifelinks, Become Lightning",
     "type": "NAT",
-    "target": null,
+    "target": "All allies",
     "formula": null,
     "multiplier": null,
     "element": null,
@@ -12729,7 +12834,7 @@
     "points": 0,
     "tier": "Glint+",
     "master": "ATK +10",
-    "relic": "Thief's Gloves (VI)",
+    "relic": "Adventurer's Knife (VI)",
     "nameJp": "ヒート・スライサ",
     "id": 20240018,
     "gl": false
@@ -13186,7 +13291,7 @@
     "character": "Mog",
     "name": "Hopeful Reunion",
     "type": "NAT",
-    "target": null,
+    "target": "All allies",
     "formula": null,
     "multiplier": null,
     "element": null,
@@ -14498,21 +14603,22 @@
     "realm": "VI",
     "character": "Strago",
     "name": "Tidal Master",
-    "type": "?",
-    "target": "?",
+    "type": "BLK",
+    "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 22.5,
     "element": [
-      "?"
+      "Water",
+      "NE"
     ],
-    "time": null,
-    "effects": "? attacks (? each), grants Attach Water, Awaken Water, Damage Cap 19999 and Tidal Master Follow-Up to the user",
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Water, Awaken Water, Damage Cap 19999 and Tidal Stream Follow-Up to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "AASB",
     "master": "MAG +10",
-    "relic": null,
+    "relic": "Sage's Robe (VI)",
     "nameJp": "タイダルマスタ",
     "id": 20720009,
     "gl": false
@@ -14521,21 +14627,21 @@
     "realm": "VI",
     "character": "Strago",
     "name": "Aqua Splash",
-    "type": "?",
-    "target": "?",
+    "type": "BLK",
+    "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 62.9,
     "element": [
-      "?"
+      "Water"
     ],
-    "time": null,
-    "effects": "?",
+    "time": 2.5,
+    "effects": "Twenty single attacks (1.82 each), followed by one single attack (26.50) capped at 99999",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 750,
     "tier": "AOSB",
     "master": "MAG +10",
-    "relic": null,
+    "relic": "Dragon Rod (VI)",
     "nameJp": "アクアスプラッシュ",
     "id": 20720010,
     "gl": false
@@ -18061,7 +18167,7 @@
     "character": "Reno",
     "name": "Chain of Thunder",
     "type": "NAT",
-    "target": null,
+    "target": "All allies",
     "formula": null,
     "multiplier": null,
     "element": null,
@@ -18334,7 +18440,7 @@
     "character": "Shelke",
     "name": "Technical Defense",
     "type": "NAT",
-    "target": null,
+    "target": "Self",
     "formula": null,
     "multiplier": null,
     "element": null,
@@ -25147,7 +25253,7 @@
     "character": "Kimahri",
     "name": "Aqua Landing",
     "type": "NAT",
-    "target": null,
+    "target": "Self",
     "formula": null,
     "multiplier": null,
     "element": null,
@@ -26873,7 +26979,7 @@
     "relic": "Zanbato (XI)",
     "nameJp": "葉隠皆伝・雪風",
     "id": 22480005,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -26896,7 +27002,7 @@
     "relic": "Myochin Kabuto (XI)",
     "nameJp": "十一之太刀・鳳蝶",
     "id": 22480006,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -26917,7 +27023,7 @@
     "relic": "Daihannya (XI)",
     "nameJp": "正正堂堂",
     "id": 22480007,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -27030,7 +27136,7 @@
     "relic": "Bastard Sword (XI)",
     "nameJp": "エクストリームガード",
     "id": 22470005,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -27139,7 +27245,7 @@
     "relic": "Scorpion Harness (XI)",
     "nameJp": "夢想阿修羅拳",
     "id": 22680005,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -27423,7 +27529,7 @@
     "relic": "-",
     "nameJp": "ステップ",
     "id": 23350003,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -27444,7 +27550,7 @@
     "relic": "Darksteel Kukri (XI)",
     "nameJp": "センシュアルダンス",
     "id": 23350001,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -27465,7 +27571,7 @@
     "relic": "Dancer's Tiara (XI)",
     "nameJp": "ビビファインワルツ",
     "id": 23350002,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -30064,7 +30170,7 @@
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 750,
-    "tier": "ASB",
+    "tier": "AOSB",
     "master": "ATK +10",
     "relic": "Snow's Guise (XIII)",
     "nameJp": "氷拳粉砕！",
@@ -36249,7 +36355,7 @@
     "character": "Ace",
     "name": "We Have Arrived",
     "type": "NAT",
-    "target": null,
+    "target": "All allies",
     "formula": null,
     "multiplier": null,
     "element": null,
@@ -36725,7 +36831,7 @@
     "points": 500,
     "tier": "USB",
     "master": "MND +10",
-    "relic": "Butterfly Edge (Type-0)",
+    "relic": "Butterfly Edges (Type-0)",
     "nameJp": "ライフコンバート",
     "id": 23080006,
     "gl": true
@@ -41723,7 +41829,7 @@
     "character": "Dr. Mog",
     "name": "Sphere of Light",
     "type": "NAT",
-    "target": null,
+    "target": "-",
     "formula": null,
     "multiplier": null,
     "element": null,

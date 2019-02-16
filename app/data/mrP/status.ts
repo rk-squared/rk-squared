@@ -34,10 +34,15 @@ export function describeStats(stats: string[]): string {
  */
 const enlirStatusAlias: { [status: string]: string } = {
   Astra: 'Status blink 1',
-  'Cast speed *2': 'Fastcast',
+  'Physical Blink 1': 'Phys blink 1',
+
+  'Cast speed *2': 'fastcast',
+  'Quick Cast 2': 'fastcast 2',
+
   'Low Regen': 'Regen (lo)',
   'Medium Regen': 'Regen (med)',
   'High Regen': 'Regen (hi)',
+
   'Last Stand': 'Last stand',
 };
 

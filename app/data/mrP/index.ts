@@ -1,13 +1,14 @@
 import * as _ from 'lodash';
 
-import { EnlirSoulBreak } from '../enlir';
+import { allEnlirElements, EnlirElement, EnlirSoulBreak } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import { describeStats, includeStatus, parseEnlirStatus, sortStatus } from './status';
 import { appendElement, getElementShortName } from './types';
-import { andList } from './util';
+import { andList, toMrPFixed } from './util';
 
 interface MrPSoulBreak {
   instant?: boolean;
+  chain?: string;
   damage?: string;
   other?: string;
 }
@@ -29,6 +30,7 @@ function checkBurstMode(selfOther: string[]): string[] {
 
 export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null {
   let m: RegExpMatchArray | null;
+  let chain: string | undefined;
   let damage = '';
 
   // The components of MrPSoulBreak.other, as lists.  We break them up like
@@ -53,6 +55,15 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     damage += attack.isOverstrike ? ' overstrike' : '';
     damage += attack.isNoMiss ? ' no miss' : '';
     damage += attack.isSummon ? ' (SUM)' : '';
+  }
+
+  if ((m = sb.effects.match(/Activates (.*?) Chain \(max (\d+), field \+(\d+)%\)/))) {
+    const [, type, , fieldBonus] = m;
+
+    // Realm names should remain uppercase, but elements should not.
+    const isElement = allEnlirElements.indexOf(type as EnlirElement) !== -1;
+    chain = (isElement ? getElementShortName(type as EnlirElement) : type) + ' chain';
+    chain += ' ' + toMrPFixed(1 + +fieldBonus / 100) + 'x';
   }
 
   if ((m = sb.effects.match(/Attach (\w+) Stacking/))) {
@@ -160,6 +171,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   }
 
   return {
+    chain: chain || undefined,
     instant: sb.time <= 0.01 ? true : undefined,
     damage: damage || undefined,
     other: other.length ? other.join(', ') : undefined,
