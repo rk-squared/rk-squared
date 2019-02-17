@@ -79,7 +79,19 @@ const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
   'cast speed x2.00': 'Fastcast',
 };
 
-const isFollowUpEffect = (effect: string) => !!effect.match(/[cC]asts .* after using/);
+function isFollowUpEffect(effect: string) {
+  const m = effect.match(/(?:([cC]asts)|([gG]rants)) (.*) after using (.*)/);
+  if (!m) {
+    return null;
+  }
+  const [, casts, grants, skillOrStatus, trigger] = m;
+  return {
+    isSkill: !!casts,
+    isStatus: !!grants,
+    skillOrStatus,
+    trigger,
+  };
+}
 
 const isFollowUpStatus = ({ effects, codedName }: EnlirStatus) =>
   isFollowUpEffect(effects) || codedName.endsWith('_CHASE') || codedName.startsWith('CHASE_MODE_');
@@ -174,7 +186,7 @@ function describeFollowUpTrigger(trigger: string): string {
     .replace(/^a /, '');
 }
 
-function describeFollowUpAttack(attackName: string): string {
+function describeFollowUpSkill(attackName: string): string {
   const attackSkill = enlir.otherSkillsByName[attackName];
   if (!attackSkill) {
     return attackName;
@@ -202,11 +214,14 @@ function describeFollowUpAttack(attackName: string): string {
 }
 
 function describeFollowUp(enlirStatus: EnlirStatus): string {
-  const m = enlirStatus.effects.match(/[cC]asts (.*) after using (.*)/);
-  if (!m) {
+  const followUp = isFollowUpEffect(enlirStatus.effects);
+  if (!followUp) {
     return enlirStatus.effects;
   }
-  return '(' + describeFollowUpTrigger(m[2]) + ' ⤇ ' + describeFollowUpAttack(m[1]) + ')';
+  const describe = followUp.isSkill ? describeFollowUpSkill : describeEnlirStatus;
+  return (
+    '(' + describeFollowUpTrigger(followUp.trigger) + ' ⤇ ' + describe(followUp.skillOrStatus) + ')'
+  );
 }
 
 function getEnlirStatusByName(status: string): EnlirStatus | undefined {
@@ -244,7 +259,7 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   let description = describeEnlirStatus(status);
 
   const isEx = status.startsWith('EX: ');
-  const isExLike = isEx || (!!enlirStatus && isFollowUpStatus(enlirStatus));
+  const isExLike = isEx || (!!enlirStatus && !!isFollowUpStatus(enlirStatus));
 
   if (enlirStatus && isExLike) {
     description = describeExLike(enlirStatus);
