@@ -176,17 +176,19 @@ describe('mrP', () => {
     });
 
     it('converts chains', () => {
+      // Deviation: Now that Chain 2.0s are a thing, adding the max chain count
+      // seems useful, even if MMP didn't do it.
       expect(describeEnlirSoulBreak(soulBreaks['Krile - Unbroken Chain'])).toEqual({
-        chain: 'fire chain 1.2x',
+        chain: 'fire chain 1.2x (max 99)',
         damage: 'magic 17.93/11 fire',
         other: 'party fastcast 2',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Kain - Impulse Drive'])).toEqual({
-        chain: 'lgt chain 1.2x',
+        chain: 'lgt chain 1.2x (max 99)',
         damage: 'phys 7.92/22 lgt jump',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Ace - We Have Arrived'])).toEqual({
-        chain: 'Type-0 chain 1.5x',
+        chain: 'Type-0 chain 1.5x (max 150)',
         other: 'party Haste, +30% ATK/MAG 25s',
       });
     });

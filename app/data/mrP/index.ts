@@ -91,12 +91,13 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
   }
 
   if ((m = sb.effects.match(/Activates (.*?) Chain \(max (\d+), field \+(\d+)%\)/))) {
-    const [, type, , fieldBonus] = m;
+    const [, type, max, fieldBonus] = m;
 
     // Realm names should remain uppercase, but elements should not.
     const isElement = allEnlirElements.indexOf(type as EnlirElement) !== -1;
     chain = (isElement ? getElementShortName(type as EnlirElement) : type) + ' chain';
     chain += ' ' + toMrPFixed(1 + +fieldBonus / 100) + 'x';
+    chain += ` (max ${max})`;
   }
 
   if ((m = sb.effects.match(/Attach (\w+) Stacking/))) {
