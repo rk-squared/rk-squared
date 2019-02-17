@@ -1453,7 +1453,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Three group attacks (21.20 each), capped at 99999, multiplier increased by 0.0014 for every SB point (max is 22.25)",
+    "effects": "Three group attacks (21.20 each), capped at 99999, multiplier increased by 0.0014 for every SB point",
     "counter": false,
     "autoTarget": "All enemies",
     "points": 750,
@@ -39060,7 +39060,7 @@
     "multiplier": null,
     "element": null,
     "time": 2.5,
-    "effects": "Grants Shellga and HP Stock (2000)",
+    "effects": "Grants Shell and HP Stock (2000)",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,

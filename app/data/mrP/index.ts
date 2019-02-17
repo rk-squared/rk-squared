@@ -144,7 +144,27 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     } else if (sb.target === 'Self') {
       selfOther.push(heal);
     } else {
+      // Fallback
       other.push(heal);
+    }
+  }
+
+  const dispelEsunaRe = /[Rr]emoves (positive|negative) effects( to all allies)?/g;
+  while ((m = dispelEsunaRe.exec(sb.effects))) {
+    const [, dispelOrEsuna, who] = m;
+    const effect = dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna';
+    if (!who && attack) {
+      // No need to list an explicit target - it's the same as the attack
+      other.push(effect);
+    } else if (!who && sb.target === 'All enemies') {
+      other.push('AoE ' + effect);
+    } else if (!who && sb.target.startsWith('Single')) {
+      other.push(effect);
+    } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(effect);
+    } else {
+      // Fallback
+      other.push(effect);
     }
   }
 

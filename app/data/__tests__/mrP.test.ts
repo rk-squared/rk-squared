@@ -181,7 +181,13 @@ describe('mrP', () => {
         damage: 'magic 17.44/8 dark+non (SUM)',
         other: '53% (9% × 8) KO, +20% dark vuln. 25s',
       });
-      // 'Mustadio - Seal Evil (FFT)' has some additional checks.
+      // 'Mustadio - Seal Evil (FFT)' below has some additional checks.
+    });
+
+    it('handles Dispel and Esuna', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Shelke - Countertek'])).toEqual({
+        other: 'AoE Dispel, party Esuna, Regen (hi)',
+      });
     });
 
     it('converts scaling attacks', () => {
@@ -195,6 +201,7 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(soulBreaks['Paine - Grand Storm'])).toEqual({
         damage: 'AoE phys 5.4/6 water+earth+wind, up to p6.6 w/ Spellblade used',
+        other: 'Dispel',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Jecht - Blitz King'])).toEqual({
         damage: 'phys 11.7 dark+fire rngd overstrike, up to p13.0 @ 6 SB bars',
