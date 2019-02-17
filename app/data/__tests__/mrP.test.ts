@@ -255,5 +255,12 @@ describe('mrP', () => {
         other: '100% Stop/Silence/Paralyze',
       });
     });
+
+    it('converts quick cycle and critical hit buffs', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Jecht - Ultimate Jecht Rush'])).toEqual({
+        damage: 'phys 7.1/10 dark+non rngd',
+        other: 'self +30% ATK/DEF 25s, crit =75% 25s, fastcast 1, 15s (dark ⤇ fastcast 1)',
+      });
+    });
   });
 });
