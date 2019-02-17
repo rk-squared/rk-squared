@@ -4,7 +4,7 @@ import { allEnlirElements, EnlirElement, EnlirSoulBreak } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import { describeStats, includeStatus, parseEnlirStatus, sortStatus } from './status';
 import { appendElement, damageTypeAbbreviation, getElementShortName } from './types';
-import { andList, toMrPFixed } from './util';
+import { andListNoStats, toMrPFixed } from './util';
 
 interface MrPSoulBreak {
   instant?: boolean;
@@ -171,13 +171,30 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
 
   const statusEffectRe = /(?:[Gg]rants|[Cc]auses) ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?: for (\d+) seconds)?(?=, grants|, causes|, restores HP |, damages the user |, heals the user |, [A-Z]{3}|$)/g;
   while ((m = statusEffectRe.exec(sb.effects))) {
-    const [, statusString, who, duration] = m;
+    const [, statusString, who, overallDuration] = m;
     const status = statusString
-      .split(andList)
+      .split(andListNoStats)
       .filter(includeStatus)
-      .sort(sortStatus)
-      .map(parseEnlirStatus);
-    for (let { description, isExLike, defaultDuration, isVariableDuration, chance } of status) {
+      .sort(sortStatus);
+    for (let thisStatus of status) {
+      let duration: number | undefined = overallDuration ? +overallDuration : undefined;
+      // Check for soul breaks that have multiple statuses with multiple
+      // durations embedded, like Jecht's Ultimate Jecht Rush.
+      const durationMatch = thisStatus.match(/ for (\d+) seconds$/);
+      if (durationMatch) {
+        duration = +durationMatch[1];
+        thisStatus = thisStatus.replace(/ for (\d+) seconds$/, '');
+      }
+
+      // tslint:disable-next-line: prefer-const
+      let { description, isExLike, defaultDuration, isVariableDuration, chance } = parseEnlirStatus(
+        thisStatus,
+      );
+
+      if (!duration && defaultDuration) {
+        duration = defaultDuration;
+      }
+
       let chanceDescription = '';
       if (chance) {
         if (chance !== 100 && attack && attack.numAttacks && attack.numAttacks > 1) {
@@ -190,11 +207,11 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       }
 
       const isDetail = isExLike;
-      if (duration || (defaultDuration && !isVariableDuration)) {
+      if (duration && !isVariableDuration) {
         if (isDetail) {
-          description = `${duration || defaultDuration}s: ` + description;
+          description = `${duration}s: ` + description;
         } else {
-          description = description + ` ${duration || defaultDuration}s`;
+          description = description + ` ${duration}s`;
         }
       }
 
@@ -213,7 +230,9 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     }
   }
 
-  const statModRe = /((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([+-]\d+)% (to the user |to all allies )?for (\d+) seconds/g;
+  // Process stat buffs/debuffs.  Exclude anything marked 'grants' - those are
+  // handed along with statuses above.
+  const statModRe = /(?<![Gg]rants | and )((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([+-]\d+)% (to the user |to all allies )?for (\d+) seconds/g;
   while ((m = statModRe.exec(sb.effects))) {
     const [, stats, percent, who, duration] = m;
     const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);

@@ -14,9 +14,8 @@ import { andList, lowerCaseFirst, parseNumberString } from './util';
  * Status effects which should be omitted from the regular status list
  */
 export function includeStatus(status: string): boolean {
-  // En-Element is listed separately.  Also exclude stat buffs - those are
-  // processed separately.
-  return !status.startsWith('Attach ') && !status.match(/^[A-Z]{3}/);
+  // En-Element is listed separately.
+  return !status.startsWith('Attach ');
 }
 
 export function describeStats(stats: string[]): string {
@@ -68,6 +67,8 @@ const enlirStatusAliasWithNumbers: { [status: string]: string } = {
   'Physical Blink {X}': 'Phys blink {X}',
 
   'Stoneskin: {X}%': 'Negate dmg {X}%',
+
+  'Critical Chance {X}%': 'crit ={X}%',
 };
 
 for (const i of allEnlirElements) {

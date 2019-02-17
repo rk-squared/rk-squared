@@ -259,9 +259,11 @@ describe('mrP', () => {
     });
 
     it('converts quick cycle and critical hit buffs', () => {
+      // Deviation: MMP lists the critical buff as 25s, which appears to be
+      // correct, but Enlir doesn't confirm it.
       expect(describeEnlirSoulBreak(soulBreaks['Jecht - Ultimate Jecht Rush'])).toEqual({
         damage: 'phys 7.1/10 dark+non rngd',
-        other: 'self +30% ATK/DEF 25s, crit =75% 25s, fastcast 1, 15s (dark ⤇ fastcast 1)',
+        other: 'self +30% ATK/DEF 25s, crit =75%, fastcast 1, 15s (dark ⤇ fastcast 1)',
       });
     });
   });

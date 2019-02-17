@@ -1,4 +1,5 @@
 export const andList = /,? and |, /;
+export const andListNoStats = /,? and (?![A-Z]{3})|, /;
 export const orList = /,? or |, /;
 
 const numbers: { [s: string]: number } = {
