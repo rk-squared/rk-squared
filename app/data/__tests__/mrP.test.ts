@@ -130,10 +130,14 @@ describe('mrP', () => {
       // Deviation: MMP often omits "no miss" (due to error? lack of space?)
       // and doesn't show "self" for Ability Boost.  However, it's probably
       // more consistent and certainly more thorough to include it.
+      //
+      // Deviation: MMP shows 15s before some statuses (like this Knight boost)
+      // and after others (more "standard" statuses).  We'll consistently go
+      // after, except for those that are specialized (clearly custom to USB).
       expect(describeEnlirSoulBreak(soulBreaks['Leo - Shock Imperial'])).toEqual({
         damage: 'phys 7.1/10 earth+holy',
         other:
-          'party +30% ATK/DEF 25s, self 1.3x Knight dmg, 15s: (Knight ⤇ p1.96/4 e+h+n Knight no miss)',
+          'party +30% ATK/DEF 25s, self 1.3x Knight dmg 15s, 15s: (Knight ⤇ p1.96/4 e+h+n Knight no miss)',
       });
     });
 
@@ -157,6 +161,17 @@ describe('mrP', () => {
       // Deviation: MMP sometimes says "40%" or "40% HP" or "40% max HP"
       expect(describeEnlirSoulBreak(soulBreaks['Prishe - Rigorous Reverie'])).toEqual({
         other: 'party heal 40% HP, Regen (hi), Last stand',
+      });
+    });
+
+    it('converts revives', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['- - Mending Touch'])).toEqual({
+        other: 'revive @ 20% HP',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks["Iris - Amicitia's Cheer"])).toEqual({
+        instant: true,
+        other: 'party h85, Haste, revive @ 40% HP, self hi fastcast 15s',
       });
     });
 

@@ -176,7 +176,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       .filter(includeStatus)
       .sort(sortStatus)
       .map(parseEnlirStatus);
-    for (let { description, isExLike, defaultDuration, chance } of status) {
+    for (let { description, isExLike, defaultDuration, isVariableDuration, chance } of status) {
       let chanceDescription = '';
       if (chance) {
         if (chance !== 100 && attack && attack.numAttacks && attack.numAttacks > 1) {
@@ -189,7 +189,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       }
 
       const isDetail = isExLike;
-      if (duration || (defaultDuration && isExLike)) {
+      if (duration || (defaultDuration && !isVariableDuration)) {
         if (isDetail) {
           description = `${duration || defaultDuration}s: ` + description;
         } else {
@@ -229,6 +229,19 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     } else {
       // Fallback - may not always be correct
       other.push(statMod);
+    }
+  }
+
+  if ((m = sb.effects.match(/[Rr]emoves KO \((\d+)% HP\)( to all allies)?/))) {
+    const [, percent, who] = m;
+    const revive = `revive @ ${percent}% HP`;
+    if (!who && sb.target.startsWith('Single')) {
+      other.push(revive);
+    } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(revive);
+    } else {
+      // Fallback
+      other.push(revive);
     }
   }
 

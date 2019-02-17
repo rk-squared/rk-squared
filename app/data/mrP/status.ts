@@ -30,6 +30,12 @@ export function describeStats(stats: string[]): string {
 }
 
 /**
+ * Hide durations for some statuses, like Astra, because that's typically
+ * removed due to enemy action.
+ */
+const hideDuration = new Set(['Astra']);
+
+/**
  * Maps from Enlir status names to MMP aliases.  Some Enlir statuses have
  * embedded numbers and so can't use a simple string lookup like this.
  */
@@ -37,6 +43,7 @@ const enlirStatusAlias: { [status: string]: string } = {
   Astra: 'Status blink 1',
 
   'Cast speed *2': 'fastcast',
+  'High Quick Cast': 'hi fastcast',
 
   'Low Regen': 'Regen (lo)',
   'Medium Regen': 'Regen (med)',
@@ -136,6 +143,7 @@ export interface ParsedEnlirStatus {
   description: string;
   isExLike: boolean;
   defaultDuration: number | null;
+  isVariableDuration: boolean;
   chance?: number;
 }
 
@@ -246,7 +254,8 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   return {
     description,
     isExLike,
-    defaultDuration: enlirStatus ? enlirStatus.defaultDuration : null,
+    defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
+    isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
     chance,
   };
 }
