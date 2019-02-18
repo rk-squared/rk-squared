@@ -8,6 +8,7 @@ export const damageTypeAbbreviation = (damageType: 'phys' | 'white' | 'magic') =
 const elementShortName: { [element: string]: string } = {
   lightning: 'lgt',
   ne: 'non',
+  poison: 'bio',
 };
 
 const elementAbbreviation: { [element: string]: string } = {

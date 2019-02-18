@@ -74,6 +74,11 @@ describe('mrP', () => {
         damage: 'phys 7.68/6 wind',
         other: 'party +30% ATK/MAG 25s, self -30% DEF 25s',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['- - Rend Weapon'])).toEqual({
+        damage: 'AoE phys 1.4',
+        other: '-30% ATK 20s',
+      });
     });
 
     it('converts multiple self effects', () => {
@@ -102,6 +107,13 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(soulBreaks['Tyro - Divine Veil Grimoire'])).toEqual({
         other: 'party Haste, Protect, Shell, +200% DEF/RES 25s',
+      });
+    });
+
+    it('converts combinations of stat changes, statuses, and infuses', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Agrias - Loyal Blade'])).toEqual({
+        damage: 'phys 7.1/10 holy+non',
+        other: '-50% ATK/MAG 25s, holy infuse 25s, self 1.15x Knight damage 25s',
       });
     });
 

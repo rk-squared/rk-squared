@@ -244,6 +244,9 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       selfOther.push(statMod);
     } else if (who === 'to all allies ' || (!who && sb.target === 'All allies')) {
       partyOther.push(statMod);
+    } else if (!who && attack) {
+      // No need to list an explicit target - it's the same as the attack
+      other.push(statMod);
     } else if (sb.target === 'All enemies') {
       other.push('AoE ' + statMod);
     } else {

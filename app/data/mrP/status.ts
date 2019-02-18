@@ -8,7 +8,7 @@ import {
   getElementShortName,
   getSchoolAbbreviation,
 } from './types';
-import { andList, lowerCaseFirst, parseNumberString } from './util';
+import { andList, lowerCaseFirst, parseNumberString, toMrPFixed } from './util';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -123,6 +123,10 @@ function describeEnlirStatus(status: string) {
     // Reorganize stats into, e.g., +30% MAG to match MMP
     const [, stat, amount] = m;
     return amount + ' ' + stat.split(andList).join('/');
+  } else if ((m = status.match(/(\w+) (?:Extended )?\+(\d+)% Boost/))) {
+    const [, type, percent] = m;
+    const multiplier = 1 + +percent / 100;
+    return `${toMrPFixed(multiplier)}x ${type} damage`;
   }
 
   // Fallback
