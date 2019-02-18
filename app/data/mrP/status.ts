@@ -9,6 +9,7 @@ import {
   EnlirStatus,
 } from '../enlir';
 import { parseEnlirAttack } from './attack';
+import { splitStatusEffects } from './splitStatusEffects';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -90,13 +91,15 @@ for (const i of allEnlirElements) {
     'Negate dmg {X}% (' + getElementShortName(i) + ' only)';
 }
 
+const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
+// Alternate rank boost text - this is probably a mistake in the spreadsheet.
+const enlirRankBoostAlt = 'deal +5/10/15/20/30% damage at ability rank 1/2/3/4/5';
+
 const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
   'cast speed x2.00': 'fastcast',
-  // For AASBs
-  'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5': 'up to 1.3x dmg @ rank 5',
-  'deal +5/10/15/20/30% damage at ability rank 1/2/3/4/5': 'up to 1.3x dmg @ rank 5',
 };
 
+const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
 
 function isFollowUpEffect(effect: string) {
@@ -190,8 +193,13 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
     return amount + ' ' + stat.split(andList).join('/');
   }
 
+  // Awaken
   if ((m = effect.match(/(.*) (?:abilities|attacks) don't consume uses/))) {
-    return formatSchoolOrAbilityList(m[1]) + ' inf. hones';
+    let result = formatSchoolOrAbilityList(m[1]) + ' inf. hones';
+    if (effect.endsWith(enlirRankBoost) || effect.endsWith(enlirRankBoostAlt)) {
+      result += ', up to 1.3x dmg @ rank 5';
+    }
+    return result;
   }
 
   if ((m = effect.match(/dualcasts (.*) (?:abilities|attacks)/))) {
@@ -216,8 +224,7 @@ export interface ParsedEnlirStatus {
 }
 
 function describeExLike(enlirStatus: EnlirStatus): string {
-  return enlirStatus.effects
-    .split(andList)
+  return splitStatusEffects(enlirStatus.effects)
     .map(i => describeEnlirStatusEffect(i, enlirStatus))
     .join(', ');
 }
@@ -326,7 +333,7 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   }
   let description = describeEnlirStatus(status);
 
-  const isEx = status.startsWith('EX: ');
+  const isEx = isExStatus(status);
   const isAwaken = isAwakenStatus(status);
   const isExLike = isEx || isAwaken || (!!enlirStatus && !!isFollowUpStatus(enlirStatus));
 
@@ -359,6 +366,14 @@ const statusSortOrder: { [status: string]: number } = {
   'Last Stand': 1,
 };
 
+const getSortOrder = (status: string) => {
+  if (isExStatus(status) || isAwakenStatus(status)) {
+    return 999;
+  } else {
+    return statusSortOrder[status] || 0;
+  }
+};
+
 export function sortStatus(a: string, b: string): number {
-  return (statusSortOrder[a] || 0) - (statusSortOrder[b] || 0);
+  return getSortOrder(a) - getSortOrder(b);
 }

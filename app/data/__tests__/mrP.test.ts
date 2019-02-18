@@ -301,8 +301,8 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Agrias - Holy Cross Blade'])).toEqual({
         damage: 'phys 9.0/15 holy+non',
         other:
-          'self dmg cap=19,999 15s, 15s: (2 Knight ⤇ +10% holy vuln. 15s)' +
-          'Awaken Knight (up to 1.3x dmg @ rank 5, no hones used, 100% dualcast) 15s',
+          'self dmg cap=19,999 15s, 15s: (2 Knight ⤇ +10% holy vuln. 15s), ' +
+          '15s: Awaken Knight: Knight inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
     });
   });
