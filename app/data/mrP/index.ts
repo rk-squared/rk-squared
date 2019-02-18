@@ -100,16 +100,6 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     chain += ` (max ${max})`;
   }
 
-  if ((m = sb.effects.match(/Attach (\w+) Stacking/))) {
-    const [, element] = m;
-    other.push(`${element.toLowerCase()} infuse stacking 25s`);
-  }
-
-  if ((m = sb.effects.match(/Attach (\w+) (?!Stacking)/))) {
-    const [, element] = m;
-    other.push(`${element.toLowerCase()} infuse 25s`);
-  }
-
   if (
     (m = sb.effects.match(
       /Restores HP( to all allies| to the user)? for (\d+)% of (?:their|the target's|the user's) maximum HP/i,
@@ -266,6 +256,16 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       // Fallback
       other.push(revive);
     }
+  }
+
+  if ((m = sb.effects.match(/Attach (\w+) Stacking/))) {
+    const [, element] = m;
+    other.push(`${element.toLowerCase()} infuse stacking 25s`);
+  }
+
+  if ((m = sb.effects.match(/Attach (\w+) (?!Stacking)/))) {
+    const [, element] = m;
+    other.push(`${element.toLowerCase()} infuse 25s`);
   }
 
   if (statusInfliction.length) {
