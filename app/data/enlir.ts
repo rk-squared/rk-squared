@@ -143,7 +143,7 @@ export interface EnlirSoulBreak {
 
 export interface EnlirStatus {
   id: number;
-  commonName: string;
+  name: string;
   effects: string;
   defaultDuration: number | null;
   mndModifier: number | null;

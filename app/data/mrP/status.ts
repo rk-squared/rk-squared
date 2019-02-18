@@ -5,6 +5,7 @@ import {
   enlir,
   EnlirElement,
   EnlirOtherSkill,
+  EnlirSchool,
   EnlirStatus,
 } from '../enlir';
 import { parseEnlirAttack } from './attack';
@@ -15,7 +16,7 @@ import {
   getElementShortName,
   getSchoolAbbreviation,
 } from './types';
-import { andList, lowerCaseFirst, numberWithCommas, parseNumberString, toMrPFixed } from './util';
+import { andList, andOrList, numberWithCommas, parseNumberString, toMrPFixed } from './util';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -90,8 +91,13 @@ for (const i of allEnlirElements) {
 }
 
 const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
-  'cast speed x2.00': 'Fastcast',
+  'cast speed x2.00': 'fastcast',
+  // For AASBs
+  'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5': 'up to 1.3x dmg @ rank 5',
+  'deal +5/10/15/20/30% damage at ability rank 1/2/3/4/5': 'up to 1.3x dmg @ rank 5',
 };
+
+const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
 
 function isFollowUpEffect(effect: string) {
   const m = effect.match(/(?:([cC]asts)|([gG]rants)) (.*) after using (.*)/);
@@ -150,6 +156,20 @@ function describeEnlirStatus(status: string) {
   return status;
 }
 
+function formatSchoolOrAbilityList(list: string): string {
+  return list
+    .split(andOrList)
+    .map(i =>
+      allEnlirElements.indexOf(i as EnlirElement) !== -1
+        ? getElementShortName(i as EnlirElement)
+        : getSchoolAbbreviation(i as EnlirSchool),
+    )
+    .join('/');
+}
+
+/**
+ * Describes a single "status effect" - one fragment of an EnlirStatus effects string
+ */
 function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | null) {
   let m: RegExpMatchArray | null;
 
@@ -170,6 +190,19 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
     return amount + ' ' + stat.split(andList).join('/');
   }
 
+  if ((m = effect.match(/(.*) (?:abilities|attacks) don't consume uses/))) {
+    return formatSchoolOrAbilityList(m[1]) + ' inf. hones';
+  }
+
+  if ((m = effect.match(/dualcasts (.*) (?:abilities|attacks)/))) {
+    if (enlirStatus && isAwakenStatus(enlirStatus.name)) {
+      // Ability or element should be redundant for AASBs
+      return '100% dualcast';
+    } else {
+      return `100% dualcast ${formatSchoolOrAbilityList(m[1])}`;
+    }
+  }
+
   // Fallback
   return effect;
 }
@@ -186,7 +219,6 @@ function describeExLike(enlirStatus: EnlirStatus): string {
   return enlirStatus.effects
     .split(andList)
     .map(i => describeEnlirStatusEffect(i, enlirStatus))
-    .map(lowerCaseFirst)
     .join(', ');
 }
 
@@ -295,12 +327,16 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   let description = describeEnlirStatus(status);
 
   const isEx = status.startsWith('EX: ');
-  const isExLike = isEx || (!!enlirStatus && !!isFollowUpStatus(enlirStatus));
+  const isAwaken = isAwakenStatus(status);
+  const isExLike = isEx || isAwaken || (!!enlirStatus && !!isFollowUpStatus(enlirStatus));
 
   if (enlirStatus && isExLike) {
     description = describeExLike(enlirStatus);
     if (isEx) {
       description = 'EX: ' + description;
+    }
+    if (isAwaken) {
+      description = status + ': ' + description;
     }
   }
 
