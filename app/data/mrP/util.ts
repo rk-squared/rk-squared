@@ -70,3 +70,8 @@ export function toMrPFixed(n: number): string {
   }
   return result;
 }
+
+// https://stackoverflow.com/a/2901298/25507
+export function numberWithCommas(x: number): string {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}

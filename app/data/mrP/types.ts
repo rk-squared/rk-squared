@@ -18,6 +18,7 @@ const elementAbbreviation: { [element: string]: string } = {
 
 const schoolAbbreviation: { [school in EnlirSchool]?: string } = {
   'Black Magic': 'B.Mag',
+  Summoning: 'Summon',
 };
 
 export function getElementShortName(element: EnlirElement | EnlirElement[]): string {

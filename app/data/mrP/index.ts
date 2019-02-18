@@ -134,6 +134,10 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
       partyOther.push(heal);
     } else if (sb.target === 'Self') {
       selfOther.push(heal);
+    } else if (sb.target.startsWith('Single')) {
+      // Because medica soul breaks are so common, we'll call out when a SB
+      // only heals one person.
+      other.push('ally ' + heal);
     } else {
       // Fallback
       other.push(heal);

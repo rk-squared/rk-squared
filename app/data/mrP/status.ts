@@ -15,7 +15,7 @@ import {
   getElementShortName,
   getSchoolAbbreviation,
 } from './types';
-import { andList, lowerCaseFirst, parseNumberString, toMrPFixed } from './util';
+import { andList, lowerCaseFirst, numberWithCommas, parseNumberString, toMrPFixed } from './util';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -61,6 +61,9 @@ const enlirStatusAlias: { [status: string]: string } = {
   'Instant KO': 'KO',
 };
 
+for (const i of allEnlirElements) {
+  enlirStatusAlias[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
+}
 for (const i of allEnlirSchools) {
   enlirStatusAlias[`${i} +30% Boost`] = `1.3x ${i} dmg`;
 }
@@ -76,10 +79,14 @@ const enlirStatusAliasWithNumbers: { [status: string]: string } = {
   'Stoneskin: {X}%': 'Negate dmg {X}%',
 
   'Critical Chance {X}%': 'crit ={X}%',
+
+  'Reraise: {X}%': 'Reraise {X}%',
 };
 
 for (const i of allEnlirElements) {
   enlirStatusAliasWithNumbers[`Imperil ${i} {X}%`] = `+{X}% ${getElementShortName(i)} vuln.`;
+  enlirStatusAliasWithNumbers[`${i} Stoneskin: {X}%`] =
+    'Negate dmg {X}% (' + getElementShortName(i) + ' only)';
 }
 
 const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
@@ -125,6 +132,9 @@ function describeEnlirStatus(status: string) {
   // Special cases
   if ((m = status.match(/HP Stock \((\d+)\)/))) {
     return 'Autoheal ' + +m[1] / 1000 + 'k';
+  } else if ((m = status.match(/Damage Cap (\d+)/))) {
+    const [, cap] = m;
+    return `dmg cap=${numberWithCommas(+cap)}`;
   } else if ((m = status.match(/((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([-+]\d+%)/))) {
     // Status effects: e.g., "MAG +30%" from EX: Attack Hand
     // Reorganize stats into, e.g., +30% MAG to match MMP
@@ -224,7 +234,8 @@ function describeFollowUpAttackSkill(skill: EnlirOtherSkill): string | null {
   damage += attack.isOverstrike ? ' overstrike' : '';
   damage += attack.school ? ' ' + getSchoolAbbreviation(attack.school) : '';
   damage += attack.isNoMiss ? ' no miss' : '';
-  damage += attack.isSummon ? ' (SUM)' : '';
+  // Omit ' (SUM)' for Summoning school; it seems redundant.
+  damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
 
   return damage;
 }

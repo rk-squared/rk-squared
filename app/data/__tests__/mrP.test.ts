@@ -87,6 +87,16 @@ describe('mrP', () => {
         damage: 'AoE phys 7.84/8 dark+fire',
         other: 'self lose 25% max HP, +30% ATK/RES 25s',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Alma - Sacred Barrier'])).toEqual({
+        other: 'party Haste, Protect, Shell, Regen (hi), Status blink 1, Reraise 40%',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks["Alma - Cleric's Prayer"])).toEqual({
+        other: 'party -10% holy vuln. 15s, Autoheal 3k',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Alma - Angelic Vessel'])).toEqual({
+        instant: true,
+        other: 'party h85, Negate dmg 100% (dark only), Autoheal 2k',
+      });
     });
 
     it('converts summons', () => {
@@ -98,6 +108,9 @@ describe('mrP', () => {
     it('converts heals plus status effects', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Sarah - Age-old Hymn'])).toEqual({
         other: 'party h55, Magic blink 1, self +30% RES/MND 25s',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Alma - Gentle Chant'])).toEqual({
+        other: 'ally h45, self +20% MND 25s',
       });
     });
 
@@ -281,6 +294,15 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Jecht - Ultimate Jecht Rush'])).toEqual({
         damage: 'phys 7.1/10 dark+non rngd',
         other: 'self +30% ATK/DEF 25s, crit =75%, fastcast 1, 15s: (dark ⤇ fastcast 1)',
+      });
+    });
+
+    it('converts AASBs', () => {
+      // Deviation: MMP spells out Awaken's effects:
+      // "up to 1.3x dmg @ rank 5, no hones used, 100% dualcast"
+      expect(describeEnlirSoulBreak(soulBreaks['Agrias - Holy Cross Blade'])).toEqual({
+        damage: 'phys 9.0/15 holy+non',
+        other: 'self Awaken Knight 15s, dmg cap=19,999 15s, 15s: (2 Knight ⤇ +10% holy vuln. 15s)',
       });
     });
   });
