@@ -1,5 +1,12 @@
 import { logger } from '../../utils/logger';
-import { allEnlirElements, allEnlirSchools, enlir, EnlirElement, EnlirStatus } from '../enlir';
+import {
+  allEnlirElements,
+  allEnlirSchools,
+  enlir,
+  EnlirElement,
+  EnlirOtherSkill,
+  EnlirStatus,
+} from '../enlir';
 import { parseEnlirAttack } from './attack';
 import {
   appendElement,
@@ -190,15 +197,20 @@ function describeFollowUpTrigger(trigger: string): string {
     .replace(/^a /, '');
 }
 
-function describeFollowUpSkill(attackName: string): string {
-  const attackSkill = enlir.otherSkillsByName[attackName];
-  if (!attackSkill) {
-    return attackName;
+function describeFollowUpStatusSkill(skill: EnlirOtherSkill): string | null {
+  const m = skill.effects.match(/^Causes (.*) for (\d+) seconds$/);
+  if (!m) {
+    return null;
   }
 
-  const attack = parseEnlirAttack(attackSkill.effects, attackSkill);
+  const [, status, duration] = m;
+  return describeEnlirStatus(status) + ` ${duration}s`;
+}
+
+function describeFollowUpAttackSkill(skill: EnlirOtherSkill): string | null {
+  const attack = parseEnlirAttack(skill.effects, skill);
   if (!attack) {
-    return attackName;
+    return null;
   }
 
   let damage = '';
@@ -215,6 +227,15 @@ function describeFollowUpSkill(attackName: string): string {
   damage += attack.isSummon ? ' (SUM)' : '';
 
   return damage;
+}
+
+function describeFollowUpSkill(skillName: string): string {
+  const skill = enlir.otherSkillsByName[skillName];
+  if (!skill) {
+    return skillName;
+  }
+
+  return describeFollowUpStatusSkill(skill) || describeFollowUpAttackSkill(skill) || skillName;
 }
 
 function describeFollowUp(enlirStatus: EnlirStatus): string {

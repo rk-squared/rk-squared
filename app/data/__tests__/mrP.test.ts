@@ -167,6 +167,11 @@ describe('mrP', () => {
         other:
           'wind infuse 25s, 15s: EX: +30% ATK, (wind ⤇ p1.6/4 or 3.2/8 wi+n overstrike Combat no miss)',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Agrias - Divine Devastation'])).toEqual({
+        damage: 'phys 6.7/10 holy+non',
+        other: '+20% holy vuln. 25s, 15s: (2 Knight ⤇ +10% holy vuln. 15s)',
+      });
     });
 
     it('converts percent heals', () => {
