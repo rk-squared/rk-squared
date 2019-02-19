@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { EnlirElement, EnlirOtherSkill, EnlirSchool, EnlirSoulBreak } from '../enlir';
-import { getElementShortName, SB_BAR_SIZE } from './types';
+import { formatSchoolOrAbilityList, getElementShortName, SB_BAR_SIZE } from './types';
 import { parseNumberString, parsePercentageCounts, toMrPFixed } from './util';
 
 export interface ParsedEnlirAttack {
@@ -169,16 +169,17 @@ const attackRe = XRegExp(
   (?:(?<attackType>group|random|single)\ )?
   (?<ranged>ranged\ )?
   (?<jump>jump\ )?
-  attacks?\ #
-  \(
+  attacks?
+  (?:\ \(
     (?<attackMultiplier>[0-9.]+)
     (?:~(?<scaleToAttackMultiplier>[0-9.]+))?
     (?:\ each)?
     (?<scaleType>\ scaling\ with[^)]+)?
-  \)
+  \))?
   (?<overstrike>,?\ capped\ at\ 99999)?
   (?<noMiss>,\ 100%\ hit\ rate)?
   (?:,\ multiplier\ increased\ by\ (?<sbMultiplierIncrease>[0-9.]+)\ for\ every\ SB\ point)?
+  (?:\ for\ (?<finisherPercentDamage>\d+)%\ of\ the\ damage\ dealt\ with\ (?<finisherPercentCriteria>.*)\ during\ the\ status)?
   `,
   'x',
 );
@@ -196,16 +197,22 @@ export function parseEnlirAttack(
   const attackMultiplier = parseFloat(m.attackMultiplier);
   const scaleToAttackMultiplier = parseFloat(m.scaleToAttackMultiplier);
   const numAttacks = parseNumberString(m.numAttacks);
-  if ((randomAttacks == null && numAttacks == null) || skill.formula == null) {
-    return null;
-  }
 
   let randomChances: string | undefined;
   let damage: string;
   if (randomAttacks) {
     [randomChances, damage] = describeRandomDamage(attackMultiplier, randomAttacks);
+  } else if (m.finisherPercentDamage) {
+    const criteria = formatSchoolOrAbilityList(
+      m.finisherPercentCriteria.replace(/ (attacks|abilities)/, ''),
+    );
+    const finisherPercentDamage = +m.finisherPercentDamage;
+    if (numAttacks && numAttacks !== 1) {
+      damage = finisherPercentDamage * numAttacks + '% ' + criteria + '/' + numAttacks;
+    } else {
+      damage = finisherPercentDamage + '% ' + criteria;
+    }
   } else {
-    randomChances = undefined;
     damage = describeDamage(attackMultiplier, numAttacks!);
   }
   const followedBy = describeFollowedByAttack(skill.effects);
@@ -219,7 +226,7 @@ export function parseEnlirAttack(
   let scaleToDamage: string | undefined;
   if (m.sbMultiplierIncrease) {
     const sbMultiplierIncrease = parseFloat(m.sbMultiplierIncrease);
-    let maxSbMultiplier = attackMultiplier + sbMultiplierIncrease * 6 * SB_BAR_SIZE;
+    const maxSbMultiplier = attackMultiplier + sbMultiplierIncrease * 6 * SB_BAR_SIZE;
     scaleType = '@ 6 SB bars';
     if (numAttacks) {
       scaleToDamage = numAttacks ? describeDamage(maxSbMultiplier, numAttacks, false) : undefined;
@@ -240,7 +247,7 @@ export function parseEnlirAttack(
 
   return {
     isAoE: m.attackType === 'group',
-    damageType: skill.formula === 'Physical' ? 'phys' : skill.type === 'WHT' ? 'white' : 'magic',
+    damageType: skill.type === 'PHY' ? 'phys' : skill.type === 'WHT' ? 'white' : 'magic',
 
     numAttacks,
     attackMultiplier,

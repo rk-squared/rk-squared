@@ -25,6 +25,8 @@ export const allEnlirElements: EnlirElement[] = [
   'Poison',
   'NE',
 ];
+export const isEnlirElement = (s: string): s is EnlirElement =>
+  allEnlirElements.indexOf(s as EnlirElement) !== -1;
 
 export type EnlirSchool =
   | '?'
@@ -73,6 +75,8 @@ export const allEnlirSchools: EnlirSchool[] = [
   'White Magic',
   'Witch',
 ];
+export const isEnlirSchool = (s: string): s is EnlirSchool =>
+  allEnlirSchools.indexOf(s as EnlirSchool) !== -1;
 
 export type EnlirSkillType = 'BLK' | 'NAT' | 'NIN' | 'PHY' | 'SUM' | 'WHT';
 

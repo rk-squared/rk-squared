@@ -297,6 +297,16 @@ describe('mrP', () => {
       });
     });
 
+    it('converts finishers', () => {
+      // Discrepancy: This format for finishers differs somewhat...
+      expect(describeEnlirSoulBreak(soulBreaks['Alphinaud - Teraflare'])).toEqual({
+        damage: 'AoE magic 16.1/7 wind+dark (SUM)',
+        other:
+          'wind infuse 25s, 15s: EX: 1.05-1.1-1.15-1.2-1.3x SUM dmg @ ranks 1-5, ' +
+          'Finisher: AoE magic 35% SUM/5 Summon, self refill 2 abil. use',
+      });
+    });
+
     it('converts AASBs', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Agrias - Holy Cross Blade'])).toEqual({
         damage: 'phys 9.0/15 holy+non',

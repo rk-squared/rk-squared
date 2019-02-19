@@ -1,9 +1,14 @@
 import * as _ from 'lodash';
 
-import { allEnlirElements, EnlirElement, EnlirSoulBreak } from '../enlir';
+import { EnlirOtherSkill, EnlirSoulBreak, isEnlirElement } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import { describeStats, includeStatus, parseEnlirStatus, sortStatus } from './status';
-import { appendElement, damageTypeAbbreviation, getElementShortName } from './types';
+import {
+  appendElement,
+  damageTypeAbbreviation,
+  getElementShortName,
+  getSchoolShortName,
+} from './types';
 import { andListNoStats, toMrPFixed } from './util';
 
 interface MrPSoulBreak {
@@ -43,7 +48,7 @@ function checkBurstMode(selfOther: string[]): string[] {
     : selfOther;
 }
 
-export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null {
+export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): MrPSoulBreak {
   let m: RegExpMatchArray | null;
   let chain: string | undefined;
   let damage = '';
@@ -70,8 +75,10 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     damage += attack.isRanged ? ' rngd' : '';
     damage += attack.isJump ? ' jump' : '';
     damage += attack.isOverstrike ? ' overstrike' : '';
+    damage += attack.school ? ' ' + getSchoolShortName(attack.school) : '';
     damage += attack.isNoMiss ? ' no miss' : '';
-    damage += attack.isSummon ? ' (SUM)' : '';
+    // Omit ' (SUM)' for Summoning school; it seems redundant.
+    damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
     if (attack.orDamage && attack.orCondition) {
       damage +=
         ', or ' +
@@ -94,8 +101,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     const [, type, max, fieldBonus] = m;
 
     // Realm names should remain uppercase, but elements should not.
-    const isElement = allEnlirElements.indexOf(type as EnlirElement) !== -1;
-    chain = (isElement ? getElementShortName(type as EnlirElement) : type) + ' chain';
+    chain = (isEnlirElement(type) ? getElementShortName(type) : type) + ' chain';
     chain += ' ' + toMrPFixed(1 + +fieldBonus / 100) + 'x';
     chain += ` (max ${max})`;
   }
@@ -272,6 +278,19 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     other.push(`${element.toLowerCase()} infuse 25s`);
   }
 
+  if ((m = sb.effects.match(/(\w+ )?smart ether (\S+)( to the user|to all allies)/))) {
+    const [, type, amount, who] = m;
+    const ether = 'refill ' + (type ? type + ' ' : '') + amount + ' abil. use';
+    if (who === ' to the user' || (!who && sb.target === 'Self')) {
+      selfOther.push(ether);
+    } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(ether);
+    } else {
+      // Fallback
+      other.push(ether);
+    }
+  }
+
   if (statusInfliction.length) {
     other.splice(0, 0, formatStatusInfliction(statusInfliction));
   }
@@ -291,6 +310,14 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak): MrPSoulBreak | null 
     damage: damage || undefined,
     other: other.length ? other.join(', ') : undefined,
   };
+}
+
+export function formatMrP(mrP: MrPSoulBreak): string {
+  let text = _.filter([mrP.chain, mrP.damage, mrP.other]).join(', ');
+  if (text && mrP.instant) {
+    text = 'instant ' + text;
+  }
+  return text;
 }
 
 // TODO: finishers, Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB

@@ -5,19 +5,20 @@ import {
   enlir,
   EnlirElement,
   EnlirOtherSkill,
-  EnlirSchool,
   EnlirStatus,
 } from '../enlir';
 import { parseEnlirAttack } from './attack';
+import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './splitStatusEffects';
 import {
   appendElement,
   damageTypeAbbreviation,
+  formatSchoolOrAbilityList,
   getElementAbbreviation,
   getElementShortName,
-  getSchoolAbbreviation,
+  getSchoolShortName,
 } from './types';
-import { andList, andOrList, numberWithCommas, parseNumberString, toMrPFixed } from './util';
+import { andList, numberWithCommas, parseNumberString, toMrPFixed } from './util';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -169,15 +170,21 @@ function describeEnlirStatus(status: string) {
   return status;
 }
 
-function formatSchoolOrAbilityList(list: string): string {
-  return list
-    .split(andOrList)
-    .map(i =>
-      allEnlirElements.indexOf(i as EnlirElement) !== -1
-        ? getElementShortName(i as EnlirElement)
-        : getSchoolAbbreviation(i as EnlirSchool),
-    )
-    .join('/');
+const getFinisherSkillName = (effect: string) => {
+  const m = effect.match(/[Cc]asts (.*?) when removed/);
+  return m ? m[1] : null;
+};
+
+function describeFinisher(skillName: string) {
+  const skill = enlir.otherSkillsByName[skillName];
+  if (!skill) {
+    logger.warn(`Unknown finisher skill ${skill}`);
+    return skillName;
+  }
+
+  const mrP = describeEnlirSoulBreak(skill);
+
+  return 'Finisher: ' + formatMrP(mrP);
 }
 
 /**
@@ -188,6 +195,13 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
 
   if (enlirStatus && parseFollowUpEffect(effect)) {
     return describeFollowUp(enlirStatus);
+  }
+
+  if (enlirStatus) {
+    const finisherSkillName = getFinisherSkillName(effect);
+    if (finisherSkillName) {
+      return describeFinisher(finisherSkillName);
+    }
   }
 
   // Generic status effects
@@ -285,7 +299,7 @@ function describeFollowUpAttackSkill(skill: EnlirOtherSkill): string | null {
   damage += attack.isRanged ? ' rngd' : '';
   damage += attack.isJump ? ' jmp' : '';
   damage += attack.isOverstrike ? ' overstrike' : '';
-  damage += attack.school ? ' ' + getSchoolAbbreviation(attack.school) : '';
+  damage += attack.school ? ' ' + getSchoolShortName(attack.school) : '';
   damage += attack.isNoMiss ? ' no miss' : '';
   // Omit ' (SUM)' for Summoning school; it seems redundant.
   damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';

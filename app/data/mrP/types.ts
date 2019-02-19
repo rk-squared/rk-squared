@@ -1,5 +1,6 @@
 import { arrayify } from '../../utils/typeUtils';
-import { EnlirElement, EnlirSchool } from '../enlir';
+import { EnlirElement, EnlirSchool, isEnlirElement, isEnlirSchool } from '../enlir';
+import { andOrList } from './util';
 
 export const SB_BAR_SIZE = 250;
 
@@ -16,7 +17,7 @@ const elementAbbreviation: { [element: string]: string } = {
   wind: 'wi',
 };
 
-const schoolAbbreviation: { [school in EnlirSchool]?: string } = {
+const schoolShortName: { [school in EnlirSchool]?: string } = {
   'Black Magic': 'B.Mag',
   Summoning: 'Summon',
 };
@@ -31,8 +32,12 @@ export function getElementAbbreviation(element: EnlirElement | EnlirElement[]): 
   return element.map(i => elementAbbreviation[i.toLowerCase()] || i[0].toLowerCase()).join('+');
 }
 
-export function getSchoolAbbreviation(school: EnlirSchool): string {
-  return schoolAbbreviation[school] || school;
+export function getSchoolShortName(school: EnlirSchool): string {
+  return schoolShortName[school] || school;
+}
+
+export function getShortName(s: string): string {
+  return isEnlirElement(s) ? getElementShortName(s) : isEnlirSchool(s) ? getSchoolShortName(s) : s;
 }
 
 export function appendElement(
@@ -40,4 +45,11 @@ export function appendElement(
   f: (element: EnlirElement[]) => string,
 ): string {
   return element && element.length ? ' ' + f(element) : '';
+}
+
+export function formatSchoolOrAbilityList(list: string): string {
+  return list
+    .split(andOrList)
+    .map(getShortName)
+    .join('/');
 }
