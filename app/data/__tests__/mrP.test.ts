@@ -304,6 +304,8 @@ describe('mrP', () => {
           'self dmg cap=19,999 15s, 15s: (2 Knight ⤇ +10% holy vuln. 15s), ' +
           '15s: Awaken Knight: Knight inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+      // TODO: Add checks for more Awaken modes
+      // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.
     });
   });
 });

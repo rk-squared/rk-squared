@@ -94,6 +94,7 @@ for (const i of allEnlirElements) {
 const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
 // Alternate rank boost text - this is probably a mistake in the spreadsheet.
 const enlirRankBoostAlt = 'deal +5/10/15/20/30% damage at ability rank 1/2/3/4/5';
+const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
 
 const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
   'cast speed x2.00': 'fastcast',
@@ -218,6 +219,10 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
     } else {
       return `100% dualcast ${formatSchoolOrAbilityList(m[1])}`;
     }
+  }
+
+  if ((m = effect.match(enlirRankBoostRe))) {
+    return `1.05-1.1-1.15-1.2-1.3x ${m[1]} dmg @ ranks 1-5`;
   }
 
   // Fallback
