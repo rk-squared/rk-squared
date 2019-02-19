@@ -48,6 +48,7 @@ function checkBurstMode(selfOther: string[]): string[] {
     : selfOther;
 }
 
+// FIXME: Rename to indicate broader usage (not just soul breaks now) and move out of index?
 export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): MrPSoulBreak {
   let m: RegExpMatchArray | null;
   let chain: string | undefined;
@@ -67,6 +68,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
 
   const attack = parseEnlirAttack(sb.effects, sb);
   if (attack) {
+    // FIXME: Extract and reduce duplication with describing follow-up skills?
     damage += attack.isAoE ? 'AoE ' : '';
     damage += attack.randomChances ? attack.randomChances + ' ' : '';
     damage += attack.damageType + ' ' + attack.damage;

@@ -20763,7 +20763,7 @@
     "effect": null,
     "character": "Zeid",
     "soulBreak": null,
-    "legendMateria": "Shining Black Blade",
+    "legendMateria": "Blade of Darkness",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -20787,7 +20787,7 @@
       "eva": null
     },
     "id": 21002304,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Runeblade",
@@ -40362,7 +40362,7 @@
       "eva": null
     },
     "id": 21007095,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Oversoul",
@@ -106352,7 +106352,7 @@
     },
     "effect": "Dark damage +20%",
     "character": "Zeid",
-    "soulBreak": "Jet-Black Edge",
+    "soulBreak": "Darksheen Blade",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -106377,7 +106377,7 @@
       "eva": 105
     },
     "id": 22054083,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Delita's Armor",

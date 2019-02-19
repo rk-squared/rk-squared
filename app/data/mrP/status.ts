@@ -60,6 +60,7 @@ const enlirStatusAlias: { [status: string]: string } = {
   'High Regen': 'Regen (hi)',
 
   'Last Stand': 'Last stand',
+  'Radiant Shield: 100%': 'Reflect Dmg',
 
   'Instant KO': 'KO',
 };
@@ -90,11 +91,11 @@ for (const i of allEnlirElements) {
   enlirStatusAliasWithNumbers[`Imperil ${i} {X}%`] = `+{X}% ${getElementShortName(i)} vuln.`;
   enlirStatusAliasWithNumbers[`${i} Stoneskin: {X}%`] =
     'Negate dmg {X}% (' + getElementShortName(i) + ' only)';
+  enlirStatusAliasWithNumbers[`${i} Radiant Shield: {X}%`] =
+    'Reflect Dmg {X}% as ' + getElementShortName(i);
 }
 
 const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
-// Alternate rank boost text - this is probably a mistake in the spreadsheet.
-const enlirRankBoostAlt = 'deal +5/10/15/20/30% damage at ability rank 1/2/3/4/5';
 const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
 
 const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
@@ -220,7 +221,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
   // Awaken
   if ((m = effect.match(/(.*) (?:abilities|attacks) don't consume uses/))) {
     let result = formatSchoolOrAbilityList(m[1]) + ' inf. hones';
-    if (effect.endsWith(enlirRankBoost) || effect.endsWith(enlirRankBoostAlt)) {
+    if (effect.endsWith(enlirRankBoost)) {
       result += ', up to 1.3x dmg @ rank 5';
     }
     return result;

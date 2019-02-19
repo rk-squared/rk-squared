@@ -27220,7 +27220,7 @@
     "relic": "Coeurl Cesti (XI)",
     "nameJp": "羅刹七星拳",
     "id": 22680004,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -27489,7 +27489,7 @@
   {
     "realm": "XI",
     "character": "Zeid",
-    "name": "Jet-Black Edge",
+    "name": "Darksheen Blade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -27508,7 +27508,7 @@
     "relic": "Chaos Cuirass (XI)",
     "nameJp": "漆黒に煌きし闇刃",
     "id": 22890004,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",

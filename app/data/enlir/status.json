@@ -9720,7 +9720,7 @@
   {
     "id": 50373,
     "name": "Awaken Thunder God",
-    "effects": "Knight or Darkness abilities don't consume uses and deal +5/10/15/20/30% damage at ability rank 1/2/3/4/5, dualcasts Knight or Darkness abilities",
+    "effects": "Knight or Darkness abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Knight or Darkness abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
