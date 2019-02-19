@@ -102,7 +102,7 @@ const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
 const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
 
-function isFollowUpEffect(effect: string) {
+function parseFollowUpEffect(effect: string) {
   const m = effect.match(/(?:([cC]asts)|([gG]rants)) (.*) after using (.*)/);
   if (!m) {
     return null;
@@ -117,7 +117,16 @@ function isFollowUpEffect(effect: string) {
 }
 
 const isFollowUpStatus = ({ effects, codedName }: EnlirStatus) =>
-  isFollowUpEffect(effects) || codedName.endsWith('_CHASE') || codedName.startsWith('CHASE_MODE_');
+  !!parseFollowUpEffect(effects) ||
+  codedName.endsWith('_CHASE') ||
+  codedName.startsWith('CHASE_MODE_');
+
+/**
+ * "Mode" statuses are, typically, character-specific trances or EX-like
+ * statuses provided by a single Ultra or Awakening soul break.
+ */
+const isModeStatus = ({ codedName }: EnlirStatus) =>
+  !!codedName.match(/_MODE/) && codedName !== 'BRAVE_MODE';
 
 /**
  * Describes a "well-known" or common Enlir status name.
@@ -176,7 +185,7 @@ function formatSchoolOrAbilityList(list: string): string {
 function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | null) {
   let m: RegExpMatchArray | null;
 
-  if (enlirStatus && isFollowUpEffect(effect)) {
+  if (enlirStatus && parseFollowUpEffect(effect)) {
     return describeFollowUp(enlirStatus);
   }
 
@@ -289,7 +298,7 @@ function describeFollowUpSkill(skillName: string): string {
 }
 
 function describeFollowUp(enlirStatus: EnlirStatus): string {
-  const followUp = isFollowUpEffect(enlirStatus.effects);
+  const followUp = parseFollowUpEffect(enlirStatus.effects);
   if (!followUp) {
     return enlirStatus.effects;
   }
@@ -335,7 +344,10 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
 
   const isEx = isExStatus(status);
   const isAwaken = isAwakenStatus(status);
-  const isExLike = isEx || isAwaken || (!!enlirStatus && !!isFollowUpStatus(enlirStatus));
+  const isExLike =
+    isEx ||
+    isAwaken ||
+    (enlirStatus != null && (isFollowUpStatus(enlirStatus) || isModeStatus(enlirStatus)));
 
   if (enlirStatus && isExLike) {
     description = describeExLike(enlirStatus);
