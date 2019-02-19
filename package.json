@@ -151,6 +151,7 @@
     "@types/redux-mock-store": "^1.0.0",
     "@types/sinon": "^4.0.0",
     "@types/stream-buffers": "^3.0.2",
+    "@types/xregexp": "^3.0.29",
     "@types/yargs": "^12.0.1",
     "asar": "^0.14.0",
     "concurrently": "^3.1.0",
@@ -253,7 +254,8 @@
     "typesafe-actions": "^1.1.2",
     "updeep": "^1.0.0",
     "utility-types": "^2.0.0",
-    "winston": "^3.0.0"
+    "winston": "^3.0.0",
+    "xregexp": "^4.2.4"
   },
   "devEngines": {
     "node": ">=6.x",

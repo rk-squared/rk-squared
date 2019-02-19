@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import * as XRegExp from 'xregexp';
 
 import { EnlirElement, EnlirOtherSkill, EnlirSchool, EnlirSoulBreak } from '../enlir';
 import { getElementShortName, SB_BAR_SIZE } from './types';
@@ -162,35 +163,39 @@ function describeScaleType(scaleType: string): string {
   }
 }
 
+const attackRe = XRegExp(
+  String.raw`
+  (?<numAttacks>[Rr]andomly\ deals\ .*|[A-Za-z-]+)\ #
+  (?:(?<attackType>group|random|single)\ )?
+  (?<ranged>ranged\ )?
+  (?<jump>jump\ )?
+  attacks?\ #
+  \(
+    (?<attackMultiplier>[0-9.]+)
+    (?:~(?<scaleToAttackMultiplier>[0-9.]+))?
+    (?:\ each)?
+    (?<scaleType>\ scaling\ with[^)]+)?
+  \)
+  (?<overstrike>,?\ capped\ at\ 99999)?
+  (?<noMiss>,\ 100%\ hit\ rate)?
+  (?:,\ multiplier\ increased\ by\ (?<sbMultiplierIncrease>[0-9.]+)\ for\ every\ SB\ point)?
+  `,
+  'x',
+);
+
 export function parseEnlirAttack(
   effects: string,
   skill: EnlirOtherSkill | EnlirSoulBreak,
 ): ParsedEnlirAttack | null {
-  const m = effects.match(
-    /([Rr]andomly deals .*|[A-Za-z\-]+) (?:(group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+)(?:~([0-9\.]+))?(?: each)?( scaling with[^)]+)?\)(,? capped at 99999)?(, 100% hit rate)?(?:, multiplier increased by ([0-9.]+) for every SB point(?: \(max is ([0-9.]+)\))?)?/,
-  );
+  const m = XRegExp.exec(effects, attackRe) as any;
   if (!m) {
     return null;
   }
 
-  const [
-    ,
-    numAttacksString,
-    attackType,
-    ranged,
-    jump,
-    attackMultiplierString,
-    scaleToAttackMultiplierString,
-    rawScaleType,
-    overstrike,
-    noMiss,
-    sbMultiplierIncreaseString,
-    maxSbMultiplierString,
-  ] = m;
-  const randomAttacks = parsePercentageCounts(numAttacksString);
-  const attackMultiplier = parseFloat(attackMultiplierString);
-  const scaleToAttackMultiplier = parseFloat(scaleToAttackMultiplierString);
-  const numAttacks = parseNumberString(numAttacksString);
+  const randomAttacks = parsePercentageCounts(m.numAttacks);
+  const attackMultiplier = parseFloat(m.attackMultiplier);
+  const scaleToAttackMultiplier = parseFloat(m.scaleToAttackMultiplier);
+  const numAttacks = parseNumberString(m.numAttacks);
   if ((randomAttacks == null && numAttacks == null) || skill.formula == null) {
     return null;
   }
@@ -212,19 +217,10 @@ export function parseEnlirAttack(
 
   let scaleType: string | undefined;
   let scaleToDamage: string | undefined;
-  if (sbMultiplierIncreaseString) {
-    const sbMultiplierIncrease = parseFloat(sbMultiplierIncreaseString);
-    let maxSbMultiplier: number;
-    if (maxSbMultiplierString) {
-      maxSbMultiplier = parseFloat(maxSbMultiplierString);
-      const maxBars = Math.round(
-        (maxSbMultiplier - attackMultiplier) / sbMultiplierIncrease / SB_BAR_SIZE,
-      );
-      scaleType = `@ ${maxBars} bars`;
-    } else {
-      maxSbMultiplier = attackMultiplier + sbMultiplierIncrease * 6 * SB_BAR_SIZE;
-      scaleType = '@ 6 SB bars';
-    }
+  if (m.sbMultiplierIncrease) {
+    const sbMultiplierIncrease = parseFloat(m.sbMultiplierIncrease);
+    let maxSbMultiplier = attackMultiplier + sbMultiplierIncrease * 6 * SB_BAR_SIZE;
+    scaleType = '@ 6 SB bars';
     if (numAttacks) {
       scaleToDamage = numAttacks ? describeDamage(maxSbMultiplier, numAttacks, false) : undefined;
       if ('points' in skill) {
@@ -233,17 +229,17 @@ export function parseEnlirAttack(
       }
     }
   } else {
-    if (rawScaleType) {
-      scaleType = describeScaleType(rawScaleType);
+    if (m.scaleType) {
+      scaleType = describeScaleType(m.scaleType);
     }
-    if (scaleToAttackMultiplierString && numAttacks) {
+    if (m.scaleToAttackMultiplier && numAttacks) {
       // Omit number of attacks - it's always the same as the main attack.
       scaleToDamage = describeDamage(scaleToAttackMultiplier, numAttacks, false);
     }
   }
 
   return {
-    isAoE: attackType === 'group',
+    isAoE: m.attackType === 'group',
     damageType: skill.formula === 'Physical' ? 'phys' : skill.type === 'WHT' ? 'white' : 'magic',
 
     numAttacks,
@@ -260,10 +256,10 @@ export function parseEnlirAttack(
     element: skill.element,
     school: 'school' in skill ? (skill.school as EnlirSchool) : undefined,
 
-    isRanged: !!ranged && !jump,
-    isJump: !!jump,
-    isOverstrike: !!overstrike,
+    isRanged: !!m.ranged && !m.jump,
+    isJump: !!m.jump,
+    isOverstrike: !!m.overstrike,
     isSummon: skill.type === 'SUM',
-    isNoMiss: !!noMiss,
+    isNoMiss: !!m.noMiss,
   };
 }
