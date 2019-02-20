@@ -23349,7 +23349,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single attacks (0.62 each), grants Imperil Fire 20%, Imperil Lightning 20% and Monk High Quick Cast 2 to the user",
+    "effects": "Ten single attacks (0.62 each), causes Imperil Fire 20% and Imperil Lightning 20% for 25 seconds, grants Monk High Quick Cast 2 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

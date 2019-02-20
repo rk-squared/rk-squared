@@ -23,7 +23,8 @@
     "package:all": "npm run build && build -mw",
     "lint": "tslint --project .",
     "lint:watch": "onchange 'scripts/*.ts' 'app/**/*.ts' 'app/**/*.tsx' -- yarn lint",
-    "build:watch": "tsc -w"
+    "build:watch": "tsc -w",
+    "get-enlir": "ts-node scripts/download-enlir.ts -o app/data/enlir"
   },
   "jest": {
     "testURL": "http://localhost/",

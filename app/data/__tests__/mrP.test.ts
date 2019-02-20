@@ -317,11 +317,24 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Agrias - Holy Cross Blade'])).toEqual({
         damage: 'phys 9.0/15 holy+non',
         other:
-          'self dmg cap=19,999 15s, 15s: (2 Knight ⤇ +10% holy vuln. 15s), ' +
+          'holy infuse 25s, self dmg cap=19,999 15s, 15s: (2 Knight ⤇ +10% holy vuln. 15s), ' +
           '15s: Awaken Knight: Knight inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
       // TODO: Add checks for more Awaken modes
       // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.
+    });
+
+    it('handles turn-limited boosts', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Amarant - Exploding Fist'])).toEqual({
+        instant: true,
+        damage: 'phys 6.2/10 lgt+fire+non',
+        other: '+20% fire vuln. 25s, +20% lgt vuln. 25s, self Monk hi fastcast 2 turns',
+      });
+      // This also tests elemental infuse with the Oxford comma.
+      expect(describeEnlirSoulBreak(soulBreaks["Amarant - Outlaw's Spirit"])).toEqual({
+        instant: true,
+        other: 'fire infuse stacking 25s, fire infuse 25s, self crit =100% 2 turns',
+      });
     });
   });
 });

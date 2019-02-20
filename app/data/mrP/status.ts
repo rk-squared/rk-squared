@@ -62,6 +62,8 @@ const enlirStatusAlias: { [status: string]: string } = {
   'Last Stand': 'Last stand',
   'Radiant Shield: 100%': 'Reflect Dmg',
 
+  'High Retaliate': 'Retaliate @p1.2',
+
   'Instant KO': 'KO',
 };
 
@@ -69,7 +71,8 @@ for (const i of allEnlirElements) {
   enlirStatusAlias[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
 }
 for (const i of allEnlirSchools) {
-  enlirStatusAlias[`${i} +30% Boost`] = `1.3x ${i} dmg`;
+  enlirStatusAlias[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
+  enlirStatusAlias[`${i} High Quick Cast`] = `${getSchoolShortName(i)} hi fastcast`;
 }
 
 const enlirStatusAliasWithNumbers: { [status: string]: string } = {
@@ -83,6 +86,7 @@ const enlirStatusAliasWithNumbers: { [status: string]: string } = {
   'Stoneskin: {X}%': 'Negate dmg {X}%',
 
   'Critical Chance {X}%': 'crit ={X}%',
+  '{X}% Critical': 'crit ={X}%',
 
   'Reraise: {X}%': 'Reraise {X}%',
 };
@@ -131,6 +135,21 @@ const isFollowUpStatus = ({ effects, codedName }: EnlirStatus) =>
 const isModeStatus = ({ codedName }: EnlirStatus) =>
   !!codedName.match(/_MODE/) && codedName !== 'BRAVE_MODE';
 
+function describeGenericStatus(status: string): string | null {
+  let m: RegExpMatchArray | null;
+
+  if (enlirStatusAlias[status]) {
+    return enlirStatusAlias[status];
+  } else if ((m = status.match(/(\d+)/))) {
+    const statusText = status.replace(/\d+/, '{X}');
+    if (enlirStatusAliasWithNumbers[statusText]) {
+      return enlirStatusAliasWithNumbers[statusText].replace('{X}', m[1]);
+    }
+  }
+
+  return null;
+}
+
 /**
  * Describes a "well-known" or common Enlir status name.
  *
@@ -141,12 +160,19 @@ function describeEnlirStatus(status: string) {
   let m: RegExpMatchArray | null;
 
   // Generic statuses
-  if (enlirStatusAlias[status]) {
-    return enlirStatusAlias[status];
-  } else if ((m = status.match(/(\d+)/))) {
-    const statusText = status.replace(/\d+/, '{X}');
-    if (enlirStatusAliasWithNumbers[statusText]) {
-      return enlirStatusAliasWithNumbers[statusText].replace('{X}', m[1]);
+  {
+    const genericStatus = describeGenericStatus(status);
+    if (genericStatus) {
+      return genericStatus;
+    }
+  }
+
+  // Turn-limited versions of generic statuses
+  if ((m = status.match(/(.*) (\d)$/))) {
+    const [, baseStatus, turns] = m;
+    const genericStatus = describeGenericStatus(baseStatus);
+    if (genericStatus) {
+      return genericStatus + ' ' + turns + (turns === '1' ? ' turn' : ' turns');
     }
   }
 

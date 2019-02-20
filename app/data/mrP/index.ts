@@ -275,7 +275,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
     other.push(`${element.toLowerCase()} infuse stacking 25s`);
   }
 
-  if ((m = sb.effects.match(/Attach (\w+) (?!Stacking)/))) {
+  if ((m = sb.effects.match(/Attach (\w+)(?: |,|$)(?! Stacking)/))) {
     const [, element] = m;
     other.push(`${element.toLowerCase()} infuse 25s`);
   }
@@ -322,4 +322,5 @@ export function formatMrP(mrP: MrPSoulBreak): string {
   return text;
 }
 
-// TODO: finishers, Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB
+// TODO: finishers, Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB, Ace's cycle
+// TODO: Amarant Exploding Fast is incorrect; sort out "100% Critical" vs. "Critical 100%"
