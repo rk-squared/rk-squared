@@ -87,13 +87,15 @@ const enlirStatusAliasWithNumbers: { [status: string]: string } = {
   'Stoneskin: {X}%': 'Negate dmg {X}%',
 
   'Critical Chance {X}%': 'crit ={X}%',
+  // The FFRK Community spreadsheet has both forms.  This is probably an error.
   '{X}% Critical': 'crit ={X}%',
+  'Critical {X}%': 'crit ={X}%',
 
   'Reraise: {X}%': 'Reraise {X}%',
 
-  '{X}% Damage Reduction Barrier 1': '-{X}% Dmg barrier 1',
-  '{X}% Damage Reduction Barrier 2': '-{X}% Dmg barrier 2',
-  '{X}% Damage Reduction Barrier 3': '-{X}% Dmg barrier 3',
+  '{X}% Damage Reduction Barrier 2': '{X}% Dmg barrier 2',
+  '{X}% Damage Reduction Barrier 1': '{X}% Dmg barrier 1',
+  '{X}% Damage Reduction Barrier 3': '{X}% Dmg barrier 3',
 };
 
 for (const i of allEnlirElements) {
@@ -121,16 +123,17 @@ const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
 
 function parseFollowUpEffect(effect: string) {
-  const m = effect.match(/(?:([cC]asts)|([gG]rants)) (.*) after using (.*)/);
+  const m = effect.match(/(?:([cC]asts)|([gG]rants)) (.*) after (using|dealing damage with) (.*)/);
   if (!m) {
     return null;
   }
-  const [, casts, grants, skillOrStatus, trigger] = m;
+  const [, casts, grants, skillOrStatus, triggerType, trigger] = m;
   return {
     isSkill: !!casts,
     isStatus: !!grants,
     skillOrStatus,
     trigger,
+    isDamageTrigger: triggerType === 'dealing damage with',
   };
 }
 
@@ -305,7 +308,7 @@ function describeExLike(enlirStatus: EnlirStatus): string {
     .join(', ');
 }
 
-function describeFollowUpTrigger(trigger: string): string {
+function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): string {
   if (trigger === 'an ability') {
     return 'any ability';
   }
@@ -316,10 +319,12 @@ function describeFollowUpTrigger(trigger: string): string {
     .map(i => parseNumberString(i) || i)
     .join(' ');
 
-  return trigger
-    .replace(/ (abilities|ability|attacks|attack)$/, '')
-    .replace(' or ', '/')
-    .replace(/^a /, '');
+  return (
+    trigger
+      .replace(/ (abilities|ability|attacks|attack)$/, '')
+      .replace(' or ', '/')
+      .replace(/^a /, '') + (isDamageTrigger ? ' dmg' : '')
+  );
 }
 
 function describeFollowUpStatusSkill(skill: EnlirOtherSkill): string | null {
@@ -371,7 +376,11 @@ function describeFollowUp(enlirStatus: EnlirStatus): string {
   }
   const describe = followUp.isSkill ? describeFollowUpSkill : describeEnlirStatus;
   return (
-    '(' + describeFollowUpTrigger(followUp.trigger) + ' ⤇ ' + describe(followUp.skillOrStatus) + ')'
+    '(' +
+    describeFollowUpTrigger(followUp.trigger, followUp.isDamageTrigger) +
+    ' ⤇ ' +
+    describe(followUp.skillOrStatus) +
+    ')'
   );
 }
 

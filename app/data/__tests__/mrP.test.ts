@@ -133,6 +133,10 @@ describe('mrP', () => {
         instant: true,
         other: 'party Negate dmg 30% 25s, +100% RES 25s',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Angeal - Rage of Sloth'])).toEqual({
+        damage: 'phys 7.1/10 holy+wind',
+        other: 'party 50% Dmg barrier 2, Regenga, self crit =100%',
+      });
     });
 
     it('converts combinations of stat changes, statuses, and infuses', () => {
@@ -160,6 +164,15 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Squall - Brutal Blast'])).toEqual({
         damage: 'phys 7.47/9 ice+non',
         other: 'self hi fastcast 2, 15s: EX: (2 Spellblade ⤇ AoE p2.6/4 i+n Combat no miss)',
+      });
+
+      // Deviation: MMP doesn't always use 1-letter abbreviations for
+      // follow-ups.  E.g., this is "lg+d+n."
+      expect(describeEnlirSoulBreak(soulBreaks['Aranea - Dragon Leap'])).toEqual({
+        damage: 'phys 7.1/10 lgt+dark jump',
+        other:
+          'lgt infuse 25s, self +30% ATK/DEF 25s, ' +
+          '15s: (Dragoon dmg ⤇ p1.9/5 l+d+n rngd Dragoon no miss)',
       });
     });
 

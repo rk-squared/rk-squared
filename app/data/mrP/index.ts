@@ -9,6 +9,7 @@ import {
   damageTypeAbbreviation,
   getElementShortName,
   getSchoolShortName,
+  getShortName,
 } from './types';
 import { toMrPFixed } from './util';
 
@@ -272,12 +273,12 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
 
   if ((m = sb.effects.match(/Attach (\w+) Stacking/))) {
     const [, element] = m;
-    other.push(`${element.toLowerCase()} infuse stacking 25s`);
+    other.push(`${getShortName(element)} infuse stacking 25s`);
   }
 
   if ((m = sb.effects.match(/Attach (\w+)(?: |,|$)(?! Stacking)/))) {
     const [, element] = m;
-    other.push(`${element.toLowerCase()} infuse 25s`);
+    other.push(`${getShortName(element)} infuse 25s`);
   }
 
   if ((m = sb.effects.match(/(\w+ )?smart ether (\S+)( to the user|to all allies)/))) {
