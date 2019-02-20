@@ -68,6 +68,9 @@ export function parsePercentageCounts(s: string): Array<[number, number]> | null
 }
 
 export function toMrPFixed(n: number): string {
+  if (isNaN(n)) {
+    return '?';
+  }
   let result = n.toFixed(2);
   if (result.endsWith('0')) {
     result = result.substr(0, result.length - 1);
