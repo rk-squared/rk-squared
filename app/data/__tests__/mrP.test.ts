@@ -135,7 +135,12 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(soulBreaks['Angeal - Rage of Sloth'])).toEqual({
         damage: 'phys 7.1/10 holy+wind',
-        other: 'party 50% Dmg barrier 2, Regenga, self crit =100%',
+        other: 'party 50% Dmg barrier 2, Regenga, self crit =100% 25s',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Auron - Miracle Blade'])).toEqual({
+        instant: true,
+        damage: 'phys 3.12/6 fire+non',
+        other: '+10% fire vuln. 15s, -50% DEF 15s',
       });
     });
 
