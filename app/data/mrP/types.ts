@@ -19,6 +19,7 @@ const elementAbbreviation: { [element: string]: string } = {
 
 const schoolShortName: { [school in EnlirSchool]?: string } = {
   'Black Magic': 'B.Mag',
+  'White Magic': 'W.Mag',
   Summoning: 'Summon',
 };
 

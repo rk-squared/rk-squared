@@ -1,12 +1,5 @@
 import { logger } from '../../utils/logger';
-import {
-  allEnlirElements,
-  allEnlirSchools,
-  enlir,
-  EnlirElement,
-  EnlirOtherSkill,
-  EnlirStatus,
-} from '../enlir';
+import { allEnlirElements, allEnlirSchools, enlir, EnlirOtherSkill, EnlirStatus } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
@@ -17,8 +10,9 @@ import {
   getElementAbbreviation,
   getElementShortName,
   getSchoolShortName,
+  getShortName,
 } from './types';
-import { andList, numberWithCommas, parseNumberString, toMrPFixed } from './util';
+import { andList, numberWithCommas, orList, parseNumberString, toMrPFixed } from './util';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -313,18 +307,23 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
     return 'any ability';
   }
 
-  trigger = trigger
-    .split(' ')
-    .map(i => (allEnlirElements.indexOf(i as EnlirElement) !== -1 ? i.toLowerCase() : i))
-    .map(i => parseNumberString(i) || i)
-    .join(' ');
+  trigger = trigger.replace(/ (abilities|ability|attacks|attack)$/, '').replace(/^a /, '');
 
-  return (
-    trigger
-      .replace(/ (abilities|ability|attacks|attack)$/, '')
-      .replace(' or ', '/')
-      .replace(/^a /, '') + (isDamageTrigger ? ' dmg' : '')
-  );
+  let count: number | null = null;
+  const m = trigger.match(/^(\S+) (.*)/);
+  if (m && m[1]) {
+    count = parseNumberString(m[1]);
+    if (count != null) {
+      trigger = m[2];
+    }
+  }
+
+  trigger = trigger
+    .split(orList)
+    .map(getShortName)
+    .join('/');
+
+  return (count ? count + ' ' : '') + trigger + (isDamageTrigger ? ' dmg' : '');
 }
 
 function describeFollowUpStatusSkill(skill: EnlirOtherSkill): string | null {
