@@ -3,7 +3,7 @@ import * as XRegExp from 'xregexp';
 
 import { EnlirElement, EnlirOtherSkill, EnlirSchool, EnlirSoulBreak } from '../enlir';
 import { formatSchoolOrAbilityList, getElementShortName, SB_BAR_SIZE } from './types';
-import { parseNumberString, parsePercentageCounts, toMrPFixed } from './util';
+import { parseNumberString, parsePercentageCounts, parseThresholdValues, toMrPFixed } from './util';
 
 export interface ParsedEnlirAttack {
   damageType: 'phys' | 'white' | 'magic';
@@ -68,6 +68,23 @@ function describeRandomDamage(
   } else {
     return [percents.join('-') + '%', damages.join('-')];
   }
+}
+
+function describeThresholdDamage(
+  numAttacks: number | null,
+  numAttacksRange: number[] | null,
+  attackMultiplier: string,
+): string {
+  let attackMultipliersRange = parseThresholdValues(attackMultiplier);
+  if (!numAttacksRange) {
+    numAttacksRange = _.times(attackMultipliersRange.length, _.constant(numAttacks!));
+  }
+  if (attackMultipliersRange.length === 1) {
+    attackMultipliersRange = _.times(numAttacksRange.length, _.constant(attackMultipliersRange[0]));
+  }
+  return _.zip(attackMultipliersRange, numAttacksRange)
+    .map(([m, n]) => describeDamage(m!, n!))
+    .join(' - ');
 }
 
 /**
@@ -165,21 +182,31 @@ function describeScaleType(scaleType: string): string {
 
 const attackRe = XRegExp(
   String.raw`
-  (?<numAttacks>[Rr]andomly\ deals\ .*|[A-Za-z-]+)\ #
+  (?<numAttacks>[Rr]andomly\ deals\ .*|[A-Za-z-]+|[0-9/]+)\ #
   (?:(?<attackType>group|random|single)\ )?
   (?<ranged>ranged\ )?
   (?<jump>jump\ )?
   attacks?
   (?:\ \(
     (?<attackMultiplier>[0-9.]+)
+    (?<altAttackMultiplier>(?:/[0-9.]+)*)?
     (?:~(?<scaleToAttackMultiplier>[0-9.]+))?
     (?:\ each)?
     (?<scaleType>\ scaling\ with[^)]+)?
   \))?
   (?<overstrike>,?\ capped\ at\ 99999)?
+
+  (?<scaleWithUses>\ scaling\ with\ uses)?
+  (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
+  (?:\ if\ (?:the\ )?user\ has\ (?<statusThreshold>.*)\ (?<statusThresholdCount>(?:\d+/)+\d+))?
+  (?<lowHpThreshold>\ if\ the\ user's\ HP\ are\ below\ 100/80/60/40/20%)?
+  (?:\ at\ (?<statThresholdValue>(?:\d+/)+\d+)\ (?<statThreshold>[A-Z]{3}))?
+  (?<attackThreshold>\ scaling\ with\ (<attackThresholdType>.*)\ attacks\ used\ \((?<attackThresholdCount>(?:\d+/)+\d+)\))?
+  (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
+
   (?<noMiss>,\ 100%\ hit\ rate)?
   (?:,\ multiplier\ increased\ by\ (?<sbMultiplierIncrease>[0-9.]+)\ for\ every\ SB\ point)?
-  (?:\ for\ (?<finisherPercentDamage>\d+)%\ of\ the\ damage\ dealt\ with\ (?<finisherPercentCriteria>.*)\ during\ the\ status)?
+  (?:\ for\ (?<finisherPercentDamage>[0-9.]+)%\ of\ the\ damage\ dealt\ with\ (?<finisherPercentCriteria>.*)\ during\ the\ status)?
   `,
   'x',
 );
@@ -197,6 +224,7 @@ export function parseEnlirAttack(
   const attackMultiplier = parseFloat(m.attackMultiplier);
   const scaleToAttackMultiplier = parseFloat(m.scaleToAttackMultiplier);
   const numAttacks = parseNumberString(m.numAttacks);
+  const numAttacksRange = m.numAttacks.match('/') ? parseThresholdValues(m.numAttacks) : null;
 
   let randomChances: string | undefined;
   let damage: string;
@@ -212,6 +240,12 @@ export function parseEnlirAttack(
     } else {
       damage = finisherPercentDamage + '% ' + criteria;
     }
+  } else if (numAttacksRange || m.altAttackMultiplier) {
+    damage = describeThresholdDamage(
+      numAttacks,
+      numAttacksRange,
+      m.attackMultiplier + (m.altAttackMultiplier || ''),
+    );
   } else {
     damage = describeDamage(attackMultiplier, numAttacks!);
   }
@@ -235,6 +269,8 @@ export function parseEnlirAttack(
         damage = describeDamage(attackMultiplier + skill.points * sbMultiplierIncrease, numAttacks);
       }
     }
+  } else if (m.rank) {
+    scaleType = '@ rank 1-5';
   } else {
     if (m.scaleType) {
       scaleType = describeScaleType(m.scaleType);

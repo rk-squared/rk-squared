@@ -353,6 +353,7 @@ function describeFollowUpAttackSkill(skill: EnlirOtherSkill): string | null {
   damage += attack.isOverstrike ? ' overstrike' : '';
   damage += attack.school ? ' ' + getSchoolShortName(attack.school) : '';
   damage += attack.isNoMiss ? ' no miss' : '';
+  damage += attack.scaleType ? ' ' + attack.scaleType : '';
   // Omit ' (SUM)' for Summoning school; it seems redundant.
   damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
 

@@ -47,6 +47,10 @@ export function parseNumberString(s: string): number | null {
   return result;
 }
 
+export function parseThresholdValues(s: string): number[] {
+  return s.split('/').map(parseFloat);
+}
+
 export function parsePercentageCounts(s: string): Array<[number, number]> | null {
   const result: Array<[number, number]> = [];
   for (const i of s.split(orList)) {

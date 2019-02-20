@@ -181,6 +181,15 @@ describe('mrP', () => {
       });
     });
 
+    it('converts EX modes with rank chases', () => {
+      expect(describeEnlirSoulBreak(soulBreaks["Arc - Water's Grace"])).toEqual({
+        damage: 'white 18.0/10 holy+water',
+        other:
+          'holy infuse 25s, self +30% RES/MND 25s, ' +
+          '15s: (holy ⤇ w3.26/2 - 4.89/3 - 6.52/4 - 8.15/5 - 9.78/6 h+wa+n W.Mag @ rank 1-5)',
+      });
+    });
+
     it('converts EX modes with skill boosts and 100% hit rate follow-up attacks', () => {
       // Deviation: MMP often omits "no miss" (due to error? lack of space?)
       // and doesn't show "self" for Ability Boost.  However, it's probably

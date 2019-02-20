@@ -323,5 +323,6 @@ export function formatMrP(mrP: MrPSoulBreak): string {
   return text;
 }
 
-// TODO: finishers, Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB, Ace's cycle
+// TODO: finishers, Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB, Ace's cycle, Dk Cecil's Awaken
+// TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Windfang, Blasting Freeze
 // TODO: Amarant Exploding Fast is incorrect; sort out "100% Critical" vs. "Critical 100%"
