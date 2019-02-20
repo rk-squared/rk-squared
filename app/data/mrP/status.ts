@@ -116,7 +116,15 @@ const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
 const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
 
-function parseFollowUpEffect(effect: string) {
+interface FollowUpEffect {
+  isSkill: boolean;
+  isStatus: boolean;
+  skillOrStatus: string;
+  trigger: string;
+  isDamageTrigger: boolean;
+}
+
+function parseFollowUpEffect(effect: string): FollowUpEffect | null {
   const m = effect.match(/(?:([cC]asts)|([gG]rants)) (.*) after (using|dealing damage with) (.*)/);
   if (!m) {
     return null;
@@ -238,11 +246,12 @@ function describeFinisher(skillName: string) {
 function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | null) {
   let m: RegExpMatchArray | null;
 
-  if (enlirStatus && parseFollowUpEffect(effect)) {
-    return describeFollowUp(enlirStatus);
-  }
-
   if (enlirStatus) {
+    const followUp = parseFollowUpEffect(effect);
+    if (followUp) {
+      return describeFollowUp(followUp);
+    }
+
     const finisherSkillName = getFinisherSkillName(effect);
     if (finisherSkillName) {
       return describeFinisher(finisherSkillName);
@@ -296,12 +305,25 @@ export interface ParsedEnlirStatus {
   chance?: number;
 }
 
+/**
+ * Describes an "EX mode-like" status.  This is not an exact science, but the
+ * general idea is that "common" statuses can be listed more or less as is
+ * (possibly using our shorter or more explanatory aliases), while rare or
+ * character-specific statuses should be broken down and their individual
+ * effects listed separately.
+ */
 function describeExLike(enlirStatus: EnlirStatus): string {
   return splitStatusEffects(enlirStatus.effects)
     .map(i => describeEnlirStatusEffect(i, enlirStatus))
     .join(', ');
 }
 
+/**
+ * Describes the trigger portion of a follow-up.
+ *
+ * @param trigger - Enlir's text description of the trigger
+ * @param isDamageTrigger - Does it have to deal damage to trigger?
+ */
 function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): string {
   if (trigger === 'an ability') {
     return 'any ability';
@@ -326,6 +348,9 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
   return (count ? count + ' ' : '') + trigger + (isDamageTrigger ? ' dmg' : '');
 }
 
+/**
+ * Describes a follow-up skill that inflicts a status (e.g., imperil).
+ */
 function describeFollowUpStatusSkill(skill: EnlirOtherSkill): string | null {
   const m = skill.effects.match(/^Causes (.*) for (\d+) seconds$/);
   if (!m) {
@@ -336,6 +361,13 @@ function describeFollowUpStatusSkill(skill: EnlirOtherSkill): string | null {
   return describeEnlirStatus(status) + ` ${duration}s`;
 }
 
+/**
+ * Describes a follow-up attack skill.  This is a simplified version of the
+ * main function; since follow-up attacks are typically simpler, we can
+ * abbreviate them without confusion.
+ *
+ * TODO: See about combining this plus describeFollowUpStatusSkill with main function
+ */
 function describeFollowUpAttackSkill(skill: EnlirOtherSkill): string | null {
   const attack = parseEnlirAttack(skill.effects, skill);
   if (!attack) {
@@ -360,6 +392,9 @@ function describeFollowUpAttackSkill(skill: EnlirOtherSkill): string | null {
   return damage;
 }
 
+/**
+ * For a follow-up that triggers a skill, describes the skill.
+ */
 function describeFollowUpSkill(skillName: string): string {
   const skill = enlir.otherSkillsByName[skillName];
   if (!skill) {
@@ -369,11 +404,11 @@ function describeFollowUpSkill(skillName: string): string {
   return describeFollowUpStatusSkill(skill) || describeFollowUpAttackSkill(skill) || skillName;
 }
 
-function describeFollowUp(enlirStatus: EnlirStatus): string {
-  const followUp = parseFollowUpEffect(enlirStatus.effects);
-  if (!followUp) {
-    return enlirStatus.effects;
-  }
+/**
+ * For follow-up statuses, returns a string describing the follow-up (how it's
+ * triggered and what it does).
+ */
+function describeFollowUp(followUp: FollowUpEffect): string {
   const describe = followUp.isSkill ? describeFollowUpSkill : describeEnlirStatus;
   return (
     '(' +
@@ -384,6 +419,10 @@ function describeFollowUp(enlirStatus: EnlirStatus): string {
   );
 }
 
+/**
+ * Retrieves an EnlirStatus by name, including support for generic numbers and
+ * elements.
+ */
 function getEnlirStatusByName(status: string): EnlirStatus | undefined {
   if (enlir.statusByName[status]) {
     return enlir.statusByName[status];
@@ -404,6 +443,10 @@ function getEnlirStatusByName(status: string): EnlirStatus | undefined {
   return undefined;
 }
 
+/**
+ * Parses a string description of an Enlir status name, returning details about
+ * it and how it should be shown.
+ */
 export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   const m = status.match(/(.*) \((\d+)%\)$/);
   let chance: number | undefined;
