@@ -121,11 +121,17 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Tyro - Divine Veil Grimoire'])).toEqual({
         other: 'party Haste, Protect, Shell, +200% DEF/RES 25s',
       });
+
       // Discrepancy: MMP lists Reflect Dmg second.  Unless we want to try and
       // separate "exotic" statuses from "common" statuses, that's inconsistent
       // with other soul breaks.
       expect(describeEnlirSoulBreak(soulBreaks['Alphinaud - Deployment Tactics'])).toEqual({
         other: 'party Reflect Dmg 30s, +30% ATK/MAG 25s',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Angeal - Thunder of Envy'])).toEqual({
+        instant: true,
+        other: 'party Negate dmg 30% 25s, +100% RES 25s',
       });
     });
 

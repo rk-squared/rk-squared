@@ -3141,6 +3141,50 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Blitz Follow-Up",
+    "name": "Blitz",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "Lightning",
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged? attacks (? each)",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 0,
+    "school": "?",
+    "id": null,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dark Barrage Follow-Up",
+    "name": "Dark Barrage",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "?",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 0,
+    "school": "?",
+    "id": null,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Deep Freeze Follow-Up",
     "name": "Deep Freeze",
     "type": "NAT",

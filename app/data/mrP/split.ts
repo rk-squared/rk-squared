@@ -1,3 +1,11 @@
+/**
+ * @file
+ * Text processing logic for splitting up Enlir strings into lists
+ */
+
+import { andList } from './util';
+
+const isStat = (effect: string) => !!effect.match(/^[A-Z]{3}$/);
 const isStatMod = (effect: string) => !!effect.match(/\b[A-Z]{3} [+-]?\d+%/);
 
 function isSameEffect(prev: string, next: string) {
@@ -65,5 +73,28 @@ export function splitStatusEffects(effects: string): string[] {
 
     result.push(thisPart);
   }
+  return result.reverse();
+}
+
+/**
+ * Splits the status effects section of a skill's effects string
+ */
+export function splitSkillStatuses(effects: string): string[] {
+  const parts = effects.split(andList).reverse();
+  const result: string[] = [];
+
+  for (let i = 0; i < parts.length; i++) {
+    let thisPart = parts[i];
+
+    let join = ' and ';
+    while (i + 1 < parts.length && isStat(parts[i + 1])) {
+      thisPart = parts[i + 1] + join + thisPart;
+      i++;
+      join = ', ';
+    }
+
+    result.push(thisPart);
+  }
+
   return result.reverse();
 }

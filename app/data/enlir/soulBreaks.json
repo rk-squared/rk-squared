@@ -5826,7 +5826,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six group attacks (1.05 each), causes Imperil Lightning -10% and RES -50% for 15 seconds",
+    "effects": "Six group attacks (1.05 each), causes Imperil Lightning 10% and RES -50% for 15 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "points": 250,
@@ -37765,6 +37765,32 @@
   },
   {
     "realm": "KH",
+    "character": "Sora",
+    "name": "Master Hearts",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "Lightning",
+      "Ice",
+      "NE"
+    ],
+    "time": null,
+    "effects": "Fifteen single ranged attacks (? each), grants Awaken Spellblade, Damage Cap 19999, Major Buff Fire, Major Buff Lightning, Major Buff Ice and Blitz Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "?",
+    "nameJp": "?",
+    "id": 23240008,
+    "gl": false
+  },
+  {
+    "realm": "KH",
     "character": "Riku",
     "name": "Vertical Strike",
     "type": "PHY",
@@ -37875,6 +37901,30 @@
     "nameJp": "ダークハンド",
     "id": 23250004,
     "gl": true
+  },
+  {
+    "realm": "KH",
+    "character": "Riku",
+    "name": "Dark Cannon",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": null,
+    "effects": "Fifteen single ranged attacks (? each), grants Attach Dark, Awaken Darkness, Damage Cap 19999 and Dark Barrage Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "?",
+    "nameJp": "?",
+    "id": 23250006,
+    "gl": false
   },
   {
     "realm": "Beyond",

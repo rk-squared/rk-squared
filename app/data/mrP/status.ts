@@ -9,7 +9,7 @@ import {
 } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import { describeEnlirSoulBreak, formatMrP } from './index';
-import { splitStatusEffects } from './splitStatusEffects';
+import { splitStatusEffects } from './split';
 import {
   appendElement,
   damageTypeAbbreviation,

@@ -1,5 +1,4 @@
 export const andList = /,? and |, /;
-export const andListNoStats = /,? and (?![A-Z]{3})|, /;
 export const orList = /,? or |, /;
 export const andOrList = /,? and |,? or |, /;
 

@@ -2,6 +2,7 @@ import * as _ from 'lodash';
 
 import { EnlirOtherSkill, EnlirSoulBreak, isEnlirElement } from '../enlir';
 import { parseEnlirAttack } from './attack';
+import { splitSkillStatuses } from './split';
 import { describeStats, includeStatus, parseEnlirStatus, sortStatus } from './status';
 import {
   appendElement,
@@ -9,7 +10,7 @@ import {
   getElementShortName,
   getSchoolShortName,
 } from './types';
-import { andListNoStats, toMrPFixed } from './util';
+import { toMrPFixed } from './util';
 
 interface MrPSoulBreak {
   instant?: boolean;
@@ -174,8 +175,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
   const statusEffectRe = /(?:[Gg]rants|[Cc]auses) ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?: for (\d+) seconds)?(?=, grants|, causes|, restores HP |, damages the user |, heals the user |, [A-Z]{3}|$)/g;
   while ((m = statusEffectRe.exec(sb.effects))) {
     const [, statusString, who, overallDuration] = m;
-    const status = statusString
-      .split(andListNoStats)
+    const status = splitSkillStatuses(statusString)
       .filter(includeStatus)
       .sort(sortStatus);
     for (let thisStatus of status) {
