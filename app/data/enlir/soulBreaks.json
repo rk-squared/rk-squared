@@ -6923,7 +6923,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single hybrid attacks (0.60 or 1.6 each), grants Attach Holy, Awaken Holy, Damage Cap 19999 to the user and  75% Damage Reduction Barrier 3 to all allies",
+    "effects": "Fifteen single hybrid attacks (0.60 or 1.6 each), grants Attach Holy, Awaken Holy, Damage Cap 19999 to the user and 75% Damage Reduction Barrier 3 to all allies",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -18265,7 +18265,7 @@
       "Wind"
     ],
     "time": 2.5,
-    "effects": "Ten single attacks (0.71 each), grants Critical 100% to the user, grants  50% Damage Reduction Barrier 2 and Regenga to all allies",
+    "effects": "Ten single attacks (0.71 each), grants Critical 100% to the user, grants 50% Damage Reduction Barrier 2 and Regenga to all allies",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

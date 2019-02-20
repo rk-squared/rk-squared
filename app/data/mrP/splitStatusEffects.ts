@@ -41,8 +41,7 @@ export function splitStatusEffects(effects: string): string[] {
       i++;
     }
 
-    // Handle comma-separated lists.  We identify these as lists of one or two
-    // words, separated by "and" or "or".  But don't include stat mods.
+    // Handle comma-separated lists.  See isSameEffect.
     if (parts[i].match(/^\S+,? +(and|or)/)) {
       while (i + 1 < parts.length && isSameEffect(parts[i + 1], thisPart)) {
         thisPart = parts[i + 1] + ', ' + thisPart;

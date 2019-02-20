@@ -132,7 +132,7 @@ describe('mrP', () => {
     it('converts combinations of stat changes, statuses, and infuses', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Agrias - Loyal Blade'])).toEqual({
         damage: 'phys 7.1/10 holy+non',
-        other: '-50% ATK/MAG 25s, holy infuse 25s, self 1.15x Knight damage 25s',
+        other: '-50% ATK/MAG 25s, holy infuse 25s, self 1.15x Knight dmg 25s',
       });
     });
 
@@ -328,7 +328,11 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Amarant - Exploding Fist'])).toEqual({
         instant: true,
         damage: 'phys 6.2/10 lgt+fire+non',
-        other: '+20% fire vuln. 25s, +20% lgt vuln. 25s, self Monk hi fastcast 2 turns',
+        other: '+20% fire vuln. 25s, +20% lgt vuln. 25s, self Monk hi fastcast 2',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Onion Knight - Onion Soul'])).toEqual({
+        instant: true,
+        other: '1.3x dmg vs weak 15s, hi fastcast 2',
       });
       // This also tests elemental infuse with the Oxford comma.
       expect(describeEnlirSoulBreak(soulBreaks["Amarant - Outlaw's Spirit"])).toEqual({

@@ -79,6 +79,7 @@ const enlirStatusAliasWithNumbers: { [status: string]: string } = {
   'Quick Cast {X}': 'fastcast {X}',
   'High Quick Cast {X}': 'hi fastcast {X}',
   'Instant Cast {X}': 'instacast {X}',
+  'Magical Quick Cast {X}': 'fastzap {X}',
 
   'Magical Blink {X}': 'Magic blink {X}',
   'Physical Blink {X}': 'Phys blink {X}',
@@ -89,6 +90,10 @@ const enlirStatusAliasWithNumbers: { [status: string]: string } = {
   '{X}% Critical': 'crit ={X}%',
 
   'Reraise: {X}%': 'Reraise {X}%',
+
+  '{X}% Damage Reduction Barrier 1': '-{X}% Dmg barrier 1',
+  '{X}% Damage Reduction Barrier 2': '-{X}% Dmg barrier 2',
+  '{X}% Damage Reduction Barrier 3': '-{X}% Dmg barrier 3',
 };
 
 for (const i of allEnlirElements) {
@@ -97,6 +102,12 @@ for (const i of allEnlirElements) {
     'Negate dmg {X}% (' + getElementShortName(i) + ' only)';
   enlirStatusAliasWithNumbers[`${i} Radiant Shield: {X}%`] =
     'Reflect Dmg {X}% as ' + getElementShortName(i);
+}
+for (const i of allEnlirSchools) {
+  for (const j of ['Quick Cast {X}', 'High Quick Cast {X}', 'Instant Cast {x}']) {
+    enlirStatusAliasWithNumbers[i + ' ' + j] =
+      getSchoolShortName(i) + ' ' + enlirStatusAliasWithNumbers[j];
+  }
 }
 
 const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
@@ -167,16 +178,8 @@ function describeEnlirStatus(status: string) {
     }
   }
 
-  // Turn-limited versions of generic statuses
-  if ((m = status.match(/(.*) (\d)$/))) {
-    const [, baseStatus, turns] = m;
-    const genericStatus = describeGenericStatus(baseStatus);
-    if (genericStatus) {
-      return genericStatus + ' ' + turns + (turns === '1' ? ' turn' : ' turns');
-    }
-  }
-
-  // Special cases
+  // Special cases - numbers that require processing, so they can't easily
+  // merge with enlirStatusAliasWithNumbers
   if ((m = status.match(/HP Stock \((\d+)\)/))) {
     return 'Autoheal ' + +m[1] / 1000 + 'k';
   } else if ((m = status.match(/Damage Cap (\d+)/))) {
@@ -187,10 +190,28 @@ function describeEnlirStatus(status: string) {
     // Reorganize stats into, e.g., +30% MAG to match MMP
     const [, stat, amount] = m;
     return amount + ' ' + stat.split(andList).join('/');
-  } else if ((m = status.match(/(\w+) (?:Extended )?\+(\d+)% Boost/))) {
+  }
+
+  // More special cases - schools + numbers
+  if ((m = status.match(/(\w+) (?:Extended )?\+(\d+)% Boost/))) {
     const [, type, percent] = m;
     const multiplier = 1 + +percent / 100;
-    return `${toMrPFixed(multiplier)}x ${type} damage`;
+    if (type === 'Weakness') {
+      return `${toMrPFixed(multiplier)}x dmg vs weak`;
+    } else {
+      return `${toMrPFixed(multiplier)}x ${type} dmg`;
+    }
+  }
+
+  // Turn-limited versions of generic statuses.  Some turn-limited versions,
+  // like 'hi fastcast 2', are common enough that they're separately listed
+  // under enlirStatusAliasWithNumbers and omit the 'turn' text.
+  if ((m = status.match(/(.*) (\d)$/))) {
+    const [, baseStatus, turns] = m;
+    const genericStatus = describeGenericStatus(baseStatus);
+    if (genericStatus) {
+      return genericStatus + ' ' + turns + (turns === '1' ? ' turn' : ' turns');
+    }
   }
 
   // Fallback

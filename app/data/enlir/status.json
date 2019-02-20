@@ -9928,7 +9928,7 @@
   },
   {
     "id": 50398,
-    "name": " 75% Damage Reduction Barrier 3",
+    "name": "75% Damage Reduction Barrier 3",
     "effects": "Reduces damage taken by 75% for the next 3 attacks",
     "defaultDuration": null,
     "mndModifier": null,
@@ -10404,7 +10404,7 @@
   },
   {
     "id": 50444,
-    "name": " 50% Damage Reduction Barrier 2",
+    "name": "50% Damage Reduction Barrier 2",
     "effects": "Reduces damage taken by 50% for the next 2 attacks",
     "defaultDuration": null,
     "mndModifier": null,
@@ -10470,7 +10470,7 @@
   },
   {
     "id": 50450,
-    "name": " 75% Damage Reduction Barrier 1",
+    "name": "75% Damage Reduction Barrier 1",
     "effects": "Reduces damage taken by 75% for the next attack",
     "defaultDuration": null,
     "mndModifier": null,
