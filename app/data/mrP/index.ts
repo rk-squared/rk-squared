@@ -364,5 +364,5 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
   return text;
 }
 
-// TODO: finishers, Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB, Ace's cycle, Dk Cecil's Awaken
+// TODO: Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB, Dk Cecil's Awaken and ultra
 // TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Windfang, Blasting Freeze

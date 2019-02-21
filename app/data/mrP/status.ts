@@ -135,7 +135,13 @@ const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
 interface FollowUpEffect {
   isSkill: boolean;
   isStatus: boolean;
-  skillOrStatus: string;
+
+  /**
+   * Follow-up skill or status.  This is experimentally an array to support
+   * Ace's Firaga BOM follow-up, but we may find an alternate approach there.
+   */
+  skillOrStatus: string[];
+
   trigger: string;
   isDamageTrigger: boolean;
 }
@@ -149,7 +155,7 @@ function parseFollowUpEffect(effect: string): FollowUpEffect | null {
   return {
     isSkill: !!casts,
     isStatus: !!grants,
-    skillOrStatus,
+    skillOrStatus: skillOrStatus.split(' / '),
     trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
   };
@@ -309,6 +315,11 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
     return `1.05-1.1-1.15-1.2-1.3x ${m[1]} dmg @ ranks 1-5`;
   }
 
+  if (effect.startsWith('removed after using ')) {
+    // These statuses are too verbose to fit in a MrP style format.
+    return '';
+  }
+
   // Fallback
   return effect;
 }
@@ -331,6 +342,7 @@ export interface ParsedEnlirStatus {
 function describeExLike(enlirStatus: EnlirStatus): string {
   return splitStatusEffects(enlirStatus.effects)
     .map(i => describeEnlirStatusEffect(i, enlirStatus))
+    .filter(i => i !== '')
     .join(', ');
 }
 
@@ -347,10 +359,16 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
 
   trigger = trigger.replace(/ (abilities|ability|attacks|attack)$/, '').replace(/^a /, '');
 
-  let count: number | null = null;
-  const m = trigger.match(/^(\S+) (.*)/);
-  if (m && m[1]) {
-    count = parseNumberString(m[1]);
+  let count: number | string | null = null;
+  let m: RegExpMatchArray | null;
+  if ((m = trigger.match(/^(\S+) (.*)/))) {
+    // Check for number strings, like "Twenty-two," and threshold-type values,
+    // like "1/2/3"
+    if (m[1].match(/^[0-9/]+$/)) {
+      count = m[1];
+    } else {
+      count = parseNumberString(m[1]);
+    }
     if (count != null) {
       trigger = m[2];
     }
@@ -384,7 +402,7 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     '(' +
     describeFollowUpTrigger(followUp.trigger, followUp.isDamageTrigger) +
     ' ⤇ ' +
-    describe(followUp.skillOrStatus) +
+    followUp.skillOrStatus.map(describe).join(' – ') +
     ')'
   );
 }

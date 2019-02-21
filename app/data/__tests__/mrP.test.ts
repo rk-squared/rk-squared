@@ -240,6 +240,13 @@ describe('mrP', () => {
         other:
           'water infuse 25s, 15s: EX: +30% MAG, (2 W.Mag/Summon ⤇ m7.95/5 wa+n Summon, party h25)',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Ace - Firaga BOM'])).toEqual({
+        damage: 'magic 17.0/10 fire+non',
+        other:
+          'fire infuse 25s, self 1.3x B.Mag dmg 15s, ' +
+          '15s: (1/2/3 B.Mag ⤇ m4.08/2 f+n B.Mag, self hi fastcast 2 – m4.08/2 f+n B.Mag – m16.32/8 f+n B.Mag)',
+      });
     });
 
     it('converts percent heals', () => {
