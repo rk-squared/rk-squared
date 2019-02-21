@@ -1,13 +1,9 @@
 import { logger } from '../../utils/logger';
-import { allEnlirElements, allEnlirSchools, enlir, EnlirOtherSkill, EnlirStatus } from '../enlir';
-import { parseEnlirAttack } from './attack';
+import { allEnlirElements, allEnlirSchools, enlir, EnlirStatus } from '../enlir';
 import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
 import {
-  appendElement,
-  damageTypeAbbreviation,
   formatSchoolOrAbilityList,
-  getElementAbbreviation,
   getElementShortName,
   getSchoolShortName,
   getShortName,
@@ -369,59 +365,13 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
 }
 
 /**
- * Describes a follow-up skill that inflicts a status (e.g., imperil).
- */
-function describeFollowUpStatusSkill(skill: EnlirOtherSkill): string | null {
-  const m = skill.effects.match(/^Causes (.*) for (\d+) seconds$/);
-  if (!m) {
-    return null;
-  }
-
-  const [, status, duration] = m;
-  return describeEnlirStatus(status) + ` ${duration}s`;
-}
-
-/**
- * Describes a follow-up attack skill.  This is a simplified version of the
- * main function; since follow-up attacks are typically simpler, we can
- * abbreviate them without confusion.
- *
- * TODO: See about combining this plus describeFollowUpStatusSkill with main function
- */
-function describeFollowUpAttackSkill(skill: EnlirOtherSkill): string | null {
-  const attack = parseEnlirAttack(skill.effects, skill);
-  if (!attack) {
-    return null;
-  }
-
-  let damage = '';
-  damage += attack.isAoE ? 'AoE ' : '';
-  damage += attack.randomChances ? attack.randomChances + ' ' : '';
-  damage += damageTypeAbbreviation(attack.damageType) + attack.damage;
-
-  damage += appendElement(attack.element, getElementAbbreviation);
-  damage += attack.isRanged ? ' rngd' : '';
-  damage += attack.isJump ? ' jmp' : '';
-  damage += attack.isOverstrike ? ' overstrike' : '';
-  damage += attack.school ? ' ' + getSchoolShortName(attack.school) : '';
-  damage += attack.isNoMiss ? ' no miss' : '';
-  damage += attack.scaleType ? ' ' + attack.scaleType : '';
-  // Omit ' (SUM)' for Summoning school; it seems redundant.
-  damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
-
-  return damage;
-}
-
-/**
  * For a follow-up that triggers a skill, describes the skill.
  */
 function describeFollowUpSkill(skillName: string): string {
   const skill = enlir.otherSkillsByName[skillName];
-  if (!skill) {
-    return skillName;
-  }
-
-  return describeFollowUpStatusSkill(skill) || describeFollowUpAttackSkill(skill) || skillName;
+  return !skill
+    ? skillName
+    : formatMrP(describeEnlirSoulBreak(skill, { abbreviate: true }), { showInstant: false });
 }
 
 /**

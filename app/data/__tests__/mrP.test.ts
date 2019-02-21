@@ -189,11 +189,6 @@ describe('mrP', () => {
           'lgt infuse 25s, self +30% ATK/DEF 25s, ' +
           '15s: (Dragoon dmg ⤇ p1.9/5 l+d+n rngd Dragoon no miss)',
       });
-
-      expect(describeEnlirSoulBreak(soulBreaks['Arc - Summon Leviathan'])).toEqual({
-        damage: 'magic 17.0/10 water+non (SUM)',
-        other: 'water infuse 25s, 15s: EX: +30% MAG, (2 W.Mag/Summon ⤇ m7.95/5 wa+n Summon)',
-      });
     });
 
     it('converts EX modes with rank chases', () => {
@@ -238,6 +233,12 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Agrias - Divine Devastation'])).toEqual({
         damage: 'phys 6.7/10 holy+non',
         other: '+20% holy vuln. 25s, 15s: (2 Knight ⤇ +10% holy vuln. 15s)',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Arc - Summon Leviathan'])).toEqual({
+        damage: 'magic 17.0/10 water+non (SUM)',
+        other:
+          'water infuse 25s, 15s: EX: +30% MAG, (2 W.Mag/Summon ⤇ m7.95/5 wa+n Summon, party h25)',
       });
     });
 

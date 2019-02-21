@@ -7,6 +7,7 @@ import { describeStats, includeStatus, parseEnlirStatus, sortStatus } from './st
 import {
   appendElement,
   damageTypeAbbreviation,
+  getElementAbbreviation,
   getElementShortName,
   getSchoolShortName,
   getShortName,
@@ -50,8 +51,20 @@ function checkBurstMode(selfOther: string[]): string[] {
     : selfOther;
 }
 
+interface DescribeOptions {
+  abbreviate: boolean;
+}
+
 // FIXME: Rename to indicate broader usage (not just soul breaks now) and move out of index?
-export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): MrPSoulBreak {
+export function describeEnlirSoulBreak(
+  sb: EnlirSoulBreak | EnlirOtherSkill,
+  options: Partial<DescribeOptions> = {},
+): MrPSoulBreak {
+  const opt: DescribeOptions = {
+    abbreviate: false,
+    ...options,
+  };
+
   let m: RegExpMatchArray | null;
   let chain: string | undefined;
   let damage = '';
@@ -73,14 +86,22 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
     // FIXME: Extract and reduce duplication with describing follow-up skills?
     damage += attack.isAoE ? 'AoE ' : '';
     damage += attack.randomChances ? attack.randomChances + ' ' : '';
-    damage += attack.damageType + ' ' + attack.damage;
+    damage += opt.abbreviate ? damageTypeAbbreviation(attack.damageType) : attack.damageType + ' ';
+    damage += attack.damage;
 
-    damage += appendElement(attack.element, getElementShortName);
+    damage += appendElement(
+      attack.element,
+      opt.abbreviate ? getElementAbbreviation : getElementShortName,
+    );
     damage += attack.isRanged ? ' rngd' : '';
     damage += attack.isJump ? ' jump' : '';
     damage += attack.isOverstrike ? ' overstrike' : '';
     damage += attack.school ? ' ' + getSchoolShortName(attack.school) : '';
     damage += attack.isNoMiss ? ' no miss' : '';
+    if (!attack.scaleToDamage && attack.scaleType) {
+      // Rank chase / threshold / etc.
+      damage += ' ' + attack.scaleType;
+    }
     // Omit ' (SUM)' for Summoning school; it seems redundant.
     damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
     if (attack.orDamage && attack.orCondition) {
@@ -92,6 +113,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
         attack.orCondition;
     }
     if (attack.scaleToDamage && attack.scaleType) {
+      // Damage scaling
       damage +=
         ', up to ' +
         damageTypeAbbreviation(attack.damageType) +
@@ -137,12 +159,12 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
     selfOther.push(`lose ${damagePercent}% max HP`);
   }
 
-  if ((m = sb.effects.match(/Restores HP \((\d+)\)/))) {
-    const [, healAmount] = m;
+  if ((m = sb.effects.match(/[Rr]estores HP \((\d+)\)( to the user| to all allies)?/))) {
+    const [, healAmount, who] = m;
     const heal = 'h' + healAmount;
-    if (sb.target === 'All allies') {
+    if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
       partyOther.push(heal);
-    } else if (sb.target === 'Self') {
+    } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
       selfOther.push(heal);
     } else if (sb.target.startsWith('Single')) {
       // Because medica soul breaks are so common, we'll call out when a SB
@@ -325,9 +347,18 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
   };
 }
 
-export function formatMrP(mrP: MrPSoulBreak): string {
+interface FormatOptions {
+  showInstant: boolean;
+}
+
+export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {}): string {
+  const opt: FormatOptions = {
+    showInstant: true,
+    ...options,
+  };
+
   let text = _.filter([mrP.chain, mrP.damage, mrP.other]).join(', ');
-  if (text && mrP.instant) {
+  if (text && mrP.instant && opt.showInstant) {
     text = 'instant ' + text;
   }
   return text;
