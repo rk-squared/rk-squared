@@ -74,6 +74,7 @@ const enlirStatusAlias: { [status: string]: string } = {
 
 for (const i of allEnlirElements) {
   enlirStatusAlias[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
+  enlirStatusAlias[`Minor Buff ${i}`] = `+10% ${getElementShortName(i)} dmg`;
 }
 for (const i of allEnlirSchools) {
   enlirStatusAlias[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
@@ -85,6 +86,8 @@ const enlirStatusAliasWithNumbers: { [status: string]: string } = {
   'High Quick Cast {X}': 'hi fastcast {X}',
   'Instant Cast {X}': 'instacast {X}',
   'Magical Quick Cast {X}': 'fastzap {X}',
+  'Magical High Quick Cast {X}': 'hi fastzap {X}',
+  'Physical High Quick Cast {X}': 'phys hi fastcast {X}',
 
   'Magical Blink {X}': 'Magic blink {X}',
   'Physical Blink {X}': 'Phys blink {X}',
@@ -392,12 +395,33 @@ function describeFollowUpSkill(skillName: string): string {
     : formatMrP(describeEnlirSoulBreak(skill, { abbreviate: true }), { showInstant: false });
 }
 
+function describeFollowUpStatus(statusText: string): string {
+  const m = statusText.match(/^(.*?)( to all allies(?: in the (?:front|back|character's) row)?)?$/);
+  const [, statusName, who] = m!;
+  const status = describeEnlirStatus(statusName);
+  if (who) {
+    return (
+      (who.match('front')
+        ? 'front row'
+        : who.match('back')
+        ? 'back row'
+        : who.match("character's")
+        ? 'same row'
+        : 'party') +
+      ' ' +
+      status
+    );
+  } else {
+    return status;
+  }
+}
+
 /**
  * For follow-up statuses, returns a string describing the follow-up (how it's
  * triggered and what it does).
  */
 function describeFollowUp(followUp: FollowUpEffect): string {
-  const describe = followUp.isSkill ? describeFollowUpSkill : describeEnlirStatus;
+  const describe = followUp.isSkill ? describeFollowUpSkill : describeFollowUpStatus;
   return (
     '(' +
     describeFollowUpTrigger(followUp.trigger, followUp.isDamageTrigger) +

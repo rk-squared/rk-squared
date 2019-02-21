@@ -249,6 +249,18 @@ describe('mrP', () => {
       });
     });
 
+    it('converts EX modes with follow-up statuses', () => {
+      // Deviation: MrP variously describes abilities like Minor Buff Lightning
+      // as "+3 elem attack level" or "stackable +20% earth dmg"
+      expect(describeEnlirSoulBreak(soulBreaks['Ashe - Thunder of Innovation'])).toEqual({
+        damage: 'magic 17.0/10 lgt+non',
+        other:
+          'lgt infuse 25s, ' +
+          '15s: (lgt ⤇ back row hi fastzap 1), ' +
+          '(3 lgt ⤇ party +10% lgt dmg)',
+      });
+    });
+
     it('converts percent heals', () => {
       // Deviation: MrP sometimes says "40%" or "40% HP" or "40% max HP"
       expect(describeEnlirSoulBreak(soulBreaks['Prishe - Rigorous Reverie'])).toEqual({
