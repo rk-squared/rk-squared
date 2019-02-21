@@ -19,8 +19,12 @@ import { andList, numberWithCommas, orList, parseNumberString, toMrPFixed } from
  */
 export function includeStatus(status: string): boolean {
   // En-Element is listed separately by our functions, and smart ether isn't a
-  // real status.
-  return !status.startsWith('Attach ') && !status.match(/\bsmart\b.*\bether\b/);
+  // real status.  Dispel is handled separately.
+  return (
+    !status.startsWith('Attach ') &&
+    !status.match(/\bsmart\b.*\bether\b/) &&
+    status !== 'removes positive effects'
+  );
 }
 
 export function describeStats(stats: string[]): string {
@@ -98,9 +102,14 @@ const enlirStatusAliasWithNumbers: { [status: string]: string } = {
 
   'Reraise: {X}%': 'Reraise {X}%',
 
-  '{X}% Damage Reduction Barrier 2': '{X}% Dmg barrier 2',
   '{X}% Damage Reduction Barrier 1': '{X}% Dmg barrier 1',
+  '{X}% Damage Reduction Barrier 2': '{X}% Dmg barrier 2',
   '{X}% Damage Reduction Barrier 3': '{X}% Dmg barrier 3',
+
+  // Manually expand non-standard stat buffs to give their effects instead -
+  // this is easier than trying to programmatically identify a few statuses as
+  // needing expansion.
+  'Crash {X}%': '{X}% DEF/RES',
 };
 
 for (const i of allEnlirElements) {
@@ -167,8 +176,8 @@ function describeGenericStatus(status: string): string | null {
 
   if (enlirStatusAlias[status]) {
     return enlirStatusAlias[status];
-  } else if ((m = status.match(/(\d+)/))) {
-    const statusText = status.replace(/\d+/, '{X}');
+  } else if ((m = status.match(/(-?\d+)/))) {
+    const statusText = status.replace(/-?\d+/, '{X}');
     if (enlirStatusAliasWithNumbers[statusText]) {
       return enlirStatusAliasWithNumbers[statusText].replace('{X}', m[1]);
     }

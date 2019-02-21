@@ -234,8 +234,8 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
   }
 
   // Process stat buffs/debuffs.  Exclude anything marked 'grants' - those are
-  // handed along with statuses above.
-  const statModRe = /(?<![Gg]rants | and )((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([+-]\d+)% (to the user |to all allies )?for (\d+) seconds/g;
+  // handed along with statuses above.  Exclude "Different " stat bonuses.
+  const statModRe = /(?<![Gg]rants | and |Different )((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([+-]\d+)% (to the user |to all allies )?for (\d+) seconds/g;
   while ((m = statModRe.exec(sb.effects))) {
     const [, stats, percent, who, duration] = m;
     const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
@@ -287,6 +287,7 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
     // Process type (e.g., "smart summoning ether").  FFRK Community is
     // inconsistent - sometimes "Summoning smart ether," sometimes
     // "smart summoning ether."
+    // TODO: Fix that inconsistency
     let type = type1 && type1 !== 'and ' ? type1 : type2;
     if (type) {
       type = getShortName(_.upperFirst(type.trim()));

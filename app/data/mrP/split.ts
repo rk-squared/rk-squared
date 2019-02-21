@@ -5,7 +5,13 @@
 
 import { andList } from './util';
 
-const isStat = (effect: string) => !!effect.match(/^[A-Z]{3}$/);
+/**
+ *
+ * Stats are 3-letter uppercase.  We also handle cases like
+ * "Different DEF and RES +X%".
+ */
+const isStat = (effect: string) => !!effect.match(/^(?:Different )?[A-Z]{3}$/);
+
 const isStatMod = (effect: string) => !!effect.match(/\b[A-Z]{3} [+-]?\d+%/);
 
 function isSameEffect(prev: string, next: string) {
@@ -59,7 +65,7 @@ export function splitStatusEffects(effects: string): string[] {
       if (
         i + 1 < parts.length &&
         !isStatMod(parts[i + 1]) &&
-        // This jeeps Burst Mode's bonuses separate from the rest of its
+        // This keeps Burst Mode's bonuses separate from the rest of its
         // effects.
         !isStatMod(thisPart) &&
         // Special case - separate Awaken Lucis King's rank boost separate from

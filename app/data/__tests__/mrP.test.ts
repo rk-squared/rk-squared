@@ -165,6 +165,16 @@ describe('mrP', () => {
       });
     });
 
+    it('converts non-standard debuffs', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Wol - Overkill'])).toEqual({
+        damage: 'phys 7.68/8 rngd',
+        other: 'Dispel, -70% DEF/RES 8s',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Zidane - Wall of Light'])).toEqual({
+        other: 'party Regen (hi), +25% DEF/RES 25s',
+      });
+    });
+
     it('converts EX modes with simple follow-up attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Squall - Brutal Blast'])).toEqual({
         damage: 'phys 7.47/9 ice+non',
