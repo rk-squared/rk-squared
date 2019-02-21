@@ -34,7 +34,7 @@ describe('mrP', () => {
     });
 
     it('converts Overstrikes', () => {
-      // Deviation: MMP omits "overstrike" for OSBs.  But, as overstrike
+      // Deviation: MrP omits "overstrike" for OSBs.  But, as overstrike
       // on non-OSBs becomes more common, it makes sense to be consistent.
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Paladin) - Arc of Light'])).toEqual({
         damage: 'phys 12.0 holy+non rngd overstrike',
@@ -59,7 +59,7 @@ describe('mrP', () => {
         damage: 'phys 3.12/6 wind+non',
         other: 'wind infuse stacking 25s, wind infuse 25s',
       });
-      // Deviation: MMP describes this as
+      // Deviation: MrP describes this as
       // "hi fastcast 2, instant fire infuse stacking 25s, fire infuse 25s"
       expect(describeEnlirSoulBreak(soulBreaks['Krile - Boundless Love'])).toEqual({
         instant: true,
@@ -68,7 +68,7 @@ describe('mrP', () => {
     });
 
     it('converts stat changes', () => {
-      // Deviation: MMP omits durations here (to save space?) but includes them
+      // Deviation: MrP omits durations here (to save space?) but includes them
       // for some effects.
       expect(describeEnlirSoulBreak(soulBreaks['Dorgann - Winds of Home'])).toEqual({
         damage: 'phys 7.68/6 wind',
@@ -82,7 +82,7 @@ describe('mrP', () => {
     });
 
     it('converts multiple self effects', () => {
-      // Deviation: MMP lists some recoil as fractions instead of percents.
+      // Deviation: MrP lists some recoil as fractions instead of percents.
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Dark Flame'])).toEqual({
         damage: 'AoE phys 7.84/8 dark+fire',
         other: 'self lose 25% max HP, +30% ATK/RES 25s',
@@ -122,7 +122,7 @@ describe('mrP', () => {
         other: 'party Haste, Protect, Shell, +200% DEF/RES 25s',
       });
 
-      // Discrepancy: MMP lists Reflect Dmg second.  Unless we want to try and
+      // Discrepancy: MrP lists Reflect Dmg second.  Unless we want to try and
       // separate "exotic" statuses from "common" statuses, that's inconsistent
       // with other soul breaks.
       expect(describeEnlirSoulBreak(soulBreaks['Alphinaud - Deployment Tactics'])).toEqual({
@@ -181,7 +181,7 @@ describe('mrP', () => {
         other: 'self hi fastcast 2, 15s: EX: (2 Spellblade ⤇ AoE p2.6/4 i+n Combat no miss)',
       });
 
-      // Deviation: MMP doesn't always use 1-letter abbreviations for
+      // Deviation: MrP doesn't always use 1-letter abbreviations for
       // follow-ups.  E.g., this is "lg+d+n."
       expect(describeEnlirSoulBreak(soulBreaks['Aranea - Dragon Leap'])).toEqual({
         damage: 'phys 7.1/10 lgt+dark jump',
@@ -206,11 +206,11 @@ describe('mrP', () => {
     });
 
     it('converts EX modes with skill boosts and 100% hit rate follow-up attacks', () => {
-      // Deviation: MMP often omits "no miss" (due to error? lack of space?)
+      // Deviation: MrP often omits "no miss" (due to error? lack of space?)
       // and doesn't show "self" for Ability Boost.  However, it's probably
       // more consistent and certainly more thorough to include it.
       //
-      // Deviation: MMP shows 15s before some statuses (like this Knight boost)
+      // Deviation: MrP shows 15s before some statuses (like this Knight boost)
       // and after others (more "standard" statuses).  We'll consistently go
       // after, except for those that are specialized (clearly custom to USB).
       expect(describeEnlirSoulBreak(soulBreaks['Leo - Shock Imperial'])).toEqual({
@@ -242,7 +242,7 @@ describe('mrP', () => {
     });
 
     it('converts percent heals', () => {
-      // Deviation: MMP sometimes says "40%" or "40% HP" or "40% max HP"
+      // Deviation: MrP sometimes says "40%" or "40% HP" or "40% max HP"
       expect(describeEnlirSoulBreak(soulBreaks['Prishe - Rigorous Reverie'])).toEqual({
         other: 'party heal 40% HP, Regen (hi), Last stand',
       });
@@ -261,7 +261,7 @@ describe('mrP', () => {
 
     it('converts chains', () => {
       // Deviation: Now that Chain 2.0s are a thing, adding the max chain count
-      // seems useful, even if MMP didn't do it.
+      // seems useful, even if MrP didn't do it.
       expect(describeEnlirSoulBreak(soulBreaks['Krile - Unbroken Chain'])).toEqual({
         chain: 'fire chain 1.2x (max 99)',
         damage: 'magic 17.93/11 fire',
@@ -292,7 +292,7 @@ describe('mrP', () => {
     });
 
     it('converts scaling attacks', () => {
-      // Deviation: MMP lists 'self heal 70% max HP' first
+      // Deviation: MrP lists 'self heal 70% max HP' first
       expect(describeEnlirSoulBreak(soulBreaks['Seifer - Forbidden Fellslash'])).toEqual({
         damage: 'phys 6.58/7 dark+fire, up to p10.5 @ 1% HP',
         other: 'dark infuse 25s, self heal 70% HP',
@@ -310,7 +310,7 @@ describe('mrP', () => {
     });
 
     it('converts conditional attacks', () => {
-      // Deviation: MMP sometimes uses parentheses and sometimes ", or "
+      // Deviation: MrP sometimes uses parentheses and sometimes ", or "
       expect(describeEnlirSoulBreak(soulBreaks['Ace - Firaga SHG'])).toEqual({
         damage: 'magic 14.0/8 fire+non, or m16.16/8 if in front row',
         other: 'party +30% ATK/MAG 25s',
@@ -343,7 +343,7 @@ describe('mrP', () => {
     });
 
     it('converts quick cycle and critical hit buffs', () => {
-      // Deviation: MMP lists the critical buff as 25s, which appears to be
+      // Deviation: MrP lists the critical buff as 25s, which appears to be
       // correct, but Enlir doesn't confirm it.
       expect(describeEnlirSoulBreak(soulBreaks['Jecht - Ultimate Jecht Rush'])).toEqual({
         damage: 'phys 7.1/10 dark+non rngd',
@@ -352,7 +352,7 @@ describe('mrP', () => {
     });
 
     it('converts finishers', () => {
-      // Discrepancy: This format for finishers differs somewhat...
+      // Deviation: This format for finishers differs somewhat...
       expect(describeEnlirSoulBreak(soulBreaks['Alphinaud - Teraflare'])).toEqual({
         damage: 'AoE magic 16.1/7 wind+dark (SUM)',
         other:
