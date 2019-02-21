@@ -378,5 +378,20 @@ describe('mrP', () => {
         other: 'fire infuse stacking 25s, fire infuse 25s, self crit =100% 2 turns',
       });
     });
+
+    it('handles ether abilities', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Xezat - Spellsword Iceshock'])).toEqual({
+        damage: 'phys 7.92/6 ice+lgt',
+        other: 'party refill 1 abil. use',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Arc - Heavenly Aria'])).toEqual({
+        instant: true,
+        other: 'Summon hi fastcast 15s, refill 2 Summon abil. use',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Gaffgarion - Duskblade'])).toEqual({
+        damage: 'AoE phys 5.88/4 dark+non rngd',
+        other: 'party refill 1 abil. use',
+      });
+    });
   });
 });

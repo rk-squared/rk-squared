@@ -697,7 +697,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Evil Sword Follow-Up",
-    "name": "Evil Sword",
+    "name": "Evil Blade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -3154,12 +3154,12 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single ranged? attacks (? each)",
+    "effects": "Ten single ranged attacks (? each), ? each if Riku is in the party",
     "counter": false,
     "autoTarget": "?",
     "sb": 0,
     "school": "?",
-    "id": null,
+    "id": 30547143,
     "gl": false
   },
   {
@@ -3175,12 +3175,121 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "?",
+    "effects": "Five single ranged attacks (? each), ? each if Sora is in the party",
     "counter": false,
     "autoTarget": "?",
     "sb": 0,
     "school": "?",
-    "id": null,
+    "id": 30549760,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Braver Follow-Up",
+    "name": "Dual Braver",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Holy",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged attack (?) capped at 99999",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 0,
+    "school": "?",
+    "id": 30548345,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Fiery Tornado Follow-Up",
+    "name": "Fiery Tornado",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged hybrid attack (?) capped at 99999",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 0,
+    "school": "?",
+    "id": 30545063,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "EX: Key of Destiny",
+    "name": "Key of Destiny",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Holy",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single ranged attacks (? each)",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 0,
+    "school": "?",
+    "id": 30548348,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dance Flurry Follow-Up",
+    "name": "Dance Flurry",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single ranged hybrid attacks (? each)",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 0,
+    "school": "?",
+    "id": 30545064,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Stone Shatter Follow-Up",
+    "name": "Stone Shatter",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "4/6/8 single ranged attacks (? each) if the user has Physical Blink 0/1/2",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 0,
+    "school": "?",
+    "id": 30549220,
     "gl": false
   },
   {

@@ -10772,7 +10772,7 @@
     },
     "effect": "Dark damage +20%",
     "character": "Cloud",
-    "soulBreak": "Dark Finishing Touch",
+    "soulBreak": "Eye of Darkness",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -10797,7 +10797,7 @@
       "eva": null
     },
     "id": 21002405,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Brave Blade",
@@ -94562,7 +94562,7 @@
     },
     "effect": "Dark damage +20%",
     "character": "Cloud",
-    "soulBreak": "Black Blossom",
+    "soulBreak": "Darkpetal Bloom",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -94587,7 +94587,7 @@
       "eva": 100
     },
     "id": 22053061,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Leather Suit",

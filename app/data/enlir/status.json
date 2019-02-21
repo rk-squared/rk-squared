@@ -5058,7 +5058,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CUSTOM_MATK_20_MDEF_50",
+    "codedName": "CUSTOM_PARAM_MULTI_MATK_20_MDEF_50",
     "notes": null
   },
   {
@@ -9861,6 +9861,61 @@
     "notes": null
   },
   {
+    "id": 50386,
+    "name": "Blitz Follow-Up",
+    "effects": "Casts Blitz after using three Spellblade abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_MASTER_DRIVE",
+    "notes": null
+  },
+  {
+    "id": 50387,
+    "name": "Dark Barrage Follow-Up",
+    "effects": "Casts Dark Barrage after using a Dark attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DARK_RINK",
+    "notes": null
+  },
+  {
+    "id": 50388,
+    "name": "EX: Key of Destiny",
+    "effects": "ATK +30%, casts Key of Destiny after using a Knight ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "EX_MODE_BLADE_ENCOUNT",
+    "notes": null
+  },
+  {
+    "id": 50389,
+    "name": "Dance Flurry Follow-Up",
+    "effects": "Casts Dancy Flurry after using a Fire attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_JUMP_DANCE",
+    "notes": null
+  },
+  {
+    "id": 50390,
+    "name": "Stone Shatter Follow-Up",
+    "effects": "Casts Stone Shatter after using an Earth attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SUIGANTI_LIVE",
+    "notes": null
+  },
+  {
     "id": 50392,
     "name": "Celestial Rising Thunder Follow-Up",
     "effects": "Grants Magical High Quick Cast 1 to all allies in the back row after using a Lightning ability, grants Minor Buff Lightning to the party after using three Lightning abilities",
@@ -9917,7 +9972,7 @@
   },
   {
     "id": 50397,
-    "name": "Evil Sword Follow-Up",
+    "name": "Evil Blade Follow-Up",
     "effects": "Casts Evil Blade after using two Darkness attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9957,6 +10012,28 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "AWAKE_MODE_KNIGHT",
+    "notes": null
+  },
+  {
+    "id": 50401,
+    "name": "Dual Braver Follow-Up",
+    "effects": "Casts Dual Braver after using three Knight abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_MAGIC_TENPEST",
+    "notes": null
+  },
+  {
+    "id": 50402,
+    "name": "Fiery Tornado Follow-Up",
+    "effects": "Casts Fiery Tornado after using three Fire attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EXPLSN",
     "notes": null
   },
   {
@@ -11114,7 +11191,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CUSTOM_ATK_MATK_DEF_MDEF_FOR_COVERING_FIRE",
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_FOR_COVERING_FIRE",
     "notes": null
   },
   {

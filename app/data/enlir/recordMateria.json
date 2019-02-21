@@ -7280,6 +7280,66 @@
     "gl": true
   },
   {
+    "realm": "KH",
+    "character": "Roxas",
+    "name": null,
+    "effect": "Increases Holy damage dealt by ?%",
+    "unlockCriteria": "Use Roxas's Memory Crystal",
+    "nameJp": null,
+    "id": 111700040,
+    "gl": false
+  },
+  {
+    "realm": "KH",
+    "character": "Roxas",
+    "name": null,
+    "effect": "Increases Holy damage dealt by ?%",
+    "unlockCriteria": "Use Riku's Memory Crystal II, chance to obtain with Roxas in party",
+    "nameJp": null,
+    "id": 111700041,
+    "gl": false
+  },
+  {
+    "realm": "KH",
+    "character": "Roxas",
+    "name": null,
+    "effect": "Increases Holy damage dealt by ?%",
+    "unlockCriteria": "Bring Roxas to level 99",
+    "nameJp": null,
+    "id": 111700042,
+    "gl": false
+  },
+  {
+    "realm": "KH",
+    "character": "Axel",
+    "name": null,
+    "effect": "Increases Fire damage dealt by ?%",
+    "unlockCriteria": "Use Axel's Memory Crystal",
+    "nameJp": null,
+    "id": 111700050,
+    "gl": false
+  },
+  {
+    "realm": "KH",
+    "character": "Axel",
+    "name": null,
+    "effect": "Increases Fire damage dealt by ?%",
+    "unlockCriteria": "Use Riku's Memory Crystal II, chance to obtain with Axel in party",
+    "nameJp": null,
+    "id": 111700051,
+    "gl": false
+  },
+  {
+    "realm": "KH",
+    "character": "Axel",
+    "name": null,
+    "effect": "Increases Fire damage dealt by ?%",
+    "unlockCriteria": "Bring Axel to level 99",
+    "nameJp": null,
+    "id": 111700052,
+    "gl": false
+  },
+  {
     "realm": "Beyond",
     "character": "Reynn",
     "name": "Ward of Heaven",

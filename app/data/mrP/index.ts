@@ -281,9 +281,18 @@ export function describeEnlirSoulBreak(sb: EnlirSoulBreak | EnlirOtherSkill): Mr
     other.push(`${getShortName(element)} infuse 25s`);
   }
 
-  if ((m = sb.effects.match(/(\w+ )?smart ether (\S+)( to the user|to all allies)/))) {
-    const [, type, amount, who] = m;
-    const ether = 'refill ' + (type ? type + ' ' : '') + amount + ' abil. use';
+  if ((m = sb.effects.match(/(\w+ )?smart (\w+ )?ether (\S+)( to the user| to all allies)?/))) {
+    const [, type1, type2, amount, who] = m;
+
+    // Process type (e.g., "smart summoning ether").  FFRK Community is
+    // inconsistent - sometimes "Summoning smart ether," sometimes
+    // "smart summoning ether."
+    let type = type1 && type1 !== 'and ' ? type1 : type2;
+    if (type) {
+      type = getShortName(_.upperFirst(type.trim()));
+    }
+
+    const ether = 'refill ' + amount + ' ' + (type ? type + ' ' : '') + 'abil. use';
     if (who === ' to the user' || (!who && sb.target === 'Self')) {
       selfOther.push(ether);
     } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {

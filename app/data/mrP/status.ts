@@ -18,8 +18,9 @@ import { andList, numberWithCommas, orList, parseNumberString, toMrPFixed } from
  * Status effects which should be omitted from the regular status list
  */
 export function includeStatus(status: string): boolean {
-  // En-Element is listed separately.
-  return !status.startsWith('Attach ');
+  // En-Element is listed separately by our functions, and smart ether isn't a
+  // real status.
+  return !status.startsWith('Attach ') && !status.match(/\bsmart\b.*\bether\b/);
 }
 
 export function describeStats(stats: string[]): string {
