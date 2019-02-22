@@ -6,6 +6,8 @@ export interface DressRecord {
   name: string;
 }
 
+// TODO: Implement a way to handle previously unknown dress records
+
 export const dressRecords: DressRecord[] = [
   {
     name: 'Black-Robed Keeper',
@@ -161,6 +163,16 @@ export const dressRecords: DressRecord[] = [
     name: 'Knight Delita',
     id: 125000200,
     characterId: 15000300,
+  },
+  {
+    name: 'KINGDOM HEARTS III Sora',
+    id: 127000100,
+    characterId: 17000100,
+  },
+  {
+    name: 'KINGDOM HEARTS III Riku',
+    id: 127000200,
+    characterId: 17000200,
   },
 ];
 
