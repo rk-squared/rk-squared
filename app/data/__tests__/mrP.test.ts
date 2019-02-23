@@ -288,8 +288,17 @@ describe('mrP', () => {
         damage: 'phys 7.0/10 bio+fire+lgt rngd',
         other:
           'self 1.05-1.1-1.15-1.2-1.3x Machinist dmg @ ranks 1-5 15s, ' +
-          '15s: EX: +30% ATK, fastcast Machinist, ' +
+          '15s: EX: +30% ATK, Machinist fastcast, ' +
           '(b/f/l Machinist dmg ⤇ p1.17/3 b/f/l+n Machinist no miss, 35% for +10% bio/fire/lgt vuln. 15s)',
+      });
+    });
+
+    it('converts follow-ups with varying effects', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Setzer - Ultimate Gamble'])).toEqual({
+        damage: 'phys 7.1/10 dark+non rngd',
+        other:
+          '-70% DEF/MAG 8s, party instacast 1, ' +
+          '15s: (1/2/3/4 + 4n damaging Support ⤇ p1.71/3 d+n rngd Support, -40% ATK/-50% MAG/-40% DEF/-50% RES 15s)',
       });
     });
 

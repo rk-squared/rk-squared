@@ -87,8 +87,8 @@ for (const i of allEnlirElements) {
 }
 for (const i of allEnlirSchools) {
   statusAlias.simple[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
-  statusAlias.simple[`${i} Quick Cast`] = `fastcast ${getSchoolShortName(i)}`;
-  statusAlias.simple[`${i} High Quick Cast`] = `hi fastcast ${getSchoolShortName(i)}`;
+  statusAlias.simple[`${i} Quick Cast`] = `${getSchoolShortName(i)} fastcast`;
+  statusAlias.simple[`${i} High Quick Cast`] = `${getSchoolShortName(i)} hi fastcast`;
   statusAlias.simple[`${i} Rank Boost`] = rankBoostAlias(i);
 }
 
@@ -123,10 +123,9 @@ export const effectAlias: AliasMap = {
   },
 };
 for (const i of allEnlirSchools) {
-  effectAlias.simple[`${lowerCaseFirst(i)} cast speed x2.00`] = `fastcast ${getSchoolShortName(i)}`;
-  statusAlias.simple[`${lowerCaseFirst(i)} cast speed x3.00`] = `hi fastcast ${getSchoolShortName(
-    i,
-  )}`;
+  effectAlias.simple[`${lowerCaseFirst(i)} cast speed x2.00`] = getSchoolShortName(i) + ' fastcast';
+  statusAlias.simple[`${lowerCaseFirst(i)} cast speed x3.00`] =
+    getSchoolShortName(i) + ' hi fastcast';
 }
 
 export function splitNumbered(s: string): [string, string] | [null, null] {
