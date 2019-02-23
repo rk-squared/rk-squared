@@ -6,13 +6,20 @@ import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
 import {
   effectAlias,
-  resolveAlias,
+  resolveEffectAlias,
   resolveNumbered,
+  resolveStatusAlias,
   splitNumbered,
-  statusAlias,
 } from './statusAlias';
 import { formatSchoolOrAbilityList, getShortName } from './types';
-import { andList, numberWithCommas, orList, parseNumberString, toMrPFixed } from './util';
+import {
+  andList,
+  lowerCaseFirst,
+  numberWithCommas,
+  orList,
+  parseNumberString,
+  toMrPFixed,
+} from './util';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -69,7 +76,7 @@ interface FollowUpEffect {
 
 function parseFollowUpEffect(effect: string): FollowUpEffect | null {
   const m = effect.match(
-    /(?:([cC]asts)|([gG]rants)) (.*) after (using|dealing damage with) (.*?)(?:, removed if|$)/,
+    /(?:([cC]asts)|([gG]rants)) (.*) after (using|dealing damage with|dealing) (.*?)(?:, removed if|$)/,
   );
   if (!m) {
     return null;
@@ -89,6 +96,15 @@ const isSameTrigger = (a: FollowUpEffect, b: FollowUpEffect) =>
 
 type FollowUpStatusSequence = Array<[EnlirStatus, string[]]>;
 
+/**
+ * Gets the follow-up status sequence for a follow-up effect with the given
+ * status name.
+ *
+ * A "status sequence" is used to handle soul breaks like Auron's Lost Arts,
+ * where the soul break grants a Status Level 0, which is a follow-up status
+ * granting Status Level 1, which is a follow-up status granting
+ * Status Level 2, etc.
+ */
 function getFollowUpStatusSequence(
   statusName: string,
   followUp: FollowUpEffect,
@@ -100,20 +116,24 @@ function getFollowUpStatusSequence(
   const result: FollowUpStatusSequence = [];
   const baseStatusName = statusName.replace(/ 0$/, '');
   for (let n = 1; ; n++) {
+    // Verify that the next status in the sequence exists, that it's actually
+    // a follow-up status, and that it's triggered the same as this status.
+    // (If it has a different trigger, we can't format it as part of the same
+    // sequence.)
     const thisStatusName = baseStatusName + ' ' + n;
     const thisStatus = getEnlirStatusByName(thisStatusName);
     if (!thisStatus) {
       break;
     }
-
     const thisStatusFollowUp = parseFollowUpEffect(thisStatus.effects);
     if (!thisStatusFollowUp) {
       break;
     }
-
     if (!isSameTrigger(followUp, thisStatusFollowUp)) {
       break;
     }
+    // To be thorough, we'd also verify that the triggered name matches,
+    // instead of assuming that they all follow the numbered sequence.
 
     const thisEffects = splitStatusEffects(thisStatus.effects).filter(
       i => !shouldSkipEffect(i) && !parseFollowUpEffect(i),
@@ -124,10 +144,18 @@ function getFollowUpStatusSequence(
   return result.length ? result : null;
 }
 
+/**
+ * Given a follow-up status sequence, return a merged string describing the
+ * effects.
+ */
 function describeMergedSequence(sequence: FollowUpStatusSequence) {
   const fallback = sequence.map(([, effects]) => effects.join(', ')).join(' / ');
 
+  // The component effects of the sequence.  Object keys give the numbered
+  // effect alias (see statusAlias.ts), while object values give the
+  // (string-formatted) numbers themselves.
   const result: { [s: string]: string[] } = {};
+
   for (const [, effects] of sequence) {
     for (const i of effects) {
       const [text, numbered] = splitNumbered(i);
@@ -141,10 +169,11 @@ function describeMergedSequence(sequence: FollowUpStatusSequence) {
   }
 
   return _.map(result, (values, key) =>
-    resolveNumbered(effectAlias.numbered[key] || key, values.join('-')),
+    resolveNumbered(effectAlias.numbered[lowerCaseFirst(key)] || key, values.join('-')),
   ).join(', ');
 }
 
+const isFinisherStatus = ({ effects }: EnlirStatus) => !!getFinisherSkillName(effects);
 const isFollowUpStatus = ({ effects }: EnlirStatus) => !!parseFollowUpEffect(effects);
 
 /**
@@ -173,7 +202,7 @@ function describeEnlirStatus(status: string) {
 
   // Generic statuses
   {
-    const genericStatus = resolveAlias(status, statusAlias);
+    const genericStatus = resolveStatusAlias(status);
     if (genericStatus) {
       return genericStatus;
     }
@@ -209,7 +238,7 @@ function describeEnlirStatus(status: string) {
   // under enlirStatusAliasWithNumbers and omit the 'turn' text.
   if ((m = status.match(/(.*) (\d)$/))) {
     const [, baseStatus, turns] = m;
-    const genericStatus = resolveAlias(baseStatus, statusAlias);
+    const genericStatus = resolveStatusAlias(baseStatus);
     if (genericStatus) {
       return genericStatus + ' ' + turns + (turns === '1' ? ' turn' : ' turns');
     }
@@ -274,7 +303,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
 
   // Generic status effects
   {
-    const genericEffect = resolveAlias(effect, effectAlias);
+    const genericEffect = resolveEffectAlias(effect);
     if (genericEffect) {
       return genericEffect;
     }
@@ -349,6 +378,9 @@ function describeEffects(enlirStatus: EnlirStatus): string {
 function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): string {
   if (trigger === 'an ability') {
     return 'any ability';
+  }
+  if (trigger === 'a critical hit') {
+    return 'crit';
   }
 
   trigger = trigger.replace(/ (abilities|ability|attacks|attack)$/, '').replace(/^a /, '');
@@ -446,7 +478,7 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
     isEx ||
     isAwaken ||
     (enlirStatus != null &&
-      (!!getFinisherSkillName(enlirStatus.effects) ||
+      (isFinisherStatus(enlirStatus) ||
         isFollowUpStatus(enlirStatus) ||
         isModeStatus(enlirStatus)));
 

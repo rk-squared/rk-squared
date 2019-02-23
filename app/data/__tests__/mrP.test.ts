@@ -196,6 +196,11 @@ describe('mrP', () => {
           'lgt infuse 25s, self +30% ATK/DEF 25s, ' +
           '15s: (Dragoon dmg ⤇ p1.9/5 l+d+n rngd Dragoon no miss)',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Ursula - Crushing Fist'])).toEqual({
+        damage: 'phys 7.1/10 earth+fire',
+        other: 'earth infuse 25s, 15s: fastcast, (crit ⤇ p2.05/5 e+f+n Monk no miss)',
+      });
     });
 
     it('converts EX modes with rank chases', () => {
@@ -280,6 +285,21 @@ describe('mrP', () => {
         other:
           'dark infuse 25s, 15s: Finisher: phys 35% dark overstrike Darkness, ' +
           '15s: (Darkness ⤇ crit =30-50-75%, 2-2.5-3x cast)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Hope - Reflect Boomerang'])).toEqual({
+        damage: 'magic 17.3/10 holy (SUM)',
+        other:
+          'party Reflect Dmg 75% as holy 30s, ' +
+          '15s: Finisher: magic 11.8 - 20.5 - 34.6 holy+non overstrike Summon, refill 0/1/2 abil. use, ' +
+          '(holy ⤇ 2-2.5-3x zap)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Vivi - Clamorous Magic'])).toEqual({
+        damage: 'magic 16.5/10 ice+water+lgt+non',
+        other:
+          'self fastcast 15s, ' +
+          '15s: (B.Mag ⤇ MAG +30-34-38-42-46-50%), ' +
+          '15s: EX: (B.Mag ⤇ m7.68/6 i+wa+l+n B.Mag), ' +
+          'Finisher: magic 17.3/10 ice+water+lgt+non B.Mag',
       });
     });
 
@@ -409,6 +429,14 @@ describe('mrP', () => {
         other:
           'holy infuse 25s, self dmg cap=19,999 15s, 15s: (2 Knight ⤇ +10% holy vuln. 15s), ' +
           '15s: Awaken Knight: Knight inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Noctis - Kingly Duties'])).toEqual({
+        damage: 'phys 9.0/15 fire+earth+lgt+non',
+        other:
+          'self crit =100% 25s, dmg cap=19,999 15s, ' +
+          '15s: hi fastcast, ' +
+          'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non overstrike Combat no miss, ' +
+          '15s: Awaken Lucis King: fire/earth/lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
       // TODO: Add checks for more Awaken modes
       // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.

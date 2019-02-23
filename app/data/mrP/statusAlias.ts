@@ -1,5 +1,6 @@
 import { allEnlirElements, allEnlirSchools } from '../enlir';
 import { getElementShortName, getSchoolShortName } from './types';
+import { lowerCaseFirst } from './util';
 
 /**
  * Mappings from Enlir status names or status effect names to MrP names.
@@ -24,6 +25,7 @@ export const statusAlias: AliasMap = {
     Astra: 'Status blink 1',
 
     'Cast speed *2': 'fastcast',
+    'Quick Cast': 'fastcast',
     'High Quick Cast': 'hi fastcast',
 
     'Low Regen': 'Regen (lo)',
@@ -100,11 +102,14 @@ export const effectAlias: AliasMap = {
   simple: {
     'cast speed x2.00': 'fastcast',
     'cast speed x3.00': 'hi fastcast',
+    'cast speed x2.00 for magical damage': 'fastzap',
+    'cast speed x3.00 for magical damage': 'hi fastzap',
   },
   numbered: {
-    'Critical chance ={X}%': 'crit ={X}%',
+    'critical chance ={X}%': 'crit ={X}%',
 
     'cast speed x{X}': '{X}x cast',
+    'cast speed x{X} for magical damage': '{X}x zap',
   },
 };
 
@@ -133,3 +138,7 @@ export function resolveAlias(s: string, { simple, numbered }: AliasMap): string 
 
   return null;
 }
+
+export const resolveStatusAlias = (status: string) => resolveAlias(status, statusAlias);
+export const resolveEffectAlias = (effect: string) =>
+  resolveAlias(lowerCaseFirst(effect), effectAlias);
