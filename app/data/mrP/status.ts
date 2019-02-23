@@ -219,7 +219,7 @@ function describeEnlirStatus(status: string) {
     // Status effects: e.g., "MAG +30%" from EX: Attack Hand
     // Reorganize stats into, e.g., +30% MAG to match MMP
     const [, stat, amount] = m;
-    return amount + ' ' + stat.split(andList).join('/');
+    return amount + ' ' + describeStats(stat.split(andList));
   }
 
   // More special cases - schools + numbers

@@ -57,20 +57,15 @@ const statusEffectRe = XRegExp(
   (?:[Gg]rants|[Cc]auses)\ #
 
   (?<statusString>(?:.*?(?:,?\ and\ |,\ ))*?(?:.*?))
-  (?<who>\ to\ the\ user|\ to\ all\ allies)?
-  (?:\ for\ (?<overallDuration>\d+)\ seconds)?
 
   # Anchor the regex to end at anything that looks like the beginning of a new effect.
-  (?=,\ grants|,\ causes|,\ restores\ HP\ |,\ damages\ the\ user\ |,\ heals\ the\ user\ |,\ [A-Z]{3}|$)
+  (?=,\ grants|,\ causes|,\ restores\ HP\ |,\ damages\ the\ user\ |,\ heals\ the\ user\ |$)
   `,
   'x',
 );
 
-// Process stat buffs/debuffs.  Exclude anything marked 'grants' - those are
-// handed along with statuses above.  Exclude "Different " stat bonuses.
 const statModRe = XRegExp(
   String.raw`
-  (?<![Gg]rants\ |\ and\ |Different\ )
   (?<stats>(?:[A-Z]{3}(?:,?\ and\ |,\ ))*[A-Z]{3})\ #
   (?<percent>[+-]\d+)%\ (?<who>to\ the\ user\ |to\ all\ allies\ )?
   for\ (?<duration>\d+)\ seconds
@@ -222,18 +217,34 @@ export function describeEnlirSoulBreak(
     }
   }
 
-  XRegExp.forEach(sb.effects, statusEffectRe, ({ statusString, who, overallDuration }: any) => {
+  XRegExp.forEach(sb.effects, statusEffectRe, match => {
+    const { statusString } = match as any;
     const status = splitSkillStatuses(statusString)
       .filter(includeStatus)
       .sort(sortStatus);
     for (let thisStatus of status) {
-      let duration: number | undefined = overallDuration ? +overallDuration : undefined;
-      // Check for soul breaks that have multiple statuses with multiple
-      // durations embedded, like Jecht's Ultimate Jecht Rush.
-      const durationMatch = thisStatus.match(/ for (\d+) seconds$/);
-      if (durationMatch) {
-        duration = +durationMatch[1];
-        thisStatus = thisStatus.replace(/ for (\d+) seconds$/, '');
+      let duration: number | undefined;
+      let who: string | undefined;
+
+      // Determine target and duration.  This is hard, and I may not have it
+      // right.  For example:
+      // - "grants Haste and Burst mode to the user" - Haste is "to the user"
+      // - "causes Imperil Fire 10% and DEF -50% for 15 seconds" - imperil is
+      //   standard 25 seconds (I think)
+      // - "grants Magical Blink 1, RES and MND +30% to the user for 25
+      //   seconds" - m.blink is to the party, stat boosts are to the user
+      const whoAndDuration = thisStatus.match(
+        /^(.*?)( to the user| to all allies)?(?: for (\d+) seconds)?$/,
+      );
+      if (whoAndDuration) {
+        duration = whoAndDuration[3] ? +whoAndDuration[3] : undefined;
+        who = whoAndDuration[2];
+        thisStatus = whoAndDuration[1];
+      }
+      if (!who) {
+        if ((m = match[0].match(/( to the user| to all allies)(?! for \d+ seconds)/))) {
+          who = m[1];
+        }
       }
 
       // tslint:disable-next-line: prefer-const
@@ -280,26 +291,32 @@ export function describeEnlirSoulBreak(
     }
   });
 
-  XRegExp.forEach(sb.effects, statModRe, ({ stats, percent, who, duration }: any) => {
-    const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
-    let statMod = percent + '% ';
-    statMod += combinedStats;
-    statMod += ` ${duration}s`;
+  // Process stat mods.  Stop at the first "Grants" or "Causes" text; any stat
+  // mods there are handled along with status effects above.
+  XRegExp.forEach(
+    sb.effects.replace(/([Gg]rants|[Cc]auses) .*/, ''),
+    statModRe,
+    ({ stats, percent, who, duration }: any) => {
+      const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
+      let statMod = percent + '% ';
+      statMod += combinedStats;
+      statMod += ` ${duration}s`;
 
-    if (who === 'to the user ' || (!who && sb.target === 'Self')) {
-      selfOther.push(statMod);
-    } else if (who === 'to all allies ' || (!who && sb.target === 'All allies')) {
-      partyOther.push(statMod);
-    } else if (!who && attack) {
-      // No need to list an explicit target - it's the same as the attack
-      other.push(statMod);
-    } else if (sb.target === 'All enemies') {
-      other.push('AoE ' + statMod);
-    } else {
-      // Fallback - may not always be correct
-      other.push(statMod);
-    }
-  });
+      if (who === 'to the user ' || (!who && sb.target === 'Self')) {
+        selfOther.push(statMod);
+      } else if (who === 'to all allies ' || (!who && sb.target === 'All allies')) {
+        partyOther.push(statMod);
+      } else if (!who && attack) {
+        // No need to list an explicit target - it's the same as the attack
+        other.push(statMod);
+      } else if (sb.target === 'All enemies') {
+        other.push('AoE ' + statMod);
+      } else {
+        // Fallback - may not always be correct
+        other.push(statMod);
+      }
+    },
+  );
 
   if ((m = sb.effects.match(/[Rr]emoves KO \((\d+)% HP\)( to all allies)?/))) {
     const [, percent, who] = m;

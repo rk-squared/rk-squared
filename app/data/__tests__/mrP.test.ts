@@ -131,7 +131,7 @@ describe('mrP', () => {
 
       expect(describeEnlirSoulBreak(soulBreaks['Angeal - Thunder of Envy'])).toEqual({
         instant: true,
-        other: 'party Negate dmg 30% 25s, +100% RES 25s',
+        other: 'party Negate dmg 30%, +100% RES 25s',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Angeal - Rage of Sloth'])).toEqual({
         damage: 'phys 7.1/10 holy+wind',
@@ -140,7 +140,7 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Auron - Miracle Blade'])).toEqual({
         instant: true,
         damage: 'phys 3.12/6 fire+non',
-        other: '+10% fire vuln. 15s, -50% DEF 15s',
+        other: '+10% fire vuln. 25s, -50% DEF 15s',
       });
     });
 
@@ -437,6 +437,13 @@ describe('mrP', () => {
           '15s: hi fastcast, ' +
           'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non overstrike Combat no miss, ' +
           '15s: Awaken Lucis King: fire/earth/lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Auron - Living Flame'])).toEqual({
+        damage: 'phys 9.0/15 fire+non',
+        other:
+          'fire infuse 25s, self dmg cap=19,999 15s, ' +
+          '15s: (3 Samurai ⤇ p5.28 f+n overstrike Samurai, -70% DEF/RES/MND 8s), ' +
+          '15s: Awaken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
       // TODO: Add checks for more Awaken modes
       // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.
