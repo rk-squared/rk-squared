@@ -275,6 +275,24 @@ describe('mrP', () => {
       });
     });
 
+    it('converts follow-ups with varying elements', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Bartz - Chosen Traveler'])).toEqual({
+        damage: 'phys 7.0/10 wind+water+fire+earth',
+        other:
+          '15s: EX: +30% ATK, fastcast, ' +
+          '(wi/wa/f/e Spellblade dmg ⤇ p0.8/2 or 3.2/8 wi/wa/f/e+n Spellblade no miss)',
+      });
+
+      // This also verifies attacks that inflict imperils.
+      expect(describeEnlirSoulBreak(soulBreaks['Edgar - Royal Brotherhood'])).toEqual({
+        damage: 'phys 7.0/10 bio+fire+lgt rngd',
+        other:
+          'self 1.05-1.1-1.15-1.2-1.3x Machinist dmg @ ranks 1-5 15s, ' +
+          '15s: EX: +30% ATK, fastcast Machinist, ' +
+          '(b/f/l Machinist dmg ⤇ p1.17/3 b/f/l+n Machinist no miss, 35% for +10% bio/fire/lgt vuln. 15s)',
+      });
+    });
+
     it('converts EX modes with follow-up statuses', () => {
       // Deviation: MrP variously describes abilities like Minor Buff Lightning
       // as "+3 elem attack level" or "stackable +20% earth dmg"

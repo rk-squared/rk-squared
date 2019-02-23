@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { EnlirOtherSkill, EnlirSoulBreak, isEnlirElement } from '../enlir';
-import { parseEnlirAttack } from './attack';
+import { ParsedEnlirAttack, parseEnlirAttack } from './attack';
 import { splitSkillStatuses } from './split';
 import {
   describeStats,
@@ -45,6 +45,16 @@ function formatStatusInfliction(status: StatusInfliction[]): string {
     return status[0].chanceDescription + ' ' + status.map(i => i.description).join('/');
   } else {
     return status.map(i => i.chanceDescription + ' ' + i.description).join(', ');
+  }
+}
+
+function formatChance(chance: number, attack?: ParsedEnlirAttack | null): string {
+  if (chance !== 100 && attack && attack.numAttacks && attack.numAttacks > 1) {
+    const totalChanceFraction = 1 - (1 - chance / 100) ** attack.numAttacks;
+    const totalChance = Math.round(totalChanceFraction * 100);
+    return `${totalChance}% (${chance}% × ${attack.numAttacks})`;
+  } else {
+    return `${chance}%`;
   }
 }
 
@@ -148,6 +158,19 @@ export function describeEnlirSoulBreak(
         ' ' +
         attack.scaleType;
     }
+
+    if (attack.status && attack.statusChance) {
+      const { description, defaultDuration } = parseEnlirStatus(attack.status);
+      const duration = attack.statusDuration || defaultDuration;
+      // Semi-hack: Attack statuses are usually or always imperils, and text
+      // like '35% +10% fire vuln.' looks weird.  Like MrP, we insert a 'for'
+      // to make it a bit clearer.
+      statusInfliction.push({
+        description: 'for ' + description + (duration ? ` ${duration}s` : ''),
+        chance: attack.statusChance,
+        chanceDescription: attack.statusChance + '%',
+      });
+    }
   }
 
   if ((m = sb.effects.match(/Activates (.*?) Chain \(max (\d+), field \+(\d+)%\)/))) {
@@ -242,16 +265,7 @@ export function describeEnlirSoulBreak(
         duration = defaultDuration;
       }
 
-      let chanceDescription = '';
-      if (chance) {
-        if (chance !== 100 && attack && attack.numAttacks && attack.numAttacks > 1) {
-          const totalChanceFraction = 1 - (1 - chance / 100) ** attack.numAttacks;
-          const totalChance = Math.round(totalChanceFraction * 100);
-          chanceDescription = `${totalChance}% (${chance}% × ${attack.numAttacks})`;
-        } else {
-          chanceDescription = `${chance}%`;
-        }
-      }
+      const chanceDescription = chance ? formatChance(chance, attack) : '';
 
       const isDetail = isExLike;
       if (duration && !isVariableDuration) {

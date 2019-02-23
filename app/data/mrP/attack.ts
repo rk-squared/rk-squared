@@ -37,6 +37,10 @@ export interface ParsedEnlirAttack {
   scaleToDamage?: string;
   scaleType?: string;
 
+  status?: string;
+  statusChance?: number;
+  statusDuration?: number;
+
   element: EnlirElement[] | null;
   school?: EnlirSchool;
   isAoE: boolean;
@@ -226,6 +230,8 @@ const attackRe = XRegExp(
   (?<attackThreshold>\ scaling\ with\ (<attackThresholdType>.*)\ attacks\ used\ \((?<attackThresholdCount>(?:\d+/)+\d+)\))?
   (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
 
+  (?:,\ (?<statusChance>\d+)%\ chance\ to\ cause\ (?<status>.*?)\ for\ (?<statusDuration>\d+)\ seconds)?
+
   (?<noMiss>,\ 100%\ hit\ rate)?
   (?:,\ multiplier\ increased\ by\ (?<sbMultiplierIncrease>[0-9.]+)\ for\ every\ SB\ point)?
   (?:\ for\ (?<finisherPercentDamage>[0-9.]+)%\ of\ the\ damage\ dealt\ with\ (?<finisherPercentCriteria>.*)\ during\ the\ status)?
@@ -320,6 +326,10 @@ export function parseEnlirAttack(
 
     element: skill.element,
     school: 'school' in skill ? (skill.school as EnlirSchool) : undefined,
+
+    status: m.status || undefined,
+    statusChance: m.statusChance ? +m.statusChance : undefined,
+    statusDuration: m.statusDuration ? +m.statusDuration : undefined,
 
     isRanged: !!m.ranged && !m.jump,
     isJump: !!m.jump,
