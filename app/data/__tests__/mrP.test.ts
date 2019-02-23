@@ -151,6 +151,13 @@ describe('mrP', () => {
       });
     });
 
+    it('converts custom stat mods', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Delita - King Apparent'])).toEqual({
+        damage: 'phys 6.7/10 holy+fire+lgt+ice, or p7.7/10 vs. weak',
+        other: 'self +30% ATK, +25% RES, crit =50% 25s, instacast 2',
+      });
+    });
+
     it('converts multiple stat buffs', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Tyro - Fantasy Unbound'])).toEqual({
         damage: 'phys 6.29/17',

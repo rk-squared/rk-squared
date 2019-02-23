@@ -16919,25 +16919,25 @@
     "realm": "VII",
     "character": "Yuffie",
     "name": "Landscaper (KH)",
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 7.1,
     "element": [
       "Earth",
       "NE"
     ],
-    "time": null,
-    "effects": "Ten single ranged attacks (? each), grants Attach Earth, Physical Blink 1 and Stone Shatter Follow-Up to the user",
+    "time": 2.5,
+    "effects": "Ten single ranged attacks (0.71 each), grants Attach Earth, Physical Blink 1 and Stoneshatter Skyshock Follow-Up to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "USB",
     "master": "ATK +10",
     "relic": "Shuriken (KH)",
     "nameJp": "?",
     "id": 22040012,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -34743,7 +34743,7 @@
       "Ice"
     ],
     "time": 2.5,
-    "effects": "Ten single attacks (0.67 each), 0.77 multiplier if exploiting elemental weakness, grants Bushido the user for 25 seconds, grants Instant Cast 2 to the user",
+    "effects": "Ten single attacks (0.67 each), 0.77 multiplier if exploiting elemental weakness, grants Bushido to the user for 25 seconds, grants Instant Cast 2 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -37794,27 +37794,27 @@
     "realm": "KH",
     "character": "Sora",
     "name": "Master Hearts",
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 9,
     "element": [
       "Fire",
       "Lightning",
       "Ice",
       "NE"
     ],
-    "time": null,
-    "effects": "Fifteen single ranged attacks (? each), grants Awaken Spellblade, Damage Cap 19999, Major Buff Fire, Major Buff Lightning, Major Buff Ice and Blitz Follow-Up to the user",
+    "time": 2.5,
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Awaken Spellblade, Damage Cap 19999, Major Buff Fire, Major Buff Lightning, Major Buff Ice and Blitz Follow-Up to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "AASB",
     "master": "ATK +10",
     "relic": "Two Become One (KH)",
-    "nameJp": "?",
+    "nameJp": "マスターハーツ",
     "id": 23240008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
@@ -37933,48 +37933,46 @@
     "realm": "KH",
     "character": "Riku",
     "name": "Dark Cannon",
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 9,
     "element": [
       "Dark",
       "NE"
     ],
-    "time": null,
-    "effects": "Fifteen single ranged attacks (? each), grants Attach Dark, Awaken Darkness, Damage Cap 19999 and Dark Barrage Follow-Up to the user",
+    "time": 2.5,
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Dark, Awaken Darkness, Damage Cap 19999 and Dark Barrage Follow-Up to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "AASB",
     "master": "ATK +10",
     "relic": "Riku's KHII Guise (KH)",
-    "nameJp": "?",
+    "nameJp": "ダークカノン【KH】",
     "id": 23250006,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
     "character": "Roxas",
-    "name": null,
-    "type": "?",
-    "target": "?",
-    "formula": "?",
-    "multiplier": null,
-    "element": [
-      "?"
-    ],
-    "time": null,
-    "effects": "?",
+    "name": "Triple Swing",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.5,
+    "element": [],
+    "time": 2.5,
+    "effects": "Three single attacks (0.50 each)",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "Default",
     "master": null,
     "relic": "-",
     "nameJp": "?",
     "id": 23400005,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
@@ -37997,7 +37995,7 @@
     "tier": "AASB",
     "master": "ATK +10",
     "relic": "Omega Weapon (KH)",
-    "nameJp": "?",
+    "nameJp": "マジックアワー",
     "id": 23400001,
     "gl": false
   },
@@ -38021,7 +38019,7 @@
     "tier": "AOSB",
     "master": "ATK +10",
     "relic": "Twilight Blaze (KH)",
-    "nameJp": "?",
+    "nameJp": "イベントホライズン",
     "id": 23400002,
     "gl": false
   },
@@ -38046,7 +38044,7 @@
     "tier": "USB",
     "master": "ATK +10",
     "relic": "Roxas's Guise (KH)",
-    "nameJp": "?",
+    "nameJp": "キーブレード解放",
     "id": 23400003,
     "gl": false
   },
@@ -38071,32 +38069,30 @@
     "tier": "Glint",
     "master": "ATK +10",
     "relic": "True Light's Flight (KH)",
-    "nameJp": "?",
+    "nameJp": "リミットアップ",
     "id": 23400004,
     "gl": false
   },
   {
     "realm": "KH",
     "character": "Axel",
-    "name": null,
-    "type": "?",
-    "target": "?",
-    "formula": "?",
-    "multiplier": null,
-    "element": [
-      "?"
-    ],
-    "time": null,
-    "effects": "?",
+    "name": "One-handed Throw",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.5,
+    "element": null,
+    "time": 2.5,
+    "effects": "One single ranged attack (1.50)",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "Default",
     "master": null,
     "relic": "-",
     "nameJp": "?",
-    "id": 23400005,
-    "gl": false
+    "id": 23410005,
+    "gl": true
   },
   {
     "realm": "KH",
@@ -38119,8 +38115,8 @@
     "tier": "AASB",
     "master": "ATK +5, MAG +5",
     "relic": "Wildfire (KH)",
-    "nameJp": "?",
-    "id": 23400001,
+    "nameJp": "エクスプロージョン",
+    "id": 23410001,
     "gl": false
   },
   {
@@ -38143,8 +38139,8 @@
     "tier": "AOSB",
     "master": "ATK +5, MAG +5",
     "relic": "Eternal Flames (KH)",
-    "nameJp": "?",
-    "id": 23400002,
+    "nameJp": "バーストインフェルノ",
+    "id": 23410002,
     "gl": false
   },
   {
@@ -38166,8 +38162,8 @@
     "tier": "USB",
     "master": "ATK +5, MAG +5",
     "relic": "Prominence (KH)",
-    "nameJp": "?",
-    "id": 23400003,
+    "nameJp": "乱舞",
+    "id": 23410003,
     "gl": false
   },
   {
@@ -38191,8 +38187,8 @@
     "tier": "Glint",
     "master": "ATK +5, MAG +5",
     "relic": "Magma Ocean (KH)",
-    "nameJp": "?",
-    "id": 23400004,
+    "nameJp": "ファイアウォール",
+    "id": 23410004,
     "gl": false
   },
   {

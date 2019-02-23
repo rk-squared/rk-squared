@@ -3143,10 +3143,10 @@
     "sourceType": "Follow-Up Status",
     "source": "Blitz Follow-Up",
     "name": "Blitz",
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 4.9,
     "element": [
       "Fire",
       "Lightning",
@@ -3154,34 +3154,34 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single ranged attacks (? each), ? each if Riku is in the party",
-    "counter": false,
-    "autoTarget": "?",
+    "effects": "Ten single ranged attacks (0.46 each), 0.49 each if Riku is in the party",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
     "sb": 0,
-    "school": "?",
+    "school": "Spellblade",
     "id": 30547143,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
     "source": "Dark Barrage Follow-Up",
     "name": "Dark Barrage",
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 2.1,
     "element": [
       "Dark",
       "NE"
     ],
     "time": 0.01,
-    "effects": "Five single ranged attacks (? each), ? each if Sora is in the party",
-    "counter": false,
-    "autoTarget": "?",
+    "effects": "Five single ranged attacks (0.39 each), 0.42 each if Sora is in the party",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
     "sb": 0,
-    "school": "?",
+    "school": "Darkness",
     "id": 30549760,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3273,24 +3273,24 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Stone Shatter Follow-Up",
-    "name": "Stone Shatter",
-    "type": "?",
+    "source": "Stoneshatter Skyshock Follow-Up",
+    "name": "Stoneshatter Skyshock",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 2.56,
     "element": [
       "Earth",
       "NE"
     ],
     "time": 0.01,
-    "effects": "4/6/8 single ranged attacks (? each) if the user has Physical Blink 0/1/2",
-    "counter": false,
-    "autoTarget": "?",
+    "effects": "4/6/8 single ranged attacks (0.32 each) if the user has Physical Blink 0/1/2",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
     "sb": 0,
-    "school": "?",
+    "school": "Ninja",
     "id": 30549220,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",

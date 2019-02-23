@@ -9906,8 +9906,8 @@
   },
   {
     "id": 50390,
-    "name": "Stone Shatter Follow-Up",
-    "effects": "Casts Stone Shatter after using an Earth attack",
+    "name": "Stoneshatter Skyshock Follow-Up",
+    "effects": "Casts Stoneshatter Skyshock after using an Earth attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

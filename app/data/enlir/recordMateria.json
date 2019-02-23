@@ -7282,7 +7282,7 @@
   {
     "realm": "KH",
     "character": "Roxas",
-    "name": null,
+    "name": "Self Oblivion",
     "effect": "Increases Holy damage dealt by ?%",
     "unlockCriteria": "Use Roxas's Memory Crystal",
     "nameJp": null,
@@ -7292,7 +7292,7 @@
   {
     "realm": "KH",
     "character": "Roxas",
-    "name": null,
+    "name": "Light's Shadow",
     "effect": "Increases Holy damage dealt by ?%",
     "unlockCriteria": "Use Riku's Memory Crystal II, chance to obtain with Roxas in party",
     "nameJp": null,
@@ -7312,7 +7312,7 @@
   {
     "realm": "KH",
     "character": "Axel",
-    "name": null,
+    "name": "Elusive Motives",
     "effect": "Increases Fire damage dealt by ?%",
     "unlockCriteria": "Use Axel's Memory Crystal",
     "nameJp": null,
@@ -7322,7 +7322,7 @@
   {
     "realm": "KH",
     "character": "Axel",
-    "name": null,
+    "name": "Nobody's Friend",
     "effect": "Increases Fire damage dealt by ?%",
     "unlockCriteria": "Use Riku's Memory Crystal II, chance to obtain with Axel in party",
     "nameJp": null,
