@@ -42,6 +42,14 @@ export function getShortName(s: string): string {
   return isEnlirElement(s) ? getElementShortName(s) : isEnlirSchool(s) ? getSchoolShortName(s) : s;
 }
 
+export function getAbbreviation(s: string): string {
+  return isEnlirElement(s)
+    ? getElementAbbreviation(s)
+    : isEnlirSchool(s)
+    ? getSchoolShortName(s)
+    : s;
+}
+
 export function appendElement(
   element: EnlirElement[] | null,
   f: (element: EnlirElement[]) => string,

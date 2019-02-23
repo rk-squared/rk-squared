@@ -11,7 +11,7 @@ import {
   resolveStatusAlias,
   splitNumbered,
 } from './statusAlias';
-import { formatSchoolOrAbilityList, getShortName } from './types';
+import { formatSchoolOrAbilityList, getAbbreviation, getShortName } from './types';
 import {
   andList,
   lowerCaseFirst,
@@ -369,6 +369,30 @@ function describeEffects(enlirStatus: EnlirStatus): string {
 }
 
 /**
+ * Check for a leading count on a string.  Handle both number strings, like
+ * "Twenty-two," and threshold-type values, like "1/2/3".
+ */
+function extractCount(s: string): [number | string | null, string] {
+  const m = s.match(/^(\S+) (.*)/);
+  if (!m) {
+    return [null, s];
+  }
+
+  let count: number | string | null = null;
+  if (m[1].match(/^[0-9/]+$/)) {
+    count = m[1];
+  } else {
+    count = parseNumberString(m[1]);
+  }
+
+  if (count != null) {
+    return [count, m[2]];
+  } else {
+    return [null, s];
+  }
+}
+
+/**
  * Describes the trigger portion of a follow-up.
  *
  * @param trigger - Enlir's text description of the trigger
@@ -384,20 +408,15 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
 
   trigger = trigger.replace(/ (abilities|ability|attacks|attack)$/, '').replace(/^an? /, '');
 
-  let count: number | string | null = null;
-  let m: RegExpMatchArray | null;
-  if ((m = trigger.match(/^(\S+) (.*)/))) {
-    // Check for number strings, like "Twenty-two," and threshold-type values,
-    // like "1/2/3"
-    if (m[1].match(/^[0-9/]+$/)) {
-      count = m[1];
-    } else {
-      count = parseNumberString(m[1]);
-    }
-    if (count != null) {
-      trigger = m[2];
-    }
-  }
+  let count: number | string | null;
+  [count, trigger] = extractCount(trigger);
+
+  trigger = trigger.replace(/(?:\w+\/)+\w+/, i =>
+    i
+      .split('/')
+      .map(getAbbreviation)
+      .join('/'),
+  );
 
   trigger = trigger
     .split(orList)
