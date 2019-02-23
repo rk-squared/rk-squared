@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import * as XRegExp from 'xregexp';
 
 import { EnlirOtherSkill, EnlirSoulBreak, isEnlirElement } from '../enlir';
 import { parseEnlirAttack } from './attack';
@@ -50,6 +51,32 @@ function checkBurstMode(selfOther: string[]): string[] {
     ? _.filter(selfOther, i => i !== 'Burst Mode' && i !== 'Haste')
     : selfOther;
 }
+
+const statusEffectRe = XRegExp(
+  String.raw`
+  (?:[Gg]rants|[Cc]auses)\ #
+
+  (?<statusString>(?:.*?(?:,?\ and\ |,\ ))*?(?:.*?))
+  (?<who>\ to\ the\ user|\ to\ all\ allies)?
+  (?:\ for\ (?<overallDuration>\d+)\ seconds)?
+
+  # Anchor the regex to end at anything that looks like the beginning of a new effect.
+  (?=,\ grants|,\ causes|,\ restores\ HP\ |,\ damages\ the\ user\ |,\ heals\ the\ user\ |,\ [A-Z]{3}|$)
+  `,
+  'x',
+);
+
+// Process stat buffs/debuffs.  Exclude anything marked 'grants' - those are
+// handed along with statuses above.  Exclude "Different " stat bonuses.
+const statModRe = XRegExp(
+  String.raw`
+  (?<![Gg]rants\ |\ and\ |Different\ )
+  (?<stats>(?:[A-Z]{3}(?:,?\ and\ |,\ ))*[A-Z]{3})\ #
+  (?<percent>[+-]\d+)%\ (?<who>to\ the\ user\ |to\ all\ allies\ )?
+  for\ (?<duration>\d+)\ seconds
+`,
+  'x',
+);
 
 interface DescribeOptions {
   abbreviate: boolean;
@@ -195,9 +222,7 @@ export function describeEnlirSoulBreak(
     }
   }
 
-  const statusEffectRe = /(?:[Gg]rants|[Cc]auses) ((?:.*?(?:,? and |, ))*?(?:.*?))( to the user| to all allies)?(?: for (\d+) seconds)?(?=, grants|, causes|, restores HP |, damages the user |, heals the user |, [A-Z]{3}|$)/g;
-  while ((m = statusEffectRe.exec(sb.effects))) {
-    const [, statusString, who, overallDuration] = m;
+  XRegExp.forEach(sb.effects, statusEffectRe, ({ statusString, who, overallDuration }: any) => {
     const status = splitSkillStatuses(statusString)
       .filter(includeStatus)
       .sort(sortStatus);
@@ -253,13 +278,9 @@ export function describeEnlirSoulBreak(
         other.push(description);
       }
     }
-  }
+  });
 
-  // Process stat buffs/debuffs.  Exclude anything marked 'grants' - those are
-  // handed along with statuses above.  Exclude "Different " stat bonuses.
-  const statModRe = /(?<![Gg]rants | and |Different )((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([+-]\d+)% (to the user |to all allies )?for (\d+) seconds/g;
-  while ((m = statModRe.exec(sb.effects))) {
-    const [, stats, percent, who, duration] = m;
+  XRegExp.forEach(sb.effects, statModRe, ({ stats, percent, who, duration }: any) => {
     const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
     let statMod = percent + '% ';
     statMod += combinedStats;
@@ -278,7 +299,7 @@ export function describeEnlirSoulBreak(
       // Fallback - may not always be correct
       other.push(statMod);
     }
-  }
+  });
 
   if ((m = sb.effects.match(/[Rr]emoves KO \((\d+)% HP\)( to all allies)?/))) {
     const [, percent, who] = m;
