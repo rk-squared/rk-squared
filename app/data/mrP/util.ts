@@ -113,7 +113,10 @@ export function slashMerge(options: string[]): string {
   }
 
   // Check if values are too different to practically combine.  If they are,
-  // fall back to separating the whole list with en dashes.
+  // fall back to separating the whole list with en dashes.  (Should we instead
+  // use slashes here?  Unfortunately, MrP isn't completely consistent - a lot
+  // depends on whether the clauses we're separating use slashes or hyphens
+  // internally.)
   if (same < different) {
     result = options.join(' – ');
   }

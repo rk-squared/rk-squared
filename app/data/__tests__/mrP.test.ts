@@ -201,7 +201,7 @@ describe('mrP', () => {
     it('converts EX modes with simple follow-up attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Squall - Brutal Blast'])).toEqual({
         damage: 'phys 7.47/9 ice+non',
-        other: 'self hi fastcast 2, 15s: EX: (2 Spellblade ⤇ AoE p2.6/4 i+n Combat no miss)',
+        other: 'self hi fastcast 2, 15s: EX: (2 Spellblade ⤇ AoE p2.6/4 i+n Combat)',
       });
 
       // Deviation: MrP doesn't always use 1-letter abbreviations for
@@ -210,12 +210,12 @@ describe('mrP', () => {
         damage: 'phys 7.1/10 lgt+dark jump',
         other:
           'lgt infuse 25s, self +30% ATK/DEF 25s, ' +
-          '15s: (Dragoon dmg ⤇ p1.9/5 l+d+n rngd Dragoon no miss)',
+          '15s: (Dragoon dmg ⤇ p1.9/5 l+d+n rngd Dragoon)',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Ursula - Crushing Fist'])).toEqual({
         damage: 'phys 7.1/10 earth+fire',
-        other: 'earth infuse 25s, 15s: fastcast, (crit ⤇ p2.05/5 e+f+n Monk no miss)',
+        other: 'earth infuse 25s, 15s: fastcast, (crit ⤇ p2.05/5 e+f+n Monk)',
       });
     });
 
@@ -251,7 +251,7 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Leo - Shock Imperial'])).toEqual({
         damage: 'phys 7.1/10 earth+holy',
         other:
-          'party +30% ATK/DEF 25s, self 1.3x Knight dmg 15s, 15s: (Knight ⤇ p1.96/4 e+h+n Knight no miss)',
+          'party +30% ATK/DEF 25s, self 1.3x Knight dmg 15s, 15s: (Knight ⤇ p1.96/4 e+h+n Knight)',
       });
     });
 
@@ -267,7 +267,7 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cloud - Climirage'])).toEqual({
         damage: 'phys 7.2/15 wind',
         other:
-          'wind infuse 25s, 15s: EX: +30% ATK, (wind ⤇ p1.6/4 or 3.2/8 wi+n overstrike Combat no miss)',
+          'wind infuse 25s, 15s: EX: +30% ATK, (wind ⤇ p1.6/4 or 3.2/8 wi+n overstrike Combat)',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Agrias - Divine Devastation'])).toEqual({
@@ -294,7 +294,7 @@ describe('mrP', () => {
         damage: 'phys 7.0/10 wind+water+fire+earth',
         other:
           '15s: EX: +30% ATK, fastcast, ' +
-          '(wi/wa/f/e Spellblade dmg ⤇ p0.8/2 or 3.2/8 wi/wa/f/e+n Spellblade no miss)',
+          '(wi/wa/f/e Spellblade dmg ⤇ p0.8/2 or 3.2/8 wi/wa/f/e+n Spellblade)',
       });
 
       // This also verifies attacks that inflict imperils.
@@ -303,7 +303,7 @@ describe('mrP', () => {
         other:
           'self 1.05-1.1-1.15-1.2-1.3x Machinist dmg @ ranks 1-5 15s, ' +
           '15s: EX: +30% ATK, Machinist fastcast, ' +
-          '(b/f/l Machinist dmg ⤇ p1.17/3 b/f/l+n Machinist no miss, 35% for +10% bio/fire/lgt vuln. 15s)',
+          '(b/f/l Machinist dmg ⤇ p1.17/3 b/f/l+n Machinist, 35% for +10% bio/fire/lgt vuln. 15s)',
       });
     });
 
@@ -506,7 +506,7 @@ describe('mrP', () => {
         other:
           'self crit =100% 25s, dmg cap=19,999 15s, ' +
           '15s: hi fastcast, ' +
-          'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non overstrike Combat no miss, ' +
+          'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non overstrike Combat, ' +
           '15s: Awaken Lucis King: fire/earth/lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 

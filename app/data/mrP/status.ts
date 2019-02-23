@@ -270,7 +270,7 @@ function describeFinisher(skillName: string) {
     return skillName;
   }
 
-  const mrP = describeEnlirSoulBreak(skill);
+  const mrP = describeEnlirSoulBreak(skill, { showNoMiss: false });
 
   return 'Finisher: ' + formatMrP(mrP, { showInstant: false });
 }
@@ -464,7 +464,9 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
 function describeFollowUpSkill(skillName: string): string {
   const skill = enlir.otherSkillsByName[skillName];
   if (skill) {
-    return formatMrP(describeEnlirSoulBreak(skill, { abbreviate: true }), { showInstant: false });
+    return formatMrP(describeEnlirSoulBreak(skill, { abbreviate: true, showNoMiss: false }), {
+      showInstant: false,
+    });
   }
 
   const options = getSlashOptions(skillName);

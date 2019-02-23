@@ -94,6 +94,7 @@ const statModRe = XRegExp(
 
 interface DescribeOptions {
   abbreviate: boolean;
+  showNoMiss: boolean;
 }
 
 // FIXME: Rename to indicate broader usage (not just soul breaks now) and move out of index?
@@ -103,6 +104,7 @@ export function describeEnlirSoulBreak(
 ): MrPSoulBreak {
   const opt: DescribeOptions = {
     abbreviate: false,
+    showNoMiss: true,
     ...options,
   };
 
@@ -137,7 +139,7 @@ export function describeEnlirSoulBreak(
     damage += attack.isJump ? ' jump' : '';
     damage += attack.isOverstrike ? ' overstrike' : '';
     damage += attack.school ? ' ' + getSchoolShortName(attack.school) : '';
-    damage += attack.isNoMiss ? ' no miss' : '';
+    damage += opt.showNoMiss && attack.isNoMiss ? ' no miss' : '';
     if (!attack.scaleToDamage && attack.scaleType) {
       // Rank chase / threshold / etc.
       damage += ' ' + attack.scaleType;
@@ -410,4 +412,4 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
 
 // TODO: Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB, Dk Cecil's Awaken and ultra
 // TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Windfang, Blasting Freeze
-// TODO: Hide "no miss" text in follow-ups?  Hide min damage?
+// TODO: Hide "no miss" text in follow-ups?  Hide min damage?  Hide school for percent-based finishers?
