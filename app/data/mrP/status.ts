@@ -1,13 +1,9 @@
 import { logger } from '../../utils/logger';
-import { allEnlirElements, allEnlirSchools, enlir, EnlirStatus } from '../enlir';
+import { enlir, EnlirStatus, getEnlirStatusByName } from '../enlir';
 import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
-import {
-  formatSchoolOrAbilityList,
-  getElementShortName,
-  getSchoolShortName,
-  getShortName,
-} from './types';
+import { effectAlias, resolveAlias, statusAlias } from './statusAlias';
+import { formatSchoolOrAbilityList, getShortName } from './types';
 import { andList, numberWithCommas, orList, parseNumberString, toMrPFixed } from './util';
 
 /**
@@ -40,122 +36,8 @@ export function describeStats(stats: string[]): string {
  */
 const hideDuration = new Set(['Astra']);
 
-/**
- * Handle statuses for which the FFRK Community spreadsheet is inconsistent.
- *
- * NOTE: These are unconfirmed.  (If they were confirmed, we'd just update
- * the spreadsheet.)  TODO: Try to clean up alternate status names.
- */
-const enlirStatusAltName: { [status: string]: EnlirStatus } = {
-  'Critical 100%': enlir.statusByName['100% Critical'],
-};
-
-/**
- * Mappings from Enlir status names or status effect names to MrP names.
- */
-interface AliasMap {
-  /**
-   * Simple names (no embedded numbers)
-   */
-  simple: { [s: string]: string };
-
-  /**
-   * Names with embedded numbers
-   */
-  numbered: { [s: string]: string };
-}
-
-/**
- * Enlir status aliases
- */
-const statusAlias: AliasMap = {
-  simple: {
-    Astra: 'Status blink 1',
-
-    'Cast speed *2': 'fastcast',
-    'High Quick Cast': 'hi fastcast',
-
-    'Low Regen': 'Regen (lo)',
-    'Medium Regen': 'Regen (med)',
-    'High Regen': 'Regen (hi)',
-
-    'Last Stand': 'Last stand',
-    'Radiant Shield: 100%': 'Reflect Dmg',
-
-    'High Retaliate': 'Retaliate @p1.2',
-
-    'Instant KO': 'KO',
-
-    Sentinel: 'taunt PHY/BLK',
-  },
-
-  numbered: {
-    'Quick Cast {X}': 'fastcast {X}',
-    'High Quick Cast {X}': 'hi fastcast {X}',
-    'Instant Cast {X}': 'instacast {X}',
-    'Magical Quick Cast {X}': 'fastzap {X}',
-    'Magical High Quick Cast {X}': 'hi fastzap {X}',
-    'Physical High Quick Cast {X}': 'phys hi fastcast {X}',
-
-    'Magical Blink {X}': 'Magic blink {X}',
-    'Physical Blink {X}': 'Phys blink {X}',
-
-    'Stoneskin: {X}%': 'Negate dmg {X}%',
-
-    'Critical Chance {X}%': 'crit ={X}%',
-    // The FFRK Community spreadsheet has both forms.  This is probably an error.
-    '{X}% Critical': 'crit ={X}%',
-    'Critical {X}%': 'crit ={X}%',
-
-    'Reraise: {X}%': 'Reraise {X}%',
-
-    '{X}% Damage Reduction Barrier 1': '{X}% Dmg barrier 1',
-    '{X}% Damage Reduction Barrier 2': '{X}% Dmg barrier 2',
-    '{X}% Damage Reduction Barrier 3': '{X}% Dmg barrier 3',
-
-    // Manually expand non-standard stat buffs to give their effects instead -
-    // this is easier than trying to programmatically identify a few statuses as
-    // needing expansion.
-    'Crash {X}%': '{X}% DEF/RES',
-  },
-};
-
-for (const i of allEnlirElements) {
-  statusAlias.simple[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
-  statusAlias.simple[`Minor Buff ${i}`] = `+10% ${getElementShortName(i)} dmg`;
-}
-for (const i of allEnlirSchools) {
-  statusAlias.simple[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
-  statusAlias.simple[`${i} High Quick Cast`] = `${getSchoolShortName(i)} hi fastcast`;
-}
-
-for (const i of allEnlirElements) {
-  statusAlias.numbered[`Imperil ${i} {X}%`] = `+{X}% ${getElementShortName(i)} vuln.`;
-  statusAlias.numbered[`${i} Stoneskin: {X}%`] =
-    'Negate dmg {X}% (' + getElementShortName(i) + ' only)';
-  statusAlias.numbered[`${i} Radiant Shield: {X}%`] =
-    'Reflect Dmg {X}% as ' + getElementShortName(i);
-}
-for (const i of allEnlirSchools) {
-  for (const j of ['Quick Cast {X}', 'High Quick Cast {X}', 'Instant Cast {x}']) {
-    statusAlias.numbered[i + ' ' + j] = getSchoolShortName(i) + ' ' + statusAlias.numbered[j];
-  }
-}
-
 const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
 const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
-
-/**
- * Aliases for Enlir status effects
- */
-const effectAlias: AliasMap = {
-  simple: {
-    'cast speed x2.00': 'fastcast',
-  },
-  numbered: {
-    'Critical chance ={X}%': 'crit ={X}%',
-  },
-};
 
 const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
@@ -209,21 +91,6 @@ const isModeStatus = ({ codedName }: EnlirStatus) =>
  */
 const isCustomStatMod = ({ codedName, effects }: EnlirStatus) =>
   codedName.startsWith('CUSTOM_PARAM_') && !effects.match(/, lasts for \d+ turn/);
-
-function resolveAlias(s: string, { simple, numbered }: AliasMap): string | null {
-  let m: RegExpMatchArray | null;
-
-  if (simple[s]) {
-    return simple[s];
-  } else if ((m = s.match(/(-?\d+)/))) {
-    const text = s.replace(/-?\d+/, '{X}');
-    if (numbered[text]) {
-      return numbered[text].replace('{X}', m[1]);
-    }
-  }
-
-  return null;
-}
 
 /**
  * Describes a "well-known" or common Enlir status name.
@@ -355,8 +222,14 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
     return `1.05-1.1-1.15-1.2-1.3x ${m[1]} dmg @ ranks 1-5`;
   }
 
-  if (effect.startsWith('removed after using ')) {
-    // These statuses are too verbose to fit in a MrP style format.
+  if (
+    effect.startsWith('removed after using ') ||
+    effect.startsWith("removed if the user hasn't")
+  ) {
+    // These effects are too verbose to fit in a MrP style format.
+    // "removed after using" is just for Ace's Top Card.
+    // "removed if the user hasn't" describes USB effects that are paired
+    // with other USB effects - when one is removed, the other is too.
     return '';
   }
 
@@ -466,39 +339,6 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     followUp.skillOrStatus.map(describe).join(' – ') +
     ')'
   );
-}
-
-/**
- * Retrieves an EnlirStatus by name, including support for generic numbers and
- * elements.
- */
-function getEnlirStatusByName(status: string): EnlirStatus | undefined {
-  if (enlir.statusByName[status]) {
-    return enlir.statusByName[status];
-  }
-
-  if (enlirStatusAltName[status]) {
-    return enlirStatusAltName[status];
-  }
-
-  status = status.replace(/\d+/, 'X');
-  if (enlir.statusByName[status]) {
-    return enlir.statusByName[status];
-  }
-
-  status = status.replace(/-X/, '+X');
-  if (enlir.statusByName[status]) {
-    return enlir.statusByName[status];
-  }
-
-  for (const i of allEnlirElements) {
-    status = status.replace(i, '[Element]');
-  }
-  if (enlir.statusByName[status]) {
-    return enlir.statusByName[status];
-  }
-
-  return undefined;
 }
 
 /**

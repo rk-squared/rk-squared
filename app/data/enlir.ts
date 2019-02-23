@@ -181,3 +181,46 @@ export const enlir = {
   soulBreaks: _.keyBy(rawData.soulBreaks, 'id'),
   statusByName: _.keyBy(rawData.status, 'name'),
 };
+
+/**
+ * Handle statuses for which the FFRK Community spreadsheet is inconsistent.
+ *
+ * NOTE: These are unconfirmed.  (If they were confirmed, we'd just update
+ * the spreadsheet.)  TODO: Try to clean up alternate status names.
+ */
+const enlirStatusAltName: { [status: string]: EnlirStatus } = {
+  'Critical 100%': enlir.statusByName['100% Critical'],
+};
+
+/**
+ * Retrieves an EnlirStatus by name, including support for generic numbers and
+ * elements.
+ */
+export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
+  if (enlir.statusByName[status]) {
+    return enlir.statusByName[status];
+  }
+
+  if (enlirStatusAltName[status]) {
+    return enlirStatusAltName[status];
+  }
+
+  status = status.replace(/\d+/, 'X');
+  if (enlir.statusByName[status]) {
+    return enlir.statusByName[status];
+  }
+
+  status = status.replace(/-X/, '+X');
+  if (enlir.statusByName[status]) {
+    return enlir.statusByName[status];
+  }
+
+  for (const i of allEnlirElements) {
+    status = status.replace(i, '[Element]');
+  }
+  if (enlir.statusByName[status]) {
+    return enlir.statusByName[status];
+  }
+
+  return undefined;
+}
