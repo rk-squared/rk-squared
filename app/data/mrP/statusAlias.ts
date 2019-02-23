@@ -56,6 +56,7 @@ export const statusAlias: AliasMap = {
     'Stoneskin: {X}%': 'Negate dmg {X}%',
 
     'Critical Chance {X}%': 'crit ={X}%',
+    'Critical Damage +{X}%': '+{X}% crit dmg',
     // The FFRK Community spreadsheet has both forms.  This is probably an error.
     '{X}% Critical': 'crit ={X}%',
     'Critical {X}%': 'crit ={X}%',

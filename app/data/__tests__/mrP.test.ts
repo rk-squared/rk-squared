@@ -81,12 +81,13 @@ describe('mrP', () => {
       });
     });
 
-    it('converts multiple self effects', () => {
+    it('converts multiple status effects', () => {
       // Deviation: MrP lists some recoil as fractions instead of percents.
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Dark Flame'])).toEqual({
         damage: 'AoE phys 7.84/8 dark+fire',
         other: 'self lose 25% max HP, +30% ATK/RES 25s',
       });
+
       expect(describeEnlirSoulBreak(soulBreaks['Alma - Sacred Barrier'])).toEqual({
         other: 'party Haste, Protect, Shell, Regen (hi), Status blink 1, Reraise 40%',
       });
@@ -96,6 +97,13 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Alma - Angelic Vessel'])).toEqual({
         instant: true,
         other: 'party h85, Negate dmg 100% (dark only), Autoheal 2k',
+      });
+    });
+
+    it('converts self effects', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Balthier - Element of Treachery'])).toEqual({
+        damage: 'phys 5.1/10 rngd',
+        other: 'self Phys blink 2',
       });
     });
 
@@ -141,6 +149,12 @@ describe('mrP', () => {
         instant: true,
         damage: 'phys 3.12/6 fire+non',
         other: '+10% fire vuln. 25s, -50% DEF 15s',
+      });
+
+      // Discrepancy: MrP sometimes lists this as "crit dmg=2x".
+      expect(describeEnlirSoulBreak(soulBreaks['Ayame - Hagakure Yukikaze'])).toEqual({
+        damage: 'phys 7.1/10 ice+non',
+        other: 'ice infuse 25s, self Retaliate @p1.2 15s, +50% crit dmg 25s',
       });
     });
 
