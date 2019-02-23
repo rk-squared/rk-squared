@@ -51,85 +51,110 @@ const enlirStatusAltName: { [status: string]: EnlirStatus } = {
 };
 
 /**
- * Maps from Enlir status names to MMP aliases.  Some Enlir statuses have
- * embedded numbers and so can't use a simple string lookup like this.
+ * Mappings from Enlir status names or status effect names to MrP names.
  */
-const enlirStatusAlias: { [status: string]: string } = {
-  Astra: 'Status blink 1',
+interface AliasMap {
+  /**
+   * Simple names (no embedded numbers)
+   */
+  simple: { [s: string]: string };
 
-  'Cast speed *2': 'fastcast',
-  'High Quick Cast': 'hi fastcast',
+  /**
+   * Names with embedded numbers
+   */
+  numbered: { [s: string]: string };
+}
 
-  'Low Regen': 'Regen (lo)',
-  'Medium Regen': 'Regen (med)',
-  'High Regen': 'Regen (hi)',
+/**
+ * Enlir status aliases
+ */
+const statusAlias: AliasMap = {
+  simple: {
+    Astra: 'Status blink 1',
 
-  'Last Stand': 'Last stand',
-  'Radiant Shield: 100%': 'Reflect Dmg',
+    'Cast speed *2': 'fastcast',
+    'High Quick Cast': 'hi fastcast',
 
-  'High Retaliate': 'Retaliate @p1.2',
+    'Low Regen': 'Regen (lo)',
+    'Medium Regen': 'Regen (med)',
+    'High Regen': 'Regen (hi)',
 
-  'Instant KO': 'KO',
+    'Last Stand': 'Last stand',
+    'Radiant Shield: 100%': 'Reflect Dmg',
+
+    'High Retaliate': 'Retaliate @p1.2',
+
+    'Instant KO': 'KO',
+
+    Sentinel: 'taunt PHY/BLK',
+  },
+
+  numbered: {
+    'Quick Cast {X}': 'fastcast {X}',
+    'High Quick Cast {X}': 'hi fastcast {X}',
+    'Instant Cast {X}': 'instacast {X}',
+    'Magical Quick Cast {X}': 'fastzap {X}',
+    'Magical High Quick Cast {X}': 'hi fastzap {X}',
+    'Physical High Quick Cast {X}': 'phys hi fastcast {X}',
+
+    'Magical Blink {X}': 'Magic blink {X}',
+    'Physical Blink {X}': 'Phys blink {X}',
+
+    'Stoneskin: {X}%': 'Negate dmg {X}%',
+
+    'Critical Chance {X}%': 'crit ={X}%',
+    // The FFRK Community spreadsheet has both forms.  This is probably an error.
+    '{X}% Critical': 'crit ={X}%',
+    'Critical {X}%': 'crit ={X}%',
+
+    'Reraise: {X}%': 'Reraise {X}%',
+
+    '{X}% Damage Reduction Barrier 1': '{X}% Dmg barrier 1',
+    '{X}% Damage Reduction Barrier 2': '{X}% Dmg barrier 2',
+    '{X}% Damage Reduction Barrier 3': '{X}% Dmg barrier 3',
+
+    // Manually expand non-standard stat buffs to give their effects instead -
+    // this is easier than trying to programmatically identify a few statuses as
+    // needing expansion.
+    'Crash {X}%': '{X}% DEF/RES',
+  },
 };
 
 for (const i of allEnlirElements) {
-  enlirStatusAlias[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
-  enlirStatusAlias[`Minor Buff ${i}`] = `+10% ${getElementShortName(i)} dmg`;
+  statusAlias.simple[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
+  statusAlias.simple[`Minor Buff ${i}`] = `+10% ${getElementShortName(i)} dmg`;
 }
 for (const i of allEnlirSchools) {
-  enlirStatusAlias[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
-  enlirStatusAlias[`${i} High Quick Cast`] = `${getSchoolShortName(i)} hi fastcast`;
+  statusAlias.simple[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
+  statusAlias.simple[`${i} High Quick Cast`] = `${getSchoolShortName(i)} hi fastcast`;
 }
 
-const enlirStatusAliasWithNumbers: { [status: string]: string } = {
-  'Quick Cast {X}': 'fastcast {X}',
-  'High Quick Cast {X}': 'hi fastcast {X}',
-  'Instant Cast {X}': 'instacast {X}',
-  'Magical Quick Cast {X}': 'fastzap {X}',
-  'Magical High Quick Cast {X}': 'hi fastzap {X}',
-  'Physical High Quick Cast {X}': 'phys hi fastcast {X}',
-
-  'Magical Blink {X}': 'Magic blink {X}',
-  'Physical Blink {X}': 'Phys blink {X}',
-
-  'Stoneskin: {X}%': 'Negate dmg {X}%',
-
-  'Critical Chance {X}%': 'crit ={X}%',
-  // The FFRK Community spreadsheet has both forms.  This is probably an error.
-  '{X}% Critical': 'crit ={X}%',
-  'Critical {X}%': 'crit ={X}%',
-
-  'Reraise: {X}%': 'Reraise {X}%',
-
-  '{X}% Damage Reduction Barrier 1': '{X}% Dmg barrier 1',
-  '{X}% Damage Reduction Barrier 2': '{X}% Dmg barrier 2',
-  '{X}% Damage Reduction Barrier 3': '{X}% Dmg barrier 3',
-
-  // Manually expand non-standard stat buffs to give their effects instead -
-  // this is easier than trying to programmatically identify a few statuses as
-  // needing expansion.
-  'Crash {X}%': '{X}% DEF/RES',
-};
-
 for (const i of allEnlirElements) {
-  enlirStatusAliasWithNumbers[`Imperil ${i} {X}%`] = `+{X}% ${getElementShortName(i)} vuln.`;
-  enlirStatusAliasWithNumbers[`${i} Stoneskin: {X}%`] =
+  statusAlias.numbered[`Imperil ${i} {X}%`] = `+{X}% ${getElementShortName(i)} vuln.`;
+  statusAlias.numbered[`${i} Stoneskin: {X}%`] =
     'Negate dmg {X}% (' + getElementShortName(i) + ' only)';
-  enlirStatusAliasWithNumbers[`${i} Radiant Shield: {X}%`] =
+  statusAlias.numbered[`${i} Radiant Shield: {X}%`] =
     'Reflect Dmg {X}% as ' + getElementShortName(i);
 }
 for (const i of allEnlirSchools) {
   for (const j of ['Quick Cast {X}', 'High Quick Cast {X}', 'Instant Cast {x}']) {
-    enlirStatusAliasWithNumbers[i + ' ' + j] =
-      getSchoolShortName(i) + ' ' + enlirStatusAliasWithNumbers[j];
+    statusAlias.numbered[i + ' ' + j] = getSchoolShortName(i) + ' ' + statusAlias.numbered[j];
   }
 }
 
 const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
 const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
 
-const enlirStatusEffectAlias: { [statusEffect: string]: string } = {
-  'cast speed x2.00': 'fastcast',
+/**
+ * Aliases for Enlir status effects
+ */
+const effectAlias: AliasMap = {
+  simple: {
+    'cast speed x2.00': 'fastcast',
+  },
+  numbered: {
+    'Critical chance ={X}%': 'crit ={X}%',
+  },
 };
 
 const isExStatus = (status: string) => status.startsWith('EX: ');
@@ -141,7 +166,8 @@ interface FollowUpEffect {
 
   /**
    * Follow-up skill or status.  This is experimentally an array to support
-   * Ace's Firaga BOM follow-up, but we may find an alternate approach there.
+   * Ace's Firaga BOM follow-up (the only follow-up that can trigger multiple
+   * skills!), but we may find an alternate approach there.
    */
   skillOrStatus: string[];
 
@@ -176,15 +202,23 @@ const isFollowUpStatus = ({ effects, codedName }: EnlirStatus) =>
 const isModeStatus = ({ codedName }: EnlirStatus) =>
   !!codedName.match(/_MODE/) && codedName !== 'BRAVE_MODE';
 
-function describeGenericStatus(status: string): string | null {
+/**
+ * Custom stat mods - Bushido, Dark Bargain, etc.  Omit turn-limited effects
+ * here; it's easier to special case those within describeEnlirStatus than to
+ * make describeEffects smart enough to handle them.
+ */
+const isCustomStatMod = ({ codedName, effects }: EnlirStatus) =>
+  codedName.startsWith('CUSTOM_PARAM_') && !effects.match(/, lasts for \d+ turn/);
+
+function resolveAlias(s: string, { simple, numbered }: AliasMap): string | null {
   let m: RegExpMatchArray | null;
 
-  if (enlirStatusAlias[status]) {
-    return enlirStatusAlias[status];
-  } else if ((m = status.match(/(-?\d+)/))) {
-    const statusText = status.replace(/-?\d+/, '{X}');
-    if (enlirStatusAliasWithNumbers[statusText]) {
-      return enlirStatusAliasWithNumbers[statusText].replace('{X}', m[1]);
+  if (simple[s]) {
+    return simple[s];
+  } else if ((m = s.match(/(-?\d+)/))) {
+    const text = s.replace(/-?\d+/, '{X}');
+    if (numbered[text]) {
+      return numbered[text].replace('{X}', m[1]);
     }
   }
 
@@ -202,7 +236,7 @@ function describeEnlirStatus(status: string) {
 
   // Generic statuses
   {
-    const genericStatus = describeGenericStatus(status);
+    const genericStatus = resolveAlias(status, statusAlias);
     if (genericStatus) {
       return genericStatus;
     }
@@ -238,7 +272,7 @@ function describeEnlirStatus(status: string) {
   // under enlirStatusAliasWithNumbers and omit the 'turn' text.
   if ((m = status.match(/(.*) (\d)$/))) {
     const [, baseStatus, turns] = m;
-    const genericStatus = describeGenericStatus(baseStatus);
+    const genericStatus = resolveAlias(baseStatus, statusAlias);
     if (genericStatus) {
       return genericStatus + ' ' + turns + (turns === '1' ? ' turn' : ' turns');
     }
@@ -284,8 +318,11 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
   }
 
   // Generic status effects
-  if (enlirStatusEffectAlias[effect]) {
-    return enlirStatusEffectAlias[effect];
+  {
+    const genericEffect = resolveAlias(effect, effectAlias);
+    if (genericEffect) {
+      return genericEffect;
+    }
   }
 
   // Special cases
@@ -336,13 +373,13 @@ export interface ParsedEnlirStatus {
 }
 
 /**
- * Describes an "EX mode-like" status.  This is not an exact science, but the
- * general idea is that "common" statuses can be listed more or less as is
- * (possibly using our shorter or more explanatory aliases), while rare or
- * character-specific statuses should be broken down and their individual
+ * Describes a status's individual effects.  This is not an exact science,
+ * but the general idea is that "common" statuses can be listed more or less
+ * as is (possibly using our shorter or more explanatory aliases), while rare
+ * or character-specific statuses should be broken down and their individual
  * effects listed separately.
  */
-function describeExLike(enlirStatus: EnlirStatus): string {
+function describeEffects(enlirStatus: EnlirStatus): string {
   return splitStatusEffects(enlirStatus.effects)
     .map(i => describeEnlirStatusEffect(i, enlirStatus))
     .filter(i => i !== '')
@@ -489,8 +526,8 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
     isAwaken ||
     (enlirStatus != null && (isFollowUpStatus(enlirStatus) || isModeStatus(enlirStatus)));
 
-  if (enlirStatus && isExLike) {
-    description = describeExLike(enlirStatus);
+  if (enlirStatus && (isExLike || isCustomStatMod(enlirStatus))) {
+    description = describeEffects(enlirStatus);
     if (isEx) {
       description = 'EX: ' + description;
     }
