@@ -6,7 +6,7 @@ import { formatSchoolOrAbilityList, getElementShortName, SB_BAR_SIZE } from './t
 import { parseNumberString, parsePercentageCounts, parseThresholdValues, toMrPFixed } from './util';
 
 export interface ParsedEnlirAttack {
-  damageType: 'phys' | 'white' | 'magic';
+  damageType: 'phys' | 'white' | 'magic' | '?';
   randomChances?: string;
 
   /**
@@ -44,6 +44,7 @@ export interface ParsedEnlirAttack {
   isJump: boolean;
   isOverstrike: boolean;
   isSummon: boolean;
+  isNat: boolean;
   isNoMiss: boolean;
 }
 
@@ -180,6 +181,27 @@ function describeScaleType(scaleType: string): string {
   }
 }
 
+function describeDamageType({
+  formula,
+  type,
+}: EnlirOtherSkill | EnlirSoulBreak): 'phys' | 'white' | 'magic' | '?' {
+  switch (type) {
+    case 'PHY':
+      return 'phys';
+    case 'WHT':
+      return 'white';
+    case 'BLK':
+    case 'SUM':
+    case 'NIN':
+      return 'magic';
+    case 'NAT':
+      return formula === 'Physical' ? 'phys' : formula === 'Magical' ? 'magic' : '?';
+    case '?':
+    case null:
+      return '?';
+  }
+}
+
 const attackRe = XRegExp(
   String.raw`
   (?<numAttacks>[Rr]andomly\ deals\ .*|[A-Za-z-]+|[0-9/]+)\ #
@@ -283,7 +305,7 @@ export function parseEnlirAttack(
 
   return {
     isAoE: m.attackType === 'group',
-    damageType: skill.type === 'PHY' ? 'phys' : skill.type === 'WHT' ? 'white' : 'magic',
+    damageType: describeDamageType(skill),
 
     numAttacks,
     attackMultiplier,
@@ -303,6 +325,7 @@ export function parseEnlirAttack(
     isJump: !!m.jump,
     isOverstrike: !!m.overstrike,
     isSummon: skill.type === 'SUM',
+    isNat: skill.type === 'NAT',
     isNoMiss: !!m.noMiss,
   };
 }

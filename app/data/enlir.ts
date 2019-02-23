@@ -28,6 +28,8 @@ export const allEnlirElements: EnlirElement[] = [
 export const isEnlirElement = (s: string): s is EnlirElement =>
   allEnlirElements.indexOf(s as EnlirElement) !== -1;
 
+export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
+
 export type EnlirSchool =
   | '?'
   | 'Bard'
@@ -78,7 +80,7 @@ export const allEnlirSchools: EnlirSchool[] = [
 export const isEnlirSchool = (s: string): s is EnlirSchool =>
   allEnlirSchools.indexOf(s as EnlirSchool) !== -1;
 
-export type EnlirSkillType = 'BLK' | 'NAT' | 'NIN' | 'PHY' | 'SUM' | 'WHT';
+export type EnlirSkillType = 'BLK' | 'NAT' | 'NIN' | 'PHY' | 'SUM' | 'WHT' | '?';
 
 export type EnlirSoulBreakTier =
   | 'Default'
@@ -99,7 +101,7 @@ export interface EnlirOtherSkill {
   name: string;
   type: EnlirSkillType | null;
   target: string;
-  formula: string | null;
+  formula: EnlirFormula | null;
   multiplier: number | null;
   element: EnlirElement[] | null;
   time: number;
@@ -129,7 +131,7 @@ export interface EnlirSoulBreak {
   name: string;
   type: EnlirSkillType | null;
   target: string;
-  formula: string | null;
+  formula: EnlirFormula | null;
   multiplier: number | null;
   element: EnlirElement[] | null;
   time: number;

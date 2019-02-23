@@ -473,5 +473,12 @@ describe('mrP', () => {
         other: 'party refill 1 abil. use',
       });
     });
+
+    it('handles NAT abilities', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Hope - Brutal Sanction'])).toEqual({
+        damage: 'magic 10.5/3 (NAT)',
+        other: '88% (50% × 3) Stop',
+      });
+    });
   });
 });

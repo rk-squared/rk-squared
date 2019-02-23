@@ -383,7 +383,7 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
     return 'crit';
   }
 
-  trigger = trigger.replace(/ (abilities|ability|attacks|attack)$/, '').replace(/^a /, '');
+  trigger = trigger.replace(/ (abilities|ability|attacks|attack)$/, '').replace(/^an? /, '');
 
   let count: number | string | null = null;
   let m: RegExpMatchArray | null;

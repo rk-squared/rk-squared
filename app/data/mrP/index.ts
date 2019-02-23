@@ -83,7 +83,6 @@ export function describeEnlirSoulBreak(
 
   const attack = parseEnlirAttack(sb.effects, sb);
   if (attack) {
-    // FIXME: Extract and reduce duplication with describing follow-up skills?
     damage += attack.isAoE ? 'AoE ' : '';
     damage += attack.randomChances ? attack.randomChances + ' ' : '';
     damage += opt.abbreviate ? damageTypeAbbreviation(attack.damageType) : attack.damageType + ' ';
@@ -104,6 +103,7 @@ export function describeEnlirSoulBreak(
     }
     // Omit ' (SUM)' for Summoning school; it seems redundant.
     damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
+    damage += attack.isNat ? ' (NAT)' : '';
     if (attack.orDamage && attack.orCondition) {
       damage +=
         ', or ' +
@@ -341,7 +341,7 @@ export function describeEnlirSoulBreak(
 
   return {
     chain: chain || undefined,
-    instant: sb.time <= 0.01 ? true : undefined,
+    instant: sb.time != null && sb.time <= 0.01 ? true : undefined,
     damage: damage || undefined,
     other: other.length ? other.join(', ') : undefined,
   };
