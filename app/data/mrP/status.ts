@@ -18,6 +18,7 @@ import {
   numberWithCommas,
   orList,
   parseNumberString,
+  slashMerge,
   toMrPFixed,
 } from './util';
 
@@ -392,6 +393,12 @@ function extractCount(s: string): [number | string | null, string] {
   }
 }
 
+const slashOptionsRe = /(?:\w+\/)+\w+/;
+function getSlashOptions(s: string): string[] | null {
+  const m = s.match(slashOptionsRe);
+  return m ? m[0].split('/') : null;
+}
+
 /**
  * Describes the trigger portion of a follow-up.
  *
@@ -411,7 +418,8 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
   let count: number | string | null;
   [count, trigger] = extractCount(trigger);
 
-  trigger = trigger.replace(/(?:\w+\/)+\w+/, i =>
+  // Turn element alternatives into abbreviations.
+  trigger = trigger.replace(slashOptionsRe, i =>
     i
       .split('/')
       .map(getAbbreviation)
@@ -431,9 +439,17 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
  */
 function describeFollowUpSkill(skillName: string): string {
   const skill = enlir.otherSkillsByName[skillName];
-  return !skill
-    ? skillName
-    : formatMrP(describeEnlirSoulBreak(skill, { abbreviate: true }), { showInstant: false });
+  if (skill) {
+    return formatMrP(describeEnlirSoulBreak(skill, { abbreviate: true }), { showInstant: false });
+  }
+
+  const options = getSlashOptions(skillName);
+  if (options) {
+    const skillOptions = options.map(i => skillName.replace(slashOptionsRe, i));
+    return slashMerge(skillOptions.map(describeFollowUpSkill));
+  }
+
+  return skillName;
 }
 
 function describeFollowUpStatus(statusText: string): string {

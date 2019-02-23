@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 export const andList = /,? and |, /;
 export const orList = /,? or |, /;
 export const andOrList = /,? and |,? or |, /;
@@ -81,4 +83,27 @@ export function toMrPFixed(n: number): string {
 // https://stackoverflow.com/a/2901298/25507
 export function numberWithCommas(x: number): string {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+export function isAllSame<T>(values: T[], iteratee: (value: T) => any): boolean {
+  return _.every(values, i => iteratee(i) === iteratee(values[0]));
+}
+
+export function slashMerge(options: string[]): string {
+  const optionParts = options.map(i => i.split(/([ +])/));
+  const maxLength = Math.max(...optionParts.map(i => i.length));
+
+  let result = '';
+  for (let i = 0; i < maxLength; i++) {
+    if (isAllSame(optionParts, parts => parts[i])) {
+      result += optionParts[0][i];
+    } else {
+      result += optionParts
+        .filter(parts => parts[i] !== undefined)
+        .map(parts => parts[i])
+        .join('/');
+    }
+  }
+
+  return result;
 }

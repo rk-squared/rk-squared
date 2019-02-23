@@ -16,6 +16,7 @@ const elementShortName: { [element: string]: string } = {
 const elementAbbreviation: { [element: string]: string } = {
   water: 'wa',
   wind: 'wi',
+  poison: 'b',
 };
 
 const schoolShortName: { [school in EnlirSchool]?: string } = {

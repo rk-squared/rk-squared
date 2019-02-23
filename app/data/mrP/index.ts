@@ -19,7 +19,7 @@ import {
   getSchoolShortName,
   getShortName,
 } from './types';
-import { toMrPFixed } from './util';
+import { isAllSame, toMrPFixed } from './util';
 
 interface MrPSoulBreak {
   instant?: boolean;
@@ -41,8 +41,7 @@ interface StatusInfliction {
 }
 
 function formatStatusInfliction(status: StatusInfliction[]): string {
-  const allSame = _.every(status, i => i.chance === status[0].chance);
-  if (allSame) {
+  if (isAllSame(status, i => i.chance)) {
     return status[0].chanceDescription + ' ' + status.map(i => i.description).join('/');
   } else {
     return status.map(i => i.chanceDescription + ' ' + i.description).join(', ');
