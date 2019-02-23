@@ -352,7 +352,6 @@ export interface ParsedEnlirStatus {
   isExLike: boolean;
   defaultDuration: number | null;
   isVariableDuration: boolean;
-  chance?: number;
 }
 
 /**
@@ -459,13 +458,6 @@ function describeFollowUp(followUp: FollowUpEffect): string {
  * it and how it should be shown.
  */
 export function parseEnlirStatus(status: string): ParsedEnlirStatus {
-  const m = status.match(/(.*) \((\d+)%\)$/);
-  let chance: number | undefined;
-  if (m) {
-    status = m[1];
-    chance = +m[2];
-  }
-
   const enlirStatus = getEnlirStatusByName(status);
   if (!enlirStatus) {
     logger.warn(`Unknown status: ${status}`);
@@ -497,7 +489,61 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
     isExLike,
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
-    chance,
+  };
+}
+
+/**
+ * A single status item within a list of skill effects - includes the status
+ * name itself and possible additional parameters
+ */
+export interface StatusItem {
+  statusName: string;
+  chance?: number;
+  who?: string;
+  duration?: number;
+}
+
+/**
+ * Parses a status text to separate the status name itself from associated
+ * parameters.
+ *
+ * @param statusText The text term (e.g., "Haste" or
+ *     "RES and MND +30% to the user for 25 seconds")
+ * @param wholeClause  The skill's statuses clause as a whole (e.g., "grants
+ *      Magical Blink 1, RES and MND +30% to the user for 25 seconds"
+ */
+export function parseStatusItem(statusText: string, wholeClause: string): StatusItem {
+  // Determine target and duration.  This is hard, and I may not have it
+  // right.  For example:
+  // - "grants Haste and Burst mode to the user" - Haste is "to the user"
+  // - "causes Imperil Fire 10% and DEF -50% for 15 seconds" - imperil is
+  //   standard 25 seconds (I think)
+  // - "grants Magical Blink 1, RES and MND +30% to the user for 25
+  //   seconds" - m.blink is to the party, stat boosts are to the user
+
+  const m = statusText.match(
+    /^(.*?)(?: \((\d+)%\))?( to the user| to all allies)?(?: for (\d+) seconds)?$/,
+  );
+
+  if (!m) {
+    return { statusName: statusText };
+  }
+
+  const [, statusName, chance, who, duration] = m;
+
+  let lookaheadWho: string | undefined;
+  if (!who) {
+    const lookahead = wholeClause.match(/( to the user| to all allies)(?! for \d+ seconds)/);
+    if (lookahead) {
+      lookaheadWho = lookahead[1];
+    }
+  }
+
+  return {
+    statusName,
+    chance: chance ? +chance : undefined,
+    who: who || lookaheadWho,
+    duration: duration ? +duration : undefined,
   };
 }
 
@@ -519,6 +565,6 @@ const getSortOrder = (status: string) => {
   }
 };
 
-export function sortStatus(a: string, b: string): number {
-  return getSortOrder(a) - getSortOrder(b);
+export function sortStatus(a: StatusItem, b: StatusItem): number {
+  return getSortOrder(a.statusName) - getSortOrder(b.statusName);
 }

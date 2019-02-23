@@ -4,7 +4,13 @@ import * as XRegExp from 'xregexp';
 import { EnlirOtherSkill, EnlirSoulBreak, isEnlirElement } from '../enlir';
 import { parseEnlirAttack } from './attack';
 import { splitSkillStatuses } from './split';
-import { describeStats, includeStatus, parseEnlirStatus, sortStatus } from './status';
+import {
+  describeStats,
+  includeStatus,
+  parseEnlirStatus,
+  parseStatusItem,
+  sortStatus,
+} from './status';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -219,37 +225,18 @@ export function describeEnlirSoulBreak(
 
   XRegExp.forEach(sb.effects, statusEffectRe, match => {
     const { statusString } = match as any;
+    const wholeClause = match[0];
     const status = splitSkillStatuses(statusString)
       .filter(includeStatus)
+      .map(i => parseStatusItem(i, wholeClause))
       .sort(sortStatus);
-    for (let thisStatus of status) {
-      let duration: number | undefined;
-      let who: string | undefined;
-
-      // Determine target and duration.  This is hard, and I may not have it
-      // right.  For example:
-      // - "grants Haste and Burst mode to the user" - Haste is "to the user"
-      // - "causes Imperil Fire 10% and DEF -50% for 15 seconds" - imperil is
-      //   standard 25 seconds (I think)
-      // - "grants Magical Blink 1, RES and MND +30% to the user for 25
-      //   seconds" - m.blink is to the party, stat boosts are to the user
-      const whoAndDuration = thisStatus.match(
-        /^(.*?)( to the user| to all allies)?(?: for (\d+) seconds)?$/,
-      );
-      if (whoAndDuration) {
-        duration = whoAndDuration[3] ? +whoAndDuration[3] : undefined;
-        who = whoAndDuration[2];
-        thisStatus = whoAndDuration[1];
-      }
-      if (!who) {
-        if ((m = match[0].match(/( to the user| to all allies)(?! for \d+ seconds)/))) {
-          who = m[1];
-        }
-      }
+    for (const thisStatus of status) {
+      // tslint:disable-next-line: prefer-const
+      let { statusName, duration, who, chance } = thisStatus;
 
       // tslint:disable-next-line: prefer-const
-      let { description, isExLike, defaultDuration, isVariableDuration, chance } = parseEnlirStatus(
-        thisStatus,
+      let { description, isExLike, defaultDuration, isVariableDuration } = parseEnlirStatus(
+        statusName,
       );
 
       if (!duration && defaultDuration) {

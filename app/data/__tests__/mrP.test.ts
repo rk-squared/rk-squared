@@ -438,6 +438,9 @@ describe('mrP', () => {
           'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non overstrike Combat no miss, ' +
           '15s: Awaken Lucis King: fire/earth/lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      // This also helps test the interaction of status effects and stat mods,
+      // because of the "causes DEF, RES and MND -70% for 8 seconds" follow-up.
       expect(describeEnlirSoulBreak(soulBreaks['Auron - Living Flame'])).toEqual({
         damage: 'phys 9.0/15 fire+non',
         other:
@@ -445,6 +448,7 @@ describe('mrP', () => {
           '15s: (3 Samurai ⤇ p5.28 f+n overstrike Samurai, -70% DEF/RES/MND 8s), ' +
           '15s: Awaken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
       // TODO: Add checks for more Awaken modes
       // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.
     });
