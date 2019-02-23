@@ -2,6 +2,11 @@ import { allEnlirElements, allEnlirSchools } from '../enlir';
 import { getElementShortName, getSchoolShortName } from './types';
 import { lowerCaseFirst } from './util';
 
+export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
+export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
+
+const rankBoostAlias = (s: string) => `1.05-1.1-1.15-1.2-1.3x ${s} dmg @ ranks 1-5`;
+
 /**
  * Mappings from Enlir status names or status effect names to MrP names.
  */
@@ -27,6 +32,8 @@ export const statusAlias: AliasMap = {
     'Cast speed *2': 'fastcast',
     'Quick Cast': 'fastcast',
     'High Quick Cast': 'hi fastcast',
+    'Magical Quick Cast': 'fastzap',
+    'Magical High Quick Cast': 'hi fastzap',
 
     'Low Regen': 'Regen (lo)',
     'Medium Regen': 'Regen (med)',
@@ -80,7 +87,9 @@ for (const i of allEnlirElements) {
 }
 for (const i of allEnlirSchools) {
   statusAlias.simple[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
+  statusAlias.simple[`${i} Quick Cast`] = `${getSchoolShortName(i)} fastcast`;
   statusAlias.simple[`${i} High Quick Cast`] = `${getSchoolShortName(i)} hi fastcast`;
+  statusAlias.simple[`${i} Rank Boost`] = rankBoostAlias(i);
 }
 
 for (const i of allEnlirElements) {
@@ -113,6 +122,12 @@ export const effectAlias: AliasMap = {
     'cast speed x{X} for magical damage': '{X}x zap',
   },
 };
+for (const i of allEnlirSchools) {
+  effectAlias.simple[`${lowerCaseFirst(i)} cast speed x2.00`] = `fastcast ${getSchoolShortName(i)}`;
+  statusAlias.simple[`${lowerCaseFirst(i)} cast speed x3.00`] = `hi fastcast ${getSchoolShortName(
+    i,
+  )}`;
+}
 
 export function splitNumbered(s: string): [string, string] | [null, null] {
   const m = s.match(/(-?[0-9.]+)/);

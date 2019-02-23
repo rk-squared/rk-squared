@@ -6,6 +6,8 @@ import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
 import {
   effectAlias,
+  enlirRankBoost,
+  enlirRankBoostRe,
   resolveEffectAlias,
   resolveNumbered,
   resolveStatusAlias,
@@ -51,9 +53,6 @@ export function describeStats(stats: string[]): string {
  * removed due to enemy action.
  */
 const hideDuration = new Set(['Astra']);
-
-const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
-const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
 
 const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
