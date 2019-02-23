@@ -35466,7 +35466,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Ten single attacks (0.71 each), grants Attack Dark, Gaffgarion's Dark Drain and Brave Mode to the user",
+    "effects": "Ten single attacks (0.71 each), grants Attach Dark, Gaffgarion's Dark Drain and Brave Mode to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

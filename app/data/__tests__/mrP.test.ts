@@ -309,6 +309,13 @@ describe('mrP', () => {
           'm7.8/6 d+h+n Darkness, self heal 10% of dmg / ' +
           'm20.2 d+h+n overstrike Darkness, self heal 10% of dmg)',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks["Bartz - Crystals' Chosen"])).toEqual({
+        damage: 'phys 6.9/10 wind+water+fire+earth',
+        other:
+          '15s: EX: (0-8 wind/water/fire/earth ⤇ 1.3-1.35-1.4-1.45-1.5-1.55-1.6-1.65-1.7x Spellblade dmg), ' +
+          'Finisher: phys 35% Spellblade overstrike Spellblade',
+      });
     });
 
     it('converts EX modes with follow-up statuses', () => {

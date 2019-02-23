@@ -7616,7 +7616,7 @@
   {
     "id": 50164,
     "name": "EX: Crystal Might",
-    "effects": "Spellblade damage +30/35/40/45/50/55/60/65/70% after 0/1/2/3/4/5/6/7/8 Wind, Water, Fire or Earth attacks, casts Spellblade Finish when removed",
+    "effects": "Spellblade abilities deal 30/35/40/45/50/55/60/65/70% more damage after using 0/1/2/3/4/5/6/7/8 Wind, Water, Fire or Earth attacks, casts Spellblade Finish when removed",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

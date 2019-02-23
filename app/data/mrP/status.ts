@@ -16,6 +16,7 @@ import {
 import { formatSchoolOrAbilityList, getAbbreviation, getShortName } from './types';
 import {
   andList,
+  cleanUpSlashedNumbers,
   lowerCaseFirst,
   numberWithCommas,
   orList,
@@ -60,6 +61,7 @@ const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
 interface FollowUpEffect {
   isSkill: boolean;
   isStatus: boolean;
+  isEffect: boolean;
 
   /**
    * Follow-up skill or status.  This is experimentally an array to support
@@ -75,16 +77,24 @@ interface FollowUpEffect {
 }
 
 function parseFollowUpEffect(effect: string): FollowUpEffect | null {
+  // Make sure we don't accidentally pick up "removed" effects with the
+  // following broad regex.
+  if (effect.startsWith('removed ')) {
+    return null;
+  }
+
   const m = effect.match(
-    /(?:([cC]asts)|([gG]rants)) (.*) after (using|dealing damage with|dealing) (.*?)(?:, removed if|$)/,
+    /(?:([cC]asts)|([gG]rants))? ?(.*) after (using|dealing damage with|dealing) (.*?)(?:, removed (?:if|after)|$)/,
   );
   if (!m) {
     return null;
   }
   const [, casts, grants, skillOrStatus, triggerType, trigger] = m;
+
   return {
     isSkill: !!casts,
     isStatus: !!grants,
+    isEffect: !casts && !grants,
     skillOrStatus: skillOrStatus.split(' / '),
     trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
@@ -281,7 +291,7 @@ function shouldSkipEffect(effect: string) {
 /**
  * Describes a single "status effect" - one fragment of an EnlirStatus effects string
  */
-function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | null) {
+function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | null) {
   let m: RegExpMatchArray | null;
 
   if (enlirStatus) {
@@ -339,6 +349,17 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
     return `1.05-1.1-1.15-1.2-1.3x ${m[1]} dmg @ ranks 1-5`;
   }
 
+  if ((m = effect.match(/(.*) (?:abilities|attacks) deal ([0-9/]+)% more damage/))) {
+    const [, schoolOrAbility, percent] = m;
+    const boost = percent
+      .split('/')
+      .map(parseFloat)
+      .map(i => 1 + i / 100)
+      .map(toMrPFixed)
+      .join('-');
+    return boost + 'x ' + getShortName(schoolOrAbility) + ' dmg';
+  }
+
   if (shouldSkipEffect(effect)) {
     return '';
   }
@@ -380,7 +401,7 @@ function extractCount(s: string): [number | string | null, string] {
 
   let count: number | string | null = null;
   if (m[1].match(/^[0-9/]+$/)) {
-    count = m[1];
+    count = cleanUpSlashedNumbers(m[1]);
   } else {
     count = parseNumberString(m[1]);
   }
@@ -481,7 +502,11 @@ function describeFollowUpStatus(statusText: string): string {
  * triggered and what it does).
  */
 function describeFollowUp(followUp: FollowUpEffect): string {
-  const describe = followUp.isSkill ? describeFollowUpSkill : describeFollowUpStatus;
+  const describe = followUp.isSkill
+    ? describeFollowUpSkill
+    : followUp.isStatus
+    ? describeFollowUpStatus
+    : (i: string) => describeEnlirStatusEffect(i, null);
   return (
     '(' +
     describeFollowUpTrigger(followUp.trigger, followUp.isDamageTrigger) +
