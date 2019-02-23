@@ -268,6 +268,21 @@ describe('mrP', () => {
       });
     });
 
+    it('converts ultras with status sequences', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Auron - Lost Arts'])).toEqual({
+        damage: 'phys 7.1/10 fire+non',
+        other:
+          'fire infuse 25s, 15s: Finisher: phys 35% fire overstrike Samurai, ' +
+          '15s: (Samurai ⤇ crit =30-50-75%, 2-2.5-3x cast)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Sice - Dark Nebula'])).toEqual({
+        damage: 'phys 7.1/10 dark+non',
+        other:
+          'dark infuse 25s, 15s: Finisher: phys 35% dark overstrike Darkness, ' +
+          '15s: (Darkness ⤇ crit =30-50-75%, 2-2.5-3x cast)',
+      });
+    });
+
     it('converts percent heals', () => {
       // Deviation: MrP sometimes says "40%" or "40% HP" or "40% max HP"
       expect(describeEnlirSoulBreak(soulBreaks['Prishe - Rigorous Reverie'])).toEqual({

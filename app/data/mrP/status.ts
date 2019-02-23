@@ -1,8 +1,16 @@
+import * as _ from 'lodash';
+
 import { logger } from '../../utils/logger';
 import { enlir, EnlirStatus, getEnlirStatusByName } from '../enlir';
 import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
-import { effectAlias, resolveAlias, statusAlias } from './statusAlias';
+import {
+  effectAlias,
+  resolveAlias,
+  resolveNumbered,
+  splitNumbered,
+  statusAlias,
+} from './statusAlias';
 import { formatSchoolOrAbilityList, getShortName } from './types';
 import { andList, numberWithCommas, orList, parseNumberString, toMrPFixed } from './util';
 
@@ -53,12 +61,16 @@ interface FollowUpEffect {
    */
   skillOrStatus: string[];
 
+  customDescription?: string;
+
   trigger: string;
   isDamageTrigger: boolean;
 }
 
 function parseFollowUpEffect(effect: string): FollowUpEffect | null {
-  const m = effect.match(/(?:([cC]asts)|([gG]rants)) (.*) after (using|dealing damage with) (.*)/);
+  const m = effect.match(
+    /(?:([cC]asts)|([gG]rants)) (.*) after (using|dealing damage with) (.*?)(?:, removed if|$)/,
+  );
   if (!m) {
     return null;
   }
@@ -72,10 +84,68 @@ function parseFollowUpEffect(effect: string): FollowUpEffect | null {
   };
 }
 
-const isFollowUpStatus = ({ effects, codedName }: EnlirStatus) =>
-  !!parseFollowUpEffect(effects) ||
-  codedName.endsWith('_CHASE') ||
-  codedName.startsWith('CHASE_MODE_');
+const isSameTrigger = (a: FollowUpEffect, b: FollowUpEffect) =>
+  a.trigger === b.trigger && a.isDamageTrigger === b.isDamageTrigger;
+
+type FollowUpStatusSequence = Array<[EnlirStatus, string[]]>;
+
+function getFollowUpStatusSequence(
+  statusName: string,
+  followUp: FollowUpEffect,
+): FollowUpStatusSequence | null {
+  if (!statusName.endsWith(' 0')) {
+    return null;
+  }
+
+  const result: FollowUpStatusSequence = [];
+  const baseStatusName = statusName.replace(/ 0$/, '');
+  for (let n = 1; ; n++) {
+    const thisStatusName = baseStatusName + ' ' + n;
+    const thisStatus = getEnlirStatusByName(thisStatusName);
+    if (!thisStatus) {
+      break;
+    }
+
+    const thisStatusFollowUp = parseFollowUpEffect(thisStatus.effects);
+    if (!thisStatusFollowUp) {
+      break;
+    }
+
+    if (!isSameTrigger(followUp, thisStatusFollowUp)) {
+      break;
+    }
+
+    const thisEffects = splitStatusEffects(thisStatus.effects).filter(
+      i => !shouldSkipEffect(i) && !parseFollowUpEffect(i),
+    );
+
+    result.push([thisStatus, thisEffects]);
+  }
+  return result.length ? result : null;
+}
+
+function describeMergedSequence(sequence: FollowUpStatusSequence) {
+  const fallback = sequence.map(([, effects]) => effects.join(', ')).join(' / ');
+
+  const result: { [s: string]: string[] } = {};
+  for (const [, effects] of sequence) {
+    for (const i of effects) {
+      const [text, numbered] = splitNumbered(i);
+      if (!text || !numbered) {
+        return fallback;
+      }
+      result[text] = result[text] || [];
+      // Cast to number and back to format floating point values more simply.
+      result[text].push('' + +numbered);
+    }
+  }
+
+  return _.map(result, (values, key) =>
+    resolveNumbered(effectAlias.numbered[key] || key, values.join('-')),
+  ).join(', ');
+}
+
+const isFollowUpStatus = ({ effects }: EnlirStatus) => !!parseFollowUpEffect(effects);
 
 /**
  * "Mode" statuses are, typically, character-specific trances or EX-like
@@ -163,7 +233,20 @@ function describeFinisher(skillName: string) {
 
   const mrP = describeEnlirSoulBreak(skill);
 
-  return 'Finisher: ' + formatMrP(mrP);
+  return 'Finisher: ' + formatMrP(mrP, { showInstant: false });
+}
+
+/**
+ * Status effects that are too verbose to fit in a MrP style format.
+ * @param effect
+ */
+function shouldSkipEffect(effect: string) {
+  // "removed after using" is just for Ace's Top Card.
+  // "removed if the user hasn't" describes USB effects that are paired
+  // with other USB effects - when one is removed, the other is too.
+  return (
+    effect.startsWith('removed after using ') || effect.startsWith("removed if the user hasn't")
+  );
 }
 
 /**
@@ -175,6 +258,11 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
   if (enlirStatus) {
     const followUp = parseFollowUpEffect(effect);
     if (followUp) {
+      const sequence = getFollowUpStatusSequence(enlirStatus.name, followUp);
+      if (sequence) {
+        followUp.skillOrStatus = sequence.map(([status, effects]) => status.name);
+        followUp.customDescription = describeMergedSequence(sequence);
+      }
       return describeFollowUp(followUp);
     }
 
@@ -222,14 +310,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus: EnlirStatus | nu
     return `1.05-1.1-1.15-1.2-1.3x ${m[1]} dmg @ ranks 1-5`;
   }
 
-  if (
-    effect.startsWith('removed after using ') ||
-    effect.startsWith("removed if the user hasn't")
-  ) {
-    // These effects are too verbose to fit in a MrP style format.
-    // "removed after using" is just for Ace's Top Card.
-    // "removed if the user hasn't" describes USB effects that are paired
-    // with other USB effects - when one is removed, the other is too.
+  if (shouldSkipEffect(effect)) {
     return '';
   }
 
@@ -336,7 +417,7 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     '(' +
     describeFollowUpTrigger(followUp.trigger, followUp.isDamageTrigger) +
     ' ⤇ ' +
-    followUp.skillOrStatus.map(describe).join(' – ') +
+    (followUp.customDescription || followUp.skillOrStatus.map(describe).join(' – ')) +
     ')'
   );
 }
@@ -364,7 +445,10 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   const isExLike =
     isEx ||
     isAwaken ||
-    (enlirStatus != null && (isFollowUpStatus(enlirStatus) || isModeStatus(enlirStatus)));
+    (enlirStatus != null &&
+      (!!getFinisherSkillName(enlirStatus.effects) ||
+        isFollowUpStatus(enlirStatus) ||
+        isModeStatus(enlirStatus)));
 
   if (enlirStatus && (isExLike || isCustomStatMod(enlirStatus))) {
     description = describeEffects(enlirStatus);

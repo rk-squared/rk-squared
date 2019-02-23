@@ -99,21 +99,35 @@ for (const i of allEnlirSchools) {
 export const effectAlias: AliasMap = {
   simple: {
     'cast speed x2.00': 'fastcast',
+    'cast speed x3.00': 'hi fastcast',
   },
   numbered: {
     'Critical chance ={X}%': 'crit ={X}%',
+
+    'cast speed x{X}': '{X}x cast',
   },
 };
 
-export function resolveAlias(s: string, { simple, numbered }: AliasMap): string | null {
-  let m: RegExpMatchArray | null;
+export function splitNumbered(s: string): [string, string] | [null, null] {
+  const m = s.match(/(-?[0-9.]+)/);
+  if (!m) {
+    return [null, null];
+  }
+  const text = s.replace(/-?[0-9.]+/, '{X}');
+  return [text, m[1]];
+}
 
+export function resolveNumbered(text: string, numberValue: string): string {
+  return text.replace('{X}', numberValue);
+}
+
+export function resolveAlias(s: string, { simple, numbered }: AliasMap): string | null {
   if (simple[s]) {
     return simple[s];
-  } else if ((m = s.match(/(-?\d+)/))) {
-    const text = s.replace(/-?\d+/, '{X}');
-    if (numbered[text]) {
-      return numbered[text].replace('{X}', m[1]);
+  } else {
+    const [text, numberValue] = splitNumbered(s);
+    if (text && numberValue && numbered[text]) {
+      return resolveNumbered(numbered[text], numberValue);
     }
   }
 
