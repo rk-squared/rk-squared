@@ -72,24 +72,32 @@ interface FollowUpEffect {
 
   customDescription?: string;
 
-  trigger: string;
+  trigger: string | null;
   isDamageTrigger: boolean;
+
+  autoInterval: number | null;
 }
 
 function parseFollowUpEffect(effect: string): FollowUpEffect | null {
-  // Make sure we don't accidentally pick up "removed" effects with the
-  // following broad regex.
+  // Hack: Make sure we don't accidentally pick up "removed" clauses with our
+  // broad regex.
   if (effect.startsWith('removed ')) {
     return null;
   }
 
   const m = effect.match(
-    /(?:([cC]asts)|([gG]rants))? ?(.*) after (using|dealing damage with|dealing) (.*?)(?:, removed (?:if|after)|$)/,
+    /(?:([cC]asts)|([gG]rants))? ?(.*) (?:after (using|dealing damage with|dealing) (.*?)|every ([0-9.]+) seconds)(?:, removed (?:if|after)|$)/,
   );
   if (!m) {
     return null;
   }
-  const [, casts, grants, skillOrStatus, triggerType, trigger] = m;
+  const [, casts, grants, skillOrStatus, triggerType, trigger, autoInterval] = m;
+
+  // Hack: Auto-cast skills are currently only actual skills.  Make sure we
+  // don't try to process regen, sap, etc.
+  if (autoInterval && !casts) {
+    return null;
+  }
 
   return {
     isSkill: !!casts,
@@ -98,6 +106,7 @@ function parseFollowUpEffect(effect: string): FollowUpEffect | null {
     skillOrStatus: skillOrStatus.split(' / '),
     trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
+    autoInterval: autoInterval ? parseFloat(autoInterval) : null,
   };
 }
 
@@ -423,6 +432,8 @@ function expandSlashOptions(s: string): string[] {
   return options.map(i => s.replace(slashOptionsRe, i));
 }
 
+const describeAutoInterval = (autoInterval: number) => `every ${toMrPFixed(autoInterval)}s`;
+
 /**
  * Describes the trigger portion of a follow-up.
  *
@@ -511,7 +522,9 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     : (i: string) => describeEnlirStatusEffect(i, null);
   return (
     '(' +
-    describeFollowUpTrigger(followUp.trigger, followUp.isDamageTrigger) +
+    (followUp.autoInterval
+      ? describeAutoInterval(followUp.autoInterval)
+      : describeFollowUpTrigger(followUp.trigger!, followUp.isDamageTrigger)) +
     ' ⤇ ' +
     (followUp.customDescription || followUp.skillOrStatus.map(describe).join(' – ')) +
     ')'

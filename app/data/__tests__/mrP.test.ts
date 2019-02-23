@@ -344,6 +344,13 @@ describe('mrP', () => {
       });
     });
 
+    it('converts auto skills', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Braska - Twin Summoning'])).toEqual({
+        damage: 'magic 17.0/10 fire+lgt (SUM)',
+        other: 'self 1.3x Summon dmg 15s, 15s: (every 3.5s ⤇ AoE m6.8/4 f+l Summon, min dmg 1100)',
+      });
+    });
+
     it('converts ultras with status sequences', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Auron - Lost Arts'])).toEqual({
         damage: 'phys 7.1/10 fire+non',
