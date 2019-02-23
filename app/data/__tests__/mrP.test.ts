@@ -108,8 +108,10 @@ describe('mrP', () => {
     });
 
     it('converts summons', () => {
+      // Discrepancy: MrP doesn't include minimum damage, but it seems
+      // useful.
       expect(describeEnlirSoulBreak(soulBreaks['Braska - Aeon of Storms'])).toEqual({
-        damage: 'AoE magic 1.1/2 lgt (SUM)',
+        damage: 'AoE magic 1.1/2 lgt, min dmg 55 (SUM)',
       });
     });
 
@@ -226,6 +228,18 @@ describe('mrP', () => {
       });
     });
 
+    it('converts stat thresholds', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Braska - Aeons of Wing and Flame'])).toEqual({
+        damage:
+          'AoE magic 14.4/6 - 16.8/7 - 19.2/8 - 21.6/9 fire+non @ 562/681/723 MAG, min dmg 800 (SUM)',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Onion Knight - Onion Slice'])).toEqual({
+        damage: 'phys 6.56/8 - 7.38/9 - 8.2/10 - 9.02/11 @ 140/175/190 SPD',
+        other: '-50% DEF/RES 25s',
+      });
+    });
+
     it('converts EX modes with skill boosts and 100% hit rate follow-up attacks', () => {
       // Deviation: MrP often omits "no miss" (due to error? lack of space?)
       // and doesn't show "self" for Ability Boost.  However, it's probably
@@ -305,8 +319,8 @@ describe('mrP', () => {
         damage: 'magic 17.0/10 dark+holy',
         other:
           'self +30% holy/dark dmg 15s, +30% MAG/RES/MND 25s, ' +
-          '15s: (1/2/3 W.Mag/Darkness ⤇ m5.2/4 d+h+n Darkness / ' +
-          'm7.8/6 d+h+n Darkness, self heal 10% of dmg / ' +
+          '15s: (1/2/3 W.Mag/Darkness ⤇ m5.2/4 d+h+n Darkness – ' +
+          'm7.8/6 d+h+n Darkness, self heal 10% of dmg – ' +
           'm20.2 d+h+n overstrike Darkness, self heal 10% of dmg)',
       });
 
@@ -510,7 +524,7 @@ describe('mrP', () => {
       // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.
     });
 
-    it('handles turn-limited boosts', () => {
+    it('handles turn-limited effects', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Amarant - Exploding Fist'])).toEqual({
         instant: true,
         damage: 'phys 6.2/10 lgt+fire+non',

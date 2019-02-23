@@ -113,9 +113,9 @@ export function slashMerge(options: string[]): string {
   }
 
   // Check if values are too different to practically combine.  If they are,
-  // fall back to slash-separating the whole list.
+  // fall back to separating the whole list with en dashes.
   if (same < different) {
-    result = options.join(' / ');
+    result = options.join(' – ');
   }
 
   // MrP-specific logic: Undo our no-split logic

@@ -37,6 +37,8 @@ export interface ParsedEnlirAttack {
   scaleToDamage?: string;
   scaleType?: string;
 
+  minDamage?: number;
+
   status?: string;
   statusChance?: number;
   statusDuration?: number;
@@ -235,6 +237,7 @@ const attackRe = XRegExp(
   (?<noMiss>,\ 100%\ hit\ rate)?
   (?:,\ multiplier\ increased\ by\ (?<sbMultiplierIncrease>[0-9.]+)\ for\ every\ SB\ point)?
   (?:\ for\ (?<finisherPercentDamage>[0-9.]+)%\ of\ the\ damage\ dealt\ with\ (?<finisherPercentCriteria>.*)\ during\ the\ status)?
+  (?:,\ minimum\ damage\ (?<minDamage>\d+))?
   `,
   'x',
 );
@@ -299,6 +302,8 @@ export function parseEnlirAttack(
     }
   } else if (m.rank) {
     scaleType = '@ rank 1-5';
+  } else if (m.statThreshold) {
+    scaleType = '@ ' + m.statThresholdValue + ' ' + m.statThreshold;
   } else {
     if (m.scaleType) {
       scaleType = describeScaleType(m.scaleType);
@@ -317,6 +322,7 @@ export function parseEnlirAttack(
     attackMultiplier,
     damage,
     randomChances,
+    minDamage: m.minDamage ? +m.minDamage : undefined,
 
     orDamage,
     orCondition,

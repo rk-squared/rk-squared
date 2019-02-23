@@ -82,6 +82,9 @@ const statusEffectRe = XRegExp(
 
 const statModRe = XRegExp(
   String.raw`
+  # Anchor the stat matching to the beginning of a clause.
+  (?:,\ |^)
+
   (?<stats>(?:[A-Z]{3}(?:,?\ and\ |,\ ))*[A-Z]{3})\ #
   (?<percent>[+-]\d+)%\ (?<who>to\ the\ user\ |to\ all\ allies\ )?
   for\ (?<duration>\d+)\ seconds
@@ -139,9 +142,6 @@ export function describeEnlirSoulBreak(
       // Rank chase / threshold / etc.
       damage += ' ' + attack.scaleType;
     }
-    // Omit ' (SUM)' for Summoning school; it seems redundant.
-    damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
-    damage += attack.isNat ? ' (NAT)' : '';
     if (attack.orDamage && attack.orCondition) {
       damage +=
         ', or ' +
@@ -159,6 +159,12 @@ export function describeEnlirSoulBreak(
         ' ' +
         attack.scaleType;
     }
+    if (attack.minDamage) {
+      damage += `, min dmg ${attack.minDamage}`;
+    }
+    // Omit ' (SUM)' for Summoning school; it seems redundant.
+    damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
+    damage += attack.isNat ? ' (NAT)' : '';
 
     if (attack.status && attack.statusChance) {
       const { description, defaultDuration } = parseEnlirStatus(attack.status);
@@ -404,3 +410,4 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
 
 // TODO: Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB, Dk Cecil's Awaken and ultra
 // TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Windfang, Blasting Freeze
+// TODO: Hide "no miss" text in follow-ups?  Hide min damage?
