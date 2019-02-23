@@ -216,6 +216,7 @@ const attackRe = XRegExp(
   (?<jump>jump\ )?
   attacks?
   (?:\ \(
+    (?<randomMultiplier>randomly\ )?
     (?<attackMultiplier>[0-9.]+)
     (?<altAttackMultiplier>(?:/[0-9.]+)*)?
     (?:~(?<scaleToAttackMultiplier>[0-9.]+))?
@@ -261,6 +262,10 @@ export function parseEnlirAttack(
   let damage: string;
   if (randomAttacks) {
     [randomChances, damage] = describeRandomDamage(attackMultiplier, randomAttacks);
+  } else if (numAttacks && m.randomMultiplier && m.altAttackMultiplier) {
+    damage = [attackMultiplier, ...m.altAttackMultiplier.split('/').map(parseFloat)]
+      .map(i => describeDamage(i, numAttacks))
+      .join(' or ');
   } else if (m.finisherPercentDamage) {
     const criteria = formatSchoolOrAbilityList(
       m.finisherPercentCriteria.replace(/ (attacks|abilities)/, ''),

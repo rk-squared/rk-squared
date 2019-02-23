@@ -26,6 +26,13 @@ describe('mrP', () => {
   });
 
   describe('describeEnlirSoulBreak', () => {
+    it('converts random attacks', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Cait Sith - Toy Soldier'])).toEqual({
+        damage: 'AoE white 7.11/3 or ?/3 or 9.48/3 or 11.85/3',
+        other: '-50% ATK/MAG 25s',
+      });
+    });
+
     it('converts HP-draining attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Blood Weapon'])).toEqual({
         damage: 'phys 1.6',
