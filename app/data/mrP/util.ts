@@ -97,15 +97,25 @@ export function slashMerge(options: string[]): string {
   const maxLength = Math.max(...optionParts.map(i => i.length));
 
   let result = '';
+  let same = 0;
+  let different = 0;
   for (let i = 0; i < maxLength; i++) {
     if (isAllSame(optionParts, parts => parts[i])) {
       result += optionParts[0][i];
+      same++;
     } else {
       result += optionParts
         .filter(parts => parts[i] !== undefined)
         .map(parts => parts[i])
         .join('/');
+      different++;
     }
+  }
+
+  // Check if values are too different to practically combine.  If they are,
+  // fall back to slash-separating the whole list.
+  if (same < different) {
+    result = options.join(' / ');
   }
 
   // MrP-specific logic: Undo our no-split logic

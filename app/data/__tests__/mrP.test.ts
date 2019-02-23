@@ -300,6 +300,15 @@ describe('mrP', () => {
           '-70% DEF/MAG 8s, party instacast 1, ' +
           '15s: (1/2/3/4 + 4n damaging Support ⤇ p1.71/3 d+n rngd Support, -40% ATK/-50% MAG/-40% DEF/-50% RES 15s)',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Exdeath - Laws of Black and White'])).toEqual({
+        damage: 'magic 17.0/10 dark+holy',
+        other:
+          'self +30% holy/dark dmg 15s, +30% MAG/RES/MND 25s, ' +
+          '15s: (1/2/3 W.Mag/Darkness ⤇ m5.2/4 d+h+n Darkness / ' +
+          'm7.8/6 d+h+n Darkness, self heal 10% of dmg / ' +
+          'm20.2 d+h+n overstrike Darkness, self heal 10% of dmg)',
+      });
     });
 
     it('converts EX modes with follow-up statuses', () => {

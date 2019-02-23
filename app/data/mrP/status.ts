@@ -397,6 +397,10 @@ function getSlashOptions(s: string): string[] | null {
   const m = s.match(slashOptionsRe);
   return m ? m[0].split('/') : null;
 }
+function expandSlashOptions(s: string): string[] {
+  const options = getSlashOptions(s) || [];
+  return options.map(i => s.replace(slashOptionsRe, i));
+}
 
 /**
  * Describes the trigger portion of a follow-up.
@@ -524,6 +528,21 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
   };
+}
+
+export function parseEnlirStatusWithSlashes(status: string): ParsedEnlirStatus {
+  const enlirStatus = getEnlirStatusByName(status);
+  if (status.match('/') && !enlirStatus) {
+    const options = expandSlashOptions(status).map(parseEnlirStatus);
+    return {
+      // Assume that most parameters are the same across options.
+      ...options[0],
+
+      description: slashMerge(options.map(i => i.description)),
+    };
+  } else {
+    return parseEnlirStatus(status);
+  }
 }
 
 /**

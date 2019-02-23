@@ -9797,7 +9797,7 @@
   {
     "id": 50380,
     "name": "Delta Magic Follow-Up",
-    "effects": "Casts Delta Magic 1/2/3 after using a White Magic or Darkness ability scaling with uses",
+    "effects": "Casts Delta Magic 1/2/3 after using 1/2/3 White Magic or Darkness abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

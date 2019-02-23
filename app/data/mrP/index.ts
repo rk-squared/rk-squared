@@ -8,6 +8,7 @@ import {
   describeStats,
   includeStatus,
   parseEnlirStatus,
+  parseEnlirStatusWithSlashes,
   parseStatusItem,
   sortStatus,
 } from './status';
@@ -256,10 +257,9 @@ export function describeEnlirSoulBreak(
       // tslint:disable-next-line: prefer-const
       let { statusName, duration, who, chance } = thisStatus;
 
+      const parsed = parseEnlirStatusWithSlashes(statusName);
       // tslint:disable-next-line: prefer-const
-      let { description, isExLike, defaultDuration, isVariableDuration } = parseEnlirStatus(
-        statusName,
-      );
+      let { description, isExLike, defaultDuration, isVariableDuration } = parsed;
 
       if (!duration && defaultDuration) {
         duration = defaultDuration;

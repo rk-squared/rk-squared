@@ -84,6 +84,7 @@ export const statusAlias: AliasMap = {
 for (const i of allEnlirElements) {
   statusAlias.simple[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
   statusAlias.simple[`Minor Buff ${i}`] = `+10% ${getElementShortName(i)} dmg`;
+  statusAlias.simple[`Major Buff ${i}`] = `+30% ${getElementShortName(i)} dmg`;
 }
 for (const i of allEnlirSchools) {
   statusAlias.simple[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
