@@ -12873,7 +12873,7 @@
     "multiplier": null,
     "element": null,
     "time": 2.5,
-    "effects": "Grants Runic Blade for 25 seconds",
+    "effects": "Grants Runic for 25 seconds",
     "counter": false,
     "autoTarget": "Self",
     "points": 500,

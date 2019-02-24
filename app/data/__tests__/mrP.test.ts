@@ -256,11 +256,25 @@ describe('mrP', () => {
         damage: 'phys 3.12/6 fire+non',
         other: '+10% fire vuln. 25s, -50% DEF 15s',
       });
+    });
 
+    it('converts specialized statuses', () => {
       // Discrepancy: MrP sometimes lists this as "crit dmg=2x".
       expect(describeEnlirSoulBreak(soulBreaks['Ayame - Hagakure Yukikaze'])).toEqual({
         damage: 'phys 7.1/10 ice+non',
         other: 'ice infuse 25s, self Retaliate @p1.2 15s, +50% crit dmg 25s',
+      });
+
+      // Discrepancy: MrP lists these as "taunt & cancel BLK to refill abils",
+      // which is consistent with its refill text, but it seems too verbose.
+      expect(describeEnlirSoulBreak(soulBreaks['Celes - Runic Blade'])).toEqual({
+        other: 'taunt & absorb BLK 25s',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Celes - Whetted Blade'])).toEqual({
+        damage: 'phys 6.9/10 holy+ice+wind+non',
+        other:
+          'self taunt & absorb BLK/WHT 25s, 1.3x Spellblade dmg 15s, ' +
+          'double Spellblade (uses extra hone) 15s',
       });
     });
 
@@ -375,7 +389,7 @@ describe('mrP', () => {
 
       expect(describeEnlirSoulBreak(soulBreaks['Maria - Magma XXXII'])).toEqual({
         damage: 'magic 17.0/10 earth+non',
-        other: 'earth infuse 25s, self double B.Mag (use extra hone) 15s, +30% DEF/MAG 25s',
+        other: 'earth infuse 25s, self double B.Mag (uses extra hone) 15s, +30% DEF/MAG 25s',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Noctis - Armiger'])).toEqual({
@@ -697,6 +711,18 @@ describe('mrP', () => {
           'holy infuse 25s, party 75% Dmg barrier 3, ' +
           'self dmg cap=19,999 15s, 15s: Awaken Holy: holy inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      if (0) {
+        // TODO: Make this and Biggs work
+        expect(describeEnlirSoulBreak(soulBreaks['Celes - Spinning Twice'])).toEqual({
+          damage: 'phys 9.0/15 ice+holy+non',
+          other:
+            'party Magic blink 1, self +30% ice dmg 15s, +30% holy dmg 15s, dmg cap=19,999 15s, ' +
+            '15s: (2 ice/holy ⤇ p2.6/5 i+h+n Spellblade, self Magic blink 2, five single attacks (0.52 each) if user has Magical Blink 1/2), ' +
+            '15s: Awaken Indomitable: holy/ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+        });
+      }
+
       // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.
     });
 

@@ -47,6 +47,8 @@ export const statusAlias: AliasMap = {
     'Instant KO': 'KO',
 
     Sentinel: 'taunt PHY/BLK',
+    Runic: 'taunt & absorb BLK',
+    'High Runic': 'taunt & absorb BLK/WHT',
   },
 
   numbered: {
@@ -91,7 +93,7 @@ for (const i of allEnlirSchools) {
   statusAlias.simple[`${i} Quick Cast`] = `${getSchoolShortName(i)} fastcast`;
   statusAlias.simple[`${i} High Quick Cast`] = `${getSchoolShortName(i)} hi fastcast`;
   statusAlias.simple[`${i} Rank Boost`] = rankBoostAlias(i);
-  statusAlias.simple[`${i} Double`] = `double ${getSchoolShortName(i)} (use extra hone)`;
+  statusAlias.simple[`${i} Double`] = `double ${getSchoolShortName(i)} (uses extra hone)`;
 }
 
 for (const i of allEnlirElements) {
