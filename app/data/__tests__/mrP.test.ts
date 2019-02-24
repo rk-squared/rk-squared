@@ -238,7 +238,7 @@ describe('mrP', () => {
       });
     });
 
-    it('converts stat thresholds', () => {
+    it('converts HP thresholds', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Evil Blade'])).toEqual({
         damage: 'phys 10.75 - 11.5 - 13.0 - 15.0 - 17.0 dark+non overstrike @ 80-50-20-6% HP',
       });
@@ -259,6 +259,29 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Onion Knight - Onion Slice'])).toEqual({
         damage: 'phys 6.56/8 - 7.38/9 - 8.2/10 - 9.02/11 @ 140-175-190 SPD',
         other: '-50% DEF/RES 25s',
+      });
+    });
+
+    it('handles stoneskin, dual-cast, double-cast', () => {
+      // Discrepancy: MrP formats this more like 'EX: until Neg. Dmg. lost:'
+      expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Endless Darkness'])).toEqual({
+        damage: 'phys 7.1/10 dark+non',
+        other:
+          'dark infuse 25s, self lose 99% max HP, Negate dmg 100%, ' +
+          'until Neg. Dmg. lost: EX: +30% ATK, Darkness hi fastcast, 100% dualcast Darkness',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Golbez - Onyx Dragon'])).toEqual({
+        damage: 'magic 17.0/10 dark+non',
+        other:
+          'dark infuse 25s, self lose 99% max HP, Negate dmg 100%, ' +
+          'until Neg. Dmg. lost: 100% dualcast Darkness, ' +
+          'Finisher: magic 11.8 - 20.5 - 34.6 dark+non overstrike Darkness',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Maria - Magma XXXII'])).toEqual({
+        damage: 'magic 17.0/10 earth+non',
+        other: 'earth infuse 25s, self double B.Mag (use extra hone) 15s, +30% DEF/MAG 25s',
       });
     });
 
@@ -407,6 +430,12 @@ describe('mrP', () => {
       // Deviation: MrP sometimes says "40%" or "40% HP" or "40% max HP"
       expect(describeEnlirSoulBreak(soulBreaks['Prishe - Rigorous Reverie'])).toEqual({
         other: 'party heal 40% HP, Regen (hi), Last stand',
+      });
+    });
+
+    it('converts fixed heals', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Cecil (Paladin) - Paladin Wall'])).toEqual({
+        other: 'party +200% DEF/RES 25s, 15s: EX: +30% ATK/DEF, (Knight ⤇ front row heal 1.5k HP)',
       });
     });
 

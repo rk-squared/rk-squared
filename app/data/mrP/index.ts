@@ -217,7 +217,7 @@ export function describeEnlirSoulBreak(
     selfOther.push(`heal ${healPercent}% of dmg`);
   }
 
-  if ((m = sb.effects.match(/damages the user for ([0-9.]+)% max HP/))) {
+  if ((m = sb.effects.match(/damages the user for ([0-9.]+)% max(?:imum)? HP/))) {
     const [, damagePercent] = m;
     selfOther.push(`lose ${damagePercent}% max HP`);
   }
@@ -271,7 +271,7 @@ export function describeEnlirSoulBreak(
 
       const parsed = parseEnlirStatusWithSlashes(statusName);
       // tslint:disable-next-line: prefer-const
-      let { description, isExLike, defaultDuration, isVariableDuration } = parsed;
+      let { description, isExLike, defaultDuration, isVariableDuration, specialDuration } = parsed;
 
       if (!duration && defaultDuration) {
         duration = defaultDuration;
@@ -280,11 +280,12 @@ export function describeEnlirSoulBreak(
       const chanceDescription = chance ? formatChance(chance, attack) : '';
 
       const isDetail = isExLike;
-      if (duration && !isVariableDuration) {
+      if ((duration || specialDuration) && !isVariableDuration) {
+        const durationText = specialDuration || `${duration}s`;
         if (isDetail) {
-          description = `${duration}s: ` + description;
+          description = durationText + ': ' + description;
         } else {
-          description = description + ` ${duration}s`;
+          description = description + ' ' + durationText;
         }
       }
 

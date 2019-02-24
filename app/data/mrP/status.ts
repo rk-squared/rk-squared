@@ -23,6 +23,7 @@ import {
   parseNumberString,
   slashMerge,
   toMrPFixed,
+  toMrPKilo,
 } from './util';
 
 /**
@@ -44,6 +45,27 @@ export function describeStats(stats: string[]): string {
     return 'A/D/M/R/MND';
   } else if (result === 'ATK/DEF/MAG/RES') {
     return 'A/D/M/R';
+  } else {
+    return result;
+  }
+}
+
+function checkWho(text: string, formatter: (s: string) => string): string {
+  const m = text.match(/^(.*?)( to all allies(?: in the (?:front|back|character's) row)?)?$/);
+  const [, textToFormat, who] = m!;
+  const result = formatter(textToFormat);
+  if (who) {
+    return (
+      (who.match('front')
+        ? 'front row'
+        : who.match('back')
+        ? 'back row'
+        : who.match("character's")
+        ? 'same row'
+        : 'party') +
+      ' ' +
+      result
+    );
   } else {
     return result;
   }
@@ -230,7 +252,7 @@ function describeEnlirStatus(status: string) {
   // Special cases - numbers that require processing, so they can't easily
   // merge with enlirStatusAliasWithNumbers
   if ((m = status.match(/HP Stock \((\d+)\)/))) {
-    return 'Autoheal ' + +m[1] / 1000 + 'k';
+    return 'Autoheal ' + toMrPKilo(+m[1]);
   } else if ((m = status.match(/Damage Cap (\d+)/))) {
     const [, cap] = m;
     return `dmg cap=${numberWithCommas(+cap)}`;
@@ -303,6 +325,10 @@ function shouldSkipEffect(effect: string) {
 function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | null) {
   let m: RegExpMatchArray | null;
 
+  if (effect.startsWith('removed if')) {
+    return '';
+  }
+
   if (enlirStatus) {
     const followUp = parseFollowUpEffect(effect);
     if (followUp) {
@@ -345,7 +371,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
     return result;
   }
 
-  if ((m = effect.match(/dualcasts (.*) (?:abilities|attacks)/))) {
+  if ((m = effect.match(/[Dd]ualcasts (.*) (?:abilities|attacks)/))) {
     if (enlirStatus && isAwakenStatus(enlirStatus.name)) {
       // Ability or element should be redundant for AASBs
       return '100% dualcast';
@@ -369,6 +395,11 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
     return boost + 'x ' + getShortName(schoolOrAbility) + ' dmg';
   }
 
+  if ((m = effect.match(/restores (\d+) HP/))) {
+    const [, healHp] = m;
+    return `heal ${toMrPKilo(+healHp)} HP`;
+  }
+
   if (shouldSkipEffect(effect)) {
     return '';
   }
@@ -382,6 +413,7 @@ export interface ParsedEnlirStatus {
   isExLike: boolean;
   defaultDuration: number | null;
   isVariableDuration: boolean;
+  specialDuration?: string;
 }
 
 /**
@@ -490,24 +522,11 @@ function describeFollowUpSkill(skillName: string): string {
 }
 
 function describeFollowUpStatus(statusText: string): string {
-  const m = statusText.match(/^(.*?)( to all allies(?: in the (?:front|back|character's) row)?)?$/);
-  const [, statusName, who] = m!;
-  const status = describeEnlirStatus(statusName);
-  if (who) {
-    return (
-      (who.match('front')
-        ? 'front row'
-        : who.match('back')
-        ? 'back row'
-        : who.match("character's")
-        ? 'same row'
-        : 'party') +
-      ' ' +
-      status
-    );
-  } else {
-    return status;
-  }
+  return checkWho(statusText, describeEnlirStatus);
+}
+
+function describeFollowUpEffect(statusText: string): string {
+  return checkWho(statusText, describeEnlirStatusEffect);
 }
 
 /**
@@ -519,7 +538,7 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     ? describeFollowUpSkill
     : followUp.isStatus
     ? describeFollowUpStatus
-    : (i: string) => describeEnlirStatusEffect(i, null);
+    : describeFollowUpEffect;
   return (
     '(' +
     (followUp.autoInterval
@@ -529,6 +548,14 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     (followUp.customDescription || followUp.skillOrStatus.map(describe).join(' – ')) +
     ')'
   );
+}
+
+function getSpecialDuration(enlirStatus: EnlirStatus): string | undefined {
+  if (enlirStatus.effects.match(/, removed if the user doesn't have any Stoneskin/)) {
+    return 'until Neg. Dmg. lost';
+  } else {
+    return undefined;
+  }
 }
 
 /**
@@ -567,6 +594,7 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
     isExLike,
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
+    specialDuration: enlirStatus ? getSpecialDuration(enlirStatus) : undefined,
   };
 }
 

@@ -91,6 +91,7 @@ for (const i of allEnlirSchools) {
   statusAlias.simple[`${i} Quick Cast`] = `${getSchoolShortName(i)} fastcast`;
   statusAlias.simple[`${i} High Quick Cast`] = `${getSchoolShortName(i)} hi fastcast`;
   statusAlias.simple[`${i} Rank Boost`] = rankBoostAlias(i);
+  statusAlias.simple[`${i} Double`] = `double ${getSchoolShortName(i)} (use extra hone)`;
 }
 
 for (const i of allEnlirElements) {
@@ -125,7 +126,10 @@ export const effectAlias: AliasMap = {
 };
 for (const i of allEnlirSchools) {
   effectAlias.simple[`${lowerCaseFirst(i)} cast speed x2.00`] = getSchoolShortName(i) + ' fastcast';
-  statusAlias.simple[`${lowerCaseFirst(i)} cast speed x3.00`] =
+  effectAlias.simple[`cast speed x2.00 for ${i} abilities`] = getSchoolShortName(i) + ' fastcast';
+  effectAlias.simple[`${lowerCaseFirst(i)} cast speed x3.00`] =
+    getSchoolShortName(i) + ' hi fastcast';
+  effectAlias.simple[`cast speed x3.00 for ${i} abilities`] =
     getSchoolShortName(i) + ' hi fastcast';
 }
 

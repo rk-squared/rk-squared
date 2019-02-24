@@ -6610,7 +6610,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Dark, Awaken Darkness Mode, Damage Cap 19999 and Evil Blade Follow-Up",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Dark, Awaken Darkness, Damage Cap 19999 and Evil Blade Follow-Up",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
