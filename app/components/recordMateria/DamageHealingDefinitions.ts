@@ -38,7 +38,7 @@ const elementalTable: TableDefinition = {
     {
       header: 'Fire',
       items: {
-        13: [['Vivi', '3']],
+        13: [['Vivi', '3'], ['Axel', '3']],
         12: [['Edge', '2'], ['Axel', '2']],
         11: [['Refia', '1a'], ['Rubicante', '1'], ['Lulu', '1'], ['Axel', '1']],
       },
@@ -46,7 +46,7 @@ const elementalTable: TableDefinition = {
     {
       header: 'Holy',
       items: {
-        13: [['Cecil (Paladin)', '3']],
+        13: [['Cecil (Paladin)', '3'], ['Roxas', '3']],
         12: [['Warrior of Light', '2'], ['Roxas', '2']],
         11: [['Dorgann', '1'], ['Aerith', '1'], ['Roxas', '1']],
       },
