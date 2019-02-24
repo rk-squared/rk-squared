@@ -12852,7 +12852,7 @@
     "multiplier": null,
     "element": null,
     "time": 2.5,
-    "effects": "RES + 50% for 25 seconds",
+    "effects": "RES +50% for 25 seconds",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,

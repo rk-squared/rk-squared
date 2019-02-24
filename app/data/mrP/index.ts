@@ -91,7 +91,7 @@ const statModRe = XRegExp(
   (?:,\ |^)
 
   (?<stats>(?:[A-Z]{3}(?:,?\ and\ |,\ ))*[A-Z]{3})\ #
-  (?<percent>[+-]\d+)%\ (?<who>to\ the\ user\ |to\ all\ allies\ )?
+  (?<percent>[+-]\ ?\d+)%\ (?<who>to\ the\ user\ |to\ all\ allies\ )?
   for\ (?<duration>\d+)\ seconds
 `,
   'x',
@@ -323,7 +323,7 @@ export function describeEnlirSoulBreak(
     statModRe,
     ({ stats, percent, who, duration }: any) => {
       const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
-      let statMod = percent + '% ';
+      let statMod = percent.replace(' ', '') + '% ';
       statMod += combinedStats;
       statMod += ` ${duration}s`;
 
@@ -430,3 +430,4 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
 // TODO: Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB, Dk Cecil's Awaken and ultra
 // TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Windfang, Blasting Freeze
 // TODO: Hide "no miss" text in follow-ups?  Hide min damage?  Hide school for percent-based finishers?
+// TODO: Handle element '?'

@@ -179,6 +179,10 @@ describe('mrP', () => {
         damage: 'AoE phys 1.4',
         other: '-30% ATK 20s',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Celes - Magic Shield'])).toEqual({
+        other: 'party +50% RES 25s',
+      });
     });
 
     it('converts multiple status effects', () => {
