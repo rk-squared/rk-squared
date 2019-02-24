@@ -300,7 +300,7 @@ export function parseEnlirAttack(
 
   const isRanged = m.modifiers.match('ranged');
   const isJump = m.modifiers.match('jump');
-  const isHybrid = m.modifiers.match('hybrid');
+  const isHybrid = m.modifiers.match('hybrid') || skill.formula === 'Hybrid';
 
   let randomChances: string | undefined;
   let damage: string;

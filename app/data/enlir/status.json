@@ -9896,7 +9896,7 @@
   {
     "id": 50389,
     "name": "Dance Flurry Follow-Up",
-    "effects": "Casts Dancy Flurry after using a Fire attack",
+    "effects": "Casts Dance Flurry after using a Fire attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

@@ -1,11 +1,101 @@
 import { describeEnlirSoulBreak } from '../mrP';
 import { parseNumberString, parsePercentageCounts } from '../mrP/util';
 
-import { enlir } from '../enlir';
+import { enlir, EnlirSoulBreak } from '../enlir';
 
 import * as _ from 'lodash';
 
 const soulBreaks = _.keyBy(_.values(enlir.soulBreaks), i => i.character + ' - ' + i.name);
+
+const unknownSoulBreaks: EnlirSoulBreak[] = [
+  {
+    realm: 'KH',
+    character: 'Axel',
+    name: 'Explosion',
+    type: 'NAT',
+    target: 'Single enemy',
+    formula: 'Hybrid',
+    multiplier: null,
+    element: ['Fire', 'Wind', 'NE'],
+    time: null,
+    effects:
+      'Fifteen single ranged hybrid attacks (? or ? each), grants Attach Fire, Awaken Fire, Damage Cap 19999 and Fiery Tornado Follow-Up to the user',
+    counter: false,
+    autoTarget: '?',
+    points: 500,
+    tier: 'AASB',
+    master: 'ATK +5, MAG +5',
+    relic: 'Wildfire (KH)',
+    nameJp: 'エクスプロージョン',
+    id: 23410001,
+    gl: false,
+  },
+  {
+    realm: 'KH',
+    character: 'Axel',
+    name: 'Burst Inferno',
+    type: 'NAT',
+    target: '?',
+    formula: 'Hybrid',
+    multiplier: null,
+    element: ['Fire', 'Wind'],
+    time: null,
+    effects: 'Three single attacks (? each) capped at 99999',
+    counter: false,
+    autoTarget: '?',
+    points: 750,
+    tier: 'AOSB',
+    master: 'ATK +5, MAG +5',
+    relic: 'Eternal Flames (KH)',
+    nameJp: 'バーストインフェルノ',
+    id: 23410002,
+    gl: false,
+  },
+  {
+    realm: 'KH',
+    character: 'Axel',
+    name: 'Dance Flurry',
+    type: 'NAT',
+    target: '?',
+    formula: 'Hybrid',
+    multiplier: null,
+    element: [],
+    time: null,
+    effects:
+      'Ten single ranged hybrid attacks (? each), grants Attach Fire, Quick Cast 1 and Dance Flurry Follow-Up to the user',
+    counter: false,
+    autoTarget: '?',
+    points: 500,
+    tier: 'USB',
+    master: 'ATK +5, MAG +5',
+    relic: 'Prominence (KH)',
+    nameJp: '乱舞',
+    id: 23410003,
+    gl: false,
+  },
+  {
+    realm: 'KH',
+    character: 'Axel',
+    name: 'Fire Wall',
+    type: 'NAT',
+    target: 'Single enemy',
+    formula: 'Hybrid',
+    multiplier: null,
+    element: ['Fire', 'Wind', 'NE'],
+    time: 0.01,
+    effects:
+      'Six single ranged hybrid attacks (? each), grants Attach Fire Stacking and Attach Fire to the user',
+    counter: false,
+    autoTarget: '?',
+    points: 250,
+    tier: 'Glint',
+    master: 'ATK +5, MAG +5',
+    relic: 'Magma Ocean (KH)',
+    nameJp: 'ファイアウォール',
+    id: 23410004,
+    gl: false,
+  },
+];
 
 describe('mrP', () => {
   describe('parseNumberString', () => {
@@ -623,6 +713,28 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Hope - Brutal Sanction'])).toEqual({
         damage: 'magic 10.5/3 (NAT)',
         other: '88% (50% × 3) Stop',
+      });
+    });
+
+    it('handles unknown abilities', () => {
+      expect(describeEnlirSoulBreak(unknownSoulBreaks[0])).toEqual({
+        damage: 'p?/15 or m?/15 fire+wind+non rngd',
+        other:
+          'fire infuse 25s, self dmg cap=19,999 15s, ' +
+          '15s: (3 fire ⤇ ?? f+wi+n rngd overstrike), ' +
+          '15s: Awaken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+      expect(describeEnlirSoulBreak(unknownSoulBreaks[1])).toEqual({
+        damage: 'p?/3 or m?/3 fire+wind overstrike',
+      });
+      expect(describeEnlirSoulBreak(unknownSoulBreaks[2])).toEqual({
+        damage: 'p?/10 or m?/10 rngd',
+        other: 'fire infuse 25s, self fastcast 1, 15s: (fire ⤇ p?/4 or m?/4 f+wi+n rngd)',
+      });
+      expect(describeEnlirSoulBreak(unknownSoulBreaks[3])).toEqual({
+        instant: true,
+        damage: 'p?/6 or m?/6 fire+wind+non rngd',
+        other: 'fire infuse stacking 25s, fire infuse 25s',
       });
     });
   });

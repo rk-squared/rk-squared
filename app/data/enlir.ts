@@ -134,7 +134,7 @@ export interface EnlirSoulBreak {
   formula: EnlirFormula | null;
   multiplier: number | null;
   element: EnlirElement[] | null;
-  time: number;
+  time: number | null;
   effects: string;
   counter: boolean;
   autoTarget: string;
