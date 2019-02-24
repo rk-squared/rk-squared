@@ -94,6 +94,14 @@ function describeThresholdDamage(
     .join(' - ');
 }
 
+function formatThreshold(
+  thresholdValues: string,
+  thresholdName: string,
+  units: string = '',
+): string {
+  return '@ ' + thresholdValues.replace(/\//g, '-') + units + ' ' + thresholdName;
+}
+
 /**
  * Describes the "followed by" portion of an attack.  This is used for 20+1
  * AOSBs.
@@ -228,7 +236,7 @@ const attackRe = XRegExp(
   (?<scaleWithUses>\ scaling\ with\ uses)?
   (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
   (?:\ if\ (?:the\ )?user\ has\ (?<statusThreshold>.*)\ (?<statusThresholdCount>(?:\d+/)+\d+))?
-  (?<lowHpThreshold>\ if\ the\ user's\ HP\ are\ below\ 100/80/60/40/20%)?
+  (?:\ if\ the\ user's\ HP\ are\ below\ (?<lowHpThresholdValue>(?:\d+/)+\d+)%)?
   (?:\ at\ (?<statThresholdValue>(?:\d+/)+\d+)\ (?<statThreshold>[A-Z]{3}))?
   (?<attackThreshold>\ scaling\ with\ (<attackThresholdType>.*)\ attacks\ used\ \((?<attackThresholdCount>(?:\d+/)+\d+)\))?
   (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
@@ -308,7 +316,9 @@ export function parseEnlirAttack(
   } else if (m.rank) {
     scaleType = '@ rank 1-5';
   } else if (m.statThreshold) {
-    scaleType = '@ ' + m.statThresholdValue + ' ' + m.statThreshold;
+    scaleType = formatThreshold(m.statThresholdValue, m.statThreshold);
+  } else if (m.lowHpThresholdValue) {
+    scaleType = formatThreshold(m.lowHpThresholdValue, 'HP', '%');
   } else {
     if (m.scaleType) {
       scaleType = describeScaleType(m.scaleType);

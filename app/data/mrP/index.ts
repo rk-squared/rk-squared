@@ -182,6 +182,10 @@ export function describeEnlirSoulBreak(
     }
   }
 
+  if ((m = sb.effects.match(/Randomly deals ((?:\d+, )*\d+,? or \d+) damage/))) {
+    damage = m[1] + ' fixed dmg';
+  }
+
   if ((m = sb.effects.match(/Activates (.*?) Chain \(max (\d+), field \+(\d+)%\)/))) {
     const [, type, max, fieldBonus] = m;
 

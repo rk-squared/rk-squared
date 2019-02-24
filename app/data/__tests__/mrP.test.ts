@@ -31,6 +31,9 @@ describe('mrP', () => {
         damage: 'AoE white 7.11/3 or ?/3 or 9.48/3 or 11.85/3',
         other: '-50% ATK/MAG 25s',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Cait Sith - Dice (VII)'])).toEqual({
+        damage: '1, 22, 33, 444, 555 or 6666 fixed dmg',
+      });
     });
 
     it('converts HP-draining attacks', () => {
@@ -236,13 +239,25 @@ describe('mrP', () => {
     });
 
     it('converts stat thresholds', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Evil Blade'])).toEqual({
+        damage: 'phys 10.75 - 11.5 - 13.0 - 15.0 - 17.0 dark+non overstrike @ 80-50-20-6% HP',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Locke - Burning Spirit'])).toEqual({
+        damage: 'phys 7.1/10 fire+non rngd',
+        other:
+          'fire infuse 25s, self instacast 1, 15s: EX: +30% ATK, ' +
+          '(fire ⤇ p1.4/4 - 1.75/5 - 2.1/6 - 2.45/7 - 2.8/8 f+n rngd Thief @ 100-80-60-40-20% HP)',
+      });
+    });
+
+    it('converts stat thresholds', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Braska - Aeons of Wing and Flame'])).toEqual({
         damage:
-          'AoE magic 14.4/6 - 16.8/7 - 19.2/8 - 21.6/9 fire+non @ 562/681/723 MAG, min dmg 800 (SUM)',
+          'AoE magic 14.4/6 - 16.8/7 - 19.2/8 - 21.6/9 fire+non @ 562-681-723 MAG, min dmg 800 (SUM)',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Onion Knight - Onion Slice'])).toEqual({
-        damage: 'phys 6.56/8 - 7.38/9 - 8.2/10 - 9.02/11 @ 140/175/190 SPD',
+        damage: 'phys 6.56/8 - 7.38/9 - 8.2/10 - 9.02/11 @ 140-175-190 SPD',
         other: '-50% DEF/RES 25s',
       });
     });
