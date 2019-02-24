@@ -2,11 +2,16 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { EnlirElement, EnlirOtherSkill, EnlirSchool, EnlirSoulBreak } from '../enlir';
-import { formatSchoolOrAbilityList, getElementShortName, SB_BAR_SIZE } from './types';
+import {
+  formatSchoolOrAbilityList,
+  getElementShortName,
+  MrPDamageType,
+  SB_BAR_SIZE,
+} from './types';
 import { parseNumberString, parsePercentageCounts, parseThresholdValues, toMrPFixed } from './util';
 
 export interface ParsedEnlirAttack {
-  damageType: 'phys' | 'white' | 'magic' | '?';
+  damageType: MrPDamageType;
   randomChances?: string;
 
   /**
@@ -36,6 +41,13 @@ export interface ParsedEnlirAttack {
 
   scaleToDamage?: string;
   scaleType?: string;
+
+  /**
+   * For hybrid attacks, this gives the magical damage string, and the damage
+   * property gives the physical damage string.
+   */
+  hybridDamage?: string;
+  hybridDamageType?: MrPDamageType;
 
   minDamage?: number;
 
@@ -195,10 +207,13 @@ function describeScaleType(scaleType: string): string {
   }
 }
 
-function describeDamageType({
-  formula,
-  type,
-}: EnlirOtherSkill | EnlirSoulBreak): 'phys' | 'white' | 'magic' | '?' {
+function describeDamageType({ formula, type }: EnlirOtherSkill | EnlirSoulBreak): MrPDamageType {
+  if (formula === 'Hybrid') {
+    // For hybrid, report the main damage as physical, and use separate fields
+    // for the magical alternative.
+    return 'phys';
+  }
+
   switch (type) {
     case 'PHY':
       return 'phys';
@@ -216,10 +231,24 @@ function describeDamageType({
   }
 }
 
+function describeHybridDamageType(skill: EnlirOtherSkill | EnlirSoulBreak): MrPDamageType {
+  // HACK: The spreadsheet doesn't record whether it's a physical/magical
+  // hybrid or a physical/white hybrid.  I'm not even positive that Cecil's
+  // soul break is physical/white instead of physical/magical.  But, since
+  // Cecil's soul breaks are the only skills affected by this, we'll hard-code
+  // it.
+  if ('character' in skill && skill.character === 'Cecil (Paladin)') {
+    return 'white';
+  } else {
+    return 'magic';
+  }
+}
+
 const attackRe = XRegExp(
   String.raw`
   (?<numAttacks>[Rr]andomly\ deals\ .*|[A-Za-z-]+|[0-9/]+)\ #
   (?:(?<attackType>group|random|single)\ )?
+  (?<hybrid>hybrid\ )?
   (?<ranged>ranged\ )?
   (?<jump>jump\ )?
   attacks?
@@ -227,6 +256,7 @@ const attackRe = XRegExp(
     (?<randomMultiplier>randomly\ )?
     (?<attackMultiplier>[0-9.]+)
     (?<altAttackMultiplier>(?:/[0-9.]+)*)?
+    (?:\ or\ (?<hybridAttackMultiplier>[0-9.]+))?
     (?:~(?<scaleToAttackMultiplier>[0-9.]+))?
     (?:\ each)?
     (?<scaleType>\ scaling\ with[^)]+)?
@@ -268,6 +298,7 @@ export function parseEnlirAttack(
 
   let randomChances: string | undefined;
   let damage: string;
+  let hybridDamage: string | undefined;
   if (randomAttacks) {
     [randomChances, damage] = describeRandomDamage(attackMultiplier, randomAttacks);
   } else if (numAttacks && m.randomMultiplier && m.altAttackMultiplier) {
@@ -290,6 +321,9 @@ export function parseEnlirAttack(
       numAttacksRange,
       m.attackMultiplier + (m.altAttackMultiplier || ''),
     );
+  } else if (m.hybrid && numAttacks && m.hybridAttackMultiplier) {
+    damage = describeDamage(attackMultiplier, numAttacks);
+    hybridDamage = describeDamage(parseFloat(m.hybridAttackMultiplier), numAttacks);
   } else {
     damage = describeDamage(attackMultiplier, numAttacks!);
   }
@@ -345,6 +379,9 @@ export function parseEnlirAttack(
     scaleToDamage,
     scaleType,
 
+    hybridDamage,
+    hybridDamageType: describeHybridDamageType(skill),
+
     element: skill.element,
     school: 'school' in skill ? (skill.school as EnlirSchool) : undefined,
 
@@ -356,7 +393,7 @@ export function parseEnlirAttack(
     isJump: !!m.jump,
     isOverstrike: !!m.overstrike,
     isSummon: skill.type === 'SUM',
-    isNat: skill.type === 'NAT',
+    isNat: skill.type === 'NAT' && skill.formula !== 'Hybrid',
     isNoMiss: !!m.noMiss,
   };
 }

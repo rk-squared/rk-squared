@@ -578,7 +578,12 @@ describe('mrP', () => {
           '15s: Awaken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
-      // TODO: Add checks for more Awaken modes
+      expect(describeEnlirSoulBreak(soulBreaks['Cecil (Paladin) - Radiant Moon'])).toEqual({
+        damage: 'phys 9.0/15 or white 24.0/15 holy+non',
+        other:
+          'holy infuse 25s, party 75% Dmg barrier 3, ' +
+          'self dmg cap=19,999 15s, 15s: Awaken Holy: holy inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
       // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.
     });
 

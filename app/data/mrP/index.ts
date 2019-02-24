@@ -19,6 +19,7 @@ import {
   getElementShortName,
   getSchoolShortName,
   getShortName,
+  MrPDamageType,
 } from './types';
 import { isAllSame, toMrPFixed } from './util';
 
@@ -66,6 +67,10 @@ function checkBurstMode(selfOther: string[]): string[] {
   return selfOther.indexOf('Burst Mode') !== -1
     ? _.filter(selfOther, i => i !== 'Burst Mode' && i !== 'Haste')
     : selfOther;
+}
+
+function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): string {
+  return abbreviate ? damageTypeAbbreviation(damageType) : damageType + ' ';
 }
 
 const statusEffectRe = XRegExp(
@@ -128,8 +133,14 @@ export function describeEnlirSoulBreak(
   if (attack) {
     damage += attack.isAoE ? 'AoE ' : '';
     damage += attack.randomChances ? attack.randomChances + ' ' : '';
-    damage += opt.abbreviate ? damageTypeAbbreviation(attack.damageType) : attack.damageType + ' ';
+    damage += formatDamageType(attack.damageType, opt.abbreviate);
     damage += attack.damage;
+
+    if (attack.hybridDamage && attack.hybridDamageType) {
+      damage += ' or ';
+      damage += formatDamageType(attack.hybridDamageType, opt.abbreviate);
+      damage += attack.hybridDamage;
+    }
 
     damage += appendElement(
       attack.element,

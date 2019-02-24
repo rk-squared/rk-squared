@@ -4,8 +4,9 @@ import { andOrList } from './util';
 
 export const SB_BAR_SIZE = 250;
 
-export const damageTypeAbbreviation = (damageType: 'phys' | 'white' | 'magic' | '?') =>
-  damageType[0];
+export type MrPDamageType = 'phys' | 'white' | 'magic' | '?';
+
+export const damageTypeAbbreviation = (damageType: MrPDamageType) => damageType[0];
 
 const elementShortName: { [element: string]: string } = {
   lightning: 'lgt',
