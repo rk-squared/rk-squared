@@ -231,13 +231,17 @@ function describeDamageType({ formula, type }: EnlirOtherSkill | EnlirSoulBreak)
   }
 }
 
-function describeHybridDamageType(skill: EnlirOtherSkill | EnlirSoulBreak): MrPDamageType {
+function describeHybridDamageType(
+  skill: EnlirOtherSkill | EnlirSoulBreak,
+): MrPDamageType | undefined {
   // HACK: The spreadsheet doesn't record whether it's a physical/magical
   // hybrid or a physical/white hybrid.  I'm not even positive that Cecil's
   // soul break is physical/white instead of physical/magical.  But, since
   // Cecil's soul breaks are the only skills affected by this, we'll hard-code
   // it.
-  if ('character' in skill && skill.character === 'Cecil (Paladin)') {
+  if (skill.formula !== 'Hybrid') {
+    return undefined;
+  } else if ('character' in skill && skill.character === 'Cecil (Paladin)') {
     return 'white';
   } else {
     return 'magic';
@@ -248,13 +252,11 @@ const attackRe = XRegExp(
   String.raw`
   (?<numAttacks>[Rr]andomly\ deals\ .*|[A-Za-z-]+|[0-9/]+)\ #
   (?:(?<attackType>group|random|single)\ )?
-  (?<hybrid>hybrid\ )?
-  (?<ranged>ranged\ )?
-  (?<jump>jump\ )?
+  (?<modifiers>(hybrid\ |ranged\ |jump\ )*)
   attacks?
   (?:\ \(
     (?<randomMultiplier>randomly\ )?
-    (?<attackMultiplier>[0-9.]+)
+    (?<attackMultiplier>[0-9.]+|\?)
     (?<altAttackMultiplier>(?:/[0-9.]+)*)?
     (?:\ or\ (?<hybridAttackMultiplier>[0-9.]+))?
     (?:~(?<scaleToAttackMultiplier>[0-9.]+))?
@@ -296,6 +298,10 @@ export function parseEnlirAttack(
   const numAttacks = parseNumberString(m.numAttacks);
   const numAttacksRange = m.numAttacks.match('/') ? parseThresholdValues(m.numAttacks) : null;
 
+  const isRanged = m.modifiers.match('ranged');
+  const isJump = m.modifiers.match('jump');
+  const isHybrid = m.modifiers.match('hybrid');
+
   let randomChances: string | undefined;
   let damage: string;
   let hybridDamage: string | undefined;
@@ -321,7 +327,7 @@ export function parseEnlirAttack(
       numAttacksRange,
       m.attackMultiplier + (m.altAttackMultiplier || ''),
     );
-  } else if (m.hybrid && numAttacks && m.hybridAttackMultiplier) {
+  } else if (isHybrid && numAttacks) {
     damage = describeDamage(attackMultiplier, numAttacks);
     hybridDamage = describeDamage(parseFloat(m.hybridAttackMultiplier), numAttacks);
   } else {
@@ -389,8 +395,8 @@ export function parseEnlirAttack(
     statusChance: m.statusChance ? +m.statusChance : undefined,
     statusDuration: m.statusDuration ? +m.statusDuration : undefined,
 
-    isRanged: !!m.ranged && !m.jump,
-    isJump: !!m.jump,
+    isRanged: isRanged && !isJump,
+    isJump,
     isOverstrike: !!m.overstrike,
     isSummon: skill.type === 'SUM',
     isNat: skill.type === 'NAT' && skill.formula !== 'Hybrid',

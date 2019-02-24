@@ -131,14 +131,15 @@ export function describeEnlirSoulBreak(
 
   const attack = parseEnlirAttack(sb.effects, sb);
   if (attack) {
+    const abbreviate = opt.abbreviate || !!attack.hybridDamageType;
     damage += attack.isAoE ? 'AoE ' : '';
     damage += attack.randomChances ? attack.randomChances + ' ' : '';
-    damage += formatDamageType(attack.damageType, opt.abbreviate);
+    damage += formatDamageType(attack.damageType, abbreviate);
     damage += attack.damage;
 
-    if (attack.hybridDamage && attack.hybridDamageType) {
+    if (attack.hybridDamageType) {
       damage += ' or ';
-      damage += formatDamageType(attack.hybridDamageType, opt.abbreviate);
+      damage += formatDamageType(attack.hybridDamageType, abbreviate);
       damage += attack.hybridDamage;
     }
 
