@@ -13,7 +13,7 @@ import {
   resolveStatusAlias,
   splitNumbered,
 } from './statusAlias';
-import { formatSchoolOrAbilityList, getAbbreviation, getShortName } from './types';
+import { formatSchoolOrAbilityList, getAbbreviation, getMiddleName, getShortName } from './types';
 import {
   andList,
   cleanUpSlashedNumbers,
@@ -221,8 +221,9 @@ const isFollowUpStatus = ({ effects }: EnlirStatus) => !!parseFollowUpEffect(eff
  * "Mode" statuses are, typically, character-specific trances or EX-like
  * statuses provided by a single Ultra or Awakening soul break.
  */
-const isModeStatus = ({ codedName }: EnlirStatus) =>
-  !!codedName.match(/_MODE/) && codedName !== 'BRAVE_MODE';
+const isModeStatus = ({ name, codedName }: EnlirStatus) =>
+  (!!codedName.match(/_MODE/) && codedName !== 'BRAVE_MODE') ||
+  (name.endsWith(' Mode') && name !== 'Brave Mode' && name !== 'Burst Mode');
 
 /**
  * Custom stat mods - Bushido, Dark Bargain, etc.  Omit turn-limited effects
@@ -264,13 +265,13 @@ function describeEnlirStatus(status: string) {
   }
 
   // More special cases - schools + numbers
-  if ((m = status.match(/(\w+) (?:Extended )?\+(\d+)% Boost/))) {
+  if ((m = status.match(/(\S+) (?:Extended )?\+(\d+)% Boost/))) {
     const [, type, percent] = m;
     const multiplier = 1 + +percent / 100;
     if (type === 'Weakness') {
       return `${toMrPFixed(multiplier)}x dmg vs weak`;
     } else {
-      return `${toMrPFixed(multiplier)}x ${type} dmg`;
+      return `${toMrPFixed(multiplier)}x ${getMiddleName(type)} dmg`;
     }
   }
 
@@ -384,7 +385,12 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
     return `1.05-1.1-1.15-1.2-1.3x ${m[1]} dmg @ ranks 1-5`;
   }
 
-  if ((m = effect.match(/(.*) (?:abilities|attacks) deal ([0-9/]+)% more damage/))) {
+  // Handle ability boost and element boost.  The second form is only observed
+  // with Noctis's non-elemental boosts; it may simply be an inconsistency.
+  if (
+    (m = effect.match(/(.*) (?:abilities|attacks) deal ([0-9/]+)% more damage/)) ||
+    (m = effect.match(/increases (.*) damage dealt by ([0-9/]+)%/))
+  ) {
     const [, schoolOrAbility, percent] = m;
     const boost = percent
       .split('/')
@@ -392,7 +398,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
       .map(i => 1 + i / 100)
       .map(toMrPFixed)
       .join('-');
-    return boost + 'x ' + getShortName(schoolOrAbility) + ' dmg';
+    return boost + 'x ' + getMiddleName(schoolOrAbility) + ' dmg';
   }
 
   if ((m = effect.match(/restores (\d+) HP/))) {

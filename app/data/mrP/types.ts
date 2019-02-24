@@ -26,6 +26,10 @@ const schoolShortName: { [school in EnlirSchool]?: string } = {
   Summoning: 'Summon',
 };
 
+const middleAliases: { [element: string]: string } = {
+  'non-elemental': 'non-elem',
+};
+
 export function getElementShortName(element: EnlirElement | EnlirElement[]): string {
   element = arrayify(element);
   return element.map(i => elementShortName[i.toLowerCase()] || i.toLowerCase()).join('+');
@@ -42,6 +46,18 @@ export function getSchoolShortName(school: EnlirSchool): string {
 
 export function getShortName(s: string): string {
   return isEnlirElement(s) ? getElementShortName(s) : isEnlirSchool(s) ? getSchoolShortName(s) : s;
+}
+
+/**
+ * Gets a "middle-length" name - normally the same as the short name that we
+ * use for attack elements, but not always.  In practice, we use this so that
+ * we can have text like '1.1x non-elem dmg' instead of '1.1x non dmg', for
+ * cases where Enlir shows text as "Non-Elemental" instead of its actual
+ * element abbreviation of "NE," while still showing non-elemental attacks as
+ * 'non'.
+ */
+export function getMiddleName(s: string): string {
+  return middleAliases[s.toLowerCase()] || getShortName(s);
 }
 
 export function getAbbreviation(s: string): string {

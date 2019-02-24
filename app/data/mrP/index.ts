@@ -430,4 +430,6 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
 // TODO: Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB, Dk Cecil's Awaken and ultra
 // TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Windfang, Blasting Freeze
 // TODO: Hide "no miss" text in follow-ups?  Hide min damage?  Hide school for percent-based finishers?
-// TODO: Handle element '?'
+// TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
+// TODO: Slash-combine items like Amarant lightning+fire vuln. or Celes' element boosts
+// TODO: Use × for times; make Unicode selectable?

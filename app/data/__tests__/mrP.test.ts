@@ -377,6 +377,25 @@ describe('mrP', () => {
         damage: 'magic 17.0/10 earth+non',
         other: 'earth infuse 25s, self double B.Mag (use extra hone) 15s, +30% DEF/MAG 25s',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Noctis - Armiger'])).toEqual({
+        damage: 'phys 15.0 overstrike',
+        other: 'self Negate dmg 30%, until Neg. Dmg. lost: +30% ATK, hi fastcast',
+      });
+    });
+
+    it('handles non-elemental damage', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Noctis - Armiger Wakes'])).toEqual({
+        damage: 'phys 7.4/10',
+        other: 'self Negate dmg 100%, until Neg. Dmg. lost: EX: +30% ATK, 1.1x non-elem dmg',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Noctis - Airstride'])).toEqual({
+        damage: 'phys 7.4/10',
+        other:
+          'self 1.5x non-elem dmg 15s, ' +
+          '15s: EX: +30% ATK, fastcast, (Combat/Celerity ⤇ p2.0/5 Combat)',
+      });
     });
 
     it('converts EX modes with skill boosts and 100% hit rate follow-up attacks', () => {
