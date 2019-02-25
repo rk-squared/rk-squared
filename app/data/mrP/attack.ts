@@ -163,7 +163,7 @@ function describeOrCondition(orCondition: string): string {
     return 'vs. weak';
   } else if (orCondition === 'all allies are alive') {
     return 'if no allies KO';
-  } else if (orCondition === 'the user has any Doom') {
+  } else if (orCondition === 'the user has any Doom' || orCondition === 'with any Doom') {
     return 'if Doomed';
   } else if (orCondition.startsWith('the target has ')) {
     // In practice, this is always the same status ailments that the attack
@@ -184,13 +184,13 @@ function describeOr(
   numAttacks: number | null,
 ): [string | undefined, string | undefined] {
   const m = effects.match(
-    /(?:([0-9\.]+) (?:multiplier|mult\.)|([a-z\-]+) attacks) if (.*?)(?=, grants|, causes|, restores HP |, damages the user |, heals the user |, [A-Z]{3}|$)/,
+    /(?:([0-9\.]+) (?:multiplier|mult\.)|([a-z\-]+) attacks) (?:if (.*?)|(with .*?))(?=, grants|, causes|, restores HP |, damages the user |, heals the user |, [A-Z]{3}|$)/,
   );
   if (!m) {
     return [undefined, undefined];
   }
 
-  const [, orMultiplier, orNumAttacksString, orCondition] = m;
+  const [, orMultiplier, orNumAttacksString, orCondition, withCondition] = m;
   const orNumAttacks = orNumAttacksString && parseNumberString(orNumAttacksString);
   let orDamage: string | undefined;
   if (orMultiplier && numAttacks) {
@@ -199,7 +199,7 @@ function describeOr(
     orDamage = describeDamage(attackMultiplier, orNumAttacks);
   }
 
-  return [orDamage, describeOrCondition(orCondition)];
+  return [orDamage, describeOrCondition(orCondition || withCondition)];
 }
 
 function describeScaleType(scaleType: string): string {

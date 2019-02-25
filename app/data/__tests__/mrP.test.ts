@@ -95,6 +95,27 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     id: 23410004,
     gl: false,
   },
+  {
+    realm: 'XIII',
+    character: 'Cid Raines',
+    name: 'Dark Shift',
+    type: '?',
+    target: 'Self',
+    formula: null,
+    multiplier: null,
+    element: null,
+    time: 0.01,
+    effects: 'MAG and RES +?% for ? seconds, grants Darkness High Quick Cast for ? seconds',
+    counter: false,
+    autoTarget: '?',
+    points: 250,
+    tier: 'Glint',
+    master: 'MAG +10',
+    relic: "Magician's Mark (XIII)",
+    nameJp: 'ダークシフト',
+    id: 22410011,
+    gl: false,
+  },
 ];
 
 describe('mrP', () => {
@@ -658,9 +679,6 @@ describe('mrP', () => {
         damage: 'AoE phys 5.48/4 holy, or p6.12/4 if no allies KO',
         other: '+20% holy vuln. 25s',
       });
-      expect(describeEnlirSoulBreak(soulBreaks['Kuja - Final Requiem'])).toEqual({
-        damage: 'magic 38.0 dark+non overstrike, or m44.0 if Doomed',
-      });
       expect(describeEnlirSoulBreak(soulBreaks['Lann - Mega Mirage Zantetsuken'])).toEqual({
         damage: 'phys 12.6 overstrike, or p13.6 if Reynn alive',
         other: '60% KO',
@@ -770,6 +788,17 @@ describe('mrP', () => {
       });
     });
 
+    it('handles Doom', () => {
+      // See also Doom under scaling attacks.
+      expect(describeEnlirSoulBreak(soulBreaks['Kuja - Final Requiem'])).toEqual({
+        damage: 'magic 38.0 dark+non overstrike, or m44.0 if Doomed',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Cid Raines - True Miracle'])).toEqual({
+        damage: 'magic 16.2/10 dark+holy, or m18.7/10 if Doomed',
+        other: 'self +30% MAG/RES, Doom 30s, instacast 1, 15s: (holy/dark ⤇ m8.64/4 h+d B.Mag)',
+      });
+    });
+
     it('handles NAT abilities', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Hope - Brutal Sanction'])).toEqual({
         damage: 'magic 10.5/3 (NAT)',
@@ -808,6 +837,13 @@ describe('mrP', () => {
         instant: true,
         damage: 'p?/6 or m?/6 fire+wind+non rngd',
         other: 'fire infuse stacking 25s, fire infuse 25s',
+      });
+      // Cid Raines' Darkness Shift.  This loses the fact that the Soul Break
+      // itself specifies a duration of '?' and instead lists the default
+      // status duration, but I think that's okay.
+      expect(describeEnlirSoulBreak(unknownSoulBreaks[4])).toEqual({
+        instant: true,
+        other: 'Darkness hi fastcast 15s',
       });
     });
   });
