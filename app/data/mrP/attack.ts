@@ -8,7 +8,13 @@ import {
   MrPDamageType,
   SB_BAR_SIZE,
 } from './types';
-import { parseNumberString, parsePercentageCounts, parseThresholdValues, toMrPFixed } from './util';
+import {
+  orList,
+  parseNumberString,
+  parsePercentageCounts,
+  parseThresholdValues,
+  toMrPFixed,
+} from './util';
 
 export interface ParsedEnlirAttack {
   damageType: MrPDamageType;
@@ -269,6 +275,7 @@ const attackRe = XRegExp(
   (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
   (?:\ if\ (?:the\ )?user\ has\ (?<statusThreshold>.*)\ (?<statusThresholdCount>(?:\d+/)+\d+))?
   (?:\ if\ the\ user's\ HP\ are\ below\ (?<lowHpThresholdValue>(?:\d+/)+\d+)%)?
+  (?:\ if\ the\ user\ took\ (?<tookHitsValue>(?:\d+/)+\d+)\ (?<tookHits>.*)\ hits)?
   (?:\ at\ (?<statThresholdValue>(?:\d+/)+\d+)\ (?<statThreshold>[A-Z]{3}))?
   (?<attackThreshold>\ scaling\ with\ (<attackThresholdType>.*)\ attacks\ used\ \((?<attackThresholdCount>(?:\d+/)+\d+)\))?
   (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
@@ -359,6 +366,11 @@ export function parseEnlirAttack(
     scaleType = formatThreshold(m.statThresholdValue, m.statThreshold);
   } else if (m.lowHpThresholdValue) {
     scaleType = formatThreshold(m.lowHpThresholdValue, 'HP', '%');
+  } else if (m.tookHits) {
+    scaleType = formatThreshold(
+      m.tookHitsValue,
+      m.tookHits.split(orList).join('/') + ' hits taken',
+    );
   } else {
     if (m.scaleType) {
       scaleType = describeScaleType(m.scaleType);

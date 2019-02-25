@@ -46,6 +46,8 @@ export const statusAlias: AliasMap = {
 
     'Instant KO': 'KO',
 
+    'No Air Time': 'no air time',
+
     Sentinel: 'taunt PHY/BLK',
     Runic: 'taunt & absorb BLK',
     'High Runic': 'taunt & absorb BLK/WHT',
@@ -83,6 +85,22 @@ export const statusAlias: AliasMap = {
   },
 };
 
+function addCastSpeedAliases(
+  aliases: { [s: string]: string },
+  fromType: string,
+  toType: string,
+  suffix: string = '',
+) {
+  const castSpeedAliases = [
+    ['Quick Cast', 'fastcast'],
+    ['High Quick Cast', 'hi fastcast'],
+    ['Instant Cast', 'instacast'],
+  ];
+  for (const [from, to] of castSpeedAliases) {
+    aliases[fromType + ' ' + from + suffix] = toType + ' ' + to + suffix;
+  }
+}
+
 for (const i of allEnlirElements) {
   statusAlias.simple[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
   statusAlias.simple[`Minor Buff ${i}`] = `+10% ${getElementShortName(i)} dmg`;
@@ -91,10 +109,12 @@ for (const i of allEnlirElements) {
 for (const i of allEnlirSchools) {
   statusAlias.simple[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
   statusAlias.simple[`${i} Quick Cast`] = `${getSchoolShortName(i)} fastcast`;
-  statusAlias.simple[`${i} High Quick Cast`] = `${getSchoolShortName(i)} hi fastcast`;
+  statusAlias.simple[`${i} Instant Cast`] = `${getSchoolShortName(i)} instacast`;
   statusAlias.simple[`${i} Rank Boost`] = rankBoostAlias(i);
   statusAlias.simple[`${i} Double`] = `double ${getSchoolShortName(i)} (uses extra hone)`;
+  addCastSpeedAliases(statusAlias.simple, i, getSchoolShortName(i));
 }
+addCastSpeedAliases(statusAlias.simple, 'Jump', 'jump');
 
 for (const i of allEnlirElements) {
   statusAlias.numbered[`Imperil ${i} {X}%`] = `+{X}% ${getElementShortName(i)} vuln.`;
@@ -104,10 +124,9 @@ for (const i of allEnlirElements) {
     'Reflect Dmg {X}% as ' + getElementShortName(i);
 }
 for (const i of allEnlirSchools) {
-  for (const j of ['Quick Cast {X}', 'High Quick Cast {X}', 'Instant Cast {x}']) {
-    statusAlias.numbered[i + ' ' + j] = getSchoolShortName(i) + ' ' + statusAlias.numbered[j];
-  }
+  addCastSpeedAliases(statusAlias.numbered, i, getSchoolShortName(i), ' {X}');
 }
+addCastSpeedAliases(statusAlias.numbered, 'Jump', 'jump', ' {X}');
 
 /**
  * Aliases for Enlir status effects

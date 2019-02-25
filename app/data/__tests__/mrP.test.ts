@@ -370,6 +370,14 @@ describe('mrP', () => {
       });
     });
 
+    it('converts specialized thresholds', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Celes - Blade Unbound'])).toEqual({
+        damage:
+          'phys 11.0 - 12.0 - 13.0 - 14.0 holy+wind overstrike ' +
+          '@ 5-12-20 WHT/BLK/BLU/SUM hits taken',
+      });
+    });
+
     it('handles stoneskin, dual-cast, double-cast', () => {
       // Discrepancy: MrP formats this more like 'EX: until Neg. Dmg. lost:'
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Endless Darkness'])).toEqual({
@@ -762,6 +770,18 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Hope - Brutal Sanction'])).toEqual({
         damage: 'magic 10.5/3 (NAT)',
         other: '88% (50% × 3) Stop',
+      });
+    });
+
+    it('handles dragoon-related abilities', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Cid (VII) - Big Brawl'])).toEqual({
+        damage: 'phys 7.8/12 wind',
+        other: 'self no air time 3 turns',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Cid (VII) - Dynamite Boost'])).toEqual({
+        damage: 'phys 7.1/10 wind+non jump',
+        other: 'wind infuse 25s, self jump instacast 15s, +30% ATK/DEF 25s',
       });
     });
 
