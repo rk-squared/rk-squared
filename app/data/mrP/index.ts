@@ -173,6 +173,9 @@ export function describeEnlirSoulBreak(
         ' ' +
         attack.scaleType;
     }
+    if (attack.defaultDamage) {
+      damage += ', default ' + damageTypeAbbreviation(attack.damageType) + attack.defaultDamage;
+    }
     if (attack.minDamage) {
       damage += `, min dmg ${attack.minDamage}`;
     }

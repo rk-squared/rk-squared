@@ -633,6 +633,10 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Jecht - Blitz King'])).toEqual({
         damage: 'phys 11.7 dark+fire rngd overstrike, up to p13.0 @ 6 SB bars',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Cid Raines - Shattered Dreams'])).toEqual({
+        damage: 'magic 37.39 dark+holy overstrike, up to m48.0 at low Doom time, default m37.0',
+      });
     });
 
     it('converts conditional attacks', () => {

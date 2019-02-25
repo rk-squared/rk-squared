@@ -57,6 +57,8 @@ export interface ParsedEnlirAttack {
 
   minDamage?: number;
 
+  defaultDamage?: string;
+
   status?: string;
   statusChance?: number;
   statusDuration?: number;
@@ -208,8 +210,10 @@ function describeScaleType(scaleType: string): string {
     return `w/ ${getElementShortName(m[1] as EnlirElement)} atks used`;
   } else if ((m = scaleType.match(/scaling with (\w+) abilities used/))) {
     return `w/ ${m[1]} used`;
+  } else if (scaleType === ' scaling with Doom timer') {
+    return 'at low Doom time';
   } else {
-    return scaleType;
+    return scaleType.trim();
   }
 }
 
@@ -267,7 +271,8 @@ const attackRe = XRegExp(
     (?:\ or\ (?<hybridAttackMultiplier>[0-9.]+))?
     (?:~(?<scaleToAttackMultiplier>[0-9.]+))?
     (?:\ each)?
-    (?<scaleType>\ scaling\ with[^)]+)?
+    (?<scaleType>\ scaling\ with[^)]+?)?
+    (?:,\ (?<defaultMultiplier>[0-9.]+)\ default)?
   \))?
   (?<overstrike>,?\ capped\ at\ 99999)?
 
@@ -381,6 +386,11 @@ export function parseEnlirAttack(
     }
   }
 
+  const defaultDamage =
+    m.defaultMultiplier && numAttacks
+      ? describeDamage(m.defaultMultiplier, numAttacks, false)
+      : undefined;
+
   return {
     isAoE: m.attackType === 'group',
     damageType: describeDamageType(skill),
@@ -390,6 +400,7 @@ export function parseEnlirAttack(
     damage,
     randomChances,
     minDamage: m.minDamage ? +m.minDamage : undefined,
+    defaultDamage,
 
     orDamage,
     orCondition,

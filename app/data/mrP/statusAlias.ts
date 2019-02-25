@@ -65,6 +65,7 @@ export const statusAlias: AliasMap = {
     'Physical Blink {X}': 'Phys blink {X}',
 
     'Stoneskin: {X}%': 'Negate dmg {X}%',
+    'Reraise: {X}%': 'Reraise {X}%',
 
     'Critical Chance {X}%': 'crit ={X}%',
     'Critical Damage +{X}%': '+{X}% crit dmg',
@@ -72,16 +73,19 @@ export const statusAlias: AliasMap = {
     '{X}% Critical': 'crit ={X}%',
     'Critical {X}%': 'crit ={X}%',
 
-    'Reraise: {X}%': 'Reraise {X}%',
-
     '{X}% Damage Reduction Barrier 1': '{X}% Dmg barrier 1',
     '{X}% Damage Reduction Barrier 2': '{X}% Dmg barrier 2',
     '{X}% Damage Reduction Barrier 3': '{X}% Dmg barrier 3',
+
+    'Doom: {X}': 'Doom {X}s',
 
     // Manually expand non-standard stat buffs to give their effects instead -
     // this is easier than trying to programmatically identify a few statuses as
     // needing expansion.
     'Crash {X}%': '{X}% DEF/RES',
+
+    // Nonstandard abbreviations, supported for convenience.
+    'IC{X}': 'instacast {X}',
   },
 };
 
