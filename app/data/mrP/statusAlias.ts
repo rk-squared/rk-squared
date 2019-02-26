@@ -87,6 +87,9 @@ export const statusAlias: AliasMap = {
 
     // Nonstandard abbreviations, supported for convenience.
     'IC{X}': 'instacast {X}',
+
+    // These are not real statuses.
+    '{X} SB points': '+{X} SB pts',
   },
 };
 

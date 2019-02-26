@@ -50,25 +50,22 @@ export function describeStats(stats: string[]): string {
   }
 }
 
-function checkWho(text: string, formatter: (s: string) => string): string {
+function parseWho(text: string): [string, string | undefined] {
   const m = text.match(/^(.*?)( to all allies(?: in the (?:front|back|character's) row)?)?$/);
-  const [, textToFormat, who] = m!;
-  const result = formatter(textToFormat);
-  if (who) {
-    return (
-      (who.match('front')
-        ? 'front row'
-        : who.match('back')
-        ? 'back row'
-        : who.match("character's")
-        ? 'same row'
-        : 'party') +
-      ' ' +
-      result
-    );
-  } else {
-    return result;
+  const [, remainder, who] = m!;
+  if (!who) {
+    return [remainder, who];
   }
+  return [
+    remainder,
+    who.match('front')
+      ? 'front row'
+      : who.match('back')
+      ? 'back row'
+      : who.match("character's")
+      ? 'same row'
+      : 'party',
+  ];
 }
 
 /**
@@ -81,18 +78,28 @@ const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
 
 interface FollowUpEffect {
-  isSkill: boolean;
-  isStatus: boolean;
-  isEffect: boolean;
+  /**
+   * Follow-up statuses granted.
+   */
+  statuses: string[] | undefined;
 
   /**
-   * Follow-up skill or status.  This is experimentally an array to support
-   * Ace's Firaga BOM follow-up (the only follow-up that can trigger multiple
-   * skills!), but we may find an alternate approach there.
+   * Follow-up skills that are cast.  Array support is currently only used for
+   * Ace's Firaga BOM follow-up.
    */
-  skillOrStatus: string[];
+  skills: string[] | undefined;
 
-  customDescription?: string;
+  /**
+   * Follow-up individual status effects granted.
+   */
+  effects: string[] | undefined;
+
+  /**
+   * Who text for granted statuses and status effects
+   */
+  statusWho: string | undefined;
+
+  customStatusesDescription?: string;
 
   trigger: string | null;
   isDamageTrigger: boolean;
@@ -107,25 +114,45 @@ function parseFollowUpEffect(effect: string): FollowUpEffect | null {
     return null;
   }
 
-  const m = effect.match(
-    /(?:([cC]asts)|([gG]rants))? ?(.*) (?:after (using|dealing damage with|dealing) (.*?)|every ([0-9.]+) seconds)(?:, removed (?:if|after)|$)/,
+  let m: RegExpMatchArray | null;
+  m = effect.match(
+    /(.*) (?:after (using|dealing damage with|dealing) (.*?)|every ([0-9.]+) seconds)(?:, removed (?:if|after)|$)/,
   );
   if (!m) {
     return null;
   }
-  const [, casts, grants, skillOrStatus, triggerType, trigger, autoInterval] = m;
+  const [, allEffects, triggerType, trigger, autoInterval] = m;
+
+  let skills: string[] | undefined;
+  let effects: string[] | undefined;
+  let statuses: string[] | undefined;
+  let statusWho: string | undefined;
+
+  if ((m = allEffects.match(/[Cc]asts (.*?)(?:(?:,| and) grants|$)/))) {
+    skills = m[1].split(' / ');
+  }
+  if ((m = allEffects.match(/[Gg]rants (.*?)(?:(?:,| and) casts|$)/))) {
+    let rawStatuses: string;
+    [rawStatuses, statusWho] = parseWho(m[1]);
+    statuses = rawStatuses.split(andList);
+  }
+  if (!skills && !statuses) {
+    let rawEffects: string;
+    [rawEffects, statusWho] = parseWho(allEffects);
+    effects = rawEffects.split(andList);
+  }
 
   // Hack: Auto-cast skills are currently only actual skills.  Make sure we
   // don't try to process regen, sap, etc.
-  if (autoInterval && !casts) {
+  if (autoInterval && !skills) {
     return null;
   }
 
   return {
-    isSkill: !!casts,
-    isStatus: !!grants,
-    isEffect: !casts && !grants,
-    skillOrStatus: skillOrStatus.split(' / '),
+    skills,
+    statuses,
+    effects,
+    statusWho,
     trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
     autoInterval: autoInterval ? parseFloat(autoInterval) : null,
@@ -335,8 +362,8 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
     if (followUp) {
       const sequence = getFollowUpStatusSequence(enlirStatus.name, followUp);
       if (sequence) {
-        followUp.skillOrStatus = sequence.map(([status, effects]) => status.name);
-        followUp.customDescription = describeMergedSequence(sequence);
+        followUp.statuses = sequence.map(([status, effects]) => status.name);
+        followUp.customStatusesDescription = describeMergedSequence(sequence);
       }
       return describeFollowUp(followUp);
     }
@@ -531,33 +558,32 @@ function describeFollowUpSkill(skillName: string): string {
   return skillName;
 }
 
-function describeFollowUpStatus(statusText: string): string {
-  return checkWho(statusText, describeEnlirStatus);
-}
-
-function describeFollowUpEffect(statusText: string): string {
-  return checkWho(statusText, describeEnlirStatusEffect);
-}
-
 /**
  * For follow-up statuses, returns a string describing the follow-up (how it's
  * triggered and what it does).
  */
 function describeFollowUp(followUp: FollowUpEffect): string {
-  const describe = followUp.isSkill
-    ? describeFollowUpSkill
-    : followUp.isStatus
-    ? describeFollowUpStatus
-    : describeFollowUpEffect;
-  return (
-    '(' +
-    (followUp.autoInterval
-      ? describeAutoInterval(followUp.autoInterval)
-      : describeFollowUpTrigger(followUp.trigger!, followUp.isDamageTrigger)) +
-    ' ⤇ ' +
-    (followUp.customDescription || followUp.skillOrStatus.map(describe).join(' – ')) +
-    ')'
-  );
+  const triggerDescription = followUp.autoInterval
+    ? describeAutoInterval(followUp.autoInterval)
+    : describeFollowUpTrigger(followUp.trigger!, followUp.isDamageTrigger);
+  const who = followUp.statusWho ? followUp.statusWho + ' ' : '';
+
+  const description: string[] = [];
+  if (followUp.skills) {
+    description.push(followUp.skills.map(describeFollowUpSkill).join(' – '));
+  }
+  if (followUp.customStatusesDescription) {
+    description.push(followUp.customStatusesDescription);
+  } else if (followUp.statuses) {
+    description.push(who + followUp.statuses.map(describeEnlirStatus).join(', '));
+  }
+  if (followUp.effects) {
+    description.push(
+      who + followUp.effects.map((i: string) => describeEnlirStatusEffect(i)).join(', '),
+    );
+  }
+
+  return '(' + triggerDescription + ' ⤇ ' + description.join(', ') + ')';
 }
 
 function getSpecialDuration(enlirStatus: EnlirStatus): string | undefined {
