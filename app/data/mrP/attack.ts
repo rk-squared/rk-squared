@@ -206,6 +206,8 @@ function describeScaleType(scaleType: string): string {
   let m: RegExpMatchArray | null;
   if (scaleType === ' scaling with HP%') {
     return '@ 1% HP';
+  } else if (scaleType === ' scaling with hits taken') {
+    return 'w/ hits taken';
   } else if ((m = scaleType.match(/scaling with (\w+) attacks used/))) {
     return `w/ ${getElementShortName(m[1] as EnlirElement)} atks used`;
   } else if ((m = scaleType.match(/scaling with (\w+) abilities used/))) {

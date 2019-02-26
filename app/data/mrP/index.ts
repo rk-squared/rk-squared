@@ -30,6 +30,10 @@ interface MrPSoulBreak {
   other?: string;
 }
 
+function isGlint(skill: EnlirOtherSkill | EnlirSoulBreak): boolean {
+  return 'tier' in skill && (skill.tier === 'Glint' || skill.tier === 'Glint+');
+}
+
 function appendGroup(outGroup: string[], inGroup: string[], description?: string) {
   if (inGroup.length) {
     outGroup.push((description ? description + ' ' : '') + inGroup.join(', '));
@@ -396,8 +400,8 @@ export function describeEnlirSoulBreak(
     other.splice(0, 0, formatStatusInfliction(statusInfliction));
   }
 
-  if (!damage && !other.length && !partyOther.length && !detailOther.length) {
-    // If it's only self effects (e.g., some glints), then "self" is redundant.
+  if (isGlint(sb) && !damage && !other.length && !partyOther.length && !detailOther.length) {
+    // If it's a glint with only self effects, then "self" is redundant.
     other.push(...checkBurstMode(selfOther));
   } else {
     appendGroup(other, partyOther, 'party');

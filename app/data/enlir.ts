@@ -88,10 +88,13 @@ export type EnlirSoulBreakTier =
   | 'BSB'
   | 'OSB'
   | 'USB'
+  | 'CSB'
   | 'Glint'
   | 'AOSB'
   | 'AASB'
-  | 'Glint+';
+  | 'Glint+'
+  | 'RW'
+  | 'Shared';
 
 // FIXME: Interfaces for remaining Enlir types
 
@@ -191,6 +194,7 @@ export const enlir = {
  * the spreadsheet.)  TODO: Try to clean up alternate status names.
  */
 const enlirStatusAltName: { [status: string]: EnlirStatus } = {
+  IC1: enlir.statusByName['Instant Cast 1'],
   'Critical 100%': enlir.statusByName['100% Critical'],
 };
 

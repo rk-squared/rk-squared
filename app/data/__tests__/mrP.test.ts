@@ -288,8 +288,12 @@ describe('mrP', () => {
 
       // Discrepancy: MrP lists these as "taunt & cancel BLK to refill abils",
       // which is consistent with its refill text, but it seems too verbose.
+      //
+      // Discrepancy: We only omit "self" for glints, so that we can
+      // consistently better communicate abilities like Gladiolus's Survival
+      // Spirit.  Is that best?
       expect(describeEnlirSoulBreak(soulBreaks['Celes - Runic Blade'])).toEqual({
-        other: 'taunt & absorb BLK 25s',
+        other: 'self taunt & absorb BLK 25s',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Celes - Whetted Blade'])).toEqual({
         damage: 'phys 6.9/10 holy+ice+wind+non',
@@ -594,6 +598,10 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Prishe - Rigorous Reverie'])).toEqual({
         other: 'party heal 40% HP, Regen (hi), Last stand',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Gladiolus - Survival Spirit'])).toEqual({
+        other: 'self heal 25% HP',
+      });
     });
 
     it('converts fixed heals', () => {
@@ -651,6 +659,7 @@ describe('mrP', () => {
         damage: 'phys 6.58/7 dark+fire, up to p10.5 @ 1% HP',
         other: 'dark infuse 25s, self heal 70% HP',
       });
+
       expect(describeEnlirSoulBreak(soulBreaks['Luneth - Heavenly Gust'])).toEqual({
         damage: 'phys 11.2 wind+non jump overstrike, up to p14.5 w/ wind atks used',
       });
@@ -664,6 +673,9 @@ describe('mrP', () => {
 
       expect(describeEnlirSoulBreak(soulBreaks['Cid Raines - Shattered Dreams'])).toEqual({
         damage: 'magic 37.39 dark+holy overstrike, up to m48.0 at low Doom time, default m37.0',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Gladiolus - Dawnhammer'])).toEqual({
+        damage: 'phys 11.44 earth+non overstrike, up to p12.93 w/ hits taken',
       });
     });
 
@@ -822,6 +834,19 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cid (VII) - Dynamite Boost'])).toEqual({
         damage: 'phys 7.1/10 wind+non jump',
         other: 'wind infuse 25s, self jump instacast 15s, +30% ATK/DEF 25s',
+      });
+    });
+
+    it('handles Heavy Combat-related abilities', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Cloud - Darkpetal Bloom'])).toEqual({
+        damage: 'phys 7.1/10 dark+non',
+        other:
+          'dark infuse 25s, self +1 to all Heavy Charge gains 15s, ' +
+          '15s: (dark ⤇ p1.6/4 d+n overstrike Heavy)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Gladiolus - Double Charging...'])).toEqual({
+        instant: true,
+        other: '1.05-1.1-1.15-1.2-1.3x Heavy dmg @ ranks 1-5 15s, Heavy Charge +2',
       });
     });
 

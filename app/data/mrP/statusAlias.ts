@@ -47,6 +47,7 @@ export const statusAlias: AliasMap = {
     'Instant KO': 'KO',
 
     'No Air Time': 'no air time',
+    'Heavy Charge Booster': '+1 to all Heavy Charge gains',
 
     Sentinel: 'taunt PHY/BLK',
     Runic: 'taunt & absorb BLK',
