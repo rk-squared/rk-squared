@@ -761,6 +761,14 @@ describe('mrP', () => {
           'self dmg cap=19,999 15s, 15s: Awaken Holy: holy inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
+      expect(describeEnlirSoulBreak(soulBreaks['Cloud - Heavensent'])).toEqual({
+        damage: 'phys 9.0/15 wind+non',
+        other:
+          'wind infuse 25s, self dmg cap=19,999 15s, crit =100% 25s, hi fastcast 15s, ' +
+          '15s: (3 wind (once only) ⤇ instacast 1, +250 SB pts), ' +
+          '15s: Awaken Wind: wind inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
       if (0) {
         // TODO: Make this and Biggs work
         expect(describeEnlirSoulBreak(soulBreaks['Celes - Spinning Twice'])).toEqual({

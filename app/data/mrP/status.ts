@@ -103,11 +103,26 @@ interface FollowUpEffect {
 
   trigger: string | null;
   isDamageTrigger: boolean;
+  customTriggerSuffix?: string;
 
+  /**
+   * Auto interval, in seconds.  Either this or trigger is non-null.
+   */
   autoInterval: number | null;
 }
 
-function parseFollowUpEffect(effect: string): FollowUpEffect | null {
+function checkCustomTrigger(enlirStatus?: EnlirStatus | null): string | undefined {
+  if (enlirStatus && enlirStatus.effects.endsWith('removed after triggering')) {
+    return 'once only';
+  } else {
+    return undefined;
+  }
+}
+
+function parseFollowUpEffect(
+  effect: string,
+  enlirStatus?: EnlirStatus | null,
+): FollowUpEffect | null {
   // Hack: Make sure we don't accidentally pick up "removed" clauses with our
   // broad regex.
   if (effect.startsWith('removed ')) {
@@ -155,6 +170,7 @@ function parseFollowUpEffect(effect: string): FollowUpEffect | null {
     statusWho,
     trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
+    customTriggerSuffix: checkCustomTrigger(enlirStatus),
     autoInterval: autoInterval ? parseFloat(autoInterval) : null,
   };
 }
@@ -343,7 +359,10 @@ function shouldSkipEffect(effect: string) {
   // "removed if the user hasn't" describes USB effects that are paired
   // with other USB effects - when one is removed, the other is too.
   return (
-    effect.startsWith('removed after using ') || effect.startsWith("removed if the user hasn't")
+    effect.startsWith('removed after using ') ||
+    effect.startsWith("removed if the user hasn't") ||
+    // Custom triggers
+    effect.startsWith('removed after triggering')
   );
 }
 
@@ -358,7 +377,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
   }
 
   if (enlirStatus) {
-    const followUp = parseFollowUpEffect(effect);
+    const followUp = parseFollowUpEffect(effect, enlirStatus);
     if (followUp) {
       const sequence = getFollowUpStatusSequence(enlirStatus.name, followUp);
       if (sequence) {
@@ -563,9 +582,13 @@ function describeFollowUpSkill(skillName: string): string {
  * triggered and what it does).
  */
 function describeFollowUp(followUp: FollowUpEffect): string {
-  const triggerDescription = followUp.autoInterval
+  let triggerDescription = followUp.autoInterval
     ? describeAutoInterval(followUp.autoInterval)
     : describeFollowUpTrigger(followUp.trigger!, followUp.isDamageTrigger);
+  if (followUp.customTriggerSuffix) {
+    triggerDescription += ' (' + followUp.customTriggerSuffix + ')';
+  }
+
   const who = followUp.statusWho ? followUp.statusWho + ' ' : '';
 
   const description: string[] = [];
