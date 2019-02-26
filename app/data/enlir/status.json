@@ -10039,7 +10039,7 @@
   {
     "id": 50403,
     "name": "Pluto Knight Triblade Follow-Up",
-    "effects": "Casts Pluto Knight Triblade, grants Minor Buff Fire, Minor Buff Lightning and Minor Buff Ice after exploiting elemental weakness",
+    "effects": "Casts Pluto Knight Triblade and grants Minor Buff Fire, Minor Buff Lightning and Minor Buff Ice after exploiting elemental weakness",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

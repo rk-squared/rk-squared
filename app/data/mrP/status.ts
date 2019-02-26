@@ -543,6 +543,9 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
   if (trigger === 'a critical hit') {
     return 'crit';
   }
+  if (trigger === 'elemental weakness') {
+    return 'hit weak';
+  }
 
   trigger = trigger.replace(/ (abilities|ability|attacks|attack)$/, '').replace(/^an? /, '');
 
@@ -563,6 +566,17 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
     .join('/');
 
   return (count ? count + ' ' : '') + trigger + (isDamageTrigger ? ' dmg' : '');
+}
+
+function describeFollowUpStatus(statusName: string): string {
+  const status = getEnlirStatusByName(statusName);
+  const options = getSlashOptions(statusName);
+  if (!status && options) {
+    const statusOptions = options.map(i => statusName.replace(slashOptionsRe, i));
+    return slashMerge(statusOptions.map(describeEnlirStatus));
+  }
+
+  return describeEnlirStatus(statusName);
 }
 
 /**
@@ -604,7 +618,7 @@ function describeFollowUp(followUp: FollowUpEffect): string {
   if (followUp.customStatusesDescription) {
     description.push(followUp.customStatusesDescription);
   } else if (followUp.statuses) {
-    description.push(who + followUp.statuses.map(describeEnlirStatus).join(', '));
+    description.push(who + followUp.statuses.map(describeFollowUpStatus).join(', '));
   }
 
   if (followUp.effects) {

@@ -188,6 +188,22 @@ export const enlir = {
 };
 
 /**
+ * HACK: Patch Enlir data to make it easier for our text processing.
+ */
+function patchEnlir() {
+  const pluto = enlir.statusByName['Pluto Knight Triblade Follow-Up'];
+  if (
+    pluto &&
+    pluto.effects ===
+      'Casts Pluto Knight Triblade and grants Minor Buff Fire, Minor Buff Lightning and Minor Buff Ice after exploiting elemental weakness'
+  ) {
+    pluto.effects =
+      'Casts Pluto Knight Triblade and grants Minor Buff Fire/Lightning/Ice after exploiting elemental weakness';
+  }
+}
+patchEnlir();
+
+/**
  * Handle statuses for which the FFRK Community spreadsheet is inconsistent.
  *
  * NOTE: These are unconfirmed.  (If they were confirmed, we'd just update

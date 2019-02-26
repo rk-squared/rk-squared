@@ -593,6 +593,48 @@ describe('mrP', () => {
       });
     });
 
+    it('converts follow-ups that combine statuses and skills', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Setzer - Jokers Wild'])).toEqual({
+        damage: 'phys 7.1/10 rngd',
+        other:
+          '-30% A/D/M/R/MND 25s, 15s: (Support dmg ⤇ hi fastcast 1, p0.5/2 rngd Support, ' +
+          '-40% ATK/-50% DEF/-40% MAG/-50% RES 15s (random))',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Ramza - Seeker of Truth'])).toEqual({
+        damage: 'phys 7.1/10 holy+non',
+        other:
+          'holy infuse 25s, self hi fastcast 1, ' +
+          '15s: (holy ⤇ hi fastcast 1, p1.56/4 h+n Support)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Bartz - Essence of Wind'])).toEqual({
+        damage: 'phys 7.1/10 wind+non',
+        other:
+          'wind infuse 25s, 15s: EX: (1/2/3 +3n Wind ⤇ front row phys hi fastcast 1, ' +
+          'p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Ricard - Winged Roar'])).toEqual({
+        damage: 'phys 7.1/10 wind+lgt jump',
+        other:
+          'self jump instacast 15s, ' +
+          '15s: (Dragoon ⤇ same row 1.3x Dragoon dmg, no air time 1 turn)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Jecht - Beast and Father'])).toEqual({
+        damage: 'phys 7.0/10 dark+fire+non',
+        other: 'dark infuse 25s, (dark ⤇ same row fastcast 1, p1.92/6 d+f+n Darkness)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Lightning - Warrior Goddess'])).toEqual({
+        damage: 'phys 7.1/10 holy+lgt',
+        other:
+          'holy infuse 25s, 15s: EX: (1/2/3 +3n Holy ⤇ front row phys hi fastcast 1, ' +
+          'p0.3 – p1.5/5 – p4.5/15 h+l+n Knight)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Steiner - Reckless Steiner'])).toEqual({
+        damage: 'phys 6.9/10 fire+lgt+ice+non',
+        other:
+          'party instacast 1, 15s: (hit weak ⤇ +10% fire/lgt/ice dmg, p1.86/6 f+l+i+n Spellblade)',
+      });
+    });
+
     it('converts percent heals', () => {
       // Deviation: MrP sometimes says "40%" or "40% HP" or "40% max HP"
       expect(describeEnlirSoulBreak(soulBreaks['Prishe - Rigorous Reverie'])).toEqual({
