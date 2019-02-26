@@ -51,14 +51,18 @@ export function describeStats(stats: string[]): string {
 }
 
 function parseWho(text: string): [string, string | undefined] {
-  const m = text.match(/^(.*?)( to all allies(?: in the (?:front|back|character's) row)?)?$/);
+  const m = text.match(
+    /^(.*?)( to the user| to all allies(?: in the (?:front|back|character's) row)?)?$/,
+  );
   const [, remainder, who] = m!;
   if (!who) {
     return [remainder, who];
   }
   return [
     remainder,
-    who.match('front')
+    who.match('user')
+      ? undefined // No need to spell out "self" for, e.g., "hi fastcast 1"
+      : who.match('front')
       ? 'front row'
       : who.match('back')
       ? 'back row'
@@ -99,6 +103,7 @@ interface FollowUpEffect {
    */
   statusWho: string | undefined;
 
+  randomSkills: boolean;
   customStatusesDescription?: string;
 
   trigger: string | null;
@@ -131,7 +136,7 @@ function parseFollowUpEffect(
 
   let m: RegExpMatchArray | null;
   m = effect.match(
-    /(.*) (?:after (using|dealing damage with|dealing) (.*?)|every ([0-9.]+) seconds)(?:, removed (?:if|after)|$)/,
+    /(.*) (?:after (using|dealing damage with|dealing|exploiting) (.*?)|every ([0-9.]+) seconds)(?:, removed (?:if|after)|$)/,
   );
   if (!m) {
     return null;
@@ -143,10 +148,12 @@ function parseFollowUpEffect(
   let statuses: string[] | undefined;
   let statusWho: string | undefined;
 
-  if ((m = allEffects.match(/[Cc]asts (.*?)(?:(?:,| and) grants|$)/))) {
-    skills = m[1].split(' / ');
+  let randomSkills = false;
+  if ((m = allEffects.match(/([Rr]andomly )?[Cc]asts (.*?)(?:(?:,| and) grants|$)/))) {
+    randomSkills = m[1] != null;
+    skills = m[2].split(' / ');
   }
-  if ((m = allEffects.match(/[Gg]rants (.*?)(?:(?:,| and) casts|$)/))) {
+  if ((m = allEffects.match(/[Gg]rants (.*?)(?:(?:,| and) (?:randomly )?casts|$)/))) {
     let rawStatuses: string;
     [rawStatuses, statusWho] = parseWho(m[1]);
     statuses = rawStatuses.split(andList);
@@ -168,6 +175,7 @@ function parseFollowUpEffect(
     statuses,
     effects,
     statusWho,
+    randomSkills,
     trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
     customTriggerSuffix: checkCustomTrigger(enlirStatus),
@@ -592,17 +600,23 @@ function describeFollowUp(followUp: FollowUpEffect): string {
   const who = followUp.statusWho ? followUp.statusWho + ' ' : '';
 
   const description: string[] = [];
-  if (followUp.skills) {
-    description.push(followUp.skills.map(describeFollowUpSkill).join(' – '));
-  }
+
   if (followUp.customStatusesDescription) {
     description.push(followUp.customStatusesDescription);
   } else if (followUp.statuses) {
     description.push(who + followUp.statuses.map(describeEnlirStatus).join(', '));
   }
+
   if (followUp.effects) {
     description.push(
       who + followUp.effects.map((i: string) => describeEnlirStatusEffect(i)).join(', '),
+    );
+  }
+
+  if (followUp.skills) {
+    description.push(
+      followUp.skills.map(describeFollowUpSkill).join(' – ') +
+        (followUp.randomSkills ? ' (random)' : ''),
     );
   }
 
