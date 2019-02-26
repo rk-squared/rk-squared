@@ -389,7 +389,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
   // with Noctis's non-elemental boosts; it may simply be an inconsistency.
   if (
     (m = effect.match(/(.*) (?:abilities|attacks) deal ([0-9/]+)% more damage/)) ||
-    (m = effect.match(/increases (.*) damage dealt by ([0-9/]+)%/))
+    (m = effect.match(/[Ii]ncreases (.*) damage dealt by ([0-9/]+)%/))
   ) {
     const [, schoolOrAbility, percent] = m;
     const boost = percent
@@ -399,6 +399,10 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
       .map(toMrPFixed)
       .join('-');
     return boost + 'x ' + getMiddleName(schoolOrAbility) + ' dmg';
+  }
+
+  if ((m = effect.match(/sets the damage cap for (.*) attacks to 99999/))) {
+    return 'break ' + m[1] + ' dmg cap';
   }
 
   if ((m = effect.match(/restores (\d+) HP/))) {

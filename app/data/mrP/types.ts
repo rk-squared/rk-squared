@@ -28,6 +28,7 @@ const schoolShortName: { [school in EnlirSchool]?: string } = {
 
 const middleAliases: { [element: string]: string } = {
   'non-elemental': 'non-elem',
+  physical: 'phys',
 };
 
 export function getElementShortName(element: EnlirElement | EnlirElement[]): string {

@@ -337,6 +337,13 @@ describe('mrP', () => {
       });
     });
 
+    it('converts EX modes with unusual bonuses', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Cloud - Ultra Cross Slash'])).toEqual({
+        damage: 'phys 7.5/5 wind+dark',
+        other: 'self crit =100% 25s, 15s: EX: 1.3x phys dmg, break PHY dmg cap',
+      });
+    });
+
     it('converts EX modes with simple follow-up attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Squall - Brutal Blast'])).toEqual({
         damage: 'phys 7.47/9 ice+non',
@@ -818,6 +825,13 @@ describe('mrP', () => {
       });
     });
 
+    // Test handling of unknown abilities (abilities with ? placeholders).
+    // These tests use local, hard-coded data, although related skills and
+    // statuses that they reference will get filled in, making them less
+    // effective in the future.
+    //
+    // We don't make a thorough and consistent effort to handle all unknowns,
+    // but we should at least do the basics.
     it('handles unknown abilities', () => {
       expect(describeEnlirSoulBreak(unknownSoulBreaks[0])).toEqual({
         damage: 'p?/15 or m?/15 fire+wind+non rngd',
