@@ -650,6 +650,9 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Paladin) - Paladin Wall'])).toEqual({
         other: 'party +200% DEF/RES 25s, 15s: EX: +30% ATK/DEF, (Knight ⤇ front row heal 1.5k HP)',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Curilla - Extreme Defense'])).toEqual({
+        other: 'party Protect, Shell, Last stand, 15s: (Knight ⤇ front row heal 1.5k HP)',
+      });
     });
 
     it('converts revives', () => {

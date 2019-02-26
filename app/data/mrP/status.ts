@@ -455,11 +455,11 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
     return boost + 'x ' + getMiddleName(schoolOrAbility) + ' dmg';
   }
 
-  if ((m = effect.match(/sets the damage cap for (.*) attacks to 99999/))) {
+  if ((m = effect.match(/[Ss]ets the damage cap for (.*) attacks to 99999/))) {
     return 'break ' + m[1] + ' dmg cap';
   }
 
-  if ((m = effect.match(/restores (\d+) HP/))) {
+  if ((m = effect.match(/[Rr]estores (\d+) HP/))) {
     const [, healHp] = m;
     return `heal ${toMrPKilo(+healHp)} HP`;
   }
