@@ -108,10 +108,10 @@ export function slashMerge(options: string[]): string {
       result += optionParts[0][i];
       same++;
     } else {
-      result += optionParts
-        .filter(parts => parts[i] !== undefined)
-        .map(parts => parts[i])
-        .join('/');
+      const mergeParts = optionParts.filter(parts => parts[i] !== undefined).map(parts => parts[i]);
+      // Merge with slashes if the parts don't have slashes themselves.  Merge
+      // with en dashes otherwise.
+      result += mergeParts.join(_.some(mergeParts, s => s.match('/')) ? ' – ' : '/');
       different++;
     }
   }

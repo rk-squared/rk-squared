@@ -5,6 +5,7 @@ import { EnlirOtherSkill, EnlirSoulBreak, isEnlirElement } from '../enlir';
 import { ParsedEnlirAttack, parseEnlirAttack } from './attack';
 import { splitSkillStatuses } from './split';
 import {
+  checkForAndStatuses,
   describeStats,
   includeStatus,
   parseEnlirStatus,
@@ -283,6 +284,7 @@ export function describeEnlirSoulBreak(
     const status = splitSkillStatuses(statusString)
       .filter(includeStatus)
       .map(i => parseStatusItem(i, wholeClause))
+      .reduce(checkForAndStatuses, [])
       .sort(sortStatus);
     for (const thisStatus of status) {
       // tslint:disable-next-line: prefer-const

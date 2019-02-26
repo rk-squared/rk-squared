@@ -762,3 +762,22 @@ const getSortOrder = (status: string) => {
 export function sortStatus(a: StatusItem, b: StatusItem): number {
   return getSortOrder(a.statusName) - getSortOrder(b.statusName);
 }
+
+/**
+ * Reducer function for handling statuses like "Beast and Father."  If a status
+ * like that is split into two items, this function handles recognizing it as
+ * one status and re-merging it.
+ */
+export function checkForAndStatuses(accumulator: StatusItem[], currentValue: StatusItem) {
+  if (accumulator.length) {
+    const thisAndThat =
+      accumulator[accumulator.length - 1].statusName + ' and ' + currentValue.statusName;
+    if (enlir.statusByName[thisAndThat]) {
+      accumulator[accumulator.length - 1].statusName = thisAndThat;
+      return accumulator;
+    }
+  }
+
+  accumulator.push(currentValue);
+  return accumulator;
+}
