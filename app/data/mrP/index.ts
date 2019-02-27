@@ -7,6 +7,7 @@ import { splitSkillStatuses } from './split';
 import {
   checkForAndStatuses,
   describeStats,
+  formatDuration,
   includeStatus,
   parseEnlirStatus,
   parseEnlirStatusWithSlashes,
@@ -290,7 +291,7 @@ export function describeEnlirSoulBreak(
       .sort(sortStatus);
     for (const thisStatus of status) {
       // tslint:disable-next-line: prefer-const
-      let { statusName, duration, who, chance } = thisStatus;
+      let { statusName, duration, durationUnits, who, chance } = thisStatus;
 
       const parsed = parseEnlirStatusWithSlashes(statusName);
       // tslint:disable-next-line: prefer-const
@@ -298,13 +299,14 @@ export function describeEnlirSoulBreak(
 
       if (!duration && defaultDuration) {
         duration = defaultDuration;
+        durationUnits = 'second';
       }
 
       const chanceDescription = chance ? formatChance(chance, attack) : '';
 
       const isDetail = isExLike;
       if ((duration || specialDuration) && !isVariableDuration) {
-        const durationText = specialDuration || `${duration}s`;
+        const durationText = specialDuration || formatDuration(duration!, durationUnits!);
         if (isDetail) {
           description = durationText + ': ' + description;
         } else {

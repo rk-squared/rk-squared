@@ -794,6 +794,7 @@ export interface StatusItem {
   chance?: number;
   who?: string;
   duration?: number;
+  durationUnits?: string; // "second" or "turn"
 }
 
 /**
@@ -815,18 +816,20 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
   //   seconds" - m.blink is to the party, stat boosts are to the user
 
   const m = statusText.match(
-    /^(.*?)(?: \((\d+)%\))?( to the user| to all allies)?(?: for (\d+|\?) seconds)?$/,
+    /^(.*?)(?: \((\d+)%\))?( to the user| to all allies)?(?: for (\d+|\?) (second|turn)s?)?$/,
   );
 
   if (!m) {
     return { statusName: statusText };
   }
 
-  const [, statusName, chance, who, duration] = m;
+  const [, statusName, chance, who, duration, durationUnits] = m;
 
   let lookaheadWho: string | undefined;
   if (!who) {
-    const lookahead = wholeClause.match(/( to the user| to all allies)(?! for \d+ seconds)/);
+    const lookahead = wholeClause.match(
+      /( to the user| to all allies)(?! for \d+ (second|turn)s?)/,
+    );
     if (lookahead) {
       lookaheadWho = lookahead[1];
     }
@@ -837,7 +840,18 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     chance: chance ? +chance : undefined,
     who: who || lookaheadWho,
     duration: duration ? +duration : undefined,
+    durationUnits: durationUnits || undefined,
   };
+}
+
+export function formatDuration(duration: number, durationUnits: string) {
+  if (durationUnits === 'second') {
+    return duration + 's';
+  } else if (duration === 1) {
+    return '1 turn';
+  } else {
+    return duration + ' turns';
+  }
 }
 
 /**
