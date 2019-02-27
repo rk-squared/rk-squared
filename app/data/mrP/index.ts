@@ -377,7 +377,7 @@ export function describeEnlirSoulBreak(
     other.push(`${getShortName(element)} infuse 25s`);
   }
 
-  if ((m = sb.effects.match(/(\w+ )?smart (\w+ )?ether (\S+)( to the user| to all allies)?/))) {
+  if ((m = sb.effects.match(/(\w+ )?[Ss]mart (\w+ )?ether (\S+)( to the user| to all allies)?/))) {
     const [, type1, type2, amount, who] = m;
 
     // Process type (e.g., "smart summoning ether").  FFRK Community is
@@ -442,5 +442,5 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
 // TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Windfang, Blasting Freeze
 // TODO: Hide "no miss" text in follow-ups?  Hide min damage?  Hide school for percent-based finishers?
 // TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
-// TODO: Slash-combine items like Amarant lightning+fire vuln. or Celes' element boosts
+// TODO: Slash-combine items like Amarant lightning+fire vuln. or Celes' element boosts - and ideally remove patchEnlir
 // TODO: Use × for times; make Unicode selectable?

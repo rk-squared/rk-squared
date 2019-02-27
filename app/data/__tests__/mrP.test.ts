@@ -301,6 +301,11 @@ describe('mrP', () => {
           'self taunt & absorb BLK/WHT 25s, 1.3x Spellblade dmg 15s, ' +
           'double Spellblade (uses extra hone) 15s',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Emperor - Clever Ruse'])).toEqual({
+        instant: true,
+        other: '-10% lgt dmg 15s, self hi fastcast 2',
+      });
     });
 
     it('converts combinations of stat changes, statuses, and infuses', () => {
@@ -331,7 +336,7 @@ describe('mrP', () => {
       });
     });
 
-    it('converts non-standard debuffs', () => {
+    it('converts non-standard stat mods', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Wol - Overkill'])).toEqual({
         damage: 'phys 7.68/8 rngd',
         other: 'Dispel, -70% DEF/RES 8s',
@@ -857,6 +862,9 @@ describe('mrP', () => {
     });
 
     it('handles ether abilities', () => {
+      expect(describeEnlirSoulBreak(soulBreaks["Enna - Grymoire's Protection"])).toEqual({
+        other: 'self refill 1 abil. use',
+      });
       expect(describeEnlirSoulBreak(soulBreaks['Xezat - Spellsword Iceshock'])).toEqual({
         damage: 'phys 7.92/6 ice+lgt',
         other: 'party refill 1 abil. use',

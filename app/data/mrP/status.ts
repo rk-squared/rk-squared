@@ -35,7 +35,7 @@ export function includeStatus(status: string): boolean {
   // real status.  Dispel is handled separately.
   return (
     !status.startsWith('Attach ') &&
-    !status.match(/\bsmart\b.*\bether\b/) &&
+    !status.match(/\b[Ss]mart\b.*\bether\b/) &&
     status !== 'removes positive effects'
   );
 }

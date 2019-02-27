@@ -54,7 +54,8 @@ export const statusAlias: AliasMap = {
     'High Runic': 'taunt & absorb BLK/WHT',
 
     // Aliases of numbered statuses, minus the numbers, for use by status
-    // threshold code.
+    // threshold code.  We could instead try to slash-process the status
+    // thresholds, but that seems needlessly complicated.
     'Magical Blink': 'Magic blink',
     'Physical Blink': 'Phys blink',
   },
@@ -116,9 +117,16 @@ function addCastSpeedAliases(
 
 for (const i of allEnlirElements) {
   statusAlias.simple[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
+  statusAlias.simple[`Medium Resist ${i}`] = `-20% ${getElementShortName(i)} vuln.`;
+  statusAlias.simple[`Major Resist ${i}`] = `-30% ${getElementShortName(i)} vuln.`;
+
   statusAlias.simple[`Minor Buff ${i}`] = `+10% ${getElementShortName(i)} dmg`;
   statusAlias.simple[`Medium Buff ${i}`] = `+20% ${getElementShortName(i)} dmg`;
   statusAlias.simple[`Major Buff ${i}`] = `+30% ${getElementShortName(i)} dmg`;
+
+  statusAlias.simple[`Minor Debuff ${i}`] = `-10% ${getElementShortName(i)} dmg`;
+  statusAlias.simple[`Medium Debuff ${i}`] = `-20% ${getElementShortName(i)} dmg`;
+  statusAlias.simple[`Major Debuff ${i}`] = `-30% ${getElementShortName(i)} dmg`;
 }
 for (const i of allEnlirSchools) {
   statusAlias.simple[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
