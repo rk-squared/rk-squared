@@ -972,6 +972,25 @@ describe('mrP', () => {
       });
     });
 
+    it('handles Rage', () => {
+      // Discrepancy: MrP formats Gau's default SB as
+      // "phys 1.5 automatically for 3 turns"
+      // and the others like "auto 3 turns", but I prefer "auto" at the
+      // beginning.
+      expect(describeEnlirSoulBreak(soulBreaks['Gau - Rage I'])).toEqual({
+        damage: 'phys 1.5 (NAT)',
+        other: 'auto repeat 2 turns',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Gau - Meteor Rage'])).toEqual({
+        damage: 'AoE phys 6.15/3 rngd',
+        other: 'auto AoE p2.38/2 rngd Combat 3 turns',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Gau - Gigavolt Rage'])).toEqual({
+        damage: 'AoE phys 4.2/4 lgt rngd',
+        other: 'auto p2.1 l rngd Combat 3 turns',
+      });
+    });
+
     // Test handling of unknown abilities (abilities with ? placeholders).
     // These tests use local, hard-coded data, although related skills and
     // statuses that they reference will get filled in, making them less

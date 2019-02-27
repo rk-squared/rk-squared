@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
-import { EnlirOtherSkill, EnlirSoulBreak, isEnlirElement } from '../enlir';
+import { EnlirOtherSkill, EnlirSkill, EnlirSoulBreak, isEnlirElement } from '../enlir';
 import { ParsedEnlirAttack, parseEnlirAttack } from './attack';
 import { splitSkillStatuses } from './split';
 import {
@@ -111,7 +111,7 @@ interface DescribeOptions {
 
 // FIXME: Rename to indicate broader usage (not just soul breaks now) and move out of index?
 export function describeEnlirSoulBreak(
-  sb: EnlirSoulBreak | EnlirOtherSkill,
+  sb: EnlirSkill,
   options: Partial<DescribeOptions> = {},
 ): MrPSoulBreak {
   const opt: DescribeOptions = {
@@ -192,7 +192,7 @@ export function describeEnlirSoulBreak(
     damage += attack.isNat ? ' (NAT)' : '';
 
     if (attack.status && attack.statusChance) {
-      const { description, defaultDuration } = parseEnlirStatus(attack.status);
+      const { description, defaultDuration } = parseEnlirStatus(attack.status, sb);
       const duration = attack.statusDuration || defaultDuration;
       // Semi-hack: Attack statuses are usually or always imperils, and text
       // like '35% +10% fire vuln.' looks weird.  Like MrP, we insert a 'for'
@@ -293,9 +293,17 @@ export function describeEnlirSoulBreak(
       // tslint:disable-next-line: prefer-const
       let { statusName, duration, durationUnits, who, chance } = thisStatus;
 
-      const parsed = parseEnlirStatusWithSlashes(statusName);
-      // tslint:disable-next-line: prefer-const
-      let { description, isExLike, defaultDuration, isVariableDuration, specialDuration } = parsed;
+      const parsed = parseEnlirStatusWithSlashes(statusName, sb);
+      // tslint:disable: prefer-const
+      let {
+        description,
+        isExLike,
+        isDetail,
+        defaultDuration,
+        isVariableDuration,
+        specialDuration,
+      } = parsed;
+      // tslint:enable: prefer-const
 
       if (!duration && defaultDuration) {
         duration = defaultDuration;
@@ -304,10 +312,9 @@ export function describeEnlirSoulBreak(
 
       const chanceDescription = chance ? formatChance(chance, attack) : '';
 
-      const isDetail = isExLike;
       if ((duration || specialDuration) && !isVariableDuration) {
         const durationText = specialDuration || formatDuration(duration!, durationUnits!);
-        if (isDetail) {
+        if (isExLike) {
           description = durationText + ': ' + description;
         } else {
           description = description + ' ' + durationText;

@@ -162,6 +162,8 @@ export interface EnlirStatus {
   notes: string | null;
 }
 
+export type EnlirSkill = EnlirOtherSkill | EnlirSoulBreak;
+
 const rawData = {
   abilities: require('./enlir/abilities.json'),
   characters: require('./enlir/characters.json'),

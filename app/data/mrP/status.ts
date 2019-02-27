@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { logger } from '../../utils/logger';
-import { enlir, EnlirStatus, getEnlirStatusByName } from '../enlir';
+import { enlir, EnlirSkill, EnlirStatus, getEnlirStatusByName } from '../enlir';
 import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
 import {
@@ -299,6 +299,10 @@ function forceEffects({ codedName }: EnlirStatus) {
   return codedName.startsWith('ABSORB_HP_');
 }
 
+function forceDetail({ name }: EnlirStatus) {
+  return name === 'Rage';
+}
+
 /**
  * Custom stat mods - Bushido, Dark Bargain, etc.  Omit turn-limited effects
  * here; it's easier to special case those within describeEnlirStatus than to
@@ -315,7 +319,7 @@ const percentToMultiplier = (percent: number) => 1 + percent / 100;
  * One-off statuses instead need to be looked up and their effects processed
  * via describeEnlirStatusEffect.
  */
-export function describeEnlirStatus(status: string) {
+export function describeEnlirStatus(status: string, source?: EnlirSkill) {
   let m: RegExpMatchArray | null;
 
   // Generic statuses
@@ -363,6 +367,25 @@ export function describeEnlirStatus(status: string) {
     const genericStatus = resolveStatusAlias(baseStatus);
     if (genericStatus) {
       return genericStatus + ' ' + turns + (turns === '1' ? ' turn' : ' turns');
+    }
+  }
+
+  if (status === 'Rage' && source) {
+    const rageSkills = _.values(enlir.otherSkillsByName).filter(
+      i => i.sourceType === 'Rage Status' && i.source.startsWith(source.name + ' ('),
+    );
+    const format = (skill: EnlirSkill) =>
+      'auto ' +
+      formatMrP(
+        describeEnlirSoulBreak(skill, {
+          abbreviate: true,
+          showNoMiss: false,
+        }),
+      );
+    if (rageSkills.length === 0) {
+      return 'auto repeat';
+    } else if (rageSkills.length === 1) {
+      return format(rageSkills[0]);
     }
   }
 
@@ -549,6 +572,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
 
 export interface ParsedEnlirStatus {
   description: string;
+  isDetail: boolean;
   isExLike: boolean;
   defaultDuration: number | null;
   isVariableDuration: boolean;
@@ -648,7 +672,7 @@ function describeFollowUpStatus(statusName: string): string {
   const options = getSlashOptions(statusName);
   if (!status && options) {
     const statusOptions = options.map(i => statusName.replace(slashOptionsRe, i));
-    return slashMerge(statusOptions.map(describeEnlirStatus));
+    return slashMerge(statusOptions.map((i: string) => describeEnlirStatus(i)));
   }
 
   return describeEnlirStatus(statusName);
@@ -734,12 +758,12 @@ function getSpecialDuration(enlirStatus: EnlirStatus): string | undefined {
  * Parses a string description of an Enlir status name, returning details about
  * it and how it should be shown.
  */
-export function parseEnlirStatus(status: string): ParsedEnlirStatus {
+export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnlirStatus {
   const enlirStatus = getEnlirStatusByName(status);
   if (!enlirStatus) {
     logger.warn(`Unknown status: ${status}`);
   }
-  let description = describeEnlirStatus(status);
+  let description = describeEnlirStatus(status, source);
 
   const isEx = isExStatus(status);
   const isAwaken = isAwakenStatus(status);
@@ -764,16 +788,20 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
   return {
     description,
     isExLike,
+    isDetail: isExLike || (enlirStatus != null && forceDetail(enlirStatus)),
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
     specialDuration: enlirStatus ? getSpecialDuration(enlirStatus) : undefined,
   };
 }
 
-export function parseEnlirStatusWithSlashes(status: string): ParsedEnlirStatus {
+export function parseEnlirStatusWithSlashes(
+  status: string,
+  source?: EnlirSkill,
+): ParsedEnlirStatus {
   const enlirStatus = getEnlirStatusByName(status);
   if (status.match('/') && !enlirStatus) {
-    const options = expandSlashOptions(status).map(parseEnlirStatus);
+    const options = expandSlashOptions(status).map((i: string) => parseEnlirStatus(i, source));
     return {
       // Assume that most parameters are the same across options.
       ...options[0],
@@ -781,7 +809,7 @@ export function parseEnlirStatusWithSlashes(status: string): ParsedEnlirStatus {
       description: slashMerge(options.map(i => i.description)),
     };
   } else {
-    return parseEnlirStatus(status);
+    return parseEnlirStatus(status, source);
   }
 }
 
