@@ -75,9 +75,9 @@ function parseWho(text: string): [string, string | undefined] {
 
 /**
  * Hide durations for some statuses, like Astra, because that's typically
- * removed due to enemy action.
+ * removed due to enemy action.  Hide Stun because it's effectively instant.
  */
-const hideDuration = new Set(['Astra']);
+const hideDuration = new Set(['Astra', 'Stun']);
 
 const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwakenStatus = (status: string) => status.startsWith('Awaken ');

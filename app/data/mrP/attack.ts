@@ -75,6 +75,38 @@ export interface ParsedEnlirAttack {
   isNoMiss: boolean;
 }
 
+const sbConvergentScaleFactor = 0.42;
+// Only used for Orlandeau's God Among Men
+const otherConvergentScaleFactor = 0.35;
+
+function convergentMultiplier(
+  minMultiplier: number,
+  maxMultiplier: number,
+  numberOfEnemies: number,
+  scaleFactor: number,
+): number {
+  return (
+    minMultiplier + (maxMultiplier - minMultiplier) * Math.exp(-(numberOfEnemies - 1) * scaleFactor)
+  );
+}
+
+const convergentScaleType = 'vs 1-2-3… foes';
+function describeConvergentDamage(
+  minMultiplier: number,
+  maxMultiplier: number,
+  numAttacks: number,
+  scaleFactor: number,
+): string {
+  return (
+    _.times(3, (i: number) =>
+      describeDamage(
+        convergentMultiplier(minMultiplier, maxMultiplier, i + 1, scaleFactor),
+        numAttacks,
+      ),
+    ).join(thresholdJoin) + '…'
+  );
+}
+
 function describeDamage(
   attackMultiplier: number,
   numAttacks: number,
@@ -220,6 +252,10 @@ function describeScaleType(scaleType: string): string {
   } else {
     return scaleType.trim();
   }
+}
+
+function isConvergent(scaleType: string) {
+  return scaleType === ' scaling with targets';
 }
 
 function describeDamageType({ formula, type }: EnlirOtherSkill | EnlirSoulBreak): MrPDamageType {
@@ -408,6 +444,15 @@ export function parseEnlirAttack(
       m.tookHitsValue,
       m.tookHits.split(orList).join('/') + ' hits taken',
     );
+  } else if (m.scaleType && m.scaleToAttackMultiplier && numAttacks && isConvergent(m.scaleType)) {
+    const scaleFactor = 'tier' in skill ? sbConvergentScaleFactor : otherConvergentScaleFactor;
+    damage = describeConvergentDamage(
+      +m.attackMultiplier,
+      +m.scaleToAttackMultiplier,
+      numAttacks,
+      scaleFactor,
+    );
+    scaleType = convergentScaleType;
   } else {
     if (m.scaleType) {
       scaleType = describeScaleType(m.scaleType);

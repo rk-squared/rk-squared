@@ -424,10 +424,17 @@ describe('mrP', () => {
           '15s: (water ⤇ hi fastcast 1), ' +
           '(Ninja ⤇ p2.16 - 4.32/2 wa+l+n Ninja @ 1-2 Phys blink)',
       });
+
+      // This also tests the interrupt / stun status.
+      expect(describeEnlirSoulBreak(soulBreaks['Faris - Phantom'])).toEqual({
+        damage: 'AoE phys 7.74/6 - 6.69/6 - 6.0/6… vs 1-2-3… foes',
+        other: '100% Stun, -30% A/D/M/R/MND 25s',
+      });
     });
 
     it('handles stoneskin, dual-cast, double-cast', () => {
       // Discrepancy: MrP formats this more like 'EX: until Neg. Dmg. lost:'
+      // TODO: And I think I might like that better...
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Endless Darkness'])).toEqual({
         damage: 'phys 7.1/10 dark+non',
         other:
