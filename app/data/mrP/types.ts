@@ -26,6 +26,10 @@ const schoolShortName: { [school in EnlirSchool]?: string } = {
   Summoning: 'Summon',
 };
 
+const shortAliases: { [s: string]: string } = {
+  Jump: 'jump',
+};
+
 const middleAliases: { [element: string]: string } = {
   'non-elemental': 'non-elem',
   physical: 'phys',
@@ -46,7 +50,11 @@ export function getSchoolShortName(school: EnlirSchool): string {
 }
 
 export function getShortName(s: string): string {
-  return isEnlirElement(s) ? getElementShortName(s) : isEnlirSchool(s) ? getSchoolShortName(s) : s;
+  return isEnlirElement(s)
+    ? getElementShortName(s)
+    : isEnlirSchool(s)
+    ? getSchoolShortName(s)
+    : shortAliases[s] || s;
 }
 
 /**

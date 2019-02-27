@@ -293,6 +293,13 @@ const isModeStatus = ({ name, codedName }: EnlirStatus) =>
   (name.endsWith(' Mode') && name !== 'Brave Mode' && name !== 'Burst Mode');
 
 /**
+ * Various other statuses for which we want to force detailed display.
+ */
+function forceEffects({ codedName }: EnlirStatus) {
+  return codedName.startsWith('ABSORB_HP_');
+}
+
+/**
  * Custom stat mods - Bushido, Dark Bargain, etc.  Omit turn-limited effects
  * here; it's easier to special case those within describeEnlirStatus than to
  * make describeEffects smart enough to handle them.
@@ -393,7 +400,7 @@ function shouldSkipEffect(effect: string) {
 /**
  * Describes a single "status effect" - one fragment of an EnlirStatus effects string
  */
-function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | null) {
+function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | null): string {
   let m: RegExpMatchArray | null;
 
   if (effect.startsWith('removed if')) {
@@ -482,7 +489,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
 
   if (
     (m = effect.match(
-      /cast speed x([0-9.]+) plus x([0-9.]+) for each attack used for the duration of the status, up to x([0-9.]+)/,
+      /[Cc]ast speed x([0-9.]+) plus x([0-9.]+) for each attack used for the duration of the status, up to x([0-9.]+)/,
     ))
   ) {
     const [, start, add, max] = m;
@@ -491,6 +498,37 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
     const maxN = toMrPFixed(+max);
     const maxCount = Math.round((+max - +start) / +add);
     return `cast speed ${startN}x, +${addN}x per atk, max ${maxN}x @ ${maxCount} atks`;
+  }
+
+  // Cast speed for ability combinations - cast speed for individual ability
+  // schools is handled as a simple effect alias.
+  if ((m = effect.match(/([Cc]ast speed x[0-9.]+) for (.*?) (?:attacks|abilities)/))) {
+    const [, baseEffect, kind] = m;
+    const baseAlias = resolveEffectAlias(baseEffect);
+    if (baseAlias) {
+      return (
+        kind
+          .split(orList)
+          .map(getShortName)
+          .join('/') +
+        ' ' +
+        baseAlias
+      );
+    }
+  }
+
+  if (
+    (m = effect.match(
+      /[Rr]estores HP for (\d+)% of the damage dealt with (.*?) (?:attacks|abilities)/,
+    ))
+  ) {
+    const [, percent, kind] = m;
+    return (
+      kind
+        .split(orList)
+        .map(getShortName)
+        .join('/') + ` drain ${percent}%`
+    );
   }
 
   if (shouldSkipEffect(effect)) {
@@ -705,7 +743,7 @@ export function parseEnlirStatus(status: string): ParsedEnlirStatus {
         isFollowUpStatus(enlirStatus) ||
         isModeStatus(enlirStatus)));
 
-  if (enlirStatus && (isExLike || isCustomStatMod(enlirStatus))) {
+  if (enlirStatus && (isExLike || isCustomStatMod(enlirStatus) || forceEffects(enlirStatus))) {
     description = describeEffects(enlirStatus);
     if (isEx) {
       description = 'EX: ' + description;

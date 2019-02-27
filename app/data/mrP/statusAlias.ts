@@ -157,6 +157,7 @@ export const effectAlias: AliasMap = {
   simple: {
     'cast speed x2.00': 'fastcast',
     'cast speed x3.00': 'hi fastcast',
+    'cast speed x9999999': 'instacast',
     'cast speed x2.00 for magical damage': 'fastzap',
     'cast speed x3.00 for magical damage': 'hi fastzap',
   },
@@ -167,14 +168,18 @@ export const effectAlias: AliasMap = {
     'cast speed x{X} for magical damage': '{X}x zap',
   },
 };
-for (const i of allEnlirSchools) {
-  effectAlias.simple[`${lowerCaseFirst(i)} cast speed x2.00`] = getSchoolShortName(i) + ' fastcast';
-  effectAlias.simple[`cast speed x2.00 for ${i} abilities`] = getSchoolShortName(i) + ' fastcast';
-  effectAlias.simple[`${lowerCaseFirst(i)} cast speed x3.00`] =
-    getSchoolShortName(i) + ' hi fastcast';
-  effectAlias.simple[`cast speed x3.00 for ${i} abilities`] =
-    getSchoolShortName(i) + ' hi fastcast';
+
+function addCastSpeedEffectAliases(fromType: string, toType: string) {
+  effectAlias.simple[`${lowerCaseFirst(fromType)} cast speed x2.00`] = toType + ' fastcast';
+  effectAlias.simple[`cast speed x2.00 for ${fromType} abilities`] = toType + ' fastcast';
+  effectAlias.simple[`${lowerCaseFirst(fromType)} cast speed x3.00`] = toType + ' hi fastcast';
+  effectAlias.simple[`cast speed x3.00 for ${fromType} abilities`] = toType + ' hi fastcast';
+  effectAlias.simple[`cast speed x9999999 for ${fromType} abilities`] = toType + ' instacast';
 }
+for (const i of allEnlirSchools) {
+  addCastSpeedEffectAliases(i, getSchoolShortName(i));
+}
+addCastSpeedEffectAliases('Jump', 'jump');
 
 export function splitNumbered(s: string): [string, string] | [null, null] {
   const m = s.match(/(-?[0-9.]+)/);

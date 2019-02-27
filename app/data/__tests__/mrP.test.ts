@@ -306,6 +306,15 @@ describe('mrP', () => {
         instant: true,
         other: '-10% lgt dmg 15s, self hi fastcast 2',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Firion - Rush of Arms'])).toEqual({
+        damage: 'phys 7.0/10 holy+fire+ice',
+        other: 'self +30% PHY 15s, 15s: EX: Knight/Samurai instacast, Knight/Samurai drain 10%',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Luneth - Howling Vortex'])).toEqual({
+        damage: 'phys 7.1/10 wind+non',
+        other: 'wind infuse 25s, self wind drain 10% 15s, 15s: (wind ⤇ p1.92/6 wi+n Dragoon)',
+      });
     });
 
     it('converts combinations of stat changes, statuses, and infuses', () => {
@@ -853,6 +862,14 @@ describe('mrP', () => {
           'wind infuse 25s, self dmg cap=19,999 15s, crit =100% 25s, hi fastcast 15s, ' +
           '15s: (3 wind (once only) ⤇ instacast 1, +250 SB pts), ' +
           '15s: Awaken Wind: wind inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Kain - Lance of Dragon'])).toEqual({
+        damage: 'phys 9.0/15 lgt+non jump',
+        other:
+          'lgt infuse 25s, self dmg cap=29,999 15s, ' +
+          '15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), ' +
+          '15s: Awaken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast',
       });
 
       if (0) {
