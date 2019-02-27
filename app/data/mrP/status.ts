@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import * as XRegExp from 'xregexp';
 
 import { logger } from '../../utils/logger';
 import { enlir, EnlirStatus, getEnlirStatusByName } from '../enlir';
@@ -109,6 +110,7 @@ interface FollowUpEffect {
   trigger: string | null;
   isDamageTrigger: boolean;
   customTriggerSuffix?: string;
+  triggerPrereqStatus?: string;
 
   /**
    * Auto interval, in seconds.  Either this or trigger is non-null.
@@ -124,6 +126,21 @@ function checkCustomTrigger(enlirStatus?: EnlirStatus | null): string | undefine
   }
 }
 
+const followUpRe = XRegExp(
+  String.raw`
+  (?<allEffects>.*)\ #
+  (?:after\ #
+    (?<triggerType>using|dealing\ damage\ with|dealing|exploiting)\ #
+    (?<trigger>.*?)
+  |
+    every\ (?<autoInterval>[0-9.]+)\ seconds
+  )
+  (\ if\ the\ user\ has\ any\ (?<triggerPrereqStatus>.*?))?
+  (?:,\ removed\ (?:if|after)|$)
+  `,
+  'x',
+);
+
 function parseFollowUpEffect(
   effect: string,
   enlirStatus?: EnlirStatus | null,
@@ -134,14 +151,11 @@ function parseFollowUpEffect(
     return null;
   }
 
-  let m: RegExpMatchArray | null;
-  m = effect.match(
-    /(.*) (?:after (using|dealing damage with|dealing|exploiting) (.*?)|every ([0-9.]+) seconds)(?:, removed (?:if|after)|$)/,
-  );
-  if (!m) {
+  const match = XRegExp.exec(effect, followUpRe) as any;
+  if (!match) {
     return null;
   }
-  const [, allEffects, triggerType, trigger, autoInterval] = m;
+  const { allEffects, triggerType, trigger, autoInterval } = match;
 
   let skills: string[] | undefined;
   let effects: string[] | undefined;
@@ -149,6 +163,7 @@ function parseFollowUpEffect(
   let statusWho: string | undefined;
 
   let randomSkills = false;
+  let m: RegExpMatchArray | null;
   if ((m = allEffects.match(/([Rr]andomly )?[Cc]asts (.*?)(?:(?:,| and) grants|$)/))) {
     randomSkills = m[1] != null;
     skills = m[2].split(' / ');
@@ -179,6 +194,7 @@ function parseFollowUpEffect(
     trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
     customTriggerSuffix: checkCustomTrigger(enlirStatus),
+    triggerPrereqStatus: match.triggerPrereqStatus || undefined,
     autoInterval: autoInterval ? parseFloat(autoInterval) : null,
   };
 }
@@ -290,7 +306,7 @@ const isCustomStatMod = ({ codedName, effects }: EnlirStatus) =>
  * One-off statuses instead need to be looked up and their effects processed
  * via describeEnlirStatusEffect.
  */
-function describeEnlirStatus(status: string) {
+export function describeEnlirStatus(status: string) {
   let m: RegExpMatchArray | null;
 
   // Generic statuses
@@ -582,18 +598,27 @@ function describeFollowUpStatus(statusName: string): string {
 /**
  * For a follow-up that triggers a skill, describes the skill.
  */
-function describeFollowUpSkill(skillName: string): string {
+function describeFollowUpSkill(skillName: string, triggerPrereqStatus?: string): string {
   const skill = enlir.otherSkillsByName[skillName];
   if (skill) {
-    return formatMrP(describeEnlirSoulBreak(skill, { abbreviate: true, showNoMiss: false }), {
-      showInstant: false,
-    });
+    return formatMrP(
+      describeEnlirSoulBreak(skill, {
+        abbreviate: true,
+        showNoMiss: false,
+        prereqStatus: triggerPrereqStatus,
+      }),
+      {
+        showInstant: false,
+      },
+    );
   }
 
   const options = getSlashOptions(skillName);
   if (options) {
     const skillOptions = options.map(i => skillName.replace(slashOptionsRe, i));
-    return slashMerge(skillOptions.map(describeFollowUpSkill));
+    return slashMerge(
+      skillOptions.map((i: string) => describeFollowUpSkill(i, triggerPrereqStatus)),
+    );
   }
 
   return skillName;
@@ -629,8 +654,9 @@ function describeFollowUp(followUp: FollowUpEffect): string {
 
   if (followUp.skills) {
     description.push(
-      followUp.skills.map(describeFollowUpSkill).join(' – ') +
-        (followUp.randomSkills ? ' (random)' : ''),
+      followUp.skills
+        .map((i: string) => describeFollowUpSkill(i, followUp.triggerPrereqStatus))
+        .join(' – ') + (followUp.randomSkills ? ' (random)' : ''),
     );
   }
 

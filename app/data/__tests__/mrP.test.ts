@@ -408,6 +408,17 @@ describe('mrP', () => {
           'phys 11.0 - 12.0 - 13.0 - 14.0 holy+wind overstrike ' +
           '@ 5-12-20 WHT/BLK/BLU/SUM hits taken',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Edgar - Armageddon Blast'])).toEqual({
+        damage: 'AoE phys 8.6 - 9.6 - 10.6 - 11.6 bio+non rngd overstrike @ 0-1-2-3 statuses',
+        other: '15% Petrify, Poison, Blind, Silence',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Edge - Chaotic Moon'])).toEqual({
+        damage: 'phys 7.1/10 water+lgt',
+        other:
+          '15s: (water ⤇ hi fastcast 1), ' +
+          '(Ninja ⤇ p2.16 - 4.32/2 wa+l+n Ninja @ 1-2 Phys blink)',
+      });
     });
 
     it('handles stoneskin, dual-cast, double-cast', () => {

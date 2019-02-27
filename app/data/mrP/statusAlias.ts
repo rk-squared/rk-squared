@@ -52,6 +52,11 @@ export const statusAlias: AliasMap = {
     Sentinel: 'taunt PHY/BLK',
     Runic: 'taunt & absorb BLK',
     'High Runic': 'taunt & absorb BLK/WHT',
+
+    // Aliases of numbered statuses, minus the numbers, for use by status
+    // threshold code.
+    'Magical Blink': 'Magic blink',
+    'Physical Blink': 'Phys blink',
   },
 
   numbered: {

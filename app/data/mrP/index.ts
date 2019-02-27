@@ -105,6 +105,7 @@ const statModRe = XRegExp(
 interface DescribeOptions {
   abbreviate: boolean;
   showNoMiss: boolean;
+  prereqStatus: string | undefined;
 }
 
 // FIXME: Rename to indicate broader usage (not just soul breaks now) and move out of index?
@@ -115,6 +116,7 @@ export function describeEnlirSoulBreak(
   const opt: DescribeOptions = {
     abbreviate: false,
     showNoMiss: true,
+    prereqStatus: undefined,
     ...options,
   };
 
@@ -134,7 +136,7 @@ export function describeEnlirSoulBreak(
   const partyOther: string[] = [];
   const detailOther: string[] = [];
 
-  const attack = parseEnlirAttack(sb.effects, sb);
+  const attack = parseEnlirAttack(sb.effects, sb, opt.prereqStatus);
   if (attack) {
     const abbreviate = opt.abbreviate || !!attack.hybridDamageType;
     damage += attack.isAoE ? 'AoE ' : '';

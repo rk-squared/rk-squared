@@ -2,6 +2,7 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { EnlirElement, EnlirOtherSkill, EnlirSchool, EnlirSoulBreak } from '../enlir';
+import { describeEnlirStatus } from './status';
 import {
   formatSchoolOrAbilityList,
   getElementShortName,
@@ -97,6 +98,8 @@ function describeRandomDamage(
   }
 }
 
+const thresholdJoin = ' - ';
+
 function describeThresholdDamage(
   numAttacks: number | null,
   numAttacksRange: number[] | null,
@@ -111,7 +114,7 @@ function describeThresholdDamage(
   }
   return _.zip(attackMultipliersRange, numAttacksRange)
     .map(([m, n]) => describeDamage(m!, n!))
-    .join(' - ');
+    .join(thresholdJoin);
 }
 
 function formatThreshold(
@@ -286,6 +289,7 @@ const attackRe = XRegExp(
   (?:\ at\ (?<statThresholdValue>(?:\d+/)+\d+)\ (?<statThreshold>[A-Z]{3}))?
   (?<attackThreshold>\ scaling\ with\ (<attackThresholdType>.*)\ attacks\ used\ \((?<attackThresholdCount>(?:\d+/)+\d+)\))?
   (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
+  (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)+\d+)\ ailments)?
 
   (?:,\ (?<statusChance>\d+)%\ chance\ to\ cause\ (?<status>.*?)\ for\ (?<statusDuration>\d+)\ seconds)?
 
@@ -297,9 +301,20 @@ const attackRe = XRegExp(
   'x',
 );
 
+/**
+ * Parses the "attack" portion of an Enlir skill.
+ *
+ * @param effects The skill effects string, or the portion of it corresponding
+ *   to the attack
+ * @param skill The containing Enlir skill JSON
+ * @param prereqStatus A status that must be present for this skill to
+ *   trigger - e.g., for Edge's Lurking Shadow.  parseEnlirAttack can use this
+ *   to clean up attack formatting
+ */
 export function parseEnlirAttack(
   effects: string,
   skill: EnlirOtherSkill | EnlirSoulBreak,
+  prereqStatus?: string,
 ): ParsedEnlirAttack | null {
   const m = XRegExp.exec(effects, attackRe) as any;
   if (!m) {
@@ -373,6 +388,21 @@ export function parseEnlirAttack(
     scaleType = formatThreshold(m.statThresholdValue, m.statThreshold);
   } else if (m.lowHpThresholdValue) {
     scaleType = formatThreshold(m.lowHpThresholdValue, 'HP', '%');
+  } else if (m.statusAilmentsThresholdValue) {
+    scaleType = formatThreshold(m.statusAilmentsThresholdValue, 'statuses');
+  } else if (m.statusThreshold) {
+    let statusThresholdCount: string = m.statusThresholdCount;
+
+    // If the status threshold is the same as the prereq status, then we can
+    // filter out "0" from the possible actions.
+    if (prereqStatus === m.statusThreshold) {
+      statusThresholdCount = m.statusThresholdCount.replace(/^0\//, '');
+      if (statusThresholdCount !== m.statThreshold) {
+        damage = damage.replace(new RegExp('^.*?' + thresholdJoin), '');
+      }
+    }
+
+    scaleType = formatThreshold(statusThresholdCount, describeEnlirStatus(m.statusThreshold));
   } else if (m.tookHits) {
     scaleType = formatThreshold(
       m.tookHitsValue,
