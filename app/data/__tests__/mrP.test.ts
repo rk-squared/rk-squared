@@ -417,7 +417,11 @@ describe('mrP', () => {
         damage: 'AoE phys 8.6 - 9.6 - 10.6 - 11.6 bio+non rngd overstrike @ 0-1-2-3 statuses',
         other: '15% Petrify, Poison, Blind, Silence',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Firion - Rose of Rebellion'])).toEqual({
+        damage: 'phys 11.25 - 12.5 - 13.75 holy+non overstrike @ 9-22 atks',
+      });
 
+      // Ninja statuses require extra handling.
       expect(describeEnlirSoulBreak(soulBreaks['Edge - Chaotic Moon'])).toEqual({
         damage: 'phys 7.1/10 water+lgt',
         other:
@@ -613,6 +617,20 @@ describe('mrP', () => {
           '15s: (B.Mag ⤇ MAG +30-34-38-42-46-50%), ' +
           '15s: EX: (B.Mag ⤇ m7.68/6 i+wa+l+n B.Mag), ' +
           'Finisher: magic 17.3/10 ice+water+lgt+non B.Mag',
+      });
+    });
+
+    it('converts stacking EX bonuses', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Firion - Double Trouble'])).toEqual({
+        damage: 'phys 7.1/10 holy+non',
+        other:
+          'holy infuse 25s, 15s: EX: +30% ATK, ' +
+          'cast speed 2.0x, +0.5x per atk, max 6.5x @ 9 atks',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Onion Knight - Forbidden Power'])).toEqual({
+        other:
+          'party Haste, crit =50%, +50% ATK 25s, ' +
+          '15s: EX: +30% ATK, cast speed 1.3x, +0.3x per atk, max 3.4x @ 7 atks',
       });
     });
 

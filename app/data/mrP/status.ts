@@ -428,7 +428,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
   // Special cases
   if ((m = effect.match(/((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([-+]\d+%)/))) {
     // Status effects: e.g., "MAG +30%" from EX: Attack Hand
-    // Reorganize stats into, e.g., +30% MAG to match MMP
+    // Reorganize stats into, e.g., +30% MAG to match MrP
     const [, stat, amount] = m;
     return amount + ' ' + stat.split(andList).join('/');
   }
@@ -478,6 +478,19 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
   if ((m = effect.match(/[Rr]estores (\d+) HP/))) {
     const [, healHp] = m;
     return `heal ${toMrPKilo(+healHp)} HP`;
+  }
+
+  if (
+    (m = effect.match(
+      /cast speed x([0-9.]+) plus x([0-9.]+) for each attack used for the duration of the status, up to x([0-9.]+)/,
+    ))
+  ) {
+    const [, start, add, max] = m;
+    const startN = toMrPFixed(+start);
+    const addN = toMrPFixed(+add);
+    const maxN = toMrPFixed(+max);
+    const maxCount = Math.round((+max - +start) / +add);
+    return `cast speed ${startN}x, +${addN}x per atk, max ${maxN}x @ ${maxCount} atks`;
   }
 
   if (shouldSkipEffect(effect)) {

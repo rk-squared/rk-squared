@@ -75,6 +75,8 @@ export interface ParsedEnlirAttack {
   isNoMiss: boolean;
 }
 
+// Source for convergent mechanics:
+// https://www.reddit.com/r/FFRecordKeeper/comments/6eldg4/change_to_convergent_attacks_mechanics/
 const sbConvergentScaleFactor = 0.42;
 // Only used for Orlandeau's God Among Men
 const otherConvergentScaleFactor = 0.35;
@@ -91,6 +93,11 @@ function convergentMultiplier(
 }
 
 const convergentScaleType = 'vs 1-2-3… foes';
+
+/**
+ * Describes convergent attacks.  I like MrP's approach of listing numbers
+ * instead of just showing the from/to.
+ */
 function describeConvergentDamage(
   minMultiplier: number,
   maxMultiplier: number,
@@ -324,6 +331,7 @@ const attackRe = XRegExp(
   (?:\ if\ the\ user\ took\ (?<tookHitsValue>(?:\d+/)+\d+)\ (?<tookHits>.*)\ hits)?
   (?:\ at\ (?<statThresholdValue>(?:\d+/)+\d+)\ (?<statThreshold>[A-Z]{3}))?
   (?<attackThreshold>\ scaling\ with\ (<attackThresholdType>.*)\ attacks\ used\ \((?<attackThresholdCount>(?:\d+/)+\d+)\))?
+  (?:\ if\ the\ user\ used\ (?<simpleAttackThresholdCount>(?:\d+/)+\d+)\ damaging\ actions)?
   (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
   (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)+\d+)\ ailments)?
 
@@ -426,6 +434,8 @@ export function parseEnlirAttack(
     scaleType = formatThreshold(m.lowHpThresholdValue, 'HP', '%');
   } else if (m.statusAilmentsThresholdValue) {
     scaleType = formatThreshold(m.statusAilmentsThresholdValue, 'statuses');
+  } else if (m.simpleAttackThresholdCount) {
+    scaleType = formatThreshold(m.simpleAttackThresholdCount, 'atks');
   } else if (m.statusThreshold) {
     let statusThresholdCount: string = m.statusThresholdCount;
 
