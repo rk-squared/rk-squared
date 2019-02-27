@@ -279,7 +279,7 @@ describe('mrP', () => {
       });
     });
 
-    it('converts specialized statuses', () => {
+    it('converts unusual statuses', () => {
       // Discrepancy: MrP sometimes lists this as "crit dmg=2x".
       expect(describeEnlirSoulBreak(soulBreaks['Ayame - Hagakure Yukikaze'])).toEqual({
         damage: 'phys 7.1/10 ice+non',
@@ -309,11 +309,19 @@ describe('mrP', () => {
 
       expect(describeEnlirSoulBreak(soulBreaks['Firion - Rush of Arms'])).toEqual({
         damage: 'phys 7.0/10 holy+fire+ice',
-        other: 'self +30% PHY 15s, 15s: EX: Knight/Samurai instacast, Knight/Samurai drain 10%',
+        other:
+          'self +30% PHY 15s, 15s: EX: Knight/Samurai instacast, heal 10% of Knight/Samurai dmg',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Luneth - Howling Vortex'])).toEqual({
         damage: 'phys 7.1/10 wind+non',
-        other: 'wind infuse 25s, self wind drain 10% 15s, 15s: (wind ⤇ p1.92/6 wi+n Dragoon)',
+        other: 'wind infuse 25s, self heal 10% of wind dmg 15s, 15s: (wind ⤇ p1.92/6 wi+n Dragoon)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Fujin - Jin'])).toEqual({
+        other: '0.75x status chance 15s, party Phys blink 1',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Galuf - Unshaken Resolve'])).toEqual({
+        damage: 'phys 7.8/4',
+        other: 'self immune atks/status/heal 30s, +50% ATK 25s',
       });
     });
 

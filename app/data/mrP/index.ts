@@ -444,3 +444,4 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
 // TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
 // TODO: Slash-combine items like Amarant lightning+fire vuln. or Celes' element boosts - and ideally remove patchEnlir
 // TODO: Use × for times; make Unicode selectable?
+// TODO: Unyielding Fist and Runic are probably specialized enough to treat as "detail"

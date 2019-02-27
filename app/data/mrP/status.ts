@@ -307,6 +307,8 @@ function forceEffects({ codedName }: EnlirStatus) {
 const isCustomStatMod = ({ codedName, effects }: EnlirStatus) =>
   codedName.startsWith('CUSTOM_PARAM_') && !effects.match(/, lasts for \d+ turn/);
 
+const percentToMultiplier = (percent: number) => 1 + percent / 100;
+
 /**
  * Describes a "well-known" or common Enlir status name.
  *
@@ -336,16 +338,20 @@ export function describeEnlirStatus(status: string) {
     // Reorganize stats into, e.g., +30% MAG to match MMP
     const [, stat, amount] = m;
     return amount + ' ' + describeStats(stat.split(andList));
+  } else if ((m = status.match(/Status Chance ([+-]\d+)%/))) {
+    const [, percent] = m;
+    const multiplier = toMrPFixed(percentToMultiplier(+percent));
+    return `${multiplier}x status chance`;
   }
 
   // More special cases - schools + numbers
   if ((m = status.match(/(\S+) (?:Extended )?\+(\d+)% Boost/))) {
     const [, type, percent] = m;
-    const multiplier = 1 + +percent / 100;
+    const multiplier = toMrPFixed(percentToMultiplier(+percent));
     if (type === 'Weakness') {
-      return `${toMrPFixed(multiplier)}x dmg vs weak`;
+      return `${multiplier}x dmg vs weak`;
     } else {
-      return `${toMrPFixed(multiplier)}x ${getMiddleName(type)} dmg`;
+      return `${multiplier}x ${getMiddleName(type)} dmg`;
     }
   }
 
@@ -524,10 +530,12 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
   ) {
     const [, percent, kind] = m;
     return (
+      `heal ${percent}% of ` +
       kind
         .split(orList)
         .map(getShortName)
-        .join('/') + ` drain ${percent}%`
+        .join('/') +
+      ' dmg'
     );
   }
 

@@ -52,6 +52,7 @@ export const statusAlias: AliasMap = {
     Sentinel: 'taunt PHY/BLK',
     Runic: 'taunt & absorb BLK',
     'High Runic': 'taunt & absorb BLK/WHT',
+    'Unyielding Fist': 'immune atks/status/heal',
 
     // Aliases of numbered statuses, minus the numbers, for use by status
     // threshold code.  We could instead try to slash-process the status
