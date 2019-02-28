@@ -118,6 +118,12 @@ const dashNull = <T>(f: (value: string) => T) => dashAs(null, f);
 function toCommaSeparatedArray<T>(f: (value: string) => T): (value: string) => T[] | null {
   return (value: string) => (value === '' ? null : value.split(', ').map(f));
 }
+function ifNull<T>(f: (value: string) => T | null, nullValue: T): (value: string) => T {
+  return (value: string) => {
+    const result = f(value);
+    return result == null ? nullValue : result;
+  };
+}
 
 function toStringWithDecimals(value: string) {
   if (value === '') {
@@ -152,7 +158,8 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Multiplier: toFloat,
   Element: dashAs([], toCommaSeparatedArray(toString)),
   Time: toFloat,
-  Effects: toStringWithDecimals,
+  // For skills in particular, a null effect string is annoying.  Avoid it.
+  Effects: ifNull(toStringWithDecimals, ''),
   Counter: toBool,
   'Auto Target': toString,
   SB: toInt,

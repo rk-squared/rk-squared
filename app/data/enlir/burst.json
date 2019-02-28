@@ -3168,7 +3168,7 @@
       "Wind"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (0.47each), grants Spellblade +15% Boost 2 to the user",
+    "effects": "Four single attacks (0.47 each), grants Spellblade +15% Boost 2 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 50,
@@ -10351,7 +10351,7 @@
   },
   {
     "character": "Minfilia",
-    "source": "Leader's Guidance",
+    "source": "Scion's Guidance",
     "name": "Goring Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -10373,7 +10373,7 @@
   },
   {
     "character": "Minfilia",
-    "source": "Leader's Guidance",
+    "source": "Scion's Guidance",
     "name": "Full Swing",
     "type": "PHY",
     "target": "Single enemy",
@@ -11018,7 +11018,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": null,
+    "effects": "",
     "counter": false,
     "autoTarget": "Self",
     "sb": 180,
@@ -11589,7 +11589,7 @@
   },
   {
     "character": "Orran",
-    "source": "Records of Truth",
+    "source": "Record of Truth",
     "name": "Lodestar",
     "type": "WHT",
     "target": "Single ally",
@@ -11610,7 +11610,7 @@
   },
   {
     "character": "Orran",
-    "source": "Records of Truth",
+    "source": "Record of Truth",
     "name": "Divine Blessing",
     "type": "WHT",
     "target": "All allies",

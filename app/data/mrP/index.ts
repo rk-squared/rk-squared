@@ -5,6 +5,7 @@ import {
   enlir,
   EnlirSchool,
   EnlirSkill,
+  isBrave,
   isBurst,
   isEnlirElement,
   isGlint,
@@ -41,6 +42,7 @@ interface MrPSoulBreak {
   school?: EnlirSchool;
 
   burstCommands?: MrPSoulBreak[];
+  braveCommands?: MrPSoulBreak[];
 }
 
 function appendGroup(outGroup: string[], inGroup: string[], description?: string) {
@@ -74,9 +76,11 @@ function formatChance(chance: number, attack?: ParsedEnlirAttack | null): string
 }
 
 /**
- * Enlir lists Burst Mode and Haste for all BSBs, but MMP's format doesn't.
+ * Enlir lists Burst Mode and Haste for all BSBs and lists Brave Mode for all
+ * Brave Ultra Soul Breaks, but MrP's format doesn't.
  */
-function checkBurstMode(selfOther: string[]): string[] {
+function checkBurstAndBraveMode(selfOther: string[]): string[] {
+  selfOther = _.filter(selfOther, i => i !== 'Brave Mode');
   return selfOther.indexOf('Burst Mode') !== -1
     ? _.filter(selfOther, i => i !== 'Burst Mode' && i !== 'Haste')
     : selfOther;
@@ -434,10 +438,10 @@ export function describeEnlirSoulBreak(
 
   if (isGlint(sb) && !damage && !other.length && !partyOther.length && !detailOther.length) {
     // If it's a glint with only self effects, then "self" is redundant.
-    other.push(...checkBurstMode(selfOther));
+    other.push(...checkBurstAndBraveMode(selfOther));
   } else {
     appendGroup(other, partyOther, 'party');
-    appendGroup(other, checkBurstMode(selfOther), 'self');
+    appendGroup(other, checkBurstAndBraveMode(selfOther), 'self');
     appendGroup(other, detailOther);
   }
 
@@ -448,8 +452,21 @@ export function describeEnlirSoulBreak(
     other: other.length ? other.join(', ') : undefined,
     school: 'school' in sb ? sb.school : undefined,
   };
-  if (isBurst(sb)) {
+  if (
+    isBurst(sb) &&
+    enlir.burstCommands[sb.character] &&
+    enlir.burstCommands[sb.character][sb.name]
+  ) {
     result.burstCommands = enlir.burstCommands[sb.character][sb.name].map(i =>
+      describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false }),
+    );
+  }
+  if (
+    isBrave(sb) &&
+    enlir.braveCommands[sb.character] &&
+    enlir.braveCommands[sb.character][sb.name]
+  ) {
+    result.braveCommands = enlir.braveCommands[sb.character][sb.name].map(i =>
       describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false }),
     );
   }

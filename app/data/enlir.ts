@@ -291,6 +291,10 @@ export function isGlint(skill: EnlirSkill): skill is EnlirSoulBreak {
   return 'tier' in skill && (skill.tier === 'Glint' || skill.tier === 'Glint+');
 }
 
+export function isBrave(skill: EnlirSkill): skill is EnlirSoulBreak {
+  return 'tier' in skill && skill.tier === 'USB' && skill.effects.match(/Brave Mode/) != null;
+}
+
 export function isBurst(skill: EnlirSkill): skill is EnlirSoulBreak {
   return 'tier' in skill && skill.tier === 'BSB';
 }
