@@ -499,7 +499,7 @@ export function parseEnlirAttack(
     hybridDamageType: describeHybridDamageType(skill),
 
     element: skill.element,
-    school: 'school' in skill ? (skill.school as EnlirSchool) : undefined,
+    school: 'school' in skill ? skill.school : undefined,
 
     status: m.status || undefined,
     statusChance: m.statusChance ? +m.statusChance : undefined,

@@ -62,7 +62,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     element: [],
     time: null,
     effects:
-      'Ten single ranged hybrid attacks (? each), grants Attach Fire, Quick Cast 1 and Dance Flurry Follow-Up to the user',
+      'Ten single ranged hybrid attacks (? each), grants Attach Fire, Quick Cast 1 and Firetooth Follow-Up to the user',
     counter: false,
     autoTarget: '?',
     points: 500,
@@ -992,9 +992,8 @@ describe('mrP', () => {
     });
 
     // Test handling of unknown abilities (abilities with ? placeholders).
-    // These tests use local, hard-coded data, although related skills and
-    // statuses that they reference will get filled in, making them less
-    // effective in the future.
+    // These tests use local, hard-coded data, although we don't extend that
+    // to hacking unknown data into the associated skills and statuses.
     //
     // We don't make a thorough and consistent effort to handle all unknowns,
     // but we should at least do the basics.
@@ -1003,7 +1002,7 @@ describe('mrP', () => {
         damage: 'p?/15 or m?/15 fire+wind+non rngd',
         other:
           'fire infuse 25s, self dmg cap=19,999 15s, ' +
-          '15s: (3 fire ⤇ ?? f+wi+n rngd overstrike), ' +
+          '15s: (3 fire ⤇ p4.24 or m15.35 f+wi+n rngd overstrike), ' +
           '15s: Awaken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
       expect(describeEnlirSoulBreak(unknownSoulBreaks[1])).toEqual({
@@ -1011,7 +1010,7 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(unknownSoulBreaks[2])).toEqual({
         damage: 'p?/10 or m?/10 rngd',
-        other: 'fire infuse 25s, self fastcast 1, 15s: (fire ⤇ p?/4 or m?/4 f+wi+n rngd)',
+        other: 'fire infuse 25s, self fastcast 1, 15s: (fire ⤇ p1.68/4 or m7.4/4 f+wi+n rngd)',
       });
       expect(describeEnlirSoulBreak(unknownSoulBreaks[3])).toEqual({
         instant: true,

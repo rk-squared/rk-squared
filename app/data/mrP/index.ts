@@ -158,7 +158,10 @@ export function describeEnlirSoulBreak(
     damage += attack.isRanged ? ' rngd' : '';
     damage += attack.isJump ? ' jump' : '';
     damage += attack.isOverstrike ? ' overstrike' : '';
-    damage += attack.school && attack.school !== '?' ? ' ' + getSchoolShortName(attack.school) : '';
+    damage +=
+      attack.school && attack.school !== '?' && attack.school !== 'Special'
+        ? ' ' + getSchoolShortName(attack.school)
+        : '';
     damage += opt.showNoMiss && attack.isNoMiss ? ' no miss' : '';
     if (!attack.scaleToDamage && attack.scaleType) {
       // Rank chase / threshold / etc.

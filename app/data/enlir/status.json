@@ -6332,7 +6332,7 @@
   {
     "id": 50046,
     "name": "EX: Ninja",
-    "effects": "ATK +30%, cast speed x1.30 plus x0.30 for each attack used for the duration of the status, up to x3.40l",
+    "effects": "ATK +30%, cast speed x1.30 plus x0.30 for each attack used for the duration of the status, up to x3.40",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9885,7 +9885,7 @@
   {
     "id": 50388,
     "name": "EX: Key of Destiny",
-    "effects": "ATK +30%, casts Key of Destiny after using a Knight ability",
+    "effects": "ATK +30%, casts Dual Arcanum after using a Knight ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9895,8 +9895,8 @@
   },
   {
     "id": 50389,
-    "name": "Dance Flurry Follow-Up",
-    "effects": "Casts Dance Flurry after using a Fire attack",
+    "name": "Firetooth Follow-Up",
+    "effects": "Casts Firetooth after using a Fire attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10016,8 +10016,8 @@
   },
   {
     "id": 50401,
-    "name": "Dual Braver Follow-Up",
-    "effects": "Casts Dual Braver after using three Knight abilities",
+    "name": "Dual Hero Follow-Up",
+    "effects": "Casts Dual Hero after using three Knight abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10668,13 +10668,68 @@
   },
   {
     "id": 50461,
-    "name": "",
-    "effects": null,
+    "name": "Mark of Shadow Counter",
+    "effects": "Keeps track of the uses of Mark of Shadow",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "USED_ABILITY_COUNTER_BRANDING_OF_CHASTITY",
+    "notes": null
+  },
+  {
+    "id": 50467,
+    "name": "Freeze Apocalypse Follow-up",
+    "effects": "Casts Freeze Apocalypse after using three Ice attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_FREEZE_APOCALYPSE",
+    "notes": null
+  },
+  {
+    "id": 50468,
+    "name": "Awaken Magic Archer",
+    "effects": "Wind or Dark abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Wind or Dark abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_GRIEVER",
+    "notes": null
+  },
+  {
+    "id": 50469,
+    "name": "Apocalypse Switch Draw Mode",
+    "effects": "Grants Attach Wind after using a Wind attack, grants Attach Dark after using a Dark attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SWITCH_DRAW_CLAD_APOCALYPSE",
+    "notes": null
+  },
+  {
+    "id": 50470,
+    "name": "Cruel Blow Follow-up",
+    "effects": "Casts Cruel Blow after using three Wind or Dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SWITCH_DRAW_APOCALYPSE",
+    "notes": null
+  },
+  {
+    "id": 50471,
+    "name": "Awaken Dance",
+    "effects": "Dancer abilities don't consume uses, cast speed x3.00 for Dancer abilites and casts Barrier Dance after using Dancer abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_DANCE",
     "notes": null
   },
   {

@@ -157,6 +157,8 @@ const skillFields: { [col: string]: (value: string) => any } = {
   'Auto Target': toString,
   SB: toInt,
   Points: toInt,
+  Brave: toInt,
+  'Brave Condition': toCommaSeparatedArray(toString),
 };
 
 // The '✓' column indicates whether a row has been confirmed (e.g., verified
@@ -372,32 +374,6 @@ function convertMagicite(rows: any[]): any[] {
   return magicite;
 }
 
-function convertOtherSkills(rows: any[]): any[] {
-  const otherSkills = [];
-
-  for (let i = 1; i < rows.length; i++) {
-    const item: any = {};
-
-    for (let j = 0; j < rows[0].length; j++) {
-      const col = rows[0][j];
-      if (shouldAlwaysSkip(col)) {
-        continue;
-      }
-
-      const field = _.camelCase(col);
-      if (skillFields[col]) {
-        item[field] = skillFields[col](rows[i][j]);
-      } else {
-        item[field] = toCommon(field, rows[i][j]);
-      }
-    }
-
-    otherSkills.push(item);
-  }
-
-  return otherSkills;
-}
-
 function convertRecordMateria(rows: any[]): any[] {
   const recordMateria: any[] = [];
 
@@ -502,11 +478,12 @@ function convertRelics(rows: any[]): any[] {
   return relics;
 }
 
-function convertSoulBreaks(rows: any[]): any[] {
-  const soulBreaks: any[] = [];
+function convertSkills(rows: any[]): any[] {
+  const skills: any[] = [];
 
   for (let i = 1; i < rows.length; i++) {
     const item: any = {};
+
     for (let j = 0; j < rows[0].length; j++) {
       const col = rows[0][j];
       if (shouldAlwaysSkip(col)) {
@@ -521,10 +498,10 @@ function convertSoulBreaks(rows: any[]): any[] {
       }
     }
 
-    soulBreaks.push(item);
+    skills.push(item);
   }
 
-  return soulBreaks;
+  return skills;
 }
 
 function convertStatus(rows: any[]): any[] {
@@ -579,6 +556,16 @@ const dataTypes: DataType[] = [
     converter: convertAbilities,
   },
   {
+    sheet: 'Brave',
+    localName: 'brave',
+    converter: convertSkills,
+  },
+  {
+    sheet: 'Burst',
+    localName: 'burst',
+    converter: convertSkills,
+  },
+  {
     sheet: 'Characters',
     localName: 'characters',
     converter: convertCharacters,
@@ -592,7 +579,7 @@ const dataTypes: DataType[] = [
   {
     sheet: 'Other',
     localName: 'otherSkills',
-    converter: convertOtherSkills,
+    converter: convertSkills,
   },
   {
     sheet: 'Record Materia',
@@ -607,7 +594,7 @@ const dataTypes: DataType[] = [
   {
     sheet: 'Soul Breaks',
     localName: 'soulBreaks',
-    converter: convertSoulBreaks,
+    converter: convertSkills,
   },
   {
     sheet: 'Status',

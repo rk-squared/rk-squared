@@ -1,0 +1,3624 @@
+[
+  {
+    "character": "Sarah",
+    "source": "Crystal's Glean",
+    "name": "Heal Melody",
+    "brave": 0,
+    "type": "WHT",
+    "target": "Single ally",
+    "formula": "Magical",
+    "multiplier": 1.2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "Lowest HP% ally",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Bard"
+    ],
+    "nameJp": "ヒールメロディ",
+    "id": 30542217,
+    "gl": false
+  },
+  {
+    "character": "Sarah",
+    "source": "Crystal's Glean",
+    "name": "Heal Melody",
+    "brave": 1,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Bard"
+    ],
+    "nameJp": "ヒールメロディ",
+    "id": 30542218,
+    "gl": false
+  },
+  {
+    "character": "Sarah",
+    "source": "Crystal's Glean",
+    "name": "Heal Melody",
+    "brave": 2,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55)",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Bard"
+    ],
+    "nameJp": "ヒールメロディ",
+    "id": 30542219,
+    "gl": false
+  },
+  {
+    "character": "Sarah",
+    "source": "Crystal's Glean",
+    "name": "Heal Melody",
+    "brave": 3,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (55), damages undeads, grants Instant Cast 1",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Bard"
+    ],
+    "nameJp": "ヒールメロディ",
+    "id": 30542310,
+    "gl": false
+  },
+  {
+    "character": "Wol",
+    "source": "Sudden Smite",
+    "name": "Shadowstrike",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Earth",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Heavy",
+    "braveCondition": [
+      "Heavy"
+    ],
+    "nameJp": "サドンストライク",
+    "id": 30549193,
+    "gl": false
+  },
+  {
+    "character": "Wol",
+    "source": "Sudden Smite",
+    "name": "Shadowstrike",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.12,
+    "element": [
+      "Earth",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (1.04), DEF -40% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Heavy",
+    "braveCondition": [
+      "Heavy"
+    ],
+    "nameJp": "サドンストライク",
+    "id": 30549194,
+    "gl": false
+  },
+  {
+    "character": "Wol",
+    "source": "Sudden Smite",
+    "name": "Shadowstrike",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.94,
+    "element": [
+      "Earth",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.99), DEF -40% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Heavy",
+    "braveCondition": [
+      "Heavy"
+    ],
+    "nameJp": "サドンストライク",
+    "id": 30549195,
+    "gl": false
+  },
+  {
+    "character": "Wol",
+    "source": "Sudden Smite",
+    "name": "Shadowstrike",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8.8,
+    "element": [
+      "Earth",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Ten single attacks (0.88), ATK, DEF and MAG -70% for 8 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Heavy",
+    "braveCondition": [
+      "Heavy"
+    ],
+    "nameJp": "サドンストライク",
+    "id": 30549196,
+    "gl": false
+  },
+  {
+    "character": "Firion",
+    "source": "Fervid Blazer",
+    "name": "Trinity Arts",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.9,
+    "element": [
+      "Holy",
+      "Ice",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.90)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Samurai",
+    "braveCondition": [
+      "Samurai"
+    ],
+    "nameJp": "トリニティアーツ",
+    "id": 30549111,
+    "gl": true
+  },
+  {
+    "character": "Firion",
+    "source": "Fervid Blazer",
+    "name": "Trinity Arts",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.15,
+    "element": [
+      "Holy",
+      "Ice",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (3.15) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Samurai",
+    "braveCondition": [
+      "Samurai"
+    ],
+    "nameJp": "トリニティアーツ",
+    "id": 30549112,
+    "gl": true
+  },
+  {
+    "character": "Firion",
+    "source": "Fervid Blazer",
+    "name": "Trinity Arts",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.3,
+    "element": [
+      "Holy",
+      "Ice",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.30) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Samurai",
+    "braveCondition": [
+      "Samurai"
+    ],
+    "nameJp": "トリニティアーツ",
+    "id": 30549113,
+    "gl": true
+  },
+  {
+    "character": "Firion",
+    "source": "Fervid Blazer",
+    "name": "Trinity Arts",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9.85,
+    "element": [
+      "Holy",
+      "Ice",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (9.85) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Samurai",
+    "braveCondition": [
+      "Samurai"
+    ],
+    "nameJp": "トリニティアーツ",
+    "id": 30549114,
+    "gl": true
+  },
+  {
+    "character": "Leon",
+    "source": "Darkness Weapon",
+    "name": "Immoral Blade",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "背徳の剣",
+    "id": 30549564,
+    "gl": false
+  },
+  {
+    "character": "Leon",
+    "source": "Darkness Weapon",
+    "name": "Immoral Blade",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.85,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (3.85) capped at 99999, damages the user for 25% max HP, DEF -30% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "背徳の剣",
+    "id": 30549565,
+    "gl": false
+  },
+  {
+    "character": "Leon",
+    "source": "Darkness Weapon",
+    "name": "Immoral Blade",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.7,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.70) capped at 99999, damages the user for 25% max HP, DEF -30% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "背徳の剣",
+    "id": 30549566,
+    "gl": false
+  },
+  {
+    "character": "Leon",
+    "source": "Darkness Weapon",
+    "name": "Immoral Blade",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 12,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (12.00) capped at 99999, damages the user for 25% max HP, DEF and RES -70% for 8 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "背徳の剣",
+    "id": 30549567,
+    "gl": false
+  },
+  {
+    "character": "Arc",
+    "source": "Heavenly Rains",
+    "name": "Life Fountain",
+    "brave": 0,
+    "type": "WHT",
+    "target": "Single ally",
+    "formula": "Magical",
+    "multiplier": 1.2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "Lowest HP% ally",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "命脈の泉",
+    "id": 30542211,
+    "gl": true
+  },
+  {
+    "character": "Arc",
+    "source": "Heavenly Rains",
+    "name": "Life Fountain",
+    "brave": 1,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "命脈の泉",
+    "id": 30542212,
+    "gl": true
+  },
+  {
+    "character": "Arc",
+    "source": "Heavenly Rains",
+    "name": "Life Fountain",
+    "brave": 2,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55)",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "命脈の泉",
+    "id": 30542213,
+    "gl": true
+  },
+  {
+    "character": "Arc",
+    "source": "Heavenly Rains",
+    "name": "Life Fountain",
+    "brave": 3,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (55), damages undeads, grants Last Stand",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "命脈の泉",
+    "id": 30542214,
+    "gl": true
+  },
+  {
+    "character": "Cecil (Paladin)",
+    "source": "Crystal Vanguard",
+    "name": "Searchlight",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Knight",
+    "braveCondition": [
+      "Knight"
+    ],
+    "nameJp": "サーチライト",
+    "id": 30548246,
+    "gl": true
+  },
+  {
+    "character": "Cecil (Paladin)",
+    "source": "Crystal Vanguard",
+    "name": "Searchlight",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.4,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (0.80 each), grants HP Stock (1000) to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Knight",
+    "braveCondition": [
+      "Knight"
+    ],
+    "nameJp": "サーチライト",
+    "id": 30548247,
+    "gl": true
+  },
+  {
+    "character": "Cecil (Paladin)",
+    "source": "Crystal Vanguard",
+    "name": "Searchlight",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.5,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (0.90 each), grants HP Stock (2000) to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Knight",
+    "braveCondition": [
+      "Knight"
+    ],
+    "nameJp": "サーチライト",
+    "id": 30548248,
+    "gl": true
+  },
+  {
+    "character": "Cecil (Paladin)",
+    "source": "Crystal Vanguard",
+    "name": "Searchlight",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Seven single attacks (1.00 each), grants HP Stock (4000) to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Knight",
+    "braveCondition": [
+      "Knight"
+    ],
+    "nameJp": "サーチライト",
+    "id": 30548249,
+    "gl": true
+  },
+  {
+    "character": "Kain",
+    "source": "Dragon's Wrath",
+    "name": "Soaring High",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged jump attack (1.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Dragoon",
+    "braveCondition": [
+      "Dragoon"
+    ],
+    "nameJp": "ライジングハイ",
+    "id": 30548018,
+    "gl": true
+  },
+  {
+    "character": "Kain",
+    "source": "Dragon's Wrath",
+    "name": "Soaring High",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.25,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged jump attack (3.25) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Dragoon",
+    "braveCondition": [
+      "Dragoon"
+    ],
+    "nameJp": "ライジングハイ",
+    "id": 30548019,
+    "gl": true
+  },
+  {
+    "character": "Kain",
+    "source": "Dragon's Wrath",
+    "name": "Soaring High",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.5,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged jump attack (6.50) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Dragoon",
+    "braveCondition": [
+      "Dragoon"
+    ],
+    "nameJp": "ライジングハイ",
+    "id": 30548110,
+    "gl": true
+  },
+  {
+    "character": "Kain",
+    "source": "Dragon's Wrath",
+    "name": "Soaring High",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10.15,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged jump attack (10.15) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Dragoon",
+    "braveCondition": [
+      "Dragoon"
+    ],
+    "nameJp": "ライジングハイ",
+    "id": 30548111,
+    "gl": true
+  },
+  {
+    "character": "Rydia",
+    "source": "Raging Giant",
+    "name": "Giant's Roar",
+    "brave": 0,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Earth"
+    ],
+    "nameJp": "巨人の咆哮",
+    "id": 30543042,
+    "gl": false
+  },
+  {
+    "character": "Rydia",
+    "source": "Raging Giant",
+    "name": "Giant's Roar",
+    "brave": 1,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 12,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (12.00) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Earth"
+    ],
+    "nameJp": "巨人の咆哮",
+    "id": 30543043,
+    "gl": false
+  },
+  {
+    "character": "Rydia",
+    "source": "Raging Giant",
+    "name": "Giant's Roar",
+    "brave": 2,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.8,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.80) capped at 99999, Summoning smart ether 1 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Earth"
+    ],
+    "nameJp": "巨人の咆哮",
+    "id": 30543044,
+    "gl": false
+  },
+  {
+    "character": "Rydia",
+    "source": "Raging Giant",
+    "name": "Giant's Roar",
+    "brave": 3,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 35,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (35.00) capped at 99999, Summoning smart ether 1 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Earth"
+    ],
+    "nameJp": "巨人の咆哮",
+    "id": 30543045,
+    "gl": false
+  },
+  {
+    "character": "Gilgamesh",
+    "source": "Nonpareil",
+    "name": "Blazing Dance",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Samurai",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "焔剣の舞",
+    "id": 30549211,
+    "gl": false
+  },
+  {
+    "character": "Gilgamesh",
+    "source": "Nonpareil",
+    "name": "Blazing Dance",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.25,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (3.25) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Samurai",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "焔剣の舞",
+    "id": 30549212,
+    "gl": false
+  },
+  {
+    "character": "Gilgamesh",
+    "source": "Nonpareil",
+    "name": "Blazing Dance",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.5,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.50) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Samurai",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "焔剣の舞",
+    "id": 30549213,
+    "gl": false
+  },
+  {
+    "character": "Gilgamesh",
+    "source": "Nonpareil",
+    "name": "Blazing Dance",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10.15,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (10.15) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Samurai",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "焔剣の舞",
+    "id": 30549214,
+    "gl": false
+  },
+  {
+    "character": "Faris",
+    "source": "Essence of Flame",
+    "name": "Heat Wave",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.5,
+    "element": [
+      "Fire",
+      "Wind"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged attack (1.50)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "ねっぱ",
+    "id": 30548330,
+    "gl": false
+  },
+  {
+    "character": "Faris",
+    "source": "Essence of Flame",
+    "name": "Heat Wave",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.34,
+    "element": [
+      "Fire",
+      "Wind"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.39 each), DEF -30% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "ねっぱ",
+    "id": 30548331,
+    "gl": false
+  },
+  {
+    "character": "Faris",
+    "source": "Essence of Flame",
+    "name": "Heat Wave",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.68,
+    "element": [
+      "Fire",
+      "Wind"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.78 each), DEF -40% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "ねっぱ",
+    "id": 30548332,
+    "gl": false
+  },
+  {
+    "character": "Faris",
+    "source": "Essence of Flame",
+    "name": "Heat Wave",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.26,
+    "element": [
+      "Fire",
+      "Wind"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (1.21 each), DEF, RES and MND -70% for 8 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "ねっぱ",
+    "id": 30548333,
+    "gl": false
+  },
+  {
+    "character": "Exdeath",
+    "source": "Delta Hole",
+    "name": "Delta Blaster",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "デルタブラスター",
+    "id": 30541371,
+    "gl": true
+  },
+  {
+    "character": "Exdeath",
+    "source": "Delta Hole",
+    "name": "Delta Blaster",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 12,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (12.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "デルタブラスター",
+    "id": 30541372,
+    "gl": true
+  },
+  {
+    "character": "Exdeath",
+    "source": "Delta Hole",
+    "name": "Delta Blaster",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.8,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "デルタブラスター",
+    "id": 30541373,
+    "gl": true
+  },
+  {
+    "character": "Exdeath",
+    "source": "Delta Hole",
+    "name": "Delta Blaster",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 35,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (35.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "デルタブラスター",
+    "id": 30541374,
+    "gl": true
+  },
+  {
+    "character": "Krile",
+    "source": "Kindred Flame",
+    "name": "Concentrated Fire",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "しゅうちゅうほうか",
+    "id": 30541316,
+    "gl": true
+  },
+  {
+    "character": "Krile",
+    "source": "Kindred Flame",
+    "name": "Concentrated Fire",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 12,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (12.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "しゅうちゅうほうか",
+    "id": 30541317,
+    "gl": true
+  },
+  {
+    "character": "Krile",
+    "source": "Kindred Flame",
+    "name": "Concentrated Fire",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.8,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "しゅうちゅうほうか",
+    "id": 30541318,
+    "gl": true
+  },
+  {
+    "character": "Krile",
+    "source": "Kindred Flame",
+    "name": "Concentrated Fire",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 35,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (35.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "しゅうちゅうほうか",
+    "id": 30541319,
+    "gl": true
+  },
+  {
+    "character": "Terra",
+    "source": "Magitek Inferno",
+    "name": "Riot Fire",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "ライオットファイア",
+    "id": 30541212,
+    "gl": true
+  },
+  {
+    "character": "Terra",
+    "source": "Magitek Inferno",
+    "name": "Riot Fire",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 12,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (12.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "ライオットファイア",
+    "id": 30541213,
+    "gl": true
+  },
+  {
+    "character": "Terra",
+    "source": "Magitek Inferno",
+    "name": "Riot Fire",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.8,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "ライオットファイア",
+    "id": 30541214,
+    "gl": true
+  },
+  {
+    "character": "Terra",
+    "source": "Magitek Inferno",
+    "name": "Riot Fire",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 35,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (35.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "ライオットファイア",
+    "id": 30541215,
+    "gl": true
+  },
+  {
+    "character": "Locke",
+    "source": "Returners Unite",
+    "name": "Burning Mirage",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.81,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.2,
+    "effects": "One single attack (1.81)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "ミラージュバーン",
+    "id": 30548235,
+    "gl": true
+  },
+  {
+    "character": "Locke",
+    "source": "Returners Unite",
+    "name": "Burning Mirage",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.06,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.2,
+    "effects": "One single attack (3.06) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "ミラージュバーン",
+    "id": 30548236,
+    "gl": true
+  },
+  {
+    "character": "Locke",
+    "source": "Returners Unite",
+    "name": "Burning Mirage",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.11,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.2,
+    "effects": "One single attack (6.11) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "ミラージュバーン",
+    "id": 30548237,
+    "gl": true
+  },
+  {
+    "character": "Locke",
+    "source": "Returners Unite",
+    "name": "Burning Mirage",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9.55,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.2,
+    "effects": "One single attack (9.55) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "ミラージュバーン",
+    "id": 30548238,
+    "gl": true
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Righteous Mimicry",
+    "name": "Mimic (VI)",
+    "brave": 0,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [],
+    "time": 0.83,
+    "effects": "One single hybrid attack (1.81 or 7.45)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Special",
+    "braveCondition": [
+      "Black Magic",
+      "Combat"
+    ],
+    "nameJp": "ものまね【VI】",
+    "id": 30545044,
+    "gl": true
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Righteous Mimicry",
+    "name": "Mimic (VI)",
+    "brave": 1,
+    "type": "NAT",
+    "target": "-",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.83,
+    "effects": "Casts the last ability used by an ally, default ability (PHY: single, 1.50 physical)",
+    "counter": false,
+    "autoTarget": "-",
+    "sb": 100,
+    "school": "Special",
+    "braveCondition": [
+      "Black Magic",
+      "Combat"
+    ],
+    "nameJp": "ものまね【VI】",
+    "id": 30545047,
+    "gl": true
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Righteous Mimicry",
+    "name": "Mimic (VI)",
+    "brave": 2,
+    "type": "NAT",
+    "target": "-",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.83,
+    "effects": "Casts the last ability used by an ally twice, default ability (PHY: single, 1.50 physical)",
+    "counter": false,
+    "autoTarget": "-",
+    "sb": 100,
+    "school": "Special",
+    "braveCondition": [
+      "Black Magic",
+      "Combat"
+    ],
+    "nameJp": "ものまね【VI】",
+    "id": 30545048,
+    "gl": true
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Righteous Mimicry",
+    "name": "Mimic (VI)",
+    "brave": 3,
+    "type": "NAT",
+    "target": "-",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.83,
+    "effects": "Casts the last ability used by an ally three times, default ability (PHY: single, 1.50 physical)",
+    "counter": false,
+    "autoTarget": "-",
+    "sb": 100,
+    "school": "Special",
+    "braveCondition": [
+      "Black Magic",
+      "Combat"
+    ],
+    "nameJp": "ものまね【VI】",
+    "id": 30545049,
+    "gl": true
+  },
+  {
+    "character": "Vincent",
+    "source": "Dirge of Cerberus",
+    "name": "Beast Shot",
+    "brave": 0,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid ranged attack (1.92 or 7.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Special",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "ビーストシュート",
+    "id": 30544084,
+    "gl": true
+  },
+  {
+    "character": "Vincent",
+    "source": "Dirge of Cerberus",
+    "name": "Beast Shot",
+    "brave": 1,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid ranged attack (3.25 or 12.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Special",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "ビーストシュート",
+    "id": 30544085,
+    "gl": true
+  },
+  {
+    "character": "Vincent",
+    "source": "Dirge of Cerberus",
+    "name": "Beast Shot",
+    "brave": 2,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid ranged attack (6.50 or 20.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Special",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "ビーストシュート",
+    "id": 30544122,
+    "gl": true
+  },
+  {
+    "character": "Vincent",
+    "source": "Dirge of Cerberus",
+    "name": "Beast Shot",
+    "brave": 3,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid ranged attack (10.15 or 35.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Special",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "ビーストシュート",
+    "id": 30544086,
+    "gl": true
+  },
+  {
+    "character": "Reno",
+    "source": "Pyramid Pinnacle",
+    "name": "Spark Rod",
+    "brave": 0,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid ranged attack (1.92 or 7.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Special",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "スパークロッド",
+    "id": 30544110,
+    "gl": true
+  },
+  {
+    "character": "Reno",
+    "source": "Pyramid Pinnacle",
+    "name": "Spark Rod",
+    "brave": 1,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid ranged attack (3.25 or 12.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Special",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "スパークロッド",
+    "id": 30544111,
+    "gl": true
+  },
+  {
+    "character": "Reno",
+    "source": "Pyramid Pinnacle",
+    "name": "Spark Rod",
+    "brave": 2,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid ranged attack (6.50 or 20.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Special",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "スパークロッド",
+    "id": 30544112,
+    "gl": true
+  },
+  {
+    "character": "Reno",
+    "source": "Pyramid Pinnacle",
+    "name": "Spark Rod",
+    "brave": 3,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid ranged attack (10.15 or 35.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Special",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "スパークロッド",
+    "id": 30544113,
+    "gl": true
+  },
+  {
+    "character": "Squall",
+    "source": "Double Junction",
+    "name": "Dual Fang",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Ice",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "デュアルファング",
+    "id": 30547221,
+    "gl": true
+  },
+  {
+    "character": "Squall",
+    "source": "Double Junction",
+    "name": "Dual Fang",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.2,
+    "element": [
+      "Ice",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (3.20) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "デュアルファング",
+    "id": 30547222,
+    "gl": true
+  },
+  {
+    "character": "Squall",
+    "source": "Double Junction",
+    "name": "Dual Fang",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.4,
+    "element": [
+      "Ice",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.40) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "デュアルファング",
+    "id": 30547223,
+    "gl": true
+  },
+  {
+    "character": "Squall",
+    "source": "Double Junction",
+    "name": "Dual Fang",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10,
+    "element": [
+      "Ice",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (10.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "デュアルファング",
+    "id": 30547224,
+    "gl": true
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Earth Edict",
+    "name": "Truespell Stoneshot",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "真の魔法・砲石",
+    "id": 30541043,
+    "gl": true
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Earth Edict",
+    "name": "Truespell Stoneshot",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 12,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (12.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "真の魔法・砲石",
+    "id": 30541044,
+    "gl": true
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Earth Edict",
+    "name": "Truespell Stoneshot",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.8,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "真の魔法・砲石",
+    "id": 30541045,
+    "gl": true
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Earth Edict",
+    "name": "Truespell Stoneshot",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 35,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (35.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "真の魔法・砲石",
+    "id": 30541046,
+    "gl": true
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Ice Ruin",
+    "name": "Truespell Icefall",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Ice"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "真の魔法・崩氷",
+    "id": 30541126,
+    "gl": true
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Ice Ruin",
+    "name": "Truespell Icefall",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 12,
+    "element": [
+      "Ice"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (12.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "真の魔法・崩氷",
+    "id": 30541127,
+    "gl": true
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Ice Ruin",
+    "name": "Truespell Icefall",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.8,
+    "element": [
+      "Ice"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "真の魔法・崩氷",
+    "id": 30541128,
+    "gl": true
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Ice Ruin",
+    "name": "Truespell Icefall",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 35,
+    "element": [
+      "Ice"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (35.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "真の魔法・崩氷",
+    "id": 30541129,
+    "gl": true
+  },
+  {
+    "character": "Ultimecia",
+    "source": "Hell's Judgment",
+    "name": "Spears of Temperance",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Wind",
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind",
+      "Dark"
+    ],
+    "nameJp": "拒絶の槍",
+    "id": 30541250,
+    "gl": false
+  },
+  {
+    "character": "Ultimecia",
+    "source": "Hell's Judgment",
+    "name": "Spears of Temperance",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 11.8,
+    "element": [
+      "Wind",
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (11.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind",
+      "Dark"
+    ],
+    "nameJp": "拒絶の槍",
+    "id": 30541251,
+    "gl": false
+  },
+  {
+    "character": "Ultimecia",
+    "source": "Hell's Judgment",
+    "name": "Spears of Temperance",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.5,
+    "element": [
+      "Wind",
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.50) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind",
+      "Dark"
+    ],
+    "nameJp": "拒絶の槍",
+    "id": 30541252,
+    "gl": false
+  },
+  {
+    "character": "Ultimecia",
+    "source": "Hell's Judgment",
+    "name": "Spears of Temperance",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 34.6,
+    "element": [
+      "Wind",
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (34.60) capped at 99999, removes positive effects",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind",
+      "Dark"
+    ],
+    "nameJp": "拒絶の槍",
+    "id": 30541253,
+    "gl": false
+  },
+  {
+    "character": "Eiko",
+    "source": "Phoenix Feather",
+    "name": "Phoenix's Blessing",
+    "brave": 0,
+    "type": "WHT",
+    "target": "Single ally",
+    "formula": "Magical",
+    "multiplier": 1.2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "Lowest HP% ally",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "不死鳥の祝福",
+    "id": 30542019,
+    "gl": true
+  },
+  {
+    "character": "Eiko",
+    "source": "Phoenix Feather",
+    "name": "Phoenix's Blessing",
+    "brave": 1,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "不死鳥の祝福",
+    "id": 30542110,
+    "gl": true
+  },
+  {
+    "character": "Eiko",
+    "source": "Phoenix Feather",
+    "name": "Phoenix's Blessing",
+    "brave": 2,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55)",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "不死鳥の祝福",
+    "id": 30542111,
+    "gl": true
+  },
+  {
+    "character": "Eiko",
+    "source": "Phoenix Feather",
+    "name": "Phoenix's Blessing",
+    "brave": 3,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55), grants HP Stock (2000)",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "不死鳥の祝福",
+    "id": 30542112,
+    "gl": true
+  },
+  {
+    "character": "Eiko",
+    "source": "Sonic Homing",
+    "name": "Holy Beast's Roar",
+    "brave": 0,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Holy",
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Summoning"
+    ],
+    "nameJp": "聖獣の咆哮",
+    "id": 30543182,
+    "gl": false
+  },
+  {
+    "character": "Eiko",
+    "source": "Sonic Homing",
+    "name": "Holy Beast's Roar",
+    "brave": 1,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 11.8,
+    "element": [
+      "Holy",
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (11.80) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Summoning"
+    ],
+    "nameJp": "聖獣の咆哮",
+    "id": 30543183,
+    "gl": false
+  },
+  {
+    "character": "Eiko",
+    "source": "Sonic Homing",
+    "name": "Holy Beast's Roar",
+    "brave": 2,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.5,
+    "element": [
+      "Holy",
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.50) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Summoning"
+    ],
+    "nameJp": "聖獣の咆哮",
+    "id": 30543184,
+    "gl": false
+  },
+  {
+    "character": "Eiko",
+    "source": "Sonic Homing",
+    "name": "Holy Beast's Roar",
+    "brave": 3,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 34.6,
+    "element": [
+      "Holy",
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (34.60) capped at 99999, Summoning smart ether 2 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Summoning"
+    ],
+    "nameJp": "聖獣の咆哮",
+    "id": 30543185,
+    "gl": false
+  },
+  {
+    "character": "Kuja",
+    "source": "Chaos Rhapsody",
+    "name": "Ruinous Recital",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "破滅の奏楽",
+    "id": 30549464,
+    "gl": false
+  },
+  {
+    "character": "Kuja",
+    "source": "Chaos Rhapsody",
+    "name": "Ruinous Recital",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 12,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (12.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "破滅の奏楽",
+    "id": 30549465,
+    "gl": false
+  },
+  {
+    "character": "Kuja",
+    "source": "Chaos Rhapsody",
+    "name": "Ruinous Recital",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.8,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "破滅の奏楽",
+    "id": 30549466,
+    "gl": false
+  },
+  {
+    "character": "Kuja",
+    "source": "Chaos Rhapsody",
+    "name": "Ruinous Recital",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 35,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (35.00) capped at 99999, grants Reraise: 40% to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "破滅の奏楽",
+    "id": 30549467,
+    "gl": false
+  },
+  {
+    "character": "Tidus",
+    "source": "Quick Rush",
+    "name": "Drive Shot",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Water"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (1.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Sharpshooter",
+    "braveCondition": [
+      "Sharpshooter"
+    ],
+    "nameJp": "ドライブシュート",
+    "id": 30549074,
+    "gl": true
+  },
+  {
+    "character": "Tidus",
+    "source": "Quick Rush",
+    "name": "Drive Shot",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.25,
+    "element": [
+      "Water"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (3.25) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Sharpshooter",
+    "braveCondition": [
+      "Sharpshooter"
+    ],
+    "nameJp": "ドライブシュート",
+    "id": 30549075,
+    "gl": true
+  },
+  {
+    "character": "Tidus",
+    "source": "Quick Rush",
+    "name": "Drive Shot",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.5,
+    "element": [
+      "Water"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (6.50) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Sharpshooter",
+    "braveCondition": [
+      "Sharpshooter"
+    ],
+    "nameJp": "ドライブシュート",
+    "id": 30549076,
+    "gl": true
+  },
+  {
+    "character": "Tidus",
+    "source": "Quick Rush",
+    "name": "Drive Shot",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10.15,
+    "element": [
+      "Water"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (10.15) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Sharpshooter",
+    "braveCondition": [
+      "Sharpshooter"
+    ],
+    "nameJp": "ドライブシュート",
+    "id": 30549077,
+    "gl": true
+  },
+  {
+    "character": "Yuna",
+    "source": "Calm Prayer",
+    "name": "Prayer of Hope",
+    "brave": 0,
+    "type": "WHT",
+    "target": "Single ally",
+    "formula": "Magical",
+    "multiplier": 1.2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "Lowest HP% ally",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "希望の祈り",
+    "id": 30542013,
+    "gl": true
+  },
+  {
+    "character": "Yuna",
+    "source": "Calm Prayer",
+    "name": "Prayer of Hope",
+    "brave": 1,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "希望の祈り",
+    "id": 30542014,
+    "gl": true
+  },
+  {
+    "character": "Yuna",
+    "source": "Calm Prayer",
+    "name": "Prayer of Hope",
+    "brave": 2,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55)",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "希望の祈り",
+    "id": 30542015,
+    "gl": true
+  },
+  {
+    "character": "Yuna",
+    "source": "Calm Prayer",
+    "name": "Prayer of Hope",
+    "brave": 3,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55), grants HP Stock (2000)",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "希望の祈り",
+    "id": 30542016,
+    "gl": true
+  },
+  {
+    "character": "Paine",
+    "source": "Throttle Whelmen",
+    "name": "Flowing Dance",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.62,
+    "element": [
+      "Water"
+    ],
+    "time": 0.83,
+    "effects": "One single attack (1.62)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "流舞！",
+    "id": 30547061,
+    "gl": false
+  },
+  {
+    "character": "Paine",
+    "source": "Throttle Whelmen",
+    "name": "Flowing Dance",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.73,
+    "element": [
+      "Water"
+    ],
+    "time": 0.83,
+    "effects": "One single attack (2.73) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "流舞！",
+    "id": 30547062,
+    "gl": false
+  },
+  {
+    "character": "Paine",
+    "source": "Throttle Whelmen",
+    "name": "Flowing Dance",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.46,
+    "element": [
+      "Water"
+    ],
+    "time": 0.83,
+    "effects": "One single attack (5.46) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "流舞！",
+    "id": 30547063,
+    "gl": false
+  },
+  {
+    "character": "Paine",
+    "source": "Throttle Whelmen",
+    "name": "Flowing Dance",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8.53,
+    "element": [
+      "Water"
+    ],
+    "time": 0.83,
+    "effects": "One single attack (8.53) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "流舞！",
+    "id": 30547064,
+    "gl": false
+  },
+  {
+    "character": "Vaan",
+    "source": "Calamitous Orb",
+    "name": "Thief Spiral",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.62,
+    "element": [
+      "Wind"
+    ],
+    "time": 0.83,
+    "effects": "One single attack (1.62)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "シーフスパイラル",
+    "id": 30548335,
+    "gl": false
+  },
+  {
+    "character": "Vaan",
+    "source": "Calamitous Orb",
+    "name": "Thief Spiral",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.67,
+    "element": [
+      "Wind"
+    ],
+    "time": 0.83,
+    "effects": "Three single attacks (0.89 each), DEF -40% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "シーフスパイラル",
+    "id": 30548336,
+    "gl": false
+  },
+  {
+    "character": "Vaan",
+    "source": "Calamitous Orb",
+    "name": "Thief Spiral",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.1,
+    "element": [
+      "Wind"
+    ],
+    "time": 0.83,
+    "effects": "Six single attacks (0.85 each), DEF -40% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "シーフスパイラル",
+    "id": 30548337,
+    "gl": false
+  },
+  {
+    "character": "Vaan",
+    "source": "Calamitous Orb",
+    "name": "Thief Spiral",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.5,
+    "element": [
+      "Wind"
+    ],
+    "time": 0.83,
+    "effects": "Ten single attacks (0.75 each), DEF, MAG and MND -70% for 8 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Thief",
+    "braveCondition": [
+      "Thief"
+    ],
+    "nameJp": "シーフスパイラル",
+    "id": 30548338,
+    "gl": false
+  },
+  {
+    "character": "Gabranth",
+    "source": "Frost Purge",
+    "name": "Bringer of Justice",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Heavy",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "裁きの執行",
+    "id": 30549092,
+    "gl": true
+  },
+  {
+    "character": "Gabranth",
+    "source": "Frost Purge",
+    "name": "Bringer of Justice",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.25,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (3.25) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Heavy",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "裁きの執行",
+    "id": 30549093,
+    "gl": true
+  },
+  {
+    "character": "Gabranth",
+    "source": "Frost Purge",
+    "name": "Bringer of Justice",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.5,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.50) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Heavy",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "裁きの執行",
+    "id": 30549094,
+    "gl": true
+  },
+  {
+    "character": "Gabranth",
+    "source": "Frost Purge",
+    "name": "Bringer of Justice",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10.15,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (10.15) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Heavy",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "裁きの執行",
+    "id": 30549095,
+    "gl": true
+  },
+  {
+    "character": "Vayne",
+    "source": "Battering Ram",
+    "name": "Undertow",
+    "brave": 0,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid attack (1.92 or 7.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "奈落一蹴",
+    "id": 30549361,
+    "gl": false
+  },
+  {
+    "character": "Vayne",
+    "source": "Battering Ram",
+    "name": "Undertow",
+    "brave": 1,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid attack (3.25 or 12.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "奈落一蹴",
+    "id": 30549362,
+    "gl": false
+  },
+  {
+    "character": "Vayne",
+    "source": "Battering Ram",
+    "name": "Undertow",
+    "brave": 2,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid attack (6.50 or 20.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "奈落一蹴",
+    "id": 30549363,
+    "gl": false
+  },
+  {
+    "character": "Vayne",
+    "source": "Battering Ram",
+    "name": "Undertow",
+    "brave": 3,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single hybrid attack (10.15 or 35.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "奈落一蹴",
+    "id": 30549364,
+    "gl": false
+  },
+  {
+    "character": "Lightning",
+    "source": "Lightning Blitz",
+    "name": "Thunder and Lightning",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.81,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.2,
+    "effects": "One single attack (1.81)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Celerity",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "電光雷轟",
+    "id": 30546011,
+    "gl": true
+  },
+  {
+    "character": "Lightning",
+    "source": "Lightning Blitz",
+    "name": "Thunder and Lightning",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.06,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.2,
+    "effects": "One single attack (3.06) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Celerity",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "電光雷轟",
+    "id": 30546012,
+    "gl": true
+  },
+  {
+    "character": "Lightning",
+    "source": "Lightning Blitz",
+    "name": "Thunder and Lightning",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.11,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.2,
+    "effects": "One single attack (6.11) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Celerity",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "電光雷轟",
+    "id": 30546013,
+    "gl": true
+  },
+  {
+    "character": "Lightning",
+    "source": "Lightning Blitz",
+    "name": "Thunder and Lightning",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9.55,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.2,
+    "effects": "One single attack (9.55) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Celerity",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "電光雷轟",
+    "id": 30546014,
+    "gl": true
+  },
+  {
+    "character": "Nabaat",
+    "source": "A Study in Elegant Death",
+    "name": "Downfall Gear",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 6.18,
+    "element": [
+      "Dark"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (6.18)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "フォールダウン=ギア",
+    "id": 30549665,
+    "gl": false
+  },
+  {
+    "character": "Nabaat",
+    "source": "A Study in Elegant Death",
+    "name": "Downfall Gear",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.7,
+    "element": [
+      "Dark"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (1.45 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "フォールダウン=ギア",
+    "id": 30549666,
+    "gl": false
+  },
+  {
+    "character": "Nabaat",
+    "source": "A Study in Elegant Death",
+    "name": "Downfall Gear",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 15.06,
+    "element": [
+      "Dark"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (2.51 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "フォールダウン=ギア",
+    "id": 30549667,
+    "gl": false
+  },
+  {
+    "character": "Nabaat",
+    "source": "A Study in Elegant Death",
+    "name": "Downfall Gear",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 25.32,
+    "element": [
+      "Dark"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (4.22 each), causes Imperil Dark 40% for 5 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Dark"
+    ],
+    "nameJp": "フォールダウン=ギア",
+    "id": 30549668,
+    "gl": false
+  },
+  {
+    "character": "Y'shtola",
+    "source": "Secret of the Lily",
+    "name": "Plenary Indulgence",
+    "brave": 0,
+    "type": "WHT",
+    "target": "Single ally",
+    "formula": "Magical",
+    "multiplier": 1.2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "Lowest HP% ally",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "インドゥルゲンティア",
+    "id": 30542115,
+    "gl": true
+  },
+  {
+    "character": "Y'shtola",
+    "source": "Secret of the Lily",
+    "name": "Plenary Indulgence",
+    "brave": 1,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "インドゥルゲンティア",
+    "id": 30542116,
+    "gl": true
+  },
+  {
+    "character": "Y'shtola",
+    "source": "Secret of the Lily",
+    "name": "Plenary Indulgence",
+    "brave": 2,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55)",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "インドゥルゲンティア",
+    "id": 30542117,
+    "gl": true
+  },
+  {
+    "character": "Y'shtola",
+    "source": "Secret of the Lily",
+    "name": "Plenary Indulgence",
+    "brave": 3,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (55), damages undeads, grants Last Stand",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "インドゥルゲンティア",
+    "id": 30542118,
+    "gl": true
+  },
+  {
+    "character": "Thancred",
+    "source": "Wheel of Life",
+    "name": "Trick Attack",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.62,
+    "element": [
+      "Earth",
+      "Fire"
+    ],
+    "time": 0.83,
+    "effects": "One single attack (1.62)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Ninja",
+    "braveCondition": [
+      "Ninja"
+    ],
+    "nameJp": "だまし討ち",
+    "id": 30549121,
+    "gl": true
+  },
+  {
+    "character": "Thancred",
+    "source": "Wheel of Life",
+    "name": "Trick Attack",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.61,
+    "element": [
+      "Earth",
+      "Fire"
+    ],
+    "time": 0.83,
+    "effects": "Three single attacks (0.87 each), DEF -40% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Ninja",
+    "braveCondition": [
+      "Ninja"
+    ],
+    "nameJp": "だまし討ち",
+    "id": 30549122,
+    "gl": true
+  },
+  {
+    "character": "Thancred",
+    "source": "Wheel of Life",
+    "name": "Trick Attack",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.92,
+    "element": [
+      "Earth",
+      "Fire"
+    ],
+    "time": 0.83,
+    "effects": "Six single attacks (0.82 each), DEF -40% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Ninja",
+    "braveCondition": [
+      "Ninja"
+    ],
+    "nameJp": "だまし討ち",
+    "id": 30549123,
+    "gl": true
+  },
+  {
+    "character": "Thancred",
+    "source": "Wheel of Life",
+    "name": "Trick Attack",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.3,
+    "element": [
+      "Earth",
+      "Fire"
+    ],
+    "time": 0.83,
+    "effects": "Ten single attacks (0.73 each), ATK, DEF and RES -70% for 8 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Ninja",
+    "braveCondition": [
+      "Ninja"
+    ],
+    "nameJp": "だまし討ち",
+    "id": 30549124,
+    "gl": true
+  },
+  {
+    "character": "Alphinaud",
+    "source": "Garuda Exoburst",
+    "name": "Fester",
+    "brave": 0,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "ミアズマバースト",
+    "id": 30543053,
+    "gl": true
+  },
+  {
+    "character": "Alphinaud",
+    "source": "Garuda Exoburst",
+    "name": "Fester",
+    "brave": 1,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 11.64,
+    "element": [
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (3.88 each)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "ミアズマバースト",
+    "id": 30543054,
+    "gl": true
+  },
+  {
+    "character": "Alphinaud",
+    "source": "Garuda Exoburst",
+    "name": "Fester",
+    "brave": 2,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 19.32,
+    "element": [
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.22 each), Summoning smart ether 1 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "ミアズマバースト",
+    "id": 30543055,
+    "gl": true
+  },
+  {
+    "character": "Alphinaud",
+    "source": "Garuda Exoburst",
+    "name": "Fester",
+    "brave": 3,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 29.64,
+    "element": [
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "Twelve single attacks (2.47 each), Summoning smart ether 1 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "ミアズマバースト",
+    "id": 30543056,
+    "gl": true
+  },
+  {
+    "character": "Gaffgarion",
+    "source": "Unholy Sacrifice",
+    "name": "Abyssal Blade",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "イービルブレード",
+    "id": 30549469,
+    "gl": false
+  },
+  {
+    "character": "Gaffgarion",
+    "source": "Unholy Sacrifice",
+    "name": "Abyssal Blade",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.25,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (3.25) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "イービルブレード",
+    "id": 30549560,
+    "gl": false
+  },
+  {
+    "character": "Gaffgarion",
+    "source": "Unholy Sacrifice",
+    "name": "Abyssal Blade",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.5,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.50) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "イービルブレード",
+    "id": 30549561,
+    "gl": false
+  },
+  {
+    "character": "Gaffgarion",
+    "source": "Unholy Sacrifice",
+    "name": "Abyssal Blade",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10.15,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (10.15) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "イービルブレード",
+    "id": 30549562,
+    "gl": false
+  }
+]

@@ -112,7 +112,7 @@ export interface EnlirOtherSkill {
   counter: boolean;
   autoTarget: string;
   sb: number;
-  school: string;
+  school: EnlirSchool;
   id: number;
   gl: boolean;
 }

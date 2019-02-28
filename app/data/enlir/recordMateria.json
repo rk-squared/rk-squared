@@ -7285,7 +7285,7 @@
     "name": "Self Oblivion",
     "effect": "Increases Holy damage dealt by ?%",
     "unlockCriteria": "Use Roxas's Memory Crystal",
-    "nameJp": null,
+    "nameJp": "自身を知らぬ少年",
     "id": 111700040,
     "gl": false
   },
@@ -7294,18 +7294,18 @@
     "character": "Roxas",
     "name": "Light's Shadow",
     "effect": "Increases Holy damage dealt by ?%",
-    "unlockCriteria": "Use Riku's Memory Crystal II, chance to obtain with Roxas in party",
-    "nameJp": null,
+    "unlockCriteria": "Use Roxas's Memory Crystal II, chance to obtain with Roxas in party",
+    "nameJp": "\t光の勇者に関わる存在",
     "id": 111700041,
     "gl": false
   },
   {
     "realm": "KH",
     "character": "Roxas",
-    "name": null,
+    "name": "Trembling Twilight",
     "effect": "Increases Holy damage dealt by ?%",
     "unlockCriteria": "Bring Roxas to level 99",
-    "nameJp": null,
+    "nameJp": "たそがれに揺れる光",
     "id": 111700042,
     "gl": false
   },
@@ -7315,7 +7315,7 @@
     "name": "Elusive Motives",
     "effect": "Increases Fire damage dealt by ?%",
     "unlockCriteria": "Use Axel's Memory Crystal",
-    "nameJp": null,
+    "nameJp": "つかみどころのない性格",
     "id": 111700050,
     "gl": false
   },
@@ -7324,18 +7324,18 @@
     "character": "Axel",
     "name": "Nobody's Friend",
     "effect": "Increases Fire damage dealt by ?%",
-    "unlockCriteria": "Use Riku's Memory Crystal II, chance to obtain with Axel in party",
-    "nameJp": null,
+    "unlockCriteria": "Use Axel's Memory Crystal II, chance to obtain with Axel in party",
+    "nameJp": "ロクサスの親友",
     "id": 111700051,
     "gl": false
   },
   {
     "realm": "KH",
     "character": "Axel",
-    "name": null,
+    "name": "Assassin of Flames",
     "effect": "Increases Fire damage dealt by ?%",
     "unlockCriteria": "Bring Axel to level 99",
-    "nameJp": null,
+    "nameJp": "炎操る暗殺者",
     "id": 111700052,
     "gl": false
   },
