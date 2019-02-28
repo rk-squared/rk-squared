@@ -49,7 +49,7 @@ export const statusAlias: AliasMap = {
     'No Air Time': 'no air time',
     'Heavy Charge Booster': '+1 to all Heavy Charge gains',
 
-    Sentinel: 'taunt PHY/BLK',
+    Sentinel: 'taunt PHY/BLK, +200% DEF',
     Runic: 'taunt & absorb BLK',
     'High Runic': 'taunt & absorb BLK/WHT',
     'Unyielding Fist': 'immune atks/status/heal',

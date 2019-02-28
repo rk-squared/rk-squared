@@ -98,23 +98,44 @@ export type EnlirSoulBreakTier =
 
 // FIXME: Interfaces for remaining Enlir types
 
-export interface EnlirOtherSkill {
-  sourceType: string;
-  source: string;
+export interface EnlirGenericSkill {
   name: string;
   type: EnlirSkillType | null;
   target: string;
   formula: EnlirFormula | null;
   multiplier: number | null;
   element: EnlirElement[] | null;
-  time: number;
+  time: number | null;
   effects: string;
   counter: boolean;
   autoTarget: string;
-  sb: number;
-  school: EnlirSchool;
   id: number;
   gl: boolean;
+}
+
+export interface EnlirBraveCommand extends EnlirGenericSkill {
+  character: string;
+  source: string;
+  brave: 0 | 1 | 2 | 3;
+  school: EnlirSchool;
+  sb: number;
+  braveCondition: Array<EnlirElement | EnlirSchool>;
+  nameJp: string;
+}
+
+export interface EnlirBurstCommand extends EnlirGenericSkill {
+  character: string;
+  source: string;
+  sb: number;
+  school: EnlirSchool;
+  nameJp: string;
+}
+
+export interface EnlirOtherSkill extends EnlirGenericSkill {
+  sourceType: string;
+  source: string;
+  sb: number;
+  school: EnlirSchool;
 }
 
 export interface EnlirRecordMateria {
@@ -128,26 +149,14 @@ export interface EnlirRecordMateria {
   gl: boolean;
 }
 
-export interface EnlirSoulBreak {
+export interface EnlirSoulBreak extends EnlirGenericSkill {
   realm: string;
   character: string;
-  name: string;
-  type: EnlirSkillType | null;
-  target: string;
-  formula: EnlirFormula | null;
-  multiplier: number | null;
-  element: EnlirElement[] | null;
-  time: number | null;
-  effects: string;
-  counter: boolean;
-  autoTarget: string;
   points: number;
   tier: EnlirSoulBreakTier;
   master: string | null;
   relic: string;
   nameJp: string;
-  id: number;
-  gl: boolean;
 }
 
 export interface EnlirStatus {
@@ -162,10 +171,12 @@ export interface EnlirStatus {
   notes: string | null;
 }
 
-export type EnlirSkill = EnlirOtherSkill | EnlirSoulBreak;
+export type EnlirSkill = EnlirBraveCommand | EnlirBurstCommand | EnlirOtherSkill | EnlirSoulBreak;
 
 const rawData = {
   abilities: require('./enlir/abilities.json'),
+  braveCommands: require('./enlir/brave.json') as EnlirBraveCommand[],
+  burstCommands: require('./enlir/burst.json') as EnlirBurstCommand[],
   characters: require('./enlir/characters.json'),
   magicite: require('./enlir/magicite.json'),
   otherSkills: require('./enlir/otherSkills.json') as EnlirOtherSkill[],
@@ -177,8 +188,31 @@ const rawData = {
 
 // FIXME: Properly update rawData outside of app
 
+interface Command extends EnlirGenericSkill {
+  character: string;
+  source: string;
+}
+
+interface CommandsMap<T> {
+  [character: string]: {
+    [soulBreak: string]: T[];
+  };
+}
+
+function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
+  const result: CommandsMap<T> = {};
+  for (const i of commands) {
+    result[i.character] = result[i.character] || {};
+    result[i.character][i.source] = result[i.character][i.source] || [];
+    result[i.character][i.source].push(i);
+  }
+  return result;
+}
+
 export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
+  braveCommands: makeCommandsMap(rawData.braveCommands),
+  burstCommands: makeCommandsMap(rawData.burstCommands),
   characters: _.keyBy(rawData.characters, 'id'),
   charactersByName: _.keyBy(rawData.characters, 'name'),
   magicites: _.keyBy(rawData.magicite, 'id'),
@@ -247,4 +281,16 @@ export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
   }
 
   return undefined;
+}
+
+export function isSoulBreak(skill: EnlirSkill): skill is EnlirSoulBreak {
+  return 'tier' in skill;
+}
+
+export function isGlint(skill: EnlirSkill): skill is EnlirSoulBreak {
+  return 'tier' in skill && (skill.tier === 'Glint' || skill.tier === 'Glint+');
+}
+
+export function isBurst(skill: EnlirSkill): skill is EnlirSoulBreak {
+  return 'tier' in skill && skill.tier === 'BSB';
 }

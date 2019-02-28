@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
-import { EnlirElement, EnlirOtherSkill, EnlirSchool, EnlirSoulBreak } from '../enlir';
+import { EnlirElement, EnlirSchool, EnlirSkill, isSoulBreak } from '../enlir';
 import { describeEnlirStatus } from './status';
 import {
   formatSchoolOrAbilityList,
@@ -265,7 +265,7 @@ function isConvergent(scaleType: string) {
   return scaleType === ' scaling with targets';
 }
 
-function describeDamageType({ formula, type }: EnlirOtherSkill | EnlirSoulBreak): MrPDamageType {
+function describeDamageType({ formula, type }: EnlirSkill): MrPDamageType {
   if (formula === 'Hybrid') {
     // For hybrid, report the main damage as physical, and use separate fields
     // for the magical alternative.
@@ -289,9 +289,7 @@ function describeDamageType({ formula, type }: EnlirOtherSkill | EnlirSoulBreak)
   }
 }
 
-function describeHybridDamageType(
-  skill: EnlirOtherSkill | EnlirSoulBreak,
-): MrPDamageType | undefined {
+function describeHybridDamageType(skill: EnlirSkill): MrPDamageType | undefined {
   // HACK: The spreadsheet doesn't record whether it's a physical/magical
   // hybrid or a physical/white hybrid.  I'm not even positive that Cecil's
   // soul break is physical/white instead of physical/magical.  But, since
@@ -357,7 +355,7 @@ const attackRe = XRegExp(
  */
 export function parseEnlirAttack(
   effects: string,
-  skill: EnlirOtherSkill | EnlirSoulBreak,
+  skill: EnlirSkill,
   prereqStatus?: string,
 ): ParsedEnlirAttack | null {
   const m = XRegExp.exec(effects, attackRe) as any;
@@ -455,7 +453,7 @@ export function parseEnlirAttack(
       m.tookHits.split(orList).join('/') + ' hits taken',
     );
   } else if (m.scaleType && m.scaleToAttackMultiplier && numAttacks && isConvergent(m.scaleType)) {
-    const scaleFactor = 'tier' in skill ? sbConvergentScaleFactor : otherConvergentScaleFactor;
+    const scaleFactor = isSoulBreak(skill) ? sbConvergentScaleFactor : otherConvergentScaleFactor;
     damage = describeConvergentDamage(
       +m.attackMultiplier,
       +m.scaleToAttackMultiplier,

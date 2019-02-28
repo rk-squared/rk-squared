@@ -1,7 +1,15 @@
 import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
-import { EnlirOtherSkill, EnlirSkill, EnlirSoulBreak, isEnlirElement } from '../enlir';
+import {
+  enlir,
+  EnlirSchool,
+  EnlirSkill,
+  isBurst,
+  isEnlirElement,
+  isGlint,
+  isSoulBreak,
+} from '../enlir';
 import { ParsedEnlirAttack, parseEnlirAttack } from './attack';
 import { splitSkillStatuses } from './split';
 import {
@@ -30,10 +38,9 @@ interface MrPSoulBreak {
   chain?: string;
   damage?: string;
   other?: string;
-}
+  school?: EnlirSchool;
 
-function isGlint(skill: EnlirOtherSkill | EnlirSoulBreak): boolean {
-  return 'tier' in skill && (skill.tier === 'Glint' || skill.tier === 'Glint+');
+  burstCommands?: MrPSoulBreak[];
 }
 
 function appendGroup(outGroup: string[], inGroup: string[], description?: string) {
@@ -107,6 +114,7 @@ interface DescribeOptions {
   abbreviate: boolean;
   showNoMiss: boolean;
   prereqStatus: string | undefined;
+  includeSchool: boolean;
 }
 
 // FIXME: Rename to indicate broader usage (not just soul breaks now) and move out of index?
@@ -118,6 +126,7 @@ export function describeEnlirSoulBreak(
     abbreviate: false,
     showNoMiss: true,
     prereqStatus: undefined,
+    includeSchool: true,
     ...options,
   };
 
@@ -159,7 +168,7 @@ export function describeEnlirSoulBreak(
     damage += attack.isJump ? ' jump' : '';
     damage += attack.isOverstrike ? ' overstrike' : '';
     damage +=
-      attack.school && attack.school !== '?' && attack.school !== 'Special'
+      opt.includeSchool && attack.school && attack.school !== '?' && attack.school !== 'Special'
         ? ' ' + getSchoolShortName(attack.school)
         : '';
     damage += opt.showNoMiss && attack.isNoMiss ? ' no miss' : '';
@@ -255,7 +264,7 @@ export function describeEnlirSoulBreak(
       partyOther.push(heal);
     } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
       selfOther.push(heal);
-    } else if (sb.target.startsWith('Single')) {
+    } else if (isSoulBreak(sb) && sb.target.startsWith('Single')) {
       // Because medica soul breaks are so common, we'll call out when a SB
       // only heals one person.
       other.push('ally ' + heal);
@@ -425,12 +434,19 @@ export function describeEnlirSoulBreak(
     appendGroup(other, detailOther);
   }
 
-  return {
+  const result: MrPSoulBreak = {
     chain: chain || undefined,
     instant: sb.time != null && sb.time <= 0.01 ? true : undefined,
     damage: damage || undefined,
     other: other.length ? other.join(', ') : undefined,
+    school: 'school' in sb ? sb.school : undefined,
   };
+  if (isBurst(sb)) {
+    result.burstCommands = enlir.burstCommands[sb.character][sb.name].map(i =>
+      describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false }),
+    );
+  }
+  return result;
 }
 
 interface FormatOptions {

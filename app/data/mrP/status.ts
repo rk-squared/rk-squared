@@ -36,7 +36,8 @@ export function includeStatus(status: string): boolean {
   return (
     !status.startsWith('Attach ') &&
     !status.match(/\b[Ss]mart\b.*\bether\b/) &&
-    status !== 'removes positive effects'
+    status !== 'removes positive effects' &&
+    status !== 'damages undeads'
   );
 }
 

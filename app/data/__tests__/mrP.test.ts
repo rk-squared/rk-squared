@@ -211,6 +211,17 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Dark Flame'])).toEqual({
         damage: 'AoE phys 7.84/8 dark+fire',
         other: 'self lose 25% max HP, +30% ATK/RES 25s',
+        burstCommands: [
+          {
+            damage: 'p2.16/4 d+n',
+            school: 'Darkness',
+          },
+          {
+            damage: 'AoE p2.0/2 d+n',
+            other: 'self lose 12.5% max HP',
+            school: 'Darkness',
+          },
+        ],
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Alma - Sacred Barrier'])).toEqual({
@@ -243,6 +254,17 @@ describe('mrP', () => {
     it('converts heals plus status effects', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Sarah - Age-old Hymn'])).toEqual({
         other: 'party h55, Magic blink 1, self +30% RES/MND 25s',
+        burstCommands: [
+          {
+            instant: true,
+            other: 'h80, Regen (hi)',
+            school: 'White Magic',
+          },
+          {
+            other: 'party h25',
+            school: 'White Magic',
+          },
+        ],
       });
       expect(describeEnlirSoulBreak(soulBreaks['Alma - Gentle Chant'])).toEqual({
         other: 'ally h45, self +20% MND 25s',
@@ -746,6 +768,18 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks["Seymour - Anima's Pain"])).toEqual({
         damage: 'magic 17.44/8 dark+non (SUM)',
         other: '53% (9% × 8) KO, +20% dark vuln. 25s',
+        burstCommands: [
+          {
+            damage: 'm8.68/4 d+n',
+            other: '31% (9% × 4) KO',
+            school: 'Black Magic',
+          },
+          {
+            damage: 'AoE m6.08/2 d+n',
+            other: '29% (16% × 2) Slow',
+            school: 'Black Magic',
+          },
+        ],
       });
       // 'Mustadio - Seal Evil (FFT)' below has some additional checks.
     });
@@ -769,6 +803,16 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Paine - Grand Storm'])).toEqual({
         damage: 'AoE phys 5.4/6 water+earth+wind, up to p6.6 w/ Spellblade used',
         other: 'Dispel',
+        burstCommands: [
+          {
+            damage: 'p2.52/4 wa+wi',
+            school: 'Spellblade',
+          },
+          {
+            damage: 'p2.52/4 wa+e',
+            school: 'Spellblade',
+          },
+        ],
       });
       expect(describeEnlirSoulBreak(soulBreaks['Jecht - Blitz King'])).toEqual({
         damage: 'phys 11.7 dark+fire rngd overstrike, up to p13.0 @ 6 SB bars',
@@ -787,6 +831,18 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Ace - Firaga SHG'])).toEqual({
         damage: 'magic 14.0/8 fire+non, or m16.16/8 if in front row',
         other: 'party +30% ATK/MAG 25s',
+        burstCommands: [
+          {
+            damage: 'm8.96/4 f+n',
+            other: 'self B.Mag fastcast 2',
+            school: 'Black Magic',
+          },
+          {
+            damage: 'AoE m7.8/2 f+n',
+            other: 'self +30% MAG, -30% DEF 20s',
+            school: 'Black Magic',
+          },
+        ],
       });
       expect(describeEnlirSoulBreak(soulBreaks['Zidane - Meo Twister'])).toEqual({
         damage: 'phys 11.8 wind+non overstrike, or p12.8 if 4 females in party',
@@ -796,10 +852,32 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(soulBreaks['Matoya - Inner Eye'])).toEqual({
         damage: 'magic 16.0/8 fire+ice+lgt, or m20.0/10 vs. weak',
+        burstCommands: [
+          {
+            damage: 'm10.48/4 f+i',
+            school: 'Black Magic',
+          },
+          {
+            damage: 'm10.48/4 f+l',
+            school: 'Black Magic',
+          },
+        ],
       });
       expect(describeEnlirSoulBreak(soulBreaks['Beatrix - Knight Protector'])).toEqual({
         damage: 'AoE phys 5.48/4 holy, or p6.12/4 if no allies KO',
         other: '+20% holy vuln. 25s',
+        burstCommands: [
+          {
+            damage: 'p2.5/2 h',
+            other: 'self taunt PHY/BLK, +200% DEF 25s',
+            school: 'Knight',
+          },
+          {
+            damage: 'p2.7/2',
+            other: 'self +40% RES 20s',
+            school: 'Knight',
+          },
+        ],
       });
       expect(describeEnlirSoulBreak(soulBreaks['Lann - Mega Mirage Zantetsuken'])).toEqual({
         damage: 'phys 12.6 overstrike, or p13.6 if Reynn alive',
