@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
+import { logger } from '../../utils/logger';
 import {
   enlir,
   EnlirSchool,
@@ -30,9 +31,10 @@ import {
   getElementShortName,
   getSchoolShortName,
   getShortName,
+  MAX_BRAVE_LEVEL,
   MrPDamageType,
 } from './types';
-import { isAllSame, toMrPFixed } from './util';
+import { enDashJoin, isAllSame, slashMerge, toMrPFixed } from './util';
 
 interface MrPSoulBreak {
   instant?: boolean;
@@ -490,10 +492,74 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
   return text;
 }
 
-// TODO: Yuna's follow-up, Sephiroth Zanshin, def-piercing, Edgar OSB, Dk Cecil's Awaken and ultra
+function formatBraveLevel(level: number): string {
+  return 'at brv.' + (level === 3 ? level : `${level}+`);
+}
+
+export function formatBraveCommands(mrP: MrPSoulBreak[]): string {
+  let damageParts = mrP.map(i => i.damage || '');
+  const overstrike = damageParts.map(i => i.match('overstrike') != null);
+
+  // Separate the 'm' and 'p' damage markers, and remove "overstrike," since
+  // we'll handle that separately.
+  damageParts = damageParts.map(i =>
+    i.replace(/\b([mp])(\d)/g, '$1 $2').replace(' overstrike', ''),
+  );
+
+  // Handle damage.
+  let damage = slashMerge(damageParts, { forceEnDash: true });
+
+  // Put the 'm' and 'p' back.
+  damage = damage.replace(/\b([mp]) (\d+)/g, '$1$2');
+
+  // Add overstrike level.
+  const overstrikeLevel = overstrike.indexOf(true);
+  if (damage && overstrikeLevel !== -1) {
+    damage += ', overstrike ' + formatBraveLevel(overstrikeLevel);
+  }
+
+  // Check for heals.
+  const heals = mrP.map(i => i.other && i.other.split(/, /).find(s => s.match(/\bh\d/) != null));
+  const healCount = _.filter(heals).length;
+  let combinedHeal = '';
+  if (healCount !== 0 && healCount !== MAX_BRAVE_LEVEL + 1) {
+    logger.warn('Unexpected healing for given braves');
+  } else if (healCount === MAX_BRAVE_LEVEL + 1) {
+    combinedHeal = heals.join(enDashJoin);
+  }
+
+  // Check for effects.
+  const effects = mrP.map(
+    i => new Set(i.other ? i.other.split(/, /).filter(s => !s.match(/\bh\d/)) : []),
+  );
+  const effectLevels = new Map<string, number>();
+  effects.forEach((effect: Set<string>, level: number) => {
+    effect.forEach(e => {
+      if (!effectLevels.has(e)) {
+        effectLevels.set(e, level);
+      }
+    });
+    effectLevels.forEach((i, e) => {
+      if (!effect.has(e)) {
+        effectLevels.delete(e);
+      }
+    });
+  });
+  const cumulativeEffects: string[] = [];
+  effectLevels.forEach((level, effect) => {
+    cumulativeEffects.push(effect + ' ' + formatBraveLevel(level));
+  });
+
+  return (
+    (mrP[0].instant ? 'instant ' : '') +
+    _.filter([damage, combinedHeal, ...cumulativeEffects]).join(', ')
+  );
+}
+
+// TODO: Yuna's follow-up, Sephiroth Zanshin, def-piercing
 // TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Windfang, Blasting Freeze
-// TODO: Hide "no miss" text in follow-ups?  Hide min damage?  Hide school for percent-based finishers?
+// TODO: Hide min damage?  Hide school for percent-based finishers?
 // TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
 // TODO: Slash-combine items like Amarant lightning+fire vuln. or Celes' element boosts - and ideally remove patchEnlir
 // TODO: Use × for times; make Unicode selectable?
-// TODO: Unyielding Fist and Runic are probably specialized enough to treat as "detail"
+// TODO: Unyielding Fist is probably specialized enough to treat as "detail"

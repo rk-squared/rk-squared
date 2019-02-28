@@ -3,6 +3,7 @@ import { EnlirElement, EnlirSchool, isEnlirElement, isEnlirSchool } from '../enl
 import { andOrList } from './util';
 
 export const SB_BAR_SIZE = 250;
+export const MAX_BRAVE_LEVEL = 3;
 
 export type MrPDamageType = 'phys' | 'white' | 'magic' | '?';
 

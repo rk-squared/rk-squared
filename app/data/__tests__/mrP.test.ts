@@ -1,4 +1,4 @@
-import { describeEnlirSoulBreak } from '../mrP';
+import { describeEnlirSoulBreak, formatBraveCommands } from '../mrP';
 import { parseNumberString, parsePercentageCounts } from '../mrP/util';
 
 import { enlir, EnlirSoulBreak } from '../enlir';
@@ -923,6 +923,235 @@ describe('mrP', () => {
           'wind infuse 25s, 15s: EX: 1.05-1.1-1.15-1.2-1.3x SUM dmg @ ranks 1-5, ' +
           'Finisher: AoE magic 35% SUM/5 Summon, self refill 2 abil. use',
       });
+    });
+
+    it('converts brave soul breaks', () => {
+      const attack = describeEnlirSoulBreak(soulBreaks['Firion - Fervid Blazer']);
+      expect(attack).toEqual({
+        damage: 'phys 7.0/10 holy+ice+fire',
+        other: 'self crit =75% 15s, fastcast 15s',
+        braveCommands: [
+          {
+            damage: 'p1.9 h+i+f',
+            school: 'Samurai',
+          },
+          {
+            damage: 'p3.15 h+i+f overstrike',
+            school: 'Samurai',
+          },
+          {
+            damage: 'p6.3 h+i+f overstrike',
+            school: 'Samurai',
+          },
+          {
+            damage: 'p9.85 h+i+f overstrike',
+            school: 'Samurai',
+          },
+        ],
+      });
+      expect(formatBraveCommands(attack.braveCommands!)).toEqual(
+        'p1.9 – 3.15 – 6.3 – 9.85 h+i+f, overstrike at brv.1+',
+      );
+
+      const summon = describeEnlirSoulBreak(soulBreaks['Alphinaud - Garuda Exoburst']);
+      expect(summon).toEqual({
+        damage: 'magic 17.3/10 wind (SUM)',
+        other: 'party Reflect Dmg 75% as wind 30s, self hi fastcast 2',
+        braveCommands: [
+          {
+            damage: 'm7.92 wi',
+            school: 'Summoning',
+          },
+          {
+            damage: 'm11.64/3 wi',
+            school: 'Summoning',
+          },
+          {
+            damage: 'm19.32/6 wi',
+            other: 'self refill 1 Summon abil. use',
+            school: 'Summoning',
+          },
+          {
+            damage: 'm29.64/12 wi',
+            other: 'self refill 1 Summon abil. use',
+            school: 'Summoning',
+          },
+        ],
+      });
+      expect(formatBraveCommands(summon.braveCommands!)).toEqual(
+        'm7.92 – 11.64/3 – 19.32/6 – 29.64/12 wi, self refill 1 Summon abil. use at brv.2+',
+      );
+
+      const healer = describeEnlirSoulBreak(soulBreaks['Arc - Heavenly Rains']);
+      expect(healer).toEqual({
+        instant: true,
+        other: 'party h85, +100% RES 25s',
+        braveCommands: [
+          {
+            instant: true,
+            other: 'h25',
+            school: 'White Magic',
+          },
+          {
+            instant: true,
+            other: 'party h25',
+            school: 'White Magic',
+          },
+          {
+            instant: true,
+            other: 'party h55',
+            school: 'White Magic',
+          },
+          {
+            instant: true,
+            other: 'party h55, Last stand',
+            school: 'White Magic',
+          },
+        ],
+      });
+      expect(formatBraveCommands(healer.braveCommands!)).toEqual(
+        'instant h25 – party h25 – party h55 – party h55, Last stand at brv.3',
+      );
+
+      const paladin = describeEnlirSoulBreak(soulBreaks['Cecil (Paladin) - Crystal Vanguard']);
+      expect(paladin).toEqual({
+        damage: 'phys 7.2/10 holy',
+        other: 'party Last stand, self 1.3x Knight dmg 15s',
+        braveCommands: [
+          {
+            damage: 'p1.92 h',
+            school: 'Knight',
+          },
+          {
+            damage: 'p2.4/3 h',
+            other: 'party Autoheal 1k',
+            school: 'Knight',
+          },
+          {
+            damage: 'p4.5/5 h',
+            other: 'party Autoheal 2k',
+            school: 'Knight',
+          },
+          {
+            damage: 'p7.0/7 h',
+            other: 'party Autoheal 4k',
+            school: 'Knight',
+          },
+        ],
+      });
+      expect(formatBraveCommands(paladin.braveCommands!)).toEqual('');
+
+      const breaks = describeEnlirSoulBreak(soulBreaks['Faris - Essence of Flame']);
+      expect(breaks).toEqual({
+        instant: true,
+        damage: 'phys 6.0/10 fire+wind rngd',
+        other: '-40% ATK/DEF 25s, self 1.3x Thief dmg 15s',
+        braveCommands: [
+          {
+            instant: true,
+            damage: 'p1.5 f+wi rngd',
+            school: 'Thief',
+          },
+          {
+            instant: true,
+            damage: 'p2.34/6 f+wi rngd',
+            other: '-30% DEF 15s',
+            school: 'Thief',
+          },
+          {
+            instant: true,
+            damage: 'p4.68/6 f+wi rngd',
+            other: '-40% DEF 15s',
+            school: 'Thief',
+          },
+          {
+            instant: true,
+            damage: 'p7.26/6 f+wi rngd',
+            other: '-70% DEF/RES/MND 8s',
+            school: 'Thief',
+          },
+        ],
+      });
+      expect(formatBraveCommands(breaks.braveCommands!)).toEqual('');
+
+      const darkKnight = describeEnlirSoulBreak(soulBreaks['Leon - Darkness Weapon']);
+      expect(darkKnight).toEqual({
+        damage: 'phys 7.2/10 dark',
+        other: '-40% ATK/MAG 25s, self fastcast 15s',
+        braveCommands: [
+          {
+            damage: 'p1.92 d',
+            school: 'Darkness',
+          },
+          {
+            damage: 'p3.85 d overstrike',
+            other: '-30% DEF 15s, self lose 25% max HP',
+            school: 'Darkness',
+          },
+          {
+            damage: 'p7.7 d overstrike',
+            other: '-30% DEF 15s, self lose 25% max HP',
+            school: 'Darkness',
+          },
+          {
+            damage: 'p12.0 d overstrike',
+            other: '-70% DEF/RES 8s, self lose 25% max HP',
+            school: 'Darkness',
+          },
+        ],
+      });
+      expect(formatBraveCommands(darkKnight.braveCommands!)).toEqual('');
+
+      const hybrid = describeEnlirSoulBreak(soulBreaks['Reno - Pyramid Pinnacle']);
+      expect(hybrid).toEqual({
+        damage: 'p7.2/10 or m17.3/10 lgt rngd',
+        other: 'lgt infuse 25s, self 1.3x Machinist dmg 15s',
+        braveCommands: [
+          {
+            damage: 'p1.92 or m7.92 l rngd',
+            school: 'Special',
+          },
+          {
+            damage: 'p3.25 or m12.0 l rngd overstrike',
+            school: 'Special',
+          },
+          {
+            damage: 'p6.5 or m20.8 l rngd overstrike',
+            school: 'Special',
+          },
+          {
+            damage: 'p10.15 or m35.0 l rngd overstrike',
+            school: 'Special',
+          },
+        ],
+      });
+      expect(formatBraveCommands(hybrid.braveCommands!)).toEqual('');
+
+      const finalEffect = describeEnlirSoulBreak(soulBreaks['Kuja - Chaos Rhapsody']);
+      expect(finalEffect).toEqual({
+        damage: 'magic 17.3/10 dark',
+        other: 'dark infuse 25s, party Doom 30s, self +30% MAG/RES 25s',
+        braveCommands: [
+          {
+            damage: 'm7.92 d',
+            school: 'Darkness',
+          },
+          {
+            damage: 'm12.0 d overstrike',
+            school: 'Darkness',
+          },
+          {
+            damage: 'm20.8 d overstrike',
+            school: 'Darkness',
+          },
+          {
+            damage: 'm35.0 d overstrike',
+            other: 'self Reraise 40%',
+            school: 'Darkness',
+          },
+        ],
+      });
+      expect(formatBraveCommands(finalEffect.braveCommands!)).toEqual('');
     });
 
     it('converts AASBs', () => {

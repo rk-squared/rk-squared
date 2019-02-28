@@ -93,7 +93,9 @@ export function isAllSame<T>(values: T[], iteratee: (value: T) => any): boolean 
   return _.every(values, i => iteratee(i) === iteratee(values[0]));
 }
 
-export function slashMerge(options: string[]): string {
+export const enDashJoin = ' – ';
+
+export function slashMerge(options: string[], { forceEnDash } = { forceEnDash: false }): string {
   // MrP-specific logic: Don't split up stat mods
   options = options.map(i => i.replace(/(\d+%) ([A-Z]{3})/g, '$1\u00A0$2'));
 
@@ -111,7 +113,9 @@ export function slashMerge(options: string[]): string {
       const mergeParts = optionParts.filter(parts => parts[i] !== undefined).map(parts => parts[i]);
       // Merge with slashes if the parts don't have slashes themselves.  Merge
       // with en dashes otherwise.
-      result += mergeParts.join(_.some(mergeParts, s => s.match('/')) ? ' – ' : '/');
+      result += mergeParts.join(
+        forceEnDash || _.some(mergeParts, s => s.match('/')) ? enDashJoin : '/',
+      );
       different++;
     }
   }
@@ -122,7 +126,7 @@ export function slashMerge(options: string[]): string {
   // depends on whether the clauses we're separating use slashes or hyphens
   // internally.)
   if (same < different) {
-    result = options.join(' – ');
+    result = options.join(enDashJoin);
   }
 
   // MrP-specific logic: Undo our no-split logic
