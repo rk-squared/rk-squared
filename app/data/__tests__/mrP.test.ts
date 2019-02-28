@@ -213,7 +213,7 @@ describe('mrP', () => {
         other: 'self lose 25% max HP, +30% ATK/RES 25s',
         burstCommands: [
           {
-            damage: 'p2.16/4 d+n',
+            damage: 'p2.16/4 d+n, uses +ATK as HP falls',
             school: 'Darkness',
           },
           {
@@ -315,13 +315,13 @@ describe('mrP', () => {
       // consistently better communicate abilities like Gladiolus's Survival
       // Spirit.  Is that best?
       expect(describeEnlirSoulBreak(soulBreaks['Celes - Runic Blade'])).toEqual({
-        other: 'self taunt & absorb BLK 25s',
+        other: 'taunt & absorb BLK 25s',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Celes - Whetted Blade'])).toEqual({
         damage: 'phys 6.9/10 holy+ice+wind+non',
         other:
-          'self taunt & absorb BLK/WHT 25s, 1.3x Spellblade dmg 15s, ' +
-          'double Spellblade (uses extra hone) 15s',
+          'self 1.3x Spellblade dmg 15s, double Spellblade (uses extra hone) 15s, ' +
+          'taunt & absorb BLK/WHT 25s',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Emperor - Clever Ruse'])).toEqual({
@@ -869,7 +869,7 @@ describe('mrP', () => {
         burstCommands: [
           {
             damage: 'p2.5/2 h',
-            other: 'self taunt PHY/BLK, +200% DEF 25s',
+            other: 'taunt PHY/BLK, +200% DEF 25s',
             school: 'Knight',
           },
           {

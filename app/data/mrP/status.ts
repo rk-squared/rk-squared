@@ -301,7 +301,7 @@ function forceEffects({ codedName }: EnlirStatus) {
 }
 
 function forceDetail({ name }: EnlirStatus) {
-  return name === 'Rage';
+  return name === 'Rage' || name === 'Runic' || name === 'High Runic' || name === 'Sentinel';
 }
 
 /**

@@ -221,6 +221,13 @@ export function describeEnlirSoulBreak(
     damage = m[1] + ' fixed dmg';
   }
 
+  if (damage && sb.effects.match(/ATK increases as HP decreases/)) {
+    // MrP and random comments on Reddit suggest that Cecil gets up to +1500
+    // and Locke gets +11-40%.  Without confirmation in Enlir, I'll omit for
+    // now.
+    damage += ', uses +ATK as HP falls';
+  }
+
   if ((m = sb.effects.match(/Activates (.*?) Chain \(max (\d+), field \+(\d+)%\)/))) {
     const [, type, max, fieldBonus] = m;
 
