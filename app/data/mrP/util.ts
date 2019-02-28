@@ -99,7 +99,7 @@ export function slashMerge(options: string[], { forceEnDash } = { forceEnDash: f
   // MrP-specific logic: Don't split up stat mods
   options = options.map(i => i.replace(/(\d+%) ([A-Z]{3})/g, '$1\u00A0$2'));
 
-  const optionParts = options.map(i => i.split(/([ +])/));
+  const optionParts = options.map(i => i.split(/([,? +])/));
   const maxLength = Math.max(...optionParts.map(i => i.length));
 
   let result = '';

@@ -493,7 +493,10 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
 }
 
 function formatBraveLevel(level: number): string {
-  return 'at brv.' + (level === 3 ? level : `${level}+`);
+  if (level === 0) {
+    return '';
+  }
+  return ' at brv.' + (level === 3 ? level : `${level}+`);
 }
 
 export function formatBraveCommands(mrP: MrPSoulBreak[]): string {
@@ -515,11 +518,12 @@ export function formatBraveCommands(mrP: MrPSoulBreak[]): string {
   // Add overstrike level.
   const overstrikeLevel = overstrike.indexOf(true);
   if (damage && overstrikeLevel !== -1) {
-    damage += ', overstrike ' + formatBraveLevel(overstrikeLevel);
+    damage += ', overstrike' + formatBraveLevel(overstrikeLevel);
   }
 
   // Check for heals.
-  const heals = mrP.map(i => i.other && i.other.split(/, /).find(s => s.match(/\bh\d/) != null));
+  const isHeal = (s: string) => s.match(/\bh\d/) != null;
+  const heals = mrP.map(i => i.other && i.other.split(/, /).find(isHeal));
   const healCount = _.filter(heals).length;
   let combinedHeal = '';
   if (healCount !== 0 && healCount !== MAX_BRAVE_LEVEL + 1) {
@@ -529,30 +533,24 @@ export function formatBraveCommands(mrP: MrPSoulBreak[]): string {
   }
 
   // Check for effects.
-  const effects = mrP.map(
-    i => new Set(i.other ? i.other.split(/, /).filter(s => !s.match(/\bh\d/)) : []),
+  const effects = mrP.map(i =>
+    i.other
+      ? i.other
+          .split(/, /)
+          .filter(s => !isHeal(s))
+          .join(', ')
+      : '',
   );
-  const effectLevels = new Map<string, number>();
-  effects.forEach((effect: Set<string>, level: number) => {
-    effect.forEach(e => {
-      if (!effectLevels.has(e)) {
-        effectLevels.set(e, level);
-      }
-    });
-    effectLevels.forEach((i, e) => {
-      if (!effect.has(e)) {
-        effectLevels.delete(e);
-      }
-    });
-  });
-  const cumulativeEffects: string[] = [];
-  effectLevels.forEach((level, effect) => {
-    cumulativeEffects.push(effect + ' ' + formatBraveLevel(level));
-  });
+  let cumulativeEffects = '';
+  if (_.some(effects, i => i !== '')) {
+    const effectLevel = effects.findIndex(i => i !== '');
+    cumulativeEffects =
+      slashMerge(effects.slice(effectLevel), { forceEnDash: true }) + formatBraveLevel(effectLevel);
+  }
 
   return (
     (mrP[0].instant ? 'instant ' : '') +
-    _.filter([damage, combinedHeal, ...cumulativeEffects]).join(', ')
+    _.filter([damage, combinedHeal, cumulativeEffects]).join(', ')
   );
 }
 

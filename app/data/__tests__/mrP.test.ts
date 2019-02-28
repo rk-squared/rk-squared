@@ -1009,6 +1009,7 @@ describe('mrP', () => {
           },
         ],
       });
+      // TODO: I'm not sure I like this format.
       expect(formatBraveCommands(healer.braveCommands!)).toEqual(
         'instant h25 – party h25 – party h55 – party h55, Last stand at brv.3',
       );
@@ -1039,7 +1040,9 @@ describe('mrP', () => {
           },
         ],
       });
-      expect(formatBraveCommands(paladin.braveCommands!)).toEqual('');
+      expect(formatBraveCommands(paladin.braveCommands!)).toEqual(
+        'p1.92 – 2.4/3 – 4.5/5 – 7.0/7 h, party Autoheal 1k – 2k – 4k at brv.1+',
+      );
 
       const breaks = describeEnlirSoulBreak(soulBreaks['Faris - Essence of Flame']);
       expect(breaks).toEqual({
@@ -1072,7 +1075,9 @@ describe('mrP', () => {
           },
         ],
       });
-      expect(formatBraveCommands(breaks.braveCommands!)).toEqual('');
+      expect(formatBraveCommands(breaks.braveCommands!)).toEqual(
+        'instant p1.5 – 2.34/6 – 4.68/6 – 7.26/6 f+wi rngd, -30% DEF 15s – -40% DEF 15s – -70% DEF/RES/MND 8s at brv.1+',
+      );
 
       const darkKnight = describeEnlirSoulBreak(soulBreaks['Leon - Darkness Weapon']);
       expect(darkKnight).toEqual({
@@ -1100,7 +1105,9 @@ describe('mrP', () => {
           },
         ],
       });
-      expect(formatBraveCommands(darkKnight.braveCommands!)).toEqual('');
+      expect(formatBraveCommands(darkKnight.braveCommands!)).toEqual(
+        'p1.92 – 3.85 – 7.7 – 12.0 d, overstrike at brv.1+, -30% DEF 15s – -30% DEF 15s – -70% DEF/RES 8s, self lose 25% max HP at brv.1+',
+      );
 
       const hybrid = describeEnlirSoulBreak(soulBreaks['Reno - Pyramid Pinnacle']);
       expect(hybrid).toEqual({
@@ -1125,7 +1132,9 @@ describe('mrP', () => {
           },
         ],
       });
-      expect(formatBraveCommands(hybrid.braveCommands!)).toEqual('');
+      expect(formatBraveCommands(hybrid.braveCommands!)).toEqual(
+        'p1.92 – 3.25 – 6.5 – 10.15 or m7.92 – 12.0 – 20.8 – 35.0 l rngd, overstrike at brv.1+',
+      );
 
       const finalEffect = describeEnlirSoulBreak(soulBreaks['Kuja - Chaos Rhapsody']);
       expect(finalEffect).toEqual({
@@ -1151,7 +1160,9 @@ describe('mrP', () => {
           },
         ],
       });
-      expect(formatBraveCommands(finalEffect.braveCommands!)).toEqual('');
+      expect(formatBraveCommands(finalEffect.braveCommands!)).toEqual(
+        'm7.92 – 12.0 – 20.8 – 35.0 d, overstrike at brv.1+, self Reraise 40% at brv.3',
+      );
     });
 
     it('converts AASBs', () => {
