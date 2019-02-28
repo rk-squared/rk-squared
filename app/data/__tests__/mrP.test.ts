@@ -844,6 +844,22 @@ describe('mrP', () => {
           },
         ],
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Ace - Firaga RF'])).toEqual({
+        instant: true,
+        damage: 'magic 15.04/8 fire+non',
+        other: 'party Phys blink 1',
+        burstCommands: [
+          {
+            damage: 'm7.84/4 f+n, or m9.8/5 if in front row',
+            school: 'Black Magic',
+          },
+          {
+            damage: 'AoE m7.8/2 f+n',
+            other: 'self +30% MAG, -30% RES 20s',
+            school: 'Black Magic',
+          },
+        ],
+      });
       expect(describeEnlirSoulBreak(soulBreaks['Zidane - Meo Twister'])).toEqual({
         damage: 'phys 11.8 wind+non overstrike, or p12.8 if 4 females in party',
       });

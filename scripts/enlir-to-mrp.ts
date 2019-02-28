@@ -14,4 +14,9 @@ for (const sb of _.sortBy(Object.values(enlir.soulBreaks), 'character')) {
   const mrP = describeEnlirSoulBreak(sb);
   const text = formatMrP(mrP);
   console.log(text || '???');
+  if (mrP.burstCommands) {
+    for (const i of mrP.burstCommands) {
+      console.log('    ' + formatMrP(i));
+    }
+  }
 }

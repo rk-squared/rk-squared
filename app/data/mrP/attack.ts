@@ -199,7 +199,7 @@ function describeFollowedByAttack(effects: string): string | null {
 
 function describeOrCondition(orCondition: string): string {
   let m: RegExpMatchArray | null;
-  if (orCondition === 'the user is in the front row') {
+  if (orCondition === 'the user is in the front row' || orCondition === 'user is in front row') {
     return 'if in front row';
   } else if (orCondition === 'exploiting elemental weakness') {
     return 'vs. weak';
