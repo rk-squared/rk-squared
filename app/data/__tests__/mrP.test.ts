@@ -1,9 +1,10 @@
-import { describeEnlirSoulBreak, formatBraveCommands } from '../mrP';
+import * as _ from 'lodash';
+
+import { describeEnlirSoulBreak } from '../mrP';
+import { formatBraveCommands } from '../mrP/brave';
 import { parseNumberString, parsePercentageCounts } from '../mrP/util';
 
 import { enlir, EnlirSoulBreak } from '../enlir';
-
-import * as _ from 'lodash';
 
 const soulBreaks = _.keyBy(_.values(enlir.soulBreaks), i => i.character + ' - ' + i.name);
 
@@ -1009,7 +1010,6 @@ describe('mrP', () => {
           },
         ],
       });
-      // TODO: I'm not sure I like this format.
       expect(formatBraveCommands(healer.braveCommands!)).toEqual(
         'instant h25 – party h25 – party h55 – party h55, Last stand at brv.3',
       );
