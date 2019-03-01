@@ -2,8 +2,9 @@ import * as _ from 'lodash';
 
 import { MrPSoulBreak } from '.';
 import { logger } from '../../utils/logger';
-import { MAX_BRAVE_LEVEL } from './types';
 import { enDashJoin, slashMerge } from './util';
+
+export const MAX_BRAVE_LEVEL = 3;
 
 function formatBraveLevel(level: number): string {
   if (level === 0) {
@@ -12,7 +13,9 @@ function formatBraveLevel(level: number): string {
   return ' at brv.' + (level === 3 ? level : `${level}+`);
 }
 
-export function formatBraveCommands(mrP: MrPSoulBreak[]): string {
+const isHeal = (s: string) => s.match(/\bh\d/) != null;
+
+function getBraveDamage(mrP: MrPSoulBreak[]): string {
   let damageParts = mrP.map(i => i.damage || '');
   const overstrike = damageParts.map(i => i.match('overstrike') != null);
 
@@ -34,35 +37,64 @@ export function formatBraveCommands(mrP: MrPSoulBreak[]): string {
     damage += ', overstrike' + formatBraveLevel(overstrikeLevel);
   }
 
-  // Check for heals.
-  const isHeal = (s: string) => s.match(/\bh\d/) != null;
+  return damage;
+}
+
+function getBraveHeals(mrP: MrPSoulBreak[]): string {
   const heals = mrP.map(i => i.other && i.other.split(/, /).find(isHeal));
   const healCount = _.filter(heals).length;
-  let combinedHeal = '';
-  if (healCount !== 0 && healCount !== MAX_BRAVE_LEVEL + 1) {
-    logger.warn('Unexpected healing for given braves');
+  if (healCount === 0) {
+    return '';
   } else if (healCount === MAX_BRAVE_LEVEL + 1) {
-    combinedHeal = heals.join(enDashJoin);
+    return heals.join(enDashJoin);
+  } else {
+    logger.warn('Unexpected healing for given braves');
+    return '';
+  }
+}
+
+function getBraveEffects(mrP: MrPSoulBreak[]): string {
+  // Array of arrays, indexed by brave level then effect number
+  const effects = mrP.map(i => (i.other ? i.other.split(/, /).filter(s => !isHeal(s)) : []));
+
+  if (!_.some(effects, i => i.length)) {
+    return '';
   }
 
-  // Check for effects.
-  const effects = mrP.map(i =>
-    i.other
-      ? i.other
-          .split(/, /)
-          .filter(s => !isHeal(s))
-          .join(', ')
-      : '',
-  );
-  let cumulativeEffects = '';
-  if (_.some(effects, i => i !== '')) {
-    const effectLevel = effects.findIndex(i => i !== '');
-    cumulativeEffects =
-      slashMerge(effects.slice(effectLevel), { forceEnDash: true }) + formatBraveLevel(effectLevel);
+  // Array of merged effects, indexed by effect level then effect index.  This
+  // assumes that effects mostly match up from one brave level to the next and
+  // will make for ugly results otherwise.
+  //
+  // We don't *have* to split up effects like this, but it helps slash merging;
+  // otherwise, if we have two effects, one which varies a lot and one which
+  // is constant, slashMerge may try to forcibly merging the parts, instead of
+  // using fallback for the varying effect and just merging the constant.
+  const combinedEffects: string[][] = [];
+  for (let effectIndex = 0; ; effectIndex++) {
+    const effectLevel = effects.findIndex(
+      e => e[effectIndex] != null && e[effectIndex].length !== 0,
+    );
+    if (effectLevel === -1) {
+      break;
+    }
+
+    combinedEffects[effectLevel] = combinedEffects[effectLevel] || [];
+    combinedEffects[effectLevel].push(
+      slashMerge(effects.slice(effectLevel).map(e => e[effectIndex]), { forceEnDash: true }),
+    );
   }
 
-  return (
-    (mrP[0].instant ? 'instant ' : '') +
-    _.filter([damage, combinedHeal, cumulativeEffects]).join(', ')
+  const mergedEffects: Array<string | undefined> = combinedEffects.map(
+    (e, i) => e && e.join(' & ') + formatBraveLevel(i),
   );
+
+  return _.filter(mergedEffects).join(', ');
+}
+
+export function formatBraveCommands(mrP: MrPSoulBreak[]): string {
+  const damage = getBraveDamage(mrP);
+  const heal = getBraveHeals(mrP);
+  const effects = getBraveEffects(mrP);
+
+  return (mrP[0].instant ? 'instant ' : '') + _.filter([damage, heal, effects]).join(', ');
 }

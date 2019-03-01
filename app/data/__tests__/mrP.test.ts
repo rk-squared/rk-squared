@@ -1106,7 +1106,8 @@ describe('mrP', () => {
         ],
       });
       expect(formatBraveCommands(darkKnight.braveCommands!)).toEqual(
-        'p1.92 – 3.85 – 7.7 – 12.0 d, overstrike at brv.1+, -30% DEF 15s – -30% DEF 15s – -70% DEF/RES 8s, self lose 25% max HP at brv.1+',
+        'p1.92 – 3.85 – 7.7 – 12.0 d, overstrike at brv.1+, ' +
+        '-30% DEF 15s – -30% DEF 15s – -70% DEF/RES 8s & self lose 25% max HP at brv.1+',
       );
 
       const hybrid = describeEnlirSoulBreak(soulBreaks['Reno - Pyramid Pinnacle']);
