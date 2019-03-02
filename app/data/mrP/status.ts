@@ -422,7 +422,7 @@ function describeFinisher(skillName: string) {
 
   const mrP = describeEnlirSoulBreak(skill, { showNoMiss: false });
 
-  return 'Finisher: ' + formatMrP(mrP, { showInstant: false });
+  return 'Finisher: ' + formatMrP(mrP, { showTime: false });
 }
 
 /**
@@ -707,7 +707,7 @@ function describeFollowUpSkill(skillName: string, triggerPrereqStatus?: string):
         prereqStatus: triggerPrereqStatus,
       }),
       {
-        showInstant: false,
+        showTime: false,
       },
     );
   }

@@ -943,6 +943,7 @@ describe('mrP', () => {
         other: 'party Phys blink 1',
         burstCommands: [
           {
+            fast: true,
             damage: 'm7.84/4 f+n, or m9.8/5 if in front row',
             school: 'Black Magic',
           },
@@ -992,10 +993,23 @@ describe('mrP', () => {
         damage: 'phys 12.6 overstrike, or p13.6 if Reynn alive',
         other: '60% KO',
       });
+
       // This also has some required checks for status ailment handling.
       expect(describeEnlirSoulBreak(soulBreaks['Mustadio - Seal Evil (FFT)'])).toEqual({
         damage: 'phys 7.92/8, or p8.56/8 vs. status',
         other: '100% Stop/Silence/Paralyze',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Balthier - Gatling Gun'])).toEqual({
+        damage: 'phys 7.5/10 fire rngd',
+        other: '97% (30% × 10) Blind',
+        burstCommands: [
+          {
+            damage: 'p2.3/2 rngd, or p2.8/2 vs. Blind',
+            other: '84% (60% × 2) Blind',
+            school: 'Machinist',
+          },
+          { damage: 'p2.44/4 f+n rngd', school: 'Machinist' },
+        ],
       });
     });
 
@@ -1410,7 +1424,7 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(soulBreaks['Gau - Meteor Rage'])).toEqual({
         damage: 'AoE phys 6.15/3 rngd',
-        other: 'auto AoE p2.38/2 rngd Combat 3 turns',
+        other: 'auto slow AoE p2.38/2 rngd Combat 3 turns',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Gau - Gigavolt Rage'])).toEqual({
         damage: 'AoE phys 4.2/4 lgt rngd',

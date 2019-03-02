@@ -35,7 +35,12 @@ import {
 import { isAllSame, toMrPFixed, toMrPKilo } from './util';
 
 export interface MrPSoulBreak {
+  // Time markers.  We could simply pass the time value itself, but this lets
+  // us pull out how it's displayed.
   instant?: boolean;
+  fast?: boolean;
+  slow?: boolean;
+
   chain?: string;
   damage?: string;
   other?: string;
@@ -474,10 +479,19 @@ export function describeEnlirSoulBreak(
   }
 
   const result: MrPSoulBreak = {
-    instant: sb.time != null && sb.time <= 0.01 ? true : undefined,
     damage: damage || undefined,
     other: other.length ? other.join(', ') : undefined,
   };
+
+  if (sb.time != null) {
+    if (sb.time <= 0.01) {
+      result.instant = true;
+    } else if (sb.time < 1.2) {
+      result.fast = true;
+    } else if (sb.time > 2 && !isSoulBreak(sb)) {
+      result.slow = true;
+    }
+  }
 
   if (chain) {
     result.chain = chain;
@@ -511,19 +525,32 @@ export function describeEnlirSoulBreak(
 }
 
 interface FormatOptions {
-  showInstant: boolean;
+  showTime: boolean;
+}
+
+function describeMrPTime({ instant, fast, slow }: MrPSoulBreak): string | null {
+  if (instant) {
+    return 'instant';
+  } else if (fast) {
+    return 'fast';
+  } else if (slow) {
+    return 'slow';
+  } else {
+    return null;
+  }
 }
 
 export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {}): string {
   const opt: FormatOptions = {
-    showInstant: true,
+    showTime: true,
     ...options,
   };
 
   const burstToggleText = mrP.burstToggle == null ? '' : mrP.burstToggle ? 'ON' : 'OFF';
   let text = _.filter([burstToggleText, mrP.chain, mrP.damage, mrP.other]).join(', ');
-  if (text && mrP.instant && opt.showInstant) {
-    text = 'instant ' + text;
+  if (text && opt.showTime) {
+    const time = describeMrPTime(mrP);
+    text = (time ? time + ' ' : '') + text;
   }
   return text;
 }

@@ -207,10 +207,12 @@ function describeOrCondition(orCondition: string): string {
     return 'if no allies KO';
   } else if (orCondition === 'the user has any Doom' || orCondition === 'with any Doom') {
     return 'if Doomed';
-  } else if (orCondition.startsWith('the target has ')) {
-    // In practice, this is always the same status ailments that the attack
-    // itself inflicts.
-    return 'vs. status';
+  } else if ((m = orCondition.match(/the target has (.*)/))) {
+    // If we have one status, show it.  Otherwise, in practice, this is always
+    // the same status ailments that the attack itself inflicts, so omit
+    // details to save space.
+    const status = m[1].split(orList);
+    return status.length === 1 ? 'vs. ' + status[0] : 'vs. status';
   } else if ((m = orCondition.match(/(\d+) or more (.*) are in the party/))) {
     return 'if ' + m[1] + ' ' + m[2] + ' in party';
   } else if ((m = orCondition.match(/(.*) is alive/))) {
