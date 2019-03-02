@@ -1477,16 +1477,13 @@ describe('mrP', () => {
           '15s: Awaken Darkness: Darkness inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
-      if (0) {
-        // TODO: Make this work
-        expect(describeEnlirSoulBreak(soulBreaks['Celes - Spinning Twice'])).toEqual({
-          damage: 'phys 9.0/15 ice+holy+non',
-          other:
-            'party Magic blink 1, self +30% ice dmg 15s, +30% holy dmg 15s, dmg cap=19,999 15s, ' +
-            '15s: (2 ice/holy ⤇ p2.6/5 i+h+n Spellblade, self Magic blink 2, five single attacks (0.52 each) if user has Magical Blink 1/2), ' +
-            '15s: Awaken Indomitable: holy/ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
-        });
-      }
+      expect(describeEnlirSoulBreak(soulBreaks['Celes - Spinning Twice'])).toEqual({
+        damage: 'phys 9.0/15 ice+holy+non',
+        other:
+          'party Magic blink 1, self +30% ice dmg 15s, +30% holy dmg 15s, dmg cap=19,999 15s, ' +
+          '15s: (2 ice/holy ⤇ p2.6/5 i+h+n Spellblade @ 1-2 Magic blink, self Magic blink 2), ' +
+          '15s: Awaken Indomitable: holy/ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
 
       // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.
     });

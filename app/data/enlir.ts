@@ -252,6 +252,16 @@ function patchEnlir() {
     pluto.effects =
       'Casts Pluto Knight Triblade and grants Minor Buff Fire/Lightning/Ice after exploiting elemental weakness';
   }
+
+  const runicAwakening = enlir.otherSkillsByName['Runic Awakening'];
+  if (
+    runicAwakening &&
+    runicAwakening.effects ===
+      'Grants Magical Blink 2 to the user, five single attacks (0.52 each) if user has Magical Blink 1/2'
+  ) {
+    runicAwakening.effects =
+      'Five single attacks (0.52 each) if user has Magical Blink 1/2, grants Magical Blink 2 to the user';
+  }
 }
 patchEnlir();
 
