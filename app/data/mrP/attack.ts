@@ -4,6 +4,7 @@ import * as XRegExp from 'xregexp';
 import { EnlirBurstCommand, EnlirElement, EnlirSchool, EnlirSkill, isSoulBreak } from '../enlir';
 import { describeEnlirStatus } from './status';
 import {
+  formatMediumList,
   formatSchoolOrAbilityList,
   getElementShortName,
   MrPDamageType,
@@ -359,14 +360,14 @@ const attackRe = XRegExp(
   \))?
   (?<overstrike>,?\ capped\ at\ 99999)?
 
-  (?<scaleWithUses>\ scaling\ with\ uses)?
-  (?:\ (?:scaling|scal\.)\ with\ (?<scaleWithSkillUses>.*?)\ uses)?
+  (?<scaleWithUses>,?\ scaling\ with\ uses)?
+  (?:,?\ (?:scaling|scal\.)\ with\ (?<scaleWithSkillUses>.*?)\ uses)?
   (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
   (?:\ if\ (?:the\ )?user\ has\ (?<statusThreshold>.*)\ (?<statusThresholdCount>(?:\d+/)+\d+))?
   (?:\ if\ the\ user's\ HP\ are\ below\ (?<lowHpThresholdValue>(?:\d+/)+\d+)%)?
   (?:\ if\ the\ user\ took\ (?<tookHitsValue>(?:\d+/)+\d+)\ (?<tookHits>.*)\ hits)?
   (?:\ at\ (?<statThresholdValue>(?:\d+/)+\d+)\ (?<statThreshold>[A-Z]{3}))?
-  (?<attackThreshold>\ scaling\ with\ (<attackThresholdType>.*)\ attacks\ used\ \((?<attackThresholdCount>(?:\d+/)+\d+)\))?
+  (?:,?\ scaling\ with\ (?<attackThresholdType>.*)\ (?:attacks|abilities)\ used\ \((?<attackThresholdCount>(?:\d+/)+\d+)\))?
   (?:\ if\ the\ user\ used\ (?<simpleAttackThresholdCount>(?:\d+/)+\d+)\ damaging\ actions)?
   (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
   (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)+\d+)\ ailments)?
@@ -487,6 +488,11 @@ export function parseEnlirAttack(
     scaleType = formatThreshold(m.lowHpThresholdValue, 'HP', '%');
   } else if (m.statusAilmentsThresholdValue) {
     scaleType = formatThreshold(m.statusAilmentsThresholdValue, 'statuses');
+  } else if (m.attackThresholdType) {
+    scaleType = formatThreshold(
+      m.attackThresholdCount,
+      formatMediumList(m.attackThresholdType) + ' used',
+    );
   } else if (m.simpleAttackThresholdCount) {
     scaleType = formatThreshold(m.simpleAttackThresholdCount, 'atks');
   } else if (m.scaleWithSkillUses) {

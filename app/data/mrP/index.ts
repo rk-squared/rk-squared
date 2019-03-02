@@ -195,6 +195,14 @@ export function describeEnlirSoulBreak(
         ? ' ' + getSchoolShortName(attack.school)
         : '';
     damage += opt.showNoMiss && attack.isNoMiss ? ' no miss' : '';
+    if (attack.additionalCrit && !attack.additionalCritType) {
+      // If critical hits might depend on the entire attack's scaling, process
+      // them now.
+      damage += ' @ +' + attack.additionalCrit.join(' - ') + '% crit';
+    }
+    if (attack.additionalCritDamage) {
+      damage += ` @ +${attack.additionalCritDamage}% crit dmg`;
+    }
     if (!attack.scaleToDamage && attack.scaleType) {
       // Rank chase / threshold / etc.
       damage += ' ' + attack.scaleType;
@@ -222,14 +230,9 @@ export function describeEnlirSoulBreak(
     if (attack.minDamage) {
       damage += `, min dmg ${attack.minDamage}`;
     }
-    if (attack.additionalCrit) {
+    if (attack.additionalCrit && attack.additionalCritType) {
       damage += ' @ +' + attack.additionalCrit.join(' - ') + '% crit';
-      if (attack.additionalCritType) {
-        damage += ' ' + attack.additionalCritType;
-      }
-    }
-    if (attack.additionalCritDamage) {
-      damage += ` @ +${attack.additionalCritDamage}% crit dmg`;
+      damage += ' ' + attack.additionalCritType;
     }
     // Omit ' (SUM)' for Summoning school; it seems redundant.
     damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';

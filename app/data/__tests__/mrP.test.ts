@@ -1469,6 +1469,14 @@ describe('mrP', () => {
           '15s: Awaken Thief: Thief inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
+      expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Dark Moon'])).toEqual({
+        damage: 'phys 9.0/15 dark+non',
+        other:
+          'dmg cap=19,999 15s, dark infuse 25s, ' +
+          '15s: (2 Darkness ⤇ p4.16/8 - 4.32/8 - 4.48/8 d+n Darkness @ +0 - 30 - 75% crit @ 2-4-6 Darkness used, self lose 25% max HP), ' +
+          '15s: Awaken Darkness: Darkness inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
       if (0) {
         // TODO: Make this work
         expect(describeEnlirSoulBreak(soulBreaks['Celes - Spinning Twice'])).toEqual({
