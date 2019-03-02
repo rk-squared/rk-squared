@@ -114,6 +114,16 @@ export interface EnlirGenericSkill {
   gl: boolean;
 }
 
+export interface EnlirAbility extends EnlirGenericSkill {
+  rarity: number;
+  sb: number;
+  uses: number;
+  max: number;
+  orbs: { [orbName: string]: number[] };
+  introducingEvent: string | string;
+  nameJp: string;
+}
+
 export interface EnlirBraveCommand extends EnlirGenericSkill {
   character: string;
   source: string;
@@ -172,10 +182,15 @@ export interface EnlirStatus {
   notes: string | null;
 }
 
-export type EnlirSkill = EnlirBraveCommand | EnlirBurstCommand | EnlirOtherSkill | EnlirSoulBreak;
+export type EnlirSkill =
+  | EnlirAbility
+  | EnlirBraveCommand
+  | EnlirBurstCommand
+  | EnlirOtherSkill
+  | EnlirSoulBreak;
 
 const rawData = {
-  abilities: require('./enlir/abilities.json'),
+  abilities: require('./enlir/abilities.json') as EnlirAbility[],
   braveCommands: require('./enlir/brave.json') as EnlirBraveCommand[],
   burstCommands: require('./enlir/burst.json') as EnlirBurstCommand[],
   characters: require('./enlir/characters.json'),

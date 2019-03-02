@@ -387,8 +387,8 @@ describe('mrP', () => {
     });
 
     it('converts burst toggles', () => {
-      const angeal = describeEnlirSoulBreak(soulBreaks['Angeal - Unleashed Wrath']);
-      expect(angeal).toEqual({
+      const damage = describeEnlirSoulBreak(soulBreaks['Angeal - Unleashed Wrath']);
+      expect(damage).toEqual({
         damage: 'phys 6.64/8 holy+wind',
         other: 'party crit =50% 25s',
         burstCommands: [
@@ -412,11 +412,37 @@ describe('mrP', () => {
           },
         ],
       });
-      expect(angeal.burstCommands!.map(i => formatMrP(i))).toEqual([
+      expect(damage.burstCommands!.map(i => formatMrP(i))).toEqual([
         'ON, self fastcast 3',
         'OFF, p3.42/6 h+wi',
         'p2.28/4 h+wi',
         'p2.85/5 h+wi',
+      ]);
+
+      const heal = describeEnlirSoulBreak(soulBreaks['Aphmau - Realignment']);
+      expect(heal).toEqual({
+        other: 'party h55, +30% MAG/MND 25s',
+        burstCommands: [
+          {
+            burstToggle: true,
+            other: 'h60',
+            school: 'White Magic',
+          },
+          {
+            burstToggle: false,
+            damage: 'w10.48/4 l+n',
+            other: 'ally h60',
+            school: 'White Magic',
+          },
+          { other: 'party h25', school: 'White Magic' },
+          { damage: 'w10.28/2 l+n', other: 'party h25', school: 'White Magic' },
+        ],
+      });
+      expect(heal.burstCommands!.map(i => formatMrP(i))).toEqual([
+        'ON, h60',
+        'OFF, w10.48/4 l+n, ally h60',
+        'party h25',
+        'w10.28/2 l+n, party h25',
       ]);
 
       // TODO: How to handle Rubicante, with a toggle command that has an effect?
@@ -600,7 +626,9 @@ describe('mrP', () => {
         damage: 'magic 17.0/10 fire+non',
         other:
           'fire infuse 25s, self 1.3x B.Mag dmg 15s, ' +
-          '15s: (1/2/3 B.Mag ⤇ m4.08/2 f+n B.Mag, self hi fastcast 2 – m4.08/2 f+n B.Mag – m16.32/8 f+n B.Mag)',
+          '15s: (1/2/3 B.Mag ⤇ m4.08/2 f+n B.Mag, self hi fastcast 2 ' +
+          '– m4.08/2 f+n B.Mag, party heal 1.5k ' +
+          '– m16.32/8 f+n B.Mag)',
       });
     });
 
@@ -764,6 +792,14 @@ describe('mrP', () => {
     });
 
     it('converts fixed heals', () => {
+      const healingSmiteId = 30211161;
+      expect(
+        describeEnlirSoulBreak(enlir.abilities[healingSmiteId], { includeSchool: false }),
+      ).toEqual({
+        damage: 'phys 4.0/5 holy',
+        other: 'ally heal 2k',
+        school: 'Knight',
+      });
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Paladin) - Paladin Wall'])).toEqual({
         other: 'party +200% DEF/RES 25s, 15s: EX: +30% ATK/DEF, (Knight ⤇ front row heal 1.5k HP)',
       });

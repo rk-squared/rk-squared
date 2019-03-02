@@ -32,7 +32,7 @@ import {
   getShortName,
   MrPDamageType,
 } from './types';
-import { isAllSame, toMrPFixed } from './util';
+import { isAllSame, toMrPFixed, toMrPKilo } from './util';
 
 export interface MrPSoulBreak {
   instant?: boolean;
@@ -279,11 +279,11 @@ export function describeEnlirSoulBreak(
 
   if (
     (m = sb.effects.match(
-      /[Rr]estores HP \((\d+)\)( to the user| to all allies| to the lowest HP% ally)?/,
+      /[Rr]estores (?:HP \((\d+)\)|(\d+) HP)( to the user| to all allies| to the lowest HP% ally)?/,
     ))
   ) {
-    const [, healAmount, who] = m;
-    const heal = 'h' + healAmount;
+    const [, healFactor, fixedHp, who] = m;
+    const heal = healFactor ? 'h' + healFactor : `heal ${toMrPKilo(+fixedHp)}`;
     if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
       partyOther.push(heal);
     } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
