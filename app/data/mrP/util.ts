@@ -179,3 +179,7 @@ export function formatUseCount(count: number | undefined): string {
     return 'w/ ' + _.times(count).join('-') + ' uses';
   }
 }
+
+export function countMatches(haystack: string, needle: RegExp): number {
+  return (haystack.match(needle) || []).length;
+}

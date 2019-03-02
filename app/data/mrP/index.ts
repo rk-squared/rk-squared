@@ -301,7 +301,7 @@ export function describeEnlirSoulBreak(
     }
   }
 
-  if ((m = sb.effects.match(/heals the user for (\d+)% of the damage dealt/))) {
+  if ((m = sb.effects.match(/(?:heals|restores HP to) the user for (\d+)% of the damage dealt/))) {
     const [, healPercent] = m;
     selfOther.push(`heal ${healPercent}% of dmg`);
   }

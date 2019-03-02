@@ -54,6 +54,9 @@ export const statusAlias: AliasMap = {
     'High Runic': 'taunt & absorb BLK/WHT',
     'Unyielding Fist': 'immune atks/status/heal',
 
+    // Nonstandard alternatives.  See enlirStatusAltName.
+    'Cast Speed *999': 'instacast',
+
     // Aliases of numbered statuses, minus the numbers, for use by status
     // threshold code.  We could instead try to slash-process the status
     // thresholds, but that seems needlessly complicated.
@@ -95,7 +98,7 @@ export const statusAlias: AliasMap = {
     // needing expansion.
     'Crash {X}%': '{X}% DEF/RES',
 
-    // Nonstandard abbreviations, supported for convenience.
+    // Nonstandard alternatives.  See enlirStatusAltName.
     'IC{X}': 'instacast {X}',
 
     // These are not real statuses.

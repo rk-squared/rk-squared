@@ -312,14 +312,24 @@ const isModeStatus = ({ name, codedName }: EnlirStatus) =>
   (name.endsWith(' Mode') && name !== 'Brave Mode' && name !== 'Burst Mode');
 
 /**
- * Various other statuses for which we want to force detailed display.
+ * Various statuses for which we want to force showing individual effects.
  */
 function forceEffects({ codedName }: EnlirStatus) {
   return codedName.startsWith('ABSORB_HP_');
 }
 
+/**
+ * Various statuses which are specialized, verbose, and always self, so we show
+ * them as "detail" instead of "self."
+ */
 function forceDetail({ name }: EnlirStatus) {
-  return name === 'Rage' || name === 'Runic' || name === 'High Runic' || name === 'Sentinel';
+  return (
+    name === 'Rage' ||
+    name === 'Runic' ||
+    name === 'High Runic' ||
+    name === 'Sentinel' ||
+    name === 'Unyielding Fist'
+  );
 }
 
 function isBurstToggle({ effects }: EnlirStatus) {

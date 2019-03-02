@@ -153,6 +153,15 @@ describe('mrP', () => {
         damage: 'phys 1.6',
         other: 'self heal 25% of dmg',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Gabranth - Innocence'])).toEqual({
+        damage: 'phys 7.68/8 dark+non rngd',
+        other: '+20% dark vuln. 25s',
+        burstCommands: [
+          { fast: true, damage: 'p1.88/4 d+n', other: undefined, school: 'Combat' },
+          { damage: 'p2.2 d+n', other: 'self heal 20% of dmg', school: 'Darkness' },
+        ],
+      });
     });
 
     it('converts Overstrikes', () => {
@@ -370,7 +379,7 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(soulBreaks['Galuf - Unshaken Resolve'])).toEqual({
         damage: 'phys 7.8/4',
-        other: 'self immune atks/status/heal 30s, +50% ATK 25s',
+        other: 'self +50% ATK 25s, immune atks/status/heal 30s',
       });
     });
 
@@ -537,6 +546,26 @@ describe('mrP', () => {
       });
     });
 
+    it('handles stacking burst commands', () => {
+      // Discrepancy: MrP lists this as 'p0.52/1 h+n rng, stack to p4.16/8 for 25s'
+      // We'll instead try listing it out, at least for now, since that's what
+      // Enlir does.
+      expect(describeEnlirSoulBreak(soulBreaks['Firion - Weaponsmaster'])).toEqual({
+        instant: true,
+        damage: 'AoE phys 5.84/4 holy+non rngd',
+        other: 'party Magic blink 1',
+        burstCommands: [
+          {
+            damage:
+              'p0.52 - 1.04/2 - 1.56/3 - 2.08/4 - 2.6/5 - 3.12/6 - 3.64/7 - 4.16/8 h+n rngd w/ 0…7 uses',
+            other: undefined,
+            school: 'Combat',
+          },
+          { damage: 'p1.68/4 h+n', other: 'self instacast 1 turn', school: 'Combat' },
+        ],
+      });
+    });
+
     it('processes crit modifiers', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Umaro - Snowball Throwdown'])).toEqual({
         damage: 'phys 6.8/10 ice+non rngd',
@@ -569,7 +598,7 @@ describe('mrP', () => {
         other: '+20% ice vuln. 25s',
         burstCommands: [
           {
-            damage: 'p2.16/4 i+n @ +100% crit if any Physical Blink',
+            damage: 'p2.16/4 i+n @ +100% crit if Phys blink',
             school: 'Monk',
           },
           { fast: true, damage: 'p1.5/2 i+n', other: 'self Phys blink 1', school: 'Monk' },

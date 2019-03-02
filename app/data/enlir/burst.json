@@ -2080,7 +2080,7 @@
     "multiplier": 6.9,
     "element": ["Holy", "NE"],
     "time": 1.65,
-    "effects": "3/4/5/6 single attacks (2.30/2.35/2.40/3.00 each) scaling with Moonlight Protection uses",
+    "effects": "3/4/5/6 single attacks (2.30/2.35/2.40/3.00 each) scaling with Moonlight's Blessing uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 50,

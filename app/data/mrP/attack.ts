@@ -11,6 +11,7 @@ import {
   SB_BAR_SIZE,
 } from './types';
 import {
+  countMatches,
   formatUseCount,
   orList,
   parseNumberString,
@@ -333,7 +334,7 @@ function describeAdditionalCritType(
     if (additionalCritStatus === 'Retaliate or High Retaliate') {
       return 'if Retaliate';
     } else {
-      return 'if ' + additionalCritStatus;
+      return 'if ' + describeEnlirStatus(additionalCritStatus.replace(/^any /, ''));
     }
   } else if (additionalCritScaleWithUses) {
     return formatUseCount(additionalCrit ? additionalCrit.length : undefined);
@@ -488,6 +489,13 @@ export function parseEnlirAttack(
     scaleType = formatThreshold(m.lowHpThresholdValue, 'HP', '%');
   } else if (m.statusAilmentsThresholdValue) {
     scaleType = formatThreshold(m.statusAilmentsThresholdValue, 'statuses');
+  } else if (m.scaleWithUses) {
+    const count = numAttacksRange
+      ? numAttacksRange.length
+      : m.altAttackMultiplier
+      ? countMatches(m.altAttackMultiplier, /\//g)
+      : undefined;
+    scaleType = formatUseCount(count);
   } else if (m.attackThresholdType) {
     scaleType = formatThreshold(
       m.attackThresholdCount,
