@@ -94,3 +94,10 @@ export function formatSchoolOrAbilityList(list: string): string {
     .map(getShortName)
     .join('/');
 }
+
+export function formatMediumList(list: string): string {
+  return list
+    .split(andOrList)
+    .map(getMiddleName)
+    .join('/');
+}

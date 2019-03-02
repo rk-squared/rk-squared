@@ -15,6 +15,7 @@ import {
   splitNumbered,
 } from './statusAlias';
 import {
+  formatMediumList,
   formatSchoolOrAbilityList,
   getAbbreviation,
   getMiddleName,
@@ -395,14 +396,19 @@ export function describeEnlirStatus(
   }
 
   // More special cases - schools + numbers
-  if ((m = status.match(/(\S+) (?:Extended )?\+(\d+)% Boost(?: (\d+))?/))) {
+  if ((m = status.match(/(.+?) (?:Extended )?\+(\d+)% Boost\b(?: (\d+))?/))) {
     const [, type, percent, turns] = m;
     const multiplier = toMrPFixed(percentToMultiplier(+percent));
     if (type === 'Weakness') {
       return `${multiplier}x dmg vs weak` + formatTurns(turns);
     } else {
-      return `${multiplier}x ${getMiddleName(type)} dmg` + formatTurns(turns);
+      return `${multiplier}x ${formatMediumList(type)} dmg` + formatTurns(turns);
     }
+  }
+  if ((m = status.match(/(.*) Gauge \+(\d+)% Booster(?: (\d+))?/))) {
+    const [, type, percent, turns] = m;
+    const multiplier = toMrPFixed(percentToMultiplier(+percent));
+    return `${multiplier}x SB gauge from ${formatMediumList(type)}` + formatTurns(turns);
   }
 
   // Special cases - numbers that require processing, so they can't easily

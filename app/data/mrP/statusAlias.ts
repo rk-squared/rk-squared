@@ -67,7 +67,10 @@ export const statusAlias: AliasMap = {
     'Instant Cast {X}': 'instacast {X}',
     'Magical Quick Cast {X}': 'fastzap {X}',
     'Magical High Quick Cast {X}': 'hi fastzap {X}',
+    'Magical Instant Cast {X}': 'instazap {X}',
+    'Physical Quick Cast {X}': 'phys fastcast {X}',
     'Physical High Quick Cast {X}': 'phys hi fastcast {X}',
+    'Physical Instant Cast {X}': 'phys instacast {X}',
 
     'Magical Blink {X}': 'Magic blink {X}',
     'Physical Blink {X}': 'Phys blink {X}',

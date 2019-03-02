@@ -730,6 +730,11 @@ describe('mrP', () => {
         other:
           'party +30% ATK/DEF 25s, self 1.3x Knight dmg 15s, 15s: (Knight ⤇ p1.96/4 e+h+n Knight)',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Wedge - Great Chain-Cast'])).toEqual({
+        damage: 'magic 16.5/10 fire+wind+ice+non',
+        other: 'self 1.5x B.Mag dmg 2 turns, instazap 2, 15s: (B.Mag ⤇ m7.68/6 f+wi+i+n B.Mag)',
+      });
     });
 
     it('converts EX modes with random follow-up attacks', () => {
@@ -1355,7 +1360,7 @@ describe('mrP', () => {
       const hybrid = describeEnlirSoulBreak(soulBreaks['Reno - Pyramid Pinnacle']);
       expect(hybrid).toEqual({
         damage: 'p7.2/10 or m17.3/10 lgt rngd',
-        other: 'lgt infuse 25s, self 1.3x Machinist dmg 15s',
+        other: 'lgt infuse 25s, self 1.3x B.Mag/Machinist dmg 15s',
         braveCommands: [
           {
             damage: 'p1.92 or m7.92 l rngd',
@@ -1457,8 +1462,15 @@ describe('mrP', () => {
           '15s: Awaken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast',
       });
 
+      expect(describeEnlirSoulBreak(soulBreaks['Zidane - Reverse Gaia'])).toEqual({
+        damage: 'phys 9.0/15 wind+non',
+        other:
+          'wind infuse 25s, self dmg cap=19,999 15s, 1.25x SB gauge from Thief 15s, ' +
+          '15s: Awaken Thief: Thief inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
       if (0) {
-        // TODO: Make this
+        // TODO: Make this work
         expect(describeEnlirSoulBreak(soulBreaks['Celes - Spinning Twice'])).toEqual({
           damage: 'phys 9.0/15 ice+holy+non',
           other:
