@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
-import { EnlirElement, EnlirSchool, EnlirSkill, isSoulBreak } from '../enlir';
+import { EnlirBurstCommand, EnlirElement, EnlirSchool, EnlirSkill, isSoulBreak } from '../enlir';
 import { describeEnlirStatus } from './status';
 import {
   formatSchoolOrAbilityList,
@@ -55,6 +55,10 @@ export interface ParsedEnlirAttack {
    */
   hybridDamage?: string;
   hybridDamageType?: MrPDamageType;
+
+  additionalCrit?: number[];
+  additionalCritType?: string;
+  additionalCritDamage?: number;
 
   minDamage?: number;
 
@@ -306,6 +310,10 @@ function describeHybridDamageType(skill: EnlirSkill): MrPDamageType | undefined 
   }
 }
 
+function describeAdditionalCritType(additionalCritType: string): string {
+  return additionalCritType;
+}
+
 const attackRe = XRegExp(
   String.raw`
   (?<numAttacks>[Rr]andomly\ deals\ .*|[A-Za-z-]+|[0-9/]+)\ #
@@ -325,6 +333,7 @@ const attackRe = XRegExp(
   (?<overstrike>,?\ capped\ at\ 99999)?
 
   (?<scaleWithUses>\ scaling\ with\ uses)?
+  (?:\ scaling\ with\ (?<scaleWithSkillUses>.*?)\ uses)?
   (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
   (?:\ if\ (?:the\ )?user\ has\ (?<statusThreshold>.*)\ (?<statusThresholdCount>(?:\d+/)+\d+))?
   (?:\ if\ the\ user's\ HP\ are\ below\ (?<lowHpThresholdValue>(?:\d+/)+\d+)%)?
@@ -335,6 +344,8 @@ const attackRe = XRegExp(
   (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
   (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)+\d+)\ ailments)?
 
+  (?:,\ (?<additionalCrit>[0-9/]+)%\ additional\ critical\ chance(?<additionalCritType>.*?))?
+  (?:,\ (?<additionalCritDamage>[0-9/]+)%\ additional\ critical\ damage)?
   (?:,\ (?<statusChance>\d+)%\ chance\ to\ cause\ (?<status>.*?)\ for\ (?<statusDuration>\d+)\ seconds)?
 
   (?<noMiss>,\ 100%\ hit\ rate)?
@@ -354,11 +365,20 @@ const attackRe = XRegExp(
  * @param prereqStatus A status that must be present for this skill to
  *   trigger - e.g., for Edge's Lurking Shadow.  parseEnlirAttack can use this
  *   to clean up attack formatting
+ * @param burstCommands Optional list of burst commands for which this skill is
+ *   a part.  If present, this is used to process items like Squall's BSB2,
+ *   where one command powers up the other.
  */
 export function parseEnlirAttack(
   effects: string,
   skill: EnlirSkill,
-  prereqStatus?: string,
+  {
+    prereqStatus,
+    burstCommands,
+  }: {
+    prereqStatus?: string;
+    burstCommands?: EnlirBurstCommand[];
+  },
 ): ParsedEnlirAttack | null {
   const m = XRegExp.exec(effects, attackRe) as any;
   if (!m) {
@@ -436,6 +456,14 @@ export function parseEnlirAttack(
     scaleType = formatThreshold(m.statusAilmentsThresholdValue, 'statuses');
   } else if (m.simpleAttackThresholdCount) {
     scaleType = formatThreshold(m.simpleAttackThresholdCount, 'atks');
+  } else if (m.scaleWithSkillUses) {
+    if (burstCommands && burstCommands.filter(i => i.name === m.scaleWithSkillUses)) {
+      // Do nothing on the receiving end - the other command will get text from
+      // the main function.
+      scaleType = undefined;
+    } else {
+      scaleType = 'w/ ' + m.scaleWithSkillUses + ' uses';
+    }
   } else if (m.statusThreshold) {
     let statusThresholdCount: string = m.statusThresholdCount;
 
@@ -497,6 +525,14 @@ export function parseEnlirAttack(
 
     hybridDamage,
     hybridDamageType: describeHybridDamageType(skill),
+
+    additionalCrit: m.additionalCrit
+      ? m.additionalCrit.split(/\//g).map((i: number) => +i)
+      : undefined,
+    additionalCritType: m.additionalCritType
+      ? describeAdditionalCritType(m.additionalCritType)
+      : undefined,
+    additionalCritDamage: m.additionalCritDamage ? +m.additionalCritDamage : undefined,
 
     element: skill.element,
     school: 'school' in skill ? skill.school : undefined,

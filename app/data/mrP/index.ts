@@ -3,6 +3,7 @@ import * as XRegExp from 'xregexp';
 
 import {
   enlir,
+  EnlirBurstCommand,
   EnlirSchool,
   EnlirSkill,
   isBrave,
@@ -128,8 +129,10 @@ const statModRe = XRegExp(
 interface DescribeOptions {
   abbreviate: boolean;
   showNoMiss: boolean;
-  prereqStatus: string | undefined;
   includeSchool: boolean;
+
+  prereqStatus: string | undefined;
+  burstCommands: EnlirBurstCommand[] | undefined;
 }
 
 // FIXME: Rename to indicate broader usage (not just soul breaks now) and move out of index?
@@ -140,8 +143,9 @@ export function describeEnlirSoulBreak(
   const opt: DescribeOptions = {
     abbreviate: false,
     showNoMiss: true,
-    prereqStatus: undefined,
     includeSchool: true,
+    prereqStatus: undefined,
+    burstCommands: undefined,
     ...options,
   };
 
@@ -162,7 +166,10 @@ export function describeEnlirSoulBreak(
   const partyOther: string[] = [];
   const detailOther: string[] = [];
 
-  const attack = parseEnlirAttack(sb.effects, sb, opt.prereqStatus);
+  const attack = parseEnlirAttack(sb.effects, sb, {
+    prereqStatus: opt.prereqStatus,
+    burstCommands: opt.burstCommands,
+  });
   if (attack) {
     const abbreviate = opt.abbreviate || !!attack.hybridDamageType;
     damage += attack.isAoE ? 'AoE ' : '';
@@ -215,6 +222,15 @@ export function describeEnlirSoulBreak(
     if (attack.minDamage) {
       damage += `, min dmg ${attack.minDamage}`;
     }
+    if (attack.additionalCrit) {
+      damage += ' @ +' + attack.additionalCrit.join(' - ') + '% crit';
+      if (attack.additionalCritType) {
+        damage += ' ' + attack.additionalCritType;
+      }
+    }
+    if (attack.additionalCritDamage) {
+      damage += ` @ +${attack.additionalCritDamage}% crit dmg`;
+    }
     // Omit ' (SUM)' for Summoning school; it seems redundant.
     damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
     damage += attack.isNat ? ' (NAT)' : '';
@@ -251,6 +267,14 @@ export function describeEnlirSoulBreak(
     chain = (isEnlirElement(type) ? getElementShortName(type) : type) + ' chain';
     chain += ' ' + toMrPFixed(1 + +fieldBonus / 100) + 'x';
     chain += ` (max ${max})`;
+  }
+
+  if (
+    opt.burstCommands &&
+    _.some(opt.burstCommands, i => i.effects.match(' scaling with ' + sb.name + ' uses'))
+  ) {
+    // Hack: In practice, it's always command 1 that does the powering up.
+    other.push('powers up cmd 2');
   }
 
   if (
@@ -508,8 +532,9 @@ export function describeEnlirSoulBreak(
     enlir.burstCommands[sb.character] &&
     enlir.burstCommands[sb.character][sb.name]
   ) {
-    result.burstCommands = enlir.burstCommands[sb.character][sb.name].map(i =>
-      describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false }),
+    const burstCommands = enlir.burstCommands[sb.character][sb.name];
+    result.burstCommands = burstCommands.map(i =>
+      describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false, burstCommands }),
     );
   }
   if (

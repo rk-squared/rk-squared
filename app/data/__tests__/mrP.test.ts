@@ -398,7 +398,7 @@ describe('mrP', () => {
             school: 'Knight',
           },
           {
-            damage: 'p3.42/6 h+wi',
+            damage: 'p3.42/6 h+wi @ +50% crit dmg',
             burstToggle: false,
             school: 'Knight',
           },
@@ -414,7 +414,7 @@ describe('mrP', () => {
       });
       expect(damage.burstCommands!.map(i => formatMrP(i))).toEqual([
         'ON, self fastcast 3',
-        'OFF, p3.42/6 h+wi',
+        'OFF, p3.42/6 h+wi @ +50% crit dmg',
         'p2.28/4 h+wi',
         'p2.85/5 h+wi',
       ]);
@@ -446,6 +446,49 @@ describe('mrP', () => {
       ]);
 
       // TODO: How to handle Rubicante, with a toggle command that has an effect?
+    });
+
+    it('converts Squall-type burst commands', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Balthier - Spark of Change'])).toEqual({
+        damage: 'phys 7.68/8 fire+non rngd',
+        other: '+20% fire vuln. 25s',
+        burstCommands: [
+          {
+            damage: 'p0.6/2 f+n rngd',
+            other: '25% for +10% fire vuln. 15s, powers up cmd 2',
+            school: 'Machinist',
+          },
+          {
+            damage: 'p0.96/4 - 2.16/4 - 3.36/4 - 4.8/4 f+n rngd',
+            other: undefined,
+            school: 'Machinist',
+          },
+        ],
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Squall - Steely Blade'])).toEqual({
+        damage: 'phys 6.64/8 ice+non',
+        other: 'ice infuse 25s',
+        burstCommands: [
+          { damage: 'p0.8/2 i+n', other: 'powers up cmd 2', school: 'Spellblade' },
+          {
+            damage: 'p2.16/4 - 4.45/5 - 6.3/6 - 8.75/7 i+n @ +0 - 5 - 10 - 25% crit',
+            school: 'Spellblade',
+          },
+        ],
+      });
+    });
+
+    it('processes crit modifiers', () => {
+      // Discrepancy: MrP often uses ' (+50% crit dmg)'
+      expect(describeEnlirSoulBreak(soulBreaks['Delita - Hero-King'])).toEqual({
+        damage: 'phys 6.96/8 holy+fire+lgt+ice @ +50% crit dmg',
+        other: undefined,
+        burstCommands: [
+          { damage: 'p2.32/4 h+f @ +50% crit dmg', other: undefined, school: 'Spellblade' },
+          { damage: 'p2.32/4 l+i @ +50% crit dmg', other: undefined, school: 'Spellblade' },
+        ],
+      });
     });
 
     it('converts EX modes with unusual bonuses', () => {
@@ -1422,6 +1465,8 @@ describe('mrP', () => {
         damage: 'phys 1.5 (NAT)',
         other: 'auto repeat 2 turns',
       });
+      // Discrepancy: MrP doesn't show "slow" here, and for witch abilities,
+      // shows it as ", slightly slow cast."  But this format seems useful.
       expect(describeEnlirSoulBreak(soulBreaks['Gau - Meteor Rage'])).toEqual({
         damage: 'AoE phys 6.15/3 rngd',
         other: 'auto slow AoE p2.38/2 rngd Combat 3 turns',
