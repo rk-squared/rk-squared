@@ -328,6 +328,16 @@ const isCustomStatMod = ({ codedName, effects }: EnlirStatus) =>
 
 const percentToMultiplier = (percent: number) => 1 + percent / 100;
 
+function formatTurns(turns: string | number | null): string {
+  if (!turns) {
+    return '';
+  } else if (+turns === 1) {
+    return ' 1 turn';
+  } else {
+    return ' ' + turns + ' turns';
+  }
+}
+
 /**
  * Describes a "well-known" or common Enlir status name.
  *
@@ -364,13 +374,13 @@ export function describeEnlirStatus(status: string, source?: EnlirSkill) {
   }
 
   // More special cases - schools + numbers
-  if ((m = status.match(/(\S+) (?:Extended )?\+(\d+)% Boost/))) {
-    const [, type, percent] = m;
+  if ((m = status.match(/(\S+) (?:Extended )?\+(\d+)% Boost(?: (\d+))?/))) {
+    const [, type, percent, turns] = m;
     const multiplier = toMrPFixed(percentToMultiplier(+percent));
     if (type === 'Weakness') {
-      return `${multiplier}x dmg vs weak`;
+      return `${multiplier}x dmg vs weak` + formatTurns(turns);
     } else {
-      return `${multiplier}x ${getMiddleName(type)} dmg`;
+      return `${multiplier}x ${getMiddleName(type)} dmg` + formatTurns(turns);
     }
   }
 
@@ -381,7 +391,7 @@ export function describeEnlirStatus(status: string, source?: EnlirSkill) {
     const [, baseStatus, turns] = m;
     const genericStatus = resolveStatusAlias(baseStatus);
     if (genericStatus) {
-      return genericStatus + ' ' + turns + (turns === '1' ? ' turn' : ' turns');
+      return genericStatus + formatTurns(turns);
     }
   }
 

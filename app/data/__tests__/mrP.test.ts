@@ -839,7 +839,7 @@ describe('mrP', () => {
         damage: 'phys 7.1/10 wind+lgt jump',
         other:
           'self jump instacast 15s, ' +
-          '15s: (Dragoon ⤇ same row 1.3x Dragoon dmg, no air time 1 turn)',
+          '15s: (Dragoon ⤇ same row 1.3x Dragoon dmg 1 turn, no air time 1 turn)',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Jecht - Beast and Father'])).toEqual({
         damage: 'phys 7.0/10 dark+fire+non',
@@ -1427,6 +1427,18 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks["Amarant - Outlaw's Spirit"])).toEqual({
         instant: true,
         other: 'fire infuse stacking 25s, fire infuse 25s, self crit =100% 2 turns',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Bartz - Call of the Wind'])).toEqual({
+        damage: 'phys 6.64/8 wind+non',
+        other: 'wind infuse 25s',
+        burstCommands: [
+          { damage: 'p2.16/4 wi+n', other: undefined, school: 'Spellblade' },
+          {
+            damage: 'p1.68/3 wi+n',
+            other: 'self 1.15x Spellblade dmg 3 turns',
+            school: 'Spellblade',
+          },
+        ],
       });
     });
 
