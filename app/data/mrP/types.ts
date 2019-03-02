@@ -2,6 +2,10 @@ import { arrayify } from '../../utils/typeUtils';
 import { EnlirElement, EnlirSchool, isEnlirElement, isEnlirSchool } from '../enlir';
 import { andOrList } from './util';
 
+export interface XRegExpNamedGroups {
+  [groupName: string]: string | undefined;
+}
+
 export const SB_BAR_SIZE = 250;
 
 export type MrPDamageType = 'phys' | 'white' | 'magic' | '?';

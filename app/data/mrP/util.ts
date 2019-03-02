@@ -96,7 +96,7 @@ export function isAllSame<T>(values: T[], iteratee: (value: T) => any): boolean 
 export const enDashJoin = ' – ';
 
 export function slashMerge(options: string[], { forceEnDash } = { forceEnDash: false }): string {
-  // MrP-specific logic: Don't split up stat mods
+  // MrP-specific logic: Don't split up stat mods.
   options = options.map(i => i.replace(/(\d+%) ([A-Z]{3})/g, '$1\u00A0$2'));
 
   const optionParts = options.map(i => i.split(/([,? +])/));
@@ -156,10 +156,12 @@ export function cleanUpSlashedNumbers(s: string): string {
   }
 }
 
-export function formatUseCount(count: number): string {
-  if (count > 4) {
-    return '0…' + (count - 1);
+export function formatUseCount(count: number | undefined): string {
+  if (!count) {
+    return 'w/ uses';
+  } else if (count > 4) {
+    return 'w/ 0…' + (count - 1) + ' uses';
   } else {
-    return _.times(count).join('-');
+    return 'w/ ' + _.times(count).join('-') + ' uses';
   }
 }

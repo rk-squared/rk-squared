@@ -244,6 +244,15 @@ describe('mrP', () => {
       });
     });
 
+    it('converts status effects that scale with uses', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Biggs - Saintrock Cleft'])).toEqual({
+        damage: 'phys 7.0/10 earth+holy+non',
+        other:
+          'self 1.3x/1.5x/1.7x PHY dmg w/ 0-1-2 uses 15s, ' +
+          '15s: (earth/holy ⤇ p2.0 e+h+n overstrike Heavy)',
+      });
+    });
+
     it('converts summons', () => {
       // Discrepancy: MrP doesn't include minimum damage, but it seems
       // useful.
@@ -333,7 +342,7 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Firion - Rush of Arms'])).toEqual({
         damage: 'phys 7.0/10 holy+fire+ice',
         other:
-          'self +30% PHY 15s, 15s: EX: Knight/Samurai instacast, heal 10% of Knight/Samurai dmg',
+          'self 1.3x PHY dmg 15s, 15s: EX: Knight/Samurai instacast, heal 10% of Knight/Samurai dmg',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Luneth - Howling Vortex'])).toEqual({
         damage: 'phys 7.1/10 wind+non',
@@ -1400,7 +1409,7 @@ describe('mrP', () => {
       });
 
       if (0) {
-        // TODO: Make this and Biggs work
+        // TODO: Make this
         expect(describeEnlirSoulBreak(soulBreaks['Celes - Spinning Twice'])).toEqual({
           damage: 'phys 9.0/15 ice+holy+non',
           other:

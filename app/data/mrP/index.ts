@@ -33,7 +33,7 @@ import {
   getShortName,
   MrPDamageType,
 } from './types';
-import { isAllSame, toMrPFixed, toMrPKilo } from './util';
+import { formatUseCount, isAllSame, toMrPFixed, toMrPKilo } from './util';
 
 export interface MrPSoulBreak {
   // Time markers.  We could simply pass the time value itself, but this lets
@@ -361,7 +361,7 @@ export function describeEnlirSoulBreak(
       .sort(sortStatus);
     for (const thisStatus of status) {
       // tslint:disable-next-line: prefer-const
-      let { statusName, duration, durationUnits, who, chance } = thisStatus;
+      let { statusName, duration, durationUnits, who, chance, scalesWithUses } = thisStatus;
 
       const parsed = parseEnlirStatusWithSlashes(statusName, sb);
       // tslint:disable: prefer-const
@@ -373,6 +373,7 @@ export function describeEnlirSoulBreak(
         defaultDuration,
         isVariableDuration,
         specialDuration,
+        optionCount,
       } = parsed;
       // tslint:enable: prefer-const
 
@@ -382,7 +383,12 @@ export function describeEnlirSoulBreak(
       }
 
       if (removes) {
+        // This is better than nothing, but it's probably not a great general
+        // solution.
         description = '-' + description;
+      }
+      if (scalesWithUses) {
+        description += ' ' + formatUseCount(optionCount);
       }
 
       if (!duration && defaultDuration) {

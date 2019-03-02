@@ -14,7 +14,13 @@ import {
   resolveStatusAlias,
   splitNumbered,
 } from './statusAlias';
-import { formatSchoolOrAbilityList, getAbbreviation, getMiddleName, getShortName } from './types';
+import {
+  formatSchoolOrAbilityList,
+  getAbbreviation,
+  getMiddleName,
+  getShortName,
+  XRegExpNamedGroups,
+} from './types';
 import {
   andList,
   cleanUpSlashedNumbers,
@@ -355,6 +361,17 @@ export function describeEnlirStatus(status: string, source?: EnlirSkill) {
     }
   }
 
+  // More special cases - schools + numbers
+  if ((m = status.match(/(\S+) (?:Extended )?\+(\d+)% Boost(?: (\d+))?/))) {
+    const [, type, percent, turns] = m;
+    const multiplier = toMrPFixed(percentToMultiplier(+percent));
+    if (type === 'Weakness') {
+      return `${multiplier}x dmg vs weak` + formatTurns(turns);
+    } else {
+      return `${multiplier}x ${getMiddleName(type)} dmg` + formatTurns(turns);
+    }
+  }
+
   // Special cases - numbers that require processing, so they can't easily
   // merge with enlirStatusAliasWithNumbers
   if ((m = status.match(/HP Stock \((\d+)\)/))) {
@@ -371,17 +388,6 @@ export function describeEnlirStatus(status: string, source?: EnlirSkill) {
     const [, percent] = m;
     const multiplier = toMrPFixed(percentToMultiplier(+percent));
     return `${multiplier}x status chance`;
-  }
-
-  // More special cases - schools + numbers
-  if ((m = status.match(/(\S+) (?:Extended )?\+(\d+)% Boost(?: (\d+))?/))) {
-    const [, type, percent, turns] = m;
-    const multiplier = toMrPFixed(percentToMultiplier(+percent));
-    if (type === 'Weakness') {
-      return `${multiplier}x dmg vs weak` + formatTurns(turns);
-    } else {
-      return `${multiplier}x ${getMiddleName(type)} dmg` + formatTurns(turns);
-    }
   }
 
   // Turn-limited versions of generic statuses.  Some turn-limited versions,
@@ -822,10 +828,14 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
   };
 }
 
+interface ParsedEnlirStatusWithSlashes extends ParsedEnlirStatus {
+  optionCount?: number;
+}
+
 export function parseEnlirStatusWithSlashes(
   status: string,
   source?: EnlirSkill,
-): ParsedEnlirStatus {
+): ParsedEnlirStatusWithSlashes {
   const enlirStatus = getEnlirStatusByName(status);
   if (status.match('/') && !enlirStatus) {
     const options = expandSlashOptions(status).map((i: string) => parseEnlirStatus(i, source));
@@ -834,6 +844,8 @@ export function parseEnlirStatusWithSlashes(
       ...options[0],
 
       description: slashMerge(options.map(i => i.description)),
+
+      optionCount: options.length,
     };
   } else {
     return parseEnlirStatus(status, source);
@@ -850,7 +862,26 @@ export interface StatusItem {
   who?: string;
   duration?: number;
   durationUnits?: string; // "second" or "turn"
+  scalesWithUses?: boolean;
 }
+
+const statusItemRe = XRegExp(
+  String.raw`
+  (?<statusName>.*?)
+  (?:\ \((?<chance>\d+)%\))?
+  (?<scalesWithUses1>\ scaling\ with\ uses)?
+  (?<who>
+    \ to\ the\ user|
+    \ to\ all\ allies|
+    \ to\ the\ lowest\ HP%\ ally|
+    \ to\ a\ random\ ally\ with\ negative\ (?:status\ )?effects
+  )?
+  (?:\ for\ (?<duration>\d+|\?)\ (?<durationUnits>second|turn)s?)?
+  (?<scalesWithUses2>\ scaling\ with\ uses)?
+  $
+  `,
+  'x',
+);
 
 /**
  * Parses a status text to separate the status name itself from associated
@@ -870,15 +901,20 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
   // - "grants Magical Blink 1, RES and MND +30% to the user for 25
   //   seconds" - m.blink is to the party, stat boosts are to the user
 
-  const m = statusText.match(
-    /^(.*?)(?: \((\d+)%\))?( to the user| to all allies| to the lowest HP% ally| to a random ally with negative (?:status )?effects)?(?: for (\d+|\?) (second|turn)s?)?$/,
-  );
-
+  const m = XRegExp.exec(statusText, statusItemRe);
   if (!m) {
     return { statusName: statusText };
   }
 
-  const [, statusName, chance, who, duration, durationUnits] = m;
+  const {
+    statusName,
+    chance,
+    who,
+    duration,
+    durationUnits,
+    scalesWithUses1,
+    scalesWithUses2,
+  } = (m as unknown) as XRegExpNamedGroups;
 
   let lookaheadWho: string | undefined;
   if (!who) {
@@ -891,11 +927,12 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
   }
 
   return {
-    statusName,
+    statusName: statusName!,
     chance: chance ? +chance : undefined,
     who: who || lookaheadWho,
     duration: duration ? +duration : undefined,
     durationUnits: durationUnits || undefined,
+    scalesWithUses: scalesWithUses1 != null || scalesWithUses2 != null,
   };
 }
 

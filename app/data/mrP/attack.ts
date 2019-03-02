@@ -335,11 +335,7 @@ function describeAdditionalCritType(
       return 'if ' + additionalCritStatus;
     }
   } else if (additionalCritScaleWithUses) {
-    if (additionalCrit) {
-      return 'w/ ' + formatUseCount(additionalCrit.length) + ' uses';
-    } else {
-      return 'w/ uses';
-    }
+    return formatUseCount(additionalCrit ? additionalCrit.length : undefined);
   } else {
     return additionalCritType;
   }
