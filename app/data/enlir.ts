@@ -333,3 +333,7 @@ export function isBrave(skill: EnlirSkill): skill is EnlirSoulBreak {
 export function isBurst(skill: EnlirSkill): skill is EnlirSoulBreak {
   return 'tier' in skill && skill.tier === 'BSB';
 }
+
+export function isBraveCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
+  return 'brave' in skill;
+}

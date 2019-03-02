@@ -6,35 +6,64 @@ import { enDashJoin, slashMerge } from './util';
 
 export const MAX_BRAVE_LEVEL = 3;
 
-function formatBraveLevel(level: number): string {
+function formatBraveMinLevel(level: number): string {
   if (level === 0) {
     return '';
   }
   return ' at brv.' + (level === 3 ? level : `${level}+`);
 }
 
+function formatBraveLevelRange(from: number, to: number): string {
+  if (from === -1 && to === -1) {
+    return '';
+  } else if (from === 0 && to === MAX_BRAVE_LEVEL) {
+    return '';
+  } else if (from === to) {
+    return ' at brv.' + from;
+  } else if (to === MAX_BRAVE_LEVEL) {
+    return formatBraveMinLevel(from);
+  } else if (from === 0) {
+    return ' up to brv.' + to;
+  } else {
+    return ' at brv.' + from + '-' + to;
+  }
+}
+
 const isHeal = (s: string) => s.match(/\bh\d/) != null;
 
+function filterBraveLevels(allParts: string[]) {
+  const firstLevel = _.findIndex(allParts);
+  const lastLevel = _.findLastIndex(allParts);
+  return {
+    parts:
+      firstLevel === -1
+        ? []
+        : allParts.slice(firstLevel, lastLevel === -1 ? undefined : lastLevel + 1),
+    firstLevel,
+    lastLevel,
+  };
+}
+
 function getBraveDamage(mrP: MrPSoulBreak[]): string {
-  let damageParts = mrP.map(i => i.damage || '');
-  const overstrike = damageParts.map(i => i.match('overstrike') != null);
+  // tslint:disable-next-line prefer-const
+  let { parts, firstLevel, lastLevel } = filterBraveLevels(mrP.map(i => i.damage || ''));
+  const overstrike = parts.map(i => i.match('overstrike') != null);
 
   // Separate the 'm' and 'p' damage markers, and remove "overstrike," since
   // we'll handle that separately.
-  damageParts = damageParts.map(i =>
-    i.replace(/\b([mp])(\d)/g, '$1 $2').replace(' overstrike', ''),
-  );
+  parts = parts.map(i => i.replace(/\b([mp])(\d)/g, '$1 $2').replace(' overstrike', ''));
 
   // Handle damage.
-  let damage = slashMerge(damageParts, { forceEnDash: true });
+  let damage = slashMerge(parts, { forceEnDash: true });
 
   // Put the 'm' and 'p' back.
   damage = damage.replace(/\b([mp]) (\d+)/g, '$1$2');
+  damage += formatBraveLevelRange(firstLevel, lastLevel);
 
   // Add overstrike level.
   const overstrikeLevel = overstrike.indexOf(true);
   if (damage && overstrikeLevel !== -1) {
-    damage += ', overstrike' + formatBraveLevel(overstrikeLevel);
+    damage += ', overstrike' + formatBraveMinLevel(firstLevel + overstrikeLevel);
   }
 
   return damage;
@@ -48,6 +77,8 @@ function getBraveHeals(mrP: MrPSoulBreak[]): string {
   } else if (healCount === MAX_BRAVE_LEVEL + 1) {
     return heals.join(enDashJoin);
   } else {
+    // If this ever becomes an issue, we can re-implement this function using
+    // filterBraveLevels.
     logger.warn('Unexpected healing for given braves');
     return '';
   }
@@ -85,7 +116,7 @@ function getBraveEffects(mrP: MrPSoulBreak[]): string {
   }
 
   const mergedEffects: Array<string | undefined> = combinedEffects.map(
-    (e, i) => e && e.join(' & ') + formatBraveLevel(i),
+    (e, i) => e && e.join(' & ') + formatBraveMinLevel(i),
   );
 
   return _.filter(mergedEffects).join(', ');

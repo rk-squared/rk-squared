@@ -372,6 +372,10 @@ describe('mrP', () => {
           'self 1.3x Spellblade dmg 15s, double Spellblade (uses extra hone) 15s, ' +
           'taunt & absorb BLK/WHT 25s',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Gau - Savory Treat'])).toEqual({
+        damage: 'phys 6.84/12 wind+lgt+non',
+        other: 'self crit =100% 25s, double Combat/Celerity (uses extra hone) 15s',
+      });
 
       expect(describeEnlirSoulBreak(soulBreaks['Emperor - Clever Ruse'])).toEqual({
         instant: true,
@@ -431,6 +435,34 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(soulBreaks['Zidane - Wall of Light'])).toEqual({
         other: 'party Regen (hi), +25% DEF/RES 25s',
+      });
+    });
+
+    it('converts cast speed changes', () => {
+      const flashingBladeId = 30221031;
+      expect(
+        describeEnlirSoulBreak(enlir.abilities[flashingBladeId], { includeSchool: false }),
+      ).toEqual({
+        damage: 'AoE phys 2.66/2 no miss',
+        other: 'cast time 1.650/1.485/1.155/0.825/0.495 w/ 0…4 uses',
+        school: 'Samurai',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Ward - Massive Anchor'])).toEqual({
+        damage: 'AoE phys 4.97/7 earth+wind jump',
+        other: 'earth infuse 25s',
+        burstCommands: [
+          {
+            damage: 'AoE p1.3/2 e+wi jump',
+            other: 'cast time 1.650/1.485/1.155/0.825/0.495/0.165 w/ 0…5 uses',
+            school: 'Dragoon',
+          },
+          {
+            damage: 'AoE p1.3/2 e+wi rngd',
+            other: 'self +30% ATK, -30% DEF 20s',
+            school: 'Dragoon',
+          },
+        ],
       });
     });
 
@@ -1474,6 +1506,22 @@ describe('mrP', () => {
       expect(formatBraveCommands(finalEffect.braveCommands!)).toEqual(
         'm7.92 – 12.0 – 20.8 – 35.0 d, overstrike at brv.1+, self Reraise 40% at brv.3',
       );
+
+      const mimic = describeEnlirSoulBreak(soulBreaks['Gogo (VI) - Righteous Mimicry']);
+      expect(mimic).toEqual({
+        braveCommands: [
+          { fast: true, damage: 'p1.81 or m7.45', school: 'Special' },
+          { fast: true, other: 'Mimic 1x', school: 'Special' },
+          { fast: true, other: 'Mimic 2x', school: 'Special' },
+          { fast: true, other: 'Mimic 3x', school: 'Special' },
+        ],
+        damage: undefined,
+        instant: true,
+        other: 'party Haste',
+      });
+      expect(formatBraveCommands(mimic.braveCommands!)).toEqual(
+        'p1.81 or m7.45 at brv.0, Mimic 1x – 2x – 3x at brv.1+',
+      );
     });
 
     it('converts AASBs', () => {
@@ -1548,6 +1596,12 @@ describe('mrP', () => {
           '15s: Awaken Indomitable: holy/ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
+      expect(describeEnlirSoulBreak(soulBreaks['Sephiroth - Stigma'])).toEqual({
+        damage: 'phys 9.0/15 dark+non',
+        other:
+          'dark infuse 25s, self dmg cap=19,999 15s, +500 SB pts, ' +
+          '15s: Awaken Darkness: Darkness inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
       // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.
     });
 
@@ -1673,6 +1727,36 @@ describe('mrP', () => {
             other: 'auto 30-30-40% party heal 30% HP – heal 70% HP – heal 30% HP 3 turns',
             school: 'Special',
           },
+        ],
+      });
+    });
+
+    it('handles mimics', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Gogo (V) - Art of Mimicry'])).toEqual({
+        other: '50% chance of Mimic, +270 SB pts on success',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Gogo (V) - Sunken Rhapsody'])).toEqual({
+        instant: true,
+        other: 'water infuse 25s, Mimic 2x, party Haste, Last stand',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Gogo (V) - Deep Aqua Breath'])).toEqual({
+        damage: 'AoE magic 11.94/6 water+non',
+        other: 'water infuse 25s',
+        burstCommands: [
+          { other: 'Mimic, cast time -0.15s per use', school: 'Special' },
+          { damage: 'm8.96/4 wa+n', school: 'Black Magic' },
+        ],
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Gogo (V) - Deep Imitation'])).toEqual({
+        instant: true,
+        other: 'water infuse stacking 25s, water infuse 25s, Mimic',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Gogo (VI) - Punishing Meteor'])).toEqual({
+        damage: 'p7.6/8 or m17.04/8',
+        other: 'party +30% ATK/MAG 25s',
+        burstCommands: [
+          { fast: true, other: 'Mimic', school: 'Special' },
+          { damage: 'p2.72/4 or m10.68/4', other: undefined, school: 'Special' },
         ],
       });
     });

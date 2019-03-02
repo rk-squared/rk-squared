@@ -6,6 +6,7 @@ import { enlir, EnlirOtherSkill, EnlirSkill, EnlirStatus, getEnlirStatusByName }
 import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
 import {
+  doubleAlias,
   effectAlias,
   enlirRankBoost,
   enlirRankBoostRe,
@@ -53,6 +54,8 @@ export function includeStatus(status: string, { removes } = { removes: false }):
     status !== 'negative effects' &&
     status !== 'positive status effects' &&
     status !== 'negative status effects' &&
+    // "SB points" are not a real status, so we handle them separately.
+    !status.match(/^\d+ SB points/) &&
     // This is an informational note rather than a real status.
     status !== 'damages undeads' &&
     // Revival is handled separately, in part so we can special-case the HP%.
@@ -413,7 +416,7 @@ export function describeEnlirStatus(
     }
   }
 
-  // More special cases - schools + numbers
+  // Special cases - schools, and schools + numbers
   if ((m = status.match(/(.+?) (?:Extended )?\+(\d+)% Boost\b(?: (\d+))?/))) {
     const [, type, percent, turns] = m;
     const multiplier = toMrPFixed(percentToMultiplier(+percent));
@@ -427,6 +430,9 @@ export function describeEnlirStatus(
     const [, type, percent, turns] = m;
     const multiplier = toMrPFixed(percentToMultiplier(+percent));
     return `${multiplier}x SB gauge from ${formatMediumList(type)}` + formatTurns(turns);
+  }
+  if ((m = status.match(/(.*) Double/))) {
+    return doubleAlias(formatSchoolOrAbilityList(m[1]));
   }
 
   // Special cases - numbers that require processing, so they can't easily
@@ -460,6 +466,8 @@ export function describeEnlirStatus(
     }
   }
 
+  // Rage status.  This involves looking up the Other Skills associated with
+  // the Rage status's source and filling in their effects.
   if (status === 'Rage' && source) {
     const rageSkills = getRageSkills(source);
     const format = (skill: EnlirSkill) =>
@@ -824,9 +832,7 @@ function describeFollowUp(followUp: FollowUpEffect): string {
   }
 
   if (followUp.effects) {
-    description.push(
-      who + followUp.effects.map((i: string) => describeEnlirStatusEffect(i)).join(', '),
-    );
+    description.push(who + followUp.effects.map(i => describeEnlirStatusEffect(i)).join(', '));
   }
 
   if (followUp.skills) {

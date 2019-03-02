@@ -6,6 +6,8 @@ export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1
 export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
 
 const rankBoostAlias = (s: string) => `1.05-1.1-1.15-1.2-1.3x ${s} dmg @ ranks 1-5`;
+export const doubleAlias = (s: string) => `double ${s} (uses extra hone)`;
+export const sbPointsAlias = (s: string) => `+${s} SB pts`;
 
 /**
  * Mappings from Enlir status names or status effect names to MrP names.
@@ -101,8 +103,9 @@ export const statusAlias: AliasMap = {
     // Nonstandard alternatives.  See enlirStatusAltName.
     'IC{X}': 'instacast {X}',
 
-    // These are not real statuses.
-    '{X} SB points': '+{X} SB pts',
+    // Soul Break Gauge +X is a real status.  X SB points is not.
+    'Soul Break Gauge +{X}': sbPointsAlias('{X}'),
+    '{X} SB points': sbPointsAlias('{X}'),
   },
 };
 
@@ -140,7 +143,7 @@ for (const i of allEnlirSchools) {
   statusAlias.simple[`${i} Quick Cast`] = `${getSchoolShortName(i)} fastcast`;
   statusAlias.simple[`${i} Instant Cast`] = `${getSchoolShortName(i)} instacast`;
   statusAlias.simple[`${i} Rank Boost`] = rankBoostAlias(i);
-  statusAlias.simple[`${i} Double`] = `double ${getSchoolShortName(i)} (uses extra hone)`;
+  statusAlias.simple[`${i} Double`] = doubleAlias(getSchoolShortName(i));
   addCastSpeedAliases(statusAlias.simple, i, getSchoolShortName(i));
 }
 addCastSpeedAliases(statusAlias.simple, 'Jump', 'jump');

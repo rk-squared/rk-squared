@@ -3866,7 +3866,7 @@
     "multiplier": null,
     "element": [],
     "time": 1.65,
-    "effects": "Four single hybrid (0.68/2.67 each) attacks",
+    "effects": "Four single hybrid attacks (0.68 or 2.67 each)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 50,

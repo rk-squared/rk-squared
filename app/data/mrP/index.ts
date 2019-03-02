@@ -7,6 +7,7 @@ import {
   EnlirSchool,
   EnlirSkill,
   isBrave,
+  isBraveCommand,
   isBurst,
   isEnlirElement,
   isGlint,
@@ -25,6 +26,7 @@ import {
   parseStatusItem,
   sortStatus,
 } from './status';
+import { sbPointsAlias } from './statusAlias';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -34,7 +36,15 @@ import {
   getShortName,
   MrPDamageType,
 } from './types';
-import { describeChances, formatUseCount, isAllSame, orList, toMrPFixed, toMrPKilo } from './util';
+import {
+  describeChances,
+  formatUseCount,
+  isAllSame,
+  orList,
+  parseNumberOccurrence,
+  toMrPFixed,
+  toMrPKilo,
+} from './util';
 
 export interface MrPSoulBreak {
   // Time markers.  We could simply pass the time value itself, but this lets
@@ -110,7 +120,12 @@ const statusEffectRe = XRegExp(
   (?<statusString>(?:.*?(?:,?\ and\ |,\ ))*?(?:.*?))
 
   # Anchor the regex to end at anything that looks like the beginning of a new effect.
-  (?=,\ grants|,\ causes|,\ removes|,\ restores\ HP\ |,\ damages\ the\ user\ |,\ heals\ the\ user\ |$)
+  (?=
+    ,\ grants|,\ causes|,\ removes|,\ restores\ HP\ |
+    ,\ damages\ the\ user\ |
+    ,\ heals\ the\ user\ |
+    ,\ casts\ the\ last\ ability\ used\ by\ an\ ally\b|
+  $)
   `,
   'x',
 );
@@ -564,6 +579,46 @@ export function describeEnlirSoulBreak(
       // Fallback
       other.push(ether);
     }
+  }
+
+  if (
+    (m = sb.effects.match(
+      /(?:(\d+)% chance to )?[Cc]asts? the last ability used by an ally(.*)?, default ability \(PHY: single, 1.50 physical\)/,
+    ))
+  ) {
+    const [, percentChance, times] = m;
+    let description = 'Mimic';
+    const timesNumber = (times && parseNumberOccurrence(times.trim())) || 1;
+
+    // For brave commands in particular, we'll want to compare with other
+    // numbers, so always include the count.
+    if (timesNumber !== 1 || isBraveCommand(sb)) {
+      description += ` ${timesNumber}x`;
+    }
+
+    if (percentChance) {
+      description = `${percentChance}% chance of ` + description;
+    }
+
+    other.push(description);
+  }
+
+  if ((m = sb.effects.match(/cast time ([-+]?[0-9.]+) for each previous use/))) {
+    const [, castTime] = m;
+    other.push('cast time ' + castTime + 's per use');
+  }
+  if ((m = sb.effects.match(/cast time ((:?[0-9.]+\/)+[0-9.]+) scaling with uses/))) {
+    const [, castTime] = m;
+    other.push('cast time ' + castTime + ' ' + formatUseCount(castTime.split(/\//).length));
+  }
+
+  if ((m = sb.effects.match(/(\d+) SB points(?: to the user?)( if successful)?/))) {
+    const [, points, ifSuccessful] = m;
+    let description = sbPointsAlias(points);
+    if (ifSuccessful) {
+      description += ' on success';
+    }
+    other.push(description);
   }
 
   if (statusInfliction.length) {

@@ -49,6 +49,19 @@ export function parseNumberString(s: string): number | null {
   return result;
 }
 
+export function parseNumberOccurrence(s: string): number | null {
+  if (s === 'once') {
+    return 1;
+  } else if (s === 'twice') {
+    return 2;
+  }
+  const m = s.match(/(.*) times/);
+  if (m) {
+    return parseNumberString(m[1]);
+  }
+  return null;
+}
+
 export function parseThresholdValues(s: string): number[] {
   return s.split('/').map(parseFloat);
 }
