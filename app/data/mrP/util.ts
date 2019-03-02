@@ -183,3 +183,16 @@ export function formatUseCount(count: number | undefined): string {
 export function countMatches(haystack: string, needle: RegExp): number {
   return (haystack.match(needle) || []).length;
 }
+
+export function describeChances(
+  options: string[],
+  percentChances: number[],
+  join = '-',
+): [string | undefined, string] {
+  const allSamePercentage = _.every(percentChances, i => i === percentChances[0]);
+  if (allSamePercentage) {
+    return [undefined, options.join(' or ')];
+  } else {
+    return [percentChances.join('-') + '%', options.join(join)];
+  }
+}

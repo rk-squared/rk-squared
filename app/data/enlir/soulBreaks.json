@@ -16812,7 +16812,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Eight single attacks (0.88 each), ATK and DEF -50% for 25 seconds, restores HP to all allies for 40% of the their maximum HP",
+    "effects": "Eight single attacks (0.88 each), ATK and DEF -50% for 25 seconds, restores HP to all allies for 40% of their maximum HP",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

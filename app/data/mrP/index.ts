@@ -33,7 +33,7 @@ import {
   getShortName,
   MrPDamageType,
 } from './types';
-import { formatUseCount, isAllSame, toMrPFixed, toMrPKilo } from './util';
+import { describeChances, formatUseCount, isAllSame, orList, toMrPFixed, toMrPKilo } from './util';
 
 export interface MrPSoulBreak {
   // Time markers.  We could simply pass the time value itself, but this lets
@@ -256,6 +256,34 @@ export function describeEnlirSoulBreak(
     damage = m[1] + ' fixed dmg';
   }
 
+  // Random effects.  In practice, these are always pure damage, so list as
+  // damage.
+  if ((m = sb.effects.match(/Randomly casts (.*)/))) {
+    const skillsAndChances = _.unzip(
+      m[1]
+        .split(orList)
+        .map(i => i.match(/^(.*?)(?: \((\d+)%\))?$/))
+        .map((i: RegExpMatchArray) => [i[1], i[2] ? +i[2] : 1]),
+    ) as [string[], number[]];
+
+    let skills = skillsAndChances[0];
+
+    // Resolve skill effects, if it looks like it won't be too verbose.
+    if (skills.length <= 3) {
+      skills = skillsAndChances[0].map(i =>
+        enlir.abilitiesByName[i]
+          ? formatMrP(
+              describeEnlirSoulBreak(enlir.abilitiesByName[i], {
+                abbreviate: true,
+                includeSchool: false,
+              }),
+            )
+          : i,
+      );
+    }
+    damage = _.filter(describeChances(skills, skillsAndChances[1], ' / ')).join(' ');
+  }
+
   if (damage && sb.effects.match(/ATK increases as HP decreases/)) {
     // MrP and random comments on Reddit suggest that Cecil gets up to +1500
     // and Locke gets +11-40%.  Without confirmation in Enlir, I'll omit for
@@ -284,7 +312,7 @@ export function describeEnlirSoulBreak(
 
   if (
     (m = sb.effects.match(
-      /[Rr]estores HP( to all allies| to the user| to the lowest HP% ally)? for (\d+)% of (?:their|the target's|the user's) maximum HP/i,
+      /[Rr]estores HP( to all allies| to the user| to the lowest HP% ally)? for (\d+)% of (?:their|the target's|the user's) max\.?(:?imum)? HP/i,
     ))
   ) {
     const [, who, healPercent] = m;
@@ -306,7 +334,7 @@ export function describeEnlirSoulBreak(
     selfOther.push(`heal ${healPercent}% of dmg`);
   }
 
-  if ((m = sb.effects.match(/damages the user for ([0-9.]+)% max(?:imum)? HP/))) {
+  if ((m = sb.effects.match(/damages the user for ([0-9.]+)% max\.?(?:imum)? HP/))) {
     const [, damagePercent] = m;
     selfOther.push(`lose ${damagePercent}% max HP`);
   }

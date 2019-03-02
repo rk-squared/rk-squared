@@ -148,6 +148,19 @@ describe('mrP', () => {
       });
     });
 
+    it('converts random effects', () => {
+      // Discrepancy: MrP doesn't always expand these.  Should we?
+      expect(describeEnlirSoulBreak(soulBreaks['Summoner - Call I'])).toEqual({
+        damage: '25-50-25% m2.7, min dmg 600 / m2.7 f, min dmg 600 / m5.4, min dmg 1000',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Summoner - Call II'])).toEqual({
+        damage: 'Goblin or Chocobo or Ifrit or Shiva or Ramuh',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Tellah - Recall'])).toEqual({
+        damage: 'm2.9 f or m2.9 i or m2.9 l',
+      });
+    });
+
     it('converts HP-draining attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Blood Weapon'])).toEqual({
         damage: 'phys 1.6',
@@ -959,6 +972,27 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Gladiolus - Survival Spirit'])).toEqual({
         other: 'self heal 25% HP',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Garnet - Trial by Lightning'])).toEqual({
+        burstCommands: [
+          {
+            burstToggle: true,
+            damage: undefined,
+            other: 'heal 40% HP',
+            school: 'Summoning',
+          },
+          {
+            burstToggle: false,
+            damage: 'AoE m5.4/2 l+n',
+            other: 'party heal 30% HP',
+            school: 'Summoning',
+          },
+          { damage: 'm10.48/4 l+n, min dmg 1100', other: undefined, school: 'Summoning' },
+          { damage: 'm13.1/5 l+n, min dmg 1100', other: undefined, school: 'Summoning' },
+        ],
+        damage: undefined,
+        other: '+20% lgt vuln. 25s, party +30% ATK/MAG 25s',
+      });
     });
 
     it('converts fixed heals', () => {
@@ -1614,7 +1648,7 @@ describe('mrP', () => {
       // beginning.
       expect(describeEnlirSoulBreak(soulBreaks['Gau - Rage I'])).toEqual({
         damage: 'phys 1.5 (NAT)',
-        other: 'auto repeat 2 turns',
+        other: 'auto p1.5 Combat (NAT) 2 turns',
       });
       // Discrepancy: MrP doesn't show "slow" here, and for witch abilities,
       // shows it as ", slightly slow cast."  But this format seems useful.
@@ -1625,6 +1659,24 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Gau - Gigavolt Rage'])).toEqual({
         damage: 'AoE phys 4.2/4 lgt rngd',
         other: 'auto p2.1 l rngd Combat 3 turns',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Gau - Maul of the Wild'])).toEqual({
+        damage: 'phys 7.6/8',
+        other: 'self +30% ATK, -30% DEF 25s, fastcast 3',
+        burstCommands: [
+          {
+            damage: 'p?/null',
+            other:
+              'auto 30-30-40% AoE p2.25/3 f+n Combat – p2.7/3 f+n Combat – p1.0 f+n Combat 2 turns',
+            school: 'Combat',
+          },
+          {
+            damage: '??/null (NAT)',
+            other: 'auto 30-30-40% party heal 30% HP – heal 70% HP – heal 30% HP 2 turns',
+            school: 'Special',
+          },
+        ],
       });
     });
 

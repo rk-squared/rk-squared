@@ -12,6 +12,7 @@ import {
 } from './types';
 import {
   countMatches,
+  describeChances,
   formatUseCount,
   orList,
   parseNumberString,
@@ -136,12 +137,7 @@ function describeRandomDamage(
 ): [string | undefined, string] {
   const percents = randomAttacks.map(([, percent]) => percent);
   const damages = randomAttacks.map(([count]) => describeDamage(attackMultiplier, count));
-  const allSamePercentage = _.every(percents, i => i === percents[0]);
-  if (allSamePercentage) {
-    return [undefined, damages.join(' or ')];
-  } else {
-    return [percents.join('-') + '%', damages.join('-')];
-  }
+  return describeChances(damages, percents);
 }
 
 const thresholdJoin = ' - ';

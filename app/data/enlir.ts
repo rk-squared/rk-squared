@@ -227,12 +227,18 @@ function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
 
 export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
+  abilitiesByName: _.keyBy(rawData.abilities, 'name'),
   braveCommands: makeCommandsMap(rawData.braveCommands),
   burstCommands: makeCommandsMap(rawData.burstCommands),
   characters: _.keyBy(rawData.characters, 'id'),
   charactersByName: _.keyBy(rawData.characters, 'name'),
   magicites: _.keyBy(rawData.magicite, 'id'),
+
+  // NOTE: Other Skills' names are not unique, and they often lack IDs, so
+  // expose the array.
+  otherSkills: rawData.otherSkills,
   otherSkillsByName: _.keyBy(rawData.otherSkills, 'name'),
+
   relics: _.keyBy(rawData.relics, 'id'),
   recordMateria: _.keyBy(rawData.recordMateria, 'id'),
   soulBreaks: _.keyBy(rawData.soulBreaks, 'id'),

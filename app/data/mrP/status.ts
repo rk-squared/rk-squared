@@ -25,6 +25,8 @@ import {
 import {
   andList,
   cleanUpSlashedNumbers,
+  describeChances,
+  enDashJoin,
   lowerCaseFirst,
   numberWithCommas,
   orList,
@@ -453,11 +455,10 @@ export function describeEnlirStatus(
   }
 
   if (status === 'Rage' && source) {
-    const rageSkills = _.values(enlir.otherSkillsByName).filter(
+    const rageSkills = enlir.otherSkills.filter(
       i => i.sourceType === 'Rage Status' && i.source.startsWith(source.name + ' ('),
     );
     const format = (skill: EnlirSkill) =>
-      'auto ' +
       formatMrP(
         describeEnlirSoulBreak(skill, {
           abbreviate: true,
@@ -465,9 +466,15 @@ export function describeEnlirStatus(
         }),
       );
     if (rageSkills.length === 0) {
+      // Does not appear to actually be used.
       return 'auto repeat';
     } else if (rageSkills.length === 1) {
-      return format(rageSkills[0]);
+      return 'auto ' + format(rageSkills[0]);
+    } else {
+      // Fall back to 0% chance just to avoid special cases...
+      const chances = rageSkills.map(i => i.source.match(/\((\d+)%\)$/)).map(i => (i ? +i[1] : 0));
+      const result = describeChances(rageSkills.map(format), chances, enDashJoin);
+      return 'auto ' + _.filter(result).join(' ');
     }
   }
 
