@@ -251,6 +251,23 @@ describe('mrP', () => {
           'self 1.3x/1.5x/1.7x PHY dmg w/ 0-1-2 uses 15s, ' +
           '15s: (earth/holy ⤇ p2.0 e+h+n overstrike Heavy)',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Zidane - Solution 9'])).toEqual({
+        damage: 'phys 6.66/9 wind+non rngd',
+        other: 'wind infuse 25s',
+        burstCommands: [
+          {
+            damage: 'p2.4/2 wi+n rngd',
+            other: 'powers up cmd 2, -10%/-20%/-30%/-30% ATK, self +10%/20%/30%/30% ATK',
+            school: 'Thief',
+          },
+          {
+            damage: 'p2.4/2 wi+n rngd',
+            other: 'party +0%/10%/20%/30% ATK, reset count',
+            school: 'Thief',
+          },
+        ],
+      });
     });
 
     it('converts summons', () => {

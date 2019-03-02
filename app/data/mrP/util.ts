@@ -95,10 +95,7 @@ export function isAllSame<T>(values: T[], iteratee: (value: T) => any): boolean 
 
 export const enDashJoin = ' – ';
 
-export function slashMerge(options: string[], { forceEnDash } = { forceEnDash: false }): string {
-  // MrP-specific logic: Don't split up stat mods.
-  options = options.map(i => i.replace(/(\d+%) ([A-Z]{3})/g, '$1\u00A0$2'));
-
+function rawSlashMerge(options: string[], { forceEnDash }: { forceEnDash: boolean }) {
   const optionParts = options.map(i => i.split(/([,? +])/));
   const maxLength = Math.max(...optionParts.map(i => i.length));
 
@@ -120,17 +117,34 @@ export function slashMerge(options: string[], { forceEnDash } = { forceEnDash: f
     }
   }
 
+  return { result, same, different };
+}
+
+export function slashMerge(options: string[], { forceEnDash } = { forceEnDash: false }): string {
+  const standard = rawSlashMerge(options, { forceEnDash });
+
+  // Try it again, without splitting up stat mods.
+  const optionsWithCombinedStats = options.map(i => i.replace(/(\d+%) ([A-Z]{3})/g, '$1\u00A0$2'));
+  const combinedStats = rawSlashMerge(optionsWithCombinedStats, { forceEnDash });
+
+  // If combining pieces of stat mods lets us combine more parts, then we'll
+  // allow that.
+  const useCombinedStats = combinedStats.different < standard.different;
+  const picked = useCombinedStats ? combinedStats : standard;
+  let result = picked.result;
+
+  if (useCombinedStats) {
+    result = result.replace(/\u00A0/gu, ' ');
+  }
+
   // Check if values are too different to practically combine.  If they are,
   // fall back to separating the whole list with en dashes.  (Should we instead
   // use slashes here?  Unfortunately, MrP isn't completely consistent - a lot
   // depends on whether the clauses we're separating use slashes or hyphens
   // internally.)
-  if (same < different) {
+  if (picked.same < picked.different) {
     result = options.join(enDashJoin);
   }
-
-  // MrP-specific logic: Undo our no-split logic
-  result = result.replace(/\u00A0/gu, ' ');
 
   return result;
 }

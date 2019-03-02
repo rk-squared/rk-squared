@@ -508,6 +508,10 @@ export function describeEnlirSoulBreak(
     appendGroup(other, detailOther);
   }
 
+  if (sb.effects.endsWith(', reset')) {
+    other.push('reset count');
+  }
+
   const result: MrPSoulBreak = {
     damage: damage || undefined,
     other: other.length ? other.join(', ') : undefined,

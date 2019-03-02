@@ -41,8 +41,9 @@ export function includeStatus(status: string, { removes } = { removes: false }):
     // En-Element is listed separately by our functions, following MrP's
     // example.
     !status.startsWith('Attach ') &&
-    // Smart Ether isn't a real status.
+    // Smart Ether and "reset" aren't real statuses.
     !status.match(/\b[Ss]mart\b.*\bether\b/) &&
+    status !== 'reset' &&
     // Esuna and Dispel are handled separately - although the current, more
     // powerful status code could perhaps consolidate them.
     status !== 'positive effects' &&
@@ -344,13 +345,45 @@ function formatTurns(turns: string | number | null): string {
   }
 }
 
+function statusAsStatMod(statusName: string, enlirStatus?: EnlirStatus) {
+  const statModRe = /((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([-+][0-9X]+%)/;
+  let m: RegExpMatchArray | null;
+
+  if ((m = statusName.match(statModRe))) {
+    const [, stat, amount] = m;
+    return { stat: stat.split(andList), amount };
+  }
+
+  if (enlirStatus && enlirStatus.codedName.startsWith('CUSTOM_')) {
+    if ((m = enlirStatus.effects.match(statModRe))) {
+      const stat = m[1];
+      let amount = m[2];
+
+      // Hack: Substitute placeholders back from our status name.
+      if (amount === '+X%') {
+        if ((m = statusName.match(/([-+]\d+%)/))) {
+          amount = m[1];
+        }
+      }
+
+      return { stat: stat.split(andList), amount };
+    }
+  }
+
+  return null;
+}
+
 /**
  * Describes a "well-known" or common Enlir status name.
  *
  * One-off statuses instead need to be looked up and their effects processed
  * via describeEnlirStatusEffect.
  */
-export function describeEnlirStatus(status: string, source?: EnlirSkill) {
+export function describeEnlirStatus(
+  status: string,
+  enlirStatus?: EnlirStatus,
+  source?: EnlirSkill,
+) {
   let m: RegExpMatchArray | null;
 
   // Generic statuses
@@ -379,15 +412,17 @@ export function describeEnlirStatus(status: string, source?: EnlirSkill) {
   } else if ((m = status.match(/Damage Cap (\d+)/))) {
     const [, cap] = m;
     return `dmg cap=${numberWithCommas(+cap)}`;
-  } else if ((m = status.match(/((?:[A-Z]{3}(?:,? and |, ))*[A-Z]{3}) ([-+]\d+%)/))) {
-    // Status effects: e.g., "MAG +30%" from EX: Attack Hand
-    // Reorganize stats into, e.g., +30% MAG to match MMP
-    const [, stat, amount] = m;
-    return amount + ' ' + describeStats(stat.split(andList));
   } else if ((m = status.match(/Status Chance ([+-]\d+)%/))) {
     const [, percent] = m;
     const multiplier = toMrPFixed(percentToMultiplier(+percent));
     return `${multiplier}x status chance`;
+  }
+
+  // Status effects: e.g., "MAG +30%" from EX: Attack Hand.  Reorganize stats
+  // into, e.g., +30% MAG to match MMP
+  const statMod = statusAsStatMod(status, enlirStatus);
+  if (statMod) {
+    return statMod.amount + ' ' + describeStats(statMod.stat);
   }
 
   // Turn-limited versions of generic statuses.  Some turn-limited versions,
@@ -704,10 +739,10 @@ function describeFollowUpStatus(statusName: string): string {
   const options = getSlashOptions(statusName);
   if (!status && options) {
     const statusOptions = options.map(i => statusName.replace(slashOptionsRe, i));
-    return slashMerge(statusOptions.map((i: string) => describeEnlirStatus(i)));
+    return slashMerge(statusOptions.map((i: string) => describeEnlirStatus(i, status)));
   }
 
-  return describeEnlirStatus(statusName);
+  return describeEnlirStatus(statusName, status);
 }
 
 /**
@@ -795,7 +830,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
   if (!enlirStatus) {
     logger.warn(`Unknown status: ${status}`);
   }
-  let description = describeEnlirStatus(status, source);
+  let description = describeEnlirStatus(status, enlirStatus, source);
 
   const isEx = isExStatus(status);
   const isAwaken = isAwakenStatus(status);
@@ -869,7 +904,7 @@ const statusItemRe = XRegExp(
   String.raw`
   (?<statusName>.*?)
   (?:\ \((?<chance>\d+)%\))?
-  (?<scalesWithUses1>\ scaling\ with\ uses)?
+  (?<scalesWithUses1>\ scaling\ with\ (?<scaleWithUsesSkill1>[A-Za-z ]+\ )?uses)?
   (?<who>
     \ to\ the\ user|
     \ to\ all\ allies|
@@ -877,7 +912,7 @@ const statusItemRe = XRegExp(
     \ to\ a\ random\ ally\ with\ negative\ (?:status\ )?effects
   )?
   (?:\ for\ (?<duration>\d+|\?)\ (?<durationUnits>second|turn)s?)?
-  (?<scalesWithUses2>\ scaling\ with\ uses)?
+  (?<scalesWithUses2>\ scaling\ with\ (?<scaleWithUsesSkill2>[A-Za-z ]+\ )?uses)?
   $
   `,
   'x',
@@ -914,6 +949,8 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     durationUnits,
     scalesWithUses1,
     scalesWithUses2,
+    scaleWithUsesSkill1,
+    scaleWithUsesSkill2,
   } = (m as unknown) as XRegExpNamedGroups;
 
   let lookaheadWho: string | undefined;
@@ -926,13 +963,21 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     }
   }
 
+  // Check if this scales with uses.  Hack: If it scales with the uses of
+  // another skill, then assume that higher-level code will communicate that
+  // (e.g., "powers up cmd 2".)
+  const scalesWithUses =
+    (scalesWithUses1 != null || scalesWithUses2 != null) &&
+    scaleWithUsesSkill1 == null &&
+    scaleWithUsesSkill2 == null;
+
   return {
     statusName: statusName!,
     chance: chance ? +chance : undefined,
     who: who || lookaheadWho,
     duration: duration ? +duration : undefined,
     durationUnits: durationUnits || undefined,
-    scalesWithUses: scalesWithUses1 != null || scalesWithUses2 != null,
+    scalesWithUses,
   };
 }
 
