@@ -250,7 +250,7 @@ export function describeEnlirSoulBreak(
 
   if (
     (m = sb.effects.match(
-      /Restores HP( to all allies| to the user)? for (\d+)% of (?:their|the target's|the user's) maximum HP/i,
+      /[Rr]estores HP( to all allies| to the user| to the lowest HP% ally)? for (\d+)% of (?:their|the target's|the user's) maximum HP/i,
     ))
   ) {
     const [, who, healPercent] = m;
@@ -259,6 +259,8 @@ export function describeEnlirSoulBreak(
       partyOther.push(heal);
     } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
       selfOther.push(heal);
+    } else if (who === ' to the lowest HP% ally') {
+      other.push('ally ' + heal);
     } else {
       // Fallback
       other.push(heal);
@@ -275,13 +277,19 @@ export function describeEnlirSoulBreak(
     selfOther.push(`lose ${damagePercent}% max HP`);
   }
 
-  if ((m = sb.effects.match(/[Rr]estores HP \((\d+)\)( to the user| to all allies)?/))) {
+  if (
+    (m = sb.effects.match(
+      /[Rr]estores HP \((\d+)\)( to the user| to all allies| to the lowest HP% ally)?/,
+    ))
+  ) {
     const [, healAmount, who] = m;
     const heal = 'h' + healAmount;
     if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
       partyOther.push(heal);
     } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
       selfOther.push(heal);
+    } else if (who === ' to the lowest HP% ally') {
+      other.push('ally ' + heal);
     } else if (isSoulBreak(sb) && sb.target.startsWith('Single')) {
       // Because medica soul breaks are so common, we'll call out when a SB
       // only heals one person.
@@ -292,7 +300,7 @@ export function describeEnlirSoulBreak(
     }
   }
 
-  const dispelEsunaRe = /[Rr]emoves (positive|negative) (?:status )?effects( to all allies)?/g;
+  const dispelEsunaRe = /[Rr]emoves (positive|negative) (?:status )?effects( to all allies| to a random ally with negative(?: status)? effects)?/g;
   while ((m = dispelEsunaRe.exec(sb.effects))) {
     const [, dispelOrEsuna, who] = m;
     const effect = dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna';
@@ -303,6 +311,8 @@ export function describeEnlirSoulBreak(
       other.push('AoE ' + effect);
     } else if (!who && sb.target.startsWith('Single')) {
       other.push(effect);
+    } else if (who && who.startsWith(' to a random ally')) {
+      other.push('ally ' + effect);
     } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
       partyOther.push(effect);
     } else {
@@ -475,7 +485,7 @@ export function describeEnlirSoulBreak(
   if ('school' in sb) {
     result.school = sb.school;
   }
-  if (burstToggle !== null) {
+  if (burstToggle != null) {
     result.burstToggle = burstToggle;
   }
 

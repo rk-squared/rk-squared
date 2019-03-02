@@ -54,7 +54,6 @@ for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
     }
   }
 
-  console.log();
   const text = formatMrP(mrP);
   console.log(sb.character + ': ' + sb.tier + ': ' + sb.name);
   console.log(text || '???');
@@ -66,4 +65,5 @@ for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
       console.log('    ' + formatMrP(i));
     }
   }
+  console.log();
 }

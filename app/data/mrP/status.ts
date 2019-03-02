@@ -861,7 +861,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
   //   seconds" - m.blink is to the party, stat boosts are to the user
 
   const m = statusText.match(
-    /^(.*?)(?: \((\d+)%\))?( to the user| to all allies)?(?: for (\d+|\?) (second|turn)s?)?$/,
+    /^(.*?)(?: \((\d+)%\))?( to the user| to all allies| to the lowest HP% ally| to a random ally with negative (?:status )?effects)?(?: for (\d+|\?) (second|turn)s?)?$/,
   );
 
   if (!m) {

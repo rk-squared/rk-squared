@@ -418,6 +418,8 @@ describe('mrP', () => {
         'p2.28/4 h+wi',
         'p2.85/5 h+wi',
       ]);
+
+      // TODO: How to handle Rubicante, with a toggle command that has an effect?
     });
 
     it('converts EX modes with unusual bonuses', () => {
@@ -826,6 +828,22 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Larsa - Righteous Prince'])).toEqual({
         instant: true,
         other: 'party Esuna, Status blink 1',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Ceodore - Holy Cross'])).toEqual({
+        burstCommands: [
+          {
+            damage: 'p2.2/4 h+n',
+            other: 'ally heal 25% HP',
+            school: 'Knight',
+          },
+          {
+            damage: 'AoE p1.58/2 h+n',
+            other: 'ally Esuna',
+            school: 'Knight',
+          },
+        ],
+        damage: 'phys 7.52/8 holy+non',
+        other: 'party heal 40% HP',
       });
     });
 
