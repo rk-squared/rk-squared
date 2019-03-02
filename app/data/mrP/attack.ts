@@ -341,6 +341,7 @@ function describeAdditionalCritType(
 
 const attackRe = XRegExp(
   String.raw`
+  (?:^|,\ )
   (?<numAttacks>[Rr]andomly\ deals\ .*|[A-Za-z-]+|[0-9/]+)\ #
   (?:(?<attackType>group|random|single)\ )?
   (?<modifiers>(hybrid\ |ranged\ |jump\ )*)

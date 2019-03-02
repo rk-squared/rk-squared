@@ -18,6 +18,7 @@ import {
   checkForAndStatuses,
   describeStats,
   formatDuration,
+  getRageSkills,
   includeStatus,
   parseEnlirStatus,
   parseEnlirStatusWithSlashes,
@@ -291,6 +292,39 @@ export function describeEnlirSoulBreak(
     damage += ', uses +ATK as HP falls';
   }
 
+  // Hack / special case: Rage skills whose rage effects match the main effect.
+  let isPureRage = false;
+  let rageTurns: number | undefined;
+  if (
+    (m = sb.effects.match(/^Casts a random (.*) attack, grants Rage to the user for (\d+) turns?/))
+  ) {
+    const [, rageSkill, turns] = m;
+    if (rageSkill === sb.name) {
+      isPureRage = true;
+      rageTurns = +turns;
+    }
+  } else if ((m = sb.effects.match(/^(.*), grants Rage to the user for (\d+) turns?/))) {
+    const [, effects, turns] = m;
+    const rageSkills = getRageSkills(sb);
+    if (rageSkills.length === 1 && rageSkills[0].effects === effects) {
+      isPureRage = true;
+      rageTurns = +turns;
+    }
+  }
+  if (isPureRage && rageTurns) {
+    const rageStatus = parseEnlirStatus('Rage', sb);
+    const description = rageStatus.description + ' ' + formatDuration(rageTurns + 1, 'turn');
+
+    // Hack: We're taking advantage of our knowledge of which rage skills exist
+    // here - only Gau's BSB's cmd2 is non-damaging.
+    const isNonDamage = 'school' in sb && sb.school === 'Special';
+    if (isNonDamage) {
+      other.push(description);
+    } else {
+      damage = description;
+    }
+  }
+
   if ((m = sb.effects.match(/Activates (.*?) Chain \(max (\d+), field \+(\d+)%\)/))) {
     const [, type, max, fieldBonus] = m;
 
@@ -395,6 +429,10 @@ export function describeEnlirSoulBreak(
     for (const thisStatus of status) {
       // tslint:disable-next-line: prefer-const
       let { statusName, duration, durationUnits, who, chance, scalesWithUses } = thisStatus;
+
+      if (statusName === 'Rage' && isPureRage) {
+        continue;
+      }
 
       const parsed = parseEnlirStatusWithSlashes(statusName, sb);
       // tslint:disable: prefer-const

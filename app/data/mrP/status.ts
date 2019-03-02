@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { logger } from '../../utils/logger';
-import { enlir, EnlirSkill, EnlirStatus, getEnlirStatusByName } from '../enlir';
+import { enlir, EnlirOtherSkill, EnlirSkill, EnlirStatus, getEnlirStatusByName } from '../enlir';
 import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
 import {
@@ -386,6 +386,12 @@ function statusAsStatMod(statusName: string, enlirStatus?: EnlirStatus) {
   return null;
 }
 
+export function getRageSkills(source: EnlirSkill): EnlirOtherSkill[] {
+  return enlir.otherSkills.filter(
+    i => i.sourceType === 'Rage Status' && i.source.startsWith(source.name + ' ('),
+  );
+}
+
 /**
  * Describes a "well-known" or common Enlir status name.
  *
@@ -455,9 +461,7 @@ export function describeEnlirStatus(
   }
 
   if (status === 'Rage' && source) {
-    const rageSkills = enlir.otherSkills.filter(
-      i => i.sourceType === 'Rage Status' && i.source.startsWith(source.name + ' ('),
-    );
+    const rageSkills = getRageSkills(source);
     const format = (skill: EnlirSkill) =>
       formatMrP(
         describeEnlirSoulBreak(skill, {

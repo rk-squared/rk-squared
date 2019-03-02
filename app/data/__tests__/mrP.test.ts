@@ -1647,8 +1647,7 @@ describe('mrP', () => {
       // and the others like "auto 3 turns", but I prefer "auto" at the
       // beginning.
       expect(describeEnlirSoulBreak(soulBreaks['Gau - Rage I'])).toEqual({
-        damage: 'phys 1.5 (NAT)',
-        other: 'auto p1.5 Combat (NAT) 2 turns',
+        damage: 'auto p1.5 Combat (NAT) 3 turns',
       });
       // Discrepancy: MrP doesn't show "slow" here, and for witch abilities,
       // shows it as ", slightly slow cast."  But this format seems useful.
@@ -1666,14 +1665,12 @@ describe('mrP', () => {
         other: 'self +30% ATK, -30% DEF 25s, fastcast 3',
         burstCommands: [
           {
-            damage: 'p?/null',
-            other:
-              'auto 30-30-40% AoE p2.25/3 f+n Combat – p2.7/3 f+n Combat – p1.0 f+n Combat 2 turns',
+            damage:
+              'auto 30-30-40% AoE p2.25/3 f+n Combat – p2.7/3 f+n Combat – p1.0 f+n Combat 3 turns',
             school: 'Combat',
           },
           {
-            damage: '??/null (NAT)',
-            other: 'auto 30-30-40% party heal 30% HP – heal 70% HP – heal 30% HP 2 turns',
+            other: 'auto 30-30-40% party heal 30% HP – heal 70% HP – heal 30% HP 3 turns',
             school: 'Special',
           },
         ],
