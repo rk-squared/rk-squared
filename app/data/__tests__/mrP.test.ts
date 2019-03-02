@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-import { describeEnlirSoulBreak } from '../mrP';
+import { describeEnlirSoulBreak, formatMrP } from '../mrP';
 import { formatBraveCommands } from '../mrP/brave';
 import { parseNumberString, parsePercentageCounts } from '../mrP/util';
 
@@ -384,6 +384,40 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Zidane - Wall of Light'])).toEqual({
         other: 'party Regen (hi), +25% DEF/RES 25s',
       });
+    });
+
+    it('converts burst toggles', () => {
+      const angeal = describeEnlirSoulBreak(soulBreaks['Angeal - Unleashed Wrath']);
+      expect(angeal).toEqual({
+        damage: 'phys 6.64/8 holy+wind',
+        other: 'party crit =50% 25s',
+        burstCommands: [
+          {
+            other: 'self fastcast 3',
+            burstToggle: true,
+            school: 'Knight',
+          },
+          {
+            damage: 'p3.42/6 h+wi',
+            burstToggle: false,
+            school: 'Knight',
+          },
+          {
+            damage: 'p2.28/4 h+wi',
+            school: 'Knight',
+          },
+          {
+            damage: 'p2.85/5 h+wi',
+            school: 'Knight',
+          },
+        ],
+      });
+      expect(angeal.burstCommands!.map(i => formatMrP(i))).toEqual([
+        'ON, self fastcast 3',
+        'OFF, p3.42/6 h+wi',
+        'p2.28/4 h+wi',
+        'p2.85/5 h+wi',
+      ]);
     });
 
     it('converts EX modes with unusual bonuses', () => {
@@ -789,6 +823,10 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Shelke - Countertek'])).toEqual({
         other: 'AoE Dispel, party Esuna, Regen (hi)',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Larsa - Righteous Prince'])).toEqual({
+        instant: true,
+        other: 'party Esuna, Status blink 1',
+      });
     });
 
     it('converts scaling attacks', () => {
@@ -1107,7 +1145,7 @@ describe('mrP', () => {
       });
       expect(formatBraveCommands(darkKnight.braveCommands!)).toEqual(
         'p1.92 – 3.85 – 7.7 – 12.0 d, overstrike at brv.1+, ' +
-        '-30% DEF 15s – -30% DEF 15s – -70% DEF/RES 8s & self lose 25% max HP at brv.1+',
+          '-30% DEF 15s – -30% DEF 15s – -70% DEF/RES 8s & self lose 25% max HP at brv.1+',
       );
 
       const hybrid = describeEnlirSoulBreak(soulBreaks['Reno - Pyramid Pinnacle']);

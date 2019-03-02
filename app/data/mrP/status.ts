@@ -30,14 +30,24 @@ import {
 /**
  * Status effects which should be omitted from the regular status list
  */
-export function includeStatus(status: string): boolean {
-  // En-Element is listed separately by our functions, and smart ether isn't a
-  // real status.  Dispel is handled separately.
+export function includeStatus(status: string, { removes } = { removes: false }): boolean {
   return (
+    // En-Element is listed separately by our functions, following MrP's
+    // example.
     !status.startsWith('Attach ') &&
+    // Smart Ether isn't a real status.
     !status.match(/\b[Ss]mart\b.*\bether\b/) &&
-    status !== 'removes positive effects' &&
-    status !== 'damages undeads'
+    // Esuna and Dispel are handled separately - although the current, more
+    // powerful status code could perhaps consolidate them.
+    status !== 'positive effects' &&
+    status !== 'negative effects' &&
+    status !== 'positive status effects' &&
+    status !== 'negative status effects' &&
+    // This is an informational note rather than a real status.
+    status !== 'damages undeads' &&
+    // Revival is handled separately, in part so we can special-case the HP%.
+    // Again, the current status code could perhaps consolidate.
+    !(status.startsWith('KO ') && removes)
   );
 }
 
@@ -302,6 +312,10 @@ function forceEffects({ codedName }: EnlirStatus) {
 
 function forceDetail({ name }: EnlirStatus) {
   return name === 'Rage' || name === 'Runic' || name === 'High Runic' || name === 'Sentinel';
+}
+
+function isBurstToggle({ effects }: EnlirStatus) {
+  return effects.match(/affects certain burst commands/i) != null;
 }
 
 /**
@@ -575,6 +589,7 @@ export interface ParsedEnlirStatus {
   description: string;
   isDetail: boolean;
   isExLike: boolean;
+  isBurstToggle: boolean;
   defaultDuration: number | null;
   isVariableDuration: boolean;
   specialDuration?: string;
@@ -790,6 +805,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     description,
     isExLike,
     isDetail: isExLike || (enlirStatus != null && forceDetail(enlirStatus)),
+    isBurstToggle: enlirStatus != null && isBurstToggle(enlirStatus),
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
     specialDuration: enlirStatus ? getSpecialDuration(enlirStatus) : undefined,

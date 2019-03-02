@@ -41,6 +41,12 @@ export interface MrPSoulBreak {
   other?: string;
   school?: EnlirSchool;
 
+  /**
+   * If set, this indicates whether this is a burst command that toggles the
+   * burst status ON or OFF.
+   */
+  burstToggle?: boolean;
+
   burstCommands?: MrPSoulBreak[];
   braveCommands?: MrPSoulBreak[];
 }
@@ -92,12 +98,12 @@ function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): strin
 
 const statusEffectRe = XRegExp(
   String.raw`
-  (?:[Gg]rants|[Cc]auses)\ #
+  (?<verb>[Gg]rants|[Cc]auses|[Rr]emoves)\ #
 
   (?<statusString>(?:.*?(?:,?\ and\ |,\ ))*?(?:.*?))
 
   # Anchor the regex to end at anything that looks like the beginning of a new effect.
-  (?=,\ grants|,\ causes|,\ restores\ HP\ |,\ damages\ the\ user\ |,\ heals\ the\ user\ |$)
+  (?=,\ grants|,\ causes|,\ removes|,\ restores\ HP\ |,\ damages\ the\ user\ |,\ heals\ the\ user\ |$)
   `,
   'x',
 );
@@ -145,6 +151,7 @@ export function describeEnlirSoulBreak(
   // self statuses, then party statuses, then "details" (e.g., EX modes).
   //
   // We may start returning these as is so callers can deal with them.
+  let burstToggle: boolean | undefined;
   const other: string[] = [];
   const selfOther: string[] = [];
   const partyOther: string[] = [];
@@ -285,7 +292,7 @@ export function describeEnlirSoulBreak(
     }
   }
 
-  const dispelEsunaRe = /[Rr]emoves (positive|negative) effects( to all allies)?/g;
+  const dispelEsunaRe = /[Rr]emoves (positive|negative) (?:status )?effects( to all allies)?/g;
   while ((m = dispelEsunaRe.exec(sb.effects))) {
     const [, dispelOrEsuna, who] = m;
     const effect = dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna';
@@ -305,11 +312,12 @@ export function describeEnlirSoulBreak(
   }
 
   XRegExp.forEach(sb.effects, statusEffectRe, match => {
-    const { statusString } = match as any;
+    const { verb, statusString } = match as any;
+    const removes = verb.toLowerCase() === 'removes';
     const wholeClause = match[0];
     const status = splitSkillStatuses(statusString)
-      .filter(includeStatus)
       .map(i => parseStatusItem(i, wholeClause))
+      .filter(i => includeStatus(i.statusName, { removes }))
       .reduce(checkForAndStatuses, [])
       .sort(sortStatus);
     for (const thisStatus of status) {
@@ -322,11 +330,21 @@ export function describeEnlirSoulBreak(
         description,
         isExLike,
         isDetail,
+        isBurstToggle,
         defaultDuration,
         isVariableDuration,
         specialDuration,
       } = parsed;
       // tslint:enable: prefer-const
+
+      if (isBurstToggle) {
+        burstToggle = verb.toLowerCase() !== 'removes';
+        continue;
+      }
+
+      if (removes) {
+        description = '-' + description;
+      }
 
       if (!duration && defaultDuration) {
         duration = defaultDuration;
@@ -362,7 +380,7 @@ export function describeEnlirSoulBreak(
   // Process stat mods.  Stop at the first "Grants" or "Causes" text; any stat
   // mods there are handled along with status effects above.
   XRegExp.forEach(
-    sb.effects.replace(/([Gg]rants|[Cc]auses) .*/, ''),
+    sb.effects.replace(/([Gg]rants|[Cc]auses|[Rr]emoves) .*/, ''),
     statModRe,
     ({ stats, percent, who, duration }: any) => {
       const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
@@ -446,12 +464,21 @@ export function describeEnlirSoulBreak(
   }
 
   const result: MrPSoulBreak = {
-    chain: chain || undefined,
     instant: sb.time != null && sb.time <= 0.01 ? true : undefined,
     damage: damage || undefined,
     other: other.length ? other.join(', ') : undefined,
-    school: 'school' in sb ? sb.school : undefined,
   };
+
+  if (chain) {
+    result.chain = chain;
+  }
+  if ('school' in sb) {
+    result.school = sb.school;
+  }
+  if (burstToggle !== null) {
+    result.burstToggle = burstToggle;
+  }
+
   if (
     isBurst(sb) &&
     enlir.burstCommands[sb.character] &&
@@ -483,7 +510,8 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
     ...options,
   };
 
-  let text = _.filter([mrP.chain, mrP.damage, mrP.other]).join(', ');
+  const burstToggleText = mrP.burstToggle == null ? '' : mrP.burstToggle ? 'ON' : 'OFF';
+  let text = _.filter([burstToggleText, mrP.chain, mrP.damage, mrP.other]).join(', ');
   if (text && mrP.instant && opt.showInstant) {
     text = 'instant ' + text;
   }
