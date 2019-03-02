@@ -480,6 +480,13 @@ describe('mrP', () => {
     });
 
     it('processes crit modifiers', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Umaro - Snowball Throwdown'])).toEqual({
+        damage: 'phys 6.8/10 ice+non rngd',
+        other:
+          'ice infuse 25s, self +30% ATK/RES 25s, ' +
+          '15s: (ice ⤇ p2.0/5 i+n rngd Sharpshooter @ +50% crit if Mog alive)',
+      });
+
       // Discrepancy: MrP often uses ' (+50% crit dmg)'
       expect(describeEnlirSoulBreak(soulBreaks['Delita - Hero-King'])).toEqual({
         damage: 'phys 6.96/8 holy+fire+lgt+ice @ +50% crit dmg',
@@ -488,6 +495,34 @@ describe('mrP', () => {
           { damage: 'p2.32/4 h+f @ +50% crit dmg', other: undefined, school: 'Spellblade' },
           { damage: 'p2.32/4 l+i @ +50% crit dmg', other: undefined, school: 'Spellblade' },
         ],
+      });
+
+      const warringFlameId = 30221101;
+      expect(
+        describeEnlirSoulBreak(enlir.abilities[warringFlameId], { includeSchool: false }),
+      ).toEqual({
+        damage: 'phys 3.0/4 fire @ +50% crit if Retaliate',
+        school: 'Samurai',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Eight - Phantom Hail'])).toEqual({
+        instant: true,
+        damage: 'phys 5.2/8 ice+non',
+        other: '+20% ice vuln. 25s',
+        burstCommands: [
+          {
+            damage: 'p2.16/4 i+n @ +100% crit if any Physical Blink',
+            school: 'Monk',
+          },
+          { fast: true, damage: 'p1.5/2 i+n', other: 'self Phys blink 1', school: 'Monk' },
+        ],
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Fang - Whim of Ragnarok'])).toEqual({
+        damage: 'phys 7.1/10 wind+non jump',
+        other:
+          'wind infuse 25s, self no air time 15s, ' +
+          '15s: (Dragoon ⤇ p2.0/5 wi+n rngd Dragoon @ +30 - 50 - 75% crit w/ 0-1-2 uses)',
       });
     });
 

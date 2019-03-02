@@ -155,3 +155,11 @@ export function cleanUpSlashedNumbers(s: string): string {
     return s;
   }
 }
+
+export function formatUseCount(count: number): string {
+  if (count > 4) {
+    return '0…' + (count - 1);
+  } else {
+    return _.times(count).join('-');
+  }
+}

@@ -10,6 +10,7 @@ import {
   SB_BAR_SIZE,
 } from './types';
 import {
+  formatUseCount,
   orList,
   parseNumberString,
   parsePercentageCounts,
@@ -310,8 +311,38 @@ function describeHybridDamageType(skill: EnlirSkill): MrPDamageType | undefined 
   }
 }
 
-function describeAdditionalCritType(additionalCritType: string): string {
-  return additionalCritType;
+function describeAdditionalCritType(
+  {
+    additionalCritType,
+    additionalCritCharacter,
+    additionalCritStatus,
+    additionalCritScaleWithUses,
+  }: {
+    additionalCritType: string;
+    additionalCritCharacter: string | null;
+    additionalCritStatus: string | null;
+    additionalCritScaleWithUses: string | null;
+  },
+  additionalCrit: number[] | undefined,
+): string {
+  if (additionalCritCharacter) {
+    return `if ${additionalCritCharacter} alive`;
+  } else if (additionalCritStatus) {
+    // Special case: We don't show "High Retaliate" to the user.
+    if (additionalCritStatus === 'Retaliate or High Retaliate') {
+      return 'if Retaliate';
+    } else {
+      return 'if ' + additionalCritStatus;
+    }
+  } else if (additionalCritScaleWithUses) {
+    if (additionalCrit) {
+      return 'w/ ' + formatUseCount(additionalCrit.length) + ' uses';
+    } else {
+      return 'w/ uses';
+    }
+  } else {
+    return additionalCritType;
+  }
 }
 
 const attackRe = XRegExp(
@@ -344,7 +375,13 @@ const attackRe = XRegExp(
   (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
   (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)+\d+)\ ailments)?
 
-  (?:,\ (?<additionalCrit>[0-9/]+)%\ additional\ critical\ chance(?<additionalCritType>.*?))?
+  (?:,\ (?<additionalCrit>[0-9/]+)%\ additional\ critical\ chance
+    (?<additionalCritType>
+      \ if\ the\ user\ has\ (?<additionalCritStatus>[A-Za-z ]+)|
+      \ if\ (?<additionalCritCharacter>.*?)\ is\ alive|
+      (?<additionalCritScaleWithUses>\ scaling\ with\ uses)
+    )?
+  )?
   (?:,\ (?<additionalCritDamage>[0-9/]+)%\ additional\ critical\ damage)?
   (?:,\ (?<statusChance>\d+)%\ chance\ to\ cause\ (?<status>.*?)\ for\ (?<statusDuration>\d+)\ seconds)?
 
@@ -506,6 +543,10 @@ export function parseEnlirAttack(
       ? describeDamage(m.defaultMultiplier, numAttacks, false)
       : undefined;
 
+  const additionalCrit = m.additionalCrit
+    ? m.additionalCrit.split(/\//g).map((i: number) => +i)
+    : undefined;
+
   return {
     isAoE: m.attackType === 'group',
     damageType: describeDamageType(skill),
@@ -526,11 +567,9 @@ export function parseEnlirAttack(
     hybridDamage,
     hybridDamageType: describeHybridDamageType(skill),
 
-    additionalCrit: m.additionalCrit
-      ? m.additionalCrit.split(/\//g).map((i: number) => +i)
-      : undefined,
+    additionalCrit,
     additionalCritType: m.additionalCritType
-      ? describeAdditionalCritType(m.additionalCritType)
+      ? describeAdditionalCritType(m, additionalCrit)
       : undefined,
     additionalCritDamage: m.additionalCritDamage ? +m.additionalCritDamage : undefined,
 
