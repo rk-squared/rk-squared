@@ -271,7 +271,9 @@ export function describeEnlirSoulBreak(
 
   if (
     opt.burstCommands &&
-    _.some(opt.burstCommands, i => i.effects.match(' scaling with ' + sb.name + ' uses'))
+    _.some(opt.burstCommands, i =>
+      i.effects.match(new RegExp(' (scaling|scal\\.) with ' + sb.name + ' uses')),
+    )
   ) {
     // Hack: In practice, it's always command 1 that does the powering up.
     other.push('powers up cmd 2');

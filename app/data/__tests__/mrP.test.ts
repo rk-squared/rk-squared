@@ -503,6 +503,38 @@ describe('mrP', () => {
           },
         ],
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Kefka - Harness the Fiend'])).toEqual({
+        damage: 'magic 15.04/8 dark+bio',
+        other: 'dark infuse 25s',
+        burstCommands: [
+          {
+            damage: 'm4.4/2 d+b',
+            other: 'powers up cmd 2, -10%/-20%/-30%/-30% MAG w/ 0-1-2-3 uses 25s',
+            school: 'Black Magic',
+          },
+          {
+            damage: 'm6.9/3 - 9.4/4 - 12.0/5 - 18.0/6 d+b',
+            other: undefined,
+            school: 'Black Magic',
+          },
+        ],
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Thancred - Fang of the Serpent'])).toEqual({
+        instant: true,
+        damage: 'phys 6.4/8 bio+non',
+        other: 'party Phys blink 1',
+        burstCommands: [
+          { fast: true, damage: 'p1.0/2 b+n', other: 'powers up cmd 2', school: 'Ninja' },
+          {
+            fast: true,
+            damage: 'p1.8/4 - 2.9/5 - 4.32/6 - 6.16/7 - 8.8/8 b+n @ +0 - 5 - 10 - 15 - 25% crit',
+            other: 'reset count',
+            school: 'Ninja',
+          },
+        ],
+      });
     });
 
     it('processes crit modifiers', () => {

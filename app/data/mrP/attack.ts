@@ -360,7 +360,7 @@ const attackRe = XRegExp(
   (?<overstrike>,?\ capped\ at\ 99999)?
 
   (?<scaleWithUses>\ scaling\ with\ uses)?
-  (?:\ scaling\ with\ (?<scaleWithSkillUses>.*?)\ uses)?
+  (?:\ (?:scaling|scal\.)\ with\ (?<scaleWithSkillUses>.*?)\ uses)?
   (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
   (?:\ if\ (?:the\ )?user\ has\ (?<statusThreshold>.*)\ (?<statusThresholdCount>(?:\d+/)+\d+))?
   (?:\ if\ the\ user's\ HP\ are\ below\ (?<lowHpThresholdValue>(?:\d+/)+\d+)%)?
@@ -371,14 +371,14 @@ const attackRe = XRegExp(
   (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
   (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)+\d+)\ ailments)?
 
-  (?:,\ (?<additionalCrit>[0-9/]+)%\ additional\ critical\ chance
+  (?:,\ (?<additionalCrit>[0-9/]+)%\ (?:additional|add.)\ critical\ chance
     (?<additionalCritType>
       \ if\ the\ user\ has\ (?<additionalCritStatus>[A-Za-z ]+)|
       \ if\ (?<additionalCritCharacter>.*?)\ is\ alive|
       (?<additionalCritScaleWithUses>\ scaling\ with\ uses)
     )?
   )?
-  (?:,\ (?<additionalCritDamage>[0-9/]+)%\ additional\ critical\ damage)?
+  (?:,\ (?<additionalCritDamage>[0-9/]+)%\ (?:additional|add\.)\ critical\ damage)?
   (?:,\ (?<statusChance>\d+)%\ chance\ to\ cause\ (?<status>.*?)\ for\ (?<statusDuration>\d+)\ seconds)?
 
   (?<noMiss>,\ 100%\ hit\ rate)?
