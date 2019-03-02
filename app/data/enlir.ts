@@ -85,6 +85,7 @@ export type EnlirSkillType = 'BLK' | 'NAT' | 'NIN' | 'PHY' | 'SUM' | 'WHT' | '?'
 export type EnlirSoulBreakTier =
   | 'Default'
   | 'SB'
+  | 'SSB'
   | 'BSB'
   | 'OSB'
   | 'USB'
