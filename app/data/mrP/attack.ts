@@ -200,7 +200,7 @@ function describeFollowedByAttack(effects: string): string | null {
   return damage;
 }
 
-function describeOrCondition(orCondition: string): string {
+function describeOrCondition(orCondition: string, burstCommands?: EnlirBurstCommand[]): string {
   let m: RegExpMatchArray | null;
   if (orCondition === 'the user is in the front row' || orCondition === 'user is in front row') {
     return 'if in front row';
@@ -218,6 +218,19 @@ function describeOrCondition(orCondition: string): string {
     return status.length === 1 ? 'vs. ' + status[0] : 'vs. status';
   } else if ((m = orCondition.match(/(\d+) or more (.*) are in the party/))) {
     return 'if ' + m[1] + ' ' + m[2] + ' in party';
+  } else if ((m = orCondition.match(/the user has (.*)/))) {
+    const statusName = m[1];
+    let statusDescription = describeEnlirStatus(statusName);
+    if (statusName === statusDescription && burstCommands) {
+      const commandRelatingToStatus = _.findIndex(
+        burstCommands,
+        i => i.effects.match(new RegExp('[Gg]rants ' + statusName + '\\b')) != null,
+      );
+      if (commandRelatingToStatus !== -1) {
+        statusDescription = 'cmd' + (commandRelatingToStatus + 1) + ' status';
+      }
+    }
+    return 'in ' + statusDescription;
   } else if ((m = orCondition.match(/(.*) is alive/))) {
     return 'if ' + m[1] + ' alive';
   } else {
@@ -229,6 +242,7 @@ function describeOr(
   effects: string,
   attackMultiplier: number,
   numAttacks: number | null,
+  burstCommands?: EnlirBurstCommand[],
 ): [string | undefined, string | undefined] {
   const m = effects.match(
     /(?:([0-9\.]+) (?:multiplier|mult\.)|([a-z\-]+) attacks) (?:if (.*?)|(with .*?))(?=, grants|, causes|, restores HP |, damages the user |, heals the user |, [A-Z]{3}|$)/,
@@ -246,7 +260,7 @@ function describeOr(
     orDamage = describeDamage(attackMultiplier, orNumAttacks);
   }
 
-  return [orDamage, describeOrCondition(orCondition || withCondition)];
+  return [orDamage, describeOrCondition(orCondition || withCondition, burstCommands)];
 }
 
 function describeScaleType(scaleType: string): string {
@@ -463,7 +477,12 @@ export function parseEnlirAttack(
     damage += ', then ' + followedBy + ',';
   }
 
-  const [orDamage, orCondition] = describeOr(skill.effects, attackMultiplier, numAttacks);
+  const [orDamage, orCondition] = describeOr(
+    skill.effects,
+    attackMultiplier,
+    numAttacks,
+    burstCommands,
+  );
 
   let scaleType: string | undefined;
   let scaleToDamage: string | undefined;

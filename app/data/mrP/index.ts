@@ -442,8 +442,17 @@ export function describeEnlirSoulBreak(
       .reduce(checkForAndStatuses, [])
       .sort(sortStatus);
     for (const thisStatus of status) {
-      // tslint:disable-next-line: prefer-const
-      let { statusName, duration, durationUnits, who, chance, scalesWithUses } = thisStatus;
+      // tslint:disable: prefer-const
+      let {
+        statusName,
+        duration,
+        durationUnits,
+        who,
+        chance,
+        scalesWithUses,
+        stacking,
+      } = thisStatus;
+      // tslint:enable: prefer-const
 
       if (statusName === 'Rage' && isPureRage) {
         continue;
@@ -475,6 +484,9 @@ export function describeEnlirSoulBreak(
       }
       if (scalesWithUses) {
         description += ' ' + formatUseCount(optionCount);
+      }
+      if (stacking) {
+        description += ' stacking';
       }
 
       if (!duration && defaultDuration) {

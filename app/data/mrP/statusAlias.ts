@@ -1,6 +1,6 @@
 import { allEnlirElements, allEnlirSchools } from '../enlir';
 import { getElementShortName, getSchoolShortName } from './types';
-import { lowerCaseFirst } from './util';
+import { lowerCaseFirst, toMrPGeneral } from './util';
 
 export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
 export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
@@ -205,22 +205,49 @@ export function splitNumbered(s: string): [string, string] | [null, null] {
 }
 
 export function resolveNumbered(text: string, numberValue: string): string {
-  return text.replace('{X}', numberValue);
+  return text.replace('{X}', toMrPGeneral(numberValue));
 }
 
-export function resolveAlias(s: string, { simple, numbered }: AliasMap): string | null {
-  if (simple[s]) {
+interface ResolveOptions {
+  /**
+   * We normally prefer simple aliases over numbered aliases, so that we can
+   * override generic numbers for common cases like fastcast.  However, there
+   * are times such as dealing with stacking statuses where it's nice to keep
+   * everything generic, so that it can be slash-merged.
+   */
+  preferNumbered: boolean;
+}
+const defaultResolveOptions: ResolveOptions = {
+  preferNumbered: false,
+};
+
+export function resolveAlias(
+  s: string,
+  { simple, numbered }: AliasMap,
+  options: Partial<ResolveOptions> = {},
+): string | null {
+  const opt = {
+    ...defaultResolveOptions,
+    ...options,
+  };
+
+  if (!opt.preferNumbered && simple[s]) {
     return simple[s];
-  } else {
-    const [text, numberValue] = splitNumbered(s);
-    if (text && numberValue && numbered[text]) {
-      return resolveNumbered(numbered[text], numberValue);
-    }
+  }
+
+  const [text, numberValue] = splitNumbered(s);
+  if (text && numberValue && numbered[text]) {
+    return resolveNumbered(numbered[text], numberValue);
+  }
+
+  if (opt.preferNumbered && simple[s]) {
+    return simple[s];
   }
 
   return null;
 }
 
-export const resolveStatusAlias = (status: string) => resolveAlias(status, statusAlias);
-export const resolveEffectAlias = (effect: string) =>
-  resolveAlias(lowerCaseFirst(effect), effectAlias);
+export const resolveStatusAlias = (status: string, options: Partial<ResolveOptions> = {}) =>
+  resolveAlias(status, statusAlias, options);
+export const resolveEffectAlias = (effect: string, options: Partial<ResolveOptions> = {}) =>
+  resolveAlias(lowerCaseFirst(effect), effectAlias, options);

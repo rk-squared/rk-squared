@@ -34,10 +34,17 @@ const numbers: { [s: string]: number } = {
   ninety: 90,
 };
 
+export function isNumeric(s: string): boolean {
+  return !isNaN(Number(s));
+}
+
 export function lowerCaseFirst(s: string): string {
   return s.replace(/^([A-Z])/, c => c.toLowerCase());
 }
 
+/**
+ * Parses a numeric string like "one" or "twenty-two"
+ */
 export function parseNumberString(s: string): number | null {
   let result = 0;
   for (const i of s.toLowerCase().split('-')) {
@@ -95,6 +102,23 @@ export function toMrPFixed(n: number): string {
 
 export function toMrPKilo(n: number): string {
   return n / 1000 + 'k';
+}
+
+/**
+ * General-purpose formatting for a term that might be number-like
+ */
+export function toMrPGeneral(s: string): string {
+  if (!isNumeric(s)) {
+    return s;
+  } else {
+    let result: string;
+    if (s.indexOf('.') !== -1) {
+      result = toMrPFixed(+s);
+    } else {
+      result = s;
+    }
+    return (s.startsWith('+') ? '+' : '') + result;
+  }
 }
 
 // https://stackoverflow.com/a/2901298/25507

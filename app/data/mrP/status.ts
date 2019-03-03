@@ -226,6 +226,28 @@ function parseFollowUpEffect(
 const isSameTrigger = (a: FollowUpEffect, b: FollowUpEffect) =>
   a.trigger === b.trigger && a.isDamageTrigger === b.isDamageTrigger;
 
+/**
+ * Heuristically guess if this is a stacking status effect.  We identify
+ * stacking statuses as those that have names ending with a number and that
+ * are exclusive with other statuses with the same base name.
+ */
+function isStackingStatus({ name, exclusiveStatus }: EnlirStatus): boolean {
+  const m = name.match(/^(.*) (\d+)/);
+  if (!m || !exclusiveStatus || !exclusiveStatus.length) {
+    return false;
+  }
+
+  const [, baseName] = m;
+  if (
+    !_.find(exclusiveStatus, `All other "${baseName}" status`) &&
+    !_.find(exclusiveStatus, i => i.match(new RegExp('^' + baseName + ' \\d+')))
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
 type FollowUpStatusSequence = Array<[EnlirStatus, string[]]>;
 
 /**
@@ -560,7 +582,12 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
 
   // Generic status effects
   {
-    const genericEffect = resolveEffectAlias(effect);
+    // If dealing with an effect from a stacking status, like Tifa's
+    // Striker Mode's 2x / 4x / 6x cast, then prefer generic numbered effects,
+    // on the assumption that higher-level code will want to slash-merge it.
+    const preferNumbered = enlirStatus != null && isStackingStatus(enlirStatus);
+
+    const genericEffect = resolveEffectAlias(effect, { preferNumbered });
     if (genericEffect) {
       return genericEffect;
     }
@@ -945,6 +972,7 @@ export interface StatusItem {
   duration?: number;
   durationUnits?: string; // "second" or "turn"
   scalesWithUses?: boolean;
+  stacking?: boolean;
 }
 
 const statusItemRe = XRegExp(
@@ -960,6 +988,7 @@ const statusItemRe = XRegExp(
   )?
   (?:\ for\ (?<duration>\d+|\?)\ (?<durationUnits>second|turn)s?)?
   (?<scalesWithUses2>\ scaling\ with\ (?<scaleWithUsesSkill2>[A-Za-z ]+\ )?uses)?
+  (?:\ if\ the\ user\ has\ (?<prereq>.*))?
   $
   `,
   'x',
@@ -988,7 +1017,8 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     return { statusName: statusText };
   }
 
-  const {
+  // tslint:disable prefer-const
+  let {
     statusName,
     chance,
     who,
@@ -998,7 +1028,9 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     scalesWithUses2,
     scaleWithUsesSkill1,
     scaleWithUsesSkill2,
+    prereq,
   } = (m as unknown) as XRegExpNamedGroups;
+  // tslint:enable prefer-const
 
   let lookaheadWho: string | undefined;
   if (!who) {
@@ -1018,6 +1050,22 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     scaleWithUsesSkill1 == null &&
     scaleWithUsesSkill2 == null;
 
+  // Handle stacking statuses, like
+  // "Warlord Mode 1/2/3/3 if the user has Warlord Mode 0/1/2/3"
+  let stacking = false;
+  if (
+    statusName &&
+    prereq &&
+    statusName.replace(/[0-9\/]+/, 'X') === prereq.replace(/[0-9\/]+/, 'X')
+  ) {
+    stacking = true;
+    // Enlir lists, e.g., 'Warlord Mode 1/2/3/3' to show that it doesn't stack
+    // further.  Remove the redundancy.
+    statusName = statusName.replace(/(\d)\/\1/, '$1');
+  } else if (prereq) {
+    logger.warn(`Unhandled prerequisite ${prereq} for ${statusName}`);
+  }
+
   return {
     statusName: statusName!,
     chance: chance ? +chance : undefined,
@@ -1025,6 +1073,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     duration: duration ? +duration : undefined,
     durationUnits: durationUnits || undefined,
     scalesWithUses,
+    stacking,
   };
 }
 

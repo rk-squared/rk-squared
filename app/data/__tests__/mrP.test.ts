@@ -403,16 +403,6 @@ describe('mrP', () => {
           'self Autoheal 6k, +100% DEF/RES, +50% MND 25s, ' +
           '15s: if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
       });
-      expect(describeEnlirSoulBreak(soulBreaks['Ignis - Stalwart Cook'])).toEqual({
-        burstCommands: [
-          { damage: 'p1.92/3 f+l+i', other: '+1 ingredients', school: 'Thief' },
-          { other: 'crit =100% 25s, -1 ingredients', school: 'Support' },
-          { other: 'heal 30% HP, +50% crit dmg 25s, -1 ingredients', school: 'Support' },
-          { other: 'heal 40% HP, instacast 1, -1 ingredients', school: 'Support' },
-        ],
-        damage: undefined,
-        other: 'party Haste, +30% ATK/RES 25s, +2 ingredients',
-      });
     });
 
     it('converts combinations of stat changes, statuses, and infuses', () => {
@@ -623,6 +613,57 @@ describe('mrP', () => {
           },
           { damage: 'p1.68/4 h+n', other: 'self instacast 1 turn', school: 'Combat' },
         ],
+      });
+    });
+
+    it('handles complex burst modes', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Ignis - Stalwart Cook'])).toEqual({
+        burstCommands: [
+          { damage: 'p1.92/3 f+l+i', other: '+1 ingredients', school: 'Thief' },
+          { other: 'crit =100% 25s, -1 ingredients', school: 'Support' },
+          { other: 'heal 30% HP, +50% crit dmg 25s, -1 ingredients', school: 'Support' },
+          { other: 'heal 40% HP, instacast 1, -1 ingredients', school: 'Support' },
+        ],
+        damage: undefined,
+        other: 'party Haste, +30% ATK/RES 25s, +2 ingredients',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Josef - Undaunted Hero'])).toEqual({
+        burstCommands: [
+          { damage: 'p1.41/3 i+n, or p2.82/6 in cmd2 status', school: 'Monk' },
+          { damage: 'p1.88/4 i+n', other: '25s: -40% DEF/RES, fastcast', school: 'Monk' },
+        ],
+        damage: undefined,
+        other: 'ice infuse 25s, party +30% ATK/MAG 25s',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Yda - Forbidden Chakra'])).toEqual({
+        damage: 'phys 7.36/8 fire+non',
+        other: '-40% A/D/M/R 25s',
+        burstCommands: [
+          {
+            damage: 'p2.32/4 f+n',
+            other: 'self Greased Lightning 1/2/3 stacking',
+            school: 'Monk',
+          },
+          { damage: undefined, other: 'self Negate dmg 30%', school: 'Monk' },
+        ],
+      });
+    });
+
+    it('handles stacking statuses', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Ursula - Assert Dominance'])).toEqual({
+        instant: true,
+        other: 'self hi fastcast 2, 15s: crit =50%/=75%/=100% stacking',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Refia - Bridled Love'])).toEqual({
+        instant: true,
+        other:
+          'self hi fastcast 2, 15s: (fire ⤇ p1.6/4 - 1.6/4 - 2.0/5 - 2.4/6 f+n Monk @ 0-1-2-3 Explosive Rush Mode)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Tifa - Zangan Awakening'])).toEqual({
+        instant: true,
+        other: 'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ ranks 1-5 15s, 15s: 2.0x/4.0x/6.0x cast',
       });
     });
 
