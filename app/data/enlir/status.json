@@ -10531,7 +10531,7 @@
   {
     "id": 50448,
     "name": "Awoken Devotion",
-    "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilites and casts Healing Wave after using White Magic abilities",
+    "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilities, casts Healing Wave after using White Magic abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10729,7 +10729,7 @@
   {
     "id": 50471,
     "name": "Awoken Dancer",
-    "effects": "Dancer abilities don't consume uses, cast speed x3.00 for Dancer abilites and casts Barrier Dance after using Dancer abilities",
+    "effects": "Dancer abilities don't consume uses, cast speed x3.00 for Dancer abilities, casts Barrier Dance after using Dancer abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

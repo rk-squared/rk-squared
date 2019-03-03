@@ -664,7 +664,7 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Tifa - Zangan Awakening'])).toEqual({
         instant: true,
         other:
-          'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ ranks 1-5 15s, 15s: stacking 2.0x/4.0x/6.0x cast',
+          'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ rank 1-5 15s, 15s: stacking 2.0x/4.0x/6.0x cast',
       });
     });
 
@@ -916,7 +916,7 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Edgar - Royal Brotherhood'])).toEqual({
         damage: 'phys 7.0/10 bio+fire+lgt rngd',
         other:
-          'self 1.05-1.1-1.15-1.2-1.3x Machinist dmg @ ranks 1-5 15s, ' +
+          'self 1.05-1.1-1.15-1.2-1.3x Machinist dmg @ rank 1-5 15s, ' +
           '15s: EX: +30% ATK, Machinist fastcast, ' +
           '(b/f/l Machinist dmg ⤇ p1.17/3 b/f/l+n Machinist, 35% for +10% bio/fire/lgt vuln. 15s)',
       });
@@ -1321,7 +1321,7 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Alphinaud - Teraflare'])).toEqual({
         damage: 'AoE magic 16.1/7 wind+dark (SUM)',
         other:
-          'wind infuse 25s, 15s: EX: 1.05-1.1-1.15-1.2-1.3x SUM dmg @ ranks 1-5, ' +
+          'wind infuse 25s, 15s: EX: 1.05-1.1-1.15-1.2-1.3x SUM dmg @ rank 1-5, ' +
           'Finisher: AoE magic 35% SUM/5 Summon, self refill 2 abil. use',
       });
     });
@@ -1660,6 +1660,22 @@ describe('mrP', () => {
           'dark infuse 25s, self dmg cap=19,999 15s, +500 SB pts, ' +
           '15s: Awoken Darkness: Darkness inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Lenna - Protector of Life and Soul'])).toEqual({
+        instant: true,
+        other:
+          'party h105, Haste, PM blink 1, Last stand, revive @ 100% HP, ' +
+          '15s: Awoken Devotion: W.Mag inf. hones, W.Mag hi fastcast, ' +
+          '(W.Mag ⤇ party h10/15/25/35/45 @ rank 1-5)',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Selphie - Selphie Band'])).toEqual({
+        instant: true,
+        other:
+          'party h105, Haste, Magic blink 2, revive @ 100% HP, ' +
+          '15s: Awoken Dancer: Dancer inf. hones, Dancer hi fastcast, ' +
+          '(Dancer ⤇ party 10%/15%/20%/30%/40% Dmg barrier 1 @ rank 1-5)',
+      });
       // TODO: Decide about Awoken modes whose statuses duplicate trances, etc.
     });
 
@@ -1749,7 +1765,7 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(soulBreaks['Gladiolus - Double Charging...'])).toEqual({
         instant: true,
-        other: '1.05-1.1-1.15-1.2-1.3x Heavy dmg @ ranks 1-5 15s, Heavy Charge +2',
+        other: '1.05-1.1-1.15-1.2-1.3x Heavy dmg @ rank 1-5 15s, Heavy Charge +2',
       });
     });
 

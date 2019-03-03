@@ -10,6 +10,7 @@ import {
   effectAlias,
   enlirRankBoost,
   enlirRankBoostRe,
+  rankBoostAlias,
   resolveEffectAlias,
   resolveNumbered,
   resolveStatusAlias,
@@ -620,7 +621,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
   }
 
   if ((m = effect.match(enlirRankBoostRe))) {
-    return `1.05-1.1-1.15-1.2-1.3x ${m[1]} dmg @ ranks 1-5`;
+    return rankBoostAlias(m[1]);
   }
 
   // Handle ability boost and element boost.  The second form is only observed
@@ -721,8 +722,10 @@ export interface ParsedEnlirStatus {
  */
 function describeEffects(enlirStatus: EnlirStatus): string {
   // Allow overrides from status aliases, even here.  (This is used for
-  // Haurchefant Cover in particular, because that's really verbose and
-  // specialized.)
+  // Haurchefant Cover in particular: because that's really verbose and
+  // specialized, we want to be able to say it should always show details, but
+  // we also want to be able to use aliases to how those details should
+  // actually be shown.)
   {
     const genericStatus = resolveStatusAlias(enlirStatus.name);
     if (genericStatus) {
@@ -974,6 +977,7 @@ export interface StatusItem {
   duration?: number;
   durationUnits?: string; // "second" or "turn"
   scalesWithUses?: boolean;
+  rank?: boolean; // Are this item's effects rank-based?
   stacking?: boolean;
 }
 
@@ -981,6 +985,7 @@ const statusItemRe = XRegExp(
   String.raw`
   (?<statusName>.*?)
   (?:\ \((?<chance>\d+)%\))?
+  (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
   (?<scalesWithUses1>\ scaling\ with\ (?<scaleWithUsesSkill1>[A-Za-z ]+\ )?uses)?
   (?<who>
     \ to\ the\ user|
@@ -1026,6 +1031,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     who,
     duration,
     durationUnits,
+    rank,
     scalesWithUses1,
     scalesWithUses2,
     scaleWithUsesSkill1,
@@ -1075,6 +1081,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     duration: duration ? +duration : undefined,
     durationUnits: durationUnits || undefined,
     scalesWithUses,
+    rank: rank != null,
     stacking,
   };
 }

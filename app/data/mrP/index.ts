@@ -390,11 +390,14 @@ export function describeEnlirSoulBreak(
 
   if (
     (m = sb.effects.match(
-      /[Rr]estores (?:HP \((\d+)\)|(\d+) HP)( to the user| to all allies| to the lowest HP% ally)?/,
+      /[Rr]estores (?:HP \(((?:\d+\/)*\d+)\)|(\d+) HP)( to the user| to all allies| to the lowest HP% ally)?( at rank 1\/2\/3\/4\/5 of the triggering ability)?/,
     ))
   ) {
-    const [, healFactor, fixedHp, who] = m;
-    const heal = healFactor ? 'h' + healFactor : `heal ${toMrPKilo(+fixedHp)}`;
+    const [, healFactor, fixedHp, who, rank] = m;
+    let heal = healFactor ? 'h' + healFactor : `heal ${toMrPKilo(+fixedHp)}`;
+    if (rank) {
+      heal += ' @ rank 1-5'; // rank-based healing chase - used by Lenna's AASB
+    }
     if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
       partyOther.push(heal);
     } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
@@ -450,6 +453,7 @@ export function describeEnlirSoulBreak(
         who,
         chance,
         scalesWithUses,
+        rank,
         stacking,
       } = thisStatus;
       // tslint:enable: prefer-const
@@ -487,6 +491,9 @@ export function describeEnlirSoulBreak(
       }
       if (stacking) {
         description = 'stacking ' + description;
+      }
+      if (rank) {
+        description += ' @ rank 1-5';
       }
 
       if (!duration && defaultDuration) {
