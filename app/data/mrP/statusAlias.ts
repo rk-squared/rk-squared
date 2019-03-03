@@ -142,6 +142,10 @@ for (const i of allEnlirElements) {
   statusAlias.simple[`Minor Debuff ${i}`] = `-10% ${getElementShortName(i)} dmg`;
   statusAlias.simple[`Medium Debuff ${i}`] = `-20% ${getElementShortName(i)} dmg`;
   statusAlias.simple[`Major Debuff ${i}`] = `-30% ${getElementShortName(i)} dmg`;
+
+  statusAlias.simple[`Minor Imperil ${i}`] = `+10% ${getElementShortName(i)} vuln.`;
+  statusAlias.simple[`Medium Imperil ${i}`] = `+20% ${getElementShortName(i)} vuln.`;
+  statusAlias.simple[`Major Imperil ${i}`] = `+30% ${getElementShortName(i)} vuln.`;
 }
 for (const i of allEnlirSchools) {
   statusAlias.simple[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;

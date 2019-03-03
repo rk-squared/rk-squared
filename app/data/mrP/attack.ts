@@ -511,7 +511,7 @@ export function parseEnlirAttack(
     const count = numAttacksRange
       ? numAttacksRange.length
       : m.altAttackMultiplier
-      ? countMatches(m.altAttackMultiplier, /\//g)
+      ? countMatches(m.altAttackMultiplier, /\//g) + 1
       : undefined;
     scaleType = formatUseCount(count);
   } else if (m.finisherAttackThresholdCount) {

@@ -1086,6 +1086,15 @@ describe('mrP', () => {
       });
     });
 
+    it('converts heals', () => {
+      // Discrepancy: MrP doesn't consistently identify NAT healing, but it
+      // seems like it's worth doing.
+      expect(describeEnlirSoulBreak(soulBreaks['Aphmau - Overdrive (XI)'])).toEqual({
+        instant: true,
+        other: 'party h85 (NAT), Haste, instacast 1',
+      });
+    });
+
     it('converts percent heals', () => {
       // Deviation: MrP sometimes says "40%" or "40% HP" or "40% max HP"
       expect(describeEnlirSoulBreak(soulBreaks['Prishe - Rigorous Reverie'])).toEqual({
@@ -1243,6 +1252,10 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(soulBreaks['Gladiolus - Dawnhammer'])).toEqual({
         damage: 'phys 11.44 earth+non overstrike, up to p12.93 w/ hits taken',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Lightning - Thunderfall'])).toEqual({
+        damage: 'phys 11.25 - 12.0 - 12.75 - 13.5 lgt+non overstrike w/ 0-1-2-3 uses',
+        other: undefined,
       });
     });
 

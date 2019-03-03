@@ -396,6 +396,9 @@ export function describeEnlirSoulBreak(
   ) {
     const [, healFactor, fixedHp, who, rank] = m;
     let heal = healFactor ? 'h' + healFactor : `heal ${toMrPKilo(+fixedHp)}`;
+    if (healFactor && sb.type === 'NAT') {
+      heal += ' (NAT)';
+    }
     if (rank) {
       heal += ' @ rank 1-5'; // rank-based healing chase - used by Lenna's AASB
     }
