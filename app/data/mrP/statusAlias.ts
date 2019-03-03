@@ -55,6 +55,7 @@ export const statusAlias: AliasMap = {
     Runic: 'taunt & absorb BLK',
     'High Runic': 'taunt & absorb BLK/WHT',
     'Unyielding Fist': 'immune atks/status/heal',
+    'Haurchefant Cover': 'if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
 
     // Nonstandard alternatives.  See enlirStatusAltName.
     'Cast Speed *999': 'instacast',
@@ -94,6 +95,9 @@ export const statusAlias: AliasMap = {
     '{X}% Damage Reduction Barrier 3': '{X}% Dmg barrier 3',
 
     'Doom: {X}': 'Doom {X}s',
+
+    'Ingredients +{X}': '+{X} ingredients',
+    'Ingredients {X}': '{X} ingredients',
 
     // Manually expand non-standard stat buffs to give their effects instead -
     // this is easier than trying to programmatically identify a few statuses as

@@ -367,7 +367,7 @@ const attackRe = XRegExp(
   (?:\ at\ (?<statThresholdValue>(?:\d+/)+\d+)\ (?<statThreshold>[A-Z]{3}))?
   (?:,?\ scaling\ with\ (?<attackThresholdType>.*)\ (?:attacks|abilities)\ used\ \((?<attackThresholdCount>(?:\d+/)+\d+)\))?
   (?:\ if\ the\ user\ used\ (?<simpleAttackThresholdCount>(?:\d+/)+\d+)\ damaging\ actions)?
-  (?<finisherAttackThreshold>\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ during\ the\ status)?
+  (?:\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ (?:attacks|abilities)\ during\ the\ status)?
   (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)+\d+)\ ailments)?
 
   (?:,\ (?<additionalCrit>[0-9/]+)%\ (?:additional|add.)\ critical\ chance
@@ -493,6 +493,12 @@ export function parseEnlirAttack(
       ? countMatches(m.altAttackMultiplier, /\//g)
       : undefined;
     scaleType = formatUseCount(count);
+  } else if (m.finisherAttackThresholdCount) {
+    scaleType =
+      formatThreshold(
+        m.finisherAttackThresholdCount,
+        formatSchoolOrAbilityList(m.finisherAttackThresholdType),
+      ) + ' used';
   } else if (m.attackThresholdType) {
     scaleType = formatThreshold(
       m.attackThresholdCount,

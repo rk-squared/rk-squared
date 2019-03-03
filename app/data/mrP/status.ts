@@ -314,7 +314,9 @@ const isFollowUpStatus = ({ effects }: EnlirStatus) => !!parseFollowUpEffect(eff
  */
 const isModeStatus = ({ name, codedName }: EnlirStatus) =>
   (!!codedName.match(/_MODE/) && codedName !== 'BRAVE_MODE') ||
-  (name.endsWith(' Mode') && name !== 'Brave Mode' && name !== 'Burst Mode');
+  (name.endsWith(' Mode') && name !== 'Brave Mode' && name !== 'Burst Mode') ||
+  // Special cases
+  name === 'Haurchefant Cover';
 
 /**
  * Various statuses for which we want to force showing individual effects.
@@ -333,7 +335,9 @@ function forceDetail({ name }: EnlirStatus) {
     name === 'Runic' ||
     name === 'High Runic' ||
     name === 'Sentinel' ||
-    name === 'Unyielding Fist'
+    name === 'Unyielding Fist' ||
+    name === 'Haurchefant Cover' ||
+    name.startsWith('Ingredients ')
   );
 }
 
@@ -689,6 +693,16 @@ export interface ParsedEnlirStatus {
  * effects listed separately.
  */
 function describeEffects(enlirStatus: EnlirStatus): string {
+  // Allow overrides from status aliases, even here.  (This is used for
+  // Haurchefant Cover in particular, because that's really verbose and
+  // specialized.)
+  {
+    const genericStatus = resolveStatusAlias(enlirStatus.name);
+    if (genericStatus) {
+      return genericStatus;
+    }
+  }
+
   return splitStatusEffects(enlirStatus.effects)
     .map(i => describeEnlirStatusEffect(i, enlirStatus))
     .filter(i => i !== '')

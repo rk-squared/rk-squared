@@ -398,6 +398,21 @@ describe('mrP', () => {
         damage: 'phys 7.8/4',
         other: 'self +50% ATK 25s, immune atks/status/heal 30s',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Haurchefant - Live to Serve'])).toEqual({
+        other:
+          'self Autoheal 6k, +100% DEF/RES, +50% MND 25s, ' +
+          '15s: if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Ignis - Stalwart Cook'])).toEqual({
+        burstCommands: [
+          { damage: 'p1.92/3 f+l+i', other: '+1 ingredients', school: 'Thief' },
+          { other: 'crit =100% 25s, -1 ingredients', school: 'Support' },
+          { other: 'heal 30% HP, +50% crit dmg 25s, -1 ingredients', school: 'Support' },
+          { other: 'heal 40% HP, instacast 1, -1 ingredients', school: 'Support' },
+        ],
+        damage: undefined,
+        other: 'party Haste, +30% ATK/RES 25s, +2 ingredients',
+      });
     });
 
     it('converts combinations of stat changes, statuses, and infuses', () => {
@@ -763,7 +778,7 @@ describe('mrP', () => {
         other:
           'dark infuse 25s, self lose 99% max HP, Negate dmg 100%, ' +
           'until Neg. Dmg. lost: 100% dualcast Darkness, ' +
-          'Finisher: magic 11.8 - 20.5 - 34.6 dark+non overstrike Darkness',
+          'Finisher: magic 11.8 - 20.5 - 34.6 dark+non overstrike Darkness @ 5-9 Darkness used',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Maria - Magma XXXII'])).toEqual({
@@ -926,7 +941,8 @@ describe('mrP', () => {
         damage: 'magic 17.3/10 holy (SUM)',
         other:
           'party Reflect Dmg 75% as holy 30s, ' +
-          '15s: Finisher: magic 11.8 - 20.5 - 34.6 holy+non overstrike Summon, refill 0/1/2 abil. use, ' +
+          '15s: Finisher: magic 11.8 - 20.5 - 34.6 holy+non overstrike Summon @ 3-6 holy used, ' +
+          'refill 0/1/2 abil. use, ' +
           '(holy ⤇ 2-2.5-3x zap)',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Vivi - Clamorous Magic'])).toEqual({
@@ -1536,7 +1552,7 @@ describe('mrP', () => {
         other:
           'self crit =100% 25s, dmg cap=19,999 15s, ' +
           '15s: hi fastcast, ' +
-          'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non overstrike Combat, ' +
+          'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non overstrike Combat @ 0-7-11 fire/earth/lgt used, ' +
           '15s: Awaken Lucis King: fire/earth/lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
