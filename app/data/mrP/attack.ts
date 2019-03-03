@@ -81,6 +81,7 @@ export interface ParsedEnlirAttack {
   isSummon: boolean;
   isNat: boolean;
   isNoMiss: boolean;
+  isPiercing: boolean;
 }
 
 // Source for convergent mechanics:
@@ -398,6 +399,7 @@ const attackRe = XRegExp(
   (?:,\ multiplier\ increased\ by\ (?<sbMultiplierIncrease>[0-9.]+)\ for\ every\ SB\ point)?
   (?:\ for\ (?<finisherPercentDamage>[0-9.]+)%\ of\ the\ damage\ dealt\ with\ (?<finisherPercentCriteria>.*)\ during\ the\ status)?
   (?:,\ minimum\ damage\ (?<minDamage>\d+))?
+  (?<piercing>,\ ignores\ (?:DEF|RES))?
   `,
   'x',
 );
@@ -624,5 +626,6 @@ export function parseEnlirAttack(
     isSummon: skill.type === 'SUM',
     isNat: skill.type === 'NAT' && skill.formula !== 'Hybrid',
     isNoMiss: !!m.noMiss,
+    isPiercing: !!m.piercing,
   };
 }

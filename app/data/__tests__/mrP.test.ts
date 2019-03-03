@@ -117,6 +117,28 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     id: 22410011,
     gl: false,
   },
+  {
+    realm: 'II',
+    character: 'Josef',
+    name: 'Heroic Fist',
+    type: '?',
+    target: 'Single enemy',
+    formula: 'Physical',
+    multiplier: null,
+    element: ['Ice', 'NE'],
+    time: null,
+    effects:
+      'Ten single attacks (? each), causes Imperil Ice ?%, grants Ice Radiant Shield: 75% to all allies, grants Attach Ice and Quick Cast 3 to the user',
+    counter: false,
+    autoTarget: '?',
+    points: 500,
+    tier: 'USB',
+    master: 'ATK +10',
+    relic: 'Tiger Fangs (II)',
+    nameJp: '漢の拳骨',
+    id: 20190009,
+    gl: false,
+  },
 ];
 
 describe('mrP', () => {
@@ -138,6 +160,17 @@ describe('mrP', () => {
   });
 
   describe('describeEnlirSoulBreak', () => {
+    it('converts piercing attacks', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Sephiroth - Reunion'])).toEqual({
+        damage: 'AoE phys 6.16/4',
+        other: undefined,
+        burstCommands: [
+          { damage: 'p^24.5/2', other: undefined, school: 'Combat' },
+          { damage: 'p2.52/4 f+n', other: undefined, school: 'Combat' },
+        ],
+      });
+    });
+
     it('converts random attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cait Sith - Toy Soldier'])).toEqual({
         damage: 'AoE white 7.11/3 or ?/3 or 9.48/3 or 11.85/3',
@@ -1867,6 +1900,14 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(unknownSoulBreaks[4])).toEqual({
         instant: true,
         other: 'Darkness hi fastcast 15s',
+      });
+      // Test handling of numbered status aliases with question marks in place
+      // of the number.  There's at least once place where the spreadsheet had
+      // a value like "10?%"; should we handle those too?
+      expect(describeEnlirSoulBreak(unknownSoulBreaks[5])).toEqual({
+        damage: '? ?/10 ice+non',
+        other:
+          '+?% ice vuln. 25s, ice infuse 25s, party Reflect Dmg 75% as ice 30s, self fastcast 3',
       });
     });
   });

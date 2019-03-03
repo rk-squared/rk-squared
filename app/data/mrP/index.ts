@@ -191,6 +191,7 @@ export function describeEnlirSoulBreak(
     damage += attack.isAoE ? 'AoE ' : '';
     damage += attack.randomChances ? attack.randomChances + ' ' : '';
     damage += formatDamageType(attack.damageType, abbreviate);
+    damage += attack.isPiercing ? '^' : '';
     damage += attack.damage;
 
     if (attack.hybridDamageType) {
@@ -735,10 +736,9 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
   return text;
 }
 
-// TODO: Yuna's follow-up, Sephiroth Zanshin, def-piercing
-// TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Windfang, Blasting Freeze
+// TODO: Yuna's follow-up, Sephiroth Zanshin
+// TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Blasting Freeze
 // TODO: Hide min damage?  Hide school for percent-based finishers?
 // TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
 // TODO: Slash-combine items like Amarant lightning+fire vuln. or Celes' element boosts - and ideally remove patchEnlir
 // TODO: Use × for times; make Unicode selectable?
-// TODO: Unyielding Fist is probably specialized enough to treat as "detail"
