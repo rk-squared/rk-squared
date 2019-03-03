@@ -425,7 +425,7 @@ describe('mrP', () => {
         other: 'wind infuse 25s, self heal 10% of wind dmg 15s, 15s: (wind ⤇ p1.92/6 wi+n Dragoon)',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Fujin - Jin'])).toEqual({
-        other: '0.75x status chance 15s, party Phys blink 1',
+        other: 'AoE 0.75x status chance 15s, party Phys blink 1',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Galuf - Unshaken Resolve'])).toEqual({
         damage: 'phys 7.8/4',
@@ -442,6 +442,13 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Agrias - Loyal Blade'])).toEqual({
         damage: 'phys 7.1/10 holy+non',
         other: '-50% ATK/MAG 25s, holy infuse 25s, self 1.15x Knight dmg 25s',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Lilisette - Sensual Dance'])).toEqual({
+        damage: undefined,
+        other:
+          'AoE +20% lgt vuln. 25s, -70% ATK/DEF/MAG 8s, ' +
+          '15s: (Celerity/Dancer ⤇ p2.0/5 l+wi+n Dancer)',
       });
     });
 
@@ -1106,6 +1113,8 @@ describe('mrP', () => {
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Garnet - Trial by Lightning'])).toEqual({
+        damage: undefined,
+        other: 'AoE +20% lgt vuln. 25s, party +30% ATK/MAG 25s',
         burstCommands: [
           {
             burstToggle: true,
@@ -1122,8 +1131,6 @@ describe('mrP', () => {
           { damage: 'm10.48/4 l+n, min dmg 1100', other: undefined, school: 'Summoning' },
           { damage: 'm13.1/5 l+n, min dmg 1100', other: undefined, school: 'Summoning' },
         ],
-        damage: undefined,
-        other: '+20% lgt vuln. 25s, party +30% ATK/MAG 25s',
       });
     });
 

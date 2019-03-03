@@ -178,6 +178,7 @@ export function describeEnlirSoulBreak(
   // We may start returning these as is so callers can deal with them.
   let burstToggle: boolean | undefined;
   const other: string[] = [];
+  const aoeOther: string[] = [];
   const selfOther: string[] = [];
   const partyOther: string[] = [];
   const detailOther: string[] = [];
@@ -426,7 +427,7 @@ export function describeEnlirSoulBreak(
       // No need to list an explicit target - it's the same as the attack
       other.push(effect);
     } else if (!who && sb.target === 'All enemies') {
-      other.push('AoE ' + effect);
+      aoeOther.push(effect);
     } else if (!who && sb.target.startsWith('Single')) {
       other.push(effect);
     } else if (who && who.startsWith(' to a random ally')) {
@@ -521,6 +522,11 @@ export function describeEnlirSoulBreak(
       } else if (isDetail) {
         // (Always?) has implied 'self'
         detailOther.push(description);
+      } else if (!who && attack) {
+        // No need to list an explicit target - it's the same as the attack
+        other.push(description);
+      } else if (!who && sb.target === 'All enemies') {
+        aoeOther.push(description);
       } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
         selfOther.push(description);
       } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
@@ -550,7 +556,7 @@ export function describeEnlirSoulBreak(
         // No need to list an explicit target - it's the same as the attack
         other.push(statMod);
       } else if (sb.target === 'All enemies') {
-        other.push('AoE ' + statMod);
+        aoeOther.push(statMod);
       } else {
         // Fallback - may not always be correct
         other.push(statMod);
@@ -648,10 +654,18 @@ export function describeEnlirSoulBreak(
     other.splice(0, 0, formatStatusInfliction(statusInfliction));
   }
 
-  if (isGlint(sb) && !damage && !other.length && !partyOther.length && !detailOther.length) {
+  if (
+    isGlint(sb) &&
+    !damage &&
+    !other.length &&
+    !aoeOther.length &&
+    !partyOther.length &&
+    !detailOther.length
+  ) {
     // If it's a glint with only self effects, then "self" is redundant.
     other.push(...checkBurstAndBraveMode(selfOther));
   } else {
+    appendGroup(other, aoeOther, 'AoE');
     appendGroup(other, partyOther, 'party');
     appendGroup(other, checkBurstAndBraveMode(selfOther), 'self');
     appendGroup(other, detailOther);
