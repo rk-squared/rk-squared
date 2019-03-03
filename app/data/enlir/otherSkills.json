@@ -356,6 +356,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Heroic Spirit Follow-Up",
+    "name": "Heroic Spirit",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (? each)",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 0,
+    "school": "?",
+    "id": 30548321,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Gale Spear Follow-Up",
     "name": "Gale Spear",
     "type": "PHY",
@@ -1932,20 +1953,20 @@
     "sourceType": "Follow-Up Status",
     "source": "Freeze Apocalypse Follow-up",
     "name": "Freeze Apocalypse",
-    "type": "?",
+    "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 16.4,
     "element": [
       "Ice",
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (?) capped at 99999",
-    "counter": false,
+    "effects": "One single attack (16.40) capped at 99999",
+    "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
-    "school": "?",
+    "school": "Black Magic",
     "id": 30541321,
     "gl": false
   },
@@ -1973,23 +1994,19 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awaken Dance",
+    "source": "Awaken Dancer",
     "name": "Barrier Dance",
-    "type": "?",
+    "type": "NAT",
     "target": "All allies",
     "formula": null,
     "multiplier": null,
-    "element": [
-      "Dark",
-      "Fire",
-      "NE"
-    ],
+    "element": null,
     "time": 0.01,
-    "effects": "Reduces damage taken by 10/15/20/30/40% ? for the next attack scaling with uses",
-    "counter": false,
-    "autoTarget": "Lowest HP% enemy",
+    "effects": "Grants 10/15/20/30/40% Damage Reduction Barrier 1 at rank 1/2/3/4/5 of the triggering ability to all allies",
+    "counter": true,
+    "autoTarget": "All allies",
     "sb": 0,
-    "school": "?",
+    "school": "Dancer",
     "id": 30549045,
     "gl": false
   },
@@ -2355,6 +2372,28 @@
     "sb": 0,
     "school": "Samurai",
     "id": 30549215,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Freezing Water Follow-Up",
+    "name": "Freezing Water",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 12.08,
+    "element": [
+      "Ice",
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Eight single attacks (1.51 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541323,
     "gl": false
   },
   {

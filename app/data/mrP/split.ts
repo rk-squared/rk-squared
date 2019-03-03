@@ -68,7 +68,7 @@ export function splitStatusEffects(effects: string): string[] {
         // This keeps Burst Mode's bonuses separate from the rest of its
         // effects.
         !isStatMod(thisPart) &&
-        // Special case - separate Awaken Lucis King's rank boost separate from
+        // Special case - separate Awoken Lucis King's rank boost separate from
         // its dualcast list.
         !parts[i + 1].match(/\d+$/)
       ) {

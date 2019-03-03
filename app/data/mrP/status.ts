@@ -104,7 +104,7 @@ function parseWho(text: string): [string, string | undefined] {
 const hideDuration = new Set(['Astra', 'Stun']);
 
 const isExStatus = (status: string) => status.startsWith('EX: ');
-const isAwakenStatus = (status: string) => status.startsWith('Awaken ');
+const isAwokenStatus = (status: string) => status.startsWith('Awoken ');
 
 interface FollowUpEffect {
   /**
@@ -601,7 +601,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
     return amount + ' ' + stat.split(andList).join('/');
   }
 
-  // Awaken
+  // Awoken
   if ((m = effect.match(/(.*) (?:abilities|attacks) don't consume uses/))) {
     let result = formatSchoolOrAbilityList(m[1]) + ' inf. hones';
     if (effect.endsWith(enlirRankBoost)) {
@@ -611,7 +611,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
   }
 
   if ((m = effect.match(/[Dd]ualcasts (.*) (?:abilities|attacks)/))) {
-    if (enlirStatus && isAwakenStatus(enlirStatus.name)) {
+    if (enlirStatus && isAwokenStatus(enlirStatus.name)) {
       // Ability or element should be redundant for AASBs
       return '100% dualcast';
     } else {
@@ -909,10 +909,10 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
   let description = describeEnlirStatus(status, enlirStatus, source);
 
   const isEx = isExStatus(status);
-  const isAwaken = isAwakenStatus(status);
+  const isAwoken = isAwokenStatus(status);
   const isExLike =
     isEx ||
-    isAwaken ||
+    isAwoken ||
     (enlirStatus != null &&
       (isFinisherStatus(enlirStatus) ||
         isFollowUpStatus(enlirStatus) ||
@@ -923,7 +923,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     if (isEx) {
       description = 'EX: ' + description;
     }
-    if (isAwaken) {
+    if (isAwoken) {
       description = status + ': ' + description;
     }
   }
@@ -1100,7 +1100,7 @@ const statusSortOrder: { [status: string]: number } = {
 };
 
 const getSortOrder = (status: string) => {
-  if (isExStatus(status) || isAwakenStatus(status)) {
+  if (isExStatus(status) || isAwokenStatus(status)) {
     return 999;
   } else {
     return statusSortOrder[status] || 0;

@@ -924,7 +924,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": ["Greased Lightning 2", "Greased Lightning 3"],
+    "exclusiveStatus": null,
     "codedName": "GREASED_LIGHTNING_1",
     "notes": null
   },
@@ -935,7 +935,9 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": ["Greased Lightning 1", "Greased Lightning 3"],
+    "exclusiveStatus": [
+      "Greased Lightning 1"
+    ],
     "codedName": "GREASED_LIGHTNING_2",
     "notes": null
   },
@@ -946,7 +948,10 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": ["Greased Lightning 1", "Greased Lightning 2"],
+    "exclusiveStatus": [
+      "Greased Lightning 1",
+      "Greased Lightning 2"
+    ],
     "codedName": "GREASED_LIGHTNING_3",
     "notes": null
   },
@@ -7964,7 +7969,7 @@
   {
     "id": 50195,
     "name": "Surge Mode",
-    "effects": "Critical chance =50%, casts Heat Burst after using a Fire attack, removed if the user doesn't have any Stoneskin",
+    "effects": "Critical chance =50%, casts Pyroburst after using a Fire attack, removed if the user doesn't have any Stoneskin",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9411,7 +9416,7 @@
   },
   {
     "id": 50344,
-    "name": "Awaken Sharpshooter",
+    "name": "Awoken Sharpshooter",
     "effects": "Sharpshooter abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Sharpshooter abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9422,7 +9427,7 @@
   },
   {
     "id": 50345,
-    "name": "Awaken Dragoon",
+    "name": "Awoken Dragoon",
     "effects": "Dragoon abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, cast speed x9999999 for Jump attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9433,7 +9438,7 @@
   },
   {
     "id": 50346,
-    "name": "Awaken Fire",
+    "name": "Awoken Fire",
     "effects": "Fire abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Fire abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9444,7 +9449,7 @@
   },
   {
     "id": 50347,
-    "name": "Awaken Spellblade",
+    "name": "Awoken Spellblade",
     "effects": "Spellblade abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Spellblade abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9455,7 +9460,7 @@
   },
   {
     "id": 50348,
-    "name": "Awaken Thief",
+    "name": "Awoken Thief",
     "effects": "Thief abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Thief abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9510,7 +9515,7 @@
   },
   {
     "id": 50353,
-    "name": "Awaken Darkness",
+    "name": "Awoken Darkness",
     "effects": "Darkness abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Darkness abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9719,7 +9724,7 @@
   },
   {
     "id": 50373,
-    "name": "Awaken Thunder God",
+    "name": "Awoken Thunder God",
     "effects": "Knight or Darkness abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Knight or Darkness abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9730,7 +9735,7 @@
   },
   {
     "id": 50374,
-    "name": "Awaken Holy",
+    "name": "Awoken Holy",
     "effects": "Holy abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Holy abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9950,7 +9955,7 @@
   },
   {
     "id": 50395,
-    "name": "Awaken Lightning",
+    "name": "Awoken Lightning",
     "effects": "Lightning abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Lightning abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10005,7 +10010,7 @@
   },
   {
     "id": 50400,
-    "name": "Awaken Knight",
+    "name": "Awoken Knight",
     "effects": "Knight abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Knight abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10050,7 +10055,7 @@
   {
     "id": 50404,
     "name": "Switch Draw Mode",
-    "effects": "Grants Attach Fire after using a Fire attack, grants Attach Dark after using a Dark attack",
+    "effects": "Grants Attach Fire after using a Fire attack, grants Attach Dark after using a Dark attack, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10195,7 +10200,7 @@
   },
   {
     "id": 50416,
-    "name": "Awaken Earth",
+    "name": "Awoken Earth",
     "effects": "Earth abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Earth abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10217,7 +10222,7 @@
   },
   {
     "id": 50418,
-    "name": "Awaken Summoning",
+    "name": "Awoken Summoning",
     "effects": "Summoning abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Summoning abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10228,7 +10233,7 @@
   },
   {
     "id": 50419,
-    "name": "Awaken Witch",
+    "name": "Awoken Witch",
     "effects": "Witch abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Witch abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10239,7 +10244,7 @@
   },
   {
     "id": 50420,
-    "name": "Awaken Wind",
+    "name": "Awoken Wind",
     "effects": "Wind abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Wind abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10250,7 +10255,7 @@
   },
   {
     "id": 50421,
-    "name": "Awaken Lucis King",
+    "name": "Awoken Lucis King",
     "effects": "Fire, Earth and Lightning attacks don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Fire, Earth and Lightning attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10261,7 +10266,7 @@
   },
   {
     "id": 50422,
-    "name": "Awaken Ice",
+    "name": "Awoken Ice",
     "effects": "Ice abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Ice abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10272,7 +10277,7 @@
   },
   {
     "id": 50423,
-    "name": "Awaken Sorceress Knight",
+    "name": "Awoken Sorceress Knight",
     "effects": "Dark and Fire abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dark and Fire attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10283,7 +10288,7 @@
   },
   {
     "id": 50424,
-    "name": "Awaken Indomitable",
+    "name": "Awoken Indomitable",
     "effects": "Holy and Ice abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Holy and Ice attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10306,7 +10311,7 @@
   {
     "id": 50426,
     "name": "Blasting Freeze",
-    "effects": "Casts Blasting Freeze when removed, removed if the user hasn't Awaken Ice",
+    "effects": "Casts Blasting Freeze when removed, removed if the user hasn't Awoken Ice",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10415,7 +10420,7 @@
   },
   {
     "id": 50438,
-    "name": "Awaken Monk",
+    "name": "Awoken Monk",
     "effects": "Monk abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Monk abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10492,7 +10497,7 @@
   },
   {
     "id": 50445,
-    "name": "Awaken Water",
+    "name": "Awoken Water",
     "effects": "Water abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Water abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10503,7 +10508,7 @@
   },
   {
     "id": 50446,
-    "name": "Awaken Samurai",
+    "name": "Awoken Samurai",
     "effects": "Samurai abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Samurai abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10525,7 +10530,7 @@
   },
   {
     "id": 50448,
-    "name": "Awaken Devotion",
+    "name": "Awoken Devotion",
     "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilites and casts Healing Wave after using White Magic abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10690,8 +10695,8 @@
   },
   {
     "id": 50468,
-    "name": "Awaken Magic Archer",
-    "effects": "Wind or Dark abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Wind or Dark abilities",
+    "name": "Awoken Magic Archer",
+    "effects": "Wind and Dark abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Wind and Dark abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10702,7 +10707,7 @@
   {
     "id": 50469,
     "name": "Apocalypse Switch Draw Mode",
-    "effects": "Grants Attach Wind after using a Wind attack, grants Attach Dark after using a Dark attack",
+    "effects": "Grants Attach Wind after using a Wind attack, grants Attach Dark after using a Dark attack, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10723,13 +10728,90 @@
   },
   {
     "id": 50471,
-    "name": "Awaken Dance",
+    "name": "Awoken Dancer",
     "effects": "Dancer abilities don't consume uses, cast speed x3.00 for Dancer abilites and casts Barrier Dance after using Dancer abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "AWAKE_MODE_DANCE",
+    "notes": null
+  },
+  {
+    "id": 50476,
+    "name": "Heroic Spirit Follow-Up",
+    "effects": "Casts Heroic Spirit after using an ice attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ROAR_OF_MAN",
+    "notes": null
+  },
+  {
+    "id": 50477,
+    "name": "Freezing Water Follow-Up",
+    "effects": "Casts Freezing Water after using two Ice or Water attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_WALK_OF_FUTURE",
+    "notes": null
+  },
+  {
+    "id": 50478,
+    "name": "Awoken Black Scholar",
+    "effects": "Ice and Water abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Ice and Water abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_TEMPTATION",
+    "notes": null
+  },
+  {
+    "id": 50479,
+    "name": "10% Damage Reduction Barrier 1",
+    "effects": "Reduces damage taken by 10% for the next attack",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_RATE_REDUCTION_BARRIER_FOR_ATTACK_WITH_SMALL_10_1",
+    "notes": null
+  },
+  {
+    "id": 50480,
+    "name": "15% Damage Reduction Barrier 1",
+    "effects": "Reduces damage taken by 15% for the next attack",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_RATE_REDUCTION_BARRIER_FOR_ATTACK_WITH_SMALL_15_1",
+    "notes": null
+  },
+  {
+    "id": 50481,
+    "name": "20% Damage Reduction Barrier 1",
+    "effects": "Reduces damage taken by 20% for the next attack",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_RATE_REDUCTION_BARRIER_FOR_ATTACK_WITH_SMALL_20_1",
+    "notes": null
+  },
+  {
+    "id": 50482,
+    "name": "30% Damage Reduction Barrier 1",
+    "effects": "Reduces damage taken by 30% for the next attack",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_RATE_REDUCTION_BARRIER_FOR_ATTACK_WITH_SMALL_30_1",
     "notes": null
   },
   {

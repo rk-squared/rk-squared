@@ -20,7 +20,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     element: ['Fire', 'Wind', 'NE'],
     time: null,
     effects:
-      'Fifteen single ranged hybrid attacks (? or ? each), grants Attach Fire, Awaken Fire, Damage Cap 19999 and Fiery Tornado Follow-Up to the user',
+      'Fifteen single ranged hybrid attacks (? or ? each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Fiery Tornado Follow-Up to the user',
     counter: false,
     autoTarget: '?',
     points: 500,
@@ -1587,7 +1587,7 @@ describe('mrP', () => {
         damage: 'phys 9.0/15 holy+non',
         other:
           'holy infuse 25s, self dmg cap=19,999 15s, 15s: (2 Knight ⤇ +10% holy vuln. 15s), ' +
-          '15s: Awaken Knight: Knight inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          '15s: Awoken Knight: Knight inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Noctis - Kingly Duties'])).toEqual({
         damage: 'phys 9.0/15 fire+earth+lgt+non',
@@ -1595,7 +1595,7 @@ describe('mrP', () => {
           'self crit =100% 25s, dmg cap=19,999 15s, ' +
           '15s: hi fastcast, ' +
           'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non overstrike Combat @ 0-7-11 fire/earth/lgt used, ' +
-          '15s: Awaken Lucis King: fire/earth/lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          '15s: Awoken Lucis King: fire/earth/lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       // This also helps test the interaction of status effects and stat mods,
@@ -1605,14 +1605,14 @@ describe('mrP', () => {
         other:
           'fire infuse 25s, self dmg cap=19,999 15s, ' +
           '15s: (3 Samurai ⤇ p5.28 f+n overstrike Samurai, -70% DEF/RES/MND 8s), ' +
-          '15s: Awaken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          '15s: Awoken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Paladin) - Radiant Moon'])).toEqual({
         damage: 'p9.0/15 or w24.0/15 holy+non',
         other:
           'holy infuse 25s, party 75% Dmg barrier 3, ' +
-          'self dmg cap=19,999 15s, 15s: Awaken Holy: holy inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          'self dmg cap=19,999 15s, 15s: Awoken Holy: holy inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Cloud - Heavensent'])).toEqual({
@@ -1620,7 +1620,7 @@ describe('mrP', () => {
         other:
           'wind infuse 25s, self dmg cap=19,999 15s, crit =100% 25s, hi fastcast 15s, ' +
           '15s: (3 wind (once only) ⤇ instacast 1, +250 SB pts), ' +
-          '15s: Awaken Wind: wind inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          '15s: Awoken Wind: wind inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Kain - Lance of Dragon'])).toEqual({
@@ -1628,14 +1628,14 @@ describe('mrP', () => {
         other:
           'lgt infuse 25s, self dmg cap=29,999 15s, ' +
           '15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), ' +
-          '15s: Awaken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast',
+          '15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Zidane - Reverse Gaia'])).toEqual({
         damage: 'phys 9.0/15 wind+non',
         other:
           'wind infuse 25s, self dmg cap=19,999 15s, 1.25x SB gauge from Thief 15s, ' +
-          '15s: Awaken Thief: Thief inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          '15s: Awoken Thief: Thief inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Dark Knight) - Dark Moon'])).toEqual({
@@ -1643,7 +1643,7 @@ describe('mrP', () => {
         other:
           'dmg cap=19,999 15s, dark infuse 25s, ' +
           '15s: (2 Darkness ⤇ p4.16/8 - 4.32/8 - 4.48/8 d+n Darkness @ +0 - 30 - 75% crit @ 2-4-6 Darkness used, self lose 25% max HP), ' +
-          '15s: Awaken Darkness: Darkness inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          '15s: Awoken Darkness: Darkness inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Celes - Spinning Twice'])).toEqual({
@@ -1651,16 +1651,16 @@ describe('mrP', () => {
         other:
           'party Magic blink 1, self +30% ice dmg 15s, +30% holy dmg 15s, dmg cap=19,999 15s, ' +
           '15s: (2 ice/holy ⤇ p2.6/5 i+h+n Spellblade @ 1-2 Magic blink, self Magic blink 2), ' +
-          '15s: Awaken Indomitable: holy/ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          '15s: Awoken Indomitable: holy/ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Sephiroth - Stigma'])).toEqual({
         damage: 'phys 9.0/15 dark+non',
         other:
           'dark infuse 25s, self dmg cap=19,999 15s, +500 SB pts, ' +
-          '15s: Awaken Darkness: Darkness inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          '15s: Awoken Darkness: Darkness inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
-      // TODO: Decide about Awaken modes whose statuses duplicate trances, etc.
+      // TODO: Decide about Awoken modes whose statuses duplicate trances, etc.
     });
 
     it('handles turn-limited effects', () => {
@@ -1831,7 +1831,7 @@ describe('mrP', () => {
         other:
           'fire infuse 25s, self dmg cap=19,999 15s, ' +
           '15s: (3 fire ⤇ p4.24 or m15.35 f+wi+n rngd overstrike), ' +
-          '15s: Awaken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
       expect(describeEnlirSoulBreak(unknownSoulBreaks[1])).toEqual({
         damage: 'p?/3 or m?/3 fire+wind overstrike',
