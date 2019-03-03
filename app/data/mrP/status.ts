@@ -993,7 +993,7 @@ const statusItemRe = XRegExp(
     \ to\ the\ lowest\ HP%\ ally|
     \ to\ a\ random\ ally\ with\ negative\ (?:status\ )?effects
   )?
-  (?:\ for\ (?<duration>\d+|\?)\ (?<durationUnits>second|turn)s?)?
+  (?:\ for\ (?<duration>\d+\??|\?)\ (?<durationUnits>second|turn)s?)?
   (?<scalesWithUses2>\ scaling\ with\ (?<scaleWithUsesSkill2>[A-Za-z ]+\ )?uses)?
   (?:\ if\ the\ user\ has\ (?<prereq>.*))?
   $

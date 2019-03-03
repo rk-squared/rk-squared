@@ -298,7 +298,7 @@ export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
     return enlirStatusAltName[status];
   }
 
-  status = status.replace(/(\d+|\?)/, 'X');
+  status = status.replace(/(\d+\??|\?)/, 'X');
   if (enlir.statusByName[status]) {
     return enlir.statusByName[status];
   }

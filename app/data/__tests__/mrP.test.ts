@@ -139,6 +139,28 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     id: 20190009,
     gl: false,
   },
+  {
+    realm: 'VII',
+    character: 'Tifa',
+    name: 'Beat Blast',
+    type: '?',
+    target: 'Single enemy',
+    formula: 'Physical',
+    multiplier: null,
+    element: ['Earth', 'NE'],
+    time: 0.01,
+    effects:
+      'Six single attacks (? each), causes Imperil Earth 10?% for 15? seconds, grants Minor Buff Earth to the user',
+    counter: false,
+    autoTarget: '?',
+    points: 250,
+    tier: 'Glint',
+    master: 'ATK +10',
+    relic: 'Hyper Fist (VII)',
+    nameJp: '掌打破岩',
+    id: 20230014,
+    gl: false,
+  },
 ];
 
 describe('mrP', () => {
@@ -1922,12 +1944,19 @@ describe('mrP', () => {
         other: 'Darkness hi fastcast 15s',
       });
       // Test handling of numbered status aliases with question marks in place
-      // of the number.  There's at least once place where the spreadsheet had
-      // a value like "10?%"; should we handle those too?
+      // of the number.
       expect(describeEnlirSoulBreak(unknownSoulBreaks[5])).toEqual({
         damage: '? ?/10 ice+non',
         other:
           '+?% ice vuln. 25s, ice infuse 25s, party Reflect Dmg 75% as ice 30s, self fastcast 3',
+      });
+      // Test handling of numbered status aliases with a question mark after
+      // the number.  As with Darkness Shift, this discards the 15? second
+      // duration, but I think that's okay.
+      expect(describeEnlirSoulBreak(unknownSoulBreaks[6])).toEqual({
+        instant: true,
+        damage: '? ?/6 earth+non',
+        other: '+10?% earth vuln. 25s, self +10% earth dmg 15s',
       });
     });
   });

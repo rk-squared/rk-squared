@@ -201,11 +201,11 @@ for (const i of allEnlirSchools) {
 addCastSpeedEffectAliases('Jump', 'jump');
 
 export function splitNumbered(s: string): [string, string] | [null, null] {
-  const m = s.match(/(-?[0-9.]+|\?)/);
+  const m = s.match(/(-?[0-9.]+\??|\?)/);
   if (!m) {
     return [null, null];
   }
-  const text = s.replace(/-?[0-9.]+|\?/, '{X}');
+  const text = s.replace(/-?[0-9.]+\??|\?/, '{X}');
   return [text, m[1]];
 }
 
