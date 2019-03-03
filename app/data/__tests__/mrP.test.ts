@@ -238,6 +238,12 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cecil (Paladin) - Arc of Light'])).toEqual({
         damage: 'phys 12.0 holy+non rngd overstrike',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Locke - Miracle of Kohlingen'])).toEqual({
+        fast: true,
+        damage: 'phys 10.0 fire+holy rngd overstrike',
+        other: undefined,
+      });
     });
 
     it('converts 20+1 Arcane Overstrikes', () => {
@@ -281,6 +287,10 @@ describe('mrP', () => {
 
       expect(describeEnlirSoulBreak(soulBreaks['Celes - Magic Shield'])).toEqual({
         other: 'party +50% RES 25s',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Luneth - Advance'])).toEqual({
+        other: 'self +150% ATK, -50% DEF 30s',
       });
     });
 
@@ -464,6 +474,15 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Agrias - Loyal Blade'])).toEqual({
         damage: 'phys 7.1/10 holy+non',
         other: '-50% ATK/MAG 25s, holy infuse 25s, self 1.15x Knight dmg 25s',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Lilisette - Vivifying Waltz'])).toEqual({
+        damage: undefined,
+        other: 'AoE -40% A/D/M/R 25s, party Autoheal 2k',
+        burstCommands: [
+          { damage: 'p1.8 l+wi', fast: true, other: '-50% MAG 15s', school: 'Dancer' },
+          { damage: undefined, other: 'party h25 (NAT)', school: 'Dancer' },
+        ],
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Lilisette - Sensual Dance'])).toEqual({

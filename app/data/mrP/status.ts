@@ -373,8 +373,9 @@ function isBurstToggle({ effects }: EnlirStatus) {
  * here; it's easier to special case those within describeEnlirStatus than to
  * make describeEffects smart enough to handle them.
  */
-const isCustomStatMod = ({ codedName, effects }: EnlirStatus) =>
-  codedName.startsWith('CUSTOM_PARAM_') && !effects.match(/, lasts for \d+ turn/);
+const isCustomStatMod = ({ name, codedName, effects }: EnlirStatus) =>
+  (codedName.startsWith('CUSTOM_PARAM_') && !effects.match(/, lasts for \d+ turn/)) ||
+  name === 'Advance';
 
 const percentToMultiplier = (percent: number) => 1 + percent / 100;
 

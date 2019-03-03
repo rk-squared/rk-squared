@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import { logger } from '../utils/logger';
 
 // TODO: Try removing duplicating in unions and arrays - see https://stackoverflow.com/a/45486495/25507
 
@@ -245,29 +246,65 @@ export const enlir = {
   statusByName: _.keyBy(rawData.status, 'name'),
 };
 
+function applyPatch<T>(
+  lookup: { [s: string]: T },
+  name: string,
+  check: (item: T) => boolean,
+  apply: (item: T) => void,
+) {
+  if (!lookup[name]) {
+    logger.warn(`Failed to patch ${name}: could not find item`);
+    return;
+  }
+  const item = lookup[name];
+  if (!check(item)) {
+    logger.warn(`Failed to patch ${name}: item does not match expected contents`);
+    return;
+  }
+  apply(item);
+}
+
 /**
  * HACK: Patch Enlir data to make it easier for our text processing.
  */
 function patchEnlir() {
-  const pluto = enlir.statusByName['Pluto Knight Triblade Follow-Up'];
-  if (
-    pluto &&
-    pluto.effects ===
-      'Casts Pluto Knight Triblade and grants Minor Buff Fire, Minor Buff Lightning and Minor Buff Ice after exploiting elemental weakness'
-  ) {
-    pluto.effects =
-      'Casts Pluto Knight Triblade and grants Minor Buff Fire/Lightning/Ice after exploiting elemental weakness';
-  }
+  applyPatch(
+    enlir.statusByName,
+    'Pluto Knight Triblade Follow-Up',
+    pluto =>
+      pluto.effects ===
+      'Casts Pluto Knight Triblade and grants Minor Buff Fire, Minor Buff Lightning and Minor Buff Ice after exploiting elemental weakness',
+    pluto => {
+      pluto.effects =
+        'Casts Pluto Knight Triblade and grants Minor Buff Fire/Lightning/Ice after exploiting elemental weakness';
+    },
+  );
 
-  const runicAwakening = enlir.otherSkillsByName['Runic Awakening'];
-  if (
-    runicAwakening &&
-    runicAwakening.effects ===
-      'Grants Magical Blink 2 to the user, five single attacks (0.52 each) if user has Magical Blink 1/2'
-  ) {
-    runicAwakening.effects =
-      'Five single attacks (0.52 each) if user has Magical Blink 1/2, grants Magical Blink 2 to the user';
-  }
+  applyPatch(
+    enlir.otherSkillsByName,
+    'Runic Awakening',
+    runicAwakening =>
+      runicAwakening.effects ===
+      'Grants Magical Blink 2 to the user, five single attacks (0.52 each) if user has Magical Blink 1/2',
+    runicAwakening => {
+      runicAwakening.effects =
+        'Five single attacks (0.52 each) if user has Magical Blink 1/2, grants Magical Blink 2 to the user';
+    },
+  );
+
+  applyPatch(
+    enlir.soulBreaks,
+    '23350002',
+    waltz =>
+      waltz.target === 'All allies' &&
+      waltz.effects ===
+        'Grants HP Stock (2000), ATK, DEF, MAG and RES -40% to all enemies for 25 seconds, grants Haste and Burst Mode to the user',
+    waltz => {
+      waltz.target = 'All enemies';
+      waltz.effects =
+        'ATK, DEF, MAG and RES -40% for 25 seconds, grants HP Stock (2000) to all allies, grants Haste and Burst Mode to the user';
+    },
+  );
 }
 patchEnlir();
 
