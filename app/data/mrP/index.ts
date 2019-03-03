@@ -486,7 +486,7 @@ export function describeEnlirSoulBreak(
         description += ' ' + formatUseCount(optionCount);
       }
       if (stacking) {
-        description += ' stacking';
+        description = 'stacking ' + description;
       }
 
       if (!duration && defaultDuration) {

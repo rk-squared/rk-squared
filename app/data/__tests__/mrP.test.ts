@@ -643,7 +643,7 @@ describe('mrP', () => {
         burstCommands: [
           {
             damage: 'p2.32/4 f+n',
-            other: 'self Greased Lightning 1/2/3 stacking',
+            other: 'self stacking +15%/30%/50% ATK, 1.33x/2.0x/4.0x cast until damaged',
             school: 'Monk',
           },
           { damage: undefined, other: 'self Negate dmg 30%', school: 'Monk' },
@@ -654,16 +654,17 @@ describe('mrP', () => {
     it('handles stacking statuses', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Ursula - Assert Dominance'])).toEqual({
         instant: true,
-        other: 'self hi fastcast 2, 15s: crit =50%/=75%/=100% stacking',
+        other: 'self hi fastcast 2, 15s: stacking crit =50%/=75%/=100%',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Refia - Bridled Love'])).toEqual({
         instant: true,
         other:
-          'self hi fastcast 2, 15s: (fire ⤇ p1.6/4 - 1.6/4 - 2.0/5 - 2.4/6 f+n Monk @ 0-1-2-3 Explosive Rush Mode)',
+          'self hi fastcast 2, 15s: stacking (fire ⤇ p1.6/4 - 2.0/5 - 2.4/6 f+n Monk @ 1-2-3 stacks)',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Tifa - Zangan Awakening'])).toEqual({
         instant: true,
-        other: 'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ ranks 1-5 15s, 15s: 2.0x/4.0x/6.0x cast',
+        other:
+          'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ ranks 1-5 15s, 15s: stacking 2.0x/4.0x/6.0x cast',
       });
     });
 

@@ -536,16 +536,22 @@ export function parseEnlirAttack(
   } else if (m.statusThreshold) {
     let statusThresholdCount: string = m.statusThresholdCount;
 
-    // If the status threshold is the same as the prereq status, then we can
+    // If the status threshold is the same as the prereq status, or if this is
+    // an EnlirOtherSkill that is granted by the status threshold, then we can
     // filter out "0" from the possible actions.
-    if (prereqStatus === m.statusThreshold) {
+    const isOwnStatusThreshold =
+      'source' in skill && skill.source.replace(/ [0-9\/]+$/, '') === m.statusThreshold;
+    if (prereqStatus === m.statusThreshold || isOwnStatusThreshold) {
       statusThresholdCount = m.statusThresholdCount.replace(/^0\//, '');
       if (statusThresholdCount !== m.statThreshold) {
         damage = damage.replace(new RegExp('^.*?' + thresholdJoin), '');
       }
     }
 
-    scaleType = formatThreshold(statusThresholdCount, describeEnlirStatus(m.statusThreshold));
+    scaleType = formatThreshold(
+      statusThresholdCount,
+      isOwnStatusThreshold ? 'stacks' : describeEnlirStatus(m.statusThreshold),
+    );
   } else if (m.tookHits) {
     scaleType = formatThreshold(
       m.tookHitsValue,

@@ -343,8 +343,8 @@ const isModeStatus = ({ name, codedName }: EnlirStatus) =>
 /**
  * Various statuses for which we want to force showing individual effects.
  */
-function forceEffects({ codedName }: EnlirStatus) {
-  return codedName.startsWith('ABSORB_HP_');
+function forceEffects({ name, codedName }: EnlirStatus) {
+  return codedName.startsWith('ABSORB_HP_') || name.startsWith('Greased Lightning ');
 }
 
 /**
@@ -559,7 +559,7 @@ function shouldSkipEffect(effect: string) {
 function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | null): string {
   let m: RegExpMatchArray | null;
 
-  if (effect.startsWith('removed if')) {
+  if (effect.startsWith('removed if ') || effect.startsWith('removed upon ')) {
     return '';
   }
 
@@ -887,9 +887,11 @@ function describeFollowUp(followUp: FollowUpEffect): string {
   return '(' + triggerDescription + ' ⤇ ' + description.join(', ') + ')';
 }
 
-function getSpecialDuration(enlirStatus: EnlirStatus): string | undefined {
-  if (enlirStatus.effects.match(/, removed if the user doesn't have any Stoneskin/)) {
+function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
+  if (effects.match(/, removed if the user doesn't have any Stoneskin/)) {
     return 'until Neg. Dmg. lost';
+  } else if (effects.match(/, removed upon taking damage/)) {
+    return 'until damaged';
   } else {
     return undefined;
   }
