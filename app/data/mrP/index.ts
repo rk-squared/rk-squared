@@ -37,6 +37,7 @@ import {
   MrPDamageType,
 } from './types';
 import {
+  countMatches,
   describeChances,
   formatUseCount,
   isAllSame,
@@ -89,13 +90,27 @@ function formatStatusInfliction(status: StatusInfliction[]): string {
 }
 
 function formatChance(chance: number, attack?: ParsedEnlirAttack | null): string {
-  if (chance !== 100 && attack && attack.numAttacks && attack.numAttacks > 1) {
-    const totalChanceFraction = 1 - (1 - chance / 100) ** attack.numAttacks;
-    const totalChance = Math.round(totalChanceFraction * 100);
-    return `${totalChance}% (${chance}% × ${attack.numAttacks})`;
-  } else {
-    return `${chance}%`;
+  const fallback = `${chance}%`;
+  if (chance === 100 || !attack) {
+    return fallback;
   }
+
+  if (attack.numAttacks) {
+    if (attack.numAttacks === 1) {
+      return fallback;
+    } else {
+      const totalChanceFraction = 1 - (1 - chance / 100) ** attack.numAttacks;
+      const totalChance = Math.round(totalChanceFraction * 100);
+      return `${totalChance}% (${chance}% × ${attack.numAttacks})`;
+    }
+  }
+
+  if (countMatches(attack.damage, /\//g)) {
+    // Looks like variable number of hits
+    return `${chance}%/hit`;
+  }
+
+  return fallback;
 }
 
 /**

@@ -150,6 +150,7 @@ for (const i of allEnlirElements) {
 for (const i of allEnlirSchools) {
   statusAlias.simple[`${i} +30% Boost`] = `1.3x ${getSchoolShortName(i)} dmg`;
   statusAlias.simple[`${i} Quick Cast`] = `${getSchoolShortName(i)} fastcast`;
+  statusAlias.simple[`${i} Quick Cast: Alternative`] = `${getSchoolShortName(i)} fastcast`;
   statusAlias.simple[`${i} Instant Cast`] = `${getSchoolShortName(i)} instacast`;
   statusAlias.simple[`${i} Rank Boost`] = rankBoostAlias(i);
   statusAlias.simple[`${i} Double`] = doubleAlias(getSchoolShortName(i));

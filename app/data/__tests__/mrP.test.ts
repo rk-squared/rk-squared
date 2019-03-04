@@ -471,6 +471,10 @@ describe('mrP', () => {
           'self Autoheal 6k, +100% DEF/RES, +50% MND 25s, ' +
           '15s: if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Paine - Rushing Steel'])).toEqual({
+        damage: 'phys 7.1/10 water+non',
+        other: 'water infuse 25s, self Spellblade fastcast 15s, +30% ATK/DEF 25s',
+      });
     });
 
     it('converts combinations of stat changes, statuses, and infuses', () => {
@@ -493,6 +497,9 @@ describe('mrP', () => {
         other:
           'AoE +20% lgt vuln. 25s, -70% ATK/DEF/MAG 8s, ' +
           '15s: (Celerity/Dancer ⤇ p2.0/5 l+wi+n Dancer)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Orran - Celestial Stasis'])).toEqual({
+        other: 'AoE -70% A/D/M/R 8s, party Magic blink 1, instacast 1',
       });
     });
 
@@ -1400,6 +1407,25 @@ describe('mrP', () => {
             school: 'Machinist',
           },
           { damage: 'p2.44/4 f+n rngd', school: 'Machinist' },
+        ],
+      });
+    });
+
+    it('converts status ailments', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Maria - Meteor XVI'])).toEqual({
+        damage: 'magic 15.04/8 earth+non',
+        other: 'earth infuse 25s',
+        burstCommands: [
+          {
+            damage: 'm6.0/3 - 8.0/4 - 10.0/5 - 12.0/6 e+n @ 624-973-1032 MAG',
+            other: '5%/hit Petrify',
+            school: 'Black Magic',
+          },
+          {
+            damage: 'AoE m6.18/2 e+f',
+            other: 'self +30% MAG, -30% DEF 20s',
+            school: 'Black Magic',
+          },
         ],
       });
     });

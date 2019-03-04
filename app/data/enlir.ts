@@ -268,6 +268,8 @@ function applyPatch<T>(
  * HACK: Patch Enlir data to make it easier for our text processing.
  */
 function patchEnlir() {
+  // Pluto Knight Triblade is a very difficult effect to parse.  By revising its
+  // wording, we can let our slash-merge feature take care of it.
   applyPatch(
     enlir.statusByName,
     'Pluto Knight Triblade Follow-Up',
@@ -280,6 +282,9 @@ function patchEnlir() {
     },
   );
 
+  // A purely conditional attack - we may not even have an Enlir format for
+  // this.  The format chosen by the spreadsheet is probably actually intended
+  // for threshold attacks, but we'll make it work.
   applyPatch(
     enlir.otherSkillsByName,
     'Runic Awakening',
@@ -292,6 +297,9 @@ function patchEnlir() {
     },
   );
 
+  // These may be inconsistencies in the spreadsheet - Enlir normally instead
+  // lists such things as "All enemies," with the stat mods first.
+  // TODO: Verify these against JSON and, where possible, update spreadsheet to make them unnecessary
   applyPatch(
     enlir.soulBreaks,
     '23350002',
@@ -303,6 +311,19 @@ function patchEnlir() {
       waltz.target = 'All enemies';
       waltz.effects =
         'ATK, DEF, MAG and RES -40% for 25 seconds, grants HP Stock (2000) to all allies, grants Haste and Burst Mode to the user';
+    },
+  );
+  applyPatch(
+    enlir.soulBreaks,
+    '23330001',
+    stasis =>
+      stasis.target === 'All allies' &&
+      stasis.effects ===
+        'Grants Magical Blink 1 and Instant Cast 1, ATK, DEF, MAG and RES -70% to all enemies for 8 seconds',
+    stasis => {
+      stasis.target = 'All enemies';
+      stasis.effects =
+        'ATK, DEF, MAG and RES -70% for 8 seconds, grants Magical Blink 1 and Instant Cast 1 to all allies';
     },
   );
 }
