@@ -16595,7 +16595,7 @@
     "multiplier": 7.8,
     "element": [],
     "time": 2.5,
-    "effects": "Ten random attacks (0.78 each), grants Shell to all allies, ranged attack",
+    "effects": "Ten random ranged attacks (0.78 each), grants Shell to all allies",
     "counter": false,
     "autoTarget": "Random enemies",
     "points": 500,

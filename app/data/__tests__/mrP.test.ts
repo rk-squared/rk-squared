@@ -1875,6 +1875,9 @@ describe('mrP', () => {
     });
 
     it('handles ether abilities', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Red XIII - Howling Moon'])).toEqual({
+        other: 'party refill 1 random abil. use',
+      });
       expect(describeEnlirSoulBreak(soulBreaks["Enna - Grymoire's Protection"])).toEqual({
         other: 'self refill 1 abil. use',
       });

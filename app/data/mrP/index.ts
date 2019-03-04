@@ -634,6 +634,20 @@ export function describeEnlirSoulBreak(
     other.push(`${getShortName(element)} infuse 25s`);
   }
 
+  if (
+    (m = sb.effects.match(/[Rr]estores (\d+) consumed ability use( to the user| to all allies)?/))
+  ) {
+    const [, amount, who] = m;
+    const ether = 'refill ' + amount + ' random abil. use';
+    if (who === ' to the user' || (!who && sb.target === 'Self')) {
+      selfOther.push(ether);
+    } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(ether);
+    } else {
+      // Fallback
+      other.push(ether);
+    }
+  }
   if ((m = sb.effects.match(/(\w+ )?[Ss]mart (\w+ )?ether (\S+)( to the user| to all allies)?/))) {
     const [, type1, type2, amount, who] = m;
 
