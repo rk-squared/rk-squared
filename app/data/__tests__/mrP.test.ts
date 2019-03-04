@@ -329,6 +329,22 @@ describe('mrP', () => {
         damage: 'phys 5.1/10 rngd',
         other: 'self Phys blink 2',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Palom - Tri-Disaster'])).toEqual({
+        damage: 'magic 16.0/8 fire+lgt+ice, or m20.0/10 vs. weak',
+        burstCommands: [
+          {
+            damage: 'm9.2/4 f+l',
+            other: 'self instazap 1 if hits weak',
+            school: 'Black Magic',
+          },
+          {
+            damage: 'm9.2/4 i+l',
+            other: 'self instazap 1 if hits weak',
+            school: 'Black Magic',
+          },
+        ],
+      });
     });
 
     it('converts status effects that scale with uses', () => {

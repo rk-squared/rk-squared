@@ -32867,7 +32867,7 @@
       "Fire"
     ],
     "time": 3,
-    "effects": "Three group attacks (3.13 each), grants Cast Speed *2 to the user for 4 turns",
+    "effects": "Three group attacks (3.13 each), grants Quick Cast 4 to the user",
     "counter": false,
     "autoTarget": "All enemies",
     "points": 500,

@@ -980,6 +980,7 @@ export interface StatusItem {
   scalesWithUses?: boolean;
   rank?: boolean; // Are this item's effects rank-based?
   stacking?: boolean;
+  condition?: string;
 }
 
 const statusItemRe = XRegExp(
@@ -997,6 +998,7 @@ const statusItemRe = XRegExp(
   (?:\ for\ (?<duration>\d+\??|\?)\ (?<durationUnits>second|turn)s?)?
   (?<scalesWithUses2>\ scaling\ with\ (?<scaleWithUsesSkill2>[A-Za-z ]+\ )?uses)?
   (?:\ if\ the\ user\ has\ (?<prereq>.*))?
+  (?<weakness>\ if\ exploiting\ elemental\ weakness)?
   $
   `,
   'x',
@@ -1038,6 +1040,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     scaleWithUsesSkill1,
     scaleWithUsesSkill2,
     prereq,
+    weakness,
   } = (m as unknown) as XRegExpNamedGroups;
   // tslint:enable prefer-const
 
@@ -1084,6 +1087,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     scalesWithUses,
     rank: rank != null,
     stacking,
+    condition: weakness ? 'if hits weak' : undefined,
   };
 }
 

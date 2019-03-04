@@ -474,6 +474,7 @@ export function describeEnlirSoulBreak(
         scalesWithUses,
         rank,
         stacking,
+        condition,
       } = thisStatus;
       // tslint:enable: prefer-const
 
@@ -522,6 +523,9 @@ export function describeEnlirSoulBreak(
       }
       if (rank) {
         description += ' @ rank 1-5';
+      }
+      if (condition) {
+        description += ' ' + condition;
       }
 
       if (!duration && defaultDuration) {
