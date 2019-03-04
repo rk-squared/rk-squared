@@ -132,14 +132,26 @@ export function isAllSame<T>(values: T[], iteratee: (value: T) => any): boolean 
 
 export const enDashJoin = ' – ';
 
-function rawSlashMerge(options: string[], { forceEnDash }: { forceEnDash: boolean }) {
-  const optionParts = options.map(i => i.split(/([,? +])/));
-  const maxLength = Math.max(...optionParts.map(i => i.length));
+function rawSlashMerge(
+  options: string[],
+  { forceEnDash, splitAtPlus }: { forceEnDash: boolean; splitAtPlus: boolean },
+) {
+  // We normally break at plus signs, so, e.g., f+n / wa+n / wi+n / e+n can
+  // become f/wa/wi/e+n.  But there are times when it works out better to
+  // instead treat plus-separated terms as units.
+  const splitAt = splitAtPlus ? /([,? +])/ : /([,? ])/;
+
+  const optionParts = options.map(i => i.split(splitAt));
+  const maxLength = _.max(optionParts.map(i => i.length))!;
+  const minLength = _.min(optionParts.map(i => i.length))!;
+
+  const join = (parts: string[]) =>
+    parts.join(forceEnDash || _.some(parts, s => s.match('/')) ? enDashJoin : '/');
 
   let result = '';
   let same = 0;
   let different = 0;
-  for (let i = 0; i < maxLength; i++) {
+  for (let i = 0; i < minLength; i++) {
     if (isAllSame(optionParts, parts => parts[i])) {
       result += optionParts[0][i];
       same++;
@@ -147,22 +159,39 @@ function rawSlashMerge(options: string[], { forceEnDash }: { forceEnDash: boolea
       const mergeParts = optionParts.filter(parts => parts[i] !== undefined).map(parts => parts[i]);
       // Merge with slashes if the parts don't have slashes themselves.  Merge
       // with en dashes otherwise.
-      result += mergeParts.join(
-        forceEnDash || _.some(mergeParts, s => s.match('/')) ? enDashJoin : '/',
-      );
+      result += join(mergeParts);
       different++;
     }
+  }
+
+  // Try taking left-over parts and appending them to the end.
+  if (maxLength !== minLength) {
+    let extraParts = optionParts.map(i => i.slice(minLength));
+
+    // Special case: Extra parts start with ", ".
+    if (_.every(extraParts, i => i.length === 0 || (i[0] === ',' && i[1] === '' && i[2] === ' '))) {
+      result += ', ';
+      extraParts = extraParts.map(i => i.slice(3));
+    } else {
+      result += ' ';
+    }
+
+    result += join(extraParts.map(i => (i.length ? i.join('') : '0̸')));
+    different += maxLength - minLength;
   }
 
   return { result, same, different };
 }
 
 export function slashMerge(options: string[], { forceEnDash } = { forceEnDash: false }): string {
-  const standard = rawSlashMerge(options, { forceEnDash });
+  const standardPlus = rawSlashMerge(options, { forceEnDash, splitAtPlus: true });
+  const standardNoPlus = rawSlashMerge(options, { forceEnDash, splitAtPlus: false });
+  const useNoPlus = standardNoPlus.different < standardPlus.different;
+  const standard = useNoPlus ? standardNoPlus : standardPlus;
 
   // Try it again, without splitting up stat mods.
   const optionsWithCombinedStats = options.map(i => i.replace(/(\d+%) ([A-Z]{3})/g, '$1\u00A0$2'));
-  const combinedStats = rawSlashMerge(optionsWithCombinedStats, { forceEnDash });
+  const combinedStats = rawSlashMerge(optionsWithCombinedStats, { forceEnDash, splitAtPlus: true });
 
   // If combining pieces of stat mods lets us combine more parts, then we'll
   // allow that.

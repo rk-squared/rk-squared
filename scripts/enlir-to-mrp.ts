@@ -58,6 +58,7 @@ for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
   console.log(sb.character + ': ' + sb.tier + ': ' + sb.name);
   console.log(text || '???');
   if (mrP.braveCommands) {
+    //console.log('    [' + getSchoolShortName(mrP.braveCommands[0].school) + '], +1 on ' + mrP.braveCondition.map(getShortName).join(', ');
     console.log('    ' + formatBraveCommands(mrP.braveCommands));
   }
   if (mrP.burstCommands) {

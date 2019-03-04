@@ -136,6 +136,7 @@ interface FollowUpEffect {
   isDamageTrigger: boolean;
   customTriggerSuffix?: string;
   triggerPrereqStatus?: string;
+  customSkillSuffix?: string;
 
   /**
    * Auto interval, in seconds.  Either this or trigger is non-null.
@@ -160,6 +161,7 @@ const followUpRe = XRegExp(
   |
     every\ (?<autoInterval>[0-9.]+)\ seconds
   )
+  (\ if\ there\ are\ (?<realmThresholdCount>(?:[0-9]+/)*[0-9]+\+?)\ (?<realmThresholdType>.*?)\ characters\ in\ the\ party)?
   (\ if\ the\ user\ has\ any\ (?<triggerPrereqStatus>.*?))?
   (?:,\ removed\ (?:if|after)|$)
   `,
@@ -180,7 +182,15 @@ function parseFollowUpEffect(
   if (!match) {
     return null;
   }
-  const { allEffects, triggerType, trigger, autoInterval } = match;
+  const {
+    allEffects,
+    triggerType,
+    trigger,
+    autoInterval,
+    triggerPrereqStatus,
+    realmThresholdCount,
+    realmThresholdType,
+  } = match;
 
   let skills: string[] | undefined;
   let effects: string[] | undefined;
@@ -210,6 +220,11 @@ function parseFollowUpEffect(
     return null;
   }
 
+  let customSkillSuffix: string | undefined;
+  if (realmThresholdCount) {
+    customSkillSuffix = `if ${realmThresholdCount} ${realmThresholdType} chars.`;
+  }
+
   return {
     skills,
     statuses,
@@ -219,7 +234,8 @@ function parseFollowUpEffect(
     trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
     customTriggerSuffix: checkCustomTrigger(enlirStatus),
-    triggerPrereqStatus: match.triggerPrereqStatus || undefined,
+    customSkillSuffix,
+    triggerPrereqStatus: triggerPrereqStatus || undefined,
     autoInterval: autoInterval ? parseFloat(autoInterval) : null,
   };
 }
@@ -883,10 +899,13 @@ function describeFollowUp(followUp: FollowUpEffect): string {
   }
 
   if (followUp.skills) {
+    let suffix: string = '';
+    suffix += followUp.customSkillSuffix ? ' ' + followUp.customSkillSuffix : '';
+    suffix += followUp.randomSkills ? ' (random)' : '';
     description.push(
-      followUp.skills
-        .map((i: string) => describeFollowUpSkill(i, followUp.triggerPrereqStatus))
-        .join(' – ') + (followUp.randomSkills ? ' (random)' : ''),
+      slashMerge(
+        followUp.skills.map((i: string) => describeFollowUpSkill(i, followUp.triggerPrereqStatus)),
+      ) + suffix,
     );
   }
 

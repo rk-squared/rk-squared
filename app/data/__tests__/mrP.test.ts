@@ -1083,6 +1083,11 @@ describe('mrP', () => {
         damage: 'magic 17.0/10 fire+lgt (SUM)',
         other: 'self 1.3x Summon dmg 15s, 15s: (every 3.5s ⤇ AoE m6.8/4 f+l Summon, min dmg 1100)',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Relm - Friend Sketch'])).toEqual({
+        instant: true,
+        other:
+          'party h85, Last stand, 15s: (every 3.5s ⤇ w9.0/6 wa+n/wa+n/wa+d+n/wa+d+f+n W.Mag, party h25, 0̸/0̸/0̸/Regen (hi) if 0/1/2/3+ VI chars.)',
+      });
     });
 
     it('converts ultras with status sequences', () => {
