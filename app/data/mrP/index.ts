@@ -446,10 +446,9 @@ export function describeEnlirSoulBreak(
     const wholeClause = match[0];
     const status = splitSkillStatuses(statusString)
       .map(i => parseStatusItem(i, wholeClause))
-      .filter(i => includeStatus(i.statusName, { removes }))
       .reduce(checkForAndStatuses, [])
       .sort(sortStatus);
-    for (const thisStatus of status) {
+    status.forEach((thisStatus, thisStatusIndex) => {
       // tslint:disable: prefer-const
       let {
         statusName,
@@ -463,8 +462,12 @@ export function describeEnlirSoulBreak(
       } = thisStatus;
       // tslint:enable: prefer-const
 
+      if (!includeStatus(statusName, { removes })) {
+        return;
+      }
+
       if (statusName === 'Rage' && isPureRage) {
-        continue;
+        return;
       }
 
       const parsed = parseEnlirStatusWithSlashes(statusName, sb);
@@ -483,14 +486,19 @@ export function describeEnlirSoulBreak(
 
       if (isBurstToggle) {
         burstToggle = verb.toLowerCase() !== 'removes';
-        continue;
+        return;
       }
 
-      if (removes) {
-        // This is better than nothing, but it's probably not a great general
-        // solution.
-        description = '-' + description;
+      // Status removal.  In practice, only a few White Magic abilities hit
+      // this; the rest are special cased (Esuna, burst toggles, etc.).
+      //
+      // Hack: Text like "removes negative effects, +100% DEF" is actually
+      // a removes then grants.  There are no occurrences of "removes A, B" in
+      // the spreadsheet, so we can key off of the status index to handle that.
+      if (removes && thisStatusIndex === 0) {
+        description = 'remove ' + description;
       }
+
       if (scalesWithUses) {
         description += ' ' + formatUseCount(optionCount);
       }
@@ -534,7 +542,7 @@ export function describeEnlirSoulBreak(
       } else {
         other.push(description);
       }
-    }
+    });
   });
 
   // Process stat mods.  Stop at the first "Grants" or "Causes" text; any stat

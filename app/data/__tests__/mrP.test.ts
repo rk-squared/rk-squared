@@ -383,6 +383,9 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Alma - Gentle Chant'])).toEqual({
         other: 'ally h45, self +20% MND 25s',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Marche - Nurse'])).toEqual({
+        other: 'party heal 40% HP, Esuna, +100% DEF 25s',
+      });
     });
 
     it('converts multiple statuses', () => {
