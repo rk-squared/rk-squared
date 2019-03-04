@@ -174,6 +174,7 @@ interface DescribeOptions {
   abbreviate: boolean;
   showNoMiss: boolean;
   includeSchool: boolean;
+  includeSbPoints: boolean;
 
   prereqStatus: string | undefined;
   burstCommands: EnlirBurstCommand[] | undefined;
@@ -188,6 +189,7 @@ export function describeEnlirSoulBreak(
     abbreviate: false,
     showNoMiss: true,
     includeSchool: true,
+    includeSbPoints: true,
     prereqStatus: undefined,
     burstCommands: undefined,
     ...options,
@@ -677,6 +679,43 @@ export function describeEnlirSoulBreak(
     other.push(description);
   }
 
+  if (
+    (m = sb.effects.match(
+      /(\d+) (?:SB|Soul Break) points( to the user| to all allies)?( if successful)?/,
+    ))
+  ) {
+    const [, points, who, ifSuccessful] = m;
+    let description = sbPointsAlias(points);
+    if (ifSuccessful) {
+      description += ' on success';
+    }
+    if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(description);
+    } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
+      // Unlike most effects, use other, not selfOther, here - SB points may
+      // be assumed to be self, so listing self seems redundant.
+      other.push(description);
+    } else if (sb.target.startsWith('Single')) {
+      other.push('ally ' + description);
+    } else {
+      // Fallback
+      other.push(description);
+    }
+  }
+  if ('sb' in sb) {
+    if (opt.includeSbPoints && sb.sb === 0) {
+      // If we weren't asked to suppress SB points (which we are for follow-ups
+      // and finishers, since those don't generate gauge), then call out
+      // anything that doesn't generate gauge.
+      other.push('no SB pts');
+    } else if (sb.sb >= 150) {
+      // If this skill grants an abnormally high number of SB points, show it.
+      // We set a flat rate of 150 (to get Lifesiphon and Wrath) instead of
+      // trying to track what's normal at each rarity level.
+      other.push(sbPointsAlias(sb.sb.toString()));
+    }
+  }
+
   if ((m = sb.effects.match(/cast time ([-+]?[0-9.]+) for each previous use/))) {
     const [, castTime] = m;
     other.push('cast time ' + castTime + 's per use');
@@ -684,15 +723,6 @@ export function describeEnlirSoulBreak(
   if ((m = sb.effects.match(/cast time ((:?[0-9.]+\/)+[0-9.]+) scaling with uses/))) {
     const [, castTime] = m;
     other.push('cast time ' + castTime + ' ' + formatUseCount(castTime.split(/\//).length));
-  }
-
-  if ((m = sb.effects.match(/(\d+) SB points(?: to the user?)( if successful)?/))) {
-    const [, points, ifSuccessful] = m;
-    let description = sbPointsAlias(points);
-    if (ifSuccessful) {
-      description += ' on success';
-    }
-    other.push(description);
   }
 
   if (statusInfliction.length) {

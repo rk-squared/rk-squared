@@ -56,7 +56,7 @@ export function includeStatus(status: string, { removes } = { removes: false }):
     status !== 'positive status effects' &&
     status !== 'negative status effects' &&
     // "SB points" are not a real status, so we handle them separately.
-    !status.match(/^\d+ SB points/) &&
+    !status.match(/^\d+ (?:SB|Soul Break) points/) &&
     // This is an informational note rather than a real status.
     status !== 'damages undeads' &&
     // Revival is handled separately, in part so we can special-case the HP%.
@@ -535,7 +535,7 @@ function describeFinisher(skillName: string) {
     return skillName;
   }
 
-  const mrP = describeEnlirSoulBreak(skill, { showNoMiss: false });
+  const mrP = describeEnlirSoulBreak(skill, { showNoMiss: false, includeSbPoints: false });
 
   return 'Finisher: ' + formatMrP(mrP, { showTime: false });
 }
@@ -836,6 +836,7 @@ function describeFollowUpSkill(skillName: string, triggerPrereqStatus?: string):
       describeEnlirSoulBreak(skill, {
         abbreviate: true,
         showNoMiss: false,
+        includeSbPoints: false,
         prereqStatus: triggerPrereqStatus,
       }),
       {

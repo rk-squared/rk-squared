@@ -1910,6 +1910,26 @@ describe('mrP', () => {
       });
     });
 
+    it('handles Soul Break points', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Ramza - Unsung Hero'])).toEqual({
+        damage: 'AoE phys 5.85/5 holy',
+        other: 'party +100% DEF 25s',
+        burstCommands: [
+          { damage: 'p2.5/2 h', other: 'Dispel', school: 'Knight' },
+          { damage: undefined, other: 'ally +80 SB pts', school: 'Support' },
+        ],
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Ramza - Battle Cry (FFT)'])).toEqual({
+        damage: undefined,
+        other: 'holy infuse 25s, party Haste, +50% ATK 25s',
+        burstCommands: [
+          { damage: 'p2.7/5 h+n', other: 'no SB pts', school: 'Support' },
+          { damage: undefined, other: '+180 SB pts', school: 'Support' },
+        ],
+      });
+    });
+
     it('handles dragoon-related abilities', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cid (VII) - Big Brawl'])).toEqual({
         damage: 'phys 7.8/12 wind',
@@ -1983,7 +2003,7 @@ describe('mrP', () => {
         damage: 'AoE magic 11.94/6 water+non',
         other: 'water infuse 25s',
         burstCommands: [
-          { other: 'Mimic, cast time -0.15s per use', school: 'Special' },
+          { other: 'Mimic, +180 SB pts, cast time -0.15s per use', school: 'Special' },
           { damage: 'm8.96/4 wa+n', school: 'Black Magic' },
         ],
       });
@@ -1995,7 +2015,7 @@ describe('mrP', () => {
         damage: 'p7.6/8 or m17.04/8',
         other: 'party +30% ATK/MAG 25s',
         burstCommands: [
-          { fast: true, other: 'Mimic', school: 'Special' },
+          { fast: true, other: 'Mimic, +180 SB pts', school: 'Special' },
           { damage: 'p2.72/4 or m10.68/4', other: undefined, school: 'Special' },
         ],
       });
