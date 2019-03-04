@@ -35,6 +35,7 @@ import {
   getSchoolShortName,
   getShortName,
   MrPDamageType,
+  XRegExpNamedGroups,
 } from './types';
 import {
   countMatches,
@@ -127,6 +128,18 @@ function checkBurstAndBraveMode(selfOther: string[]): string[] {
 function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): string {
   return abbreviate ? damageTypeAbbreviation(damageType) : damageType + ' ';
 }
+
+const healRe = XRegExp(
+  String.raw`
+  [Rr]estores\ #
+  (?:HP\ \((?<healFactor>(?:\d+\/)*\d+)\)
+  |(?<fixedHp>\d+)\ HP)
+  (?<who>\ to\ the\ user|\ to\ all\ allies|\ to\ the\ lowest\ HP%\ ally)?
+  (?<rank>\ at\ rank\ 1\/2\/3\/4\/5\ of\ the\ triggering\ ability)?
+  (?:\ if\ (?<ifAllyAlive>.*?)\ is\ alive)?
+  `,
+  'x',
+);
 
 const statusEffectRe = XRegExp(
   String.raw`
@@ -405,18 +418,23 @@ export function describeEnlirSoulBreak(
     selfOther.push(`lose ${damagePercent}% max HP`);
   }
 
-  if (
-    (m = sb.effects.match(
-      /[Rr]estores (?:HP \(((?:\d+\/)*\d+)\)|(\d+) HP)( to the user| to all allies| to the lowest HP% ally)?( at rank 1\/2\/3\/4\/5 of the triggering ability)?/,
-    ))
-  ) {
-    const [, healFactor, fixedHp, who, rank] = m;
+  XRegExp.forEach(sb.effects, healRe, match => {
+    const {
+      healFactor,
+      fixedHp,
+      who,
+      rank,
+      ifAllyAlive,
+    } = (match as unknown) as XRegExpNamedGroups;
     let heal = healFactor ? 'h' + healFactor : `heal ${toMrPKilo(+fixedHp)}`;
     if (healFactor && sb.type === 'NAT') {
       heal += ' (NAT)';
     }
     if (rank) {
       heal += ' @ rank 1-5'; // rank-based healing chase - used by Lenna's AASB
+    }
+    if (ifAllyAlive) {
+      heal += ' if ' + ifAllyAlive + ' alive';
     }
     if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
       partyOther.push(heal);
@@ -432,7 +450,7 @@ export function describeEnlirSoulBreak(
       // Fallback
       other.push(heal);
     }
-  }
+  });
 
   const dispelEsunaRe = /[Rr]emoves (positive|negative) (?:status )?effects( to all allies| to a random ally with negative(?: status)? effects)?/g;
   while ((m = dispelEsunaRe.exec(sb.effects))) {
@@ -456,7 +474,7 @@ export function describeEnlirSoulBreak(
   }
 
   XRegExp.forEach(sb.effects, statusEffectRe, match => {
-    const { verb, statusString } = match as any;
+    const { verb, statusString } = (match as unknown) as XRegExpNamedGroups;
     const removes = verb.toLowerCase() === 'removes';
     const wholeClause = match[0];
     const status = splitSkillStatuses(statusString)

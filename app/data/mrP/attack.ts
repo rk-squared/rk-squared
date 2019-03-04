@@ -7,6 +7,7 @@ import {
   formatMediumList,
   formatSchoolOrAbilityList,
   getElementShortName,
+  getSchoolShortName,
   MrPDamageType,
   SB_BAR_SIZE,
 } from './types';
@@ -384,6 +385,7 @@ const attackRe = XRegExp(
   (?:\ if\ the\ user\ used\ (?<simpleAttackThresholdCount>(?:\d+/)+\d+)\ damaging\ actions)?
   (?:\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ (?:attacks|abilities)\ during\ the\ status)?
   (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)+\d+)\ ailments)?
+  (?:\ at\ (?<differentAbilityValue>(?:\d+/)+\d+)\ different\ (?<differentAbilityType>.*?)\ abilities\ used)?
 
   (?:,\ (?<additionalCrit>[0-9/]+)%\ (?:additional|add.)\ critical\ chance
     (?<additionalCritType>
@@ -527,6 +529,11 @@ export function parseEnlirAttack(
     );
   } else if (m.simpleAttackThresholdCount) {
     scaleType = formatThreshold(m.simpleAttackThresholdCount, 'atks');
+  } else if (m.differentAbilityType) {
+    scaleType = formatThreshold(
+      m.differentAbilityValue,
+      'diff. ' + getSchoolShortName(m.differentAbilityType) + ' abils.',
+    );
   } else if (m.scaleWithSkillUses) {
     if (burstCommands && burstCommands.filter(i => i.name === m.scaleWithSkillUses)) {
       // Do nothing on the receiving end - the other command will get text from

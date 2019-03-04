@@ -896,6 +896,18 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Firion - Rose of Rebellion'])).toEqual({
         damage: 'phys 11.25 - 12.5 - 13.75 holy+non overstrike @ 9-22 atks',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Prishe - Nullifying Dropkick'])).toEqual({
+        damage: 'phys 7.44/8',
+        other: 'self Monk fastcast 5',
+        burstCommands: [
+          {
+            damage: 'p2.4/3 - 3.2/4 - 4.0/5 - 4.8/6 @ 1-2-3 diff. Monk abils.',
+            other: 'reset count',
+            school: 'Monk',
+          },
+          { damage: 'p2.2/4', other: 'self +30% ATK, -30% DEF', school: 'Monk' },
+        ],
+      });
 
       // Ninja statuses require extra handling.
       expect(describeEnlirSoulBreak(soulBreaks['Edge - Chaotic Moon'])).toEqual({
@@ -1161,6 +1173,13 @@ describe('mrP', () => {
     });
 
     it('converts heals', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Porom - Twin Full Cure'])).toEqual({
+        instant: true,
+        other:
+          'party h85, hi fastzap 2, Last stand, ' +
+          '15s: (2 W.Mag ⤇ party h25, h27 if Palom alive)',
+      });
+
       // Discrepancy: MrP doesn't consistently identify NAT healing, but it
       // seems like it's worth doing.
       expect(describeEnlirSoulBreak(soulBreaks['Aphmau - Overdrive (XI)'])).toEqual({
@@ -1814,6 +1833,14 @@ describe('mrP', () => {
           'party h105, Haste, Magic blink 2, revive @ 100% HP, ' +
           '15s: Awoken Dancer: Dancer inf. hones, Dancer hi fastcast, ' +
           '(Dancer ⤇ party 10%/15%/20%/30%/40% Dmg barrier 1 @ rank 1-5)',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Queen - Savage Judgment'])).toEqual({
+        damage: 'phys 9.0/15 lgt+dark+non',
+        other:
+          'lgt infuse 25s, self dmg cap=19,999 15s, 15s: fastcast, ' +
+          '15s: (lgt ⤇ crit =30-50-70-100%), ' +
+          '15s: Awoken Lightning: lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
       // TODO: Decide about Awoken modes whose statuses duplicate trances, etc.
     });

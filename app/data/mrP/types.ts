@@ -3,7 +3,7 @@ import { EnlirElement, EnlirSchool, isEnlirElement, isEnlirSchool } from '../enl
 import { andOrList } from './util';
 
 export interface XRegExpNamedGroups {
-  [groupName: string]: string | undefined;
+  [groupName: string]: string;
 }
 
 export const SB_BAR_SIZE = 250;

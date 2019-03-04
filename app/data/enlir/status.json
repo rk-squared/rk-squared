@@ -35,9 +35,7 @@
     "defaultDuration": 15,
     "mndModifier": 2,
     "mndModifierIsOpposed": true,
-    "exclusiveStatus": [
-      "All \"Retaliate\" status"
-    ],
+    "exclusiveStatus": ["All \"Retaliate\" status"],
     "codedName": "PARALYSIS",
     "notes": null
   },
@@ -48,11 +46,7 @@
     "defaultDuration": 30,
     "mndModifier": 2.5,
     "mndModifierIsOpposed": true,
-    "exclusiveStatus": [
-      "All \"Retaliate\" status",
-      "Rage",
-      "Green Cherry"
-    ],
+    "exclusiveStatus": ["All \"Retaliate\" status", "Rage", "Green Cherry"],
     "codedName": "CONFUSION",
     "notes": null
   },
@@ -63,9 +57,7 @@
     "defaultDuration": 20,
     "mndModifier": 2.5,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Slow"
-    ],
+    "exclusiveStatus": ["Slow"],
     "codedName": "HASTE",
     "notes": null
   },
@@ -76,10 +68,7 @@
     "defaultDuration": 20,
     "mndModifier": 0.005,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Haste",
-      "Infinite Haste"
-    ],
+    "exclusiveStatus": ["Haste", "Infinite Haste"],
     "codedName": "SLOW",
     "notes": null
   },
@@ -90,9 +79,7 @@
     "defaultDuration": 6,
     "mndModifier": 2,
     "mndModifierIsOpposed": true,
-    "exclusiveStatus": [
-      "All \"Retaliate\" status"
-    ],
+    "exclusiveStatus": ["All \"Retaliate\" status"],
     "codedName": "STOP",
     "notes": null
   },
@@ -136,9 +123,7 @@
     "defaultDuration": 60,
     "mndModifier": 2,
     "mndModifierIsOpposed": true,
-    "exclusiveStatus": [
-      "Eye Power"
-    ],
+    "exclusiveStatus": ["Eye Power"],
     "codedName": "BLINDED",
     "notes": null
   },
@@ -149,9 +134,7 @@
     "defaultDuration": 30,
     "mndModifier": 2,
     "mndModifierIsOpposed": true,
-    "exclusiveStatus": [
-      "All \"Retaliate\" status"
-    ],
+    "exclusiveStatus": ["All \"Retaliate\" status"],
     "codedName": "SLEEP",
     "notes": null
   },
@@ -162,9 +145,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All"
-    ],
+    "exclusiveStatus": ["All"],
     "codedName": "PETRIFACTION",
     "notes": null
   },
@@ -197,11 +178,7 @@
     "defaultDuration": 20,
     "mndModifier": 2.5,
     "mndModifierIsOpposed": true,
-    "exclusiveStatus": [
-      "All \"Retaliate\" status",
-      "Rage",
-      "Green Cherry"
-    ],
+    "exclusiveStatus": ["All \"Retaliate\" status", "Rage", "Green Cherry"],
     "codedName": "BERSERKER",
     "notes": null
   },
@@ -212,14 +189,7 @@
     "defaultDuration": 30,
     "mndModifier": 3,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Medium Regen",
-      "High Regen",
-      "Poison",
-      "Sap",
-      "Zombie",
-      "Regenga"
-    ],
+    "exclusiveStatus": ["Medium Regen", "High Regen", "Poison", "Sap", "Zombie", "Regenga"],
     "codedName": "REGEN",
     "notes": null
   },
@@ -369,9 +339,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All except KO"
-    ],
+    "exclusiveStatus": ["All except KO"],
     "codedName": "PYRAMID",
     "notes": "Used for Reno (VII)"
   },
@@ -400,9 +368,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All except KO"
-    ],
+    "exclusiveStatus": ["All except KO"],
     "codedName": "WATER_BALL",
     "notes": "Used for Bottomswell (VII)"
   },
@@ -512,9 +478,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All except KO"
-    ],
+    "exclusiveStatus": ["All except KO"],
     "codedName": "SWALLOWED",
     "notes": "Used for Sand Worm (X)"
   },
@@ -536,14 +500,7 @@
     "defaultDuration": 35,
     "mndModifier": 3,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Low Regen",
-      "Medium Regen",
-      "Poison",
-      "Sap",
-      "Zombie",
-      "Regenga"
-    ],
+    "exclusiveStatus": ["Low Regen", "Medium Regen", "Poison", "Sap", "Zombie", "Regenga"],
     "codedName": "REGEN_STRONG",
     "notes": null
   },
@@ -587,14 +544,7 @@
     "defaultDuration": 30,
     "mndModifier": 3,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Low Regen",
-      "High Regen",
-      "Poison",
-      "Sap",
-      "Zombie",
-      "Regenga"
-    ],
+    "exclusiveStatus": ["Low Regen", "High Regen", "Poison", "Sap", "Zombie", "Regenga"],
     "codedName": "REGEN_MIDDLE",
     "notes": null
   },
@@ -627,9 +577,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Reraise: 40%"
-    ],
+    "exclusiveStatus": ["Reraise: 40%"],
     "codedName": "RERAISE_60",
     "notes": null
   },
@@ -640,10 +588,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Reraise: 40%",
-      "Reraise: 60%"
-    ],
+    "exclusiveStatus": ["Reraise: 40%", "Reraise: 60%"],
     "codedName": "RERAISE_80",
     "notes": null
   },
@@ -654,11 +599,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Reraise: 40%",
-      "Reraise: 60%",
-      "Reraise: 80%"
-    ],
+    "exclusiveStatus": ["Reraise: 40%", "Reraise: 60%", "Reraise: 80%"],
     "codedName": "RERAISE_100",
     "notes": null
   },
@@ -669,9 +610,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All"
-    ],
+    "exclusiveStatus": ["All"],
     "codedName": "RERAISE_DEATH",
     "notes": "???"
   },
@@ -935,9 +874,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Greased Lightning 1"
-    ],
+    "exclusiveStatus": ["Greased Lightning 1"],
     "codedName": "GREASED_LIGHTNING_2",
     "notes": null
   },
@@ -948,10 +885,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Greased Lightning 1",
-      "Greased Lightning 2"
-    ],
+    "exclusiveStatus": ["Greased Lightning 1", "Greased Lightning 2"],
     "codedName": "GREASED_LIGHTNING_3",
     "notes": null
   },
@@ -1083,9 +1017,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Summoning Strike\" status"
-    ],
+    "exclusiveStatus": ["All other \"Summoning Strike\" status"],
     "codedName": "SUMMONING",
     "notes": null
   },
@@ -1096,9 +1028,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Summoning Strike\" status"
-    ],
+    "exclusiveStatus": ["All other \"Summoning Strike\" status"],
     "codedName": "SUMMONING_003",
     "notes": null
   },
@@ -1109,9 +1039,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Summoning Strike\" status"
-    ],
+    "exclusiveStatus": ["All other \"Summoning Strike\" status"],
     "codedName": "SUMMONING_004",
     "notes": null
   },
@@ -1122,9 +1050,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Summoning Strike\" status"
-    ],
+    "exclusiveStatus": ["All other \"Summoning Strike\" status"],
     "codedName": "SUMMONING_005",
     "notes": null
   },
@@ -1135,9 +1061,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Summoning Strike\" status"
-    ],
+    "exclusiveStatus": ["All other \"Summoning Strike\" status"],
     "codedName": "SUMMONING_006",
     "notes": null
   },
@@ -1148,9 +1072,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Summoning Strike\" status"
-    ],
+    "exclusiveStatus": ["All other \"Summoning Strike\" status"],
     "codedName": "IDENTITY",
     "notes": null
   },
@@ -1161,9 +1083,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Summoning Strike\" status"
-    ],
+    "exclusiveStatus": ["All other \"Summoning Strike\" status"],
     "codedName": "WHITE_ONE_WING",
     "notes": null
   },
@@ -1240,9 +1160,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Summoning Strike\" status"
-    ],
+    "exclusiveStatus": ["All other \"Summoning Strike\" status"],
     "codedName": "BLACK_DRAGON_SUMMONING",
     "notes": null
   },
@@ -1253,9 +1171,7 @@
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Pre-Dispel"
-    ],
+    "exclusiveStatus": ["Pre-Dispel"],
     "codedName": "STATUS_AILMENTS_BARRIER",
     "notes": null
   },
@@ -1266,9 +1182,7 @@
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Astra"
-    ],
+    "exclusiveStatus": ["Astra"],
     "codedName": "PRE_DISPEL",
     "notes": "???"
   },
@@ -1279,9 +1193,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Protect"
-    ],
+    "exclusiveStatus": ["Protect"],
     "codedName": "PROTECT_FULL_TIME",
     "notes": "???"
   },
@@ -1377,9 +1289,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Dual Blink 1"
-    ],
+    "exclusiveStatus": ["Dual Blink 1"],
     "codedName": "MIRAGE_AND_MIGHTY_GUARD_2",
     "notes": null
   },
@@ -2413,9 +2323,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Dual Blink 2"
-    ],
+    "exclusiveStatus": ["Dual Blink 2"],
     "codedName": "MIRAGE_AND_MIGHTY_GUARD_1",
     "notes": null
   },
@@ -2448,9 +2356,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Summoning Strike\" status"
-    ],
+    "exclusiveStatus": ["All other \"Summoning Strike\" status"],
     "codedName": "ACTIVATE_SUMMONING",
     "notes": null
   },
@@ -2538,10 +2444,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All \"Retaliate\" status",
-      "Rage"
-    ],
+    "exclusiveStatus": ["All \"Retaliate\" status", "Rage"],
     "codedName": "RAGE_YELLOW_CHERRY",
     "notes": null
   },
@@ -2904,10 +2807,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Striker Mode 2",
-      "Striker Mode 3"
-    ],
+    "exclusiveStatus": ["Striker Mode 2", "Striker Mode 3"],
     "codedName": "CHANGE_CAST_TIME_200_15000_MSEC_ALL_FOR_STRIKER_MODE",
     "notes": null
   },
@@ -2918,10 +2818,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Striker Mode 1",
-      "Striker Mode 3"
-    ],
+    "exclusiveStatus": ["Striker Mode 1", "Striker Mode 3"],
     "codedName": "CHANGE_CAST_TIME_400_15000_MSEC_ALL_FOR_STRIKER_MODE",
     "notes": null
   },
@@ -2932,10 +2829,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Striker Mode 1",
-      "Striker Mode 2"
-    ],
+    "exclusiveStatus": ["Striker Mode 1", "Striker Mode 2"],
     "codedName": "CHANGE_CAST_TIME_600_15000_MSEC_ALL_FOR_STRIKER_MODE",
     "notes": null
   },
@@ -4684,9 +4578,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
-    ],
+    "exclusiveStatus": ["All other \"Beyond Vengeance Mode\" status"],
     "codedName": "CHANGE_CAST_TIME_200_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
   },
@@ -4697,9 +4589,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
-    ],
+    "exclusiveStatus": ["All other \"Beyond Vengeance Mode\" status"],
     "codedName": "CHANGE_CAST_TIME_250_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
   },
@@ -4710,9 +4600,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
-    ],
+    "exclusiveStatus": ["All other \"Beyond Vengeance Mode\" status"],
     "codedName": "CHANGE_CAST_TIME_300_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
   },
@@ -4745,9 +4633,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
-    ],
+    "exclusiveStatus": ["All other \"Beyond Vengeance Mode\" status"],
     "codedName": "CHANGE_CAST_TIME_100_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
   },
@@ -4835,9 +4721,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "High Runic"
-    ],
+    "exclusiveStatus": ["High Runic"],
     "codedName": "RUNIC",
     "notes": null
   },
@@ -4936,10 +4820,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Blink 2",
-      "Blink 3"
-    ],
+    "exclusiveStatus": ["Blink 2", "Blink 3"],
     "codedName": "MIRAGE_1",
     "notes": null
   },
@@ -4950,10 +4831,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Blink 1",
-      "Blink 3"
-    ],
+    "exclusiveStatus": ["Blink 1", "Blink 3"],
     "codedName": "MIRAGE_2",
     "notes": null
   },
@@ -4964,10 +4842,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Blink 1",
-      "Blink 2"
-    ],
+    "exclusiveStatus": ["Blink 1", "Blink 2"],
     "codedName": "MIRAGE_3",
     "notes": null
   },
@@ -5000,9 +4875,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Magical Blink 2"
-    ],
+    "exclusiveStatus": ["Magical Blink 2"],
     "codedName": "MIGHTY_GUARD_1",
     "notes": null
   },
@@ -5035,12 +4908,7 @@
     "defaultDuration": 30,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All except KO",
-      "Invisible",
-      "Defend",
-      "Target Ally"
-    ],
+    "exclusiveStatus": ["All except KO", "Invisible", "Defend", "Target Ally"],
     "codedName": "INDOMITABLENESS",
     "notes": null
   },
@@ -5073,10 +4941,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All \"Retaliate\" status",
-      "Green Cherry"
-    ],
+    "exclusiveStatus": ["All \"Retaliate\" status", "Green Cherry"],
     "codedName": "RAGE",
     "notes": null
   },
@@ -5087,9 +4952,7 @@
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Runic"
-    ],
+    "exclusiveStatus": ["Runic"],
     "codedName": "GRAND_CROSS",
     "notes": null
   },
@@ -5100,9 +4963,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Brave Mode"
-    ],
+    "exclusiveStatus": ["Brave Mode"],
     "codedName": "TRANCE",
     "notes": null
   },
@@ -5124,9 +4985,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Blind"
-    ],
+    "exclusiveStatus": ["Blind"],
     "codedName": "EYE_POWER_CHARM",
     "notes": "Used for Ormi (X)"
   },
@@ -5577,9 +5436,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Retaliate"
-    ],
+    "exclusiveStatus": ["Retaliate"],
     "codedName": "COUNTER_AIMING_STRONG_FOR_LEGENDARY_SWORDSMAN",
     "notes": null
   },
@@ -5744,9 +5601,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Hellhound MAG"
-    ],
+    "exclusiveStatus": ["Hellhound MAG"],
     "codedName": "EX_MODE_HELLHOUND_ATK_BOOST",
     "notes": null
   },
@@ -5757,9 +5612,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Hellhound ATK"
-    ],
+    "exclusiveStatus": ["Hellhound ATK"],
     "codedName": "EX_MODE_HELLHOUND_MATK_BOOST",
     "notes": null
   },
@@ -5803,9 +5656,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Magical Blink 1"
-    ],
+    "exclusiveStatus": ["Magical Blink 1"],
     "codedName": "MIGHTY_GUARD_2",
     "notes": null
   },
@@ -5904,11 +5755,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Battle Bard 2",
-      "Battle Bard 3",
-      "Battle Bard 4"
-    ],
+    "exclusiveStatus": ["Battle Bard 2", "Battle Bard 3", "Battle Bard 4"],
     "codedName": "WAR_SONG_MODE_1",
     "notes": null
   },
@@ -5919,11 +5766,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Battle Bard 1",
-      "Battle Bard 3",
-      "Battle Bard 4"
-    ],
+    "exclusiveStatus": ["Battle Bard 1", "Battle Bard 3", "Battle Bard 4"],
     "codedName": "WAR_SONG_MODE_2",
     "notes": null
   },
@@ -5934,11 +5777,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Battle Bard 1",
-      "Battle Bard 2",
-      "Battle Bard 4"
-    ],
+    "exclusiveStatus": ["Battle Bard 1", "Battle Bard 2", "Battle Bard 4"],
     "codedName": "WAR_SONG_MODE_3",
     "notes": null
   },
@@ -5949,11 +5788,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Battle Bard 1",
-      "Battle Bard 2",
-      "Battle Bard 3"
-    ],
+    "exclusiveStatus": ["Battle Bard 1", "Battle Bard 2", "Battle Bard 3"],
     "codedName": "WAR_SONG_MODE_4",
     "notes": null
   },
@@ -5964,11 +5799,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Mystic Bard 2",
-      "Mystic Bard 3",
-      "Mystic Bard 4"
-    ],
+    "exclusiveStatus": ["Mystic Bard 2", "Mystic Bard 3", "Mystic Bard 4"],
     "codedName": "ANTHEM_MODE_1",
     "notes": null
   },
@@ -5979,11 +5810,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Mystic Bard 1",
-      "Mystic Bard 3",
-      "Mystic Bard 4"
-    ],
+    "exclusiveStatus": ["Mystic Bard 1", "Mystic Bard 3", "Mystic Bard 4"],
     "codedName": "ANTHEM_MODE_2",
     "notes": null
   },
@@ -5994,11 +5821,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Mystic Bard 1",
-      "Mystic Bard 2",
-      "Mystic Bard 4"
-    ],
+    "exclusiveStatus": ["Mystic Bard 1", "Mystic Bard 2", "Mystic Bard 4"],
     "codedName": "ANTHEM_MODE_3",
     "notes": null
   },
@@ -6009,11 +5832,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Mystic Bard 1",
-      "Mystic Bard 2",
-      "Mystic Bard 3"
-    ],
+    "exclusiveStatus": ["Mystic Bard 1", "Mystic Bard 2", "Mystic Bard 3"],
     "codedName": "ANTHEM_MODE_4",
     "notes": null
   },
@@ -6046,9 +5865,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Machinist Quick Cycle\" status"
-    ],
+    "exclusiveStatus": ["All other \"Machinist Quick Cycle\" status"],
     "codedName": "INFLICT_CHANGE_CAST_TIME_200_1_ALL_ON_ACTION_EXIT_IF_ABILITY_CATEGORY_MACHINIST_AB_LIGHTNING",
     "notes": null
   },
@@ -6147,9 +5964,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Auto\" status"
-    ],
+    "exclusiveStatus": ["All other \"Auto\" status"],
     "codedName": "BRASKA_AUTO_SUMMON",
     "notes": null
   },
@@ -6237,9 +6052,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Auto\" status"
-    ],
+    "exclusiveStatus": ["All other \"Auto\" status"],
     "codedName": "GARNET_AUTO_SUMMON",
     "notes": null
   },
@@ -6327,10 +6140,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Poison",
-      "Sap"
-    ],
+    "exclusiveStatus": ["Poison", "Sap"],
     "codedName": "PHANTOM_LIGHT_REGEN",
     "notes": null
   },
@@ -6363,9 +6173,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Machinist Quick Cycle\" status"
-    ],
+    "exclusiveStatus": ["All other \"Machinist Quick Cycle\" status"],
     "codedName": "INFLICT_CHANGE_CAST_TIME_200_1_ALL_ON_ACTION_EXIT_IF_ABILITY_CATEGORY_MACHINIST_AB_FIRE",
     "notes": null
   },
@@ -6376,9 +6184,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Auto\" status"
-    ],
+    "exclusiveStatus": ["All other \"Auto\" status"],
     "codedName": "HOPE_AUTO_SUMMON",
     "notes": null
   },
@@ -6499,9 +6305,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Dragoon Quick Cycle"
-    ],
+    "exclusiveStatus": ["Dragoon Quick Cycle"],
     "codedName": "INFLICT_CHANGE_CAST_TIME_200_1_ALL_ON_ACTION_EXIT_IF_ABILITY_CATEGORY_DRAGOON_AB_WIND",
     "notes": null
   },
@@ -6512,9 +6316,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Summoning Strike\" status"
-    ],
+    "exclusiveStatus": ["All other \"Summoning Strike\" status"],
     "codedName": "BLUE_DRAGON_BLOOD",
     "notes": null
   },
@@ -6624,10 +6426,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Haste",
-      "Slow"
-    ],
+    "exclusiveStatus": ["Haste", "Slow"],
     "codedName": "HASTE_FULL_TIME",
     "notes": null
   },
@@ -6902,9 +6701,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Monk Quick Cycle"
-    ],
+    "exclusiveStatus": ["Monk Quick Cycle"],
     "codedName": "INFLICT_CHANGE_CAST_TIME_200_1_ALL_ON_ACTION_EXIT_IF_ABILITY_CATEGORY_MONK_AB_NO_ELEMENT",
     "notes": null
   },
@@ -7102,11 +6899,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Sacred Bard 2",
-      "Sacred Bard 3",
-      "Sacred Bard 4"
-    ],
+    "exclusiveStatus": ["Sacred Bard 2", "Sacred Bard 3", "Sacred Bard 4"],
     "codedName": "SACRED_SONG_MODE_1",
     "notes": null
   },
@@ -7117,11 +6910,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Sacred Bard 1",
-      "Sacred Bard 3",
-      "Sacred Bard 4"
-    ],
+    "exclusiveStatus": ["Sacred Bard 1", "Sacred Bard 3", "Sacred Bard 4"],
     "codedName": "SACRED_SONG_MODE_2",
     "notes": null
   },
@@ -7132,11 +6921,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Sacred Bard 1",
-      "Sacred Bard 2",
-      "Sacred Bard 4"
-    ],
+    "exclusiveStatus": ["Sacred Bard 1", "Sacred Bard 2", "Sacred Bard 4"],
     "codedName": "SACRED_SONG_MODE_3",
     "notes": null
   },
@@ -7147,11 +6932,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Sacred Bard 1",
-      "Sacred Bard 2",
-      "Sacred Bard 3"
-    ],
+    "exclusiveStatus": ["Sacred Bard 1", "Sacred Bard 2", "Sacred Bard 3"],
     "codedName": "SACRED_SONG_MODE_4",
     "notes": null
   },
@@ -7371,14 +7152,7 @@
     "defaultDuration": 4,
     "mndModifier": 1,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Low Regen",
-      "Medium Regen",
-      "High Regen",
-      "Poison",
-      "Sap",
-      "Zombie"
-    ],
+    "exclusiveStatus": ["Low Regen", "Medium Regen", "High Regen", "Poison", "Sap", "Zombie"],
     "codedName": "FIXED_REGEN_2000",
     "notes": null
   },
@@ -7433,11 +7207,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Tactical Bard 2",
-      "Tactical Bard 3",
-      "Tactical Bard 4"
-    ],
+    "exclusiveStatus": ["Tactical Bard 2", "Tactical Bard 3", "Tactical Bard 4"],
     "codedName": "BUSHIN_SONG_MODE_1",
     "notes": null
   },
@@ -7448,11 +7218,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Tactical Bard 1",
-      "Tactical Bard 3",
-      "Tactical Bard 4"
-    ],
+    "exclusiveStatus": ["Tactical Bard 1", "Tactical Bard 3", "Tactical Bard 4"],
     "codedName": "BUSHIN_SONG_MODE_2",
     "notes": null
   },
@@ -7463,11 +7229,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Tactical Bard 1",
-      "Tactical Bard 2",
-      "Tactical Bard 4"
-    ],
+    "exclusiveStatus": ["Tactical Bard 1", "Tactical Bard 2", "Tactical Bard 4"],
     "codedName": "BUSHIN_SONG_MODE_3",
     "notes": null
   },
@@ -7478,11 +7240,7 @@
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Tactical Bard 1",
-      "Tactical Bard 2",
-      "Tactical Bard 3"
-    ],
+    "exclusiveStatus": ["Tactical Bard 1", "Tactical Bard 2", "Tactical Bard 3"],
     "codedName": "BUSHIN_SONG_MODE_4",
     "notes": null
   },
@@ -7669,9 +7427,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Friend's Promise\" status"
-    ],
+    "exclusiveStatus": ["All other \"Friend's Promise\" status"],
     "codedName": "FOR_MY_FRIEND_MODE_BUFF_AND_CHASE_0",
     "notes": null
   },
@@ -7682,9 +7438,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Friend's Promise\" status"
-    ],
+    "exclusiveStatus": ["All other \"Friend's Promise\" status"],
     "codedName": "FOR_MY_FRIEND_MODE_BUFF_AND_CHASE_1",
     "notes": null
   },
@@ -7695,9 +7449,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Friend's Promise\" status"
-    ],
+    "exclusiveStatus": ["All other \"Friend's Promise\" status"],
     "codedName": "FOR_MY_FRIEND_MODE_BUFF_AND_CHASE_2",
     "notes": null
   },
@@ -7708,9 +7460,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Friend's Promise\" status"
-    ],
+    "exclusiveStatus": ["All other \"Friend's Promise\" status"],
     "codedName": "FOR_MY_FRIEND_MODE_BUFF_AND_CHASE_3",
     "notes": null
   },
@@ -7776,9 +7526,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Malice Mode\" status"
-    ],
+    "exclusiveStatus": ["All other \"Malice Mode\" status"],
     "codedName": "GRUDGE_BUFF_AND_CHASE_0",
     "notes": null
   },
@@ -7789,9 +7537,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Malice Mode\" status"
-    ],
+    "exclusiveStatus": ["All other \"Malice Mode\" status"],
     "codedName": "GRUDGE_BUFF_AND_CHASE_1",
     "notes": null
   },
@@ -7802,9 +7548,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Malice Mode\" status"
-    ],
+    "exclusiveStatus": ["All other \"Malice Mode\" status"],
     "codedName": "GRUDGE_BUFF_AND_CHASE_2",
     "notes": null
   },
@@ -7815,9 +7559,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Malice Mode\" status"
-    ],
+    "exclusiveStatus": ["All other \"Malice Mode\" status"],
     "codedName": "GRUDGE_BUFF_AND_CHASE_3",
     "notes": null
   },
@@ -7916,9 +7658,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Burst Mode"
-    ],
+    "exclusiveStatus": ["Burst Mode"],
     "codedName": "BRAVE_MODE",
     "notes": null
   },
@@ -8028,9 +7768,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Frying Pan\" status"
-    ],
+    "exclusiveStatus": ["All other \"Frying Pan\" status"],
     "codedName": "LOVE_FRYING_PAN_MODE_BUFF_AND_CHASE_0",
     "notes": null
   },
@@ -8041,9 +7779,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Frying Pan\" status"
-    ],
+    "exclusiveStatus": ["All other \"Frying Pan\" status"],
     "codedName": "LOVE_FRYING_PAN_MODE_BUFF_AND_CHASE_1",
     "notes": null
   },
@@ -8054,9 +7790,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Frying Pan\" status"
-    ],
+    "exclusiveStatus": ["All other \"Frying Pan\" status"],
     "codedName": "LOVE_FRYING_PAN_MODE_BUFF_AND_CHASE_2",
     "notes": null
   },
@@ -8067,9 +7801,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Frying Pan\" status"
-    ],
+    "exclusiveStatus": ["All other \"Frying Pan\" status"],
     "codedName": "LOVE_FRYING_PAN_MODE_BUFF_AND_CHASE_3",
     "notes": null
   },
@@ -8520,9 +8252,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Dragoon Quick Cycle: Wind"
-    ],
+    "exclusiveStatus": ["Dragoon Quick Cycle: Wind"],
     "codedName": "INFLICT_CHANGE_CAST_TIME_200_1_ALL_ON_ACTION_EXIT_IF_ABILITY_CATEGORY_DRAGOON",
     "notes": null
   },
@@ -8533,9 +8263,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Monk Quick Cycle: Non-Elemental"
-    ],
+    "exclusiveStatus": ["Monk Quick Cycle: Non-Elemental"],
     "codedName": "INFLICT_CHANGE_CAST_TIME_200_1_ALL_ON_ACTION_EXIT_IF_ABILITY_CATEGORY_MONK",
     "notes": null
   },
@@ -8612,9 +8340,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Machinist Quick Cycle\" status"
-    ],
+    "exclusiveStatus": ["All other \"Machinist Quick Cycle\" status"],
     "codedName": "INFLICT_CHANGE_CAST_TIME_200_1_ALL_ON_ACTION_EXIT_IF_ABILITY_CATEGORY_MACHINIST",
     "notes": null
   },
@@ -8702,9 +8428,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Judge's Critical Chance\" status"
-    ],
+    "exclusiveStatus": ["All other \"Judge's Critical Chance\" status"],
     "codedName": "PROHIBITED_BOOK_ADJUDICATORS_CHASE_MODE_1",
     "notes": null
   },
@@ -8715,9 +8439,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Judge's Critical Chance\" status"
-    ],
+    "exclusiveStatus": ["All other \"Judge's Critical Chance\" status"],
     "codedName": "PROHIBITED_BOOK_ADJUDICATORS_CHASE_MODE_2",
     "notes": null
   },
@@ -8728,9 +8450,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Judge's Critical Chance\" status"
-    ],
+    "exclusiveStatus": ["All other \"Judge's Critical Chance\" status"],
     "codedName": "PROHIBITED_BOOK_ADJUDICATORS_CHASE_MODE_3",
     "notes": null
   },
@@ -8741,9 +8461,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Judge's Critical Chance\" status"
-    ],
+    "exclusiveStatus": ["All other \"Judge's Critical Chance\" status"],
     "codedName": "PROHIBITED_BOOK_ADJUDICATORS_CHASE_MODE_4",
     "notes": null
   },
@@ -8754,9 +8472,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Judge's Critical Chance\" status"
-    ],
+    "exclusiveStatus": ["All other \"Judge's Critical Chance\" status"],
     "codedName": "PROHIBITED_BOOK_ADJUDICATORS_CHASE_MODE_5",
     "notes": null
   },
@@ -8800,9 +8516,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Lionheart\" status"
-    ],
+    "exclusiveStatus": ["All other \"Lionheart\" status"],
     "codedName": "LION_HEART_GRADE_1",
     "notes": null
   },
@@ -8813,9 +8527,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Lionheart\" status"
-    ],
+    "exclusiveStatus": ["All other \"Lionheart\" status"],
     "codedName": "LION_HEART_GRADE_2",
     "notes": null
   },
@@ -8826,9 +8538,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Lionheart\" status"
-    ],
+    "exclusiveStatus": ["All other \"Lionheart\" status"],
     "codedName": "LION_HEART_GRADE_3",
     "notes": null
   },
@@ -8861,10 +8571,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Explosive Rush Mode 2",
-      "Explosive Rush Mode 3"
-    ],
+    "exclusiveStatus": ["Explosive Rush Mode 2", "Explosive Rush Mode 3"],
     "codedName": "RAMPAGE_MODE_AND_CHASE_0",
     "notes": null
   },
@@ -8875,10 +8582,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Explosive Rush Mode 1",
-      "Explosive Rush Mode 3"
-    ],
+    "exclusiveStatus": ["Explosive Rush Mode 1", "Explosive Rush Mode 3"],
     "codedName": "RAMPAGE_MODE_AND_CHASE_1",
     "notes": null
   },
@@ -8889,10 +8593,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Explosive Rush Mode 1",
-      "Explosive Rush Mode 2"
-    ],
+    "exclusiveStatus": ["Explosive Rush Mode 1", "Explosive Rush Mode 2"],
     "codedName": "RAMPAGE_MODE_AND_CHASE_2",
     "notes": null
   },
@@ -9024,9 +8725,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Retaliate"
-    ],
+    "exclusiveStatus": ["Retaliate"],
     "codedName": "HAUNTED",
     "notes": "Used for Phantom Train (VI)"
   },
@@ -9103,9 +8802,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Lionheart\" status"
-    ],
+    "exclusiveStatus": ["All other \"Lionheart\" status"],
     "codedName": "LION_HEART_GRADE_0",
     "notes": null
   },
@@ -9160,9 +8857,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Surging Wave\" status"
-    ],
+    "exclusiveStatus": ["All other \"Surging Wave\" status"],
     "codedName": "GROSSE_VAGUE_GRADE_0",
     "notes": null
   },
@@ -9173,9 +8868,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Surging Wave\" status"
-    ],
+    "exclusiveStatus": ["All other \"Surging Wave\" status"],
     "codedName": "GROSSE_VAGUE_GRADE_1",
     "notes": null
   },
@@ -9186,9 +8879,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Surging Wave\" status"
-    ],
+    "exclusiveStatus": ["All other \"Surging Wave\" status"],
     "codedName": "GROSSE_VAGUE_GRADE_2",
     "notes": null
   },
@@ -9199,9 +8890,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Surging Wave\" status"
-    ],
+    "exclusiveStatus": ["All other \"Surging Wave\" status"],
     "codedName": "GROSSE_VAGUE_GRADE_3",
     "notes": null
   },
@@ -10103,9 +9792,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Chaotic Magic\" status"
-    ],
+    "exclusiveStatus": ["All other \"Chaotic Magic\" status"],
     "codedName": "KEEP_RUN_MAGIC_MODE_BUFF_0",
     "notes": null
   },
@@ -10116,9 +9803,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Chaotic Magic\" status"
-    ],
+    "exclusiveStatus": ["All other \"Chaotic Magic\" status"],
     "codedName": "KEEP_RUN_MAGIC_MODE_BUFF_1",
     "notes": null
   },
@@ -10129,9 +9814,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Chaotic Magic\" status"
-    ],
+    "exclusiveStatus": ["All other \"Chaotic Magic\" status"],
     "codedName": "KEEP_RUN_MAGIC_MODE_BUFF_2",
     "notes": null
   },
@@ -10142,9 +9825,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Chaotic Magic\" status"
-    ],
+    "exclusiveStatus": ["All other \"Chaotic Magic\" status"],
     "codedName": "KEEP_RUN_MAGIC_MODE_BUFF_3",
     "notes": null
   },
@@ -10155,9 +9836,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Chaotic Magic\" status"
-    ],
+    "exclusiveStatus": ["All other \"Chaotic Magic\" status"],
     "codedName": "KEEP_RUN_MAGIC_MODE_BUFF_4",
     "notes": null
   },
@@ -10168,9 +9847,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Chaotic Magic\" status"
-    ],
+    "exclusiveStatus": ["All other \"Chaotic Magic\" status"],
     "codedName": "KEEP_RUN_MAGIC_MODE_BUFF_5",
     "notes": null
   },
@@ -10181,9 +9858,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Chaotic Magic\" status"
-    ],
+    "exclusiveStatus": ["All other \"Chaotic Magic\" status"],
     "codedName": "KEEP_RUN_MAGIC_MODE_BUFF_6",
     "notes": null
   },
@@ -10586,7 +10261,7 @@
   {
     "id": 50453,
     "name": "Merciless Oracle 1",
-    "effects": "Critical chance =30%, grants Merciless Oracle 2, removed if the user hasn't Merciless Oracle Mode",
+    "effects": "Critical chance =30%, grants Merciless Oracle 2 after using a Lightning attack, removed if the user hasn't Merciless Oracle Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10597,7 +10272,7 @@
   {
     "id": 50454,
     "name": "Merciless Oracle 2",
-    "effects": "Critical chance =50%, grants Merciless Oracle 3, removed if the user hasn't Merciless Oracle Mode",
+    "effects": "Critical chance =50%, grants Merciless Oracle 3 after using a Lightning attack, removed if the user hasn't Merciless Oracle Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10608,7 +10283,7 @@
   {
     "id": 50455,
     "name": "Merciless Oracle 3",
-    "effects": "Critical chance =70%, grants Merciless Oracle 4, removed if the user hasn't Merciless Oracle Mode",
+    "effects": "Critical chance =70%, grants Merciless Oracle 4 after using a Lightning attack, removed if the user hasn't Merciless Oracle Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10619,7 +10294,7 @@
   {
     "id": 50456,
     "name": "Merciless Oracle 4",
-    "effects": "Critical chance =100%, removed if the user hasn't Merciless Oracle Mode",
+    "effects": "Critical chance =100%, grants Merciless Oracle 4 after using a Lightning attack, removed if the user hasn't Merciless Oracle Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11701,10 +11376,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Warlord Mode 2",
-      "Warlord Mode 3"
-    ],
+    "exclusiveStatus": ["Warlord Mode 2", "Warlord Mode 3"],
     "codedName": "CUSTOM_PARAM_MULTI_CRITICAL_50_15000_FOR_VALKYRIE_MODE",
     "notes": null
   },
@@ -11715,10 +11387,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Warlord Mode 1",
-      "Warlord Mode 3"
-    ],
+    "exclusiveStatus": ["Warlord Mode 1", "Warlord Mode 3"],
     "codedName": "CUSTOM_PARAM_MULTI_CRITICAL_75_15000_FOR_VALKYRIE_MODE",
     "notes": null
   },
@@ -11729,10 +11398,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "Warlord Mode 1",
-      "Warlord Mode 2"
-    ],
+    "exclusiveStatus": ["Warlord Mode 1", "Warlord Mode 2"],
     "codedName": "CUSTOM_PARAM_MULTI_CRITICAL_100_15000_FOR_VALKYRIE_MODE",
     "notes": null
   },
@@ -12711,9 +12377,7 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All other \"Buff Fire\" and  \"Debuff Fire\" status"
-    ],
+    "exclusiveStatus": ["All other \"Buff Fire\" and  \"Debuff Fire\" status"],
     "codedName": "SET_EXCLUSIVE_ELEMENT_ATK_FIRE_20",
     "notes": "Not used"
   },
@@ -13406,9 +13070,7 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "All"
-    ],
+    "exclusiveStatus": ["All"],
     "codedName": "DEATH",
     "notes": null
   }

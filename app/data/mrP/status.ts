@@ -280,6 +280,13 @@ function getFollowUpStatusSequence(
     if (!thisStatus) {
       break;
     }
+
+    const thisEffects = splitStatusEffects(thisStatus.effects).filter(
+      i => !shouldSkipEffect(i) && !parseFollowUpEffect(i),
+    );
+
+    result.push([thisStatus, thisEffects]);
+
     const thisStatusFollowUp = parseFollowUpEffect(thisStatus.effects);
     if (!thisStatusFollowUp) {
       break;
@@ -289,12 +296,6 @@ function getFollowUpStatusSequence(
     }
     // To be thorough, we'd also verify that the triggered name matches,
     // instead of assuming that they all follow the numbered sequence.
-
-    const thisEffects = splitStatusEffects(thisStatus.effects).filter(
-      i => !shouldSkipEffect(i) && !parseFollowUpEffect(i),
-    );
-
-    result.push([thisStatus, thisEffects]);
   }
   return result.length ? result : null;
 }
@@ -338,7 +339,7 @@ const isFollowUpStatus = ({ effects }: EnlirStatus) => !!parseFollowUpEffect(eff
 const isModeStatus = ({ name, codedName }: EnlirStatus) =>
   (!!codedName.match(/_MODE/) && codedName !== 'BRAVE_MODE') ||
   (name.endsWith(' Mode') && name !== 'Brave Mode' && name !== 'Burst Mode') ||
-  // Special cases
+  // Special cases - treat as a mode to give it more room for its description.
   name === 'Haurchefant Cover';
 
 /**
