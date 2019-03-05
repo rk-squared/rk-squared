@@ -5507,7 +5507,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Four single hybrid (0.63/2.62 each) attacks",
+    "effects": "Four single hybrid attacks (0.63 or 2.62 each)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 50,
@@ -7726,7 +7726,7 @@
       "Lightning"
     ],
     "time": 1.65,
-    "effects": "Two group ranged attacks (0.70 each), casues Stun (11%)",
+    "effects": "Two group ranged attacks (0.70 each), causes Stun (11%)",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 50,

@@ -54,7 +54,7 @@ function getBraveDamage(mrP: MrPSoulBreak[]): string {
   parts = parts.map(i => i.replace(/\b([mp])(\d)/g, '$1 $2').replace(' overstrike', ''));
 
   // Handle damage.
-  let damage = slashMerge(parts, { forceEnDash: true });
+  let damage = slashMerge(parts, { join: enDashJoin });
 
   // Put the 'm' and 'p' back.
   damage = damage.replace(/\b([mp]) (\d+)/g, '$1$2');
@@ -111,7 +111,7 @@ function getBraveEffects(mrP: MrPSoulBreak[]): string {
 
     combinedEffects[effectLevel] = combinedEffects[effectLevel] || [];
     combinedEffects[effectLevel].push(
-      slashMerge(effects.slice(effectLevel).map(e => e[effectIndex]), { forceEnDash: true }),
+      slashMerge(effects.slice(effectLevel).map(e => e[effectIndex]), { join: enDashJoin }),
     );
   }
 

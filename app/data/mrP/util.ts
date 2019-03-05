@@ -132,21 +132,33 @@ export function isAllSame<T>(values: T[], iteratee: (value: T) => any): boolean 
 
 export const enDashJoin = ' – ';
 
-function rawSlashMerge(
-  options: string[],
-  { forceEnDash, splitAtPlus }: { forceEnDash: boolean; splitAtPlus: boolean },
-) {
+interface SlashMergeOptions {
+  join?: string;
+}
+
+interface InternalSlashMergeOptions extends SlashMergeOptions {
+  splitAtPlus: boolean;
+}
+
+function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
   // We normally break at plus signs, so, e.g., f+n / wa+n / wi+n / e+n can
   // become f/wa/wi/e+n.  But there are times when it works out better to
   // instead treat plus-separated terms as units.
-  const splitAt = splitAtPlus ? /([,? +])/ : /([,? ])/;
+  const splitAt = opt.splitAtPlus ? /([,? +])/ : /([,? ])/;
 
   const optionParts = options.map(i => i.split(splitAt));
   const maxLength = _.max(optionParts.map(i => i.length))!;
   const minLength = _.min(optionParts.map(i => i.length))!;
 
-  const join = (parts: string[]) =>
-    parts.join(forceEnDash || _.some(parts, s => s.match('/')) ? enDashJoin : '/');
+  const join = (parts: string[]) => {
+    let joinString: string;
+    if (opt.join) {
+      joinString = opt.join;
+    } else {
+      joinString = _.some(parts, s => s.match('/')) ? enDashJoin : '/';
+    }
+    return parts.join(joinString);
+  };
 
   let result = '';
   let same = 0;
@@ -183,15 +195,15 @@ function rawSlashMerge(
   return { result, same, different };
 }
 
-export function slashMerge(options: string[], { forceEnDash } = { forceEnDash: false }): string {
-  const standardPlus = rawSlashMerge(options, { forceEnDash, splitAtPlus: true });
-  const standardNoPlus = rawSlashMerge(options, { forceEnDash, splitAtPlus: false });
+export function slashMerge(options: string[], opt: SlashMergeOptions = {}): string {
+  const standardPlus = rawSlashMerge(options, { ...opt, splitAtPlus: true });
+  const standardNoPlus = rawSlashMerge(options, { ...opt, splitAtPlus: false });
   const useNoPlus = standardNoPlus.different < standardPlus.different;
   const standard = useNoPlus ? standardNoPlus : standardPlus;
 
   // Try it again, without splitting up stat mods.
   const optionsWithCombinedStats = options.map(i => i.replace(/(\d+%) ([A-Z]{3})/g, '$1\u00A0$2'));
-  const combinedStats = rawSlashMerge(optionsWithCombinedStats, { forceEnDash, splitAtPlus: true });
+  const combinedStats = rawSlashMerge(optionsWithCombinedStats, { ...opt, splitAtPlus: true });
 
   // If combining pieces of stat mods lets us combine more parts, then we'll
   // allow that.
@@ -261,4 +273,11 @@ export function describeChances(
   } else {
     return [percentChances.join('-') + '%', options.join(join)];
   }
+}
+
+export function andJoin(s: string[], oxfordComma: boolean): string {
+  if (s.length === 1) {
+    return s[0];
+  }
+  return s.slice(0, s.length - 1).join(', ') + (oxfordComma ? ',' : '') + ' and ' + s[s.length - 1];
 }

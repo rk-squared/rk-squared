@@ -1911,6 +1911,13 @@ describe('mrP', () => {
       });
     });
 
+    it('handles hybrid attacks', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Reno - Turk Special'])).toEqual({
+        damage: 'p7.1/10 or m17.0/10 lgt+non',
+        other: 'lgt infuse 25s, self +30% ATK/DEF or DEF/MAG, fastcast 1, 15s: (lgt ⤇ fastcast 1)',
+      });
+    });
+
     it('handles NAT abilities', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Hope - Brutal Sanction'])).toEqual({
         damage: 'magic 10.5/3 (NAT)',

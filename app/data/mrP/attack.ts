@@ -175,7 +175,7 @@ function formatThreshold(
  */
 function describeFollowedByAttack(effects: string): string | null {
   const m = effects.match(
-    /followed by ([A-Za-z\-]+) ((?:group|random|single) )?(ranged )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
+    /followed by ([A-Za-z\-]+) ((?:group|random|single) )?(rang\.?(?:ed)? )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
   );
   if (!m) {
     return null;
@@ -360,7 +360,7 @@ const attackRe = XRegExp(
   (?:^|,\ )
   (?<numAttacks>[Rr]andomly\ deals\ .*|[A-Za-z-]+|[0-9/]+)\ #
   (?:(?<attackType>group|random|single)\ )?
-  (?<modifiers>(hybrid\ |ranged\ |jump\ )*)
+  (?<modifiers>(hybrid\ |rang\.?(?:ed)?\ |jump\ )*)
   attacks?
   (?:\ \(
     (?<randomMultiplier>randomly\ )?

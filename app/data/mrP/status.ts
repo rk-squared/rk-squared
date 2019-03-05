@@ -25,6 +25,7 @@ import {
   XRegExpNamedGroups,
 } from './types';
 import {
+  andJoin,
   andList,
   cleanUpSlashedNumbers,
   describeChances,
@@ -972,8 +973,24 @@ export function parseEnlirStatusWithSlashes(
   status: string,
   source?: EnlirSkill,
 ): ParsedEnlirStatusWithSlashes {
+  let m: RegExpMatchArray | null;
   const enlirStatus = getEnlirStatusByName(status);
-  if (status.match('/') && !enlirStatus) {
+  if (
+    !enlirStatus &&
+    (m = status.match(/^((?:[A-Z]{3}\/)*[A-Z]{3}) or ((?:[A-Z]{3}\/)*[A-Z]{3}) (\+\d+%)$/))
+  ) {
+    const [, stat1, stat2, amount] = m;
+    const makeStat = (stat: string) => andJoin(stat.split('/'), false) + ' ' + amount;
+    const options = [parseEnlirStatus(makeStat(stat1)), parseEnlirStatus(makeStat(stat2))];
+    return {
+      // Assume that most parameters are the same across options.
+      ...options[0],
+
+      description: slashMerge(options.map(i => i.description), { join: ' or ' }),
+
+      optionCount: options.length,
+    };
+  } else if (!enlirStatus && status.match('/')) {
     const options = expandSlashOptions(status).map((i: string) => parseEnlirStatus(i, source));
     return {
       // Assume that most parameters are the same across options.
