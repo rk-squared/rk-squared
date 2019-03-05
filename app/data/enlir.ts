@@ -282,6 +282,23 @@ function patchEnlir() {
     },
   );
 
+  // Sarah's USB3 is pure madness.  I have no shame in whatever hacks it takes
+  // to process it.
+  applyPatch(
+    enlir.soulBreaks,
+    '22300009',
+    aria =>
+      aria.effects ===
+      'Restores HP (85), grants Regenga, grants Quick Cast to the user. Grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, grants Medium Buff Holy and Medium Buff Dark if both are in the party',
+    aria => {
+      aria.effects =
+        'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
+        'grants Minor Buff Holy if Warrior of Light is in the party, ' +
+        'grants Minor Buff Dark if Garland is in the party, ' +
+        'grants Medium Buff Holy/Dark if Warrior of Light & Garland are in the party';
+    },
+  );
+
   // A purely conditional attack - we may not even have an Enlir format for
   // this.  The format chosen by the spreadsheet is probably actually intended
   // for threshold attacks, but we'll make it work.

@@ -1044,7 +1044,9 @@ const statusItemRe = XRegExp(
   (?:\ for\ (?<duration>\d+\??|\?)\ (?<durationUnits>second|turn)s?)?
   (?<scalesWithUses2>\ scaling\ with\ (?<scaleWithUsesSkill2>[A-Za-z ]+\ )?uses)?
   (?:\ if\ the\ user\ has\ (?<prereq>.*))?
+  (?:\ if\ (?<characterInParty>.*?)\ (?:is|are)\ in\ the\ party)?
   (?<weakness>\ if\ exploiting\ elemental\ weakness)?
+  ()
   $
   `,
   'x',
@@ -1087,6 +1089,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     scaleWithUsesSkill2,
     prereq,
     weakness,
+    characterInParty,
   } = (m as unknown) as XRegExpNamedGroups;
   // tslint:enable prefer-const
 
@@ -1124,6 +1127,13 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     logger.warn(`Unhandled prerequisite ${prereq} for ${statusName}`);
   }
 
+  let condition: string | undefined;
+  if (weakness) {
+    condition = 'if hits weak';
+  } else if (characterInParty) {
+    condition = 'if ' + characterInParty + ' in party';
+  }
+
   return {
     statusName: statusName!,
     chance: chance ? +chance : undefined,
@@ -1133,7 +1143,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     scalesWithUses,
     rank: rank != null,
     stacking,
-    condition: weakness ? 'if hits weak' : undefined,
+    condition,
   };
 }
 

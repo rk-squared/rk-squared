@@ -20688,7 +20688,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (0.52 each), Grants Minor Buff Dark, causes Imperil Dark 10% for 15 seconds",
+    "effects": "Six single attacks (0.52 each), causes Imperil Dark 10% for 15 seconds, grants Minor Buff Dark to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 250,

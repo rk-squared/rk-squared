@@ -491,6 +491,13 @@ describe('mrP', () => {
         damage: 'phys 7.1/10 water+non',
         other: 'water infuse 25s, self Spellblade fastcast 15s, +30% ATK/DEF 25s',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Sarah - Aria of Reunion'])).toEqual({
+        instant: true,
+        other:
+          'party h85, Regenga, +10% holy dmg if Warrior of Light in party 15s, ' +
+          '+10% dark dmg if Garland in party 15s, ' +
+          '+20% holy/dark dmg if Warrior of Light & Garland in party 15s, self fastcast 15s',
+      });
     });
 
     it('converts combinations of stat changes, statuses, and infuses', () => {
