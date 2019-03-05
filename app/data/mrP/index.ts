@@ -26,7 +26,7 @@ import {
   parseStatusItem,
   sortStatus,
 } from './status';
-import { sbPointsAlias } from './statusAlias';
+import { formatRandomEther, formatSmartEther, sbPointsAlias } from './statusAlias';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -638,7 +638,7 @@ export function describeEnlirSoulBreak(
     (m = sb.effects.match(/[Rr]estores (\d+) consumed ability use( to the user| to all allies)?/))
   ) {
     const [, amount, who] = m;
-    const ether = 'refill ' + amount + ' random abil. use';
+    const ether = formatRandomEther(amount);
     if (who === ' to the user' || (!who && sb.target === 'Self')) {
       selfOther.push(ether);
     } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
@@ -660,7 +660,7 @@ export function describeEnlirSoulBreak(
       type = getShortName(_.upperFirst(type.trim()));
     }
 
-    const ether = 'refill ' + amount + ' ' + (type ? type + ' ' : '') + 'abil. use';
+    const ether = formatSmartEther(amount, type);
     if (who === ' to the user' || (!who && sb.target === 'Self')) {
       selfOther.push(ether);
     } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
@@ -842,7 +842,7 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
   return text;
 }
 
-// TODO: Yuna's follow-up, Sephiroth Zanshin
+// TODO: Sephiroth Zanshin
 // TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Blasting Freeze
 // TODO: Hide min damage?  Hide school for percent-based finishers?
 // TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data

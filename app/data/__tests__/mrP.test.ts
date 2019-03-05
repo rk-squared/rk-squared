@@ -1898,6 +1898,12 @@ describe('mrP', () => {
         damage: 'AoE phys 5.88/4 dark+non rngd',
         other: 'party refill 1 abil. use',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Rydia - Fated Encounter'])).toEqual({
+        damage: 'magic 17.0/10 water+non (SUM)',
+        other:
+          'water infuse 25s, self +30% DEF/MAG 25s, ' +
+          '15s: (water ⤇ m7.85/5 wa+n Summon, min dmg 1100), Finisher: refill 2 abil. use',
+      });
     });
 
     it('handles Doom', () => {

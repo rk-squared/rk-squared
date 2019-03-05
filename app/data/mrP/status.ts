@@ -10,6 +10,7 @@ import {
   effectAlias,
   enlirRankBoost,
   enlirRankBoostRe,
+  formatSmartEther,
   rankBoostAlias,
   resolveEffectAlias,
   resolveNumbered,
@@ -38,6 +39,8 @@ import {
   toMrPFixed,
   toMrPKilo,
 } from './util';
+
+const finisherText = 'Finisher: ';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -554,7 +557,7 @@ function describeFinisher(skillName: string) {
 
   const mrP = describeEnlirSoulBreak(skill, { showNoMiss: false, includeSbPoints: false });
 
-  return 'Finisher: ' + formatMrP(mrP, { showTime: false });
+  return finisherText + formatMrP(mrP, { showTime: false });
 }
 
 /**
@@ -712,6 +715,11 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
         .join('/') +
       ' dmg'
     );
+  }
+
+  if ((m = effect.match(/(\w+ )?[Ss]mart (\w+ )?ether (\S+) when removed/))) {
+    const [, type1, type2, amount] = m;
+    return finisherText + formatSmartEther(amount, type1 || type2);
   }
 
   if (shouldSkipEffect(effect)) {
