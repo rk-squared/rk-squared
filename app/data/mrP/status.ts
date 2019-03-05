@@ -363,10 +363,15 @@ const isModeStatus = ({ name, codedName }: EnlirStatus) =>
   name === 'Haurchefant Cover';
 
 /**
- * Various statuses for which we want to force showing individual effects.
+ * Various usual statuses for which we want to force showing individual
+ * effects.
  */
 function forceEffects({ name, codedName }: EnlirStatus) {
-  return codedName.startsWith('ABSORB_HP_') || name.startsWith('Greased Lightning ');
+  return (
+    codedName.startsWith('ABSORB_HP_') ||
+    name.startsWith('Greased Lightning ') ||
+    name === 'Phantom Regen'
+  );
 }
 
 /**
@@ -637,12 +642,18 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
     return result;
   }
 
-  if ((m = effect.match(/[Dd]ualcasts (.*) (?:abilities|attacks)/))) {
+  if (
+    (m = effect.match(/[Dd]ualcasts (.*) (?:abilities|attacks)( consuming an extra ability use)?/))
+  ) {
+    const schoolOrAbility = formatSchoolOrAbilityList(m[1]);
+    const extraHones = m[2];
     if (enlirStatus && isAwokenStatus(enlirStatus.name)) {
       // Ability or element should be redundant for AASBs
       return '100% dualcast';
+    } else if (extraHones) {
+      return doubleAlias(schoolOrAbility);
     } else {
-      return `100% dualcast ${formatSchoolOrAbilityList(m[1])}`;
+      return `100% dualcast ${schoolOrAbility}`;
     }
   }
 
@@ -724,6 +735,11 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
   if ((m = effect.match(/(\w+ )?[Ss]mart (\w+ )?ether (\S+) when removed/))) {
     const [, type1, type2, amount] = m;
     return finisherText + formatSmartEther(amount, type1 || type2);
+  }
+
+  if ((m = effect.match(/[Hh]eals for (\d+)% max HP every ([0-9.]+) seconds/))) {
+    const [, percent, howOften] = m;
+    return `regen ${percent}% HP per ${howOften}s`;
   }
 
   if (shouldSkipEffect(effect)) {

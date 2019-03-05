@@ -514,6 +514,18 @@ describe('mrP', () => {
           '+10% dark dmg if Garland in party 15s, ' +
           '+20% holy/dark dmg if Warrior of Light & Garland in party 15s, self fastcast 15s',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Seymour - Guado Grudge'])).toEqual({
+        damage: 'magic 15.04/8 dark+non',
+        other: 'dark infuse 25s',
+        burstCommands: [
+          { damage: 'm13.2/6 d+n', other: 'self lose 35% max HP', school: 'Black Magic' },
+          {
+            damage: undefined,
+            other: 'self regen 15% HP per 3.50s 15s, +30% MAG, -30% DEF 20s',
+            school: 'Black Magic',
+          },
+        ],
+      });
     });
 
     it('converts combinations of stat changes, statuses, and infuses', () => {
@@ -991,6 +1003,11 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Noctis - Armiger'])).toEqual({
         damage: 'phys 15.0 overstrike',
         other: 'self Negate dmg 30%, until Neg. Dmg. lost: +30% ATK, hi fastcast',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Shantotto - A Thousand Suns'])).toEqual({
+        damage: 'magic 17.0/10 lgt+ice+fire',
+        other: 'lgt infuse 25s, 15s: EX: +30% MAG, double Witch (uses extra hone)',
       });
     });
 
