@@ -646,7 +646,7 @@ describe('mrP', () => {
 
     it('converts multiple attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Squall - Fated Circle'])).toEqual({
-        damage: 'phys 2.55/3, then AoE 2.1'
+        damage: 'phys 2.55/3, then AoE 2.1',
       });
     });
 

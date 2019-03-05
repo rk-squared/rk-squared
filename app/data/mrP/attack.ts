@@ -338,11 +338,15 @@ function describeAdditionalCritType(
     additionalCritCharacter,
     additionalCritStatus,
     additionalCritScaleWithUses,
+    additionalCritFinisherAttackCount,
+    additionalCritFinisherAttackType,
   }: {
     additionalCritType: string;
     additionalCritCharacter: string | null;
     additionalCritStatus: string | null;
     additionalCritScaleWithUses: string | null;
+    additionalCritFinisherAttackCount: string | null;
+    additionalCritFinisherAttackType: string | null;
   },
   additionalCrit: number[] | undefined,
 ): string {
@@ -357,6 +361,11 @@ function describeAdditionalCritType(
     }
   } else if (additionalCritScaleWithUses) {
     return formatUseCount(additionalCrit ? additionalCrit.length : undefined);
+  } else if (additionalCritFinisherAttackCount && additionalCritFinisherAttackType) {
+    return formatThreshold(
+      additionalCritFinisherAttackCount,
+      formatSchoolOrAbilityList(additionalCritFinisherAttackType),
+    );
   } else {
     return additionalCritType;
   }
@@ -419,6 +428,7 @@ const attackRe = XRegExp(
   (?:,\ (?<additionalCrit>[0-9/]+)%\ (?:additional|add.)\ critical\ chance
     (?<additionalCritType>
       \ if\ the\ user\ has\ (?<additionalCritStatus>[A-Za-z ]+)|
+      \ if\ the\ user\ used\ (?<additionalCritFinisherAttackCount>(?:\d+/)*\d+)\ (?<additionalCritFinisherAttackType>.*)?\ (?:attacks|abilities)\ during\ the\ status|
       \ if\ (?<additionalCritCharacter>.*?)\ is\ alive|
       (?<additionalCritScaleWithUses>\ scaling\ with\ uses)
     )?
