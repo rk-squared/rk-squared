@@ -34827,7 +34827,7 @@
       "eva": null
     },
     "id": 21006118,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Taming Pole",
@@ -34872,7 +34872,7 @@
       "eva": null
     },
     "id": 21006126,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Gae Bolg",
@@ -37662,7 +37662,7 @@
       "eva": null
     },
     "id": 21006105,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mythril Lance",
@@ -44682,7 +44682,7 @@
       "eva": null
     },
     "id": 21007147,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Darksteel Claw",
@@ -63807,7 +63807,7 @@
       "eva": null
     },
     "id": 21010062,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Faerie's Bow",
@@ -65292,7 +65292,7 @@
       "eva": null
     },
     "id": 21010063,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Lominsan Bow",
@@ -72375,7 +72375,7 @@
       "acc": 95,
       "eva": 0
     },
-    "effect": null,
+    "effect": "Ice damage +20%",
     "character": "Rinoa",
     "soulBreak": "Cherubim Shot",
     "legendMateria": null,
@@ -91212,7 +91212,7 @@
       "eva": 105
     },
     "id": 22051160,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Goggle Mask",
@@ -120507,7 +120507,7 @@
       "eva": 105
     },
     "id": 22056231,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rune Bracelet",

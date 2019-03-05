@@ -4037,7 +4037,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4 single attacks (0.40 each), ATK and DEF +10/20/30/40/50/60/70/80% scaling with uses to the user for 25 seconds",
+    "effects": "Four single attacks (0.40 each), ATK and DEF +10/20/30/40/50/60/70/80% scaling with uses to the user for 25 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 50,

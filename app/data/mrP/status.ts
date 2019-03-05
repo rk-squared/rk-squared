@@ -394,6 +394,20 @@ function isBurstToggle({ effects }: EnlirStatus) {
   return effects.match(/affects certain burst commands/i) != null;
 }
 
+const allTranceStatus = new Set(
+  _.values(enlir.legendMateria)
+    // Jack and Haurchefant have common statuses - manually exclude them.
+    .filter(i => i.relic == null && i.character !== 'Jack' && i.character !== 'Haurchefant')
+    .map(i => i.effect.match(/.*[Gg]rants (.*) when HP fall below/))
+    .filter(i => i != null && !i[1].match(/to all allies/))
+    .map(i => i![1].split(andList))
+    .map(i => i[i.length - 1]),
+);
+
+function isTranceStatus({ name }: EnlirStatus) {
+  return allTranceStatus.has(name);
+}
+
 /**
  * Custom stat mods - Bushido, Dark Bargain, etc.  Omit turn-limited effects
  * here; it's easier to special case those within describeEnlirStatus than to
@@ -755,6 +769,7 @@ export interface ParsedEnlirStatus {
   isDetail: boolean;
   isExLike: boolean;
   isBurstToggle: boolean;
+  isTrance: boolean;
   defaultDuration: number | null;
   isVariableDuration: boolean;
   specialDuration?: string;
@@ -990,6 +1005,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     isExLike,
     isDetail: isExLike || (enlirStatus != null && forceDetail(enlirStatus)),
     isBurstToggle: enlirStatus != null && isBurstToggle(enlirStatus),
+    isTrance: enlirStatus != null && isTranceStatus(enlirStatus),
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
     specialDuration: enlirStatus ? getSpecialDuration(enlirStatus) : undefined,

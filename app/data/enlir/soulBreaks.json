@@ -4534,15 +4534,15 @@
     "realm": "II",
     "character": "Josef",
     "name": "Heroic Roar",
-    "type": "?",
-    "target": null,
+    "type": "NAT",
+    "target": "Self",
     "formula": null,
     "multiplier": null,
     "element": null,
     "time": 0.01,
     "effects": "Grants Attach Ice Stacking, Attach Ice and Heroic Spirit Follow-Up to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Self",
     "points": 250,
     "tier": "Glint",
     "master": "ATK +10",
@@ -11298,7 +11298,7 @@
     "realm": "V",
     "character": "Dorgann",
     "name": "Lingering Resolve",
-    "type": "?",
+    "type": "NAT",
     "target": "Self",
     "formula": null,
     "multiplier": null,
@@ -11306,7 +11306,7 @@
     "time": 0.01,
     "effects": "Grants Knight High Quick Cast and Knight Rank Boost",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Self",
     "points": 250,
     "tier": "Glint",
     "master": "ATK +10",
@@ -25333,7 +25333,7 @@
     "name": "Moving Forward",
     "type": "BLK",
     "target": "Single enemy",
-    "formula": null,
+    "formula": "Magical",
     "multiplier": 22.5,
     "element": [
       "Ice",
@@ -28618,7 +28618,7 @@
     "character": "Fran",
     "name": "Chain of Ice",
     "type": "NAT",
-    "target": null,
+    "target": "All allies",
     "formula": null,
     "multiplier": null,
     "element": null,
@@ -30711,7 +30711,7 @@
     "relic": "Cherub's Crown (XIII)",
     "nameJp": "クイックケアルア",
     "id": 20320010,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -31382,7 +31382,7 @@
     "relic": "Calamity Spear (XIII)",
     "nameJp": "グラン＝パルス流 嵐竜槍",
     "id": 22030010,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -31406,7 +31406,7 @@
     "relic": "Taming Pole (XIII)",
     "nameJp": "ラグナロクの胎動",
     "id": 22030011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -31430,7 +31430,7 @@
     "relic": "Pandoran Spear (XIII)",
     "nameJp": "スマッシュブラスト",
     "id": 22030012,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -31484,7 +31484,7 @@
     "multiplier": 11.8,
     "element": [],
     "time": 3,
-    "effects": "Two single attacks (5.90 each), grants Quick Cast 4 to the user",
+    "effects": "Two single attacks (5.90 each), grants Quick Cast 4",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -31652,7 +31652,7 @@
     "relic": "Fellowship Arc (XIII)",
     "nameJp": "アルテミスシュート",
     "id": 22260009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -32122,7 +32122,7 @@
     "multiplier": 19,
     "element": [
       "Ice",
-      "NE"
+      "Water"
     ],
     "time": 2.5,
     "effects": "Twenty single ranged attacks (0.55 each), followed by one single ranged attack (8.00) capped at 99999",

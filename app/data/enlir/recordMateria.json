@@ -7193,7 +7193,7 @@
     "realm": "Type-0",
     "character": "Cater",
     "name": "Magic Pistol Wielder",
-    "effect": "PHY attacks deal ?% more damage when equipping a gun",
+    "effect": "PHY attacks deal 10% more damage when equipping a gun",
     "unlockCriteria": "Use Cater's Memory Crystal",
     "nameJp": "魔法銃を操る少女",
     "id": 111600130,
@@ -7283,61 +7283,61 @@
     "realm": "KH",
     "character": "Roxas",
     "name": "Self Oblivion",
-    "effect": "Increases Holy damage dealt by ?%",
+    "effect": "Increases Holy damage dealt by 10%",
     "unlockCriteria": "Use Roxas's Memory Crystal",
     "nameJp": "自身を知らぬ少年",
     "id": 111700040,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
     "character": "Roxas",
     "name": "Light's Shadow",
-    "effect": "Increases Holy damage dealt by ?%",
+    "effect": "Increases Holy damage dealt by 20%",
     "unlockCriteria": "Use Roxas's Memory Crystal II, chance to obtain with Roxas in party",
     "nameJp": "\t光の勇者に関わる存在",
     "id": 111700041,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
     "character": "Roxas",
     "name": "Trembling Twilight",
-    "effect": "Increases Holy damage dealt by ?%",
+    "effect": "Increases Holy damage dealt by 30%",
     "unlockCriteria": "Bring Roxas to level 99",
     "nameJp": "たそがれに揺れる光",
     "id": 111700042,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
     "character": "Axel",
     "name": "Elusive Motives",
-    "effect": "Increases Fire damage dealt by ?%",
+    "effect": "Increases Fire damage dealt by 10%",
     "unlockCriteria": "Use Axel's Memory Crystal",
     "nameJp": "つかみどころのない性格",
     "id": 111700050,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
     "character": "Axel",
     "name": "Nobody's Friend",
-    "effect": "Increases Fire damage dealt by ?%",
+    "effect": "Increases Fire damage dealt by 20%",
     "unlockCriteria": "Use Axel's Memory Crystal II, chance to obtain with Axel in party",
     "nameJp": "ロクサスの親友",
     "id": 111700051,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
     "character": "Axel",
     "name": "Assassin of Flames",
-    "effect": "Increases Fire damage dealt by ?%",
+    "effect": "Increases Fire damage dealt by 30%",
     "unlockCriteria": "Bring Axel to level 99",
     "nameJp": "炎操る暗殺者",
     "id": 111700052,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",

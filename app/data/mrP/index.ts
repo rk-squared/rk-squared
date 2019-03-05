@@ -522,6 +522,7 @@ export function describeEnlirSoulBreak(
         isExLike,
         isDetail,
         isBurstToggle,
+        isTrance,
         defaultDuration,
         isVariableDuration,
         specialDuration,
@@ -544,6 +545,9 @@ export function describeEnlirSoulBreak(
         description = 'remove ' + description;
       }
 
+      if (isTrance) {
+        description = 'Trance: ' + description;
+      }
       if (scalesWithUses) {
         description += ' ' + formatUseCount(optionCount);
       }

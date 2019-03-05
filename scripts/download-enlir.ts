@@ -309,6 +309,32 @@ function postProcessCharacters(characters: any[], allData: { [localName: string]
   }
 }
 
+function convertLegendMateria(rows: any[]): any[] {
+  const legendMateria: any[] = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+      if (shouldAlwaysSkip(col)) {
+        continue;
+      }
+
+      const field = _.camelCase(col);
+      if (field === 'relic') {
+        item[field] = dashNull(toString)(rows[i][j]);
+      } else {
+        item[field] = toCommon(field, rows[i][j]);
+      }
+    }
+
+    legendMateria.push(item);
+  }
+
+  return legendMateria;
+}
+
 function convertMagicite(rows: any[]): any[] {
   const magicite: any[] = [];
 
@@ -577,6 +603,11 @@ const dataTypes: DataType[] = [
     localName: 'characters',
     converter: convertCharacters,
     postProcessor: postProcessCharacters,
+  },
+  {
+    sheet: 'Legend Materia',
+    localName: 'legendMateria',
+    converter: convertLegendMateria,
   },
   {
     sheet: 'Magicite',

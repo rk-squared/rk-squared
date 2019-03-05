@@ -14045,15 +14045,15 @@
       "res": 2,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": null,
+    "introducingEventLegendSpheres": "History of the Planet's Salvation",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -14423,15 +14423,15 @@
       "res": 0,
       "mnd": 5
     },
-    "introducingEventLegendSpheres": null,
+    "introducingEventLegendSpheres": "History of the Planet's Salvation",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 700,
+      "atk": 40,
+      "def": 25,
+      "mag": 30,
+      "res": 15,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -14549,15 +14549,15 @@
       "res": 6,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": null,
+    "introducingEventLegendSpheres": "History of the Planet's Salvation",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -28390,34 +28390,34 @@
     },
     "introducingEventLv99": "In Trembling Twilight",
     "lv99": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "acc": null,
-      "eva": null,
-      "spd": null
+      "hp": 6712,
+      "atk": 212,
+      "def": 156,
+      "mag": 148,
+      "res": 135,
+      "mnd": 154,
+      "acc": 25,
+      "eva": 25,
+      "spd": 168
     },
     "introducingEventRecordSpheres": "In Trembling Twilight",
     "recordSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null
+      "hp": 800,
+      "atk": 35,
+      "def": 14,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0
     },
     "introducingEventLegendSpheres": "In Trembling Twilight",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -28473,7 +28473,7 @@
       "heavy": null
     },
     "id": 17000400,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
@@ -28516,34 +28516,34 @@
     },
     "introducingEventLv99": "In Trembling Twilight",
     "lv99": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "acc": null,
-      "eva": null,
-      "spd": null
+      "hp": 6632,
+      "atk": 202,
+      "def": 134,
+      "mag": 211,
+      "res": 164,
+      "mnd": 99,
+      "acc": 25,
+      "eva": 25,
+      "spd": 172
     },
     "introducingEventRecordSpheres": "In Trembling Twilight",
     "recordSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null
+      "hp": 560,
+      "atk": 19,
+      "def": 8,
+      "mag": 19,
+      "res": 3,
+      "mnd": 0
     },
     "introducingEventLegendSpheres": "In Trembling Twilight",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 700,
+      "atk": 40,
+      "def": 25,
+      "mag": 20,
+      "res": 25,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -28599,7 +28599,7 @@
       "heavy": null
     },
     "id": 17000500,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",

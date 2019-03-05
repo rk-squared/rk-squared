@@ -1914,7 +1914,11 @@ describe('mrP', () => {
           '15s: Awoken Sorceress Knight: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
-      // TODO: Decide about Awoken modes whose statuses duplicate trances, etc.
+      expect(describeEnlirSoulBreak(soulBreaks['Shantotto - Demon of the Federation'])).toEqual({
+        damage: 'magic 22.5/15 lgt+non',
+        other:
+          'lgt infuse 25s, self dmg cap=19,999 15s, 25s: Trance: +30% MAG, -30% DEF/RES, hi fastcast, 15s: Awoken Witch: Witch inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles turn-limited effects', () => {

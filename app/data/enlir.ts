@@ -143,6 +143,18 @@ export interface EnlirBurstCommand extends EnlirGenericSkill {
   nameJp: string;
 }
 
+export interface EnlirLegendMateria {
+  realm: string;
+  character: string;
+  name: string;
+  effect: string;
+  master: string | null;
+  relic: string | null;
+  nameJp: string;
+  id: number;
+  gl: boolean;
+}
+
 export interface EnlirOtherSkill extends EnlirGenericSkill {
   sourceType: string;
   source: string;
@@ -195,6 +207,7 @@ const rawData = {
   braveCommands: require('./enlir/brave.json') as EnlirBraveCommand[],
   burstCommands: require('./enlir/burst.json') as EnlirBurstCommand[],
   characters: require('./enlir/characters.json'),
+  legendMateria: require('./enlir/legendMateria.json') as EnlirLegendMateria[],
   magicite: require('./enlir/magicite.json'),
   otherSkills: require('./enlir/otherSkills.json') as EnlirOtherSkill[],
   recordMateria: require('./enlir/recordMateria.json') as EnlirRecordMateria[],
@@ -233,6 +246,7 @@ export const enlir = {
   burstCommands: makeCommandsMap(rawData.burstCommands),
   characters: _.keyBy(rawData.characters, 'id'),
   charactersByName: _.keyBy(rawData.characters, 'name'),
+  legendMateria: _.keyBy(rawData.legendMateria, 'id'),
   magicites: _.keyBy(rawData.magicite, 'id'),
 
   // NOTE: Other Skills' names are not unique, and they often lack IDs, so
