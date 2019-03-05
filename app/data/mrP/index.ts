@@ -163,9 +163,11 @@ const statModRe = XRegExp(
   # Anchor the stat matching to the beginning of a clause.
   (?:,\ |^)
 
-  (?<stats>(?:[A-Z]{3}(?:,?\ and\ |,\ ))*[A-Z]{3})\ #
-  (?<percent>[+-]\ ?\d+)%\ (?<who>to\ the\ user\ |to\ all\ allies\ )?
-  for\ (?<duration>\d+)\ seconds
+  (?<stats>(?:[A-Z]{3}(?:,?\ and\ |,\ ))*[A-Z]{3})
+  \ (?<percent>[+-]\ ?(?:\d+/)*\d+)%
+  (?<scalesWithUses>\ scaling\ with\ uses)?
+  (?<who>\ to\ the\ user|\ to\ all\ allies)?
+  \ for\ (?<duration>\d+)\ seconds
 `,
   'x',
 );
@@ -589,15 +591,18 @@ export function describeEnlirSoulBreak(
   XRegExp.forEach(
     sb.effects.replace(/([Gg]rants|[Cc]auses|[Rr]emoves) .*/, ''),
     statModRe,
-    ({ stats, percent, who, duration }: any) => {
+    ({ stats, percent, who, duration, scalesWithUses }: any) => {
       const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
       let statMod = percent.replace(' ', '') + '% ';
       statMod += combinedStats;
+      if (scalesWithUses) {
+        statMod += ' ' + formatUseCount(countMatches(percent, /\//g) + 1);
+      }
       statMod += ` ${duration}s`;
 
-      if (who === 'to the user ' || (!who && sb.target === 'Self')) {
+      if (who === ' to the user' || (!who && sb.target === 'Self')) {
         selfOther.push(statMod);
-      } else if (who === 'to all allies ' || (!who && sb.target === 'All allies')) {
+      } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
         partyOther.push(statMod);
       } else if (!who && attack) {
         // No need to list an explicit target - it's the same as the attack

@@ -46,6 +46,9 @@ export function lowerCaseFirst(s: string): string {
  * Parses a numeric string like "one" or "twenty-two"
  */
 export function parseNumberString(s: string): number | null {
+  if (isNumeric(s)) {
+    return +s;
+  }
   let result = 0;
   for (const i of s.toLowerCase().split('-')) {
     if (numbers[i] == null) {

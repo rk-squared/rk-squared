@@ -773,6 +773,18 @@ describe('mrP', () => {
         other:
           'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ rank 1-5 15s, 15s: stacking 2.0x/4.0x/6.0x cast',
       });
+      expect(describeEnlirSoulBreak(soulBreaks["Sabin - Perdition's Phoenix"])).toEqual({
+        damage: 'phys 4.9/7 - 5.6/8 - 6.3/9 - 7.0/10 fire+non @ 700-1250-1700 ATK',
+        other: 'fire infuse 25s',
+        burstCommands: [
+          {
+            damage: 'p1.6/4 f+n',
+            other: 'self +10/20/30/40/50/60/70/80% ATK/DEF w/ 0…7 uses 25s',
+            school: 'Monk',
+          },
+          { damage: 'AoE p1.5/2 f+n', other: undefined, school: 'Monk' },
+        ],
+      });
     });
 
     it('processes crit modifiers', () => {
