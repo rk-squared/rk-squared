@@ -3563,7 +3563,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "10 single attacks (0.96 each), 10/30/50% additional critical chance if the user used 0/5/9 Ice attacks during the status. Additional one single attack (6.40) capped at 99999 if the user used 9 Ice attacks",
+    "effects": "10 single attacks (0.96 each), 10/30/50% additional critical chance if the user used 0/5/9 Ice attacks during the status. Additional one single attack (6.40) capped at 99999 if the user used 9 Ice attacks during the status",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,

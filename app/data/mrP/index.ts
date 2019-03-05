@@ -187,6 +187,101 @@ interface DescribeOptions {
   burstCommands: EnlirBurstCommand[] | undefined;
 }
 
+function describeEnlirAttack(
+  skill: EnlirSkill,
+  attack: ParsedEnlirAttack,
+  opt: DescribeOptions,
+): [string, StatusInfliction[]] {
+  let damage = '';
+  const statusInfliction: StatusInfliction[] = [];
+
+  const abbreviate = opt.abbreviate || !!attack.hybridDamageType;
+  damage += attack.isAoE ? 'AoE ' : '';
+  damage += attack.randomChances ? attack.randomChances + ' ' : '';
+  damage += !attack.isFixedDamage ? formatDamageType(attack.damageType, abbreviate) : '';
+  damage += attack.isPiercing ? '^' : '';
+  damage += attack.damage;
+
+  if (attack.hybridDamageType) {
+    damage += ' or ';
+    damage += formatDamageType(attack.hybridDamageType, abbreviate);
+    damage += attack.hybridDamage;
+  }
+
+  damage += appendElement(
+    attack.element,
+    opt.abbreviate ? getElementAbbreviation : getElementShortName,
+  );
+  damage += attack.isRanged ? ' rngd' : '';
+  damage += attack.isJump ? ' jump' : '';
+  damage += attack.isOverstrike ? ' overstrike' : '';
+  damage +=
+    opt.includeSchool && attack.school && attack.school !== '?' && attack.school !== 'Special'
+      ? ' ' + getSchoolShortName(attack.school)
+      : '';
+  damage += opt.showNoMiss && attack.isNoMiss ? ' no miss' : '';
+  if (attack.additionalCrit && !attack.additionalCritType) {
+    // If critical hits might depend on the entire attack's scaling, process
+    // them now.
+    damage += ' @ +' + attack.additionalCrit.join(' - ') + '% crit';
+  }
+  if (attack.additionalCritDamage) {
+    damage += ` @ +${attack.additionalCritDamage}% crit dmg`;
+  }
+  if (!attack.scaleToDamage && attack.scaleType) {
+    // Rank chase / threshold / etc.
+    damage += ' ' + attack.scaleType;
+  }
+  if (attack.orDamage && attack.orCondition) {
+    damage +=
+      ', or ' +
+      damageTypeAbbreviation(attack.damageType) +
+      attack.orDamage +
+      ' ' +
+      attack.orCondition;
+  }
+  if (attack.scaleToDamage && attack.scaleType) {
+    // Damage scaling
+    damage +=
+      ', up to ' +
+      damageTypeAbbreviation(attack.damageType) +
+      attack.scaleToDamage +
+      ' ' +
+      attack.scaleType;
+  }
+  if (attack.defaultDamage) {
+    damage += ', default ' + damageTypeAbbreviation(attack.damageType) + attack.defaultDamage;
+  }
+  if (attack.minDamage) {
+    damage += `, min dmg ${attack.minDamage}`;
+  }
+  if (attack.additionalCrit && attack.additionalCritType) {
+    damage += ' @ +' + attack.additionalCrit.join(' - ') + '% crit';
+    damage += ' ' + attack.additionalCritType;
+  }
+  // Omit ' (SUM)' for Summoning school; it seems redundant.
+  damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
+  damage += attack.isNat && !attack.isFixedDamage ? ' (NAT)' : '';
+
+  if (attack.status && attack.statusChance) {
+    const { description, defaultDuration } = parseEnlirStatus(attack.status, skill);
+    const duration = attack.statusDuration || defaultDuration;
+    // Semi-hack: Attack statuses are usually or always imperils, and text
+    // like '35% +10% fire vuln.' looks weird.  Like MrP, we insert a 'for'
+    // to make it a bit clearer.
+    statusInfliction.push({
+      description: 'for ' + description + (duration ? ` ${duration}s` : ''),
+      chance: attack.statusChance,
+      chanceDescription: attack.statusChance + '%',
+    });
+  }
+
+  // Hack: In case a "followed by" attack left a trailing comma that we ended
+  // up not needing.
+  damage = damage.replace(/,$/, '');
+  return [damage, statusInfliction];
+}
+
 // FIXME: Rename to indicate broader usage (not just soul breaks now) and move out of index?
 export function describeEnlirSoulBreak(
   sb: EnlirSkill,
@@ -220,95 +315,28 @@ export function describeEnlirSoulBreak(
   const partyOther: string[] = [];
   const detailOther: string[] = [];
 
-  const attack = parseEnlirAttack(sb.effects, sb, {
+  const attackOpts = {
     prereqStatus: opt.prereqStatus,
     burstCommands: opt.burstCommands,
-  });
+  };
+  const attack = parseEnlirAttack(sb.effects, sb, attackOpts);
   if (attack) {
-    const abbreviate = opt.abbreviate || !!attack.hybridDamageType;
-    damage += attack.isAoE ? 'AoE ' : '';
-    damage += attack.randomChances ? attack.randomChances + ' ' : '';
-    damage += !attack.isFixedDamage ? formatDamageType(attack.damageType, abbreviate) : '';
-    damage += attack.isPiercing ? '^' : '';
-    damage += attack.damage;
+    const [thisDamage, thisStatusInfliction] = describeEnlirAttack(sb, attack, opt);
+    damage = thisDamage;
+    statusInfliction.push(...thisStatusInfliction);
+  }
 
-    if (attack.hybridDamageType) {
-      damage += ' or ';
-      damage += formatDamageType(attack.hybridDamageType, abbreviate);
-      damage += attack.hybridDamage;
+  // Check for additional / separate attacks.
+  if ((m = sb.effects.match(/\. +Additional (.*)/))) {
+    const attack2 = parseEnlirAttack(m[1], sb, attackOpts);
+    if (attack2) {
+      const [thisDamage, thisStatusInfliction] = describeEnlirAttack(sb, attack2, opt);
+      if (damage) {
+        damage += ', then ';
+      }
+      damage += thisDamage;
+      statusInfliction.push(...thisStatusInfliction);
     }
-
-    damage += appendElement(
-      attack.element,
-      opt.abbreviate ? getElementAbbreviation : getElementShortName,
-    );
-    damage += attack.isRanged ? ' rngd' : '';
-    damage += attack.isJump ? ' jump' : '';
-    damage += attack.isOverstrike ? ' overstrike' : '';
-    damage +=
-      opt.includeSchool && attack.school && attack.school !== '?' && attack.school !== 'Special'
-        ? ' ' + getSchoolShortName(attack.school)
-        : '';
-    damage += opt.showNoMiss && attack.isNoMiss ? ' no miss' : '';
-    if (attack.additionalCrit && !attack.additionalCritType) {
-      // If critical hits might depend on the entire attack's scaling, process
-      // them now.
-      damage += ' @ +' + attack.additionalCrit.join(' - ') + '% crit';
-    }
-    if (attack.additionalCritDamage) {
-      damage += ` @ +${attack.additionalCritDamage}% crit dmg`;
-    }
-    if (!attack.scaleToDamage && attack.scaleType) {
-      // Rank chase / threshold / etc.
-      damage += ' ' + attack.scaleType;
-    }
-    if (attack.orDamage && attack.orCondition) {
-      damage +=
-        ', or ' +
-        damageTypeAbbreviation(attack.damageType) +
-        attack.orDamage +
-        ' ' +
-        attack.orCondition;
-    }
-    if (attack.scaleToDamage && attack.scaleType) {
-      // Damage scaling
-      damage +=
-        ', up to ' +
-        damageTypeAbbreviation(attack.damageType) +
-        attack.scaleToDamage +
-        ' ' +
-        attack.scaleType;
-    }
-    if (attack.defaultDamage) {
-      damage += ', default ' + damageTypeAbbreviation(attack.damageType) + attack.defaultDamage;
-    }
-    if (attack.minDamage) {
-      damage += `, min dmg ${attack.minDamage}`;
-    }
-    if (attack.additionalCrit && attack.additionalCritType) {
-      damage += ' @ +' + attack.additionalCrit.join(' - ') + '% crit';
-      damage += ' ' + attack.additionalCritType;
-    }
-    // Omit ' (SUM)' for Summoning school; it seems redundant.
-    damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
-    damage += attack.isNat && !attack.isFixedDamage ? ' (NAT)' : '';
-
-    if (attack.status && attack.statusChance) {
-      const { description, defaultDuration } = parseEnlirStatus(attack.status, sb);
-      const duration = attack.statusDuration || defaultDuration;
-      // Semi-hack: Attack statuses are usually or always imperils, and text
-      // like '35% +10% fire vuln.' looks weird.  Like MrP, we insert a 'for'
-      // to make it a bit clearer.
-      statusInfliction.push({
-        description: 'for ' + description + (duration ? ` ${duration}s` : ''),
-        chance: attack.statusChance,
-        chanceDescription: attack.statusChance + '%',
-      });
-    }
-
-    // Hack: In case a "followed by" attack left a trailing comma that we ended
-    // up not needing.
-    damage = damage.replace(/,$/, '');
   }
 
   // A single attack with random fixed damage - this is too hard and weird to
@@ -872,8 +900,6 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
   return text;
 }
 
-// TODO: Sephiroth Zanshin
-// TODO: Abilities with crit chance per use: Renzokuken Ice Fang, Blasting Freeze
 // TODO: Hide min damage?  Hide school for percent-based finishers?
 // TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
 // TODO: Slash-combine items like Amarant lightning+fire vuln. or Celes' element boosts - and ideally remove patchEnlir

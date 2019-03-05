@@ -1977,6 +1977,14 @@ describe('mrP', () => {
         other:
           'lgt infuse 25s, self dmg cap=19,999 15s, 25s: Trance: +30% MAG, -30% DEF/RES, hi fastcast, 15s: Awoken Witch: Witch inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Squall - Freezing End'])).toEqual({
+        damage: 'phys 9.0/15 ice+non',
+        other:
+          'ice infuse 25s, self dmg cap=19,999 15s, fastcast 15s, ' +
+          'Finisher: phys 9.6/10 ice+non Spellblade @ +10 - 30 - 50% crit @ 0-5-9 ice, then phys 6.4 ice+non overstrike Spellblade @ 9 ice used, ' +
+          '15s: Awoken Ice: ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles turn-limited effects', () => {

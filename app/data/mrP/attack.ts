@@ -416,19 +416,19 @@ const attackRe = XRegExp(
   (?:,?\ (?:scaling|scal\.)\ with\ (?<scaleWithSkillUses>.*?)\ uses)?
   (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
   (?:\ if\ (?:the\ )?user\ has\ (?<statusThreshold>.*)\ (?<statusThresholdCount>(?:\d+/)+\d+))?
-  (?:\ if\ the\ user's\ HP\ are\ below\ (?<lowHpThresholdValue>(?:\d+/)+\d+)%)?
-  (?:\ if\ the\ user\ took\ (?<tookHitsValue>(?:\d+/)+\d+)\ (?<tookHits>.*)\ hits)?
-  (?:\ at\ (?<statThresholdValue>(?:\d+/)+\d+)\ (?<statThreshold>[A-Z]{3}))?
-  (?:,?\ scaling\ with\ (?<attackThresholdType>.*)\ (?:attacks|abilities)\ used\ \((?<attackThresholdCount>(?:\d+/)+\d+)\))?
-  (?:\ if\ the\ user\ used\ (?<simpleAttackThresholdCount>(?:\d+/)+\d+)\ damaging\ actions)?
-  (?:\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)+\d+)\ (?<finisherAttackThresholdType>.*)?\ (?:attacks|abilities)\ during\ the\ status)?
-  (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)+\d+)\ ailments)?
-  (?:\ at\ (?<differentAbilityValue>(?:\d+/)+\d+)\ different\ (?<differentAbilityType>.*?)\ abilities\ used)?
+  (?:\ if\ the\ user's\ HP\ are\ below\ (?<lowHpThresholdValue>(?:\d+/)*\d+)%)?
+  (?:\ if\ the\ user\ took\ (?<tookHitsValue>(?:\d+/)*\d+)\ (?<tookHits>.*)\ hits)?
+  (?:\ at\ (?<statThresholdValue>(?:\d+/)*\d+)\ (?<statThreshold>[A-Z]{3}))?
+  (?:,?\ scaling\ with\ (?<attackThresholdType>.*)\ (?:attacks|abilities)\ used\ \((?<attackThresholdCount>(?:\d+/)*\d+)\))?
+  (?:\ if\ the\ user\ used\ (?<simpleAttackThresholdCount>(?:\d+/)*\d+)\ damaging\ actions)?
+  (?:\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)*\d+)\ (?<finisherAttackThresholdType>.*?)?\ (?:attacks|abilities)\ during\ the\ status)?
+  (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)*\d+)\ ailments)?
+  (?:\ at\ (?<differentAbilityValue>(?:\d+/)*\d+)\ different\ (?<differentAbilityType>.*?)\ abilities\ used)?
 
   (?:,\ (?<additionalCrit>[0-9/]+)%\ (?:additional|add.)\ critical\ chance
     (?<additionalCritType>
       \ if\ the\ user\ has\ (?<additionalCritStatus>[A-Za-z ]+)|
-      \ if\ the\ user\ used\ (?<additionalCritFinisherAttackCount>(?:\d+/)*\d+)\ (?<additionalCritFinisherAttackType>.*)?\ (?:attacks|abilities)\ during\ the\ status|
+      \ if\ the\ user\ used\ (?<additionalCritFinisherAttackCount>(?:\d+/)*\d+)\ (?<additionalCritFinisherAttackType>.*?)?\ (?:attacks|abilities)\ during\ the\ status|
       \ if\ (?<additionalCritCharacter>.*?)\ is\ alive|
       (?<additionalCritScaleWithUses>\ scaling\ with\ uses)
     )?
