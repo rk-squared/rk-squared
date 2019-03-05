@@ -32,9 +32,9 @@ import {
   describeChances,
   enDashJoin,
   lowerCaseFirst,
-  numberWithCommas,
   orList,
   parseNumberString,
+  percentToMultiplier,
   slashMerge,
   toMrPFixed,
   toMrPKilo,
@@ -394,17 +394,21 @@ function isBurstToggle({ effects }: EnlirStatus) {
   return effects.match(/affects certain burst commands/i) != null;
 }
 
-const allTranceStatus = new Set(
+export const allTranceStatus = new Set(
   _.values(enlir.legendMateria)
-    // Jack and Haurchefant have common statuses - manually exclude them.
-    .filter(i => i.relic == null && i.character !== 'Jack' && i.character !== 'Haurchefant')
+    // Exclude LMRs - those may grant generic statuses as trance.
+    .filter(i => i.relic == null)
     .map(i => i.effect.match(/.*[Gg]rants (.*) when HP fall below/))
     .filter(i => i != null && !i[1].match(/to all allies/))
     .map(i => i![1].split(andList))
-    .map(i => i[i.length - 1]),
+    // Take the last status - in practice, that's the one that's the character-
+    // specific trance.
+    .map(i => i[i.length - 1])
+    // Exclude generic statuses, like Haurchefant and Jack.
+    .filter(i => resolveStatusAlias(i) == null),
 );
 
-function isTranceStatus({ name }: EnlirStatus) {
+export function isTranceStatus({ name }: EnlirStatus) {
   return allTranceStatus.has(name);
 }
 
@@ -416,8 +420,6 @@ function isTranceStatus({ name }: EnlirStatus) {
 const isCustomStatMod = ({ name, codedName, effects }: EnlirStatus) =>
   (codedName.startsWith('CUSTOM_PARAM_') && !effects.match(/, lasts for \d+ turn/)) ||
   name === 'Advance';
-
-const percentToMultiplier = (percent: number) => 1 + percent / 100;
 
 function formatTurns(turns: string | number | null): string {
   if (!turns) {
@@ -501,19 +503,6 @@ export function describeEnlirStatus(
   }
   if ((m = status.match(/(.*) Double/))) {
     return doubleAlias(formatSchoolOrAbilityList(m[1]));
-  }
-
-  // Special cases - numbers that require processing, so they can't easily
-  // merge with enlirStatusAliasWithNumbers
-  if ((m = status.match(/HP Stock \((\d+)\)/))) {
-    return 'Autoheal ' + toMrPKilo(+m[1]);
-  } else if ((m = status.match(/Damage Cap (\d+)/))) {
-    const [, cap] = m;
-    return `dmg cap=${numberWithCommas(+cap)}`;
-  } else if ((m = status.match(/Status Chance ([+-]\d+)%/))) {
-    const [, percent] = m;
-    const multiplier = toMrPFixed(percentToMultiplier(+percent));
-    return `${multiplier}x status chance`;
   }
 
   // Status effects: e.g., "MAG +30%" from EX: Attack Hand.  Reorganize stats

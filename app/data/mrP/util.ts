@@ -1,3 +1,11 @@
+/**
+ * @file
+ *
+ * Utility functions for MrP code.  Most of this is text-processing logic that
+ * could perhaps be part of a general text utility module, but it's written for
+ * and optimized for parsing Enlir and outputting MrP.
+ */
+
 import * as _ from 'lodash';
 
 export const andList = /,? and |, /;
@@ -284,3 +292,5 @@ export function andJoin(s: string[], oxfordComma: boolean): string {
   }
   return s.slice(0, s.length - 1).join(', ') + (oxfordComma ? ',' : '') + ' and ' + s[s.length - 1];
 }
+
+export const percentToMultiplier = (percent: number) => 1 + percent / 100;

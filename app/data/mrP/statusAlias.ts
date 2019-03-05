@@ -1,6 +1,13 @@
 import { allEnlirElements, allEnlirSchools } from '../enlir';
 import { getElementShortName, getSchoolShortName } from './types';
-import { lowerCaseFirst, toMrPGeneral } from './util';
+import {
+  lowerCaseFirst,
+  numberWithCommas,
+  percentToMultiplier,
+  toMrPFixed,
+  toMrPGeneral,
+  toMrPKilo,
+} from './util';
 
 export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
 export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
@@ -25,7 +32,7 @@ export interface AliasMap {
   /**
    * Names with embedded numbers
    */
-  numbered: { [s: string]: string };
+  numbered: { [s: string]: string | [string, (value: string) => string] };
 }
 
 /**
@@ -105,6 +112,12 @@ export const statusAlias: AliasMap = {
     'Ingredients +{X}': '+{X} ingredients',
     'Ingredients {X}': '{X} ingredients',
 
+    // Aliases with more complex formatting.
+    // TODO: We could improve our handling of '?' values by not blindly converting to numbers here
+    'HP Stock ({X})': ['Autoheal {X}', i => toMrPKilo(+i)],
+    'Damage Cap {X}': ['dmg cap={X}', i => numberWithCommas(+i)],
+    'Status Chance {X}%': ['{X}x status chance', i => toMrPFixed(percentToMultiplier(+i))],
+
     // Manually expand non-standard stat buffs to give their effects instead -
     // this is easier than trying to programmatically identify a few statuses as
     // needing expansion.
@@ -119,8 +132,8 @@ export const statusAlias: AliasMap = {
   },
 };
 
-function addCastSpeedAliases(
-  aliases: { [s: string]: string },
+function addCastSpeedAliases<T>(
+  aliases: { [s: string]: string | T },
   fromType: string,
   toType: string,
   suffix: string = '',
@@ -218,8 +231,15 @@ export function splitNumbered(s: string): [string, string] | [null, null] {
   return [text, m[1]];
 }
 
-export function resolveNumbered(text: string, numberValue: string): string {
-  return text.replace('{X}', toMrPGeneral(numberValue));
+export function resolveNumbered(
+  text: string | [string, (value: string) => string],
+  numberValue: string,
+): string {
+  let formatter = toMrPGeneral;
+  if (Array.isArray(text)) {
+    [text, formatter] = text;
+  }
+  return text.replace('{X}', formatter(numberValue));
 }
 
 interface ResolveOptions {
