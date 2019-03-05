@@ -703,7 +703,28 @@ describe('mrP', () => {
         'w10.28/2 l+n, party h25',
       ]);
 
-      // TODO: How to handle Rubicante, with a toggle command that has an effect?
+      const counter = describeEnlirSoulBreak(soulBreaks['Rubicante - Trueflame Inferno']);
+      expect(counter).toEqual({
+        burstCommands: [
+          {
+            burstToggle: true,
+            damage: undefined,
+            other: "self Magic blink 1, until OFF: (foe's PHY atk (50%) ⤇ AoE m4.85 f+n B.Mag)",
+            school: 'Black Magic',
+          },
+          { burstToggle: false, damage: 'm8.84/4 f+n', other: undefined, school: 'Black Magic' },
+          { damage: 'AoE m5.9/2 f+n', other: undefined, school: 'Black Magic' },
+          { damage: 'AoE m8.85/3 f+n', other: undefined, school: 'Black Magic' },
+        ],
+        damage: 'AoE magic 11.94/6 fire+non',
+        other: 'fire infuse 25s',
+      });
+      expect(counter.burstCommands!.map(i => formatMrP(i))).toEqual([
+        "ON, self Magic blink 1, until OFF: (foe's PHY atk (50%) ⤇ AoE m4.85 f+n B.Mag)",
+        'OFF, m8.84/4 f+n',
+        'AoE m5.9/2 f+n',
+        'AoE m8.85/3 f+n',
+      ]);
     });
 
     it('converts Squall-type burst commands', () => {
@@ -1978,6 +1999,13 @@ describe('mrP', () => {
             school: 'Spellblade',
           },
         ],
+      });
+    });
+
+    it('handles counter-attacks', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Snow - Dogged Hero'])).toEqual({
+        damage: 'phys 7.2/10 ice',
+        other: "party Reflect Dmg 75% as ice 30s, 15s: (foe's PHY/BLK atk ⤇ p2.0/2 i+n Monk)",
       });
     });
 

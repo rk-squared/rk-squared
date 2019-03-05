@@ -41,6 +41,8 @@ import {
 } from './util';
 
 const finisherText = 'Finisher: ';
+const formatTriggeredEffect = (trigger: string, description: string) =>
+  '(' + trigger + ' ⤇ ' + description + ')';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -359,6 +361,8 @@ const isFollowUpStatus = ({ effects }: EnlirStatus) => !!parseFollowUpEffect(eff
 const isModeStatus = ({ name, codedName }: EnlirStatus) =>
   (!!codedName.match(/_MODE/) && codedName !== 'BRAVE_MODE') ||
   (name.endsWith(' Mode') && name !== 'Brave Mode' && name !== 'Burst Mode') ||
+  // Specialized counter-attacks
+  (codedName.startsWith('COUNTER_AIMING') && name !== 'Retaliate' && name !== 'High Retaliate') ||
   // Special cases - treat as a mode to give it more room for its description.
   name === 'Haurchefant Cover';
 
@@ -569,18 +573,21 @@ function describeFinisher(skillName: string) {
 }
 
 /**
- * Status effects that are too verbose to fit in a MrP style format.
+ * Status effects that are too verbose to fit in a MrP style format or should
+ * otherwise be skipped.
  * @param effect
  */
 function shouldSkipEffect(effect: string) {
-  // "removed after using" is just for Ace's Top Card.
-  // "removed if the user hasn't" describes USB effects that are paired
-  // with other USB effects - when one is removed, the other is too.
   return (
+    // "removed after using" is just for Ace's Top Card.
+    // "removed if the user hasn't" describes USB effects that are paired
+    // with other USB effects - when one is removed, the other is too.
     effect.startsWith('removed after using ') ||
     effect.startsWith("removed if the user hasn't") ||
     // Custom triggers
-    effect.startsWith('removed after triggering')
+    effect.startsWith('removed after triggering') ||
+    // Burst toggles - we communicate this via a separate flag
+    effect.match(/[Aa]ffects certain Burst Commands/)
   );
 }
 
@@ -743,6 +750,18 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
   if ((m = effect.match(/[Hh]eals for (\d+)% max HP every ([0-9.]+) seconds/))) {
     const [, percent, howOften] = m;
     return `regen ${percent}% HP per ${howOften}s`;
+  }
+
+  // Counter-attacks.
+  if (
+    (m = effect.match(/(?:(\d+)% chance of countering|[Cc]ounters) enemy (.*) attacks with (.*)/))
+  ) {
+    const [, percentChance, trigger, skill] = m;
+    let triggerDescription = "foe's " + trigger.split(andList).join('/') + ' atk';
+    if (percentChance) {
+      triggerDescription += ` (${percentChance}%)`;
+    }
+    return formatTriggeredEffect(triggerDescription, describeFollowUpSkill(skill));
   }
 
   if (shouldSkipEffect(effect)) {
@@ -942,7 +961,7 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     );
   }
 
-  return '(' + triggerDescription + ' ⤇ ' + description.join(', ') + ')';
+  return formatTriggeredEffect(triggerDescription, description.join(', '));
 }
 
 function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
@@ -979,7 +998,12 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
         isFollowUpStatus(enlirStatus) ||
         isModeStatus(enlirStatus)));
 
-  if (enlirStatus && (isExLike || isCustomStatMod(enlirStatus) || forceEffects(enlirStatus))) {
+  const burstToggle = enlirStatus != null && isBurstToggle(enlirStatus);
+
+  if (
+    enlirStatus &&
+    (isExLike || isCustomStatMod(enlirStatus) || forceEffects(enlirStatus) || burstToggle)
+  ) {
     description = describeEffects(enlirStatus);
     if (isEx) {
       description = 'EX: ' + description;
@@ -993,7 +1017,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     description,
     isExLike,
     isDetail: isExLike || (enlirStatus != null && forceDetail(enlirStatus)),
-    isBurstToggle: enlirStatus != null && isBurstToggle(enlirStatus),
+    isBurstToggle: burstToggle,
     isTrance: enlirStatus != null && isTranceStatus(enlirStatus),
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,

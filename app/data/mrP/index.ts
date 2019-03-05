@@ -532,7 +532,17 @@ export function describeEnlirSoulBreak(
 
       if (isBurstToggle) {
         burstToggle = verb.toLowerCase() !== 'removes';
-        return;
+        if (description === '') {
+          return;
+        }
+        // Special case: A burst toggle with an effect of its own.  If we're
+        // switching it ON, show it with a custom duration.  If switching OFF,
+        // show nothing.
+        if (burstToggle) {
+          specialDuration = 'until OFF';
+        } else {
+          return;
+        }
       }
 
       // Status removal.  In practice, only a few White Magic abilities hit
