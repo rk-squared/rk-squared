@@ -75,6 +75,7 @@ export interface ParsedEnlirAttack {
 
   element: EnlirElement[] | null;
   school?: EnlirSchool;
+  isFixedDamage: boolean;
   isAoE: boolean;
   isRanged: boolean;
   isJump: boolean;
@@ -134,11 +135,11 @@ function describeDamage(
 }
 
 function describeRandomDamage(
-  attackMultiplier: number,
+  damageFunction: (n: number) => string,
   randomAttacks: Array<[number, number]>,
 ): [string | undefined, string] {
   const percents = randomAttacks.map(([, percent]) => percent);
-  const damages = randomAttacks.map(([count]) => describeDamage(attackMultiplier, count));
+  const damages = randomAttacks.map(([count]) => damageFunction(count));
   return describeChances(damages, percents);
 }
 
@@ -355,6 +356,27 @@ function describeAdditionalCritType(
   }
 }
 
+function parseRandomAttacks(attacks: string): Array<[number, number]> | null {
+  // Try to parse it as a series of percentage-annotated number strings.
+  const asPercents = parsePercentageCounts(attacks);
+  if (asPercents) {
+    return asPercents;
+  }
+
+  // Try to parse it as a plain series of number strings.
+  const m = attacks.match(/Randomly deals (.*)/);
+  if (!m) {
+    return null;
+  }
+  const numAttacks = m[1].split(orList).map(parseNumberString);
+  if (_.some(numAttacks, i => i == null)) {
+    return null;
+  }
+
+  const percentage = 100 / numAttacks.length;
+  return numAttacks.map(i => [i, percentage] as [number, number]);
+}
+
 const attackRe = XRegExp(
   String.raw`
   (?:^|,\ )
@@ -362,16 +384,17 @@ const attackRe = XRegExp(
   (?:(?<attackType>group|random|single)\ )?
   (?<modifiers>(hybrid\ |rang\.?(?:ed)?\ |jump\ )*)
   attacks?
-  (?:\ \(
+  (?<hasMultiplier>\ \(
     (?<randomMultiplier>randomly\ )?
     (?<attackMultiplier>[0-9.]+|\?)
     (?<altAttackMultiplier>(?:/[0-9.]+)*)?
-    (?:\ or\ (?<hybridAttackMultiplier>[0-9.]+))?
+    (?:\ or\ (?<hybridAttackMultiplier>[0-9.]+|\?))?
     (?:~(?<scaleToAttackMultiplier>[0-9.]+))?
     (?:\ each)?
     (?<scaleType>\ scaling\ with[^)]+?)?
     (?:,\ (?<defaultMultiplier>[0-9.]+)\ default)?
   \))?
+  (?:\ that\ deal\ (?<fixedDamage>\d+)\ damage(?:\ each)?)?
   (?<overstrike>,?\ capped\ at\ 99999)?
 
   (?<scaleWithUses>,?\ scaling\ with\ uses)?
@@ -434,8 +457,11 @@ export function parseEnlirAttack(
   if (!m) {
     return null;
   }
+  if (!m.hasMultiplier && !m.fixedDamage && !m.finisherPercentDamage) {
+    return null;
+  }
 
-  const randomAttacks = parsePercentageCounts(m.numAttacks);
+  const randomAttacks = parseRandomAttacks(m.numAttacks);
   const attackMultiplier = parseFloat(m.attackMultiplier);
   const scaleToAttackMultiplier = parseFloat(m.scaleToAttackMultiplier);
   const numAttacks = parseNumberString(m.numAttacks);
@@ -448,8 +474,20 @@ export function parseEnlirAttack(
   let randomChances: string | undefined;
   let damage: string;
   let hybridDamage: string | undefined;
-  if (randomAttacks) {
-    [randomChances, damage] = describeRandomDamage(attackMultiplier, randomAttacks);
+  if (randomAttacks && m.fixedDamage) {
+    const fixedDamage = +m.fixedDamage;
+    [randomChances, damage] = describeRandomDamage(
+      n => (n === 1 ? m.fixedDamage : fixedDamage * n + '/' + n),
+      randomAttacks,
+    );
+    damage += ' fixed dmg';
+    // Note: There are no attacks that use fixed damage with an explicit but
+    // non-random number of attacks, so we ignore that case.
+  } else if (randomAttacks) {
+    [randomChances, damage] = describeRandomDamage(
+      n => describeDamage(attackMultiplier, n),
+      randomAttacks,
+    );
   } else if (numAttacks && m.randomMultiplier && m.altAttackMultiplier) {
     damage = [
       attackMultiplier,
@@ -633,6 +671,7 @@ export function parseEnlirAttack(
     statusChance: m.statusChance ? +m.statusChance : undefined,
     statusDuration: m.statusDuration ? +m.statusDuration : undefined,
 
+    isFixedDamage: m.fixedDamage,
     isRanged: isRanged && !isJump,
     isJump,
     isOverstrike: !!m.overstrike,

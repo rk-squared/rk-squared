@@ -201,6 +201,14 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cait Sith - Dice (VII)'])).toEqual({
         damage: '1, 22, 33, 444, 555 or 6666 fixed dmg',
       });
+
+      // Discrepancy: MrP lists this as "1–6 hits at 3333 each", which is
+      // probably nicer, but it's probably not worth the coding.
+      expect(describeEnlirSoulBreak(soulBreaks['Setzer - Fixed Dice'])).toEqual({
+        damage: '3333 or 6666/2 or 9999/3 or 13332/4 or 16665/5 or 19998/6 fixed dmg',
+        other: '-40% ATK/RES 25s',
+      });
+
       expect(describeEnlirSoulBreak(soulBreaks['Setzer - Mostly Megaflare'])).toEqual({
         damage: '80-20% phys 6.65/7-13.3/14',
         other: '-40% ATK/MAG 25s',

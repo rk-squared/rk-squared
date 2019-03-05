@@ -228,7 +228,7 @@ export function describeEnlirSoulBreak(
     const abbreviate = opt.abbreviate || !!attack.hybridDamageType;
     damage += attack.isAoE ? 'AoE ' : '';
     damage += attack.randomChances ? attack.randomChances + ' ' : '';
-    damage += formatDamageType(attack.damageType, abbreviate);
+    damage += !attack.isFixedDamage ? formatDamageType(attack.damageType, abbreviate) : '';
     damage += attack.isPiercing ? '^' : '';
     damage += attack.damage;
 
@@ -291,7 +291,7 @@ export function describeEnlirSoulBreak(
     }
     // Omit ' (SUM)' for Summoning school; it seems redundant.
     damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
-    damage += attack.isNat ? ' (NAT)' : '';
+    damage += attack.isNat && !attack.isFixedDamage ? ' (NAT)' : '';
 
     if (attack.status && attack.statusChance) {
       const { description, defaultDuration } = parseEnlirStatus(attack.status, sb);
@@ -307,6 +307,8 @@ export function describeEnlirSoulBreak(
     }
   }
 
+  // A single attack with random fixed damage - this is too hard and weird to
+  // fit into parseEnlirAttack.
   if ((m = sb.effects.match(/Randomly deals ((?:\d+, )*\d+,? or \d+) damage/))) {
     damage = m[1] + ' fixed dmg';
   }
