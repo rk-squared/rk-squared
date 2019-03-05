@@ -305,6 +305,10 @@ export function describeEnlirSoulBreak(
         chanceDescription: attack.statusChance + '%',
       });
     }
+
+    // Hack: In case a "followed by" attack left a trailing comma that we ended
+    // up not needing.
+    damage = damage.replace(/,$/, '');
   }
 
   // A single attack with random fixed damage - this is too hard and weird to

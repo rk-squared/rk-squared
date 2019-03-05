@@ -174,9 +174,9 @@ function formatThreshold(
  * Describes the "followed by" portion of an attack.  This is used for 20+1
  * AOSBs.
  */
-function describeFollowedByAttack(effects: string): string | null {
+function describeFollowedByAttack(effects: string, parentAttackType: string): string | null {
   const m = effects.match(
-    /followed by ([A-Za-z\-]+) ((?:group|random|single) )?(rang\.?(?:ed)? )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
+    /followed by ([A-Za-z\-]+) (?:(group|random|single) )?(rang\.?(?:ed)? )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
   );
   if (!m) {
     return null;
@@ -185,7 +185,7 @@ function describeFollowedByAttack(effects: string): string | null {
   const [
     ,
     numAttacksString,
-    /*attackType*/,
+    attackType,
     /*ranged*/,
     /*jump*/,
     attackMultiplierString,
@@ -198,6 +198,12 @@ function describeFollowedByAttack(effects: string): string | null {
   }
 
   let damage = '';
+  damage +=
+    attackType === 'group' && parentAttackType !== 'group'
+      ? 'AoE '
+      : attackType !== 'group' && parentAttackType === 'group'
+      ? attackType + ' '
+      : '';
   damage += describeDamage(attackMultiplier, numAttacks);
   damage += overstrike ? ' overstrike' : '';
   return damage;
@@ -520,7 +526,7 @@ export function parseEnlirAttack(
   } else {
     damage = describeDamage(attackMultiplier, numAttacks!);
   }
-  const followedBy = describeFollowedByAttack(skill.effects);
+  const followedBy = describeFollowedByAttack(skill.effects, m.attackType);
   if (followedBy) {
     damage += ', then ' + followedBy + ',';
   }

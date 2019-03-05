@@ -644,6 +644,12 @@ describe('mrP', () => {
       });
     });
 
+    it('converts multiple attacks', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Squall - Fated Circle'])).toEqual({
+        damage: 'phys 2.55/3, then AoE 2.1'
+      });
+    });
+
     it('converts burst toggles', () => {
       const damage = describeEnlirSoulBreak(soulBreaks['Angeal - Unleashed Wrath']);
       expect(damage).toEqual({
