@@ -63,6 +63,7 @@ export const statusAlias: AliasMap = {
 
     // Nonstandard alternatives.  See enlirStatusAltName.
     'Cast Speed *999': 'instacast',
+    'B. M.': 'Burst Mode',
 
     // Aliases of numbered statuses, minus the numbers, for use by status
     // threshold code.  We could instead try to slash-process the status
@@ -135,6 +136,9 @@ function addCastSpeedAliases(
 }
 
 for (const i of allEnlirElements) {
+  statusAlias.simple[`Attach ${i}`] = `${getElementShortName(i)} infuse`;
+  statusAlias.simple[`Attach ${i} Stacking`] = `${getElementShortName(i)} infuse stacking`;
+
   statusAlias.simple[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
   statusAlias.simple[`Medium Resist ${i}`] = `-20% ${getElementShortName(i)} vuln.`;
   statusAlias.simple[`Major Resist ${i}`] = `-30% ${getElementShortName(i)} vuln.`;

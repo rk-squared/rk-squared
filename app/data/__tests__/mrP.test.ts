@@ -195,11 +195,19 @@ describe('mrP', () => {
 
     it('converts random attacks', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cait Sith - Toy Soldier'])).toEqual({
-        damage: 'AoE white 7.11/3 or ?/3 or 9.48/3 or 11.85/3',
+        damage: 'AoE white 7.11/3 or 9.48/3 or 11.85/3',
         other: '-50% ATK/MAG 25s',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Cait Sith - Dice (VII)'])).toEqual({
         damage: '1, 22, 33, 444, 555 or 6666 fixed dmg',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Setzer - Mostly Megaflare'])).toEqual({
+        damage: '80-20% phys 6.65/7-13.3/14',
+        other: '-40% ATK/MAG 25s',
+        burstCommands: [
+          { damage: 'p2.1 rngd', other: '-20% ATK/DEF 15s', school: 'Support' },
+          { damage: 'p2.1 rngd', other: '-20% MAG/RES 15s', school: 'Support' },
+        ],
       });
     });
 
@@ -845,6 +853,12 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cloud - Ultra Cross Slash'])).toEqual({
         damage: 'phys 7.5/5 wind+dark',
         other: 'self crit =100% 25s, 15s: EX: 1.3x phys dmg, break PHY dmg cap',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Sephiroth - Zanshin'])).toEqual({
+        damage: 'phys 7.2/15 dark rngd',
+        other:
+          'dark infuse 25s, self crit =50% 25s, ' +
+          '15s: EX: (2 dark ⤇ 1.3x dark dmg 1 turn), break PHY Dark dmg cap',
       });
     });
 
@@ -1866,6 +1880,15 @@ describe('mrP', () => {
           '15s: (lgt ⤇ crit =30-50-70-100%), ' +
           '15s: Awoken Lightning: lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Seifer - Carnage Slice'])).toEqual({
+        damage: 'phys 9.0/15 dark+fire+non rngd',
+        other:
+          'self dmg cap=19,999 15s, 1 turn: (fire ⤇ fire infuse), (dark ⤇ dark infuse), ' +
+          '15s: (2 dark/fire ⤇ p3.68/8 d+f+n rngd Darkness), ' +
+          '15s: Awoken Sorceress Knight: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
       // TODO: Decide about Awoken modes whose statuses duplicate trances, etc.
     });
 

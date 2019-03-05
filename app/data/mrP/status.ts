@@ -582,7 +582,11 @@ function shouldSkipEffect(effect: string) {
 function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | null): string {
   let m: RegExpMatchArray | null;
 
-  if (effect.startsWith('removed if ') || effect.startsWith('removed upon ')) {
+  if (
+    effect.startsWith('removed if ') ||
+    effect.startsWith('removed upon ') ||
+    effect.match(/^lasts \d+ turns?/)
+  ) {
     return '';
   }
 
@@ -922,10 +926,13 @@ function describeFollowUp(followUp: FollowUpEffect): string {
 }
 
 function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
+  let m: RegExpMatchArray | null;
   if (effects.match(/, removed if the user doesn't have any Stoneskin/)) {
     return 'until Neg. Dmg. lost';
   } else if (effects.match(/, removed upon taking damage/)) {
     return 'until damaged';
+  } else if ((m = effects.match(/, lasts (\d+) turns?(?:$|,)/))) {
+    return formatDuration(+m[1], 'turn');
   } else {
     return undefined;
   }
@@ -1034,6 +1041,7 @@ const statusItemRe = XRegExp(
   (?<statusName>.*?)
   (?:\ \((?<chance>\d+)%\))?
   (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
+  (?:\ for\ (?<duration1>\d+\??|\?)\ (?<durationUnits1>second|turn)s?)?
   (?<scalesWithUses1>\ scaling\ with\ (?<scaleWithUsesSkill1>[A-Za-z ]+\ )?uses)?
   (?<who>
     \ to\ the\ user|
@@ -1041,7 +1049,7 @@ const statusItemRe = XRegExp(
     \ to\ the\ lowest\ HP%\ ally|
     \ to\ a\ random\ ally\ with\ negative\ (?:status\ )?effects
   )?
-  (?:\ for\ (?<duration>\d+\??|\?)\ (?<durationUnits>second|turn)s?)?
+  (?:\ for\ (?<duration2>\d+\??|\?)\ (?<durationUnits2>second|turn)s?)?
   (?<scalesWithUses2>\ scaling\ with\ (?<scaleWithUsesSkill2>[A-Za-z ]+\ )?uses)?
   (?:\ if\ the\ user\ has\ (?<prereq>.*))?
   (?:\ if\ (?<characterInParty>.*?)\ (?:is|are)\ in\ the\ party)?
@@ -1080,8 +1088,10 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     statusName,
     chance,
     who,
-    duration,
-    durationUnits,
+    duration1,
+    duration2,
+    durationUnits1,
+    durationUnits2,
     rank,
     scalesWithUses1,
     scalesWithUses2,
@@ -1102,6 +1112,9 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
       lookaheadWho = lookahead[1];
     }
   }
+
+  const duration = duration1 || duration2;
+  const durationUnits = durationUnits1 || durationUnits2;
 
   // Check if this scales with uses.  Hack: If it scales with the uses of
   // another skill, then assume that higher-level code will communicate that

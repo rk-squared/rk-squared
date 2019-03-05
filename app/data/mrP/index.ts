@@ -26,7 +26,12 @@ import {
   parseStatusItem,
   sortStatus,
 } from './status';
-import { formatRandomEther, formatSmartEther, sbPointsAlias } from './statusAlias';
+import {
+  formatRandomEther,
+  formatSmartEther,
+  resolveStatusAlias,
+  sbPointsAlias,
+} from './statusAlias';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -631,12 +636,12 @@ export function describeEnlirSoulBreak(
 
   if ((m = sb.effects.match(/Attach (\w+) Stacking/))) {
     const [, element] = m;
-    other.push(`${getShortName(element)} infuse stacking 25s`);
+    other.push(resolveStatusAlias(`Attach ${element} Stacking`) + ' 25s');
   }
 
   if ((m = sb.effects.match(/Attach (\w+)(?: |,|$)(?! Stacking)/))) {
     const [, element] = m;
-    other.push(`${getShortName(element)} infuse 25s`);
+    other.push(resolveStatusAlias(`Attach ${element}`) + ' 25s');
   }
 
   if (

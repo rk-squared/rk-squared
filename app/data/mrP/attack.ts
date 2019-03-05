@@ -451,7 +451,13 @@ export function parseEnlirAttack(
   if (randomAttacks) {
     [randomChances, damage] = describeRandomDamage(attackMultiplier, randomAttacks);
   } else if (numAttacks && m.randomMultiplier && m.altAttackMultiplier) {
-    damage = [attackMultiplier, ...m.altAttackMultiplier.split('/').map(parseFloat)]
+    damage = [
+      attackMultiplier,
+      ...m.altAttackMultiplier
+        .replace('/', '')
+        .split('/') // we capture altAttackModifier as starting with '/' - remove that
+        .map(parseFloat),
+    ]
       .map(i => describeDamage(i, numAttacks))
       .join(' or ');
   } else if (m.finisherPercentDamage) {
