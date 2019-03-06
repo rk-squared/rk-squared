@@ -162,13 +162,14 @@ const followUpRe = XRegExp(
   String.raw`
   (?<allEffects>.*)\ #
   (?:after\ #
-    (?<triggerType>using|dealing\ damage\ with|dealing|exploiting)\ #
+    (?<triggerType>using|dealing\ damage\ with|dealing|exploiting|taking\ (?<takeDamageTrigger>.*?)\ damage)\ #
     (?<trigger>.*?)
   |
     every\ (?<autoInterval>[0-9.]+)\ seconds
   )
   (\ if\ there\ are\ (?<realmThresholdCount>(?:[0-9]+/)*[0-9]+\+?)\ (?<realmThresholdType>.*?)\ characters\ in\ the\ party)?
   (\ if\ the\ user\ has\ any\ (?<triggerPrereqStatus>.*?))?
+
   (?:,\ removed\ (?:if|after)|$)
   `,
   'x',
@@ -191,6 +192,7 @@ function parseFollowUpEffect(
   const {
     allEffects,
     triggerType,
+    takeDamageTrigger,
     trigger,
     autoInterval,
     triggerPrereqStatus,
@@ -237,7 +239,9 @@ function parseFollowUpEffect(
     effects,
     statusWho,
     randomSkills,
-    trigger,
+    // Hack: Merge the damage trigger back in; we'll parse it out in
+    // describeFollowUpTrigger.
+    trigger: takeDamageTrigger ? takeDamageTrigger + ' dmg ' + trigger : trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
     customTriggerSuffix: checkCustomTrigger(enlirStatus),
     customSkillSuffix,
@@ -862,6 +866,21 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
     return 'hit weak';
   }
 
+  // Special case: Steiner
+  const m = trigger.match(/(.*) dmg from a (.*) attack used by another ally/);
+  if (m) {
+    let [, damageType, attackType] = m;
+    damageType = m[1]
+      .split('/')
+      .map(getShortName)
+      .join('/');
+    attackType = attackType.split(orList).join('/');
+    if (attackType === 'BLK/WHT/BLU/SUM') {
+      attackType = 'mag';
+    }
+    return `take ${damageType} ${attackType} dmg from ally`;
+  }
+
   trigger = trigger.replace(/ (abilities|ability|attacks|attack)$/, '').replace(/^an? /, '');
 
   let count: number | string | null;
@@ -1092,6 +1111,7 @@ const statusItemRe = XRegExp(
     \ to\ the\ user|
     \ to\ all\ allies|
     \ to\ the\ lowest\ HP%\ ally|
+    \ to\ a\ random\ ally\ without\ status|
     \ to\ a\ random\ ally\ with\ negative\ (?:status\ )?effects
   )?
   (?:\ for\ (?<duration2>\d+\??|\?)\ (?<durationUnits2>second|turn)s?)?

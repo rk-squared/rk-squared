@@ -22900,7 +22900,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Stoneskin:30%, RES +100% for 25 seconds",
+    "effects": "Grants Stoneskin: 30%, RES +100% for 25 seconds",
     "counter": false,
     "autoTarget": "All allies",
     "points": 250,

@@ -359,16 +359,15 @@ export function describeEnlirSoulBreak(
 
     // Resolve skill effects, if it looks like it won't be too verbose.
     if (skills.length <= 3) {
-      skills = skillsAndChances[0].map(i =>
-        enlir.abilitiesByName[i]
-          ? formatMrP(
-              describeEnlirSoulBreak(enlir.abilitiesByName[i], {
-                abbreviate: true,
-                includeSchool: false,
-              }),
-            )
-          : i,
-      );
+      const skillOpt = { abbreviate: true, includeSchool: false };
+      skills = skillsAndChances[0].map(i => {
+        const thisSkill = enlir.abilitiesByName[i];
+        if (thisSkill) {
+          return i + ' (' + formatMrP(describeEnlirSoulBreak(thisSkill, skillOpt)) + ')';
+        } else {
+          return i;
+        }
+      });
     }
     damage = _.filter(describeChances(skills, skillsAndChances[1], ' / ')).join(' ');
   }
@@ -633,6 +632,8 @@ export function describeEnlirSoulBreak(
         selfOther.push(description);
       } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
         partyOther.push(description);
+      } else if (who && who.match(/random ally/)) {
+        other.push('ally ' + description);
       } else {
         other.push(description);
       }

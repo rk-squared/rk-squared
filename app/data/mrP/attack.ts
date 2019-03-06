@@ -229,7 +229,7 @@ function describeOrCondition(orCondition: string, burstCommands?: EnlirBurstComm
     return 'if ' + m[1] + ' ' + m[2] + ' in party';
   } else if ((m = orCondition.match(/the user has (.*)/))) {
     const statusName = m[1];
-    let statusDescription = describeEnlirStatus(statusName);
+    let statusDescription = describeEnlirStatus(statusName.replace(/^any /, ''));
     if (statusName === statusDescription && burstCommands) {
       const commandRelatingToStatus = _.findIndex(
         burstCommands,
@@ -239,7 +239,7 @@ function describeOrCondition(orCondition: string, burstCommands?: EnlirBurstComm
         statusDescription = 'cmd' + (commandRelatingToStatus + 1) + ' status';
       }
     }
-    return 'in ' + statusDescription;
+    return 'if ' + statusDescription;
   } else if ((m = orCondition.match(/(.*) is alive/))) {
     return 'if ' + m[1] + ' alive';
   } else {

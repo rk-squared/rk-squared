@@ -253,13 +253,14 @@ describe('mrP', () => {
     it('converts random effects', () => {
       // Discrepancy: MrP doesn't always expand these.  Should we?
       expect(describeEnlirSoulBreak(soulBreaks['Summoner - Call I'])).toEqual({
-        damage: '25-50-25% m2.7, min dmg 600 / m2.7 f, min dmg 600 / m5.4, min dmg 1000',
+        damage:
+          '25-50-25% Goblin (m2.7, min dmg 600) / Bomb (m2.7 f, min dmg 600) / Chocobo (m5.4, min dmg 1000)',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Summoner - Call II'])).toEqual({
         damage: 'Goblin or Chocobo or Ifrit or Shiva or Ramuh',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Tellah - Recall'])).toEqual({
-        damage: 'm2.9 f or m2.9 i or m2.9 l',
+        damage: 'Fira (m2.9 f) or Blizzara (m2.9 i) or Thundara (m2.9 l)',
       });
     });
 
@@ -338,6 +339,21 @@ describe('mrP', () => {
 
       expect(describeEnlirSoulBreak(soulBreaks['Luneth - Advance'])).toEqual({
         other: 'self +150% ATK, -50% DEF 30s',
+      });
+    });
+
+    it('converts stat changes', () => {
+      expect(describeEnlirSoulBreak(soulBreaks['Strago - Lore'])).toEqual({
+        damage: 'AoE magic 11.62/7 water+wind+earth',
+        other: 'water infuse 25s',
+        burstCommands: [
+          {
+            damage: 'm8.68/4 wa+e',
+            other: 'ally Magic blink 1',
+            school: 'Black Magic',
+          },
+          { damage: 'm^46.0/2 wa+wi', other: undefined, school: 'Black Magic' },
+        ],
       });
     });
 
@@ -830,7 +846,7 @@ describe('mrP', () => {
 
       expect(describeEnlirSoulBreak(soulBreaks['Josef - Undaunted Hero'])).toEqual({
         burstCommands: [
-          { damage: 'p1.41/3 i+n, or p2.82/6 in cmd2 status', school: 'Monk' },
+          { damage: 'p1.41/3 i+n, or p2.82/6 if cmd2 status', school: 'Monk' },
           { damage: 'p1.88/4 i+n', other: '25s: -40% DEF/RES, fastcast', school: 'Monk' },
         ],
         damage: undefined,
@@ -1191,6 +1207,11 @@ describe('mrP', () => {
           'lgt infuse 25s, ' +
           '15s: (lgt ⤇ back row hi fastzap 1), ' +
           '(3 lgt ⤇ party +10% lgt dmg)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Steiner - Enlightened Blade'])).toEqual({
+        damage: 'phys 7.0/10 fire+lgt+ice',
+        other:
+          'self +100% RES 25s, 15s: (take fire/ice/lgt mag dmg from ally ⤇ fire/ice/lgt infuse)',
       });
     });
 
@@ -1564,6 +1585,18 @@ describe('mrP', () => {
           },
           { damage: 'p2.44/4 f+n rngd', school: 'Machinist' },
         ],
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Thancred - Kassatsu Katon'])).toEqual({
+        burstCommands: [
+          {
+            damage: 'p1.5/3 f+n, or p3.0/6 if Phys blink',
+            other: undefined,
+            school: 'Ninja',
+          },
+          { damage: 'p1.8/2 f+n', other: 'self Phys blink 1', school: 'Ninja' },
+        ],
+        damage: 'AoE phys 5.76/4 fire+non rngd',
+        other: '+20% fire vuln. 25s',
       });
     });
 
