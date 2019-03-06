@@ -13126,6 +13126,59 @@
     "gl": true
   },
   {
+    "school": "Knight",
+    "name": "Gaia Strike",
+    "rarity": 6,
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Earth"
+    ],
+    "time": null,
+    "effects": "Five single attacks (? each), damage scales with both ATK and DEF, DEF +?% to the user for ? seconds",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Holy Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "?",
+    "nameJp": "ガイアストライク",
+    "id": 30211171,
+    "gl": false
+  },
+  {
     "school": "Samurai",
     "name": "Retaliate",
     "rarity": 2,
@@ -14761,6 +14814,59 @@
     "nameJp": "さばくじん",
     "id": 30231171,
     "gl": true
+  },
+  {
+    "school": "Ninja",
+    "name": "Azure Horizon",
+    "rarity": 6,
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Water"
+    ],
+    "time": null,
+    "effects": "3/5/7 single attacks (0.70 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "?",
+    "nameJp": "水天一碧",
+    "id": null,
+    "gl": false
   },
   {
     "school": "Bard",
