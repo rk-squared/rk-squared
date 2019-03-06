@@ -256,6 +256,14 @@ function describeEnlirAttack(
   if (attack.minDamage) {
     damage += `, min dmg ${attack.minDamage}`;
   }
+  if (attack.additionalDamage) {
+    damage +=
+      ' @ ' +
+      (attack.additionalDamage[0] > 0 ? '+' : '') +
+      attack.additionalDamage.join(' - ') +
+      '% dmg';
+    damage += ' ' + attack.additionalDamageType;
+  }
   if (attack.additionalCrit && attack.additionalCritType) {
     damage += ' @ +' + attack.additionalCrit.join(' - ') + '% crit';
     damage += ' ' + attack.additionalCritType;

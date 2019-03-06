@@ -8,8 +8,10 @@ import {
   formatSchoolOrAbilityList,
   getElementShortName,
   getSchoolShortName,
+  getShortName,
   MrPDamageType,
   SB_BAR_SIZE,
+  XRegExpNamedGroups,
 } from './types';
 import {
   countMatches,
@@ -61,6 +63,8 @@ export interface ParsedEnlirAttack {
   hybridDamage?: string;
   hybridDamageType?: MrPDamageType;
 
+  additionalDamage?: number[];
+  additionalDamageType?: string;
   additionalCrit?: number[];
   additionalCritType?: string;
   additionalCritDamage?: number;
@@ -340,14 +344,7 @@ function describeAdditionalCritType(
     additionalCritScaleWithUses,
     additionalCritFinisherAttackCount,
     additionalCritFinisherAttackType,
-  }: {
-    additionalCritType: string;
-    additionalCritCharacter: string | null;
-    additionalCritStatus: string | null;
-    additionalCritScaleWithUses: string | null;
-    additionalCritFinisherAttackCount: string | null;
-    additionalCritFinisherAttackType: string | null;
-  },
+  }: XRegExpNamedGroups,
   additionalCrit: number[] | undefined,
 ): string {
   if (additionalCritCharacter) {
@@ -369,6 +366,16 @@ function describeAdditionalCritType(
   } else {
     return additionalCritType;
   }
+}
+
+function describeAdditionalDamageType(
+  { additionalDamageAbilityCount, additionalDamageAbility }: XRegExpNamedGroups,
+  additionalDamage: number[],
+): string {
+  return formatThreshold(
+    additionalDamageAbilityCount,
+    getShortName(additionalDamageAbility) + ' allies',
+  );
 }
 
 function parseRandomAttacks(attacks: string): Array<[number, number]> | null {
@@ -426,6 +433,7 @@ const attackRe = XRegExp(
   (?:\ if\ (?<statBreakCount>(?:\d+/)*\d+)\ of\ the\ target's\ stats\ are\ lowered)?
   (?:\ at\ (?<differentAbilityValue>(?:\d+/)*\d+)\ different\ (?<differentAbilityType>.*?)\ abilities\ used)?
 
+  (?:,\ (?<additionalDamage>(?:-?\d+/)*\d+)%\ more\ damage\ with\ (?<additionalDamageAbilityCount>(?:\d+/)*\d)\ other\ (?<additionalDamageAbility>.*?)\ users)?
   (?:,\ (?<additionalCrit>[0-9/]+)%\ (?:additional|add.)\ critical\ chance
     (?<additionalCritType>
       \ if\ the\ user\ has\ (?<additionalCritStatus>[A-Za-z ]+)|
@@ -653,8 +661,12 @@ export function parseEnlirAttack(
       ? describeDamage(m.defaultMultiplier, numAttacks, false)
       : undefined;
 
+  const additionalDamage = m.additionalDamage
+    ? m.additionalDamage.split(/\//g).map((i: string) => +i)
+    : undefined;
+
   const additionalCrit = m.additionalCrit
-    ? m.additionalCrit.split(/\//g).map((i: number) => +i)
+    ? m.additionalCrit.split(/\//g).map((i: string) => +i)
     : undefined;
 
   return {
@@ -677,6 +689,10 @@ export function parseEnlirAttack(
     hybridDamage,
     hybridDamageType: describeHybridDamageType(skill),
 
+    additionalDamage,
+    additionalDamageType: additionalDamage
+      ? describeAdditionalDamageType(m, additionalDamage)
+      : undefined,
     additionalCrit,
     additionalCritType: m.additionalCritType
       ? describeAdditionalCritType(m, additionalCrit)

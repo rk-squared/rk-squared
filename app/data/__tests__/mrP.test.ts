@@ -1068,6 +1068,12 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Vaan - Blood-Red Spiral'])).toEqual({
         damage: 'phys 11.0 - 11.5 - 12.0 - 12.5 - 13.0 - 14.0 overstrike @ 1-2-3-4-5 stats lowered',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Ricard - Highwind Secrets'])).toEqual({
+        damage:
+          'phys 7.74/6 wind jump @ -10 - -5 - 2 - 10 - 15 - 20% dmg @ 0-1-2-3-4-5 Dragoon allies',
+        other: 'wind infuse 25s',
+      });
     });
 
     it('handles stoneskin, dual-cast, double-cast', () => {
