@@ -1097,33 +1097,36 @@ export function parseEnlirStatusWithSlashes(
   status: string,
   source?: EnlirSkill,
 ): ParsedEnlirStatusWithSlashes {
+  function makeResult(options: ParsedEnlirStatus[], join?: string) {
+    return {
+      // Assume that most parameters are the same across options.
+      ...options[0],
+
+      description: slashMerge(options.map(i => i.description), { join }),
+
+      optionCount: options.length,
+    };
+  }
+
   let m: RegExpMatchArray | null;
   const enlirStatus = getEnlirStatusByName(status);
   if (
     !enlirStatus &&
     (m = status.match(/^((?:[A-Z]{3}\/)*[A-Z]{3}) or ((?:[A-Z]{3}\/)*[A-Z]{3}) (\+\d+%)$/))
   ) {
+    // Handle hybrid ("or") stat buffs.
     const [, stat1, stat2, amount] = m;
     const makeStat = (stat: string) => andJoin(stat.split('/'), false) + ' ' + amount;
     const options = [parseEnlirStatus(makeStat(stat1)), parseEnlirStatus(makeStat(stat2))];
-    return {
-      // Assume that most parameters are the same across options.
-      ...options[0],
-
-      description: slashMerge(options.map(i => i.description), { join: ' or ' }),
-
-      optionCount: options.length,
-    };
+    return makeResult(options, ' or ');
+  } else if (!enlirStatus && status.match(' or ')) {
+    // Handle hybrid ("or") statuses.
+    const options = status.split(orList).map(i => parseEnlirStatus(i, source));
+    return makeResult(options, ' or ');
   } else if (!enlirStatus && status.match('/')) {
-    const options = expandSlashOptions(status).map((i: string) => parseEnlirStatus(i, source));
-    return {
-      // Assume that most parameters are the same across options.
-      ...options[0],
-
-      description: slashMerge(options.map(i => i.description)),
-
-      optionCount: options.length,
-    };
+    // Handle slash-separated options.
+    const options = expandSlashOptions(status).map(i => parseEnlirStatus(i, source));
+    return makeResult(options);
   } else {
     return parseEnlirStatus(status, source);
   }

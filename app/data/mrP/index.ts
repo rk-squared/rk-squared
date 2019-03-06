@@ -173,6 +173,7 @@ const statModRe = XRegExp(
   (?<scalesWithUses>\ scaling\ with\ uses)?
   (?<who>\ to\ the\ user|\ to\ all\ allies)?
   \ for\ (?<duration>\d+)\ seconds
+  (?:\ at\ (?<atStatus>.*?)\ (?<atStatusCount>(\d+/)*\d))?
 `,
   'x',
 );
@@ -645,7 +646,7 @@ export function describeEnlirSoulBreak(
   XRegExp.forEach(
     sb.effects.replace(/([Gg]rants|[Cc]auses|[Rr]emoves) .*/, ''),
     statModRe,
-    ({ stats, percent, who, duration, scalesWithUses }: any) => {
+    ({ stats, percent, who, duration, scalesWithUses, atStatus, atStatusCount }: any) => {
       const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
       let statMod = percent.replace(' ', '') + '% ';
       statMod += combinedStats;
@@ -653,6 +654,9 @@ export function describeEnlirSoulBreak(
         statMod += ' ' + formatUseCount(countMatches(percent, /\//g) + 1);
       }
       statMod += ` ${duration}s`;
+      if (atStatus) {
+        statMod += ' at ' + atStatus + ' ' + atStatusCount;
+      }
 
       if (who === ' to the user' || (!who && sb.target === 'Self')) {
         selfOther.push(statMod);

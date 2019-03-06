@@ -1775,7 +1775,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Holy, Awoken Holy, Damage Cap 19999 to the user and grants Major Buff Holy to all allies",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Holy, Awoken Holy, Damage Cap 19999 to the user, grants Major Buff Holy to all allies",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

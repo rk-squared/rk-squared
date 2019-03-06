@@ -52,10 +52,13 @@ export const statusAlias: AliasMap = {
     'Medium Regen': 'Regen (med)',
     'High Regen': 'Regen (hi)',
 
+    'Physical Blink Stacking 2': 'Phys blink stacking',
+
     'Last Stand': 'Last stand',
     'Radiant Shield: 100%': 'Reflect Dmg',
 
     'High Retaliate': 'Retaliate @p1.2',
+    'Heavy Charge =0': 'reset Heavy Charge',
 
     'Instant KO': 'KO',
 

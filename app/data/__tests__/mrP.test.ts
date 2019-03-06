@@ -394,6 +394,14 @@ describe('mrP', () => {
         other: 'self Phys blink 2',
       });
 
+      expect(describeEnlirSoulBreak(soulBreaks['Yuffie - Freewheeling Reflection'])).toEqual({
+        damage: undefined,
+        instant: true,
+        other:
+          'Phys blink 2, Phys blink stacking 15s, ' +
+          '1.05-1.1-1.15-1.2-1.3x Ninja dmg @ rank 1-5 15s',
+      });
+
       expect(describeEnlirSoulBreak(soulBreaks['Palom - Tri-Disaster'])).toEqual({
         damage: 'magic 16.0/8 fire+lgt+ice, or m20.0/10 vs. weak',
         burstCommands: [
@@ -2131,6 +2139,11 @@ describe('mrP', () => {
         damage: 'p7.1/10 or m17.0/10 lgt+non',
         other: 'lgt infuse 25s, self +30% ATK/DEF or DEF/MAG, fastcast 1, 15s: (lgt ⤇ fastcast 1)',
       });
+      expect(describeEnlirSoulBreak(soulBreaks["Vincent - Lucrecia's Lament"])).toEqual({
+        damage: 'AoE p5.1/6 or m13.5/6 fire+non rngd',
+        other:
+          'fire infuse 25s, self fastcast 1, 15s: +30% ATK or MAG, 15s: EX: (fire ⤇ fastcast 1)',
+      });
     });
 
     it('handles NAT abilities', () => {
@@ -2182,6 +2195,17 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Gladiolus - Double Charging...'])).toEqual({
         instant: true,
         other: '1.05-1.1-1.15-1.2-1.3x Heavy dmg @ rank 1-5 15s, Heavy Charge +2',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Wol - Howl of Hell'])).toEqual({
+        other: 'party Haste, +50% ATK 25s',
+        burstCommands: [
+          { damage: 'p1.95/3 e+h', other: 'self Heavy Charge +1', school: 'Heavy' },
+          {
+            damage: 'p2.32/4 e+h',
+            other: '-20/30/50% ATK/MAG 15s at Heavy Charge 0/1/2, self reset Heavy Charge',
+            school: 'Heavy',
+          },
+        ],
       });
     });
 
