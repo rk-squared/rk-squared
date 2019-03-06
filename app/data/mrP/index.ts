@@ -400,7 +400,7 @@ export function describeEnlirSoulBreak(
   }
   if (isPureRage && rageTurns) {
     const rageStatus = parseEnlirStatus('Rage', sb);
-    const description = rageStatus.description + ' ' + formatDuration(rageTurns + 1, 'turn');
+    const description = formatDuration(rageTurns + 1, 'turn') + ': ' + rageStatus.description;
 
     // Hack: We're taking advantage of our knowledge of which rage skills exist
     // here - only Gau's BSB's cmd2 is non-damaging.

@@ -2183,20 +2183,20 @@ describe('mrP', () => {
     it('handles Rage', () => {
       // Discrepancy: MrP formats Gau's default SB as
       // "phys 1.5 automatically for 3 turns"
-      // and the others like "auto 3 turns", but I prefer "auto" at the
-      // beginning.
+      // and the others like "auto 3 turns", but I prefer "auto" before the
+      // attack, and we prefix with "3 turns:" to match EX modes.
       expect(describeEnlirSoulBreak(soulBreaks['Gau - Rage I'])).toEqual({
-        damage: 'auto p1.5 Combat (NAT) 3 turns',
+        damage: '3 turns: auto p1.5 Combat (NAT)',
       });
       // Discrepancy: MrP doesn't show "slow" here, and for witch abilities,
       // shows it as ", slightly slow cast."  But this format seems useful.
       expect(describeEnlirSoulBreak(soulBreaks['Gau - Meteor Rage'])).toEqual({
         damage: 'AoE phys 6.15/3 rngd',
-        other: 'auto slow AoE p2.38/2 rngd Combat 3 turns',
+        other: '3 turns: auto slow AoE p2.38/2 rngd Combat',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Gau - Gigavolt Rage'])).toEqual({
         damage: 'AoE phys 4.2/4 lgt rngd',
-        other: 'auto p2.1 l rngd Combat 3 turns',
+        other: '3 turns: auto p2.1 l rngd Combat',
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Gau - Maul of the Wild'])).toEqual({
@@ -2205,14 +2205,20 @@ describe('mrP', () => {
         burstCommands: [
           {
             damage:
-              'auto 30-30-40% AoE p2.25/3 f+n Combat – p2.7/3 f+n Combat – p1.0 f+n Combat 3 turns',
+              '3 turns: auto 30-30-40% AoE p2.25/3 f+n Combat – p2.7/3 f+n Combat – p1.0 f+n Combat',
             school: 'Combat',
           },
           {
-            other: 'auto 30-30-40% party heal 30% HP – heal 70% HP – heal 30% HP 3 turns',
+            other: '3 turns: auto 30-30-40% party heal 30% HP – heal 70% HP – heal 30% HP',
             school: 'Special',
           },
         ],
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Umaro - Green Cherry'])).toEqual({
+        other:
+          '3 turns: +150% ATK, -50% DEF, ' +
+          'auto 30-20-30-20% p1.5 Combat – AoE p3.46/2 i+n rngd Combat – p2.4/2 Combat – p4.0/4 i+n rngd Combat',
       });
     });
 

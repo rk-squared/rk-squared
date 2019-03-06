@@ -342,11 +342,13 @@ const isFollowUpStatus = ({ effects }: EnlirStatus) => !!parseFollowUpEffect(eff
  * "Mode" statuses are, typically, character-specific trances or EX-like
  * statuses provided by a single Ultra or Awakening soul break.
  */
-const isModeStatus = ({ name, codedName }: EnlirStatus) =>
+const isModeStatus = ({ name, codedName, effects }: EnlirStatus) =>
   (!!codedName.match(/_MODE/) && codedName !== 'BRAVE_MODE') ||
   (name.endsWith(' Mode') && name !== 'Brave Mode' && name !== 'Burst Mode') ||
   // Specialized counter-attacks
   (codedName.startsWith('COUNTER_AIMING') && name !== 'Retaliate' && name !== 'High Retaliate') ||
+  // Rage statuses
+  effects.match(/[Ff]orces a specified action/) != null ||
   // Special cases - treat as a mode to give it more room for its description.
   name === 'Haurchefant Cover';
 
@@ -368,7 +370,6 @@ function forceEffects({ name, codedName }: EnlirStatus) {
  */
 function forceDetail({ name }: EnlirStatus) {
   return (
-    name === 'Rage' ||
     name === 'Runic' ||
     name === 'High Runic' ||
     name === 'Sentinel' ||
@@ -511,30 +512,6 @@ export function describeEnlirStatus(
     }
   }
 
-  // Rage status.  This involves looking up the Other Skills associated with
-  // the Rage status's source and filling in their effects.
-  if (status === 'Rage' && source) {
-    const rageSkills = getRageSkills(source);
-    const format = (skill: EnlirSkill) =>
-      formatMrP(
-        describeEnlirSoulBreak(skill, {
-          abbreviate: true,
-          showNoMiss: false,
-        }),
-      );
-    if (rageSkills.length === 0) {
-      // Does not appear to actually be used.
-      return 'auto repeat';
-    } else if (rageSkills.length === 1) {
-      return 'auto ' + format(rageSkills[0]);
-    } else {
-      // Fall back to 0% chance just to avoid special cases...
-      const chances = rageSkills.map(i => i.source.match(/\((\d+)%\)$/)).map(i => (i ? +i[1] : 0));
-      const result = describeChances(rageSkills.map(format), chances, enDashJoin);
-      return 'auto ' + _.filter(result).join(' ');
-    }
-  }
-
   // Fallback
   return status;
 }
@@ -573,14 +550,21 @@ function shouldSkipEffect(effect: string) {
     // Custom triggers
     effect.startsWith('removed after triggering') ||
     // Burst toggles - we communicate this via a separate flag
-    effect.match(/[Aa]ffects certain Burst Commands/)
+    effect.match(/[Aa]ffects certain Burst Commands/) ||
+    // Status details
+    effect === 'affects targeting' ||
+    effect === 'resets ATB when removed'
   );
 }
 
 /**
  * Describes a single "status effect" - one fragment of an EnlirStatus effects string
  */
-function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | null): string {
+function describeEnlirStatusEffect(
+  effect: string,
+  enlirStatus?: EnlirStatus | null,
+  source?: EnlirSkill,
+): string {
   let m: RegExpMatchArray | null;
 
   if (
@@ -750,6 +734,30 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
     return formatTriggeredEffect(triggerDescription, describeFollowUpSkill(skill));
   }
 
+  // Rage status.  This involves looking up the Other Skills associated with
+  // the Rage status's source and filling in their effects.
+  if (effect.match(/[Ff]orces a specified action/) && source) {
+    const rageSkills = getRageSkills(source);
+    const format = (skill: EnlirSkill) =>
+      formatMrP(
+        describeEnlirSoulBreak(skill, {
+          abbreviate: true,
+          showNoMiss: false,
+        }),
+      );
+    if (rageSkills.length === 0) {
+      // Does not appear to actually be used.
+      return 'auto repeat';
+    } else if (rageSkills.length === 1) {
+      return 'auto ' + format(rageSkills[0]);
+    } else {
+      // Fall back to 0% chance just to avoid special cases...
+      const chances = rageSkills.map(i => i.source.match(/\((\d+)%\)$/)).map(i => (i ? +i[1] : 0));
+      const result = describeChances(rageSkills.map(format), chances, enDashJoin);
+      return 'auto ' + _.filter(result).join(' ');
+    }
+  }
+
   if (shouldSkipEffect(effect)) {
     return '';
   }
@@ -776,7 +784,7 @@ export interface ParsedEnlirStatus {
  * or character-specific statuses should be broken down and their individual
  * effects listed separately.
  */
-function describeEffects(enlirStatus: EnlirStatus): string {
+function describeEffects(enlirStatus: EnlirStatus, source?: EnlirSkill): string {
   // Allow overrides from status aliases, even here.  (This is used for
   // Haurchefant Cover in particular: because that's really verbose and
   // specialized, we want to be able to say it should always show details, but
@@ -790,7 +798,7 @@ function describeEffects(enlirStatus: EnlirStatus): string {
   }
 
   return splitStatusEffects(enlirStatus.effects)
-    .map(i => describeEnlirStatusEffect(i, enlirStatus))
+    .map(i => describeEnlirStatusEffect(i, enlirStatus, source))
     .filter(i => i !== '')
     .join(', ');
 }
@@ -1060,7 +1068,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     enlirStatus &&
     (isExLike || isCustomStatMod(enlirStatus) || forceEffects(enlirStatus) || burstToggle)
   ) {
-    description = describeEffects(enlirStatus);
+    description = describeEffects(enlirStatus, source);
     if (isEx) {
       description = 'EX: ' + description;
     }
