@@ -27990,7 +27990,7 @@
     "multiplier": 11,
     "element": [],
     "time": 2.5,
-    "effects": "One single attack (11.00) capped at 99999, 11.50/12.00/12.50/13.00/14.00 multiplier if 1/2/3/4/5 of the target's stats are lowered",
+    "effects": "One single attack (11.00/11.50/12.00/12.50/13.00/14.00) capped at 99999 if 1/2/3/4/5 of the target's stats are lowered",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

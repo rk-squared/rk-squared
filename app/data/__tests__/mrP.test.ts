@@ -287,6 +287,7 @@ describe('mrP', () => {
         damage: 'phys 12.0 holy+non rngd overstrike',
       });
 
+      // This also tests handling of fast soul breaks.
       expect(describeEnlirSoulBreak(soulBreaks['Locke - Miracle of Kohlingen'])).toEqual({
         fast: true,
         damage: 'phys 10.0 fire+holy rngd overstrike',
@@ -1054,6 +1055,10 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Faris - Phantom'])).toEqual({
         damage: 'AoE phys 7.74/6 - 6.69/6 - 6.0/6… vs 1-2-3… foes',
         other: '100% Stun, -30% A/D/M/R/MND 25s',
+      });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Vaan - Blood-Red Spiral'])).toEqual({
+        damage: 'phys 11.0 - 11.5 - 12.0 - 12.5 - 13.0 - 14.0 overstrike @ 1-2-3-4-5 stats lowered',
       });
     });
 

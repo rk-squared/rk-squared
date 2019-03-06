@@ -423,6 +423,7 @@ const attackRe = XRegExp(
   (?:\ if\ the\ user\ used\ (?<simpleAttackThresholdCount>(?:\d+/)*\d+)\ damaging\ actions)?
   (?:\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)*\d+)\ (?<finisherAttackThresholdType>.*?)?\ (?:attacks|abilities)\ during\ the\ status)?
   (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)*\d+)\ ailments)?
+  (?:\ if\ (?<statBreakCount>(?:\d+/)*\d+)\ of\ the\ target's\ stats\ are\ lowered)?
   (?:\ at\ (?<differentAbilityValue>(?:\d+/)*\d+)\ different\ (?<differentAbilityType>.*?)\ abilities\ used)?
 
   (?:,\ (?<additionalCrit>[0-9/]+)%\ (?:additional|add.)\ critical\ chance
@@ -594,6 +595,8 @@ export function parseEnlirAttack(
       m.differentAbilityValue,
       'diff. ' + getSchoolShortName(m.differentAbilityType) + ' abils.',
     );
+  } else if (m.statBreakCount) {
+    scaleType = formatThreshold(m.statBreakCount, 'stats lowered');
   } else if (m.scaleWithSkillUses) {
     if (burstCommands && burstCommands.filter(i => i.name === m.scaleWithSkillUses)) {
       // Do nothing on the receiving end - the other command will get text from
