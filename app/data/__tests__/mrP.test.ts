@@ -894,6 +894,12 @@ describe('mrP', () => {
           { damage: 'AoE p1.5/2 f+n', other: undefined, school: 'Monk' },
         ],
       });
+      expect(describeEnlirSoulBreak(soulBreaks["Tyro - Arbiter's Tome"])).toEqual({
+        instant: true,
+        other:
+          'party Haste, crit =50% 25s, self hi fastcast 15s, ' +
+          '15s: (1/2/3/4/5+ Support ⤇ party crit =60%/=70%/=80%/=90%/=100% 15s)',
+      });
     });
 
     it('processes crit modifiers', () => {

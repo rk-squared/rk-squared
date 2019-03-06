@@ -82,26 +82,16 @@ export function describeStats(stats: string[]): string {
   }
 }
 
-function parseWho(text: string): [string, string | undefined] {
-  const m = text.match(
-    /^(.*?)( to the user| to all allies(?: in the (?:front|back|character's) row)?)?$/,
-  );
-  const [, remainder, who] = m!;
-  if (!who) {
-    return [remainder, who];
-  }
-  return [
-    remainder,
-    who.match('user')
-      ? undefined // No need to spell out "self" for, e.g., "hi fastcast 1"
-      : who.match('front')
-      ? 'front row'
-      : who.match('back')
-      ? 'back row'
-      : who.match("character's")
-      ? 'same row'
-      : 'party',
-  ];
+function parseWho(who: string): string | undefined {
+  return who.match('user')
+    ? undefined // No need to spell out "self" for, e.g., "hi fastcast 1"
+    : who.match('front')
+    ? 'front row'
+    : who.match('back')
+    ? 'back row'
+    : who.match("character's")
+    ? 'same row'
+    : 'party';
 }
 
 /**
@@ -117,7 +107,7 @@ interface FollowUpEffect {
   /**
    * Follow-up statuses granted.
    */
-  statuses: string[] | undefined;
+  statuses: StatusItem[] | undefined;
 
   /**
    * Follow-up skills that are cast.  Array support is currently only used for
@@ -126,14 +116,10 @@ interface FollowUpEffect {
   skills: string[] | undefined;
 
   /**
-   * Follow-up individual status effects granted.
+   * Follow-up individual status effects granted - stored as StatusItem so we
+   * can easily track metadata.
    */
-  effects: string[] | undefined;
-
-  /**
-   * Who text for granted statuses and status effects
-   */
-  statusWho: string | undefined;
+  effects: StatusItem[] | undefined;
 
   randomSkills: boolean;
   customStatusesDescription?: string;
@@ -198,12 +184,11 @@ function parseFollowUpEffect(
     triggerPrereqStatus,
     realmThresholdCount,
     realmThresholdType,
-  } = match;
+  } = match as XRegExpNamedGroups;
 
   let skills: string[] | undefined;
-  let effects: string[] | undefined;
-  let statuses: string[] | undefined;
-  let statusWho: string | undefined;
+  let effects: StatusItem[] | undefined;
+  let statuses: StatusItem[] | undefined;
 
   let randomSkills = false;
   let m: RegExpMatchArray | null;
@@ -212,14 +197,10 @@ function parseFollowUpEffect(
     skills = m[2].split(' / ');
   }
   if ((m = allEffects.match(/[Gg]rants (.*?)(?:(?:,| and) (?:randomly )?casts|$)/))) {
-    let rawStatuses: string;
-    [rawStatuses, statusWho] = parseWho(m[1]);
-    statuses = rawStatuses.split(andList);
+    statuses = m[1].split(andList).map(i => parseStatusItem(i, allEffects));
   }
   if (!skills && !statuses) {
-    let rawEffects: string;
-    [rawEffects, statusWho] = parseWho(allEffects);
-    effects = rawEffects.split(andList);
+    effects = allEffects.split(andList).map(i => parseStatusItem(i, allEffects));
   }
 
   // Hack: Auto-cast skills are currently only actual skills.  Make sure we
@@ -237,7 +218,6 @@ function parseFollowUpEffect(
     skills,
     statuses,
     effects,
-    statusWho,
     randomSkills,
     // Hack: Merge the damage trigger back in; we'll parse it out in
     // describeFollowUpTrigger.
@@ -614,7 +594,7 @@ function describeEnlirStatusEffect(effect: string, enlirStatus?: EnlirStatus | n
     if (followUp) {
       const sequence = getFollowUpStatusSequence(enlirStatus.name, followUp);
       if (sequence) {
-        followUp.statuses = sequence.map(([status, effects]) => status.name);
+        followUp.statuses = sequence.map(([status, effects]) => ({ statusName: status.name }));
         followUp.customStatusesDescription = describeMergedSequence(sequence);
       }
       return describeFollowUp(followUp);
@@ -902,15 +882,42 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
   return (count ? count + ' ' : '') + trigger + (isDamageTrigger ? ' dmg' : '');
 }
 
-function describeFollowUpStatus(statusName: string): string {
-  const status = getEnlirStatusByName(statusName);
-  const options = getSlashOptions(statusName);
-  if (!status && options) {
-    const statusOptions = options.map(i => statusName.replace(slashOptionsRe, i));
-    return slashMerge(statusOptions.map((i: string) => describeEnlirStatus(i, status)));
+function describeFollowUpItem(
+  { who, duration, durationUnits }: StatusItem,
+  description: string,
+): string {
+  if (who) {
+    who = parseWho(who);
+  }
+  if (who) {
+    description = who + ' ' + description;
   }
 
-  return describeEnlirStatus(statusName, status);
+  if (duration && durationUnits) {
+    description += ' ' + formatDuration(duration, durationUnits);
+  }
+
+  return description;
+}
+
+function describeFollowUpStatus(item: StatusItem): string {
+  const { statusName } = item;
+  const status = getEnlirStatusByName(statusName);
+  const options = getSlashOptions(statusName);
+
+  let result: string;
+  if (!status && options) {
+    const statusOptions = options.map(i => statusName.replace(slashOptionsRe, i));
+    result = slashMerge(statusOptions.map((i: string) => describeEnlirStatus(i, status)));
+  } else {
+    result = describeEnlirStatus(statusName, status);
+  }
+
+  return describeFollowUpItem(item, result);
+}
+
+function describeFollowUpEffect(item: StatusItem): string {
+  return describeFollowUpItem(item, describeEnlirStatusEffect(item.statusName));
 }
 
 /**
@@ -944,6 +951,28 @@ function describeFollowUpSkill(skillName: string, triggerPrereqStatus?: string):
 }
 
 /**
+ * When describing follow-up statuses and status effects, remove 'who' clauses
+ * that are the same from one item to the next, to avoid being redundant.
+ *
+ * When processing skills, we instead handle use separate arrays for self,
+ * party, and other; we could take a similar approach here.
+ */
+function removeRedundantWho(item: StatusItem[]): StatusItem[] {
+  let lastWho: string | undefined;
+  return item.map(i => {
+    if (i.who === lastWho) {
+      return {
+        ...i,
+        who: undefined,
+      };
+    } else {
+      lastWho = i.who;
+      return i;
+    }
+  });
+}
+
+/**
  * For follow-up statuses, returns a string describing the follow-up (how it's
  * triggered and what it does).
  */
@@ -955,18 +984,24 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     triggerDescription += ' (' + followUp.customTriggerSuffix + ')';
   }
 
-  const who = followUp.statusWho ? followUp.statusWho + ' ' : '';
-
   const description: string[] = [];
 
   if (followUp.customStatusesDescription) {
     description.push(followUp.customStatusesDescription);
   } else if (followUp.statuses) {
-    description.push(who + followUp.statuses.map(describeFollowUpStatus).join(', '));
+    description.push(
+      removeRedundantWho(followUp.statuses)
+        .map(describeFollowUpStatus)
+        .join(', '),
+    );
   }
 
   if (followUp.effects) {
-    description.push(who + followUp.effects.map(i => describeEnlirStatusEffect(i)).join(', '));
+    description.push(
+      removeRedundantWho(followUp.effects)
+        .map(describeFollowUpEffect)
+        .join(', '),
+    );
   }
 
   if (followUp.skills) {
@@ -1109,7 +1144,7 @@ const statusItemRe = XRegExp(
   (?<scalesWithUses1>\ scaling\ with\ (?<scaleWithUsesSkill1>[A-Za-z ]+\ )?uses)?
   (?<who>
     \ to\ the\ user|
-    \ to\ all\ allies|
+    \ to\ all\ allies(?:\ in\ the\ (?:front|back|character's)\ row)?|
     \ to\ the\ lowest\ HP%\ ally|
     \ to\ a\ random\ ally\ without\ status|
     \ to\ a\ random\ ally\ with\ negative\ (?:status\ )?effects
@@ -1171,7 +1206,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
   let lookaheadWho: string | undefined;
   if (!who) {
     const lookahead = wholeClause.match(
-      /( to the user| to all allies)(?! for \d+ (second|turn)s?)/,
+      /( to the user| to all allies(?:\ in\ the\ (?:front|back|character's)\ row)?)(?! for \d+ (second|turn)s?)/,
     );
     if (lookahead) {
       lookaheadWho = lookahead[1];
