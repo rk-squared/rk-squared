@@ -565,9 +565,11 @@ function shouldSkipEffect(effect: string) {
   return (
     // "removed after using" is just for Ace's Top Card.
     // "removed if the user hasn't" describes USB effects that are paired
-    // with other USB effects - when one is removed, the other is too.
+    // with other USB effects (when one is removed, the other is too) and for
+    // leaving Burst Mode.
     effect.startsWith('removed after using ') ||
     effect.startsWith("removed if the user hasn't") ||
+    effect === 'reset upon refreshing Burst Mode' ||
     // Custom triggers
     effect.startsWith('removed after triggering') ||
     // Burst toggles - we communicate this via a separate flag

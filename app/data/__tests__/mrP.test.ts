@@ -1366,6 +1366,27 @@ describe('mrP', () => {
           { damage: 'm13.1/5 l+n, min dmg 1100', other: undefined, school: 'Summoning' },
         ],
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Golbez - Twin Moon'])).toEqual({
+        burstCommands: [
+          {
+            burstToggle: true,
+            damage: undefined,
+            other: 'self Negate dmg 30%',
+            school: 'Summoning',
+          },
+          {
+            burstToggle: false,
+            damage: 'AoE m17.2/4 d, min dmg 1100',
+            other: undefined,
+            school: 'Summoning',
+          },
+          { damage: 'm10.2/4 d', other: undefined, school: 'Black Magic' },
+          { damage: 'm10.2/4 d', other: 'self heal 20% of dmg', school: 'Black Magic' },
+        ],
+        damage: 'magic 17.43/7 dark+non',
+        other: 'self +30% MAG 25s, taunt PHY/BLK, +200% DEF 25s',
+      });
     });
 
     it('converts fixed heals', () => {
