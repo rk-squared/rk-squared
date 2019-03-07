@@ -9,3 +9,11 @@
 .ag-theme-balham .ag-cell {
   font-variant-numeric: tabular-nums;
 }
+
+// Fix border for a single-card accordion - Bootstrap hides the bottom border
+// for the first card, which doesn't look right if the first card is also the
+// last card.
+.accordion > .card:first-of-type:last-of-type {
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+}
