@@ -79,7 +79,7 @@ export class DungeonCard extends React.PureComponent<ConnectedProps> {
       : undefined;
 
     // For speed and simplicity, hard-code icons for GL.
-    const icon = seriesIcon(LangType.Gl, world.seriesId);
+    const icon = world.iconUrl || seriesIcon(LangType.Gl, world.seriesId);
 
     // TODO: Rework tooltips?  They may be faster if we only render 1 per card.
     // See TormentGrid for the newer approach I'm using.
@@ -87,7 +87,7 @@ export class DungeonCard extends React.PureComponent<ConnectedProps> {
       <CollapsibleCard
         id={`world-${world.id}-dungeons`}
         title={() => <DungeonCardTitle world={world} dungeons={dungeons} />}
-        titleClassName={styles.title}
+        titleClassName={classNames(styles.title, { [styles.seriesIcon]: !world.iconUrl })}
         titleStyle={{ backgroundImage: icon ? `url(${icon}` : undefined }}
       >
         {noMessage ? (

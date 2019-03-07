@@ -8,10 +8,12 @@
    * game-icons we use for world categories.  Taking into account the internal
    * padding of FFRK's series icons, this works out to 42px.
    */
-  $scaled-icon-size: 42px;
+  $scaled-series-icon-size: 42px;
+
+  $icon-size: 40px;
 
   /* X offset to position the icon against the left edge. */
-  $icon-left: -($series-icon-width / 2 * $scaled-icon-size / $series-icon-height) + $scaled-icon-size;
+  $series-icon-left: -($series-icon-width / 2 * $scaled-series-icon-size / $series-icon-height) + $scaled-series-icon-size;
 
   li.completed {
   }
@@ -30,12 +32,17 @@
     }
   }
 
-  .title {
-    background: no-repeat $icon-left;
-    background-size: auto $scaled-icon-size;
+  .title:not(.seriesIcon) {
+    background: no-repeat 23px;
+    background-size: auto $icon-size;
+  }
+
+  .title.seriesIcon {
+    background: no-repeat $series-icon-left;
+    background-size: auto $scaled-series-icon-size;
   }
 
   .titleText {
-    padding-left: calc(#{$scaled-icon-size} + 1rem);
+    padding-left: calc(#{$icon-size} + 1rem);
   }
 }

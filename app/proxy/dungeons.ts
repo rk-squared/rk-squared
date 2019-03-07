@@ -5,6 +5,8 @@
 
 import { Dispatch, Store } from 'redux';
 
+import * as _ from 'lodash';
+
 import {
   addWorldDungeons,
   Dungeon,
@@ -14,16 +16,17 @@ import {
   updateDungeon,
 } from '../actions/dungeons';
 import { unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
+import { LangType } from '../api/apiUrls';
 import * as schemas from '../api/schemas';
 import * as dungeonsSchemas from '../api/schemas/dungeons';
 import * as mainSchemas from '../api/schemas/main';
+import { enlir } from '../data';
 import { ItemType } from '../data/items';
+import { itemImage } from '../data/urls';
 import { IState } from '../reducers';
 import { DungeonState } from '../reducers/dungeons';
-import { Handler, HandlerRequest, StartupHandler } from './common';
-
-import * as _ from 'lodash';
 import { logger } from '../utils/logger';
+import { Handler, HandlerRequest, StartupHandler } from './common';
 
 const buttonStyleSort: { [s: string]: number } = {
   NORMAL: 0,
@@ -279,6 +282,17 @@ export function convertWorld(
   };
 }
 
+function checkForWorldIcon(world: World) {
+  switch (world.category) {
+    case WorldCategory.Nightmare: {
+      const ability = enlir.abilitiesByName[world.name.replace(' Record', '')];
+      if (ability) {
+        world.iconUrl = itemImage(LangType.Gl, ability.id, ItemType.Ability);
+      }
+    }
+  }
+}
+
 function convertWorlds(
   worlds: mainSchemas.World[],
   events: mainSchemas.Event[],
@@ -305,6 +319,7 @@ function convertWorlds(
       logger.error(`Unknown: ${e.world_id} (${world.name})`);
       totalUnknown++;
     } else {
+      checkForWorldIcon(resultWorld);
       result[world.id] = resultWorld;
     }
   }

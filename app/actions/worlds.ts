@@ -1,8 +1,8 @@
 import { createAction } from 'typesafe-actions';
 
-import { TimeT } from '../utils/timeUtils';
-
 import * as _ from 'lodash';
+
+import { TimeT } from '../utils/timeUtils';
 
 export enum WorldCategory {
   Realm,
@@ -31,7 +31,7 @@ export const descriptions = {
   [WorldCategory.Raid]: 'Raids',
   [WorldCategory.CrystalTower]: 'Crystal Tower',
   [WorldCategory.PowerUpMote]: 'Power Up & Mote Dungeons',
-  [WorldCategory.Newcomer]: 'Newcomers\' Dungeons',
+  [WorldCategory.Newcomer]: "Newcomers' Dungeons",
   [WorldCategory.Renewal]: 'Renewal Dungeons',
   [WorldCategory.Record]: 'Record Dungeons',
 };
@@ -63,6 +63,7 @@ export interface World {
   closedAt: TimeT;
   seriesId: number;
   isUnlocked: boolean;
+  iconUrl?: string;
 }
 
 enum WorldSortOrder {
@@ -107,7 +108,7 @@ function getSortOrder(category: WorldCategory) {
  *
  * 2000000000 was chosen semi-arbitrarily; it corresponds to May 17, 2033.
  */
-const getClosedAt = (world: any) => world.closedAt > 2000000000 ? Infinity : world.closedAt;
+const getClosedAt = (world: any) => (world.closedAt > 2000000000 ? Infinity : world.closedAt);
 
 export function getSorter(category: WorldCategory): (worlds: World[]) => World[] {
   switch (getSortOrder(category)) {
@@ -118,20 +119,21 @@ export function getSorter(category: WorldCategory): (worlds: World[]) => World[]
     case WorldSortOrder.ByReverseId:
       return worlds => _.sortBy(worlds, i => -i.id);
     case WorldSortOrder.ByTime:
-      return worlds => _.sortBy(worlds, [(i: any) => -getClosedAt(i), (i: any) => -i.openedAt, 'id']);
+      return worlds =>
+        _.sortBy(worlds, [(i: any) => -getClosedAt(i), (i: any) => -i.openedAt, 'id']);
   }
 }
 
-export const updateWorlds = createAction('UPDATE_WORLDS', (worlds: {[id: number]: World}) => ({
+export const updateWorlds = createAction('UPDATE_WORLDS', (worlds: { [id: number]: World }) => ({
   type: 'UPDATE_WORLDS',
   payload: {
-    worlds
-  }
+    worlds,
+  },
 }));
 
 export const unlockWorld = createAction('UNLOCK_WORLD', (worldId: number) => ({
   type: 'UNLOCK_WORLD',
-  payload: worldId
+  payload: worldId,
 }));
 
 export type WorldAction = ReturnType<typeof updateWorlds | typeof unlockWorld>;

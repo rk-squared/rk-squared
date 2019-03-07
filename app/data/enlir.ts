@@ -24,6 +24,7 @@ const rawData = {
 
 export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
+  abilitiesByName: _.keyBy(rawData.abilities, 'name'),
   characters: _.keyBy(rawData.characters, 'id'),
   charactersByName: _.keyBy(rawData.characters, 'name'),
   magicites: _.keyBy(rawData.magicite, 'id'),
