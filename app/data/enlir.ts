@@ -242,9 +242,10 @@ function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
 export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
   abilitiesByName: _.keyBy(rawData.abilities, 'name'),
-  braveCommands: makeCommandsMap(rawData.braveCommands),
-  burstCommands: makeCommandsMap(rawData.burstCommands),
-  burstCommandsById: _.keyBy(rawData.burstCommands, 'id'),
+  braveCommands: _.keyBy(rawData.braveCommands, 'id'),
+  braveCommandsByCharacter: makeCommandsMap(rawData.braveCommands),
+  burstCommands: _.keyBy(rawData.burstCommands, 'id'),
+  burstCommandsByCharacter: makeCommandsMap(rawData.burstCommands),
   characters: _.keyBy(rawData.characters, 'id'),
   charactersByName: _.keyBy(rawData.characters, 'name'),
   legendMateria: _.keyBy(rawData.legendMateria, 'id'),
@@ -333,7 +334,7 @@ function patchEnlir() {
   // or not.  Where possible, we update our code to handle abbreviations, but
   // some are too hard.
   applyPatch(
-    enlir.burstCommandsById,
+    enlir.burstCommands,
     '30512822',
     heavyBreak =>
       heavyBreak.effects ===

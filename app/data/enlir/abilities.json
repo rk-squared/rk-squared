@@ -6857,7 +6857,7 @@
     "effects": "3/4/5 single attacks (0.75 each) if the user used 3/5 damaging actions",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": 65,
+    "sb": 70,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -12719,7 +12719,7 @@
     "effects": "Two single attacks (1.70 each), removes negative effects to the user, grants High Regen to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": 70,
+    "sb": 75,
     "uses": 2,
     "max": 10,
     "orbs": {

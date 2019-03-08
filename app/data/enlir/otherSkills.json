@@ -6837,6 +6837,26 @@
   },
   {
     "sourceType": "Legend Materia",
+    "source": "Promised Stage",
+    "name": "Promised Stage",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Special",
+    "id": null,
+    "gl": false
+  },
+  {
+    "sourceType": "Legend Materia",
     "source": "Lover of the Arts",
     "name": "Lover of the Arts",
     "type": "WHT",

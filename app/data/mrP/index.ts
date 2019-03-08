@@ -862,20 +862,20 @@ export function describeEnlirSoulBreak(
 
   if (
     isBurst(sb) &&
-    enlir.burstCommands[sb.character] &&
-    enlir.burstCommands[sb.character][sb.name]
+    enlir.burstCommandsByCharacter[sb.character] &&
+    enlir.burstCommandsByCharacter[sb.character][sb.name]
   ) {
-    const burstCommands = enlir.burstCommands[sb.character][sb.name];
+    const burstCommands = enlir.burstCommandsByCharacter[sb.character][sb.name];
     result.burstCommands = burstCommands.map(i =>
       describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false, burstCommands }),
     );
   }
   if (
     isBrave(sb) &&
-    enlir.braveCommands[sb.character] &&
-    enlir.braveCommands[sb.character][sb.name]
+    enlir.braveCommandsByCharacter[sb.character] &&
+    enlir.braveCommandsByCharacter[sb.character][sb.name]
   ) {
-    result.braveCommands = enlir.braveCommands[sb.character][sb.name].map(i =>
+    result.braveCommands = enlir.braveCommandsByCharacter[sb.character][sb.name].map(i =>
       describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false }),
     );
   }
