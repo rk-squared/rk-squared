@@ -22,11 +22,11 @@ import * as dungeonsSchemas from '../api/schemas/dungeons';
 import * as mainSchemas from '../api/schemas/main';
 import { enlir } from '../data';
 import { ItemType } from '../data/items';
-import { itemImage } from '../data/urls';
+import { crystalTowerFloorIcon, itemImage } from '../data/urls';
 import { IState } from '../reducers';
 import { DungeonState } from '../reducers/dungeons';
 import { logger } from '../utils/logger';
-import { Handler, HandlerRequest, StartupHandler } from './common';
+import { getRequestLang, Handler, HandlerRequest, StartupHandler } from './common';
 
 const buttonStyleSort: { [s: string]: number } = {
   NORMAL: 0,
@@ -282,12 +282,16 @@ export function convertWorld(
   };
 }
 
-function checkForWorldIcon(world: World) {
+function checkForWorldIcon(
+  lang: LangType,
+  world: World,
+  crystalTowerIcons: { [worldId: number]: number },
+) {
   switch (world.category) {
     case WorldCategory.Nightmare: {
       const ability = enlir.abilitiesByName[world.name.replace(' Record', '')];
       if (ability) {
-        world.iconUrl = itemImage(LangType.Gl, ability.id, ItemType.Ability);
+        world.iconUrl = itemImage(lang, ability.id, ItemType.Ability);
       }
       break;
     }
@@ -296,17 +300,28 @@ function checkForWorldIcon(world: World) {
       world.localIcon = world.name.toLowerCase() + 'Element';
       break;
     }
+
+    case WorldCategory.CrystalTower: {
+      if (crystalTowerIcons[world.id]) {
+        world.iconUrl = crystalTowerFloorIcon(lang, crystalTowerIcons[world.id]);
+      }
+    }
   }
 }
 
 function convertWorlds(
   worlds: mainSchemas.World[],
   events: mainSchemas.Event[],
+  crystalTowers: mainSchemas.CrystalTower[],
+  lang: LangType,
   textMaster: mainSchemas.TextMaster,
 ): { [id: number]: World } {
   const result: { [id: number]: World } = {};
 
   const worldsById = _.zipObject(worlds.map(i => i.id), worlds);
+  const crystalTowerIcons = _.fromPairs(
+    _.flatten(crystalTowers.map(i => i.floor_infos)).map(i => [i.world_id, i.floor_icon_id]),
+  );
 
   const seenWorlds = new Set<number>();
 
@@ -325,7 +340,7 @@ function convertWorlds(
       logger.error(`Unknown: ${e.world_id} (${world.name})`);
       totalUnknown++;
     } else {
-      checkForWorldIcon(resultWorld);
+      checkForWorldIcon(lang, resultWorld, crystalTowerIcons);
       result[world.id] = resultWorld;
     }
   }
@@ -466,10 +481,11 @@ function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
 
 // noinspection JSUnusedGlobalSymbols
 const dungeonsHandler: Handler = {
-  [StartupHandler]: (data: mainSchemas.Main, store: Store<IState>) => {
-    const { worlds, events } = data.appInitData;
+  [StartupHandler]: (data: mainSchemas.Main, store: Store<IState>, request: HandlerRequest) => {
+    const lang = getRequestLang(request);
+    const { worlds, events, crystal_towers: crystalTowers } = data.appInitData;
 
-    const newWorlds = convertWorlds(worlds, events, data.textMaster);
+    const newWorlds = convertWorlds(worlds, events, crystalTowers, lang, data.textMaster);
     store.dispatch(updateWorlds(newWorlds));
 
     checkForUpdatedRealmDungeons(worlds, store.getState().dungeons, store.dispatch);

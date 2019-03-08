@@ -7,6 +7,25 @@ export enum LimitedRateServiceType {
   HalfPriceDungeonBanner = 15,
 }
 
+export interface CrystalTower {
+  layout_type: number;
+  name: string;
+  top_floor_info: {
+    unlock_condition_type: number;
+    top_floor_party_type: number;
+  };
+  crystal_tower_id: number;
+  floor_infos: Array<{
+    world_id: number;
+    floor_icon_id: number;
+    dungeon_total_stamina: number;
+    floor: number;
+    name: string;
+    nonreusable_item_type: number;
+    dungeon_challenge_level: number;
+  }>;
+}
+
 export interface Event {
   world_id: number;
   battle_list_bg_type: number;
@@ -30,11 +49,11 @@ export interface World {
   bgm: string;
   dungeon_status_summary: {
     '1'?: {
-      clear_count: number
+      clear_count: number;
       master_count: number;
     };
     '2'?: {
-      clear_count: number
+      clear_count: number;
       master_count: number;
     };
   };
@@ -52,7 +71,7 @@ export interface World {
   series_id: number;
   opened_at: number;
   kept_out_at: Timestamp;
-  is_unlocked: boolean;  // May be false for events that are not yet entered
+  is_unlocked: boolean; // May be false for events that are not yet entered
   image_path: RelativeUrlPath;
   type: number;
   banner_message: string;
@@ -65,6 +84,7 @@ export interface TextMaster {
 // Data extracted from the main http://ffrk.denagames.com/dff/ startup request
 export interface Main {
   appInitData: {
+    crystal_towers: CrystalTower[];
     events: Event[];
 
     limited_rate_services?: Array<{
@@ -88,7 +108,7 @@ export interface Main {
 
     user_stamina_recovery_agents: Array<{
       num: number;
-      stamina_recovery_agent_id: number;  // 94100001 for stamina potions
+      stamina_recovery_agent_id: number; // 94100001 for stamina potions
     }>;
 
     worlds: World[];

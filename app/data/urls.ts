@@ -111,3 +111,7 @@ export function seriesIcon(lang: LangType, seriesId: number): string | null {
     return null;
   }
 }
+
+export function crystalTowerFloorIcon(lang: LangType, id: number): string {
+  return url(lang, `image/crystal_tower/floor_icon/${id}.png`);
+}
