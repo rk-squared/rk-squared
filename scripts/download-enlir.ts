@@ -108,6 +108,23 @@ const toFloat = (value: string) =>
 const toString = (value: string) => (value === '' ? null : value);
 const checkToBool = (value: string) => value === '✓';
 
+function dashAs<TDash, TValue>(
+  dashValue: TDash,
+  f: (value: string) => TValue,
+): (value: string) => TValue | TDash {
+  return (value: string) => (value === '-' ? dashValue : f(value));
+}
+const dashNull = <T>(f: (value: string) => T) => dashAs(null, f);
+function toCommaSeparatedArray<T>(f: (value: string) => T): (value: string) => T[] | null {
+  return (value: string) => (value === '' ? null : value.split(', ').map(f));
+}
+function ifNull<T>(f: (value: string) => T | null, nullValue: T): (value: string) => T {
+  return (value: string) => {
+    const result = f(value);
+    return result == null ? nullValue : result;
+  };
+}
+
 function toStringWithDecimals(value: string) {
   if (value === '') {
     return null;
@@ -139,13 +156,16 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Target: toString,
   Formula: toString,
   Multiplier: toFloat,
-  Element: toString,
+  Element: dashAs([], toCommaSeparatedArray(toString)),
   Time: toFloat,
-  Effects: toStringWithDecimals,
+  // For skills in particular, a null effect string is annoying.  Avoid it.
+  Effects: ifNull(toStringWithDecimals, ''),
   Counter: toBool,
   'Auto Target': toString,
   SB: toInt,
   Points: toInt,
+  Brave: toInt,
+  'Brave Condition': toCommaSeparatedArray(toString),
 };
 
 // The '✓' column indicates whether a row has been confirmed (e.g., verified
@@ -289,6 +309,32 @@ function postProcessCharacters(characters: any[], allData: { [localName: string]
   }
 }
 
+function convertLegendMateria(rows: any[]): any[] {
+  const legendMateria: any[] = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+      if (shouldAlwaysSkip(col)) {
+        continue;
+      }
+
+      const field = _.camelCase(col);
+      if (field === 'relic') {
+        item[field] = dashNull(toString)(rows[i][j]);
+      } else {
+        item[field] = toCommon(field, rows[i][j]);
+      }
+    }
+
+    legendMateria.push(item);
+  }
+
+  return legendMateria;
+}
+
 function convertMagicite(rows: any[]): any[] {
   const magicite: any[] = [];
 
@@ -347,7 +393,7 @@ function convertMagicite(rows: any[]): any[] {
         }
       } else if (inUltraSkill) {
         if (!skipUltraSkill) {
-          const converter = skillFields[col] || toCommon;
+          const converter = skillFields[col] || toCommon.bind(undefined, field);
           item.magiciteUltraSkill[field] = converter(rows[i][j]);
         }
       } else {
@@ -465,11 +511,12 @@ function convertRelics(rows: any[]): any[] {
   return relics;
 }
 
-function convertSoulBreaks(rows: any[]): any[] {
-  const soulBreaks: any[] = [];
+function convertSkills(rows: any[]): any[] {
+  const skills: any[] = [];
 
   for (let i = 1; i < rows.length; i++) {
     const item: any = {};
+
     for (let j = 0; j < rows[0].length; j++) {
       const col = rows[0][j];
       if (shouldAlwaysSkip(col)) {
@@ -484,10 +531,48 @@ function convertSoulBreaks(rows: any[]): any[] {
       }
     }
 
-    soulBreaks.push(item);
+    skills.push(item);
   }
 
-  return soulBreaks;
+  return skills;
+}
+
+function convertStatus(rows: any[]): any[] {
+  const status: any[] = [];
+
+  const statusFields: { [field: string]: (value: string) => any } = {
+    defaultDuration: dashNull(toInt),
+    exclusiveStatus: dashNull(toCommaSeparatedArray(toString)),
+    notes: dashNull(toString),
+  };
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+
+    // Skip placeholder rows, notes, etc.
+    if (!rows[i][0]) {
+      continue;
+    }
+
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+
+      const field = _.camelCase(col);
+      if (field === 'mndModifier') {
+        item['mndModifier'] = toFloat(rows[i][j].replace('± ', '').replace('%', ''));
+        item['mndModifierIsOpposed'] = rows[i][j].startsWith('± ');
+      } else if (field === 'commonName') {
+        // Rename for consistency with other Enlir sheets
+        item['name'] = rows[i][j];
+      } else {
+        const converter = statusFields[field] || toCommon.bind(undefined, field);
+        item[field] = converter(rows[i][j]);
+      }
+    }
+
+    status.push(item);
+  }
+  return status;
 }
 
 interface DataType {
@@ -504,15 +589,35 @@ const dataTypes: DataType[] = [
     converter: convertAbilities,
   },
   {
+    sheet: 'Brave',
+    localName: 'brave',
+    converter: convertSkills,
+  },
+  {
+    sheet: 'Burst',
+    localName: 'burst',
+    converter: convertSkills,
+  },
+  {
     sheet: 'Characters',
     localName: 'characters',
     converter: convertCharacters,
     postProcessor: postProcessCharacters,
   },
   {
+    sheet: 'Legend Materia',
+    localName: 'legendMateria',
+    converter: convertLegendMateria,
+  },
+  {
     sheet: 'Magicite',
     localName: 'magicite',
     converter: convertMagicite,
+  },
+  {
+    sheet: 'Other',
+    localName: 'otherSkills',
+    converter: convertSkills,
   },
   {
     sheet: 'Record Materia',
@@ -527,7 +632,12 @@ const dataTypes: DataType[] = [
   {
     sheet: 'Soul Breaks',
     localName: 'soulBreaks',
-    converter: convertSoulBreaks,
+    converter: convertSkills,
+  },
+  {
+    sheet: 'Status',
+    localName: 'status',
+    converter: convertStatus,
   },
 ];
 

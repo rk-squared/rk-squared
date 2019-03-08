@@ -249,7 +249,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 50.4,
-      "element": "Fire",
+      "element": [
+        "Fire"
+      ],
       "time": 2.5,
       "effects": "Four group attacks (12.60 each), causes Imperil Fire 20% for 25 seconds",
       "counter": false
@@ -305,7 +307,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 50.4,
-      "element": "Fire",
+      "element": [
+        "Fire"
+      ],
       "time": 0.01,
       "effects": "Four group attacks (12.60 each), grants Ice Blink 1 to all allies",
       "counter": false
@@ -372,7 +376,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Fire",
+      "element": [
+        "Fire"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), causes Poison (11%), grants Medium Resist Ice to all allies",
       "counter": false
@@ -439,7 +445,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Fire",
+      "element": [
+        "Fire"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), grants Minor Buff Fire to all allies",
       "counter": false
@@ -506,7 +514,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
       "multiplier": 25.2,
-      "element": "Fire",
+      "element": [
+        "Fire"
+      ],
       "time": 2.5,
       "effects": "Six single attacks (4.20 each), causes Medium Debuff Ice",
       "counter": false
@@ -562,7 +572,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
       "multiplier": 40.6,
-      "element": "Fire",
+      "element": [
+        "Fire"
+      ],
       "time": 2.5,
       "effects": "One single attack (40.60) capped at 99999, grants Minor Buff Fire to all allies",
       "counter": false
@@ -618,7 +630,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63.75,
-      "element": "Fire",
+      "element": [
+        "Fire"
+      ],
       "time": 2.5,
       "effects": "One group attack (63.75) capped at 99999, restores HP (55) to all allies, removes KO (40% HP) to all allies",
       "counter": false
@@ -877,7 +891,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 50.4,
-      "element": "Ice",
+      "element": [
+        "Ice"
+      ],
       "time": 2.5,
       "effects": "Four group attacks (12.60 each), causes Imperil Ice 20% for 25 seconds",
       "counter": false
@@ -933,7 +949,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 50.4,
-      "element": "Ice",
+      "element": [
+        "Ice"
+      ],
       "time": 0.01,
       "effects": "Four group attacks (12.60 each), grants Wind Blink 1 to all allies",
       "counter": false
@@ -1000,7 +1018,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Ice",
+      "element": [
+        "Ice"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), grants Wind Stoneskin: Magicite 30% to all allies",
       "counter": false
@@ -1067,7 +1087,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Ice",
+      "element": [
+        "Ice"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), grants Minor Buff Ice to all allies",
       "counter": false
@@ -1134,7 +1156,9 @@
       "autoTarget": "All enemies",
       "formula": "Physical",
       "multiplier": 20.15,
-      "element": "Ice",
+      "element": [
+        "Ice"
+      ],
       "time": 2.5,
       "effects": "Five group ranged attacks (4.03 each), causes Medium Debuff Wind",
       "counter": false
@@ -1190,7 +1214,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
       "multiplier": 40.6,
-      "element": "Ice",
+      "element": [
+        "Ice"
+      ],
       "time": 2.5,
       "effects": "One single ranged attack (40.60) capped at 99999, grants Minor Buff Ice to all allies",
       "counter": false
@@ -1246,7 +1272,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 85,
-      "element": "Ice",
+      "element": [
+        "Ice"
+      ],
       "time": 2.5,
       "effects": "One group attack (85.00) capped at 99999, causes Imperil Ice 20% for 25 seconds",
       "counter": false
@@ -1505,7 +1533,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 50.4,
-      "element": "Lightning",
+      "element": [
+        "Lightning"
+      ],
       "time": 2.5,
       "effects": "Four group attacks (12.60 each), grants Medium Resist Water to all allies",
       "counter": false
@@ -1561,7 +1591,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 50.4,
-      "element": "Lightning",
+      "element": [
+        "Lightning"
+      ],
       "time": 2.5,
       "effects": "Four group attacks (12.60 each), causes Imperil Lightning 20% for 25 seconds",
       "counter": false
@@ -1628,7 +1660,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Lightning",
+      "element": [
+        "Lightning"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), grants Water Blink 1 to all allies",
       "counter": false
@@ -1695,7 +1729,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Lightning",
+      "element": [
+        "Lightning"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), grants Minor Buff Lightning to all allies",
       "counter": false
@@ -1762,7 +1798,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Lightning",
+      "element": [
+        "Lightning"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), causes Medium Debuff Water",
       "counter": false
@@ -1818,7 +1856,9 @@
       "autoTarget": "Single enemy",
       "formula": "Physical",
       "multiplier": 40.6,
-      "element": "Lightning",
+      "element": [
+        "Lightning"
+      ],
       "time": 2.5,
       "effects": "One single attack (40.60) capped at 99999, grants Minor Buff Lightning to all allies",
       "counter": false
@@ -1874,7 +1914,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 85,
-      "element": "Lightning",
+      "element": [
+        "Lightning"
+      ],
       "time": 2.5,
       "effects": "One group attack (85.00) capped at 99999, causes Imperil Lightning 20% for 25 seconds",
       "counter": false
@@ -2133,7 +2175,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 50.4,
-      "element": "Earth",
+      "element": [
+        "Earth"
+      ],
       "time": 2.5,
       "effects": "Four group attacks (12.60 each), causes Imperil Earth 20% for 25 seconds",
       "counter": false
@@ -2256,7 +2300,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Earth",
+      "element": [
+        "Earth"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), grants Medium Resist Lightning to all allies",
       "counter": false
@@ -2323,7 +2369,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Earth",
+      "element": [
+        "Earth"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), causes Medium Debuff Lightning",
       "counter": false
@@ -2390,7 +2438,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Earth",
+      "element": [
+        "Earth"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), grants Minor Buff Earth to all allies",
       "counter": false
@@ -2446,14 +2496,16 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
       "multiplier": 35,
-      "element": "Earth",
+      "element": [
+        "Earth"
+      ],
       "time": 2.5,
       "effects": "One single ranged attack (35.00) capped at 99999, grants Lightning Blink 1 to all allies",
       "counter": false
     },
     "nameJp": "【契】大地の咆哮",
     "id": 161000091,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Earth",
@@ -2502,14 +2554,16 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Magical",
       "multiplier": 98.6,
-      "element": "Earth",
+      "element": [
+        "Earth"
+      ],
       "time": 2.5,
       "effects": "One single attack (98.60) capped at 99999, causes Medium Debuff Lightning",
       "counter": false
     },
     "nameJp": "【契】ガイアサルヴォー",
     "id": 161000092,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Wind",
@@ -2884,7 +2938,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Magical",
       "multiplier": 21.92,
-      "element": "Wind",
+      "element": [
+        "Wind"
+      ],
       "time": 2.5,
       "effects": "Eight single attacks (2.74 each), restores HP (82) to all allies",
       "counter": false
@@ -2951,7 +3007,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Wind",
+      "element": [
+        "Wind"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), grants Haste to all allies",
       "counter": false
@@ -3018,7 +3076,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Wind",
+      "element": [
+        "Wind"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), grants Minor Buff Wind to all allies",
       "counter": false
@@ -3074,7 +3134,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
       "multiplier": 40.6,
-      "element": "Wind",
+      "element": [
+        "Wind"
+      ],
       "time": 2.5,
       "effects": "One single ranged attack (40.60) capped at 99999, causes Medium Debuff Earth",
       "counter": false
@@ -3130,7 +3192,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 85,
-      "element": "Wind",
+      "element": [
+        "Wind"
+      ],
       "time": 2.5,
       "effects": "One group attack (85.00) capped at 99999, 102.00 multiplier if Faris is alive, causes Imperil Wind 20% for 25 seconds",
       "counter": false
@@ -3389,7 +3453,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 50.4,
-      "element": "Water",
+      "element": [
+        "Water"
+      ],
       "time": 2.5,
       "effects": "Four group attacks (12.60 each), grants Medium Resist Fire to all allies",
       "counter": false
@@ -3445,7 +3511,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 50.4,
-      "element": "Water",
+      "element": [
+        "Water"
+      ],
       "time": 0.01,
       "effects": "Four group attacks (12.60 each), grants Fire Blink 1 to all allies",
       "counter": false
@@ -3512,7 +3580,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Water",
+      "element": [
+        "Water"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), causes Medium Debuff Fire",
       "counter": false
@@ -3579,7 +3649,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
       "multiplier": 20.16,
-      "element": "Water",
+      "element": [
+        "Water"
+      ],
       "time": 2.5,
       "effects": "Eight single attacks (2.52 each), grants Minor Buff Water to all allies",
       "counter": false
@@ -3646,7 +3718,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Water",
+      "element": [
+        "Water"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), causes Imperil Water 20% for 25 seconds",
       "counter": false
@@ -3702,7 +3776,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
       "multiplier": 40.6,
-      "element": "Water",
+      "element": [
+        "Water"
+      ],
       "time": 2.5,
       "effects": "One single ranged attack (40.60) capped at 99999, grants Minor Buff Water to all allies",
       "counter": false
@@ -3758,7 +3834,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Magical",
       "multiplier": 98.6,
-      "element": "Water",
+      "element": [
+        "Water"
+      ],
       "time": 2.5,
       "effects": "One single attack (98.60) capped at 99999, grants Fire Stoneskin: Magicite 30% to all allies",
       "counter": false
@@ -4073,7 +4151,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 50.4,
-      "element": "Holy",
+      "element": [
+        "Holy"
+      ],
       "time": 2.5,
       "effects": "Four group attacks (12.60 each), grants Medium Resist Dark to all allies",
       "counter": false
@@ -4207,7 +4287,9 @@
       "autoTarget": "Random enemies",
       "formula": "Magical",
       "multiplier": 78.8,
-      "element": "Holy",
+      "element": [
+        "Holy"
+      ],
       "time": 2.5,
       "effects": "Eight random attacks (9.85 each), causes Medium Debuff Dark",
       "counter": false
@@ -4274,7 +4356,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Holy",
+      "element": [
+        "Holy"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), grants Minor Buff Holy to all allies",
       "counter": false
@@ -4330,7 +4414,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
       "multiplier": 40.6,
-      "element": "Holy",
+      "element": [
+        "Holy"
+      ],
       "time": 2.5,
       "effects": "One single ranged attack (40.60) capped at 99999, causes Medium Debuff Dark",
       "counter": false
@@ -4386,7 +4472,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 85,
-      "element": "Holy",
+      "element": [
+        "Holy"
+      ],
       "time": 2.5,
       "effects": "One single attack (85.00) capped at 99999, grants Astra to all allies",
       "counter": false
@@ -4712,7 +4800,9 @@
       "autoTarget": "Random enemy without status",
       "formula": "Physical",
       "multiplier": 18,
-      "element": "Dark",
+      "element": [
+        "Dark"
+      ],
       "time": 2.5,
       "effects": "Six single attacks (3.00 each), causes Sap (100%), causes Imperil Dark 20% for 25 seconds",
       "counter": false
@@ -4779,7 +4869,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Dark",
+      "element": [
+        "Dark"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), causes Medium Debuff Holy",
       "counter": false
@@ -4846,7 +4938,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Magical",
       "multiplier": 78.72,
-      "element": "Dark",
+      "element": [
+        "Dark"
+      ],
       "time": 2.5,
       "effects": "Eight single attacks (9.84 each), grants Holy Stoneskin: Magicite 30% to all allies",
       "counter": false
@@ -4913,7 +5007,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 63,
-      "element": "Dark",
+      "element": [
+        "Dark"
+      ],
       "time": 2.5,
       "effects": "Five group attacks (12.60 each), causes Poison, Confuse, Sleep, Paralyze, Silence and Slow (10%), grants Minor Buff Dark to all allies",
       "counter": false
@@ -4969,7 +5065,9 @@
       "autoTarget": "Lowest HP% enemy",
       "formula": "Physical",
       "multiplier": 40.6,
-      "element": "Dark",
+      "element": [
+        "Dark"
+      ],
       "time": 2.5,
       "effects": "One single ranged attack (40.60) capped at 99999, grants Holy Blink 1 to all allies",
       "counter": false
@@ -5025,7 +5123,9 @@
       "autoTarget": "All enemies",
       "formula": "Magical",
       "multiplier": 85,
-      "element": "Dark",
+      "element": [
+        "Dark"
+      ],
       "time": 2.5,
       "effects": "One group attack (85.00) capped at 99999, causes Medium Debuff Holy",
       "counter": false

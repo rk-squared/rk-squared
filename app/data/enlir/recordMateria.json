@@ -5282,22 +5282,22 @@
   {
     "realm": "XI",
     "character": "Lilisette",
-    "name": "Dancing Leader",
+    "name": "Master Dancer",
     "effect": "50% chance to restore 1 use for all Dancer abilities at the beginning of the battle",
     "unlockCriteria": "Use Lilisette's Memory Crystal",
     "nameJp": "踊り子のリーダー格",
     "id": 111110080,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
     "character": "Lilisette",
-    "name": "Top Idol",
+    "name": "Idolized Beauty",
     "effect": "Restores 1 use for all Dancer abilities at the beginning of the battle",
     "unlockCriteria": "Use Lilisette's Memory Crystal II, chance to obtain with Lilisette in party",
     "nameJp": "トップアイドル",
     "id": 111110081,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -5307,7 +5307,7 @@
     "unlockCriteria": "Bring Lilisette to level 99",
     "nameJp": "月影の胡蝶",
     "id": 111110082,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -7193,7 +7193,7 @@
     "realm": "Type-0",
     "character": "Cater",
     "name": "Magic Pistol Wielder",
-    "effect": "PHY attacks deal ?% more damage when equipping a gun",
+    "effect": "PHY attacks deal 10% more damage when equipping a gun",
     "unlockCriteria": "Use Cater's Memory Crystal",
     "nameJp": "魔法銃を操る少女",
     "id": 111600130,
@@ -7277,6 +7277,66 @@
     "unlockCriteria": "Bring Riku to level 99",
     "nameJp": "闇を覆いし心",
     "id": 111700022,
+    "gl": true
+  },
+  {
+    "realm": "KH",
+    "character": "Roxas",
+    "name": "Self Oblivion",
+    "effect": "Increases Holy damage dealt by 10%",
+    "unlockCriteria": "Use Roxas's Memory Crystal",
+    "nameJp": "自身を知らぬ少年",
+    "id": 111700040,
+    "gl": true
+  },
+  {
+    "realm": "KH",
+    "character": "Roxas",
+    "name": "Light's Shadow",
+    "effect": "Increases Holy damage dealt by 20%",
+    "unlockCriteria": "Use Roxas's Memory Crystal II, chance to obtain with Roxas in party",
+    "nameJp": "\t光の勇者に関わる存在",
+    "id": 111700041,
+    "gl": true
+  },
+  {
+    "realm": "KH",
+    "character": "Roxas",
+    "name": "Trembling Twilight",
+    "effect": "Increases Holy damage dealt by 30%",
+    "unlockCriteria": "Bring Roxas to level 99",
+    "nameJp": "たそがれに揺れる光",
+    "id": 111700042,
+    "gl": true
+  },
+  {
+    "realm": "KH",
+    "character": "Axel",
+    "name": "Elusive Motives",
+    "effect": "Increases Fire damage dealt by 10%",
+    "unlockCriteria": "Use Axel's Memory Crystal",
+    "nameJp": "つかみどころのない性格",
+    "id": 111700050,
+    "gl": true
+  },
+  {
+    "realm": "KH",
+    "character": "Axel",
+    "name": "Nobody's Friend",
+    "effect": "Increases Fire damage dealt by 20%",
+    "unlockCriteria": "Use Axel's Memory Crystal II, chance to obtain with Axel in party",
+    "nameJp": "ロクサスの親友",
+    "id": 111700051,
+    "gl": true
+  },
+  {
+    "realm": "KH",
+    "character": "Axel",
+    "name": "Assassin of Flames",
+    "effect": "Increases Fire damage dealt by 30%",
+    "unlockCriteria": "Bring Axel to level 99",
+    "nameJp": "炎操る暗殺者",
+    "id": 111700052,
     "gl": true
   },
   {

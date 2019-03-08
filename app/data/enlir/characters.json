@@ -3587,7 +3587,7 @@
       "res": 2,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "A Prophecy of Hope",
+    "introducingEventLegendSpheres": "Prophecy of Hope",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -3632,7 +3632,7 @@
       "blackMagic": null,
       "whiteMagic": null,
       "combat": 3,
-      "support": 4,
+      "support": 5,
       "celerity": 4,
       "summoning": null,
       "spellblade": null,
@@ -7402,7 +7402,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -9383,7 +9383,7 @@
       "res": 8,
       "mnd": 23
     },
-    "introducingEventLegendSpheres": "Four Lights Rekindled",
+    "introducingEventLegendSpheres": "Light Reborn",
     "legendSpheres": {
       "hp": 500,
       "atk": 0,
@@ -9418,7 +9418,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -14045,15 +14045,15 @@
       "res": 2,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": null,
+    "introducingEventLegendSpheres": "History of the Planet's Salvation",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -14423,15 +14423,15 @@
       "res": 0,
       "mnd": 5
     },
-    "introducingEventLegendSpheres": null,
+    "introducingEventLegendSpheres": "History of the Planet's Salvation",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 700,
+      "atk": 40,
+      "def": 25,
+      "mag": 30,
+      "res": 15,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -14549,15 +14549,15 @@
       "res": 6,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": null,
+    "introducingEventLegendSpheres": "History of the Planet's Salvation",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -19589,7 +19589,7 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Conquer Absolute Virtue",
+    "introducingEventLegendSpheres": "Queen of the Dance",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -19967,7 +19967,7 @@
       "res": 7,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Conquer Absolute Virtue",
+    "introducingEventLegendSpheres": "Queen of the Dance",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -20036,7 +20036,7 @@
   {
     "realm": "XI",
     "name": "Lilisette",
-    "introducingEventLv50": "Come, Dancing Princess!",
+    "introducingEventLv50": "Queen of the Dance",
     "lv50": {
       "hp": 3302,
       "atk": 104,
@@ -20048,7 +20048,7 @@
       "eva": 29,
       "spd": 154
     },
-    "introducingEventLv65": "Come, Dancing Princess!",
+    "introducingEventLv65": "Queen of the Dance",
     "lv65": {
       "hp": 4253,
       "atk": 132,
@@ -20060,7 +20060,7 @@
       "eva": 30,
       "spd": 164
     },
-    "introducingEventLv80": "Come, Dancing Princess!",
+    "introducingEventLv80": "Queen of the Dance",
     "lv80": {
       "hp": 5203,
       "atk": 160,
@@ -20072,7 +20072,7 @@
       "eva": 31,
       "spd": 174
     },
-    "introducingEventLv99": "Come, Dancing Princess!",
+    "introducingEventLv99": "Queen of the Dance",
     "lv99": {
       "hp": 6407,
       "atk": 197,
@@ -20084,7 +20084,7 @@
       "eva": 33,
       "spd": 186
     },
-    "introducingEventRecordSpheres": "Come, Dancing Princess!",
+    "introducingEventRecordSpheres": "Queen of the Dance",
     "recordSpheres": {
       "hp": 440,
       "atk": 30,
@@ -20093,7 +20093,7 @@
       "res": 0,
       "mnd": 23
     },
-    "introducingEventLegendSpheres": "Come, Dancing Princess!",
+    "introducingEventLegendSpheres": "Queen of the Dance",
     "legendSpheres": {
       "hp": 800,
       "atk": 35,
@@ -20157,7 +20157,7 @@
       "heavy": null
     },
     "id": 11100800,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -21776,7 +21776,7 @@
       "blackMagic": 4,
       "whiteMagic": 5,
       "combat": null,
-      "support": 2,
+      "support": 4,
       "celerity": null,
       "summoning": 3,
       "spellblade": null,
@@ -22278,7 +22278,7 @@
     },
     "skills": {
       "blackMagic": 5,
-      "whiteMagic": 3,
+      "whiteMagic": 4,
       "combat": null,
       "support": null,
       "celerity": null,
@@ -28347,6 +28347,258 @@
       "heavy": null
     },
     "id": 17000200,
+    "gl": true
+  },
+  {
+    "realm": "KH",
+    "name": "Roxas",
+    "introducingEventLv50": "In Trembling Twilight",
+    "lv50": {
+      "hp": 3459,
+      "atk": 112,
+      "def": 82,
+      "mag": 78,
+      "res": 71,
+      "mnd": 81,
+      "acc": 22,
+      "eva": 22,
+      "spd": 136
+    },
+    "introducingEventLv65": "In Trembling Twilight",
+    "lv65": {
+      "hp": 4455,
+      "atk": 142,
+      "def": 105,
+      "mag": 99,
+      "res": 90,
+      "mnd": 103,
+      "acc": 23,
+      "eva": 23,
+      "spd": 145
+    },
+    "introducingEventLv80": "In Trembling Twilight",
+    "lv80": {
+      "hp": 5450,
+      "atk": 173,
+      "def": 127,
+      "mag": 120,
+      "res": 110,
+      "mnd": 125,
+      "acc": 24,
+      "eva": 24,
+      "spd": 155
+    },
+    "introducingEventLv99": "In Trembling Twilight",
+    "lv99": {
+      "hp": 6712,
+      "atk": 212,
+      "def": 156,
+      "mag": 148,
+      "res": 135,
+      "mnd": 154,
+      "acc": 25,
+      "eva": 25,
+      "spd": 168
+    },
+    "introducingEventRecordSpheres": "In Trembling Twilight",
+    "recordSpheres": {
+      "hp": 800,
+      "atk": 35,
+      "def": 14,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0
+    },
+    "introducingEventLegendSpheres": "In Trembling Twilight",
+    "legendSpheres": {
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
+    },
+    "equipment": {
+      "dagger": true,
+      "sword": true,
+      "katana": false,
+      "axe": false,
+      "hammer": false,
+      "spear": false,
+      "fist": false,
+      "rod": false,
+      "staff": false,
+      "bow": false,
+      "instrument": false,
+      "whip": false,
+      "thrown": false,
+      "gun": false,
+      "book": false,
+      "blitzball": false,
+      "hairpin": false,
+      "gunArm": false,
+      "gamblingGear": false,
+      "doll": false,
+      "keyblade": true,
+      "shield": false,
+      "hat": true,
+      "helm": false,
+      "lightArmor": true,
+      "heavyArmor": false,
+      "robe": true,
+      "bracer": true,
+      "accessory": true
+    },
+    "skills": {
+      "blackMagic": 3,
+      "whiteMagic": 4,
+      "combat": 5,
+      "support": null,
+      "celerity": null,
+      "summoning": null,
+      "spellblade": null,
+      "dragoon": null,
+      "monk": null,
+      "thief": null,
+      "knight": 5,
+      "samurai": null,
+      "ninja": null,
+      "bard": null,
+      "dancer": null,
+      "machinist": null,
+      "darkness": 6,
+      "sharpshooter": null,
+      "witch": null,
+      "heavy": null
+    },
+    "id": 17000400,
+    "gl": true
+  },
+  {
+    "realm": "KH",
+    "name": "Axel",
+    "introducingEventLv50": "In Trembling Twilight",
+    "lv50": {
+      "hp": 3418,
+      "atk": 106,
+      "def": 65,
+      "mag": 121,
+      "res": 86,
+      "mnd": 52,
+      "acc": 22,
+      "eva": 22,
+      "spd": 136
+    },
+    "introducingEventLv65": "In Trembling Twilight",
+    "lv65": {
+      "hp": 4402,
+      "atk": 135,
+      "def": 85,
+      "mag": 150,
+      "res": 110,
+      "mnd": 66,
+      "acc": 23,
+      "eva": 23,
+      "spd": 146
+    },
+    "introducingEventLv80": "In Trembling Twilight",
+    "lv80": {
+      "hp": 5386,
+      "atk": 164,
+      "def": 106,
+      "mag": 177,
+      "res": 133,
+      "mnd": 80,
+      "acc": 24,
+      "eva": 24,
+      "spd": 157
+    },
+    "introducingEventLv99": "In Trembling Twilight",
+    "lv99": {
+      "hp": 6632,
+      "atk": 202,
+      "def": 134,
+      "mag": 211,
+      "res": 164,
+      "mnd": 99,
+      "acc": 25,
+      "eva": 25,
+      "spd": 172
+    },
+    "introducingEventRecordSpheres": "In Trembling Twilight",
+    "recordSpheres": {
+      "hp": 560,
+      "atk": 19,
+      "def": 8,
+      "mag": 19,
+      "res": 3,
+      "mnd": 0
+    },
+    "introducingEventLegendSpheres": "In Trembling Twilight",
+    "legendSpheres": {
+      "hp": 700,
+      "atk": 40,
+      "def": 25,
+      "mag": 20,
+      "res": 25,
+      "mnd": 0,
+      "spd": 0
+    },
+    "equipment": {
+      "dagger": true,
+      "sword": false,
+      "katana": false,
+      "axe": false,
+      "hammer": false,
+      "spear": false,
+      "fist": false,
+      "rod": true,
+      "staff": true,
+      "bow": false,
+      "instrument": false,
+      "whip": false,
+      "thrown": true,
+      "gun": false,
+      "book": false,
+      "blitzball": false,
+      "hairpin": false,
+      "gunArm": false,
+      "gamblingGear": false,
+      "doll": false,
+      "keyblade": false,
+      "shield": false,
+      "hat": true,
+      "helm": false,
+      "lightArmor": true,
+      "heavyArmor": false,
+      "robe": true,
+      "bracer": true,
+      "accessory": true
+    },
+    "skills": {
+      "blackMagic": 5,
+      "whiteMagic": null,
+      "combat": null,
+      "support": null,
+      "celerity": 5,
+      "summoning": null,
+      "spellblade": null,
+      "dragoon": null,
+      "monk": null,
+      "thief": null,
+      "knight": null,
+      "samurai": null,
+      "ninja": 5,
+      "bard": null,
+      "dancer": null,
+      "machinist": null,
+      "darkness": null,
+      "sharpshooter": 6,
+      "witch": null,
+      "heavy": null
+    },
+    "id": 17000500,
     "gl": true
   },
   {
