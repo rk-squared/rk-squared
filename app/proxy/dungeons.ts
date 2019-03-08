@@ -289,6 +289,12 @@ function checkForWorldIcon(world: World) {
       if (ability) {
         world.iconUrl = itemImage(LangType.Gl, ability.id, ItemType.Ability);
       }
+      break;
+    }
+
+    case WorldCategory.Magicite: {
+      world.localIcon = world.name.toLowerCase() + 'Element';
+      break;
     }
   }
 }

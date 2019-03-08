@@ -63,7 +63,16 @@ export interface World {
   closedAt: TimeT;
   seriesId: number;
   isUnlocked: boolean;
+
+  /**
+   * Optional URL (see data/urls) to an image icon for this world
+   */
   iconUrl?: string;
+
+  /**
+   * Optional key of a localIcon (see data/localData)
+   */
+  localIcon?: string;
 }
 
 enum WorldSortOrder {

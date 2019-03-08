@@ -12,6 +12,7 @@ import {
 } from '../../actions/dungeons';
 import { World } from '../../actions/worlds';
 import { LangType } from '../../api/apiUrls';
+import { localIcons } from '../../data/localData';
 import { seriesIcon } from '../../data/urls';
 import { IState } from '../../reducers';
 import { getDungeonsForWorld } from '../../reducers/dungeons';
@@ -78,8 +79,17 @@ export class DungeonCard extends React.PureComponent<ConnectedProps> {
       ? 'These dungeons have not been loaded.'
       : undefined;
 
-    // For speed and simplicity, hard-code icons for GL.
-    const icon = world.iconUrl || seriesIcon(LangType.Gl, world.seriesId);
+    let icon: string | null;
+    let isSeriesIcon = false;
+    if (world.iconUrl) {
+      icon = world.iconUrl;
+    } else if (world.localIcon && localIcons[world.localIcon]) {
+      icon = localIcons[world.localIcon];
+    } else {
+      // For speed and simplicity, hard-code icons for GL.
+      icon = seriesIcon(LangType.Gl, world.seriesId);
+      isSeriesIcon = true;
+    }
 
     // TODO: Rework tooltips?  They may be faster if we only render 1 per card.
     // See TormentGrid for the newer approach I'm using.
@@ -87,9 +97,10 @@ export class DungeonCard extends React.PureComponent<ConnectedProps> {
       <CollapsibleCard
         id={`world-${world.id}-dungeons`}
         title={() => <DungeonCardTitle world={world} dungeons={dungeons} />}
-        titleClassName={classNames(styles.title, { [styles.seriesIcon]: !world.iconUrl })}
+        titleClassName={classNames(styles.title, { [styles.seriesIcon]: isSeriesIcon })}
         titleStyle={{ backgroundImage: icon ? `url(${icon}` : undefined }}
       >
+        {icon != null && <img src={icon} />}
         {noMessage ? (
           <p className="mb-0">{noMessage}</p>
         ) : (

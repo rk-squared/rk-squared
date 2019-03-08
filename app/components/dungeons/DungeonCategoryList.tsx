@@ -106,6 +106,7 @@ const DungeonCategoryTitle = ({
           width={40}
           height={40}
           style={{ paddingRight: '0.5em' }}
+          alt=""
         />
       )}
       {title}
