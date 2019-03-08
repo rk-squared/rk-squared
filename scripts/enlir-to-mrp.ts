@@ -3,8 +3,8 @@
 import * as _ from 'lodash';
 import * as yargs from 'yargs';
 
-import { enlir, EnlirSoulBreakTier } from '../app/data/enlir';
-import { describeEnlirSoulBreak, formatMrP } from '../app/data/mrP';
+import { enlir } from '../app/data/enlir';
+import { describeEnlirSoulBreak, formatMrP, tierOrder } from '../app/data/mrP';
 import { formatBraveCommands } from '../app/data/mrP/brave';
 
 // tslint:disable: no-console
@@ -20,22 +20,6 @@ const argv = yargs
   }).argv;
 
 const filtered = argv.brave || argv.burst;
-
-const tierOrder: { [t in EnlirSoulBreakTier]: number } = {
-  Default: 0,
-  SB: 1,
-  SSB: 2,
-  BSB: 3,
-  Glint: 4,
-  'Glint+': 5,
-  OSB: 6,
-  AOSB: 7,
-  USB: 8,
-  AASB: 9,
-  CSB: 10,
-  RW: 100,
-  Shared: 101,
-};
 
 for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
   'character',

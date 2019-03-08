@@ -41,6 +41,11 @@ export class AppLayout extends React.Component<Props> {
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/soulBreaks">
+                    Soul Breaks
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/options">
                     Options
                   </Link>

@@ -143,6 +143,27 @@ export interface EnlirBurstCommand extends EnlirGenericSkill {
   nameJp: string;
 }
 
+export interface EnlirCharacter {
+  realm: string;
+  name: string;
+  introducingEventLv50: string;
+  lv50: { [key: string]: number };
+  introducingEventLv65: string;
+  lv65: { [key: string]: number };
+  introducingEventLv80: string;
+  lv80: { [key: string]: number };
+  introducingEventLv99: string;
+  lv99: { [key: string]: number };
+  introducingEventRecordSpheres: string;
+  recordSpheres: { [key: string]: number };
+  introducingEventLegendSpheres: string;
+  legendSpheres: { [key: string]: number };
+  equipment: { [key: string]: boolean };
+  skills: { [key: string]: number };
+  id: number;
+  gl: boolean;
+}
+
 export interface EnlirLegendMateria {
   realm: string;
   character: string;
@@ -206,7 +227,7 @@ const rawData = {
   abilities: require('./enlir/abilities.json') as EnlirAbility[],
   braveCommands: require('./enlir/brave.json') as EnlirBraveCommand[],
   burstCommands: require('./enlir/burst.json') as EnlirBurstCommand[],
-  characters: require('./enlir/characters.json'),
+  characters: require('./enlir/characters.json') as EnlirCharacter[],
   legendMateria: require('./enlir/legendMateria.json') as EnlirLegendMateria[],
   magicite: require('./enlir/magicite.json'),
   otherSkills: require('./enlir/otherSkills.json') as EnlirOtherSkill[],
@@ -218,6 +239,10 @@ const rawData = {
 
 // FIXME: Properly update rawData outside of app
 
+interface CharacterMap<T> {
+  [character: string]: T[];
+}
+
 interface Command extends EnlirGenericSkill {
   character: string;
   source: string;
@@ -227,6 +252,15 @@ interface CommandsMap<T> {
   [character: string]: {
     [soulBreak: string]: T[];
   };
+}
+
+function makeCharacterMap<T extends { character: string }>(items: T[]): CharacterMap<T> {
+  const result: CharacterMap<T> = {};
+  for (const i of items) {
+    result[i.character] = result[i.character] || [];
+    result[i.character].push(i);
+  }
+  return result;
 }
 
 function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
@@ -259,6 +293,7 @@ export const enlir = {
   relics: _.keyBy(rawData.relics, 'id'),
   recordMateria: _.keyBy(rawData.recordMateria, 'id'),
   soulBreaks: _.keyBy(rawData.soulBreaks, 'id'),
+  soulBreaksByCharacter: makeCharacterMap(rawData.soulBreaks),
   statusByName: _.keyBy(rawData.status, 'name'),
 };
 

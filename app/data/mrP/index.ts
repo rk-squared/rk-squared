@@ -6,6 +6,7 @@ import {
   EnlirBurstCommand,
   EnlirSchool,
   EnlirSkill,
+  EnlirSoulBreakTier,
   isBrave,
   isBraveCommand,
   isBurst,
@@ -52,6 +53,22 @@ import {
   toMrPFixed,
   toMrPKilo,
 } from './util';
+
+export const tierOrder: { [t in EnlirSoulBreakTier]: number } = {
+  Default: 0,
+  SB: 1,
+  SSB: 2,
+  BSB: 3,
+  Glint: 4,
+  'Glint+': 5,
+  OSB: 6,
+  AOSB: 7,
+  USB: 8,
+  AASB: 9,
+  CSB: 10,
+  RW: 100,
+  Shared: 101,
+};
 
 export interface MrPSoulBreak {
   // Time markers.  We could simply pass the time value itself, but this lets
