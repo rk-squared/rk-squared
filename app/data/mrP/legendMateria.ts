@@ -2,9 +2,10 @@ import * as _ from 'lodash';
 
 import { arrayify } from '../../utils/typeUtils';
 import { EnlirElement, EnlirFormula, EnlirLegendMateria, EnlirSkillType } from '../enlir';
-import { describeDamage, describeDamageType } from './attack';
+import { describeDamage, describeDamageType, formatThreshold } from './attack';
 import {
   describeEnlirStatus,
+  describeStats,
   formatDuration,
   formatTriggeredEffect,
   hitWeaknessTriggerText,
@@ -53,6 +54,10 @@ const skillEffectHandlers: HandlerList = [
     /^(?:restores )?(\d+) HP to (?:an ally|the lowest HP% ally)$/,
     ([fixedHp]) => `ally heal ${toMrPKilo(+fixedHp)} HP`,
   ],
+  [
+    /^((?:[A-Z]{3}\/)*[A-Z]{3}) -(\d+|\?)%$/,
+    ([stats, percent]) => `AoE -${percent}% ` + describeStats(stats.split('/')),
+  ],
 ];
 
 const simpleSkillHandlers: HandlerList = [
@@ -68,7 +73,7 @@ const simpleSkillHandlers: HandlerList = [
 
   // Attacks
   [
-    /^(PHY|BLK|WHT): (single|random|group), (?:(\d+)x )?([0-9\.]+) (ranged )?(physical|magical) ([^,]+)(, .*)?$/,
+    /^(PHY|BLK|WHT): (single|random|group), (?:(\d+)x )?([0-9\.]+) (ranged )?(physical|magical)(?: ([^,]+))?(, .*)?$/,
     ([
       type,
       attackType,
@@ -85,7 +90,10 @@ const simpleSkillHandlers: HandlerList = [
         (attackType === 'group' ? 'AoE ' : '') +
         damageTypeAbbreviation(damageType) +
         describeDamage(parseFloat(attackMultiplier), numAttacks ? +numAttacks : 1) +
-        appendElement(elements.split(/\//) as EnlirElement[], getElementShortName);
+        appendElement(
+          elements ? (elements.split(/\//) as EnlirElement[]) : [],
+          getElementShortName,
+        );
       damage += isRanged ? ' rngd' : '';
 
       const effects = !addedEffects
@@ -100,6 +108,27 @@ const simpleSkillHandlers: HandlerList = [
 
       return damage + (effects.length ? ', ' + effects.join(', ') : '');
     },
+  ],
+
+  // Statuses
+  [
+    /^NAT: group, causes (.*) for (\d+|\?) seconds$/,
+    ([status, duration]) => {
+      return (
+        'AoE ' +
+        status
+          .split(andList)
+          .map(i => describeEnlirStatus(i))
+          .join(', ') +
+        ' ' +
+        duration +
+        's'
+      );
+    },
+  ],
+  [
+    /^NAT: group, ((?:[A-Z]{3}\/)*[A-Z]{3}) -(\d+|\?)%$/,
+    ([stats, percent]) => `AoE -${percent}% ` + describeStats(stats.split('/')),
   ],
 ];
 
@@ -148,7 +177,11 @@ const legendMateriaHandlers: HandlerList = [
 
   // Build-ups
   [
-    /([A-Z]{3}) \+(\d+)% for each hit dealt with (.*) (?:abilities|attacks)(?: that deal (.*) damage)?, up to \+?(\d+)%/,
+    [
+      /([A-Z]{3}) \+(\d+|\?)% for each hit dealt with (.*) (?:abilities|attacks)(?: that deal (.*) damage)?, up to \+?(\d+|\?)%/,
+      // "that deal damage" should never be used for this regex, but we leave it to keep groups consistent
+      /([A-Z]{3}) \+(\d+|\?)% for each (.*) (?:ability|attack) used(?: that deal (.*) damage)?, up to \+?(\d+|\?)%/,
+    ],
     ([stat, bonus, type1, type2, max]) => {
       let type = formatSchoolOrAbilityList(type1);
       if (type2) {
@@ -160,6 +193,15 @@ const legendMateriaHandlers: HandlerList = [
   [
     /([A-Z]{3}) \+(\d+)% for each hit taken by damaging attacks, up to \+(\d+)%/,
     ([stat, bonus, max]) => `+${bonus}% ${stat} (max +${max}%) per hit taken`,
+  ],
+
+  // Conditional bonuses
+  [
+    /^Increases damage dealt by ((?:\d+\/)+\d+)% if ((?:\d+\/)+\d+) of the target's stats are lowered$/,
+    ([bonus, statBreakCount]) => {
+      const bonusDescription = bonus.split('/').join('-');
+      return `+${bonusDescription}% dmg` + formatThreshold(statBreakCount, 'stats lowered');
+    },
   ],
 
   // Starting statuses
@@ -192,11 +234,22 @@ const legendMateriaHandlers: HandlerList = [
     },
   ],
 
+  // Status recovery
+  [
+    /^(\d+)% chance to remove (.*) and (.*) to the user after being afflicted with .*$/,
+    ([percentChance, statuses1, statuses2]) =>
+      `${percentChance}% for auto-cure ${[...statuses1.split(', '), statuses2].join('/')}`,
+  ],
+
   // Single-target white magic bonus effects
   [
     /^(\d+|\?)% chance to grant (.*) to the target after using a single-target White Magic ability that restores HP on an ally$/,
     ([percent, status]) =>
       formatTriggeredEffect('ally W.Mag heal', 'ally ' + describeEnlirStatus(status), percent),
+  ],
+  [
+    /^(\d+|\?)% chance to remove negative effects to the target after using a single-target White Magic ability that restores HP on an ally$/,
+    ([percent, status]) => formatTriggeredEffect('ally W.Mag heal', 'ally Esuna'),
   ],
 
   // Triggered simple skills
@@ -214,15 +267,28 @@ const legendMateriaHandlers: HandlerList = [
     },
   ],
 
+  // Counter-attacks
+  [
+    /(\d+|\?)% chance to counter (?:enemy )?(.*) attacks with an ability \((.*)\)$/,
+    ([percent, attackType, effect]) => {
+      const description = resolveWithHandlers(simpleSkillHandlers, effect);
+      if (!description) {
+        return null;
+      }
+      return formatTriggeredEffect(`foe's ${attackType} atk`, description, percent);
+    },
+  ],
+
   // Triggered status ailments (imperils)
   [
-    /^(\d+|\?)% chance to cause (.*) to the target after (using|dealing damage with) a (.*) (?:ability|attack) on an enemy$/,
-    ([percent, status, isDamageTrigger, schoolOrAbility]) =>
-      formatTriggeredEffect(
-        getShortName(schoolOrAbility) + dmg(isDamageTrigger),
-        describeEnlirStatus(status),
-        percent,
-      ),
+    /^(\d+|\?)% chance to cause (.*) to the target after (using|dealing damage with) a (.*) (?:ability|attack) on an enemy(?: when equipping (.*))?$/,
+    ([percent, status, isDamageTrigger, schoolOrAbility, when]) => {
+      let trigger = getShortName(schoolOrAbility) + dmg(isDamageTrigger);
+      if (when) {
+        trigger += ' if using ' + when;
+      }
+      return formatTriggeredEffect(trigger, describeEnlirStatus(status), percent);
+    },
   ],
 
   // Trance effects
@@ -256,6 +322,11 @@ const legendMateriaHandlers: HandlerList = [
     ([percentChance, percentDamage]) =>
       `${percentChance}% cover PHY w/ -${percentDamage}% dmg taken`,
   ],
+  [
+    /^(\d+)% chance to reduce damage taken by (\d+)% when equipping (.*)$/,
+    ([percentChance, percentDamage, when]) =>
+      `${percentChance}% for -${percentDamage}% dmg taken if using ${when}`,
+  ],
 
   // Drain HP
   [
@@ -282,5 +353,11 @@ const legendMateriaHandlers: HandlerList = [
 ];
 
 export function describeMrPLegendMateria({ effect }: EnlirLegendMateria): string | null {
-  return resolveWithHandlers(legendMateriaHandlers, effect);
+  const isUncertain = effect.endsWith('?');
+  const result = resolveWithHandlers(legendMateriaHandlers, effect.replace(/\?$/, ''));
+  if (result && isUncertain) {
+    return result + '?';
+  } else {
+    return result;
+  }
 }

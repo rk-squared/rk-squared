@@ -44,6 +44,7 @@ export const statusAlias: AliasMap = {
 
     'Cast speed *2': 'fastcast',
     'Quick Cast': 'fastcast',
+    'Extended Quick Cast': 'fastcast',
     'High Quick Cast': 'hi fastcast',
     'Magical Quick Cast': 'fastzap',
     'Magical High Quick Cast': 'hi fastzap',

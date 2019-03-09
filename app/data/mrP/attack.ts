@@ -173,7 +173,7 @@ function describeThresholdDamage(
     .join(thresholdJoin);
 }
 
-function formatThreshold(
+export function formatThreshold(
   thresholdValues: string,
   thresholdName: string,
   units: string = '',

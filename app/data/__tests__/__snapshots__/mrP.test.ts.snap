@@ -1078,7 +1078,7 @@ Array [
   },
   Object {
     "character": "Edward",
-    "description": null,
+    "description": "75% for auto-cure Poison/Silence/Blind/Confuse",
     "effect": "75% chance to remove Poison, Silence, Blind and Confuse to the user after being afflicted with Poison, Silence, Blind or Confuse",
     "name": "Call of Courage",
   },
@@ -1186,13 +1186,13 @@ Array [
   },
   Object {
     "character": "Emperor",
-    "description": null,
+    "description": "(foe's BLK atk ⤇ 45% for AoE +10% earth vuln. 15s)",
     "effect": "45% chance to counter enemy BLK attacks with an ability (NAT: group, causes Imperil Earth 10% for 15 seconds)",
     "name": "Hellforged Might",
   },
   Object {
     "character": "Emperor",
-    "description": "(<20% HP ⤇ heal 100% HP, Extended Quick Cast 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, fastcast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Extended Quick Cast when HP fall below 20%",
     "name": "Soul of Rebirth",
   },
@@ -1300,7 +1300,7 @@ Array [
   },
   Object {
     "character": "Faris",
-    "description": null,
+    "description": "+3-6-9-12-20% dmg@ 1-2-3-4-5 stats lowered",
     "effect": "Increases damage dealt by 3/6/9/12/20% if 1/2/3/4/5 of the target's stats are lowered",
     "name": "Warrior Princess",
   },
@@ -1354,7 +1354,7 @@ Array [
   },
   Object {
     "character": "Fran",
-    "description": null,
+    "description": "(Support if using a bow ⤇ 30% for Stun)",
     "effect": "30% chance to cause Stun to the target after using a Support ability on an enemy when equipping a bow",
     "name": "Brawn and Brains",
   },
@@ -1456,7 +1456,7 @@ Array [
   },
   Object {
     "character": "Gaffgarion",
-    "description": "(<20% HP ⤇ heal 100% HP, Extended Quick Cast 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, fastcast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Extended Quick Cast when HP fall below 20%",
     "name": "Dark Knight's Revelry",
   },
@@ -1510,7 +1510,7 @@ Array [
   },
   Object {
     "character": "Garland",
-    "description": "(<20% HP ⤇ heal 100% HP, Extended Quick Cast 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, fastcast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Extended Quick Cast when HP fall below 20%",
     "name": "Frenzied Warrior",
   },
@@ -1570,7 +1570,7 @@ Array [
   },
   Object {
     "character": "Gau",
-    "description": "(<20% HP ⤇ heal 100% HP, Extended Quick Cast 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, fastcast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Extended Quick Cast when HP fall below 20%",
     "name": "Untamed Energy",
   },
@@ -1744,7 +1744,7 @@ Array [
   },
   Object {
     "character": "Haurchefant",
-    "description": null,
+    "description": "25% for -30% dmg taken if using a shield",
     "effect": "25% chance to reduce damage taken by 30% when equipping a shield",
     "name": "Vows Unbroken",
   },
@@ -1816,7 +1816,7 @@ Array [
   },
   Object {
     "character": "Ingus",
-    "description": null,
+    "description": "25% for -30% dmg taken if using a shield",
     "effect": "25% chance to reduce damage taken by 30% when equipping a shield",
     "name": "Loyal Heart",
   },
@@ -2032,7 +2032,7 @@ Array [
   },
   Object {
     "character": "Kimahri",
-    "description": null,
+    "description": "(foe's PHY atk ⤇ 45% for AoE +10% water vuln. 15s)",
     "effect": "45% chance to counter PHY attacks with an ability (NAT: group, causes Imperil Water 10% for 15 seconds)",
     "name": "Hornless Pride",
   },
@@ -2614,7 +2614,7 @@ Array [
   },
   Object {
     "character": "Minwu",
-    "description": null,
+    "description": "75% for auto-cure Poison/Silence/Blind/Confuse",
     "effect": "75% chance to remove Poison, Silence, Blind and Confuse to the user after being afflicted with Poison, Silence, Blind or Confuse",
     "name": "Ultimate Decree",
   },
@@ -2656,13 +2656,13 @@ Array [
   },
   Object {
     "character": "Mog",
-    "description": null,
+    "description": "(Dancer ⤇ 25% for AoE -30% ATK/MAG/MND)",
     "effect": "25% chance to cast an ability (NAT: group, ATK/MAG/MND -30%) after using a Dancer ability",
     "name": "Moogle Survivor",
   },
   Object {
     "character": "Mog",
-    "description": null,
+    "description": "fastcast 3 at battle start?",
     "effect": "Grants Quick Cast 3 at the beginning of the battle?",
     "name": "Dancing Warrior",
   },
@@ -2686,7 +2686,7 @@ Array [
   },
   Object {
     "character": "Montblanc",
-    "description": null,
+    "description": "(Dancer ⤇ 25% for AoE -30% ATK/MAG/MND)",
     "effect": "25% chance to cast an ability (NAT: group, ATK/MAG/MND -30%) after using a Dancer ability",
     "name": "Kindhearted Moogle",
   },
@@ -3460,7 +3460,7 @@ Array [
   },
   Object {
     "character": "Rosa",
-    "description": null,
+    "description": "75% for auto-cure Poison/Silence/Blind/Confuse",
     "effect": "75% chance to remove Poison, Silence, Blind and Confuse to the user after being afflicted with Poison, Silence, Blind or Confuse",
     "name": "Compassion's Boon",
   },
@@ -3724,7 +3724,7 @@ Array [
   },
   Object {
     "character": "Selphie",
-    "description": null,
+    "description": "+?% MND (max +?%) per Dancer",
     "effect": "MND +?% for each Dancer ability used, up to +?%",
     "name": "Will of Trabia",
   },
@@ -3784,7 +3784,7 @@ Array [
   },
   Object {
     "character": "Setzer",
-    "description": null,
+    "description": "(Support dmg ⤇ 30% for p0.25, AoE -30% ATK/MAG/MND)",
     "effect": "30% chance to cast an ability (PHY: single, 0.25 physical, ATK/MAG/MND -30%) after dealing damage with a Support ability",
     "name": "Fate-Defying Bet",
   },
@@ -4108,8 +4108,8 @@ Array [
   },
   Object {
     "character": "Tellah",
-    "description": null,
-    "effect": "Increases the duration of stat buffs by30%",
+    "description": "1.3x stat buffs duration",
+    "effect": "Increases the duration of stat buffs by 30%",
     "name": "Sage's Acumen",
   },
   Object {
@@ -4336,7 +4336,7 @@ Array [
   },
   Object {
     "character": "Vaan",
-    "description": null,
+    "description": "+5-10-15-20-30% dmg@ 1-2-3-4-5 stats lowered",
     "effect": "Increases damage dealt by 5/10/15/20/30% if 1/2/3/4/5 of the target's stats are lowered",
     "name": "Skybound",
   },
@@ -4372,7 +4372,7 @@ Array [
   },
   Object {
     "character": "Vanille",
-    "description": null,
+    "description": "(W.Mag ⤇ 25% for w2.0 holy, AoE -20% DEF/RES)",
     "effect": "25% chance to cast an ability (WHT: single, 2.00 magical Holy, DEF/RES -20%) after using a White Magic ability",
     "name": "Gentle Atonement",
   },
@@ -4528,7 +4528,7 @@ Array [
   },
   Object {
     "character": "Wedge",
-    "description": null,
+    "description": "100% for auto-cure Silence/Blind",
     "effect": "100% chance to remove Silence and Blind to the user after being afflicted with Silence or Blind",
     "name": "Divine Squad",
   },
@@ -4600,7 +4600,7 @@ Array [
   },
   Object {
     "character": "Y'shtola",
-    "description": null,
+    "description": "(ally W.Mag heal ⤇ ally Esuna)",
     "effect": "30% chance to remove negative effects to the target after using a single-target White Magic ability that restores HP on an ally",
     "name": "Master of Mending",
   },
