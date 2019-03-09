@@ -982,7 +982,7 @@ Array [
   },
   Object {
     "character": "Echo",
-    "description": null,
+    "description": "(Dancer ⤇ 25% for party heal 30% HP)",
     "effect": "25% chance to cast an ability (NAT: group, restores HP for 30% of the target's maximum HP) after using a Dancer ability",
     "name": "Fickle Fortune",
   },
@@ -1264,7 +1264,7 @@ Array [
   },
   Object {
     "character": "Fang",
-    "description": null,
+    "description": "(Dragoon ⤇ 35% for p2.16/4 wind+non rngd)",
     "effect": "35% chance to cast an ability (PHY: single, 4x 0.54 ranged physical Wind/NE) after using a Dragoon ability",
     "name": "Roar On High",
   },
@@ -1378,7 +1378,7 @@ Array [
   },
   Object {
     "character": "Freya",
-    "description": null,
+    "description": "(Dragoon ⤇ 25% for p1.08/2 wind+non, refill 1 abil. use)",
     "effect": "25% chance to cast an ability (PHY: single, 2x 0.54 physical Wind/NE, smart ether 1 to the user) after using a Dragoon ability",
     "name": "Devoted Dragoon",
   },
@@ -1828,7 +1828,7 @@ Array [
   },
   Object {
     "character": "Ingus",
-    "description": null,
+    "description": "(Knight ⤇ 25% for p1.26/3 earth+non, ally heal 1.5k HP)",
     "effect": "25% chance to cast an ability (PHY: single, 3x 0.42 physical Earth/NE, restores 1500 HP to an ally) after using a Knight ability",
     "name": "Silent Knight",
   },
@@ -2248,7 +2248,7 @@ Array [
   },
   Object {
     "character": "Leon",
-    "description": null,
+    "description": "+2% ATK (max +50%) per PHY dark",
     "effect": "ATK +2% for each hit dealt with PHY attacks that deal Dark damage, up to 50%",
     "name": "Penance",
   },
@@ -3892,7 +3892,7 @@ Array [
   },
   Object {
     "character": "Shantotto",
-    "description": null,
+    "description": "+1% MAG (max +20%) per BLK",
     "effect": "MAG +1% for each hit dealt with BLK attacks, up to 20%",
     "name": "Strongest Black Mage",
   },

@@ -17,7 +17,7 @@ export const doubleAlias = (s: string) => `double ${s} (uses extra hone)`;
 export const sbPointsAlias = (s: string) => `+${s} SB pts`;
 
 export const formatRandomEther = (amount: string) => 'refill ' + amount + ' random abil. use';
-export const formatSmartEther = (amount: string, type: string | undefined) =>
+export const formatSmartEther = (amount: string, type?: string | undefined) =>
   'refill ' + amount + ' ' + (type ? type + ' ' : '') + 'abil. use';
 
 /**

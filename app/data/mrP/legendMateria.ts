@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 import { arrayify } from '../../utils/typeUtils';
 import { EnlirElement, EnlirLegendMateria } from '../enlir';
 import { describeDamage } from './attack';
@@ -7,6 +9,7 @@ import {
   formatTriggeredEffect,
   parseEnlirStatus,
 } from './status';
+import { formatSmartEther } from './statusAlias';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -14,7 +17,7 @@ import {
   getElementShortName,
   getShortName,
 } from './types';
-import { andList, percentToMultiplier } from './util';
+import { andList, percentToMultiplier, toMrPKilo } from './util';
 
 const dmg = (isDamageTrigger: string | null) =>
   isDamageTrigger && isDamageTrigger.match('dealing damage with') ? ' dmg' : '';
@@ -43,25 +46,45 @@ function resolveWithHandlers(handlers: HandlerList, item: string): string | null
   return null;
 }
 
-const simpleEffectHandlers: HandlerList = [
+const skillEffectHandlers: HandlerList = [
+  [/^smart ether (\d+) to the user$/, ([amount]) => formatSmartEther(amount)],
+  [/^restores (\d+) HP to an ally$/, ([fixedHp]) => `ally heal ${toMrPKilo(+fixedHp)} HP`],
+];
+
+const simpleSkillHandlers: HandlerList = [
   // Healing
   [/^WHT: group, restores HP \((\d+)\)$/, ([healFactor]) => `party h${healFactor}`],
   [
-    /^NAT: single, restores HP for (\d+)% of the target's maximum HP$/,
-    ([healPercent]) => `ally heal ${healPercent}% HP`,
+    /^NAT: (single|group), restores HP for (\d+)% of the target's maximum HP$/,
+    ([who, healPercent]) => {
+      const whoDescription = who === 'single' ? 'ally' : 'party';
+      return `${whoDescription} heal ${healPercent}% HP`;
+    },
   ],
 
-  // Attacks PHY: single, 1.08 physical Wind
+  // Attacks
   [
-    /^PHY: random, (\d+)x ([0-9\.]+) (ranged )?physical (.*)$/,
-    ([numAttacks, attackMultiplier, isRanged, elements]) => {
+    /^PHY: (single|random), (?:(\d+)x )([0-9\.]+) (ranged )?physical ([^,]+)(, .*)?$/,
+    ([attackType, numAttacks, attackMultiplier, isRanged, elements, addedEffects]) => {
       const damageType = 'phys';
+
       let damage =
         damageTypeAbbreviation(damageType) +
-        describeDamage(parseFloat(attackMultiplier), +numAttacks) +
+        describeDamage(parseFloat(attackMultiplier), numAttacks ? +numAttacks : 1) +
         appendElement(elements.split(/\//) as EnlirElement[], getElementShortName);
       damage += isRanged ? ' rngd' : '';
-      return damage;
+
+      const effects = !addedEffects
+        ? []
+        : addedEffects
+            .split(/, /)
+            .filter(i => i !== '')
+            .map(i => resolveWithHandlers(skillEffectHandlers, i));
+      if (_.some(effects, i => i == null)) {
+        return null;
+      }
+
+      return damage + (effects.length ? ', ' + effects.join(', ') : '');
     },
   ],
 ];
@@ -111,7 +134,7 @@ const legendMateriaHandlers: HandlerList = [
 
   // Build-ups
   [
-    /([A-Z]{3}) \+(\d+)% for each hit dealt with (.*) (?:abilities|attacks)(?: that deal (.*) damage)?, up to \+(\d+)%/,
+    /([A-Z]{3}) \+(\d+)% for each hit dealt with (.*) (?:abilities|attacks)(?: that deal (.*) damage)?, up to \+?(\d+)%/,
     ([stat, bonus, type1, type2, max]) => {
       let type = formatSchoolOrAbilityList(type1);
       if (type2) {
@@ -162,7 +185,7 @@ const legendMateriaHandlers: HandlerList = [
   [
     /^(\d+)% chance to cast an ability \((.*)\) after (using|dealing damage with) a (.*) (?:ability|attack)$/,
     ([percent, effect, isDamageTrigger, schoolOrAbility]) => {
-      const description = resolveWithHandlers(simpleEffectHandlers, effect);
+      const description = resolveWithHandlers(simpleSkillHandlers, effect);
       if (!description) {
         return null;
       }
