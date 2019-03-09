@@ -11,7 +11,7 @@ import {
   hitWeaknessTriggerText,
   parseEnlirStatus,
 } from './status';
-import { formatSmartEther } from './statusAlias';
+import { formatSmartEther, sbPointsAlias } from './statusAlias';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -23,6 +23,7 @@ import { andList, percentToMultiplier, toMrPKilo } from './util';
 
 const dmg = (isDamageTrigger: string | null) =>
   isDamageTrigger && isDamageTrigger.match('dealing damage with') ? ' dmg' : '';
+const whenDescription = (when: string | null) => (when ? ` if using ${when}` : '');
 
 function describeBattleStart(statuses: string) {
   return (
@@ -161,8 +162,7 @@ const legendMateriaHandlers: HandlerList = [
     ],
     ([schoolOrElement, percent, when]) => {
       const multiplier = percentToMultiplier(+percent);
-      const whenDescription = when ? ` if using ${when}` : '';
-      return `${multiplier}x ${getShortName(schoolOrElement)} dmg` + whenDescription;
+      return `${multiplier}x ${getShortName(schoolOrElement)} dmg` + whenDescription(when);
     },
   ],
 
@@ -207,13 +207,17 @@ const legendMateriaHandlers: HandlerList = [
   // Starting statuses
   [/^Grants (.*) at the beginning of the battle$/, ([statuses]) => describeBattleStart(statuses)],
 
-  // Aphmau is weird.
+  // Unique variations of starting statuses.
   [
     /^Grants (.*) at the beginning of the battle, grants (.*) to the user when Reraise is triggered$/,
     ([statuses, reraiseStatus]) =>
       describeBattleStart(statuses) +
       ', ' +
       formatTriggeredEffect('Reraise', describeEnlirStatus(reraiseStatus)),
+  ],
+  [
+    /^Grants (.*) at the beginning of the battle, begins the round with full ATB gauge$/,
+    ([statuses]) => describeBattleStart(statuses) + ', full ATB at round start',
   ],
 
   // Triggered self statuses
@@ -283,18 +287,15 @@ const legendMateriaHandlers: HandlerList = [
   [
     /^(\d+|\?)% chance to cause (.*) to the target after (using|dealing damage with) a (.*) (?:ability|attack) on an enemy(?: when equipping (.*))?$/,
     ([percent, status, isDamageTrigger, schoolOrAbility, when]) => {
-      let trigger = getShortName(schoolOrAbility) + dmg(isDamageTrigger);
-      if (when) {
-        trigger += ' if using ' + when;
-      }
+      const trigger = getShortName(schoolOrAbility) + dmg(isDamageTrigger) + whenDescription(when);
       return formatTriggeredEffect(trigger, describeEnlirStatus(status), percent);
     },
   ],
 
   // Trance effects
   [
-    /^(Restores HP for 100% of the user's maximum HP and )?[Gg]rants (.*?)(?: for (\d+) seconds)? when HP fall below 20%$/,
-    ([isHeal, statusNames, duration]) => {
+    /^(Restores HP for 100% of the user's maximum HP(?:, grants (\d+|\?) SB points)? and )?[Gg]rants (.*?)(?: for (\d+) seconds)? when HP fall below 20%$/,
+    ([isHeal, bonusSb, statusNames, duration]) => {
       const status = statusNames.split(andList).map(i => parseEnlirStatus(i));
 
       // Process duration from the last status - it's more likely to be interesting.
@@ -305,10 +306,16 @@ const legendMateriaHandlers: HandlerList = [
         duration = formatDuration(lastStatus.defaultDuration, 'second');
       }
 
-      const statusDescription =
+      let statusDescription =
         status.map(i => (i.isTrance ? 'Trance: ' : '') + i.description).join(', ') +
         (duration ? ' ' + duration : '');
-      return formatTriggeredEffect('<20% HP', (isHeal ? 'heal 100% HP, ' : '') + statusDescription);
+      if (bonusSb) {
+        statusDescription = sbPointsAlias(bonusSb) + ', ' + statusDescription;
+      }
+      if (isHeal) {
+        statusDescription = 'heal 100% HP, ' + statusDescription;
+      }
+      return formatTriggeredEffect('<20% HP', statusDescription);
     },
   ],
 
@@ -325,7 +332,7 @@ const legendMateriaHandlers: HandlerList = [
   [
     /^(\d+)% chance to reduce damage taken by (\d+)% when equipping (.*)$/,
     ([percentChance, percentDamage, when]) =>
-      `${percentChance}% for -${percentDamage}% dmg taken if using ${when}`,
+      `${percentChance}% for -${percentDamage}% dmg taken${whenDescription(when)}`,
   ],
 
   // Drain HP
@@ -349,6 +356,15 @@ const legendMateriaHandlers: HandlerList = [
   [
     /^Exploiting elemental weakness grants (\d+|\?)% more Soul Break points \(additive with the default 50% bonus\)$/,
     ([percent]) => formatTriggeredEffect(hitWeaknessTriggerText, `+${percent}% SB gauge`),
+  ],
+  [
+    /(\d+|\?)% chance to increase Gil gained at the end of battle by (\d+|\?)% when equipping (.*)/,
+    ([percentChance, percentBonus, when]) =>
+      `${percentBonus}% for bonus ${percentBonus}% Gil${whenDescription(when)}`,
+  ],
+  [
+    /Increases base ([A-Z]{3}) by (\d+|\?)% base ([A-Z]{3})/,
+    ([statDest, percent, statSource]) => `add ${percent}% of ${statSource} to ${statDest}`,
   ],
 ];
 

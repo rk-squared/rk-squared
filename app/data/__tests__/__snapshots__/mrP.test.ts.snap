@@ -3082,7 +3082,7 @@ Array [
   },
   Object {
     "character": "Quina",
-    "description": null,
+    "description": "(<20% HP ⤇ heal 100% HP, +500 SB pts, Trance: +15% ATK/DEF/MAG/RES/MND 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP, grants 500 SB points and grants Quina Trance when HP fall below 20%",
     "name": "Qu Banquet",
   },
@@ -3154,7 +3154,7 @@ Array [
   },
   Object {
     "character": "Ramza",
-    "description": null,
+    "description": "instacast 1 at battle start, full ATB at round start",
     "effect": "Grants Instant Cast 1 at the beginning of the battle, begins the round with full ATB gauge",
     "name": "True Hero",
   },
@@ -3796,7 +3796,7 @@ Array [
   },
   Object {
     "character": "Setzer",
-    "description": null,
+    "description": "instacast 1 at battle start, full ATB at round start",
     "effect": "Grants Instant Cast 1 at the beginning of the battle, begins the round with full ATB gauge",
     "name": "Skybound Dream",
   },
@@ -4174,7 +4174,7 @@ Array [
   },
   Object {
     "character": "Thief (I)",
-    "description": null,
+    "description": "30% for bonus 30% Gil if using a dagger",
     "effect": "50% chance to increase Gil gained at the end of battle by 30% when equipping a dagger",
     "name": "Thief's Fortune",
   },
@@ -4684,7 +4684,7 @@ Array [
   },
   Object {
     "character": "Yuna",
-    "description": null,
+    "description": "add 25% of MND to MAG",
     "effect": "Increases base MAG by 25% base MND",
     "name": "Father's Footsteps",
   },
