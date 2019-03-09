@@ -53,7 +53,7 @@ const skillEffectHandlers: HandlerList = [
 
 const simpleSkillHandlers: HandlerList = [
   // Healing
-  [/^WHT: group, restores HP \((\d+)\)$/, ([healFactor]) => `party h${healFactor}`],
+  [/^WHT: group, restores HP \((\d+|\?)\)$/, ([healFactor]) => `party h${healFactor}`],
   [
     /^NAT: (single|group), restores HP for (\d+)% of the target's maximum HP$/,
     ([who, healPercent]) => {
@@ -162,28 +162,28 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered self statuses
   [
-    /^(\d+)% chance (?:of|to grant) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit))$/,
+    /^(\d+|\?)% chance (?:of|to grant) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit))$/,
     ([percent, status, duration, schoolOrElement, critical]) => {
       // TODO: Consolidate trigger logic with status.ts?
       const trigger = schoolOrElement ? getShortName(schoolOrElement) : 'crit';
       return formatTriggeredEffect(
         trigger,
         describeEnlirStatus(status) + (duration ? ' ' + duration + 's' : ''),
-        +percent,
+        percent,
       );
     },
   ],
 
   // Single-target white magic bonus effects
   [
-    /^(\d+)% chance to grant (.*) to the target after using a single-target White Magic ability that restores HP on an ally$/,
+    /^(\d+|\?)% chance to grant (.*) to the target after using a single-target White Magic ability that restores HP on an ally$/,
     ([percent, status]) =>
-      formatTriggeredEffect('ally W.Mag heal', 'ally ' + describeEnlirStatus(status), +percent),
+      formatTriggeredEffect('ally W.Mag heal', 'ally ' + describeEnlirStatus(status), percent),
   ],
 
   // Triggered simple skills
   [
-    /^(\d+)% chance to cast an ability \((.*)\) after (using|dealing damage with) a (.*) (?:ability|attack)$/,
+    /^(\d+|\?)% chance to cast an ability \((.*)\) after (using|dealing damage with) a (.*) (?:ability|attack)$/,
     ([percent, effect, isDamageTrigger, schoolOrAbility]) => {
       const description = resolveWithHandlers(simpleSkillHandlers, effect);
       if (!description) {
@@ -192,19 +192,19 @@ const legendMateriaHandlers: HandlerList = [
       return formatTriggeredEffect(
         getShortName(schoolOrAbility) + dmg(isDamageTrigger),
         description,
-        +percent,
+        percent,
       );
     },
   ],
 
   // Triggered status ailments (imperils)
   [
-    /^(\d+)% chance to cause (.*) to the target after (using|dealing damage with) a (.*) (?:ability|attack) on an enemy$/,
+    /^(\d+|\?)% chance to cause (.*) to the target after (using|dealing damage with) a (.*) (?:ability|attack) on an enemy$/,
     ([percent, status, isDamageTrigger, schoolOrAbility]) =>
       formatTriggeredEffect(
         getShortName(schoolOrAbility) + dmg(isDamageTrigger),
         describeEnlirStatus(status),
-        +percent,
+        percent,
       ),
   ],
 

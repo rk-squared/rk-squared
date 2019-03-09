@@ -39,7 +39,7 @@ import {
 } from './util';
 
 const finisherText = 'Finisher: ';
-export const formatTriggeredEffect = (trigger: string, description: string, percent?: number) =>
+export const formatTriggeredEffect = (trigger: string, description: string, percent?: string) =>
   '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
 
 /**
