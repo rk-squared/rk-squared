@@ -9,15 +9,18 @@ interface Props {
 
 export default class MessageBox extends React.Component<Props> {
   render() {
-    const { message: { text, color }, onClose } = this.props;
+    const {
+      message: { text, color },
+      onClose,
+    } = this.props;
     return (
       <div className={`alert alert-${color}`} role="alert">
-        {text}
-        {onClose &&
+        {onClose && (
           <button type="button" className="close" aria-label="Close" onClick={onClose}>
             <span aria-hidden="true">&times;</span>
           </button>
-        }
+        )}
+        {text}
       </div>
     );
   }

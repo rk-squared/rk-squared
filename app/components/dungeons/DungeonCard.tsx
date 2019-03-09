@@ -100,7 +100,6 @@ export class DungeonCard extends React.PureComponent<ConnectedProps> {
         titleClassName={classNames(styles.title, { [styles.seriesIcon]: isSeriesIcon })}
         titleStyle={{ backgroundImage: icon ? `url(${icon}` : undefined }}
       >
-        {icon != null && <img src={icon} />}
         {noMessage ? (
           <p className="mb-0">{noMessage}</p>
         ) : (
