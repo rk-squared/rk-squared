@@ -654,7 +654,15 @@ function describeEnlirStatusEffect(
       .map(i => 1 + i / 100)
       .map(toMrPFixed)
       .join('-');
-    return boost + 'x ' + getMiddleName(schoolOrAbility) + ' dmg';
+    return (
+      boost +
+      'x ' +
+      schoolOrAbility
+        .split(andList)
+        .map(getMiddleName)
+        .join('/') +
+      ' dmg'
+    );
   }
 
   if ((m = effect.match(/[Ss]ets the damage cap for (.*) attacks to 99999/))) {

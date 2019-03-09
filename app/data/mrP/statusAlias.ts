@@ -100,6 +100,10 @@ export const statusAlias: AliasMap = {
     'Stoneskin: {X}%': 'Negate dmg {X}%',
     'Reraise: {X}%': 'Reraise {X}%',
 
+    // This should perhaps be a multiplier to match the rest of MrP - but I'm
+    // considering switching everything to percents.
+    'Heals +{X}%': '+{X}% healing',
+
     'Critical Chance {X}%': 'crit ={X}%',
     'Critical Damage +{X}%': '+{X}% crit dmg',
     // The FFRK Community spreadsheet has both forms.  This is probably an error.
