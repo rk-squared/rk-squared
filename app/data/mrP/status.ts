@@ -41,8 +41,8 @@ import {
 } from './util';
 
 const finisherText = 'Finisher: ';
-export const formatTriggeredEffect = (trigger: string, description: string) =>
-  '(' + trigger + ' ⤇ ' + description + ')';
+export const formatTriggeredEffect = (trigger: string, description: string, percent?: number) =>
+  '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
 
 /**
  * Status effects which should be omitted from the regular status list
