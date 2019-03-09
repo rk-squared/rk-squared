@@ -497,7 +497,11 @@ export function describeEnlirStatus(
   // into, e.g., +30% MAG to match MMP
   const statMod = statusAsStatMod(status, enlirStatus);
   if (statMod) {
-    return statMod.amount + ' ' + describeStats(statMod.stat);
+    let result = statMod.amount + ' ' + describeStats(statMod.stat);
+    if (status.match(/for Next Damaging Action/)) {
+      result += ' for next atk';
+    }
+    return result;
   }
 
   // Turn-limited versions of generic statuses.  Some turn-limited versions,

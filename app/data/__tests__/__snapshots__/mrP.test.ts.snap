@@ -2518,8 +2518,8 @@ Array [
   },
   Object {
     "character": "Master",
-    "description": null,
-    "effect": "25% chance to grant ATK +35% for Next Damaging Action after using a Monk ability",
+    "description": "(Monk ⤇ 25% for +35% ATK for next atk)",
+    "effect": "25% chance to grant ATK +35% for Next Damaging Action to the user after using a Monk ability",
     "name": "Glimmer of Insight",
   },
   Object {
@@ -3214,8 +3214,8 @@ Array [
   },
   Object {
     "character": "Refia",
-    "description": null,
-    "effect": "Grants ATK +50% for Next Damaging Action after dealing a critical hit",
+    "description": "(crit ⤇ +50% ATK for next atk)",
+    "effect": "Grants ATK +50% for Next Damaging Action to the user after dealing a critical hit",
     "name": "Competitive Spirit",
   },
   Object {

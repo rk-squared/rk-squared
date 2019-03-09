@@ -222,7 +222,7 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered self statuses
   [
-    /^(\d+|\?)% chance (?:of|to grant) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit)|(taking damage from an enemy))$/,
+    /^(?:(\d+|\?)% chance (?:of|to grant)|[Gg]rants) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit)|(taking damage from an enemy))$/,
     ([percent, status, duration, schoolOrElement, critical, takeDamage]) => {
       // TODO: Consolidate trigger logic with status.ts?
       const trigger = schoolOrElement
