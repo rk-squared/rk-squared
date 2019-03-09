@@ -212,7 +212,7 @@
     "realm": "Core",
     "character": "Dr. Mog",
     "name": "Overflowing Magic",
-    "effect": "35% chance to grant Quick Cast 1 when using a Black Magic or Summoning ability",
+    "effect": "35% chance to grant Quick Cast 1 to the user after using a Black Magic or Summoning ability",
     "master": "MAG +10",
     "relic": "Metal Slime Hat (Core)",
     "nameJp": "あふれる魔力",

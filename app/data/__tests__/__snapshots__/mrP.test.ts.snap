@@ -802,7 +802,7 @@ Array [
   },
   Object {
     "character": "Cloud of Darkness",
-    "description": null,
+    "description": "(dark ⤇ 35% for AoE m4.4 dark)",
     "effect": "35% chance to cast an ability (BLK: group, 4.40 magical Dark) after using a Dark ability",
     "name": "Effusing Darkness",
   },
@@ -826,7 +826,7 @@ Array [
   },
   Object {
     "character": "Curilla",
-    "description": null,
+    "description": "(take dmg ⤇ 35% for Magic Blink 1)",
     "effect": "35% chance to grant Magic Blink 1 to the user after taking damage from an enemy",
     "name": "Faith in the Dawn",
   },
@@ -970,8 +970,8 @@ Array [
   },
   Object {
     "character": "Dr. Mog",
-    "description": null,
-    "effect": "35% chance to grant Quick Cast 1 when using a Black Magic or Summoning ability",
+    "description": "(B.Mag/Summon ⤇ 35% for fastcast 1)",
+    "effect": "35% chance to grant Quick Cast 1 to the user after using a Black Magic or Summoning ability",
     "name": "Overflowing Magic",
   },
   Object {
@@ -2200,7 +2200,7 @@ Array [
   },
   Object {
     "character": "Leila",
-    "description": "(Water or Poison ⤇ 25% for fastcast 1)",
+    "description": "(water/bio ⤇ 25% for fastcast 1)",
     "effect": "25% chance to grant Quick Cast 1 to the user after using a Water or Poison attack",
     "name": "Maiden of the Sea",
   },
@@ -4060,7 +4060,7 @@ Array [
   },
   Object {
     "character": "Strago",
-    "description": null,
+    "description": "(take dmg ⤇ 25% for party heal 30% HP)",
     "effect": "25% chance to cast an ability (NAT: group, restores HP for 30% of the target's maximum HP) after taking damage from an enemy",
     "name": "Waker of Hope",
   },
@@ -4498,7 +4498,7 @@ Array [
   },
   Object {
     "character": "Warrior of Light",
-    "description": null,
+    "description": "(take dmg ⤇ 25% for p1.26/3 holy+non, ally heal 1.5k HP)",
     "effect": "25% chance to cast an ability (PHY: single, 3x 0.42 physical Holy/NE, 1500 HP to an ally) after taking damage from an enemy",
     "name": "Steadfast Warrior",
   },

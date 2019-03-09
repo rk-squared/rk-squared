@@ -50,7 +50,7 @@ function resolveWithHandlers(handlers: HandlerList, item: string): string | null
 const skillEffectHandlers: HandlerList = [
   [/^smart ether (\d+) to the user$/, ([amount]) => formatSmartEther(amount)],
   [
-    /^restores (\d+) HP to (?:an ally|the lowest HP% ally)$/,
+    /^(?:restores )?(\d+) HP to (?:an ally|the lowest HP% ally)$/,
     ([fixedHp]) => `ally heal ${toMrPKilo(+fixedHp)} HP`,
   ],
 ];
@@ -68,7 +68,7 @@ const simpleSkillHandlers: HandlerList = [
 
   // Attacks
   [
-    /^(PHY|BLK|WHT): (single|random), (?:(\d+)x )?([0-9\.]+) (ranged )?(physical|magical) ([^,]+)(, .*)?$/,
+    /^(PHY|BLK|WHT): (single|random|group), (?:(\d+)x )?([0-9\.]+) (ranged )?(physical|magical) ([^,]+)(, .*)?$/,
     ([
       type,
       attackType,
@@ -82,6 +82,7 @@ const simpleSkillHandlers: HandlerList = [
       const damageType = describeDamageType(formula as EnlirFormula, type as EnlirSkillType);
 
       let damage =
+        (attackType === 'group' ? 'AoE ' : '') +
         damageTypeAbbreviation(damageType) +
         describeDamage(parseFloat(attackMultiplier), numAttacks ? +numAttacks : 1) +
         appendElement(elements.split(/\//) as EnlirElement[], getElementShortName);
@@ -175,10 +176,14 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered self statuses
   [
-    /^(\d+|\?)% chance (?:of|to grant) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit))$/,
-    ([percent, status, duration, schoolOrElement, critical]) => {
+    /^(\d+|\?)% chance (?:of|to grant) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit)|(taking damage from an enemy))$/,
+    ([percent, status, duration, schoolOrElement, critical, takeDamage]) => {
       // TODO: Consolidate trigger logic with status.ts?
-      const trigger = schoolOrElement ? getShortName(schoolOrElement) : 'crit';
+      const trigger = schoolOrElement
+        ? formatSchoolOrAbilityList(schoolOrElement)
+        : critical
+        ? 'crit'
+        : 'take dmg';
       return formatTriggeredEffect(
         trigger,
         describeEnlirStatus(status) + (duration ? ' ' + duration + 's' : ''),
@@ -196,17 +201,16 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered simple skills
   [
-    /^(\d+|\?)% chance to cast an ability \((.*)\) after (using|dealing damage with) a (.*) (?:ability|attack)$/,
-    ([percent, effect, isDamageTrigger, schoolOrAbility]) => {
+    /^(\d+|\?)% chance to cast an ability \((.*)\) after (?:(using|dealing damage with) a (.*) (?:ability|attack)|(taking damage from an enemy))$/,
+    ([percent, effect, isDamageTrigger, schoolOrAbility, takeDamage]) => {
       const description = resolveWithHandlers(simpleSkillHandlers, effect);
       if (!description) {
         return null;
       }
-      return formatTriggeredEffect(
-        getShortName(schoolOrAbility) + dmg(isDamageTrigger),
-        description,
-        percent,
-      );
+      const trigger = schoolOrAbility
+        ? getShortName(schoolOrAbility) + dmg(isDamageTrigger)
+        : 'take dmg';
+      return formatTriggeredEffect(trigger, description, percent);
     },
   ],
 
