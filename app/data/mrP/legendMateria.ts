@@ -21,6 +21,7 @@ import {
 } from './types';
 import { andList, percentToMultiplier, toMrPKilo } from './util';
 
+const tranceTriggerText = '<20% HP';
 const dmg = (isDamageTrigger: string | null) =>
   isDamageTrigger && isDamageTrigger.match('dealing damage with') ? ' dmg' : '';
 const whenDescription = (when: string | null) => (when ? ` if using ${when}` : '');
@@ -315,7 +316,26 @@ const legendMateriaHandlers: HandlerList = [
       if (isHeal) {
         statusDescription = 'heal 100% HP, ' + statusDescription;
       }
-      return formatTriggeredEffect('<20% HP', statusDescription);
+      return formatTriggeredEffect(tranceTriggerText, statusDescription);
+    },
+  ],
+  // Josef's unique LM2.  We ought to parse this using the same logic that we
+  // do for the main function, but that's too much work...
+  [
+    /^Causes (.*), restores HP to all allies for (\d+|\?)% max HP and grants (.*) to all allies when HP fall below 20%$/,
+    ([selfStatus, healPercent, partyStatus]) => {
+      const selfStatusDescription = selfStatus
+        .split(andList)
+        .map(i => describeEnlirStatus(i))
+        .join(', ');
+      const partyStatusDescription = partyStatus
+        .split(andList)
+        .map(i => describeEnlirStatus(i))
+        .join(', ');
+      return formatTriggeredEffect(
+        tranceTriggerText,
+        `self ${selfStatusDescription}, party heal ${healPercent}% HP, ${partyStatusDescription}`,
+      );
     },
   ],
 
@@ -358,12 +378,12 @@ const legendMateriaHandlers: HandlerList = [
     ([percent]) => formatTriggeredEffect(hitWeaknessTriggerText, `+${percent}% SB gauge`),
   ],
   [
-    /(\d+|\?)% chance to increase Gil gained at the end of battle by (\d+|\?)% when equipping (.*)/,
+    /^(\d+|\?)% chance to increase Gil gained at the end of battle by (\d+|\?)% when equipping (.*)$/,
     ([percentChance, percentBonus, when]) =>
       `${percentBonus}% for bonus ${percentBonus}% Gil${whenDescription(when)}`,
   ],
   [
-    /Increases base ([A-Z]{3}) by (\d+|\?)% base ([A-Z]{3})/,
+    /^Increases base ([A-Z]{3}) by (\d+|\?)% base ([A-Z]{3})$/,
     ([statDest, percent, statSource]) => `add ${percent}% of ${statSource} to ${statDest}`,
   ],
 ];

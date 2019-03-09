@@ -1924,7 +1924,7 @@ Array [
   },
   Object {
     "character": "Josef",
-    "description": null,
+    "description": "(<20% HP ⤇ self Doom 15s, party heal 55% HP, Last stand)",
     "effect": "Causes Doom: 15, restores HP to all allies for 55% max HP and grants Last Stand to all allies when HP fall below 20%",
     "name": "Fitting End",
   },
