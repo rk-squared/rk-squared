@@ -394,7 +394,7 @@ Array [
   },
   Object {
     "character": "Barret",
-    "description": null,
+    "description": "(Machinist ⤇ 35% for p2.17/7 fire+non rngd)",
     "effect": "35% chance to cast an ability (PHY: random, 7x 0.31 ranged physical Fire/NE) after using a Machinist ability",
     "name": "Vermin Exterminator",
   },
@@ -418,7 +418,7 @@ Array [
   },
   Object {
     "character": "Bartz",
-    "description": null,
+    "description": "10% triplecast Spellblade",
     "effect": "10% chance to dualcast Spellblade abilities twice",
     "name": "Fragments of Grace",
   },
@@ -490,7 +490,7 @@ Array [
   },
   Object {
     "character": "Biggs",
-    "description": null,
+    "description": "1.25x PHY dmg if using heavy armor",
     "effect": "PHY attacks deal 25% more damage when equipping heavy armor",
     "name": "Fearsome Demon",
   },
@@ -634,7 +634,7 @@ Array [
   },
   Object {
     "character": "Ceodore",
-    "description": null,
+    "description": "(Knight ⤇ 35% for ally heal 40% HP)",
     "effect": "35% chance to cast an ability (NAT: single, restores HP for 40% of the target's maximum HP) after using a Knight ability",
     "name": "Fledging Red Wings",
   },
@@ -676,7 +676,7 @@ Array [
   },
   Object {
     "character": "Cid (VII)",
-    "description": null,
+    "description": "+2% ATK (max +50%) per PHY wind",
     "effect": "ATK +2% for each hit dealt with PHY attacks that deal Wind damage, up to +50%",
     "name": "Air Supremacy",
   },
@@ -1006,7 +1006,7 @@ Array [
   },
   Object {
     "character": "Edea",
-    "description": null,
+    "description": "+1% MAG (max +30%) per BLK ice",
     "effect": "MAG +1% for each hit dealt with BLK attacks that deal Ice damage, up to +30%",
     "name": "Future Secrets",
   },
@@ -1042,7 +1042,7 @@ Array [
   },
   Object {
     "character": "Edgar",
-    "description": null,
+    "description": "10% triplecast Machinist",
     "effect": "10% chance to dualcast Machinist abilities twice",
     "name": "Master of Machines",
   },
@@ -1426,7 +1426,7 @@ Array [
   },
   Object {
     "character": "Gabranth",
-    "description": null,
+    "description": "+2% ATK (max +50%) per PHY dark",
     "effect": "ATK +2% for each hit dealt with PHY attacks that deal Dark damage, up to +50%",
     "name": "Fed by Hatred",
   },
@@ -1726,7 +1726,7 @@ Array [
   },
   Object {
     "character": "Guy",
-    "description": null,
+    "description": "1.2x PHY dmg if using an axe",
     "effect": "PHY attacks deal 20% more damage when equipping an axe",
     "name": "Hale and Hearty",
   },
@@ -2374,7 +2374,7 @@ Array [
   },
   Object {
     "character": "Lulu",
-    "description": null,
+    "description": "+1% MAG (max +20%) per BLK ice",
     "effect": "MAG +1% for each hit dealt with BLK attacks that deal Ice damage, up to +20%",
     "name": "Third Pilgrimage",
   },
@@ -3244,7 +3244,7 @@ Array [
   },
   Object {
     "character": "Reks",
-    "description": null,
+    "description": "(Spellblade ⤇ 25% for ally heal 40% HP)",
     "effect": "25% chance to cast an ability (NAT: single, restores HP for 40% of the target's maximum HP) after using a Spellblade ability",
     "name": "Youngest Knight",
   },
@@ -3760,7 +3760,7 @@ Array [
   },
   Object {
     "character": "Serah",
-    "description": null,
+    "description": "+1% MAG (max +30%) per BLK ice",
     "effect": "MAG +1% for each hit dealt with BLK attacks that deal Ice damage, up to +30%",
     "name": "Time Traveller",
   },
@@ -3880,7 +3880,7 @@ Array [
   },
   Object {
     "character": "Shantotto",
-    "description": null,
+    "description": "10% triplecast Witch",
     "effect": "10% chance to dualcast Witch abilities twice",
     "name": "Master Caster",
   },

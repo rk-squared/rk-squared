@@ -128,7 +128,7 @@ function describeConvergentDamage(
   );
 }
 
-function describeDamage(
+export function describeDamage(
   attackMultiplier: number,
   numAttacks: number,
   includeNumAttacks: boolean = true,

@@ -1,12 +1,19 @@
 import { arrayify } from '../../utils/typeUtils';
-import { EnlirLegendMateria } from '../enlir';
+import { EnlirElement, EnlirLegendMateria } from '../enlir';
+import { describeDamage } from './attack';
 import {
   describeEnlirStatus,
   formatDuration,
   formatTriggeredEffect,
   parseEnlirStatus,
 } from './status';
-import { formatSchoolOrAbilityList, getShortName } from './types';
+import {
+  appendElement,
+  damageTypeAbbreviation,
+  formatSchoolOrAbilityList,
+  getElementShortName,
+  getShortName,
+} from './types';
 import { andList, percentToMultiplier } from './util';
 
 const dmg = (isDamageTrigger: string | null) =>
@@ -37,7 +44,26 @@ function resolveWithHandlers(handlers: HandlerList, item: string): string | null
 }
 
 const simpleEffectHandlers: HandlerList = [
+  // Healing
   [/^WHT: group, restores HP \((\d+)\)$/, ([healFactor]) => `party h${healFactor}`],
+  [
+    /^NAT: single, restores HP for (\d+)% of the target's maximum HP$/,
+    ([healPercent]) => `ally heal ${healPercent}% HP`,
+  ],
+
+  // Attacks PHY: single, 1.08 physical Wind
+  [
+    /^PHY: random, (\d+)x ([0-9\.]+) (ranged )?physical (.*)$/,
+    ([numAttacks, attackMultiplier, isRanged, elements]) => {
+      const damageType = 'phys';
+      let damage =
+        damageTypeAbbreviation(damageType) +
+        describeDamage(parseFloat(attackMultiplier), +numAttacks) +
+        appendElement(elements.split(/\//) as EnlirElement[], getElementShortName);
+      damage += isRanged ? ' rngd' : '';
+      return damage;
+    },
+  ],
 ];
 
 const legendMateriaHandlers: HandlerList = [
@@ -51,15 +77,25 @@ const legendMateriaHandlers: HandlerList = [
       `${percent}% dualcast ${formatSchoolOrAbilityList(schoolOrElement)}`,
   ],
 
+  // Triplecast!!!
+  [
+    [
+      /^(\d+)% chance to dualcast abilities that deal (.*) damage twice$/,
+      /^(\d+)% chance to dualcast (.*) abilities twice$/,
+    ],
+    ([percent, schoolOrElement]) =>
+      `${percent}% triplecast ${formatSchoolOrAbilityList(schoolOrElement)}`,
+  ],
+
   // Damage bonuses
   [
     [
       /^Increases (\w+) damage dealt by (\d+)%$/,
-      /^(.*) (?:abilities|attacks) deal (\d+)% more damage(?: when equipping a (.*))?$/,
+      /^(.*) (?:abilities|attacks) deal (\d+)% more damage(?: when equipping (.*))?$/,
     ],
     ([schoolOrElement, percent, when]) => {
       const multiplier = percentToMultiplier(+percent);
-      const whenDescription = when ? ` if using a ${when}` : '';
+      const whenDescription = when ? ` if using ${when}` : '';
       return `${multiplier}x ${getShortName(schoolOrElement)} dmg` + whenDescription;
     },
   ],
@@ -75,9 +111,14 @@ const legendMateriaHandlers: HandlerList = [
 
   // Build-ups
   [
-    /([A-Z]{3}) \+(\d+)% for each hit dealt with (.*) (?:abilities|attacks), up to \+(\d+)%/,
-    ([stat, bonus, schoolOrAbility, max]) =>
-      `+${bonus}% ${stat} (max +${max}%) per ${formatSchoolOrAbilityList(schoolOrAbility)}`,
+    /([A-Z]{3}) \+(\d+)% for each hit dealt with (.*) (?:abilities|attacks)(?: that deal (.*) damage)?, up to \+(\d+)%/,
+    ([stat, bonus, type1, type2, max]) => {
+      let type = formatSchoolOrAbilityList(type1);
+      if (type2) {
+        type += ' ' + formatSchoolOrAbilityList(type2);
+      }
+      return `+${bonus}% ${stat} (max +${max}%) per ${type}`;
+    },
   ],
   [
     /([A-Z]{3}) \+(\d+)% for each hit taken by damaging attacks, up to \+(\d+)%/,
