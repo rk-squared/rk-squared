@@ -18,10 +18,8 @@ import {
   splitNumbered,
 } from './statusAlias';
 import {
-  formatMediumList,
   formatSchoolOrAbilityList,
   getAbbreviation,
-  getMiddleName,
   getShortName,
   XRegExpNamedGroups,
 } from './types';
@@ -482,13 +480,13 @@ export function describeEnlirStatus(
     if (type === 'Weakness') {
       return `${multiplier}x dmg vs weak` + formatTurns(turns);
     } else {
-      return `${multiplier}x ${formatMediumList(type)} dmg` + formatTurns(turns);
+      return `${multiplier}x ${formatSchoolOrAbilityList(type)} dmg` + formatTurns(turns);
     }
   }
   if ((m = status.match(/(.*) Gauge \+(\d+)% Booster(?: (\d+))?/))) {
     const [, type, percent, turns] = m;
     const multiplier = toMrPFixed(percentToMultiplier(+percent));
-    return `${multiplier}x SB gauge from ${formatMediumList(type)}` + formatTurns(turns);
+    return `${multiplier}x SB gauge from ${formatSchoolOrAbilityList(type)}` + formatTurns(turns);
   }
   if ((m = status.match(/(.*) Double/))) {
     return doubleAlias(formatSchoolOrAbilityList(m[1]));
@@ -659,7 +657,7 @@ function describeEnlirStatusEffect(
       'x ' +
       schoolOrAbility
         .split(andList)
-        .map(getMiddleName)
+        .map(formatSchoolOrAbilityList)
         .join('/') +
       ' dmg'
     );

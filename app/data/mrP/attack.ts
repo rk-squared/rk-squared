@@ -4,7 +4,6 @@ import * as XRegExp from 'xregexp';
 import { EnlirBurstCommand, EnlirElement, EnlirSchool, EnlirSkill, isSoulBreak } from '../enlir';
 import { describeEnlirStatus } from './status';
 import {
-  formatMediumList,
   formatSchoolOrAbilityList,
   getElementShortName,
   getSchoolShortName,
@@ -594,7 +593,7 @@ export function parseEnlirAttack(
   } else if (m.attackThresholdType) {
     scaleType = formatThreshold(
       m.attackThresholdCount,
-      formatMediumList(m.attackThresholdType) + ' used',
+      formatSchoolOrAbilityList(m.attackThresholdType) + ' used',
     );
   } else if (m.simpleAttackThresholdCount) {
     scaleType = formatThreshold(m.simpleAttackThresholdCount, 'atks');

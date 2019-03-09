@@ -6,6 +6,7 @@ import { allTranceStatus, isTranceStatus } from '../mrP/status';
 import { parseNumberString, parsePercentageCounts } from '../mrP/util';
 
 import { enlir, EnlirSoulBreak } from '../enlir';
+import { describeMrPLegendMateria } from '../mrP/legendMateria';
 
 const soulBreaks = _.keyBy(_.values(enlir.soulBreaks), i => i.character + ' - ' + i.name);
 
@@ -2336,5 +2337,17 @@ describe('mrP', () => {
         other: '+10?% earth vuln. 25s, self +10% earth dmg 15s',
       });
     });
+  });
+
+  describe('describeMrPLegendMateria', () => {
+    const allLegendMateria = _.sortBy(_.values(enlir.legendMateria), ['character', 'id']).map(
+      i => ({
+        name: i.name,
+        character: i.character,
+        effect: i.effect,
+        description: describeMrPLegendMateria(i),
+      }),
+    );
+    expect(allLegendMateria).toMatchSnapshot();
   });
 });

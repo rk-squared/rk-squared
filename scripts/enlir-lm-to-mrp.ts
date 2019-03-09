@@ -3,7 +3,7 @@
 import * as _ from 'lodash';
 
 import { enlir } from '../app/data/enlir';
-import { formatMrPLegendMateria } from '../app/data/mrP/legendMateria';
+import { describeMrPLegendMateria } from '../app/data/mrP/legendMateria';
 
 // tslint:disable: no-console
 
@@ -18,7 +18,7 @@ for (const lm of _.sortBy(Object.values(enlir.legendMateria), ['character', 'id'
     console.log(lm.character);
   }
 
-  let effect = formatMrPLegendMateria(lm);
+  let effect = describeMrPLegendMateria(lm);
   if (effect) {
     handledCount++;
   } else {

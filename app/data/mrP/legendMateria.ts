@@ -183,6 +183,6 @@ const legendMateriaHandlers: HandlerList = [
   ],
 ];
 
-export function formatMrPLegendMateria({ effect }: EnlirLegendMateria): string | null {
+export function describeMrPLegendMateria({ effect }: EnlirLegendMateria): string | null {
   return resolveWithHandlers(legendMateriaHandlers, effect);
 }
