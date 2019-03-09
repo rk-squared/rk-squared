@@ -41,7 +41,7 @@ import {
 } from './util';
 
 const finisherText = 'Finisher: ';
-const formatTriggeredEffect = (trigger: string, description: string) =>
+export const formatTriggeredEffect = (trigger: string, description: string) =>
   '(' + trigger + ' ⤇ ' + description + ')';
 
 /**

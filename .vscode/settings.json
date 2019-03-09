@@ -129,6 +129,7 @@
     "magicites",
     "medica",
     "prefs",
+    "tooltips",
     "undeads"
   ],
   "editor.formatOnSave": true,
