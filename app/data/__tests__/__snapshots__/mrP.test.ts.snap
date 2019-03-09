@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` 1`] = `
+exports[`mrP describeMrPLegendMateria converts all legend materia 1`] = `
 Array [
   Object {
     "character": "Ace",
@@ -274,8 +274,8 @@ Array [
   },
   Object {
     "character": "Ashe",
-    "description": null,
-    "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Lightning/NE, restores 1500 HP to the lowest HP% ally) after using an ability that deals Lightning damage",
+    "description": "(lgt dmg ⤇ 25% for m9.09/3 lgt+non, ally heal 1.5k HP)",
+    "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Lightning/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Lightning attack",
     "name": "Self Chosen Future",
   },
   Object {
@@ -556,7 +556,7 @@ Array [
   },
   Object {
     "character": "Cecil (Dark Knight)",
-    "description": null,
+    "description": "(single-target dark ⤇ 40% for heal 40% of dmg)",
     "effect": "40% chance of restoring HP to the user for 40% of the damage dealt with single-target Dark attacks",
     "name": "Thirsting Fang",
   },
@@ -610,7 +610,7 @@ Array [
   },
   Object {
     "character": "Celes",
-    "description": null,
+    "description": "(hit weak ⤇ +50% SB gauge)",
     "effect": "Exploiting elemental weakness grants 50% more Soul Break points (additive with the default 50% bonus)",
     "name": "Rune Knight Soulmaster",
   },
@@ -1504,7 +1504,7 @@ Array [
   },
   Object {
     "character": "Garland",
-    "description": null,
+    "description": "(single-target dark ⤇ 40% for heal 40% of dmg)",
     "effect": "40% chance of restoring HP to the user for 40% of the damage dealt with single-target Dark attacks",
     "name": "Font of Darkness",
   },
@@ -2884,7 +2884,7 @@ Array [
   },
   Object {
     "character": "Orran",
-    "description": null,
+    "description": "(W.Mag ⤇ ?% for party h?)",
     "effect": "?% chance to cast an ability (WHT: group, restores HP (?)) after using a White Magic ability",
     "name": "Southern Sky Tactics",
   },
@@ -3298,7 +3298,7 @@ Array [
   },
   Object {
     "character": "Rem",
-    "description": null,
+    "description": "(holy ⤇ 50% for w5.05 holy+fire+non)",
     "effect": "50% chance to cast an ability (WHT: single, 5.05 magical Holy/Fire/NE) after using a Holy attack",
     "name": "Saint's Fire",
   },
@@ -3826,7 +3826,7 @@ Array [
   },
   Object {
     "character": "Seymour",
-    "description": null,
+    "description": "(single-target dark ⤇ 40% for heal 40% of dmg)",
     "effect": "40% chance of restoring HP to the user for 40% of the damage dealt with single-target Dark attacks",
     "name": "Stealer of Light",
   },
@@ -4030,7 +4030,7 @@ Array [
   },
   Object {
     "character": "Steiner",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +25% ATK/DEF, 1.25x fire/ice/lgt/earth/wind/water/holy/dark/bio dmg 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +25% ATK/DEF, 1.25x elem dmg 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Steiner Trance when HP fall below 20%",
     "name": "Walker of the Path",
   },
@@ -4546,7 +4546,7 @@ Array [
   },
   Object {
     "character": "Wol",
-    "description": "(<20% HP ⤇ 1.25x fire/ice/lgt/earth/wind/water/holy/dark/bio dmg 25s)",
+    "description": "(<20% HP ⤇ 1.25x elem dmg 25s)",
     "effect": "Grants Elemental Boost when HP fall below 20%",
     "name": "Breaker of Laws",
   },
@@ -4720,7 +4720,7 @@ Array [
   },
   Object {
     "character": "Zack",
-    "description": null,
+    "description": "(Celerity ⤇ 50% for p1.08 wind)",
     "effect": "50% chance to cast an ability (PHY: single, 1.08 physical Wind) after using a Celerity ability",
     "name": "SOLDIER Follow-Up",
   },
@@ -4738,7 +4738,7 @@ Array [
   },
   Object {
     "character": "Zeid",
-    "description": null,
+    "description": "(single-target dark ⤇ 40% for heal 40% of dmg)",
     "effect": "40% chance of restoring HP to the user for 40% of the damage dealt with single-target Dark attacks",
     "name": "Galkan Secrets",
   },

@@ -6141,7 +6141,7 @@
     "realm": "XII",
     "character": "Ashe",
     "name": "Self Chosen Future",
-    "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Lightning/NE, restores 1500 HP to the lowest HP% ally) after using an ability that deals Lightning damage",
+    "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Lightning/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Lightning attack",
     "master": "MAG +10",
     "relic": "Golden Shield (XII)",
     "nameJp": "自らが選ぶ未来",

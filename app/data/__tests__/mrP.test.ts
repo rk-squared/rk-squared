@@ -2340,14 +2340,16 @@ describe('mrP', () => {
   });
 
   describe('describeMrPLegendMateria', () => {
-    const allLegendMateria = _.sortBy(_.values(enlir.legendMateria), ['character', 'id']).map(
-      i => ({
-        name: i.name,
-        character: i.character,
-        effect: i.effect,
-        description: describeMrPLegendMateria(i),
-      }),
-    );
-    expect(allLegendMateria).toMatchSnapshot();
+    it('converts all legend materia', () => {
+      const allLegendMateria = _.sortBy(_.values(enlir.legendMateria), ['character', 'id']).map(
+        i => ({
+          name: i.name,
+          character: i.character,
+          effect: i.effect,
+          description: describeMrPLegendMateria(i),
+        }),
+      );
+      expect(allLegendMateria).toMatchSnapshot();
+    });
   });
 });

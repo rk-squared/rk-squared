@@ -39,6 +39,7 @@ import {
 } from './util';
 
 const finisherText = 'Finisher: ';
+export const hitWeaknessTriggerText = 'hit weak';
 export const formatTriggeredEffect = (trigger: string, description: string, percent?: string) =>
   '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
 
@@ -652,15 +653,7 @@ function describeEnlirStatusEffect(
       .map(i => 1 + i / 100)
       .map(toMrPFixed)
       .join('-');
-    return (
-      boost +
-      'x ' +
-      schoolOrAbility
-        .split(andList)
-        .map(formatSchoolOrAbilityList)
-        .join('/') +
-      ' dmg'
-    );
+    return boost + 'x ' + formatSchoolOrAbilityList(schoolOrAbility) + ' dmg';
   }
 
   if ((m = effect.match(/[Ss]ets the damage cap for (.*) attacks to 99999/))) {
@@ -859,7 +852,7 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
     return 'crit';
   }
   if (trigger === 'elemental weakness') {
-    return 'hit weak';
+    return hitWeaknessTriggerText;
   }
 
   // Special case: Steiner

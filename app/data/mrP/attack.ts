@@ -1,7 +1,15 @@
 import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
-import { EnlirBurstCommand, EnlirElement, EnlirSchool, EnlirSkill, isSoulBreak } from '../enlir';
+import {
+  EnlirBurstCommand,
+  EnlirElement,
+  EnlirFormula,
+  EnlirSchool,
+  EnlirSkill,
+  EnlirSkillType,
+  isSoulBreak,
+} from '../enlir';
 import { describeEnlirStatus } from './status';
 import {
   formatSchoolOrAbilityList,
@@ -296,7 +304,23 @@ function isConvergent(scaleType: string) {
   return scaleType === ' scaling with targets';
 }
 
-function describeDamageType({ formula, type }: EnlirSkill): MrPDamageType {
+export function describeDamageType(skill: EnlirSkill): MrPDamageType;
+export function describeDamageType(
+  formula: EnlirFormula | null,
+  type: EnlirSkillType | null,
+): MrPDamageType;
+
+export function describeDamageType(
+  skillOrFormula: EnlirSkill | EnlirFormula | null,
+  type?: EnlirSkillType | null,
+): MrPDamageType {
+  let formula: EnlirFormula | null;
+  if (typeof skillOrFormula === 'object' && skillOrFormula != null) {
+    formula = skillOrFormula.formula;
+    type = skillOrFormula.type;
+  } else {
+    formula = skillOrFormula;
+  }
   if (formula === 'Hybrid') {
     // For hybrid, report the main damage as physical, and use separate fields
     // for the magical alternative.
@@ -316,6 +340,7 @@ function describeDamageType({ formula, type }: EnlirSkill): MrPDamageType {
       return formula === 'Physical' ? 'phys' : formula === 'Magical' ? 'magic' : '?';
     case '?':
     case null:
+    case undefined:
       return '?';
   }
 }

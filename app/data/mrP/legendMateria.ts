@@ -1,12 +1,13 @@
 import * as _ from 'lodash';
 
 import { arrayify } from '../../utils/typeUtils';
-import { EnlirElement, EnlirLegendMateria } from '../enlir';
-import { describeDamage } from './attack';
+import { EnlirElement, EnlirFormula, EnlirLegendMateria, EnlirSkillType } from '../enlir';
+import { describeDamage, describeDamageType } from './attack';
 import {
   describeEnlirStatus,
   formatDuration,
   formatTriggeredEffect,
+  hitWeaknessTriggerText,
   parseEnlirStatus,
 } from './status';
 import { formatSmartEther } from './statusAlias';
@@ -31,14 +32,14 @@ function describeBattleStart(statuses: string) {
   );
 }
 
-type HandlerList = Array<[RegExp | RegExp[], (parts: string[]) => string | null]>;
+type HandlerList = Array<[RegExp | RegExp[], (parts: string[], allText: string) => string | null]>;
 
 function resolveWithHandlers(handlers: HandlerList, item: string): string | null {
   for (const [re, formatter] of handlers) {
     for (const i of arrayify(re)) {
       const m = item.match(i);
       if (m) {
-        return formatter(m.slice(1));
+        return formatter(m.slice(1), m[0]);
       }
     }
   }
@@ -48,7 +49,10 @@ function resolveWithHandlers(handlers: HandlerList, item: string): string | null
 
 const skillEffectHandlers: HandlerList = [
   [/^smart ether (\d+) to the user$/, ([amount]) => formatSmartEther(amount)],
-  [/^restores (\d+) HP to an ally$/, ([fixedHp]) => `ally heal ${toMrPKilo(+fixedHp)} HP`],
+  [
+    /^restores (\d+) HP to (?:an ally|the lowest HP% ally)$/,
+    ([fixedHp]) => `ally heal ${toMrPKilo(+fixedHp)} HP`,
+  ],
 ];
 
 const simpleSkillHandlers: HandlerList = [
@@ -64,9 +68,18 @@ const simpleSkillHandlers: HandlerList = [
 
   // Attacks
   [
-    /^PHY: (single|random), (?:(\d+)x )([0-9\.]+) (ranged )?physical ([^,]+)(, .*)?$/,
-    ([attackType, numAttacks, attackMultiplier, isRanged, elements, addedEffects]) => {
-      const damageType = 'phys';
+    /^(PHY|BLK|WHT): (single|random), (?:(\d+)x )?([0-9\.]+) (ranged )?(physical|magical) ([^,]+)(, .*)?$/,
+    ([
+      type,
+      attackType,
+      numAttacks,
+      attackMultiplier,
+      isRanged,
+      formula,
+      elements,
+      addedEffects,
+    ]) => {
+      const damageType = describeDamageType(formula as EnlirFormula, type as EnlirSkillType);
 
       let damage =
         damageTypeAbbreviation(damageType) +
@@ -240,10 +253,27 @@ const legendMateriaHandlers: HandlerList = [
       `${percentChance}% cover PHY w/ -${percentDamage}% dmg taken`,
   ],
 
+  // Drain HP
+  [
+    /^(\d+|\?)% chance of restoring HP to the user for (\d+|\?)% of the damage dealt with single-target (.*) attacks$/,
+    ([percentChance, healPercent, type]) =>
+      formatTriggeredEffect(
+        `single-target ${formatSchoolOrAbilityList(type)}`,
+        `heal ${healPercent}% of dmg`,
+        percentChance,
+      ),
+  ],
+
   // Stat buffs and debuffs
   [
     /^Increases the duration of (.*) by (.*)%$/,
     ([what, percent]) => `${percentToMultiplier(+percent)}x ${what} duration`,
+  ],
+
+  // Unique effects
+  [
+    /^Exploiting elemental weakness grants (\d+|\?)% more Soul Break points \(additive with the default 50% bonus\)$/,
+    ([percent]) => formatTriggeredEffect(hitWeaknessTriggerText, `+${percent}% SB gauge`),
   ],
 ];
 
