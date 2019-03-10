@@ -10,15 +10,20 @@ const styles = require('./SoulBreakList.scss');
 
 const characters = alphabetize(_.values(enlir.characters).filter(i => !isCoreJob(i)), i => i.name);
 
-export class SoulBreakList extends React.Component {
+interface Props {
+  letterAnchor?: (letter: string) => string;
+}
+
+export class SoulBreakList extends React.Component<Props> {
   render() {
+    const { letterAnchor } = this.props;
     return (
       <>
         {alphabet.map(
           (letter, i) =>
             characters[letter] && (
               <div className={styles.component} key={i}>
-                <h3>{letter}</h3>
+                <h3 id={letterAnchor ? letterAnchor(letter) : undefined}>{letter}</h3>
                 <div className="card-columns">
                   {characters[letter].map((character, j) => (
                     <CharacterSoulBreaks character={character.name} key={j} />

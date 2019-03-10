@@ -5,6 +5,7 @@ import * as classNames from 'classnames';
 import { enlir, EnlirSoulBreak, EnlirSoulBreakTier, makeSoulBreakAliases } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
 import { formatBraveCommands } from '../../data/mrP/brave';
+import { getSchoolShortName } from '../../data/mrP/types';
 
 const styles = require('./SoulBreakListItem.scss');
 
@@ -63,7 +64,7 @@ export class SoulBreakListItem extends React.Component<Props> {
         {burstCommands.map((cmd, i) => (
           <tr className={styles.burstCommand} key={i}>
             <td />
-            <td className={styles.school}>[{cmd.school}]</td>
+            <td className={styles.school}>[{cmd.school && getSchoolShortName(cmd.school)}]</td>
             <td className={styles.command}>[{formatMrP(cmd)}]</td>
           </tr>
         ))}
