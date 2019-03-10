@@ -6,6 +6,8 @@ import { enlir } from '../../data/enlir';
 import { alphabet, alphabetize } from '../../utils/textUtils';
 import { CharacterSoulBreaks } from './CharacterSoulBreaks';
 
+const styles = require('./SoulBreakList.scss');
+
 const characters = alphabetize(_.values(enlir.characters), i => i.name);
 
 export class SoulBreakList extends React.Component {
@@ -15,7 +17,7 @@ export class SoulBreakList extends React.Component {
         {alphabet.map(
           (letter, i) =>
             characters[letter] && (
-              <div key={i}>
+              <div className={styles.component} key={i}>
                 <h3>{letter}</h3>
                 <div className="card-columns">
                   {characters[letter].map((character, j) => (

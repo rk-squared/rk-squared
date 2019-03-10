@@ -1,0 +1,7 @@
+:local {
+  @media (min-width: 576px) {
+    .component > :global(.card-columns) {
+      column-count: 2;
+    }
+  }
+}

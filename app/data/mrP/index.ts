@@ -7,9 +7,9 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirSoulBreakTier,
-  isBrave,
   isBraveCommand,
-  isBurst,
+  isBraveSoulBreak,
+  isBurstSoulBreak,
   isEnlirElement,
   isGlint,
   isSoulBreak,
@@ -832,6 +832,7 @@ export function describeEnlirSoulBreak(
   }
 
   if (
+    isSoulBreak(sb) &&
     isGlint(sb) &&
     !damage &&
     !other.length &&
@@ -878,7 +879,8 @@ export function describeEnlirSoulBreak(
   }
 
   if (
-    isBurst(sb) &&
+    isSoulBreak(sb) &&
+    isBurstSoulBreak(sb) &&
     enlir.burstCommandsByCharacter[sb.character] &&
     enlir.burstCommandsByCharacter[sb.character][sb.name]
   ) {
@@ -888,7 +890,8 @@ export function describeEnlirSoulBreak(
     );
   }
   if (
-    isBrave(sb) &&
+    isSoulBreak(sb) &&
+    isBraveSoulBreak(sb) &&
     enlir.braveCommandsByCharacter[sb.character] &&
     enlir.braveCommandsByCharacter[sb.character][sb.name]
   ) {

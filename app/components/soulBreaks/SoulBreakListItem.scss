@@ -1,0 +1,59 @@
+:local {
+  td.tier {
+    width: 5%;
+  }
+
+  td.name {
+    width: 25%;
+  }
+
+  tr.burstCommand > td,
+  tr.braveCommand > td {
+    border-top: none;
+  }
+
+  tr.unique > td.tier,
+  tr.unique > td.name {
+    font-weight: normal;
+  }
+
+  tr.super > td.tier,
+  tr.super > td.name {
+    font-weight: normal;
+  }
+
+  tr.burst > td.tier,
+  tr.burst > td.name {
+    font-weight: bold;
+  }
+
+  tr.overstrike > td.tier,
+  tr.overstrike > td.name {
+    font-weight: bold;
+    color: #c00000;
+  }
+
+  tr.ultra > td.tier,
+  tr.ultra > td.name {
+    font-weight: bold;
+    color: #538135;
+  }
+
+  tr.chain > td.tier,
+  tr.chain > td.name {
+    font-weight: bold;
+    color: #ed7d31;
+  }
+
+  tr.awakening > td.tier,
+  tr.awakening > td.name {
+    font-weight: bold;
+    color: #5b9bd5;
+  }
+
+  tr.glint > td.tier,
+  tr.glint > td.name {
+    font-weight: bold;
+    color: #bf8f01;
+  }
+}
