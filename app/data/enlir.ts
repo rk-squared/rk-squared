@@ -414,6 +414,14 @@ function patchEnlir() {
 }
 patchEnlir();
 
+export function isCoreJob(character: EnlirCharacter): boolean {
+  return (
+    character.realm === 'Core' &&
+    character.name !== 'Tyro' &&
+    character.id < enlir.charactersByName['Elarra'].id
+  );
+}
+
 /**
  * Handle statuses for which the FFRK Community spreadsheet is inconsistent.
  *

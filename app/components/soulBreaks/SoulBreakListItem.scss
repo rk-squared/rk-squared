@@ -12,6 +12,17 @@
     border-top: none;
   }
 
+  td.school {
+    text-indent: 1em;
+  }
+  td.command {
+    text-indent: 1em;
+  }
+
+  tr.jp > td.name {
+    font-style: italic;
+  }
+
   tr.unique > td.tier,
   tr.unique > td.name {
     font-weight: normal;

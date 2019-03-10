@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import * as classNames from 'classnames';
+
 import { enlir, EnlirSoulBreak, EnlirSoulBreakTier, makeSoulBreakAliases } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
 import { formatBraveCommands } from '../../data/mrP/brave';
@@ -61,8 +63,8 @@ export class SoulBreakListItem extends React.Component<Props> {
         {burstCommands.map((cmd, i) => (
           <tr className={styles.burstCommand} key={i}>
             <td />
-            <td />
-            <td>{formatMrP(cmd)}</td>
+            <td className={styles.school}>[{cmd.school}]</td>
+            <td className={styles.command}>[{formatMrP(cmd)}]</td>
           </tr>
         ))}
       </>
@@ -72,13 +74,14 @@ export class SoulBreakListItem extends React.Component<Props> {
   render() {
     const { soulBreak } = this.props;
     const mrP = describeEnlirSoulBreak(soulBreak);
+    const name = soulBreak.gl ? soulBreak.name : '“' + soulBreak.name + '”';
     const text = formatMrP(mrP);
     const alias = (soulBreakAliases[soulBreak.id] || soulBreak.tier).replace('-', '');
     return (
       <>
-        <tr className={tierClass[soulBreak.tier]}>
+        <tr className={classNames(tierClass[soulBreak.tier], { [styles.jp]: !soulBreak.gl })}>
           <td className={styles.tier}>{alias}</td>
-          <td className={styles.name}>{soulBreak.name}</td>
+          <td className={styles.name}>{name}</td>
           <td>{text || '???'}</td>
         </tr>
         {mrP.braveCommands && this.renderBraveCommands(mrP.braveCommands)}

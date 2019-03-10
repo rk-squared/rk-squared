@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import * as _ from 'lodash';
 
-import { enlir } from '../../data/enlir';
+import { enlir, isCoreJob } from '../../data/enlir';
 import { alphabet, alphabetize } from '../../utils/textUtils';
 import { CharacterSoulBreaks } from './CharacterSoulBreaks';
 
 const styles = require('./SoulBreakList.scss');
 
-const characters = alphabetize(_.values(enlir.characters), i => i.name);
+const characters = alphabetize(_.values(enlir.characters).filter(i => !isCoreJob(i)), i => i.name);
 
 export class SoulBreakList extends React.Component {
   render() {
