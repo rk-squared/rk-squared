@@ -910,6 +910,11 @@ describe('mrP', () => {
           'party Haste, crit =50% 25s, self hi fastcast 15s, ' +
           '15s: (1/2/3/4/5+ Support ⤇ party crit =60%/=70%/=80%/=90%/=100% 15s)',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Warrior of Light - Bitter End'])).toEqual({
+        damage: 'phys 7.1/10 holy+non',
+        other:
+          'holy infuse 25s, 15s: EX: +100% DEF, 1.05x Knight dmg per Knight, max 1.3x @ 6 Knight',
+      });
     });
 
     it('processes crit modifiers', () => {

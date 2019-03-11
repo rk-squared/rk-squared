@@ -293,4 +293,9 @@ export function andJoin(s: string[], oxfordComma: boolean): string {
   return s.slice(0, s.length - 1).join(', ') + (oxfordComma ? ',' : '') + ' and ' + s[s.length - 1];
 }
 
-export const percentToMultiplier = (percent: number) => 1 + percent / 100;
+export function percentToMultiplier(percent: number | string): string {
+  if (typeof percent === 'string') {
+    percent = parseFloat(percent);
+  }
+  return toMrPFixed(1 + percent / 100);
+}

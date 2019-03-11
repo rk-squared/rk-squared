@@ -477,7 +477,7 @@ export function describeEnlirStatus(
   // Special cases - schools, and schools + numbers
   if ((m = status.match(/(.+?) (?:Extended )?\+(\d+)% Boost\b(?: (\d+))?/))) {
     const [, type, percent, turns] = m;
-    const multiplier = toMrPFixed(percentToMultiplier(+percent));
+    const multiplier = percentToMultiplier(percent);
     if (type === 'Weakness') {
       return `${multiplier}x dmg vs weak` + formatTurns(turns);
     } else {
@@ -486,7 +486,7 @@ export function describeEnlirStatus(
   }
   if ((m = status.match(/(.*) Gauge \+(\d+)% Booster(?: (\d+))?/))) {
     const [, type, percent, turns] = m;
-    const multiplier = toMrPFixed(percentToMultiplier(+percent));
+    const multiplier = percentToMultiplier(percent);
     return `${multiplier}x SB gauge from ${formatSchoolOrAbilityList(type)}` + formatTurns(turns);
   }
   if ((m = status.match(/(.*) Double/))) {
@@ -642,6 +642,25 @@ function describeEnlirStatusEffect(
 
   if ((m = effect.match(enlirRankBoostRe))) {
     return rankBoostAlias(m[1]);
+  }
+
+  // Stacking ability boost and element boost.
+  if (
+    (m = effect.match(
+      /(.*) (?:abilities|attacks) deal ([0-9/]+)% more damage for each (.*) ability used, up to \+(\d+)%/,
+    ))
+  ) {
+    // MrP formats these as like this:
+    // "1.05-1.3x Knight dmg ...maxed @6 Knight used this battle"
+    // We instead use the same stacking format we use for OK's p-USB.
+    const [, schoolOrAbility, percent, stackingSchoolOrAbility, stackingMax] = m;
+    const boostedType = formatSchoolOrAbilityList(schoolOrAbility);
+    const sourceType = formatSchoolOrAbilityList(stackingSchoolOrAbility);
+    const maxCount = +stackingMax / +percent;
+    return (
+      `${percentToMultiplier(percent)}x ${boostedType} dmg per ${sourceType}, ` +
+      `max ${percentToMultiplier(stackingMax)}x @ ${maxCount} ${sourceType}`
+    );
   }
 
   // Handle ability boost and element boost.  The second form is only observed

@@ -162,7 +162,7 @@ const legendMateriaHandlers: HandlerList = [
       /^(.*) (?:abilities|attacks) deal (\d+)% more damage(?: when equipping (.*))?$/,
     ],
     ([schoolOrElement, percent, when]) => {
-      const multiplier = percentToMultiplier(+percent);
+      const multiplier = percentToMultiplier(percent);
       return `${multiplier}x ${getShortName(schoolOrElement)} dmg` + whenDescription(when);
     },
   ],
@@ -171,7 +171,7 @@ const legendMateriaHandlers: HandlerList = [
   [
     /^WHT abilities restore (\d+)% more HP$/,
     ([percent]) => {
-      const multiplier = percentToMultiplier(+percent);
+      const multiplier = percentToMultiplier(percent);
       return `${multiplier}x WHT healing`;
     },
   ],
@@ -369,7 +369,7 @@ const legendMateriaHandlers: HandlerList = [
   // Stat buffs and debuffs
   [
     /^Increases the duration of (.*) by (.*)%$/,
-    ([what, percent]) => `${percentToMultiplier(+percent)}x ${what} duration`,
+    ([what, percent]) => `${percentToMultiplier(percent)}x ${what} duration`,
   ],
 
   // Unique effects

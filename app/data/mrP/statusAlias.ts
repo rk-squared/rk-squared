@@ -4,7 +4,6 @@ import {
   lowerCaseFirst,
   numberWithCommas,
   percentToMultiplier,
-  toMrPFixed,
   toMrPGeneral,
   toMrPKilo,
 } from './util';
@@ -124,7 +123,7 @@ export const statusAlias: AliasMap = {
     // TODO: We could improve our handling of '?' values by not blindly converting to numbers here
     'HP Stock ({X})': ['Autoheal {X}', i => toMrPKilo(+i)],
     'Damage Cap {X}': ['dmg cap={X}', i => numberWithCommas(+i)],
-    'Status Chance {X}%': ['{X}x status chance', i => toMrPFixed(percentToMultiplier(+i))],
+    'Status Chance {X}%': ['{X}x status chance', i => percentToMultiplier(i)],
 
     // Manually expand non-standard stat buffs to give their effects instead -
     // this is easier than trying to programmatically identify a few statuses as
