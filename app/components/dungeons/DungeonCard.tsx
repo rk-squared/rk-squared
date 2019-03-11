@@ -46,12 +46,13 @@ const DungeonDetails = ({ dungeon }: { dungeon: Dungeon }) => (
 );
 
 export const DungeonListItem = ({ dungeon }: { dungeon: Dungeon }) => {
+  const hasPrizes = hasAvailablePrizes(dungeon);
   const classes = classNames({
     [styles.completed]: dungeon.isComplete,
-    [styles.mastered]: dungeon.isMaster,
+    [styles.mastered]: dungeon.isMaster && !hasPrizes,
   });
   const id = `dungeon-item-${dungeon.id}`;
-  const showTooltip = hasAvailablePrizes(dungeon);
+  const showTooltip = hasPrizes;
   return (
     <li className={classes}>
       <div data-tip={showTooltip} data-for={id}>
