@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import * as classNames from 'classnames';
+import * as _ from 'lodash';
 
 import { enlir, EnlirSoulBreak, EnlirSoulBreakTier, makeSoulBreakAliases } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
@@ -47,6 +48,8 @@ interface Props {
   soulBreak: EnlirSoulBreak;
 }
 
+const mrPSoulBreaks: { [id: number]: MrPSoulBreak } = {};
+
 export class SoulBreakListItem extends React.Component<Props> {
   renderBraveCommands(braveCommands: MrPSoulBreak[]) {
     return (
@@ -74,7 +77,12 @@ export class SoulBreakListItem extends React.Component<Props> {
 
   render() {
     const { soulBreak } = this.props;
-    const mrP = describeEnlirSoulBreak(soulBreak);
+
+    if (!mrPSoulBreaks[soulBreak.id]) {
+      mrPSoulBreaks[soulBreak.id] = describeEnlirSoulBreak(soulBreak);
+    }
+    const mrP = mrPSoulBreaks[soulBreak.id];
+
     const name = soulBreak.gl ? soulBreak.name : '“' + soulBreak.name + '”';
     const text = formatMrP(mrP);
     const alias = (soulBreakAliases[soulBreak.id] || soulBreak.tier).replace('-', '');
