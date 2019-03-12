@@ -1244,6 +1244,11 @@ describe('mrP', () => {
         other:
           'self +100% RES 25s, 15s: (take fire/ice/lgt mag dmg from ally ⤇ fire/ice/lgt infuse)',
       });
+      expect(describeEnlirSoulBreak(soulBreaks['Zack - Climhazzard Xeno'])).toEqual({
+        damage: 'phys 6.8/10 wind+non',
+        other:
+          '+20% wind vuln. 25s, self +30% ATK/DEF 25s, fastcast 1, 15s: (wind ⤇ fastcast 1)',
+      });
     });
 
     it('converts auto skills', () => {

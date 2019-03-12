@@ -381,6 +381,18 @@ function patchEnlir() {
         'Four single attacks (0.58 each), ATK and MAG -20/30/50% for 15 seconds at Heavy Charge 0/1/2, causes Heavy Charge =0 to the user';
     },
   );
+  applyPatch(
+    enlir.soulBreaks,
+    '20660006',
+    windUltra =>
+      windUltra.effects ===
+      'Ten random attacks (0.68 each), Imperil Wind 20% for 25 seconds, grants ATK and DEF +30% for 25 seconds, Quick Cast 1 and Wind Quick Cycle to the user',
+    windUltra => {
+      // Insert 'causes' - same as above
+      windUltra.effects =
+        'Ten random attacks (0.68 each), causes Imperil Wind 20% for 25 seconds, grants ATK and DEF +30% for 25 seconds, Quick Cast 1 and Wind Quick Cycle to the user';
+    },
+  );
 
   // These may be inconsistencies in the spreadsheet - Enlir normally instead
   // lists such things as "All enemies," with the stat mods first.
