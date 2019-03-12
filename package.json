@@ -3,15 +3,16 @@
   "productName": "RK Squared",
   "version": "1.1.1",
   "description": "RK Squared tracker for Final Fantasy Record Keeper",
-  "main": "dist/app/main.js",
+  "main": "app/main.prod.js",
   "scripts": {
     "test": "jest",
     "test:all": "npm run test && npm run build && npm run test-e2e",
     "test:watch": "jest --watch",
     "hot-server": "cross-env NODE_ENV=development node --max_old_space_size=2096 server.js",
+    "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
+    "build-main": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.main.prod.babel.js --colors",
     "build-renderer": "cross-env NODE_ENV=production webpack --config configs/webpack.config.production.js --progress --profile --colors",
     "copy-json": "copyfiles --flat \"./app/data/enlir/*.json\" ./dist/app/data/enlir",
-    "build": "tsc && npm run copy-json && npm run build-renderer",
     "start": "cross-env NODE_ENV=production electron .",
     "start:hot": "cross-env HOT=1 NODE_ENV=development electron .",
     "start:debug": "cross-env NODE_ENV=development electron --inspect=5858 .",
@@ -82,10 +83,9 @@
       ]
     },
     "files": [
-      "dist/app/",
-      "node_modules/",
-      "app/app.html",
       "app/dist/",
+      "app/app.html",
+      "app/main.prod.js",
       "package.json"
     ],
     "directories": {
