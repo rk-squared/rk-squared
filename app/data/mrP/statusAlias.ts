@@ -4,7 +4,6 @@ import {
   lowerCaseFirst,
   numberWithCommas,
   percentToMultiplier,
-  toMrPFixed,
   toMrPGeneral,
   toMrPKilo,
 } from './util';
@@ -17,7 +16,7 @@ export const doubleAlias = (s: string) => `double ${s} (uses extra hone)`;
 export const sbPointsAlias = (s: string) => `+${s} SB pts`;
 
 export const formatRandomEther = (amount: string) => 'refill ' + amount + ' random abil. use';
-export const formatSmartEther = (amount: string, type: string | undefined) =>
+export const formatSmartEther = (amount: string, type?: string | undefined) =>
   'refill ' + amount + ' ' + (type ? type + ' ' : '') + 'abil. use';
 
 /**
@@ -44,6 +43,7 @@ export const statusAlias: AliasMap = {
 
     'Cast speed *2': 'fastcast',
     'Quick Cast': 'fastcast',
+    'Extended Quick Cast': 'fastcast',
     'High Quick Cast': 'hi fastcast',
     'Magical Quick Cast': 'fastzap',
     'Magical High Quick Cast': 'hi fastzap',
@@ -100,6 +100,10 @@ export const statusAlias: AliasMap = {
     'Stoneskin: {X}%': 'Negate dmg {X}%',
     'Reraise: {X}%': 'Reraise {X}%',
 
+    // This should perhaps be a multiplier to match the rest of MrP - but I'm
+    // considering switching everything to percents.
+    'Heals +{X}%': '+{X}% healing',
+
     'Critical Chance {X}%': 'crit ={X}%',
     'Critical Damage +{X}%': '+{X}% crit dmg',
     // The FFRK Community spreadsheet has both forms.  This is probably an error.
@@ -119,7 +123,7 @@ export const statusAlias: AliasMap = {
     // TODO: We could improve our handling of '?' values by not blindly converting to numbers here
     'HP Stock ({X})': ['Autoheal {X}', i => toMrPKilo(+i)],
     'Damage Cap {X}': ['dmg cap={X}', i => numberWithCommas(+i)],
-    'Status Chance {X}%': ['{X}x status chance', i => toMrPFixed(percentToMultiplier(+i))],
+    'Status Chance {X}%': ['{X}x status chance', i => percentToMultiplier(i)],
 
     // Manually expand non-standard stat buffs to give their effects instead -
     // this is easier than trying to programmatically identify a few statuses as

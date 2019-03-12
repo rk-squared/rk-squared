@@ -143,6 +143,27 @@ export interface EnlirBurstCommand extends EnlirGenericSkill {
   nameJp: string;
 }
 
+export interface EnlirCharacter {
+  realm: string;
+  name: string;
+  introducingEventLv50: string;
+  lv50: { [key: string]: number };
+  introducingEventLv65: string;
+  lv65: { [key: string]: number };
+  introducingEventLv80: string;
+  lv80: { [key: string]: number };
+  introducingEventLv99: string;
+  lv99: { [key: string]: number };
+  introducingEventRecordSpheres: string;
+  recordSpheres: { [key: string]: number };
+  introducingEventLegendSpheres: string;
+  legendSpheres: { [key: string]: number };
+  equipment: { [key: string]: boolean };
+  skills: { [key: string]: number };
+  id: number;
+  gl: boolean;
+}
+
 export interface EnlirLegendMateria {
   realm: string;
   character: string;
@@ -206,7 +227,7 @@ const rawData = {
   abilities: require('./enlir/abilities.json') as EnlirAbility[],
   braveCommands: require('./enlir/brave.json') as EnlirBraveCommand[],
   burstCommands: require('./enlir/burst.json') as EnlirBurstCommand[],
-  characters: require('./enlir/characters.json'),
+  characters: require('./enlir/characters.json') as EnlirCharacter[],
   legendMateria: require('./enlir/legendMateria.json') as EnlirLegendMateria[],
   magicite: require('./enlir/magicite.json'),
   otherSkills: require('./enlir/otherSkills.json') as EnlirOtherSkill[],
@@ -218,6 +239,10 @@ const rawData = {
 
 // FIXME: Properly update rawData outside of app
 
+interface CharacterMap<T> {
+  [character: string]: T[];
+}
+
 interface Command extends EnlirGenericSkill {
   character: string;
   source: string;
@@ -227,6 +252,15 @@ interface CommandsMap<T> {
   [character: string]: {
     [soulBreak: string]: T[];
   };
+}
+
+function makeCharacterMap<T extends { character: string }>(items: T[]): CharacterMap<T> {
+  const result: CharacterMap<T> = {};
+  for (const i of items) {
+    result[i.character] = result[i.character] || [];
+    result[i.character].push(i);
+  }
+  return result;
 }
 
 function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
@@ -259,6 +293,7 @@ export const enlir = {
   relics: _.keyBy(rawData.relics, 'id'),
   recordMateria: _.keyBy(rawData.recordMateria, 'id'),
   soulBreaks: _.keyBy(rawData.soulBreaks, 'id'),
+  soulBreaksByCharacter: makeCharacterMap(rawData.soulBreaks),
   statusByName: _.keyBy(rawData.status, 'name'),
 };
 
@@ -379,6 +414,14 @@ function patchEnlir() {
 }
 patchEnlir();
 
+export function isCoreJob(character: EnlirCharacter): boolean {
+  return (
+    character.realm === 'Core' &&
+    character.name !== 'Tyro' &&
+    character.id < enlir.charactersByName['Elarra'].id
+  );
+}
+
 /**
  * Handle statuses for which the FFRK Community spreadsheet is inconsistent.
  *
@@ -431,18 +474,98 @@ export function isSoulBreak(skill: EnlirSkill): skill is EnlirSoulBreak {
   return 'tier' in skill;
 }
 
-export function isGlint(skill: EnlirSkill): skill is EnlirSoulBreak {
-  return 'tier' in skill && (skill.tier === 'Glint' || skill.tier === 'Glint+');
+export function isGlint(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'Glint' || sb.tier === 'Glint+';
 }
 
-export function isBrave(skill: EnlirSkill): skill is EnlirSoulBreak {
-  return 'tier' in skill && skill.tier === 'USB' && skill.effects.match(/Brave Mode/) != null;
+export function isBraveSoulBreak(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'USB' && sb.effects.match(/Brave Mode/) != null;
 }
 
-export function isBurst(skill: EnlirSkill): skill is EnlirSoulBreak {
-  return 'tier' in skill && skill.tier === 'BSB';
+export function isBurstSoulBreak(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'BSB';
 }
 
 export function isBraveCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
   return 'brave' in skill;
+}
+
+export function makeSoulBreakAliases(
+  soulBreaks: _.Dictionary<EnlirSoulBreak>,
+  tierAlias?: { [s in EnlirSoulBreakTier]: string },
+): { [id: number]: string } {
+  const total: { [key: string]: number } = {};
+  const seen: { [key: string]: number } = {};
+  const makeKey = ({ character, tier }: EnlirSoulBreak) => character + '-' + tier;
+  const tierText = tierAlias
+    ? (tier: EnlirSoulBreakTier) => tierAlias[tier]
+    : (tier: EnlirSoulBreakTier) => tier as string;
+  _.forEach(soulBreaks, sb => {
+    const key = makeKey(sb);
+    total[key] = total[key] || 0;
+    total[key]++;
+  });
+
+  const result: { [id: number]: string } = {};
+  _.sortBy(soulBreaks, 'id').forEach(sb => {
+    const key = makeKey(sb);
+    seen[key] = seen[key] || 0;
+    seen[key]++;
+
+    let alias = tierText(sb.tier);
+    if (isBraveSoulBreak(sb)) {
+      alias = 'B' + alias;
+    } else if (total[key] > 1 && sb.tier !== 'SB' && sb.tier !== 'RW' && sb.tier !== 'Shared') {
+      // Skip numbers for unique SB tier - those are too old to be of interest.
+      alias += seen[key];
+    }
+    result[sb.id] = alias;
+  });
+
+  // Special-case a few soul breaks.
+  // Bartz - seemed like a good idea, but they're too big...
+  /*
+  result[20400009] = tierText('BSB') + '-wa';
+  result[20400011] = tierText('BSB') + '-e';
+  result[20400012] = tierText('BSB') + '-wi';
+  result[20400013] = tierText('BSB') + '-f';
+  */
+  // Onion Knight
+  result[22460006] = 'm-' + tierText('USB');
+  result[22460007] = 'p-' + tierText('USB');
+
+  return result;
+}
+
+export function makeLegendMateriaAliases(
+  legendMateria: _.Dictionary<EnlirLegendMateria>,
+): { [id: number]: string } {
+  const total: { [key: string]: number } = {};
+  const seen: { [key: string]: number } = {};
+  const makeKey = ({ character, relic }: EnlirLegendMateria) => character + (relic ? '-R' : '-LD');
+  _.forEach(legendMateria, lm => {
+    const key = makeKey(lm);
+    total[key] = total[key] || 0;
+    total[key]++;
+  });
+
+  const result: { [id: number]: string } = {};
+  _.sortBy(legendMateria, 'id').forEach(lm => {
+    const key = makeKey(lm);
+    seen[key] = seen[key] || 0;
+    seen[key]++;
+
+    let alias: string;
+    if (lm.relic) {
+      alias = 'LMR';
+    } else {
+      alias = 'LM';
+    }
+    if (total[key] > 1) {
+      alias += seen[key];
+    }
+    result[lm.id] = alias;
+  });
+
+  return result;
 }

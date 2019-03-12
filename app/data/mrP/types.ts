@@ -31,12 +31,13 @@ const schoolShortName: { [school in EnlirSchool]?: string } = {
 };
 
 const shortAliases: { [s: string]: string } = {
-  Jump: 'jump',
-};
-
-const middleAliases: { [element: string]: string } = {
-  'non-elemental': 'non-elem',
+  jump: 'jump',
   physical: 'phys',
+
+  // Note the oddity: 'NE' as shown as an EnlirElement gets changed to 'non',
+  // while 'Non-Elemental' in effect text gets changed to 'non-elem.'  (E.g.,
+  // '1.1x non-elem dmg').
+  'non-elemental': 'non-elem',
 };
 
 export function getElementShortName(element: EnlirElement | EnlirElement[]): string {
@@ -58,19 +59,7 @@ export function getShortName(s: string): string {
     ? getElementShortName(s)
     : isEnlirSchool(s)
     ? getSchoolShortName(s)
-    : shortAliases[s] || s;
-}
-
-/**
- * Gets a "middle-length" name - normally the same as the short name that we
- * use for attack elements, but not always.  In practice, we use this so that
- * we can have text like '1.1x non-elem dmg' instead of '1.1x non dmg', for
- * cases where Enlir shows text as "Non-Elemental" instead of its actual
- * element abbreviation of "NE," while still showing non-elemental attacks as
- * 'non'.
- */
-export function getMiddleName(s: string): string {
-  return middleAliases[s.toLowerCase()] || getShortName(s);
+    : shortAliases[s.toLowerCase()] || s;
 }
 
 export function getAbbreviation(s: string): string {
@@ -89,15 +78,13 @@ export function appendElement(
 }
 
 export function formatSchoolOrAbilityList(list: string): string {
-  return list
-    .split(andOrList)
-    .map(getShortName)
-    .join('/');
-}
-
-export function formatMediumList(list: string): string {
-  return list
-    .split(andOrList)
-    .map(getMiddleName)
-    .join('/');
+  return (
+    list
+      .split(andOrList)
+      .map(getShortName)
+      .join('/')
+      // Hack: Special-case the list of all elements, as observed in Ovelia's
+      // and Relm's LM2 and the Elemental Boost status effect.
+      .replace('fire/ice/lgt/earth/wind/water/holy/dark/bio', 'elem')
+  );
 }

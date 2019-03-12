@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const styles = require('./AppLayout.scss');
 const logo = require('../images/logo.png');
@@ -14,36 +14,41 @@ export class AppLayout extends React.Component<Props> {
       <div className={`container-fluid ${styles.component}`}>
         <div className="row">
           <nav className={`col-auto navbar navbar-expand-sm navbar-light bg-light ${styles.nav}`}>
-            <Link className="navbar-brand" to="/">
+            <NavLink className="navbar-brand" activeClassName="active" to="/">
               <img src={logo} alt="RK²" className={styles.logo} />
-            </Link>
+            </NavLink>
 
             <div className="collapse navbar-collapse">
               <ul className="navbar-nav mr-auto flex-column">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/dropTracker">
+                  <NavLink className="nav-link" activeClassName="active" to="/dropTracker">
                     Drops
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/dungeons">
+                  <NavLink className="nav-link" activeClassName="active" to="/dungeons">
                     Dungeons
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/dungeonScores">
+                  <NavLink className="nav-link" activeClassName="active" to="/dungeonScores">
                     Scores
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/recordMateria">
+                  <NavLink className="nav-link" activeClassName="active" to="/recordMateria">
                     Record Materia
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/options">
+                  <NavLink className="nav-link" activeClassName="active" to="/soulBreaks">
+                    Soul Breaks
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" activeClassName="active" to="/options">
                     Options
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>

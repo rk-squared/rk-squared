@@ -18,10 +18,8 @@ import {
   splitNumbered,
 } from './statusAlias';
 import {
-  formatMediumList,
   formatSchoolOrAbilityList,
   getAbbreviation,
-  getMiddleName,
   getShortName,
   XRegExpNamedGroups,
 } from './types';
@@ -41,8 +39,9 @@ import {
 } from './util';
 
 const finisherText = 'Finisher: ';
-const formatTriggeredEffect = (trigger: string, description: string) =>
-  '(' + trigger + ' ⤇ ' + description + ')';
+export const hitWeaknessTriggerText = 'hit weak';
+export const formatTriggeredEffect = (trigger: string, description: string, percent?: string) =>
+  '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -478,17 +477,17 @@ export function describeEnlirStatus(
   // Special cases - schools, and schools + numbers
   if ((m = status.match(/(.+?) (?:Extended )?\+(\d+)% Boost\b(?: (\d+))?/))) {
     const [, type, percent, turns] = m;
-    const multiplier = toMrPFixed(percentToMultiplier(+percent));
+    const multiplier = percentToMultiplier(percent);
     if (type === 'Weakness') {
       return `${multiplier}x dmg vs weak` + formatTurns(turns);
     } else {
-      return `${multiplier}x ${formatMediumList(type)} dmg` + formatTurns(turns);
+      return `${multiplier}x ${formatSchoolOrAbilityList(type)} dmg` + formatTurns(turns);
     }
   }
   if ((m = status.match(/(.*) Gauge \+(\d+)% Booster(?: (\d+))?/))) {
     const [, type, percent, turns] = m;
-    const multiplier = toMrPFixed(percentToMultiplier(+percent));
-    return `${multiplier}x SB gauge from ${formatMediumList(type)}` + formatTurns(turns);
+    const multiplier = percentToMultiplier(percent);
+    return `${multiplier}x SB gauge from ${formatSchoolOrAbilityList(type)}` + formatTurns(turns);
   }
   if ((m = status.match(/(.*) Double/))) {
     return doubleAlias(formatSchoolOrAbilityList(m[1]));
@@ -498,7 +497,11 @@ export function describeEnlirStatus(
   // into, e.g., +30% MAG to match MMP
   const statMod = statusAsStatMod(status, enlirStatus);
   if (statMod) {
-    return statMod.amount + ' ' + describeStats(statMod.stat);
+    let result = statMod.amount + ' ' + describeStats(statMod.stat);
+    if (status.match(/for Next Damaging Action/)) {
+      result += ' for next atk';
+    }
+    return result;
   }
 
   // Turn-limited versions of generic statuses.  Some turn-limited versions,
@@ -641,6 +644,25 @@ function describeEnlirStatusEffect(
     return rankBoostAlias(m[1]);
   }
 
+  // Stacking ability boost and element boost.
+  if (
+    (m = effect.match(
+      /(.*) (?:abilities|attacks) deal ([0-9/]+)% more damage for each (.*) ability used, up to \+(\d+)%/,
+    ))
+  ) {
+    // MrP formats these as like this:
+    // "1.05-1.3x Knight dmg ...maxed @6 Knight used this battle"
+    // We instead use the same stacking format we use for OK's p-USB.
+    const [, schoolOrAbility, percent, stackingSchoolOrAbility, stackingMax] = m;
+    const boostedType = formatSchoolOrAbilityList(schoolOrAbility);
+    const sourceType = formatSchoolOrAbilityList(stackingSchoolOrAbility);
+    const maxCount = +stackingMax / +percent;
+    return (
+      `${percentToMultiplier(percent)}x ${boostedType} dmg per ${sourceType}, ` +
+      `max ${percentToMultiplier(stackingMax)}x @ ${maxCount} ${sourceType}`
+    );
+  }
+
   // Handle ability boost and element boost.  The second form is only observed
   // with Noctis's non-elemental boosts; it may simply be an inconsistency.
   if (
@@ -654,7 +676,7 @@ function describeEnlirStatusEffect(
       .map(i => 1 + i / 100)
       .map(toMrPFixed)
       .join('-');
-    return boost + 'x ' + getMiddleName(schoolOrAbility) + ' dmg';
+    return boost + 'x ' + formatSchoolOrAbilityList(schoolOrAbility) + ' dmg';
   }
 
   if ((m = effect.match(/[Ss]ets the damage cap for (.*) attacks to 99999/))) {
@@ -853,7 +875,7 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
     return 'crit';
   }
   if (trigger === 'elemental weakness') {
-    return 'hit weak';
+    return hitWeaknessTriggerText;
   }
 
   // Special case: Steiner

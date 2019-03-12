@@ -6,9 +6,10 @@ import {
   EnlirBurstCommand,
   EnlirSchool,
   EnlirSkill,
-  isBrave,
+  EnlirSoulBreakTier,
   isBraveCommand,
-  isBurst,
+  isBraveSoulBreak,
+  isBurstSoulBreak,
   isEnlirElement,
   isGlint,
   isSoulBreak,
@@ -52,6 +53,22 @@ import {
   toMrPFixed,
   toMrPKilo,
 } from './util';
+
+export const tierOrder: { [t in EnlirSoulBreakTier]: number } = {
+  Default: 0,
+  SB: 1,
+  SSB: 2,
+  BSB: 3,
+  Glint: 4,
+  'Glint+': 5,
+  OSB: 6,
+  AOSB: 7,
+  USB: 8,
+  AASB: 9,
+  CSB: 10,
+  RW: 100,
+  Shared: 101,
+};
 
 export interface MrPSoulBreak {
   // Time markers.  We could simply pass the time value itself, but this lets
@@ -815,6 +832,7 @@ export function describeEnlirSoulBreak(
   }
 
   if (
+    isSoulBreak(sb) &&
     isGlint(sb) &&
     !damage &&
     !other.length &&
@@ -861,7 +879,8 @@ export function describeEnlirSoulBreak(
   }
 
   if (
-    isBurst(sb) &&
+    isSoulBreak(sb) &&
+    isBurstSoulBreak(sb) &&
     enlir.burstCommandsByCharacter[sb.character] &&
     enlir.burstCommandsByCharacter[sb.character][sb.name]
   ) {
@@ -871,7 +890,8 @@ export function describeEnlirSoulBreak(
     );
   }
   if (
-    isBrave(sb) &&
+    isSoulBreak(sb) &&
+    isBraveSoulBreak(sb) &&
     enlir.braveCommandsByCharacter[sb.character] &&
     enlir.braveCommandsByCharacter[sb.character][sb.name]
   ) {

@@ -6,6 +6,7 @@ import { allTranceStatus, isTranceStatus } from '../mrP/status';
 import { parseNumberString, parsePercentageCounts } from '../mrP/util';
 
 import { enlir, EnlirSoulBreak } from '../enlir';
+import { describeMrPLegendMateria } from '../mrP/legendMateria';
 
 const soulBreaks = _.keyBy(_.values(enlir.soulBreaks), i => i.character + ' - ' + i.name);
 
@@ -908,6 +909,11 @@ describe('mrP', () => {
         other:
           'party Haste, crit =50% 25s, self hi fastcast 15s, ' +
           '15s: (1/2/3/4/5+ Support ⤇ party crit =60%/=70%/=80%/=90%/=100% 15s)',
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Warrior of Light - Bitter End'])).toEqual({
+        damage: 'phys 7.1/10 holy+non',
+        other:
+          'holy infuse 25s, 15s: EX: +100% DEF, 1.05x Knight dmg per Knight, max 1.3x @ 6 Knight',
       });
     });
 
@@ -2335,6 +2341,20 @@ describe('mrP', () => {
         damage: '? ?/6 earth+non',
         other: '+10?% earth vuln. 25s, self +10% earth dmg 15s',
       });
+    });
+  });
+
+  describe('describeMrPLegendMateria', () => {
+    it('converts all legend materia', () => {
+      const allLegendMateria = _.sortBy(_.values(enlir.legendMateria), ['character', 'id']).map(
+        i => ({
+          name: i.name,
+          character: i.character,
+          effect: i.effect,
+          description: describeMrPLegendMateria(i),
+        }),
+      );
+      expect(allLegendMateria).toMatchSnapshot();
     });
   });
 });

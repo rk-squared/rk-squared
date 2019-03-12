@@ -8,6 +8,7 @@ import DungeonsPage from './containers/DungeonsPage';
 import HomePage from './containers/HomePage';
 import OptionsPage from './containers/OptionsPage';
 import RecordMateriaPage from './containers/RecordMateriaPage';
+import SoulBreaksPage from './containers/SoulBreaksPage';
 
 export const Routes = () => (
   <App>
@@ -17,6 +18,7 @@ export const Routes = () => (
       <Route path="/dungeonScores" component={DungeonScoresPage} />
       <Route path="/recordMateria" component={RecordMateriaPage} />
       <Route path="/options" component={OptionsPage} />
+      <Route path="/soulBreaks" component={SoulBreaksPage} />
       <Route path="/" component={HomePage} />
     </Switch>
   </App>

@@ -1,0 +1,13 @@
+:local {
+  .component {
+    font-size: 0.9rem;
+  }
+
+  .component > :global(.card-body) {
+    padding: 0;
+  }
+
+  .component > :global(.card-body) > :global(.table) {
+    margin-bottom: 0;
+  }
+}

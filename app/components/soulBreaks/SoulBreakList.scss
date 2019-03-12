@@ -1,0 +1,12 @@
+:local {
+  @media (min-width: 576px) {
+    .component > :global(.card-columns) {
+      column-count: 2;
+    }
+  }
+
+  .component > h3 {
+    padding-top: 2em;
+    margin-top: -2em;
+  }
+}
