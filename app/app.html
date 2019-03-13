@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>RK Squared</title>
     <script>
       (function() {
@@ -12,14 +12,17 @@
           // HACK: Writing the script path should be done with webpack
           document.getElementsByTagName('head')[0].appendChild(link);
         }
-      }());
+      })();
     </script>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/ag-grid/dist/styles/ag-grid.css">
-    <link rel="stylesheet" href="../node_modules/ag-grid/dist/styles/ag-theme-balham.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../node_modules/ag-grid/dist/styles/ag-grid.css" />
+    <link rel="stylesheet" href="../node_modules/ag-grid/dist/styles/ag-theme-balham.css" />
 
     <!-- https://stackoverflow.com/a/37480521/25507 -->
-    <script src="../node_modules/jquery/dist/jquery.slim.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+    <script
+      src="../node_modules/jquery/dist/jquery.slim.min.js"
+      onload="window.$ = window.jQuery = module.exports;"
+    ></script>
 
     <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -28,13 +31,23 @@
     <div id="root"></div>
     <script>
       {
-        const script = document.createElement('script');
-        const port = process.env.PORT || 3000;
-        script.src = (process.env.HOT)
-          ? 'http://localhost:' + port + '/dist/bundle.js'
-          : './dist/bundle.js';
-        // HACK: Writing the script path should be done with webpack
-        document.body.appendChild(script);
+        const scripts = [];
+
+        // Dynamically insert the DLL script in development env in the
+        // renderer process
+        if (process.env.NODE_ENV === 'development') {
+          scripts.push('../dll/renderer.dev.dll.js');
+        }
+
+        // Dynamically insert the bundled app script in the renderer process
+        const port = process.env.PORT || 1212;
+        scripts.push(
+          process.env.HOT
+            ? 'http://localhost:' + port + '/dist/renderer.dev.js'
+            : './dist/renderer.prod.js',
+        );
+
+        document.write(scripts.map(script => `<script defer src="${script}"><\/script>`).join(''));
       }
     </script>
   </body>

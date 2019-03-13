@@ -5,26 +5,26 @@
   "description": "RK Squared tracker for Final Fantasy Record Keeper",
   "main": "app/main.prod.js",
   "scripts": {
-    "test": "jest",
-    "test:all": "npm run test && npm run build && npm run test-e2e",
-    "test:watch": "jest --watch",
-    "hot-server": "cross-env NODE_ENV=development node --max_old_space_size=2096 server.js",
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
-    "build-main": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.main.prod.babel.js --colors",
-    "build-renderer": "cross-env NODE_ENV=production webpack --config configs/webpack.config.production.js --progress --profile --colors",
-    "copy-json": "copyfiles --flat \"./app/data/enlir/*.json\" ./dist/app/data/enlir",
-    "start": "cross-env NODE_ENV=production electron .",
-    "start:hot": "cross-env HOT=1 NODE_ENV=development electron .",
-    "start:debug": "cross-env NODE_ENV=development electron --inspect=5858 .",
-    "dev": "npm run hot-server -- --start-hot",
-    "predev": "npm run copy-json",
-    "package": "npm run build && build --publish never",
-    "package:win": "npm run build && build --win --x64",
-    "package:linux": "npm run build && build --linux",
-    "package:all": "npm run build && build -mw",
+    "build:watch": "tsc -w",
+    "build-dll": "cross-env NODE_ENV=development webpack --config ./configs/webpack.config.renderer.dev.dll.js --colors",
+    "build-main": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.main.prod.js --progress --colors",
+    "build-renderer": "cross-env NODE_ENV=production webpack --config configs/webpack.config.renderer.prod.js --progress --colors",
+    "dev": "cross-env START_HOT=1 node ./internals/scripts/CheckPortInUse.js && cross-env START_HOT=1 yarn start-renderer-dev",
+    "predev": "yarn copy-json",
+    "package": "yarn build && build --publish never",
+    "package:all": "yarn build && build -mw",
+    "package:linux": "yarn build && build --linux",
+    "package:win": "yarn build && build --win --x64",
     "lint": "tslint --project .",
     "lint:watch": "onchange 'scripts/*.ts' 'app/**/*.ts' 'app/**/*.tsx' -- yarn lint",
-    "build:watch": "tsc -w",
+    "start": "cross-env NODE_ENV=production electron ./app/main.prod.js",
+    "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron ./dist/app/main.js",
+    "start-renderer-dev": "cross-env NODE_ENV=development webpack-dev-server --config configs/webpack.config.renderer.dev.js",
+    "test": "jest",
+    "test:all": "yarn test && yarn build && yarn test-e2e",
+    "test:watch": "jest --watch",
+    "copy-json": "copyfiles --flat \"./app/data/enlir/*.json\" ./dist/app/data/enlir",
     "get-enlir": "ts-node scripts/download-enlir.ts -o app/data/enlir"
   },
   "jest": {
@@ -67,6 +67,13 @@
   "build": {
     "productName": "RK Squared",
     "appId": "com.joshkel.rksquared",
+    "files": [
+      "app/dist/",
+      "app/app.html",
+      "app/main.prod.js",
+      "app/main.prod.js.map",
+      "package.json"
+    ],
     "dmg": {
       "contents": [
         {
@@ -82,16 +89,6 @@
         }
       ]
     },
-    "files": [
-      "app/dist/",
-      "app/app.html",
-      "app/main.prod.js",
-      "package.json"
-    ],
-    "directories": {
-      "buildResources": "resources",
-      "output": "release"
-    },
     "win": {
       "target": "nsis"
     },
@@ -100,6 +97,10 @@
         "deb",
         "AppImage"
       ]
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
     }
   },
   "bin": {
@@ -128,6 +129,7 @@
   ],
   "homepage": "https://github.com/rk-squared/rk-squared#readme",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
     "@types/cheerio": "^0.22.7",
     "@types/classnames": "^2.2.3",
     "@types/connect": "^3.4.31",
@@ -156,6 +158,7 @@
     "@types/xregexp": "^3.0.29",
     "@types/yargs": "^12.0.1",
     "asar": "^0.14.0",
+    "babel-loader": "^8.0.5",
     "concurrently": "^3.1.0",
     "copyfiles": "^2.0.0",
     "cross-env": "^5.0.1",
@@ -176,10 +179,11 @@
     "html-webpack-plugin": "^2.24.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.0.4",
-    "json-loader": "^0.5.4",
+    "mini-css-extract-plugin": "^0.5.0",
     "minimist": "^1.2.0",
     "node-sass": "^4.1.1",
     "onchange": "^5.2.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "prettier": "^1.15.3",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-test-renderer": "^16.0.0",
@@ -189,15 +193,19 @@
     "sinon": "^4.0.0",
     "spectron": "^3.4.1",
     "style-loader": "^0.19.0",
+    "terser-webpack-plugin": "^1.2.3",
     "ts-jest": "^23.10",
-    "ts-loader": "^3.1.0",
+    "ts-loader": "^4.0.0",
     "ts-node": "^4.1.0",
     "tslint": "^5.4.3",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.3",
     "url-loader": "^0.6.1",
-    "webpack": "^3.3.0",
+    "webpack": "^4.0.0",
+    "webpack-bundle-analyzer": "^3.1.0",
+    "webpack-cli": "^3.2.3",
     "webpack-dev-middleware": "^2.0.3",
+    "webpack-dev-server": "^3.2.1",
     "webpack-hot-middleware": "^2.13.2",
     "webpack-merge": "^4.1.1",
     "yargs": "^12.0.2"
