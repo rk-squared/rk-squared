@@ -2235,10 +2235,10 @@ concurrently@^3.1.0:
     supports-color "^3.2.3"
     tree-kill "^1.1.0"
 
-conf@^1.3.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/conf/-/conf-1.4.0.tgz#1ea66c9d7a9b601674a5bb9d2b8dc3c726625e67"
-  integrity sha512-bzlVWS2THbMetHqXKB8ypsXN4DQ/1qopGwNJi1eYbpwesJcd86FBjFciCQX/YwAhp9bM7NVnPFqZ5LpV7gP0Dg==
+conf@^2.0.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/conf/-/conf-2.2.0.tgz#ee282efafc1450b61e205372041ad7d866802d9a"
+  integrity sha512-93Kz74FOMo6aWRVpAZsonOdl2I57jKtHrNmxhumehFQw4X8Sk37SohNY11PG7Q8Okta+UnrVaI006WLeyp8/XA==
   dependencies:
     dot-prop "^4.1.0"
     env-paths "^1.0.0"
@@ -3449,12 +3449,12 @@ electron-redux@^1.3.1:
     flux-standard-action "^1.0.0"
     redux "^3.4.0"
 
-electron-store@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/electron-store/-/electron-store-1.3.0.tgz#ee488a28a61fb982fd35b658fb9cb6331eb201f8"
-  integrity sha512-r1Pdl5MwpiCxgbsl0qnwv/GABO5+J/JTO16+KyqL+bOITIk9o3cq3Sw69uO9NgPkpfcKeEwxtJFbtbiBlGTiDA==
+electron-store@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/electron-store/-/electron-store-2.0.0.tgz#1035cca2a95409d1f54c7466606345852450d64a"
+  integrity sha512-1WCFYHsYvZBqDsoaS0Relnz0rd81ZkBAI0Fgx7Nq2UWU77rSNs1qxm4S6uH7TCZ0bV3LQpJFk7id/is/ZgoOPA==
   dependencies:
-    conf "^1.3.0"
+    conf "^2.0.0"
 
 electron-to-chromium@^1.2.7:
   version "1.3.113"
@@ -9247,12 +9247,10 @@ redux-mock-store@^1.5.3:
   dependencies:
     lodash.isplainobject "^4.0.6"
 
-redux-persist-electron-storage@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/redux-persist-electron-storage/-/redux-persist-electron-storage-1.1.2.tgz#14215b717a9c1539d74c9aa3b6b47188c06abe4f"
-  integrity sha512-A2BGuNpV3DFuqQ4X/zd71FRZer5+WzbiXDyzXDiAFsegmKhPDzzasN/zR69T85pqdEQ3RQCMsyZFj+97RmjsVg==
-  dependencies:
-    electron-store "^1.3.0"
+redux-persist-electron-storage@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/redux-persist-electron-storage/-/redux-persist-electron-storage-2.1.0.tgz#8e9c2d4aeb451a5e00786456efed2f3d3f03dfa8"
+  integrity sha512-8VhAttDPqrwZlGIiHB3/PzZZChCliom8qcex8Q+eW3lHpSMkbqAaYpoedRm29e3FoVnan3VT+UV22NGFXKPmCg==
 
 redux-persist@^5.9.1:
   version "5.10.0"

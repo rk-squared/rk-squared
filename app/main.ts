@@ -32,6 +32,15 @@ if (process.env.NODE_ENV === 'development') {
   require('electron-debug')(); // eslint-disable-line global-require
   const p = path.join(__dirname, '..', 'app', 'node_modules');
   require('module').globalPaths.push(p);
+
+  // To facilitate running development builds, we point Electron directly at
+  // the compiled TypeScript, but then Electron doesn't know its product name
+  // and uses the wrong local storage directory.  As a workaround, manually set
+  // the product directory.  Based on
+  // https://github.com/SimulatedGREG/electron-vue/issues/424
+  const { build } = require('../../package.json');
+  const appData = app.getPath('appData');
+  app.setPath('userData', path.join(appData, build.productName));
 }
 
 app.on('window-all-closed', () => {
