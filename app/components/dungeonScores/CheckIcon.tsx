@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 const styles = require('./CheckIcon.scss');
 

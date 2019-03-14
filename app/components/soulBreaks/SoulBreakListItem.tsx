@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { enlir, EnlirSoulBreak, EnlirSoulBreakTier, makeSoulBreakAliases } from '../../data/enlir';

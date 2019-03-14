@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Modal from 'react-modal';
 
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 import { ModalHeader } from './ModalHeader';
 
@@ -21,19 +21,15 @@ export class ModalDialog extends React.Component<Props> {
         isOpen={isOpen}
         onRequestClose={onClose}
         className={classNames('modal-dialog', className)}
-        style={{overlay: {backgroundColor: 'rgba(0, 0, 0, 0.50)', overflowY: 'auto' }}}
+        style={{ overlay: { backgroundColor: 'rgba(0, 0, 0, 0.50)', overflowY: 'auto' } }}
       >
         <div className="modal-content">
-          {title &&
+          {title && (
             <ModalHeader onClose={onClose}>
-              <h5 className="modal-title">
-                {typeof(title) === 'string' ? title : title()}
-              </h5>
+              <h5 className="modal-title">{typeof title === 'string' ? title : title()}</h5>
             </ModalHeader>
-          }
-          <div className="modal-body">
-            {children}
-          </div>
+          )}
+          <div className="modal-body">{children}</div>
         </div>
       </Modal>
     );
