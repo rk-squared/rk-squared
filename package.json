@@ -113,6 +113,11 @@
   "bin": {
     "electron": "./node_modules/.bin/electron"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rk-squared/rk-squared.git"
