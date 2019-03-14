@@ -7,6 +7,7 @@ import { AppContainer } from 'react-hot-loader';
 // https://stackoverflow.com/a/37480521/25507
 const w = window as any;
 w.$ = w.jQuery = require('jquery/dist/jquery.slim');
+require('popper.js');
 require('bootstrap');
 
 import { library } from '@fortawesome/fontawesome-svg-core';
