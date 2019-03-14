@@ -3,37 +3,40 @@
  */
 
 const path = require('path');
+const webpack = require('webpack');
+const { dependencies } = require('../package.json');
 
 module.exports = {
+  externals: [...Object.keys(dependencies || {})],
+
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.tsx?$/,
         loaders: ['react-hot-loader/webpack', 'ts-loader'],
         exclude: /node_modules/,
       },
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
     ],
   },
 
   output: {
-    path: path.join(__dirname, 'app'),
-    filename: 'bundle.js',
-
+    path: path.join(__dirname, '..', 'app'),
     // https://github.com/webpack/webpack/issues/1114
     libraryTarget: 'commonjs2',
   },
 
-  // https://webpack.github.io/docs/configuration.html#resolve
+  /**
+   * Determine the array of extensions that should be used to resolve modules.
+   */
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json'],
-    modules: [path.join(__dirname, 'app'), 'node_modules'],
   },
 
-  plugins: [],
+  plugins: [
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'production',
+    }),
 
-  externals: {},
+    new webpack.NamedModulesPlugin(),
+  ],
 };
