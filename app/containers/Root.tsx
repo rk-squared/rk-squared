@@ -6,7 +6,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { History } from 'history';
 
 import { IState } from '../reducers';
-import { Routes } from '../routes';
+import { Routes } from './Routes';
 
 interface IRootType {
   store: Store<IState>;

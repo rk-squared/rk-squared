@@ -12,7 +12,7 @@
   // override that to appear on the left.  Use !important to supersede
   // Bootstrap's @media styles.
   .nav {
-    align-items: left !important;
+    align-items: flex-start !important;
     flex-flow: column !important;
     padding-top: $margin-top !important;
 
@@ -22,7 +22,7 @@
     }
 
     > :global(.navbar-collapse) {
-      align-items: left;
+      align-items: flex-start;
     }
   }
 
