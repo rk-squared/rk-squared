@@ -5,8 +5,6 @@ import { createHashHistory } from 'history';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
-const { forwardToMain } = require('electron-redux');
-
 import { createRootReducer, IState } from '../reducers';
 
 declare const window: Window & {
@@ -41,7 +39,15 @@ const composeEnhancers: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPO
   : compose;
 /* eslint-enable no-underscore-dangle */
 
-const enhancer = composeEnhancers(applyMiddleware(forwardToMain, thunk, router, logger));
+let middleware: any;
+if (process.env.IS_ELECTRON) {
+  const { forwardToMain } = require('electron-redux');
+  middleware = applyMiddleware(forwardToMain, thunk, router, logger);
+} else {
+  middleware = applyMiddleware(thunk, router, logger);
+}
+
+const enhancer = composeEnhancers(middleware);
 
 export = {
   history,

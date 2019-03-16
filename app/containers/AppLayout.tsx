@@ -18,7 +18,7 @@ export class AppLayout extends React.Component<Props> {
               <img src={logo} alt="RK²" className={styles.logo} />
             </NavLink>
 
-            <div className="collapse navbar-collapse">
+            <div className={`collapse navbar-collapse ${styles.navCollapse}`}>
               <ul className="navbar-nav mr-auto flex-column">
                 <li className="nav-item">
                   <NavLink className="nav-link" activeClassName="active" to="/dropTracker">

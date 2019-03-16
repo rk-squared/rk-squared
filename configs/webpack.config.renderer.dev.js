@@ -247,7 +247,6 @@ module.exports = merge.smart(baseConfig, {
     port,
     publicPath,
     compress: true,
-    noInfo: true,
     stats: 'errors-only',
     inline: true,
     lazy: false,
