@@ -51,7 +51,7 @@ module.exports = merge.smart(baseConfig, {
     /**
      * Create global constants which can be configured at compile time.
      *
-     * Useful for allowing different behaviour between development builds and
+     * Useful for allowing different behavior between development builds and
      * release builds
      *
      * NODE_ENV should be production so that modules do not perform certain
@@ -59,6 +59,9 @@ module.exports = merge.smart(baseConfig, {
      */
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
+
+      // ag-Grid depends on being able to temporarily mutate objects.
+      UPDEEP_MODE: 'dangerously_never_freeze',
     }),
 
     new webpack.LoaderOptionsPlugin({
