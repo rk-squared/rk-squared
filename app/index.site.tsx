@@ -4,8 +4,8 @@ import { AppContainer } from 'react-hot-loader';
 
 import { Root } from './containers/Root';
 import { initializeGlobalStyles } from './globalStyles';
+import { configureStore, history } from './store/configureStore';
 
-const { configureStore, history } = require('./store/configureStore');
 const store = configureStore();
 
 initializeGlobalStyles('#root');
