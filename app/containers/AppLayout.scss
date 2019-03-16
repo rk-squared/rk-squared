@@ -47,6 +47,7 @@
       > .content {
         margin-top: $margin-top;
         overflow-y: auto;
+        max-height: calc(100% - #{$margin-top});
       }
     }
   }
