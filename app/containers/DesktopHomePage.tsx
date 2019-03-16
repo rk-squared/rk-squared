@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { DesktopHome } from '../components/DesktopHome';
 import { DonationInfo } from '../components/DonationInfo';
+import { DesktopHome } from '../components/home/DesktopHome';
 import { Page } from './Page';
 
 export class DesktopHomePage extends React.Component {
@@ -9,7 +9,7 @@ export class DesktopHomePage extends React.Component {
 
   render() {
     return (
-      <Page title="Welcome" footer={this.renderFooter}>
+      <Page title="RK Squared" footer={this.renderFooter}>
         <DesktopHome />
       </Page>
     );

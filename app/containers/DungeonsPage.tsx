@@ -8,7 +8,7 @@ import { World } from '../actions/worlds';
 import { IState } from '../reducers';
 import { hasSessionState } from '../reducers/session';
 
-import { BrowserLink } from '../components/BrowserLink';
+import { BrowserLink } from '../components/common/BrowserLink';
 import { ProgressBar } from '../components/common/ProgressBar';
 import { DungeonsList } from '../components/dungeons/DungeonsList';
 import ItemTypeChecklist from '../components/dungeons/ItemTypeChecklist';

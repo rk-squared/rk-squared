@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { BrowserLink } from './BrowserLink';
+import { BrowserLink } from './common/BrowserLink';
 
 const URL = 'http://ko-fi.com/rksquared';
 
