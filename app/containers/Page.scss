@@ -9,8 +9,13 @@
       flex-grow: 1;
     }
 
-    > h2, > .footer {
+    > h2,
+    > .footer {
       flex-shrink: 0;
+    }
+
+    > .footer {
+      margin-top: 1rem;
     }
   }
 }

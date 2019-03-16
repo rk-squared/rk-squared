@@ -8,6 +8,7 @@ import {
   misterPUrl,
   redditUrl,
 } from '../../data/resources';
+import { SiteExternalLink } from '../common/SiteExternalLink';
 import { AppFeatures } from './AppFeatures';
 
 export class SiteHome extends React.PureComponent {
@@ -15,25 +16,17 @@ export class SiteHome extends React.PureComponent {
     return (
       <div>
         <p>
-          RK Squared is a record keeper for <a href={gameUrl}>Final Fantasy Record Keeper (FFRK)</a>
-          . It's available both as a web site and as an app for the Mac and PC.
+          RK Squared is a record keeper for{' '}
+          <SiteExternalLink href={gameUrl}>Final Fantasy Record Keeper (FFRK)</SiteExternalLink>.
+          It's available both as a web site and as an app for the Mac and PC.
         </p>
 
         <h3>The site</h3>
         <p>
           Information about the game, gathered and presented with help from the{' '}
-          <a href={ffrkCommunityUrl} target="_blank">
-            FFRK Community Database
-          </a>
-          ,{' '}
-          <a href={misterPUrl} target="_blank">
-            MisterP's PDF
-          </a>
-          , and{' '}
-          <a href={redditUrl} target="_blank">
-            Reddit
-          </a>
-          .
+          <SiteExternalLink href={ffrkCommunityUrl}>FFRK Community Database</SiteExternalLink>,{' '}
+          <SiteExternalLink href={misterPUrl}>MisterP's PDF</SiteExternalLink>, and{' '}
+          <SiteExternalLink href={redditUrl}>Reddit</SiteExternalLink>.
         </p>
 
         <h3>The app</h3>
