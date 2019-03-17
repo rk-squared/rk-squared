@@ -38,7 +38,7 @@ export class DungeonsPage extends React.Component<Props> {
     const missingPrompt =
       missingWorlds.length === 1 ? '1 realm or event' : `${missingWorlds.length} realms and events`;
     return (
-      <Page title="Dungeon Tracker">
+      <Page title="Dungeons">
         {missingWorlds.length !== 0 && hasSession && !progress && (
           <p>
             Dungeons for {missingPrompt} have not been loaded.{' '}
