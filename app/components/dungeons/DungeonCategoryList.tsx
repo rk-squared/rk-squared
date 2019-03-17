@@ -14,6 +14,7 @@ interface Props {
     [id: number]: World;
   };
   category: WorldCategory;
+  isAnonymous?: boolean;
 }
 
 // TODO: Include banner images?
@@ -75,7 +76,7 @@ function getSortedWorlds(
 
 export class DungeonCategoryList extends React.PureComponent<Props> {
   render() {
-    const { worlds, category } = this.props;
+    const { worlds, category, isAnonymous } = this.props;
     const bySubcategory = getSortedWorlds(worlds, category);
     if (bySubcategory == null) {
       return null;
@@ -91,24 +92,33 @@ export class DungeonCategoryList extends React.PureComponent<Props> {
             category={category}
             title={descriptions[category]}
             worlds={categoryWorlds}
+            isAnonymous={isAnonymous}
           />
         )}
       >
         <div className="accordion">
-          <WorldPrizeList worlds={categoryWorlds} />
+          <WorldPrizeList worlds={categoryWorlds} isAnonymous={isAnonymous} />
           {bySubcategory.map(([subcategory, subWorlds], i) => (
             <MaybeWrap
               component={CollapsibleCard}
               test={subcategory !== ''}
               id={`${id}-${i}`}
               key={i}
-              title={() => <DungeonCategoryTitle title={subcategory} worlds={subWorlds} />}
+              title={() => (
+                <DungeonCategoryTitle
+                  title={subcategory}
+                  worlds={subWorlds}
+                  isAnonymous={isAnonymous}
+                />
+              )}
             >
               <div>
-                {subcategory !== '' && <WorldPrizeList worlds={subWorlds} />}
+                {subcategory !== '' && (
+                  <WorldPrizeList worlds={subWorlds} isAnonymous={isAnonymous} />
+                )}
                 <div className="accordion">
                   {subWorlds.map((w, j) => (
-                    <DungeonCard world={w} key={j} />
+                    <DungeonCard world={w} isAnonymous={isAnonymous} key={j} />
                   ))}
                 </div>
               </div>

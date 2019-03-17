@@ -21,15 +21,14 @@ const categoryImages: { [category: string]: string } = {
   [WorldCategory.Torment]: require('../../images/game-icons/daemon-skull.svg'),
 };
 
-export const DungeonCategoryTitle = ({
-  category,
-  title,
-  worlds,
-}: {
+interface Props {
   category?: WorldCategory;
   title: string;
   worlds: World[];
-}) => (
+  isAnonymous?: boolean;
+}
+
+export const DungeonCategoryTitle = ({ category, title, worlds, isAnonymous }: Props) => (
   <div className={`d-flex justify-content-between align-items-center ${styles.component}`}>
     <div className={styles.titleText}>
       {category != null && (
@@ -43,6 +42,6 @@ export const DungeonCategoryTitle = ({
       )}
       {title}
     </div>
-    <WorldBadge worlds={worlds} />
+    <WorldBadge worlds={worlds} isAnonymous={isAnonymous} />
   </div>
 );

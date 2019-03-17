@@ -60,7 +60,7 @@ export class DungeonsPage extends React.Component<Props> {
         ) : (
           <div className="row">
             <div className="col-sm-9">
-              <DungeonsList worlds={worlds} />
+              <DungeonsList worlds={worlds} isAnonymous={!process.env.IS_ELECTRON} />
               <p className="text-muted text-right mb-0">
                 <small>
                   Icons by{' '}

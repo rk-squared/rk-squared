@@ -7,10 +7,9 @@ import { DungeonBadge } from './DungeonBadge';
 
 interface Props {
   worlds: World[];
+  isAnonymous?: boolean;
 }
 
-export default connect(
-  (state: IState, { worlds }: Props) => ({
-    dungeons: getDungeonsForWorlds(state.dungeons, worlds)
-  })
-)(DungeonBadge);
+export default connect((state: IState, { worlds }: Props) => ({
+  dungeons: getDungeonsForWorlds(state.dungeons, worlds),
+}))(DungeonBadge);
