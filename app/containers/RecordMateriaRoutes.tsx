@@ -2,25 +2,24 @@ import * as React from 'react';
 import { Route, RouteComponentProps } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
-import { RecordMateriaDetail } from '../actions/recordMateria';
 import { AttackReplacement } from '../components/recordMateria/AttackReplacement';
 import { DamageHealing } from '../components/recordMateria/DamageHealing';
 import { Misc } from '../components/recordMateria/Misc';
 import { RecordMateriaGrid } from '../components/recordMateria/RecordMateriaGrid';
+import { RecordMateriaProps } from '../components/recordMateria/RecordMateriaList';
 import { StatBuffs } from '../components/recordMateria/StatBuffs';
 
 const styles = require('./RecordMateriaRoutes.scss');
 
-interface Props {
-  recordMateria: { [id: number]: RecordMateriaDetail };
-}
-
-export class RecordMateriaRoutes extends React.Component<Props & RouteComponentProps> {
-  renderAll = () => <RecordMateriaGrid recordMateria={this.props.recordMateria} />;
-  renderStatBuffs = () => <StatBuffs recordMateria={this.props.recordMateria} />;
-  renderDamageHealing = () => <DamageHealing recordMateria={this.props.recordMateria} />;
-  renderAttackReplacement = () => <AttackReplacement recordMateria={this.props.recordMateria} />;
-  renderMisc = () => <Misc recordMateria={this.props.recordMateria} />;
+export class RecordMateriaRoutes extends React.Component<RecordMateriaProps & RouteComponentProps> {
+  renderPart = (Part: React.ComponentType<RecordMateriaProps>) => (
+    <Part recordMateria={this.props.recordMateria} isAnonymous={this.props.isAnonymous} />
+  );
+  renderAll = () => this.renderPart(RecordMateriaGrid);
+  renderStatBuffs = () => this.renderPart(StatBuffs);
+  renderDamageHealing = () => this.renderPart(DamageHealing);
+  renderAttackReplacement = () => this.renderPart(AttackReplacement);
+  renderMisc = () => this.renderPart(Misc);
 
   render() {
     const { match } = this.props;

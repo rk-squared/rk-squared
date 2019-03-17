@@ -1,17 +1,12 @@
 import * as React from 'react';
 
-import { RecordMateriaDetail } from '../../actions/recordMateria';
+import { RecordMateriaProps } from './RecordMateriaList';
 import { RecordMateriaTableGroup } from './RecordMateriaTableGroup';
 
 import tables from './AttackReplacementDefinitions';
 
-interface Props {
-  recordMateria: { [id: number]: RecordMateriaDetail };
-}
-
-export class AttackReplacement extends React.Component<Props> {
+export class AttackReplacement extends React.PureComponent<RecordMateriaProps> {
   render() {
-    const { recordMateria } = this.props;
-    return <RecordMateriaTableGroup id="attackReplacement" recordMateria={recordMateria} tables={tables}/>;
+    return <RecordMateriaTableGroup id="attackReplacement" {...this.props} tables={tables} />;
   }
 }

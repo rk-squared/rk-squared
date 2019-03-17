@@ -9,9 +9,13 @@ import { StatusIcon } from './StatusIcon';
 
 const styles = require('./RecordMateriaList.scss');
 
-interface Props {
-  tooltipId: string;
+export interface RecordMateriaProps {
   recordMateria: { [id: number]: RecordMateriaDetail };
+  isAnonymous?: boolean;
+}
+
+interface Props extends RecordMateriaProps {
+  tooltipId: string;
   show: CharacterRecordMateria[];
 }
 
@@ -26,7 +30,7 @@ export class RecordMateriaList extends React.Component<Props> {
     if (rm) {
       return (
         <li key={index} data-tip={rm.id} data-for={tooltipId}>
-          <StatusIcon status={rm.status} />
+          {!this.props.isAnonymous && <StatusIcon status={rm.status} />}
           {rm.characterName} {rm.order}
         </li>
       );
@@ -44,7 +48,7 @@ export class RecordMateriaList extends React.Component<Props> {
     } else {
       return (
         <li key={index}>
-          <StatusIcon status={RecordMateriaStatus.Unknown} />
+          {!this.props.isAnonymous && <StatusIcon status={RecordMateriaStatus.Unknown} />}
           {characterName} {order}
         </li>
       );

@@ -15,6 +15,7 @@ import { StatusCell } from './StatusCell';
 
 interface Props {
   recordMateria: { [id: number]: RecordMateriaDetail };
+  isAnonymous?: boolean;
 }
 
 interface State {
@@ -58,15 +59,17 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
           data.description.replace('<br>', ' '),
         cellRendererFramework: DescriptionCell,
       },
-      {
+    ];
+    if (!this.props.isAnonymous) {
+      this.columnDefs.push({
         headerName: 'Status',
         width: 150,
         field: 'status',
         valueGetter: ({ data }: { data: RecordMateriaDetail }) => data.statusDescription,
         cellRendererFramework: StatusCell,
         comparator: compareByNumberField('status'),
-      },
-    ];
+      });
+    }
     this.state = {
       filter: '',
       count: undefined,
