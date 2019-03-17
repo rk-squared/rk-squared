@@ -23,6 +23,7 @@ export const DungeonBadge = ({ dungeons, isAnonymous }: Props) => {
   }
   const total = dungeons.length;
 
+  // TODO: Use getProcessor to consolidate this branch with the rest of the function
   if (isAnonymous) {
     const stamina = _.sumBy(dungeons, 'totalStamina');
     return (

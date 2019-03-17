@@ -4,13 +4,7 @@ import * as ReactTooltip from 'react-tooltip';
 
 import classNames from 'classnames';
 
-import {
-  Dungeon,
-  formatDifficulty,
-  getAllPrizes,
-  getAvailablePrizes,
-  hasAvailablePrizes,
-} from '../../actions/dungeons';
+import { Dungeon, formatDifficulty } from '../../actions/dungeons';
 import { World } from '../../actions/worlds';
 import { LangType } from '../../api/apiUrls';
 import { localIcons } from '../../data/localData';
@@ -19,7 +13,7 @@ import { IState } from '../../reducers';
 import { getDungeonsForWorld } from '../../reducers/dungeons';
 import { CollapsibleCard } from '../common/CollapsibleCard';
 import { DungeonBadge } from './DungeonBadge';
-import { rewardsTitle } from './DungeonCommon';
+import { getProcessor, rewardsTitle } from './DungeonCommon';
 import DungeonPrizeList from './DungeonPrizeList';
 import { PrizeList } from './PrizeList';
 
@@ -63,15 +57,13 @@ export const DungeonListItem = ({
   dungeon: Dungeon;
   isAnonymous?: boolean;
 }) => {
-  const hasPrizes = isAnonymous || hasAvailablePrizes(dungeon);
-  const classes = isAnonymous
-    ? undefined
-    : classNames({
-        [styles.completed]: dungeon.isComplete,
-        [styles.mastered]: dungeon.isMaster && !hasPrizes,
-      });
+  const { hasPrizes, completed, mastered, getPrizes } = getProcessor(isAnonymous).getInfo(dungeon);
+  const classes = classNames({
+    [styles.completed]: completed,
+    [styles.mastered]: mastered,
+  });
   const id = `dungeon-item-${dungeon.id}`;
-  const showDetails = isAnonymous || !dungeon.isMaster;
+  const showDetails = !mastered;
   const showTooltip = hasPrizes;
   return (
     <li className={classes}>
@@ -81,7 +73,7 @@ export const DungeonListItem = ({
       </div>
       {showTooltip && (
         <ReactTooltip place="bottom" id={id}>
-          <PrizeList prizes={isAnonymous ? getAllPrizes(dungeon) : getAvailablePrizes(dungeon)} />
+          <PrizeList prizes={getPrizes(dungeon)} />
         </ReactTooltip>
       )}
     </li>
