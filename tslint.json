@@ -12,6 +12,7 @@
     "no-string-literal": false,
     "no-submodule-imports": [
       true,
+      "ag-grid",
       "@fortawesome/pro-solid-svg-icons",
       "jquery",
       "lodash-es",
