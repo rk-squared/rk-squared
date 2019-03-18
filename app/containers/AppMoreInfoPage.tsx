@@ -9,7 +9,7 @@ export class AppMoreInfoPage extends React.Component {
 
   render() {
     return (
-      <Page title="The RK² App" footer={this.renderFooter}>
+      <Page title="The RK² Application" footer={this.renderFooter}>
         <AppMoreInfo />
       </Page>
     );

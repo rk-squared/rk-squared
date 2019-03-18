@@ -9,7 +9,7 @@ export class SiteHomePage extends React.Component {
 
   render() {
     return (
-      <Page title="Welcome" footer={this.renderFooter}>
+      <Page title="RK Squared" footer={this.renderFooter}>
         <SiteHome />
       </Page>
     );

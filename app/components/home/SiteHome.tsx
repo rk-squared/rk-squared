@@ -18,7 +18,7 @@ export class SiteHome extends React.PureComponent {
         <p>
           RK Squared is a record keeper for{' '}
           <SiteExternalLink href={gameUrl}>Final Fantasy Record Keeper (FFRK)</SiteExternalLink>.
-          It's available both as a web site and as an app for the Mac and PC.
+          It's available both as a web site and as an application for the Mac and PC.
         </p>
 
         <h3>The site</h3>
@@ -29,7 +29,7 @@ export class SiteHome extends React.PureComponent {
           <SiteExternalLink href={redditUrl}>Reddit</SiteExternalLink>.
         </p>
 
-        <h3>The app</h3>
+        <h3>The application</h3>
         <p>
           The same information as the site, plus features to automatically track and manage your
           game progress:
