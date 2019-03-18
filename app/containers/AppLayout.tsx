@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { GoogleAd250x250 } from '../components/common/GoogleAd250x250';
 import { routes } from '../routes';
 
 const styles = require('./AppLayout.scss');
@@ -20,7 +21,7 @@ export class AppLayout extends React.Component<Props> {
               <img src={logo} alt="RK²" className={styles.logo} />
             </NavLink>
 
-            <div className={`collapse navbar-collapse ${styles.navCollapse}`}>
+            <div className={`collapse navbar-collapse`}>
               <ul className="navbar-nav mr-auto flex-column">
                 {routes
                   .filter(i => i.description != null)
@@ -33,6 +34,12 @@ export class AppLayout extends React.Component<Props> {
                   ))}
               </ul>
             </div>
+
+            {!process.env.IS_ELECTRON && (
+              <div className={styles.ad}>
+                <GoogleAd250x250 />
+              </div>
+            )}
           </nav>
 
           <div className={`col ${styles.content}`}>{this.props.children}</div>

@@ -26,10 +26,6 @@
     }
   }
 
-  .navCollapse {
-    flex-grow: 0;
-  }
-
   .logo {
     // Select a height of 30px to match a text .navbar-brand in our current
     // Bootstrap theme.  It also happens to provide a good vertical alignment
@@ -50,5 +46,9 @@
         max-height: calc(100% - #{$margin-top});
       }
     }
+  }
+
+  .ad {
+    align-self: flex-end;
   }
 }
