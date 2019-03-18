@@ -38,6 +38,7 @@ app/renderer.prod.js
 app/renderer.prod.js.map
 app/style.css
 app/style.css.map
+app/tmp
 build
 dist
 dll

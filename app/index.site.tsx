@@ -6,7 +6,7 @@ import { Root } from './containers/Root';
 import { initializeGlobalStyles } from './globalStyles';
 import { configureStore, history } from './store/configureStore';
 
-const store = configureStore();
+const store = configureStore(require('./tmp/store.json'));
 
 initializeGlobalStyles('#root');
 
