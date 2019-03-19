@@ -8,30 +8,49 @@ export interface Character {
   levelCap: number;
 }
 
-export const setCharacters = createAction('SET_CHARACTERS',
+export const setCharacters = createAction(
+  'SET_CHARACTERS',
   (characters: { [id: number]: Character }) => ({
     type: 'SET_CHARACTERS',
     payload: {
-      characters
-    }
-  })
+      characters,
+    },
+  }),
 );
 
-export const setCharacter = createAction('SET_CHARACTER',
-  (character: Character) => ({
-    type: 'SET_CHARACTER',
-    payload: character
-  })
-);
+export const setCharacter = createAction('SET_CHARACTER', (character: Character) => ({
+  type: 'SET_CHARACTER',
+  payload: character,
+}));
 
-export const updateCharacter = createAction('UPDATE_CHARACTER',
+export const updateCharacter = createAction(
+  'UPDATE_CHARACTER',
   (id: number, character: Partial<Character>) => ({
     type: 'UPDATE_CHARACTER',
     payload: {
       id,
-      character
-    }
-  })
+      character,
+    },
+  }),
 );
 
-export type CharacterAction = ReturnType<typeof setCharacter | typeof setCharacters | typeof updateCharacter>;
+export const setSoulBreaks = createAction('SET_SOUL_BREAKS', (soulBreakIds: number[]) => ({
+  type: 'SET_SOUL_BREAKS',
+  payload: soulBreakIds,
+}));
+
+export const setLegendMateria = createAction(
+  'SET_LEGEND_MATERIA',
+  (legendMateriaIds: number[]) => ({
+    type: 'SET_LEGEND_MATERIA',
+    payload: legendMateriaIds,
+  }),
+);
+
+export type CharacterAction = ReturnType<
+  | typeof setCharacter
+  | typeof setCharacters
+  | typeof updateCharacter
+  | typeof setSoulBreaks
+  | typeof setLegendMateria
+>;

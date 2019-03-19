@@ -1,41 +1,56 @@
 import { getType } from 'typesafe-actions';
 
-import { Character, CharacterAction, setCharacter, setCharacters, updateCharacter } from '../actions/characters';
+import { produce } from 'immer';
 
-const u = require('updeep');
+import {
+  Character,
+  CharacterAction,
+  setCharacter,
+  setCharacters,
+  setLegendMateria,
+  setSoulBreaks,
+  updateCharacter,
+} from '../actions/characters';
 
 export interface CharacterState {
   characters: {
     [id: number]: Character;
   };
+  soulBreaks?: number[];
+  legendMateria?: number[];
 }
 
-const initialState = {
-  characters: {}
+const initialState: CharacterState = {
+  characters: {},
+  soulBreaks: [],
+  legendMateria: [],
 };
 
-export function characters(state: CharacterState = initialState, action: CharacterAction): CharacterState {
-  switch (action.type) {
-    case getType(setCharacter):
-      return {
-        ...state,
-        characters: {
-          ...state.characters,
-          [action.payload.id]: action.payload,
-        }
-      };
+export function characters(
+  state: CharacterState = initialState,
+  action: CharacterAction,
+): CharacterState {
+  return produce(state, (draft: CharacterState) => {
+    switch (action.type) {
+      case getType(setCharacter):
+        draft.characters[action.payload.id] = action.payload;
+        return;
 
-    case getType(setCharacters):
-      return {
-        ...state,
-        characters: action.payload.characters
-      };
+      case getType(setCharacters):
+        draft.characters = action.payload.characters;
+        return;
 
-    case getType(updateCharacter):
-      return u.update({ characters: { [action.payload.id]: action.payload.character } }, state);
+      case getType(updateCharacter):
+        Object.assign(draft.characters[action.payload.id], action.payload.character);
+        return;
 
-    /* istanbul ignore next */
-    default:
-      return state;
-  }
+      case getType(setSoulBreaks):
+        draft.soulBreaks = action.payload;
+        return;
+
+      case getType(setLegendMateria):
+        draft.legendMateria = action.payload;
+        return;
+    }
+  });
 }

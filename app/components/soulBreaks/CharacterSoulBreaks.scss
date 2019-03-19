@@ -10,4 +10,8 @@
   .component > :global(.card-body) > :global(.table) {
     margin-bottom: 0;
   }
+
+  .unowned {
+    background-color: #f0f0f0;
+  }
 }

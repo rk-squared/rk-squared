@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { HashLink } from 'react-router-hash-link';
 
-import { SoulBreakList } from '../components/soulBreaks/SoulBreakList';
+import SoulBreakList from '../components/soulBreaks/SoulBreakList';
 import { alphabet } from '../utils/textUtils';
 import { Page } from './Page';
 
@@ -26,7 +26,7 @@ export class SoulBreaksPage extends React.Component {
           </div>
         </nav>
 
-        <SoulBreakList letterAnchor={soulBreakAnchor} />
+        <SoulBreakList letterAnchor={soulBreakAnchor} isAnonymous={!process.env.IS_ELECTRON} />
       </Page>
     );
   }

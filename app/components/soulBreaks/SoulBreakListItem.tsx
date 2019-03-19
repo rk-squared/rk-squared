@@ -46,6 +46,7 @@ const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
 
 interface Props {
   soulBreak: EnlirSoulBreak;
+  className?: string;
 }
 
 const mrPSoulBreaks: { [id: number]: MrPSoulBreak } = {};
@@ -53,7 +54,7 @@ const mrPSoulBreaks: { [id: number]: MrPSoulBreak } = {};
 export class SoulBreakListItem extends React.Component<Props> {
   renderBraveCommands(braveCommands: MrPSoulBreak[]) {
     return (
-      <tr className={styles.braveCommand}>
+      <tr className={classNames(this.props.className, styles.braveCommand)}>
         <td />
         <td />
         <td>{formatBraveCommands(braveCommands)}</td>
@@ -65,7 +66,7 @@ export class SoulBreakListItem extends React.Component<Props> {
     return (
       <>
         {burstCommands.map((cmd, i) => (
-          <tr className={styles.burstCommand} key={i}>
+          <tr className={classNames(this.props.className, styles.burstCommand)} key={i}>
             <td />
             <td className={styles.school}>[{cmd.school && getSchoolShortName(cmd.school)}]</td>
             <td className={styles.command}>[{formatMrP(cmd)}]</td>
@@ -76,7 +77,7 @@ export class SoulBreakListItem extends React.Component<Props> {
   }
 
   render() {
-    const { soulBreak } = this.props;
+    const { soulBreak, className } = this.props;
 
     if (!mrPSoulBreaks[soulBreak.id]) {
       mrPSoulBreaks[soulBreak.id] = describeEnlirSoulBreak(soulBreak);
@@ -86,9 +87,12 @@ export class SoulBreakListItem extends React.Component<Props> {
     const name = soulBreak.gl ? soulBreak.name : '“' + soulBreak.name + '”';
     const text = formatMrP(mrP);
     const alias = (soulBreakAliases[soulBreak.id] || soulBreak.tier).replace('-', '');
+    const fullClassName = classNames(className, tierClass[soulBreak.tier], {
+      [styles.jp]: !soulBreak.gl,
+    });
     return (
       <>
-        <tr className={classNames(tierClass[soulBreak.tier], { [styles.jp]: !soulBreak.gl })}>
+        <tr className={fullClassName}>
           <td className={styles.tier}>{alias}</td>
           <td className={styles.name}>{name}</td>
           <td>{text || '???'}</td>

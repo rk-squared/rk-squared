@@ -1,8 +1,11 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 
 import * as _ from 'lodash';
 
 import { enlir, isCoreJob } from '../../data/enlir';
+import { IState } from '../../reducers';
+import { getOwnedSoulBreaks } from '../../selectors/characters';
 import { alphabet, alphabetize } from '../../utils/textUtils';
 import { CharacterSoulBreaks } from './CharacterSoulBreaks';
 
@@ -11,12 +14,17 @@ const styles = require('./SoulBreakList.scss');
 const characters = alphabetize(_.values(enlir.characters).filter(i => !isCoreJob(i)), i => i.name);
 
 interface Props {
+  // Optional function for generating HTML anchors for letters.
   letterAnchor?: (letter: string) => string;
+
+  ownedSoulBreaks?: Set<number>;
+
+  isAnonymous?: boolean;
 }
 
 export class SoulBreakList extends React.Component<Props> {
   render() {
-    const { letterAnchor } = this.props;
+    const { letterAnchor, isAnonymous, ownedSoulBreaks } = this.props;
     return (
       <>
         {alphabet.map(
@@ -26,7 +34,11 @@ export class SoulBreakList extends React.Component<Props> {
                 <h3 id={letterAnchor ? letterAnchor(letter) : undefined}>{letter}</h3>
                 <div className="card-columns">
                   {characters[letter].map((character, j) => (
-                    <CharacterSoulBreaks character={character.name} key={j} />
+                    <CharacterSoulBreaks
+                      character={character.name}
+                      ownedSoulBreaks={isAnonymous ? undefined : ownedSoulBreaks}
+                      key={j}
+                    />
                   ))}
                 </div>
               </div>
@@ -36,3 +48,7 @@ export class SoulBreakList extends React.Component<Props> {
     );
   }
 }
+
+export default connect((state: IState) => ({
+  ownedSoulBreaks: getOwnedSoulBreaks(state),
+}))(SoulBreakList);

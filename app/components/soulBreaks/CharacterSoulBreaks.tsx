@@ -10,12 +10,16 @@ const styles = require('./CharacterSoulBreaks.scss');
 
 interface Props {
   character: string;
+  ownedSoulBreaks?: Set<number>;
 }
 // const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
 export class CharacterSoulBreaks extends React.Component<Props> {
   render() {
-    const { character } = this.props;
+    const { character, ownedSoulBreaks } = this.props;
+    // Class name to use, indexed by the boolean value of whether we have this
+    // soul break.
+    const owned = [ownedSoulBreaks ? styles.unowned : undefined, undefined];
 
     // TODO: Show default tier someplace, like MrP does?
     const soulBreaks = _.sortBy(enlir.soulBreaksByCharacter[character], [
@@ -34,7 +38,11 @@ export class CharacterSoulBreaks extends React.Component<Props> {
             </thead>
             <tbody>
               {soulBreaks.map((sb, i) => (
-                <SoulBreakListItem soulBreak={sb} key={i} />
+                <SoulBreakListItem
+                  soulBreak={sb}
+                  className={owned[ownedSoulBreaks ? +ownedSoulBreaks.has(sb.id) : 1]}
+                  key={i}
+                />
               ))}
             </tbody>
           </table>

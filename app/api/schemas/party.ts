@@ -165,6 +165,23 @@ export interface PartySoulStrike {
   is_overflow_soul_strike: boolean;
   is_standard_soul_strike: boolean;
   is_someones_soul_strike: boolean;
+
+  burst_spare_abilities?: Array<{
+    category_type: number;
+    panel_name: string;
+    target_range: number;
+    command_icon_path: RelativeUrlPath;
+    name: string;
+    category_name: string; // e.g., 'White Magic'
+    thumbnail_path: RelativeUrlPath;
+    description: string;
+    category_id: number;
+    animation_id: number;
+    image_path: RelativeUrlPath;
+    rarity: number;
+    disable_generation: boolean;
+    display_category_id: number;
+  }>;
 }
 
 /**

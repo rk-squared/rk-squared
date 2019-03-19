@@ -11,7 +11,14 @@ import { Handler, HandlerRequest } from './common';
 
 import { IState } from '../reducers';
 
-import { Character, setCharacter, setCharacters, updateCharacter } from '../actions/characters';
+import {
+  Character,
+  setCharacter,
+  setCharacters,
+  setLegendMateria,
+  setSoulBreaks,
+  updateCharacter,
+} from '../actions/characters';
 
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';
@@ -59,6 +66,8 @@ const charactersHandler: Handler = {
       return;
     }
     store.dispatch(setCharacters(convertCharacters(data)));
+    store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id)));
+    store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id)));
   },
 
   win_battle: handleWinBattle,
