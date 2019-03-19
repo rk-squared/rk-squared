@@ -40,6 +40,6 @@ library.add(
   faUnlock,
 );
 
-export function initializeGlobalStyles(rootId: string) {
-  Modal.setAppElement(rootId);
+export function initializeGlobalStyles(rootNode: HTMLElement) {
+  Modal.setAppElement(rootNode);
 }

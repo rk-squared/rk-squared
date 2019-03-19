@@ -10,13 +10,14 @@ import { configureStore, history } from './store/configureStore';
 const store = configureStore(getInitialStateRenderer());
 replayActionRenderer(store);
 
-initializeGlobalStyles('#root');
+const rootElement = document.getElementById('root')!;
+initializeGlobalStyles(rootElement);
 
 render(
   <AppContainer>
     <Root store={store} history={history} />
   </AppContainer>,
-  document.getElementById('root'),
+  rootElement,
 );
 
 if ((module as any).hot) {

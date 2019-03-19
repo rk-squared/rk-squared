@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render } from 'react-dom';
+import { hydrate, render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
 import { Root } from './containers/Root';
@@ -8,13 +8,15 @@ import { configureStore, history } from './store/configureStore';
 
 const store = configureStore(require('./tmp/store.json'));
 
-initializeGlobalStyles('#root');
+const rootElement = document.getElementById('root')!;
+initializeGlobalStyles(rootElement);
+const renderOrHydrate = rootElement.hasChildNodes() ? hydrate : render;
 
-render(
+renderOrHydrate(
   <AppContainer>
     <Root store={store} history={history} />
   </AppContainer>,
-  document.getElementById('root'),
+  rootElement,
 );
 
 if ((module as any).hot) {
