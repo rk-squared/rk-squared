@@ -7,6 +7,7 @@ import { IState } from '../../reducers';
 import { getDungeonsForWorlds } from '../../reducers/dungeons';
 
 import { ModalDialog } from '../common/ModalDialog';
+import { rewards, rewardsTitle } from './DungeonCommon';
 import DungeonPrizeList from './DungeonPrizeList';
 import ItemTypeChecklist from './ItemTypeChecklist';
 
@@ -18,6 +19,7 @@ interface StateProps {
 
 interface OwnProps {
   worlds: World[];
+  isAnonymous?: boolean;
 }
 
 interface State {
@@ -28,36 +30,41 @@ export class WorldPrizeList extends React.Component<StateProps & OwnProps, State
   constructor(props: StateProps & OwnProps) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
   }
 
   handleOpen = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    this.setState({isOpen: true});
+    this.setState({ isOpen: true });
   };
 
   handleClose = () => {
-    this.setState({isOpen: false});
+    this.setState({ isOpen: false });
   };
 
   render() {
-    const { dungeons } = this.props;
+    const { dungeons, isAnonymous } = this.props;
     if (!this.state.isOpen) {
-      return <a href="#" onClick={this.handleOpen}>Show all unclaimed rewards</a>;
+      return (
+        <a href="#" onClick={this.handleOpen}>
+          Show all {rewards(isAnonymous)}
+        </a>
+      );
     }
     return (
       <ModalDialog
-        isOpen={this.state.isOpen} onClose={this.handleClose}
+        isOpen={this.state.isOpen}
+        onClose={this.handleClose}
         className="modal-lg"
-        title="Unclaimed Rewards"
+        title={rewardsTitle(isAnonymous)}
       >
         <div className="row">
           <div className="col-md-8">
-            <DungeonPrizeList dungeons={dungeons}/>
+            <DungeonPrizeList dungeons={dungeons} isAnonymous={isAnonymous} />
           </div>
           <div className={`col-md-4 ${styles.right}`}>
-            <ItemTypeChecklist/>
+            <ItemTypeChecklist />
           </div>
         </div>
       </ModalDialog>
@@ -66,8 +73,6 @@ export class WorldPrizeList extends React.Component<StateProps & OwnProps, State
 }
 
 // TODO: Use a selector and PureComponent
-export default connect<StateProps, {}, OwnProps>(
-  (state: IState, { worlds }: OwnProps) => ({
-    dungeons: getDungeonsForWorlds(state.dungeons, worlds)
-  })
-)(WorldPrizeList);
+export default connect<StateProps, {}, OwnProps>((state: IState, { worlds }: OwnProps) => ({
+  dungeons: getDungeonsForWorlds(state.dungeons, worlds),
+}))(WorldPrizeList);

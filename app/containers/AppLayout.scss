@@ -1,7 +1,9 @@
 :local {
   $margin-top: 1rem;
 
-  :global(html), :global(body), :global(#root) {
+  :global(html),
+  :global(body),
+  :global(#root) {
     height: 100%;
     max-height: 100%;
   }
@@ -10,7 +12,7 @@
   // override that to appear on the left.  Use !important to supersede
   // Bootstrap's @media styles.
   .nav {
-    align-items: left !important;
+    align-items: flex-start !important;
     flex-flow: column !important;
     padding-top: $margin-top !important;
 
@@ -20,7 +22,7 @@
     }
 
     > :global(.navbar-collapse) {
-      align-items: left;
+      align-items: flex-start;
     }
   }
 
@@ -41,7 +43,12 @@
       > .content {
         margin-top: $margin-top;
         overflow-y: auto;
+        max-height: calc(100% - #{$margin-top});
       }
     }
+  }
+
+  .ad {
+    align-self: flex-end;
   }
 }

@@ -14,6 +14,7 @@ const styles = require('./RecordMateriaTooltip.scss');
 interface Props {
   id: string;
   recordMateria: { [id: number]: RecordMateriaDetail };
+  isAnonymous?: boolean;
   descriptionOnly?: boolean;
 }
 
@@ -21,6 +22,28 @@ export class RecordMateriaTooltip extends React.Component<Props> {
   // noinspection JSUnusedGlobalSymbols
   static contextType = LangContext;
   context!: React.ContextType<typeof LangContext>;
+
+  renderStatus(rm: RecordMateriaDetail) {
+    if (this.props.isAnonymous) {
+      return (
+        <div className={styles.statusBlock}>
+          <p className={styles.unlockCondition}>{rm.condition}</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className={styles.statusBlock}>
+          <StatusIcon status={rm.status} />
+          <p>
+            {rm.statusDescription}
+            {rm.status === RecordMateriaStatus.Unlocked && (
+              <span className={styles.unlockCondition}> ({rm.condition})</span>
+            )}
+          </p>
+        </div>
+      );
+    }
+  }
 
   getContent = (recordMateriaId: string) => {
     const rm = this.props.recordMateria[+recordMateriaId];
@@ -52,15 +75,7 @@ export class RecordMateriaTooltip extends React.Component<Props> {
           <h6>{rm.name}</h6>
           {gameDescription}
           {enlirDescription}
-          <div className={styles.statusBlock}>
-            <StatusIcon status={rm.status} />
-            <p>
-              {rm.statusDescription}
-              {rm.status === RecordMateriaStatus.Unlocked && (
-                <span className={styles.unlockCondition}> ({rm.condition})</span>
-              )}
-            </p>
-          </div>
+          {this.renderStatus(rm)}
         </div>
       </>
     );

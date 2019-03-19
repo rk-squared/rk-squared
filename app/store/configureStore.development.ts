@@ -1,11 +1,9 @@
-import { applyMiddleware, compose, createStore, Store } from 'redux';
+import { applyMiddleware, compose, createStore, Store, StoreEnhancer } from 'redux';
 
 import { push, routerMiddleware } from 'connected-react-router';
 import { createHashHistory } from 'history';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
-
-const { forwardToMain } = require('electron-redux');
 
 import { createRootReducer, IState } from '../reducers';
 
@@ -41,23 +39,30 @@ const composeEnhancers: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPO
   : compose;
 /* eslint-enable no-underscore-dangle */
 
-const enhancer = composeEnhancers(applyMiddleware(forwardToMain, thunk, router, logger));
+let middleware: StoreEnhancer<{ dispatch: {} }, {}>;
+if (process.env.IS_ELECTRON) {
+  const { forwardToMain } = require('electron-redux');
+  middleware = applyMiddleware(forwardToMain, thunk, router, logger);
+} else {
+  middleware = applyMiddleware(thunk, router, logger);
+}
 
-export = {
-  history,
-  configureStore(initialState?: IState): Store<IState> {
-    const store =
-      initialState == null
-        ? createStore(createRootReducer(history), enhancer)
-        : createStore(createRootReducer(history), initialState, enhancer);
+const enhancer = composeEnhancers(middleware);
 
-    if (module.hot) {
-      module.hot.accept(
-        '../reducers',
-        () => store.replaceReducer(require('../reducers')), // eslint-disable-line global-require
-      );
-    }
+function configureStore(initialState?: IState): Store<IState> {
+  const store =
+    initialState == null
+      ? createStore(createRootReducer(history), enhancer)
+      : createStore(createRootReducer(history), initialState, enhancer);
 
-    return store;
-  },
-};
+  if (module.hot) {
+    module.hot.accept(
+      '../reducers',
+      () => store.replaceReducer(require('../reducers')), // eslint-disable-line global-require
+    );
+  }
+
+  return store;
+}
+
+export { history, configureStore };

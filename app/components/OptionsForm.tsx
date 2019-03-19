@@ -2,16 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { Options, setOption as setOptionAction } from '../actions/options';
+import { ffrkCommunityHelp, ffrkCommunityUrl, misterPHelp, misterPUrl } from '../data/resources';
 import { IState } from '../reducers';
-import { BrowserLink } from './BrowserLink';
+import { BrowserLink } from './common/BrowserLink';
 
 const styles = require('./OptionsForm.scss');
-
-const FFRK_COMMUNITY =
-  'https://docs.google.com/spreadsheets/d/1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk';
-const FFRK_COMMUNITY_HELP = 'Open the FFRK Community Google Docs spreadsheet in your browser.';
-const MISTER_P = 'http://happypluto.com/~misterp/r/ffrk.pdf';
-const MISTER_P_HELP = "Open MisterP's FFRK PDF in your browser.";
 
 interface Props {
   options: Options;
@@ -61,11 +56,11 @@ export class OptionsForm extends React.Component<Props> {
           <HelpText>
             Besides self-imposed speedrun challenges, this can be useful for tracking when buffs and
             debuffs might expire. Check{' '}
-            <BrowserLink href={FFRK_COMMUNITY} title={FFRK_COMMUNITY_HELP}>
+            <BrowserLink href={ffrkCommunityUrl} title={ffrkCommunityHelp}>
               FFRK Community
             </BrowserLink>{' '}
             or{' '}
-            <BrowserLink href={MISTER_P} title={MISTER_P_HELP}>
+            <BrowserLink href={misterPUrl} title={misterPHelp}>
               MisterP
             </BrowserLink>{' '}
             for details on buff durations.

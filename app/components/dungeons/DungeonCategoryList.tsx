@@ -6,30 +6,15 @@ import { descriptions, getSorter, World, WorldCategory } from '../../actions/wor
 import { CollapsibleCard } from '../common/CollapsibleCard';
 import { MaybeWrap } from '../common/MaybeWrap';
 import DungeonCard from './DungeonCard';
-import WorldBadge from './WorldBadge';
+import { DungeonCategoryTitle } from './DungeonCategoryTitle';
 import WorldPrizeList from './WorldPrizeList';
-
-const categoryImages: { [category: string]: string } = {
-  [WorldCategory.CrystalTower]: require('../../images/game-icons/white-tower.svg'),
-  [WorldCategory.Event]: require('../../images/game-icons/book-cover.svg'),
-  [WorldCategory.JumpStart]: require('../../images/game-icons/lob-arrow.svg'),
-  [WorldCategory.PowerUpMote]: require('../../images/game-icons/orb-direction.svg'),
-  [WorldCategory.Magicite]: require('../../images/game-icons/triple-yin.svg'),
-  [WorldCategory.Newcomer]: require('../../images/game-icons/big-egg.svg'),
-  [WorldCategory.Nightmare]: require('../../images/game-icons/spectre.svg'),
-  [WorldCategory.Raid]: require('../../images/game-icons/swords-emblem.svg'),
-  [WorldCategory.Realm]: require('../../images/game-icons/closed-doors.svg'),
-  [WorldCategory.Record]: require('../../images/game-icons/galleon.svg'),
-  [WorldCategory.Renewal]: require('../../images/game-icons/calendar.svg'),
-  [WorldCategory.SpecialEvent]: require('../../images/game-icons/star-formation.svg'),
-  [WorldCategory.Torment]: require('../../images/game-icons/daemon-skull.svg'),
-};
 
 interface Props {
   worlds: {
     [id: number]: World;
   };
   category: WorldCategory;
+  isAnonymous?: boolean;
 }
 
 // TODO: Include banner images?
@@ -89,35 +74,9 @@ function getSortedWorlds(
   return result;
 }
 
-const DungeonCategoryTitle = ({
-  category,
-  title,
-  worlds,
-}: {
-  category?: WorldCategory;
-  title: string;
-  worlds: World[];
-}) => (
-  <div className="d-flex justify-content-between align-items-center">
-    <div>
-      {category != null && (
-        <img
-          src={categoryImages[category]}
-          width={40}
-          height={40}
-          style={{ paddingRight: '0.5em' }}
-          alt=""
-        />
-      )}
-      {title}
-    </div>
-    <WorldBadge worlds={worlds} />
-  </div>
-);
-
 export class DungeonCategoryList extends React.PureComponent<Props> {
   render() {
-    const { worlds, category } = this.props;
+    const { worlds, category, isAnonymous } = this.props;
     const bySubcategory = getSortedWorlds(worlds, category);
     if (bySubcategory == null) {
       return null;
@@ -127,29 +86,39 @@ export class DungeonCategoryList extends React.PureComponent<Props> {
     return (
       <CollapsibleCard
         id={id}
+        titleClassName="text-decoration-none"
         title={() => (
           <DungeonCategoryTitle
             category={category}
             title={descriptions[category]}
             worlds={categoryWorlds}
+            isAnonymous={isAnonymous}
           />
         )}
       >
         <div className="accordion">
-          <WorldPrizeList worlds={categoryWorlds} />
+          <WorldPrizeList worlds={categoryWorlds} isAnonymous={isAnonymous} />
           {bySubcategory.map(([subcategory, subWorlds], i) => (
             <MaybeWrap
               component={CollapsibleCard}
               test={subcategory !== ''}
               id={`${id}-${i}`}
               key={i}
-              title={() => <DungeonCategoryTitle title={subcategory} worlds={subWorlds} />}
+              title={() => (
+                <DungeonCategoryTitle
+                  title={subcategory}
+                  worlds={subWorlds}
+                  isAnonymous={isAnonymous}
+                />
+              )}
             >
               <div>
-                {subcategory !== '' && <WorldPrizeList worlds={subWorlds} />}
+                {subcategory !== '' && (
+                  <WorldPrizeList worlds={subWorlds} isAnonymous={isAnonymous} />
+                )}
                 <div className="accordion">
                   {subWorlds.map((w, j) => (
-                    <DungeonCard world={w} key={j} />
+                    <DungeonCard world={w} isAnonymous={isAnonymous} key={j} />
                   ))}
                 </div>
               </div>

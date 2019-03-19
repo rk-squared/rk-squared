@@ -1,57 +1,23 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import * as Modal from 'react-modal';
 const { replayActionRenderer, getInitialStateRenderer } = require('electron-redux');
 import { AppContainer } from 'react-hot-loader';
 
-// https://stackoverflow.com/a/37480521/25507
-const w = window as any;
-w.$ = w.jQuery = require('jquery/dist/jquery.slim');
-require('popper.js');
-require('bootstrap');
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faArchive,
-  faArrowDown,
-  faCheck,
-  faCoffeeTogo,
-  faEllipsisH,
-  faLock,
-  faLockOpen,
-  faQuestion,
-  faStar,
-  faUnlock,
-} from '@fortawesome/pro-solid-svg-icons';
-
 import { Root } from './containers/Root';
+import { initializeGlobalStyles } from './globalStyles';
+import { configureStore, history } from './store/configureStore';
 
-import './app.global.scss';
-
-library.add(
-  faArchive,
-  faArrowDown,
-  faCheck,
-  faCoffeeTogo,
-  faEllipsisH,
-  faLock,
-  faLockOpen,
-  faQuestion,
-  faStar,
-  faUnlock,
-);
-
-const { configureStore, history } = require('./store/configureStore');
 const store = configureStore(getInitialStateRenderer());
 replayActionRenderer(store);
 
-Modal.setAppElement('#root');
+const rootElement = document.getElementById('root')!;
+initializeGlobalStyles(rootElement);
 
 render(
   <AppContainer>
     <Root store={store} history={history} />
   </AppContainer>,
-  document.getElementById('root'),
+  rootElement,
 );
 
 if ((module as any).hot) {

@@ -8,7 +8,7 @@ import { World } from '../actions/worlds';
 import { IState } from '../reducers';
 import { hasSessionState } from '../reducers/session';
 
-import { BrowserLink } from '../components/BrowserLink';
+import { BrowserLink } from '../components/common/BrowserLink';
 import { ProgressBar } from '../components/common/ProgressBar';
 import { DungeonsList } from '../components/dungeons/DungeonsList';
 import ItemTypeChecklist from '../components/dungeons/ItemTypeChecklist';
@@ -38,7 +38,7 @@ export class DungeonsPage extends React.Component<Props> {
     const missingPrompt =
       missingWorlds.length === 1 ? '1 realm or event' : `${missingWorlds.length} realms and events`;
     return (
-      <Page title="Dungeon Tracker">
+      <Page title="Dungeons">
         {missingWorlds.length !== 0 && hasSession && !progress && (
           <p>
             Dungeons for {missingPrompt} have not been loaded.{' '}
@@ -60,7 +60,7 @@ export class DungeonsPage extends React.Component<Props> {
         ) : (
           <div className="row">
             <div className="col-sm-9">
-              <DungeonsList worlds={worlds} />
+              <DungeonsList worlds={worlds} isAnonymous={!process.env.IS_ELECTRON} />
               <p className="text-muted text-right mb-0">
                 <small>
                   Icons by{' '}

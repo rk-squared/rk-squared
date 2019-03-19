@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { GoogleAd250x250 } from '../components/common/GoogleAd250x250';
+import { routes } from '../routes';
+
 const styles = require('./AppLayout.scss');
 const logo = require('../images/logo.png');
 
@@ -18,40 +21,25 @@ export class AppLayout extends React.Component<Props> {
               <img src={logo} alt="RK²" className={styles.logo} />
             </NavLink>
 
-            <div className="collapse navbar-collapse">
+            <div className={`collapse navbar-collapse`}>
               <ul className="navbar-nav mr-auto flex-column">
-                <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/dropTracker">
-                    Drops
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/dungeons">
-                    Dungeons
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/dungeonScores">
-                    Scores
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/recordMateria">
-                    Record Materia
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/soulBreaks">
-                    Soul Breaks
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/options">
-                    Options
-                  </NavLink>
-                </li>
+                {routes
+                  .filter(i => i.description != null)
+                  .map(({ description, path }, i) => (
+                    <li className="nav-item" key={i}>
+                      <NavLink className="nav-link" activeClassName="active" to={path}>
+                        {description}
+                      </NavLink>
+                    </li>
+                  ))}
               </ul>
             </div>
+
+            {!process.env.IS_ELECTRON && (
+              <div className={styles.ad}>
+                <GoogleAd250x250 />
+              </div>
+            )}
           </nav>
 
           <div className={`col ${styles.content}`}>{this.props.children}</div>

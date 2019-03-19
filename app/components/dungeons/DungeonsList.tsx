@@ -10,15 +10,21 @@ interface Props {
   worlds: {
     [id: number]: World;
   };
+  isAnonymous?: boolean;
 }
 
 export class DungeonsList extends React.PureComponent<Props> {
   render() {
-    const { className, worlds } = this.props;
+    const { className, worlds, isAnonymous } = this.props;
     return (
       <div className={classNames(className, 'accordion')}>
         {sortOrder.map((category: WorldCategory, i: number) => (
-          <DungeonCategoryList worlds={worlds} category={category} key={i} />
+          <DungeonCategoryList
+            worlds={worlds}
+            category={category}
+            isAnonymous={isAnonymous}
+            key={i}
+          />
         ))}
       </div>
     );

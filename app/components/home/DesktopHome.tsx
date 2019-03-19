@@ -4,7 +4,7 @@ import AndroidInstructions from './AndroidInstructions';
 import IosInstructions from './IosInstructions';
 import ProxyStatusDisplay from './ProxyStatusDisplay';
 
-export class Home extends React.Component {
+export class DesktopHome extends React.PureComponent {
   render() {
     return (
       <div>

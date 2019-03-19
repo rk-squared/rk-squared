@@ -1,0 +1,11 @@
+:local {
+  /* Hack: Buttons' default underline-on-hover effect sometimes caused ugly
+   * black underlines under the badges.  To work around that, our callers
+   * pass text-decoration-none to the buttons, and then we manually add
+   * underlining to just the title text (and assume that we're contained within
+   * buttons). */
+  button:hover > .component > .titleText,
+  a:hover > .component > .titleText {
+    text-decoration: underline;
+  }
+}

@@ -88,6 +88,7 @@ module.exports = merge.smart(baseConfig, {
       },
       {
         test: /^((?!\.global).)*\.css$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'style-loader',
@@ -102,6 +103,11 @@ module.exports = merge.smart(baseConfig, {
             },
           },
         ],
+      },
+      {
+        test: /^((?!\.global).)*\.css$/,
+        include: /node_modules/,
+        use: ['style-loader', 'css-loader'],
       },
       // SASS support - compile all .global.scss files and pipe it to style.css
       {
@@ -247,7 +253,6 @@ module.exports = merge.smart(baseConfig, {
     port,
     publicPath,
     compress: true,
-    noInfo: true,
     stats: 'errors-only',
     inline: true,
     lazy: false,

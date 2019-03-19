@@ -38,6 +38,7 @@ export class RecordMateriaPage extends React.Component<Props & RouteComponentPro
       return (
         <RecordMateriaRoutes
           recordMateria={recordMateria}
+          isAnonymous={!process.env.IS_ELECTRON}
           match={match}
           location={location}
           history={history}

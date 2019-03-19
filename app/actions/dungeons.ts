@@ -3,6 +3,7 @@ import { DropItemId, ItemType } from '../data/items';
 import { TimeT } from '../utils/timeUtils';
 
 import * as _ from 'lodash';
+import { arrayify } from '../utils/typeUtils';
 
 export interface PrizeItem {
   type: ItemType;
@@ -60,12 +61,15 @@ export function hasAvailablePrizes(dungeon: Dungeon): boolean {
   );
 }
 
-export function getAvailablePrizes(dungeonOrDungeons: Dungeon | Dungeon[]): PrizeItem[] {
-  const dungeons = Array.isArray(dungeonOrDungeons) ? dungeonOrDungeons : [dungeonOrDungeons];
+export function getDungeonPrizes(
+  dungeonOrDungeons: Dungeon | Dungeon[],
+  includeAll: boolean,
+): PrizeItem[] {
+  const dungeons = arrayify(dungeonOrDungeons);
 
   const result: { [id: number]: PrizeItem } = {};
 
-  function addPrizes(prizes: PrizeItem[]) {
+  function addPrizes(prizes?: PrizeItem[]) {
     if (!prizes) {
       return;
     }
@@ -79,24 +83,41 @@ export function getAvailablePrizes(dungeonOrDungeons: Dungeon | Dungeon[]): Priz
   }
 
   for (const d of dungeons) {
-    if (!d.isComplete) {
+    if (includeAll || !d.isComplete) {
       addPrizes(d.prizes.firstTime);
     }
-    if (!d.isMaster) {
+    if (includeAll || !d.isMaster) {
       addPrizes(d.prizes.mastery);
     }
-    addPrizes(d.prizes.unclaimedGrade || []);
+    if (includeAll) {
+      addPrizes(d.prizes.claimedGrade);
+    }
+    addPrizes(d.prizes.unclaimedGrade);
   }
 
   const ids = Object.keys(result).sort();
   const sortedPrizes = ids.map(i => result[+i]);
 
-  const dungeonChests = _.sumBy(dungeons, i => i.dungeonChests || 0);
-  if (dungeonChests) {
-    sortedPrizes.push(makeDungeonChestPrizeItem(dungeonChests));
+  // Hack: FFRK doesn't report number of treasure chests found, so we often
+  // don't have this information.  Therefore, if includeAll is requested, then
+  // consistently omit all treasure chest information, since we can't
+  // consistently include all of it.
+  if (!includeAll) {
+    const dungeonChests = _.sumBy(dungeons, i => i.dungeonChests || 0);
+    if (dungeonChests) {
+      sortedPrizes.push(makeDungeonChestPrizeItem(dungeonChests));
+    }
   }
 
   return sortedPrizes;
+}
+
+export function getAllPrizes(dungeonOrDungeons: Dungeon | Dungeon[]): PrizeItem[] {
+  return getDungeonPrizes(dungeonOrDungeons, true);
+}
+
+export function getAvailablePrizes(dungeonOrDungeons: Dungeon | Dungeon[]): PrizeItem[] {
+  return getDungeonPrizes(dungeonOrDungeons, false);
 }
 
 /**

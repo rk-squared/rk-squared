@@ -1,19 +1,19 @@
 import * as React from 'react';
 
 import { DonationInfo } from '../components/DonationInfo';
-import { Home } from '../components/Home';
+import { SiteHome } from '../components/home/SiteHome';
 import { Page } from './Page';
 
-export class HomePage extends React.Component {
+export class SiteHomePage extends React.Component {
   renderFooter = () => <DonationInfo />;
 
   render() {
     return (
-      <Page title="Welcome" footer={this.renderFooter}>
-        <Home />
+      <Page title="RK Squared" footer={this.renderFooter}>
+        <SiteHome />
       </Page>
     );
   }
 }
 
-export default HomePage;
+export default SiteHomePage;

@@ -26,7 +26,11 @@
     "test:watch": "jest --watch",
     "copy-json": "copyfiles --flat \"./app/data/enlir/*.json\" ./dist/app/data/enlir",
     "get-enlir": "ts-node scripts/download-enlir.ts -o app/data/enlir",
-    "start-package:mac": "electron \"release/mac/RK Squared.app/Contents/Resources/app.asar\""
+    "start-package:mac": "electron \"release/mac/RK Squared.app/Contents/Resources/app.asar\"",
+    "start-site": "node scripts/start-site.js",
+    "build-site": "node scripts/build-site.js",
+    "postbuild-site": "react-snap",
+    "test-site": "node scripts/test-site.js"
   },
   "jest": {
     "testURL": "http://localhost/",
@@ -127,10 +131,16 @@
     "name": "Josh Kelley",
     "url": "https://github.com/joshkel"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/rk-squared/rk-squared/issues"
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "keywords": [
     "electron",
     "boilerplate",
@@ -140,7 +150,7 @@
     "webpack",
     "react-hot"
   ],
-  "homepage": "https://github.com/rk-squared/rk-squared#readme",
+  "homepage": "https://rk-squared.com/",
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@types/cheerio": "^0.22.7",
@@ -172,6 +182,9 @@
     "@types/yargs": "^12.0.1",
     "asar": "^0.14.0",
     "babel-loader": "^8.0.5",
+    "babel-plugin-named-asset-import": "^0.3.1",
+    "babel-preset-react-app": "^7.0.2",
+    "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "concurrently": "^3.1.0",
     "copyfiles": "^2.0.0",
     "cross-env": "^5.0.1",
@@ -189,7 +202,7 @@
     "file-loader": "^1.1.5",
     "google-auth-library": "^2.0.1",
     "googleapis": "^35.0.0",
-    "html-webpack-plugin": "^2.24.1",
+    "html-webpack-plugin": "^4.0.0-beta.2",
     "husky": "^1.3.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.0.4",
@@ -199,8 +212,12 @@
     "node-sass": "^4.1.1",
     "onchange": "^5.2.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "pnp-webpack-plugin": "^1.4.1",
+    "postcss-safe-parser": "^4.0.1",
     "prettier": "^1.15.3",
+    "react-dev-utils": "^8.0.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-snap": "^1.23.0",
     "react-test-renderer": "^16.0.0",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.3",
@@ -222,7 +239,9 @@
     "webpack-dev-middleware": "^2.0.3",
     "webpack-dev-server": "^3.2.1",
     "webpack-hot-middleware": "^2.13.2",
+    "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.1.1",
+    "workbox-webpack-plugin": "^4.1.1",
     "yargs": "^12.0.2"
   },
   "dependencies": {
