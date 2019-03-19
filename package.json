@@ -29,6 +29,7 @@
     "start-package:mac": "electron \"release/mac/RK Squared.app/Contents/Resources/app.asar\"",
     "start-site": "node scripts/start-site.js",
     "build-site": "node scripts/build-site.js",
+    "postbuild-site": "react-snap",
     "test-site": "node scripts/test-site.js"
   },
   "jest": {
@@ -216,6 +217,7 @@
     "prettier": "^1.15.3",
     "react-dev-utils": "^8.0.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-snap": "^1.23.0",
     "react-test-renderer": "^16.0.0",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.3",
