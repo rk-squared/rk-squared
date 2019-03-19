@@ -14,7 +14,12 @@ export class GoogleAd250x250 extends React.Component {
     */
     // React version based on https://github.com/hustcc/react-adsense
     if (window) {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        // tslint:disable-next-line: no-console
+        console.log(e);
+      }
     }
   }
 

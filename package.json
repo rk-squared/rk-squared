@@ -123,6 +123,9 @@
       "pre-commit": "lint-staged"
     }
   },
+  "reactSnap": {
+    "skipThirdPartyRequests": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rk-squared/rk-squared.git"
