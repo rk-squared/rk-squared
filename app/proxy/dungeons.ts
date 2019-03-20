@@ -41,6 +41,18 @@ const buttonStyleSort: { [s: string]: number } = {
 const effectiveDifficulty = (difficulty: number) => (difficulty === 0 ? Infinity : difficulty);
 
 /**
+ * Should we treat all dungeons for this world as unlocked, regardless of the
+ * is_unlocked property?
+ */
+function shouldForceUnlock(world: World): boolean {
+  // HACK: Power-up dungeons are reported as locked, even if they're not.  In
+  // reality, it's somewhat complicated, since it may depend on day of the
+  // week, whether special events are going on, and (I think) Acolyte Archive
+  // completion status.  But just setting it to true is good enough.
+  return world.category === WorldCategory.PowerUpMote && world.name === 'Power Up Dungeons';
+}
+
+/**
  * Sorts record dungeons using the dungeon node map.  Returns a list of sorted
  * dungeons, followed by a list of dungeons that couldn't be sorted.  (That
  * should never happen.)
@@ -179,7 +191,10 @@ export function addRecordDungeonChests(dungeons: Dungeon[], nodes: dungeonsSchem
   }
 }
 
-export function convertWorldDungeons(data: dungeonsSchemas.Dungeons): Dungeon[] {
+export function convertWorldDungeons(
+  data: dungeonsSchemas.Dungeons,
+  forceUnlock?: boolean,
+): Dungeon[] {
   const dungeons = sortDungeons(data).map(d => ({
     name: d.name,
     id: d.id,
@@ -187,7 +202,7 @@ export function convertWorldDungeons(data: dungeonsSchemas.Dungeons): Dungeon[] 
     difficulty: d.challenge_level,
     openedAt: d.opened_at,
     closedAt: d.closed_at,
-    isUnlocked: d.is_unlocked,
+    isUnlocked: d.is_unlocked || !!forceUnlock,
     isComplete: d.is_clear,
     isMaster: d.is_master,
     totalStamina: d.total_stamina,
@@ -499,7 +514,13 @@ const dungeonsHandler: Handler = {
       return;
     }
 
-    const newDungeons = convertWorldDungeons(data);
+    let forceUnlock = false;
+    const worlds = store.getState().worlds.worlds;
+    if (worlds && worlds[query.world_id]) {
+      forceUnlock = shouldForceUnlock(worlds[query.world_id]);
+    }
+
+    const newDungeons = convertWorldDungeons(data, forceUnlock);
 
     store.dispatch(unlockWorld(query.world_id));
     store.dispatch(addWorldDungeons(query.world_id, newDungeons));

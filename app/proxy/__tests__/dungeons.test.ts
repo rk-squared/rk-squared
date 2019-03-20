@@ -239,6 +239,28 @@ describe('dungeons proxy handler', () => {
       expect(totalCount('Record Rubies')).toEqual(160);
       expect(totalCount('Power Crystal')).toEqual(10);
     });
+
+    it('unlocks Power Up dungeons', () => {
+      const data = require('./data/power_up_world_dungeons.json');
+      const powerUpWorld = {
+        category: 9,
+        closedAt: 2145938400,
+        id: 13014,
+        isUnlocked: true,
+        name: 'Power Up Dungeons',
+        openedAt: 1553086800,
+        seriesId: 300001,
+      };
+
+      const mockStore = configureStore<IState>();
+      const initialState: Partial<IState> = { worlds: { worlds: { [powerUpWorld.id]: powerUpWorld } } };
+      const store = mockStore(initialState as IState);
+
+      dungeonsHandler['dungeons'](data.data, store, { query: { world_id: powerUpWorld.id } });
+      const action = store.getActions().find(i => i.type === 'ADD_WORLD_DUNGEONS');
+      expect(action.payload.dungeons[0].isUnlocked).toEqual(true);
+      expect(store.getActions()).toMatchSnapshot();
+    });
   });
 
   describe('battle gimmick handler', () => {

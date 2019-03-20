@@ -1,0 +1,1908 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dungeons proxy handler dungeons handler unlocks Power Up dungeons 1`] = `
+Array [
+  Object {
+    "payload": 13014,
+    "type": "UNLOCK_WORLD",
+  },
+  Object {
+    "payload": Object {
+      "dungeons": Array [
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 45,
+          "id": 1301401,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Orb Meadows - Normal",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 15000,
+                "id": 92000000,
+                "name": "Gil",
+                "type": "common",
+              },
+              Object {
+                "amount": 120,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 5,
+                "id": 40000014,
+                "name": "Greater Black Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 5,
+                "id": 40000064,
+                "name": "Greater Dark Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 5,
+                "id": 40000004,
+                "name": "Greater Power Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000039,
+                "name": "Greater Ice Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 5,
+                "id": 40000034,
+                "name": "Greater Fire Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 5,
+                "id": 40000049,
+                "name": "Greater Earth Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            20,
+            20,
+          ],
+          "totalStamina": 40,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 45,
+          "id": 1301402,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Shores of Wisdom - Normal",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 3,
+                "id": 70000003,
+                "name": "Growth Egg",
+                "type": "grow_egg",
+              },
+              Object {
+                "amount": 120,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 3,
+                "id": 70000004,
+                "name": "Greater Growth Egg",
+                "type": "grow_egg",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 2,
+                "id": 70000005,
+                "name": "Major Growth Egg",
+                "type": "grow_egg",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            20,
+            20,
+          ],
+          "totalStamina": 40,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 45,
+          "id": 1301404,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Gil Greenwood - Normal",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 60000,
+                "id": 92000000,
+                "name": "Gil",
+                "type": "common",
+              },
+              Object {
+                "amount": 120,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 75000,
+                "id": 92000000,
+                "name": "Gil",
+                "type": "common",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 150000,
+                "id": 92000000,
+                "name": "Gil",
+                "type": "common",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            20,
+            20,
+          ],
+          "totalStamina": 40,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 45,
+          "id": 1301406,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Arena of Steel - Normal",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 3,
+                "id": 25099004,
+                "name": "Large Adamantite",
+                "type": "equipment_sp_material",
+              },
+              Object {
+                "amount": 3,
+                "id": 25098004,
+                "name": "Large Scarletite",
+                "type": "equipment_sp_material",
+              },
+              Object {
+                "amount": 120,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 7,
+                "id": 25099004,
+                "name": "Large Adamantite",
+                "type": "equipment_sp_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 7,
+                "id": 25098004,
+                "name": "Large Scarletite",
+                "type": "equipment_sp_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            20,
+            20,
+          ],
+          "totalStamina": 40,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301403,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Shores of Wisdom +",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 12,
+                "id": 70000003,
+                "name": "Growth Egg",
+                "type": "grow_egg",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 5,
+                "id": 70000005,
+                "name": "Major Growth Egg",
+                "type": "grow_egg",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 70000005,
+                "name": "Major Growth Egg",
+                "type": "grow_egg",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301405,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Gil Greenwood +",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 200000,
+                "id": 92000000,
+                "name": "Gil",
+                "type": "common",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 250000,
+                "id": 92000000,
+                "name": "Gil",
+                "type": "common",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 500000,
+                "id": 92000000,
+                "name": "Gil",
+                "type": "common",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301407,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Arena of Steel (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 3,
+                "id": 25099005,
+                "name": "Giant Adamantite",
+                "type": "equipment_sp_material",
+              },
+              Object {
+                "amount": 3,
+                "id": 25098005,
+                "name": "Giant Scarletite",
+                "type": "equipment_sp_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 5,
+                "id": 25099005,
+                "name": "Giant Adamantite",
+                "type": "equipment_sp_material",
+              },
+              Object {
+                "amount": 5,
+                "id": 25098005,
+                "name": "Giant Scarletite",
+                "type": "equipment_sp_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 15,
+                "id": 25099005,
+                "name": "Giant Adamantite",
+                "type": "equipment_sp_material",
+              },
+              Object {
+                "amount": 15,
+                "id": 25098005,
+                "name": "Giant Scarletite",
+                "type": "equipment_sp_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301408,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Windswept Ravine (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 3,
+                "id": 40000055,
+                "name": "Major Wind Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 8,
+                "id": 40000053,
+                "name": "Wind Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000055,
+                "name": "Major Wind Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000055,
+                "name": "Major Wind Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301409,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Shrine of Ivory (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 8,
+                "id": 40000008,
+                "name": "White Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 3,
+                "id": 40000010,
+                "name": "Major White Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000010,
+                "name": "Major White Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000010,
+                "name": "Major White Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301410,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Ebonfist Keep (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 3,
+                "id": 40000015,
+                "name": "Major Black Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 8,
+                "id": 40000013,
+                "name": "Black Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000015,
+                "name": "Major Black Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000015,
+                "name": "Major Black Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301411,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Earthen Wastes (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 8,
+                "id": 40000048,
+                "name": "Earth Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 3,
+                "id": 40000050,
+                "name": "Major Earth Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000050,
+                "name": "Major Earth Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000050,
+                "name": "Major Earth Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301412,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Maze of Dark Divinity (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 3,
+                "id": 40000065,
+                "name": "Major Dark Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 8,
+                "id": 40000063,
+                "name": "Dark Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000065,
+                "name": "Major Dark Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000065,
+                "name": "Major Dark Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301413,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Icenought Peaks (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 8,
+                "id": 40000038,
+                "name": "Ice Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+              Object {
+                "amount": 3,
+                "id": 40000040,
+                "name": "Major Ice Orb",
+                "type": "ability_material",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000040,
+                "name": "Major Ice Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000040,
+                "name": "Major Ice Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301414,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Tower of Might (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 3,
+                "id": 40000005,
+                "name": "Major Power Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 8,
+                "id": 40000003,
+                "name": "Power Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000005,
+                "name": "Major Power Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000005,
+                "name": "Major Power Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301415,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Brimstone Caldera (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 8,
+                "id": 40000033,
+                "name": "Fire Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 3,
+                "id": 40000035,
+                "name": "Major Fire Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000035,
+                "name": "Major Fire Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000035,
+                "name": "Major Fire Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301416,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Divine Demesne (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 8,
+                "id": 40000058,
+                "name": "Holy Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 3,
+                "id": 40000060,
+                "name": "Major Holy Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000060,
+                "name": "Major Holy Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000060,
+                "name": "Major Holy Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301417,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Thunder Plains (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 3,
+                "id": 40000045,
+                "name": "Major Lightning Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 8,
+                "id": 40000043,
+                "name": "Lightning Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000045,
+                "name": "Major Lightning Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000045,
+                "name": "Major Lightning Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301418,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Netherbeast Cavern (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 8,
+                "id": 40000023,
+                "name": "Summon Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 3,
+                "id": 40000025,
+                "name": "Major Summon Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000025,
+                "name": "Major Summon Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000025,
+                "name": "Major Summon Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301419,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "The Pale Barrens (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 3,
+                "id": 40000030,
+                "name": "Major Non-Elemental Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 8,
+                "id": 40000028,
+                "name": "Non-Elemental Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000030,
+                "name": "Major Non-Elemental Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 6,
+                "id": 40000030,
+                "name": "Major Non-Elemental Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 110,
+          "id": 1301436,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Orb Meadows (+)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 37500,
+                "id": 92000000,
+                "name": "Gil",
+                "type": "common",
+              },
+              Object {
+                "amount": 500,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 4,
+                "id": 40000065,
+                "name": "Major Dark Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 4,
+                "id": 40000005,
+                "name": "Major Power Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 4,
+                "id": 40000015,
+                "name": "Major Black Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 4,
+                "id": 40000050,
+                "name": "Major Earth Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 4,
+                "id": 40000040,
+                "name": "Major Ice Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 4,
+                "id": 40000035,
+                "name": "Major Fire Orb",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            40,
+            40,
+          ],
+          "totalStamina": 80,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301420,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Windswept Ravine (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 16,
+                "id": 40000053,
+                "name": "Wind Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000076,
+                "name": "Wind Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000055,
+                "name": "Major Wind Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000076,
+                "name": "Wind Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301421,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Shrine of Ivory (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 16,
+                "id": 40000008,
+                "name": "White Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000067,
+                "name": "White Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000010,
+                "name": "Major White Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000067,
+                "name": "White Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301422,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Ebonfist Keep (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 2,
+                "id": 40000068,
+                "name": "Black Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 16,
+                "id": 40000013,
+                "name": "Black Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000015,
+                "name": "Major Black Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000068,
+                "name": "Black Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301423,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Earthen Wastes (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 16,
+                "id": 40000048,
+                "name": "Earth Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000075,
+                "name": "Earth Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000050,
+                "name": "Major Earth Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000075,
+                "name": "Earth Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301424,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Maze of Dark Divinity (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 16,
+                "id": 40000063,
+                "name": "Dark Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000078,
+                "name": "Dark Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000065,
+                "name": "Major Dark Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000078,
+                "name": "Dark Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301425,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Icenought Peaks (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 16,
+                "id": 40000038,
+                "name": "Ice Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000073,
+                "name": "Ice Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000040,
+                "name": "Major Ice Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000073,
+                "name": "Ice Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301426,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Tower of Might (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 2,
+                "id": 40000066,
+                "name": "Power Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 16,
+                "id": 40000003,
+                "name": "Power Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000005,
+                "name": "Major Power Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000066,
+                "name": "Power Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301427,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Brimstone Caldera (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 16,
+                "id": 40000033,
+                "name": "Fire Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000072,
+                "name": "Fire Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000035,
+                "name": "Major Fire Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000072,
+                "name": "Fire Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301428,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Divine Demesne (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 16,
+                "id": 40000058,
+                "name": "Holy Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000077,
+                "name": "Holy Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000060,
+                "name": "Major Holy Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000077,
+                "name": "Holy Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301429,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Thunder Plains (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 2,
+                "id": 40000074,
+                "name": "Lightning Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 16,
+                "id": 40000043,
+                "name": "Lightning Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000045,
+                "name": "Major Lightning Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000074,
+                "name": "Lightning Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301430,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Netherbeast Cavern (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 16,
+                "id": 40000023,
+                "name": "Summon Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000070,
+                "name": "Summoning Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000025,
+                "name": "Major Summon Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000070,
+                "name": "Summoning Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301431,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "The Pale Barrens (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 2,
+                "id": 40000071,
+                "name": "Non-Elemental Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 16,
+                "id": 40000028,
+                "name": "Non-Elemental Orb",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 8,
+                "id": 40000030,
+                "name": "Major Non-Elemental Orb",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 5,
+                "id": 40000071,
+                "name": "Non-Elemental Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+        Object {
+          "closedAt": 2145938400,
+          "difficulty": 120,
+          "id": 1301437,
+          "isComplete": false,
+          "isMaster": false,
+          "isUnlocked": true,
+          "name": "Orb Meadows (++)",
+          "openedAt": 1553086800,
+          "prizes": Object {
+            "claimedGrade": Array [],
+            "completion": Array [
+              Object {
+                "amount": 40000,
+                "id": 92000000,
+                "name": "Gil",
+                "type": "common",
+              },
+              Object {
+                "amount": 800,
+                "id": 95001014,
+                "name": "Gysahl Greens",
+                "type": "common",
+              },
+            ],
+            "firstTime": Array [
+              Object {
+                "amount": 2,
+                "id": 40000066,
+                "name": "Power Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000072,
+                "name": "Fire Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000073,
+                "name": "Ice Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "mastery": Array [
+              Object {
+                "amount": 2,
+                "id": 40000074,
+                "name": "Lightning Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000076,
+                "name": "Wind Crystal",
+                "type": "ability_material",
+              },
+              Object {
+                "amount": 2,
+                "id": 40000078,
+                "name": "Dark Crystal",
+                "type": "ability_material",
+              },
+            ],
+            "unclaimedGrade": Array [],
+          },
+          "seriesId": 1,
+          "staminaList": Array [
+            50,
+            50,
+          ],
+          "totalStamina": 100,
+        },
+      ],
+      "worldId": 13014,
+    },
+    "type": "ADD_WORLD_DUNGEONS",
+  },
+]
+`;
