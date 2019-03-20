@@ -856,6 +856,9 @@ export const items = [
     id: 95001080,
   },
 
+  // Items 95003001 through 95003009 are apparently internal virtual items used
+  // to track whether Acolyte Archive relic draws are available.
+
   // Items only in JP - unconfirmed in GL
   {
     name: 'Anima Lens Lv1',

@@ -1,5 +1,19 @@
 import { NumberAsString, RelativeUrlPath, Timestamp } from './common';
 
+enum SoulStrikeCategoryType {
+  Awakening = 'AWAKE',
+  Burst = 'BURST',
+  Chain = 'COMBO',
+  Shared = 'COMMON',
+  Overstrike = 'OVERFLOW',
+  ArcaneOverstrike = 'OVERFLOW_OUGI',
+  Glint = 'SENGI',
+  Default = 'STANDARD',
+  Super = 'SUPER',
+  Ultra = 'ULTRA',
+  Unique = 'UNIQUE',
+}
+
 export interface Ability {
   category_type: number;
   panel_name: string;
@@ -134,7 +148,7 @@ export interface PartySoulStrike {
   name: string;
   disp_name: string;
   soul_strike_category_id: number;
-  soul_strike_category_name: string; // e.g., 'STANDARD'
+  soul_strike_category_name: SoulStrikeCategoryType;
   allowed_buddy_id: number;
   allowed_buddy_name: string;
   description: string;
@@ -182,6 +196,33 @@ export interface PartySoulStrike {
     disable_generation: boolean;
     display_category_id: number;
   }>;
+
+  brave_info?: {
+    brave_abilities: BraveAbility[];
+    level_up_condition_text: string;
+    brave_level_map_ability: BraveAbility;
+  };
+
+  // For chain soul breaks
+  combo_explanations?: Array<{
+    image_path: string;
+    condition_text: string;
+    effect_text: string;
+  }>;
+}
+
+interface BraveAbility {
+  type_name: string; // e.g., 'ABILITY'
+  arg1: number;
+  target_range: number;
+  command_icon_path: string;
+  name: string;
+  category_name: string;
+  description: string;
+  item_id: number;
+  level?: number;
+  rarity: number;
+  max_grade: number;
 }
 
 /**
