@@ -31,7 +31,7 @@ export class CharacterSoulBreaks extends React.Component<Props> {
       <div className={'card ' + styles.component}>
         <div className="card-body">
           <table className="table table-sm">
-            <thead className="thead-light">
+            <thead className="thead-dark">
               <tr>
                 <th colSpan={3}>{character}</th>
               </tr>
