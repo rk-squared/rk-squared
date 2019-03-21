@@ -304,6 +304,29 @@ function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
   return result;
 }
 
+/**
+ * Maps from relic IDs (equipment IDs) to soul breaks or legend materia.
+ *
+ * NOTE: Does not include shared soul breaks.
+ */
+function makeRelicMap<T extends { character: string; name: string }>(
+  relics: EnlirRelic[],
+  prop: keyof EnlirRelic,
+  items: T[],
+): { [relicId: number]: T } {
+  const result: { [relicId: number]: T } = {};
+  const indexedItems = _.keyBy(items, i => i.character + ':' + i.name);
+  for (const i of relics) {
+    if (i[prop] && i.character) {
+      const found = indexedItems[i.character + ':' + i[prop]];
+      if (found) {
+        result[i.id] = found;
+      }
+    }
+  }
+  return result;
+}
+
 export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
   abilitiesByName: _.keyBy(rawData.abilities, 'name'),
@@ -326,6 +349,8 @@ export const enlir = {
   soulBreaks: _.keyBy(rawData.soulBreaks, 'id'),
   soulBreaksByCharacter: makeCharacterMap(rawData.soulBreaks),
   statusByName: _.keyBy(rawData.status, 'name'),
+  relicSoulBreaks: makeRelicMap(rawData.relics, 'soulBreak', rawData.soulBreaks),
+  relicLegendMateria: makeRelicMap(rawData.relics, 'legendMateria', rawData.legendMateria),
 };
 
 function applyPatch<T>(
