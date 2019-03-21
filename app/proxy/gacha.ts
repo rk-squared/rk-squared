@@ -6,11 +6,19 @@ import { Store } from 'redux';
 
 import * as _ from 'lodash';
 
-import { GachaBanner, GachaGroup, setGachaBanners, setGachaGroups } from '../actions/gacha';
+import {
+  GachaBanner,
+  GachaGroup,
+  GachaProbabilities,
+  setGachaBanners,
+  setGachaGroups,
+  setGachaProbabilities,
+} from '../actions/gacha';
 import { LangType } from '../api/apiUrls';
 import * as gachaSchemas from '../api/schemas/gacha';
 import { relativeUrl } from '../data/urls';
 import { IState } from '../reducers';
+import { logger } from '../utils/logger';
 import { getRequestLang, Handler, HandlerRequest } from './common';
 
 interface GachaBannerResults {
@@ -119,11 +127,49 @@ export function convertGachaBanners(
   return result;
 }
 
+export function convertGachaProbabilities(
+  data: gachaSchemas.GachaProbability,
+): GachaProbabilities | null {
+  const entryPointIds = _.keys(data).filter(i => i.match(/^\d+$/));
+  if (entryPointIds.length === 0) {
+    logger.error('Failed to find entry point ID for gacha/probability');
+    return null;
+  } else if (entryPointIds.length > 1) {
+    logger.warn(`Unexpected entry point IDs for gacha/probability: got ${entryPointIds.length}`);
+  }
+  const entryPointId = +entryPointIds[0];
+  const { prob_by_rarity, equipments } = data[entryPointId];
+
+  return {
+    byRarity: _.mapValues(prob_by_rarity, parseFloat),
+    byItem: _.fromPairs(
+      equipments.filter(i => i.rarity >= 5).map(i => [i.id, parseFloat(i.probability)]),
+    ),
+  };
+}
+
 const gachaHandler: Handler = {
   'gacha/show'(data: gachaSchemas.GachaShow, store: Store<IState>, request: HandlerRequest) {
     const { banners, groups } = convertGachaBanners(getRequestLang(request), data);
     store.dispatch(setGachaBanners(banners));
     store.dispatch(setGachaGroups(_.values(groups)));
+  },
+
+  'gacha/probability'(
+    data: gachaSchemas.GachaProbability,
+    store: Store<IState>,
+    { query }: HandlerRequest,
+  ) {
+    if (!query || !query.series_id) {
+      logger.error('Unrecognized gacha/probability query');
+      return;
+    }
+
+    const probabilities = convertGachaProbabilities(data);
+    if (!probabilities) {
+      return;
+    }
+    store.dispatch(setGachaProbabilities(query.series_id, probabilities));
   },
 };
 
