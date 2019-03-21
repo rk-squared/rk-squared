@@ -15,7 +15,7 @@ export interface RelicDrawBanner {
   exchangeShopId?: number;
 
   group?: string;
-  bannerItems?: number[];
+  bannerRelics?: number[];
 }
 
 export interface RelicDrawGroup {
@@ -28,8 +28,8 @@ export interface RelicDrawProbabilities {
   byRarity: {
     [rarity: number]: number;
   };
-  byItem: {
-    [id: number]: number;
+  byRelic: {
+    [relicId: number]: number;
   };
 }
 

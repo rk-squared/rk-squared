@@ -12,9 +12,9 @@ describe('gacha proxy handler', () => {
 
       expect(_.values(banners).length).toEqual(45);
 
-      const ff5BannerItems = _.find(banners, i => i.id === 788)!.bannerItems!;
-      expect(ff5BannerItems.length).toEqual(14);
-      expect(ff5BannerItems).toEqual([
+      const ff5BannerRelics = _.find(banners, i => i.id === 788)!.bannerRelics!;
+      expect(ff5BannerRelics.length).toEqual(14);
+      expect(ff5BannerRelics).toEqual([
         22050094,
         21008231,
         22053364,
@@ -59,15 +59,15 @@ describe('gacha proxy handler', () => {
       const { data } = require('./data/gacha_probability.json');
       const probabilities = convertRelicDrawProbabilities(data);
       expect(probabilities).toBeTruthy();
-      const { byRarity, byItem } = probabilities!;
+      const { byRarity, byRelic } = probabilities!;
       expect(byRarity).toEqual({
         '3': 60.96,
         '4': 25.0,
         '5': 8.01999,
         '6': 6.01999,
       });
-      expect(_.filter(byItem, value => value >= 1).length).toEqual(14);
-      expect(_.keys(byItem).length).toEqual(42);
+      expect(_.filter(byRelic, value => value >= 1).length).toEqual(14);
+      expect(_.keys(byRelic).length).toEqual(42);
     });
   });
 });
