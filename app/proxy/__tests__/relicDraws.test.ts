@@ -1,4 +1,4 @@
-import { convertGachaBanners, convertGachaProbabilities } from '../gacha';
+import { convertRelicDrawBanners, convertRelicDrawProbabilities } from '../relicDraws';
 
 import * as _ from 'lodash';
 
@@ -8,7 +8,7 @@ describe('gacha proxy handler', () => {
   describe('gacha/show', () => {
     it('converts relic draws with Realms on Parade', () => {
       const { data } = require('./data/gacha_show.json');
-      const { banners, groups } = convertGachaBanners(LangType.Gl, data);
+      const { banners, groups } = convertRelicDrawBanners(LangType.Gl, data);
 
       expect(_.values(banners).length).toEqual(45);
 
@@ -57,7 +57,7 @@ describe('gacha proxy handler', () => {
   describe('gacha/probability', () => {
     it('converts gacha probabilities', () => {
       const { data } = require('./data/gacha_probability.json');
-      const probabilities = convertGachaProbabilities(data);
+      const probabilities = convertRelicDrawProbabilities(data);
       expect(probabilities).toBeTruthy();
       const { byRarity, byItem } = probabilities!;
       expect(byRarity).toEqual({

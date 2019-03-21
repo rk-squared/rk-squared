@@ -7,13 +7,13 @@ import { battle, BattleState } from './battle';
 import { characters, CharacterState } from './characters';
 import { dungeons, DungeonState } from './dungeons';
 import { dungeonScores, DungeonScoreState } from './dungeonScores';
-import { gacha, GachaState } from './gacha';
 import { messages, MessagesState } from './messages';
 import { options, Options } from './options';
 import { prefs, PrefsState } from './prefs';
 import { progress, ProgressState } from './progress';
 import { proxy, ProxyStatus } from './proxy';
 import { recordMateria, RecordMateriaState } from './recordMateria';
+import { relicDraws, RelicDrawState } from './relicDraws';
 import { session, Session } from './session';
 import { worlds, WorldState } from './worlds';
 
@@ -22,13 +22,13 @@ export interface IState {
   characters: CharacterState;
   dungeons: DungeonState;
   dungeonScores: DungeonScoreState;
-  gacha: GachaState;
   messages: MessagesState;
   options: Options;
   prefs: PrefsState;
   progress: ProgressState;
   proxy: ProxyStatus;
   recordMateria: RecordMateriaState;
+  relicDraws: RelicDrawState;
   session: Session;
   worlds: WorldState;
   router: RouterState;
@@ -49,13 +49,13 @@ export const createRootReducer: (history?: History) => Reducer<IState, Action> =
     characters,
     dungeons,
     dungeonScores,
-    gacha,
     options,
     messages,
     prefs,
     progress,
     proxy,
     recordMateria,
+    relicDraws,
     session,
     worlds,
 

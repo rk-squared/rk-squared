@@ -7,13 +7,13 @@ import { Store } from 'redux';
 import * as _ from 'lodash';
 
 import {
-  GachaBanner,
-  GachaGroup,
-  GachaProbabilities,
-  setGachaBanners,
-  setGachaGroups,
-  setGachaProbabilities,
-} from '../actions/gacha';
+  RelicDrawBanner,
+  RelicDrawGroup,
+  RelicDrawProbabilities,
+  setRelicDrawBanners,
+  setRelicDrawGroups,
+  setRelicDrawProbabilities,
+} from '../actions/relicDraws';
 import { LangType } from '../api/apiUrls';
 import * as gachaSchemas from '../api/schemas/gacha';
 import { relativeUrl } from '../data/urls';
@@ -21,10 +21,10 @@ import { IState } from '../reducers';
 import { logger } from '../utils/logger';
 import { getRequestLang, Handler, HandlerRequest } from './common';
 
-interface GachaBannerResults {
-  banners: GachaBanner[];
+interface RelicDrawBannerResults {
+  banners: RelicDrawBanner[];
   groups: {
-    [groupName: string]: GachaGroup;
+    [groupName: string]: RelicDrawGroup;
   };
 }
 
@@ -32,7 +32,7 @@ export function convertBanner(
   lang: LangType,
   gacha: gachaSchemas.GachaSeriesList,
   group?: string,
-): GachaBanner {
+): RelicDrawBanner {
   return {
     id: gacha.series_id,
     openedAt: gacha.opened_at,
@@ -57,11 +57,11 @@ export function convertBanner(
   };
 }
 
-export function convertGachaBanners(
+export function convertRelicDrawBanners(
   lang: LangType,
   { gacha_group, series_list }: gachaSchemas.GachaShow,
-): GachaBannerResults {
-  const result: GachaBannerResults = {
+): RelicDrawBannerResults {
+  const result: RelicDrawBannerResults = {
     banners: [],
     groups: {},
   };
@@ -77,7 +77,7 @@ export function convertGachaBanners(
   }
 
   for (const group of gacha_group) {
-    const thisGroup: GachaGroup = {
+    const thisGroup: RelicDrawGroup = {
       groupName: 'group' + group.id,
       imageUrl: relativeUrl(lang, group.line_up_image_path),
       sortOrder: group.priority,
@@ -91,7 +91,7 @@ export function convertGachaBanners(
 
   const archiveSeries = series_list.filter(i => i.is_book_gacha);
   if (archiveSeries.length) {
-    const thisGroup: GachaGroup = {
+    const thisGroup: RelicDrawGroup = {
       groupName: 'archive',
       imageUrl: relativeUrl(
         lang,
@@ -110,7 +110,7 @@ export function convertGachaBanners(
     i => i.series_id >= realmRelicDrawId && i.series_id < realmRelicDrawId + seriesCount,
   );
   if (realmRelicDraws.length) {
-    const thisGroup: GachaGroup = {
+    const thisGroup: RelicDrawGroup = {
       groupName: 'realmRelicDraws',
       imageUrl: relativeUrl(
         lang,
@@ -127,9 +127,9 @@ export function convertGachaBanners(
   return result;
 }
 
-export function convertGachaProbabilities(
+export function convertRelicDrawProbabilities(
   data: gachaSchemas.GachaProbability,
-): GachaProbabilities | null {
+): RelicDrawProbabilities | null {
   const entryPointIds = _.keys(data).filter(i => i.match(/^\d+$/));
   if (entryPointIds.length === 0) {
     logger.error('Failed to find entry point ID for gacha/probability');
@@ -150,9 +150,9 @@ export function convertGachaProbabilities(
 
 const gachaHandler: Handler = {
   'gacha/show'(data: gachaSchemas.GachaShow, store: Store<IState>, request: HandlerRequest) {
-    const { banners, groups } = convertGachaBanners(getRequestLang(request), data);
-    store.dispatch(setGachaBanners(banners));
-    store.dispatch(setGachaGroups(_.values(groups)));
+    const { banners, groups } = convertRelicDrawBanners(getRequestLang(request), data);
+    store.dispatch(setRelicDrawBanners(banners));
+    store.dispatch(setRelicDrawGroups(_.values(groups)));
   },
 
   'gacha/probability'(
@@ -165,11 +165,11 @@ const gachaHandler: Handler = {
       return;
     }
 
-    const probabilities = convertGachaProbabilities(data);
+    const probabilities = convertRelicDrawProbabilities(data);
     if (!probabilities) {
       return;
     }
-    store.dispatch(setGachaProbabilities(query.series_id, probabilities));
+    store.dispatch(setRelicDrawProbabilities(query.series_id, probabilities));
   },
 };
 

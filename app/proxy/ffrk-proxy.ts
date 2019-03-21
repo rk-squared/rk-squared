@@ -22,10 +22,10 @@ import characters from './characters';
 import { StartupHandler } from './common';
 import dungeons from './dungeons';
 import dungeonScores from './dungeonScores';
-import gacha from './gacha';
 import itemUpdates from './itemUpdates';
 import options from './options';
 import recordMateria from './recordMateria';
+import relicDraws from './relicDraws';
 import { sessionHandler } from './session';
 
 import { updateLastTraffic, updateProxyStatus } from '../actions/proxy';
@@ -44,7 +44,7 @@ const handlers = [
   battle,
   characters,
   dungeons,
-  gacha,
+  relicDraws,
   itemUpdates,
   recordMateria,
   dungeonScores,

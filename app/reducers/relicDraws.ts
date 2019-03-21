@@ -4,37 +4,40 @@ import { getType } from 'typesafe-actions';
 import * as _ from 'lodash';
 
 import {
-  GachaAction,
-  GachaBanner,
-  GachaGroup,
-  GachaProbabilities,
-  setGachaBanners,
-  setGachaGroups,
-  setGachaProbabilities,
-} from '../actions/gacha';
+  RelicDrawAction,
+  RelicDrawBanner,
+  RelicDrawGroup,
+  RelicDrawProbabilities,
+  setRelicDrawBanners,
+  setRelicDrawGroups,
+  setRelicDrawProbabilities,
+} from '../actions/relicDraws';
 
-export interface GachaState {
+export interface RelicDrawState {
   banners: {
-    [bannerId: number]: GachaBanner;
+    [bannerId: number]: RelicDrawBanner;
   };
   groups: {
-    [group: string]: GachaGroup;
+    [group: string]: RelicDrawGroup;
   };
   probabilities: {
-    [bannerId: string]: GachaProbabilities;
+    [bannerId: string]: RelicDrawProbabilities;
   };
 }
 
-const initialState: GachaState = {
+const initialState: RelicDrawState = {
   banners: {},
   groups: {},
   probabilities: {},
 };
 
-export function gacha(state: GachaState = initialState, action: GachaAction): GachaState {
-  return produce(state, (draft: GachaState) => {
+export function relicDraws(
+  state: RelicDrawState = initialState,
+  action: RelicDrawAction,
+): RelicDrawState {
+  return produce(state, (draft: RelicDrawState) => {
     switch (action.type) {
-      case getType(setGachaBanners): {
+      case getType(setRelicDrawBanners): {
         const newBanners = _.keyBy(action.payload, 'id');
         draft.banners = newBanners;
         draft.probabilities = _.pickBy(
@@ -44,11 +47,11 @@ export function gacha(state: GachaState = initialState, action: GachaAction): Ga
         return;
       }
 
-      case getType(setGachaGroups):
+      case getType(setRelicDrawGroups):
         draft.groups = _.keyBy(action.payload, 'groupName');
         return;
 
-      case getType(setGachaProbabilities):
+      case getType(setRelicDrawProbabilities):
         draft.probabilities[action.payload.bannerId] = action.payload.probabilities;
         return;
     }
