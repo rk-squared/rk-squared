@@ -1,4 +1,4 @@
-import { AssetCollection, NumberAsString } from './common';
+import { AssetCollection, DecimalNumberAsString, NumberAsString } from './common';
 import { Equipment } from './equipment';
 import { MemoryCrystal } from './party';
 
@@ -381,3 +381,27 @@ export interface PrizeSoulStrike {
   arg29: number;
   arg30: number;
 }
+
+// Sample URL: http://ffrk.denagames.com/dff/gacha/probability?series_id=788
+export type GachaProbability = {
+  success: boolean;
+  significant_figures: {
+    rarity: number;
+    item: number;
+    rarity_free: number;
+  };
+  SERVER_TIME: number;
+} & {
+  // Indexed by entry_point_id from GachaShow
+  [entryPointId: string]: {
+    // e.g., { "3": "60.96000", "4": "25.00000", "5": "8.01999", "6": "6.01999" }
+    prob_by_rarity: { [key: string]: string };
+    boost_rate_for_assured_lot: DecimalNumberAsString;
+
+    // Note: soul_strike and soul_strike_id aren't actually populated here.
+    equipments: Array<Equipment & { probability: DecimalNumberAsString }>;
+
+    is_equal_prob_in_same_rarity: number;
+    assured_rarity: string;
+  };
+};

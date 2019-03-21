@@ -3,6 +3,7 @@ export type BoolAsString = '0' | '1';
 
 // A number string
 export type NumberAsString = string;
+export type DecimalNumberAsString = string;
 
 // A `/Content/lang/ww/compile` path
 export type ContentPath = string;
@@ -20,7 +21,7 @@ export interface Asset {
     [contentPath: string]: {
       // Hashes are MD5 checksums, base64-encoded, with two trailing `=` stripped.
       hash: string;
-    }
+    };
   };
   assetPath: ContentPath;
 }
