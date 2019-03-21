@@ -19,6 +19,22 @@ interface Props {
   bannerLink: (bannerId: number) => string;
 }
 
+function formatDupeCount(details: RelicDrawBannerDetails) {
+  if (details.canPull && details.dupeCount != null && details.totalCount) {
+    return `${details.dupeCount} / ${details.totalCount} ${pluralize(details.dupeCount, 'dupe')}`;
+  } else {
+    return undefined;
+  }
+}
+
+function formatTotalCount(details: RelicDrawBannerDetails) {
+  if (details.canPull && details.dupeCount == null && details.totalCount) {
+    return `${details.totalCount} ${pluralize(details.totalCount, 'relic')}`;
+  } else {
+    return undefined;
+  }
+}
+
 const RelicDrawGroupLink = ({ details, to }: { details: RelicDrawGroupDetails; to: string }) => {
   return (
     <div>
@@ -26,9 +42,7 @@ const RelicDrawGroupLink = ({ details, to }: { details: RelicDrawGroupDetails; t
         <img className={styles.image} src={details.imageUrl} />
       </Link>
       <div className={styles.details}>
-        <small>
-          {details.canPullOrSelectCount} {pluralize(details.canPullOrSelectCount, 'banner')}{' '}
-        </small>
+        {details.canPullOrSelectCount} {pluralize(details.canPullOrSelectCount, 'banner')}{' '}
       </div>
     </div>
   );
@@ -41,24 +55,12 @@ const RelicDrawBannerLink = ({ details, to }: { details: RelicDrawBannerDetails;
         <img className={styles.image} src={details.imageUrl} />
       </Link>
       <div className={styles.details}>
-        <small>
-          <span className={styles.count}>
-            {details.canPull &&
-              details.dupeCount != null &&
-              !!details.totalCount &&
-              `${details.dupeCount} / ${details.totalCount} ${pluralize(
-                details.dupeCount,
-                'dupe',
-              )}`}
-            {details.canPull &&
-              details.dupeCount == null &&
-              !!details.totalCount &&
-              `${details.totalCount} ${pluralize(details.totalCount, 'relic')}`}
-          </span>
-          {details.closedAt < FAR_FUTURE && (
-            <span className={styles.closedAt}>ends {formatTimeT(details.closedAt)}</span>
-          )}
-        </small>
+        <span className={styles.count}>
+          {formatDupeCount(details) || formatTotalCount(details)}
+        </span>
+        {details.closedAt < FAR_FUTURE && (
+          <span className={styles.closedAt}>ends {formatTimeT(details.closedAt)}</span>
+        )}
       </div>
     </div>
   );
