@@ -8,6 +8,7 @@ import {
   RelicDrawGroupDetails,
 } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
+import { FAR_FUTURE, formatTimeT } from '../../utils/timeUtils';
 
 const styles = require('./RelicDrawList.scss');
 
@@ -22,31 +23,43 @@ const RelicDrawGroupLink = ({ details, to }: { details: RelicDrawGroupDetails; t
   return (
     <div>
       <Link to={to}>
-        <img className={styles.detail} src={details.imageUrl} />
+        <img className={styles.image} src={details.imageUrl} />
       </Link>
-      <small>
-        {details.canPullOrSelectCount} {pluralize(details.canPullOrSelectCount, 'banner')}{' '}
-      </small>
+      <div className={styles.details}>
+        <small>
+          {details.canPullOrSelectCount} {pluralize(details.canPullOrSelectCount, 'banner')}{' '}
+        </small>
+      </div>
     </div>
   );
 };
 
 const RelicDrawBannerLink = ({ details, to }: { details: RelicDrawBannerDetails; to: string }) => {
   return (
-    <div>
+    <div className={styles.component}>
       <Link to={to}>
-        <img className={styles.detail} src={details.imageUrl} />
+        <img className={styles.image} src={details.imageUrl} />
       </Link>
-      {details.canPull && details.dupeCount != null && !!details.totalCount && (
+      <div className={styles.details}>
         <small>
-          {details.dupeCount} / {details.totalCount} {pluralize(details.dupeCount, 'dupe')}
+          <span className={styles.count}>
+            {details.canPull &&
+              details.dupeCount != null &&
+              !!details.totalCount &&
+              `${details.dupeCount} / ${details.totalCount} ${pluralize(
+                details.dupeCount,
+                'dupe',
+              )}`}
+            {details.canPull &&
+              details.dupeCount == null &&
+              !!details.totalCount &&
+              `${details.totalCount} ${pluralize(details.totalCount, 'relic')}`}
+          </span>
+          {details.closedAt < FAR_FUTURE && (
+            <span className={styles.closedAt}>ends {formatTimeT(details.closedAt)}</span>
+          )}
         </small>
-      )}
-      {details.canPull && details.dupeCount == null && !!details.totalCount && (
-        <small>
-          {details.totalCount} {pluralize(details.totalCount, 'relic')}
-        </small>
-      )}
+      </div>
     </div>
   );
 };

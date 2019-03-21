@@ -1,11 +1,32 @@
 :local {
-  img.parentGroup {
-    width: 576px;
-    height: 160px;
+  // Normal dimensions are 576px by 160px
+  $imgWidth: 432px;
+  $imgHeight: 120px;
+
+  .component {
+    width: $imgWidth;
   }
 
-  img.detail {
-    width: 432px;
-    height: 120px;
+  img.image {
+    width: $imgWidth;
+    height: $imgHeight;
+  }
+
+  div.details {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    // Duplicated from <small>
+    font-size: 80%;
+  }
+
+  span.count {
+    display: inline-block;
+    width: 50%;
+  }
+
+  span.closedAt {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
   }
 }

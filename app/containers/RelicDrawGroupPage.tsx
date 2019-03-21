@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import { RelicDrawGroup } from '../actions/relicDraws';
 import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
@@ -19,13 +20,14 @@ interface Props {
   bannersAndGroups: RelicDrawBannersAndGroups;
   groupLink: (group: string) => string;
   bannerLink: (bannerId: number) => string;
+  backLink: string;
 }
 
 export class RelicDrawGroupPage extends React.PureComponent<
   Props & RouteComponentProps<RouteParams>
 > {
   render() {
-    const { groups, bannersAndGroups, match } = this.props;
+    const { groups, bannersAndGroups, match, backLink } = this.props;
     const group = groups[match.params.group];
     const details = bannersAndGroups[match.params.group];
     if (!group || !details) {
@@ -34,6 +36,9 @@ export class RelicDrawGroupPage extends React.PureComponent<
     return (
       <>
         <img src={group.imageUrl} />
+        <p>
+          <Link to={backLink}>back to all banners</Link>
+        </p>
         <RelicDrawList
           details={details}
           bannerLink={this.props.bannerLink}

@@ -31,7 +31,9 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
       <>
         <Route
           path={this.groupLink(':group')}
-          render={(props: RouteComponentProps<any>) => <RelicDrawGroupPage {...props} {...links} />}
+          render={(props: RouteComponentProps<any>) => (
+            <RelicDrawGroupPage {...props} {...links} backLink={match.url} />
+          )}
         />
         <Route
           exact
