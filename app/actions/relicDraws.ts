@@ -9,8 +9,8 @@ export interface RelicDrawBanner {
   closedAt: TimeT;
   sortOrder: number;
 
-  canSelect: boolean;
   canPull: boolean;
+  canSelect: boolean;
 
   exchangeShopId?: number;
 

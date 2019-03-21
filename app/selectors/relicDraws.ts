@@ -13,9 +13,16 @@ export interface RelicDrawBannerDetails extends RelicDrawBanner {
   dupeCount?: number;
 }
 
-export type RelicDrawBannerOrGroup = RelicDrawBannerDetails | RelicDrawGroup;
+export interface RelicDrawGroupDetails extends RelicDrawGroup {
+  bannerCount: number;
+  canPull: boolean;
+  canSelect: boolean;
+  canPullOrSelectCount: number;
+}
 
-export function isGroup(item: RelicDrawBannerOrGroup): item is RelicDrawGroup {
+export type RelicDrawBannerOrGroup = RelicDrawBannerDetails | RelicDrawGroupDetails;
+
+export function isGroup(item: RelicDrawBannerOrGroup): item is RelicDrawGroupDetails {
   return 'groupName' in item;
 }
 
@@ -58,7 +65,7 @@ export const getBannersAndGroups = createSelector<
   ({ banners, groups, probabilities }, ownedSoulBreaks, ownedLegendMateria) => {
     const result: { [group: string]: RelicDrawBannerOrGroup[] } = {};
 
-    for (const group of _.map(banners, i => i.group)) {
+    for (const group of [..._.keys(groups), undefined]) {
       const groupName = '' + group;
 
       const bannerDetails: RelicDrawBannerDetails[] = _.filter(banners, i => i.group === group).map(
@@ -83,8 +90,21 @@ export const getBannersAndGroups = createSelector<
       );
 
       result[groupName] = bannerDetails;
+
+      // If this is the root (undefined) group, then extend with all child groups.
       if (!group) {
-        result[groupName].push(..._.values(groups));
+        result[groupName].push(
+          ..._.values(groups).map(g => {
+            const groupBanners = _.filter(banners, i => i.group === g.groupName);
+            return {
+              ...g,
+              bannerCount: groupBanners.length,
+              canPull: _.some(groupBanners, i => i.canPull),
+              canSelect: _.some(groupBanners, i => i.canSelect),
+              canPullOrSelectCount: _.sumBy(groupBanners, i => +(i.canPull || i.canSelect)),
+            };
+          }),
+        );
       }
 
       result[groupName] = _.sortBy(result[groupName], i => -i.sortOrder);

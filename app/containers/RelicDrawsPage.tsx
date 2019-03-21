@@ -1,64 +1,43 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
+import { Route, RouteComponentProps } from 'react-router';
 
+import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
+import { RelicDrawList } from '../components/relicDraws/RelicDrawList';
 import { IState } from '../reducers';
-import {
-  getBannersAndGroups,
-  isGroup,
-  RelicDrawBannerOrGroup,
-  RelicDrawBannersAndGroups,
-} from '../selectors/relicDraws';
-import { pluralize } from '../utils/textUtils';
+import { getBannersAndGroups, RelicDrawBannersAndGroups } from '../selectors/relicDraws';
 import { Page } from './Page';
+import RelicDrawGroupPage from './RelicDrawGroupPage';
 
 interface Props {
   bannersAndGroups: RelicDrawBannersAndGroups;
-  group?: string;
 }
 
-const RelicDrawLink = ({ details }: { details: RelicDrawBannerOrGroup }) => {
-  if (isGroup(details)) {
-    return (
-      <div>
-        <img src={details.imageUrl} />
-      </div>
-    );
-  }
-  return (
-    <div>
-      <img src={details.imageUrl} />
-      {details.dupeCount != null && details.totalCount != null && (
-        <small>
-          {details.dupeCount} / {details.totalCount} {pluralize(details.dupeCount, 'dupe')}
-        </small>
-      )}
-      {details.dupeCount == null && details.totalCount && (
-        <small>
-          {details.totalCount} {pluralize(details.totalCount, 'relic')}
-        </small>
-      )}
-    </div>
-  );
-};
+export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentProps> {
+  groupLink = (group: string) => this.props.match.url + '/groups/' + group;
+  bannerLink = (banner: string | number) => this.props.match.url + '/banners/' + banner;
 
-export class RelicDrawsPage extends React.Component<Props & RouteComponentProps> {
   renderContents() {
-    const { bannersAndGroups, group } = this.props;
-    const details = bannersAndGroups['' + group];
+    const { bannersAndGroups, match } = this.props;
+    const details = bannersAndGroups['undefined'];
     if (!details) {
-      return (
-        <>
-          <p>Relic draw details are not available, or this banner selection has expired.</p>
-          <p>Please restart FFRK then go under Relic Draws.</p>
-        </>
-      );
+      return <BadRelicDrawMessage />;
     }
+    const links = {
+      bannerLink: this.bannerLink,
+      groupLink: this.groupLink,
+    };
     return (
       <>
-        {details.map((d, i) => (
-          <RelicDrawLink details={d} key={i} />
-        ))}
+        <Route
+          path={this.groupLink(':group')}
+          render={(props: RouteComponentProps<any>) => <RelicDrawGroupPage {...props} {...links} />}
+        />
+        <Route
+          exact
+          path={match.url}
+          render={() => <RelicDrawList details={details} {...links} />}
+        />
       </>
     );
   }
