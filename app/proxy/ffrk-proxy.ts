@@ -22,6 +22,7 @@ import characters from './characters';
 import { StartupHandler } from './common';
 import dungeons from './dungeons';
 import dungeonScores from './dungeonScores';
+import gacha from './gacha';
 import itemUpdates from './itemUpdates';
 import options from './options';
 import recordMateria from './recordMateria';
@@ -43,6 +44,7 @@ const handlers = [
   battle,
   characters,
   dungeons,
+  gacha,
   itemUpdates,
   recordMateria,
   dungeonScores,

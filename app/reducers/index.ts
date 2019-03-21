@@ -7,6 +7,7 @@ import { battle, BattleState } from './battle';
 import { characters, CharacterState } from './characters';
 import { dungeons, DungeonState } from './dungeons';
 import { dungeonScores, DungeonScoreState } from './dungeonScores';
+import { gacha, GachaState } from './gacha';
 import { messages, MessagesState } from './messages';
 import { options, Options } from './options';
 import { prefs, PrefsState } from './prefs';
@@ -21,6 +22,7 @@ export interface IState {
   characters: CharacterState;
   dungeons: DungeonState;
   dungeonScores: DungeonScoreState;
+  gacha: GachaState;
   messages: MessagesState;
   options: Options;
   prefs: PrefsState;
@@ -47,6 +49,7 @@ export const createRootReducer: (history?: History) => Reducer<IState, Action> =
     characters,
     dungeons,
     dungeonScores,
+    gacha,
     options,
     messages,
     prefs,

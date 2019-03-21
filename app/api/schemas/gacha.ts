@@ -21,8 +21,11 @@ interface GachaConfig {
   pay_cost_001: number;
 }
 
-interface GachaGroup {
-  priority: number; // 0 means free daily draw and no-longer-active promos (like Genji set)
+/**
+ * Used to group together the series happy draws (realms on parade)
+ */
+export interface GachaGroup {
+  priority: number;
   closed_at: number;
   line_up_image_path: string;
   content_series_ids: number[];
@@ -34,11 +37,8 @@ interface GachaGroup {
   id: number;
 }
 
-/**
- * Used to group series happy draws (realms on parade)
- */
-interface GachaSeriesList {
-  priority: number;
+export interface GachaSeriesList {
+  priority: number; // 0 means free daily draw and no-longer-active promos (like the "first relic draw", ID 1000)
   user_exchange_shop_exchanged_num: number;
   closed_at: number;
   rise_message: string;

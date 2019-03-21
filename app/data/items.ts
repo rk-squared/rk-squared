@@ -116,6 +116,11 @@ export const items = [
     id: 25097001,
   },
   {
+    name: 'Rainbow Crystal',
+    type: ItemType.UpgradeMaterial,
+    id: 25097002,
+  },
+  {
     name: 'Tiny Scarletite',
     type: ItemType.UpgradeMaterial,
     id: 25098001,

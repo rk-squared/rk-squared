@@ -1,6 +1,5 @@
-import { getType } from 'typesafe-actions';
-
 import { produce } from 'immer';
+import { getType } from 'typesafe-actions';
 
 import {
   Character,
