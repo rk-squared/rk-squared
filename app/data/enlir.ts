@@ -100,6 +100,21 @@ export type EnlirSoulBreakTier =
 
 // FIXME: Interfaces for remaining Enlir types
 
+export type EnlirStat = 'atk' | 'def' | 'mag' | 'res' | 'mnd' | 'acc' | 'eva';
+export const allEnlirStats: EnlirStat[] = ['atk', 'def', 'mag', 'res', 'mnd', 'acc', 'eva'];
+
+interface EnlirRelicStats {
+  rarity: number;
+  level: number;
+  atk: null | number;
+  def: null | number;
+  mag: null | number;
+  res: null | number;
+  mnd: null | number;
+  acc: null | number;
+  eva: null | number;
+}
+
 export interface EnlirGenericSkill {
   name: string;
   type: EnlirSkillType | null;
@@ -194,6 +209,22 @@ export interface EnlirRecordMateria {
   gl: boolean;
 }
 
+export interface EnlirRelic {
+  name: string;
+  realm: string;
+  type: string;
+  rarity: number;
+  stats: EnlirRelicStats;
+  effect: null | string;
+  character: null | string;
+  soulBreak: null | string;
+  legendMateria: null | string;
+  baseStats: EnlirRelicStats;
+  maxStats: EnlirRelicStats;
+  id: number;
+  gl: boolean;
+}
+
 export interface EnlirSoulBreak extends EnlirGenericSkill {
   realm: string;
   character: string;
@@ -232,7 +263,7 @@ const rawData = {
   magicite: require('./enlir/magicite.json'),
   otherSkills: require('./enlir/otherSkills.json') as EnlirOtherSkill[],
   recordMateria: require('./enlir/recordMateria.json') as EnlirRecordMateria[],
-  relics: require('./enlir/relics.json'),
+  relics: require('./enlir/relics.json') as EnlirRelic[],
   soulBreaks: require('./enlir/soulBreaks.json') as EnlirSoulBreak[],
   status: require('./enlir/status.json') as EnlirStatus[],
 };
