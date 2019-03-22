@@ -7,6 +7,7 @@ import { RelicDrawBannerList } from '../components/relicDraws/RelicDrawBannerLis
 import { IState } from '../reducers';
 import { getBannersAndGroups, RelicDrawBannersAndGroups } from '../selectors/relicDraws';
 import { Page } from './Page';
+import RelicDrawBannerPage from './RelicDrawBannerPage';
 import RelicDrawGroupPage from './RelicDrawGroupPage';
 
 interface Props {
@@ -33,6 +34,12 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
           path={this.groupLink(':group')}
           render={(props: RouteComponentProps<any>) => (
             <RelicDrawGroupPage {...props} {...links} backLink={match.url} />
+          )}
+        />
+        <Route
+          path={this.bannerLink(':banner')}
+          render={(props: RouteComponentProps<any>) => (
+            <RelicDrawBannerPage {...props} backLink={match.url} />
           )}
         />
         <Route

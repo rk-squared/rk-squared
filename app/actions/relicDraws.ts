@@ -1,5 +1,7 @@
 import { createAction } from 'typesafe-actions';
 
+import * as _ from 'lodash';
+
 import { TimeT } from '../utils/timeUtils';
 
 export interface RelicDrawBanner {
@@ -31,6 +33,16 @@ export interface RelicDrawProbabilities {
   byRelic: {
     [relicId: number]: number;
   };
+}
+
+export function getOffBannerRelics(
+  banner: RelicDrawBanner,
+  probabilities: RelicDrawProbabilities,
+): number[] {
+  const bannerSet = new Set<number>(banner.bannerRelics);
+  return _.keys(probabilities.byRelic)
+    .map(i => +i)
+    .filter(i => !bannerSet.has(i));
 }
 
 export const setRelicDrawBanners = createAction(

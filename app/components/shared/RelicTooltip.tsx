@@ -3,24 +3,14 @@ import * as ReactTooltip from 'react-tooltip';
 
 import * as _ from 'lodash';
 
-import { allEnlirStats, enlir } from '../../data/enlir';
+import { describeRelicStats, enlir } from '../../data/enlir';
 import { formatRelicName } from '../../data/items';
+import { separateWithBr } from '../common/BrText';
 
 interface Props {
   id: string;
   relicId: number;
 }
-
-const separateWithBr = (lines: any[]) => {
-  const result: any[] = [];
-  for (let i = 0; i < lines.length; i++) {
-    if (result.length) {
-      result.push(<br key={i} />);
-    }
-    result.push(lines[i]);
-  }
-  return result;
-};
 
 export class RelicTooltip extends React.PureComponent<Props & any> {
   render() {
@@ -32,9 +22,7 @@ export class RelicTooltip extends React.PureComponent<Props & any> {
 
     const lines = _.filter([
       `${relic.rarity}★ ${relic.type}`,
-      _.filter(
-        allEnlirStats.map(i => (relic.stats[i] ? `${i.toUpperCase()} ${relic.stats[i]}` : '')),
-      ).join(', '),
+      describeRelicStats(relic),
       relic.effect,
     ]);
 

@@ -28,7 +28,7 @@ const tierClass: { [tier in EnlirSoulBreakTier]: string | undefined } = {
   Shared: styles.unique,
 };
 
-const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
+export const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   Default: '-',
   SB: '-',
   SSB: 'S',

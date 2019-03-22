@@ -482,6 +482,12 @@ function patchEnlir() {
 }
 patchEnlir();
 
+export function describeRelicStats(relic: EnlirRelic): string {
+  return _.filter(
+    allEnlirStats.map(i => (relic.stats[i] ? `${i.toUpperCase()} ${relic.stats[i]}` : '')),
+  ).join(', ');
+}
+
 export function isCoreJob(character: EnlirCharacter): boolean {
   return (
     character.realm === 'Core' &&
