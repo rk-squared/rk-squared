@@ -7,11 +7,28 @@ import {
   RelicDrawBanner,
   RelicDrawProbabilities,
 } from '../../actions/relicDraws';
+import { enlir } from '../../data/enlir';
+import { tierOrder } from '../../data/mrP';
 import RelicDrawBannerTable from './RelicDrawBannerTable';
 
 interface Props {
   banner: RelicDrawBanner;
   probabilities?: RelicDrawProbabilities;
+}
+
+function sortRelics(relicIds: number[]) {
+  return _.sortBy(relicIds, [
+    (i: number) =>
+      enlir.relics[i].character ? enlir.charactersByName[enlir.relics[i].character!].id : 0,
+    (i: number) =>
+      enlir.relicSoulBreaks[i] ? -tierOrder[enlir.relicSoulBreaks[i].tier] : -Infinity,
+    (i: number) =>
+      enlir.relicSoulBreaks[i]
+        ? enlir.relicSoulBreaks[i].id
+        : enlir.relicLegendMateria[i]
+        ? enlir.relicLegendMateria[i].id
+        : 0,
+  ]);
 }
 
 export class RelicDrawBannerDetails extends React.PureComponent<Props> {
@@ -37,7 +54,7 @@ export class RelicDrawBannerDetails extends React.PureComponent<Props> {
     return (
       <RelicDrawBannerTable
         title={'All Relics'}
-        relics={_.keys(probabilities.byRelic).map(i => +i)}
+        relics={sortRelics(_.keys(probabilities.byRelic).map(i => +i))}
         probabilities={probabilities}
       />
     );
@@ -47,7 +64,7 @@ export class RelicDrawBannerDetails extends React.PureComponent<Props> {
     const { banner, probabilities } = this.props;
     const offBanner =
       banner.bannerRelics && banner.bannerRelics.length && probabilities
-        ? getOffBannerRelics(banner, probabilities)
+        ? sortRelics(getOffBannerRelics(banner, probabilities))
         : undefined;
     if (!offBanner) {
       return null;

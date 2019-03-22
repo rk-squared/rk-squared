@@ -49,7 +49,9 @@ export function convertBanner(
       gacha.total_executable_num > 0 &&
       gacha.user_exchange_shop_exchanged_num < gacha.total_executable_num,
 
-    bannerRelics: _.map(gacha.banner_list, 'item_id').filter(i => i !== 0),
+    bannerRelics: _.sortBy(gacha.banner_list, 'disp_order')
+      .map(i => i.item_id)
+      .filter(i => i !== 0),
 
     exchangeShopId: +gacha.exchange_shop_id || undefined,
     imageUrl: relativeUrl(lang, gacha.line_up_image_path),

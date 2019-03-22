@@ -15,20 +15,20 @@ describe('gacha proxy handler', () => {
       const ff5BannerRelics = _.find(banners, i => i.id === 788)!.bannerRelics!;
       expect(ff5BannerRelics.length).toEqual(14);
       expect(ff5BannerRelics).toEqual([
-        22050094,
-        21008231,
-        22053364,
-        21001136,
-        21010068,
-        21008209,
-        22051121,
-        22055051,
-        21006060,
         21004035,
-        22056216,
+        21008209,
+        21010068,
+        21008231,
+        21001136,
         22053274,
-        21009074,
         22056183,
+        22055051,
+        22056216,
+        21009074,
+        21006060,
+        22053364,
+        22050094,
+        22051121,
       ]);
 
       expect(_.values(groups)).toEqual([
