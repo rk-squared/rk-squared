@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, RouteComponentProps } from 'react-router';
 
 import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
-import { RelicDrawList } from '../components/relicDraws/RelicDrawList';
+import { RelicDrawBannerList } from '../components/relicDraws/RelicDrawBannerList';
 import { IState } from '../reducers';
 import { getBannersAndGroups, RelicDrawBannersAndGroups } from '../selectors/relicDraws';
 import { Page } from './Page';
@@ -38,7 +38,7 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
         <Route
           exact
           path={match.url}
-          render={() => <RelicDrawList details={details} {...links} />}
+          render={() => <RelicDrawBannerList details={details} {...links} />}
         />
       </>
     );

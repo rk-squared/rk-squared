@@ -10,7 +10,7 @@ import {
 import { pluralize } from '../../utils/textUtils';
 import { FAR_FUTURE, formatTimeT } from '../../utils/timeUtils';
 
-const styles = require('./RelicDrawList.scss');
+const styles = require('./RelicDrawBannerList.scss');
 
 interface Props {
   group?: RelicDrawGroupDetails;
@@ -66,7 +66,7 @@ const RelicDrawBannerLink = ({ details, to }: { details: RelicDrawBannerDetails;
   );
 };
 
-export class RelicDrawList extends React.PureComponent<Props> {
+export class RelicDrawBannerList extends React.PureComponent<Props> {
   render() {
     const { details, groupLink, bannerLink } = this.props;
     return (

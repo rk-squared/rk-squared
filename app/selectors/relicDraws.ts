@@ -70,7 +70,7 @@ export const getBannersAndGroups = createSelector<
 
       const bannerDetails: RelicDrawBannerDetails[] = _.filter(banners, i => i.group === group).map(
         i => {
-          if (i.bannerRelics) {
+          if (i.bannerRelics && i.bannerRelics.length !== 0) {
             return {
               ...i,
               totalCount: i.bannerRelics.length,

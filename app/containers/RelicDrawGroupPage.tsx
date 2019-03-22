@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { RelicDrawGroup } from '../actions/relicDraws';
 import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
-import { RelicDrawList } from '../components/relicDraws/RelicDrawList';
+import { RelicDrawBannerList } from '../components/relicDraws/RelicDrawBannerList';
 import { IState } from '../reducers';
 import { getBannersAndGroups, RelicDrawBannersAndGroups } from '../selectors/relicDraws';
 
@@ -33,13 +33,15 @@ export class RelicDrawGroupPage extends React.PureComponent<
     if (!group || !details) {
       return <BadRelicDrawMessage />;
     }
+    // FIXME: Should this back link actually go back in history? https://stackoverflow.com/q/46681387/25507
+    // FIXME: Scroll to top on mount - see https://reacttraining.com/react-router/web/guides/scroll-restoration
     return (
       <>
         <img src={group.imageUrl} />
         <p>
           <Link to={backLink}>back to all banners</Link>
         </p>
-        <RelicDrawList
+        <RelicDrawBannerList
           details={details}
           bannerLink={this.props.bannerLink}
           groupLink={this.props.groupLink}
