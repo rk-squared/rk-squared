@@ -8,9 +8,9 @@ import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP'
 import { formatBraveCommands } from '../../data/mrP/brave';
 import { getSchoolShortName } from '../../data/mrP/types';
 
-const styles = require('./SoulBreakListItem.scss');
+export const styles = require('./SoulBreakListItem.scss');
 
-const tierClass: { [tier in EnlirSoulBreakTier]: string | undefined } = {
+export const tierClass: { [tier in EnlirSoulBreakTier]: string | undefined } = {
   SB: styles.unique,
   SSB: styles.super,
   BSB: styles.burst,

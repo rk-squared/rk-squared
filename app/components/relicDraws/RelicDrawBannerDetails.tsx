@@ -20,8 +20,7 @@ function sortRelics(relicIds: number[]) {
   return _.sortBy(relicIds, [
     (i: number) =>
       enlir.relics[i].character ? enlir.charactersByName[enlir.relics[i].character!].id : 0,
-    (i: number) =>
-      enlir.relicSoulBreaks[i] ? -tierOrder[enlir.relicSoulBreaks[i].tier] : -Infinity,
+    (i: number) => (enlir.relicSoulBreaks[i] ? -tierOrder[enlir.relicSoulBreaks[i].tier] : 0),
     (i: number) =>
       enlir.relicSoulBreaks[i]
         ? enlir.relicSoulBreaks[i].id

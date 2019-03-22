@@ -9,7 +9,13 @@ import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
-import { soulBreakAliases } from '../soulBreaks/SoulBreakListItem';
+
+// HACK: FIXME: Better sharing of code
+import {
+  soulBreakAliases,
+  styles as soulBreakStyles,
+  tierClass,
+} from '../soulBreaks/SoulBreakListItem';
 
 interface Props {
   title: string;
@@ -30,13 +36,18 @@ export class RelicDrawBannerTable extends React.Component<Props> {
     const lm = enlir.relicLegendMateria[relicId];
     // FIXME: Icons for relic types; abbreviate relic effects; style tier and name; add secondary rows
     return (
-      <tr key={key}>
+      <tr
+        key={key}
+        className={sb ? tierClass[sb.tier] : lm ? soulBreakStyles.legendMateria : undefined}
+      >
         <td>{character}</td>
         <td>{name}</td>
         <td>{type}</td>
         <td>{effect}</td>
-        <td>{sb ? soulBreakAliases[sb.id] : lm ? legendMateriaAliases[lm.id] : undefined}</td>
-        <td>{sb ? sb.name : lm ? lm.name : undefined}</td>
+        <td className={soulBreakStyles.tier}>
+          {sb ? soulBreakAliases[sb.id] : lm ? legendMateriaAliases[lm.id] : undefined}
+        </td>
+        <td className={soulBreakStyles.name}>{sb ? sb.name : lm ? lm.name : undefined}</td>
         <td>
           {sb
             ? formatMrP(describeEnlirSoulBreak(sb))
