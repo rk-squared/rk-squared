@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { RelicDrawProbabilities } from '../../actions/relicDraws';
@@ -17,6 +18,8 @@ import {
   tierClass,
 } from '../soulBreaks/SoulBreakListItem';
 
+const styles = require('./RelicDrawBannerTable.scss');
+
 interface Props {
   title: string;
   relics: number[];
@@ -29,17 +32,21 @@ const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
 export class RelicDrawBannerTable extends React.Component<Props> {
   renderRow(relicId: number, key: number, showProbability: boolean) {
-    const { probabilities } = this.props;
+    const { probabilities, ownedSoulBreaks, ownedLegendMateria } = this.props;
     const relic = enlir.relics[relicId];
     const { character, name, type, effect } = relic;
     const sb = enlir.relicSoulBreaks[relicId];
     const lm = enlir.relicLegendMateria[relicId];
-    // FIXME: Icons for relic types; abbreviate relic effects; style tier and name; add secondary rows
+
+    const tierClassName = sb ? tierClass[sb.tier] : lm ? soulBreakStyles.legendMateria : undefined;
+    const isDupe = sb
+      ? ownedSoulBreaks && ownedSoulBreaks.has(sb.id)
+      : lm
+      ? ownedLegendMateria && ownedLegendMateria.has(lm.id)
+      : false;
+    // FIXME: Icons for relic types; abbreviate relic effects; add secondary rows
     return (
-      <tr
-        key={key}
-        className={sb ? tierClass[sb.tier] : lm ? soulBreakStyles.legendMateria : undefined}
-      >
+      <tr key={key} className={classNames(tierClassName, { [styles.dupe]: isDupe })}>
         <td>{character}</td>
         <td>{name}</td>
         <td>{type}</td>
