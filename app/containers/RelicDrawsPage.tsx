@@ -15,8 +15,10 @@ interface Props {
 }
 
 export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentProps> {
-  groupLink = (group: string) => this.props.match.url + '/groups/' + group;
-  bannerLink = (banner: string | number) => this.props.match.url + '/banners/' + banner;
+  groupLink = (group: string) => this.props.match.url + '/group-' + group;
+  bannerLink = (banner: string | number) => this.props.match.url + '/banner' + banner;
+  groupBannerLink = (group: string, banner: string | number) =>
+    this.props.match.url + '/group-' + group + '/banner' + banner;
 
   renderContents() {
     const { bannersAndGroups, match } = this.props;
@@ -24,16 +26,28 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
     if (!details) {
       return <BadRelicDrawMessage />;
     }
-    const links = {
-      bannerLink: this.bannerLink,
-      groupLink: this.groupLink,
-    };
     return (
       <>
+        {/* HACK: Support one layer of nesting (group -> banner) */}
         <Route
+          path={this.groupBannerLink(':group', ':banner')}
+          render={(props: RouteComponentProps<any>) => (
+            <RelicDrawBannerPage {...props} backLink={this.groupLink(props.match.params.group)} />
+          )}
+        />
+
+        <Route
+          exact
           path={this.groupLink(':group')}
           render={(props: RouteComponentProps<any>) => (
-            <RelicDrawGroupPage {...props} {...links} backLink={match.url} />
+            <RelicDrawGroupPage
+              {...props}
+              bannerLink={(banner: string | number) =>
+                this.groupBannerLink(props.match.params.group, banner)
+              }
+              groupLink={this.groupLink}
+              backLink={match.url}
+            />
           )}
         />
         <Route
@@ -42,10 +56,17 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
             <RelicDrawBannerPage {...props} backLink={match.url} />
           )}
         />
+
         <Route
           exact
           path={match.url}
-          render={() => <RelicDrawBannerList details={details} {...links} />}
+          render={() => (
+            <RelicDrawBannerList
+              details={details}
+              bannerLink={this.bannerLink}
+              groupLink={this.groupLink}
+            />
+          )}
         />
       </>
     );

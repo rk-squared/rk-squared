@@ -3,4 +3,8 @@
     // Compare with CharacterSoulBreaks.scss's .unowned
     background-color: #f0f0f7;
   }
+
+  tr.command > td {
+    border-top: none;
+  }
 }

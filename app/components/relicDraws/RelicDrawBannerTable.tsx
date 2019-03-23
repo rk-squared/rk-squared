@@ -13,6 +13,8 @@ import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/chara
 
 // HACK: FIXME: Better sharing of code
 import {
+  getBraveColumns,
+  getBurstColumns,
   soulBreakAliases,
   styles as soulBreakStyles,
   tierClass,
@@ -44,26 +46,40 @@ export class RelicDrawBannerTable extends React.Component<Props> {
       : lm
       ? ownedLegendMateria && ownedLegendMateria.has(lm.id)
       : false;
-    // FIXME: Icons for relic types; abbreviate relic effects; add secondary rows
+    const mrP = sb ? describeEnlirSoulBreak(sb) : null;
+    // FIXME: Icons for relic types; abbreviate relic effects
+
+    const commandColumns: Array<[string, string]> = [];
+    if (mrP && mrP.braveCommands) {
+      commandColumns.push(getBraveColumns(mrP, mrP.braveCommands));
+    }
+    if (mrP && mrP.burstCommands) {
+      commandColumns.push(...getBurstColumns(mrP.burstCommands));
+    }
+    const rowSpan = commandColumns.length ? commandColumns.length + 1 : undefined;
+
+    const className = classNames(tierClassName, { [styles.dupe]: isDupe });
     return (
-      <tr key={key} className={classNames(tierClassName, { [styles.dupe]: isDupe })}>
-        <td>{character}</td>
-        <td>{name}</td>
-        <td>{type}</td>
-        <td>{effect}</td>
-        <td className={soulBreakStyles.tier}>
-          {sb ? soulBreakAliases[sb.id] : lm ? legendMateriaAliases[lm.id] : undefined}
-        </td>
-        <td className={soulBreakStyles.name}>{sb ? sb.name : lm ? lm.name : undefined}</td>
-        <td>
-          {sb
-            ? formatMrP(describeEnlirSoulBreak(sb))
-            : lm
-            ? describeMrPLegendMateria(lm)
-            : undefined}
-        </td>
-        {showProbability && <td>{probabilities!.byRelic[relicId]}%</td>}
-      </tr>
+      <React.Fragment key={key}>
+        <tr className={className}>
+          <td rowSpan={rowSpan}>{character}</td>
+          <td rowSpan={rowSpan}>{name}</td>
+          <td rowSpan={rowSpan}>{type}</td>
+          <td rowSpan={rowSpan}>{effect}</td>
+          <td rowSpan={rowSpan} className={soulBreakStyles.tier}>
+            {sb ? soulBreakAliases[sb.id] : lm ? legendMateriaAliases[lm.id] : undefined}
+          </td>
+          <td className={soulBreakStyles.name}>{sb ? sb.name : lm ? lm.name : undefined}</td>
+          <td>{mrP ? formatMrP(mrP) : lm ? describeMrPLegendMateria(lm) : undefined}</td>
+          {showProbability && <td rowSpan={rowSpan}>{probabilities!.byRelic[relicId]}%</td>}
+        </tr>
+        {commandColumns.map((columns, i) => (
+          <tr key={i} className={className + ' ' + styles.command}>
+            <td>{columns[0]}</td>
+            <td>{columns[1]}</td>
+          </tr>
+        ))}
+      </React.Fragment>
     );
   }
 
@@ -72,7 +88,7 @@ export class RelicDrawBannerTable extends React.Component<Props> {
     const showProbability = probabilities != null;
     const colCount = showProbability ? 8 : 7;
     return (
-      <table className="table table-small">
+      <table className="table">
         <thead>
           <tr className="thead-dark">
             <th colSpan={colCount}>{title}</th>

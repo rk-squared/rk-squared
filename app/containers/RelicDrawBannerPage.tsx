@@ -38,7 +38,7 @@ export class RelicDrawBannerPage extends React.PureComponent<
       <>
         <img src={banner.imageUrl} />
         <p>
-          <Link to={backLink}>back to all banners</Link>
+          <Link to={backLink}>back to list of banners</Link>
         </p>
         <RelicDrawBannerDetails banner={banner} probabilities={probability} />
       </>
