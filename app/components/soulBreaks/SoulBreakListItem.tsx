@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import { enlir, EnlirSoulBreak, EnlirSoulBreakTier, makeSoulBreakAliases } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
 import { formatBraveCommands } from '../../data/mrP/brave';
-import { getSchoolShortName } from '../../data/mrP/types';
+import { getSchoolShortName, getShortName } from '../../data/mrP/types';
 
 export const styles = require('./SoulBreakListItem.scss');
 
@@ -52,11 +52,14 @@ interface Props {
 const mrPSoulBreaks: { [id: number]: MrPSoulBreak } = {};
 
 export class SoulBreakListItem extends React.Component<Props> {
-  renderBraveCommands(braveCommands: MrPSoulBreak[]) {
+  renderBraveCommands(mrP: MrPSoulBreak, braveCommands: MrPSoulBreak[]) {
     return (
       <tr className={classNames(this.props.className, styles.braveCommand)}>
         <td />
-        <td />
+        <td>
+          [{braveCommands[0].school && getSchoolShortName(braveCommands[0].school)}], +1 on{' '}
+          {mrP.braveCondition!.map(getShortName).join('/')}
+        </td>
         <td>{formatBraveCommands(braveCommands)}</td>
       </tr>
     );
@@ -97,7 +100,7 @@ export class SoulBreakListItem extends React.Component<Props> {
           <td className={styles.name}>{name}</td>
           <td>{text || '???'}</td>
         </tr>
-        {mrP.braveCommands && this.renderBraveCommands(mrP.braveCommands)}
+        {mrP.braveCommands && this.renderBraveCommands(mrP, mrP.braveCommands)}
         {mrP.burstCommands && this.renderBurstCommands(mrP.burstCommands)}
       </>
     );
