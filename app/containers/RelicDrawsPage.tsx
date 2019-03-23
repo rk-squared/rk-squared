@@ -1,17 +1,27 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Route, RouteComponentProps } from 'react-router';
+import { Dispatch } from 'redux';
 
+import { loadBanners } from '../actions/relicDraws';
 import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
 import { RelicDrawBannerList } from '../components/relicDraws/RelicDrawBannerList';
+import LoadMissingPrompt from '../components/shared/LoadMissingPrompt';
 import { IState } from '../reducers';
-import { getBannersAndGroups, RelicDrawBannersAndGroups } from '../selectors/relicDraws';
+import { progressKey } from '../sagas/loadBanners';
+import {
+  getBannersAndGroups,
+  getMissingBanners,
+  RelicDrawBannersAndGroups,
+} from '../selectors/relicDraws';
 import { Page } from './Page';
 import RelicDrawBannerPage from './RelicDrawBannerPage';
 import RelicDrawGroupPage from './RelicDrawGroupPage';
 
 interface Props {
   bannersAndGroups: RelicDrawBannersAndGroups;
+  missingBanners: number[];
+  dispatch: Dispatch;
 }
 
 export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentProps> {
@@ -20,14 +30,28 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
   groupBannerLink = (group: string, banner: string | number) =>
     this.props.match.url + '/group-' + group + '/banner' + banner;
 
+  handleLoad = () => {
+    const { missingBanners, dispatch } = this.props;
+    dispatch(loadBanners(missingBanners));
+  };
+
   renderContents() {
-    const { bannersAndGroups, match } = this.props;
+    const { bannersAndGroups, missingBanners, match } = this.props;
     const details = bannersAndGroups['undefined'];
     if (!details) {
       return <BadRelicDrawMessage />;
     }
     return (
       <>
+        <LoadMissingPrompt
+          missingCount={missingBanners.length}
+          missingText="Relic probabilities for %s have not been loaded."
+          countText="banner"
+          loadingText="Loading relic probabilities"
+          onLoad={this.handleLoad}
+          progressKey={progressKey}
+        />
+
         {/* HACK: Support one layer of nesting (group -> banner) */}
         <Route
           path={this.groupBannerLink(':group', ':banner')}
@@ -79,4 +103,5 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
 
 export default connect((state: IState) => ({
   bannersAndGroups: getBannersAndGroups(state),
+  missingBanners: getMissingBanners(state),
 }))(RelicDrawsPage);

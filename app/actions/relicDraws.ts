@@ -72,6 +72,19 @@ export const setRelicDrawProbabilities = createAction(
   }),
 );
 
+/**
+ * Instruct the app to load all missing relic probabilities from the FFRK servers.
+ */
+export const loadBanners = createAction('LOAD_BANNERS', (bannerIds: number[]) => ({
+  type: 'LOAD_BANNERS',
+  payload: {
+    bannerIds,
+  },
+}));
+
 export type RelicDrawAction = ReturnType<
-  typeof setRelicDrawBanners | typeof setRelicDrawGroups | typeof setRelicDrawProbabilities
+  | typeof loadBanners
+  | typeof setRelicDrawBanners
+  | typeof setRelicDrawGroups
+  | typeof setRelicDrawProbabilities
 >;

@@ -113,3 +113,12 @@ export const getBannersAndGroups = createSelector<
     return result;
   },
 );
+
+export const getMissingBanners = createSelector<IState, RelicDrawState, number[]>(
+  (state: IState) => state.relicDraws,
+  ({ banners, probabilities }) => {
+    const missing = new Set(_.keys(banners).map(i => +i));
+    _.keys(probabilities).forEach(i => missing.delete(+i));
+    return Array.from(missing);
+  },
+);

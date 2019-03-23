@@ -21,6 +21,7 @@ export interface RelicDrawState {
     [group: string]: RelicDrawGroup;
   };
   probabilities: {
+    // should be [bannerId: number], but string is easier for Lodash to work with
     [bannerId: string]: RelicDrawProbabilities;
   };
 }

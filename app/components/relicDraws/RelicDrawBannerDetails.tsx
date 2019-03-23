@@ -23,9 +23,9 @@ function sortRelics(relicIds: number[]) {
     (i: number) => (enlir.relicSoulBreaks[i] ? -tierOrder[enlir.relicSoulBreaks[i].tier] : 0),
     (i: number) =>
       enlir.relicSoulBreaks[i]
-        ? enlir.relicSoulBreaks[i].id
+        ? -enlir.relicSoulBreaks[i].id
         : enlir.relicLegendMateria[i]
-        ? enlir.relicLegendMateria[i].id
+        ? -enlir.relicLegendMateria[i].id
         : 0,
   ]);
 }

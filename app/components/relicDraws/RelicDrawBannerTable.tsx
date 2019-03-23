@@ -88,24 +88,26 @@ export class RelicDrawBannerTable extends React.Component<Props> {
     const showProbability = probabilities != null;
     const colCount = showProbability ? 8 : 7;
     return (
-      <table className="table">
-        <thead>
-          <tr className="thead-dark">
-            <th colSpan={colCount}>{title}</th>
-          </tr>
-          <tr>
-            <th>Character</th>
-            <th>Relic</th>
-            <th>Type</th>
-            <th>Effects</th>
-            <th>Tier</th>
-            <th>Name</th>
-            <th>Effects</th>
-            {showProbability && <th>Probability</th>}
-          </tr>
-        </thead>
-        <tbody>{relics.map((relicId, i) => this.renderRow(relicId, i, showProbability))}</tbody>
-      </table>
+      <div className="table-responsive">
+        <table className="table">
+          <thead>
+            <tr className="thead-dark">
+              <th colSpan={colCount}>{title}</th>
+            </tr>
+            <tr>
+              <th>Character</th>
+              <th>Relic</th>
+              <th>Type</th>
+              <th>Effects</th>
+              <th>Tier</th>
+              <th>Name</th>
+              <th>Effects</th>
+              {showProbability && <th>Probability</th>}
+            </tr>
+          </thead>
+          <tbody>{relics.map((relicId, i) => this.renderRow(relicId, i, showProbability))}</tbody>
+        </table>
+      </div>
     );
   }
 }
