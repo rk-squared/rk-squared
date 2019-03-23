@@ -86,7 +86,8 @@ export const setExchangeShopSelections = createAction(
 );
 
 /**
- * Instruct the app to load all missing relic probabilities from the FFRK servers.
+ * Instruct the app to load all missing relic probabilities and exchange shop
+ * selections from the FFRK servers.
  */
 export const loadBanners = createAction('LOAD_BANNERS', (bannerIds: number[]) => ({
   type: 'LOAD_BANNERS',

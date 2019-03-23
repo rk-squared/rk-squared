@@ -45,9 +45,9 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
       <>
         <LoadMissingPrompt
           missingCount={missingBanners.length}
-          missingText="Relic probabilities for %s have not been loaded."
+          missingText="Details for %s have not been loaded."
           countText="banner"
-          loadingText="Loading relic probabilities"
+          loadingText="Loading banner details"
           onLoad={this.handleLoad}
           progressKey={progressKey}
         />

@@ -72,7 +72,7 @@ export class RelicDrawBannerList extends React.PureComponent<Props> {
     return (
       <>
         {details
-          /*.filter(d => d.canPull || d.canSelect)*/
+          .filter(d => d.canPull || d.canSelect)
           .map((d, i) =>
             isGroup(d) ? (
               <RelicDrawGroupLink details={d} key={i} to={groupLink(d.groupName)} />

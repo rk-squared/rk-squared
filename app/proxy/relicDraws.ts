@@ -154,7 +154,7 @@ export function convertRelicDrawProbabilities(
 export function convertExchangeShopSelections(
   data: gachaSchemas.ExchangeShopPrizeList,
 ): number[][] {
-  return _.sortBy(data.exchange_shop.prizes, 'disp_order').map(i =>
+  return _.sortBy(data.exchange_shop.prizes, ['disp_order', 'id']).map(i =>
     i.item_package.items.map(j => j.item_id),
   );
 }
