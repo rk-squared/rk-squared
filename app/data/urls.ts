@@ -17,6 +17,10 @@ export function url(lang: LangType, subPath: string): string {
   return baseUrl[lang] + subPath;
 }
 
+export function relativeUrl(lang: LangType, relativeUrlPath: string): string {
+  return url(lang, relativeUrlPath.replace('/dff/static/lang/', ''));
+}
+
 export function asset(lang: LangType, assetPath?: string): string | undefined {
   return assetPath == null
     ? undefined

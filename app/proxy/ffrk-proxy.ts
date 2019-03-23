@@ -25,6 +25,7 @@ import dungeonScores from './dungeonScores';
 import itemUpdates from './itemUpdates';
 import options from './options';
 import recordMateria from './recordMateria';
+import relicDraws from './relicDraws';
 import { sessionHandler } from './session';
 
 import { updateLastTraffic, updateProxyStatus } from '../actions/proxy';
@@ -43,6 +44,7 @@ const handlers = [
   battle,
   characters,
   dungeons,
+  relicDraws,
   itemUpdates,
   recordMateria,
   dungeonScores,

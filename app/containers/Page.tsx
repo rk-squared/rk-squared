@@ -6,7 +6,7 @@ const styles = require('./Page.scss');
 
 interface Props {
   className?: string;
-  title: string;
+  title?: string;
   children: any;
   footer?: () => any;
 }
@@ -16,7 +16,7 @@ export class Page extends React.Component<Props> {
     const { className, title, children, footer } = this.props;
     return (
       <div className={'container ' + styles.component + ' ' + (className || '')}>
-        <h2 className="row">{title}</h2>
+        {title && <h2 className="row">{title}</h2>}
         <div className={styles.content}>
           <MessagesList />
           {children}

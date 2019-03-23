@@ -116,6 +116,11 @@ export const items = [
     id: 25097001,
   },
   {
+    name: 'Rainbow Crystal',
+    type: ItemType.UpgradeMaterial,
+    id: 25097002,
+  },
+  {
     name: 'Tiny Scarletite',
     type: ItemType.UpgradeMaterial,
     id: 25098001,
@@ -741,6 +746,21 @@ export const items = [
     name: 'Chilling Blizzard Record',
     type: ItemType.Orb,
     id: 40000123,
+  },
+  {
+    name: "Demon's Cross Record",
+    type: ItemType.Orb,
+    id: 40000124,
+  },
+  {
+    name: 'Necro Countdown Record',
+    type: ItemType.Orb,
+    id: 40000125,
+  },
+  {
+    name: 'Holyja Record',
+    type: ItemType.Orb,
+    id: 40000126,
   },
 
   {

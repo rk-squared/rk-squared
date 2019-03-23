@@ -1246,8 +1246,7 @@ describe('mrP', () => {
       });
       expect(describeEnlirSoulBreak(soulBreaks['Zack - Climhazzard Xeno'])).toEqual({
         damage: 'phys 6.8/10 wind+non',
-        other:
-          '+20% wind vuln. 25s, self +30% ATK/DEF 25s, fastcast 1, 15s: (wind ⤇ fastcast 1)',
+        other: '+20% wind vuln. 25s, self +30% ATK/DEF 25s, fastcast 1, 15s: (wind ⤇ fastcast 1)',
       });
     });
 
@@ -1700,6 +1699,7 @@ describe('mrP', () => {
       expect(attack).toEqual({
         damage: 'phys 7.0/10 holy+ice+fire',
         other: 'self crit =75% 15s, fastcast 15s',
+        braveCondition: ['Samurai'],
         braveCommands: [
           {
             damage: 'p1.9 h+i+f',
@@ -1727,6 +1727,7 @@ describe('mrP', () => {
       expect(summon).toEqual({
         damage: 'magic 17.3/10 wind (SUM)',
         other: 'party Reflect Dmg 75% as wind 30s, self hi fastcast 2',
+        braveCondition: ['Wind'],
         braveCommands: [
           {
             damage: 'm7.92 wi',
@@ -1756,6 +1757,7 @@ describe('mrP', () => {
       expect(healer).toEqual({
         instant: true,
         other: 'party h85, +100% RES 25s',
+        braveCondition: ['White Magic'],
         braveCommands: [
           {
             instant: true,
@@ -1787,6 +1789,7 @@ describe('mrP', () => {
       expect(paladin).toEqual({
         damage: 'phys 7.2/10 holy',
         other: 'party Last stand, self 1.3x Knight dmg 15s',
+        braveCondition: ['Knight'],
         braveCommands: [
           {
             damage: 'p1.92 h',
@@ -1818,6 +1821,7 @@ describe('mrP', () => {
         instant: true,
         damage: 'phys 6.0/10 fire+wind rngd',
         other: '-40% ATK/DEF 25s, self 1.3x Thief dmg 15s',
+        braveCondition: ['Thief'],
         braveCommands: [
           {
             instant: true,
@@ -1852,6 +1856,7 @@ describe('mrP', () => {
       expect(darkKnight).toEqual({
         damage: 'phys 7.2/10 dark',
         other: '-40% ATK/MAG 25s, self fastcast 15s',
+        braveCondition: ['Dark'],
         braveCommands: [
           {
             damage: 'p1.92 d',
@@ -1883,6 +1888,7 @@ describe('mrP', () => {
       expect(hybrid).toEqual({
         damage: 'p7.2/10 or m17.3/10 lgt rngd',
         other: 'lgt infuse 25s, self 1.3x B.Mag/Machinist dmg 15s',
+        braveCondition: ['Lightning'],
         braveCommands: [
           {
             damage: 'p1.92 or m7.92 l rngd',
@@ -1910,6 +1916,7 @@ describe('mrP', () => {
       expect(finalEffect).toEqual({
         damage: 'magic 17.3/10 dark',
         other: 'dark infuse 25s, party Doom 30s, self +30% MAG/RES 25s',
+        braveCondition: ['Dark'],
         braveCommands: [
           {
             damage: 'm7.92 d',
@@ -1936,6 +1943,7 @@ describe('mrP', () => {
 
       const mimic = describeEnlirSoulBreak(soulBreaks['Gogo (VI) - Righteous Mimicry']);
       expect(mimic).toEqual({
+        braveCondition: ['Black Magic', 'Combat'],
         braveCommands: [
           { fast: true, damage: 'p1.81 or m7.45', school: 'Special' },
           { fast: true, other: 'Mimic 1x', school: 'Special' },

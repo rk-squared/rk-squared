@@ -4,6 +4,7 @@ import * as XRegExp from 'xregexp';
 import {
   enlir,
   EnlirBurstCommand,
+  EnlirElement,
   EnlirSchool,
   EnlirSkill,
   EnlirSoulBreakTier,
@@ -89,6 +90,7 @@ export interface MrPSoulBreak {
   burstToggle?: boolean;
 
   burstCommands?: MrPSoulBreak[];
+  braveCondition?: Array<EnlirElement | EnlirSchool>;
   braveCommands?: MrPSoulBreak[];
 }
 
@@ -895,7 +897,9 @@ export function describeEnlirSoulBreak(
     enlir.braveCommandsByCharacter[sb.character] &&
     enlir.braveCommandsByCharacter[sb.character][sb.name]
   ) {
-    result.braveCommands = enlir.braveCommandsByCharacter[sb.character][sb.name].map(i =>
+    const braveCommands = enlir.braveCommandsByCharacter[sb.character][sb.name];
+    result.braveCondition = braveCommands[0].braveCondition;
+    result.braveCommands = braveCommands.map(i =>
       describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false }),
     );
   }

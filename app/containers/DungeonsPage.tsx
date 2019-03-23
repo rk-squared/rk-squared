@@ -3,15 +3,14 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import { loadDungeons } from '../actions/dungeons';
-import { Progress } from '../actions/progress';
 import { World } from '../actions/worlds';
 import { IState } from '../reducers';
-import { hasSessionState } from '../reducers/session';
 
 import { BrowserLink } from '../components/common/BrowserLink';
-import { ProgressBar } from '../components/common/ProgressBar';
 import { DungeonsList } from '../components/dungeons/DungeonsList';
 import ItemTypeChecklist from '../components/dungeons/ItemTypeChecklist';
+import LoadMissingPrompt from '../components/shared/LoadMissingPrompt';
+import { progressKey } from '../sagas/loadDungeons';
 import { Page } from './Page';
 
 const styles = require('./DungeonsPage.scss');
@@ -21,39 +20,28 @@ interface Props {
     [id: number]: World;
   };
   missingWorlds: number[];
-  progress: Progress;
-  hasSession: boolean;
   dispatch: Dispatch;
 }
 
 export class DungeonsPage extends React.Component<Props> {
-  handleLoad = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  handleLoad = () => {
     const { missingWorlds, dispatch } = this.props;
     dispatch(loadDungeons(missingWorlds));
   };
 
   render() {
-    const { worlds, missingWorlds, progress, hasSession } = this.props;
-    const missingPrompt =
-      missingWorlds.length === 1 ? '1 realm or event' : `${missingWorlds.length} realms and events`;
+    const { worlds, missingWorlds } = this.props;
     return (
       <Page title="Dungeons">
-        {missingWorlds.length !== 0 && hasSession && !progress && (
-          <p>
-            Dungeons for {missingPrompt} have not been loaded.{' '}
-            <a href="#" onClick={this.handleLoad}>
-              Load now?
-            </a>
-          </p>
-        )}
-
-        {progress && (
-          <div className="mb-2">
-            Loading dungeons for {progress.current + 1} of {progress.max}&hellip;
-            <ProgressBar progress={progress} />
-          </div>
-        )}
+        <LoadMissingPrompt
+          missingCount={missingWorlds.length}
+          missingText="Dungeons for %s have not been loaded."
+          countText="realm or event"
+          countPluralText="realms and events"
+          loadingText="Loading dungeons"
+          onLoad={this.handleLoad}
+          progressKey={progressKey}
+        />
 
         {worlds == null ? (
           <p>No dungeons have been loaded. Please check your proxy settings and restart FFRK.</p>
@@ -86,6 +74,4 @@ export default connect((state: IState) => ({
   missingWorlds: Object.keys(state.worlds.worlds || {})
     .map(i => +i)
     .filter(i => (state.worlds.worlds || {})[i].isUnlocked && !state.dungeons.byWorld[i]),
-  progress: state.progress.dungeons,
-  hasSession: hasSessionState(state.session),
 }))(DungeonsPage);

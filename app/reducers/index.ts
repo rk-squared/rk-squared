@@ -13,6 +13,7 @@ import { prefs, PrefsState } from './prefs';
 import { progress, ProgressState } from './progress';
 import { proxy, ProxyStatus } from './proxy';
 import { recordMateria, RecordMateriaState } from './recordMateria';
+import { relicDraws, RelicDrawState } from './relicDraws';
 import { session, Session } from './session';
 import { worlds, WorldState } from './worlds';
 
@@ -27,6 +28,7 @@ export interface IState {
   progress: ProgressState;
   proxy: ProxyStatus;
   recordMateria: RecordMateriaState;
+  relicDraws: RelicDrawState;
   session: Session;
   worlds: WorldState;
   router: RouterState;
@@ -53,6 +55,7 @@ export const createRootReducer: (history?: History) => Reducer<IState, Action> =
     progress,
     proxy,
     recordMateria,
+    relicDraws,
     session,
     worlds,
 

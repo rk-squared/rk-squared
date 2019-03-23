@@ -2,7 +2,7 @@ import { createAction } from 'typesafe-actions';
 
 import * as _ from 'lodash';
 
-import { TimeT } from '../utils/timeUtils';
+import { FAR_FUTURE, TimeT } from '../utils/timeUtils';
 
 export enum WorldCategory {
   Realm,
@@ -114,10 +114,8 @@ function getSortOrder(category: WorldCategory) {
  * worlds may have different far-future timestamps.  (E.g., the FF15 torment's
  * is a bit before the FF13 torment's.)  We want these to sort the same, so
  * special-case far-future timestamps to accommodate.
- *
- * 2000000000 was chosen semi-arbitrarily; it corresponds to May 17, 2033.
  */
-const getClosedAt = (world: any) => (world.closedAt > 2000000000 ? Infinity : world.closedAt);
+const getClosedAt = (world: any) => (world.closedAt > FAR_FUTURE ? Infinity : world.closedAt);
 
 export function getSorter(category: WorldCategory): (worlds: World[]) => World[] {
   switch (getSortOrder(category)) {

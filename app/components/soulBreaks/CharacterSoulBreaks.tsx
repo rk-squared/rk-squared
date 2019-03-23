@@ -12,7 +12,6 @@ interface Props {
   character: string;
   ownedSoulBreaks?: Set<number>;
 }
-// const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
 export class CharacterSoulBreaks extends React.Component<Props> {
   render() {

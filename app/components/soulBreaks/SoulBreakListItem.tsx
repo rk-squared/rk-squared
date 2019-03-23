@@ -6,11 +6,11 @@ import * as _ from 'lodash';
 import { enlir, EnlirSoulBreak, EnlirSoulBreakTier, makeSoulBreakAliases } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
 import { formatBraveCommands } from '../../data/mrP/brave';
-import { getSchoolShortName } from '../../data/mrP/types';
+import { getSchoolShortName, getShortName } from '../../data/mrP/types';
 
-const styles = require('./SoulBreakListItem.scss');
+export const styles = require('./SoulBreakListItem.scss');
 
-const tierClass: { [tier in EnlirSoulBreakTier]: string | undefined } = {
+export const tierClass: { [tier in EnlirSoulBreakTier]: string | undefined } = {
   SB: styles.unique,
   SSB: styles.super,
   BSB: styles.burst,
@@ -28,7 +28,7 @@ const tierClass: { [tier in EnlirSoulBreakTier]: string | undefined } = {
   Shared: styles.unique,
 };
 
-const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
+export const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   Default: '-',
   SB: '-',
   SSB: 'S',
@@ -44,6 +44,29 @@ const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   Shared: '-',
 });
 
+export function getBraveColumns(
+  mrP: MrPSoulBreak,
+  braveCommands: MrPSoulBreak[],
+): [string, string] {
+  return [
+    '[' +
+      (braveCommands[0].school ? getSchoolShortName(braveCommands[0].school) : '?') +
+      '], +1 on ' +
+      mrP.braveCondition!.map(getShortName).join('/'),
+    formatBraveCommands(braveCommands),
+  ];
+}
+
+export function getBurstColumns(burstCommands: MrPSoulBreak[]): Array<[string, string]> {
+  return burstCommands.map(
+    cmd =>
+      [
+        '[' + (cmd.school ? getSchoolShortName(cmd.school) : '?') + ']',
+        '[' + formatMrP(cmd) + ']',
+      ] as [string, string],
+  );
+}
+
 interface Props {
   soulBreak: EnlirSoulBreak;
   className?: string;
@@ -52,12 +75,13 @@ interface Props {
 const mrPSoulBreaks: { [id: number]: MrPSoulBreak } = {};
 
 export class SoulBreakListItem extends React.Component<Props> {
-  renderBraveCommands(braveCommands: MrPSoulBreak[]) {
+  renderBraveCommands(mrP: MrPSoulBreak, braveCommands: MrPSoulBreak[]) {
+    const columns = getBraveColumns(mrP, braveCommands);
     return (
       <tr className={classNames(this.props.className, styles.braveCommand)}>
         <td />
-        <td />
-        <td>{formatBraveCommands(braveCommands)}</td>
+        <td>{columns[0]}</td>
+        <td>{columns[1]}</td>
       </tr>
     );
   }
@@ -65,11 +89,11 @@ export class SoulBreakListItem extends React.Component<Props> {
   renderBurstCommands(burstCommands: MrPSoulBreak[]) {
     return (
       <>
-        {burstCommands.map((cmd, i) => (
+        {getBurstColumns(burstCommands).map((columns, i) => (
           <tr className={classNames(this.props.className, styles.burstCommand)} key={i}>
             <td />
-            <td className={styles.school}>[{cmd.school && getSchoolShortName(cmd.school)}]</td>
-            <td className={styles.command}>[{formatMrP(cmd)}]</td>
+            <td className={styles.school}>{columns[0]}</td>
+            <td className={styles.command}>{columns[1]}</td>
           </tr>
         ))}
       </>
@@ -97,7 +121,7 @@ export class SoulBreakListItem extends React.Component<Props> {
           <td className={styles.name}>{name}</td>
           <td>{text || '???'}</td>
         </tr>
-        {mrP.braveCommands && this.renderBraveCommands(mrP.braveCommands)}
+        {mrP.braveCommands && this.renderBraveCommands(mrP, mrP.braveCommands)}
         {mrP.burstCommands && this.renderBurstCommands(mrP.burstCommands)}
       </>
     );

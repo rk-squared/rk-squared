@@ -17,3 +17,9 @@ const baseUrl: BaseUrl = {
 
 export const dungeons = (lang: LangType, worldId: number) =>
   `${baseUrl[lang]}world/dungeons?world_id=${worldId}`;
+
+export const gachaProbability = (lang: LangType, bannerId: number) =>
+  `${baseUrl[lang]}gacha/probability?series_id=${bannerId}`;
+
+export const exchangeShopPrizeList = (lang: LangType, exchangeShopId: number) =>
+  `${baseUrl[lang]}exchange_shop/prize_list?shop_id=${exchangeShopId}`;
