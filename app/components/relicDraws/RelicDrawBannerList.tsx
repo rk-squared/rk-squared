@@ -15,12 +15,19 @@ const styles = require('./RelicDrawBannerList.scss');
 interface Props {
   group?: RelicDrawGroupDetails;
   details: RelicDrawBannerOrGroup[];
+  isAnonymous?: boolean;
   groupLink: (group: string) => string;
   bannerLink: (bannerId: number) => string;
 }
 
+interface RelicLinkProps<T> {
+  details: T;
+  to: string;
+  isAnonymous?: boolean;
+}
+
 function formatDupeCount(details: RelicDrawBannerDetails) {
-  if (details.canPull && details.dupeCount != null && details.totalCount) {
+  if (details.dupeCount != null && details.totalCount) {
     return `${details.dupeCount} / ${details.totalCount} ${pluralize(details.dupeCount, 'dupe')}`;
   } else {
     return undefined;
@@ -28,36 +35,52 @@ function formatDupeCount(details: RelicDrawBannerDetails) {
 }
 
 function formatTotalCount(details: RelicDrawBannerDetails) {
-  if (details.canPull && details.dupeCount == null && details.totalCount) {
+  if (details.totalCount) {
     return `${details.totalCount} ${pluralize(details.totalCount, 'relic')}`;
   } else {
     return undefined;
   }
 }
 
-const RelicDrawGroupLink = ({ details, to }: { details: RelicDrawGroupDetails; to: string }) => {
+function formatAvailableCount(details: RelicDrawBannerDetails) {
+  if (!details.canPull) {
+    return undefined;
+  } else {
+    return formatDupeCount(details) || formatTotalCount(details);
+  }
+}
+
+const RelicDrawGroupLink = ({
+  details,
+  to,
+  isAnonymous,
+}: RelicLinkProps<RelicDrawGroupDetails>) => {
+  const count = isAnonymous ? details.bannerCount : details.canPullOrSelectCount;
   return (
     <div>
       <Link to={to}>
         <img className={styles.image} src={details.imageUrl} />
       </Link>
       <div className={styles.details}>
-        {details.canPullOrSelectCount} {pluralize(details.canPullOrSelectCount, 'banner')}{' '}
+        {count} {pluralize(count, 'banner')}{' '}
       </div>
     </div>
   );
 };
 
-const RelicDrawBannerLink = ({ details, to }: { details: RelicDrawBannerDetails; to: string }) => {
+const RelicDrawBannerLink = ({
+  details,
+  to,
+  isAnonymous,
+}: RelicLinkProps<RelicDrawBannerDetails>) => {
+  const count = isAnonymous ? formatTotalCount(details) : formatAvailableCount(details);
   return (
     <div className={styles.component}>
       <Link to={to}>
         <img className={styles.image} src={details.imageUrl} />
       </Link>
       <div className={styles.details}>
-        <span className={styles.count}>
-          {formatDupeCount(details) || formatTotalCount(details)}
-        </span>
+        <span className={styles.count}>{count}</span>
         {details.closedAt < FAR_FUTURE && (
           <span className={styles.closedAt}>ends {formatTimeT(details.closedAt)}</span>
         )}
@@ -68,16 +91,26 @@ const RelicDrawBannerLink = ({ details, to }: { details: RelicDrawBannerDetails;
 
 export class RelicDrawBannerList extends React.PureComponent<Props> {
   render() {
-    const { details, groupLink, bannerLink } = this.props;
+    const { details, isAnonymous, groupLink, bannerLink } = this.props;
     return (
       <>
         {details
-          .filter(d => d.canPull || d.canSelect)
+          .filter(d => isAnonymous || d.canPull || d.canSelect)
           .map((d, i) =>
             isGroup(d) ? (
-              <RelicDrawGroupLink details={d} key={i} to={groupLink(d.groupName)} />
+              <RelicDrawGroupLink
+                details={d}
+                isAnonymous={isAnonymous}
+                key={i}
+                to={groupLink(d.groupName)}
+              />
             ) : (
-              <RelicDrawBannerLink details={d} key={i} to={bannerLink(d.id)} />
+              <RelicDrawBannerLink
+                details={d}
+                isAnonymous={isAnonymous}
+                key={i}
+                to={bannerLink(d.id)}
+              />
             ),
           )}
       </>

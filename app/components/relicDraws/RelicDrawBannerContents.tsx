@@ -11,6 +11,7 @@ import RelicDrawBannerTable from './RelicDrawBannerTable';
 interface Props {
   banner: RelicDrawBannerDetails;
   probabilities?: RelicDrawProbabilities;
+  isAnonymous?: boolean;
 }
 
 function sortRelics(relicIds: number[]) {
@@ -29,15 +30,21 @@ function sortRelics(relicIds: number[]) {
 
 export class RelicDrawBannerContents extends React.PureComponent<Props> {
   renderSelections() {
-    const { banner } = this.props;
+    const { banner, isAnonymous } = this.props;
     if (!banner.selections || !banner.selections.length) {
       return null;
     }
-    return <RelicDrawBannerTable title={'Available Selections'} relics={banner.selections} />;
+    return (
+      <RelicDrawBannerTable
+        title={'Available Selections'}
+        relics={banner.selections}
+        isAnonymous={isAnonymous}
+      />
+    );
   }
 
   renderFeatured() {
-    const { banner, probabilities } = this.props;
+    const { banner, probabilities, isAnonymous } = this.props;
     if (!banner.bannerRelics || !banner.bannerRelics.length) {
       return null;
     }
@@ -46,12 +53,13 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         title={'Featured Relics'}
         relics={banner.bannerRelics}
         probabilities={probabilities}
+        isAnonymous={isAnonymous}
       />
     );
   }
 
   renderAll() {
-    const { banner, probabilities } = this.props;
+    const { banner, probabilities, isAnonymous } = this.props;
     if ((banner.bannerRelics && banner.bannerRelics.length) || !probabilities) {
       return null;
     }
@@ -60,12 +68,13 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         title={'All Relics'}
         relics={sortRelics(_.keys(probabilities.byRelic).map(i => +i))}
         probabilities={probabilities}
+        isAnonymous={isAnonymous}
       />
     );
   }
 
   renderOffBanner() {
-    const { banner, probabilities } = this.props;
+    const { banner, probabilities, isAnonymous } = this.props;
     const offBanner =
       banner.bannerRelics && banner.bannerRelics.length && probabilities
         ? sortRelics(getOffBannerRelics(banner, probabilities))
@@ -74,7 +83,12 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
       return null;
     }
     return (
-      <RelicDrawBannerTable title={'Off-Banner'} relics={offBanner} probabilities={probabilities} />
+      <RelicDrawBannerTable
+        title={'Off-Banner'}
+        relics={offBanner}
+        probabilities={probabilities}
+        isAnonymous={isAnonymous}
+      />
     );
   }
 

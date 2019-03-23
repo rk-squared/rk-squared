@@ -20,6 +20,7 @@ interface Props {
   probabilities: {
     [bannerId: string]: RelicDrawProbabilities;
   };
+  isAnonymous?: boolean;
   backLink: string;
 }
 
@@ -27,7 +28,7 @@ export class RelicDrawBannerPage extends React.PureComponent<
   Props & RouteComponentProps<RouteParams>
 > {
   render() {
-    const { banners, probabilities, match, backLink } = this.props;
+    const { banners, probabilities, isAnonymous, match, backLink } = this.props;
     const banner = banners[+match.params.banner];
     const probability = probabilities[+match.params.banner];
     if (!banner) {
@@ -41,7 +42,7 @@ export class RelicDrawBannerPage extends React.PureComponent<
         <p>
           <Link to={backLink}>back to list of banners</Link>
         </p>
-        <RelicDrawBannerContents banner={banner} probabilities={probability} />
+        <RelicDrawBannerContents banner={banner} probabilities={probability} isAnonymous={isAnonymous} />
       </>
     );
   }

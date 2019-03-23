@@ -41,6 +41,7 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
     if (!details) {
       return <BadRelicDrawMessage />;
     }
+    const isAnonymous = !process.env.IS_ELECTRON;
     return (
       <>
         <LoadMissingPrompt
@@ -56,7 +57,11 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
         <Route
           path={this.groupBannerLink(':group', ':banner')}
           render={(props: RouteComponentProps<any>) => (
-            <RelicDrawBannerPage {...props} backLink={this.groupLink(props.match.params.group)} />
+            <RelicDrawBannerPage
+              {...props}
+              isAnonymous={isAnonymous}
+              backLink={this.groupLink(props.match.params.group)}
+            />
           )}
         />
 
@@ -66,6 +71,7 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
           render={(props: RouteComponentProps<any>) => (
             <RelicDrawGroupPage
               {...props}
+              isAnonymous={isAnonymous}
               bannerLink={(banner: string | number) =>
                 this.groupBannerLink(props.match.params.group, banner)
               }
@@ -77,7 +83,7 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
         <Route
           path={this.bannerLink(':banner')}
           render={(props: RouteComponentProps<any>) => (
-            <RelicDrawBannerPage {...props} backLink={match.url} />
+            <RelicDrawBannerPage {...props} isAnonymous={isAnonymous} backLink={match.url} />
           )}
         />
 
@@ -87,6 +93,7 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
           render={() => (
             <RelicDrawBannerList
               details={details}
+              isAnonymous={isAnonymous}
               bannerLink={this.bannerLink}
               groupLink={this.groupLink}
             />

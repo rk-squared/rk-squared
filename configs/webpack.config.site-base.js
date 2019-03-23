@@ -425,6 +425,7 @@ module.exports = function(webpackEnv) {
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         reportFilename: '../dist/report.html',
+        openAnalyzer: false,
       }),
 
       // Generates an `index.html` file with the <script> injected.

@@ -28,6 +28,7 @@ interface Props {
   title: string;
   relics: number[] | number[][];
   probabilities?: RelicDrawProbabilities;
+  isAnonymous?: boolean;
   ownedSoulBreaks: Set<number> | undefined;
   ownedLegendMateria: Set<number> | undefined;
 }
@@ -36,14 +37,16 @@ const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
 export class RelicDrawBannerTable extends React.Component<Props> {
   renderRow(relicId: number, key: number, showProbability: boolean) {
-    const { probabilities, ownedSoulBreaks, ownedLegendMateria } = this.props;
+    const { probabilities, isAnonymous, ownedSoulBreaks, ownedLegendMateria } = this.props;
     const relic = enlir.relics[relicId];
     const { character, name, type, effect } = relic;
     const sb = enlir.relicSoulBreaks[relicId];
     const lm = enlir.relicLegendMateria[relicId];
 
     const tierClassName = sb ? tierClass[sb.tier] : lm ? soulBreakStyles.legendMateria : undefined;
-    const isDupe = sb
+    const isDupe = isAnonymous
+      ? false
+      : sb
       ? ownedSoulBreaks && ownedSoulBreaks.has(sb.id)
       : lm
       ? ownedLegendMateria && ownedLegendMateria.has(lm.id)
