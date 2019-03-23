@@ -10,6 +10,7 @@ import {
   RelicDrawBanner,
   RelicDrawGroup,
   RelicDrawProbabilities,
+  setExchangeShopSelections,
   setRelicDrawBanners,
   setRelicDrawGroups,
   setRelicDrawProbabilities,
@@ -150,6 +151,14 @@ export function convertRelicDrawProbabilities(
   };
 }
 
+export function convertExchangeShopSelections(
+  data: gachaSchemas.ExchangeShopPrizeList,
+): number[][] {
+  return _.sortBy(data.exchange_shop.prizes, 'disp_order').map(i =>
+    i.item_package.items.map(j => j.item_id),
+  );
+}
+
 const gachaHandler: Handler = {
   'gacha/show'(data: gachaSchemas.GachaShow, store: Store<IState>, request: HandlerRequest) {
     const { banners, groups } = convertRelicDrawBanners(getRequestLang(request), data);
@@ -172,6 +181,20 @@ const gachaHandler: Handler = {
       return;
     }
     store.dispatch(setRelicDrawProbabilities(query.series_id, probabilities));
+  },
+
+  'exchange_shop/prize_list'(
+    data: gachaSchemas.ExchangeShopPrizeList,
+    store: Store<IState>,
+    { query }: HandlerRequest,
+  ) {
+    if (!query || !query.shop_id) {
+      logger.error('Unrecognized gacha/probability query');
+      return;
+    }
+
+    const selections = convertExchangeShopSelections(data);
+    store.dispatch(setExchangeShopSelections(query.shop_id, selections));
   },
 };
 

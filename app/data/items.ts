@@ -747,6 +747,21 @@ export const items = [
     type: ItemType.Orb,
     id: 40000123,
   },
+  {
+    name: "Demon's Cross Record",
+    type: ItemType.Orb,
+    id: 40000124,
+  },
+  {
+    name: 'Necro Countdown Record',
+    type: ItemType.Orb,
+    id: 40000125,
+  },
+  {
+    name: 'Holyja Record',
+    type: ItemType.Orb,
+    id: 40000126,
+  },
 
   {
     name: 'Minor Growth Egg',

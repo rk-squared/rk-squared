@@ -2,7 +2,12 @@ import { createSelector } from 'reselect';
 
 import * as _ from 'lodash';
 
-import { RelicDrawBanner, RelicDrawGroup } from '../actions/relicDraws';
+import {
+  ExchangeShopSelections,
+  RelicDrawBanner,
+  RelicDrawGroup,
+  RelicDrawProbabilities,
+} from '../actions/relicDraws';
 import { enlir } from '../data/enlir';
 import { IState } from '../reducers';
 import { RelicDrawState } from '../reducers/relicDraws';
@@ -11,6 +16,7 @@ import { getOwnedLegendMateria, getOwnedSoulBreaks } from './characters';
 export interface RelicDrawBannerDetails extends RelicDrawBanner {
   totalCount?: number;
   dupeCount?: number;
+  selections?: ExchangeShopSelections;
 }
 
 export interface RelicDrawGroupDetails extends RelicDrawGroup {
@@ -52,44 +58,79 @@ export interface RelicDrawBannersAndGroups {
   [group: string]: RelicDrawBannerOrGroup[];
 }
 
-export const getBannersAndGroups = createSelector<
+function getOneBannerDetails(
+  banner: RelicDrawBanner,
+  probabilities: RelicDrawProbabilities | undefined,
+  allSelections: { [exchangeShopId: number]: ExchangeShopSelections },
+  ownedSoulBreaks: Set<number> | undefined,
+  ownedLegendMateria: Set<number> | undefined,
+): RelicDrawBannerDetails {
+  const selections =
+    banner.exchangeShopId && allSelections ? allSelections[banner.exchangeShopId] : undefined;
+
+  if (banner.bannerRelics && banner.bannerRelics.length !== 0) {
+    return {
+      ...banner,
+      selections,
+      totalCount: banner.bannerRelics.length,
+      dupeCount: getDupeCount(banner.bannerRelics, ownedSoulBreaks, ownedLegendMateria),
+    };
+  } else if (probabilities) {
+    const allRelics = _.keys(probabilities.byRelic).map(j => +j);
+    return {
+      ...banner,
+      selections,
+      totalCount: allRelics.length,
+      dupeCount: getDupeCount(allRelics, ownedSoulBreaks, ownedLegendMateria),
+    };
+  } else if (selections) {
+    return {
+      ...banner,
+      selections,
+    };
+  } else {
+    return banner;
+  }
+}
+
+export const getBannerDetails = createSelector<
   IState,
   RelicDrawState,
   Set<number> | undefined,
   Set<number> | undefined,
-  RelicDrawBannersAndGroups
+  { [bannerId: number]: RelicDrawBannerDetails }
 >(
   (state: IState) => state.relicDraws,
   getOwnedSoulBreaks,
   getOwnedLegendMateria,
-  ({ banners, groups, probabilities }, ownedSoulBreaks, ownedLegendMateria) => {
+  ({ banners, probabilities, selections }, ownedSoulBreaks, ownedLegendMateria) => {
+    return _.mapValues(banners, (banner: RelicDrawBanner) =>
+      getOneBannerDetails(
+        banner,
+        probabilities[banner.id],
+        selections,
+        ownedSoulBreaks,
+        ownedLegendMateria,
+      ),
+    );
+  },
+);
+
+export const getBannersAndGroups = createSelector<
+  IState,
+  RelicDrawState,
+  { [bannerId: number]: RelicDrawBannerDetails },
+  RelicDrawBannersAndGroups
+>(
+  (state: IState) => state.relicDraws,
+  getBannerDetails,
+  ({ banners, groups }, bannerDetails) => {
     const result: { [group: string]: RelicDrawBannerOrGroup[] } = {};
 
     for (const group of [..._.keys(groups), undefined]) {
       const groupName = '' + group;
 
-      const bannerDetails: RelicDrawBannerDetails[] = _.filter(banners, i => i.group === group).map(
-        i => {
-          if (i.bannerRelics && i.bannerRelics.length !== 0) {
-            return {
-              ...i,
-              totalCount: i.bannerRelics.length,
-              dupeCount: getDupeCount(i.bannerRelics, ownedSoulBreaks, ownedLegendMateria),
-            };
-          } else if (probabilities[i.id]) {
-            const allRelics = _.keys(probabilities[i.id].byRelic).map(j => +j);
-            return {
-              ...i,
-              totalCount: allRelics.length,
-              dupeCount: getDupeCount(allRelics, ownedSoulBreaks, ownedLegendMateria),
-            };
-          } else {
-            return i;
-          }
-        },
-      );
-
-      result[groupName] = bannerDetails;
+      result[groupName] = _.filter(bannerDetails, i => i.group === group);
 
       // If this is the root (undefined) group, then extend with all child groups.
       if (!group) {
@@ -116,9 +157,19 @@ export const getBannersAndGroups = createSelector<
 
 export const getMissingBanners = createSelector<IState, RelicDrawState, number[]>(
   (state: IState) => state.relicDraws,
-  ({ banners, probabilities }) => {
+  ({ banners, probabilities, selections }) => {
+    // Start with all banner IDs.
     const missing = new Set(_.keys(banners).map(i => +i));
-    _.keys(probabilities).forEach(i => missing.delete(+i));
+
+    // Remove banner IDs for which we have probabilities and don't need selections.
+    const needsSelection = (bannerId: number) =>
+      banners[bannerId] &&
+      banners[bannerId].exchangeShopId != null &&
+      !selections[banners[bannerId].exchangeShopId!];
+    _.keys(probabilities)
+      .filter(i => !needsSelection(+i))
+      .forEach(i => missing.delete(+i));
+
     return Array.from(missing);
   },
 );

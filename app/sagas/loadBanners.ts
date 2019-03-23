@@ -1,17 +1,21 @@
-import axios from 'axios';
-import { call, put, select, takeEvery } from 'redux-saga/effects';
+import { AxiosResponse } from 'axios';
+import { put, select, takeEvery } from 'redux-saga/effects';
 import { getType } from 'typesafe-actions';
 
-import { showDanger } from '../actions/messages';
 import { setProgress } from '../actions/progress';
-import { loadBanners, setRelicDrawProbabilities } from '../actions/relicDraws';
+import {
+  loadBanners,
+  setExchangeShopSelections,
+  setRelicDrawProbabilities,
+} from '../actions/relicDraws';
 import { getLang } from '../actions/session';
 import * as apiUrls from '../api/apiUrls';
 import * as gachaSchemas from '../api/schemas/gacha';
-import { convertRelicDrawProbabilities } from '../proxy/relicDraws';
+import { convertExchangeShopSelections, convertRelicDrawProbabilities } from '../proxy/relicDraws';
 import { IState } from '../reducers';
+import { RelicDrawState } from '../reducers/relicDraws';
 import { logger } from '../utils/logger';
-import { sessionConfig } from './util';
+import { callApi } from './util';
 
 export const progressKey = 'banners';
 
@@ -25,30 +29,52 @@ export function* doLoadBanners(action: ReturnType<typeof loadBanners>) {
 
   for (let i = 0; i < allBannerIds.length; i++) {
     const bannerId = allBannerIds[i];
+
     yield put(setProgress(progressKey, { current: i, max: allBannerIds.length }));
+
     logger.info(`Getting relic probabilities for banner ${bannerId}...`);
+    const probabilitiesResult = yield callApi(
+      apiUrls.gachaProbability(lang, bannerId),
+      session,
+      (response: AxiosResponse) => {
+        // FIXME: Validate data
+        const probabilities = convertRelicDrawProbabilities(
+          response.data as gachaSchemas.GachaProbability,
+        );
+        if (!probabilities) {
+          return undefined;
+        }
 
-    const result = yield call(() =>
-      axios
-        .get(apiUrls.gachaProbability(lang, bannerId), sessionConfig(session))
-        .then(response => {
-          // FIXME: Validate data
-          const probabilities = convertRelicDrawProbabilities(
-            response.data as gachaSchemas.GachaProbability,
-          );
-          if (!probabilities) {
-            return undefined;
-          }
-
-          return setRelicDrawProbabilities(bannerId, probabilities);
-        })
-        .catch(e => {
-          logger.error(e);
-          return showDanger(e.message);
-        }),
+        return setRelicDrawProbabilities(bannerId, probabilities);
+      },
     );
-    if (result != null) {
-      yield put(result);
+    if (probabilitiesResult != null) {
+      yield put(probabilitiesResult);
+    }
+
+    const { banners, selections } = (yield select(
+      (state: IState) => state.relicDraws,
+    )) as RelicDrawState;
+    if (banners[bannerId]) {
+      const exchangeShopId = banners[bannerId].exchangeShopId;
+      if (exchangeShopId && !selections[exchangeShopId]) {
+        logger.info(`Getting selections for banner ${bannerId} (shop ID ${exchangeShopId})...`);
+
+        const selectionsResult = yield callApi(
+          apiUrls.exchangeShopPrizeList(lang, exchangeShopId),
+          session,
+          (response: AxiosResponse) => {
+            // FIXME: Validate data
+            const shopSelections = convertExchangeShopSelections(
+              response.data as gachaSchemas.ExchangeShopPrizeList,
+            );
+            return setExchangeShopSelections(exchangeShopId, shopSelections);
+          },
+        );
+        if (selectionsResult != null) {
+          yield put(selectionsResult);
+        }
+      }
     }
   }
 

@@ -35,6 +35,8 @@ export interface RelicDrawProbabilities {
   };
 }
 
+export type ExchangeShopSelections = number[][];
+
 export function getOffBannerRelics(
   banner: RelicDrawBanner,
   probabilities: RelicDrawProbabilities,
@@ -72,6 +74,17 @@ export const setRelicDrawProbabilities = createAction(
   }),
 );
 
+export const setExchangeShopSelections = createAction(
+  'SET_EXCHANGE_SHOP_SELECTIONS',
+  (exchangeShopId: number, selections: ExchangeShopSelections) => ({
+    type: 'SET_EXCHANGE_SHOP_SELECTIONS',
+    payload: {
+      exchangeShopId,
+      selections,
+    },
+  }),
+);
+
 /**
  * Instruct the app to load all missing relic probabilities from the FFRK servers.
  */
@@ -87,4 +100,5 @@ export type RelicDrawAction = ReturnType<
   | typeof setRelicDrawBanners
   | typeof setRelicDrawGroups
   | typeof setRelicDrawProbabilities
+  | typeof setExchangeShopSelections
 >;

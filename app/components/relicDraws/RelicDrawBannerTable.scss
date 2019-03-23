@@ -1,4 +1,8 @@
 :local {
+  .grouped > tbody:hover {
+    background-color: #f0f0f0;
+  }
+
   .dupe {
     // Compare with CharacterSoulBreaks.scss's .unowned
     background-color: #f0f0f7;

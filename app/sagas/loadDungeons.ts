@@ -1,9 +1,8 @@
-import axios from 'axios';
-import { call, put, select, takeEvery } from 'redux-saga/effects';
+import { AxiosResponse } from 'axios';
+import { put, select, takeEvery } from 'redux-saga/effects';
 import { getType } from 'typesafe-actions';
 
 import { addWorldDungeons, loadDungeons } from '../actions/dungeons';
-import { showDanger } from '../actions/messages';
 import { setProgress } from '../actions/progress';
 import { getLang } from '../actions/session';
 import * as apiUrls from '../api/apiUrls';
@@ -11,7 +10,7 @@ import * as schemas from '../api/schemas';
 import { convertWorldDungeons } from '../proxy/dungeons';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
-import { sessionConfig } from './util';
+import { callApi } from './util';
 
 export const progressKey = 'dungeons';
 
@@ -27,17 +26,13 @@ export function* doLoadDungeons(action: ReturnType<typeof loadDungeons>) {
     yield put(setProgress(progressKey, { current: i, max: action.payload.worldIds.length }));
     logger.info(`Getting dungeons for world ${worldId}...`);
 
-    const result = yield call(() =>
-      axios
-        .get(apiUrls.dungeons(lang, worldId), sessionConfig(session))
-        .then(response => {
-          // FIXME: Validate data
-          return addWorldDungeons(worldId, convertWorldDungeons(response.data as schemas.Dungeons));
-        })
-        .catch(e => {
-          logger.error(e);
-          return showDanger(e.message);
-        }),
+    const result = yield callApi(
+      apiUrls.dungeons(lang, worldId),
+      session,
+      (response: AxiosResponse) => {
+        // FIXME: Validate data
+        return addWorldDungeons(worldId, convertWorldDungeons(response.data as schemas.Dungeons));
+      },
     );
     if (result != null) {
       yield put(result);

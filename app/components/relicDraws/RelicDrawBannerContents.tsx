@@ -2,17 +2,14 @@ import * as React from 'react';
 
 import * as _ from 'lodash';
 
-import {
-  getOffBannerRelics,
-  RelicDrawBanner,
-  RelicDrawProbabilities,
-} from '../../actions/relicDraws';
+import { getOffBannerRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
 import { enlir } from '../../data/enlir';
 import { tierOrder } from '../../data/mrP';
+import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import RelicDrawBannerTable from './RelicDrawBannerTable';
 
 interface Props {
-  banner: RelicDrawBanner;
+  banner: RelicDrawBannerDetails;
   probabilities?: RelicDrawProbabilities;
 }
 
@@ -30,7 +27,15 @@ function sortRelics(relicIds: number[]) {
   ]);
 }
 
-export class RelicDrawBannerDetails extends React.PureComponent<Props> {
+export class RelicDrawBannerContents extends React.PureComponent<Props> {
+  renderSelections() {
+    const { banner } = this.props;
+    if (!banner.selections || !banner.selections.length) {
+      return null;
+    }
+    return <RelicDrawBannerTable title={'Available Selections'} relics={banner.selections} />;
+  }
+
   renderFeatured() {
     const { banner, probabilities } = this.props;
     if (!banner.bannerRelics || !banner.bannerRelics.length) {
@@ -88,6 +93,7 @@ export class RelicDrawBannerDetails extends React.PureComponent<Props> {
   render() {
     return (
       <>
+        {this.renderSelections()}
         {this.renderFeatured()}
         {this.renderAll()}
         {this.renderOffBanner()}

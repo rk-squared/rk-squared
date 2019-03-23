@@ -4,10 +4,12 @@ import { getType } from 'typesafe-actions';
 import * as _ from 'lodash';
 
 import {
+  ExchangeShopSelections,
   RelicDrawAction,
   RelicDrawBanner,
   RelicDrawGroup,
   RelicDrawProbabilities,
+  setExchangeShopSelections,
   setRelicDrawBanners,
   setRelicDrawGroups,
   setRelicDrawProbabilities,
@@ -24,12 +26,16 @@ export interface RelicDrawState {
     // should be [bannerId: number], but string is easier for Lodash to work with
     [bannerId: string]: RelicDrawProbabilities;
   };
+  selections: {
+    [exchangeShopId: number]: ExchangeShopSelections;
+  };
 }
 
 const initialState: RelicDrawState = {
   banners: {},
   groups: {},
   probabilities: {},
+  selections: {},
 };
 
 export function relicDraws(
@@ -45,6 +51,7 @@ export function relicDraws(
           draft.probabilities,
           (value, key) => newBanners[key] != null,
         );
+        // TODO: Also expire old exchange shop selections here?
         return;
       }
 
@@ -55,6 +62,12 @@ export function relicDraws(
       case getType(setRelicDrawProbabilities):
         draft.probabilities[action.payload.bannerId] = action.payload.probabilities;
         return;
+
+      case getType(setExchangeShopSelections): {
+        const { exchangeShopId, selections } = action.payload;
+        draft.selections = draft.selections || {};
+        draft.selections[exchangeShopId] = selections;
+      }
     }
   });
 }

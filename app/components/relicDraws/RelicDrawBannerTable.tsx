@@ -11,6 +11,8 @@ import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
 
+// FIXME: Better styling - table widths are bad, because SB effects are way too narrow
+
 // HACK: FIXME: Better sharing of code
 import {
   getBraveColumns,
@@ -24,7 +26,7 @@ const styles = require('./RelicDrawBannerTable.scss');
 
 interface Props {
   title: string;
-  relics: number[];
+  relics: number[] | number[][];
   probabilities?: RelicDrawProbabilities;
   ownedSoulBreaks: Set<number> | undefined;
   ownedLegendMateria: Set<number> | undefined;
@@ -61,7 +63,7 @@ export class RelicDrawBannerTable extends React.Component<Props> {
     const className = classNames(tierClassName, { [styles.dupe]: isDupe });
     return (
       <React.Fragment key={key}>
-        <tr className={className}>
+        <tr className={className} title={isDupe ? 'Dupe' : undefined}>
           <td rowSpan={rowSpan}>{character}</td>
           <td rowSpan={rowSpan}>{name}</td>
           <td rowSpan={rowSpan}>{type}</td>
@@ -87,9 +89,13 @@ export class RelicDrawBannerTable extends React.Component<Props> {
     const { title, relics, probabilities } = this.props;
     const showProbability = probabilities != null;
     const colCount = showProbability ? 8 : 7;
+    const relicsArray = (relics.length > 0 && Array.isArray(relics[0])
+      ? relics
+      : [relics]) as number[][];
+    const grouped = relicsArray.length > 1 && _.some(relicsArray, i => i.length > 1);
     return (
       <div className="table-responsive">
-        <table className="table">
+        <table className={classNames('table', { [styles.grouped]: grouped })}>
           <thead>
             <tr className="thead-dark">
               <th colSpan={colCount}>{title}</th>
@@ -105,7 +111,11 @@ export class RelicDrawBannerTable extends React.Component<Props> {
               {showProbability && <th>Probability</th>}
             </tr>
           </thead>
-          <tbody>{relics.map((relicId, i) => this.renderRow(relicId, i, showProbability))}</tbody>
+          {relicsArray.map((theseRelics, i) => (
+            <tbody key={i}>
+              {theseRelics.map((relicId, j) => this.renderRow(relicId, j, showProbability))}
+            </tbody>
+          ))}
         </table>
       </div>
     );

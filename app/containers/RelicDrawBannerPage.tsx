@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import { RelicDrawBanner, RelicDrawProbabilities } from '../actions/relicDraws';
+import { RelicDrawProbabilities } from '../actions/relicDraws';
 import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
-import { RelicDrawBannerDetails } from '../components/relicDraws/RelicDrawBannerDetails';
+import { RelicDrawBannerContents } from '../components/relicDraws/RelicDrawBannerContents';
 import { IState } from '../reducers';
+import { getBannerDetails, RelicDrawBannerDetails } from '../selectors/relicDraws';
 
 interface RouteParams {
   banner: string;
@@ -14,7 +15,7 @@ interface RouteParams {
 
 interface Props {
   banners: {
-    [bannerId: number]: RelicDrawBanner;
+    [bannerId: number]: RelicDrawBannerDetails;
   };
   probabilities: {
     [bannerId: string]: RelicDrawProbabilities;
@@ -40,13 +41,13 @@ export class RelicDrawBannerPage extends React.PureComponent<
         <p>
           <Link to={backLink}>back to list of banners</Link>
         </p>
-        <RelicDrawBannerDetails banner={banner} probabilities={probability} />
+        <RelicDrawBannerContents banner={banner} probabilities={probability} />
       </>
     );
   }
 }
 
 export default connect((state: IState) => ({
-  banners: state.relicDraws.banners,
+  banners: getBannerDetails(state),
   probabilities: state.relicDraws.probabilities,
 }))(RelicDrawBannerPage);
