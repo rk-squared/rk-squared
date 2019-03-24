@@ -325,7 +325,7 @@ const magMndTable: TableDefinition = {
     {
       header: 'Hat',
       items: {
-        13: [['Gogo', '3']],
+        13: [['Gogo (V)', '3']],
       },
     },
     {

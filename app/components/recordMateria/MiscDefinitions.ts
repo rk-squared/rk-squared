@@ -43,7 +43,7 @@ const statusTable: TableDefinition = {
     {
       header: 'Reflect',
       items: {
-        1: [['Gogo', '1'], ['Red XIII', '1a']],
+        1: [['Gogo (V)', '1'], ['Red XIII', '1a']],
       },
     },
     {
@@ -62,7 +62,7 @@ const statusTable: TableDefinition = {
     {
       header: 'Regen (lo)',
       items: {
-        2: [['Rude', '2'], ['Gogo', '2']],
+        2: [['Rude', '2'], ['Gogo (V)', '2']],
         1: [['Sabin', '1'], ['Prishe', '1'], ['Noel', '1'], ['Lann', '1']],
         low: [['Garnet', '1a'], ['Sazh', '1']],
       },
@@ -70,7 +70,7 @@ const statusTable: TableDefinition = {
     {
       header: 'Retaliate',
       items: {
-        2: [['Gogo', '2']],
+        2: [['Gogo (V)', '2']],
         low: [['Cyan', '1b']],
       },
     },
@@ -172,7 +172,7 @@ const selfHealTable: TableDefinition = {
       header: 'Drain Attack',
       items: {
         3: [['Emperor', '3']],
-        2: [['Prishe', '2'], ['Thief', '2'], ['Dark Knight', '2']],
+        2: [['Prishe', '2'], ['Thief (Core)', '2'], ['Dark Knight', '2']],
         1: [['Dark Knight', '1b'], ['Rinoa', '1'], ['Quina', '1a']],
       },
     },
@@ -404,8 +404,8 @@ const abilityRefillTable: TableDefinition = {
     {
       header: 'Thief',
       items: {
-        100: [['Thief', '1b']],
-        50: [['Rikku', '1'], ['Thief', '1a']],
+        100: [['Thief (Core)', '1b']],
+        50: [['Rikku', '1'], ['Thief (Core)', '1a']],
       },
     },
   ],

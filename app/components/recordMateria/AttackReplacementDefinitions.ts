@@ -85,7 +85,7 @@ const physicalPercentNonElementalTable: TableDefinition = {
       header: '% p1.0+',
       items: {
         3: [['Queen', '3'], ['Shelke', '3'], ['Quina', '3'], ['Dark Knight', '3']],
-        2: [['Prishe', '2'], ['Thief', '2'], ['Dark Knight', '2']],
+        2: [['Prishe', '2'], ['Thief (Core)', '2'], ['Dark Knight', '2']],
         1: [['Mustadio', '1'], ['Meliadoul', '1'], ['Quina', '1a'], ['Tidus', '1b']],
       },
     },
@@ -106,7 +106,7 @@ const physicalElementalTable: TableDefinition = {
     {
       header: 'Bio',
       items: {
-        3: [['Thief', '3']],
+        3: [['Thief (Core)', '3']],
       },
     },
     {
