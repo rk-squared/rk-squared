@@ -26,6 +26,13 @@ interface RelicLinkProps<T> {
   isAnonymous?: boolean;
 }
 
+/**
+ * Should we show this item?  It may be interesting to see the contents of even
+ * one-time banners, but don't clutter the list with permanent one-time banners.
+ */
+const shouldShow = (details: RelicDrawBannerOrGroup) =>
+  details.canPull || details.canSelect || details.closedAt < FAR_FUTURE;
+
 function formatDupeCount(details: RelicDrawBannerDetails) {
   if (details.dupeCount != null && details.totalCount) {
     return `${details.dupeCount} / ${details.totalCount} ${pluralize(details.dupeCount, 'dupe')}`;
@@ -43,10 +50,11 @@ function formatTotalCount(details: RelicDrawBannerDetails) {
 }
 
 function formatAvailableCount(details: RelicDrawBannerDetails) {
-  if (!details.canPull) {
-    return undefined;
+  const result = formatDupeCount(details) || formatTotalCount(details);
+  if (!details.canPull && result) {
+    return <span className="text-muted">{result} (used)</span>;
   } else {
-    return formatDupeCount(details) || formatTotalCount(details);
+    return result;
   }
 }
 
@@ -95,7 +103,7 @@ export class RelicDrawBannerList extends React.PureComponent<Props> {
     return (
       <>
         {details
-          .filter(d => isAnonymous || d.canPull || d.canSelect)
+          .filter(d => isAnonymous || shouldShow(d))
           .map((d, i) =>
             isGroup(d) ? (
               <RelicDrawGroupLink
