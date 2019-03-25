@@ -105,9 +105,14 @@ export class RelicDrawBannerTable extends React.Component<Props> {
     }
 
     const colCount = showProbability ? 8 : 7;
-    const relicsArray = (relics.length > 0 && Array.isArray(relics[0])
+
+    let relicsArray = (relics.length > 0 && Array.isArray(relics[0])
       ? relics
       : [relics]) as number[][];
+    if (probabilities && showProbability) {
+      relicsArray = relicsArray.map(i => _.sortBy(i, j => -probabilities.byRelic[j]));
+    }
+
     const grouped = relicsArray.length > 1 && _.some(relicsArray, i => i.length > 1);
     return (
       <div className="table-responsive">
