@@ -1,5 +1,7 @@
 import * as _ from 'lodash';
 
+import * as schemas from '../api/schemas';
+
 export enum ItemType {
   Ability = 'ability',
   Arcana = 'beast_food',
@@ -21,23 +23,6 @@ export enum ItemType {
   // Special case: Not a normal item, but useful for cases like dungeon chests
   DropItem = 'drop_item',
 }
-export type ItemTypeName =
-  | 'ABILITY'
-  | 'ABILITY_MATERIAL'
-  | 'BEAST'
-  | 'BEAST_FOOD'
-  | 'BUDDY'
-  | 'COMMON'
-  | 'DRESS_RECORD'
-  | 'EQUIPMENT'
-  | 'EQUIPMENT_HYPER_EVOLVE_MATERIAL'
-  | 'EQUIPMENT_SP_MATERIAL'
-  | 'GROW_EGG'
-  | 'MEMORY_CRYSTAL'
-  | 'MUSIC_TICKET'
-  | 'RECORD_MATERIA'
-  | 'RECORD_TEAR'
-  | 'SPHERE_MATERIAL';
 
 export enum DropItemId {
   Chest1Star = 100007,
@@ -78,7 +63,14 @@ export function formatRelicName({ name, realm }: { name: string; realm: string |
   return realm && realm !== '-' ? `${name} (${realm})` : name;
 }
 
-export const items = [
+interface Item {
+  name: string;
+  type: ItemType;
+  id: number;
+  internalType?: schemas.ItemTypeName;
+}
+
+export const items: Item[] = [
   {
     name: 'Dark Matter (1★)',
     type: ItemType.DarkMatter,
@@ -879,6 +871,15 @@ export const items = [
   // Items 95003001 through 95003009 are apparently internal virtual items used
   // to track whether Acolyte Archive relic draws are available.
 
+  {
+    name: 'Feast Ticket',
+    // This is actually type 'BATTLE_TICKET', but I don't want to add a
+    // a separate user-visible type for a rarely seen, time-limited item.
+    type: ItemType.Common,
+    internalType: 'BATTLE_TICKET',
+    id: 96003851,
+  },
+
   // Items only in JP - unconfirmed in GL
   {
     name: 'Anima Lens Lv1',
@@ -1054,4 +1055,4 @@ export const items = [
   },
 ];
 
-export const itemsById = _.zipObject(items.map(i => i.id), items);
+export const itemsById = _.keyBy(items, 'id');

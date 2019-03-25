@@ -145,6 +145,15 @@ export function sortDungeons(dungeonData: dungeonsSchemas.Dungeons) {
   }
 }
 
+function convertItemType(typeName: schemas.ItemTypeName): ItemType {
+  // FIXME: cleanly convert item type
+  if (typeName.toLowerCase() === 'battle_ticket') {
+    return ItemType.Common;
+  } else {
+    return typeName.toLowerCase() as ItemType;
+  }
+}
+
 export function convertPrizeItems(prizes?: dungeonsSchemas.DungeonPrizeItem[]) {
   if (!prizes) {
     return [];
@@ -153,8 +162,7 @@ export function convertPrizeItems(prizes?: dungeonsSchemas.DungeonPrizeItem[]) {
       id: i.id,
       name: i.name,
       amount: i.num,
-      // FIXME: cleanly convert item type
-      type: i.type_name.toLowerCase() as ItemType,
+      type: convertItemType(i.type_name),
     }));
   }
 }

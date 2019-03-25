@@ -10,7 +10,7 @@ import { Handler } from './common';
 import * as schemas from '../api/schemas';
 import { enlir } from '../data';
 import { dressRecordsById } from '../data/dressRecords';
-import { items, ItemType, ItemTypeLookup, ItemTypeName } from '../data/items';
+import { items, ItemType, ItemTypeLookup } from '../data/items';
 
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';
@@ -19,7 +19,7 @@ let localItems = _.clone(items);
 const localItemsById = _.zipObject(items.map(i => i.id), localItems);
 
 interface PrizeItem {
-  type_name: ItemTypeName;
+  type_name: schemas.ItemTypeName;
   name: string;
   id: number;
   image_path: string;
@@ -30,7 +30,7 @@ function showUnknownItem(item: PrizeItem) {
 }
 
 function addLocalItem({ name, type_name, id }: PrizeItem) {
-  const type = ItemTypeLookup[type_name];
+  const type = ItemTypeLookup[type_name] || type_name;
   const newItem = { name, type, id };
   localItems.push(newItem);
   localItems = _.sortBy(localItems, 'id');
@@ -38,7 +38,7 @@ function addLocalItem({ name, type_name, id }: PrizeItem) {
 }
 
 function showLocalItem(item: PrizeItem) {
-  const type = ItemTypeLookup[item.type_name];
+  const type = ItemTypeLookup[item.type_name] || item.type_name;
   logger.info(
     'New (previously unknown) item:\n' +
       `{\n  name: '${item.name}',\n  type: ItemType.${type},\n  id: ${item.id}\n},`,
@@ -115,7 +115,7 @@ function checkPartyItems(
     checkKnownItems({
       name: i.name,
       id: i.id,
-      type_name: type.toUpperCase() as ItemTypeName,
+      type_name: type.toUpperCase() as schemas.ItemTypeName,
       image_path: i.image_path,
     });
   }

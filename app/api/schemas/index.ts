@@ -1,11 +1,11 @@
 import { UrlWithStringQuery } from 'url';
 
-import { ItemTypeName } from '../../data/items';
 import {
   AssetCollection,
   BoolAsNumber,
   BoolAsString,
   ContentPath,
+  ItemTypeName,
   NumberAsString,
   RelativeUrlPath,
   Timestamp,
@@ -30,6 +30,7 @@ import {
 import { OwnedRecordMateria } from './recordMateria';
 import { User } from './user';
 
+export { ItemTypeName } from './common';
 export { Battles } from './battles';
 export { Dungeons } from './dungeons';
 export { Main } from './main';

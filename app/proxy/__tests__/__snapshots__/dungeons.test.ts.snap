@@ -1,5 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`dungeons proxy handler dungeons handler handles Feast Ticket 1`] = `
+Array [
+  Object {
+    "amount": 1,
+    "id": 96003851,
+    "name": "Feast Ticket",
+    "type": "common",
+  },
+  Object {
+    "amount": 30,
+    "id": 71000501,
+    "name": "Null Crystal Water",
+    "type": "record_tear",
+  },
+]
+`;
+
 exports[`dungeons proxy handler dungeons handler unlocks Power Up dungeons 1`] = `
 Array [
   Object {

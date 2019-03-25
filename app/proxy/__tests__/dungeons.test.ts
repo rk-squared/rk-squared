@@ -1,5 +1,6 @@
 import {
   convertGradePrizeItems,
+  convertPrizeItems,
   convertWorld,
   default as dungeonsHandler,
   sortDungeons,
@@ -10,7 +11,8 @@ import configureStore from 'redux-mock-store';
 import * as _ from 'lodash';
 
 import { WorldCategory } from '../../actions/worlds';
-
+import * as dungeonsSchemas from '../../api/schemas/dungeons';
+import { ItemType } from '../../data/items';
 import { IState } from '../../reducers';
 
 // noinspection SpellCheckingInspection
@@ -253,13 +255,24 @@ describe('dungeons proxy handler', () => {
       };
 
       const mockStore = configureStore<IState>();
-      const initialState: Partial<IState> = { worlds: { worlds: { [powerUpWorld.id]: powerUpWorld } } };
+      const initialState: Partial<IState> = {
+        worlds: { worlds: { [powerUpWorld.id]: powerUpWorld } },
+      };
       const store = mockStore(initialState as IState);
 
       dungeonsHandler['dungeons'](data.data, store, { query: { world_id: powerUpWorld.id } });
       const action = store.getActions().find(i => i.type === 'ADD_WORLD_DUNGEONS');
       expect(action.payload.dungeons[0].isUnlocked).toEqual(true);
       expect(store.getActions()).toMatchSnapshot();
+    });
+
+    it('handles Feast Ticket', () => {
+      const data = require('./data/feast_record_dungeons.json').data as dungeonsSchemas.Dungeons;
+      const prizes = convertPrizeItems(
+        data.dungeons[1].prizes[dungeonsSchemas.RewardType.FirstTime],
+      );
+      expect(prizes[0]).toEqual({ amount: 1, id: 96003851, name: 'Feast Ticket', type: ItemType.Common });
+      expect(prizes).toMatchSnapshot();
     });
   });
 

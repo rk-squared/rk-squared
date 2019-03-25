@@ -29,3 +29,22 @@ export interface Asset {
 export interface AssetCollection {
   [assetKey: string]: Asset;
 }
+
+export type ItemTypeName =
+  | 'ABILITY'
+  | 'ABILITY_MATERIAL'
+  | 'BATTLE_TICKET'
+  | 'BEAST'
+  | 'BEAST_FOOD'
+  | 'BUDDY'
+  | 'COMMON'
+  | 'DRESS_RECORD'
+  | 'EQUIPMENT'
+  | 'EQUIPMENT_HYPER_EVOLVE_MATERIAL'
+  | 'EQUIPMENT_SP_MATERIAL'
+  | 'GROW_EGG'
+  | 'MEMORY_CRYSTAL'
+  | 'MUSIC_TICKET'
+  | 'RECORD_MATERIA'
+  | 'RECORD_TEAR'
+  | 'SPHERE_MATERIAL';

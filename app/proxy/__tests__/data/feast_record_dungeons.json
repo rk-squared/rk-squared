@@ -1,0 +1,2038 @@
+{
+  "url": "http://ffrk.denagames.com/dff/event/original_scenario/4017/dungeons?world_id=401007",
+  "data": {
+    "success": true,
+    "dungeon_id_node_id_map": {
+      "40100701": "40100702",
+      "40100702": "40100703",
+      "40100703": "40100704",
+      "40100704": "40100705",
+      "40100705": "40100706",
+      "40100706": "40100707",
+      "40100707": "40100708",
+      "40100708": "40100709",
+      "40100709": "40100710",
+      "40100710": "40100711",
+      "40100711": "40100712",
+      "40100712": "40100713"
+    },
+    "world": {
+      "has_brave_series_buddies": false,
+      "closed_at": 1555721999,
+      "name": "Special Selection",
+      "has_new_dungeon": false,
+      "series_id": 1,
+      "opened_at": 1553475600,
+      "bgm": "bgm_30_002",
+      "kept_out_at": 1555462799,
+      "is_unlocked": true,
+      "door_image_path": "/dff/static/lang/image/world/401007_door.png",
+      "image_path": "/dff/static/lang/image/world/401007.png",
+      "type": 2,
+      "id": 401007,
+      "series_formal_name": "",
+      "banner_message": ""
+    },
+    "dungeon_list_nodes": [
+      {
+        "world_id": 401007,
+        "x": 10,
+        "path_info": {
+          "40100702": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100708,
+        "id": 40100709,
+        "type": 2,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 9,
+        "path_info": {
+          "40100709": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100707,
+        "id": 40100708,
+        "type": 2,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 4,
+        "path_info": {
+          "40100706": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100704,
+        "id": 40100705,
+        "type": 2,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 11,
+        "path_info": {
+          "40100703": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100701,
+        "id": 40100702,
+        "type": 2,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 2,
+        "path_info": {
+          "40100704": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100710,
+        "id": 40100711,
+        "type": 2,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 6,
+        "path_info": {
+          "40100712": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100706,
+        "id": 40100707,
+        "type": 2,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 1,
+        "path_info": {
+          "40100711": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100709,
+        "id": 40100710,
+        "type": 2,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 12,
+        "path_info": null,
+        "y": 0,
+        "dungeon_id": 40100702,
+        "id": 40100703,
+        "type": 4,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 3,
+        "path_info": {
+          "40100705": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100703,
+        "id": 40100704,
+        "type": 2,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 0,
+        "path_info": {
+          "40100710": "1"
+        },
+        "y": 0,
+        "dungeon_id": 0,
+        "id": 40100701,
+        "type": 1,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 5,
+        "path_info": {
+          "40100707": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100705,
+        "id": 40100706,
+        "type": 2,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 7,
+        "path_info": {
+          "40100713": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100711,
+        "id": 40100712,
+        "type": 2,
+        "remaining_treasure_num": 0
+      },
+      {
+        "world_id": 401007,
+        "x": 8,
+        "path_info": {
+          "40100708": "1"
+        },
+        "y": 0,
+        "dungeon_id": 40100712,
+        "id": 40100713,
+        "type": 2,
+        "remaining_treasure_num": 0
+      }
+    ],
+    "assets": [
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_07_020.json": {
+            "hash": "j2lN1ClTV1I+a+YD5BvPXg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_07_020.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_30_002.json": {
+            "hash": "dW5bzNQWHCCelkbameBxgA"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_30_002.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_24_052.json": {
+            "hash": "c+C1Ru+dXG1/GsYszfY6SA"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_24_052.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_07_011.ogg": {
+            "hash": "ddXm1kpd1Go4dHchAByagQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_07_011.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_06_035.ogg": {
+            "hash": "shWewY24m6Q+Syc8GMV2QQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_06_035.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_07_010.json": {
+            "hash": "yHAPGGeOZYItMVIkXcX3HA"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_07_010.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_09_018.json": {
+            "hash": "qV7XZ+YUQbNJHxpui8lP9w"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_09_018.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_04_028.json": {
+            "hash": "Za9/hzHfO67uKviINc9f3w"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_04_028.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_04_021.json": {
+            "hash": "PtaLYFJhDF7L/zCLM91MMw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_04_021.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_04_008.ogg": {
+            "hash": "ah/3PSQoTQsDpl0muTZbDw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_04_008.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_09_018.ogg": {
+            "hash": "iTjhRbeppgKS3wPRmVZYKQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_09_018.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_06_015.json": {
+            "hash": "G0HGCs9KADWGcscBRQAZOg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_06_015.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_24_108.json": {
+            "hash": "NQQ56eJhB1iWxcHiaF5ceg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_24_108.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_06_005.ogg": {
+            "hash": "PBIhQEifhFoPZyFruEXOlA"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_06_005.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_10_006.json": {
+            "hash": "1wdTqkAT9jwGD2DT9b1AyA"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_10_006.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_09_026.ogg": {
+            "hash": "C9wbtx2ofVpj7FmW1waP6Q"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_09_026.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_09_019.ogg": {
+            "hash": "AVCAeWjg5z1OxrcqhIGnbw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_09_019.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_09_017.ogg": {
+            "hash": "5H+othUkENAbo/ZdrMhK+w"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_09_017.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_04_001.json": {
+            "hash": "rashpor4Rv6JvTXA/5V4uw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_04_001.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_07_020.ogg": {
+            "hash": "v2vX1w8pp8Ezz01ne9HNiA"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_07_020.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_10_016.json": {
+            "hash": "uob3LY87HiOsOiErTho36A"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_10_016.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_06_006.ogg": {
+            "hash": "pSYzuz2UTk/AH+/OsQ3/+A"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_06_006.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_06_034.ogg": {
+            "hash": "Mr99p0DciRrwTm3qWF69qg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_06_034.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_09_021.ogg": {
+            "hash": "IVJZr9hVURX/a/E9ZdFvzA"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_09_021.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_07_008.json": {
+            "hash": "smUkf+UE3odAx+K+P+XleA"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_07_008.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_09_026.json": {
+            "hash": "PDP1aoTSuva+BTk/onaMrQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_09_026.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_04_001.ogg": {
+            "hash": "VQkv9YBfzyVba+46T7Siog"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_04_001.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_09_021.json": {
+            "hash": "36i9xx0xyXihpfeOWlO6cQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_09_021.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_07_011.json": {
+            "hash": "YiyGZ7jWOEZUOB9AQ5UKgg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_07_011.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_04_037.ogg": {
+            "hash": "WNygozTd9Nzbcbf7Kcoh2g"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_04_037.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_07_010.ogg": {
+            "hash": "02wylv3T8Tht7jVH8SvaaQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_07_010.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_24_054.ogg": {
+            "hash": "x7OukKWGs6RRZZG4Bhdbng"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_24_054.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_24_052.ogg": {
+            "hash": "Zs2ZXe6YA3wd3xeQTXPLZg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_24_052.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_10_010.ogg": {
+            "hash": "CP4Maokmf/C4k3FjYfJ2Zg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_10_010.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_04_008.json": {
+            "hash": "LISPiOXMbnqwUhJuggl6dw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_04_008.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_04_009.json": {
+            "hash": "QdWueoA33TY1MW4gEx4Urw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_04_009.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_10_006.ogg": {
+            "hash": "gNAuesdl+hbc2YSToRTEPA"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_10_006.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_06_006.json": {
+            "hash": "J+bC61Hk1YsX96qiahUcLw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_06_006.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_06_015.ogg": {
+            "hash": "BQYFXGPKZp70HQBhpXArog"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_06_015.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_09_017.json": {
+            "hash": "tQZsZDuBFplfPkAF7LagiQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_09_017.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_06_034.json": {
+            "hash": "rLt9yCL0F/rU5PEgWRSyvg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_06_034.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_24_108.ogg": {
+            "hash": "26sJ0glEfb1doV5fvIFhPw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_24_108.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_04_021.ogg": {
+            "hash": "fsCcNQT6TsRGo5qT9TOdSQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_04_021.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_04_009.ogg": {
+            "hash": "6Oa2g9N/bTDd/JpcJgB40A"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_04_009.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_06_005.json": {
+            "hash": "BI/DWuObFMRGJo5JivTTTw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_06_005.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_24_054.json": {
+            "hash": "TgJfS5DY6ZViNa4DxNuDWg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_24_054.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_06_035.json": {
+            "hash": "LZj8v/PV8TEiVejPyVw7CQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_06_035.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_06_024.ogg": {
+            "hash": "tdwOsXUBFYBtF6wjmK0a1Q"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_06_024.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_04_037.json": {
+            "hash": "Ux8bpUIbl5zorXPhyKHg1g"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_04_037.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_10_010.json": {
+            "hash": "IEPHB8uw2Ht7vObmytssZg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_10_010.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_10_016.ogg": {
+            "hash": "J0iiQBY8F9zT8Wr60vOXMQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_10_016.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_30_002.ogg": {
+            "hash": "tED6+H+4yAe/cnmKXH88Kw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_30_002.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_07_008.ogg": {
+            "hash": "WJ1Ovr1/uz8vstjxZk/Ijw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_07_008.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_09_019.json": {
+            "hash": "EMRwD6E2pdHwRu7IsoyXGw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_09_019.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_04_028.ogg": {
+            "hash": "zHxaL1sYj9rRD4vgEy7eTg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_04_028.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_06_024.json": {
+            "hash": "FjDUwMTzWv8FWrjR1QDlCA"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_06_024.json"
+      }
+    ],
+    "dungeons": [
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100709/40100709_epilogue.png",
+        "bgm": "bgm_10_006",
+        "stamina_list": [
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100709,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "Zanarkand",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 50,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000301/71000301_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Aegis Crystal Water",
+              "id": 71000301
+            },
+            {
+              "type_name": "GROW_EGG",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000005/70000005_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Growth Egg",
+              "id": 70000005
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000049/40000049_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Earth Orb",
+              "id": 40000049
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000054/40000054_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Wind Orb",
+              "id": 40000054
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 110001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100709/40100709_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "21075101",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/21075101.png",
+            "tip_battle": {
+              "group_id": 509607,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Sinspawn Ammes</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span> Silence </span>/<span> Paralyze </span>/<span> Confuse </span>/<span> Slow </span>/<span> Stop </span>/<span> Reflect </span>/<span> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span> Interrupt </span>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Green Sinscale</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span> Poison </span>/<span> Silence </span>/<span> Paralyze </span>/<span> Confuse </span>/<span> Slow </span>/<span> Stop </span>/<span> Reflect </span>/<span> Blind </span>/<span> Sleep </span>/<span> Petrify </span>/<span> Doom </span>/<span> Instant KO </span>/<span> Berserk </span>/<span> Sap </span>/<span> Interrupt </span>\n</div>\n\n",
+              "id": 509607,
+              "title": "Sinspawn Ammes & Green Sinscales",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-You'll face Sinspawn Ammes and three Green Sinscale at the same time.</li><li class=\"c-text-indent__inner is-half mb-b\">-A few turns after all Green Sinscale are defeated, more Green Sinscale join the battle.</li><li class=\"c-text-indent__inner is-half mb-b\">-Sinspawn Ammes uses <span class=\"red\">Gravity</span> on a single hero or the entire party to deal damage proportional to the current HP of those hit.</li><li class=\"c-text-indent__inner is-half mb-b\">-<span class=\"red\">Defeat all enemies to win the battle</span>.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Protectga</span> to raise all allies' <span class=\"red\">Defense</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Weak Polka</span> to lower the <span class=\"red\">Attack</span> of all enemies.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100710/40100710_epilogue.png",
+        "bgm": "bgm_10_016",
+        "stamina_list": [
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100710,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "S.S. Liki",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 120,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "BATTLE_TICKET",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/battle_ticket/96003851_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Feast Ticket",
+              "id": 96003851
+            },
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000501/71000501_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Null Crystal Water",
+              "id": 71000501
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000065/40000065_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Dark Orb",
+              "id": 40000065
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000025/40000025_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Summon Orb",
+              "id": 40000025
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 110001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100710/40100710_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "21075201",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/21075201.png",
+            "tip_battle": {
+              "group_id": 509608,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Sinspawn Echuilles</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span> Poison </span>/<span> Silence </span>/<span> Paralyze </span>/<span> Confuse </span>/<span> Slow </span>/<span> Stop </span>/<span> Reflect </span>/<span> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span> Berserk </span>/<span> Sap </span>/<span> Interrupt </span>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Blue Sinscale</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span> Poison </span>/<span> Silence </span>/<span> Paralyze </span>/<span> Confuse </span>/<span> Slow </span>/<span> Stop </span>/<span> Reflect </span>/<span> Blind </span>/<span> Sleep </span>/<span> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span> Instant KO </span>/<span> Berserk </span>/<span> Sap </span>/<span> Interrupt </span>\n</div>\n",
+              "id": 509608,
+              "title": "Sinspawn Echuilles & Blue Sinscales",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-You'll face Sinspawn Echuilles and three Blue Sinscales at the same time.</li><li class=\"c-text-indent__inner is-half mb-b\">-Sinspawn Echuilles uses the single-target physical attack <span class=\"red\">Drain Touch</span> to steal HP.</li><li class=\"c-text-indent__inner is-half mb-b\">-Sinspawn Echuilles uses the group magic water attack <span class=\"red\">Blender</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-<span class=\"red\">Defeat all enemies to win the battle</span>.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Shellga</span> to raise the <span class=\"red\">Resistance</span> of all allies.</li><li class=\"c-text-indent__inner is-half mb-b\">-Although the enemy is resistant to break debuffs, use Heathen Frolic to lower its <span class=\"red\">Magic</span>.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100701/40100701_epilogue.png",
+        "bgm": "bgm_04_037",
+        "stamina_list": [
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100701,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "Tower of Zot",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 50,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000601/71000601_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Spirit Crystal Water",
+              "id": 71000601
+            },
+            {
+              "type_name": "GROW_EGG",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000005/70000005_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Growth Egg",
+              "id": 70000005
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000009/40000009_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater White Orb",
+              "id": 40000009
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000004/40000004_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Power Orb",
+              "id": 40000004
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 104001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100701/40100701_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "20494401",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/20494401.png",
+            "tip_battle": {
+              "group_id": 509599,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Barbariccia</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span> Sap </span>/<span> Interrupt </span>\n</div>\n",
+              "id": 509599,
+              "title": "Barbariccia",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-Uses strong <span class=\"red\">wind</span> attacks.</li><li class=\"c-text-indent__inner is-half mb-b\">-Can enter <span class=\"red\">Tornado form</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses attacks that <span class=\"red\">Petrify</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Tornado form ends after three turns, or when the enemy is hit with a <span class=\"red\">jump attack</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-In Normal form the enemy counters <span class=\"red\">black magic and white magic attacks</span> with <span class=\"red\">Maelstrom</span>, which deals damage proportional to the current HP of the hero hit.</li><li class=\"c-text-indent__inner is-half mb-b\">-In Tornado form the enemy counters <span class=\"red\">physical attacks and black magic attacks</span> with <span class=\"red\">Lightning</span>, which deals damage proportional to the max HP of the hero hit.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Use a jump attack like <span class=\"red\">Soaring Jump</span> to <span class=\"red\">take the enemy out</span> of <span class=\"red\">Tornado form</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Esuna</span> to cure <span class=\"red\">Petrify</span>.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100702/40100702_epilogue.png",
+        "bgm": "bgm_04_001",
+        "stamina_list": [
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100702,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "Sealed Cave",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 120,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000201/71000201_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Power Crystal Water",
+              "id": 71000201
+            },
+            {
+              "type_name": "BATTLE_TICKET",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/battle_ticket/96003851_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Feast Ticket",
+              "id": 96003851
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000050/40000050_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Earth Orb",
+              "id": 40000050
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000005/40000005_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Power Orb",
+              "id": 40000005
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 104001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100702/40100702_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "20474901",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/20474901.png",
+            "tip_battle": {
+              "group_id": 509600,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Demon Wall</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span> Sap </span>/<span> Interrupt </span>\n</div>\n",
+              "id": 509600,
+              "title": "Demon Wall",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">only physical attacks</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">Crushdown after advancing 10 times</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">Stone Gaze</span>, which has a <span class=\"red\">high chance to Petrify</span> a hero in the front row.</li><li class=\"c-text-indent__inner is-half mb-b\">-Can counter <span class=\"red\">attacks</span> with <span class=\"red\">Stone Gaze, which has a moderate chance to Petrify a hero in the front row</span>.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-After <span class=\"red\">11 turns</span> the enemy uses <span class=\"red\">Crushdown to Instantly KO a hero</span>, so try to defeat it before then.</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Protectga</span> to raise all allies' <span class=\"red\">Defense</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Esuna</span> to cure <span class=\"red\">Petrify</span>.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100712/40100712_epilogue.png",
+        "bgm": "bgm_24_052",
+        "stamina_list": [
+          0,
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100712,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "Ziekden Fortress",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 120,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "BATTLE_TICKET",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/battle_ticket/96003851_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Feast Ticket",
+              "id": 96003851
+            },
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000601/71000601_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Spirit Crystal Water",
+              "id": 71000601
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Holy Orb",
+              "id": 40000060
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000035/40000035_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Fire Orb",
+              "id": 40000035
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 150001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100712/40100712_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "25076203",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/25076203.png",
+            "tip_battle": {
+              "group_id": 509610,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Argath</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-3 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-3 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-3 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-3 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-3 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Interrupt </span>\n</div>\n",
+              "id": 509610,
+              "title": "Argath",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">only physical attacks</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">Rend Armor</span>, which lowers your heroes' <span class=\"red\">Defense</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-The enemy can counter with <span class=\"red\">Auto-Potion</span>.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Protectga</span> to raise all allies' <span class=\"red\">Defense</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Although the enemy is resistant to break debuffs, use abilities like <span class=\"red\">Power Break</span> to lower its Attack.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100703/40100703_epilogue.png",
+        "bgm": "bgm_06_015",
+        "stamina_list": [
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100703,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "South Figaro Cave",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 50,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000201/71000201_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Power Crystal Water",
+              "id": 71000201
+            },
+            {
+              "type_name": "GROW_EGG",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000005/70000005_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Growth Egg",
+              "id": 70000005
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000029/40000029_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Non-Elemental Orb",
+              "id": 40000029
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000014/40000014_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Black Orb",
+              "id": 40000014
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 106001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100703/40100703_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "20675201",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/20675201.png",
+            "tip_battle": {
+              "group_id": 509601,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Tunnel Armor</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span> Interrupt </span>\n</div>\n",
+              "id": 509601,
+              "title": "Tunnel Armor",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-Uses strong fire and lightning attacks.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses attacks that <span class=\"red\">Poison</span>.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Use abilities like <span class=\"red\">Regen</span> to cure Poisoned heroes.</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Full Break</span> to lower the enemy's <span class=\"red\">Attack, Magic, Defense, and Resistance</span>.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100711/40100711_epilogue.png",
+        "bgm": "bgm_24_108",
+        "stamina_list": [
+          0,
+          0,
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100711,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "Lenalian Plateau",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 50,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000501/71000501_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Null Crystal Water",
+              "id": 71000501
+            },
+            {
+              "type_name": "GROW_EGG",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000005/70000005_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Growth Egg",
+              "id": 70000005
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000064/40000064_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Dark Orb",
+              "id": 40000064
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000059/40000059_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Holy Orb",
+              "id": 40000059
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 150001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100711/40100711_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "25076201",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/25076201.png",
+            "tip_battle": {
+              "group_id": 509609,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Milleuda</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-3 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-3 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-3 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-3 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-3 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Interrupt </span>\n</div>\n",
+              "id": 509609,
+              "title": "Milleuda",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">only physical attacks</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">Rend Weapon</span>, which lowers your heroes' <span class=\"red\">Attack</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">Rend Armor</span>, which lowers your heroes' <span class=\"red\">Defense</span>.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Protectga</span> to raise all allies' <span class=\"red\">Defense</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Power Break</span> to lower the enemy's Attack.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100704/40100704_epilogue.png",
+        "bgm": "bgm_06_034",
+        "stamina_list": [
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100704,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "Opera House",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 120,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "BATTLE_TICKET",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/battle_ticket/96003851_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Feast Ticket",
+              "id": 96003851
+            },
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000101/71000101_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Life Crystal Water",
+              "id": 71000101
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000045/40000045_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Lightning Orb",
+              "id": 40000045
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000015/40000015_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Black Orb",
+              "id": 40000015
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 106001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100704/40100704_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "20675202",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/20675202.png",
+            "tip_battle": {
+              "group_id": 509602,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Orthros</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span> Reflect </span>/<span> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span> Interrupt </span>\n</div>\n",
+              "id": 509602,
+              "title": "Orthros",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-Uses attacks that <span class=\"red\">Confuse</span> and <span class=\"red\">Blind</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-When the enemy is reduced to 0 HP, it shifts position and its behavior changes.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Enemy stat debuffs are removed when Orthros changes position, so focus on buffing the party.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100705/40100705_epilogue.png",
+        "bgm": "bgm_07_008",
+        "stamina_list": [
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100705,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "Corneo Hall",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 50,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000101/71000101_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Life Crystal Water",
+              "id": 71000101
+            },
+            {
+              "type_name": "GROW_EGG",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000005/70000005_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Growth Egg",
+              "id": 70000005
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000034/40000034_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Fire Orb",
+              "id": 40000034
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000024/40000024_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Summon Orb",
+              "id": 40000024
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 107001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100705/40100705_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "20776102",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/20776102.png",
+            "tip_battle": {
+              "group_id": 509603,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Aps</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span> Poison </span>/<span> Silence </span>/<span> Paralyze </span>/<span> Confuse </span>/<span> Slow </span>/<span> Stop </span>/<span> Reflect </span>/<span> Blind </span>/<span> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span> Interrupt </span>\n</div>\n",
+              "id": 509603,
+              "title": "Aps",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">Sewernami to deal magic water damage</span> to all enemies and allies.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Deal heavy damage by using <span class=\"red\">fire</span> abilities the enemy is Vulnerable to.</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Shellga</span> to raise the <span class=\"red\">Resistance</span> of all allies.</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Full Break</span> to lower the enemy's <span class=\"red\">Attack, Magic, Defense, and Resistance</span>.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100706/40100706_epilogue.png",
+        "bgm": "bgm_07_010",
+        "stamina_list": [
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100706,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "Plate Support",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 120,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000401/71000401_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Magic Crystal Water",
+              "id": 71000401
+            },
+            {
+              "type_name": "BATTLE_TICKET",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/battle_ticket/96003851_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Feast Ticket",
+              "id": 96003851
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000010/40000010_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major White Orb",
+              "id": 40000010
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000030/40000030_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Non-Elemental Orb",
+              "id": 40000030
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 107001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100706/40100706_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "20775502",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/20775502.png",
+            "tip_battle": {
+              "group_id": 509604,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Reno</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-half img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span> Slow </span>/<span> Stop </span>/<span> Reflect </span>/<span> Blind </span>/<span> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span> Interrupt </span>\n</div>\n",
+              "id": 509604,
+              "title": "Reno",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">only physical attacks</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">Electrostatic Rod</span>, which can <span class=\"red\">Stop</span> a hero in the front row.</li><li class=\"c-text-indent__inner is-half mb-b\">-Uses attacks that can <span class=\"red\">Imprison</span> a hero in the rear row in a pyramid.</li><li class=\"c-text-indent__inner is-half mb-b\">-While a hero is <span class=\"red\">Imprisoned</span>, their ATB gauge does not fill and they are unable to perform any actions.</li><li class=\"c-text-indent__inner is-half mb-b\">-Attack allies <span class=\"red\">Imprisoned</span> in a pyramid to <span class=\"red\">free</span> them.</li><li class=\"c-text-indent__inner is-half mb-b\">-If all party members other than the ones that are <span class=\"red\">Imprisoned</span> are KO'd, <span class=\"red\">you lose the battle</span>.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Lowering the enemy's Mind reduces the duration of <span class=\"red\">Stop</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-<span class=\"red\">Although the enemy is resistant to break debuffs, use Mind Breakdown</span> to lower their Mind.</li><li class=\"c-text-indent__inner is-half mb-b\">-When an ally is <span class=\"red\">Imprisoned</span>, break the pyramid to free them.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100707/40100707_epilogue.png",
+        "bgm": "bgm_09_017",
+        "stamina_list": [
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100707,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "The Evil Forest",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 50,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000401/71000401_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Magic Crystal Water",
+              "id": 71000401
+            },
+            {
+              "type_name": "GROW_EGG",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/growegg/70000005/70000005_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Growth Egg",
+              "id": 70000005
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000039/40000039_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Ice Orb",
+              "id": 40000039
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000044/40000044_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Greater Lightning Orb",
+              "id": 40000044
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 109001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100707/40100707_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "20976303",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/20976303.png",
+            "tip_battle": {
+              "group_id": 509605,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Plant Brain</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-none img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span> Reflect </span>/<span> Blind </span>/<span> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span> Interrupt </span>\n</div>\n",
+              "id": 509605,
+              "title": "Plant Brain",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-Uses <span class=\"red\">Pollen</span> to Blind 3 adjacent targets.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Deal heavy damage by using <span class=\"red\">fire</span> abilities the enemy is Vulnerable to.</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Protectga</span> to raise all allies' <span class=\"red\">Defense</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Power Break</span> to lower the enemy's Attack.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      },
+      {
+        "unlock_conditions": {},
+        "closed_at": 1555462799,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 0,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100708/40100708_epilogue.png",
+        "bgm": "bgm_09_026",
+        "stamina_list": [
+          0
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 40100708,
+        "world_id": 401007,
+        "button_style": "EXTRA",
+        "name": "Cavern of Ice",
+        "total_stamina": 0,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "<<Not Necessary>>",
+        "progress_map_level": 0,
+        "platform_style": 10000,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "<<Not Necessary>>",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 120,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 100,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "2": [
+            {
+              "type_name": "RECORD_TEAR",
+              "num": 30,
+              "image_path": "/dff/static/lang/ww/compile/en/image/record_tear/71000301/71000301_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Aegis Crystal Water",
+              "id": 71000301
+            },
+            {
+              "type_name": "BATTLE_TICKET",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/battle_ticket/96003851_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Feast Ticket",
+              "id": 96003851
+            }
+          ],
+          "3": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000055/40000055_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Wind Orb",
+              "id": 40000055
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 5,
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000040/40000040_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Ice Orb",
+              "id": 40000040
+            }
+          ]
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 109001,
+        "required_max_stamina": 0,
+        "opened_at": 1553475600,
+        "continue_allowable_type": 0,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/40100708/40100708_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "20995105",
+            "sp_scores": [],
+            "image_path": "/dff/static/lang/image/enemy/20995105.png",
+            "tip_battle": {
+              "group_id": 509606,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Black Waltz 1</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span> Interrupt </span>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Sealion</div>\n\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-5 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span> Interrupt </span>\n</div>\n",
+              "id": 509606,
+              "title": "Black Waltz 1 & Sealion",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">You'll face Black Waltz No. 1 and Sealion at the same time.</li><li class=\"c-text-indent__inner is-half mb-b\">-When Sealion's HP falls below a certain point, Black Waltz No. 1 will use <span class=\"red\">Blizzard</span> to <span class=\"red\">recover Sealion's HP</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-If Sealion is defeated first, Black Waltz No. 1 will <span class=\"red\">summon Sealion</span> back.</li><li class=\"c-text-indent__inner is-half mb-b\">-<span class=\"red\">Defeat all enemies to win the battle</span>.</li><li class=\"c-text-indent__inner is-half mb-b\"><br></li><li class=\"c-text-indent__inner is-half mb-b\">-Key Strategy-</li><li class=\"c-text-indent__inner is-half mb-b\">-Use <span class=\"red\">Shellga</span> to raise the <span class=\"red\">Resistance</span> of all allies.</li><li class=\"c-text-indent__inner is-half mb-b\">-<span class=\"red\">Although the enemy is resistant to break debuffs, use Multi Break</span> to lower <span class=\"red\">Attack, Magic, Defense, and Resistance</span>.</li></ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/original_scenario/401007_bg.png"
+      }
+    ],
+    "reviewable_dungeon_ids": [],
+    "user": {
+      "stamina_piece": 1140,
+      "soul_piece": 522,
+      "residual_stamina_piece": 0,
+      "start_time_of_today": 1553432400,
+      "stamina_recovery_time": 180,
+      "max_followee_num": 100,
+      "dungeon_id": 0,
+      "id": 5679473043701760,
+      "release_id": 0,
+      "stamina_info": {
+        "additional_stamina": 0,
+        "current_max_stamina": 228,
+        "prev_max_stamina": 228,
+        "got_stamina_piece": 0
+      },
+      "func_tutorial_flags": {
+        "SS_EXP": false,
+        "NIGHTMARE_DUNGEON": true,
+        "EXTREME_CLOSE2": false,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR": true,
+        "ABILITY_MATERIAL_CONVERT": true,
+        "SORTIE_LIMITATION": false,
+        "EXTREME": false,
+        "DUNGEON_LIST": true,
+        "GENERATE_RAINBOW_CRYSTAL": true,
+        "BUDDY_EVOLUTION": true,
+        "FIRST_ENTER_RECORD_DUNGEON": true,
+        "BOOK_ROOM2": true,
+        "SECOND_ANNIVERSARY": false,
+        "GROWEGG": true,
+        "LEGEND_MATERIA": true,
+        "RECORD_DIVE": true,
+        "FELLOW_LIST": true,
+        "OLD_ABILITY_GENERATION": false,
+        "FIRST_ENTER_BEAST_WORLD_LIST_2": true,
+        "DRESS_RECORD": true,
+        "SERIES": true,
+        "STAMINA_RECOVERY_AGENT": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_1": true,
+        "MAGIA_CRYSTAL_BATTLE_RESULT": true,
+        "FELLOW": true,
+        "EQUIPMENT_HYPER_EVOLVE": true,
+        "PROGRESS_MAP": true,
+        "ABILITY_CHANGE": false,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_AFTER_UPDATE": true,
+        "OLD_HOME": true,
+        "RECORD_DUNGEON_FRAME_ART_BREAK": true,
+        "BEAST_DUNGEON_RARITY3_NUM3_CLEAR": true,
+        "PARTY_TOP": true,
+        "BATTLE_OPERATION": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_1": true,
+        "SS_MULTI": false,
+        "WDAY_DUNGEON_EXCHANGE_SHOP": true,
+        "SS_LIMITATION": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_3": true,
+        "EXTREME_MOVIE": true,
+        "COUNTDOWN_2016_DEFEAT_CNT_RESULT": false,
+        "FIRST_ANNIVERSARY": false,
+        "MO_INTRODUCTION_MOVIE": false,
+        "PARTY_MEMORY": true,
+        "RECORD_DUNGEON_PARTY_EDIT": true,
+        "BEAST_DUNGEON_RARITY4_ALL_CLEAR_1": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_2": true,
+        "OLD_QUEST": false,
+        "PROFILE": true,
+        "EXTREME_OPENING": true,
+        "ENHANCEMENT": true,
+        "LEGEND_SPHERE": true,
+        "ABILITY_DECOMPOSE": true,
+        "OLD_UI_REBORN": true,
+        "ABILITY_UPGRADE": true,
+        "SECOND_ENTER_BEAST_WORLD_LIST": true,
+        "BATTLE_LIST_2": true,
+        "SECOND_ENTER_BEAST_DUNGEON_LIST": true,
+        "LEAD_TO_SECOND_DUNGEON": true,
+        "MO_FORMAL": false,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_1": true,
+        "BUDDY_ADDITIONAL_STATUS_BONUS": true,
+        "EXTREME_CLOSING_MOVIE": true,
+        "OLD_ACHIEVEMENT_ROOM": true,
+        "OLD_BUFF_DEBUFF_TRAINING_FOR_BEGINNER": true,
+        "COUNTDOWN_2016_MOVIE": false,
+        "OLD_INVENTORY": false,
+        "ENHANCEMENT_TOP": true,
+        "BEAST_DUNGEON_RARITY5_ALL_CLEAR_1": false,
+        "FIRST_ENTER_BEAST_WORLD_LIST_1": true,
+        "FELLOW_PLUS": true,
+        "ABILITY_GENERATION": true,
+        "TEN_MILLION_DOWNLOAD_MOVIE": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_2": true,
+        "SACRED_CASTLE": true,
+        "NEW_YEAR_2017": false,
+        "HAMMERING": true,
+        "RECORD_DUNGEON_BATTLE_LIST": true,
+        "MASTER_LEGEND_MATERIA": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_2": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_2": true,
+        "EQUIPMENT_CHANGE": true,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR_AFTER_UPDATE": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_1": true,
+        "BATTLE_LIST": true,
+        "MAGIA_CRYSTAL_FIRST_ENTER": true,
+        "PARTY_EDIT": true,
+        "FORCE_DUNGEON": true,
+        "ANYTIME_MUSIC_ROOM": true,
+        "EXTREME_CLOSE1": false,
+        "BEAST_WORLD_OPENING_MOVIE": true,
+        "BRAVE_SERIES_BONUS": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_2": true,
+        "INVENTORY": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR": false,
+        "BOOK_ROOM": true,
+        "OLD_ENHANCEMENT": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_1": true,
+        "MO_PARTY": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_BEAST_TOP": true,
+        "BEAST_INHERITANCE": true,
+        "EVOLUTION": true,
+        "SUPPRESS": true,
+        "SS_MULTI_AND_EXP": true,
+        "RECORD_TEAR": true,
+        "OLD_MISSION": true
+      },
+      "is_in_dungeon": false,
+      "name": "Yehosua",
+      "has_all_clear_ver_to_show": false,
+      "stamina": 74,
+      "can_review": true,
+      "tutorial_step": 255,
+      "followee_num": 69,
+      "sacred_lithograph": 3,
+      "stamina_recovery_remaining_time": 27557,
+      "gil": 176542500,
+      "is_update_last_logined_at": false,
+      "last_logined_at": 1553432995,
+      "is_tutorial_finish": true,
+      "max_follower_num": 100,
+      "max_stamina": 228
+    },
+    "SERVER_TIME": 1553476991
+  }
+}

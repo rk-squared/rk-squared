@@ -1,13 +1,19 @@
-import { ItemTypeName } from '../../data/items';
-import { Asset, AssetCollection, NumberAsString, RelativeUrlPath, Timestamp } from './common';
+import {
+  Asset,
+  AssetCollection,
+  ItemTypeName,
+  NumberAsString,
+  RelativeUrlPath,
+  Timestamp,
+} from './common';
 import { User } from './user';
 
 export enum NodeType {
   // noinspection JSUnusedGlobalSymbols
   Start = 1,
-  Regular = 2,  // Normal "Corrupted" paintings (unconfirmed)
-  Free = 3,     // Free play "Record" paintings (unconfirmed)
-  Final = 4,    // Unconfirmed
+  Regular = 2, // Normal "Corrupted" paintings (unconfirmed)
+  Free = 3, // Free play "Record" paintings (unconfirmed)
+  Final = 4, // Unconfirmed
 }
 
 export enum RewardType {
@@ -37,12 +43,12 @@ export interface DungeonPrizeItem {
   type_name: ItemTypeName;
   num: number;
   image_path: RelativeUrlPath;
-  is_got_grade_bonus_prize: number;  // 1 if an already received 1-time bonus
+  is_got_grade_bonus_prize: number; // 1 if an already received 1-time bonus
   grade_bonus_description?: string;
   disp_order?: number;
   name: string;
   id: number;
-  clear_battle_time?: number;  // Clear time, in milliseconds
+  clear_battle_time?: number; // Clear time, in milliseconds
 }
 
 export interface Dungeon {
@@ -55,7 +61,7 @@ export interface Dungeon {
   is_master: boolean;
   is_new: boolean;
   is_unlocked: boolean;
-  type: number;   // Whether it's on page 1 (normal) or page 2 (elite, part 2, etc.)
+  type: number; // Whether it's on page 1 (normal) or page 2 (elite, part 2, etc.)
 
   // Does not take 1/2 stamina into account.  Summing stamina_list, dividing
   // by 2 and rounding down, minimum 1, is necessary to handle that.
@@ -67,10 +73,8 @@ export interface Dungeon {
 
   challenge_level: number;
   progress_map_level: number;
-  button_style: string;   // "NORMAL", "EXTRA", or "DOOM"
-  prizes: {
-    [s in RewardType]: DungeonPrizeItem[];
-  };
+  button_style: string; // "NORMAL", "EXTRA", or "DOOM"
+  prizes: { [s in RewardType]: DungeonPrizeItem[] };
 }
 
 // A node in a record dungeon's graph
@@ -79,9 +83,9 @@ export interface DungeonNode {
   x: number;
   y: number;
   path_info: null | {
-    [id: string]: NumberAsString;  // ID of node reachable from here
+    [id: string]: NumberAsString; // ID of node reachable from here
   };
-  dungeon_id: number;   // 0 for starting node
+  dungeon_id: number; // 0 for starting node
   id: number;
   type: NodeType;
   remaining_treasure_num: number;
