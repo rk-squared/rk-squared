@@ -10428,7 +10428,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Four single ranged attacks (0.53 each), 0/10/30/100% chance to cause Imperil Earth 10% scaling with Shot & Reload uses, reset",
+    "effects": "Four single ranged attacks (0.53 each), 0/10/30/100% chance to cause Imperil Earth 10% scaling with Shoot & Reload uses, reset",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 50,

@@ -81,7 +81,7 @@ export interface ParsedEnlirAttack {
   defaultDamage?: string;
 
   status?: string;
-  statusChance?: number;
+  statusChance?: number[];
   statusDuration?: number;
 
   element: EnlirElement[] | null;
@@ -467,7 +467,11 @@ const attackRe = XRegExp(
     )?
   )?
   (?:,\ (?<additionalCritDamage>[0-9/]+)%\ (?:additional|add\.)\ critical\ damage)?
-  (?:,\ (?<statusChance>\d+)%\ chance\ to\ cause\ (?<status>.*?)\ for\ (?<statusDuration>\d+)\ seconds)?
+
+  # Status chances.  HACK: We don't actually validate "scaling with uses"
+  # handling - that only appears with Cid XIV's burst, where it's adequately
+  # handled by our 'powers up cmd 2' logic.
+  (?:,\ (?<statusChance>[0-9/]+)%\ chance\ to\ cause\ (?<status>.*?)(?:\ scaling\ with\ .*\ uses|\ for\ (?<statusDuration>\d+)\ seconds))?
 
   (?<noMiss>,\ 100%\ hit\ rate)?
   (?:,\ multiplier\ increased\ by\ (?<sbMultiplierIncrease>[0-9.]+)\ for\ every\ SB\ point)?
@@ -489,7 +493,8 @@ const attackRe = XRegExp(
  *   to clean up attack formatting
  * @param burstCommands Optional list of burst commands for which this skill is
  *   a part.  If present, this is used to process items like Squall's BSB2,
- *   where one command powers up the other.
+ *   where one command powers up the other, as well as cases like Josef's where
+ *   one command grants a unique status that affects the other.
  */
 export function parseEnlirAttack(
   effects: string,
@@ -727,7 +732,7 @@ export function parseEnlirAttack(
     school: 'school' in skill ? skill.school : undefined,
 
     status: m.status || undefined,
-    statusChance: m.statusChance ? +m.statusChance : undefined,
+    statusChance: m.statusChance ? (m.statusChance as string).split('/').map(i => +i) : undefined,
     statusDuration: m.statusDuration ? +m.statusDuration : undefined,
 
     isFixedDamage: m.fixedDamage,

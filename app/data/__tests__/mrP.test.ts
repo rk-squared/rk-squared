@@ -444,6 +444,15 @@ describe('mrP', () => {
           },
         ],
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Cid (XIV) - Grenado Shot'])).toEqual({
+        burstCommands: [
+          { damage: 'p2.06 e+n rngd', other: 'powers up cmd 2', school: 'Machinist' },
+          { damage: 'p2.12/4 e+n rngd', other: '0/10/30/100% for +10% earth vuln. 25s, reset count', school: 'Machinist' },
+        ],
+        damage: 'AoE phys 5.81/7 earth+non rngd',
+        other: '+20% earth vuln. 25s',
+      });
     });
 
     it('converts summons', () => {

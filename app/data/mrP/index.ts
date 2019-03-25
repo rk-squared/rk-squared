@@ -102,7 +102,7 @@ function appendGroup(outGroup: string[], inGroup: string[], description?: string
 
 interface StatusInfliction {
   description: string;
-  chance: number;
+  chance: number | number[];
   chanceDescription: string;
 }
 
@@ -300,7 +300,7 @@ function describeEnlirAttack(
     statusInfliction.push({
       description: 'for ' + description + (duration ? ` ${duration}s` : ''),
       chance: attack.statusChance,
-      chanceDescription: attack.statusChance + '%',
+      chanceDescription: attack.statusChance.join('/') + '%',
     });
   }
 
@@ -452,7 +452,7 @@ export function describeEnlirSoulBreak(
   if (
     opt.burstCommands &&
     _.some(opt.burstCommands, i =>
-      i.effects.match(new RegExp(' (scaling|scal\\.) with ' + sb.name + ' uses')),
+      i.effects.match(new RegExp(' (scaling|scal\\.) with ' + _.escapeRegExp(sb.name) + ' uses')),
     )
   ) {
     // Hack: In practice, it's always command 1 that does the powering up.
