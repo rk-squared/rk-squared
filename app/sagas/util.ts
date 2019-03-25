@@ -24,10 +24,13 @@ export function callApi(
 ): CallEffect {
   const config = sessionConfig(session);
 
-  // Log an equivalent HTTPie command to facilitate debugging.
-  logger.debug(
-    'http ' + url + ' ' + _.map(config.headers, (value, key) => `${key}:'${value}'`).join(' '),
-  );
+  // Log an equivalent HTTPie command to facilitate debugging - but only in
+  // development builds, because logging session keys could violate privacy.
+  if (process.env.NODE_ENV === 'development') {
+    logger.debug(
+      'http ' + url + ' ' + _.map(config.headers, (value, key) => `${key}:'${value}'`).join(' '),
+    );
+  }
 
   return call(() =>
     axios
