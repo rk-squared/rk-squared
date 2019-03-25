@@ -97,11 +97,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
     if ((banner.bannerRelics && banner.bannerRelics.length) || probabilities) {
       return null;
     }
-    return (
-      <tr>
-        <td>No details are available for this banner.</td>
-      </tr>
-    );
+    return <div>No details are available for this banner.</div>;
   }
 
   render() {
