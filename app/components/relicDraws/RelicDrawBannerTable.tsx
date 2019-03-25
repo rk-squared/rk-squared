@@ -10,6 +10,8 @@ import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
+import { getAllSameValue } from '../../utils/typeUtils';
+import { RelicTypeIcon } from '../shared/RelicTypeIcon';
 
 // FIXME: Better styling - table widths are bad, because SB effects are way too narrow
 
@@ -52,7 +54,7 @@ export class RelicDrawBannerTable extends React.Component<Props> {
       ? ownedLegendMateria && ownedLegendMateria.has(lm.id)
       : false;
     const mrP = sb ? describeEnlirSoulBreak(sb) : null;
-    // FIXME: Icons for relic types; abbreviate relic effects
+    // FIXME: abbreviate relic effects
 
     const commandColumns: Array<[string, string]> = [];
     if (mrP && mrP.braveCommands) {
@@ -68,9 +70,10 @@ export class RelicDrawBannerTable extends React.Component<Props> {
       <React.Fragment key={key}>
         <tr className={className} title={isDupe ? 'Dupe' : undefined}>
           <td rowSpan={rowSpan}>{character}</td>
-          <td rowSpan={rowSpan}>{name}</td>
-          <td rowSpan={rowSpan}>{type}</td>
-          <td rowSpan={rowSpan}>{effect}</td>
+          <td rowSpan={rowSpan}>
+            <RelicTypeIcon type={type} className={styles.relicType} /> {name}
+            {effect && <div className={styles.relicEffect}>{effect}</div>}
+          </td>
           <td rowSpan={rowSpan} className={soulBreakStyles.tier}>
             {sb ? soulBreakAliases[sb.id] : lm ? legendMateriaAliases[lm.id] : undefined}
           </td>
@@ -90,7 +93,17 @@ export class RelicDrawBannerTable extends React.Component<Props> {
 
   render() {
     const { title, relics, probabilities } = this.props;
-    const showProbability = probabilities != null;
+
+    let showProbability: boolean;
+    let commonProbability: number | null;
+    if (!probabilities || _.isEmpty(probabilities.byRelic)) {
+      commonProbability = null;
+      showProbability = false;
+    } else {
+      commonProbability = getAllSameValue(_.values(probabilities.byRelic));
+      showProbability = commonProbability == null;
+    }
+
     const colCount = showProbability ? 8 : 7;
     const relicsArray = (relics.length > 0 && Array.isArray(relics[0])
       ? relics
@@ -101,15 +114,17 @@ export class RelicDrawBannerTable extends React.Component<Props> {
         <table className={classNames('table', { [styles.grouped]: grouped })}>
           <thead>
             <tr className="thead-dark">
-              <th colSpan={colCount}>{title}</th>
+              <th colSpan={colCount}>
+                {title}
+                {commonProbability && (
+                  <span className="float-right">Chance of drawing: {commonProbability}% each</span>
+                )}
+              </th>
             </tr>
             <tr>
               <th>Character</th>
               <th>Relic</th>
-              <th>Type</th>
-              <th>Effects</th>
-              <th>Tier</th>
-              <th>Name</th>
+              <th colSpan={2}>Soul Break / Materia</th>
               <th>Effects</th>
               {showProbability && <th>Probability</th>}
             </tr>

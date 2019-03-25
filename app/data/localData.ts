@@ -1,3 +1,5 @@
+import { EnlirRelicType } from '../data/enlir';
+
 export const localIcons: { [s: string]: string } = {
   darkElement: require('../images/ffrk-icons/dark.png'),
   earthElement: require('../images/ffrk-icons/earth.png'),
@@ -8,4 +10,36 @@ export const localIcons: { [s: string]: string } = {
   poisonElement: require('../images/ffrk-icons/poison.png'),
   waterElement: require('../images/ffrk-icons/water.png'),
   windElement: require('../images/ffrk-icons/wind.png'),
+};
+
+export const equipmentIcons: { [s in EnlirRelicType]: string | undefined } = {
+  Accessory: require('../images/ffrk-icons/accessory.png'),
+  Axe: require('../images/ffrk-icons/axe.png'),
+  Blitzball: require('../images/ffrk-icons/blitzball.png'),
+  Book: require('../images/ffrk-icons/book.png'),
+  Bow: require('../images/ffrk-icons/bow.png'),
+  Bracer: require('../images/ffrk-icons/bracer.png'),
+  Dagger: require('../images/ffrk-icons/dagger.png'),
+  Doll: require('../images/ffrk-icons/doll.png'),
+  Fist: require('../images/ffrk-icons/fist.png'),
+  ['Gambling Gear']: require('../images/ffrk-icons/gambling_gear.png'),
+  ['Gun-Arm']: require('../images/ffrk-icons/gun_arm.png'),
+  Gun: require('../images/ffrk-icons/gun.png'),
+  Hairpin: require('../images/ffrk-icons/hairpin.png'),
+  Hammer: require('../images/ffrk-icons/hammer.png'),
+  Hat: require('../images/ffrk-icons/hat.png'),
+  ['Heavy Armor']: require('../images/ffrk-icons/heavy_armor.png'),
+  Helm: require('../images/ffrk-icons/helm.png'),
+  Instrument: require('../images/ffrk-icons/instrument.png'),
+  Katana: require('../images/ffrk-icons/katana.png'),
+  Keyblade: undefined, // TODO: Find an icon for this
+  ['Light Armor']: require('../images/ffrk-icons/light_armor.png'),
+  Robe: require('../images/ffrk-icons/robe.png'),
+  Rod: require('../images/ffrk-icons/rod.png'),
+  Shield: require('../images/ffrk-icons/shield.png'),
+  Spear: require('../images/ffrk-icons/spear.png'),
+  Staff: require('../images/ffrk-icons/staff.png'),
+  Sword: require('../images/ffrk-icons/sword.png'),
+  Thrown: require('../images/ffrk-icons/thrown.png'),
+  Whip: require('../images/ffrk-icons/whip.png'),
 };

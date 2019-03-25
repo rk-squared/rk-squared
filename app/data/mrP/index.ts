@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
+import { isAllSame } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirBurstCommand,
@@ -48,7 +49,6 @@ import {
   countMatches,
   describeChances,
   formatUseCount,
-  isAllSame,
   orList,
   parseNumberOccurrence,
   toMrPFixed,

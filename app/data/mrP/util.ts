@@ -8,6 +8,8 @@
 
 import * as _ from 'lodash';
 
+import { isAllSame } from '../../utils/typeUtils';
+
 export const andList = /,? and |, /;
 export const orList = /,? or |, /;
 export const andOrList = /,? and |,? or |, /;
@@ -135,10 +137,6 @@ export function toMrPGeneral(s: string): string {
 // https://stackoverflow.com/a/2901298/25507
 export function numberWithCommas(x: number): string {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-export function isAllSame<T>(values: T[], iteratee: (value: T) => any): boolean {
-  return _.every(values, i => iteratee(i) === iteratee(values[0]));
 }
 
 export const enDashJoin = ' – ';

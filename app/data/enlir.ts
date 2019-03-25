@@ -31,6 +31,37 @@ export const isEnlirElement = (s: string): s is EnlirElement =>
 
 export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
+export type EnlirRelicType =
+  | 'Accessory'
+  | 'Axe'
+  | 'Blitzball'
+  | 'Book'
+  | 'Bow'
+  | 'Bracer'
+  | 'Dagger'
+  | 'Doll'
+  | 'Fist'
+  | 'Gambling Gear'
+  | 'Gun'
+  | 'Gun-Arm'
+  | 'Hairpin'
+  | 'Hammer'
+  | 'Hat'
+  | 'Heavy Armor'
+  | 'Helm'
+  | 'Instrument'
+  | 'Katana'
+  | 'Keyblade'
+  | 'Light Armor'
+  | 'Robe'
+  | 'Rod'
+  | 'Shield'
+  | 'Spear'
+  | 'Staff'
+  | 'Sword'
+  | 'Thrown'
+  | 'Whip';
+
 export type EnlirSchool =
   | '?'
   | 'Bard'
@@ -212,7 +243,7 @@ export interface EnlirRecordMateria {
 export interface EnlirRelic {
   name: string;
   realm: string;
-  type: string;
+  type: EnlirRelicType;
   rarity: number;
   stats: EnlirRelicStats;
   effect: null | string;
