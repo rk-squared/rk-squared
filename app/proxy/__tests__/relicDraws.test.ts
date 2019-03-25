@@ -2,6 +2,7 @@ import { convertRelicDrawBanners, convertRelicDrawProbabilities } from '../relic
 
 import * as _ from 'lodash';
 
+import { RelicDrawBanner } from '../../actions/relicDraws';
 import { LangType } from '../../api/apiUrls';
 
 describe('gacha proxy handler', () => {
@@ -51,6 +52,32 @@ describe('gacha proxy handler', () => {
           sortOrder: -99,
         },
       ]);
+    });
+
+    it('checks canPull and canSelect', () => {
+      const { data } = require('./data/gacha_show2.json');
+      const { banners } = convertRelicDrawBanners(LangType.Gl, data);
+
+      const filteredIds = (items: RelicDrawBanner[], filter?: (i: RelicDrawBanner) => boolean) =>
+        _.filter(items, filter || _.constant(true))
+          .map(i => i.id)
+          .sort();
+
+      const archiveBanners = _.filter(banners, i => i.group === 'archive');
+      // Acolyte Archives are 9 banners starting at ID 7001.
+      expect(filteredIds(archiveBanners)).toEqual(_.times(9, i => i + 7001));
+      // All Acolyte Archive banners have been pulled.
+      expect(filteredIds(archiveBanners, i => i.canPull)).toEqual([]);
+      // Banners 4, 5, 6, 8 and 9 still have selections available.
+      expect(filteredIds(archiveBanners, i => i.canSelect)).toEqual([7004, 7005, 7006, 7008, 7009]);
+
+      const luckOfTheRealms = _.filter(banners, i => i.group === 'group4');
+      // This capture was taken when all 17 banners were available.
+      expect(filteredIds(luckOfTheRealms)).toEqual(_.times(17, i => i + 805));
+      // All but FF1 have been used.
+      expect(filteredIds(luckOfTheRealms, i => i.canPull)).toEqual([821]);
+      // None of these banners have selections.
+      expect(filteredIds(luckOfTheRealms, i => i.canSelect)).toEqual([]);
     });
   });
 

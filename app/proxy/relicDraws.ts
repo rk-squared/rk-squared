@@ -43,12 +43,20 @@ export function convertBanner(
     canPull: _.some(gacha.box_list, i =>
       _.some(
         i.entry_point_list,
-        j => j.term_limit_num === 0 || j.purchased_count < j.term_limit_num,
+        // Original attempt: Partially successful, but it doesn't handle cases
+        // like the Realms on Parade / Luck of the Realms where a single pull
+        // is permitted but can be of several payment types.
+        // j => j.term_limit_num === 0 || j.purchased_count < j.term_limit_num,
+        j => j.executable_num > 0,
       ),
     ),
     canSelect:
-      gacha.total_executable_num > 0 &&
-      gacha.user_exchange_shop_exchanged_num < gacha.total_executable_num,
+      // Original attempt: But total_executable_num actually refers to pulls.
+      // gacha.total_executable_num > 0 &&
+      // gacha.user_exchange_shop_exchanged_num < gacha.total_executable_num,
+      gacha.exchange_shop_id != null &&
+      gacha.exchange_shop_id !== 0 &&
+      gacha.user_exchange_shop_exchanged_num === 0,
 
     bannerRelics: _.sortBy(gacha.banner_list, 'disp_order')
       .map(i => i.item_id)
