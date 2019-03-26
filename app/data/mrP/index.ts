@@ -177,6 +177,7 @@ const statusEffectRe = XRegExp(
     ,\ damages\ the\ user\ |
     ,\ heals\ the\ user\ |
     ,\ casts\ the\ last\ ability\ used\ by\ an\ ally\b|
+    ,\ reset|
   $)
   `,
   'x',
@@ -191,7 +192,7 @@ const statModRe = XRegExp(
   \ (?<percent>[+-]\ ?(?:\d+/)*\d+)%
   (?<scalesWithUses>\ scaling\ with\ uses)?
   (?<who>\ to\ the\ user|\ to\ all\ allies)?
-  \ for\ (?<duration>\d+)\ seconds
+  (?:\ for\ (?<duration>\d+)\ seconds)?
   (?:\ at\ (?<atStatus>.*?)\ (?<atStatusCount>(\d+/)*\d))?
 `,
   'x',
@@ -674,6 +675,9 @@ export function describeEnlirSoulBreak(
     sb.effects.replace(/([Gg]rants|[Cc]auses|[Rr]emoves) .*/, ''),
     statModRe,
     ({ stats, percent, who, duration, scalesWithUses, atStatus, atStatusCount }: any) => {
+      // Stat mods have a default duration of 25 seconds.
+      duration = duration || 25;
+
       const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
       let statMod = percent.replace(' ', '') + '% ';
       statMod += combinedStats;

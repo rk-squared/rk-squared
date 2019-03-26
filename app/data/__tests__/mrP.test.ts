@@ -343,7 +343,12 @@ describe('mrP', () => {
         other: 'self +150% ATK, -50% DEF 30s',
       });
 
-      expect(describeEnlirSoulBreak(soulBreaks['Galuf - Martial Might'])).toEqual({});
+      expect(describeEnlirSoulBreak(soulBreaks['Gogo (V) - Fantastic Symmetry'])).toEqual({
+        other: 'party Haste, +30% ATK/MAG 25s'
+      });
+      expect(describeEnlirSoulBreak(soulBreaks['Galuf - Martial Might'])).toEqual({
+        other: 'earth infuse 25s, party Haste, +30% ATK/MAG 25s'
+      });
     });
 
     it('converts stat changes', () => {
@@ -1963,7 +1968,7 @@ describe('mrP', () => {
         ],
         damage: undefined,
         instant: true,
-        other: 'party Haste',
+        other: 'party Haste, +30% ATK/MAG/RES 25s',
       });
       expect(formatBraveCommands(mimic.braveCommands!)).toEqual(
         'p1.81 or m7.45 at brv.0, Mimic 1x – 2x – 3x at brv.1+',
