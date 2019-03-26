@@ -19,6 +19,7 @@ interface Props {
   };
   bannersAndGroups: RelicDrawBannersAndGroups;
   isAnonymous?: boolean;
+  currentTime: number;
   groupLink: (group: string) => string;
   bannerLink: (bannerId: number) => string;
   backLink: string;
@@ -28,7 +29,7 @@ export class RelicDrawGroupPage extends React.PureComponent<
   Props & RouteComponentProps<RouteParams>
 > {
   render() {
-    const { groups, bannersAndGroups, isAnonymous, match, backLink } = this.props;
+    const { groups, bannersAndGroups, isAnonymous, currentTime, match, backLink } = this.props;
     const group = groups[match.params.group];
     const details = bannersAndGroups[match.params.group];
     if (!group || !details) {
@@ -44,6 +45,7 @@ export class RelicDrawGroupPage extends React.PureComponent<
         <RelicDrawBannerList
           details={details}
           isAnonymous={isAnonymous}
+          currentTime={currentTime}
           bannerLink={this.props.bannerLink}
           groupLink={this.props.groupLink}
         />
@@ -55,4 +57,5 @@ export class RelicDrawGroupPage extends React.PureComponent<
 export default connect((state: IState) => ({
   groups: state.relicDraws.groups,
   bannersAndGroups: getBannersAndGroups(state),
+  currentTime: state.timeState.currentTime,
 }))(RelicDrawGroupPage);

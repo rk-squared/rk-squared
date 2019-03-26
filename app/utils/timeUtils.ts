@@ -14,4 +14,18 @@ export type TimeT = number;
  */
 export const FAR_FUTURE = 2e9;
 
-export const formatTimeT = (t: TimeT) => moment.unix(t).format('l LT');
+export const formatTimeT = (t: TimeT) => moment.unix(t).format('M/d/Y LT');
+export const formatTimeTNoYear = (t: TimeT) => moment.unix(t).format('M/d LT');
+
+/**
+ * Returns whether an item is not yet open (-1), open (0), or now closed (1).
+ */
+export function isClosed({ openedAt, closedAt }: {openedAt: number, closedAt: number}, currentTime: number): -1 | 0 | 1 {
+  if (openedAt > currentTime / 1000) {
+    return -1;
+  } else if (closedAt < currentTime / 1000 + 60) {
+    return 1;
+  } else {
+    return 0;
+  }
+}

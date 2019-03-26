@@ -11,6 +11,7 @@ import {
 import { enlir } from '../data/enlir';
 import { IState } from '../reducers';
 import { RelicDrawState } from '../reducers/relicDraws';
+import { isClosed } from '../utils/timeUtils';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from './characters';
 
 export interface RelicDrawBannerDetails extends RelicDrawBanner {
@@ -157,11 +158,16 @@ export const getBannersAndGroups = createSelector<
   },
 );
 
-export const getMissingBanners = createSelector<IState, RelicDrawState, number[]>(
+export const getMissingBanners = createSelector<IState, RelicDrawState, number, number[]>(
   (state: IState) => state.relicDraws,
-  ({ banners, probabilities, selections }) => {
-    // Start with all banner IDs.
-    const missing = new Set(_.keys(banners).map(i => +i));
+  (state: IState) => state.timeState.currentTime,
+  ({ banners, probabilities, selections }, currentTime) => {
+    // Start with all open banner IDs.
+    const missing = new Set(
+      _.keys(banners)
+        .filter(i => !isClosed(banners[+i], currentTime))
+        .map(i => +i),
+    );
 
     // Remove banner IDs for which we have probabilities and don't need selections.
     const needsSelection = (bannerId: number) =>

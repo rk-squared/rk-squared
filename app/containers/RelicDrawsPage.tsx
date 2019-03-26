@@ -22,6 +22,7 @@ import RelicDrawGroupPage from './RelicDrawGroupPage';
 interface Props {
   bannersAndGroups: RelicDrawBannersAndGroups;
   missingBanners: number[];
+  currentTime: number;
   dispatch: Dispatch;
 }
 
@@ -37,7 +38,7 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
   };
 
   renderContents() {
-    const { bannersAndGroups, missingBanners, match } = this.props;
+    const { bannersAndGroups, missingBanners, currentTime, match } = this.props;
     const details = bannersAndGroups['undefined'];
     if (!details) {
       return <BadRelicDrawMessage />;
@@ -54,7 +55,7 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
           progressKey={progressKey}
         />
 
-        {/* HACK: Support one layer of nesting (group -> banner) */}
+        {/* HACK: Support only one layer of nesting (group -> banner) */}
         <Route
           path={this.groupBannerLink(':group', ':banner')}
           render={(props: RouteComponentProps<any>) => (
@@ -95,6 +96,7 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
             <RelicDrawBannerList
               details={details}
               isAnonymous={isAnonymous}
+              currentTime={currentTime}
               bannerLink={this.bannerLink}
               groupLink={this.groupLink}
             />
@@ -112,4 +114,5 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
 export default connect((state: IState) => ({
   bannersAndGroups: getBannersAndGroups(state),
   missingBanners: getMissingBanners(state),
+  currentTime: state.timeState.currentTime,
 }))(RelicDrawsPage);

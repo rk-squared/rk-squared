@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
+import classNames from 'classnames';
+
 import {
   isGroup,
   RelicDrawBannerDetails,
@@ -8,7 +10,7 @@ import {
   RelicDrawGroupDetails,
 } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
-import { FAR_FUTURE, formatTimeT } from '../../utils/timeUtils';
+import { FAR_FUTURE, formatTimeT, formatTimeTNoYear, isClosed } from '../../utils/timeUtils';
 
 const styles = require('./RelicDrawBannerList.scss');
 
@@ -16,6 +18,7 @@ interface Props {
   group?: RelicDrawGroupDetails;
   details: RelicDrawBannerOrGroup[];
   isAnonymous?: boolean;
+  currentTime?: number;
   groupLink: (group: string) => string;
   bannerLink: (bannerId: number) => string;
 }
@@ -24,6 +27,7 @@ interface RelicLinkProps<T> {
   details: T;
   to: string;
   isAnonymous?: boolean;
+  currentTime?: number;
 }
 
 /**
@@ -49,10 +53,10 @@ function formatTotalCount(details: RelicDrawBannerDetails) {
   }
 }
 
-function formatAvailableCount(details: RelicDrawBannerDetails) {
+function formatAvailableCount(details: RelicDrawBannerDetails, currentTime?: number) {
   const result = formatDupeCount(details) || formatTotalCount(details);
-  if (!details.canPull && result) {
-    return <span className="text-muted">{result} (used)</span>;
+  if (!details.canPull && result && (!currentTime || !isClosed(details, currentTime))) {
+    return result + ' (used)';
   } else {
     return result;
   }
@@ -64,33 +68,56 @@ const RelicDrawGroupLink = ({
   isAnonymous,
 }: RelicLinkProps<RelicDrawGroupDetails>) => {
   const count = isAnonymous ? details.bannerCount : details.canPullOrSelectCount;
+  const countText = isAnonymous ? '' : ' available';
   return (
     <div>
       <Link to={to}>
         <img className={styles.image} src={details.imageUrl} />
       </Link>
-      <div className={styles.details}>
-        {count} {pluralize(count, 'banner')}{' '}
-      </div>
+      <div className={styles.details}>{count + ' ' + pluralize(count, 'banner') + countText}</div>
     </div>
   );
 };
+
+function openedClosedAt(details: RelicDrawBannerDetails, currentTime: number) {
+  const closed = isClosed(details, currentTime);
+  if (!closed && details.closedAt >= FAR_FUTURE) {
+    return null;
+  } else if (closed < 0) {
+    if (details.closedAt < FAR_FUTURE) {
+      return formatTimeTNoYear(details.openedAt) + ' - ' + formatTimeT(details.closedAt);
+    } else {
+      return 'opens ' + formatTimeT(details.openedAt);
+    }
+  } else if (!closed) {
+    return 'ends ' + formatTimeT(details.closedAt);
+  } else {
+    return 'ended ' + formatTimeT(details.closedAt);
+  }
+}
 
 const RelicDrawBannerLink = ({
   details,
   to,
   isAnonymous,
+  currentTime,
 }: RelicLinkProps<RelicDrawBannerDetails>) => {
-  const count = isAnonymous ? formatTotalCount(details) : formatAvailableCount(details);
+  const count = isAnonymous
+    ? formatTotalCount(details)
+    : formatAvailableCount(details, currentTime);
   return (
     <div className={styles.component}>
       <Link to={to}>
         <img className={styles.image} src={details.imageUrl} />
       </Link>
       <div className={styles.details}>
-        <span className={styles.count}>{count}</span>
-        {details.closedAt < FAR_FUTURE && (
-          <span className={styles.closedAt}>ends {formatTimeT(details.closedAt)}</span>
+        <span
+          className={classNames(styles.count, { ['text-muted']: !isAnonymous && !details.canPull })}
+        >
+          {count}
+        </span>
+        {currentTime != null && (
+          <span className={styles.openedClosedAt}>{openedClosedAt(details, currentTime)}</span>
         )}
       </div>
     </div>
@@ -99,7 +126,7 @@ const RelicDrawBannerLink = ({
 
 export class RelicDrawBannerList extends React.PureComponent<Props> {
   render() {
-    const { details, isAnonymous, groupLink, bannerLink } = this.props;
+    const { details, isAnonymous, currentTime, groupLink, bannerLink } = this.props;
     return (
       <>
         {details
@@ -109,6 +136,7 @@ export class RelicDrawBannerList extends React.PureComponent<Props> {
               <RelicDrawGroupLink
                 details={d}
                 isAnonymous={isAnonymous}
+                currentTime={currentTime}
                 key={i}
                 to={groupLink(d.groupName)}
               />
@@ -116,6 +144,7 @@ export class RelicDrawBannerList extends React.PureComponent<Props> {
               <RelicDrawBannerLink
                 details={d}
                 isAnonymous={isAnonymous}
+                currentTime={currentTime}
                 key={i}
                 to={bannerLink(d.id)}
               />

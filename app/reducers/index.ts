@@ -15,6 +15,7 @@ import { proxy, ProxyStatus } from './proxy';
 import { recordMateria, RecordMateriaState } from './recordMateria';
 import { relicDraws, RelicDrawState } from './relicDraws';
 import { session, Session } from './session';
+import { TimeState, timeState } from './timeState';
 import { worlds, WorldState } from './worlds';
 
 export interface IState {
@@ -30,6 +31,7 @@ export interface IState {
   recordMateria: RecordMateriaState;
   relicDraws: RelicDrawState;
   session: Session;
+  timeState: TimeState;
   worlds: WorldState;
   router: RouterState;
 }
@@ -57,6 +59,7 @@ export const createRootReducer: (history?: History) => Reducer<IState, Action> =
     recordMateria,
     relicDraws,
     session,
+    timeState,
     worlds,
 
     // Avoid requiring a history for the Electron main process's store -
@@ -69,4 +72,4 @@ export const createRootReducer: (history?: History) => Reducer<IState, Action> =
   });
 
 /// State keys to exclude from redux-persist
-export const blacklist = ['messages', 'progress', 'proxy', 'session', 'router'];
+export const blacklist = ['messages', 'progress', 'proxy', 'session', 'timeState', 'router'];
