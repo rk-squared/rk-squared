@@ -342,6 +342,8 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Luneth - Advance'])).toEqual({
         other: 'self +150% ATK, -50% DEF 30s',
       });
+
+      expect(describeEnlirSoulBreak(soulBreaks['Galuf - Martial Might'])).toEqual({});
     });
 
     it('converts stat changes', () => {

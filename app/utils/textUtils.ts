@@ -18,3 +18,7 @@ export function pluralize(n: number, word: string, pluralWord?: string) {
   pluralWord = pluralWord || word + 's';
   return n === 1 ? word : pluralWord;
 }
+
+export function joinUrl(a: string, b: string) {
+  return _.trimEnd(a, '/') + '/' + _.trimStart(b, '/');
+}

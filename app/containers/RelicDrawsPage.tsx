@@ -14,6 +14,7 @@ import {
   getMissingBanners,
   RelicDrawBannersAndGroups,
 } from '../selectors/relicDraws';
+import { joinUrl } from '../utils/textUtils';
 import { Page } from './Page';
 import RelicDrawBannerPage from './RelicDrawBannerPage';
 import RelicDrawGroupPage from './RelicDrawGroupPage';
@@ -25,10 +26,10 @@ interface Props {
 }
 
 export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentProps> {
-  groupLink = (group: string) => this.props.match.url + '/group-' + group;
-  bannerLink = (banner: string | number) => this.props.match.url + '/banner' + banner;
+  groupLink = (group: string) => joinUrl(this.props.match.url, '/group-' + group);
+  bannerLink = (banner: string | number) => joinUrl(this.props.match.url, '/banner' + banner);
   groupBannerLink = (group: string, banner: string | number) =>
-    this.props.match.url + '/group-' + group + '/banner' + banner;
+    joinUrl(this.props.match.url, '/group-' + group + '/banner' + banner);
 
   handleLoad = () => {
     const { missingBanners, dispatch } = this.props;

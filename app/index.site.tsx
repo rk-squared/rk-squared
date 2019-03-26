@@ -10,24 +10,33 @@ const store = configureStore(require('./tmp/store.json'));
 
 const rootElement = document.getElementById('root')!;
 initializeGlobalStyles(rootElement);
-const renderOrHydrate = rootElement.hasChildNodes() ? hydrate : render;
 
-renderOrHydrate(
-  <AppContainer>
-    <Root store={store} history={history} />
-  </AppContainer>,
-  rootElement,
-);
+// Hot loading seems to interfere with react-snap and/or hydration, so manually
+// and redundantly disable it.  (Or maybe it's just a problem with HTTP
+// redirects and trailing slashes in URLs, which we now handle with joinUrl -
+// but I don't want to retest now.)
+if (rootElement.hasChildNodes()) {
+  hydrate(<Root store={store} history={history} />, rootElement);
+} else if (process.env.NODE_ENV === 'production') {
+  render(<Root store={store} history={history} />, rootElement);
+} else {
+  render(
+    <AppContainer>
+      <Root store={store} history={history} />
+    </AppContainer>,
+    rootElement,
+  );
 
-if ((module as any).hot) {
-  (module as any).hot.accept('./containers/Root', () => {
-    // noinspection JSUnusedLocalSymbols
-    const NextRoot = require('./containers/Root').default;
-    render(
-      <AppContainer>
-        <NextRoot store={store} history={history} />
-      </AppContainer>,
-      document.getElementById('root'),
-    );
-  });
+  if ((module as any).hot) {
+    (module as any).hot.accept('./containers/Root', () => {
+      // noinspection JSUnusedLocalSymbols
+      const NextRoot = require('./containers/Root').default;
+      render(
+        <AppContainer>
+          <NextRoot store={store} history={history} />
+        </AppContainer>,
+        document.getElementById('root'),
+      );
+    });
+  }
 }

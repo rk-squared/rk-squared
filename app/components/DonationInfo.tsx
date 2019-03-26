@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { BrowserLink } from './common/BrowserLink';
 
-const URL = 'http://ko-fi.com/rksquared';
+const URL = 'https://ko-fi.com/rksquared';
 
 export class DonationInfo extends React.Component {
   render() {

@@ -8,6 +8,7 @@ import { Misc } from '../components/recordMateria/Misc';
 import { RecordMateriaGrid } from '../components/recordMateria/RecordMateriaGrid';
 import { RecordMateriaProps } from '../components/recordMateria/RecordMateriaList';
 import { StatBuffs } from '../components/recordMateria/StatBuffs';
+import { joinUrl } from '../utils/textUtils';
 
 const styles = require('./RecordMateriaRoutes.scss');
 
@@ -37,7 +38,12 @@ export class RecordMateriaRoutes extends React.Component<RecordMateriaProps & Ro
         <ul className="nav nav-tabs">
           {items.map(([text, subUrl, render], index) => (
             <li className="nav-item" key={index}>
-              <NavLink exact className="nav-link" activeClassName="active" to={match.url + subUrl}>
+              <NavLink
+                exact
+                className="nav-link"
+                activeClassName="active"
+                to={joinUrl(match.url, subUrl)}
+              >
                 {text}
               </NavLink>
             </li>
@@ -45,7 +51,7 @@ export class RecordMateriaRoutes extends React.Component<RecordMateriaProps & Ro
         </ul>
 
         {items.map(([text, subUrl, render], index) => (
-          <Route exact key={index} path={match.url + subUrl} render={render} />
+          <Route exact key={index} path={joinUrl(match.url, subUrl)} render={render} />
         ))}
       </div>
     );
