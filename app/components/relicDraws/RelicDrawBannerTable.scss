@@ -10,6 +10,13 @@
 
   tr.command > td {
     border-top: none;
+
+    // Copied from Bootstrap's .table-sm, and overriding Bootstrap's default
+    // .table of 0.75rem.
+    padding-top: 0.3rem;
+  }
+  tr.command:not(.lastCommand) > td {
+    padding-bottom: 0.3rem;
   }
 
   .relicType {

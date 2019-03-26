@@ -82,7 +82,12 @@ export class RelicDrawBannerTable extends React.Component<Props> {
           {showProbability && <td rowSpan={rowSpan}>{probabilities!.byRelic[relicId]}%</td>}
         </tr>
         {commandColumns.map((columns, i) => (
-          <tr key={i} className={className + ' ' + styles.command}>
+          <tr
+            key={i}
+            className={classNames(className, styles.command, {
+              [styles.lastCommand]: i === commandColumns.length - 1,
+            })}
+          >
             <td>{columns[0]}</td>
             <td>{columns[1]}</td>
           </tr>
