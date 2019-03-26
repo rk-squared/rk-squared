@@ -35,14 +35,17 @@ export class RelicDrawBannerPage extends React.PureComponent<
       return <BadRelicDrawMessage />;
     }
     // FIXME: Duplication/overlap with RelicDrawGroupPage
-    // FIXME: Correct back link
     return (
       <>
         <img src={banner.imageUrl} />
         <p>
           <Link to={backLink}>back to list of banners</Link>
         </p>
-        <RelicDrawBannerContents banner={banner} probabilities={probability} isAnonymous={isAnonymous} />
+        <RelicDrawBannerContents
+          banner={banner}
+          probabilities={probability}
+          isAnonymous={isAnonymous}
+        />
       </>
     );
   }

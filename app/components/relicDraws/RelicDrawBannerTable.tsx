@@ -100,7 +100,7 @@ export class RelicDrawBannerTable extends React.Component<Props> {
       commonProbability = null;
       showProbability = false;
     } else {
-      commonProbability = getAllSameValue(_.values(probabilities.byRelic));
+      commonProbability = getAllSameValue(_.flatten(relics).map(i => probabilities.byRelic[i]));
       showProbability = commonProbability == null;
     }
 
