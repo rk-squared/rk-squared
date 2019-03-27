@@ -2023,7 +2023,7 @@ describe('mrP', () => {
         damage: 'phys 9.0/15 wind+non',
         other:
           'wind infuse 25s, self dmg cap=19,999 15s, crit =100% 25s, hi fastcast 15s, ' +
-          '15s: (3 wind (once only) ⤇ instacast 1, +250 SB pts), ' +
+          '15s: (3 wind ⤇ instacast 1, +250 SB pts (once only)), ' +
           '15s: Awoken Wind: wind inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2115,8 +2115,8 @@ describe('mrP', () => {
         damage: 'phys 9.0/15 earth+non',
         other:
           'earth infuse 25s, self 1.3x PHY dmg 15s, dmg cap=19,999 15s, ' +
-          '15s: (3 earth (once only) ⤇ p1.56/3 - 2.6/5 - 2.6/5 e+n Knight @ 0-72001-240001 dmg dealt, ' +
-          'then p5.0/10, then 5.0 overstrike, e+n Knight @ 240001 dmg dealt), ' +
+          '15s: (3 earth ⤇ p1.56/3 - 2.6/5 - 2.6/5 e+n Knight @ 0-72001-240001 dmg dealt, ' +
+          'then p5.0/10, then 5.0 overstrike, e+n Knight @ 240001 dmg dealt (once only)), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
     });

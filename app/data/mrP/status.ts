@@ -1009,12 +1009,9 @@ function removeRedundantWho(item: StatusItem[]): StatusItem[] {
  * triggered and what it does).
  */
 function describeFollowUp(followUp: FollowUpEffect): string {
-  let triggerDescription = followUp.autoInterval
+  const triggerDescription = followUp.autoInterval
     ? describeAutoInterval(followUp.autoInterval)
     : describeFollowUpTrigger(followUp.trigger!, followUp.isDamageTrigger);
-  if (followUp.customTriggerSuffix) {
-    triggerDescription += ' (' + followUp.customTriggerSuffix + ')';
-  }
 
   const description: string[] = [];
 
@@ -1047,7 +1044,16 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     );
   }
 
-  return formatTriggeredEffect(triggerDescription, description.join(', '));
+  return formatTriggeredEffect(
+    triggerDescription,
+    description.join(', ') +
+      // Append the custom trigger to the end of the description - although we
+      // say that text like "(once only)" describes the trigger, the end works
+      // better for AASBs like Gladiolus's, where "once only" only applies to
+      // the final threshold, and we show thresholds as part of the
+      // description.
+      (followUp.customTriggerSuffix ? ' (' + followUp.customTriggerSuffix + ')' : ''),
+  );
 }
 
 function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
