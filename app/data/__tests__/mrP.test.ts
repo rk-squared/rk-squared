@@ -344,10 +344,10 @@ describe('mrP', () => {
       });
 
       expect(describeEnlirSoulBreak(soulBreaks['Gogo (V) - Fantastic Symmetry'])).toEqual({
-        other: 'party Haste, +30% ATK/MAG 25s'
+        other: 'party Haste, +30% ATK/MAG 25s',
       });
       expect(describeEnlirSoulBreak(soulBreaks['Galuf - Martial Might'])).toEqual({
-        other: 'earth infuse 25s, party Haste, +30% ATK/MAG 25s'
+        other: 'earth infuse 25s, party Haste, +30% ATK/MAG 25s',
       });
     });
 
@@ -455,7 +455,11 @@ describe('mrP', () => {
       expect(describeEnlirSoulBreak(soulBreaks['Cid (XIV) - Grenado Shot'])).toEqual({
         burstCommands: [
           { damage: 'p2.06 e+n rngd', other: 'powers up cmd 2', school: 'Machinist' },
-          { damage: 'p2.12/4 e+n rngd', other: '0/10/30/100% for +10% earth vuln. 25s, reset count', school: 'Machinist' },
+          {
+            damage: 'p2.12/4 e+n rngd',
+            other: '0/10/30/100% for +10% earth vuln. 25s, reset count',
+            school: 'Machinist',
+          },
         ],
         damage: 'AoE phys 5.81/7 earth+non rngd',
         other: '+20% earth vuln. 25s',
@@ -2370,6 +2374,15 @@ describe('mrP', () => {
         damage: '? ?/6 earth+non',
         other: '+10?% earth vuln. 25s, self +10% earth dmg 15s',
       });
+    });
+
+    it('converts all soul breaks', () => {
+      // Exclude roaming warriors - event soul breaks like Haunted or Zoma's
+      // are too weird and specialized to worry about.
+      const allSoulBreaks = _.mapValues(_.pickBy(soulBreaks, i => i.tier !== 'RW'), i =>
+        describeEnlirSoulBreak(i),
+      );
+      expect(allSoulBreaks).toMatchSnapshot();
     });
   });
 
