@@ -11066,7 +11066,7 @@
   {
     "id": 50494,
     "name": "Break Arts Mode",
-    "effects": "Casts Heavy Strike/Heavy Strike+/Heavy Strike++ and Orbital Edge after using three Earth attacks if 0/72001/240001 damage was dealt during the status, removed after triggering",
+    "effects": "Casts Heavy Strike / Heavy Strike+ / Heavy Strike++ and Orbital Edge after using three Earth attacks if 0/72001/240001 damage was dealt during the status, removed after triggering",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11143,7 +11143,7 @@
   {
     "id": 50501,
     "name": "Awoken Scholar",
-    "effects": "Support abilities don't consume uses, cast speed x2.00-x3.00 for Support abilities at ability rank 1/2/3/4/5, grants Awoken Scholar Critical Chance to all allies",
+    "effects": "Support abilities don't consume uses, cast speed x2.00-x3.00 for Support abilities at ability rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11154,7 +11154,7 @@
   {
     "id": 50502,
     "name": "Unraveled History Follow-Up",
-    "effects": "Casts Unraveled History after using three Support abilities, grants Critical Damage +50% to all allies for 1 turn",
+    "effects": "Casts Unraveled History after using three Support abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

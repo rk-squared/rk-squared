@@ -3557,7 +3557,7 @@
     "name": "Fake Swordsman",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Cloud's Military Guise (VII)",
+    "relic": "Shinra Uniform (VII)",
     "nameJp": "偽りの青年剣士",
     "id": 201070106,
     "gl": false
@@ -6835,7 +6835,7 @@
     "name": "Grieved Commander",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "MAG +10",
-    "relic": "Darksteel Claw (XIII)",
+    "relic": "Darksteel Claws (XIII)",
     "nameJp": "悲しき先導者",
     "id": 201131003,
     "gl": false

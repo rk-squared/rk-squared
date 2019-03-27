@@ -10,8 +10,10 @@ import {
 
 export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
 export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
+export const enlirRankCastSpeedRe = /cast speed x2\.00-x3\.00 for (.*) (abilities|attacks) at ability rank 1\/2\/3\/4\/5/;
 
 export const rankBoostAlias = (s: string) => `1.05-1.1-1.15-1.2-1.3x ${s} dmg @ rank 1-5`;
+export const rankCastSpeedAlias = (s: string) => `2-3x ${s} cast @ rank 1-5`;
 export const doubleAlias = (s: string) => `double ${s} (uses extra hone)`;
 export const sbPointsAlias = (s: string) => `+${s} SB pts`;
 

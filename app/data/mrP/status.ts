@@ -2,7 +2,14 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { logger } from '../../utils/logger';
-import { enlir, EnlirOtherSkill, EnlirSkill, EnlirStatus, getEnlirStatusByName } from '../enlir';
+import {
+  enlir,
+  EnlirOtherSkill,
+  EnlirSkill,
+  EnlirStatus,
+  getEnlirOtherSkill,
+  getEnlirStatusByName,
+} from '../enlir';
 import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
 import {
@@ -10,8 +17,10 @@ import {
   effectAlias,
   enlirRankBoost,
   enlirRankBoostRe,
+  enlirRankCastSpeedRe,
   formatSmartEther,
   rankBoostAlias,
+  rankCastSpeedAlias,
   resolveEffectAlias,
   resolveNumbered,
   resolveStatusAlias,
@@ -100,7 +109,8 @@ function parseWho(who: string): string | undefined {
 const hideDuration = new Set(['Astra', 'Stun']);
 
 const isExStatus = (status: string) => status.startsWith('EX: ');
-const isAwokenStatus = (status: string) => status.startsWith('Awoken ');
+const isAwokenStatus = (status: string) =>
+  status.startsWith('Awoken ') && status !== 'Awoken Scholar Critical Chance';
 
 interface FollowUpEffect {
   /**
@@ -524,8 +534,8 @@ const getFinisherSkillName = (effect: string) => {
   return m ? m[1] : null;
 };
 
-function describeFinisher(skillName: string) {
-  const skill = enlir.otherSkillsByName[skillName];
+function describeFinisher(skillName: string, sourceStatusName: string) {
+  const skill = getEnlirOtherSkill(skillName, sourceStatusName);
   if (!skill) {
     logger.warn(`Unknown finisher skill ${skill}`);
     return skillName;
@@ -586,12 +596,12 @@ function describeEnlirStatusEffect(
         followUp.statuses = sequence.map(([status, effects]) => ({ statusName: status.name }));
         followUp.customStatusesDescription = describeMergedSequence(sequence);
       }
-      return describeFollowUp(followUp);
+      return describeFollowUp(followUp, enlirStatus.name);
     }
 
     const finisherSkillName = getFinisherSkillName(effect);
     if (finisherSkillName) {
-      return describeFinisher(finisherSkillName);
+      return describeFinisher(finisherSkillName, enlirStatus.name);
     }
   }
 
@@ -642,6 +652,9 @@ function describeEnlirStatusEffect(
 
   if ((m = effect.match(enlirRankBoostRe))) {
     return rankBoostAlias(m[1]);
+  }
+  if ((m = effect.match(enlirRankCastSpeedRe))) {
+    return rankCastSpeedAlias(m[1]);
   }
 
   // Stacking ability boost and element boost.
@@ -753,7 +766,10 @@ function describeEnlirStatusEffect(
     if (percentChance) {
       triggerDescription += ` (${percentChance}%)`;
     }
-    return formatTriggeredEffect(triggerDescription, describeFollowUpSkill(skill));
+    return formatTriggeredEffect(
+      triggerDescription,
+      describeFollowUpSkill(skill, undefined, enlirStatus ? enlirStatus.name : undefined),
+    );
   }
 
   // Rage status.  This involves looking up the Other Skills associated with
@@ -955,8 +971,14 @@ function describeFollowUpEffect(item: StatusItem): string {
 /**
  * For a follow-up that triggers a skill, describes the skill.
  */
-function describeFollowUpSkill(skillName: string, triggerPrereqStatus?: string): string {
-  const skill = enlir.otherSkillsByName[skillName];
+function describeFollowUpSkill(
+  skillName: string,
+  triggerPrereqStatus?: string,
+  sourceStatusName?: string,
+): string {
+  const skill = sourceStatusName
+    ? getEnlirOtherSkill(skillName, sourceStatusName)
+    : enlir.otherSkillsByName[skillName];
   if (skill) {
     return formatMrP(
       describeEnlirSoulBreak(skill, {
@@ -975,7 +997,9 @@ function describeFollowUpSkill(skillName: string, triggerPrereqStatus?: string):
   if (options) {
     const skillOptions = options.map(i => skillName.replace(slashOptionsRe, i));
     return slashMerge(
-      skillOptions.map((i: string) => describeFollowUpSkill(i, triggerPrereqStatus)),
+      skillOptions.map((i: string) =>
+        describeFollowUpSkill(i, triggerPrereqStatus, sourceStatusName),
+      ),
     );
   }
 
@@ -1008,7 +1032,7 @@ function removeRedundantWho(item: StatusItem[]): StatusItem[] {
  * For follow-up statuses, returns a string describing the follow-up (how it's
  * triggered and what it does).
  */
-function describeFollowUp(followUp: FollowUpEffect): string {
+function describeFollowUp(followUp: FollowUpEffect, sourceStatusName: string): string {
   const triggerDescription = followUp.autoInterval
     ? describeAutoInterval(followUp.autoInterval)
     : describeFollowUpTrigger(followUp.trigger!, followUp.isDamageTrigger);
@@ -1039,7 +1063,9 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     suffix += followUp.randomSkills ? ' (random)' : '';
     description.push(
       slashMerge(
-        followUp.skills.map((i: string) => describeFollowUpSkill(i, followUp.triggerPrereqStatus)),
+        followUp.skills.map((i: string) =>
+          describeFollowUpSkill(i, followUp.triggerPrereqStatus, sourceStatusName),
+        ),
       ) + suffix,
     );
   }

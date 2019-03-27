@@ -358,6 +358,8 @@ function makeRelicMap<T extends { character: string; name: string }>(
   return result;
 }
 
+const otherSkillSourceKey = (source: string, name: string) => source + '_' + name;
+
 export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
   abilitiesByName: _.keyBy(rawData.abilities, 'name'),
@@ -371,9 +373,10 @@ export const enlir = {
   magicites: _.keyBy(rawData.magicite, 'id'),
 
   // NOTE: Other Skills' names are not unique, and they often lack IDs, so
-  // expose the array.
+  // expose the raw array.
   otherSkills: rawData.otherSkills,
   otherSkillsByName: _.keyBy(rawData.otherSkills, 'name'),
+  otherSkillsBySource: _.keyBy(rawData.otherSkills, i => otherSkillSourceKey(i.source, i.name)),
 
   relics: _.keyBy(rawData.relics, 'id'),
   recordMateria: _.keyBy(rawData.recordMateria, 'id'),
@@ -422,6 +425,7 @@ function patchEnlir() {
 
   // Two different follow-up attacks for Gladiolus's AASB is hard.  For now,
   // we'll try rewording it to resemble Squall's.
+  // TODO: It's possible that Squall's and Gladiolus's are the same internally and that these should be made consistent
   applyPatch(
     enlir.statusByName,
     'Break Arts Mode',
@@ -603,6 +607,23 @@ export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
   }
 
   return undefined;
+}
+
+/**
+ * Gets an EnlirOtherSkill.  Other skills don't have unique names, so this
+ * takes an optional source parameter to help disambiguate it.
+ */
+export function getEnlirOtherSkill(otherSkillName: string, sourceName?: string): EnlirOtherSkill {
+  if (sourceName) {
+    const key = otherSkillSourceKey(sourceName, otherSkillName);
+    if (enlir.otherSkillsBySource[key]) {
+      return enlir.otherSkillsBySource[key];
+    }
+    // This lookup may fail for, e.g., Refia's glint's follow-up, which lists
+    // its source as "Explosive Rush Mode 1/2/3" in the spreadsheet.  To
+    // accommodate, allow falling back to looking up by name.
+  }
+  return enlir.otherSkillsByName[otherSkillName];
 }
 
 export function isSoulBreak(skill: EnlirSkill): skill is EnlirSoulBreak {

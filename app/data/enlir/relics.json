@@ -45135,7 +45135,7 @@
     "gl": true
   },
   {
-    "name": "Darksteel Claw",
+    "name": "Darksteel Claws",
     "realm": "XIII",
     "type": "Fist",
     "rarity": 5,
@@ -65205,7 +65205,7 @@
     "gl": true
   },
   {
-    "name": "Rune Bow",
+    "name": "Magic Bow",
     "realm": "IV",
     "type": "Bow",
     "rarity": 5,
@@ -67005,7 +67005,7 @@
     "gl": false
   },
   {
-    "name": "Fairie Harp",
+    "name": "Faerie Harp",
     "realm": "-",
     "type": "Instrument",
     "rarity": "S",
@@ -67410,7 +67410,7 @@
     "gl": true
   },
   {
-    "name": "Fairie Harp",
+    "name": "Faerie Harp",
     "realm": "IV",
     "type": "Instrument",
     "rarity": 6,
@@ -77805,7 +77805,7 @@
     "gl": true
   },
   {
-    "name": "Great Machine Gun",
+    "name": "High-Power Machine Gun",
     "realm": "VIII",
     "type": "Gun",
     "rarity": 6,
@@ -97245,7 +97245,7 @@
     "gl": true
   },
   {
-    "name": "Ace Abes Uniform",
+    "name": "Zanarkand Abes Uniform I",
     "realm": "X",
     "type": "Light Armor",
     "rarity": 6,
@@ -102060,7 +102060,7 @@
     "gl": true
   },
   {
-    "name": "Cloud's Military Guise",
+    "name": "Shinra Uniform",
     "realm": "VII",
     "type": "Light Armor",
     "rarity": 5,
@@ -110835,7 +110835,7 @@
     "gl": true
   },
   {
-    "name": "Sorceress's Knight",
+    "name": "Sorceress Knight",
     "realm": "VIII",
     "type": "Heavy Armor",
     "rarity": 5,

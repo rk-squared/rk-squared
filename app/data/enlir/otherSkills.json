@@ -43,7 +43,10 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 4.85,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 2.5,
     "effects": "One group attack (4.85)",
     "counter": true,
@@ -61,7 +64,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 1.5,
     "effects": "Two single attacks (1.00 each)",
     "counter": true,
@@ -79,7 +85,10 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 6.7,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five group attacks (1.34 each)",
     "counter": true,
@@ -97,7 +106,12 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.68,
-    "element": ["Fire", "Wind", "Ice", "NE"],
+    "element": [
+      "Fire",
+      "Wind",
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (1.28 each)",
     "counter": true,
@@ -115,7 +129,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25)",
     "counter": false,
@@ -169,7 +185,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (10/15/25/35/45) at rank 1/2/3/4/5 of the triggering ability, damages undead",
     "counter": false,
@@ -187,7 +205,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2,
-    "element": ["Earth", "Holy", "NE"],
+    "element": [
+      "Earth",
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (2.00) capped at 99999",
     "counter": true,
@@ -205,7 +227,10 @@
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single hybrid ranged attacks (0.40 or 1.67 each), 100% hit rate",
     "counter": true,
@@ -223,7 +248,13 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.6,
-    "element": ["Holy", "Fire", "Ice", "Light.", "NE"],
+    "element": [
+      "Holy",
+      "Fire",
+      "Ice",
+      "Light.",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.52 each)",
     "counter": true,
@@ -241,7 +272,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": false,
@@ -259,7 +292,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.82,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Two single attacks (0.91 each), heals the user for 20% of the damage dealt",
     "counter": true,
@@ -277,7 +313,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.2,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (0.32/0.38/0.44 each) if the user has Heavy Charge 0/1/2",
     "counter": true,
@@ -313,7 +352,12 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 8.32,
-    "element": ["Fire", "Ice", "Lightning", "NE"],
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (2.08 each)",
     "counter": true,
@@ -331,7 +375,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.95,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.59 each)",
     "counter": true,
@@ -349,7 +396,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.8,
-    "element": ["Earth", "Dark", "NE"],
+    "element": [
+      "Earth",
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (1.95 each)",
     "counter": true,
@@ -367,7 +418,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.8,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (0.45 each)",
     "counter": true,
@@ -385,7 +439,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 16.4,
-    "element": ["Earth", "NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (16.40) capped at 99999",
     "counter": true,
@@ -457,7 +514,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.92,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (0.32 each), 100% hit rate",
     "counter": true,
@@ -475,7 +535,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 9.78,
-    "element": ["Holy", "Water", "NE"],
+    "element": [
+      "Holy",
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "2/3/4/5/6 single attacks (1.63 each) at rank 1/2/3/4/5 of the triggering ability",
     "counter": true,
@@ -493,7 +557,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.6,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "4/4/5/6 single attacks (0.40 each) if the user has Explosive Rush Mode 0/1/2/3, 100% hit rate",
     "counter": true,
@@ -511,7 +578,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.04,
-    "element": ["Earth", "NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "4/5/6 single attacks (0.34 each) at 798/2736 DEF, 100% hit rate",
     "counter": true,
@@ -529,7 +599,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.95,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.59 each)",
     "counter": true,
@@ -547,7 +620,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.95,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.59 each)",
     "counter": true,
@@ -565,7 +641,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.95,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.59 each)",
     "counter": true,
@@ -583,7 +662,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.95,
-    "element": ["Earth", "NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.59 each)",
     "counter": true,
@@ -601,7 +683,11 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 4.4,
-    "element": ["Dark", "Lightning", "NE"],
+    "element": [
+      "Dark",
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One group attack (4.40)",
     "counter": true,
@@ -619,7 +705,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.95,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.59 each), restores HP (25) to all allies",
     "counter": false,
@@ -637,7 +726,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 5.2,
-    "element": ["Lightning", "Wind", "NE"],
+    "element": [
+      "Lightning",
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single ranged attack (5.20) capped at 99999, 100% hit rate",
     "counter": true,
@@ -655,7 +748,12 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": null,
-    "element": ["Wind", "Water", "Fire", "Earth"],
+    "element": [
+      "Wind",
+      "Water",
+      "Fire",
+      "Earth"
+    ],
     "time": 0.01,
     "effects": "One single attack (?), capped at 99999",
     "counter": false,
@@ -673,7 +771,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.85,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.57 each), minimum damage 1100",
     "counter": false,
@@ -691,7 +792,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 4.32,
-    "element": ["Water", "Lightning", "NE"],
+    "element": [
+      "Water",
+      "Lightning",
+      "NE"
+    ],
     "time": 1.65,
     "effects": "1/1/2 single attacks (2.16 each) if the user has Physical Blink 0/1/2, 100% hit rate",
     "counter": true,
@@ -709,7 +814,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.8,
-    "element": ["Lightning", "NE"],
+    "element": [
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (0.45 each), 100% hit rate",
     "counter": true,
@@ -727,7 +835,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.05,
-    "element": ["Earth", "Fire", "NE"],
+    "element": [
+      "Earth",
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (0.41 each), 100% hit rate",
     "counter": true,
@@ -745,7 +857,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), restores HP (27) if Palom is alive",
     "counter": true,
@@ -763,7 +877,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 4.48,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Eight single attacks (0.52/0.54/0.56 each), scaling with Darkness attacks used (2/4/6), 0/30/75% additional critical chance, damages the user for 25% max HP, 100% hit rate",
     "counter": true,
@@ -781,7 +898,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.95,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.59 each)",
     "counter": true,
@@ -795,17 +915,20 @@
     "sourceType": "Follow-Up Status",
     "source": "Saint Dual Follow-Up",
     "name": "Saint Dual",
-    "type": "?",
+    "type": "NAT",
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
-    "element": ["Holy", "NE"],
+    "element": [
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
-    "effects": "Four single hybrid attacks (? each)",
-    "counter": false,
-    "autoTarget": "?",
-    "sb": null,
-    "school": "?",
+    "effects": "Four single hybrid attacks (0.45 or 1.61 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Special",
     "id": 30544267,
     "gl": false
   },
@@ -817,7 +940,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": null,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Randomly deals one (25%), four (25%), six (25%) or ten (25%) single attacks (0.37 each), 100% hit rate",
     "counter": true,
@@ -835,7 +961,12 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 11.92,
-    "element": ["Water", "Earth", "Holy", "NE"],
+    "element": [
+      "Water",
+      "Earth",
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Eight single attacks (1.49 each)",
     "counter": false,
@@ -853,7 +984,10 @@
     "target": "Random enemies",
     "formula": "Physical",
     "multiplier": null,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 2.5,
     "effects": "Randomly deals two (50%) or eight (50%) random attacks (0.40 each), 100% hit rate",
     "counter": true,
@@ -871,7 +1005,10 @@
     "target": "Random enemies",
     "formula": "Physical",
     "multiplier": null,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 2.5,
     "effects": "Randomly deals two (50%) or eight (50%) random attacks (0.40 each), 100% hit rate",
     "counter": true,
@@ -889,7 +1026,10 @@
     "target": "Random enemies",
     "formula": "Physical",
     "multiplier": null,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 2.5,
     "effects": "Randomly deals two (50%) or eight (50%) random attacks (0.40 each), 100% hit rate",
     "counter": true,
@@ -907,7 +1047,10 @@
     "target": "Random enemies",
     "formula": "Physical",
     "multiplier": null,
-    "element": ["Earth", "NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 2.5,
     "effects": "Randomly deals two (50%) or eight (50%) random attacks (0.40 each), 100% hit rate",
     "counter": true,
@@ -925,7 +1068,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 0.3,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (0.30), 100% hit rate",
     "counter": true,
@@ -943,7 +1089,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.5,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (0.30 each), 100% hit rate",
     "counter": true,
@@ -961,7 +1110,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 4.5,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Fifteen single attacks (0.30 each), 100% hit rate",
     "counter": true,
@@ -979,7 +1131,13 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 3.52,
-    "element": ["Fire", "Wat.", "Wind", "Ea.", "NE"],
+    "element": [
+      "Fire",
+      "Wat.",
+      "Wind",
+      "Ea.",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Eight single attacks (0.44 each), 100% hit rate",
     "counter": true,
@@ -1015,7 +1173,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.04,
-    "element": ["Earth", "Wind", "NE"],
+    "element": [
+      "Earth",
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "2/3/4/5/6 single attacks (0.34 each) at rank 1/2/3/4/5 of the triggering ability, 100% hit rate",
     "counter": true,
@@ -1033,7 +1195,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 5.2,
-    "element": ["Dark", "Holy", "NE"],
+    "element": [
+      "Dark",
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (1.30 each)",
     "counter": true,
@@ -1051,7 +1217,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.8,
-    "element": ["Dark", "Holy", "NE"],
+    "element": [
+      "Dark",
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (1.30 each), heals the user for 10% of the damage dealt",
     "counter": true,
@@ -1069,7 +1239,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 20.2,
-    "element": ["Dark", "Holy", "NE"],
+    "element": [
+      "Dark",
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (20.20) capped at 99999, heals the user for 10% of the damage dealt",
     "counter": true,
@@ -1087,7 +1261,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 8.52,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "2/3/4/5/6 single attacks (1.42 each) at rank 1/2/3/4/5 of the triggering ability",
     "counter": true,
@@ -1105,7 +1282,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 8.08,
-    "element": ["Earth", "NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (2.02 each), five attacks if Galuf is alive",
     "counter": true,
@@ -1123,7 +1303,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.56,
-    "element": ["Earth", "Wind", "NE"],
+    "element": [
+      "Earth",
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "4/6/8 single ranged attacks (0.32 each) if the user has Physical Blink 0/1/2, 100% hit rate",
     "counter": true,
@@ -1141,7 +1325,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (10/15/25/35/45) at rank 1/2/3/4/5 of the triggering ability",
     "counter": false,
@@ -1159,7 +1345,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.92,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (1.32 each)",
     "counter": true,
@@ -1177,7 +1366,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.2,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (1.20), 35% chance to cause Imperil Fire 10% for 15 seconds",
     "counter": true,
@@ -1195,7 +1387,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.4,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "4/5/6/7/8 single ranged attacks (0.35 each) if the user's HP are below 100/80/60/40/20%, 100% hit rate",
     "counter": true,
@@ -1213,7 +1408,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.17,
-    "element": ["Poison", "NE"],
+    "element": [
+      "Poison",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single attacks (0.39 each), 35% chance to cause Imperil Poison 10% for 15 seconds, 100% hit rate",
     "counter": true,
@@ -1231,7 +1429,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.17,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single attacks (0.39 each), 35% chance to cause Imperil Fire 10% for 15 seconds, 100% hit rate",
     "counter": true,
@@ -1249,7 +1450,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.17,
-    "element": ["Lightning", "NE"],
+    "element": [
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single attacks (0.39 each), 35% chance to cause Imperil Lightning 10% for 15 seconds, 100% hit rate",
     "counter": true,
@@ -1267,7 +1471,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.1,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "3/4/5/6 single attacks (0.35 each) at 492/780/1014 ATK",
     "counter": true,
@@ -1285,7 +1492,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 4.32,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "1/1/2 single attacks (2.16 each) if the user has Physical Blink 0/1/2, 100% hit rate",
     "counter": true,
@@ -1303,7 +1513,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.56,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "4/6/8 single ranged attacks (0.32 each) if the user has Physical Blink 0/1/2, 100% hit rate",
     "counter": true,
@@ -1393,7 +1606,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.71,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single ranged attacks (0.57 each), ATK -40% for 15 seconds, 100% hit rate",
     "counter": true,
@@ -1411,7 +1627,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.71,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single ranged attacks (0.57 each), MAG -50% for 15 seconds, 100% hit rate",
     "counter": true,
@@ -1429,7 +1648,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.71,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single ranged attacks (0.57 each), DEF -40% for 15 seconds, 100% hit rate",
     "counter": true,
@@ -1447,7 +1669,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.71,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single ranged attacks (0.57 each), RES -50% for 15 seconds, 100% hit rate",
     "counter": true,
@@ -1465,7 +1690,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single ranged attacks (0.40 each), 50% additional critical chance if Mog is alive, 100% hit rate",
     "counter": true,
@@ -1483,7 +1711,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 4.96,
-    "element": ["Dark", "Poison", "NE"],
+    "element": [
+      "Dark",
+      "Poison",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "4/5/6/7/8 single attacks (1.24/1.28/1.32/1.36/1.40 each) scaling with uses",
     "counter": true,
@@ -1501,7 +1733,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.96,
-    "element": ["Earth", "Holy", "NE"],
+    "element": [
+      "Earth",
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (0.49 each), 100% hit rate",
     "counter": true,
@@ -1519,7 +1755,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.6,
-    "element": ["Ice", "Holy", "NE"],
+    "element": [
+      "Ice",
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Grants Magical Blink 2 to the user, five single attacks (0.52 each) if user has Magical Blink 1/2",
     "counter": true,
@@ -1537,7 +1777,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 5.3,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Ten single attacks (0.53 each)",
     "counter": true,
@@ -1555,7 +1798,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 16.4,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (16.40) capped at 99999",
     "counter": true,
@@ -1573,7 +1819,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": null,
-    "element": ["Dark", "Poison", "NE"],
+    "element": [
+      "Dark",
+      "Poison",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Eight single attacks (? each)",
     "counter": false,
@@ -1591,7 +1841,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": null,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Randomly deals four (50%) or eight (50%) single attacks (0.40 each) capped at 99999, 100% hit rate",
     "counter": true,
@@ -1609,7 +1862,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.6,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (0.40 each) capped at 99999, 100% hit rate",
     "counter": true,
@@ -1627,7 +1883,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 3,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (0.50 each), causes Imperil Wind 10% for 15 seconds",
     "counter": true,
@@ -1645,7 +1904,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 5.28,
-    "element": ["Earth", "NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (5.28) capped at 99999",
     "counter": true,
@@ -1681,7 +1943,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.8,
-    "element": ["Lightning", "NE"],
+    "element": [
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (0.40 each), MAG -50% for 15 seconds",
     "counter": true,
@@ -1699,7 +1964,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.56,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "4/6/8 single ranged attacks (0.32 each) if the user has Physical Blink 0/1/2, 100% hit rate",
     "counter": true,
@@ -1717,7 +1985,10 @@
     "target": "All enemies",
     "formula": "Physical",
     "multiplier": 2.6,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four group attacks (0.65 each), 100% hit rate",
     "counter": true,
@@ -1735,7 +2006,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.12,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "4/5/6/7/8 single attacks (0.28/0.30/0.32/0.34/0.36 each) scaling with uses, 20/25/30/35/40% additional critical chance",
     "counter": true,
@@ -1753,7 +2027,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (0.40 each), 100% hit rate",
     "counter": true,
@@ -1771,7 +2048,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 8.52,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "2/3/4/5/6 single attacks (1.42 each) at rank 1/2/3/4/5 of the triggering ability",
     "counter": true,
@@ -1789,7 +2069,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.08,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (0.52 each), 100% hit rate",
     "counter": true,
@@ -1807,7 +2090,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.4,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single ranged attack (2.40), causes Crash -70% for 8 seconds",
     "counter": true,
@@ -1825,7 +2111,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": null,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Randomly deals five (40%) or ten (60%) single attacks (1.56 each)",
     "counter": true,
@@ -1843,7 +2132,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 3.68,
-    "element": ["Dark", "Fire", "NE"],
+    "element": [
+      "Dark",
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Eight single ranged attacks (0.46 each)",
     "counter": true,
@@ -1861,7 +2154,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 16.4,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (16.40) capped at 99999",
     "counter": true,
@@ -1879,7 +2175,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 16.51,
-    "element": ["Wind", "Dark", "NE"],
+    "element": [
+      "Wind",
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (16.51) capped at 99999",
     "counter": true,
@@ -1915,7 +2215,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.2,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (1.20), 35% chance to cause Imperil Wind 10% for 15 seconds",
     "counter": true,
@@ -1933,7 +2236,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.11,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single ranged attacks (0.37 each), 100% hit rate",
     "counter": true,
@@ -1951,7 +2257,12 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.68,
-    "element": ["Ice", "Water", "Lightning", "NE"],
+    "element": [
+      "Ice",
+      "Water",
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (1.28 each)",
     "counter": true,
@@ -1969,7 +2280,12 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.86,
-    "element": ["Fire", "Lightning", "Ice", "NE"],
+    "element": [
+      "Fire",
+      "Lightning",
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (0.31 each), 100% hit rate",
     "counter": true,
@@ -1987,7 +2303,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": true,
@@ -2005,7 +2323,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.04,
-    "element": ["Holy", "NE"],
+    "element": [
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "2/3/4/5/6 single attacks (0.34 each) at rank 1/2/3/4/5 of the triggering ability, 100% hit rate",
     "counter": true,
@@ -2023,7 +2344,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.76,
-    "element": ["Wind", "Poison", "NE"],
+    "element": [
+      "Wind",
+      "Poison",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (0.44 each), 100% hit rate",
     "counter": true,
@@ -2041,7 +2366,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 15.6,
-    "element": ["Lightning", "NE"],
+    "element": [
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Ten single attacks (1.56 each), smart summoning ether 1 to the user",
     "counter": false,
@@ -2059,7 +2387,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.92,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single ranged attacks (0.32 each), 100% hit rate",
     "counter": true,
@@ -2077,7 +2408,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 5.28,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single ranged attack (5.28) capped at 99999",
     "counter": true,
@@ -2095,7 +2429,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.7,
-    "element": ["Holy", "Wind", "NE"],
+    "element": [
+      "Holy",
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.54 each), minimum damage 1100",
     "counter": false,
@@ -2113,7 +2451,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 2.7,
-    "element": ["Ice", "Water", "NE"],
+    "element": [
+      "Ice",
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (0.54/0.83/1.12/1.42/1.73 each) at rank 1/2/3/4/5 of the triggering ability",
     "counter": true,
@@ -2131,7 +2473,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.2,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Two single attacks (0.60 each), 35% chance to cause Imperil Water 10% for 15 seconds",
     "counter": true,
@@ -2149,7 +2494,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.92,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (0.32 each), 100% hit rate",
     "counter": true,
@@ -2167,7 +2515,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.92,
-    "element": ["Dark", "Fire", "NE"],
+    "element": [
+      "Dark",
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (0.32 each), 100% hit rate",
     "counter": true,
@@ -2185,7 +2537,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 8.52,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "2/3/4/5/6 single attacks (1.42 each) at rank 1/2/3/4/5 of the triggering ability",
     "counter": true,
@@ -2203,7 +2558,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 5.28,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (5.28) capped at 99999, causes DEF, RES and MND -70% for 8 seconds",
     "counter": true,
@@ -2221,7 +2579,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 12.08,
-    "element": ["Ice", "Water", "NE"],
+    "element": [
+      "Ice",
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Eight single attacks (1.51 each)",
     "counter": true,
@@ -2257,7 +2619,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.24,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Seven single attacks (0.32 each), damages the user for 15% max HP",
     "counter": true,
@@ -2275,7 +2640,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2,
-    "element": ["Lightning", "Wind", "NE"],
+    "element": [
+      "Lightning",
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (0.40 each), 100% hit rate",
     "counter": true,
@@ -2293,7 +2662,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.17,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "3/4/5/6/7 single attacks (0.39 each) scaling with uses",
     "counter": true,
@@ -2329,7 +2701,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 8.52,
-    "element": ["Lightning", "NE"],
+    "element": [
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "2/3/4/5/6 single attacks (1.42 each) at rank 1/2/3/4/5 of the triggering ability",
     "counter": true,
@@ -2347,7 +2722,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": false,
@@ -2365,7 +2742,10 @@
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single hybrid ranged attacks (0.40 or 1.67 each), 100% hit rate",
     "counter": true,
@@ -2401,7 +2781,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 16.4,
-    "element": ["Lightning", "NE"],
+    "element": [
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (16.40) capped at 99999",
     "counter": true,
@@ -2437,7 +2820,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 0.3,
-    "element": ["Holy", "Lightning", "NE"],
+    "element": [
+      "Holy",
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (0.30), 100% hit rate",
     "counter": true,
@@ -2455,7 +2842,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.5,
-    "element": ["Holy", "Lightning", "NE"],
+    "element": [
+      "Holy",
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (0.30 each), 100% hit rate",
     "counter": true,
@@ -2473,7 +2864,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 4.5,
-    "element": ["Holy", "Lightning", "NE"],
+    "element": [
+      "Holy",
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Fifteen single attacks (0.30 each), 100% hit rate",
     "counter": true,
@@ -2491,7 +2886,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single ranged attacks (0.40 each), 30/50/75% additional critical chance scaling with uses, 100% hit rate",
     "counter": true,
@@ -2509,7 +2907,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 8.64,
-    "element": ["Holy", "Dark"],
+    "element": [
+      "Holy",
+      "Dark"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (2.16 each)",
     "counter": true,
@@ -2527,7 +2928,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single ranged attacks (0.40 each), 100% hit rate",
     "counter": true,
@@ -2545,7 +2949,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 6.4,
-    "element": ["Lightning", "NE"],
+    "element": [
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "5/10/20 single ranged attacks (0.32 each) if the user used 2/4/6 Lightning attacks during the status",
     "counter": true,
@@ -2563,7 +2970,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 15.7,
-    "element": ["Dark", "Holy", "NE"],
+    "element": [
+      "Dark",
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.57 each), ten attacks if the user has any Doom",
     "counter": true,
@@ -2581,7 +2992,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 5.04,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "4/5/6/7/8 single attacks (1.26/1.30/1.34/1.38/1.42 each) scaling with uses",
     "counter": true,
@@ -2599,7 +3013,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 8.52,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "2/3/4/5/6 single attacks (1.42 each) at rank 1/2/3/4/5 of the triggering ability",
     "counter": true,
@@ -2617,7 +3034,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 16.4,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (16.40) capped at 99999",
     "counter": false,
@@ -2635,7 +3055,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 16.4,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Grants True Greased Lightning 1/2/3/3 if user has True Greased Lightning 0/1/2/3",
     "counter": false,
@@ -2671,7 +3094,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.9,
-    "element": ["Lightning", "Dark", "NE"],
+    "element": [
+      "Lightning",
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single ranged attacks (0.38 each), 100% hit rate",
     "counter": true,
@@ -2689,9 +3116,12 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.56,
-    "element": ["Earth,NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
-    "effects": "Three single target attacks (0.52 each), 100% hit rate",
+    "effects": "Three single attacks (0.52 each), 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -2707,9 +3137,12 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.6,
-    "element": ["Earth,NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
-    "effects": "Five single target attacks (0.52 each), 100% hit rate",
+    "effects": "Five single attacks (0.52 each), 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -2725,9 +3158,12 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.6,
-    "element": ["Earth,NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
-    "effects": "Five single target attacks (0.52 each), 100% hit rate",
+    "effects": "Five single attacks (0.52 each), 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -2743,9 +3179,12 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 10,
-    "element": ["Earth,NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
-    "effects": "Ten single target attacks (0.50 each) and one single attack (5.00) capped at 99999, 100% hit rate",
+    "effects": "Ten single attacks (0.50 each) and one single attack (5.00) capped at 99999, 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -2761,7 +3200,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (0.40 each), 100% hit rate",
     "counter": true,
@@ -2779,7 +3221,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.56,
-    "element": ["Holy", "NE"],
+    "element": [
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (0.39 each), 100% hit rate",
     "counter": true,
@@ -2815,7 +3260,13 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.84,
-    "element": ["Holy", "Fire", "Light.", "Ice", "NE"],
+    "element": [
+      "Holy",
+      "Fire",
+      "Light.",
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (0.46 each), 100% hit rate",
     "counter": true,
@@ -2833,7 +3284,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 9,
-    "element": ["Holy", "NE"],
+    "element": [
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (1.50 each)",
     "counter": true,
@@ -2851,7 +3305,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.82,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Two single attacks (0.91 each), heals the user for 20% of the damage dealt",
     "counter": true,
@@ -2887,7 +3344,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": null,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Randomly deals one (74%), two (25%) or thirteen (1%) single attacks (0.55 each)",
     "counter": true,
@@ -2905,7 +3365,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 4.08,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Two single attacks (2.04 each), grants High Quick Cast 2 to the user",
     "counter": true,
@@ -2923,7 +3386,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 4.08,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Two single attacks (2.04 each), restores 1500 HP to all allies in the user's row",
     "counter": true,
@@ -2941,7 +3407,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 16.32,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Eight single attacks (2.04 each)",
     "counter": true,
@@ -2959,7 +3428,9 @@
     "target": "All allies",
     "formula": null,
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25) to all allies",
     "counter": true,
@@ -2977,7 +3448,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.2,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single ranged attack (1.20), 35% chance to cause Imperil Wind 10% for 15 seconds",
     "counter": true,
@@ -2995,7 +3469,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": null,
-    "element": ["Earth", "Dark", "NE"],
+    "element": [
+      "Earth",
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Randomly deals four (30%), five (40%) or six (30%) single attacks (0.40 each), 100% hit rate",
     "counter": true,
@@ -3013,7 +3491,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.8,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (0.45 each), 100% hit rate",
     "counter": true,
@@ -3085,7 +3566,12 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.76,
-    "element": ["Fire", "Lightning", "Ice", "NE"],
+    "element": [
+      "Fire",
+      "Lightning",
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single ranged attacks (0.44 each), 100% hit rate",
     "counter": true,
@@ -3103,7 +3589,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.95,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (0.39 each), 100% hit rate",
     "counter": true,
@@ -3121,7 +3610,12 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 4.9,
-    "element": ["Fire", "Lightning", "Ice", "NE"],
+    "element": [
+      "Fire",
+      "Lightning",
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Ten single ranged attacks (0.46 each), 0.49 each if Riku is in the party",
     "counter": true,
@@ -3139,7 +3633,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.1,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single ranged attacks (0.39 each), 0.42 each if Sora is in the party",
     "counter": true,
@@ -3157,7 +3654,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 4.24,
-    "element": ["Holy", "Dark", "NE"],
+    "element": [
+      "Holy",
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single ranged attack (4.24) capped at 99999",
     "counter": true,
@@ -3175,7 +3676,11 @@
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
-    "element": ["Fire", "Wind", "NE"],
+    "element": [
+      "Fire",
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single ranged hybrid attack (4.24 or 15.35) capped at 99999",
     "counter": true,
@@ -3193,7 +3698,11 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.9,
-    "element": ["Holy", "Dark", "NE"],
+    "element": [
+      "Holy",
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single ranged attacks (0.38 each)",
     "counter": true,
@@ -3211,7 +3720,11 @@
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
-    "element": ["Fire", "Wind", "NE"],
+    "element": [
+      "Fire",
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single ranged hybrid attacks (0.42 or 1.85 each)",
     "counter": true,
@@ -3229,7 +3742,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.56,
-    "element": ["Earth", "NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "4/6/8 single ranged attacks (0.32 each) if the user has Physical Blink 0/1/2",
     "counter": true,
@@ -3265,7 +3781,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (0.40 each), 100% hit rate",
     "counter": true,
@@ -3283,7 +3802,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 6.04,
-    "element": ["Earth", "Holy", "NE"],
+    "element": [
+      "Earth",
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single attacks (1.51 each)",
     "counter": true,
@@ -3337,7 +3860,12 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": null,
-    "element": ["Holy", "Ice", "Fire", "NE"],
+    "element": [
+      "Holy",
+      "Ice",
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "2/3/4/5/6/7/8 single attacks (? each) if the user used 0/2/4/6/8/10/12 Knight or Samurai abilities. Additional one single attack (?) capped at 99999",
     "counter": false,
@@ -3373,7 +3901,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 34.6,
-    "element": ["Dark", "NE"],
+    "element": [
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (11.80/20.50/34.60) capped at 99999 if the user used 5/9 Darkness abilities during the status",
     "counter": true,
@@ -3409,7 +3940,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 16,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "10 single attacks (0.96 each), 10/30/50% additional critical chance if the user used 0/5/9 Ice attacks during the status. Additional one single attack (6.40) capped at 99999 if the user used 9 Ice attacks during the status",
     "counter": true,
@@ -3427,7 +3961,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 7.68,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "8/12/16 single attacks (0.96 each) if the user used 5/8 Thief abilities during the status",
     "counter": true,
@@ -3463,7 +4000,12 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 17.3,
-    "element": ["Ice", "Water", "Lightning", "NE"],
+    "element": [
+      "Ice",
+      "Water",
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Ten single attacks (1.73 each)",
     "counter": true,
@@ -3499,7 +4041,12 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 9.7,
-    "element": ["Fire", "Earth", "Lightning", "NE"],
+    "element": [
+      "Fire",
+      "Earth",
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (3.10/6.20/9.70) capped at 99999 if the user used 0/7/11 Fire, Earth or Lightning attacks during the status, 100% hit rate",
     "counter": true,
@@ -3517,7 +4064,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 34.6,
-    "element": ["Holy", "NE"],
+    "element": [
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (11.80/20.50/34.60) capped at 99999 if the user used 3/6 Holy attacks during the status, smart ether 0/1/2 to user",
     "counter": false,
@@ -3607,7 +4157,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 9,
-    "element": ["Water", "NE"],
+    "element": [
+      "Water",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (1.50 each), restores HP (25) to all allies",
     "counter": true,
@@ -3625,7 +4178,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 9,
-    "element": ["Water", "Dark", "NE"],
+    "element": [
+      "Water",
+      "Dark",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (1.50 each), restores HP (25) to all allies",
     "counter": true,
@@ -3643,7 +4200,12 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 9,
-    "element": ["Water", "Dark", "Fire", "NE"],
+    "element": [
+      "Water",
+      "Dark",
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Six single attacks (1.50 each), restores HP (25) to all allies, grants High Regen to all allies",
     "counter": true,
@@ -3661,7 +4223,10 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 5.7,
-    "element": ["Lightning", "NE"],
+    "element": [
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Two group attacks (2.85 each), minimum damage 1100",
     "counter": false,
@@ -3679,7 +4244,10 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 6.8,
-    "element": ["Fire", "Lightning"],
+    "element": [
+      "Fire",
+      "Lightning"
+    ],
     "time": 0.01,
     "effects": "Four group attacks (1.70 each), minimum damage 1100",
     "counter": false,
@@ -3697,7 +4265,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 7.8,
-    "element": ["Holy", "NE"],
+    "element": [
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Five single attacks (1.56 each), minimum damage 1100",
     "counter": true,
@@ -3751,7 +4322,9 @@
     "target": "Random enemy",
     "formula": "Physical",
     "multiplier": 2.1,
-    "element": ["Lightning"],
+    "element": [
+      "Lightning"
+    ],
     "time": 1.65,
     "effects": "One single ranged attack (2.10)",
     "counter": false,
@@ -3787,7 +4360,10 @@
     "target": "All enemies",
     "formula": "Physical",
     "multiplier": 2.25,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 1.65,
     "effects": "Three group attacks (0.75 each)",
     "counter": true,
@@ -3805,7 +4381,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.7,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 1.65,
     "effects": "Three single attacks (0.90 each)",
     "counter": true,
@@ -3823,7 +4402,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": true,
@@ -3913,7 +4495,10 @@
     "target": "All enemies",
     "formula": "Physical",
     "multiplier": 3.46,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 1.65,
     "effects": "Two group ranged attacks (1.73 each), 100% hit rate",
     "counter": false,
@@ -3949,7 +4534,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 4,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 1.65,
     "effects": "Four single ranged attacks (1.00 each), 100% hit rate",
     "counter": false,
@@ -3967,7 +4555,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Fire"],
+    "element": [
+      "Fire"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": false,
@@ -3985,7 +4575,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Ice"],
+    "element": [
+      "Ice"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": false,
@@ -4003,7 +4595,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Lightning"],
+    "element": [
+      "Lightning"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": false,
@@ -4021,7 +4615,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Earth"],
+    "element": [
+      "Earth"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": false,
@@ -4039,7 +4635,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Wind"],
+    "element": [
+      "Wind"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": false,
@@ -4057,7 +4655,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Water"],
+    "element": [
+      "Water"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": false,
@@ -4075,7 +4675,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": false,
@@ -4093,7 +4695,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Dark"],
+    "element": [
+      "Dark"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": false,
@@ -4111,7 +4715,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Poison"],
+    "element": [
+      "Poison"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": false,
@@ -4129,7 +4735,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 0.7,
-    "element": ["Fire"],
+    "element": [
+      "Fire"
+    ],
     "time": 1.5,
     "effects": "One single attack (0.70)",
     "counter": true,
@@ -4147,7 +4755,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 2.6,
-    "element": ["Fire"],
+    "element": [
+      "Fire"
+    ],
     "time": 1.65,
     "effects": "One single attack (2.60)",
     "counter": true,
@@ -4165,7 +4775,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 2.6,
-    "element": ["Ice"],
+    "element": [
+      "Ice"
+    ],
     "time": 1.65,
     "effects": "One single attack (2.60)",
     "counter": true,
@@ -4183,7 +4795,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 2.6,
-    "element": ["Lightning"],
+    "element": [
+      "Lightning"
+    ],
     "time": 1.65,
     "effects": "One single attack (2.60)",
     "counter": true,
@@ -4201,7 +4815,9 @@
     "target": "Lowest HP% ally",
     "formula": "Magical",
     "multiplier": 1.8,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "Restores HP (39), damages undeads",
     "counter": true,
@@ -4219,7 +4835,9 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 1.5,
-    "element": ["Fire"],
+    "element": [
+      "Fire"
+    ],
     "time": 1.5,
     "effects": "One group attack (1.50)",
     "counter": false,
@@ -4237,7 +4855,9 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 2.08,
-    "element": ["Fire"],
+    "element": [
+      "Fire"
+    ],
     "time": 1.5,
     "effects": "One group attack (2.08)",
     "counter": true,
@@ -4255,7 +4875,11 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 1.5,
-    "element": ["Fire", "Lightning", "Ice"],
+    "element": [
+      "Fire",
+      "Lightning",
+      "Ice"
+    ],
     "time": 1.5,
     "effects": "One single attack (1.50)",
     "counter": true,
@@ -4273,7 +4897,11 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Fire", "Lightning", "Ice"],
+    "element": [
+      "Fire",
+      "Lightning",
+      "Ice"
+    ],
     "time": 1.5,
     "effects": "One group attack (2.00)",
     "counter": true,
@@ -4291,7 +4919,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 1.6,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "Restores HP (26), damages undeads",
     "counter": true,
@@ -4309,7 +4939,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 1.8,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "Restores HP (39), damages undeads",
     "counter": true,
@@ -4471,7 +5103,9 @@
     "target": "All enemies",
     "formula": "Physical",
     "multiplier": 1.2,
-    "element": ["Earth"],
+    "element": [
+      "Earth"
+    ],
     "time": 1.65,
     "effects": "Two group attacks (0.60 each)",
     "counter": true,
@@ -4489,7 +5123,9 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.94,
-    "element": ["Posion"],
+    "element": [
+      "Posion"
+    ],
     "time": 1.2,
     "effects": "Two single attacks (0.97 each), 1.17 multiplier when equipping a dagger",
     "counter": true,
@@ -4543,7 +5179,9 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 18,
-    "element": ["Fire"],
+    "element": [
+      "Fire"
+    ],
     "time": 0.83,
     "effects": "One group attack (18.00), ignores RES",
     "counter": true,
@@ -4597,7 +5235,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "One single attack (1.00)",
     "counter": true,
@@ -4615,7 +5255,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Dark"],
+    "element": [
+      "Dark"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": true,
@@ -4633,7 +5275,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 1.6,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "Restores HP (26), damages undeads",
     "counter": true,
@@ -4687,7 +5331,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 2.2,
-    "element": ["Fire"],
+    "element": [
+      "Fire"
+    ],
     "time": 1.5,
     "effects": "One single attack (2.20)",
     "counter": false,
@@ -4705,7 +5351,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Dark"],
+    "element": [
+      "Dark"
+    ],
     "time": 1.5,
     "effects": "One single attack (1.00)",
     "counter": true,
@@ -4741,7 +5389,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 0.7,
-    "element": ["Wind"],
+    "element": [
+      "Wind"
+    ],
     "time": 1.5,
     "effects": "One single attack (0.70)",
     "counter": true,
@@ -4759,7 +5409,9 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 1.5,
-    "element": ["Wind"],
+    "element": [
+      "Wind"
+    ],
     "time": 1.5,
     "effects": "One group attack (1.50)",
     "counter": true,
@@ -4777,7 +5429,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 2.6,
-    "element": ["Lightning"],
+    "element": [
+      "Lightning"
+    ],
     "time": 1.65,
     "effects": "One single attack (2.60)",
     "counter": true,
@@ -4813,7 +5467,9 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 1.5,
-    "element": ["Dark"],
+    "element": [
+      "Dark"
+    ],
     "time": 1.5,
     "effects": "One group attack (1.50)",
     "counter": true,
@@ -4903,7 +5559,9 @@
     "target": "Self",
     "formula": "Magical",
     "multiplier": 1.2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "Restores HP (30), damages undeads",
     "counter": true,
@@ -4957,7 +5615,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 0.7,
-    "element": ["Ice"],
+    "element": [
+      "Ice"
+    ],
     "time": 1.5,
     "effects": "One single attack (0.70)",
     "counter": true,
@@ -5011,7 +5671,9 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 1.5,
-    "element": ["Fire"],
+    "element": [
+      "Fire"
+    ],
     "time": 1.5,
     "effects": "One group attack (1.50)",
     "counter": true,
@@ -5029,7 +5691,9 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 2.08,
-    "element": ["Wind"],
+    "element": [
+      "Wind"
+    ],
     "time": 1.5,
     "effects": "One group attack (2.08)",
     "counter": true,
@@ -5191,7 +5855,10 @@
     "target": "All enemies",
     "formula": "Physical",
     "multiplier": 3.46,
-    "element": ["Ice", "NE"],
+    "element": [
+      "Ice",
+      "NE"
+    ],
     "time": 1.65,
     "effects": "Two group ranged attacks (1.73 each)",
     "counter": false,
@@ -5353,7 +6020,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 1.8,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "One single attack (1.80)",
     "counter": true,
@@ -5389,7 +6058,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 0.7,
-    "element": ["Ice"],
+    "element": [
+      "Ice"
+    ],
     "time": 1.5,
     "effects": "One single attack (0.70)",
     "counter": true,
@@ -5461,7 +6132,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 1.2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "Restores HP (13), damages undeads",
     "counter": true,
@@ -5641,7 +6314,9 @@
     "target": "Self",
     "formula": "Magical",
     "multiplier": 1.2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "Restores HP (30), damages undeads",
     "counter": true,
@@ -5659,7 +6334,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 1.6,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "Restores HP (26), damages undeads",
     "counter": true,
@@ -5785,7 +6462,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 0.7,
-    "element": ["Ice"],
+    "element": [
+      "Ice"
+    ],
     "time": 1.5,
     "effects": "One single attack (0.70)",
     "counter": true,
@@ -5857,7 +6536,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 1.6,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.5,
     "effects": "Restores HP (26), damages undeads",
     "counter": true,
@@ -5911,7 +6592,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1.6,
-    "element": ["Lightning"],
+    "element": [
+      "Lightning"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.60)",
     "counter": true,
@@ -5929,7 +6612,9 @@
     "target": "Single",
     "formula": "Physical",
     "multiplier": 1,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 1.65,
     "effects": "One single attack (1.00)",
     "counter": true,
@@ -6055,7 +6740,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 0.7,
-    "element": ["Lightning"],
+    "element": [
+      "Lightning"
+    ],
     "time": 1.5,
     "effects": "One single attack (0.70)",
     "counter": true,
@@ -6073,7 +6760,9 @@
     "target": "All enemies",
     "formula": "Magical",
     "multiplier": 1.5,
-    "element": ["Lightning"],
+    "element": [
+      "Lightning"
+    ],
     "time": 1.5,
     "effects": "One group attack (1.50)",
     "counter": true,
@@ -6091,7 +6780,9 @@
     "target": "Single",
     "formula": "Magical",
     "multiplier": 2.6,
-    "element": ["Lightning"],
+    "element": [
+      "Lightning"
+    ],
     "time": 1.65,
     "effects": "One single attack (2.60)",
     "counter": true,
@@ -6163,7 +6854,9 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 2.6,
-    "element": ["Earth"],
+    "element": [
+      "Earth"
+    ],
     "time": 1.65,
     "effects": "One single attack (2.60)",
     "counter": true,
@@ -6181,7 +6874,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": true,
@@ -6199,7 +6894,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.26,
-    "element": ["Holy", "NE"],
+    "element": [
+      "Holy",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single attacks (0.42 each), restores 1500 HP to the lowest HP% ally",
     "counter": false,
@@ -6217,7 +6915,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": false,
@@ -6271,7 +6971,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": true,
@@ -6289,7 +6991,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.26,
-    "element": ["Earth", "NE"],
+    "element": [
+      "Earth",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single attacks, restores 1500 HP to the lowest HP% ally",
     "counter": true,
@@ -6307,7 +7012,9 @@
     "target": "ALl enemies",
     "formula": "Magical",
     "multiplier": 4.4,
-    "element": ["Dark"],
+    "element": [
+      "Dark"
+    ],
     "time": 0.01,
     "effects": "One group attack (4.40)",
     "counter": true,
@@ -6343,7 +7050,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": false,
@@ -6361,7 +7070,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": false,
@@ -6433,7 +7144,10 @@
     "target": "Random enemies",
     "formula": "Physical",
     "multiplier": 2.17,
-    "element": ["Fire", "NE"],
+    "element": [
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Seven random ranged attacks (0.31 each)",
     "counter": true,
@@ -6451,7 +7165,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": false,
@@ -6469,7 +7185,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": true,
@@ -6487,7 +7205,9 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.08,
-    "element": ["Wind"],
+    "element": [
+      "Wind"
+    ],
     "time": 0.01,
     "effects": "One single attack (1.08)",
     "counter": true,
@@ -6505,7 +7225,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": true,
@@ -6523,7 +7245,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": true,
@@ -6541,7 +7265,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 1.08,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Two single ranged attacks (0.54 each), smart ether 1 to the user",
     "counter": false,
@@ -6577,7 +7304,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": false,
@@ -6595,7 +7324,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": false,
@@ -6631,7 +7362,10 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 9.09,
-    "element": ["Lightning", "NE"],
+    "element": [
+      "Lightning",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Three single attacks (3.03 each), restores 1500 HP to the lowest HP% ally",
     "counter": false,
@@ -6649,7 +7383,9 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "One single attack (2.00), DEF and RES -20% for 25 seconds",
     "counter": true,
@@ -6667,7 +7403,10 @@
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 2.16,
-    "element": ["Wind", "NE"],
+    "element": [
+      "Wind",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "Four single ranged attacks (0.54 each)",
     "counter": true,
@@ -6685,7 +7424,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": false,
@@ -6721,7 +7462,9 @@
     "target": "All allies",
     "formula": "Magical",
     "multiplier": 2,
-    "element": ["Holy"],
+    "element": [
+      "Holy"
+    ],
     "time": 0.01,
     "effects": "Restores HP (25), damages undeads",
     "counter": false,
@@ -6739,7 +7482,11 @@
     "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 5.05,
-    "element": ["Holy", "Fire", "NE"],
+    "element": [
+      "Holy",
+      "Fire",
+      "NE"
+    ],
     "time": 0.01,
     "effects": "One single attack (5.05)",
     "counter": false,

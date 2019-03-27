@@ -2119,6 +2119,15 @@ describe('mrP', () => {
           'then p5.0/10, then 5.0 overstrike, e+n Knight @ 240001 dmg dealt (once only)), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeSoulBreak('Tyro - Fantasy Grimoire Vol. 1')).toEqual({
+        instant: true,
+        other:
+          'party Haste, crit =50% 25s, +30% ATK/DEF 25s, ' +
+          '15s: (1-5 Support ⤇ Critical Chance =60%/=70%/=80%/=90%/=100%), ' +
+          '15s: (3 Support ⤇ party +50% crit dmg 1 turn), ' +
+          '15s: Awoken Scholar: Support inf. hones, 2-3x Support cast @ rank 1-5',
+      });
     });
 
     it('handles turn-limited effects', () => {
