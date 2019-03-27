@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 cd "$(dirname "$0")"/..
 scripts/enlir-to-mrp.ts >& tmp/mrp-after.txt
 year=$(date +%Y)

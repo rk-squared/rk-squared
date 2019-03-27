@@ -10967,7 +10967,7 @@
   {
     "id": 50485,
     "name": "Resist Break Follow-Up",
-    "effects": "Casts Earth/Wind/Dark Resist Break after using two  Earth/Wind/Dark attacks",
+    "effects": "Casts Earth/Wind/Dark Resist Break after using two Earth/Wind/Dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

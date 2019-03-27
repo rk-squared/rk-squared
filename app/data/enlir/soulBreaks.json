@@ -1185,7 +1185,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (105), grants Last Stand and Haste, removes KO (100%), grants Awoken Magika to the user",
+    "effects": "Restores HP (105), grants Last Stand and Haste, removes KO (100% HP), grants Awoken Magika to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -3460,7 +3460,7 @@
       "NE"
     ],
     "time": null,
-    "effects": "Fifteen single attacks (? each), grants Medium Buff Holy/Ice/Fire, Awaken Loyal Retainer, Damage Cap 19999 and Trinity Rush Follow-Up to the user",
+    "effects": "Fifteen single attacks (? each), grants Medium Buff Holy/Ice/Fire, Awoken Loyal Retainer, Damage Cap 19999 and Trinity Rush Follow-Up to the user",
     "counter": false,
     "autoTarget": "?",
     "points": 500,
@@ -4315,7 +4315,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (0.52 each), ATK & MAG -40%",
+    "effects": "Six single attacks (0.52 each), ATK and MAG -40%",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 250,
@@ -4934,7 +4934,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Awoken Imperial Mode, Damage Cap 19999, Major Buff Earth, Major Buff Wind, Major Buff Dark and Resist Break Follow-Up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Awoken Imperial, Damage Cap 19999, Major Buff Earth, Major Buff Wind, Major Buff Dark and Resist Break Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -5407,7 +5407,7 @@
       "NE"
     ],
     "time": null,
-    "effects": "Fifteen single ranged attacks (? each), grants Attack Wind, Awoken Wind, Damage Cap 19999 and No Air Time to the user",
+    "effects": "Fifteen single ranged attacks (? each), grants Attach Wind, Awoken Wind, Damage Cap 19999 and No Air Time to the user",
     "counter": false,
     "autoTarget": "?",
     "points": 500,
@@ -7366,7 +7366,7 @@
       "NE"
     ],
     "time": null,
-    "effects": "Ten single hybrid attacks (? each), grants 50% Damage Reduction Barrier 2 to all allies, grants Attack Holy Stacking, Attach Holy and Saint Dual Follow-Up to the user",
+    "effects": "Ten single hybrid attacks (? each), grants 50% Damage Reduction Barrier 2 to all allies, grants Attach Holy Stacking, Attach Holy and Saint Dual Follow-Up to the user",
     "counter": false,
     "autoTarget": "?",
     "points": 500,
@@ -29808,7 +29808,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (105), removes KO (100%), grants Last Stand and Regenga to all allies, grants Awoken Dance to the user",
+    "effects": "Restores HP (105), removes KO (100% HP), grants Last Stand and Regenga to all allies, grants Awoken Dancer to the user",
     "counter": false,
     "autoTarget": "?",
     "points": 500,

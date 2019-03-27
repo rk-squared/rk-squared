@@ -1763,11 +1763,15 @@ Object {
     "damage": "3 turns: auto p1.5 Combat",
     "other": undefined,
   },
+  "Biggs - Boulder Blow": Object {
+    "damage": "phys 7.0/10 earth+holy+non",
+    "other": "self 1.3x/1.5x/1.7x PHY dmg w/ 0-1-2 uses 15s, 15s: (earth/holy ⤇ p2.0 e+h+n overstrike Heavy)",
+  },
   "Biggs - Dispel Slash": Object {
     "damage": "phys 2.0",
     "other": "Dispel",
   },
-  "Biggs - Flash Shout": Object {
+  "Biggs - Flashy Blow": Object {
     "damage": "phys 3.12/6 earth+non",
     "instant": true,
     "other": "earth infuse stacking 25s, earth infuse 25s",
@@ -1776,10 +1780,6 @@ Object {
     "damage": "phys 4.16/8 earth+non",
     "instant": true,
     "other": "self 1.3x PHY dmg 15s",
-  },
-  "Biggs - Saintrock Cleft": Object {
-    "damage": "phys 7.0/10 earth+holy+non",
-    "other": "self 1.3x/1.5x/1.7x PHY dmg w/ 0-1-2 uses 15s, 15s: (earth/holy ⤇ p2.0 e+h+n overstrike Heavy)",
   },
   "Black Mage - Darkbolt": Object {
     "damage": "magic 1.6 dark",
