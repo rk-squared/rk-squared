@@ -138,8 +138,8 @@ const legendMateriaHandlers: HandlerList = [
   // Dualcast!
   [
     [
-      /^(\d+)% chance to dualcast abilities that deal (.*) damage$/,
-      /^(\d+)% chance to dualcast (.*) abilities$/,
+      /^(\d+|\?)% chance to dualcast abilities that deal (.*) damage$/,
+      /^(\d+|\?)% chance to dualcast (.*) abilities$/,
     ],
     ([percent, schoolOrElement]) =>
       `${percent}% dualcast ${formatSchoolOrAbilityList(schoolOrElement)}`,
@@ -148,8 +148,8 @@ const legendMateriaHandlers: HandlerList = [
   // Triplecast!!!
   [
     [
-      /^(\d+)% chance to dualcast abilities that deal (.*) damage twice$/,
-      /^(\d+)% chance to dualcast (.*) abilities twice$/,
+      /^(\d+|\?)% chance to dualcast abilities that deal (.*) damage twice$/,
+      /^(\d+|\?)% chance to dualcast (.*) abilities twice$/,
     ],
     ([percent, schoolOrElement]) =>
       `${percent}% triplecast ${formatSchoolOrAbilityList(schoolOrElement)}`,
@@ -158,8 +158,8 @@ const legendMateriaHandlers: HandlerList = [
   // Damage bonuses
   [
     [
-      /^Increases (\w+) damage dealt by (\d+)%$/,
-      /^(.*) (?:abilities|attacks) deal (\d+)% more damage(?: when equipping (.*))?$/,
+      /^Increases (\w+) damage dealt by (\d+|\?)%$/,
+      /^(.*) (?:abilities|attacks) deal (\d+|\?)% more damage(?: when equipping (.*))?$/,
     ],
     ([schoolOrElement, percent, when]) => {
       const multiplier = percentToMultiplier(percent);
@@ -173,6 +173,16 @@ const legendMateriaHandlers: HandlerList = [
     ([percent]) => {
       const multiplier = percentToMultiplier(percent);
       return `${multiplier}x WHT healing`;
+    },
+  ],
+
+  // Stat boosts
+  [
+    /^((?:[A-Z]{3}(?:, |,? and ))*[A-Z]{3}) (\+ ?(?:\d+|\?))% when equipping (.*)$/,
+    ([stats, percent, when]) => {
+      const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
+      percent = percent.replace(' ', '') + '%';
+      return percent + ' ' + combinedStats + whenDescription(when);
     },
   ],
 

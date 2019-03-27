@@ -12605,8 +12605,8 @@ Array [
   },
   Object {
     "character": "Arc",
-    "description": "35% dualcast Summon",
-    "effect": "35% chance to dualcast Summoning abilities",
+    "description": "25% dualcast Summon",
+    "effect": "25% chance to dualcast Summoning abilities",
     "name": "Headstrong Youth",
   },
   Object {
@@ -12847,7 +12847,7 @@ Array [
     "character": "Beatrix",
     "description": "holy infuse at battle start",
     "effect": "Grants Attach Holy at the beginning of the battle",
-    "name": "Gorgeous General",
+    "name": "Proud General",
   },
   Object {
     "character": "Biggs",
@@ -12865,7 +12865,7 @@ Array [
     "character": "Biggs",
     "description": "earth infuse at battle start",
     "effect": "Grants Attach Earth at the beginning of the battle",
-    "name": "Warrior's Hidden Pride",
+    "name": "Hidden Valor",
   },
   Object {
     "character": "Biggs",
@@ -12980,6 +12980,18 @@ Array [
     "description": "25% dualcast Knight",
     "effect": "25% chance to dualcast Knight abilities",
     "name": "Led by the Moon",
+  },
+  Object {
+    "character": "Cecil (Paladin)",
+    "description": "+1% MND (max +25%) per W.Mag",
+    "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
+    "name": "Blossoming of Sacred Power",
+  },
+  Object {
+    "character": "Cecil (Paladin)",
+    "description": "?% dualcast W.Mag",
+    "effect": "?% chance to dualcast White Magic abilities",
+    "name": "Possibility of Sacred Power",
   },
   Object {
     "character": "Celes",
@@ -13198,6 +13210,24 @@ Array [
     "name": "Dark Storms",
   },
   Object {
+    "character": "Cor",
+    "description": "1.15x Samurai dmg",
+    "effect": "Samurai abilities deal 15% more damage",
+    "name": "Loyal Subject of the King",
+  },
+  Object {
+    "character": "Cor",
+    "description": "35% dualcast Samurai",
+    "effect": "35% chance to dualcast Samurai abilities",
+    "name": "The Immortal",
+  },
+  Object {
+    "character": "Cor",
+    "description": "fire infuse at battle start",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "name": "Veteran Warrior",
+  },
+  Object {
     "character": "Curilla",
     "description": "1.1x PHY dmg",
     "effect": "PHY attacks deal 10% more damage",
@@ -13345,7 +13375,7 @@ Array [
     "character": "Dr. Mog",
     "description": "25% dualcast W.Mag",
     "effect": "25% chance to dualcast White Magic abilities",
-    "name": "Expert of White Magic",
+    "name": "Master of Renewal",
   },
   Object {
     "character": "Dr. Mog",
@@ -13513,7 +13543,7 @@ Array [
     "character": "Eiko",
     "description": "25% dualcast Summon",
     "effect": "25% chance to dualcast Summoning abilities",
-    "name": "Scion of a Legendary Tribe",
+    "name": "Descendent of Legends",
   },
   Object {
     "character": "Elarra",
@@ -13580,6 +13610,18 @@ Array [
     "description": "earth infuse at battle start",
     "effect": "Grants Attach Earth at the beginning of the battle",
     "name": "Despotic Stratagem",
+  },
+  Object {
+    "character": "Emperor",
+    "description": "25% dualcast B.Mag/Darkness",
+    "effect": "25% chance to dualcast Black Magic or Darkness abilities",
+    "name": "Blood-stained History",
+  },
+  Object {
+    "character": "Emperor",
+    "description": "1.25x B.Mag dmg if using a rod",
+    "effect": "Black Magic abilities deal 25% more damage when equipping a rod",
+    "name": "Risen Tyrant",
   },
   Object {
     "character": "Enna",
@@ -13718,6 +13760,12 @@ Array [
     "description": "25% dualcast Knight",
     "effect": "25% chance to dualcast Knight abilities",
     "name": "Righteous Ardor",
+  },
+  Object {
+    "character": "Firion",
+    "description": "?x PHY dmg",
+    "effect": "PHY attacks deal ?% more damage",
+    "name": "Rebel's Just Cause",
   },
   Object {
     "character": "Fran",
@@ -14011,13 +14059,13 @@ Array [
     "character": "Gogo (V)",
     "description": "1.1x water dmg",
     "effect": "Increases Water damage dealt by 10%",
-    "name": "Enigmatic Imitator",
+    "name": "Profound Mimic",
   },
   Object {
     "character": "Gogo (V)",
     "description": "35% dualcast water",
     "effect": "35% chance to dualcast abilities that deal Water damage",
-    "name": "Essence of Mimicry",
+    "name": "Quintessential Mimicry",
   },
   Object {
     "character": "Gogo (V)",
@@ -14071,7 +14119,7 @@ Array [
     "character": "Golbez",
     "description": "25% dualcast Darkness",
     "effect": "25% chance to dualcast Darkness abilities",
-    "name": "Dark Magician",
+    "name": "Darkest Mage",
   },
   Object {
     "character": "Gordon",
@@ -14090,6 +14138,12 @@ Array [
     "description": "1.3x stat debuffs duration",
     "effect": "Increases the duration of stat debuffs by 30%",
     "name": "Kashuan Heir",
+  },
+  Object {
+    "character": "Gordon",
+    "description": "Haste, instacast 1 at battle start",
+    "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
+    "name": "Budding Confidence",
   },
   Object {
     "character": "Guy",
@@ -14164,6 +14218,12 @@ Array [
     "name": "Eye on the Prize",
   },
   Object {
+    "character": "Hope",
+    "description": "fastcast 3 at battle start",
+    "effect": "Grants Quick Cast 3 at the beginning of the battle",
+    "name": "Academy Prodigy",
+  },
+  Object {
     "character": "Ignis",
     "description": "1.1x fire dmg",
     "effect": "Increases Fire damage dealt by 10%",
@@ -14180,6 +14240,12 @@ Array [
     "description": "fastcast 3 at battle start",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "name": "Earnest Chef",
+  },
+  Object {
+    "character": "Ignis",
+    "description": "fire infuse at battle start",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "name": "Continuous Self Improvement",
   },
   Object {
     "character": "Ingus",
@@ -14371,7 +14437,7 @@ Array [
     "character": "Kefka",
     "description": "dark infuse at battle start",
     "effect": "Grants Attach Dark at the beginning of the battle",
-    "name": "Enjoyment of Destruction",
+    "name": "Destruction's Delight",
   },
   Object {
     "character": "Kelger",
@@ -14794,6 +14860,12 @@ Array [
     "name": "Fast and Furious",
   },
   Object {
+    "character": "Luneth",
+    "description": "?% dualcast wind",
+    "effect": "?% chance to dualcast abilities that deal Wind damage",
+    "name": "Child of Ur",
+  },
+  Object {
     "character": "Machina",
     "description": "1.15x Spellblade dmg",
     "effect": "Spellblade abilities deal 15% more damage",
@@ -14884,6 +14956,12 @@ Array [
     "name": "Depths of Sorrow",
   },
   Object {
+    "character": "Maria",
+    "description": "25% dualcast earth",
+    "effect": "25% chance to dualcast abilities that deal Earth damage",
+    "name": "Search for Brother",
+  },
+  Object {
     "character": "Master",
     "description": "1.15x Monk dmg",
     "effect": "Monk abilities deal 15% more damage",
@@ -14942,6 +15020,12 @@ Array [
     "description": "(water ⤇ 30% for fastcast 3)",
     "effect": "30% chance to grant Quick Cast 3 to the user after using a Water attack",
     "name": "Chimeric Witch",
+  },
+  Object {
+    "character": "Meia",
+    "description": "?% dualcast water",
+    "effect": "?% chance to dualcast abilities that deal Water damage",
+    "name": "Liberation from Hatred",
   },
   Object {
     "character": "Meliadoul",
@@ -15263,8 +15347,8 @@ Array [
   },
   Object {
     "character": "Orran",
-    "description": "(W.Mag ⤇ ?% for party h?)",
-    "effect": "?% chance to cast an ability (WHT: group, restores HP (?)) after using a White Magic ability",
+    "description": "(W.Mag ⤇ 25% for party h25)",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "name": "Southern Sky Tactics",
   },
   Object {
@@ -15655,7 +15739,7 @@ Array [
     "character": "Relm",
     "description": "+1% MND (max +25%) per W.Mag",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
-    "name": "Blood of the Magi",
+    "name": "Ancient Blood",
   },
   Object {
     "character": "Rem",
@@ -16007,8 +16091,8 @@ Array [
   },
   Object {
     "character": "Sarah",
-    "description": null,
-    "effect": "?",
+    "description": "(Bard ⤇ ?% for fastcast 1)",
+    "effect": "?% chance to grant Quick Cast 1 to the user after using a Bard ability",
     "name": "Swift Melody",
   },
   Object {
@@ -16129,7 +16213,7 @@ Array [
     "character": "Sephiroth",
     "description": "25% dualcast Darkness",
     "effect": "25% chance to dualcast Darkness abilities",
-    "name": "Disgraced Hero",
+    "name": "Apocalyptic Hero",
   },
   Object {
     "character": "Serah",
@@ -16177,7 +16261,7 @@ Array [
     "character": "Setzer",
     "description": "instacast 1 at battle start, full ATB at round start",
     "effect": "Grants Instant Cast 1 at the beginning of the battle, begins the round with full ATB gauge",
-    "name": "Skybound Dream",
+    "name": "Sky Dreams",
   },
   Object {
     "character": "Seven",
@@ -16423,7 +16507,7 @@ Array [
     "character": "Steiner",
     "description": "25% dualcast Spellblade",
     "effect": "25% chance to dualcast Spellblade abilities",
-    "name": "Loyal Knight",
+    "name": "Loyal Guard",
   },
   Object {
     "character": "Steiner",
@@ -16636,6 +16720,12 @@ Array [
     "name": "Phoenix Protector",
   },
   Object {
+    "character": "Tyro",
+    "description": "+30% A/D/M/R/MND if using a book",
+    "effect": "ATK, DEF, MAG, RES and MND +30% when equipping a book",
+    "name": "Admiration of Heroes",
+  },
+  Object {
     "character": "Ultimecia",
     "description": "1.1x BLK dmg",
     "effect": "BLK attacks deal 10% more damage",
@@ -16657,7 +16747,7 @@ Array [
     "character": "Ultimecia",
     "description": "dark infuse at battle start",
     "effect": "Grants Attach Dark at the beginning of the battle",
-    "name": "Erasure of Existance",
+    "name": "Existance Denied",
   },
   Object {
     "character": "Ultimecia",
@@ -16735,7 +16825,13 @@ Array [
     "character": "Vaan",
     "description": "25% dualcast Thief",
     "effect": "25% chance to dualcast Thief abilities",
-    "name": "Ideals of Freedom",
+    "name": "Tactless Thief",
+  },
+  Object {
+    "character": "Vaan",
+    "description": "(Thief ⤇ 35% for fastcast 1)",
+    "effect": "35% chance to grant Quick Cast 1 to the user after using a Thief ability",
+    "name": "Brother's Trust",
   },
   Object {
     "character": "Vanille",
@@ -16903,7 +16999,7 @@ Array [
     "character": "Wedge",
     "description": "wind infuse at battle start",
     "effect": "Grants Attach Wind at the beginning of the battle",
-    "name": "Concealed Affection",
+    "name": "Hidden Kindness",
   },
   Object {
     "character": "Wedge",
@@ -16984,6 +17080,12 @@ Array [
     "name": "Master of Mending",
   },
   Object {
+    "character": "Y'shtola",
+    "description": "(W.Mag ⤇ 25% for party h25)",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "name": "Price of Forbidden Magic",
+  },
+  Object {
     "character": "Yang",
     "description": "1.15x Monk dmg",
     "effect": "Monk abilities deal 15% more damage",
@@ -17018,6 +17120,12 @@ Array [
     "description": "(Monk ⤇ 25% for Negate dmg 30%)",
     "effect": "25% chance to grant Stoneskin: 30% to the user after using a Monk ability",
     "name": "Famed Fighter",
+  },
+  Object {
+    "character": "Yda",
+    "description": "fire infuse at battle start",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "name": "Stormblood",
   },
   Object {
     "character": "Ysayle",
