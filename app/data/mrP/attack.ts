@@ -186,6 +186,10 @@ export function formatThreshold(
  * AOSBs.
  */
 function describeFollowedByAttack(effects: string, parentAttackType: string): string | null {
+  // HACK: Make sure we don't pick up the "Additional" attacks at the end of
+  // some finisher and follow-up skills.
+  effects = effects.replace(/ +Additional .*/, '');
+
   const m = effects.match(
     /followed by ([A-Za-z\-]+) (?:(group|random|single) )?(rang\.?(?:ed)? )?(jump )?attacks? \(([0-9\.]+(?: each)?)\)( capped at 99999)?/,
   );
@@ -443,6 +447,9 @@ const attackRe = XRegExp(
   (?:\ that\ deal\ (?<fixedDamage>\d+)\ damage(?:\ each)?)?
   (?<overstrike>,?\ capped\ at\ 99999)?
 
+  # Hack: Simplified regex from describeFollowedBy.  We should merge it into here.
+  (?<followedBy>,\ followed\ by\ (?:[A-Za-z\-]+)\ (?:(?:group|random|single)\ )?(?:rang\.?(?:ed)?\ )?(?:jump\ )?attacks?\ \((?:[0-9\.]+(?:\ each)?)\)(?:\ capped\ at\ 99999)?,?)?
+
   (?<scaleWithUses>,?\ scaling\ with\ uses)?
   (?:,?\ (?:scaling|scal\.)\ with\ (?<scaleWithSkillUses>.*?)\ uses)?
   (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
@@ -453,6 +460,7 @@ const attackRe = XRegExp(
   (?:,?\ scaling\ with\ (?<attackThresholdType>.*)\ (?:attacks|abilities)\ used\ \((?<attackThresholdCount>(?:\d+/)*\d+)\))?
   (?:\ if\ the\ user\ used\ (?<simpleAttackThresholdCount>(?:\d+/)*\d+)\ damaging\ actions)?
   (?:\ if\ the\ user\ used\ (?<finisherAttackThresholdCount>(?:\d+/)*\d+)\ (?<finisherAttackThresholdType>.*?)?\ (?:attacks|abilities)\ during\ the\ status)?
+  (?:\ if\ (?<damageDealtThresholdValue>(?:\d+/)*\d+)\ damage\ was\ dealt\ during\ the\ status)?
   (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)*\d+)\ ailments)?
   (?:\ if\ (?<statBreakCount>(?:\d+/)*\d+)\ of\ the\ target's\ stats\ are\ lowered)?
   (?:\ at\ (?<differentAbilityValue>(?:\d+/)*\d+)\ different\ (?<differentAbilityType>.*?)\ abilities\ used)?
@@ -574,7 +582,7 @@ export function parseEnlirAttack(
   } else {
     damage = describeDamage(attackMultiplier, numAttacks!);
   }
-  const followedBy = describeFollowedByAttack(skill.effects, m.attackType);
+  const followedBy = describeFollowedByAttack(effects, m.attackType);
   if (followedBy) {
     damage += ', then ' + followedBy + ',';
   }
@@ -620,6 +628,8 @@ export function parseEnlirAttack(
         m.finisherAttackThresholdCount,
         formatSchoolOrAbilityList(m.finisherAttackThresholdType),
       ) + ' used';
+  } else if (m.damageDealtThresholdValue) {
+    scaleType = formatThreshold(m.damageDealtThresholdValue, 'dmg dealt');
   } else if (m.attackThresholdType) {
     scaleType = formatThreshold(
       m.attackThresholdCount,

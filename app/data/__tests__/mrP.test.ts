@@ -2110,6 +2110,15 @@ describe('mrP', () => {
           'Finisher: phys 9.6/10 ice+non Spellblade @ +10 - 30 - 50% crit @ 0-5-9 ice, then phys 6.4 ice+non overstrike Spellblade @ 9 ice used, ' +
           '15s: Awoken Ice: ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeSoulBreak('Gladiolus - Shield of the True King')).toEqual({
+        damage: 'phys 9.0/15 earth+non',
+        other:
+          'earth infuse 25s, self 1.3x PHY dmg 15s, dmg cap=19,999 15s, ' +
+          '15s: (3 earth (once only) ⤇ p1.56/3 - 2.6/5 - 2.6/5 e+n Knight @ 0-72001-240001 dmg dealt, ' +
+          'then p5.0/10, then 5.0 overstrike, e+n Knight @ 240001 dmg dealt), ' +
+          '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles turn-limited effects', () => {

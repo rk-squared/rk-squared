@@ -420,6 +420,36 @@ function patchEnlir() {
     },
   );
 
+  // Two different follow-up attacks for Gladiolus's AASB is hard.  For now,
+  // we'll try rewording it to resemble Squall's.
+  applyPatch(
+    enlir.statusByName,
+    'Break Arts Mode',
+    mode =>
+      mode.effects ===
+      'Casts Heavy Strike / Heavy Strike+ / Heavy Strike++ and Orbital Edge after using three Earth attacks if 0/72001/240001 damage was dealt during the status, removed after triggering',
+    mode => {
+      mode.effects = 'Casts Heavy Strike after using three Earth attacks, removed after triggering';
+    },
+  );
+  applyPatch(
+    enlir.otherSkillsByName,
+    'Heavy Strike',
+    strike =>
+      strike.effects === 'Three single attacks (0.52 each), 100% hit rate' &&
+      enlir.otherSkillsByName['Heavy Strike+'].effects ===
+        'Five single attacks (0.52 each), 100% hit rate' &&
+      enlir.otherSkillsByName['Heavy Strike++'].effects ===
+        'Five single attacks (0.52 each), 100% hit rate' &&
+      enlir.otherSkillsByName['Orbital Edge'].effects ===
+        'Ten single attacks (0.50 each) and one single attack (5.00) capped at 99999, 100% hit rate',
+    strike => {
+      strike.effects =
+        '3/5/5 single attacks (0.52 each) if 0/72001/240001 damage was dealt during the status. ' +
+        'Additional ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999, if 240001 damage was dealt during the status.';
+    },
+  );
+
   // Sarah's USB3 is pure madness.  I have no shame in whatever hacks it takes
   // to process it.
   applyPatch(
