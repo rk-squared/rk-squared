@@ -156,7 +156,7 @@ function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): strin
 const healRe = XRegExp(
   String.raw`
   [Rr]estores\ #
-  (?:HP\ \((?<healFactor>(?:\d+\/)*\d+)\)
+  (?:HP\ \((?<healFactor>(?:(?:\d+|\?)\/)*(?:\d+|\?))\)
   |(?<fixedHp>\d+)\ HP)
   (?<who>\ to\ the\ user|\ to\ all\ allies|\ to\ the\ lowest\ HP%\ ally)?
   (?<rank>\ at\ rank\ 1\/2\/3\/4\/5\ of\ the\ triggering\ ability)?

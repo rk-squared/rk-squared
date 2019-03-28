@@ -25376,7 +25376,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Fifteen single attacks (? each), restores HP (85) to all allies, grants Regenga to allies, grants Awoken Bond and Damage Cap 19999 to the user",
+    "effects": "Fifteen single attacks (? each), restores HP (85) to all allies, grants Regenga to all allies, grants Awoken Bond and Damage Cap 19999 to the user",
     "counter": false,
     "autoTarget": "?",
     "points": 500,

@@ -1325,6 +1325,13 @@ describe('mrP', () => {
           '15s: (Monk ⤇ 1.1-1.2-1.3x Monk dmg, 2-3-4x cast), ' +
           '15s: Awoken Monk: Monk inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+      expect(describeSoulBreak('Yuna - For the Calm')).toEqual({
+        damage: '? ?/15 holy+wind+non',
+        instant: true,
+        other:
+          'party h85, Regenga, self dmg cap=19,999 15s, ' +
+          '15s: Awoken Bond: Summon inf. hones, 100% dualcast, (Summon ⤇ party h?/?/?/?/? @ rank 1-5)',
+      });
     });
 
     it('converts stacking EX bonuses', () => {
