@@ -550,6 +550,19 @@ function patchEnlir() {
     },
   );
 
+  // Missing / inconsistent data within Enlir - but don't update until we can
+  // confirm.
+  applyPatch(
+    enlir.burstCommands,
+    '30511811',
+    guyBurstCommand =>
+      guyBurstCommand.effects ===
+      "Four single attacks (0.14 each), multiplier increases with user's ATK",
+    guyBurstCommand => {
+      guyBurstCommand.effects = 'Four single attacks (0.14~0.65 each scaling with ATK)';
+    },
+  );
+
   // These may be inconsistencies in the spreadsheet - Enlir normally instead
   // lists such things as "All enemies," with the stat mods first.
   // TODO: Verify these against JSON and, where possible, update spreadsheet to make them unnecessary

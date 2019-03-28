@@ -1597,6 +1597,37 @@ describe('mrP', () => {
         damage: 'phys 11.25 - 12.0 - 12.75 - 13.5 lgt+non overstrike w/ 0-1-2-3 uses',
         other: undefined,
       });
+      expect(describeSoulBreak('Cloud - Cloud Cycle')).toEqual({
+        burstCommands: [
+          {
+            damage: 'p0.56/4 wi+n, up to p2.6 scaling with ATK',
+            school: 'Combat',
+          },
+          {
+            damage: 'AoE p1.3/2 wi+n',
+            other: 'self +30% ATK, -30% DEF 20s',
+            school: 'Combat',
+          },
+        ],
+        damage: 'phys 6.64/8 wind+non',
+        other: 'wind infuse 25s',
+      });
+      expect(describeSoulBreak('Guy - Gigantbreak')).toEqual({
+        burstCommands: [
+          {
+            damage: 'p0.56/4 e+n, up to p2.6 scaling with ATK',
+            other: undefined,
+            school: 'Combat',
+          },
+          {
+            damage: 'AoE p1.3/2 e+n',
+            other: 'self +30% ATK, -30% DEF 20s',
+            school: 'Combat',
+          },
+        ],
+        damage: 'AoE phys 5.82/6 earth+non',
+        other: '+20% earth vuln. 25s',
+      });
     });
 
     it('converts conditional attacks', () => {
