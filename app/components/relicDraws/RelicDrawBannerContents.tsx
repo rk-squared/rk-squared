@@ -3,8 +3,7 @@ import * as React from 'react';
 import * as _ from 'lodash';
 
 import { getOffBannerRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
-import { enlir } from '../../data/enlir';
-import { tierOrder } from '../../data/mrP';
+import { enlir, tierOrder } from '../../data/enlir';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import RelicDrawBannerTable from './RelicDrawBannerTable';
 

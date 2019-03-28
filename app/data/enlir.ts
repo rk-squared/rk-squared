@@ -285,6 +285,22 @@ export type EnlirSkill =
   | EnlirOtherSkill
   | EnlirSoulBreak;
 
+export const tierOrder: { [t in EnlirSoulBreakTier]: number } = {
+  Default: 0,
+  SB: 1,
+  SSB: 2,
+  BSB: 3,
+  Glint: 4,
+  'Glint+': 5,
+  OSB: 6,
+  AOSB: 7,
+  USB: 8,
+  AASB: 9,
+  CSB: 10,
+  RW: 100,
+  Shared: 101,
+};
+
 const rawData = {
   abilities: require('./enlir/abilities.json') as EnlirAbility[],
   braveCommands: require('./enlir/brave.json') as EnlirBraveCommand[],
@@ -316,13 +332,18 @@ interface CommandsMap<T> {
   };
 }
 
-function makeCharacterMap<T extends { character: string }>(items: T[]): CharacterMap<T> {
+function makeCharacterMap<T extends { character: string }>(
+  items: T[],
+  sortOrder: _.Many<_.ListIteratee<T>>,
+): CharacterMap<T> {
   const result: CharacterMap<T> = {};
+
   for (const i of items) {
     result[i.character] = result[i.character] || [];
     result[i.character].push(i);
   }
-  return result;
+
+  return _.mapValues(result, i => _.sortBy(i, sortOrder));
 }
 
 function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
@@ -363,13 +384,22 @@ const otherSkillSourceKey = (source: string, name: string) => source + '_' + nam
 export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
   abilitiesByName: _.keyBy(rawData.abilities, 'name'),
+
   braveCommands: _.keyBy(rawData.braveCommands, 'id'),
   braveCommandsByCharacter: makeCommandsMap(rawData.braveCommands),
+
   burstCommands: _.keyBy(rawData.burstCommands, 'id'),
   burstCommandsByCharacter: makeCommandsMap(rawData.burstCommands),
+
   characters: _.keyBy(rawData.characters, 'id'),
   charactersByName: _.keyBy(rawData.characters, 'name'),
+
   legendMateria: _.keyBy(rawData.legendMateria, 'id'),
+  legendMateriaByCharacter: makeCharacterMap(rawData.legendMateria, [
+    (i: EnlirLegendMateria) => i.relic != null,
+    (i: EnlirLegendMateria) => i.id,
+  ]),
+
   magicites: _.keyBy(rawData.magicite, 'id'),
 
   // NOTE: Other Skills' names are not unique, and they often lack IDs, so
@@ -379,10 +409,17 @@ export const enlir = {
   otherSkillsBySource: _.keyBy(rawData.otherSkills, i => otherSkillSourceKey(i.source, i.name)),
 
   relics: _.keyBy(rawData.relics, 'id'),
+
   recordMateria: _.keyBy(rawData.recordMateria, 'id'),
+
   soulBreaks: _.keyBy(rawData.soulBreaks, 'id'),
-  soulBreaksByCharacter: makeCharacterMap(rawData.soulBreaks),
+  soulBreaksByCharacter: makeCharacterMap(rawData.soulBreaks, [
+    (i: EnlirSoulBreak) => tierOrder[i.tier],
+    (i: EnlirSoulBreak) => i.id,
+  ]),
+
   statusByName: _.keyBy(rawData.status, 'name'),
+
   relicSoulBreaks: makeRelicMap(rawData.relics, 'soulBreak', rawData.soulBreaks),
   relicLegendMateria: makeRelicMap(rawData.relics, 'legendMateria', rawData.legendMateria),
 };

@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 
 import { enlir, isCoreJob } from '../../data/enlir';
 import { IState } from '../../reducers';
-import { getOwnedSoulBreaks } from '../../selectors/characters';
+import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
 import { alphabet, alphabetize } from '../../utils/textUtils';
 import { CharacterSoulBreaks } from './CharacterSoulBreaks';
 
@@ -18,13 +18,14 @@ interface Props {
   letterAnchor?: (letter: string) => string;
 
   ownedSoulBreaks?: Set<number>;
+  ownedLegendMateria?: Set<number>;
 
   isAnonymous?: boolean;
 }
 
 export class SoulBreakList extends React.Component<Props> {
   render() {
-    const { letterAnchor, isAnonymous, ownedSoulBreaks } = this.props;
+    const { letterAnchor, isAnonymous, ownedSoulBreaks, ownedLegendMateria } = this.props;
     return (
       <>
         {alphabet.map(
@@ -37,6 +38,7 @@ export class SoulBreakList extends React.Component<Props> {
                     <CharacterSoulBreaks
                       character={character.name}
                       ownedSoulBreaks={isAnonymous ? undefined : ownedSoulBreaks}
+                      ownedLegendMateria={isAnonymous ? undefined : ownedLegendMateria}
                       key={j}
                     />
                   ))}
@@ -51,4 +53,5 @@ export class SoulBreakList extends React.Component<Props> {
 
 export default connect((state: IState) => ({
   ownedSoulBreaks: getOwnedSoulBreaks(state),
+  ownedLegendMateria: getOwnedLegendMateria(state),
 }))(SoulBreakList);

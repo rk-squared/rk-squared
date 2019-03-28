@@ -30,10 +30,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
     <ul
       className="component"
     >
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130300300/130300300_112.png"
@@ -43,10 +40,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
          ×
         95
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130400200/130400200_112.png"
@@ -56,10 +50,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
          ×
         30
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png"
@@ -69,10 +60,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
          ×
         9
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png"
@@ -82,10 +70,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
          ×
         2
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/91000000.png"
@@ -95,10 +80,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
          ×
         1
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/92000000.png"
@@ -108,10 +90,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
          ×
         400,000
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001020.png"
@@ -121,10 +100,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
          ×
         2
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001080.png"
@@ -169,10 +145,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
     <ul
       className="component"
     >
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130300300/130300300_112.png"
@@ -182,10 +155,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
          ×
         95
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130400200/130400200_112.png"
@@ -195,10 +165,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
          ×
         30
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png"
@@ -208,10 +175,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
          ×
         9
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png"
@@ -221,10 +185,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
          ×
         2
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/91000000.png"
@@ -234,10 +195,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
          ×
         1
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/92000000.png"
@@ -247,10 +205,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
          ×
         400,000
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001020.png"
@@ -260,10 +215,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
          ×
         2
       </li>
-      <li
-        data-for={undefined}
-        data-tip={undefined}
-      >
+      <li>
         <img
           height={32}
           src="http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001080.png"

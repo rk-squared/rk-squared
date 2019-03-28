@@ -3,8 +3,8 @@
 import * as _ from 'lodash';
 import * as yargs from 'yargs';
 
-import { enlir } from '../app/data/enlir';
-import { describeEnlirSoulBreak, formatMrP, tierOrder } from '../app/data/mrP';
+import { enlir, tierOrder } from '../app/data/enlir';
+import { describeEnlirSoulBreak, formatMrP } from '../app/data/mrP';
 import { formatBraveCommands } from '../app/data/mrP/brave';
 
 // tslint:disable: no-console
@@ -42,7 +42,7 @@ for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
   console.log(sb.character + ': ' + sb.tier + ': ' + sb.name);
   console.log(text || '???');
   if (mrP.braveCommands) {
-    //console.log('    [' + getSchoolShortName(mrP.braveCommands[0].school) + '], +1 on ' + mrP.braveCondition.map(getShortName).join(', ');
+    // console.log('    [' + getSchoolShortName(mrP.braveCommands[0].school) + '], +1 on ' + mrP.braveCondition.map(getShortName).join(', ');
     console.log('    ' + formatBraveCommands(mrP.braveCommands));
   }
   if (mrP.burstCommands) {
