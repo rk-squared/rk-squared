@@ -2080,7 +2080,7 @@ describe('mrP', () => {
           '15s: Awoken Wind: wind inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
-      expect(describeSoulBreak('Kain - Lance of Dragon')).toEqual({
+      expect(describeSoulBreak('Kain - Lance of the Dragon')).toEqual({
         damage: 'phys 9.0/15 lgt+non jump',
         other:
           'lgt infuse 25s, self dmg cap=29,999 15s, ' +

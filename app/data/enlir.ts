@@ -550,6 +550,30 @@ function patchEnlir() {
     },
   );
 
+  // Tyro AASB.  This is a mess in Enlir; how should it be explained?
+  applyPatch(
+    enlir.soulBreaks,
+    '20140018',
+    tyroAasb =>
+      tyroAasb.effects ===
+      'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Scholar and Unraveled History Follow-Up to the user',
+    tyroAasb => {
+      tyroAasb.effects =
+        'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Scholar, Awoken Scholar Critical Chance, and Unraveled History Follow-Up to the user';
+    },
+  );
+  applyPatch(
+    enlir.statusByName,
+    'Awoken Scholar',
+    scholar =>
+      scholar.effects ===
+      "Support abilities don't consume uses, cast speed x2.00-x3.00 for Support abilities at ability rank 1/2/3/4/5, grants Awoken Scholar Critical Chance to all allies",
+    scholar => {
+      scholar.effects =
+        "Support abilities don't consume uses, cast speed x2.00-x3.00 for Support abilities at ability rank 1/2/3/4/5";
+    },
+  );
+
   // Missing / inconsistent data within Enlir - but don't update until we can
   // confirm.
   applyPatch(

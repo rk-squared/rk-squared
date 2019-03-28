@@ -2267,7 +2267,7 @@
     },
     "effect": "Wind damage +20%",
     "character": "Vaan",
-    "soulBreak": "Ultra White Whorl",
+    "soulBreak": "Whitest Whorl",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -2292,7 +2292,7 @@
       "eva": null
     },
     "id": 21001151,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Yukimitsu",
@@ -12012,7 +12012,7 @@
       "eva": null
     },
     "id": 21002443,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Sun Blade",
@@ -28682,7 +28682,7 @@
     },
     "effect": null,
     "character": "Vaan",
-    "soulBreak": "Rabanastre's Style",
+    "soulBreak": "Rabanastre Rumble",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -28707,7 +28707,7 @@
       "eva": null
     },
     "id": 21003052,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Iga Blade",
@@ -34622,7 +34622,7 @@
     },
     "effect": "Lightning damage +20%",
     "character": "Kain",
-    "soulBreak": "Lance of Dragon",
+    "soulBreak": "Lance of the Dragon",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -34647,7 +34647,7 @@
       "eva": null
     },
     "id": 21006131,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Gilgamesh's Naginata",
@@ -41352,7 +41352,7 @@
       "eva": null
     },
     "id": 21007142,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Master Fist",
@@ -41397,7 +41397,7 @@
       "eva": null
     },
     "id": 21007101,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Seraphim Claw",
@@ -97512,7 +97512,7 @@
       "eva": 100
     },
     "id": 22053304,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Summoner's Garb",
