@@ -605,6 +605,10 @@ export function describeEnlirSoulBreak(
         }
       }
 
+      if (description === '') {
+        return;
+      }
+
       // Status removal.  In practice, only a few White Magic abilities hit
       // this; the rest are special cased (Esuna, burst toggles, etc.).
       //

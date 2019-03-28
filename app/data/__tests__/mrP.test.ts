@@ -1318,6 +1318,13 @@ describe('mrP', () => {
           '15s: EX: (B.Mag ⤇ m7.68/6 i+wa+l+n B.Mag), ' +
           'Finisher: magic 17.3/10 ice+water+lgt+non B.Mag',
       });
+      expect(describeSoulBreak('Yda - Fire Tackle')).toEqual({
+        damage: 'phys 9.0/15 fire+non',
+        other:
+          'fire infuse 25s, self dmg cap=19,999 15s, ' +
+          '15s: (Monk ⤇ 1.1-1.2-1.3x Monk dmg, 2-3-4x cast), ' +
+          '15s: Awoken Monk: Monk inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('converts stacking EX bonuses', () => {

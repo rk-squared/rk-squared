@@ -269,7 +269,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
 export interface EnlirStatus {
   id: number;
   name: string;
-  effects: string;
+  effects: string; // TODO: null is actually permitted, but it complicates code a lot
   defaultDuration: number | null;
   mndModifier: number | null;
   mndModifierIsOpposed: boolean;
@@ -514,6 +514,30 @@ function patchEnlir() {
         'Ten random attacks (0.68 each), causes Imperil Wind 20% for 25 seconds, grants ATK and DEF +30% for 25 seconds, Quick Cast 1 and Wind Quick Cycle to the user';
     },
   );
+
+  // Status cleanups.  These too should be fixed up.
+  applyPatch(
+    enlir.statusByName,
+    'True Greased Lightning Mode',
+    mode => mode.effects === 'Grants True Greased Lightning 0/1/2/3 after using a Monk ability',
+    mode => {
+      // Adequately covered by True Greased Lightning 0/1/2/3
+      mode.effects = '';
+    },
+  );
+  for (let i = 0; i <= 3; i++) {
+    applyPatch(
+      enlir.statusByName,
+      `True Greased Lightning ${i}`,
+      mode => mode.effects.match(/[Gg]rants True Greased Lightning (\d+),/) != null,
+      mode => {
+        mode.effects = mode.effects.replace(
+          /([Gg]rants) True Greased Lightning (\d+),/,
+          (match, p1, p2) => `${p1} True Greased Lightning ${p2} after using a Monk ability,`,
+        );
+      },
+    );
+  }
 
   // These may be inconsistencies in the spreadsheet - Enlir normally instead
   // lists such things as "All enemies," with the stat mods first.

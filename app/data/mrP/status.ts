@@ -686,6 +686,8 @@ function describeEnlirStatusEffect(
 
   // Handle ability boost and element boost.  The second form is only observed
   // with Noctis's non-elemental boosts; it may simply be an inconsistency.
+  // Ths overlaps with the statusAlias, but duplicating it here lets us handle
+  // school lists, etc.
   if (
     (m = effect.match(/(.*) (?:abilities|attacks) deal ([0-9/]+)% more damage/)) ||
     (m = effect.match(/[Ii]ncreases (.*) damage dealt by ([0-9/]+)%/))
