@@ -2128,6 +2128,14 @@ describe('mrP', () => {
           '15s: (3 Support ⤇ party +50% crit dmg 1 turn), ' +
           '15s: Awoken Scholar: Support inf. hones, 2-3x Support cast @ rank 1-5',
       });
+
+      expect(describeSoulBreak('Vivi - Fire for the Future')).toEqual({
+        damage: '? ?/15 fire+non',
+        other:
+          'fire infuse 25s, self dmg cap=19,999 15s, ' +
+          '25s: Trance: +30% MAG, 50% dualcast B.Mag, ' +
+          '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles turn-limited effects', () => {
@@ -2401,6 +2409,10 @@ describe('mrP', () => {
       });
     });
 
+    // Sample for doing a snapshot test of all of the soul breaks.  For now,
+    // we'll use the review-mrp-updates.sh script instead; it's easier to work
+    // with.
+    /*
     it('converts all soul breaks', () => {
       // Exclude roaming warriors - event soul breaks like Haunted or Zoma's
       // are too weird and specialized to worry about.
@@ -2409,6 +2421,7 @@ describe('mrP', () => {
       );
       expect(allSoulBreaks).toMatchSnapshot();
     });
+    */
   });
 
   describe('describeMrPLegendMateria', () => {

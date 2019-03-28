@@ -650,6 +650,14 @@ function describeEnlirStatusEffect(
     }
   }
 
+  if (
+    (m = effect.match(/^(\d+|\?)% chance to dualcast abilities that deal (.*) damage$/)) ||
+    (m = effect.match(/^(\d+|\?)% chance to dualcast (.*) abilities$/))
+  ) {
+    const [, percent, schoolOrElement] = m;
+    return `${percent}% dualcast ${formatSchoolOrAbilityList(schoolOrElement)}`;
+  }
+
   if ((m = effect.match(enlirRankBoostRe))) {
     return rankBoostAlias(m[1]);
   }
