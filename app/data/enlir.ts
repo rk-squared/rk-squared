@@ -538,6 +538,17 @@ function patchEnlir() {
       },
     );
   }
+  applyPatch(
+    enlir.statusByName,
+    'Awoken Guardian',
+    mode =>
+      mode.effects ===
+      "White Magic abilities don't consume uses and single target heals grant Stoneskin: 30/40/50/60/70% to target at ability rank 1/2/3/4/5, dualcasts White Magic abilities",
+    mode => {
+      mode.effects =
+        "White Magic abilities don't consume uses, grants Stoneskin: 30/40/50/60/70% at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities";
+    },
+  );
 
   // These may be inconsistencies in the spreadsheet - Enlir normally instead
   // lists such things as "All enemies," with the stat mods first.

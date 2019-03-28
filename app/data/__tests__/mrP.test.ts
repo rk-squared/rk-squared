@@ -1332,6 +1332,14 @@ describe('mrP', () => {
           'party h85, Regenga, self dmg cap=19,999 15s, ' +
           '15s: Awoken Bond: Summon inf. hones, 100% dualcast, (Summon ⤇ party h?/?/?/?/? @ rank 1-5)',
       });
+      expect(describeSoulBreak("Y'shtola - Pulse of Life")).toEqual({
+        damage: undefined,
+        instant: true,
+        other:
+          'party h105, Negate dmg 30%, Last stand, self hi fastcast 15s, ' +
+          '15s: Awoken Guardian: W.Mag inf. hones, ' +
+          '(ally heal ⤇ ally Negate dmg 30%/40%/50%/60%/70% @ rank 1-5), 100% dualcast',
+      });
     });
 
     it('converts stacking EX bonuses', () => {

@@ -93,6 +93,8 @@ export function describeStats(stats: string[]): string {
 function parseWho(who: string): string | undefined {
   return who.match('user')
     ? undefined // No need to spell out "self" for, e.g., "hi fastcast 1"
+    : who.match('target')
+    ? 'ally'
     : who.match('front')
     ? 'front row'
     : who.match('back')
@@ -903,6 +905,9 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
   if (trigger === 'elemental weakness') {
     return hitWeaknessTriggerText;
   }
+  if (trigger === 'a single-target heal') {
+    return 'ally heal';
+  }
 
   // Special case: Steiner
   const m = trigger.match(/(.*) dmg from a (.*) attack used by another ally/);
@@ -941,7 +946,7 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
 }
 
 function describeFollowUpItem(
-  { who, duration, durationUnits }: StatusItem,
+  { who, duration, durationUnits, rank }: StatusItem,
   description: string,
 ): string {
   if (who) {
@@ -949,6 +954,9 @@ function describeFollowUpItem(
   }
   if (who) {
     description = who + ' ' + description;
+  }
+  if (rank) {
+    description += ' @ rank 1-5';
   }
 
   if (duration && durationUnits) {
@@ -1221,6 +1229,7 @@ const statusItemRe = XRegExp(
   (?<scalesWithUses1>\ scaling\ with\ (?<scaleWithUsesSkill1>[A-Za-z ]+\ )?uses)?
   (?<who>
     \ to\ the\ user|
+    \ to\ the\ target|
     \ to\ all\ allies(?:\ in\ the\ (?:front|back|character's)\ row)?|
     \ to\ the\ lowest\ HP%\ ally|
     \ to\ a\ random\ ally\ without\ status|
