@@ -55,7 +55,7 @@
     "testMatch": [
       "**/?(*.)(spec|test).ts?(x)"
     ],
-    "collectCoverage": true,
+    "collectCoverage": false,
     "collectCoverageFrom": [
       "<rootDir>/app/**/*.{ts,tsx}",
       "!**/__tests__/**"
