@@ -49,8 +49,11 @@ import {
 
 const finisherText = 'Finisher: ';
 export const hitWeaknessTriggerText = 'hit weak';
-export const formatTriggeredEffect = (trigger: string, description: string, percent?: string) =>
-  '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
+export const formatTriggeredEffect = (
+  trigger: string,
+  description: string,
+  percent?: string | number,
+) => '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
 
 /**
  * Status effects which should be omitted from the regular status list
@@ -135,6 +138,7 @@ interface FollowUpEffect {
   randomSkills: boolean;
   customStatusesDescription?: string;
 
+  chance: number | undefined;
   trigger: string | null;
   isDamageTrigger: boolean;
   customTriggerSuffix?: string;
@@ -157,6 +161,7 @@ function checkCustomTrigger(enlirStatus?: EnlirStatus | null): string | undefine
 
 const followUpRe = XRegExp(
   String.raw`
+  (?:(?<chance>\d+)%\ chance\ to\ )?
   (?<allEffects>.*)\ #
   (?:after\ #
     (?<triggerType>using|dealing\ damage\ with|dealing|exploiting|taking\ (?<takeDamageTrigger>.*?)\ damage)\ #
@@ -187,6 +192,7 @@ function parseFollowUpEffect(
     return null;
   }
   const {
+    chance,
     allEffects,
     triggerType,
     takeDamageTrigger,
@@ -226,6 +232,7 @@ function parseFollowUpEffect(
   }
 
   return {
+    chance: chance ? +chance : undefined,
     skills,
     statuses,
     effects,
@@ -708,7 +715,7 @@ function describeEnlirStatusEffect(
     return 'break ' + m[1] + ' dmg cap';
   }
 
-  if ((m = effect.match(/[Rr]estores (\d+) HP/))) {
+  if ((m = effect.match(/[Rr]estores? (\d+) HP/))) {
     const [, healHp] = m;
     return `heal ${toMrPKilo(+healHp)} HP`;
   }
@@ -1097,6 +1104,7 @@ function describeFollowUp(followUp: FollowUpEffect, sourceStatusName: string): s
       // the final threshold, and we show thresholds as part of the
       // description.
       (followUp.customTriggerSuffix ? ' (' + followUp.customTriggerSuffix + ')' : ''),
+    followUp.chance,
   );
 }
 

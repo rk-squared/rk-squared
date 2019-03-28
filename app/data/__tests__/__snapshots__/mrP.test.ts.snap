@@ -130,7 +130,7 @@ Array [
   },
   Object {
     "character": "Amarant",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +30% ATK/RES, (Monk ⤇ party 50% chance to restore 1500 HP) 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +30% ATK/RES, (Monk ⤇ 50% for party heal 1.5k HP) 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Amarant Trance when HP fall below 20%",
     "name": "Profound Awakening",
   },
