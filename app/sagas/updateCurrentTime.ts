@@ -26,10 +26,11 @@ export function* updateCurrentTime() {
   logger.debug(`Starting timer at ${formatTime(lastTime)}`);
 
   while (true) {
-    yield call(wait, interval);
+    const nextTime = lastTime + resolution;
+    yield call(wait, Math.min(interval, nextTime - Date.now() + delay));
 
     const newTime = Date.now();
-    if (newTime < lastTime || newTime - lastTime > resolution + delay) {
+    if (newTime < lastTime || newTime - lastTime > resolution) {
       yield put(setCurrentTime(newTime));
       lastTime = roundToResolution(newTime);
       logger.debug(`Update timer to ${formatTime(lastTime)}`);
