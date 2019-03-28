@@ -14827,7 +14827,7 @@
       "Water"
     ],
     "time": null,
-    "effects": "3/5/7 single attacks (0.70 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "effects": "3/5/7 single attacks (? each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
     "counter": false,
     "autoTarget": "?",
     "sb": 80,
@@ -18499,7 +18499,7 @@
   },
   {
     "school": "Heavy",
-    "name": "Evil Press",
+    "name": "Wicked Press",
     "rarity": 5,
     "type": "PHY",
     "target": "Single enemy",
@@ -18538,7 +18538,7 @@
         60
       ]
     },
-    "introducingEvent": "Dawn of Conflict",
+    "introducingEvent": "Dawn of Strife",
     "nameJp": "イービルプレス",
     "id": 30311071,
     "gl": false

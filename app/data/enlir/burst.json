@@ -307,7 +307,7 @@
     "school": "Heavy",
     "nameJp": "ヘルインパクト",
     "id": 30512821,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Wol",
@@ -329,7 +329,7 @@
     "school": "Heavy",
     "nameJp": "ヘヴィブレイク",
     "id": 30512822,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Echo",

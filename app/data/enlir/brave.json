@@ -23,7 +23,7 @@
     ],
     "nameJp": "ヒールメロディ",
     "id": 30542217,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Sarah",
@@ -49,7 +49,7 @@
     ],
     "nameJp": "ヒールメロディ",
     "id": 30542218,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Sarah",
@@ -73,7 +73,7 @@
     ],
     "nameJp": "ヒールメロディ",
     "id": 30542219,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Sarah",
@@ -99,7 +99,7 @@
     ],
     "nameJp": "ヒールメロディ",
     "id": 30542310,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Wol",
@@ -125,7 +125,7 @@
     ],
     "nameJp": "サドンストライク",
     "id": 30549193,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Wol",
@@ -151,7 +151,7 @@
     ],
     "nameJp": "サドンストライク",
     "id": 30549194,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Wol",
@@ -177,7 +177,7 @@
     ],
     "nameJp": "サドンストライク",
     "id": 30549195,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Wol",
@@ -203,7 +203,7 @@
     ],
     "nameJp": "サドンストライク",
     "id": 30549196,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Firion",
@@ -734,7 +734,7 @@
     ],
     "nameJp": "巨人の咆哮",
     "id": 30543042,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Rydia",
@@ -759,7 +759,7 @@
     ],
     "nameJp": "巨人の咆哮",
     "id": 30543043,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Rydia",
@@ -784,7 +784,7 @@
     ],
     "nameJp": "巨人の咆哮",
     "id": 30543044,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Rydia",
@@ -809,7 +809,7 @@
     ],
     "nameJp": "巨人の咆哮",
     "id": 30543045,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gilgamesh",
@@ -935,7 +935,7 @@
     ],
     "nameJp": "ねっぱ",
     "id": 30548330,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Faris",
@@ -961,7 +961,7 @@
     ],
     "nameJp": "ねっぱ",
     "id": 30548331,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Faris",
@@ -987,7 +987,7 @@
     ],
     "nameJp": "ねっぱ",
     "id": 30548332,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Faris",
@@ -1013,7 +1013,7 @@
     ],
     "nameJp": "ねっぱ",
     "id": 30548333,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Exdeath",
@@ -2325,7 +2325,7 @@
   },
   {
     "character": "Kuja",
-    "source": "Chaos Rhapsody",
+    "source": "Chaotic Rhapsody",
     "name": "Ruinous Recital",
     "brave": 0,
     "type": "BLK",
@@ -2350,7 +2350,7 @@
   },
   {
     "character": "Kuja",
-    "source": "Chaos Rhapsody",
+    "source": "Chaotic Rhapsody",
     "name": "Ruinous Recital",
     "brave": 1,
     "type": "BLK",
@@ -2375,7 +2375,7 @@
   },
   {
     "character": "Kuja",
-    "source": "Chaos Rhapsody",
+    "source": "Chaotic Rhapsody",
     "name": "Ruinous Recital",
     "brave": 2,
     "type": "BLK",
@@ -2400,7 +2400,7 @@
   },
   {
     "character": "Kuja",
-    "source": "Chaos Rhapsody",
+    "source": "Chaotic Rhapsody",
     "name": "Ruinous Recital",
     "brave": 3,
     "type": "BLK",
@@ -2742,7 +2742,7 @@
     ],
     "nameJp": "シーフスパイラル",
     "id": 30548335,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vaan",
@@ -2767,7 +2767,7 @@
     ],
     "nameJp": "シーフスパイラル",
     "id": 30548336,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vaan",
@@ -2792,7 +2792,7 @@
     ],
     "nameJp": "シーフスパイラル",
     "id": 30548337,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vaan",
@@ -2817,7 +2817,7 @@
     ],
     "nameJp": "シーフスパイラル",
     "id": 30548338,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gabranth",
@@ -2921,7 +2921,7 @@
   },
   {
     "character": "Vayne",
-    "source": "Battering Ram",
+    "source": "Relentless Drive",
     "name": "Undertow",
     "brave": 0,
     "type": "NAT",
@@ -2946,7 +2946,7 @@
   },
   {
     "character": "Vayne",
-    "source": "Battering Ram",
+    "source": "Relentless Drive",
     "name": "Undertow",
     "brave": 1,
     "type": "NAT",
@@ -2971,7 +2971,7 @@
   },
   {
     "character": "Vayne",
-    "source": "Battering Ram",
+    "source": "Relentless Drive",
     "name": "Undertow",
     "brave": 2,
     "type": "NAT",
@@ -2996,7 +2996,7 @@
   },
   {
     "character": "Vayne",
-    "source": "Battering Ram",
+    "source": "Relentless Drive",
     "name": "Undertow",
     "brave": 3,
     "type": "NAT",

@@ -269,7 +269,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
 export interface EnlirStatus {
   id: number;
   name: string;
-  effects: string;
+  effects: string; // TODO: null is actually permitted, but it complicates code a lot
   defaultDuration: number | null;
   mndModifier: number | null;
   mndModifierIsOpposed: boolean;
@@ -358,6 +358,8 @@ function makeRelicMap<T extends { character: string; name: string }>(
   return result;
 }
 
+const otherSkillSourceKey = (source: string, name: string) => source + '_' + name;
+
 export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
   abilitiesByName: _.keyBy(rawData.abilities, 'name'),
@@ -371,9 +373,10 @@ export const enlir = {
   magicites: _.keyBy(rawData.magicite, 'id'),
 
   // NOTE: Other Skills' names are not unique, and they often lack IDs, so
-  // expose the array.
+  // expose the raw array.
   otherSkills: rawData.otherSkills,
   otherSkillsByName: _.keyBy(rawData.otherSkills, 'name'),
+  otherSkillsBySource: _.keyBy(rawData.otherSkills, i => otherSkillSourceKey(i.source, i.name)),
 
   relics: _.keyBy(rawData.relics, 'id'),
   recordMateria: _.keyBy(rawData.recordMateria, 'id'),
@@ -417,6 +420,37 @@ function patchEnlir() {
     pluto => {
       pluto.effects =
         'Casts Pluto Knight Triblade and grants Minor Buff Fire/Lightning/Ice after exploiting elemental weakness';
+    },
+  );
+
+  // Two different follow-up attacks for Gladiolus's AASB is hard.  For now,
+  // we'll try rewording it to resemble Squall's.
+  // TODO: It's possible that Squall's and Gladiolus's are the same internally and that these should be made consistent
+  applyPatch(
+    enlir.statusByName,
+    'Break Arts Mode',
+    mode =>
+      mode.effects ===
+      'Casts Heavy Strike / Heavy Strike+ / Heavy Strike++ and Orbital Edge after using three Earth attacks if 0/72001/240001 damage was dealt during the status, removed after triggering',
+    mode => {
+      mode.effects = 'Casts Heavy Strike after using three Earth attacks, removed after triggering';
+    },
+  );
+  applyPatch(
+    enlir.otherSkillsByName,
+    'Heavy Strike',
+    strike =>
+      strike.effects === 'Three single attacks (0.52 each), 100% hit rate' &&
+      enlir.otherSkillsByName['Heavy Strike+'].effects ===
+        'Five single attacks (0.52 each), 100% hit rate' &&
+      enlir.otherSkillsByName['Heavy Strike++'].effects ===
+        'Five single attacks (0.52 each), 100% hit rate' &&
+      enlir.otherSkillsByName['Orbital Edge'].effects ===
+        'Ten single attacks (0.50 each) and one single attack (5.00) capped at 99999, 100% hit rate',
+    strike => {
+      strike.effects =
+        '3/5/5 single attacks (0.52 each) if 0/72001/240001 damage was dealt during the status. ' +
+        'Additional ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999, if 240001 damage was dealt during the status.';
     },
   );
 
@@ -478,6 +512,78 @@ function patchEnlir() {
       // Insert 'causes' - same as above
       windUltra.effects =
         'Ten random attacks (0.68 each), causes Imperil Wind 20% for 25 seconds, grants ATK and DEF +30% for 25 seconds, Quick Cast 1 and Wind Quick Cycle to the user';
+    },
+  );
+
+  // Status cleanups.  These too should be fixed up.
+  applyPatch(
+    enlir.statusByName,
+    'True Greased Lightning Mode',
+    mode => mode.effects === 'Grants True Greased Lightning 0/1/2/3 after using a Monk ability',
+    mode => {
+      // Adequately covered by True Greased Lightning 0/1/2/3
+      mode.effects = '';
+    },
+  );
+  for (let i = 0; i <= 3; i++) {
+    applyPatch(
+      enlir.statusByName,
+      `True Greased Lightning ${i}`,
+      mode => mode.effects.match(/[Gg]rants True Greased Lightning (\d+),/) != null,
+      mode => {
+        mode.effects = mode.effects.replace(
+          /([Gg]rants) True Greased Lightning (\d+),/,
+          (match, p1, p2) => `${p1} True Greased Lightning ${p2} after using a Monk ability,`,
+        );
+      },
+    );
+  }
+  applyPatch(
+    enlir.statusByName,
+    'Awoken Guardian',
+    mode =>
+      mode.effects ===
+      "White Magic abilities don't consume uses and single target heals grant Stoneskin: 30/40/50/60/70% to target at ability rank 1/2/3/4/5, dualcasts White Magic abilities",
+    mode => {
+      mode.effects =
+        "White Magic abilities don't consume uses, grants Stoneskin: 30/40/50/60/70% at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities";
+    },
+  );
+
+  // Tyro AASB.  This is a mess in Enlir; how should it be explained?
+  applyPatch(
+    enlir.soulBreaks,
+    '20140018',
+    tyroAasb =>
+      tyroAasb.effects ===
+      'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Scholar and Unraveled History Follow-Up to the user',
+    tyroAasb => {
+      tyroAasb.effects =
+        'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Scholar, Awoken Scholar Critical Chance, and Unraveled History Follow-Up to the user';
+    },
+  );
+  applyPatch(
+    enlir.statusByName,
+    'Awoken Scholar',
+    scholar =>
+      scholar.effects ===
+      "Support abilities don't consume uses, cast speed x2.00-x3.00 for Support abilities at ability rank 1/2/3/4/5, grants Awoken Scholar Critical Chance to all allies",
+    scholar => {
+      scholar.effects =
+        "Support abilities don't consume uses, cast speed x2.00-x3.00 for Support abilities at ability rank 1/2/3/4/5";
+    },
+  );
+
+  // Missing / inconsistent data within Enlir - but don't update until we can
+  // confirm.
+  applyPatch(
+    enlir.burstCommands,
+    '30511811',
+    guyBurstCommand =>
+      guyBurstCommand.effects ===
+      "Four single attacks (0.14 each), multiplier increases with user's ATK",
+    guyBurstCommand => {
+      guyBurstCommand.effects = 'Four single attacks (0.14~0.65 each scaling with ATK)';
     },
   );
 
@@ -573,6 +679,23 @@ export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
   }
 
   return undefined;
+}
+
+/**
+ * Gets an EnlirOtherSkill.  Other skills don't have unique names, so this
+ * takes an optional source parameter to help disambiguate it.
+ */
+export function getEnlirOtherSkill(otherSkillName: string, sourceName?: string): EnlirOtherSkill {
+  if (sourceName) {
+    const key = otherSkillSourceKey(sourceName, otherSkillName);
+    if (enlir.otherSkillsBySource[key]) {
+      return enlir.otherSkillsBySource[key];
+    }
+    // This lookup may fail for, e.g., Refia's glint's follow-up, which lists
+    // its source as "Explosive Rush Mode 1/2/3" in the spreadsheet.  To
+    // accommodate, allow falling back to looking up by name.
+  }
+  return enlir.otherSkillsByName[otherSkillName];
 }
 
 export function isSoulBreak(skill: EnlirSkill): skill is EnlirSoulBreak {

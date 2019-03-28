@@ -45,6 +45,17 @@
   },
   {
     "realm": "Core",
+    "character": "Tyro",
+    "name": "Admiration of Heroes",
+    "effect": "ATK, DEF, MAG, RES and MND +30% when equipping a book",
+    "master": "ATK +10",
+    "relic": "Light Tome (Core)",
+    "nameJp": "英雄への憧れ",
+    "id": 201000204,
+    "gl": false
+  },
+  {
+    "realm": "Core",
     "character": "Elarra",
     "name": "To Be Human",
     "effect": "WHT abilities restore 15% more HP",
@@ -112,7 +123,7 @@
   {
     "realm": "Core",
     "character": "Biggs",
-    "name": "Warrior's Hidden Pride",
+    "name": "Hidden Valor",
     "effect": "Grants Attach Earth at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Biggs's Guise (Core)",
@@ -156,7 +167,7 @@
   {
     "realm": "Core",
     "character": "Wedge",
-    "name": "Concealed Affection",
+    "name": "Hidden Kindness",
     "effect": "Grants Attach Wind at the beginning of the battle",
     "master": "ATK +5, MAG +5",
     "relic": "Wedge's Hat (Core)",
@@ -200,7 +211,7 @@
   {
     "realm": "Core",
     "character": "Dr. Mog",
-    "name": "Expert of White Magic",
+    "name": "Master of Renewal",
     "effect": "25% chance to dualcast White Magic abilities",
     "master": "MAG +5, MND +5",
     "relic": "Healing Staff (Core)",
@@ -377,9 +388,9 @@
     "realm": "I",
     "character": "Sarah",
     "name": "Swift Melody",
-    "effect": "?",
+    "effect": "?% chance to grant Quick Cast 1 to the user after using a Bard ability",
     "master": "MND +10",
-    "relic": "?",
+    "relic": "Golden Hairpin (I)",
     "nameJp": "はやての調べ",
     "id": 201010303,
     "gl": false
@@ -393,7 +404,7 @@
     "relic": null,
     "nameJp": "鋭い現実主義者",
     "id": 201010400,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -404,7 +415,7 @@
     "relic": null,
     "nameJp": "世界を変えた光の戦士",
     "id": 201010401,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -415,7 +426,7 @@
     "relic": "Sirius (I)",
     "nameJp": "ルールを覆す者",
     "id": 201010402,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -459,7 +470,7 @@
     "relic": "Nirvana (I)",
     "nameJp": "伝説の妖精",
     "id": 201010503,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -503,7 +514,7 @@
     "relic": "Soldier's Armlet (I)",
     "nameJp": "武人の鑑",
     "id": 201010603,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -570,6 +581,17 @@
     "nameJp": "復讐の碧き魔力",
     "id": 201010801,
     "gl": true
+  },
+  {
+    "realm": "I",
+    "character": "Meia",
+    "name": "Liberation from Hatred",
+    "effect": "?% chance to dualcast abilities that deal Water damage",
+    "master": "MAG +10",
+    "relic": "Glam Vamp (I)",
+    "nameJp": "憎悪からの解放",
+    "id": 201010803,
+    "gl": false
   },
   {
     "realm": "I",
@@ -661,6 +683,17 @@
   },
   {
     "realm": "II",
+    "character": "Firion",
+    "name": "Rebel's Just Cause",
+    "effect": "PHY attacks deal ?% more damage",
+    "master": "ATK +10",
+    "relic": "Mythril Spear (II)",
+    "nameJp": "支配への義憤",
+    "id": 201020106,
+    "gl": false
+  },
+  {
+    "realm": "II",
     "character": "Maria",
     "name": "Unshakeable",
     "effect": "Increases Earth damage dealt by 10%",
@@ -691,6 +724,17 @@
     "nameJp": "深き慈しみの少女",
     "id": 201020202,
     "gl": true
+  },
+  {
+    "realm": "II",
+    "character": "Maria",
+    "name": "Search for Brother",
+    "effect": "25% chance to dualcast abilities that deal Earth damage",
+    "master": "MAG +10",
+    "relic": "Minerva Bustier (II)",
+    "nameJp": "兄の行方を追う少女",
+    "id": 201020203,
+    "gl": false
   },
   {
     "realm": "II",
@@ -859,6 +903,17 @@
   },
   {
     "realm": "II",
+    "character": "Gordon",
+    "name": "Budding Confidence",
+    "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Heavy Lance (II)",
+    "nameJp": "芽生えし王族の自信",
+    "id": 201020603,
+    "gl": false
+  },
+  {
+    "realm": "II",
     "character": "Leila",
     "name": "Meddlesome Nature",
     "effect": "PHY attacks deal 10% more damage",
@@ -1024,6 +1079,28 @@
   },
   {
     "realm": "II",
+    "character": "Emperor",
+    "name": "Blood-stained History",
+    "effect": "25% chance to dualcast Black Magic or Darkness abilities",
+    "master": "MAG +10",
+    "relic": "Royal Crown (II)",
+    "nameJp": "血塗られた戦いの歴史",
+    "id": 201021004,
+    "gl": false
+  },
+  {
+    "realm": "II",
+    "character": "Emperor",
+    "name": "Risen Tyrant",
+    "effect": "Black Magic abilities deal 25% more damage when equipping a rod",
+    "master": "MAG +10",
+    "relic": "Deathbringer (II)",
+    "nameJp": "地獄より蘇りし暴君",
+    "id": 201021005,
+    "gl": false
+  },
+  {
+    "realm": "II",
     "character": "Hilda",
     "name": "Rebel Commander",
     "effect": "WHT abilities restore 15% more HP",
@@ -1134,6 +1211,16 @@
   },
   {
     "realm": "III",
+    "character": "Luneth",
+    "name": "Child of Ur",
+    "effect": "?% chance to dualcast abilities that deal Wind damage",
+    "master": "ATK +10",
+    "relic": "Dual Haken (III)",
+    "id": null,
+    "gl": false
+  },
+  {
+    "realm": "III",
     "character": "Arc",
     "name": "Youthful Embrace",
     "effect": "WHT abilities restore 15% more HP",
@@ -1180,7 +1267,7 @@
     "realm": "III",
     "character": "Arc",
     "name": "Headstrong Youth",
-    "effect": "35% chance to dualcast Summoning abilities",
+    "effect": "25% chance to dualcast Summoning abilities",
     "master": "MND +10",
     "relic": "Royal Crown (III)",
     "nameJp": null,
@@ -1560,6 +1647,28 @@
     "nameJp": "月の導き",
     "id": 201040204,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Cecil (Paladin)",
+    "name": "Blossoming of Sacred Power",
+    "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
+    "master": "MND +10",
+    "relic": "Crystal Gloves (IV)",
+    "nameJp": "聖なる力の開花",
+    "id": 201040205,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Cecil (Paladin)",
+    "name": "Possibility of Sacred Power",
+    "effect": "?% chance to dualcast White Magic abilities",
+    "master": "MND +10",
+    "relic": "Platinum Armor (IV)",
+    "nameJp": "聖なる力の可能性",
+    "id": 201040206,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -2015,7 +2124,7 @@
   {
     "realm": "IV",
     "character": "Golbez",
-    "name": "Dark Magician",
+    "name": "Darkest Mage",
     "effect": "25% chance to dualcast Darkness abilities",
     "master": "MAG +10",
     "relic": "Earthbreaker (IV)",
@@ -2301,24 +2410,24 @@
   {
     "realm": "V",
     "character": "Gogo (V)",
-    "name": "Enigmatic Imitator",
+    "name": "Profound Mimic",
     "effect": "Increases Water damage dealt by 10%",
     "master": null,
     "relic": null,
     "nameJp": " 謎多きものまね名人 ",
     "id": 201050600,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
     "character": "Gogo (V)",
-    "name": "Essence of Mimicry",
+    "name": "Quintessential Mimicry",
     "effect": "35% chance to dualcast abilities that deal Water damage",
     "master": null,
     "relic": null,
     "nameJp": "ものまねの神髄 ",
     "id": 201050601,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -2329,7 +2438,7 @@
     "relic": "Power Rod (V)",
     "nameJp": "水底の変わり者",
     "id": 201050602,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -2461,7 +2570,7 @@
     "relic": "Longinus (V)",
     "nameJp": "荒くれ者を統べる者",
     "id": 201050903,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -2582,7 +2691,7 @@
     "relic": "Minerva Bustier (V)",
     "nameJp": "持ち前の明るさ",
     "id": 201051204,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -2670,7 +2779,7 @@
     "relic": "Triton Dagger (V)",
     "nameJp": "衰えぬ正義の心",
     "id": 201051703,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -3115,10 +3224,10 @@
   {
     "realm": "VI",
     "character": "Setzer",
-    "name": "Skybound Dream",
+    "name": "Sky Dreams",
     "effect": "Grants Instant Cast 1 at the beginning of the battle, begins the round with full ATB gauge",
     "master": "ATK +10",
-    "relic": "Argentic Card (VI)",
+    "relic": "Silver Card (VI)",
     "nameJp": "空にかける最速の夢",
     "id": 201061103,
     "gl": false
@@ -3214,7 +3323,7 @@
   {
     "realm": "VI",
     "character": "Relm",
-    "name": "Blood of the Magi",
+    "name": "Ancient Blood",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
     "master": "MND +10",
     "relic": "Rainbow Brush (VI)",
@@ -3335,10 +3444,10 @@
   {
     "realm": "VI",
     "character": "Kefka",
-    "name": "Enjoyment of Destruction",
+    "name": "Destruction's Delight",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "MAG +10",
-    "relic": "Aona Flute (VI)",
+    "relic": "Blueleaf Flute (VI)",
     "nameJp": "破壊の喜び",
     "id": 201061603,
     "gl": false
@@ -3448,7 +3557,7 @@
     "name": "Fake Swordsman",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Cloud's Military Guise (VII)",
+    "relic": "Shinra Uniform (VII)",
     "nameJp": "偽りの青年剣士",
     "id": 201070106,
     "gl": false
@@ -3808,7 +3917,7 @@
   {
     "realm": "VII",
     "character": "Sephiroth",
-    "name": "Disgraced Hero",
+    "name": "Apocalyptic Hero",
     "effect": "25% chance to dualcast Darkness abilities",
     "master": "ATK +10",
     "relic": "Genji Armor (VII)",
@@ -4611,7 +4720,7 @@
   {
     "realm": "VIII",
     "character": "Ultimecia",
-    "name": "Erasure of Existance",
+    "name": "Existance Denied",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Judgment Staff (VIII)",
@@ -4820,7 +4929,7 @@
   {
     "realm": "IX",
     "character": "Steiner",
-    "name": "Loyal Knight",
+    "name": "Loyal Guard",
     "effect": "25% chance to dualcast Spellblade abilities",
     "master": "ATK +10",
     "relic": "Gold Helm (IX)",
@@ -4963,7 +5072,7 @@
   {
     "realm": "IX",
     "character": "Eiko",
-    "name": "Scion of a Legendary Tribe",
+    "name": "Descendent of Legends",
     "effect": "25% chance to dualcast Summoning abilities",
     "master": "MAG +10",
     "relic": "Siren's Flute (IX)",
@@ -5051,7 +5160,7 @@
   {
     "realm": "IX",
     "character": "Beatrix",
-    "name": "Gorgeous General",
+    "name": "Proud General",
     "effect": "Grants Attach Holy at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Minerva's Plate (IX)",
@@ -5975,12 +6084,23 @@
   {
     "realm": "XII",
     "character": "Vaan",
-    "name": "Ideals of Freedom",
+    "name": "Tactless Thief",
     "effect": "25% chance to dualcast Thief abilities",
     "master": "ATK +10",
     "relic": "Thief's Cap (XII)",
     "nameJp": "自由すぎる発言",
     "id": 201120104,
+    "gl": true
+  },
+  {
+    "realm": "XII",
+    "character": "Vaan",
+    "name": "Brother's Trust",
+    "effect": "35% chance to grant Quick Cast 1 to the user after using a Thief ability",
+    "master": "ATK +10",
+    "relic": "Adamant Vest (XII)",
+    "nameJp": "亡き兄への信頼",
+    "id": 201120105,
     "gl": false
   },
   {
@@ -6568,6 +6688,17 @@
   },
   {
     "realm": "XIII",
+    "character": "Hope",
+    "name": "Academy Prodigy",
+    "effect": "Grants Quick Cast 3 at the beginning of the battle",
+    "master": "MAG +10",
+    "relic": "Academy Gloves (XIII)",
+    "nameJp": "アカデミーの俊才",
+    "id": 201130503,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
     "character": "Fang",
     "name": "Dauntless Warrior",
     "effect": "Increases Wind damage dealt by 10%",
@@ -6704,7 +6835,7 @@
     "name": "Grieved Commander",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "MAG +10",
-    "relic": "Darksteel Claw (XIII)",
+    "relic": "Darksteel Claws (XIII)",
     "nameJp": "悲しき先導者",
     "id": 201131003,
     "gl": false
@@ -6843,6 +6974,17 @@
   },
   {
     "realm": "XIV",
+    "character": "Y'shtola",
+    "name": "Price of Forbidden Magic",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "master": "MND +10",
+    "relic": "Mistilteinn",
+    "nameJp": "禁術の代償",
+    "id": 201140103,
+    "gl": false
+  },
+  {
+    "realm": "XIV",
     "character": "Thancred",
     "name": "Wandering Scion",
     "effect": "PHY attacks deal 10% more damage when equipping a dagger",
@@ -6906,6 +7048,17 @@
     "nameJp": "格闘の名手",
     "id": 201140302,
     "gl": true
+  },
+  {
+    "realm": "XIV",
+    "character": "Yda",
+    "name": "Stormblood",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Shire Cesti",
+    "nameJp": "紅蓮の解放者",
+    "id": 201140303,
+    "gl": false
   },
   {
     "realm": "XIV",
@@ -7283,6 +7436,17 @@
   },
   {
     "realm": "XV",
+    "character": "Ignis",
+    "name": "Continuous Self Improvement",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Gold Bangle (XV)",
+    "nameJp": "絶え間なき自己研鑽",
+    "id": 201150303,
+    "gl": false
+  },
+  {
+    "realm": "XV",
     "character": "Prompto",
     "name": "Memorable Journey",
     "effect": "Increases Lightning damage dealt by 10%",
@@ -7379,6 +7543,39 @@
     "nameJp": "天空を翔けし女傑",
     "id": 201150602,
     "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Cor",
+    "name": "Loyal Subject of the King",
+    "effect": "Samurai abilities deal 15% more damage",
+    "master": null,
+    "relic": null,
+    "nameJp": "ルシス王の忠臣",
+    "id": 201150800,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Cor",
+    "name": "The Immortal",
+    "effect": "35% chance to dualcast Samurai abilities",
+    "master": null,
+    "relic": null,
+    "nameJp": "不死将軍と謳われる男",
+    "id": 201150801,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Cor",
+    "name": "Veteran Warrior",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Niella Bracelet (XV)",
+    "nameJp": "歴戦の猛者",
+    "id": 201150802,
+    "gl": false
   },
   {
     "realm": "FFT",
@@ -7912,7 +8109,7 @@
     "realm": "FFT",
     "character": "Orran",
     "name": "Southern Sky Tactics",
-    "effect": "?% chance to cast an ability (WHT: group, restores HP (?)) after using a White Magic ability",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "master": "MND +10",
     "relic": "Battle Folio (FFT)",
     "nameJp": "南天騎士団の軍師",
@@ -8555,7 +8752,7 @@
     "relic": "Blaze of Glory (KH)",
     "nameJp": null,
     "id": 201700502,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",

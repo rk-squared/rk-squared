@@ -2,7 +2,14 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { logger } from '../../utils/logger';
-import { enlir, EnlirOtherSkill, EnlirSkill, EnlirStatus, getEnlirStatusByName } from '../enlir';
+import {
+  enlir,
+  EnlirOtherSkill,
+  EnlirSkill,
+  EnlirStatus,
+  getEnlirOtherSkill,
+  getEnlirStatusByName,
+} from '../enlir';
 import { describeEnlirSoulBreak, formatMrP } from './index';
 import { splitStatusEffects } from './split';
 import {
@@ -10,8 +17,10 @@ import {
   effectAlias,
   enlirRankBoost,
   enlirRankBoostRe,
+  enlirRankCastSpeedRe,
   formatSmartEther,
   rankBoostAlias,
+  rankCastSpeedAlias,
   resolveEffectAlias,
   resolveNumbered,
   resolveStatusAlias,
@@ -84,6 +93,8 @@ export function describeStats(stats: string[]): string {
 function parseWho(who: string): string | undefined {
   return who.match('user')
     ? undefined // No need to spell out "self" for, e.g., "hi fastcast 1"
+    : who.match('target')
+    ? 'ally'
     : who.match('front')
     ? 'front row'
     : who.match('back')
@@ -100,7 +111,8 @@ function parseWho(who: string): string | undefined {
 const hideDuration = new Set(['Astra', 'Stun']);
 
 const isExStatus = (status: string) => status.startsWith('EX: ');
-const isAwokenStatus = (status: string) => status.startsWith('Awoken ');
+const isAwokenStatus = (status: string) =>
+  status.startsWith('Awoken ') && status !== 'Awoken Scholar Critical Chance';
 
 interface FollowUpEffect {
   /**
@@ -524,8 +536,8 @@ const getFinisherSkillName = (effect: string) => {
   return m ? m[1] : null;
 };
 
-function describeFinisher(skillName: string) {
-  const skill = enlir.otherSkillsByName[skillName];
+function describeFinisher(skillName: string, sourceStatusName: string) {
+  const skill = getEnlirOtherSkill(skillName, sourceStatusName);
   if (!skill) {
     logger.warn(`Unknown finisher skill ${skill}`);
     return skillName;
@@ -586,12 +598,12 @@ function describeEnlirStatusEffect(
         followUp.statuses = sequence.map(([status, effects]) => ({ statusName: status.name }));
         followUp.customStatusesDescription = describeMergedSequence(sequence);
       }
-      return describeFollowUp(followUp);
+      return describeFollowUp(followUp, enlirStatus.name);
     }
 
     const finisherSkillName = getFinisherSkillName(effect);
     if (finisherSkillName) {
-      return describeFinisher(finisherSkillName);
+      return describeFinisher(finisherSkillName, enlirStatus.name);
     }
   }
 
@@ -640,8 +652,19 @@ function describeEnlirStatusEffect(
     }
   }
 
+  if (
+    (m = effect.match(/^(\d+|\?)% chance to dualcast abilities that deal (.*) damage$/)) ||
+    (m = effect.match(/^(\d+|\?)% chance to dualcast (.*) abilities$/))
+  ) {
+    const [, percent, schoolOrElement] = m;
+    return `${percent}% dualcast ${formatSchoolOrAbilityList(schoolOrElement)}`;
+  }
+
   if ((m = effect.match(enlirRankBoostRe))) {
     return rankBoostAlias(m[1]);
+  }
+  if ((m = effect.match(enlirRankCastSpeedRe))) {
+    return rankCastSpeedAlias(m[1]);
   }
 
   // Stacking ability boost and element boost.
@@ -665,6 +688,8 @@ function describeEnlirStatusEffect(
 
   // Handle ability boost and element boost.  The second form is only observed
   // with Noctis's non-elemental boosts; it may simply be an inconsistency.
+  // Ths overlaps with the statusAlias, but duplicating it here lets us handle
+  // school lists, etc.
   if (
     (m = effect.match(/(.*) (?:abilities|attacks) deal ([0-9/]+)% more damage/)) ||
     (m = effect.match(/[Ii]ncreases (.*) damage dealt by ([0-9/]+)%/))
@@ -753,7 +778,10 @@ function describeEnlirStatusEffect(
     if (percentChance) {
       triggerDescription += ` (${percentChance}%)`;
     }
-    return formatTriggeredEffect(triggerDescription, describeFollowUpSkill(skill));
+    return formatTriggeredEffect(
+      triggerDescription,
+      describeFollowUpSkill(skill, undefined, enlirStatus ? enlirStatus.name : undefined),
+    );
   }
 
   // Rage status.  This involves looking up the Other Skills associated with
@@ -877,6 +905,9 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
   if (trigger === 'elemental weakness') {
     return hitWeaknessTriggerText;
   }
+  if (trigger === 'a single-target heal') {
+    return 'ally heal';
+  }
 
   // Special case: Steiner
   const m = trigger.match(/(.*) dmg from a (.*) attack used by another ally/);
@@ -915,7 +946,7 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
 }
 
 function describeFollowUpItem(
-  { who, duration, durationUnits }: StatusItem,
+  { who, duration, durationUnits, rank }: StatusItem,
   description: string,
 ): string {
   if (who) {
@@ -923,6 +954,9 @@ function describeFollowUpItem(
   }
   if (who) {
     description = who + ' ' + description;
+  }
+  if (rank) {
+    description += ' @ rank 1-5';
   }
 
   if (duration && durationUnits) {
@@ -955,8 +989,14 @@ function describeFollowUpEffect(item: StatusItem): string {
 /**
  * For a follow-up that triggers a skill, describes the skill.
  */
-function describeFollowUpSkill(skillName: string, triggerPrereqStatus?: string): string {
-  const skill = enlir.otherSkillsByName[skillName];
+function describeFollowUpSkill(
+  skillName: string,
+  triggerPrereqStatus?: string,
+  sourceStatusName?: string,
+): string {
+  const skill = sourceStatusName
+    ? getEnlirOtherSkill(skillName, sourceStatusName)
+    : enlir.otherSkillsByName[skillName];
   if (skill) {
     return formatMrP(
       describeEnlirSoulBreak(skill, {
@@ -975,7 +1015,9 @@ function describeFollowUpSkill(skillName: string, triggerPrereqStatus?: string):
   if (options) {
     const skillOptions = options.map(i => skillName.replace(slashOptionsRe, i));
     return slashMerge(
-      skillOptions.map((i: string) => describeFollowUpSkill(i, triggerPrereqStatus)),
+      skillOptions.map((i: string) =>
+        describeFollowUpSkill(i, triggerPrereqStatus, sourceStatusName),
+      ),
     );
   }
 
@@ -1008,13 +1050,10 @@ function removeRedundantWho(item: StatusItem[]): StatusItem[] {
  * For follow-up statuses, returns a string describing the follow-up (how it's
  * triggered and what it does).
  */
-function describeFollowUp(followUp: FollowUpEffect): string {
-  let triggerDescription = followUp.autoInterval
+function describeFollowUp(followUp: FollowUpEffect, sourceStatusName: string): string {
+  const triggerDescription = followUp.autoInterval
     ? describeAutoInterval(followUp.autoInterval)
     : describeFollowUpTrigger(followUp.trigger!, followUp.isDamageTrigger);
-  if (followUp.customTriggerSuffix) {
-    triggerDescription += ' (' + followUp.customTriggerSuffix + ')';
-  }
 
   const description: string[] = [];
 
@@ -1042,12 +1081,23 @@ function describeFollowUp(followUp: FollowUpEffect): string {
     suffix += followUp.randomSkills ? ' (random)' : '';
     description.push(
       slashMerge(
-        followUp.skills.map((i: string) => describeFollowUpSkill(i, followUp.triggerPrereqStatus)),
+        followUp.skills.map((i: string) =>
+          describeFollowUpSkill(i, followUp.triggerPrereqStatus, sourceStatusName),
+        ),
       ) + suffix,
     );
   }
 
-  return formatTriggeredEffect(triggerDescription, description.join(', '));
+  return formatTriggeredEffect(
+    triggerDescription,
+    description.join(', ') +
+      // Append the custom trigger to the end of the description - although we
+      // say that text like "(once only)" describes the trigger, the end works
+      // better for AASBs like Gladiolus's, where "once only" only applies to
+      // the final threshold, and we show thresholds as part of the
+      // description.
+      (followUp.customTriggerSuffix ? ' (' + followUp.customTriggerSuffix + ')' : ''),
+  );
 }
 
 function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
@@ -1179,6 +1229,7 @@ const statusItemRe = XRegExp(
   (?<scalesWithUses1>\ scaling\ with\ (?<scaleWithUsesSkill1>[A-Za-z ]+\ )?uses)?
   (?<who>
     \ to\ the\ user|
+    \ to\ the\ target|
     \ to\ all\ allies(?:\ in\ the\ (?:front|back|character's)\ row)?|
     \ to\ the\ lowest\ HP%\ ally|
     \ to\ a\ random\ ally\ without\ status|

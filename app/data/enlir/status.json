@@ -2385,6 +2385,17 @@
     "notes": null
   },
   {
+    "id": 282160,
+    "name": "Jump +30% Boost",
+    "effects": "Jump attacks deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BOOST_JUMP_130_15000_MSEC",
+    "notes": null
+  },
+  {
     "id": 283,
     "name": "Steiner Trance",
     "effects": "ATK and DEF +25%, increases Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark and Poison damage dealt by 25%",
@@ -9144,8 +9155,8 @@
   },
   {
     "id": 50316,
-    "name": "Ressac Follow-Up",
-    "effects": "Casts Ressac after using a Water attack",
+    "name": "Awash Follow-Up",
+    "effects": "Casts Awash after using a Water attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9156,7 +9167,7 @@
   {
     "id": 50317,
     "name": "Surging Wave 0",
-    "effects": "Grants Surging Wave 1 after using a Water attack, removed if the user hasn't Ressac Follow-Up",
+    "effects": "Grants Surging Wave 1 after using a Water attack, removed if the user hasn't Awash Follow-Up",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9169,7 +9180,7 @@
   {
     "id": 50318,
     "name": "Surging Wave 1",
-    "effects": "Cast speed x2.00, grants Surging Wave 2 after using a Water attack, removed if the user hasn't Ressac Follow-Up",
+    "effects": "Cast speed x2.00, grants Surging Wave 2 after using a Water attack, removed if the user hasn't Awash Follow-Up",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9182,7 +9193,7 @@
   {
     "id": 50319,
     "name": "Surging Wave 2",
-    "effects": "Cast speed x2.50, grants Surging Wave 3 after using a Water attack, removed if the user hasn't Ressac Follow-Up",
+    "effects": "Cast speed x2.50, grants Surging Wave 3 after using a Water attack, removed if the user hasn't Awash Follow-Up",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9195,7 +9206,7 @@
   {
     "id": 50320,
     "name": "Surging Wave 3",
-    "effects": "Cast speed x3.00, grants Surging Wave 3 after using a Water attack, removed if the user hasn't Ressac Follow-Up",
+    "effects": "Cast speed x3.00, grants Surging Wave 3 after using a Water attack, removed if the user hasn't Awash Follow-Up",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10579,7 +10590,9 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"Merciless Oracle X\" status"
+    ],
     "codedName": "JANUS_MODE_GRADE_0",
     "notes": null
   },
@@ -10590,7 +10603,9 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"Merciless Oracle X\" status"
+    ],
     "codedName": "JANUS_MODE_GRADE_1",
     "notes": null
   },
@@ -10601,7 +10616,9 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"Merciless Oracle X\" status"
+    ],
     "codedName": "JANUS_MODE_GRADE_2",
     "notes": null
   },
@@ -10612,7 +10629,9 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"Merciless Oracle X\" status"
+    ],
     "codedName": "JANUS_MODE_GRADE_3",
     "notes": null
   },
@@ -10623,7 +10642,9 @@
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"Merciless Oracle X\" status"
+    ],
     "codedName": "JANUS_MODE_GRADE_4",
     "notes": null
   },
@@ -10683,6 +10704,69 @@
     "notes": null
   },
   {
+    "id": 50462,
+    "name": "True Greased Lightning Mode",
+    "effects": "Grants True Greased Lightning 0/1/2/3 after using a Monk ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ORTH_LIGHTNING_STORM_MODE",
+    "notes": null
+  },
+  {
+    "id": 50463,
+    "name": "True Greased Lightning 0",
+    "effects": "Grants True Greased Lightning 1, removed if the user hasn't True Greased Lightning Mode",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"True Greased Lightning X\" status"
+    ],
+    "codedName": "ORTH_LIGHTNING_STORM_MODE_GRADE_0",
+    "notes": null
+  },
+  {
+    "id": 50464,
+    "name": "True Greased Lightning 1",
+    "effects": "Monk abilities deal 10% more damage, cast speed x2.00, grants True Greased Lightning 2, removed if the user hasn't True Greased Lightning Mode",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"True Greased Lightning X\" status"
+    ],
+    "codedName": "ORTH_LIGHTNING_STORM_MODE_GRADE_1",
+    "notes": null
+  },
+  {
+    "id": 50465,
+    "name": "True Greased Lightning 2",
+    "effects": "Monk abilities deal 20% more damage, cast speed x3.00, grants True Greased Lightning 3, removed if the user hasn't True Greased Lightning Mode",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"True Greased Lightning X\" status"
+    ],
+    "codedName": "ORTH_LIGHTNING_STORM_MODE_GRADE_2",
+    "notes": null
+  },
+  {
+    "id": 50466,
+    "name": "True Greased Lightning 3",
+    "effects": "Monk abilities deal 30% more damage, cast speed x4.00, grants True Greased Lightning 3, removed if the user hasn't True Greased Lightning Mode",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"True Greased Lightning X\" status"
+    ],
+    "codedName": "ORTH_LIGHTNING_STORM_MODE_GRADE_3",
+    "notes": null
+  },
+  {
     "id": 50467,
     "name": "Freeze Apocalypse Follow-up",
     "effects": "Casts Freeze Apocalypse after using three Ice attacks",
@@ -10735,6 +10819,50 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "AWAKE_MODE_DANCE",
+    "notes": null
+  },
+  {
+    "id": 50472,
+    "name": "Stoneskin: 40%",
+    "effects": "Reduces damage taken to 0, up to an amount of damage equal to 40% of the character's maximum HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BARRIER_40",
+    "notes": null
+  },
+  {
+    "id": 50473,
+    "name": "Stoneskin: 50%",
+    "effects": "Reduces damage taken to 0, up to an amount of damage equal to 50% of the character's maximum HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BARRIER_50",
+    "notes": null
+  },
+  {
+    "id": 50474,
+    "name": "Stoneskin: 60%",
+    "effects": "Reduces damage taken to 0, up to an amount of damage equal to 60% of the character's maximum HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BARRIER_60",
+    "notes": null
+  },
+  {
+    "id": 50475,
+    "name": "Stoneskin: 70%",
+    "effects": "Reduces damage taken to 0, up to an amount of damage equal to 70% of the character's maximum HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BARRIER_70",
     "notes": null
   },
   {
@@ -10815,6 +10943,94 @@
     "notes": null
   },
   {
+    "id": 50483,
+    "name": "Kaus Australis Follow-Up",
+    "effects": "Casts Kaus Australis after using three Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SAGITTARIUS",
+    "notes": null
+  },
+  {
+    "id": 50484,
+    "name": "Awoken Imperial",
+    "effects": "Earth, Wind and Dark abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Earth, Wind and Dark abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_IMPERIAL",
+    "notes": null
+  },
+  {
+    "id": 50485,
+    "name": "Resist Break Follow-Up",
+    "effects": "Casts Earth/Wind/Dark Resist Break after using two Earth/Wind/Dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_FEAR_ELEMENT",
+    "notes": null
+  },
+  {
+    "id": 50486,
+    "name": "Awoken Bond",
+    "effects": "Summoning abilities don't consume uses, dualcasts Summoning abilities, casts Crystal Bond after using a Summoning ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_BOND",
+    "notes": null
+  },
+  {
+    "id": 50487,
+    "name": "Awoken Black Magic",
+    "effects": "Black Magic abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Black Magic abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_BLACK_MAGIC",
+    "notes": null
+  },
+  {
+    "id": 50488,
+    "name": "Awoken Loyal Retainer",
+    "effects": "Knight and Samurai abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Knight and Samurai abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_LOYAL_RETAINER",
+    "notes": null
+  },
+  {
+    "id": 50489,
+    "name": "Onion Sorcery Follow-Up",
+    "effects": "Casts Onion Sorcery after using three Wind, Water, Fire or Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EXTREME_MAGIC",
+    "notes": null
+  },
+  {
+    "id": 50490,
+    "name": "Trinity Rush Follow-Up",
+    "effects": "Casts Trinity Rush when removed",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SKILLFULNESS_OF_ARMS_MODE",
+    "notes": null
+  },
+  {
     "id": 50491,
     "name": "Flame Chaser Follow-Up",
     "effects": "Casts Flame Chaser after using three Fire attacks",
@@ -10834,6 +11050,127 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_TIDAL_MASTER",
+    "notes": null
+  },
+  {
+    "id": 50493,
+    "name": "Lion Slash Follow-up",
+    "effects": "Casts Lion's Slash after dealing a critical hit",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_POWER_OF_FORMER_KING",
+    "notes": null
+  },
+  {
+    "id": 50494,
+    "name": "Break Arts Mode",
+    "effects": "Casts Heavy Strike / Heavy Strike+ / Heavy Strike++ and Orbital Edge after using three Earth attacks if 0/72001/240001 damage was dealt during the status, removed after triggering",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "BREAK_ARTS_MODE",
+    "notes": null
+  },
+  {
+    "id": 50495,
+    "name": "Awoken Guardian",
+    "effects": "White Magic abilities don't consume uses and single target heals grant Stoneskin: 30/40/50/60/70% to target at ability rank 1/2/3/4/5, dualcasts White Magic abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_GUARD_MODE",
+    "notes": null
+  },
+  {
+    "id": 50496,
+    "name": "Awoken Magika",
+    "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities, casts Magika Cantus after using a White Magic or Bard ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_MAGICA",
+    "notes": null
+  },
+  {
+    "id": 50497,
+    "name": "Blast & Run Follow-Up",
+    "effects": "Casts Blast & Run after using two Thief abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DREADNOUGHT",
+    "notes": null
+  },
+  {
+    "id": 50498,
+    "name": "Awoken Dark",
+    "effects": "Dark abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dark abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_DARK",
+    "notes": null
+  },
+  {
+    "id": 50499,
+    "name": "Saint Dual Follow-Up",
+    "effects": "Casts Saint Dual after using a Holy attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_HOLY_BLADE_PALADIN_CECIL",
+    "notes": null
+  },
+  {
+    "id": 50500,
+    "name": "Jester's Scorn Follow-Up",
+    "effects": "Casts Jester's Scorn after using two Darkness abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_FLAPPING_OF_COLLAPSE",
+    "notes": null
+  },
+  {
+    "id": 50501,
+    "name": "Awoken Scholar",
+    "effects": "Support abilities don't consume uses, cast speed x2.00-x3.00 for Support abilities at ability rank 1/2/3/4/5, grants Awoken Scholar Critical Chance to all allies",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_SCHOLAR",
+    "notes": null
+  },
+  {
+    "id": 50502,
+    "name": "Unraveled History Follow-Up",
+    "effects": "Casts Unraveled History after using three Support abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_GRIMOIRE_OF_ILLUSION_1ST_VOLUME",
+    "notes": null
+  },
+  {
+    "id": 50517,
+    "name": "Awoken Scholar Critical Chance",
+    "effects": "Grants Critical Chance =60/70/80/90/100% after using 1/2/3/4/5 Support abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_CRITICAL_FOR_AWAKE_MODE_SCHOLAR",
     "notes": null
   },
   {

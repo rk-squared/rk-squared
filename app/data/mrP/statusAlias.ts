@@ -10,8 +10,10 @@ import {
 
 export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
 export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
+export const enlirRankCastSpeedRe = /cast speed x2\.00-x3\.00 for (.*) (abilities|attacks) at ability rank 1\/2\/3\/4\/5/;
 
 export const rankBoostAlias = (s: string) => `1.05-1.1-1.15-1.2-1.3x ${s} dmg @ rank 1-5`;
+export const rankCastSpeedAlias = (s: string) => `2-3x ${s} cast @ rank 1-5`;
 export const doubleAlias = (s: string) => `double ${s} (uses extra hone)`;
 export const sbPointsAlias = (s: string) => `+${s} SB pts`;
 
@@ -33,6 +35,29 @@ export interface AliasMap {
    */
   numbered: { [s: string]: string | [string, (value: string) => string] };
 }
+
+function aliasConverter(converter: (value: number) => string): (value: string) => string {
+  return (value: string) => {
+    if (value === '?') {
+      return '?';
+    } else if (value.indexOf('-') > 0) {
+      return value
+        .split('-')
+        .map(i => converter(+i))
+        .join('-');
+    } else if (value.indexOf('/') !== -1) {
+      return value
+        .split('/')
+        .map(i => converter(+i))
+        .join('/');
+    } else {
+      return converter(+value);
+    }
+  };
+}
+const kiloConverter = aliasConverter(toMrPKilo);
+const numberWithCommasConverter = aliasConverter(numberWithCommas);
+const multiplierConverter = aliasConverter(percentToMultiplier);
 
 /**
  * Enlir status aliases
@@ -120,10 +145,9 @@ export const statusAlias: AliasMap = {
     'Ingredients {X}': '{X} ingredients',
 
     // Aliases with more complex formatting.
-    // TODO: We could improve our handling of '?' values by not blindly converting to numbers here
-    'HP Stock ({X})': ['Autoheal {X}', i => toMrPKilo(+i)],
-    'Damage Cap {X}': ['dmg cap={X}', i => numberWithCommas(+i)],
-    'Status Chance {X}%': ['{X}x status chance', i => percentToMultiplier(i)],
+    'HP Stock ({X})': ['Autoheal {X}', kiloConverter],
+    'Damage Cap {X}': ['dmg cap={X}', numberWithCommasConverter],
+    'Status Chance {X}%': ['{X}x status chance', multiplierConverter],
 
     // Manually expand non-standard stat buffs to give their effects instead -
     // this is easier than trying to programmatically identify a few statuses as
@@ -226,6 +250,10 @@ function addCastSpeedEffectAliases(fromType: string, toType: string) {
 }
 for (const i of allEnlirSchools) {
   addCastSpeedEffectAliases(i, getSchoolShortName(i));
+  effectAlias.numbered[`${lowerCaseFirst(i)} abilities deal {X}% more damage`] = [
+    `{X}x ${getSchoolShortName(i)} dmg`,
+    multiplierConverter,
+  ];
 }
 addCastSpeedEffectAliases('Jump', 'jump');
 

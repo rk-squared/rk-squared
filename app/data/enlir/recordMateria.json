@@ -811,7 +811,7 @@
   },
   {
     "realm": "Core",
-    "character": "Elarra ",
+    "character": "Elarra",
     "name": "Girl Awakened",
     "effect": "WHT abilities restore 10% more HP",
     "unlockCriteria": "Use Elarra's Memory Crystal",
@@ -6408,6 +6408,36 @@
     "nameJp": "姉御肌の傭兵隊長",
     "id": 111150062,
     "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Cor",
+    "name": "Skilled Marshal",
+    "effect": "Samurai abilities deal 15% more damage",
+    "unlockCriteria": "Use Cor's Memory Crystal",
+    "nameJp": "手練れの将軍",
+    "id": 111150080,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Cor",
+    "name": "Gifted Soldier",
+    "effect": "Samurai abilities deal 30% more damage",
+    "unlockCriteria": "Use Cor's Memory Crystal II, chance to obtain with Aranea in party",
+    "nameJp": "才能あふれる武人",
+    "id": 111150081,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Cor",
+    "name": "Mentor",
+    "effect": "Grant Last Stand at the beginning of the battle",
+    "unlockCriteria": "Bring Cor to level 99",
+    "nameJp": "若者を導く先達",
+    "id": 111150082,
+    "gl": false
   },
   {
     "realm": "FFT",

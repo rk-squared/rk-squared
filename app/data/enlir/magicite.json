@@ -4423,7 +4423,7 @@
     },
     "nameJp": "【契】テラホーミング",
     "id": 161000093,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Holy",
@@ -4481,7 +4481,7 @@
     },
     "nameJp": "【契】みわくのほうよう",
     "id": 161000094,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Dark",
