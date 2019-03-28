@@ -110,7 +110,12 @@ export class SoulBreakListItem extends React.Component<Props> {
 
     const name = soulBreak.gl ? soulBreak.name : '“' + soulBreak.name + '”';
     const text = formatMrP(mrP);
-    const alias = (soulBreakAliases[soulBreak.id] || soulBreak.tier).replace('-', '');
+
+    let alias = soulBreakAliases[soulBreak.id] || soulBreak.tier;
+    if (alias !== '-') {
+      alias = alias.replace('-', '');
+    }
+
     const fullClassName = classNames(className, tierClass[soulBreak.tier], {
       [styles.jp]: !soulBreak.gl,
     });
