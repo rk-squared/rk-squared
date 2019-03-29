@@ -464,6 +464,7 @@ const attackRe = XRegExp(
   (?:\ if\ the\ target\ has\ (?<statusAilmentsThresholdValue>(?:\d+/)*\d+)\ ailments)?
   (?:\ if\ (?<statBreakCount>(?:\d+/)*\d+)\ of\ the\ target's\ stats\ are\ lowered)?
   (?:\ at\ (?<differentAbilityValue>(?:\d+/)*\d+)\ different\ (?<differentAbilityType>.*?)\ abilities\ used)?
+  (?:\ if\ the\ user's\ Doom\ timer\ is\ below\ (?<doomThresholdValue>(?:\d+/)*\d+))?
 
   (?:,\ (?<additionalDamage>(?:-?\d+/)*\d+)%\ more\ damage\ with\ (?<additionalDamageAbilityCount>(?:\d+/)*\d)\ other\ (?<additionalDamageAbility>.*?)\ users)?
   (?:,\ (?<additionalCrit>[0-9/]+)%\ (?:additional|add.)\ critical\ chance
@@ -642,6 +643,8 @@ export function parseEnlirAttack(
       m.differentAbilityValue,
       'diff. ' + getSchoolShortName(m.differentAbilityType) + ' abils.',
     );
+  } else if (m.doomThresholdValue) {
+    scaleType = formatThreshold(m.doomThresholdValue, 'sec Doom');
   } else if (m.statBreakCount) {
     scaleType = formatThreshold(m.statBreakCount, 'stats lowered');
   } else if (m.scaleWithSkillUses) {

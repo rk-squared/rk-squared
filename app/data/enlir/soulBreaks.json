@@ -12329,7 +12329,7 @@
     "multiplier": null,
     "element": null,
     "time": 2.5,
-    "effects": "Activates V Chain (max 150, field +50%), ATK & MAG +30% and Haste",
+    "effects": "Activates V Chain (max 150, field +50%), grants Haste, ATK and MAG +30% for 25 seconds",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,

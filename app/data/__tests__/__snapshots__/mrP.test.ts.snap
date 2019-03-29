@@ -738,7 +738,7 @@ Array [
     "character": "Cid Raines",
     "description": "dark infuse at battle start",
     "effect": "Grants Attach Dark at the beginning of the battle",
-    "name": "Grieved Commander",
+    "name": "Tragic End",
   },
   Object {
     "character": "Cinque",
@@ -3780,7 +3780,7 @@ Array [
     "character": "Seifer",
     "description": "25% dualcast Darkness",
     "effect": "25% chance to dualcast Darkness abilities",
-    "name": "Egoistical Dreamer",
+    "name": "Egotistical Dreamer",
   },
   Object {
     "character": "Selphie",
