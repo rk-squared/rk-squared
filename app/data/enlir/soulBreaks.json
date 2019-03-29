@@ -7327,7 +7327,7 @@
     "relic": "Crystal Helm (IV)",
     "nameJp": "ヴァリアントフォース",
     "id": 20070014,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -7636,7 +7636,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged jump attacks (0.60 each), grants Attach Lightning, Awoken Dragoon, Damage Cap 29999 and Spear of Storms Follow-Up to the user",
+    "effects": "Fifteen single ranged jump attacks (0.60 each), grants Attach Lightning, Awoken Dragoon, Damage Cap 29999 and Boltstorm Spear Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -28602,7 +28602,7 @@
   {
     "realm": "XII",
     "character": "Vaan",
-    "name": "Ultra White Whorl",
+    "name": "Whitest Whorl",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -28620,7 +28620,7 @@
     "relic": "Triton's Dagger (XII)",
     "nameJp": "真ディープハザード",
     "id": 20700013,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -28643,7 +28643,7 @@
     "relic": "Lowtown Trousers (XII)",
     "nameJp": "カラミティドライブ",
     "id": 20700014,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -28667,7 +28667,7 @@
     "relic": "Orochi (XII)",
     "nameJp": "ラバナスタの流儀",
     "id": 20700015,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -32474,7 +32474,7 @@
     "relic": "Dual Claw (XIII)",
     "nameJp": "セラフィックエンド",
     "id": 22410008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -32498,7 +32498,7 @@
     "relic": "Master Fist (XIII)",
     "nameJp": "絶望に染まる翼",
     "id": 22410009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",

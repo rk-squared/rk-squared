@@ -9405,8 +9405,8 @@
   },
   {
     "id": 50342,
-    "name": "Spear of Storms Follow-Up",
-    "effects": "Casts Spear of Storms after using three Dragoon abilities",
+    "name": "Boltstorm Spear Follow-Up",
+    "effects": "Casts Boltstorm Spear after using three Dragoon abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

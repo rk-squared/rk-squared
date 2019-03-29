@@ -720,8 +720,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Spear of Storms Follow-Up",
-    "name": "Spear of Storms",
+    "source": "Boltstorm Spear Follow-Up",
+    "name": "Boltstorm Spear",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -738,7 +738,7 @@
     "sb": 0,
     "school": "Dragoon",
     "id": 30548118,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",

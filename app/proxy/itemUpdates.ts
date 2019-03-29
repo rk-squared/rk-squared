@@ -5,15 +5,19 @@
  * FIXME: We should record new items ourselves, to make the program more self-healing
  */
 
-import { Handler } from './common';
+import { Store } from 'redux';
 
+import * as _ from 'lodash';
+
+import { LangType } from '../api/apiUrls';
 import * as schemas from '../api/schemas';
+import * as gachaSchemas from '../api/schemas/gacha';
 import { enlir } from '../data';
 import { dressRecordsById } from '../data/dressRecords';
 import { items, ItemType, ItemTypeLookup } from '../data/items';
-
-import * as _ from 'lodash';
+import { IState } from '../reducers';
 import { logger } from '../utils/logger';
+import { getRequestLang, Handler, HandlerRequest } from './common';
 
 let localItems = _.clone(items);
 const localItemsById = _.zipObject(items.map(i => i.id), localItems);
@@ -151,6 +155,69 @@ function handleWinBattle(data: schemas.WinBattle) {
   });
 }
 
+function compareGlEntity<
+  T1 extends { id: number; name: string },
+  T2 extends { name: string; gl: boolean }
+>(
+  item: T1,
+  enlirItems: { [id: number]: T2 },
+  description: string,
+  source: string,
+  trimRe?: RegExp,
+) {
+  const enlirItem = enlirItems[item.id];
+  if (!enlirItem) {
+    logger.info(`Item update: Unknown ${description} from ${source}: ${item.name} (ID ${item.id})`);
+    return null;
+  }
+
+  if (!enlirItem.gl) {
+    logger.info(
+      `Item update: ${description} ${item.name} (ID ${item.id}) is now released in global`,
+    );
+  }
+  const trimmedName = trimRe ? item.name.replace(trimRe, '') : item.name.trimRight();
+  if (enlirItem.name !== trimmedName) {
+    logger.info(
+      `Item update: ${description} ${item.name} (ID ${item.id}) ` +
+        `is named ${enlirItem.name} in Enlir`,
+    );
+  }
+  return enlirItem;
+}
+
+function checkGlRelicDrawBannerItems(data: gachaSchemas.GachaShow, currentTime: number) {
+  for (const i of data.series_list) {
+    if (i.opened_at > currentTime / 1000) {
+      continue;
+    }
+    for (const { equipment } of i.banner_list) {
+      if (!equipment) {
+        continue;
+      }
+      const { id, name, soul_strike, legend_materia } = equipment;
+      const relicName = `relic ${name} (ID ${id})`;
+
+      const enlirRelic = compareGlEntity(equipment, enlir.relics, 'relic', relicName, / \(.*\) */);
+      if (!enlirRelic) {
+        continue;
+      }
+      if (soul_strike) {
+        compareGlEntity(soul_strike, enlir.soulBreaks, 'soul break', relicName);
+      }
+      if (legend_materia) {
+        compareGlEntity(
+          legend_materia,
+          enlir.legendMateria,
+          'legend materia',
+          relicName,
+          / \(.*\) */,
+        );
+      }
+    }
+  }
+}
+
 const itemUpdatesHandler: Handler = {
   dungeons(data: schemas.Dungeons) {
     for (const d of data.dungeons) {
@@ -168,6 +235,13 @@ const itemUpdatesHandler: Handler = {
   win_battle: handleWinBattle,
   battle_win: handleWinBattle,
   'battle/win': handleWinBattle,
+
+  'gacha/show'(data: gachaSchemas.GachaShow, store: Store<IState>, request: HandlerRequest) {
+    if (getRequestLang(request) === LangType.Gl) {
+      const currentTime = store.getState().timeState.currentTime;
+      checkGlRelicDrawBannerItems(data, currentTime);
+    }
+  },
 };
 
 export default itemUpdatesHandler;

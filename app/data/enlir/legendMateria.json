@@ -4500,7 +4500,7 @@
   {
     "realm": "VIII",
     "character": "Seifer",
-    "name": "Egoistical Dreamer",
+    "name": "Egotistical Dreamer",
     "effect": "25% chance to dualcast Darkness abilities",
     "master": "ATK +10",
     "relic": "Ambition Bracer (VIII)",
@@ -6832,13 +6832,13 @@
   {
     "realm": "XIII",
     "character": "Cid Raines",
-    "name": "Grieved Commander",
+    "name": "Tragic End",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Darksteel Claws (XIII)",
     "nameJp": "悲しき先導者",
     "id": 201131003,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",

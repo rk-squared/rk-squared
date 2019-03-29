@@ -28035,7 +28035,7 @@
     "gl": true
   },
   {
-    "name": "Yoshiyuki-shinuchi",
+    "name": "Yoshiyuki-Shinuchi",
     "realm": "VII",
     "type": "Katana",
     "rarity": 5,
@@ -45153,7 +45153,7 @@
     "effect": null,
     "character": "Cid Raines",
     "soulBreak": null,
-    "legendMateria": "Grieved Commander",
+    "legendMateria": "Tragic End",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -91818,7 +91818,7 @@
     "effect": null,
     "character": "Vaan",
     "soulBreak": null,
-    "legendMateria": "Ideals of Freedom",
+    "legendMateria": "Tactless Thief",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -91842,7 +91842,7 @@
       "eva": 105
     },
     "id": 22051114,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Lambent Hat",
@@ -94452,7 +94452,7 @@
       "eva": 105
     },
     "id": 22052061,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Genji Helm",
@@ -97470,7 +97470,7 @@
     "gl": true
   },
   {
-    "name": "Lowtown Trousers",
+    "name": "Lowtown Pants",
     "realm": "XII",
     "type": "Light Armor",
     "rarity": 6,
