@@ -56,7 +56,7 @@ function formatTotalCount(details: RelicDrawBannerDetails) {
 function formatAvailableCount(details: RelicDrawBannerDetails, currentTime?: number) {
   const result = formatDupeCount(details) || formatTotalCount(details);
   if (!details.canPull && result && (!currentTime || !isClosed(details, currentTime))) {
-    return result + ' (used)';
+    return result + ' (not available)';
   } else {
     return result;
   }

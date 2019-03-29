@@ -14,8 +14,8 @@ export type TimeT = number;
  */
 export const FAR_FUTURE = 2e9;
 
-export const formatTimeT = (t: TimeT) => moment.unix(t).format('M/d/Y LT');
-export const formatTimeTNoYear = (t: TimeT) => moment.unix(t).format('M/d LT');
+export const formatTimeT = (t: TimeT) => moment.unix(t).format('M/D/Y LT');
+export const formatTimeTNoYear = (t: TimeT) => moment.unix(t).format('M/D LT');
 
 /**
  * Returns whether an item is not yet open (-1), open (0), or now closed (1).
