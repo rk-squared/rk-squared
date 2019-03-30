@@ -170,9 +170,12 @@ export const getMissingBanners = createSelector<IState, RelicDrawState, number, 
     );
 
     // Remove banner IDs for which we have probabilities and don't need selections.
+    // Checking selections != null is to accommodate in-development stores that
+    // lacked `selections`.
     const needsSelection = (bannerId: number) =>
       banners[bannerId] &&
       banners[bannerId].exchangeShopId != null &&
+      selections != null &&
       !selections[banners[bannerId].exchangeShopId!];
     _.keys(probabilities)
       .filter(i => !needsSelection(+i))
