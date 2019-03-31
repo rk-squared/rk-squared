@@ -30,7 +30,8 @@
     "start-site": "node scripts/start-site.js",
     "build-site": "node scripts/build-site.js",
     "postbuild-site": "react-snap",
-    "test-site": "node scripts/test-site.js"
+    "test-site": "node scripts/test-site.js",
+    "postget-enlir": "yarn copy-json"
   },
   "jest": {
     "testURL": "http://localhost/",

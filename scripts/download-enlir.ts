@@ -522,11 +522,19 @@ function convertRelics(rows: any[]): any[] {
  * Convert "skills" - this includes abilities, soul breaks, burst commands,
  * brave commands, and "other" skills
  */
-function convertSkills(rows: any[]): any[] {
+function convertSkills(rows: any[], requireId: boolean = true): any[] {
   const skills: any[] = [];
+
+  const idColumn = rows[0].indexOf('ID');
 
   for (let i = 1; i < rows.length; i++) {
     const item: any = {};
+
+    if (requireId && !rows[i][idColumn]) {
+      logger.warn(`Skipping row ${i + 1}: Missing ID number`);
+      logger.warn(rows[i].join(', '));
+      continue;
+    }
 
     for (let j = 0; j < rows[0].length; j++) {
       const col = rows[0][j];
@@ -552,6 +560,8 @@ function convertSkills(rows: any[]): any[] {
 
   return skills;
 }
+
+const convertOtherSkills = (rows: any[]) => convertSkills(rows, false);
 
 function convertStatus(rows: any[]): any[] {
   const status: any[] = [];
@@ -633,7 +643,7 @@ const dataTypes: DataType[] = [
   {
     sheet: 'Other',
     localName: 'otherSkills',
-    converter: convertSkills,
+    converter: convertOtherSkills,
   },
   {
     sheet: 'Record Materia',
