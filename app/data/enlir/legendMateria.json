@@ -3652,6 +3652,17 @@
   },
   {
     "realm": "VII",
+    "character": "Tifa",
+    "name": "Tomboy Brawler",
+    "effect": "25?% chance to dualcast Monk abilities",
+    "master": null,
+    "relic": "Work Glove (VII)",
+    "nameJp": "男まさりな格闘娘",
+    "id": null,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Aerith",
     "name": "Daughter of the Ancients",
     "effect": "WHT abilities restore 15% more HP",
@@ -3960,6 +3971,17 @@
   },
   {
     "realm": "VII",
+    "character": "Cid (VII)",
+    "name": "Journey to Space",
+    "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
+    "master": null,
+    "relic": "Grow Lance (VII)",
+    "nameJp": "宇宙へ旅立った男",
+    "id": null,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Reno",
     "name": "Master of Lightning",
     "effect": "Increases Lightning damage dealt by 10%",
@@ -4023,6 +4045,17 @@
     "nameJp": "世界の代表者",
     "id": 201071802,
     "gl": true
+  },
+  {
+    "realm": "VII",
+    "character": "Rufus",
+    "name": "President's Plot",
+    "effect": "25?% chance to dualcast Dark abilities",
+    "master": null,
+    "relic": "Shinra Alpha (VII)",
+    "nameJp": "新社長の思惑",
+    "id": null,
+    "gl": false
   },
   {
     "realm": "VII",

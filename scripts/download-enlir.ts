@@ -101,6 +101,11 @@ async function getNewToken(oAuth2Client: OAuth2Client): Promise<OAuth2Client> {
   return oAuth2Client;
 }
 
+function logError(e: Error, rowNumber: number, colNumber: number, colName: string, row: string[]) {
+  logger.error(`Error on row ${rowNumber + 1} ${colName}: ${e}`);
+  logger.error(JSON.stringify(row, undefined, 2));
+}
+
 const toBool = (value: string) => value === 'Y';
 const toInt = (value: string) => (value === '' ? null : +value);
 const toFloat = (value: string) =>
@@ -513,6 +518,10 @@ function convertRelics(rows: any[]): any[] {
   return relics;
 }
 
+/**
+ * Convert "skills" - this includes abilities, soul breaks, burst commands,
+ * brave commands, and "other" skills
+ */
 function convertSkills(rows: any[]): any[] {
   const skills: any[] = [];
 
@@ -525,11 +534,16 @@ function convertSkills(rows: any[]): any[] {
         continue;
       }
 
-      const field = _.camelCase(col);
-      if (skillFields[col]) {
-        item[field] = skillFields[col](rows[i][j]);
-      } else {
-        item[field] = toCommon(field, rows[i][j]);
+      try {
+        const field = _.camelCase(col);
+        if (skillFields[col]) {
+          item[field] = skillFields[col](rows[i][j]);
+        } else {
+          item[field] = toCommon(field, rows[i][j]);
+        }
+      } catch (e) {
+        logError(e, i, j, col, rows[i]);
+        throw e;
       }
     }
 

@@ -11163,6 +11163,26 @@
     "notes": null
   },
   {
+    "id": 50503,
+    "name": "Awoken Ninja",
+    "effects": "Ninja abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Ninja abilities",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_NINJA"
+  },
+  {
+    "id": 50505,
+    "name": "Awoken Planet Prayer",
+    "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilities, casts Holy Wave after using White Magic abilities",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_STAR_PRAYER"
+  },
+  {
     "id": 50517,
     "name": "Awoken Scholar Critical Chance",
     "effects": "Grants Critical Chance =60/70/80/90/100% after using 1/2/3/4/5 Support abilities",
