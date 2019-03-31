@@ -5,23 +5,23 @@
 
 import { Store } from 'redux';
 
-import * as schemas from '../api/schemas';
-import * as charactersSchemas from '../api/schemas/characters';
-import { Handler, HandlerRequest } from './common';
-
-import { IState } from '../reducers';
+import * as _ from 'lodash';
 
 import {
   Character,
+  InventoryOrVault,
   setCharacter,
   setCharacters,
   setLegendMateria,
   setSoulBreaks,
   updateCharacter,
 } from '../actions/characters';
-
-import * as _ from 'lodash';
+import * as schemas from '../api/schemas';
+import * as charactersSchemas from '../api/schemas/characters';
+import * as warehouseSchemas from '../api/schemas/warehouse';
+import { IState } from '../reducers';
 import { logger } from '../utils/logger';
+import { Handler, HandlerRequest } from './common';
 
 function convertCharacter(data: charactersSchemas.Buddy): Character {
   return {
@@ -68,6 +68,14 @@ const charactersHandler: Handler = {
     store.dispatch(setCharacters(convertCharacters(data)));
     store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id)));
     store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id)));
+  },
+
+  'warehouse/get_equipment_list'(
+    data: warehouseSchemas.WarehouseGetEquipmentList,
+    store: Store<IState>,
+  ) {
+    store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id), InventoryOrVault.VAULT));
+    store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id, InventoryOrVault.VAULT)));
   },
 
   win_battle: handleWinBattle,

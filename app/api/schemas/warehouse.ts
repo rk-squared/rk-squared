@@ -1,4 +1,6 @@
-import { RelativeUrlPath, Timestamp } from './common';
+import { LegendMateria } from './characters';
+import { Equipment } from './equipment';
+import { PartySoulStrike } from './party';
 import { OwnedRecordMateria } from './recordMateria';
 
 export interface WarehouseBringRecordMateriasPost {
@@ -12,20 +14,12 @@ export interface WarehouseBringRecordMaterias {
 
 // http://ffrk.denagames.com/dff/warehouse/get_equipment_list
 export interface WarehouseGetEquipmentList {
-  equipments: Array<{
-    equipment_id: number;
-    name: string;
-    category_name: string;
-    series_id: number;
-    equipment_type: number;
-    is_locked: boolean;
-    category_id: number;
-    created_at: Timestamp;
-    image_path: RelativeUrlPath;
-    ex_series_id: number;
-    rarity: number;
-    id: number;
-  }>;
+  // This used to be just a pared-down list of equipment.  It was updated
+  // (probably as part of enhanced vault sorting) to include the same
+  // information as in the party screen.
+  equipments: Equipment[];
+  soul_strikes: PartySoulStrike[];
+  legend_materias: LegendMateria[];
 }
 
 export interface WarehouseStoreRecordMateriasPost {

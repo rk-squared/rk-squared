@@ -53,6 +53,7 @@ export interface Equipment {
   acc_min: number;
   eva_min: number;
 
+  // These are always 0.
   additional_bonus_hp: number;
   additional_bonus_atk: number;
   additional_bonus_def: number;
@@ -109,6 +110,7 @@ export interface Equipment {
   is_hammering_item: boolean; // always false
   is_sacred_equipment?: boolean; // added circa 4A, not present in older equipments
   is_buddy_sacred_equipment?: boolean;
+  is_usable_as_rainbow_crystal_material?: boolean;
 
   // - Elemental boost: type 1, arg 120 for 20% bonus damage
   //   100 = fire, 101 = ice, 102 = lightning, 103 = earth, 104 = wind, 105 = water,
@@ -121,6 +123,7 @@ export interface Equipment {
     type: string;
     attribute_id: string;
   }>;
+  // Realm Synergy version of attributes
   additional_bonus_attributes: Array<{
     arg: string;
     type: string;

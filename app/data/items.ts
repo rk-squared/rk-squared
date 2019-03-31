@@ -754,6 +754,11 @@ export const items: Item[] = [
     type: ItemType.Orb,
     id: 40000126,
   },
+  {
+    name: 'Chain Tornado Record',
+    type: ItemType.Orb,
+    id: 40000127,
+  },
 
   {
     name: 'Minor Growth Egg',
