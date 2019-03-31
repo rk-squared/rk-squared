@@ -9,7 +9,7 @@ import * as _ from 'lodash';
 
 import {
   Character,
-  InventoryOrVault,
+  InventoryType,
   setCharacter,
   setCharacters,
   setLegendMateria,
@@ -19,6 +19,7 @@ import {
 import * as schemas from '../api/schemas';
 import * as charactersSchemas from '../api/schemas/characters';
 import * as warehouseSchemas from '../api/schemas/warehouse';
+import { getRequiredLegendMateriaExp, getRequiredSoulBreakExp } from '../data/enlir';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
 import { Handler, HandlerRequest } from './common';
@@ -51,6 +52,20 @@ function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
   }
 }
 
+function getMastered(
+  buddies: charactersSchemas.Buddy[],
+  getExpMap: (buddy: charactersSchemas.Buddy) => { [id: string]: string },
+  getRequiredExp: (id: number) => number,
+): number[] {
+  return _.flatten(
+    _.map(buddies.map(getExpMap), (expMap: { [id: string]: string }) =>
+      _.map(expMap, (exp: string, id: string) => [+id, +exp]),
+    ),
+  )
+    .filter(([id, exp]) => exp === getRequiredExp(+id))
+    .map(([id]) => id);
+}
+
 const charactersHandler: Handler = {
   'party/list'(data: schemas.PartyList, store: Store<IState>, request: HandlerRequest) {
     if (schemas.isRecordDungeonPartyList(request.url)) {
@@ -65,7 +80,26 @@ const charactersHandler: Handler = {
     if (schemas.isRecordDungeonPartyList(request.url)) {
       return;
     }
+
     store.dispatch(setCharacters(convertCharacters(data)));
+
+    store.dispatch(
+      setSoulBreaks(
+        getMastered(data.buddies, buddy => buddy.soul_strike_exp_map, getRequiredSoulBreakExp),
+        InventoryType.MASTERED,
+      ),
+    );
+    store.dispatch(
+      setLegendMateria(
+        getMastered(
+          data.buddies,
+          buddy => buddy.legend_materia_exp_map,
+          getRequiredLegendMateriaExp,
+        ),
+        InventoryType.MASTERED,
+      ),
+    );
+
     store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id)));
     store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id)));
   },
@@ -74,8 +108,8 @@ const charactersHandler: Handler = {
     data: warehouseSchemas.WarehouseGetEquipmentList,
     store: Store<IState>,
   ) {
-    store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id), InventoryOrVault.VAULT));
-    store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id, InventoryOrVault.VAULT)));
+    store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id), InventoryType.VAULT));
+    store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id, InventoryType.VAULT)));
   },
 
   win_battle: handleWinBattle,

@@ -4,7 +4,7 @@ import { getType } from 'typesafe-actions';
 import {
   Character,
   CharacterAction,
-  InventoryOrVault,
+  InventoryType,
   setCharacter,
   setCharacters,
   setLegendMateria,
@@ -30,6 +30,20 @@ export interface CharacterState {
   legendMateria?: number[];
 
   vault?: {
+    /**
+     * Soul break IDs as returned by the vault screen.
+     */
+    soulBreaks?: number[];
+    /**
+     * Legend materia IDs as returned by the vault screen.
+     */
+    legendMateria?: number[];
+  };
+
+  mastered?: {
+    /**
+     * Mastered soul break IDs
+     */
     soulBreaks?: number[];
     legendMateria?: number[];
   };
@@ -45,13 +59,16 @@ const initialState: CharacterState = {
   },
 };
 
-function getDestination(draft: CharacterState, inventoryOrVault: InventoryOrVault) {
-  switch (inventoryOrVault) {
-    case InventoryOrVault.INVENTORY:
+function getDestination(draft: CharacterState, inventoryType: InventoryType) {
+  switch (inventoryType) {
+    case InventoryType.INVENTORY:
       return draft;
-    case InventoryOrVault.VAULT:
+    case InventoryType.VAULT:
       draft.vault = draft.vault || {};
       return draft.vault;
+    case InventoryType.MASTERED:
+      draft.mastered = draft.mastered || {};
+      return draft.mastered;
   }
 }
 
@@ -74,12 +91,12 @@ export function characters(
         return;
 
       case getType(setSoulBreaks):
-        getDestination(draft, action.payload.inventoryOrVault).soulBreaks =
+        getDestination(draft, action.payload.inventoryType).soulBreaks =
           action.payload.soulBreakIds;
         return;
 
       case getType(setLegendMateria):
-        getDestination(draft, action.payload.inventoryOrVault).legendMateria =
+        getDestination(draft, action.payload.inventoryType).legendMateria =
           action.payload.legendMateriaIds;
         return;
     }

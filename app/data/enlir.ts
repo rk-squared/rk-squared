@@ -262,7 +262,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
   points: number;
   tier: EnlirSoulBreakTier;
   master: string | null;
-  relic: string;
+  relic: string | null;
   nameJp: string;
 }
 
@@ -409,6 +409,7 @@ export const enlir = {
   otherSkillsBySource: _.keyBy(rawData.otherSkills, i => otherSkillSourceKey(i.source, i.name)),
 
   relics: _.keyBy(rawData.relics, 'id'),
+  relicsByNameWithRealm: _.keyBy(rawData.relics, i => i.name + ' (' + i.realm + ')'),
 
   recordMateria: _.keyBy(rawData.recordMateria, 'id'),
 
@@ -834,3 +835,12 @@ export function makeLegendMateriaAliases(
 
   return result;
 }
+
+export function getRequiredSoulBreakExp(id: number) {
+  if (enlir.soulBreaks[id] && enlir.soulBreaks[id].tier === 'SB') {
+    return 10000;
+  } else {
+    return 30000;
+  }
+}
+export const getRequiredLegendMateriaExp = _.constant(30000);

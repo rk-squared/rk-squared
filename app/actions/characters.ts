@@ -8,9 +8,10 @@ export interface Character {
   levelCap: number;
 }
 
-export enum InventoryOrVault {
+export enum InventoryType {
   INVENTORY,
   VAULT,
+  MASTERED,
 }
 
 export const setCharacters = createAction(
@@ -41,22 +42,22 @@ export const updateCharacter = createAction(
 
 export const setSoulBreaks = createAction(
   'SET_SOUL_BREAKS',
-  (soulBreakIds: number[], inventoryOrVault = InventoryOrVault.INVENTORY) => ({
+  (soulBreakIds: number[], inventoryType = InventoryType.INVENTORY) => ({
     type: 'SET_SOUL_BREAKS',
     payload: {
       soulBreakIds,
-      inventoryOrVault,
+      inventoryType,
     },
   }),
 );
 
 export const setLegendMateria = createAction(
   'SET_LEGEND_MATERIA',
-  (legendMateriaIds: number[], inventoryOrVault = InventoryOrVault.INVENTORY) => ({
+  (legendMateriaIds: number[], inventoryType = InventoryType.INVENTORY) => ({
     type: 'SET_LEGEND_MATERIA',
     payload: {
       legendMateriaIds,
-      inventoryOrVault,
+      inventoryType,
     },
   }),
 );

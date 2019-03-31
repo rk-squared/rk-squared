@@ -3,6 +3,7 @@ import * as React from 'react';
 import { HashLink } from 'react-router-hash-link';
 
 import SoulBreakList from '../components/soulBreaks/SoulBreakList';
+import UnmasteredSoulBreakAlert from '../components/soulBreaks/UnmasteredSoulBreakAlert';
 import { alphabet } from '../utils/textUtils';
 import { Page } from './Page';
 
@@ -10,6 +11,7 @@ const soulBreakAnchor = (letter: string) => `soulBreaks-${letter}`;
 
 export class SoulBreaksPage extends React.Component {
   render() {
+    const isAnonymous = !process.env.IS_ELECTRON;
     return (
       <Page title="Soul Breaks">
         <nav className="navbar navbar-expand-lg sticky-top navbar-light bg-light">
@@ -26,7 +28,8 @@ export class SoulBreaksPage extends React.Component {
           </div>
         </nav>
 
-        <SoulBreakList letterAnchor={soulBreakAnchor} isAnonymous={!process.env.IS_ELECTRON} />
+        {!isAnonymous && <UnmasteredSoulBreakAlert className="mt-2" />}
+        <SoulBreakList letterAnchor={soulBreakAnchor} isAnonymous={isAnonymous} />
       </Page>
     );
   }
