@@ -2,18 +2,33 @@ import { createSelector } from 'reselect';
 
 import * as _ from 'lodash';
 
+import { ExpMap } from '../actions/characters';
 import { enlir } from '../data';
+import { getRequiredLegendMateriaExp, getRequiredSoulBreakExp } from '../data/enlir';
 import { IState } from '../reducers';
-import { difference } from '../utils/setUtils';
 
 const idsToSet = (...ids: Array<number[] | undefined>) =>
   ids ? new Set<number>(_.flatten(_.filter(ids) as number[][])) : undefined;
 
-const filteredSetDifferenceToIds = (
-  setA: Set<number> | undefined,
-  setB: Set<number> | undefined,
+function makeNeededExpMap(
+  owned: Set<number> | undefined,
+  expMap: ExpMap | undefined,
   filter: (id: number) => boolean,
-) => (setA && setB ? Array.from(difference(setA, setB)).filter(filter) : undefined);
+  getRequiredExp: (id: number) => number,
+) {
+  if (!owned || !expMap) {
+    return undefined;
+  }
+
+  const neededExp: ExpMap = {};
+  for (const id of Array.from(owned).filter(filter)) {
+    const needed = getRequiredExp(id) - (expMap[id] || 0);
+    if (needed) {
+      neededExp[id] = needed;
+    }
+  }
+  return neededExp;
+}
 
 export const getOwnedLegendMateria = createSelector<
   IState,
@@ -37,55 +52,49 @@ export const getOwnedSoulBreaks = createSelector<
   idsToSet,
 );
 
-export const getMasteredLegendMateria = createSelector<
-  IState,
-  number[] | undefined,
-  Set<number> | undefined
->(
-  ({ characters }: IState) => (characters.mastered || {}).legendMateria,
-  idsToSet,
-);
-
-export const getMasteredSoulBreaks = createSelector<
-  IState,
-  number[] | undefined,
-  Set<number> | undefined
->(
-  ({ characters }: IState) => (characters.mastered || {}).soulBreaks,
-  idsToSet,
-);
-
+/**
+ * Gets *needed* experience (unlike the normal meaning of ExpMap) to master
+ * each unmastered legend materia.  This includes legend materia that have not
+ * yet been started.
+ */
 export const getUnmasteredLegendMateria = createSelector<
   IState,
   Set<number> | undefined,
-  Set<number> | undefined,
-  number[] | undefined
+  ExpMap | undefined,
+  ExpMap | undefined
 >(
   getOwnedLegendMateria,
-  getMasteredLegendMateria,
-  (owned, mastered) =>
-    filteredSetDifferenceToIds(
+  ({ characters }: IState) => characters.legendMateriaExp,
+  (owned, expMap) =>
+    makeNeededExpMap(
       owned,
-      mastered,
+      expMap,
       id => enlir.legendMateria[id] && enlir.legendMateria[id].relic != null,
+      getRequiredLegendMateriaExp,
     ),
 );
 
+/**
+ * Gets *needed* experience (unlike the normal meaning of ExpMap) to master
+ * each unmastered soul break.  This includes soul breaks that have not yet
+ * been started.
+ */
 export const getUnmasteredSoulBreaks = createSelector<
   IState,
   Set<number> | undefined,
-  Set<number> | undefined,
-  number[] | undefined
+  ExpMap | undefined,
+  ExpMap | undefined
 >(
   getOwnedSoulBreaks,
-  getMasteredSoulBreaks,
-  (owned, mastered) =>
-    filteredSetDifferenceToIds(
+  ({ characters }: IState) => characters.soulBreakExp,
+  (owned, expMap) =>
+    makeNeededExpMap(
       owned,
-      mastered,
+      expMap,
       id =>
         enlir.soulBreaks[id] &&
         enlir.soulBreaks[id].tier !== 'Default' &&
         enlir.soulBreaks[id].tier !== 'Shared',
+      getRequiredSoulBreakExp,
     ),
 );

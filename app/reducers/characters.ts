@@ -4,10 +4,13 @@ import { getType } from 'typesafe-actions';
 import {
   Character,
   CharacterAction,
+  ExpMap,
   InventoryType,
   setCharacter,
   setCharacters,
   setLegendMateria,
+  setLegendMateriaExp,
+  setSoulBreakExp,
   setSoulBreaks,
   updateCharacter,
 } from '../actions/characters';
@@ -40,13 +43,16 @@ export interface CharacterState {
     legendMateria?: number[];
   };
 
-  mastered?: {
-    /**
-     * Mastered soul break IDs
-     */
-    soulBreaks?: number[];
-    legendMateria?: number[];
-  };
+  /**
+   * Experience towards mastery for each soul break.  This includes fully
+   * mastered soul breaks but does not include soul breaks for which the
+   * user has learned nothing.
+   */
+  soulBreakExp?: ExpMap;
+  /**
+   * Experience towards master for each legend materia.  See soulBreakExp.
+   */
+  legendMateriaExp?: ExpMap;
 }
 
 const initialState: CharacterState = {
@@ -66,9 +72,6 @@ function getDestination(draft: CharacterState, inventoryType: InventoryType) {
     case InventoryType.VAULT:
       draft.vault = draft.vault || {};
       return draft.vault;
-    case InventoryType.MASTERED:
-      draft.mastered = draft.mastered || {};
-      return draft.mastered;
   }
 }
 
@@ -98,6 +101,14 @@ export function characters(
       case getType(setLegendMateria):
         getDestination(draft, action.payload.inventoryType).legendMateria =
           action.payload.legendMateriaIds;
+        return;
+
+      case getType(setSoulBreakExp):
+        draft.soulBreakExp = action.payload;
+        return;
+
+      case getType(setLegendMateriaExp):
+        draft.legendMateriaExp = action.payload;
         return;
     }
   });

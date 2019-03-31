@@ -9,17 +9,19 @@ import * as _ from 'lodash';
 
 import {
   Character,
+  ExpMap,
   InventoryType,
   setCharacter,
   setCharacters,
   setLegendMateria,
+  setLegendMateriaExp,
+  setSoulBreakExp,
   setSoulBreaks,
   updateCharacter,
 } from '../actions/characters';
 import * as schemas from '../api/schemas';
 import * as charactersSchemas from '../api/schemas/characters';
 import * as warehouseSchemas from '../api/schemas/warehouse';
-import { getRequiredLegendMateriaExp, getRequiredSoulBreakExp } from '../data/enlir';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
 import { Handler, HandlerRequest } from './common';
@@ -52,18 +54,17 @@ function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
   }
 }
 
-function getMastered(
+function getExpMap(
   buddies: charactersSchemas.Buddy[],
-  getExpMap: (buddy: charactersSchemas.Buddy) => { [id: string]: string },
-  getRequiredExp: (id: number) => number,
-): number[] {
-  return _.flatten(
-    _.map(buddies.map(getExpMap), (expMap: { [id: string]: string }) =>
-      _.map(expMap, (exp: string, id: string) => [+id, +exp]),
+  getCharacterExpMap: (buddy: charactersSchemas.Buddy) => { [id: string]: string },
+): ExpMap {
+  return _.fromPairs(
+    _.flatten(
+      _.map(buddies.map(getCharacterExpMap), (expMap: { [id: string]: string }) =>
+        _.map(expMap, (exp: string, id: string) => [+id, +exp]),
+      ),
     ),
-  )
-    .filter(([id, exp]) => exp === getRequiredExp(+id))
-    .map(([id]) => id);
+  );
 }
 
 const charactersHandler: Handler = {
@@ -83,21 +84,9 @@ const charactersHandler: Handler = {
 
     store.dispatch(setCharacters(convertCharacters(data)));
 
+    store.dispatch(setSoulBreakExp(getExpMap(data.buddies, buddy => buddy.soul_strike_exp_map)));
     store.dispatch(
-      setSoulBreaks(
-        getMastered(data.buddies, buddy => buddy.soul_strike_exp_map, getRequiredSoulBreakExp),
-        InventoryType.MASTERED,
-      ),
-    );
-    store.dispatch(
-      setLegendMateria(
-        getMastered(
-          data.buddies,
-          buddy => buddy.legend_materia_exp_map,
-          getRequiredLegendMateriaExp,
-        ),
-        InventoryType.MASTERED,
-      ),
+      setLegendMateriaExp(getExpMap(data.buddies, buddy => buddy.legend_materia_exp_map)),
     );
 
     store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id)));

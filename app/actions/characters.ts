@@ -11,7 +11,10 @@ export interface Character {
 export enum InventoryType {
   INVENTORY,
   VAULT,
-  MASTERED,
+}
+
+export interface ExpMap {
+  [id: number]: number;
 }
 
 export const setCharacters = createAction(
@@ -62,10 +65,22 @@ export const setLegendMateria = createAction(
   }),
 );
 
+export const setSoulBreakExp = createAction('SET_SOUL_BREAK_EXP', (exp: ExpMap) => ({
+  type: 'SET_SOUL_BREAK_EXP',
+  payload: exp,
+}));
+
+export const setLegendMateriaExp = createAction('SET_LEGEND_MATERIA_EXP', (exp: ExpMap) => ({
+  type: 'SET_LEGEND_MATERIA_EXP',
+  payload: exp,
+}));
+
 export type CharacterAction = ReturnType<
   | typeof setCharacter
   | typeof setCharacters
   | typeof updateCharacter
   | typeof setSoulBreaks
   | typeof setLegendMateria
+  | typeof setSoulBreakExp
+  | typeof setLegendMateriaExp
 >;
