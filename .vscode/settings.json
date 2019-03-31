@@ -113,6 +113,7 @@
     "Sith",
     "Spellblade",
     "Stoneskin",
+    "Superset",
     "Teraflare",
     "Thancred",
     "Tifa",
@@ -133,8 +134,10 @@
     "Zoma's",
     "adsbygoogle",
     "arrayify",
+    "attunement",
     "crit",
     "datestamp",
+    "debuff",
     "debuffs",
     "dualcast",
     "dualcasts",
@@ -161,7 +164,8 @@
     "tooltips",
     "triplecast",
     "typesafe",
-    "undeads"
+    "undeads",
+    "whatever's"
   ],
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,

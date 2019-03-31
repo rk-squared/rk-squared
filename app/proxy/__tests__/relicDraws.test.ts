@@ -1,11 +1,20 @@
-import { convertRelicDrawBanners, convertRelicDrawProbabilities } from '../relicDraws';
+import gachaHandler, {
+  convertRelicDrawBanners,
+  convertRelicDrawProbabilities,
+} from '../relicDraws';
 
 import * as _ from 'lodash';
 
+import configureStore from 'redux-mock-store';
+
+import { InventoryType } from '../../actions/characters';
 import { RelicDrawBanner } from '../../actions/relicDraws';
 import { LangType } from '../../api/apiUrls';
+import { IState } from '../../reducers';
 
 describe('gacha proxy handler', () => {
+  const mockStore = configureStore<IState>();
+
   describe('gacha/show', () => {
     it('converts relic draws with Realms on Parade', () => {
       const { data } = require('./data/gacha_show.json');
@@ -95,6 +104,30 @@ describe('gacha proxy handler', () => {
       });
       expect(_.filter(byRelic, value => value >= 1).length).toEqual(14);
       expect(_.keys(byRelic).length).toEqual(42);
+    });
+  });
+
+  describe('gacha/execute', () => {
+    it('updates soul break and legend materia lists', () => {
+      const { data } = require('./data/gacha_execute_fest_banner.json');
+      const store = mockStore();
+      gachaHandler['gacha/execute'](data, store, {});
+      expect(store.getActions()).toEqual([
+        {
+          type: 'ADD_SOUL_BREAK',
+          payload: {
+            idOrIds: [20860014],
+            inventoryType: InventoryType.INVENTORY,
+          },
+        },
+        {
+          type: 'ADD_LEGEND_MATERIA',
+          payload: {
+            idOrIds: [201110103],
+            inventoryType: InventoryType.INVENTORY,
+          },
+        },
+      ]);
     });
   });
 });

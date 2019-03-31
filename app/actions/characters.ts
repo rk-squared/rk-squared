@@ -8,9 +8,13 @@ export interface Character {
   levelCap: number;
 }
 
-export enum InventoryOrVault {
+export enum InventoryType {
   INVENTORY,
   VAULT,
+}
+
+export interface ExpMap {
+  [id: number]: number;
 }
 
 export const setCharacters = createAction(
@@ -41,25 +45,79 @@ export const updateCharacter = createAction(
 
 export const setSoulBreaks = createAction(
   'SET_SOUL_BREAKS',
-  (soulBreakIds: number[], inventoryOrVault = InventoryOrVault.INVENTORY) => ({
+  (soulBreakIds: number[], inventoryType = InventoryType.INVENTORY) => ({
     type: 'SET_SOUL_BREAKS',
     payload: {
       soulBreakIds,
-      inventoryOrVault,
+      inventoryType,
     },
   }),
 );
 
 export const setLegendMateria = createAction(
   'SET_LEGEND_MATERIA',
-  (legendMateriaIds: number[], inventoryOrVault = InventoryOrVault.INVENTORY) => ({
+  (legendMateriaIds: number[], inventoryType = InventoryType.INVENTORY) => ({
     type: 'SET_LEGEND_MATERIA',
     payload: {
       legendMateriaIds,
-      inventoryOrVault,
+      inventoryType,
     },
   }),
 );
+
+export const addSoulBreak = createAction(
+  'ADD_SOUL_BREAK',
+  (idOrIds: number | number[], inventoryType = InventoryType.INVENTORY) => ({
+    type: 'ADD_SOUL_BREAK',
+    payload: {
+      idOrIds,
+      inventoryType,
+    },
+  }),
+);
+
+export const addLegendMateria = createAction(
+  'ADD_LEGEND_MATERIA',
+  (idOrIds: number | number[], inventoryType = InventoryType.INVENTORY) => ({
+    type: 'ADD_LEGEND_MATERIA',
+    payload: {
+      idOrIds,
+      inventoryType,
+    },
+  }),
+);
+
+/**
+ * Sets a new soul break experience map, replacing whatever's there.
+ */
+export const setSoulBreakExp = createAction('SET_SOUL_BREAK_EXP', (exp: ExpMap) => ({
+  type: 'SET_SOUL_BREAK_EXP',
+  payload: exp,
+}));
+
+/**
+ * Sets a new legend materia experience map, replacing whatever's there.
+ */
+export const setLegendMateriaExp = createAction('SET_LEGEND_MATERIA_EXP', (exp: ExpMap) => ({
+  type: 'SET_LEGEND_MATERIA_EXP',
+  payload: exp,
+}));
+
+/**
+ * Updates the soul break experience map, adding to or updating existing content.
+ */
+export const updateSoulBreakExp = createAction('UPDATE_SOUL_BREAK_EXP', (exp: ExpMap) => ({
+  type: 'UPDATE_SOUL_BREAK_EXP',
+  payload: exp,
+}));
+
+/**
+ * Updates the legend materia experience map, adding to or updating existing content.
+ */
+export const updateLegendMateriaExp = createAction('UPDATE_LEGEND_MATERIA_EXP', (exp: ExpMap) => ({
+  type: 'UPDATE_LEGEND_MATERIA_EXP',
+  payload: exp,
+}));
 
 export type CharacterAction = ReturnType<
   | typeof setCharacter
@@ -67,4 +125,10 @@ export type CharacterAction = ReturnType<
   | typeof updateCharacter
   | typeof setSoulBreaks
   | typeof setLegendMateria
+  | typeof addSoulBreak
+  | typeof addLegendMateria
+  | typeof setSoulBreakExp
+  | typeof setLegendMateriaExp
+  | typeof updateSoulBreakExp
+  | typeof updateLegendMateriaExp
 >;

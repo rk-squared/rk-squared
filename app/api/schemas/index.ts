@@ -19,7 +19,6 @@ import {
   DressRecord,
   EquipmentHyperEvolveMaterial,
   EquipmentSpMaterial,
-  ItemPossessionLimit,
   Material,
   MemoryCrystal,
   Party,
@@ -28,7 +27,7 @@ import {
   SphereMaterial,
 } from './party';
 import { OwnedRecordMateria } from './recordMateria';
-import { User } from './user';
+import { ItemPossessionLimit, User } from './user';
 
 export { ItemTypeName } from './common';
 export { Battles } from './battles';
@@ -394,7 +393,7 @@ export interface WinBattle {
         legend_materia_disp_name: string;
         legend_materia_description: string;
         equipment_id: NumberAsString;
-        soul_strike_id: NumberAsString;
+        legend_materia_id: NumberAsString;
 
         previous_exp: NumberAsString;
         disp_exp: NumberAsString;

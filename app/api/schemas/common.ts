@@ -48,3 +48,48 @@ export type ItemTypeName =
   | 'RECORD_MATERIA'
   | 'RECORD_TEAR'
   | 'SPHERE_MATERIAL';
+
+// Soul break components - soul breaks themselves have different forms in different contexts
+export interface AwakeExplanation {
+  name_text: string;
+  description_text: string;
+}
+export interface BraveInfo {
+  brave_abilities: BraveAbility[];
+  level_up_condition_text: 'Use a thief ability.';
+  brave_level_map_ability: BraveAbility;
+}
+interface BraveAbility {
+  type_name: string; // e.g., 'ABILITY'
+  arg1: number;
+  target_range: number;
+  command_icon_path: string;
+  name: string;
+  category_name: string;
+  description: string;
+  item_id: number;
+  level?: number;
+  rarity: number;
+  max_grade: number;
+}
+export interface BurstCommand {
+  category_type: number;
+  panel_name: string;
+  target_range: number;
+  command_icon_path: RelativeUrlPath;
+  name: string;
+  category_name: string; // e.g., 'White Magic'
+  thumbnail_path: RelativeUrlPath;
+  description: string;
+  category_id: number;
+  animation_id: number;
+  image_path: RelativeUrlPath;
+  rarity: number;
+  disable_generation: boolean;
+  display_category_id: number;
+}
+export interface ChainExplanation {
+  image_path: string;
+  condition_text: string;
+  effect_text: string;
+}

@@ -2,15 +2,23 @@ import { produce } from 'immer';
 import { getType } from 'typesafe-actions';
 
 import {
+  addLegendMateria,
+  addSoulBreak,
   Character,
   CharacterAction,
-  InventoryOrVault,
+  ExpMap,
+  InventoryType,
   setCharacter,
   setCharacters,
   setLegendMateria,
+  setLegendMateriaExp,
+  setSoulBreakExp,
   setSoulBreaks,
   updateCharacter,
+  updateLegendMateriaExp,
+  updateSoulBreakExp,
 } from '../actions/characters';
+import { arrayify } from '../utils/typeUtils';
 
 export interface CharacterState {
   characters: {
@@ -30,9 +38,26 @@ export interface CharacterState {
   legendMateria?: number[];
 
   vault?: {
+    /**
+     * Soul break IDs as returned by the vault screen.
+     */
     soulBreaks?: number[];
+    /**
+     * Legend materia IDs as returned by the vault screen.
+     */
     legendMateria?: number[];
   };
+
+  /**
+   * Experience towards mastery for each soul break.  This includes fully
+   * mastered soul breaks but does not include soul breaks for which the
+   * user has learned nothing.
+   */
+  soulBreakExp?: ExpMap;
+  /**
+   * Experience towards master for each legend materia.  See soulBreakExp.
+   */
+  legendMateriaExp?: ExpMap;
 }
 
 const initialState: CharacterState = {
@@ -45,13 +70,24 @@ const initialState: CharacterState = {
   },
 };
 
-function getDestination(draft: CharacterState, inventoryOrVault: InventoryOrVault) {
-  switch (inventoryOrVault) {
-    case InventoryOrVault.INVENTORY:
+function getDestination(draft: CharacterState, inventoryType: InventoryType) {
+  switch (inventoryType) {
+    case InventoryType.INVENTORY:
       return draft;
-    case InventoryOrVault.VAULT:
+    case InventoryType.VAULT:
       draft.vault = draft.vault || {};
       return draft.vault;
+  }
+}
+
+function addIds(idList: number[] | undefined, idOrIds: number | number[]) {
+  if (!idList) {
+    return;
+  }
+  for (const i of arrayify(idOrIds)) {
+    if (idList.indexOf(i) === -1) {
+      idList.push(i);
+    }
   }
 }
 
@@ -73,14 +109,56 @@ export function characters(
         Object.assign(draft.characters[action.payload.id], action.payload.character);
         return;
 
+      // Known soul breaks and legend materia
       case getType(setSoulBreaks):
-        getDestination(draft, action.payload.inventoryOrVault).soulBreaks =
+        getDestination(draft, action.payload.inventoryType).soulBreaks =
           action.payload.soulBreakIds;
         return;
 
       case getType(setLegendMateria):
-        getDestination(draft, action.payload.inventoryOrVault).legendMateria =
+        getDestination(draft, action.payload.inventoryType).legendMateria =
           action.payload.legendMateriaIds;
+        return;
+
+      case getType(addSoulBreak): {
+        const dest = getDestination(draft, action.payload.inventoryType);
+        addIds(dest.soulBreaks, action.payload.idOrIds);
+        return;
+      }
+
+      case getType(addLegendMateria): {
+        const dest = getDestination(draft, action.payload.inventoryType);
+        addIds(dest.legendMateria, action.payload.idOrIds);
+        return;
+      }
+
+      // Soul break and legend materia experience
+      case getType(setSoulBreakExp):
+        draft.soulBreakExp = action.payload;
+        return;
+
+      case getType(setLegendMateriaExp):
+        draft.legendMateriaExp = action.payload;
+        return;
+
+      case getType(updateSoulBreakExp):
+        if (!draft.soulBreakExp) {
+          return;
+        }
+        draft.soulBreakExp = {
+          ...draft.soulBreakExp,
+          ...action.payload,
+        };
+        return;
+
+      case getType(updateLegendMateriaExp):
+        if (!draft.legendMateriaExp) {
+          return;
+        }
+        draft.legendMateriaExp = {
+          ...draft.legendMateriaExp,
+          ...action.payload,
+        };
         return;
     }
   });

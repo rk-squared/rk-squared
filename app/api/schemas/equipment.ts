@@ -112,26 +112,25 @@ export interface Equipment {
   is_buddy_sacred_equipment?: boolean;
   is_usable_as_rainbow_crystal_material?: boolean;
 
-  // - Elemental boost: type 1, arg 120 for 20% bonus damage
-  //   100 = fire, 101 = ice, 102 = lightning, 103 = earth, 104 = wind, 105 = water,
-  //   106 = holy, 107 = dark, 108 = poison
-  // - Resist element: type 2, arg 1 for vulnerable, 2 for minor, 4 for moderate, 7 for major
-  // - Inflict debuff: type 3, arg 5 for "small chance".  attribute_id gives DebuffType.
-  // - Resist debuff: type 4, arg 10 for "moderate amount"
-  attributes: Array<{
-    arg: string;
-    type: string;
-    attribute_id: string;
-  }>;
-  // Realm Synergy version of attributes
-  additional_bonus_attributes: Array<{
-    arg: string;
-    type: string;
-    attribute_id: string;
-  }>;
+  attributes: EquipmentAttribute[];
+  additional_bonus_attributes: EquipmentAttribute[]; // Realm Synergy attributes
 
   // These show up in gacha banners' BannerList but not in the normal party
-  // equipment lists.
+  // equipment lists or in gacha/execute.
   soul_strike?: PartySoulStrike;
   legend_materia?: LegendMateria;
+}
+
+/**
+ * - Elemental boost: type 1, arg 120 for 20% bonus damage
+ *   100 = fire, 101 = ice, 102 = lightning, 103 = earth, 104 = wind, 105 = water,
+ *   106 = holy, 107 = dark, 108 = poison
+ * - Resist element: type 2, arg 1 for vulnerable, 2 for minor, 4 for moderate, 7 for major
+ * - Inflict debuff: type 3, arg 5 for "small chance".  attribute_id gives DebuffType.
+ * - Resist debuff: type 4, arg 10 for "moderate amount"
+ */
+interface EquipmentAttribute {
+  arg: string;
+  type: string;
+  attribute_id: string;
 }

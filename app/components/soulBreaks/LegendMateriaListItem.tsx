@@ -8,7 +8,7 @@ import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 
 export const styles = require('./SoulBreakListItem.scss');
 
-const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
+export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
 interface Props {
   legendMateria: EnlirLegendMateria;

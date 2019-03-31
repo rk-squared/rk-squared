@@ -32,3 +32,10 @@ export interface User {
   max_follower_num: number;
   max_stamina: number;
 }
+
+export interface ItemPossessionLimit {
+  current_num: number;
+  item_type_name: string;
+  max_num: number;
+  enable_give_num: number;
+}
