@@ -1,0 +1,2624 @@
+{
+  "url": "http://ffrk.denagames.com/dff/gacha/execute",
+  "data": {
+    "ability_material": [],
+    "sphere_material": [],
+    "record_materia": [],
+    "dress_record": [],
+    "battle_ticket": [],
+    "gacha_series_id": "798",
+    "stamina_recovery_agent": [],
+    "legend_materias": [
+      {
+        "def_boost": 0,
+        "has_param_booster": true,
+        "matk_boost": 10,
+        "atk_boost": 0,
+        "effect_type": 26,
+        "recommend_priority": 1501,
+        "hp_boost": 0,
+        "id": 201051203,
+        "spd_boost": 0,
+        "mdef_boost": 0,
+        "mnd_boost": 0,
+        "command_icon_path": "/dff/static/lang/image/legend_materia/201051203/201051203_128.png",
+        "buddy_id": 10501200,
+        "name": "A Granddaughter's Drive",
+        "acc_boost": 0,
+        "buddy_name": "Krile",
+        "description": "Small chance for offensive fire abilities to trigger twice.",
+        "disp_name": "Granddaughter's{n}Drive",
+        "image_path": "/dff/static/lang/image/legend_materia/201051203/201051203_112.png",
+        "required_exp": 30000,
+        "eva_boost": 0
+      },
+      {
+        "def_boost": 0,
+        "has_param_booster": true,
+        "matk_boost": 0,
+        "atk_boost": 10,
+        "effect_type": 5,
+        "recommend_priority": 1500,
+        "hp_boost": 0,
+        "id": 201141103,
+        "spd_boost": 0,
+        "mdef_boost": 0,
+        "mnd_boost": 0,
+        "command_icon_path": "/dff/static/lang/image/legend_materia/201141103/201141103_128.png",
+        "buddy_id": 11401100,
+        "name": "Piercing Purpose",
+        "acc_boost": 0,
+        "buddy_name": "Estinien",
+        "description": "Begin battle temporarily infused with the power of wind.",
+        "disp_name": "Piercing Purpose",
+        "image_path": "/dff/static/lang/image/legend_materia/201141103/201141103_112.png",
+        "required_exp": 30000,
+        "eva_boost": 0
+      },
+      {
+        "def_boost": 0,
+        "has_param_booster": true,
+        "matk_boost": 0,
+        "atk_boost": 0,
+        "effect_type": 34,
+        "recommend_priority": 1500,
+        "hp_boost": 0,
+        "id": 201600502,
+        "spd_boost": 0,
+        "mdef_boost": 0,
+        "mnd_boost": 10,
+        "command_icon_path": "/dff/static/lang/image/legend_materia/201600502/201600502_128.png",
+        "buddy_id": 16000500,
+        "name": "Gentle Spirit",
+        "acc_boost": 0,
+        "buddy_name": "Rem",
+        "description": "Increase the user's Mind up to a moderate amount, proportional to the number of white magic abilities the user has used.",
+        "disp_name": "Gentle Spirit",
+        "image_path": "/dff/static/lang/image/legend_materia/201600502/201600502_112.png",
+        "required_exp": 30000,
+        "eva_boost": 0
+      },
+      {
+        "def_boost": 0,
+        "has_param_booster": true,
+        "matk_boost": 5,
+        "atk_boost": 5,
+        "effect_type": 26,
+        "recommend_priority": 1500,
+        "hp_boost": 0,
+        "id": 201070802,
+        "spd_boost": 0,
+        "mdef_boost": 0,
+        "mnd_boost": 0,
+        "command_icon_path": "/dff/static/lang/image/legend_materia/201070802/201070802_128.png",
+        "buddy_id": 10700800,
+        "name": "Seeing Red",
+        "acc_boost": 0,
+        "buddy_name": "Vincent",
+        "description": "Small chance for offensive fire abilities to trigger twice.",
+        "disp_name": "Seeing{n}Red",
+        "image_path": "/dff/static/lang/image/legend_materia/201070802/201070802_112.png",
+        "required_exp": 30000,
+        "eva_boost": 0
+      }
+    ],
+    "acquired_gil": 0,
+    "achieved_book_ids": [],
+    "user": {
+      "stamina_piece": 1140,
+      "soul_piece": 492,
+      "residual_stamina_piece": 0,
+      "start_time_of_today": 1553432400,
+      "stamina_recovery_time": 180,
+      "max_followee_num": 100,
+      "dungeon_id": 0,
+      "id": 5679473043701760,
+      "release_id": 0,
+      "stamina_info": {
+        "additional_stamina": 0,
+        "current_max_stamina": 228,
+        "prev_max_stamina": 228,
+        "got_stamina_piece": 0
+      },
+      "func_tutorial_flags": {
+        "SS_EXP": false,
+        "NIGHTMARE_DUNGEON": true,
+        "EXTREME_CLOSE2": false,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR": true,
+        "ABILITY_MATERIAL_CONVERT": true,
+        "SORTIE_LIMITATION": false,
+        "EXTREME": false,
+        "DUNGEON_LIST": true,
+        "GENERATE_RAINBOW_CRYSTAL": true,
+        "BUDDY_EVOLUTION": true,
+        "FIRST_ENTER_RECORD_DUNGEON": true,
+        "BOOK_ROOM2": true,
+        "SECOND_ANNIVERSARY": false,
+        "GROWEGG": true,
+        "LEGEND_MATERIA": true,
+        "RECORD_DIVE": true,
+        "FELLOW_LIST": true,
+        "OLD_ABILITY_GENERATION": false,
+        "FIRST_ENTER_BEAST_WORLD_LIST_2": true,
+        "DRESS_RECORD": true,
+        "SERIES": true,
+        "STAMINA_RECOVERY_AGENT": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_1": true,
+        "MAGIA_CRYSTAL_BATTLE_RESULT": true,
+        "FELLOW": true,
+        "EQUIPMENT_HYPER_EVOLVE": true,
+        "PROGRESS_MAP": true,
+        "ABILITY_CHANGE": false,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_AFTER_UPDATE": true,
+        "OLD_HOME": true,
+        "RECORD_DUNGEON_FRAME_ART_BREAK": true,
+        "BEAST_DUNGEON_RARITY3_NUM3_CLEAR": true,
+        "PARTY_TOP": true,
+        "BATTLE_OPERATION": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_1": true,
+        "SS_MULTI": false,
+        "WDAY_DUNGEON_EXCHANGE_SHOP": true,
+        "SS_LIMITATION": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_3": true,
+        "EXTREME_MOVIE": true,
+        "COUNTDOWN_2016_DEFEAT_CNT_RESULT": false,
+        "FIRST_ANNIVERSARY": false,
+        "MO_INTRODUCTION_MOVIE": false,
+        "PARTY_MEMORY": true,
+        "RECORD_DUNGEON_PARTY_EDIT": true,
+        "BEAST_DUNGEON_RARITY4_ALL_CLEAR_1": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_2": true,
+        "OLD_QUEST": false,
+        "PROFILE": true,
+        "EXTREME_OPENING": true,
+        "ENHANCEMENT": true,
+        "LEGEND_SPHERE": true,
+        "ABILITY_DECOMPOSE": true,
+        "OLD_UI_REBORN": true,
+        "ABILITY_UPGRADE": true,
+        "SECOND_ENTER_BEAST_WORLD_LIST": true,
+        "BATTLE_LIST_2": true,
+        "SECOND_ENTER_BEAST_DUNGEON_LIST": true,
+        "LEAD_TO_SECOND_DUNGEON": true,
+        "MO_FORMAL": false,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_1": true,
+        "BUDDY_ADDITIONAL_STATUS_BONUS": true,
+        "EXTREME_CLOSING_MOVIE": true,
+        "OLD_ACHIEVEMENT_ROOM": true,
+        "OLD_BUFF_DEBUFF_TRAINING_FOR_BEGINNER": true,
+        "COUNTDOWN_2016_MOVIE": false,
+        "OLD_INVENTORY": false,
+        "ENHANCEMENT_TOP": true,
+        "BEAST_DUNGEON_RARITY5_ALL_CLEAR_1": false,
+        "FIRST_ENTER_BEAST_WORLD_LIST_1": true,
+        "FELLOW_PLUS": true,
+        "ABILITY_GENERATION": true,
+        "TEN_MILLION_DOWNLOAD_MOVIE": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_2": true,
+        "SACRED_CASTLE": true,
+        "NEW_YEAR_2017": false,
+        "HAMMERING": true,
+        "RECORD_DUNGEON_BATTLE_LIST": true,
+        "MASTER_LEGEND_MATERIA": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_2": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_2": true,
+        "EQUIPMENT_CHANGE": true,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR_AFTER_UPDATE": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_1": true,
+        "BATTLE_LIST": true,
+        "MAGIA_CRYSTAL_FIRST_ENTER": true,
+        "PARTY_EDIT": true,
+        "FORCE_DUNGEON": true,
+        "ANYTIME_MUSIC_ROOM": true,
+        "EXTREME_CLOSE1": false,
+        "BEAST_WORLD_OPENING_MOVIE": true,
+        "BRAVE_SERIES_BONUS": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_2": true,
+        "INVENTORY": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR": false,
+        "BOOK_ROOM": true,
+        "OLD_ENHANCEMENT": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_1": true,
+        "MO_PARTY": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_BEAST_TOP": true,
+        "BEAST_INHERITANCE": true,
+        "EVOLUTION": true,
+        "SUPPRESS": true,
+        "SS_MULTI_AND_EXP": true,
+        "RECORD_TEAR": true,
+        "OLD_MISSION": true
+      },
+      "is_in_dungeon": false,
+      "name": "Yehosua",
+      "has_all_clear_ver_to_show": false,
+      "stamina": 226,
+      "can_review": true,
+      "tutorial_step": 255,
+      "followee_num": 69,
+      "sacred_lithograph": 3,
+      "stamina_recovery_remaining_time": 291,
+      "gil": 177551500,
+      "is_update_last_logined_at": false,
+      "last_logined_at": 1553432995,
+      "is_tutorial_finish": true,
+      "max_follower_num": 100,
+      "max_stamina": 228
+    },
+    "beast": [],
+    "success": true,
+    "executable_count": 0,
+    "updated_entry_point_info": {},
+    "buddy": [],
+    "equipment_sp_material": [],
+    "is_showable": 1,
+    "grow_egg": [],
+    "record_tear": [],
+    "equipment_hyper_evolve_material": [],
+    "auto_sold_user_equipment_ids": [],
+    "ability": [],
+    "auto_generate_user_equipment_ids": [],
+    "memory_crystal": [],
+    "music_ticket": [],
+    "common": [],
+    "gacha_entry_point_id": "1798101",
+    "assets": {
+      "item-22056177": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/equipment/22056177/22056177_05_256.png": {
+            "hash": "z9bKP+/rEeE15q/Pmy1aig"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/equipment/22056177/22056177_05_256.png"
+      },
+      "gacha_fee": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/gacha/pb_magic_eff.json": {
+            "hash": "L6tsb9ch3ezxS1JaHHgLGQ"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev05.json": {
+            "hash": "yHwvQsyUurE4YxovDTPM1A"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100041.ogg": {
+            "hash": "JXimLq4g3Vb9kXocmWi52w"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_mogu.json": {
+            "hash": "B7m3/5IdSxomiVS9PHB6Rw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_mogu.png": {
+            "hash": "mCWu16H201Wg2K11qz3ssA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_gacha_text.json": {
+            "hash": "4V6bbhbofwlkRtiLQua19Q"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_cong.json": {
+            "hash": "6Y4XvB4/2+jJnZoFBZZf9A"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_hanabi_B.json": {
+            "hash": "IhbEbi7Vq42IVgtneEFfgw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_BG_Fee_Lev01.png": {
+            "hash": "Xj17gpEkEyPyB9YlfN8YRw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_BG_Fee_Lev02.png": {
+            "hash": "5eqPrlXxPqlcozIBBcjRlA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/gacha_fee.json": {
+            "hash": "Mvv6xBsdFreR3JJ0YKYjZQ"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_magic_eff2.json": {
+            "hash": "HJKi1GodHLPZ4ClkNCbHwA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_hanabi_A.json": {
+            "hash": "fhz9K4TevaE2Z9RNyrspXA"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100045.ogg": {
+            "hash": "3++mz31sjxWGBDH38vKFiA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_star_02.json": {
+            "hash": "VhSmEcQ7oUdLNiun2ZA8+Q"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_light_circle.png": {
+            "hash": "iPeWXyrfqsz6NqCOeM/pfA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_mogu.json": {
+            "hash": "hCrzDjdJZ4krxFp/4hE2Eg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_BG_Fee_Lev03.png": {
+            "hash": "+PsEtes62EmpoYuNgXG8Zg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+            "hash": "Sjv72DvWV55JpDKAYs1tmA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_lightLev06_30.json": {
+            "hash": "1PktXriFuqwapjXvRmRU0g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_circle01.png": {
+            "hash": "kibSjuTQaXxjgB0ZzBHUfA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev04.json": {
+            "hash": "rFOHOLiKJcsMR4gu/hvJQQ"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+            "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_lightLev04_30.json": {
+            "hash": "XCwXT0ABHNvLYFmDRKqSRg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_lightLev05_30.json": {
+            "hash": "iquno16ZgxYP5wsDN5MXYg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_cong_02.json": {
+            "hash": "LYADbQHsbXDtMp6NBPwl9A"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100042.ogg": {
+            "hash": "oEnGhwOLqA6Tc3BTTJK9cA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_gacha.png": {
+            "hash": "bJT9NPRXrSFBZQI0MBP+LA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_magic_effC.json": {
+            "hash": "Tc162ZFTJXMWbkoKV0pf2A"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_BG_Fee_Lev04.png": {
+            "hash": "S8s7BKG0Jkv13nta5A7XMw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_BG_Fee_03.png": {
+            "hash": "GoxrJkQN0yg6sLJyel2WOQ"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_gacha.json": {
+            "hash": "FYT3LLow6VW1jm9O5uRpqA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_picLev03.json": {
+            "hash": "rXkshBWpXiV8ETjKCk+Bew"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_hanabi_D.json": {
+            "hash": "ymiaPxOZ1sWq/W4nSg8uag"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_lightLev03.json": {
+            "hash": "sTKM4BFpNKAIRxVKwwdxxA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev02.json": {
+            "hash": "+Hbdo2e+b2B4wIEdczKlog"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_circle02.png": {
+            "hash": "mTAvA/KoudjpNqfBj1A/oA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_light_tailS.json": {
+            "hash": "7PBhqVMsBqtqi5M3UAgAWg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev03.json": {
+            "hash": "6oQGzo51Kuwcj/3LFg6pSw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_picLev04.json": {
+            "hash": "MCuradnqDOHhArYSS5KfGg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+            "hash": "lqlI1yYIl8hfQIawA1sRlg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.json": {
+            "hash": "JJirDrM1e/OlIjYhVRis9w"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_picLev02.json": {
+            "hash": "X47xHrylaQeLWvDwDXa2wA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev01.json": {
+            "hash": "S+ZSmGGkSfbWANfX6K5DeQ"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_room_star.json": {
+            "hash": "lDvU6/GUy0VtMD3MMtZ7Xg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_magic.json": {
+            "hash": "HauZ4rNcBXV36JD1hfgLMw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev06.json": {
+            "hash": "tWCBohwZsZ9F+utJw+xNSw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_hanabi_C.json": {
+            "hash": "fL53OkQ1JXchWz9sTh28ag"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_picLev05.json": {
+            "hash": "a1CU9eqvo7wlH4Y+B1s0QA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_star.json": {
+            "hash": "pnlfHh5YygLW0RWp7jNQiw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_TapIcon.json": {
+            "hash": "oCo3VQ0yHGgoYKaeCOJ9lg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100043.ogg": {
+            "hash": "0UflVyL0GRCx36CKDU9kRw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_gacha_text.png": {
+            "hash": "cnO9dL9CYo+UsXVRAd9c4g"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_light_tailA.json": {
+            "hash": "o7RhrE84EbDEkdS6CrigdQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+            "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100044.ogg": {
+            "hash": "BqcVzU8mmeBlTf+hs2pkaw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+            "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.json": {
+            "hash": "7VzCDmEK9bZXfq+QvbOm9g"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100040.ogg": {
+            "hash": "RPJ4GZkmKHIcVjhKiVOP/g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.png": {
+            "hash": "lKeVc4YW31UgmCScKaDGlQ"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_lightLev01.json": {
+            "hash": "mtaRuLGYRIWFzHJVQymyHg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/gacha/gacha_fee.json"
+      },
+      "item-22051091": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/equipment/22051091/22051091_05_256.png": {
+            "hash": "0DhrVQ0XeEcsZEHx1tuvrQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/equipment/22051091/22051091_05_256.png"
+      },
+      "item-22051129": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/equipment/22051129/22051129_05_256.png": {
+            "hash": "H8UwKZtlhI0RXRR7VfBiyg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/equipment/22051129/22051129_05_256.png"
+      },
+      "item-21002208": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/equipment/21002208/21002208_05_256.png": {
+            "hash": "Qi6VssBaKxYR2BZHNincOg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/equipment/21002208/21002208_05_256.png"
+      },
+      "gacha_noc": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/gacha/img_BG_Noc_03.png": {
+            "hash": "ZuNFDGt0nfSoGVl/YxdA6w"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_magic_eff.json": {
+            "hash": "L6tsb9ch3ezxS1JaHHgLGQ"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev05.json": {
+            "hash": "yHwvQsyUurE4YxovDTPM1A"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100041.ogg": {
+            "hash": "JXimLq4g3Vb9kXocmWi52w"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_mogu.json": {
+            "hash": "B7m3/5IdSxomiVS9PHB6Rw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_mogu.png": {
+            "hash": "mCWu16H201Wg2K11qz3ssA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_gacha_text.json": {
+            "hash": "4V6bbhbofwlkRtiLQua19Q"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_cong.json": {
+            "hash": "6Y4XvB4/2+jJnZoFBZZf9A"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_lightLev05.json": {
+            "hash": "wd5qG8+ywioNat7ggLtAcw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_hanabi_B.json": {
+            "hash": "IhbEbi7Vq42IVgtneEFfgw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_magic_eff2.json": {
+            "hash": "HJKi1GodHLPZ4ClkNCbHwA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_hanabi_A.json": {
+            "hash": "fhz9K4TevaE2Z9RNyrspXA"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100045.ogg": {
+            "hash": "3++mz31sjxWGBDH38vKFiA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_star_02.json": {
+            "hash": "VhSmEcQ7oUdLNiun2ZA8+Q"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_light_circle.png": {
+            "hash": "iPeWXyrfqsz6NqCOeM/pfA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_mogu.json": {
+            "hash": "hCrzDjdJZ4krxFp/4hE2Eg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_lightLev04.json": {
+            "hash": "PEhqg4YPt7Z3yx1fLHSdfA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+            "hash": "Sjv72DvWV55JpDKAYs1tmA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_lightLev06.json": {
+            "hash": "/xgHI8AmBN8BBJ7ITvcIEA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_circle01.png": {
+            "hash": "kibSjuTQaXxjgB0ZzBHUfA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev04.json": {
+            "hash": "rFOHOLiKJcsMR4gu/hvJQQ"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+            "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_BG_Noc_Lev03.png": {
+            "hash": "GYJg6bq2hQicfiNDLE4Aqg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_cong_02.json": {
+            "hash": "LYADbQHsbXDtMp6NBPwl9A"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100042.ogg": {
+            "hash": "oEnGhwOLqA6Tc3BTTJK9cA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/gacha_noc.json": {
+            "hash": "h962OWdYDMN+IcqkPlNt+w"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_BG_Noc_Lev02.png": {
+            "hash": "ddeWohgXwqEA+aanbFAXFA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_gacha.png": {
+            "hash": "bJT9NPRXrSFBZQI0MBP+LA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_magic_effC.json": {
+            "hash": "Tc162ZFTJXMWbkoKV0pf2A"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_gacha.json": {
+            "hash": "FYT3LLow6VW1jm9O5uRpqA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_hanabi_D.json": {
+            "hash": "ymiaPxOZ1sWq/W4nSg8uag"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_picLev03.json": {
+            "hash": "rXkshBWpXiV8ETjKCk+Bew"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_lightLev03.json": {
+            "hash": "sTKM4BFpNKAIRxVKwwdxxA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev02.json": {
+            "hash": "+Hbdo2e+b2B4wIEdczKlog"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_circle02.png": {
+            "hash": "mTAvA/KoudjpNqfBj1A/oA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_light_tailS.json": {
+            "hash": "7PBhqVMsBqtqi5M3UAgAWg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev03.json": {
+            "hash": "6oQGzo51Kuwcj/3LFg6pSw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_picLev04.json": {
+            "hash": "MCuradnqDOHhArYSS5KfGg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+            "hash": "lqlI1yYIl8hfQIawA1sRlg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.json": {
+            "hash": "JJirDrM1e/OlIjYhVRis9w"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_picLev02.json": {
+            "hash": "X47xHrylaQeLWvDwDXa2wA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev01.json": {
+            "hash": "S+ZSmGGkSfbWANfX6K5DeQ"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_room_star.json": {
+            "hash": "lDvU6/GUy0VtMD3MMtZ7Xg"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_magic.json": {
+            "hash": "HauZ4rNcBXV36JD1hfgLMw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_item_Lev06.json": {
+            "hash": "tWCBohwZsZ9F+utJw+xNSw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_hanabi_C.json": {
+            "hash": "fL53OkQ1JXchWz9sTh28ag"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_picLev05.json": {
+            "hash": "a1CU9eqvo7wlH4Y+B1s0QA"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_star.json": {
+            "hash": "pnlfHh5YygLW0RWp7jNQiw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_TapIcon.json": {
+            "hash": "oCo3VQ0yHGgoYKaeCOJ9lg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100043.ogg": {
+            "hash": "0UflVyL0GRCx36CKDU9kRw"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_BG_Noc_Lev04.png": {
+            "hash": "vAnmkNTmShTGypFB9A0qpQ"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_gacha_text.png": {
+            "hash": "cnO9dL9CYo+UsXVRAd9c4g"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_light_tailA.json": {
+            "hash": "o7RhrE84EbDEkdS6CrigdQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+            "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100044.ogg": {
+            "hash": "BqcVzU8mmeBlTf+hs2pkaw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+            "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.json": {
+            "hash": "7VzCDmEK9bZXfq+QvbOm9g"
+          },
+          "/Content/lang/se/se_ogg/se_gacha_common_100040.ogg": {
+            "hash": "RPJ4GZkmKHIcVjhKiVOP/g"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/img_BG_Noc_Lev01.png": {
+            "hash": "ov67vat5cRIFJa6UcBWuiQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.png": {
+            "hash": "lKeVc4YW31UgmCScKaDGlQ"
+          },
+          "/Content/lang/ww/compile/en/ab/gacha/pb_lightLev01.json": {
+            "hash": "mtaRuLGYRIWFzHJVQymyHg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/gacha/gacha_noc.json"
+      },
+      "item-22051088": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/equipment/22051088/22051088_05_256.png": {
+            "hash": "j3wqvBSR16nVDCUG1esn0Q"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/equipment/22051088/22051088_05_256.png"
+      },
+      "item-22053284": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/equipment/22053284/22053284_05_256.png": {
+            "hash": "sm0bCGgOJntqvdXorZ4Pww"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/equipment/22053284/22053284_05_256.png"
+      },
+      "gacha_roulette_rarity_1_1": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_ball_glitter_br.json": {
+            "hash": "157qv/w9yOCwMA4A2aABUA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+            "hash": "V08fQyTG4T6GDMosX2YVxg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_roulette_sparkle.json": {
+            "hash": "KUK4vjeQ2GApJ4TWyDmshA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_bg.png": {
+            "hash": "mquNqZJMAiIsEE3kQrHadw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+            "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_number_lane.png": {
+            "hash": "N55S1GHvuuff04z49TD9YQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.json": {
+            "hash": "DPbdpQaVg6X9+/H6Djwh1g"
+          },
+          "/Content/lang/se/se_ogg/se_common_100042.ogg": {
+            "hash": "lATbHeFLfqNUSOudhu0hrw"
+          },
+          "/Content/lang/se/se_ogg/se_battle_common_101059.ogg": {
+            "hash": "B01Q6b6UfV8LNSCRSTpyUg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/roulette_01_1.json": {
+            "hash": "Kx3sWS4JFT5G991Lbhdl3Q"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+            "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/orso_effect_001.json": {
+            "hash": "IEKqBwv5YovfRdCBg0bprA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+            "hash": "6bAULnwkhXKcYlElSbEtDA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_roulette_sparkle_round.json": {
+            "hash": "pTyPaYbv1P6EXRpfuox8Sw"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_lane.png": {
+            "hash": "expTty8PPtll4HBz6anp5A"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_central.png": {
+            "hash": "xtHLF4p5wDCormb0dwr78w"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_base_bg.png": {
+            "hash": "NMQAQtRuxRV/JaRA62X62Q"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/orso_effect_001.png": {
+            "hash": "mGDUgoP9extVM4aSBy5K/w"
+          },
+          "/Content/lang/se/se_ogg/se_common_100008.ogg": {
+            "hash": "BDjTVYdBm9TqAy5gNzcslQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_slot_drop.json": {
+            "hash": "nnphhKFX5u4mX/Ss0pL9wg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.png": {
+            "hash": "+PsJP5CHMDA4Jz3wKtOQmg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_ball.png": {
+            "hash": "2UbvruaO/YpxPxcjHlbLbQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_base.png": {
+            "hash": "QLXP4d7c77/4DldXwBLSTQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/skip_bt.png": {
+            "hash": "1umURUaO6M9k23rLiOcALQ"
+          },
+          "/Content/lang/se/se_ogg/se_common_100043.ogg": {
+            "hash": "Q8YtbGLlBLulAOXs6FG70Q"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/event/roulette/roulette_01_1.json"
+      },
+      "gacha_roulette_rarity_3": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+            "hash": "EA6uqfa1hppFVrRzmZzuxw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+            "hash": "V08fQyTG4T6GDMosX2YVxg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+            "hash": "MsDaWdAq52FE3rZDizThoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_bg.png": {
+            "hash": "mquNqZJMAiIsEE3kQrHadw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+            "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+          },
+          "/Content/lang/se/se_ogg/se_battle_common_101059.ogg": {
+            "hash": "B01Q6b6UfV8LNSCRSTpyUg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_flash.json": {
+            "hash": "ELBpspW/XZyjFy8yxY2ANA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_lights.json": {
+            "hash": "eVrjwGBYQlOz/EdtDXdryw"
+          },
+          "/Content/lang/se/se_ogg/se_ability_10120.ogg": {
+            "hash": "M9h+uXuoUJIb5abzbnhnFQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_congrats.png": {
+            "hash": "/5Ct/lWpuOoT2967BsDbxA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_zoom_line.json": {
+            "hash": "cMeWJ2BwU6VcVPcOeGoySg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_lane.png": {
+            "hash": "expTty8PPtll4HBz6anp5A"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_central.png": {
+            "hash": "xtHLF4p5wDCormb0dwr78w"
+          },
+          "/Content/lang/se/se_ogg/se_common_100010.ogg": {
+            "hash": "KFQG5aUpUJZAg99q+ryuZg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_congrats.json": {
+            "hash": "lmUgVJvKijCu0XDgWIKPzQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/orso_effect_001.png": {
+            "hash": "mGDUgoP9extVM4aSBy5K/w"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_slot_drop.json": {
+            "hash": "nnphhKFX5u4mX/Ss0pL9wg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_ball.png": {
+            "hash": "2UbvruaO/YpxPxcjHlbLbQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+            "hash": "5W889sndvoo+0O/fwwRDBg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_burst_coins.json": {
+            "hash": "Ti/9uDwoiaXZ2NNRW1NWmA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_base.png": {
+            "hash": "QLXP4d7c77/4DldXwBLSTQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/skip_bt.png": {
+            "hash": "1umURUaO6M9k23rLiOcALQ"
+          },
+          "/Content/lang/se/se_ogg/se_common_100043.ogg": {
+            "hash": "Q8YtbGLlBLulAOXs6FG70Q"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_roulette_sparkle.json": {
+            "hash": "KUK4vjeQ2GApJ4TWyDmshA"
+          },
+          "/Content/lang/se/se_ogg/se_common_100042.ogg": {
+            "hash": "lATbHeFLfqNUSOudhu0hrw"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_number_lane.png": {
+            "hash": "N55S1GHvuuff04z49TD9YQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.json": {
+            "hash": "DPbdpQaVg6X9+/H6Djwh1g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+            "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/orso_effect_001.json": {
+            "hash": "IEKqBwv5YovfRdCBg0bprA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+            "hash": "lqlI1yYIl8hfQIawA1sRlg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_congrats.json": {
+            "hash": "3lnKQj7ds8f5Ax0ihbp46g"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_roulette_sparkle_round.json": {
+            "hash": "pTyPaYbv1P6EXRpfuox8Sw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+            "hash": "6bAULnwkhXKcYlElSbEtDA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_base_bg.png": {
+            "hash": "NMQAQtRuxRV/JaRA62X62Q"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_ball_glitter.json": {
+            "hash": "kSl1BItn+BgboQ0kHGELrw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.png": {
+            "hash": "+PsJP5CHMDA4Jz3wKtOQmg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+            "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/roulette_03.json": {
+            "hash": "wyGd9RevGdPd88Er2SvroQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/event/roulette/roulette_03.json"
+      },
+      "gacha_roulette_rarity_1_2": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+            "hash": "V08fQyTG4T6GDMosX2YVxg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_roulette_sparkle.json": {
+            "hash": "KUK4vjeQ2GApJ4TWyDmshA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_bg.png": {
+            "hash": "mquNqZJMAiIsEE3kQrHadw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+            "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_number_lane.png": {
+            "hash": "N55S1GHvuuff04z49TD9YQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.json": {
+            "hash": "DPbdpQaVg6X9+/H6Djwh1g"
+          },
+          "/Content/lang/se/se_ogg/se_common_100042.ogg": {
+            "hash": "lATbHeFLfqNUSOudhu0hrw"
+          },
+          "/Content/lang/se/se_ogg/se_battle_common_101059.ogg": {
+            "hash": "B01Q6b6UfV8LNSCRSTpyUg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+            "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/orso_effect_001.json": {
+            "hash": "IEKqBwv5YovfRdCBg0bprA"
+          },
+          "/Content/lang/se/se_ogg/se_ability_10120.ogg": {
+            "hash": "M9h+uXuoUJIb5abzbnhnFQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+            "hash": "6bAULnwkhXKcYlElSbEtDA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_roulette_sparkle_round.json": {
+            "hash": "pTyPaYbv1P6EXRpfuox8Sw"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_lane.png": {
+            "hash": "expTty8PPtll4HBz6anp5A"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_central.png": {
+            "hash": "xtHLF4p5wDCormb0dwr78w"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_base_bg.png": {
+            "hash": "NMQAQtRuxRV/JaRA62X62Q"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_ball_glitter.json": {
+            "hash": "kSl1BItn+BgboQ0kHGELrw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/orso_effect_001.png": {
+            "hash": "mGDUgoP9extVM4aSBy5K/w"
+          },
+          "/Content/lang/se/se_ogg/se_common_100008.ogg": {
+            "hash": "BDjTVYdBm9TqAy5gNzcslQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_slot_drop.json": {
+            "hash": "nnphhKFX5u4mX/Ss0pL9wg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.png": {
+            "hash": "+PsJP5CHMDA4Jz3wKtOQmg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_ball.png": {
+            "hash": "2UbvruaO/YpxPxcjHlbLbQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/roulette_01_2.json": {
+            "hash": "bQsx7OPKlq5jxV8i0SQmzw"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_base.png": {
+            "hash": "QLXP4d7c77/4DldXwBLSTQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/skip_bt.png": {
+            "hash": "1umURUaO6M9k23rLiOcALQ"
+          },
+          "/Content/lang/se/se_ogg/se_common_100043.ogg": {
+            "hash": "Q8YtbGLlBLulAOXs6FG70Q"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/event/roulette/roulette_01_2.json"
+      },
+      "item-21009083": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/equipment/21009083/21009083_05_256.png": {
+            "hash": "IPQMH6WA1EzFSQYo8g/2fg"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/equipment/21009083/21009083_05_256.png"
+      },
+      "item-21013088": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/equipment/21013088/21013088_06_256.png": {
+            "hash": "gYpRf0ZOlAEun/KB9VTqYw"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/equipment/21013088/21013088_06_256.png"
+      },
+      "gacha_roulette_rarity_2": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+            "hash": "V08fQyTG4T6GDMosX2YVxg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_roulette_sparkle.json": {
+            "hash": "KUK4vjeQ2GApJ4TWyDmshA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_bg.png": {
+            "hash": "mquNqZJMAiIsEE3kQrHadw"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_ball_glitter_silver.json": {
+            "hash": "KG7sFsyOOfsXPmxuAE81cQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+            "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_number_lane.png": {
+            "hash": "N55S1GHvuuff04z49TD9YQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.json": {
+            "hash": "DPbdpQaVg6X9+/H6Djwh1g"
+          },
+          "/Content/lang/se/se_ogg/se_common_100042.ogg": {
+            "hash": "lATbHeFLfqNUSOudhu0hrw"
+          },
+          "/Content/lang/se/se_ogg/se_battle_common_101059.ogg": {
+            "hash": "B01Q6b6UfV8LNSCRSTpyUg"
+          },
+          "/Content/lang/se/se_ogg/se_common_100009.ogg": {
+            "hash": "VJ2eNTysl/BSfn67rLShNg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+            "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/orso_effect_001.json": {
+            "hash": "IEKqBwv5YovfRdCBg0bprA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+            "hash": "lqlI1yYIl8hfQIawA1sRlg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/roulette_02.json": {
+            "hash": "YfkjOInwI9egWx/Zlio0Mw"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_congrats.json": {
+            "hash": "3lnKQj7ds8f5Ax0ihbp46g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+            "hash": "6bAULnwkhXKcYlElSbEtDA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_roulette_sparkle_round.json": {
+            "hash": "pTyPaYbv1P6EXRpfuox8Sw"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_lane.png": {
+            "hash": "expTty8PPtll4HBz6anp5A"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_central.png": {
+            "hash": "xtHLF4p5wDCormb0dwr78w"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_base_bg.png": {
+            "hash": "NMQAQtRuxRV/JaRA62X62Q"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/orso_effect_001.png": {
+            "hash": "mGDUgoP9extVM4aSBy5K/w"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/pb_slot_drop.json": {
+            "hash": "nnphhKFX5u4mX/Ss0pL9wg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.png": {
+            "hash": "+PsJP5CHMDA4Jz3wKtOQmg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_ball.png": {
+            "hash": "2UbvruaO/YpxPxcjHlbLbQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_silver_congrats.png": {
+            "hash": "CWn34tjBLYGydObKABCEeg"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_silver_congrats.json": {
+            "hash": "keuBXhnzp7RZnb0x/OKv0w"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+            "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/img_roulette_base.png": {
+            "hash": "QLXP4d7c77/4DldXwBLSTQ"
+          },
+          "/Content/lang/ww/compile/en/ab/event/roulette/img/skip_bt.png": {
+            "hash": "1umURUaO6M9k23rLiOcALQ"
+          },
+          "/Content/lang/se/se_ogg/se_common_100043.ogg": {
+            "hash": "Q8YtbGLlBLulAOXs6FG70Q"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/event/roulette/roulette_02.json"
+      }
+    },
+    "total_drop_num": 8,
+    "user_item_possession_limits": [
+      {
+        "current_num": 5,
+        "item_type_name": "stamina_recovery_agent_amount_100",
+        "max_num": 5,
+        "enable_give_num": 0
+      },
+      {
+        "current_num": 52,
+        "item_type_name": "warehouse_of_beast",
+        "max_num": 150,
+        "enable_give_num": 98
+      },
+      {
+        "current_num": 95,
+        "item_type_name": "beast",
+        "max_num": 100,
+        "enable_give_num": 5
+      },
+      {
+        "current_num": 561,
+        "item_type_name": "warehouse_of_equipment",
+        "max_num": 800,
+        "enable_give_num": 239
+      },
+      {
+        "current_num": 186,
+        "item_type_name": "ability",
+        "max_num": 190,
+        "enable_give_num": 4
+      },
+      {
+        "current_num": 215,
+        "item_type_name": "equipment",
+        "max_num": 210,
+        "enable_give_num": 0
+      },
+      {
+        "current_num": 14,
+        "item_type_name": "beast_battle_ticket",
+        "max_num": 15,
+        "enable_give_num": 1
+      }
+    ],
+    "drop_item_map": {
+      "21002208": {
+        "drop_num": 1,
+        "rarity": "5"
+      },
+      "21009083": {
+        "drop_num": 1,
+        "rarity": "5"
+      },
+      "21013088": {
+        "drop_num": 1,
+        "rarity": "6"
+      },
+      "22051088": {
+        "drop_num": 1,
+        "rarity": "5"
+      },
+      "22051091": {
+        "drop_num": 1,
+        "rarity": "5"
+      },
+      "22051129": {
+        "drop_num": 1,
+        "rarity": "5"
+      },
+      "22053284": {
+        "drop_num": 1,
+        "rarity": "5"
+      },
+      "22056177": {
+        "drop_num": 1,
+        "rarity": "5"
+      }
+    },
+    "soul_strikes": [
+      {
+        "allowed_buddy_id": 10801300,
+        "is_common_soul_strike": false,
+        "soul_strike_category_name": "OVERFLOW_OUGI",
+        "is_unique_soul_strike": false,
+        "has_broken_max_damage_threshold_soul_strike": true,
+        "atk_boost": "0",
+        "is_super_soul_strike": false,
+        "is_awake_soul_strike": false,
+        "recommend_priority": 115,
+        "id": 22600007,
+        "mdef_boost": "0",
+        "spd_boost": "0",
+        "is_sengi_soul_strike": false,
+        "mnd_boost": "0",
+        "allowed_buddy_name": "Fujin",
+        "name": "Bluster",
+        "soul_strike_category_id": 9,
+        "acc_boost": "0",
+        "description": "Deal twenty massive magic wind attacks to one enemy, followed by one magic wind attack that can break the damage cap.",
+        "is_param_booster_soul_strike": true,
+        "consume_ss_gauge": 3,
+        "required_exp": 30000,
+        "eva_boost": "0",
+        "has_soul_strike_param_booster": 1,
+        "is_combo_soul_strike": false,
+        "consume_ss_point": 750,
+        "def_boost": "0",
+        "usable_num": 1,
+        "matk_boost": "10",
+        "extensive_description": "Deal twenty massive magic wind attacks to one enemy, followed by one magic wind attack that can break the damage cap.",
+        "hp_boost": "0",
+        "is_default_soul_strike": false,
+        "disabled_image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/22600007/22600007_256_disable.png",
+        "is_burst_soul_strike": false,
+        "is_overflow_ougi_soul_strike": true,
+        "is_ultra_soul_strike": false,
+        "supporter_usable_num": 1,
+        "image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/22600007/22600007_256.png",
+        "disp_name": "Bluster",
+        "is_overflow_soul_strike": false,
+        "ability_animation_id": 72017,
+        "is_standard_soul_strike": false,
+        "is_someones_soul_strike": true
+      },
+      {
+        "allowed_buddy_id": 10300200,
+        "is_common_soul_strike": false,
+        "soul_strike_category_name": "BURST",
+        "is_unique_soul_strike": false,
+        "has_broken_max_damage_threshold_soul_strike": false,
+        "atk_boost": "0",
+        "is_super_soul_strike": false,
+        "is_awake_soul_strike": false,
+        "recommend_priority": 112,
+        "id": 20420006,
+        "mdef_boost": "0",
+        "spd_boost": "0",
+        "is_sengi_soul_strike": false,
+        "mnd_boost": "10",
+        "allowed_buddy_name": "Arc",
+        "name": "Auroral Grace",
+        "soul_strike_category_id": 5,
+        "acc_boost": "0",
+        "description": "Deal five white magic holy and non-elemental attacks to one target, restore a moderate amount of HP to all allies, temporarily raise the user's Mind a moderate amount, and grant Haste and Burst Mode to the user.",
+        "is_param_booster_soul_strike": true,
+        "burst_spare_abilities": [
+          {
+            "category_type": 2,
+            "panel_name": "Dedication{n}to Purity",
+            "target_range": 1,
+            "command_icon_path": "/dff/static/lang/ww/compile/en/image/ability/30511221/30511221_128.png",
+            "name": "Dedication to Purity",
+            "category_name": "White Magic",
+            "thumbnail_path": "/dff/static/lang/ww/compile/en/image/ability/30511221/30511221_48.png",
+            "description": "Restore a large amount of HP to one ally, and cast Esuna on them.",
+            "category_id": 2,
+            "animation_id": 40428,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability/30511221/30511221_112.png",
+            "rarity": 5,
+            "disable_generation": false,
+            "display_category_id": 1010201
+          },
+          {
+            "category_type": 2,
+            "panel_name": "Dedication{n}to Healing",
+            "target_range": 2,
+            "command_icon_path": "/dff/static/lang/ww/compile/en/image/ability/30511222/30511222_128.png",
+            "name": "Dedication to Healing",
+            "category_name": "White Magic",
+            "thumbnail_path": "/dff/static/lang/ww/compile/en/image/ability/30511222/30511222_48.png",
+            "description": "Restore a small amount of HP to all allies.",
+            "category_id": 2,
+            "animation_id": 40429,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability/30511222/30511222_112.png",
+            "rarity": 5,
+            "disable_generation": false,
+            "display_category_id": 1010201
+          }
+        ],
+        "consume_ss_gauge": 2,
+        "required_exp": 30000,
+        "eva_boost": "0",
+        "has_soul_strike_param_booster": 1,
+        "is_combo_soul_strike": false,
+        "consume_ss_point": 500,
+        "def_boost": "0",
+        "usable_num": -1,
+        "matk_boost": "0",
+        "extensive_description": "Deal five white magic holy and non-elemental attacks to one target, restore a moderate amount of HP to all allies, temporarily raise the user's Mind a moderate amount, and grant Haste and Burst Mode to the user.",
+        "hp_boost": "0",
+        "is_default_soul_strike": false,
+        "disabled_image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/20420006/20420006_256_disable.png",
+        "is_burst_soul_strike": true,
+        "is_overflow_ougi_soul_strike": false,
+        "is_ultra_soul_strike": false,
+        "supporter_usable_num": 2,
+        "image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/20420006/20420006_256.png",
+        "disp_name": "Auroral{n}Grace",
+        "is_overflow_soul_strike": false,
+        "ability_animation_id": 71341,
+        "is_standard_soul_strike": false,
+        "is_someones_soul_strike": true
+      },
+      {
+        "allowed_buddy_id": 16000700,
+        "is_common_soul_strike": false,
+        "soul_strike_category_name": "BURST",
+        "is_unique_soul_strike": false,
+        "has_broken_max_damage_threshold_soul_strike": false,
+        "atk_boost": "10",
+        "is_super_soul_strike": false,
+        "is_awake_soul_strike": false,
+        "recommend_priority": 112,
+        "id": 23180002,
+        "mdef_boost": "0",
+        "spd_boost": "0",
+        "is_sengi_soul_strike": false,
+        "mnd_boost": "0",
+        "allowed_buddy_name": "King",
+        "name": "Magazine Blast",
+        "soul_strike_category_id": 5,
+        "acc_boost": "0",
+        "description": "Deal twelve ranged physical lightning and fire attacks to one enemy, temporarily infuse the user with the power of lightning, and grant Haste and Burst Mode to the user.",
+        "is_param_booster_soul_strike": true,
+        "burst_spare_abilities": [
+          {
+            "category_type": 5,
+            "panel_name": "Multitask",
+            "target_range": 1,
+            "command_icon_path": "/dff/static/lang/ww/compile/en/image/ability/30512491/30512491_128.png",
+            "name": "Multitask",
+            "category_name": "Machinist",
+            "thumbnail_path": "/dff/static/lang/ww/compile/en/image/ability/30512491/30512491_48.png",
+            "description": "Deal four ranged physical lightning and fire attacks to one target. Deals five attacks if the target has a Slight Weakness or is Vulnerable to lightning or fire.",
+            "category_id": 16,
+            "animation_id": 10000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability/30512491/30512491_112.png",
+            "rarity": 5,
+            "disable_generation": false,
+            "display_category_id": 1030905
+          },
+          {
+            "category_type": 5,
+            "panel_name": "Quick Shot{n}(Type-0)",
+            "target_range": 1,
+            "command_icon_path": "/dff/static/lang/ww/compile/en/image/ability/30512492/30512492_128.png",
+            "name": "Quick Shot (Type-0)",
+            "category_name": "Machinist",
+            "thumbnail_path": "/dff/static/lang/ww/compile/en/image/ability/30512492/30512492_48.png",
+            "description": "Deal ranged physical lightning and fire damage to one enemy, and remove delay from the user's machinist abilities for two turns.",
+            "category_id": 16,
+            "animation_id": 40816,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability/30512492/30512492_112.png",
+            "rarity": 5,
+            "disable_generation": false,
+            "display_category_id": 1030905
+          }
+        ],
+        "consume_ss_gauge": 2,
+        "required_exp": 30000,
+        "eva_boost": "0",
+        "has_soul_strike_param_booster": 1,
+        "is_combo_soul_strike": false,
+        "consume_ss_point": 500,
+        "def_boost": "0",
+        "usable_num": -1,
+        "matk_boost": "0",
+        "extensive_description": "Deal twelve ranged physical lightning and fire attacks to one enemy, temporarily infuse the user with the power of lightning, and grant Haste and Burst Mode to the user.",
+        "hp_boost": "0",
+        "is_default_soul_strike": false,
+        "disabled_image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/23180002/23180002_256_disable.png",
+        "is_burst_soul_strike": true,
+        "is_overflow_ougi_soul_strike": false,
+        "is_ultra_soul_strike": false,
+        "supporter_usable_num": 2,
+        "image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/23180002/23180002_256.png",
+        "disp_name": "Magazine{n}Blast",
+        "is_overflow_soul_strike": false,
+        "ability_animation_id": 71872,
+        "is_standard_soul_strike": false,
+        "is_someones_soul_strike": true
+      },
+      {
+        "allowed_buddy_id": 11200700,
+        "is_common_soul_strike": false,
+        "soul_strike_category_name": "BURST",
+        "is_unique_soul_strike": false,
+        "has_broken_max_damage_threshold_soul_strike": false,
+        "atk_boost": "10",
+        "is_super_soul_strike": false,
+        "is_awake_soul_strike": false,
+        "recommend_priority": 112,
+        "id": 22370004,
+        "mdef_boost": "0",
+        "spd_boost": "0",
+        "is_sengi_soul_strike": false,
+        "mnd_boost": "0",
+        "allowed_buddy_name": "Gabranth",
+        "name": "Innocence",
+        "soul_strike_category_id": 5,
+        "acc_boost": "0",
+        "description": "Deal eight ranged physical dark and non-elemental attacks to random enemies, temporarily lower their dark resistance level by 2, and grant Haste and Burst Mode to the user.",
+        "is_param_booster_soul_strike": true,
+        "burst_spare_abilities": [
+          {
+            "category_type": 1,
+            "panel_name": "Judge's{n}Rondo",
+            "target_range": 1,
+            "command_icon_path": "/dff/static/lang/ww/compile/en/image/ability/30510951/30510951_128.png",
+            "name": "Judge's Rondo",
+            "category_name": "Combat",
+            "thumbnail_path": "/dff/static/lang/ww/compile/en/image/ability/30510951/30510951_48.png",
+            "description": "Deal four physical dark and non-elemental attacks to one target. Reduced delay before hitting.",
+            "category_id": 5,
+            "animation_id": 40361,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability/30510951/30510951_112.png",
+            "rarity": 5,
+            "disable_generation": false,
+            "display_category_id": 1020401
+          },
+          {
+            "category_type": 5,
+            "panel_name": "Blood{n}Trial",
+            "target_range": 1,
+            "command_icon_path": "/dff/static/lang/ww/compile/en/image/ability/30510952/30510952_128.png",
+            "name": "Blood Trial",
+            "category_name": "Darkness",
+            "thumbnail_path": "/dff/static/lang/ww/compile/en/image/ability/30510952/30510952_48.png",
+            "description": "Deal physical dark and non-elemental damage to one target, healing the user for a portion of the damage dealt.",
+            "category_id": 17,
+            "animation_id": 40362,
+            "image_path": "/dff/static/lang/ww/compile/en/image/ability/30510952/30510952_112.png",
+            "rarity": 5,
+            "disable_generation": false,
+            "display_category_id": 1030906
+          }
+        ],
+        "consume_ss_gauge": 2,
+        "required_exp": 30000,
+        "eva_boost": "0",
+        "has_soul_strike_param_booster": 1,
+        "is_combo_soul_strike": false,
+        "consume_ss_point": 500,
+        "def_boost": "0",
+        "usable_num": -1,
+        "matk_boost": "0",
+        "extensive_description": "Deal eight ranged physical dark and non-elemental attacks to random enemies, temporarily lower their dark resistance level by 2, and grant Haste and Burst Mode to the user.",
+        "hp_boost": "0",
+        "is_default_soul_strike": false,
+        "disabled_image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/22370004/22370004_256_disable.png",
+        "is_burst_soul_strike": true,
+        "is_overflow_ougi_soul_strike": false,
+        "is_ultra_soul_strike": false,
+        "supporter_usable_num": 2,
+        "image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/22370004/22370004_256.png",
+        "disp_name": "Innocence",
+        "is_overflow_soul_strike": false,
+        "ability_animation_id": 71214,
+        "is_standard_soul_strike": false,
+        "is_someones_soul_strike": true
+      }
+    ],
+    "mo_stamp": [],
+    "premium_pass": [],
+    "SERVER_TIME": 1553518657,
+    "beast_food": [],
+    "items": [
+      {
+        "def_min": 0,
+        "is_max_hyper_evolution_num": false,
+        "acc_min": 95,
+        "category_name": "Thrown",
+        "additional_bonus_hp": 0,
+        "atk_type": 2,
+        "sp_def": 0,
+        "legend_materia_id": 0,
+        "additional_bonus_attributes": [],
+        "is_weapon": true,
+        "hammering_num": 3,
+        "atk_min": 88,
+        "is_max_level": false,
+        "name": "Fujin's Wing Edge (VIII)",
+        "has_someones_soul_strike": true,
+        "base_rarity": 6,
+        "has_soul_strike": true,
+        "is_accessory": false,
+        "level": 1,
+        "can_evolve_now": true,
+        "attributes": [
+          {
+            "arg": "120",
+            "type": "1",
+            "attribute_id": "104"
+          }
+        ],
+        "soul_strike_id": 22600007,
+        "equipment_id": 21013088,
+        "additional_bonus_def": 0,
+        "mdef": 0,
+        "sp_acc": 95,
+        "acc": 95,
+        "is_locked": false,
+        "created_at": 1553518657,
+        "category_id": 13,
+        "def": 0,
+        "sp_hp": 0,
+        "hammering_affect_param_key": "matk",
+        "is_usable_as_enhancement_src": true,
+        "evol_max_level_of_base_rarity": {
+          "1": {
+            "0": 3,
+            "1": 5,
+            "2": 10,
+            "3": 15
+          },
+          "2": {
+            "0": 5,
+            "1": 10,
+            "2": 15,
+            "3": 20
+          },
+          "3": {
+            "0": 10,
+            "1": 15,
+            "2": 20,
+            "3": 25
+          },
+          "4": {
+            "0": 15,
+            "1": 20,
+            "2": 25,
+            "3": 30
+          },
+          "5": {
+            "0": 20,
+            "1": 25,
+            "2": 30,
+            "3": 35
+          },
+          "6": {
+            "0": 25,
+            "1": 30,
+            "2": 35,
+            "3": 40
+          },
+          "100": {
+            "0": 50,
+            "1": 50,
+            "2": 50,
+            "3": 50
+          }
+        },
+        "required_evolution_gil": 500000,
+        "hp": 0,
+        "matk": 128,
+        "equipment_type": 1,
+        "series_id": 108001,
+        "additional_bonus_atk": 0,
+        "image_path": "/dff/static/lang/ww/compile/en/image/equipment/21013088/21013088_06_112.png",
+        "mnd": 0,
+        "required_enhancement_base_gil": 4000,
+        "sp_eva": 0,
+        "is_usable_as_rainbow_crystal_material": true,
+        "mdef_min": 0,
+        "additional_bonus_mdef": 0,
+        "is_buddy_sacred_equipment": false,
+        "is_usable_as_enhancement_material": true,
+        "allowed_buddy_id": 0,
+        "detail_image_path": "/dff/static/lang/ww/compile/en/image/equipment/21013088/21013088_06_220.png",
+        "max_hammering_num": 30,
+        "thumbnail_path": "/dff/static/lang/ww/compile/en/image/equipment/21013088/21013088_06_48.png",
+        "eva_min": 0,
+        "atk_ss_point_factor": 0,
+        "critical": 3,
+        "def_ss_point_factor": 0,
+        "eva": 0,
+        "id": 878426596,
+        "exp": 0,
+        "max_evolution_num": 2,
+        "max_hyper_evolution_num": 3,
+        "sale_gil": 20000,
+        "evolution_num": 0,
+        "series_hammering_num": 5,
+        "hyper_evolve_recipe": {
+          "materials": [
+            {
+              "num": 1,
+              "hyper_evolve_material_id": 25096006
+            }
+          ],
+          "gil": 18000000
+        },
+        "is_armor": false,
+        "level_max": 25,
+        "matk_min": 128,
+        "rarity": 6,
+        "additional_bonus_acc": 0,
+        "is_max_evolution_num": false,
+        "sp_mnd": 0,
+        "atk": 88,
+        "sp_matk": 156,
+        "ex_series_id": 0,
+        "hp_min": 0,
+        "can_hyper_evolve_now": false,
+        "additional_bonus_eva": 0,
+        "sp_mdef": 0,
+        "can_evolve_potentially": true,
+        "additional_bonus_mnd": 0,
+        "is_sacred_equipment": false,
+        "sp_atk": 105,
+        "mnd_min": 0,
+        "additional_bonus_matk": 0,
+        "can_hyper_evolve_potentially": true,
+        "is_hammering_item": false
+      },
+      {
+        "def_min": 71,
+        "is_max_hyper_evolution_num": false,
+        "acc_min": 0,
+        "category_name": "Hat",
+        "additional_bonus_hp": 0,
+        "atk_type": 0,
+        "sp_def": 84,
+        "legend_materia_id": 201051203,
+        "additional_bonus_attributes": [],
+        "is_weapon": false,
+        "hammering_num": 1,
+        "atk_min": 0,
+        "is_max_level": false,
+        "name": "Cat-ear Hood (V)",
+        "has_someones_soul_strike": false,
+        "base_rarity": 5,
+        "has_soul_strike": false,
+        "is_accessory": false,
+        "level": 1,
+        "can_evolve_now": true,
+        "attributes": [
+          {
+            "arg": "120",
+            "type": "1",
+            "attribute_id": "100"
+          }
+        ],
+        "soul_strike_id": 0,
+        "equipment_id": 22051088,
+        "additional_bonus_def": 0,
+        "mdef": 100,
+        "sp_acc": 0,
+        "acc": 0,
+        "is_locked": false,
+        "created_at": 1553518657,
+        "category_id": 51,
+        "def": 71,
+        "sp_hp": 0,
+        "hammering_affect_param_key": "mdef",
+        "is_usable_as_enhancement_src": true,
+        "evol_max_level_of_base_rarity": {
+          "1": {
+            "0": 3,
+            "1": 5,
+            "2": 10,
+            "3": 15
+          },
+          "2": {
+            "0": 5,
+            "1": 10,
+            "2": 15,
+            "3": 20
+          },
+          "3": {
+            "0": 10,
+            "1": 15,
+            "2": 20,
+            "3": 25
+          },
+          "4": {
+            "0": 15,
+            "1": 20,
+            "2": 25,
+            "3": 30
+          },
+          "5": {
+            "0": 20,
+            "1": 25,
+            "2": 30,
+            "3": 35
+          },
+          "6": {
+            "0": 25,
+            "1": 30,
+            "2": 35,
+            "3": 40
+          },
+          "100": {
+            "0": 50,
+            "1": 50,
+            "2": 50,
+            "3": 50
+          }
+        },
+        "required_evolution_gil": 100000,
+        "hp": 0,
+        "matk": 31,
+        "equipment_type": 2,
+        "series_id": 105001,
+        "additional_bonus_atk": 0,
+        "image_path": "/dff/static/lang/ww/compile/en/image/equipment/22051088/22051088_05_112.png",
+        "mnd": 20,
+        "required_enhancement_base_gil": 2000,
+        "sp_eva": 105,
+        "is_usable_as_rainbow_crystal_material": true,
+        "mdef_min": 100,
+        "additional_bonus_mdef": 0,
+        "is_buddy_sacred_equipment": false,
+        "is_usable_as_enhancement_material": true,
+        "allowed_buddy_id": 0,
+        "detail_image_path": "/dff/static/lang/ww/compile/en/image/equipment/22051088/22051088_05_220.png",
+        "max_hammering_num": 20,
+        "thumbnail_path": "/dff/static/lang/ww/compile/en/image/equipment/22051088/22051088_05_48.png",
+        "eva_min": 105,
+        "atk_ss_point_factor": 0,
+        "critical": 0,
+        "def_ss_point_factor": 0,
+        "eva": 105,
+        "id": 878426595,
+        "exp": 0,
+        "max_evolution_num": 2,
+        "max_hyper_evolution_num": 3,
+        "sale_gil": 10000,
+        "evolution_num": 0,
+        "series_hammering_num": 2,
+        "hyper_evolve_recipe": {
+          "materials": [
+            {
+              "num": 1,
+              "hyper_evolve_material_id": 25096005
+            }
+          ],
+          "gil": 2500000
+        },
+        "is_armor": true,
+        "level_max": 20,
+        "matk_min": 31,
+        "rarity": 5,
+        "additional_bonus_acc": 0,
+        "is_max_evolution_num": false,
+        "sp_mnd": 26,
+        "atk": 0,
+        "sp_matk": 37,
+        "ex_series_id": 0,
+        "hp_min": 0,
+        "can_hyper_evolve_now": false,
+        "additional_bonus_eva": 0,
+        "sp_mdef": 124,
+        "can_evolve_potentially": true,
+        "additional_bonus_mnd": 0,
+        "is_sacred_equipment": false,
+        "sp_atk": 0,
+        "mnd_min": 20,
+        "additional_bonus_matk": 0,
+        "can_hyper_evolve_potentially": true,
+        "is_hammering_item": false
+      },
+      {
+        "def_min": 0,
+        "is_max_hyper_evolution_num": false,
+        "acc_min": 95,
+        "category_name": "Staff",
+        "additional_bonus_hp": 0,
+        "atk_type": 1,
+        "sp_def": 0,
+        "legend_materia_id": 0,
+        "additional_bonus_attributes": [],
+        "is_weapon": true,
+        "hammering_num": 1,
+        "atk_min": 35,
+        "is_max_level": false,
+        "name": "Staff of the Magi (III)",
+        "has_someones_soul_strike": true,
+        "base_rarity": 5,
+        "has_soul_strike": true,
+        "is_accessory": false,
+        "level": 1,
+        "can_evolve_now": true,
+        "attributes": [],
+        "soul_strike_id": 20420006,
+        "equipment_id": 21009083,
+        "additional_bonus_def": 0,
+        "mdef": 0,
+        "sp_acc": 95,
+        "acc": 95,
+        "is_locked": false,
+        "created_at": 1553518657,
+        "category_id": 9,
+        "def": 0,
+        "sp_hp": 0,
+        "hammering_affect_param_key": "mnd",
+        "is_usable_as_enhancement_src": true,
+        "evol_max_level_of_base_rarity": {
+          "1": {
+            "0": 3,
+            "1": 5,
+            "2": 10,
+            "3": 15
+          },
+          "2": {
+            "0": 5,
+            "1": 10,
+            "2": 15,
+            "3": 20
+          },
+          "3": {
+            "0": 10,
+            "1": 15,
+            "2": 20,
+            "3": 25
+          },
+          "4": {
+            "0": 15,
+            "1": 20,
+            "2": 25,
+            "3": 30
+          },
+          "5": {
+            "0": 20,
+            "1": 25,
+            "2": 30,
+            "3": 35
+          },
+          "6": {
+            "0": 25,
+            "1": 30,
+            "2": 35,
+            "3": 40
+          },
+          "100": {
+            "0": 50,
+            "1": 50,
+            "2": 50,
+            "3": 50
+          }
+        },
+        "required_evolution_gil": 100000,
+        "hp": 0,
+        "matk": 67,
+        "equipment_type": 1,
+        "series_id": 103001,
+        "additional_bonus_atk": 0,
+        "image_path": "/dff/static/lang/ww/compile/en/image/equipment/21009083/21009083_05_112.png",
+        "mnd": 102,
+        "required_enhancement_base_gil": 2000,
+        "sp_eva": 0,
+        "is_usable_as_rainbow_crystal_material": true,
+        "mdef_min": 0,
+        "additional_bonus_mdef": 0,
+        "is_buddy_sacred_equipment": false,
+        "is_usable_as_enhancement_material": true,
+        "allowed_buddy_id": 0,
+        "detail_image_path": "/dff/static/lang/ww/compile/en/image/equipment/21009083/21009083_05_220.png",
+        "max_hammering_num": 20,
+        "thumbnail_path": "/dff/static/lang/ww/compile/en/image/equipment/21009083/21009083_05_48.png",
+        "eva_min": 0,
+        "atk_ss_point_factor": 0,
+        "critical": 3,
+        "def_ss_point_factor": 0,
+        "eva": 0,
+        "id": 878426594,
+        "exp": 0,
+        "max_evolution_num": 2,
+        "max_hyper_evolution_num": 3,
+        "sale_gil": 10000,
+        "evolution_num": 0,
+        "series_hammering_num": 2,
+        "hyper_evolve_recipe": {
+          "materials": [
+            {
+              "num": 1,
+              "hyper_evolve_material_id": 25096005
+            }
+          ],
+          "gil": 2500000
+        },
+        "is_armor": false,
+        "level_max": 20,
+        "matk_min": 67,
+        "rarity": 5,
+        "additional_bonus_acc": 0,
+        "is_max_evolution_num": false,
+        "sp_mnd": 128,
+        "atk": 35,
+        "sp_matk": 93,
+        "ex_series_id": 0,
+        "hp_min": 0,
+        "can_hyper_evolve_now": false,
+        "additional_bonus_eva": 0,
+        "sp_mdef": 0,
+        "can_evolve_potentially": true,
+        "additional_bonus_mnd": 0,
+        "is_sacred_equipment": false,
+        "sp_atk": 51,
+        "mnd_min": 102,
+        "additional_bonus_matk": 0,
+        "can_hyper_evolve_potentially": true,
+        "is_hammering_item": false
+      },
+      {
+        "def_min": 88,
+        "is_max_hyper_evolution_num": false,
+        "acc_min": 0,
+        "category_name": "Light Armor",
+        "additional_bonus_hp": 0,
+        "atk_type": 0,
+        "sp_def": 112,
+        "legend_materia_id": 0,
+        "additional_bonus_attributes": [],
+        "is_weapon": false,
+        "hammering_num": 1,
+        "atk_min": 10,
+        "is_max_level": false,
+        "name": "King's Guise (Type-0)",
+        "has_someones_soul_strike": true,
+        "base_rarity": 5,
+        "has_soul_strike": true,
+        "is_accessory": false,
+        "level": 1,
+        "can_evolve_now": true,
+        "attributes": [
+          {
+            "arg": "2",
+            "type": "2",
+            "attribute_id": "102"
+          }
+        ],
+        "soul_strike_id": 23180002,
+        "equipment_id": 22053284,
+        "additional_bonus_def": 0,
+        "mdef": 88,
+        "sp_acc": 0,
+        "acc": 0,
+        "is_locked": false,
+        "created_at": 1553518657,
+        "category_id": 53,
+        "def": 88,
+        "sp_hp": 0,
+        "hammering_affect_param_key": "def",
+        "is_usable_as_enhancement_src": true,
+        "evol_max_level_of_base_rarity": {
+          "1": {
+            "0": 3,
+            "1": 5,
+            "2": 10,
+            "3": 15
+          },
+          "2": {
+            "0": 5,
+            "1": 10,
+            "2": 15,
+            "3": 20
+          },
+          "3": {
+            "0": 10,
+            "1": 15,
+            "2": 20,
+            "3": 25
+          },
+          "4": {
+            "0": 15,
+            "1": 20,
+            "2": 25,
+            "3": 30
+          },
+          "5": {
+            "0": 20,
+            "1": 25,
+            "2": 30,
+            "3": 35
+          },
+          "6": {
+            "0": 25,
+            "1": 30,
+            "2": 35,
+            "3": 40
+          },
+          "100": {
+            "0": 50,
+            "1": 50,
+            "2": 50,
+            "3": 50
+          }
+        },
+        "required_evolution_gil": 100000,
+        "hp": 0,
+        "matk": 0,
+        "equipment_type": 2,
+        "series_id": 160001,
+        "additional_bonus_atk": 0,
+        "image_path": "/dff/static/lang/ww/compile/en/image/equipment/22053284/22053284_05_112.png",
+        "mnd": 0,
+        "required_enhancement_base_gil": 2000,
+        "sp_eva": 100,
+        "is_usable_as_rainbow_crystal_material": true,
+        "mdef_min": 88,
+        "additional_bonus_mdef": 0,
+        "is_buddy_sacred_equipment": false,
+        "is_usable_as_enhancement_material": true,
+        "allowed_buddy_id": 0,
+        "detail_image_path": "/dff/static/lang/ww/compile/en/image/equipment/22053284/22053284_05_220.png",
+        "max_hammering_num": 20,
+        "thumbnail_path": "/dff/static/lang/ww/compile/en/image/equipment/22053284/22053284_05_48.png",
+        "eva_min": 100,
+        "atk_ss_point_factor": 0,
+        "critical": 0,
+        "def_ss_point_factor": 0,
+        "eva": 100,
+        "id": 878426593,
+        "exp": 0,
+        "max_evolution_num": 2,
+        "max_hyper_evolution_num": 3,
+        "sale_gil": 10000,
+        "evolution_num": 0,
+        "series_hammering_num": 2,
+        "hyper_evolve_recipe": {
+          "materials": [
+            {
+              "num": 1,
+              "hyper_evolve_material_id": 25096005
+            }
+          ],
+          "gil": 2500000
+        },
+        "is_armor": true,
+        "level_max": 20,
+        "matk_min": 0,
+        "rarity": 5,
+        "additional_bonus_acc": 0,
+        "is_max_evolution_num": false,
+        "sp_mnd": 0,
+        "atk": 10,
+        "sp_matk": 0,
+        "ex_series_id": 0,
+        "hp_min": 0,
+        "can_hyper_evolve_now": false,
+        "additional_bonus_eva": 0,
+        "sp_mdef": 112,
+        "can_evolve_potentially": true,
+        "additional_bonus_mnd": 0,
+        "is_sacred_equipment": false,
+        "sp_atk": 16,
+        "mnd_min": 0,
+        "additional_bonus_matk": 0,
+        "can_hyper_evolve_potentially": true,
+        "is_hammering_item": false
+      },
+      {
+        "def_min": 80,
+        "is_max_hyper_evolution_num": false,
+        "acc_min": 0,
+        "category_name": "Bracer",
+        "additional_bonus_hp": 0,
+        "atk_type": 0,
+        "sp_def": 94,
+        "legend_materia_id": 201141103,
+        "additional_bonus_attributes": [],
+        "is_weapon": false,
+        "hammering_num": 1,
+        "atk_min": 26,
+        "is_max_level": false,
+        "name": "Drachen Gauntlets (XIV)",
+        "has_someones_soul_strike": false,
+        "base_rarity": 5,
+        "has_soul_strike": false,
+        "is_accessory": false,
+        "level": 1,
+        "can_evolve_now": true,
+        "attributes": [],
+        "soul_strike_id": 0,
+        "equipment_id": 22056177,
+        "additional_bonus_def": 0,
+        "mdef": 70,
+        "sp_acc": 0,
+        "acc": 0,
+        "is_locked": false,
+        "created_at": 1553518657,
+        "category_id": 56,
+        "def": 80,
+        "sp_hp": 0,
+        "hammering_affect_param_key": "mdef",
+        "is_usable_as_enhancement_src": true,
+        "evol_max_level_of_base_rarity": {
+          "1": {
+            "0": 3,
+            "1": 5,
+            "2": 10,
+            "3": 15
+          },
+          "2": {
+            "0": 5,
+            "1": 10,
+            "2": 15,
+            "3": 20
+          },
+          "3": {
+            "0": 10,
+            "1": 15,
+            "2": 20,
+            "3": 25
+          },
+          "4": {
+            "0": 15,
+            "1": 20,
+            "2": 25,
+            "3": 30
+          },
+          "5": {
+            "0": 20,
+            "1": 25,
+            "2": 30,
+            "3": 35
+          },
+          "6": {
+            "0": 25,
+            "1": 30,
+            "2": 35,
+            "3": 40
+          },
+          "100": {
+            "0": 50,
+            "1": 50,
+            "2": 50,
+            "3": 50
+          }
+        },
+        "required_evolution_gil": 100000,
+        "hp": 0,
+        "matk": 11,
+        "equipment_type": 2,
+        "series_id": 114001,
+        "additional_bonus_atk": 0,
+        "image_path": "/dff/static/lang/ww/compile/en/image/equipment/22056177/22056177_05_112.png",
+        "mnd": 11,
+        "required_enhancement_base_gil": 2000,
+        "sp_eva": 105,
+        "is_usable_as_rainbow_crystal_material": true,
+        "mdef_min": 70,
+        "additional_bonus_mdef": 0,
+        "is_buddy_sacred_equipment": false,
+        "is_usable_as_enhancement_material": true,
+        "allowed_buddy_id": 0,
+        "detail_image_path": "/dff/static/lang/ww/compile/en/image/equipment/22056177/22056177_05_220.png",
+        "max_hammering_num": 20,
+        "thumbnail_path": "/dff/static/lang/ww/compile/en/image/equipment/22056177/22056177_05_48.png",
+        "eva_min": 105,
+        "atk_ss_point_factor": 0,
+        "critical": 0,
+        "def_ss_point_factor": 0,
+        "eva": 105,
+        "id": 878426592,
+        "exp": 0,
+        "max_evolution_num": 2,
+        "max_hyper_evolution_num": 3,
+        "sale_gil": 10000,
+        "evolution_num": 0,
+        "series_hammering_num": 2,
+        "hyper_evolve_recipe": {
+          "materials": [
+            {
+              "num": 1,
+              "hyper_evolve_material_id": 25096005
+            }
+          ],
+          "gil": 2500000
+        },
+        "is_armor": true,
+        "level_max": 20,
+        "matk_min": 11,
+        "rarity": 5,
+        "additional_bonus_acc": 0,
+        "is_max_evolution_num": false,
+        "sp_mnd": 17,
+        "atk": 26,
+        "sp_matk": 17,
+        "ex_series_id": 0,
+        "hp_min": 0,
+        "can_hyper_evolve_now": false,
+        "additional_bonus_eva": 0,
+        "sp_mdef": 89,
+        "can_evolve_potentially": true,
+        "additional_bonus_mnd": 0,
+        "is_sacred_equipment": false,
+        "sp_atk": 33,
+        "mnd_min": 11,
+        "additional_bonus_matk": 0,
+        "can_hyper_evolve_potentially": true,
+        "is_hammering_item": false
+      },
+      {
+        "def_min": 0,
+        "is_max_hyper_evolution_num": false,
+        "acc_min": 95,
+        "category_name": "Sword",
+        "additional_bonus_hp": 0,
+        "atk_type": 1,
+        "sp_def": 0,
+        "legend_materia_id": 0,
+        "additional_bonus_attributes": [],
+        "is_weapon": true,
+        "hammering_num": 1,
+        "atk_min": 98,
+        "is_max_level": false,
+        "name": "Nightbringer (XII)",
+        "has_someones_soul_strike": true,
+        "base_rarity": 5,
+        "has_soul_strike": true,
+        "is_accessory": false,
+        "level": 1,
+        "can_evolve_now": true,
+        "attributes": [
+          {
+            "arg": "120",
+            "type": "1",
+            "attribute_id": "107"
+          }
+        ],
+        "soul_strike_id": 22370004,
+        "equipment_id": 21002208,
+        "additional_bonus_def": 0,
+        "mdef": 0,
+        "sp_acc": 95,
+        "acc": 95,
+        "is_locked": false,
+        "created_at": 1553518657,
+        "category_id": 2,
+        "def": 0,
+        "sp_hp": 0,
+        "hammering_affect_param_key": "atk",
+        "is_usable_as_enhancement_src": true,
+        "evol_max_level_of_base_rarity": {
+          "1": {
+            "0": 3,
+            "1": 5,
+            "2": 10,
+            "3": 15
+          },
+          "2": {
+            "0": 5,
+            "1": 10,
+            "2": 15,
+            "3": 20
+          },
+          "3": {
+            "0": 10,
+            "1": 15,
+            "2": 20,
+            "3": 25
+          },
+          "4": {
+            "0": 15,
+            "1": 20,
+            "2": 25,
+            "3": 30
+          },
+          "5": {
+            "0": 20,
+            "1": 25,
+            "2": 30,
+            "3": 35
+          },
+          "6": {
+            "0": 25,
+            "1": 30,
+            "2": 35,
+            "3": 40
+          },
+          "100": {
+            "0": 50,
+            "1": 50,
+            "2": 50,
+            "3": 50
+          }
+        },
+        "required_evolution_gil": 100000,
+        "hp": 0,
+        "matk": 0,
+        "equipment_type": 1,
+        "series_id": 112001,
+        "additional_bonus_atk": 0,
+        "image_path": "/dff/static/lang/ww/compile/en/image/equipment/21002208/21002208_05_112.png",
+        "mnd": 0,
+        "required_enhancement_base_gil": 2000,
+        "sp_eva": 0,
+        "is_usable_as_rainbow_crystal_material": true,
+        "mdef_min": 0,
+        "additional_bonus_mdef": 0,
+        "is_buddy_sacred_equipment": false,
+        "is_usable_as_enhancement_material": true,
+        "allowed_buddy_id": 0,
+        "detail_image_path": "/dff/static/lang/ww/compile/en/image/equipment/21002208/21002208_05_220.png",
+        "max_hammering_num": 20,
+        "thumbnail_path": "/dff/static/lang/ww/compile/en/image/equipment/21002208/21002208_05_48.png",
+        "eva_min": 0,
+        "atk_ss_point_factor": 0,
+        "critical": 3,
+        "def_ss_point_factor": 0,
+        "eva": 0,
+        "id": 878426591,
+        "exp": 0,
+        "max_evolution_num": 2,
+        "max_hyper_evolution_num": 3,
+        "sale_gil": 10000,
+        "evolution_num": 0,
+        "series_hammering_num": 2,
+        "hyper_evolve_recipe": {
+          "materials": [
+            {
+              "num": 1,
+              "hyper_evolve_material_id": 25096005
+            }
+          ],
+          "gil": 2500000
+        },
+        "is_armor": false,
+        "level_max": 20,
+        "matk_min": 0,
+        "rarity": 5,
+        "additional_bonus_acc": 0,
+        "is_max_evolution_num": false,
+        "sp_mnd": 0,
+        "atk": 98,
+        "sp_matk": 0,
+        "ex_series_id": 0,
+        "hp_min": 0,
+        "can_hyper_evolve_now": false,
+        "additional_bonus_eva": 0,
+        "sp_mdef": 0,
+        "can_evolve_potentially": true,
+        "additional_bonus_mnd": 0,
+        "is_sacred_equipment": false,
+        "sp_atk": 125,
+        "mnd_min": 0,
+        "additional_bonus_matk": 0,
+        "can_hyper_evolve_potentially": true,
+        "is_hammering_item": false
+      },
+      {
+        "def_min": 71,
+        "is_max_hyper_evolution_num": false,
+        "acc_min": 0,
+        "category_name": "Hat",
+        "additional_bonus_hp": 0,
+        "atk_type": 0,
+        "sp_def": 84,
+        "legend_materia_id": 201600502,
+        "additional_bonus_attributes": [],
+        "is_weapon": false,
+        "hammering_num": 1,
+        "atk_min": 0,
+        "is_max_level": false,
+        "name": "Gold Hairpin (Type-0)",
+        "has_someones_soul_strike": false,
+        "base_rarity": 5,
+        "has_soul_strike": false,
+        "is_accessory": false,
+        "level": 1,
+        "can_evolve_now": true,
+        "attributes": [],
+        "soul_strike_id": 0,
+        "equipment_id": 22051129,
+        "additional_bonus_def": 0,
+        "mdef": 99,
+        "sp_acc": 0,
+        "acc": 0,
+        "is_locked": false,
+        "created_at": 1553518657,
+        "category_id": 51,
+        "def": 71,
+        "sp_hp": 0,
+        "hammering_affect_param_key": "mdef",
+        "is_usable_as_enhancement_src": true,
+        "evol_max_level_of_base_rarity": {
+          "1": {
+            "0": 3,
+            "1": 5,
+            "2": 10,
+            "3": 15
+          },
+          "2": {
+            "0": 5,
+            "1": 10,
+            "2": 15,
+            "3": 20
+          },
+          "3": {
+            "0": 10,
+            "1": 15,
+            "2": 20,
+            "3": 25
+          },
+          "4": {
+            "0": 15,
+            "1": 20,
+            "2": 25,
+            "3": 30
+          },
+          "5": {
+            "0": 20,
+            "1": 25,
+            "2": 30,
+            "3": 35
+          },
+          "6": {
+            "0": 25,
+            "1": 30,
+            "2": 35,
+            "3": 40
+          },
+          "100": {
+            "0": 50,
+            "1": 50,
+            "2": 50,
+            "3": 50
+          }
+        },
+        "required_evolution_gil": 100000,
+        "hp": 0,
+        "matk": 21,
+        "equipment_type": 2,
+        "series_id": 160001,
+        "additional_bonus_atk": 0,
+        "image_path": "/dff/static/lang/ww/compile/en/image/equipment/22051129/22051129_05_112.png",
+        "mnd": 30,
+        "required_enhancement_base_gil": 2000,
+        "sp_eva": 105,
+        "is_usable_as_rainbow_crystal_material": true,
+        "mdef_min": 99,
+        "additional_bonus_mdef": 0,
+        "is_buddy_sacred_equipment": false,
+        "is_usable_as_enhancement_material": true,
+        "allowed_buddy_id": 0,
+        "detail_image_path": "/dff/static/lang/ww/compile/en/image/equipment/22051129/22051129_05_220.png",
+        "max_hammering_num": 20,
+        "thumbnail_path": "/dff/static/lang/ww/compile/en/image/equipment/22051129/22051129_05_48.png",
+        "eva_min": 105,
+        "atk_ss_point_factor": 0,
+        "critical": 0,
+        "def_ss_point_factor": 0,
+        "eva": 105,
+        "id": 878426590,
+        "exp": 0,
+        "max_evolution_num": 2,
+        "max_hyper_evolution_num": 3,
+        "sale_gil": 10000,
+        "evolution_num": 0,
+        "series_hammering_num": 2,
+        "hyper_evolve_recipe": {
+          "materials": [
+            {
+              "num": 1,
+              "hyper_evolve_material_id": 25096005
+            }
+          ],
+          "gil": 2500000
+        },
+        "is_armor": true,
+        "level_max": 20,
+        "matk_min": 21,
+        "rarity": 5,
+        "additional_bonus_acc": 0,
+        "is_max_evolution_num": false,
+        "sp_mnd": 36,
+        "atk": 0,
+        "sp_matk": 27,
+        "ex_series_id": 0,
+        "hp_min": 0,
+        "can_hyper_evolve_now": false,
+        "additional_bonus_eva": 0,
+        "sp_mdef": 123,
+        "can_evolve_potentially": true,
+        "additional_bonus_mnd": 0,
+        "is_sacred_equipment": false,
+        "sp_atk": 0,
+        "mnd_min": 30,
+        "additional_bonus_matk": 0,
+        "can_hyper_evolve_potentially": true,
+        "is_hammering_item": false
+      },
+      {
+        "def_min": 69,
+        "is_max_hyper_evolution_num": false,
+        "acc_min": 0,
+        "category_name": "Hat",
+        "additional_bonus_hp": 0,
+        "atk_type": 0,
+        "sp_def": 82,
+        "legend_materia_id": 201070802,
+        "additional_bonus_attributes": [],
+        "is_weapon": false,
+        "hammering_num": 1,
+        "atk_min": 10,
+        "is_max_level": false,
+        "name": "Vincent's Bandana (VII-DoC)",
+        "has_someones_soul_strike": false,
+        "base_rarity": 5,
+        "has_soul_strike": false,
+        "is_accessory": false,
+        "level": 1,
+        "can_evolve_now": true,
+        "attributes": [],
+        "soul_strike_id": 0,
+        "equipment_id": 22051091,
+        "additional_bonus_def": 0,
+        "mdef": 96,
+        "sp_acc": 0,
+        "acc": 0,
+        "is_locked": false,
+        "created_at": 1553518657,
+        "category_id": 51,
+        "def": 69,
+        "sp_hp": 0,
+        "hammering_affect_param_key": "mdef",
+        "is_usable_as_enhancement_src": true,
+        "evol_max_level_of_base_rarity": {
+          "1": {
+            "0": 3,
+            "1": 5,
+            "2": 10,
+            "3": 15
+          },
+          "2": {
+            "0": 5,
+            "1": 10,
+            "2": 15,
+            "3": 20
+          },
+          "3": {
+            "0": 10,
+            "1": 15,
+            "2": 20,
+            "3": 25
+          },
+          "4": {
+            "0": 15,
+            "1": 20,
+            "2": 25,
+            "3": 30
+          },
+          "5": {
+            "0": 20,
+            "1": 25,
+            "2": 30,
+            "3": 35
+          },
+          "6": {
+            "0": 25,
+            "1": 30,
+            "2": 35,
+            "3": 40
+          },
+          "100": {
+            "0": 50,
+            "1": 50,
+            "2": 50,
+            "3": 50
+          }
+        },
+        "required_evolution_gil": 100000,
+        "hp": 0,
+        "matk": 21,
+        "equipment_type": 2,
+        "series_id": 107001,
+        "additional_bonus_atk": 0,
+        "image_path": "/dff/static/lang/ww/compile/en/image/equipment/22051091/22051091_05_112.png",
+        "mnd": 20,
+        "required_enhancement_base_gil": 2000,
+        "sp_eva": 105,
+        "is_usable_as_rainbow_crystal_material": true,
+        "mdef_min": 96,
+        "additional_bonus_mdef": 0,
+        "is_buddy_sacred_equipment": false,
+        "is_usable_as_enhancement_material": true,
+        "allowed_buddy_id": 0,
+        "detail_image_path": "/dff/static/lang/ww/compile/en/image/equipment/22051091/22051091_05_220.png",
+        "max_hammering_num": 20,
+        "thumbnail_path": "/dff/static/lang/ww/compile/en/image/equipment/22051091/22051091_05_48.png",
+        "eva_min": 105,
+        "atk_ss_point_factor": 0,
+        "critical": 0,
+        "def_ss_point_factor": 0,
+        "eva": 105,
+        "id": 878426589,
+        "exp": 0,
+        "max_evolution_num": 2,
+        "max_hyper_evolution_num": 3,
+        "sale_gil": 10000,
+        "evolution_num": 0,
+        "series_hammering_num": 2,
+        "hyper_evolve_recipe": {
+          "materials": [
+            {
+              "num": 1,
+              "hyper_evolve_material_id": 25096005
+            }
+          ],
+          "gil": 2500000
+        },
+        "is_armor": true,
+        "level_max": 20,
+        "matk_min": 21,
+        "rarity": 5,
+        "additional_bonus_acc": 0,
+        "is_max_evolution_num": false,
+        "sp_mnd": 26,
+        "atk": 10,
+        "sp_matk": 27,
+        "ex_series_id": 0,
+        "hp_min": 0,
+        "can_hyper_evolve_now": false,
+        "additional_bonus_eva": 0,
+        "sp_mdef": 120,
+        "can_evolve_potentially": true,
+        "additional_bonus_mnd": 0,
+        "is_sacred_equipment": false,
+        "sp_atk": 16,
+        "mnd_min": 20,
+        "additional_bonus_matk": 0,
+        "can_hyper_evolve_potentially": true,
+        "is_hammering_item": false
+      }
+    ],
+    "achieved_book_mission_ids": []
+  },
+  "requestBody": {
+    "entry_point_id": 1798101,
+    "auto_state": 2
+  }
+}

@@ -1,6 +1,17 @@
-import { AssetCollection, DecimalNumberAsString, NumberAsString } from './common';
+import { LegendMateria } from './characters';
+import {
+  AssetCollection,
+  AwakeExplanation,
+  BraveInfo,
+  BurstCommand,
+  ChainExplanation,
+  DecimalNumberAsString,
+  NumberAsString,
+  RelativeUrlPath,
+} from './common';
 import { Equipment } from './equipment';
 import { MemoryCrystal } from './party';
+import { ItemPossessionLimit, User } from './user';
 
 // Sample URL: http://ffrk.denagames.com/dff/gacha/show
 export interface GachaShow {
@@ -288,11 +299,12 @@ export interface PrizeSoulStrike {
   description: string;
   alias_name: string;
   extensive_description: string;
-  image_path: string;
-  disabled_image_path: string;
+  image_path: RelativeUrlPath;
+  disabled_image_path: RelativeUrlPath;
   allowed_buddy_id: number;
   allowed_buddy_name: string;
   soul_strike_category_id: number;
+  soul_strike_category_name: string;
 
   strength_base: number;
 
@@ -314,21 +326,21 @@ export interface PrizeSoulStrike {
   supporter_usable_num: number;
   recommend_priority: number;
 
-  is_standard_soul_strike: string;
-  is_burst_soul_strike: string;
-  is_param_booster_soul_strike: number;
-  is_overflow_soul_strike: string;
-  is_someones_soul_strike: number;
-  is_unique_soul_strike: string;
-  is_common_soul_strike: string;
-  is_super_soul_strike: number;
-  is_awake_soul_strike: string;
-  is_sengi_soul_strike: string;
-  is_combo_soul_strike: string;
-  is_ultra_soul_strike: string;
-  is_overflow_ougi_soul_strike: string;
   has_broken_max_damage_threshold_soul_strike: string;
   has_soul_strike_param_booster: number;
+  is_awake_soul_strike: string;
+  is_burst_soul_strike: string;
+  is_combo_soul_strike: string;
+  is_common_soul_strike: string;
+  is_overflow_ougi_soul_strike: string;
+  is_overflow_soul_strike: string;
+  is_param_booster_soul_strike: number;
+  is_sengi_soul_strike: string;
+  is_someones_soul_strike: number;
+  is_standard_soul_strike: string;
+  is_super_soul_strike: number;
+  is_ultra_soul_strike: string;
+  is_unique_soul_strike: string;
 
   exercise_type: number;
   burst_spare_abilities: string;
@@ -405,3 +417,119 @@ export type GachaProbability = {
     assured_rarity: string;
   };
 };
+
+// Sample URL: http://ffrk.denagames.com/dff/gacha/execute
+// Request body: { "entry_point_id": 1799106, "auto_state": 2 }
+export interface GachaExecute {
+  success: boolean;
+
+  gacha_series_id: NumberAsString;
+  gacha_entry_point_id: NumberAsString;
+  is_showable: number; // always 1
+  acquired_gil: number;
+  executable_count: number;
+
+  total_drop_num: number;
+  auto_generate_user_equipment_ids: number[]; // unique IDs for new equipment
+
+  updated_entry_point_info: {}; // Always blank, for both regular banners and one-time draws
+
+  assets: AssetCollection;
+  user_item_possession_limits: ItemPossessionLimit[];
+
+  drop_item_map: {
+    // gives rarity and count of each equipment (relic) pulled
+    [relicId: string]: {
+      drop_num: number; // count
+      rarity: NumberAsString;
+    };
+  };
+
+  // Items drawn, and their associated soul breaks and legend materia
+  items: Equipment[];
+  soul_strikes: GachaExecuteSoulStrike[];
+  legend_materias: LegendMateria[];
+
+  // Empty arrays, although they could conceivably apply for unusual banners
+  // like Black Friday's.
+  ability_material: any[];
+  ability: any[];
+  auto_sold_user_equipment_ids: any[];
+  battle_ticket: any[];
+  beast: any[];
+  beast_food: any[];
+  buddy: any[];
+  common: any[];
+  dress_record: any[];
+  equipment_hyper_evolve_material: any[];
+  equipment_sp_material: any[];
+  grow_egg: any[];
+  memory_crystal: any[];
+  mo_stamp: any[];
+  music_ticket: any[];
+  premium_pass: any[];
+  record_materia: any[];
+  record_tear: any[];
+  sphere_material: any[];
+  stamina_recovery_agent: any[];
+
+  user: User;
+  achieved_book_ids: number[];
+  achieved_book_mission_ids: any[];
+  SERVER_TIME: number;
+}
+
+interface GachaExecuteSoulStrike {
+  id: number;
+  name: string;
+  disp_name: string;
+  description: string;
+  extensive_description: string;
+  image_path: RelativeUrlPath;
+  disabled_image_path: RelativeUrlPath;
+  allowed_buddy_id: number;
+  allowed_buddy_name: string;
+  soul_strike_category_id: number;
+  soul_strike_category_name: string;
+
+  hp_boost: string;
+  atk_boost: string;
+  def_boost: string;
+  matk_boost: string;
+  mdef_boost: string;
+  mnd_boost: string;
+  spd_boost: string;
+  acc_boost: string;
+  eva_boost: string;
+
+  consume_ss_point: number;
+  consume_ss_gauge: number;
+  usable_num: number;
+  supporter_usable_num: number;
+  recommend_priority: number;
+  required_exp: number;
+
+  has_broken_max_damage_threshold_soul_strike: boolean;
+  has_soul_strike_param_booster: number;
+  is_awake_soul_strike: boolean;
+  is_burst_soul_strike: boolean;
+  is_combo_soul_strike: boolean;
+  is_common_soul_strike: boolean;
+  is_default_soul_strike: boolean;
+  is_overflow_ougi_soul_strike: boolean;
+  is_overflow_soul_strike: boolean;
+  is_param_booster_soul_strike: boolean;
+  is_sengi_soul_strike: boolean;
+  is_someones_soul_strike: boolean;
+  is_standard_soul_strike: boolean;
+  is_super_soul_strike: boolean;
+  is_ultra_soul_strike: boolean;
+  is_unique_soul_strike: boolean;
+
+  ability_animation_id: number;
+
+  awake_explanations?: AwakeExplanation[];
+  burst_spare_abilities?: BurstCommand[];
+  brave_info?: BraveInfo;
+  combo_explanations?: ChainExplanation[];
+}

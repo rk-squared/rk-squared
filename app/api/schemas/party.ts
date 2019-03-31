@@ -1,4 +1,12 @@
-import { NumberAsString, RelativeUrlPath, Timestamp } from './common';
+import {
+  AwakeExplanation,
+  BraveInfo,
+  BurstCommand,
+  ChainExplanation,
+  NumberAsString,
+  RelativeUrlPath,
+  Timestamp,
+} from './common';
 
 enum SoulStrikeCategoryType {
   Awakening = 'AWAKE',
@@ -99,13 +107,6 @@ export interface EquipmentSpMaterial {
   hammering_num: number; // How much it increases augments (i.e., 1 for Rosetta, 0 everywhere else)
 }
 
-export interface ItemPossessionLimit {
-  current_num: number;
-  item_type_name: string;
-  max_num: number;
-  enable_give_num: number;
-}
-
 /**
  * Ability materials, including orbs and records.  Aka "materials."
  */
@@ -164,65 +165,26 @@ export interface PartySoulStrike {
   ability_animation_id: number;
   supporter_usable_num: number;
 
-  is_common_soul_strike: boolean;
-  is_unique_soul_strike: boolean;
   has_broken_max_damage_threshold_soul_strike: boolean;
-  is_super_soul_strike: boolean;
   is_awake_soul_strike: boolean;
-  is_sengi_soul_strike: boolean;
-  is_param_booster_soul_strike: boolean;
-  is_combo_soul_strike: boolean;
-  is_default_soul_strike: boolean;
   is_burst_soul_strike: boolean;
+  is_combo_soul_strike: boolean;
+  is_common_soul_strike: boolean;
+  is_default_soul_strike: boolean;
   is_overflow_ougi_soul_strike: boolean;
-  is_ultra_soul_strike: boolean;
   is_overflow_soul_strike: boolean;
-  is_standard_soul_strike: boolean;
+  is_param_booster_soul_strike: boolean;
+  is_sengi_soul_strike: boolean;
   is_someones_soul_strike: boolean;
+  is_standard_soul_strike: boolean;
+  is_super_soul_strike: boolean;
+  is_ultra_soul_strike: boolean;
+  is_unique_soul_strike: boolean;
 
-  burst_spare_abilities?: Array<{
-    category_type: number;
-    panel_name: string;
-    target_range: number;
-    command_icon_path: RelativeUrlPath;
-    name: string;
-    category_name: string; // e.g., 'White Magic'
-    thumbnail_path: RelativeUrlPath;
-    description: string;
-    category_id: number;
-    animation_id: number;
-    image_path: RelativeUrlPath;
-    rarity: number;
-    disable_generation: boolean;
-    display_category_id: number;
-  }>;
-
-  brave_info?: {
-    brave_abilities: BraveAbility[];
-    level_up_condition_text: string;
-    brave_level_map_ability: BraveAbility;
-  };
-
-  // For chain soul breaks
-  combo_explanations?: Array<{
-    image_path: string;
-    condition_text: string;
-    effect_text: string;
-  }>;
-}
-
-interface BraveAbility {
-  type_name: string; // e.g., 'ABILITY'
-  arg1: number;
-  target_range: number;
-  command_icon_path: string;
-  name: string;
-  category_name: string;
-  description: string;
-  item_id: number;
-  level?: number;
-  rarity: number;
-  max_grade: number;
+  awake_explanations?: AwakeExplanation[];
+  burst_spare_abilities?: BurstCommand[];
+  brave_info?: BraveInfo;
+  combo_explanations?: ChainExplanation[];
 }
 
 /**

@@ -65,6 +65,28 @@ export const setLegendMateria = createAction(
   }),
 );
 
+export const addSoulBreak = createAction(
+  'ADD_SOUL_BREAK',
+  (idOrIds: number | number[], inventoryType = InventoryType.INVENTORY) => ({
+    type: 'ADD_SOUL_BREAK',
+    payload: {
+      idOrIds,
+      inventoryType,
+    },
+  }),
+);
+
+export const addLegendMateria = createAction(
+  'ADD_LEGEND_MATERIA',
+  (idOrIds: number | number[], inventoryType = InventoryType.INVENTORY) => ({
+    type: 'ADD_LEGEND_MATERIA',
+    payload: {
+      idOrIds,
+      inventoryType,
+    },
+  }),
+);
+
 /**
  * Sets a new soul break experience map, replacing whatever's there.
  */
@@ -103,6 +125,8 @@ export type CharacterAction = ReturnType<
   | typeof updateCharacter
   | typeof setSoulBreaks
   | typeof setLegendMateria
+  | typeof addSoulBreak
+  | typeof addLegendMateria
   | typeof setSoulBreakExp
   | typeof setLegendMateriaExp
   | typeof updateSoulBreakExp

@@ -2,6 +2,8 @@ import { produce } from 'immer';
 import { getType } from 'typesafe-actions';
 
 import {
+  addLegendMateria,
+  addSoulBreak,
   Character,
   CharacterAction,
   ExpMap,
@@ -16,6 +18,7 @@ import {
   updateLegendMateriaExp,
   updateSoulBreakExp,
 } from '../actions/characters';
+import { arrayify } from '../utils/typeUtils';
 
 export interface CharacterState {
   characters: {
@@ -77,6 +80,17 @@ function getDestination(draft: CharacterState, inventoryType: InventoryType) {
   }
 }
 
+function addIds(idList: number[] | undefined, idOrIds: number | number[]) {
+  if (!idList) {
+    return;
+  }
+  for (const i of arrayify(idOrIds)) {
+    if (idList.indexOf(i) === -1) {
+      idList.push(i);
+    }
+  }
+}
+
 export function characters(
   state: CharacterState = initialState,
   action: CharacterAction,
@@ -95,6 +109,7 @@ export function characters(
         Object.assign(draft.characters[action.payload.id], action.payload.character);
         return;
 
+      // Known soul breaks and legend materia
       case getType(setSoulBreaks):
         getDestination(draft, action.payload.inventoryType).soulBreaks =
           action.payload.soulBreakIds;
@@ -105,6 +120,19 @@ export function characters(
           action.payload.legendMateriaIds;
         return;
 
+      case getType(addSoulBreak): {
+        const dest = getDestination(draft, action.payload.inventoryType);
+        addIds(dest.soulBreaks, action.payload.idOrIds);
+        return;
+      }
+
+      case getType(addLegendMateria): {
+        const dest = getDestination(draft, action.payload.inventoryType);
+        addIds(dest.legendMateria, action.payload.idOrIds);
+        return;
+      }
+
+      // Soul break and legend materia experience
       case getType(setSoulBreakExp):
         draft.soulBreakExp = action.payload;
         return;

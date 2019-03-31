@@ -19,7 +19,6 @@ import {
   DressRecord,
   EquipmentHyperEvolveMaterial,
   EquipmentSpMaterial,
-  ItemPossessionLimit,
   Material,
   MemoryCrystal,
   Party,
@@ -28,7 +27,7 @@ import {
   SphereMaterial,
 } from './party';
 import { OwnedRecordMateria } from './recordMateria';
-import { User } from './user';
+import { ItemPossessionLimit, User } from './user';
 
 export { ItemTypeName } from './common';
 export { Battles } from './battles';

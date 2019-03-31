@@ -6,6 +6,7 @@ import { Store } from 'redux';
 
 import * as _ from 'lodash';
 
+import { addLegendMateria, addSoulBreak } from '../actions/characters';
 import {
   RelicDrawBanner,
   RelicDrawGroup,
@@ -203,6 +204,17 @@ const gachaHandler: Handler = {
 
     const selections = convertExchangeShopSelections(data);
     store.dispatch(setExchangeShopSelections(query.shop_id, selections));
+  },
+
+  'gacha/execute'(data: gachaSchemas.GachaExecute, store: Store<IState>) {
+    const soulBreakIds = data.soul_strikes.map(i => +i.id);
+    const legendMateriaIds = data.legend_materias.map(i => +i.id);
+    if (soulBreakIds.length) {
+      store.dispatch(addSoulBreak(soulBreakIds));
+    }
+    if (legendMateriaIds.length) {
+      store.dispatch(addLegendMateria(legendMateriaIds));
+    }
   },
 };
 
