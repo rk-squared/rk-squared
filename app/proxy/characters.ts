@@ -109,7 +109,7 @@ const charactersHandler: Handler = {
     store: Store<IState>,
   ) {
     store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id), InventoryType.VAULT));
-    store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id, InventoryType.VAULT)));
+    store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id), InventoryType.VAULT));
   },
 
   win_battle: handleWinBattle,

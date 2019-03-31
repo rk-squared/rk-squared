@@ -500,7 +500,7 @@ function convertRelics(rows: any[]): any[] {
         const f2 = _.camelCase(colAsAltStat(col));
         item[f1] = item[f1] || {};
         item[f1][f2] = toStat(f2, rows[i][j]);
-      } else if (field === 'character') {
+      } else if (field === 'character' || field === 'relic') {
         item[field] = dashNull(toString)(rows[i][j]);
       } else {
         item[field] = toCommon(field, rows[i][j]);
