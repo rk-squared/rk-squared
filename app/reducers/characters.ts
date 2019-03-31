@@ -13,6 +13,8 @@ import {
   setSoulBreakExp,
   setSoulBreaks,
   updateCharacter,
+  updateLegendMateriaExp,
+  updateSoulBreakExp,
 } from '../actions/characters';
 
 export interface CharacterState {
@@ -109,6 +111,26 @@ export function characters(
 
       case getType(setLegendMateriaExp):
         draft.legendMateriaExp = action.payload;
+        return;
+
+      case getType(updateSoulBreakExp):
+        if (!draft.soulBreakExp) {
+          return;
+        }
+        draft.soulBreakExp = {
+          ...draft.soulBreakExp,
+          ...action.payload,
+        };
+        return;
+
+      case getType(updateLegendMateriaExp):
+        if (!draft.legendMateriaExp) {
+          return;
+        }
+        draft.legendMateriaExp = {
+          ...draft.legendMateriaExp,
+          ...action.payload,
+        };
         return;
     }
   });
