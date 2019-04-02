@@ -12,7 +12,7 @@ const CheckNodeEnv = require('../internals/scripts/CheckNodeEnv');
 
 CheckNodeEnv('production');
 
-module.exports = merge.smart(baseConfig, {
+const config = merge.smart(baseConfig, {
   devtool: 'source-map',
 
   mode: 'production',
@@ -36,6 +36,11 @@ module.exports = merge.smart(baseConfig, {
             cache: true,
           }),
         ],
+  },
+
+  resolve: {
+    modules: ['node_modules'],
+    extensions: ['.js', '.ts', '.tsx', '.json'],
   },
 
   plugins: [
@@ -70,3 +75,8 @@ module.exports = merge.smart(baseConfig, {
     __filename: false,
   },
 });
+
+// Set no externals so that our main.prod.js is self-contained.
+config.externals = [];
+
+module.exports = config;

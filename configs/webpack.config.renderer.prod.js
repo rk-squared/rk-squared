@@ -13,7 +13,8 @@ const baseConfig = require('./webpack.config.base');
 const CheckNodeEnv = require('../internals/scripts/CheckNodeEnv');
 
 CheckNodeEnv('production');
-module.exports = merge.smart(baseConfig, {
+
+const config = merge.smart(baseConfig, {
   devtool: 'source-map',
 
   mode: 'production',
@@ -48,9 +49,16 @@ module.exports = merge.smart(baseConfig, {
           },
         ],
       },
+      // Add any node_modules styles as globals.
+      {
+        test: /^((?!\.global).)*\.css$/,
+        include: /node_modules/,
+        use: ['style-loader', 'css-loader'],
+      },
       // Pipe other styles through css modules and append to style.css
       {
         test: /^((?!\.global).)*\.css$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -192,7 +200,7 @@ module.exports = merge.smart(baseConfig, {
     /**
      * Create global constants which can be configured at compile time.
      *
-     * Useful for allowing different behaviour between development builds and
+     * Useful for allowing different behavior between development builds and
      * release builds
      *
      * NODE_ENV should be production so that modules do not perform certain
@@ -212,3 +220,8 @@ module.exports = merge.smart(baseConfig, {
     }),
   ],
 });
+
+// Set no externals so that our renderer.prod.js is self-contained.
+config.externals = [];
+
+module.exports = config;
