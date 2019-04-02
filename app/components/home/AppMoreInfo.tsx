@@ -33,6 +33,11 @@ export const AppMoreInfo = () => (
     <h3>Known Issues</h3>
 
     <p>
+      RK²'s information about soul breaks and legend materias is currently not automatically updated
+      outside of new releases; it's just a snapshot of whatever was available at its last release.
+    </p>
+
+    <p>
       RK² currently only supports a single FFRK profile. So, for example, if you play both GL and
       JP, you'll need to find a way to run two copies of RK² (for example, use two different
       laptops, or two different PC accounts, or manually copy RK²'s config.json depending on which
