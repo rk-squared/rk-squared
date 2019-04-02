@@ -12,6 +12,8 @@ import { logger } from './utils/logger';
 
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
 
+const enableProdDevTools = false;
+
 /**
  * Hyperlinks that open in new windows instead open in a web browser.
  * See https://github.com/electron/electron/issues/1344#issuecomment-171516261
@@ -55,7 +57,7 @@ runSagas();
 replayActionMain(store);
 
 const installExtensions = () => {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development' || enableProdDevTools) {
     const installer = require('electron-devtools-installer'); // eslint-disable-line global-require
 
     const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
@@ -92,7 +94,7 @@ app.on('ready', () =>
 
     enableBrowserLinks(mainWindow.webContents);
 
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development' || enableProdDevTools) {
       mainWindow.webContents.openDevTools();
       mainWindow.webContents.on('context-menu', (e, props) => {
         const { x, y } = props;
