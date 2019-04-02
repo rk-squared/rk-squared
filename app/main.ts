@@ -4,12 +4,13 @@ import * as path from 'path';
 
 const { replayActionMain } = require('electron-redux');
 
+import { showDanger } from './actions/messages';
 import { createFfrkProxy } from './proxy/ffrk-proxy';
 import { createOrLoadCertificate } from './proxy/tls';
 import { configureStore, runSagas } from './store/configureStore.main';
+import { logger } from './utils/logger';
 
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
-import { showDanger } from './actions/messages';
 
 /**
  * Hyperlinks that open in new windows instead open in a web browser.
@@ -77,11 +78,12 @@ app.on('ready', () =>
       height: 728,
     });
 
-    if (process.env.NODE_ENV === 'development') {
-      mainWindow.loadURL(`file://${__dirname}/../../app/app.html`);
-    } else {
-      mainWindow.loadURL(`file://${__dirname}/app.html`);
-    }
+    const mainUrl =
+      process.env.NODE_ENV === 'development'
+        ? `file://${__dirname}/../../app/app.html`
+        : `file://${__dirname}/app.html`;
+    logger.info(`Loading ${mainUrl}`);
+    mainWindow.loadURL(mainUrl);
 
     mainWindow.webContents.on('did-finish-load', () => {
       mainWindow.show();
