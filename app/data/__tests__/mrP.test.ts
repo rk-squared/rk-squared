@@ -1326,11 +1326,11 @@ describe('mrP', () => {
           '15s: Awoken Monk: Monk inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
       expect(describeSoulBreak('Yuna - For the Calm')).toEqual({
-        damage: '? ?/15 holy+wind+non',
+        damage: 'magic 19.8/15 holy+wind+non (SUM)',
         instant: true,
         other:
           'party h85, Regenga, self dmg cap=19,999 15s, ' +
-          '15s: Awoken Bond: Summon inf. hones, 100% dualcast, (Summon ⤇ party h?/?/?/?/? @ rank 1-5)',
+          '15s: Awoken Bond: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10/15/25/35/45 @ rank 1-5)',
       });
       expect(describeSoulBreak("Y'shtola - Pulse of Life")).toEqual({
         damage: undefined,
@@ -2183,7 +2183,7 @@ describe('mrP', () => {
       });
 
       expect(describeSoulBreak('Vivi - Fire for the Future')).toEqual({
-        damage: '? ?/15 fire+non',
+        damage: 'magic 22.5/15 fire+non',
         other:
           'fire infuse 25s, self dmg cap=19,999 15s, ' +
           '25s: Trance: +30% MAG, 50% dualcast B.Mag, ' +

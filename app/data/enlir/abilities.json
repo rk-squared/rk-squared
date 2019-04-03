@@ -13129,17 +13129,17 @@
     "school": "Knight",
     "name": "Gaia Strike",
     "rarity": 6,
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 4.25,
     "element": [
       "Earth"
     ],
-    "time": null,
-    "effects": "Five single attacks (? each), damage scales with both ATK and DEF, DEF +?% to the user for ? seconds",
-    "counter": false,
-    "autoTarget": "?",
+    "time": 1.65,
+    "effects": "Five single attacks (0.85/0.90/0.95 each) at 798/2736 DEF, grants DEF +100% to the user for 25 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
     "sb": 90,
     "uses": 2,
     "max": 10,
@@ -13173,7 +13173,7 @@
         0
       ]
     },
-    "introducingEvent": "?",
+    "introducingEvent": "Setting Things Right",
     "nameJp": "ガイアストライク",
     "id": 30211171,
     "gl": false
@@ -14819,17 +14819,17 @@
     "school": "Ninja",
     "name": "Azure Horizon",
     "rarity": 6,
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 6.3,
     "element": [
       "Water"
     ],
-    "time": null,
-    "effects": "3/5/7 single attacks (? each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
-    "counter": false,
-    "autoTarget": "?",
+    "time": 0.83,
+    "effects": "3/5/7 single attacks (0.90 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
     "sb": 80,
     "uses": 2,
     "max": 10,
@@ -14863,9 +14863,9 @@
         0
       ]
     },
-    "introducingEvent": "?",
+    "introducingEvent": "Setting Things Right",
     "nameJp": "水天一碧",
-    "id": null,
+    "id": 30231181,
     "gl": false
   },
   {

@@ -636,7 +636,7 @@ Array [
     "character": "Celes",
     "description": "ice infuse at battle start",
     "effect": "Grants Attach Ice at the beginning of the battle",
-    "name": "Insurgent Magitek Knight",
+    "name": "Rebel Knight",
   },
   Object {
     "character": "Ceodore",
@@ -697,6 +697,12 @@ Array [
     "description": "1.2x jump dmg if using a spear",
     "effect": "Jump attacks deal 20% more damage when equipping a spear",
     "name": "Champion of the Skies",
+  },
+  Object {
+    "character": "Cid (VII)",
+    "description": "Haste, instacast 1 at battle start",
+    "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
+    "name": "Journey to Space",
   },
   Object {
     "character": "Cid (XIV)",
@@ -792,13 +798,13 @@ Array [
     "character": "Cloud",
     "description": "wind infuse at battle start",
     "effect": "Grants Attach Wind at the beginning of the battle",
-    "name": "Farewell to Illusions",
+    "name": "Broken Illusions",
   },
   Object {
     "character": "Cloud",
     "description": "dark infuse at battle start",
     "effect": "Grants Attach Dark at the beginning of the battle",
-    "name": "Fake Swordsman",
+    "name": "Borrowed Blade",
   },
   Object {
     "character": "Cloud",
@@ -2208,7 +2214,7 @@ Array [
     "character": "Laguna",
     "description": "ice infuse at battle start",
     "effect": "Grants Attach Ice at the beginning of the battle",
-    "name": "Charming Young Man",
+    "name": "Disarming Smile",
   },
   Object {
     "character": "Lann",
@@ -3558,7 +3564,7 @@ Array [
     "character": "Rosa",
     "description": "25% dualcast W.Mag",
     "effect": "25% chance to dualcast White Magic abilities",
-    "name": "Noble Beauty",
+    "name": "Patrician Beauty",
   },
   Object {
     "character": "Roxas",
@@ -3631,6 +3637,12 @@ Array [
     "description": "(dark ⤇ 35% for fastcast 1)",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Dark attack",
     "name": "Titan of Industry",
+  },
+  Object {
+    "character": "Rufus",
+    "description": "25% dualcast dark",
+    "effect": "25% chance to dualcast Dark abilities",
+    "name": "President's Plot",
   },
   Object {
     "character": "Rydia",
@@ -3948,7 +3960,7 @@ Array [
     "character": "Shadow",
     "description": "(Ninja ⤇ 25% for Phys blink 1)",
     "effect": "25% chance to grant Physical Blink 1 to the user after using a Ninja ability",
-    "name": "Taciturn Agent",
+    "name": "Man of Action",
   },
   Object {
     "character": "Shantotto",
@@ -4290,7 +4302,7 @@ Array [
     "character": "Tidus",
     "description": "(water ⤇ 35% for fastcast 1)",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Water attack",
-    "name": "Blitz Code",
+    "name": "Blitz Basics",
   },
   Object {
     "character": "Tifa",
@@ -4315,6 +4327,12 @@ Array [
     "description": "earth infuse at battle start",
     "effect": "Grants Attach Earth at the beginning of the battle",
     "name": "Friendly Fighter",
+  },
+  Object {
+    "character": "Tifa",
+    "description": "25% dualcast Monk",
+    "effect": "25% chance to dualcast Monk abilities",
+    "name": "Tomboy Brawler",
   },
   Object {
     "character": "Tyro",

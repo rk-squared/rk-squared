@@ -6474,10 +6474,10 @@
     "realm": "III",
     "character": "Onion Knight",
     "name": "True Magic Potential",
-    "type": "?",
+    "type": "BLK",
     "target": "Single Enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 22.5,
     "element": [
       "Wind",
       "Water",
@@ -6485,10 +6485,10 @@
       "Earth",
       "NE"
     ],
-    "time": null,
-    "effects": "Fifteen single attacks (? each), grants MAG and RES +?% to all allies, grants Awoken Black Magic, Damage Cap 19999 and Onion Sorcery Follow-Up to the user",
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), grants MAG and RES +30% to all allies for 25 seconds, grants Awoken Black Magic, Damage Cap 19999 and Onion Sorcery Follow-Up to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "AASB",
     "master": "MAG +10",
@@ -8103,7 +8103,7 @@
   {
     "realm": "IV",
     "character": "Rosa",
-    "name": "White Mage's Miracle (IV)",
+    "name": "White Mage Wonder (IV)",
     "type": "WHT",
     "target": "All allies",
     "formula": null,
@@ -8119,7 +8119,7 @@
     "relic": "Rosa's Guise (IV)",
     "nameJp": "白魔道士の奇跡【IV】",
     "id": 20990007,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -8140,7 +8140,7 @@
     "relic": "Magic Bow (IV)",
     "nameJp": "ディバインガード",
     "id": 20990008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -11283,7 +11283,7 @@
   {
     "realm": "V",
     "character": "Bartz",
-    "name": "Master Spellblade Four Lights",
+    "name": "Tetra Spellblade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -11296,7 +11296,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Major Buff Fire/Water/Wind/Earth, Awoken Spellblade, Damage Cap 19999 and Master Barrage Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Major Buff Fire/Water/Wind/Earth, Awoken Spellblade, Damage Cap 19999 and Barrage Master Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -11305,7 +11305,7 @@
     "relic": "Freelancer Bartz's Guise (V)",
     "nameJp": "マスター魔法剣・四光",
     "id": 20400018,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -11598,7 +11598,7 @@
     "relic": "Windslash Bow (V)",
     "nameJp": "永遠の絆",
     "id": 20930013,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -12825,7 +12825,7 @@
   {
     "realm": "VI",
     "character": "Terra",
-    "name": "Chaos Inferno",
+    "name": "Chaotic Inferno",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -12844,7 +12844,7 @@
     "relic": "Lufenian Saber (VI)",
     "nameJp": "ケイオスインフェルノ",
     "id": 20100013,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -13512,7 +13512,7 @@
   {
     "realm": "VI",
     "character": "Celes",
-    "name": "Searching for Friends",
+    "name": "More the Merrier",
     "type": "NAT",
     "target": "All allies",
     "formula": null,
@@ -13528,12 +13528,12 @@
     "relic": "Celes's Sword (VI)",
     "nameJp": "仲間を求めて",
     "id": 20210011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
     "character": "Celes",
-    "name": "Arcane Blade",
+    "name": "Mystic Blade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -13552,7 +13552,7 @@
     "relic": "Celes's Guise (VI)",
     "nameJp": "神秘なる常勝の剣",
     "id": 20210012,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -14317,7 +14317,7 @@
   {
     "realm": "VI",
     "character": "Shadow",
-    "name": "Darkblade of Carnage",
+    "name": "Darkbound Blade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -14336,7 +14336,7 @@
     "relic": "Orochi (VI)",
     "nameJp": "修羅ノ闇刃",
     "id": 20890006,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -16165,7 +16165,7 @@
     "relic": "Nail Bat (VII)",
     "nameJp": "魔晄の深淵",
     "id": 20110019,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -16921,6 +16921,48 @@
   },
   {
     "realm": "VII",
+    "character": "Aerith",
+    "name": "Planet's Pulse",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (105), Removes KO (100% HP), grants Last Stand, Physical High Quick Cast 3 and Haste, grants Awoken Planet Prayer to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "tier": "AASB",
+    "master": "MND +10",
+    "relic": "Wonder Wand (VII)",
+    "nameJp": "星の鼓動",
+    "id": 20120012,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Aerith",
+    "name": "Breath of the Wind",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Protect, Shell and Haste",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "MND +10",
+    "relic": "Seraphim Rod (VII)",
+    "nameJp": "清風の息吹",
+    "id": 20120013,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Red XIII",
     "name": "Sled Fang",
     "type": "PHY",
@@ -17403,6 +17445,31 @@
     "nameJp": "抜山蓋世",
     "id": 22040012,
     "gl": true
+  },
+  {
+    "realm": "VII",
+    "character": "Yuffie",
+    "name": "Refined Doom of the Living",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Water",
+      "Earth",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Water, Awoken Ninja, Damage Cap 19999 and Unpredictable Speed Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "Wing Edge (VII)",
+    "nameJp": "昇華・生者必滅",
+    "id": 22040013,
+    "gl": false
   },
   {
     "realm": "VII",
@@ -18474,6 +18541,27 @@
   },
   {
     "realm": "VII",
+    "character": "Cid (VII)",
+    "name": "Proxy Leader Cid",
+    "type": "NAT",
+    "target": null,
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 2.5,
+    "effects": "Activates VII Chain (max 150, field +50%), grants Haste, ATK and MAG +30% for 25 seconds",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "tier": "CSB",
+    "master": "ATK +10",
+    "relic": "Longinus (VII)",
+    "nameJp": "代行リーダー・シド",
+    "id": 22780005,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Reno",
     "name": "Electrostatic Rod",
     "type": "PHY",
@@ -18861,6 +18949,54 @@
   {
     "realm": "VII",
     "character": "Rufus",
+    "name": "Oblivious Unfilial Son",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Dark, Awoken Darkness, Damage Cap 19999 and Dive to Ground Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "Exquisite Wristwatch (VII)",
+    "nameJp": "気づけよ親不孝者",
+    "id": 22630004,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Rufus",
+    "name": "Mako Cannon",
+    "type": "PHY",
+    "target": "Random enemies",
+    "formula": null,
+    "multiplier": 7.1,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Ten random ranged attacks (0.71 each), causes Imperil Dark 20% for 25 seconds, grants Dark Ray Follow-Up to the user",
+    "counter": false,
+    "autoTarget": null,
+    "points": 500,
+    "tier": "USB",
+    "master": "ATK +10",
+    "relic": "Winchester R (VII)",
+    "nameJp": "魔晄キャノン",
+    "id": 22630005,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Rufus",
     "name": "Rain of Terror",
     "type": null,
     "target": "All enemies",
@@ -18876,7 +19012,7 @@
     "autoTarget": null,
     "points": null,
     "tier": "Glint",
-    "master": null,
+    "master": "ATK +10",
     "relic": "Shortbarrel R (VII)",
     "nameJp": "レイン・オブ・テラー",
     "id": 22630006,
@@ -21389,12 +21525,12 @@
     "relic": "High-Power Machine Gun (VIII)",
     "nameJp": "ラグナロクブレード",
     "id": 22100010,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
     "character": "Laguna",
-    "name": "Freeze Missile",
+    "name": "Freeze Missiles",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -21413,7 +21549,7 @@
     "relic": "Sorceress Knight (VIII)",
     "nameJp": "フリーズミサイル",
     "id": 22100011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -23130,18 +23266,18 @@
     "realm": "IX",
     "character": "Vivi",
     "name": "Fire for the Future",
-    "type": "?",
+    "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 22.5,
     "element": [
       "Fire",
       "NE"
     ],
-    "time": null,
-    "effects": "Fifteen single attacks (? each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Vivi Trance to the user",
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Vivi Trance to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "AASB",
     "master": "MAG +10",
@@ -25019,7 +25155,7 @@
   {
     "realm": "X",
     "character": "Tidus",
-    "name": "Revived Dream",
+    "name": "Rising Dream",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -25038,7 +25174,7 @@
     "relic": "Zanarkand Abes Uniform I (X)",
     "nameJp": "いつか蘇る夢",
     "id": 20130017,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -25369,22 +25505,22 @@
     "realm": "X",
     "character": "Yuna",
     "name": "For the Calm",
-    "type": "?",
-    "target": "?",
+    "type": "SUM",
+    "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 19.8,
     "element": [
       "Holy",
       "Wind",
       "NE"
     ],
     "time": 0.01,
-    "effects": "Fifteen single attacks (? each), restores HP (85) to all allies, grants Regenga to all allies, grants Awoken Bond and Damage Cap 19999 to the user",
+    "effects": "Fifteen single attacks (1.32 each), restores HP (85) to all allies, grants Regenga to all allies, grants Awoken Bond and Damage Cap 19999 to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "AASB",
-    "master": "MND +10",
+    "master": "MAG +5, MND +5",
     "relic": "El Dorado (X)",
     "nameJp": "すべてはナギ節のために",
     "id": 20520017,
@@ -25394,18 +25530,18 @@
     "realm": "X",
     "character": "Yuna",
     "name": "Will to Surpass Fate",
-    "type": "?",
-    "target": "?",
+    "type": "NAT",
+    "target": "Self",
     "formula": null,
     "multiplier": null,
     "element": null,
     "time": 0.01,
     "effects": "Grants Attach Holy Stacking and Attach Holy, grants HP Stock (2000) to all allies",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "All allies",
     "points": 0,
     "tier": "Glint+",
-    "master": "MND +10",
+    "master": "MAG +5, MND +5",
     "relic": "Reticent Staff (X)",
     "nameJp": "宿命を超える心",
     "id": 20520018,
@@ -31317,7 +31453,7 @@
   {
     "realm": "XIII",
     "character": "Vanille",
-    "name": "Awakening from Stasis",
+    "name": "Overdo Awakening",
     "type": "WHT",
     "target": "All enemies",
     "formula": null,
@@ -31333,12 +31469,12 @@
     "relic": "Pearlwing Staff (XIII)",
     "nameJp": "星霜の果ての目覚め",
     "id": 20320011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
     "character": "Vanille",
-    "name": "Enspeed",
+    "name": "Need for Speed",
     "type": "NAT",
     "target": "All allies",
     "formula": null,
@@ -31354,7 +31490,7 @@
     "relic": "Orochi Rod (XIII)",
     "nameJp": "エンスピード",
     "id": 20320012,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",

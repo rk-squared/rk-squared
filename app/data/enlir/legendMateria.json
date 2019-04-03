@@ -1827,13 +1827,13 @@
   {
     "realm": "IV",
     "character": "Rosa",
-    "name": "Noble Beauty",
+    "name": "Patrician Beauty",
     "effect": "25% chance to dualcast White Magic abilities",
     "master": "MND +10",
     "relic": "Selene Bow (IV)",
     "nameJp": "美しき貴族の娘",
     "id": 201040603,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -2834,7 +2834,7 @@
     "relic": "Meister Rod (VI)",
     "nameJp": "愛の意味を知った少女",
     "id": 201060103,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -2927,13 +2927,13 @@
   {
     "realm": "VI",
     "character": "Celes",
-    "name": "Insurgent Magitek Knight",
+    "name": "Rebel Knight",
     "effect": "Grants Attach Ice at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Platinum Shield (VI)",
     "nameJp": "反旗の魔導戦士",
     "id": 201060403,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -3114,13 +3114,13 @@
   {
     "realm": "VI",
     "character": "Shadow",
-    "name": "Taciturn Agent",
+    "name": "Man of Action",
     "effect": "25% chance to grant Physical Blink 1 to the user after using a Ninja ability",
     "master": "ATK +10",
     "relic": "Black Garb (VI)",
     "nameJp": "多くを語らぬ凄腕",
     "id": 201060803,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -3543,24 +3543,24 @@
   {
     "realm": "VII",
     "character": "Cloud",
-    "name": "Farewell to Illusions",
+    "name": "Broken Illusions",
     "effect": "Grants Attach Wind at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Save the Queen (VII)",
     "nameJp": "幻想との決別",
     "id": 201070105,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
     "character": "Cloud",
-    "name": "Fake Swordsman",
+    "name": "Borrowed Blade",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Shinra Uniform (VII)",
     "nameJp": "偽りの青年剣士",
     "id": 201070106,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -3654,11 +3654,11 @@
     "realm": "VII",
     "character": "Tifa",
     "name": "Tomboy Brawler",
-    "effect": "25?% chance to dualcast Monk abilities",
-    "master": null,
+    "effect": "25% chance to dualcast Monk abilities",
+    "master": "ATK +10",
     "relic": "Work Glove (VII)",
     "nameJp": "男まさりな格闘娘",
-    "id": null,
+    "id": 201070304,
     "gl": false
   },
   {
@@ -3974,10 +3974,10 @@
     "character": "Cid (VII)",
     "name": "Journey to Space",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
-    "master": null,
+    "master": "ATK +10",
     "relic": "Grow Lance (VII)",
     "nameJp": "宇宙へ旅立った男",
-    "id": null,
+    "id": 201071103,
     "gl": false
   },
   {
@@ -4050,11 +4050,11 @@
     "realm": "VII",
     "character": "Rufus",
     "name": "President's Plot",
-    "effect": "25?% chance to dualcast Dark abilities",
-    "master": null,
+    "effect": "25% chance to dualcast Dark abilities",
+    "master": "ATK +10",
     "relic": "Shinra Alpha (VII)",
     "nameJp": "新社長の思惑",
-    "id": null,
+    "id": 201071803,
     "gl": false
   },
   {
@@ -4577,13 +4577,13 @@
   {
     "realm": "VIII",
     "character": "Laguna",
-    "name": "Charming Young Man",
+    "name": "Disarming Smile",
     "effect": "Grants Attach Ice at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Winchester (VIII)",
     "nameJp": "魅力あふれる好青年",
     "id": 201080903,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -5303,13 +5303,13 @@
   {
     "realm": "X",
     "character": "Tidus",
-    "name": "Blitz Code",
+    "name": "Blitz Basics",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Water attack",
     "master": "ATK +10",
     "relic": "Sonic Steel (X)",
     "nameJp": "ブリッツの鉄則",
     "id": 201100103,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",

@@ -786,6 +786,28 @@
     "notes": null
   },
   {
+    "id": 25906,
+    "name": "HP Stock (500)",
+    "effects": "Automatically restores HP, up to 500 HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "HP_STOCK_500",
+    "notes": null
+  },
+  {
+    "id": 25907,
+    "name": "HP Stock (1500)",
+    "effects": "Automatically restores HP, up to 1500 HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "HP_STOCK_1500",
+    "notes": null
+  },
+  {
     "id": 260,
     "name": "Radiant Shield: 100%",
     "effects": "Returns all the damage taken to the attacker",
@@ -9416,8 +9438,8 @@
   },
   {
     "id": 50343,
-    "name": "Master Barrage Follow-Up",
-    "effects": "Casts Master Barrage after using two Fire, Water, Wind or Earth abilities",
+    "name": "Barrage Master Follow-Up",
+    "effects": "Casts Barrage Master after using two Fire, Water, Wind or Earth abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11166,21 +11188,56 @@
     "id": 50503,
     "name": "Awoken Ninja",
     "effects": "Ninja abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Ninja abilities",
-    "defaultDuration": null,
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "AWAKE_MODE_NINJA"
+    "codedName": "AWAKE_MODE_NINJA",
+    "notes": null
+  },
+  {
+    "id": 50504,
+    "name": "Unpredictable Speed Follow-Up",
+    "effects": "Casts Unpredictable Speed after using two Ninja abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SUBLIMATION_MORTALITY",
+    "notes": null
   },
   {
     "id": 50505,
     "name": "Awoken Planet Prayer",
     "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilities, casts Holy Wave after using White Magic abilities",
-    "defaultDuration": null,
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "AWAKE_MODE_STAR_PRAYER"
+    "codedName": "AWAKE_MODE_STAR_PRAYER",
+    "notes": null
+  },
+  {
+    "id": 50506,
+    "name": "Dive to Ground Follow-Up",
+    "effects": "Casts Dive to Ground after using two dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_UNDUTIFUL",
+    "notes": null
+  },
+  {
+    "id": 50507,
+    "name": "Dark Ray Follow-Up",
+    "effects": "Casts Dark Ray after using two dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_MAKO_CANNON",
+    "notes": null
   },
   {
     "id": 50517,

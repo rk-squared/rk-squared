@@ -10592,7 +10592,7 @@
     },
     "effect": "Ice damage +20%",
     "character": "Celes",
-    "soulBreak": "Searching for Friends",
+    "soulBreak": "More the Merrier",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -10617,7 +10617,7 @@
       "eva": null
     },
     "id": 21002440,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Lufenian Saber",
@@ -10637,7 +10637,7 @@
     },
     "effect": "Fire damage +20%",
     "character": "Terra",
-    "soulBreak": "Chaos Inferno",
+    "soulBreak": "Chaotic Inferno",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -10662,7 +10662,7 @@
       "eva": null
     },
     "id": 21002372,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ultima Weapon",
@@ -19167,7 +19167,7 @@
       "eva": null
     },
     "id": 21002402,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Save the Queen",
@@ -19188,7 +19188,7 @@
     "effect": null,
     "character": "Cloud",
     "soulBreak": null,
-    "legendMateria": "Farewell to Illusions",
+    "legendMateria": "Broken Illusions",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -19212,7 +19212,7 @@
       "eva": null
     },
     "id": 21002447,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Flametongue",
@@ -21213,7 +21213,7 @@
     "effect": null,
     "character": "Tidus",
     "soulBreak": null,
-    "legendMateria": "Blitz Code",
+    "legendMateria": "Blitz Basics",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -21237,7 +21237,7 @@
       "eva": null
     },
     "id": 21002395,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Temple Knight Army Sword",
@@ -26117,7 +26117,7 @@
     },
     "effect": null,
     "character": "Shadow",
-    "soulBreak": "Darkblade of Carnage",
+    "soulBreak": "Darkbound Blade",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -26142,7 +26142,7 @@
       "eva": null
     },
     "id": 21003082,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Yakei",
@@ -52602,7 +52602,7 @@
       "eva": null
     },
     "id": 21008194,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rainbow Brush",
@@ -55142,7 +55142,7 @@
     },
     "effect": null,
     "character": "Vanille",
-    "soulBreak": "Enspeed",
+    "soulBreak": "Need for Speed",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -55167,7 +55167,7 @@
       "eva": null
     },
     "id": 21008151,
-    "gl": false
+    "gl": true
   },
   {
     "name": "The Keep of Saints",
@@ -59147,7 +59147,7 @@
     },
     "effect": null,
     "character": "Vanille",
-    "soulBreak": "Awakening from Stasis",
+    "soulBreak": "Overdo Awakening",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -59172,7 +59172,7 @@
       "eva": null
     },
     "id": 21009133,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Nirvana Zeta",
@@ -64932,7 +64932,7 @@
       "eva": null
     },
     "id": 21010074,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Artemis Bow",
@@ -65877,7 +65877,7 @@
       "eva": null
     },
     "id": 21010045,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Selene Bow",
@@ -65898,7 +65898,7 @@
     "effect": null,
     "character": "Rosa",
     "soulBreak": null,
-    "legendMateria": "Noble Beauty",
+    "legendMateria": "Patrician Beauty",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -65922,7 +65922,7 @@
       "eva": null
     },
     "id": 21010058,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Aevis Killer",
@@ -78567,7 +78567,7 @@
       "eva": null
     },
     "id": 21015084,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Supershot ST",
@@ -80028,7 +80028,7 @@
     "effect": null,
     "character": "Laguna",
     "soulBreak": null,
-    "legendMateria": "Charming Young Man",
+    "legendMateria": "Disarming Smile",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -80052,7 +80052,7 @@
       "eva": null
     },
     "id": 21015051,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Tiny Bee",
@@ -86598,7 +86598,7 @@
     "effect": null,
     "character": "Celes",
     "soulBreak": null,
-    "legendMateria": "Insurgent Magitek Knight",
+    "legendMateria": "Rebel Knight",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -86622,7 +86622,7 @@
       "eva": 112
     },
     "id": 22050089,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Force Shield",
@@ -95760,7 +95760,7 @@
     "gl": true
   },
   {
-    "name": "Gold Helm",
+    "name": "Golden Helm",
     "realm": "IX",
     "type": "Helm",
     "rarity": 5,
@@ -97262,7 +97262,7 @@
     },
     "effect": null,
     "character": "Rosa",
-    "soulBreak": "White Mage's Miracle (IV)",
+    "soulBreak": "White Mage Wonder (IV)",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -97287,7 +97287,7 @@
       "eva": 100
     },
     "id": 22053231,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Luminous Seeker's Guise",
@@ -97487,7 +97487,7 @@
     },
     "effect": "Wind damage +20%",
     "character": "Bartz",
-    "soulBreak": "Master Spellblade Four Lights",
+    "soulBreak": "Tetra Spellblade",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -97512,7 +97512,7 @@
       "eva": 100
     },
     "id": 22053333,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Galuf's Guise",
@@ -97712,7 +97712,7 @@
     },
     "effect": "Ice damage +20%",
     "character": "Celes",
-    "soulBreak": "Arcane Blade",
+    "soulBreak": "Mystic Blade",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -97737,7 +97737,7 @@
       "eva": 100
     },
     "id": 22053332,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Terra's Guise",
@@ -98252,7 +98252,7 @@
     },
     "effect": "Water damage +20%",
     "character": "Tidus",
-    "soulBreak": "Revived Dream",
+    "soulBreak": "Rising Dream",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -98277,7 +98277,7 @@
       "eva": 100
     },
     "id": 22053330,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Scorpion Harness",
@@ -102528,7 +102528,7 @@
     "effect": null,
     "character": "Shadow",
     "soulBreak": null,
-    "legendMateria": "Taciturn Agent",
+    "legendMateria": "Man of Action",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -102552,7 +102552,7 @@
       "eva": 100
     },
     "id": 22053243,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Turks Suit",
@@ -103113,7 +103113,7 @@
     "effect": null,
     "character": "Cloud",
     "soulBreak": null,
-    "legendMateria": "Fake Swordsman",
+    "legendMateria": "Borrowed Blade",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -103137,7 +103137,7 @@
       "eva": 100
     },
     "id": 22053366,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Swimwear",
@@ -111977,7 +111977,7 @@
     },
     "effect": "Ice damage +20%",
     "character": "Laguna",
-    "soulBreak": "Freeze Missile",
+    "soulBreak": "Freeze Missiles",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -112002,7 +112002,7 @@
       "eva": 105
     },
     "id": 22054093,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Tin Armor",
