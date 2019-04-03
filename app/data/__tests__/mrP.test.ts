@@ -675,7 +675,7 @@ describe('mrP', () => {
         describeEnlirSoulBreak(enlir.abilities[flashingBladeId], { includeSchool: false }),
       ).toEqual({
         damage: 'AoE phys 2.66/2 no miss',
-        other: 'cast time 1.650/1.485/1.155/0.825/0.495 w/ 0…4 uses',
+        other: 'cast time 1.650/1.485/1.155/0.825/0.495 w/ 1…5 uses',
         school: 'Samurai',
       });
 
@@ -685,7 +685,7 @@ describe('mrP', () => {
         burstCommands: [
           {
             damage: 'AoE p1.3/2 e+wi jump',
-            other: 'cast time 1.650/1.485/1.155/0.825/0.495/0.165 w/ 0…5 uses',
+            other: 'cast time 1.650/1.485/1.155/0.825/0.495/0.165 w/ 1…6 uses',
             school: 'Dragoon',
           },
           {
@@ -860,13 +860,31 @@ describe('mrP', () => {
         burstCommands: [
           {
             damage:
-              'p0.52 - 1.04/2 - 1.56/3 - 2.08/4 - 2.6/5 - 3.12/6 - 3.64/7 - 4.16/8 h+n rngd w/ 0…7 uses',
+              'p0.52 - 1.04/2 - 1.56/3 - 2.08/4 - 2.6/5 - 3.12/6 - 3.64/7 - 4.16/8 h+n rngd w/ 1…8 uses',
             other: undefined,
             school: 'Combat',
           },
           { damage: 'p1.68/4 h+n', other: 'self instacast 1 turn', school: 'Combat' },
         ],
       });
+      expect(describeSoulBreak("Seifer - Sorceress's Knight")).toMatchInlineSnapshot(`
+Object {
+  "burstCommands": Array [
+    Object {
+      "damage": "p2.24/4 d+n",
+      "other": "self -50% DEF, -25% RES 30s, Reflect Dmg 100%/125%/…/300% w/ 1…9 uses 30s",
+      "school": "Darkness",
+    },
+    Object {
+      "damage": "p2.2 d+n",
+      "other": "self heal 20% of dmg",
+      "school": "Darkness",
+    },
+  ],
+  "damage": "phys 7.68/8 dark+non",
+  "other": "taunt PHY/BLK, +200% DEF 25s",
+}
+`);
     });
 
     it('handles complex burst modes', () => {
@@ -925,7 +943,7 @@ describe('mrP', () => {
         burstCommands: [
           {
             damage: 'p1.6/4 f+n',
-            other: 'self +10/20/30/40/50/60/70/80% ATK/DEF w/ 0…7 uses 25s',
+            other: 'self +10/20/30/40/50/60/70/80% ATK/DEF w/ 1…8 uses 25s',
             school: 'Monk',
           },
           { damage: 'AoE p1.5/2 f+n', other: undefined, school: 'Monk' },

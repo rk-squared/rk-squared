@@ -164,9 +164,18 @@ function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
     if (opt.join) {
       joinString = opt.join;
     } else {
+      // Merge with slashes if the parts don't have slashes themselves.  Merge
+      // with en dashes otherwise.
       joinString = _.some(parts, s => s.match('/')) ? enDashJoin : '/';
     }
-    return parts.join(joinString);
+    if (parts.length >= 8) {
+      // Hack: Abbreviate particularly long lists.
+      return (
+        parts[0] + joinString + parts[1] + joinString + '…' + joinString + parts[parts.length - 1]
+      );
+    } else {
+      return parts.join(joinString);
+    }
   };
 
   let result = '';
@@ -178,8 +187,6 @@ function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
       same++;
     } else {
       const mergeParts = optionParts.filter(parts => parts[i] !== undefined).map(parts => parts[i]);
-      // Merge with slashes if the parts don't have slashes themselves.  Merge
-      // with en dashes otherwise.
       result += join(mergeParts);
       different++;
     }
@@ -261,7 +268,7 @@ export function formatUseCount(count: number | undefined): string {
   if (!count) {
     return 'w/ uses';
   } else if (count > 4) {
-    return 'w/ 0…' + (count - 1) + ' uses';
+    return 'w/ 1…' + count + ' uses';
   } else {
     return 'w/ ' + _.times(count).join('-') + ' uses';
   }

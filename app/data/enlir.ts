@@ -444,6 +444,25 @@ function applyPatch<T>(
 }
 
 /**
+ * Inserts 'causes' for soul breaks that cause imperils.  With 'causes' in the
+ * original text, it's too big to fit on one line.  Ideally, we'd make our
+ * parser smart enough to handle this, but too much code keys off of it.
+ */
+function applyCausesImperilPatch<T extends { effects: string }>(
+  lookup: { [s: string]: T },
+  name: string,
+) {
+  applyPatch(
+    lookup,
+    name,
+    item => item.effects.match(/\d+ each\), Imperil /) != null,
+    item => {
+      item.effects = item.effects.replace(/(\d+ each\)), Imperil /, m => m + ', causes Imperil ');
+    },
+  );
+}
+
+/**
  * HACK: Patch Enlir data to make it easier for our text processing.
  */
 function patchEnlir() {
@@ -526,7 +545,8 @@ function patchEnlir() {
 
   // Abbreviations - I don't know if it's best to update Enlir to remove these
   // or not.  Where possible, we update our code to handle abbreviations, but
-  // some are too hard.
+  // some are too hard.  If we had an actual parser, it would help.
+  // Wol - Howl of Hell
   applyPatch(
     enlir.burstCommands,
     '30512822',
@@ -540,18 +560,23 @@ function patchEnlir() {
         'Four single attacks (0.58 each), ATK and MAG -20/30/50% for 15 seconds at Heavy Charge 0/1/2, causes Heavy Charge =0 to the user';
     },
   );
+  // Seifer - Sorceress's Knight
   applyPatch(
-    enlir.soulBreaks,
-    '20660006',
-    windUltra =>
-      windUltra.effects ===
-      'Ten random attacks (0.68 each), Imperil Wind 20% for 25 seconds, grants ATK and DEF +30% for 25 seconds, Quick Cast 1 and Wind Quick Cycle to the user',
-    windUltra => {
-      // Insert 'causes' - same as above
-      windUltra.effects =
-        'Ten random attacks (0.68 each), causes Imperil Wind 20% for 25 seconds, grants ATK and DEF +30% for 25 seconds, Quick Cast 1 and Wind Quick Cycle to the user';
+    enlir.burstCommands,
+    '30510911',
+    desperateMadness =>
+      desperateMadness.effects ===
+      'Four single attacks (0.56 each), Desperate Madness and Radiant Shield 100/125/150/175/200/225/250/275/300% to the user',
+    desperateMadness => {
+      // Hack: The status name is actually "Radiant Shield:" - but leave it
+      // without the colon so that our default 100% alias isn't invoked.
+      desperateMadness.effects =
+        'Four single attacks (0.56 each), grants Desperate Madness and Radiant Shield 100/125/150/175/200/225/250/275/300% to the user scaling with uses';
     },
   );
+  applyCausesImperilPatch(enlir.soulBreaks, '20660006'); // Zack - Climhazzard Xeno
+  applyCausesImperilPatch(enlir.soulBreaks, '22100007'); // Laguna - Ragnarok Buster
+  applyCausesImperilPatch(enlir.soulBreaks, '22810004'); // Nine - Whirling Lance
 
   // Status cleanups.  These too should be fixed up.
   applyPatch(
@@ -684,6 +709,17 @@ export const enlirStatusAltName: { [status: string]: EnlirStatus } = {
   IC1: enlir.statusByName['Instant Cast 1'],
   'Critical 100%': enlir.statusByName['100% Critical'],
   'Cast Speed *999': enlir.statusByName['Instant Cast 1'],
+
+  // Radiant shield aliases - see statusAlias.ts's 'Radiant Shield {X}%'
+  'Radiant Shield 100%': enlir.statusByName['Radiant Shield: 100%'],
+  'Radiant Shield 125%': enlir.statusByName['Radiant Shield: 125%'],
+  'Radiant Shield 150%': enlir.statusByName['Radiant Shield: 150%'],
+  'Radiant Shield 175%': enlir.statusByName['Radiant Shield: 175%'],
+  'Radiant Shield 200%': enlir.statusByName['Radiant Shield: 200%'],
+  'Radiant Shield 225%': enlir.statusByName['Radiant Shield: 225%'],
+  'Radiant Shield 250%': enlir.statusByName['Radiant Shield: 250%'],
+  'Radiant Shield 275%': enlir.statusByName['Radiant Shield: 275%'],
+  'Radiant Shield 300%': enlir.statusByName['Radiant Shield: 300%'],
 };
 
 /**

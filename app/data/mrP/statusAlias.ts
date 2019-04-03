@@ -135,6 +135,10 @@ export const statusAlias: AliasMap = {
     '{X}% Critical': 'crit ={X}%',
     'Critical {X}%': 'crit ={X}%',
 
+    // Hack: The status name is actually "Radiant Shield:" - these aliases
+    // without the colon keep our default 100% alias from being invoked.
+    'Radiant Shield {X}%': 'Reflect Dmg {X}%',
+
     '{X}% Damage Reduction Barrier 1': '{X}% Dmg barrier 1',
     '{X}% Damage Reduction Barrier 2': '{X}% Dmg barrier 2',
     '{X}% Damage Reduction Barrier 3': '{X}% Dmg barrier 3',
