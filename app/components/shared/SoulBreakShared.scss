@@ -73,4 +73,13 @@
     font-weight: bold;
     color: #7030a0;
   }
+
+  // Legend materia's names are longer than our MrP-inspired soul break
+  // abbreviations (e.g., "LMR1" versus "U1").  Use a smaller font to
+  // compensate.  Hack: We put this in its own span to make the text
+  // vertically align - there's probably a better way of doing that, but I
+  // don't know how.
+  .legendMateriaTier {
+    font-size: 80%;
+  }
 }

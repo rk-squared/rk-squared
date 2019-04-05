@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { RelicDrawProbabilities } from '../../actions/relicDraws';
-import { enlir } from '../../data/enlir';
+import { enlir, EnlirLegendMateria, EnlirSoulBreak } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 import { IState } from '../../reducers';
@@ -35,6 +35,18 @@ interface Props {
 }
 
 export class RelicDrawBannerTable extends React.Component<Props> {
+  renderAlias(sb?: EnlirSoulBreak, lm?: EnlirLegendMateria) {
+    if (sb) {
+      return soulBreakAliases[sb.id];
+    } else if (lm) {
+      return (
+        <span className={soulBreakStyles.legendMateriaTier}>{legendMateriaAliases[lm.id]}</span>
+      );
+    } else {
+      return undefined;
+    }
+  }
+
   renderRow(relicId: number, key: number, showProbability: boolean) {
     const { probabilities, isAnonymous, ownedSoulBreaks, ownedLegendMateria } = this.props;
     const relic = enlir.relics[relicId];
@@ -72,7 +84,7 @@ export class RelicDrawBannerTable extends React.Component<Props> {
             {effect && <div className={styles.relicEffect}>{effect}</div>}
           </td>
           <td rowSpan={rowSpan} className={soulBreakStyles.tier}>
-            {sb ? soulBreakAliases[sb.id] : lm ? legendMateriaAliases[lm.id] : undefined}
+            {this.renderAlias(sb, lm)}
           </td>
           <td className={soulBreakStyles.name}>{sb ? sb.name : lm ? lm.name : undefined}</td>
           <td>{mrP ? formatMrP(mrP) : lm ? describeMrPLegendMateria(lm) : undefined}</td>

@@ -10,14 +10,13 @@ import { legendMateriaAliases, styles } from '../shared/SoulBreakShared';
 interface Props {
   legendMateria: EnlirLegendMateria;
   className?: string;
-  tierClassName?: string;
 }
 
 const mrPLegendMateria: { [id: number]: string } = {};
 
-export class LegendMateriaListItem extends React.Component<Props> {
+export class LegendMateriaListItem extends React.PureComponent<Props> {
   render() {
-    const { legendMateria, className, tierClassName } = this.props;
+    const { legendMateria, className } = this.props;
     const { id, gl } = legendMateria;
 
     if (!mrPLegendMateria[id]) {
@@ -33,7 +32,7 @@ export class LegendMateriaListItem extends React.Component<Props> {
     return (
       <tr className={fullClassName}>
         <td className={styles.tier}>
-          {tierClassName ? <span className={tierClassName}>{alias}</span> : alias}
+          <span className={styles.legendMateriaTier}>{alias}</span>
         </td>
         <td className={styles.name}>{name}</td>
         <td>{mrP || '???'}</td>

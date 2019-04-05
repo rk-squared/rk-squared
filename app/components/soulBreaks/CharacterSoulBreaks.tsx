@@ -49,7 +49,6 @@ export class CharacterSoulBreaks extends React.PureComponent<Props> {
                 <LegendMateriaListItem
                   legendMateria={lm}
                   className={ownedLM[ownedLegendMateria ? +ownedLegendMateria.has(lm.id) : 1]}
-                  tierClassName={styles.legendMateriaTier}
                   key={i}
                 />
               ))}
