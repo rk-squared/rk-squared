@@ -88,3 +88,24 @@ export function formatSchoolOrAbilityList(list: string): string {
       .replace('fire/ice/lgt/earth/wind/water/holy/dark/bio', 'elem')
   );
 }
+
+/**
+ * Handles a short name request that possibly is two parts together - e.g.,
+ * "White Magic" is one part, but "Ice Spellblade" is two.
+ */
+export function getShortNameWithSpaces(s: string): string {
+  // Hack: Effects like 'Fire or Ice Spellblade' are ambiguous: is it
+  // '(Fire) || (Ice Spellblade)', or '(Fire || Ice) Spellblade'?  Check
+  // for both cases - shorter means we found an abbreviation.
+  const result = getShortName(s);
+  if (s.indexOf(' ') !== -1) {
+    const splitCandidate = s
+      .split(' ')
+      .map(getShortName)
+      .join(' ');
+    if (splitCandidate.length <= result.length) {
+      return splitCandidate;
+    }
+  }
+  return result;
+}

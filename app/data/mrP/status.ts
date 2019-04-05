@@ -30,6 +30,7 @@ import {
   formatSchoolOrAbilityList,
   getAbbreviation,
   getShortName,
+  getShortNameWithSpaces,
   XRegExpNamedGroups,
 } from './types';
 import {
@@ -944,9 +945,13 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
       .join('/'),
   );
 
+  // Hack: Effects like 'Fire or Ice Spellblade' are ambiguous: is it
+  // '(Fire) || (Ice Spellblade)', or '(Fire || Ice) Spellblade'?
+  // Similarly, '1/2/3 +3n Wind' results in '+3n Wind' here - we want to
+  // make sure to abbreviate 'wind'.
   trigger = trigger
     .split(orList)
-    .map(getShortName)
+    .map(getShortNameWithSpaces)
     .join('/');
 
   return (count ? count + ' ' : '') + trigger + (isDamageTrigger ? ' dmg' : '');

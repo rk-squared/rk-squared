@@ -21,12 +21,17 @@ const argv = yargs
 
 const filtered = argv.brave || argv.burst;
 
+const onlySoulBreaks = process.argv.slice(2);
+
 for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
   'character',
   i => tierOrder[i.tier],
   'id',
 ])) {
   if (sb.tier === 'RW') {
+    continue;
+  }
+  if (onlySoulBreaks.length && onlySoulBreaks.indexOf(sb.name) === -1) {
     continue;
   }
 

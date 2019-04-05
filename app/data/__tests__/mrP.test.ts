@@ -1293,6 +1293,37 @@ Object {
         damage: 'phys 6.8/10 wind+non',
         other: '+20% wind vuln. 25s, self +30% ATK/DEF 25s, fastcast 1, 15s: (wind ⤇ fastcast 1)',
       });
+      expect(describeSoulBreak('Squall - Double Junction')).toMatchInlineSnapshot(`
+Object {
+  "braveCommands": Array [
+    Object {
+      "damage": "p1.92 i+f",
+      "other": undefined,
+      "school": "Spellblade",
+    },
+    Object {
+      "damage": "p3.2 i+f overstrike",
+      "other": undefined,
+      "school": "Spellblade",
+    },
+    Object {
+      "damage": "p6.4 i+f overstrike",
+      "other": undefined,
+      "school": "Spellblade",
+    },
+    Object {
+      "damage": "p10.0 i+f overstrike",
+      "other": undefined,
+      "school": "Spellblade",
+    },
+  ],
+  "braveCondition": Array [
+    "Spellblade",
+  ],
+  "damage": "phys 7.1/10 ice+fire",
+  "other": "self hi fastcast 15s, 15s: (0-8 fire/ice Spellblade ⤇ 1.3-1.35-1.4-1.45-1.5-1.55-1.6-1.65-1.7x Spellblade dmg)",
+}
+`);
     });
 
     it('converts auto skills', () => {
@@ -1390,7 +1421,7 @@ Object {
       expect(describeSoulBreak('Bartz - Essence of Wind')).toEqual({
         damage: 'phys 7.1/10 wind+non',
         other:
-          'wind infuse 25s, 15s: EX: (1/2/3 +3n Wind ⤇ front row phys hi fastcast 1, ' +
+          'wind infuse 25s, 15s: EX: (1/2/3 +3n wind ⤇ front row phys hi fastcast 1, ' +
           'p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)',
       });
       expect(describeSoulBreak('Ricard - Winged Roar')).toEqual({
@@ -1406,7 +1437,7 @@ Object {
       expect(describeSoulBreak('Lightning - Warrior Goddess')).toEqual({
         damage: 'phys 7.1/10 holy+lgt',
         other:
-          'holy infuse 25s, 15s: EX: (1/2/3 +3n Holy ⤇ front row phys hi fastcast 1, ' +
+          'holy infuse 25s, 15s: EX: (1/2/3 +3n holy ⤇ front row phys hi fastcast 1, ' +
           'p0.3 – p1.5/5 – p4.5/15 h+l+n Knight)',
       });
       expect(describeSoulBreak('Steiner - Reckless Steiner')).toEqual({
