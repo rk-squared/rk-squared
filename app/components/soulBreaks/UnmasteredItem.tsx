@@ -3,7 +3,7 @@ import * as React from 'react';
 import { enlir, EnlirRelic, makeSoulBreakAliases } from '../../data/enlir';
 import { numberWithCommas } from '../../data/mrP/util';
 import { RelicTypeIcon } from '../shared/RelicTypeIcon';
-import { legendMateriaAliases } from './LegendMateriaListItem';
+import { legendMateriaAliases } from '../shared/SoulBreakShared';
 
 const styles = require('./UnmasteredItem.scss');
 

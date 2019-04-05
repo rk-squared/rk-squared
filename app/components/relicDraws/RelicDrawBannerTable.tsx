@@ -5,24 +5,23 @@ import classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { RelicDrawProbabilities } from '../../actions/relicDraws';
-import { enlir, makeLegendMateriaAliases } from '../../data/enlir';
+import { enlir } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
 import { getAllSameValue } from '../../utils/typeUtils';
 import { RelicTypeIcon } from '../shared/RelicTypeIcon';
-
-// FIXME: Better styling - table widths are bad, because SB effects are way too narrow
-
-// HACK: FIXME: Better sharing of code
 import {
   getBraveColumns,
   getBurstColumns,
+  legendMateriaAliases,
   soulBreakAliases,
   styles as soulBreakStyles,
   tierClass,
-} from '../soulBreaks/SoulBreakListItem';
+} from '../shared/SoulBreakShared';
+
+// FIXME: Better styling - table widths are bad, because SB effects are way too narrow
 
 const styles = require('./RelicDrawBannerTable.scss');
 
@@ -34,8 +33,6 @@ interface Props {
   ownedSoulBreaks?: Set<number>;
   ownedLegendMateria?: Set<number>;
 }
-
-const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
 export class RelicDrawBannerTable extends React.Component<Props> {
   renderRow(relicId: number, key: number, showProbability: boolean) {

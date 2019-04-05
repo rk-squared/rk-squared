@@ -3,12 +3,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import * as _ from 'lodash';
 
-import { enlir, EnlirLegendMateria, makeLegendMateriaAliases } from '../../data/enlir';
+import { EnlirLegendMateria } from '../../data/enlir';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
-
-export const styles = require('./SoulBreakListItem.scss');
-
-export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
+import { legendMateriaAliases, styles } from '../shared/SoulBreakShared';
 
 interface Props {
   legendMateria: EnlirLegendMateria;
