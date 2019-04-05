@@ -26,7 +26,7 @@ export class CharacterSoulBreaks extends React.PureComponent<Props> {
     const soulBreaks = _.reverse(
       enlir.soulBreaksByCharacter[character].filter(i => i.tier !== 'RW' && i.tier !== 'Default'),
     );
-    const legendMateria = _.reverse(enlir.legendMateriaByCharacter[character] || []);
+    const legendMateria = _.reverse((enlir.legendMateriaByCharacter[character] || []).slice());
 
     return (
       <div className={'card ' + styles.component}>

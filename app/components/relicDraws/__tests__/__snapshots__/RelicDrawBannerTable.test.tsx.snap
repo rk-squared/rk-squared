@@ -1,0 +1,1527 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1`] = `
+<div
+  className="table-responsive"
+>
+  <table
+    className="table"
+  >
+    <thead>
+      <tr
+        className="thead-dark"
+      >
+        <th
+          colSpan={7}
+        >
+          Featured Relics
+          <span
+            className="float-right"
+          >
+            Chance of drawing: 
+            1
+            % each
+          </span>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          Character
+        </th>
+        <th>
+          Relic
+        </th>
+        <th
+          colSpan={2}
+        >
+          Soul Break / Materia
+        </th>
+        <th>
+          Effects
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="ultra"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Axe"
+          />
+           
+          Hammerhead
+          <div
+            className="relicEffect"
+          >
+            Wind damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          U3
+        </td>
+        <td
+          className="name"
+        >
+          Essence of Wind
+        </td>
+        <td>
+          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (1/2/3 +3n Wind ⤇ front row phys hi fastcast 1, p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td>
+          Lenna
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Rod"
+          />
+           
+          Holy Rod
+        </td>
+        <td
+          className="tier"
+        >
+          U3
+        </td>
+        <td
+          className="name"
+        >
+          Essence of Water
+        </td>
+        <td>
+          instant party h85, Regenga, -10% ice vuln. 15s, -10% water vuln. 15s, self fastcast 15s
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td
+          rowSpan={2}
+        >
+          Faris
+        </td>
+        <td
+          rowSpan={2}
+        >
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bow"
+          />
+           
+          Hunting Bow
+        </td>
+        <td
+          className="tier"
+          rowSpan={2}
+        >
+          BU
+        </td>
+        <td
+          className="name"
+        >
+          Essence of Flame
+        </td>
+        <td>
+          instant phys 6.0/10 fire+wind rngd, -40% ATK/DEF 25s, self 1.3x Thief dmg 15s
+        </td>
+      </tr>
+      <tr
+        className="ultra command lastCommand"
+      >
+        <td>
+          [Thief], +1 on Thief
+        </td>
+        <td>
+          instant p1.5 – 2.34/6 – 4.68/6 – 7.26/6 f+wi rngd, -30% DEF 15s – -40% DEF 15s – -70% DEF/RES/MND 8s at brv.1+
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Rod"
+          />
+           
+          Gaia Rod
+          <div
+            className="relicEffect"
+          >
+            Earth damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          U3
+        </td>
+        <td
+          className="name"
+        >
+          Gift of Hope
+        </td>
+        <td>
+          magic 17.0/10 earth+non, earth infuse 25s, self fastcast 1, 15s: (earth ⤇ fastcast 1), 15s: (earth ⤇ m8.08/4 e+n B.Mag, or m10.1/5 if Galuf alive)
+        </td>
+      </tr>
+      <tr
+        className="overstrike"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Dagger"
+          />
+           
+          Man-Eater
+          <div
+            className="relicEffect"
+          >
+            Wind damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          AO
+        </td>
+        <td
+          className="name"
+        >
+          Crystalline Focus
+        </td>
+        <td>
+          phys 24.0/3 wind+water+fire+earth overstrike
+        </td>
+      </tr>
+      <tr
+        className="overstrike"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Light Armor"
+          />
+           
+          Beastmaster's Guise
+          <div
+            className="relicEffect"
+          >
+            Fire damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          AO
+        </td>
+        <td
+          className="name"
+        >
+          Raging Hellfire
+        </td>
+        <td>
+          magic 36.4/20, then 26.5 overstrike, fire (SUM)
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bracer"
+          />
+           
+          Bartz's Bracers
+          <div
+            className="relicEffect"
+          >
+            Fire damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          G
+        </td>
+        <td
+          className="name"
+        >
+          Master Spellblade
+        </td>
+        <td>
+          instant Spellblade hi fastcast 15s, 1.05-1.1-1.15-1.2-1.3x Spellblade dmg @ rank 1-5 15s
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Lenna
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Robe"
+          />
+           
+          White Robe
+        </td>
+        <td
+          className="tier"
+        >
+          G
+        </td>
+        <td
+          className="name"
+        >
+          Greatest Love
+        </td>
+        <td>
+          instant party h55
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Faris
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bracer"
+          />
+           
+          Rune Armlet
+        </td>
+        <td
+          className="tier"
+        >
+          G
+        </td>
+        <td
+          className="name"
+        >
+          Faithful Sea Dog
+        </td>
+        <td>
+          instant AoE phys 2.64/6 wind+fire rngd, -40% ATK/MAG 15s
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Staff"
+          />
+           
+          Seraphim's Mace
+        </td>
+        <td
+          className="tier"
+        >
+          G2
+        </td>
+        <td
+          className="name"
+        >
+          Cloud of Dust
+        </td>
+        <td>
+          instant earth infuse stacking 25s, earth infuse 25s, self hi fastcast 2
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Faris
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Spear"
+          />
+           
+          Longinus
+        </td>
+        <td
+          className="tier"
+        >
+          LMR2
+        </td>
+        <td
+          className="name"
+        >
+          Rabble Wrangler
+        </td>
+        <td>
+          25% dualcast Thief
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Light Armor"
+          />
+           
+          Minerva Bustier
+        </td>
+        <td
+          className="tier"
+        >
+          LMR3
+        </td>
+        <td
+          className="name"
+        >
+          Innate Cheer
+        </td>
+        <td>
+          earth infuse at battle start
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Shield"
+          />
+           
+          Golden Shield+
+        </td>
+        <td
+          className="tier"
+        >
+          LMR2
+        </td>
+        <td
+          className="name"
+        >
+          Hereditary Skill
+        </td>
+        <td>
+          1.25x Spellblade dmg if using a sword
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Lenna
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Hat"
+          />
+           
+          Laurel Crown
+        </td>
+        <td
+          className="tier"
+        >
+          LMR
+        </td>
+        <td
+          className="name"
+        >
+          Impartial Kindness
+        </td>
+        <td>
+          (W.Mag ⤇ 25% for party h25)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RelicDrawBannerTable renders featured relics with varying probabilities 1`] = `
+<div
+  className="table-responsive"
+>
+  <table
+    className="table"
+  >
+    <thead>
+      <tr
+        className="thead-dark"
+      >
+        <th
+          colSpan={8}
+        >
+          Featured Relics
+        </th>
+      </tr>
+      <tr>
+        <th>
+          Character
+        </th>
+        <th>
+          Relic
+        </th>
+        <th
+          colSpan={2}
+        >
+          Soul Break / Materia
+        </th>
+        <th>
+          Effects
+        </th>
+        <th>
+          Probability
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Lenna
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Hat"
+          />
+           
+          Laurel Crown
+        </td>
+        <td
+          className="tier"
+        >
+          LMR
+        </td>
+        <td
+          className="name"
+        >
+          Impartial Kindness
+        </td>
+        <td>
+          (W.Mag ⤇ 25% for party h25)
+        </td>
+        <td>
+          13
+          %
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Shield"
+          />
+           
+          Golden Shield+
+        </td>
+        <td
+          className="tier"
+        >
+          LMR2
+        </td>
+        <td
+          className="name"
+        >
+          Hereditary Skill
+        </td>
+        <td>
+          1.25x Spellblade dmg if using a sword
+        </td>
+        <td>
+          12
+          %
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Light Armor"
+          />
+           
+          Minerva Bustier
+        </td>
+        <td
+          className="tier"
+        >
+          LMR3
+        </td>
+        <td
+          className="name"
+        >
+          Innate Cheer
+        </td>
+        <td>
+          earth infuse at battle start
+        </td>
+        <td>
+          11
+          %
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Faris
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Spear"
+          />
+           
+          Longinus
+        </td>
+        <td
+          className="tier"
+        >
+          LMR2
+        </td>
+        <td
+          className="name"
+        >
+          Rabble Wrangler
+        </td>
+        <td>
+          25% dualcast Thief
+        </td>
+        <td>
+          10
+          %
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Staff"
+          />
+           
+          Seraphim's Mace
+        </td>
+        <td
+          className="tier"
+        >
+          G2
+        </td>
+        <td
+          className="name"
+        >
+          Cloud of Dust
+        </td>
+        <td>
+          instant earth infuse stacking 25s, earth infuse 25s, self hi fastcast 2
+        </td>
+        <td>
+          9
+          %
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Faris
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bracer"
+          />
+           
+          Rune Armlet
+        </td>
+        <td
+          className="tier"
+        >
+          G
+        </td>
+        <td
+          className="name"
+        >
+          Faithful Sea Dog
+        </td>
+        <td>
+          instant AoE phys 2.64/6 wind+fire rngd, -40% ATK/MAG 15s
+        </td>
+        <td>
+          8
+          %
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Lenna
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Robe"
+          />
+           
+          White Robe
+        </td>
+        <td
+          className="tier"
+        >
+          G
+        </td>
+        <td
+          className="name"
+        >
+          Greatest Love
+        </td>
+        <td>
+          instant party h55
+        </td>
+        <td>
+          7
+          %
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bracer"
+          />
+           
+          Bartz's Bracers
+          <div
+            className="relicEffect"
+          >
+            Fire damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          G
+        </td>
+        <td
+          className="name"
+        >
+          Master Spellblade
+        </td>
+        <td>
+          instant Spellblade hi fastcast 15s, 1.05-1.1-1.15-1.2-1.3x Spellblade dmg @ rank 1-5 15s
+        </td>
+        <td>
+          6
+          %
+        </td>
+      </tr>
+      <tr
+        className="overstrike"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Light Armor"
+          />
+           
+          Beastmaster's Guise
+          <div
+            className="relicEffect"
+          >
+            Fire damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          AO
+        </td>
+        <td
+          className="name"
+        >
+          Raging Hellfire
+        </td>
+        <td>
+          magic 36.4/20, then 26.5 overstrike, fire (SUM)
+        </td>
+        <td>
+          5
+          %
+        </td>
+      </tr>
+      <tr
+        className="overstrike"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Dagger"
+          />
+           
+          Man-Eater
+          <div
+            className="relicEffect"
+          >
+            Wind damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          AO
+        </td>
+        <td
+          className="name"
+        >
+          Crystalline Focus
+        </td>
+        <td>
+          phys 24.0/3 wind+water+fire+earth overstrike
+        </td>
+        <td>
+          4
+          %
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Rod"
+          />
+           
+          Gaia Rod
+          <div
+            className="relicEffect"
+          >
+            Earth damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          U3
+        </td>
+        <td
+          className="name"
+        >
+          Gift of Hope
+        </td>
+        <td>
+          magic 17.0/10 earth+non, earth infuse 25s, self fastcast 1, 15s: (earth ⤇ fastcast 1), 15s: (earth ⤇ m8.08/4 e+n B.Mag, or m10.1/5 if Galuf alive)
+        </td>
+        <td>
+          3
+          %
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td
+          rowSpan={2}
+        >
+          Faris
+        </td>
+        <td
+          rowSpan={2}
+        >
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bow"
+          />
+           
+          Hunting Bow
+        </td>
+        <td
+          className="tier"
+          rowSpan={2}
+        >
+          BU
+        </td>
+        <td
+          className="name"
+        >
+          Essence of Flame
+        </td>
+        <td>
+          instant phys 6.0/10 fire+wind rngd, -40% ATK/DEF 25s, self 1.3x Thief dmg 15s
+        </td>
+        <td
+          rowSpan={2}
+        >
+          2
+          %
+        </td>
+      </tr>
+      <tr
+        className="ultra command lastCommand"
+      >
+        <td>
+          [Thief], +1 on Thief
+        </td>
+        <td>
+          instant p1.5 – 2.34/6 – 4.68/6 – 7.26/6 f+wi rngd, -30% DEF 15s – -40% DEF 15s – -70% DEF/RES/MND 8s at brv.1+
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td>
+          Lenna
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Rod"
+          />
+           
+          Holy Rod
+        </td>
+        <td
+          className="tier"
+        >
+          U3
+        </td>
+        <td
+          className="name"
+        >
+          Essence of Water
+        </td>
+        <td>
+          instant party h85, Regenga, -10% ice vuln. 15s, -10% water vuln. 15s, self fastcast 15s
+        </td>
+        <td>
+          1
+          %
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Axe"
+          />
+           
+          Hammerhead
+          <div
+            className="relicEffect"
+          >
+            Wind damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          U3
+        </td>
+        <td
+          className="name"
+        >
+          Essence of Wind
+        </td>
+        <td>
+          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (1/2/3 +3n Wind ⤇ front row phys hi fastcast 1, p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
+        </td>
+        <td>
+          0
+          %
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] = `
+<div
+  className="table-responsive"
+>
+  <table
+    className="table"
+  >
+    <thead>
+      <tr
+        className="thead-dark"
+      >
+        <th
+          colSpan={7}
+        >
+          Featured Relics
+        </th>
+      </tr>
+      <tr>
+        <th>
+          Character
+        </th>
+        <th>
+          Relic
+        </th>
+        <th
+          colSpan={2}
+        >
+          Soul Break / Materia
+        </th>
+        <th>
+          Effects
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="ultra"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Axe"
+          />
+           
+          Hammerhead
+          <div
+            className="relicEffect"
+          >
+            Wind damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          U3
+        </td>
+        <td
+          className="name"
+        >
+          Essence of Wind
+        </td>
+        <td>
+          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (1/2/3 +3n Wind ⤇ front row phys hi fastcast 1, p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td>
+          Lenna
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Rod"
+          />
+           
+          Holy Rod
+        </td>
+        <td
+          className="tier"
+        >
+          U3
+        </td>
+        <td
+          className="name"
+        >
+          Essence of Water
+        </td>
+        <td>
+          instant party h85, Regenga, -10% ice vuln. 15s, -10% water vuln. 15s, self fastcast 15s
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td
+          rowSpan={2}
+        >
+          Faris
+        </td>
+        <td
+          rowSpan={2}
+        >
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bow"
+          />
+           
+          Hunting Bow
+        </td>
+        <td
+          className="tier"
+          rowSpan={2}
+        >
+          BU
+        </td>
+        <td
+          className="name"
+        >
+          Essence of Flame
+        </td>
+        <td>
+          instant phys 6.0/10 fire+wind rngd, -40% ATK/DEF 25s, self 1.3x Thief dmg 15s
+        </td>
+      </tr>
+      <tr
+        className="ultra command lastCommand"
+      >
+        <td>
+          [Thief], +1 on Thief
+        </td>
+        <td>
+          instant p1.5 – 2.34/6 – 4.68/6 – 7.26/6 f+wi rngd, -30% DEF 15s – -40% DEF 15s – -70% DEF/RES/MND 8s at brv.1+
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Rod"
+          />
+           
+          Gaia Rod
+          <div
+            className="relicEffect"
+          >
+            Earth damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          U3
+        </td>
+        <td
+          className="name"
+        >
+          Gift of Hope
+        </td>
+        <td>
+          magic 17.0/10 earth+non, earth infuse 25s, self fastcast 1, 15s: (earth ⤇ fastcast 1), 15s: (earth ⤇ m8.08/4 e+n B.Mag, or m10.1/5 if Galuf alive)
+        </td>
+      </tr>
+      <tr
+        className="overstrike"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Dagger"
+          />
+           
+          Man-Eater
+          <div
+            className="relicEffect"
+          >
+            Wind damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          AO
+        </td>
+        <td
+          className="name"
+        >
+          Crystalline Focus
+        </td>
+        <td>
+          phys 24.0/3 wind+water+fire+earth overstrike
+        </td>
+      </tr>
+      <tr
+        className="overstrike"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Light Armor"
+          />
+           
+          Beastmaster's Guise
+          <div
+            className="relicEffect"
+          >
+            Fire damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          AO
+        </td>
+        <td
+          className="name"
+        >
+          Raging Hellfire
+        </td>
+        <td>
+          magic 36.4/20, then 26.5 overstrike, fire (SUM)
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bracer"
+          />
+           
+          Bartz's Bracers
+          <div
+            className="relicEffect"
+          >
+            Fire damage +20%
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          G
+        </td>
+        <td
+          className="name"
+        >
+          Master Spellblade
+        </td>
+        <td>
+          instant Spellblade hi fastcast 15s, 1.05-1.1-1.15-1.2-1.3x Spellblade dmg @ rank 1-5 15s
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Lenna
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Robe"
+          />
+           
+          White Robe
+        </td>
+        <td
+          className="tier"
+        >
+          G
+        </td>
+        <td
+          className="name"
+        >
+          Greatest Love
+        </td>
+        <td>
+          instant party h55
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Faris
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bracer"
+          />
+           
+          Rune Armlet
+        </td>
+        <td
+          className="tier"
+        >
+          G
+        </td>
+        <td
+          className="name"
+        >
+          Faithful Sea Dog
+        </td>
+        <td>
+          instant AoE phys 2.64/6 wind+fire rngd, -40% ATK/MAG 15s
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Staff"
+          />
+           
+          Seraphim's Mace
+        </td>
+        <td
+          className="tier"
+        >
+          G2
+        </td>
+        <td
+          className="name"
+        >
+          Cloud of Dust
+        </td>
+        <td>
+          instant earth infuse stacking 25s, earth infuse 25s, self hi fastcast 2
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Faris
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Spear"
+          />
+           
+          Longinus
+        </td>
+        <td
+          className="tier"
+        >
+          LMR2
+        </td>
+        <td
+          className="name"
+        >
+          Rabble Wrangler
+        </td>
+        <td>
+          25% dualcast Thief
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Krile
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Light Armor"
+          />
+           
+          Minerva Bustier
+        </td>
+        <td
+          className="tier"
+        >
+          LMR3
+        </td>
+        <td
+          className="name"
+        >
+          Innate Cheer
+        </td>
+        <td>
+          earth infuse at battle start
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Bartz
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Shield"
+          />
+           
+          Golden Shield+
+        </td>
+        <td
+          className="tier"
+        >
+          LMR2
+        </td>
+        <td
+          className="name"
+        >
+          Hereditary Skill
+        </td>
+        <td>
+          1.25x Spellblade dmg if using a sword
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Lenna
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Hat"
+          />
+           
+          Laurel Crown
+        </td>
+        <td
+          className="tier"
+        >
+          LMR
+        </td>
+        <td
+          className="name"
+        >
+          Impartial Kindness
+        </td>
+        <td>
+          (W.Mag ⤇ 25% for party h25)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

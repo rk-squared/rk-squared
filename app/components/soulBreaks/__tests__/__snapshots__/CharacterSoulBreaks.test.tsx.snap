@@ -1,0 +1,757 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows ownership 1`] = `
+<div
+  className="card component"
+>
+  <div
+    className="card-body"
+  >
+    <table
+      className="table table-sm"
+    >
+      <thead
+        className="thead-dark"
+      >
+        <tr>
+          <th
+            colSpan={3}
+          >
+            Kain
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="unowned chain"
+        >
+          <td
+            className="tier"
+          >
+            C
+          </td>
+          <td
+            className="name"
+          >
+            Impulse Drive
+          </td>
+          <td>
+            lgt chain 1.2x (max 99), phys 7.92/22 lgt jump
+          </td>
+        </tr>
+        <tr
+          className="awakening"
+        >
+          <td
+            className="tier"
+          >
+            AA
+          </td>
+          <td
+            className="name"
+          >
+            Lance of the Dragon
+          </td>
+          <td>
+            phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap=29,999 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
+          </td>
+        </tr>
+        <tr
+          className="unowned ultra"
+        >
+          <td
+            className="tier"
+          >
+            BU
+          </td>
+          <td
+            className="name"
+          >
+            Dragon's Wrath
+          </td>
+          <td>
+            phys 7.2/10 lgt jump, lgt infuse 25s, self no air time 2 turns
+          </td>
+        </tr>
+        <tr
+          className="unowned braveCommand"
+        >
+          <td />
+          <td>
+            [Dragoon], +1 on Dragoon
+          </td>
+          <td>
+            p1.92 – 3.25 – 6.5 – 10.15 l jump, overstrike at brv.1+
+          </td>
+        </tr>
+        <tr
+          className="unowned ultra"
+        >
+          <td
+            className="tier"
+          >
+            U1
+          </td>
+          <td
+            className="name"
+          >
+            Luminous Dragon
+          </td>
+          <td>
+            phys 7.1/10 lgt+non jump, lgt infuse 25s, self jump instacast 15s, +30% ATK/DEF 25s
+          </td>
+        </tr>
+        <tr
+          className="unowned overstrike"
+        >
+          <td
+            className="tier"
+          >
+            AO
+          </td>
+          <td
+            className="name"
+          >
+            Dragoon Dive
+          </td>
+          <td>
+            phys 24.0/3 lgt jump overstrike
+          </td>
+        </tr>
+        <tr
+          className="unowned overstrike"
+        >
+          <td
+            className="tier"
+          >
+            O
+          </td>
+          <td
+            className="name"
+          >
+            Kain's Lance
+          </td>
+          <td>
+            phys 10.5 lgt+non jump overstrike, up to p14.5 w/ Dragoon used
+          </td>
+        </tr>
+        <tr
+          className="unowned glint jp"
+        >
+          <td
+            className="tier"
+          >
+            G+
+          </td>
+          <td
+            className="name"
+          >
+            “Instant Dragon Dive”
+          </td>
+          <td>
+            instant no air time 15s, instacast 1
+          </td>
+        </tr>
+        <tr
+          className="unowned burst"
+        >
+          <td
+            className="tier"
+          >
+            B
+          </td>
+          <td
+            className="name"
+          >
+            Dragoon's Pride
+          </td>
+          <td>
+            AoE phys 5.0/4 lgt+non jump, lgt infuse 25s
+          </td>
+        </tr>
+        <tr
+          className="unowned burstCommand"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            [Dragoon]
+          </td>
+          <td
+            className="command"
+          >
+            [p2.06/2 l rngd, self no air time 2 turns]
+          </td>
+        </tr>
+        <tr
+          className="unowned burstCommand"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            [Dragoon]
+          </td>
+          <td
+            className="command"
+          >
+            [p2.06/2 l rngd, self refill 1 abil. use]
+          </td>
+        </tr>
+        <tr
+          className="unowned super"
+        >
+          <td
+            className="tier"
+          >
+            S
+          </td>
+          <td
+            className="name"
+          >
+            Rising Drive
+          </td>
+          <td>
+            phys 7.8/4 jump, self no air time 3 turns
+          </td>
+        </tr>
+        <tr
+          className="unowned unique jp"
+        >
+          <td
+            className="tier"
+          >
+            -
+          </td>
+          <td
+            className="name"
+          >
+            “Unmatched Triple Assault”
+          </td>
+          <td>
+            phys 5.16/3, 100% Paralyze
+          </td>
+        </tr>
+        <tr
+          className="unowned unique"
+        >
+          <td
+            className="tier"
+          >
+            -
+          </td>
+          <td
+            className="name"
+          >
+            Gungnir
+          </td>
+          <td>
+            phys 5.0 jump, -50% DEF/RES 25s
+          </td>
+        </tr>
+        <tr
+          className="unowned unique"
+        >
+          <td
+            className="tier"
+          >
+            -
+          </td>
+          <td
+            className="name"
+          >
+            Lancet
+          </td>
+          <td>
+            phys 4.0, self heal 50% of dmg
+          </td>
+        </tr>
+        <tr
+          className="unowned legendMateria jp"
+        >
+          <td
+            className="tier"
+          >
+            <span
+              className="legendMateriaTier"
+            >
+              LMR3
+            </span>
+          </td>
+          <td
+            className="name"
+          >
+            “Dragoon's Self-Control”
+          </td>
+          <td>
+            25% dualcast Dragoon
+          </td>
+        </tr>
+        <tr
+          className="legendMateria"
+        >
+          <td
+            className="tier"
+          >
+            <span
+              className="legendMateriaTier"
+            >
+              LMR2
+            </span>
+          </td>
+          <td
+            className="name"
+          >
+            Weak No More
+          </td>
+          <td>
+            lgt infuse at battle start
+          </td>
+        </tr>
+        <tr
+          className="unowned legendMateria"
+        >
+          <td
+            className="tier"
+          >
+            <span
+              className="legendMateriaTier"
+            >
+              LMR1
+            </span>
+          </td>
+          <td
+            className="name"
+          >
+            Dragoon's Essence
+          </td>
+          <td>
+            1.25x Dragoon dmg if using a spear
+          </td>
+        </tr>
+        <tr
+          className="legendMateria"
+        >
+          <td
+            className="tier"
+          >
+            <span
+              className="legendMateriaTier"
+            >
+              LM2
+            </span>
+          </td>
+          <td
+            className="name"
+          >
+            Soaring Dragoon
+          </td>
+          <td>
+            +2% ATK (max +50%) per jump
+          </td>
+        </tr>
+        <tr
+          className="legendMateria"
+        >
+          <td
+            className="tier"
+          >
+            <span
+              className="legendMateriaTier"
+            >
+              LM1
+            </span>
+          </td>
+          <td
+            className="name"
+          >
+            Echoing Roar
+          </td>
+          <td>
+            1.1x lgt dmg
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous mode 1`] = `
+<div
+  className="card component"
+>
+  <div
+    className="card-body"
+  >
+    <table
+      className="table table-sm"
+    >
+      <thead
+        className="thead-dark"
+      >
+        <tr>
+          <th
+            colSpan={3}
+          >
+            Kain
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="chain"
+        >
+          <td
+            className="tier"
+          >
+            C
+          </td>
+          <td
+            className="name"
+          >
+            Impulse Drive
+          </td>
+          <td>
+            lgt chain 1.2x (max 99), phys 7.92/22 lgt jump
+          </td>
+        </tr>
+        <tr
+          className="awakening"
+        >
+          <td
+            className="tier"
+          >
+            AA
+          </td>
+          <td
+            className="name"
+          >
+            Lance of the Dragon
+          </td>
+          <td>
+            phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap=29,999 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
+          </td>
+        </tr>
+        <tr
+          className="ultra"
+        >
+          <td
+            className="tier"
+          >
+            BU
+          </td>
+          <td
+            className="name"
+          >
+            Dragon's Wrath
+          </td>
+          <td>
+            phys 7.2/10 lgt jump, lgt infuse 25s, self no air time 2 turns
+          </td>
+        </tr>
+        <tr
+          className="braveCommand"
+        >
+          <td />
+          <td>
+            [Dragoon], +1 on Dragoon
+          </td>
+          <td>
+            p1.92 – 3.25 – 6.5 – 10.15 l jump, overstrike at brv.1+
+          </td>
+        </tr>
+        <tr
+          className="ultra"
+        >
+          <td
+            className="tier"
+          >
+            U1
+          </td>
+          <td
+            className="name"
+          >
+            Luminous Dragon
+          </td>
+          <td>
+            phys 7.1/10 lgt+non jump, lgt infuse 25s, self jump instacast 15s, +30% ATK/DEF 25s
+          </td>
+        </tr>
+        <tr
+          className="overstrike"
+        >
+          <td
+            className="tier"
+          >
+            AO
+          </td>
+          <td
+            className="name"
+          >
+            Dragoon Dive
+          </td>
+          <td>
+            phys 24.0/3 lgt jump overstrike
+          </td>
+        </tr>
+        <tr
+          className="overstrike"
+        >
+          <td
+            className="tier"
+          >
+            O
+          </td>
+          <td
+            className="name"
+          >
+            Kain's Lance
+          </td>
+          <td>
+            phys 10.5 lgt+non jump overstrike, up to p14.5 w/ Dragoon used
+          </td>
+        </tr>
+        <tr
+          className="glint jp"
+        >
+          <td
+            className="tier"
+          >
+            G+
+          </td>
+          <td
+            className="name"
+          >
+            “Instant Dragon Dive”
+          </td>
+          <td>
+            instant no air time 15s, instacast 1
+          </td>
+        </tr>
+        <tr
+          className="burst"
+        >
+          <td
+            className="tier"
+          >
+            B
+          </td>
+          <td
+            className="name"
+          >
+            Dragoon's Pride
+          </td>
+          <td>
+            AoE phys 5.0/4 lgt+non jump, lgt infuse 25s
+          </td>
+        </tr>
+        <tr
+          className="burstCommand"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            [Dragoon]
+          </td>
+          <td
+            className="command"
+          >
+            [p2.06/2 l rngd, self no air time 2 turns]
+          </td>
+        </tr>
+        <tr
+          className="burstCommand"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            [Dragoon]
+          </td>
+          <td
+            className="command"
+          >
+            [p2.06/2 l rngd, self refill 1 abil. use]
+          </td>
+        </tr>
+        <tr
+          className="super"
+        >
+          <td
+            className="tier"
+          >
+            S
+          </td>
+          <td
+            className="name"
+          >
+            Rising Drive
+          </td>
+          <td>
+            phys 7.8/4 jump, self no air time 3 turns
+          </td>
+        </tr>
+        <tr
+          className="unique jp"
+        >
+          <td
+            className="tier"
+          >
+            -
+          </td>
+          <td
+            className="name"
+          >
+            “Unmatched Triple Assault”
+          </td>
+          <td>
+            phys 5.16/3, 100% Paralyze
+          </td>
+        </tr>
+        <tr
+          className="unique"
+        >
+          <td
+            className="tier"
+          >
+            -
+          </td>
+          <td
+            className="name"
+          >
+            Gungnir
+          </td>
+          <td>
+            phys 5.0 jump, -50% DEF/RES 25s
+          </td>
+        </tr>
+        <tr
+          className="unique"
+        >
+          <td
+            className="tier"
+          >
+            -
+          </td>
+          <td
+            className="name"
+          >
+            Lancet
+          </td>
+          <td>
+            phys 4.0, self heal 50% of dmg
+          </td>
+        </tr>
+        <tr
+          className="legendMateria jp"
+        >
+          <td
+            className="tier"
+          >
+            <span
+              className="legendMateriaTier"
+            >
+              LMR3
+            </span>
+          </td>
+          <td
+            className="name"
+          >
+            “Dragoon's Self-Control”
+          </td>
+          <td>
+            25% dualcast Dragoon
+          </td>
+        </tr>
+        <tr
+          className="legendMateria"
+        >
+          <td
+            className="tier"
+          >
+            <span
+              className="legendMateriaTier"
+            >
+              LMR2
+            </span>
+          </td>
+          <td
+            className="name"
+          >
+            Weak No More
+          </td>
+          <td>
+            lgt infuse at battle start
+          </td>
+        </tr>
+        <tr
+          className="legendMateria"
+        >
+          <td
+            className="tier"
+          >
+            <span
+              className="legendMateriaTier"
+            >
+              LMR1
+            </span>
+          </td>
+          <td
+            className="name"
+          >
+            Dragoon's Essence
+          </td>
+          <td>
+            1.25x Dragoon dmg if using a spear
+          </td>
+        </tr>
+        <tr
+          className="legendMateria"
+        >
+          <td
+            className="tier"
+          >
+            <span
+              className="legendMateriaTier"
+            >
+              LM2
+            </span>
+          </td>
+          <td
+            className="name"
+          >
+            Soaring Dragoon
+          </td>
+          <td>
+            +2% ATK (max +50%) per jump
+          </td>
+        </tr>
+        <tr
+          className="legendMateria"
+        >
+          <td
+            className="tier"
+          >
+            <span
+              className="legendMateriaTier"
+            >
+              LM1
+            </span>
+          </td>
+          <td
+            className="name"
+          >
+            Echoing Roar
+          </td>
+          <td>
+            1.1x lgt dmg
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

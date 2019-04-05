@@ -575,7 +575,7 @@ function patchEnlir() {
     },
   );
   applyCausesImperilPatch(enlir.soulBreaks, '20660006'); // Zack - Climhazzard Xeno
-  applyCausesImperilPatch(enlir.soulBreaks, '22100007'); // Laguna - Ragnarok Buster
+  applyCausesImperilPatch(enlir.soulBreaks, '22100007'); // Laguna - Ragnarok Buster.  TODO - also missing stat buff duration
   applyCausesImperilPatch(enlir.soulBreaks, '22810004'); // Nine - Whirling Lance
 
   // Status cleanups.  These too should be fixed up.

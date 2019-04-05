@@ -31,8 +31,8 @@ interface Props {
   relics: number[] | number[][];
   probabilities?: RelicDrawProbabilities;
   isAnonymous?: boolean;
-  ownedSoulBreaks: Set<number> | undefined;
-  ownedLegendMateria: Set<number> | undefined;
+  ownedSoulBreaks?: Set<number>;
+  ownedLegendMateria?: Set<number>;
 }
 
 const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
