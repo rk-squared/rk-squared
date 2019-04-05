@@ -390,7 +390,11 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
         <td
           className="tier"
         >
-          LMR2
+          <span
+            className="legendMateriaTier"
+          >
+            LMR2
+          </span>
         </td>
         <td
           className="name"
@@ -419,7 +423,11 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
         <td
           className="tier"
         >
-          LMR3
+          <span
+            className="legendMateriaTier"
+          >
+            LMR3
+          </span>
         </td>
         <td
           className="name"
@@ -448,7 +456,11 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
         <td
           className="tier"
         >
-          LMR2
+          <span
+            className="legendMateriaTier"
+          >
+            LMR2
+          </span>
         </td>
         <td
           className="name"
@@ -477,7 +489,11 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
         <td
           className="tier"
         >
-          LMR
+          <span
+            className="legendMateriaTier"
+          >
+            LMR
+          </span>
         </td>
         <td
           className="name"
@@ -549,7 +565,11 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         <td
           className="tier"
         >
-          LMR
+          <span
+            className="legendMateriaTier"
+          >
+            LMR
+          </span>
         </td>
         <td
           className="name"
@@ -582,7 +602,11 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         <td
           className="tier"
         >
-          LMR2
+          <span
+            className="legendMateriaTier"
+          >
+            LMR2
+          </span>
         </td>
         <td
           className="name"
@@ -615,7 +639,11 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         <td
           className="tier"
         >
-          LMR3
+          <span
+            className="legendMateriaTier"
+          >
+            LMR3
+          </span>
         </td>
         <td
           className="name"
@@ -648,7 +676,11 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         <td
           className="tier"
         >
-          LMR2
+          <span
+            className="legendMateriaTier"
+          >
+            LMR2
+          </span>
         </td>
         <td
           className="name"
@@ -1423,7 +1455,11 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
         <td
           className="tier"
         >
-          LMR2
+          <span
+            className="legendMateriaTier"
+          >
+            LMR2
+          </span>
         </td>
         <td
           className="name"
@@ -1452,7 +1488,11 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
         <td
           className="tier"
         >
-          LMR3
+          <span
+            className="legendMateriaTier"
+          >
+            LMR3
+          </span>
         </td>
         <td
           className="name"
@@ -1481,7 +1521,11 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
         <td
           className="tier"
         >
-          LMR2
+          <span
+            className="legendMateriaTier"
+          >
+            LMR2
+          </span>
         </td>
         <td
           className="name"
@@ -1510,7 +1554,11 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
         <td
           className="tier"
         >
-          LMR
+          <span
+            className="legendMateriaTier"
+          >
+            LMR
+          </span>
         </td>
         <td
           className="name"
