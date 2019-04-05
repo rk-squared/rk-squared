@@ -35,7 +35,6 @@ export class RelicDrawGroupPage extends React.PureComponent<
     if (!group || !details) {
       return <BadRelicDrawMessage />;
     }
-    // FIXME: Scroll to top on mount - see https://reacttraining.com/react-router/web/guides/scroll-restoration
     return (
       <>
         <img src={group.imageUrl} />

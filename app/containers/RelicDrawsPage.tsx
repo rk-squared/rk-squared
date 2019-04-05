@@ -27,6 +27,13 @@ interface Props {
 }
 
 export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentProps> {
+  pageRef: React.RefObject<Page>;
+
+  constructor(props: Props & RouteComponentProps) {
+    super(props);
+    this.pageRef = React.createRef();
+  }
+
   groupLink = (group: string) => joinUrl(this.props.match.url, '/group-' + group);
   bannerLink = (banner: string | number) => joinUrl(this.props.match.url, '/banner' + banner);
   groupBannerLink = (group: string, banner: string | number) =>
@@ -35,6 +42,12 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
   handleLoad = () => {
     const { missingBanners, dispatch } = this.props;
     dispatch(loadBanners(missingBanners));
+  };
+
+  componentDidUpdate = (prevProps: Props & RouteComponentProps) => {
+    if (prevProps.match !== this.props.match && this.pageRef.current) {
+      this.pageRef.current.scrollToTop();
+    }
   };
 
   renderContents() {
@@ -107,7 +120,11 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
   }
 
   render() {
-    return <Page title="Relic Draws">{this.renderContents()}</Page>;
+    return (
+      <Page title="Relic Draws" ref={this.pageRef}>
+        {this.renderContents()}
+      </Page>
+    );
   }
 }
 

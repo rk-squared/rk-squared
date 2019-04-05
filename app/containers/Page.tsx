@@ -12,10 +12,23 @@ interface Props {
 }
 
 export class Page extends React.Component<Props> {
+  ref: React.RefObject<HTMLDivElement>;
+
+  constructor(props: Props) {
+    super(props);
+    this.ref = React.createRef();
+  }
+
+  scrollToTop() {
+    if (this.ref.current) {
+      this.ref.current.scrollIntoView(true);
+    }
+  }
+
   render() {
     const { className, title, children, footer } = this.props;
     return (
-      <div className={'container ' + styles.component + ' ' + (className || '')}>
+      <div className={'container ' + styles.component + ' ' + (className || '')} ref={this.ref}>
         {title && <h2 className="row">{title}</h2>}
         <div className={styles.content}>
           <MessagesList />
