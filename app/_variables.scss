@@ -1,0 +1,5 @@
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+// Below md, the side nav moves to the top
+$side-nav-breakpoint: map-get($grid-breakpoints, md);

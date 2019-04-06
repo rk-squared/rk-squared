@@ -1,3 +1,5 @@
+@import '../variables';
+
 :local {
   $margin-top: 1rem;
 
@@ -12,9 +14,11 @@
   // override that to appear on the left.  Use !important to supersede
   // Bootstrap's @media styles.
   .nav {
-    align-items: flex-start !important;
-    flex-flow: column !important;
     padding-top: $margin-top !important;
+    @media screen and (min-width: $side-nav-breakpoint) {
+      align-items: flex-start !important;
+      flex-flow: column !important;
+    }
 
     > :global(.navbar-brand) {
       display: block;
@@ -42,8 +46,10 @@
 
       > .content {
         margin-top: $margin-top;
-        overflow-y: auto;
-        max-height: calc(100% - #{$margin-top});
+        @media screen and (min-width: $side-nav-breakpoint) {
+          overflow-y: auto;
+          max-height: calc(100% - #{$margin-top});
+        }
       }
     }
   }

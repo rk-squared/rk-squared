@@ -44,7 +44,7 @@ export class RecordMateriaTable extends React.Component<Props> {
     return (
       <>
         <h4>{table.title}</h4>
-        <table className={`table table-bordered ${styles.component}`}>
+        <table className={`table table-bordered table-responsive-sm ${styles.component}`}>
           <tbody>
             <tr>
               <th style={style} />

@@ -28,7 +28,10 @@ export class Page extends React.Component<Props> {
   render() {
     const { className, title, children, footer } = this.props;
     return (
-      <div className={'container ' + styles.component + ' ' + (className || '')} ref={this.ref}>
+      <div
+        className={'container-fluid ' + styles.component + ' ' + (className || '')}
+        ref={this.ref}
+      >
         {title && <h2 className="row">{title}</h2>}
         <div className={styles.content}>
           <MessagesList />
