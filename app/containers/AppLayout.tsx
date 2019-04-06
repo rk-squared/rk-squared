@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { History } from 'history';
+
 import { GoogleAd250x250 } from '../components/common/GoogleAd250x250';
 import { routes } from '../routes';
 import { ErrorBoundary } from './ErrorBoundary';
@@ -9,11 +11,13 @@ const styles = require('./AppLayout.scss');
 const logo = require('../images/logo.png');
 
 interface Props {
+  history?: History;
   children: any;
 }
 
 export class AppLayout extends React.Component<Props> {
   render() {
+    const { history, children } = this.props;
     return (
       <div className={`container-fluid ${styles.component}`}>
         <div className="row">
@@ -44,7 +48,7 @@ export class AppLayout extends React.Component<Props> {
           </nav>
 
           <div className={`col ${styles.content}`}>
-            <ErrorBoundary>{this.props.children}</ErrorBoundary>
+            <ErrorBoundary history={history}>{children}</ErrorBoundary>
           </div>
         </div>
       </div>

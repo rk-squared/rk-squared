@@ -17,7 +17,7 @@ export function Root({ store, history }: IRootType) {
   return (
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <Routes />
+        <Routes history={history} />
       </ConnectedRouter>
     </Provider>
   );

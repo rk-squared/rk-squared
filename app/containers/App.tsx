@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import { History } from 'history';
+
 import { getLang } from '../actions/session';
 import { LangType } from '../api/apiUrls';
 import { LangContext } from '../contexts/LangContext';
@@ -9,15 +11,16 @@ import { AppLayout } from './AppLayout';
 
 interface Props {
   lang: LangType;
+  history?: History;
   children: any;
 }
 
 export class App extends React.Component<Props> {
   render() {
-    const { lang, children } = this.props;
+    const { lang, history, children } = this.props;
     return (
       <LangContext.Provider value={lang}>
-        <AppLayout>{children}</AppLayout>
+        <AppLayout history={history}>{children}</AppLayout>
       </LangContext.Provider>
     );
   }

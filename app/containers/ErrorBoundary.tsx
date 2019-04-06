@@ -1,9 +1,12 @@
 import * as React from 'react';
 
+import { History } from 'history';
+
 import { BrowserLink } from '../components/common/BrowserLink';
 
 interface Props {
   className?: string;
+  history?: History;
 }
 interface State {
   hasError: boolean;
@@ -21,9 +24,25 @@ export class ErrorBoundary extends React.Component<Props, State> {
     };
   }
 
+  unlisten?: () => void;
+
   constructor(props: Props) {
     super(props);
     this.state = { hasError: false };
+  }
+
+  componentDidMount() {
+    if (this.props.history) {
+      // Assume any errors are local to the current route.  If we navigate to a
+      // new route, then clear the route state.
+      this.unlisten = this.props.history.listen(() => this.setState({ hasError: false }));
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.unlisten) {
+      this.unlisten();
+    }
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
@@ -31,7 +50,6 @@ export class ErrorBoundary extends React.Component<Props, State> {
   }
 
   render() {
-    // FIXME: Reset hasError on new route
     const { hasError, error } = this.state;
     if (hasError) {
       return (
