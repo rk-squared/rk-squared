@@ -32,3 +32,37 @@ export function getAllSameValue<T>(values: T[], iteratee?: (value: T) => any): T
     return null;
   }
 }
+
+/**
+ * Split total into roughly equal parts, each of size parts, and return the
+ * lengths.
+ */
+function partitionNumber(total: number, parts: number): number[] {
+  const result: number[] = [];
+  let done = 0;
+  let remainder = 0;
+  const partSize = total / parts;
+  while (done < total) {
+    const thisPart = Math.min(Math.floor(partSize + remainder), total - done);
+    remainder = partSize + remainder - thisPart;
+    result.push(thisPart);
+    done += thisPart;
+  }
+  return result;
+}
+
+/**
+ * Split an array into roughly equal parts, each of the given size, and return
+ * the parts.
+ */
+export function partitionArray<T>(items: T[], parts: number): T[][] {
+  type Accumulator = [T[][], number];
+  return _.reduce(
+    partitionNumber(items.length, parts),
+    ([result, length]: Accumulator, value) => {
+      result.push(items.slice(length, length + value));
+      return [result, length + value] as Accumulator;
+    },
+    [[], 0] as Accumulator,
+  )[0];
+}
