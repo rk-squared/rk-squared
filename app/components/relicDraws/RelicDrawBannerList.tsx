@@ -124,6 +124,10 @@ const RelicDrawBannerLink = ({
   );
 };
 
+/**
+ * A list of relic draw banners and/or groups.  Can show the top-level list or
+ * a single group.
+ */
 export class RelicDrawBannerList extends React.PureComponent<Props> {
   render() {
     const { details, isAnonymous, currentTime, groupLink, bannerLink } = this.props;

@@ -40446,7 +40446,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Scarlet Blade",
     "type": "PHY",
@@ -40467,7 +40467,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Meteorite",
     "type": "BLK",
@@ -40488,7 +40488,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Rend Weapon",
     "type": "PHY",
@@ -40509,7 +40509,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Magic Buster",
     "type": "PHY",
@@ -40530,7 +40530,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Veil of Protection",
     "type": "WHT",
@@ -40551,7 +40551,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Stunner",
     "type": "PHY",
@@ -40572,7 +40572,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Sword Dance",
     "type": "PHY",
@@ -40595,7 +40595,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Doublestrike",
     "type": "PHY",
@@ -40616,7 +40616,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Inferno Fang",
     "type": "PHY",
@@ -40639,7 +40639,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Festive Miracle",
     "type": "PHY",
@@ -40660,7 +40660,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Chocobreak",
     "type": "PHY",
@@ -40681,7 +40681,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Lightning Slash",
     "type": "PHY",
@@ -40704,7 +40704,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Bladestorm Flames",
     "type": "PHY",
@@ -40727,7 +40727,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Bladestorm Hail",
     "type": "PHY",
@@ -40750,7 +40750,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Earthquake",
     "type": "BLK",
@@ -40773,7 +40773,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Darkest Cut",
     "type": "PHY",
@@ -40796,7 +40796,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Sonic Buster",
     "type": "PHY",
@@ -40817,7 +40817,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Zeus Wrath",
     "type": "PHY",
@@ -40840,7 +40840,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Double Thunder Cut",
     "type": "PHY",
@@ -40863,7 +40863,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Petrifying Strike",
     "type": "PHY",
@@ -40884,7 +40884,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Immobility Strike",
     "type": "PHY",
@@ -40905,7 +40905,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Frozen Strike",
     "type": "PHY",
@@ -40928,7 +40928,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Nibelung Valesti",
     "type": "PHY",
@@ -40951,7 +40951,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Final Blast",
     "type": "PHY",
@@ -40974,7 +40974,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Gemini Crisis",
     "type": "PHY",
@@ -40995,7 +40995,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Schwertleite",
     "type": "NAT",
@@ -41016,7 +41016,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Slow Buster",
     "type": "PHY",
@@ -41037,7 +41037,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Slowing Blast",
     "type": "PHY",
@@ -41058,7 +41058,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Bladestorm Rend",
     "type": "PHY",
@@ -41079,7 +41079,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Sword Oath",
     "type": "PHY",
@@ -41100,7 +41100,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Mana Blade",
     "type": "PHY",
@@ -41123,7 +41123,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Battle Roar",
     "type": "NAT",
@@ -41144,7 +41144,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Snowblossom Barrage",
     "type": "PHY",
@@ -41167,7 +41167,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Chain Attack",
     "type": "PHY",
@@ -41188,7 +41188,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Molecular Decomposition",
     "type": "PHY",
@@ -41209,7 +41209,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Lightning Pierce",
     "type": "PHY",
@@ -41233,7 +41233,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Bladestorm Rain",
     "type": "PHY",
@@ -41256,7 +41256,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Brain Attack",
     "type": "PHY",
@@ -41277,7 +41277,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Turtle Killer",
     "type": "PHY",
@@ -41298,7 +41298,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Helmsplitter",
     "type": "PHY",
@@ -41319,7 +41319,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Slowing Strike",
     "type": "PHY",
@@ -41340,7 +41340,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Somnolent Strike",
     "type": "PHY",
@@ -41361,7 +41361,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Spiral Charge",
     "type": "PHY",
@@ -41382,7 +41382,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Crush Defenses",
     "type": "PHY",
@@ -41403,7 +41403,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Bloody Curse",
     "type": "PHY",
@@ -41426,7 +41426,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Light of Ruin",
     "type": "NAT",
@@ -41449,7 +41449,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Thunder Trap",
     "type": "BLK",
@@ -41472,7 +41472,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Healing Aura",
     "type": "WHT",
@@ -41493,7 +41493,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Mass Mending",
     "type": "WHT",
@@ -41514,7 +41514,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Will-o'-the-Wisp",
     "type": "BLK",
@@ -41537,7 +41537,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Aurora of Destruction",
     "type": "WHT",
@@ -41560,7 +41560,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Poison Mist",
     "type": "BLK",
@@ -41583,7 +41583,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "White Blizzard",
     "type": "BLK",
@@ -41606,7 +41606,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Mending Flame",
     "type": "WHT",
@@ -41627,7 +41627,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Tiger's Roar",
     "type": "BLK",
@@ -41648,7 +41648,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Saintly Beam",
     "type": "WHT",
@@ -41671,7 +41671,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Scathe",
     "type": "BLK",
@@ -41692,7 +41692,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Sleet",
     "type": "BLK",
@@ -41715,7 +41715,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Flammie",
     "type": "NAT",
@@ -41738,7 +41738,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Octopus Tentacle",
     "type": "SUM",
@@ -41759,7 +41759,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Octopus Ink",
     "type": "SUM",
@@ -41780,7 +41780,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Soothing Aroma",
     "type": "WHT",
@@ -41801,7 +41801,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Frost",
     "type": "BLK",
@@ -41824,7 +41824,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Prayer",
     "type": "WHT",
@@ -41845,7 +41845,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Heal",
     "type": "WHT",
@@ -41866,7 +41866,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Regenerate",
     "type": "WHT",
@@ -41887,7 +41887,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Blessing",
     "type": "NAT",
@@ -41908,7 +41908,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Thorn Bind",
     "type": "BLK",
@@ -41932,7 +41932,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Celestial Star",
     "type": "BLK",
@@ -41955,7 +41955,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Blinding Shot",
     "type": "PHY",
@@ -41976,7 +41976,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Spellbane Strike",
     "type": "PHY",
@@ -41997,7 +41997,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Death Arrow",
     "type": "PHY",
@@ -42018,7 +42018,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Fire Bouquet",
     "type": "BLK",
@@ -42041,7 +42041,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Falling Phoenix's Song",
     "type": "PHY",
@@ -42065,7 +42065,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Sylvan Storm",
     "type": "BLK",
@@ -42088,7 +42088,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Airship Assault",
     "type": "PHY",
@@ -42109,7 +42109,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Debilitating Throw",
     "type": "PHY",
@@ -42130,7 +42130,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Cyclone",
     "type": "BLK",
@@ -42153,7 +42153,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Slow Shot",
     "type": "PHY",
@@ -42174,7 +42174,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Balloon",
     "type": "BLK",
@@ -42197,7 +42197,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Phantom Frenzy",
     "type": "PHY",
@@ -42218,7 +42218,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Gatling Ammo",
     "type": "PHY",
@@ -42239,7 +42239,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Meteor Swarm",
     "type": "BLK",
@@ -42262,7 +42262,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Breakdown",
     "type": "PHY",
@@ -42283,7 +42283,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Magebane Aegis",
     "type": "NAT",
@@ -42304,7 +42304,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Glimmer of Hope",
     "type": "WHT",
@@ -42325,7 +42325,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Mystic Prayer",
     "type": "WHT",
@@ -42346,7 +42346,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Attack Boost",
     "type": "NAT",
@@ -42367,7 +42367,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Healing Magic",
     "type": "NAT",
@@ -42388,7 +42388,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Rekindle",
     "type": "WHT",
@@ -42409,7 +42409,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Virus",
     "type": "BLK",
@@ -42430,7 +42430,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Cure Water",
     "type": "WHT",
@@ -42451,7 +42451,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Witchcraft",
     "type": "NAT",
@@ -42472,7 +42472,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Apothecary Lore",
     "type": "WHT",
@@ -42493,7 +42493,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Dark Shot",
     "type": "PHY",
@@ -42516,7 +42516,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Divine Majesty",
     "type": "NAT",
@@ -42537,7 +42537,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Lucid Barrier",
     "type": "NAT",
@@ -42558,7 +42558,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Shimmering Mirage",
     "type": "NAT",
@@ -42579,7 +42579,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Sleeping Gas",
     "type": "NAT",
@@ -42600,7 +42600,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Blaster",
     "type": "NAT",
@@ -42621,7 +42621,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Flash",
     "type": "NAT",
@@ -42642,7 +42642,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Cerulean Shock",
     "type": "PHY",
@@ -42665,7 +42665,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Teamwork",
     "type": "NAT",
@@ -42686,7 +42686,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Body Blow",
     "type": "PHY",
@@ -42707,7 +42707,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Defender",
     "type": "WHT",
@@ -42728,7 +42728,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Dispel Magic",
     "type": "WHT",
@@ -42749,7 +42749,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Feathered Fortress",
     "type": "NAT",
@@ -42770,7 +42770,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Provoke",
     "type": "NAT",
@@ -42791,7 +42791,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Light Curtain",
     "type": "WHT",
@@ -42812,7 +42812,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Veil of Annulment",
     "type": "WHT",
@@ -42833,7 +42833,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Hand of Doom",
     "type": "BLK",
@@ -42856,7 +42856,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Galaxy Rush",
     "type": "BLK",
@@ -42879,7 +42879,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Raven's Yawn",
     "type": "WHT",
@@ -42902,7 +42902,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Earthmend",
     "type": "WHT",
@@ -42923,7 +42923,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Blessing of Spira",
     "type": "WHT",
@@ -42944,7 +42944,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Engulfing Flames",
     "type": "BLK",
@@ -42967,7 +42967,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Mending Touch",
     "type": "WHT",
@@ -42988,7 +42988,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Purging Light",
     "type": "WHT",
@@ -43009,7 +43009,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Light's Protection",
     "type": "NAT",
@@ -43030,7 +43030,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Firewyrm Breath",
     "type": "BLK",
@@ -43053,7 +43053,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Snowstorm",
     "type": "BLK",
@@ -43076,7 +43076,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "First Aid",
     "type": "WHT",
@@ -43097,7 +43097,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Salvation",
     "type": "WHT",
@@ -43118,7 +43118,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Power Sigil",
     "type": "BLK",
@@ -43139,7 +43139,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Mending Melody",
     "type": "NAT",
@@ -43160,7 +43160,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Warrior's Ward",
     "type": "WHT",
@@ -43181,7 +43181,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Healing Moment",
     "type": "WHT",
@@ -43202,7 +43202,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Smoke Screen",
     "type": "NAT",
@@ -43223,7 +43223,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Renewing Feather",
     "type": "WHT",
@@ -43244,7 +43244,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Inspiring Light",
     "type": "NAT",
@@ -43265,7 +43265,7 @@
     "gl": true
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Moon Energy",
     "type": "NAT",
@@ -43286,7 +43286,7 @@
     "gl": false
   },
   {
-    "realm": "-",
+    "realm": null,
     "character": "-",
     "name": "Jolt Counter",
     "type": "NAT",

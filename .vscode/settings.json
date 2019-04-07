@@ -168,6 +168,7 @@
     "typesafe",
     "undeads",
     "unlisten",
+    "upgradable",
     "whatever's"
   ],
   "editor.formatOnSave": true,

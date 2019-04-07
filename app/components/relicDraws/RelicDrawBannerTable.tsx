@@ -5,9 +5,10 @@ import classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { RelicDrawProbabilities } from '../../actions/relicDraws';
-import { enlir, EnlirLegendMateria, EnlirSoulBreak } from '../../data/enlir';
+import { enlir, EnlirLegendMateria, EnlirRealm, EnlirSoulBreak } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
+import { enlirRealmLongName } from '../../data/series';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
 import { getAllSameValue } from '../../utils/typeUtils';
@@ -30,11 +31,17 @@ interface Props {
   relics: number[] | number[][];
   probabilities?: RelicDrawProbabilities;
   isAnonymous?: boolean;
+  groupBySeries?: boolean;
   ownedSoulBreaks?: Set<number>;
   ownedLegendMateria?: Set<number>;
 }
 
+/**
+ * A table of relics for a relic draw banner.
+ */
 export class RelicDrawBannerTable extends React.Component<Props> {
+  lastRealm: EnlirRealm | null = null;
+
   renderAlias(sb?: EnlirSoulBreak, lm?: EnlirLegendMateria) {
     if (sb) {
       return soulBreakAliases[sb.id];
@@ -47,8 +54,14 @@ export class RelicDrawBannerTable extends React.Component<Props> {
     }
   }
 
-  renderRow(relicId: number, key: number, showProbability: boolean) {
-    const { probabilities, isAnonymous, ownedSoulBreaks, ownedLegendMateria } = this.props;
+  renderRow(relicId: number, key: number, showProbability: boolean, colCount: number) {
+    const {
+      probabilities,
+      isAnonymous,
+      ownedSoulBreaks,
+      ownedLegendMateria,
+      groupBySeries,
+    } = this.props;
     const relic = enlir.relics[relicId];
     const { character, name, type, effect } = relic;
     const sb = enlir.relicSoulBreaks[relicId];
@@ -75,8 +88,15 @@ export class RelicDrawBannerTable extends React.Component<Props> {
     const rowSpan = commandColumns.length ? commandColumns.length + 1 : undefined;
 
     const className = classNames(tierClassName, { [styles.dupe]: isDupe });
+    const showSeries = groupBySeries && relic.realm != null && relic.realm !== this.lastRealm;
+    this.lastRealm = relic.realm;
     return (
       <React.Fragment key={key}>
+        {showSeries && relic.realm && (
+          <tr className={styles.seriesGroup + ' thead-light'}>
+            <th colSpan={colCount}>{enlirRealmLongName(relic.realm) || relic.realm}</th>
+          </tr>
+        )}
         <tr className={className} title={isDupe ? 'Dupe' : undefined}>
           <td rowSpan={rowSpan}>{character}</td>
           <td rowSpan={rowSpan}>
@@ -128,6 +148,7 @@ export class RelicDrawBannerTable extends React.Component<Props> {
     }
 
     const grouped = relicsArray.length > 1 && _.some(relicsArray, i => i.length > 1);
+    this.lastRealm = null;
     return (
       <div className="table-responsive">
         <table className={classNames('table', { [styles.grouped]: grouped })}>
@@ -150,7 +171,9 @@ export class RelicDrawBannerTable extends React.Component<Props> {
           </thead>
           {relicsArray.map((theseRelics, i) => (
             <tbody key={i}>
-              {theseRelics.map((relicId, j) => this.renderRow(relicId, j, showProbability))}
+              {theseRelics.map((relicId, j) =>
+                this.renderRow(relicId, j, showProbability, colCount),
+              )}
             </tbody>
           ))}
         </table>

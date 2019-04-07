@@ -141,6 +141,8 @@ function toStringWithDecimals(value: string) {
 function toCommon(field: string, value: string) {
   if (field === 'effects' || field === 'effect') {
     return toStringWithDecimals(value);
+  } else if (field === 'realm') {
+    return dashNull(toString)(value);
   } else if (field === 'id') {
     return toInt(value);
   } else if (field === 'gl') {
@@ -492,7 +494,7 @@ function convertRelics(rows: any[]): any[] {
       const field = _.camelCase(col);
       if (isStat(col)) {
         // Hack: Duplicate the "normal" rarity at the relic level - it often
-        // make more sense there, especially for non-upgradeable relics like
+        // make more sense there, especially for non-upgradable relics like
         // accessories.
         if (field === 'rarity') {
           item.rarity = toStat(field, rows[i][j]);

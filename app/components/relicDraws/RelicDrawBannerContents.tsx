@@ -27,6 +27,10 @@ function sortRelics(relicIds: number[]) {
   ]);
 }
 
+/**
+ * The contents of a single relic draw banner, including available selections,
+ * featured relics, off-banner relics, etc.
+ */
 export class RelicDrawBannerContents extends React.PureComponent<Props> {
   renderSelections() {
     const { banner, isAnonymous } = this.props;
@@ -38,6 +42,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         title={'Available Selections'}
         relics={banner.selections}
         isAnonymous={isAnonymous}
+        groupBySeries={true}
       />
     );
   }

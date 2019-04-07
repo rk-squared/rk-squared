@@ -3,6 +3,28 @@ import { logger } from '../utils/logger';
 
 // TODO: Try removing duplicating in unions and arrays - see https://stackoverflow.com/a/45486495/25507
 
+export type EnlirRealm =
+  | 'Beyond'
+  | 'Core'
+  | 'FFT'
+  | 'I'
+  | 'II'
+  | 'III'
+  | 'IV'
+  | 'IX'
+  | 'KH'
+  | 'Type-0'
+  | 'V'
+  | 'VI'
+  | 'VII'
+  | 'VIII'
+  | 'X'
+  | 'XI'
+  | 'XII'
+  | 'XIII'
+  | 'XIV'
+  | 'XV';
+
 export type EnlirElement =
   | 'Fire'
   | 'Ice'
@@ -190,7 +212,7 @@ export interface EnlirBurstCommand extends EnlirGenericSkill {
 }
 
 export interface EnlirCharacter {
-  realm: string;
+  realm: EnlirRealm;
   name: string;
   introducingEventLv50: string;
   lv50: { [key: string]: number };
@@ -211,7 +233,7 @@ export interface EnlirCharacter {
 }
 
 export interface EnlirLegendMateria {
-  realm: string;
+  realm: EnlirRealm;
   character: string;
   name: string;
   effect: string;
@@ -242,7 +264,7 @@ export interface EnlirRecordMateria {
 
 export interface EnlirRelic {
   name: string;
-  realm: string;
+  realm: EnlirRealm | null;
   type: EnlirRelicType;
   rarity: number;
   stats: EnlirRelicStats;
@@ -257,7 +279,7 @@ export interface EnlirRelic {
 }
 
 export interface EnlirSoulBreak extends EnlirGenericSkill {
-  realm: string;
+  realm: EnlirRealm | null;
   character: string;
   points: number;
   tier: EnlirSoulBreakTier;

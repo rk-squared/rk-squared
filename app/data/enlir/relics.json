@@ -631,7 +631,7 @@
   },
   {
     "name": "Air Knife",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -676,7 +676,7 @@
   },
   {
     "name": "Assassin's Dagger",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -721,7 +721,7 @@
   },
   {
     "name": "Basilisk Claw",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -766,7 +766,7 @@
   },
   {
     "name": "Behemoth Knife",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -811,7 +811,7 @@
   },
   {
     "name": "Dagger of Resolve",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -856,7 +856,7 @@
   },
   {
     "name": "Fire Fang",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -901,7 +901,7 @@
   },
   {
     "name": "Dancing Daggers",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -946,7 +946,7 @@
   },
   {
     "name": "Parrying Daggers",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -991,7 +991,7 @@
   },
   {
     "name": "Gladius",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -1036,7 +1036,7 @@
   },
   {
     "name": "Ichigeki",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -1081,7 +1081,7 @@
   },
   {
     "name": "Dancing Dagger",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -1126,7 +1126,7 @@
   },
   {
     "name": "Mythril Dagger",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -1171,7 +1171,7 @@
   },
   {
     "name": "Oborozuki",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -1216,7 +1216,7 @@
   },
   {
     "name": "Orichalcum",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -1261,7 +1261,7 @@
   },
   {
     "name": "Poison Fang",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -1306,7 +1306,7 @@
   },
   {
     "name": "Shark",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -1351,7 +1351,7 @@
   },
   {
     "name": "Shear Feather",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -1396,7 +1396,7 @@
   },
   {
     "name": "Swordbreaker",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -1441,7 +1441,7 @@
   },
   {
     "name": "Triton's Dagger",
-    "realm": "-",
+    "realm": null,
     "type": "Dagger",
     "rarity": "S",
     "stats": {
@@ -7651,7 +7651,7 @@
   },
   {
     "name": "Ancient Sword",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -7696,7 +7696,7 @@
   },
   {
     "name": "Apocalypse",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -7741,7 +7741,7 @@
   },
   {
     "name": "Avenger",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -7786,7 +7786,7 @@
   },
   {
     "name": "Betrayal Sword",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -7831,7 +7831,7 @@
   },
   {
     "name": "Demonsbane",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -7876,7 +7876,7 @@
   },
   {
     "name": "Double-Edge",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -7921,7 +7921,7 @@
   },
   {
     "name": "Excalibur",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -7966,7 +7966,7 @@
   },
   {
     "name": "Flame Sword",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -8011,7 +8011,7 @@
   },
   {
     "name": "Flametongue",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -8056,7 +8056,7 @@
   },
   {
     "name": "Gaia Blade",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -8101,7 +8101,7 @@
   },
   {
     "name": "Howling Soul",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -8146,7 +8146,7 @@
   },
   {
     "name": "Ice Brand",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -8191,7 +8191,7 @@
   },
   {
     "name": "Lustrous Sword",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -8236,7 +8236,7 @@
   },
   {
     "name": "Ragnarok",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -8281,7 +8281,7 @@
   },
   {
     "name": "Razor Carbine",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -8326,7 +8326,7 @@
   },
   {
     "name": "Soulrender",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -8371,7 +8371,7 @@
   },
   {
     "name": "Thunder Blade",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -8416,7 +8416,7 @@
   },
   {
     "name": "Wing Sword",
-    "realm": "-",
+    "realm": null,
     "type": "Sword",
     "rarity": "S",
     "stats": {
@@ -25291,7 +25291,7 @@
   },
   {
     "name": "Murakumo",
-    "realm": "-",
+    "realm": null,
     "type": "Katana",
     "rarity": "S",
     "stats": {
@@ -25336,7 +25336,7 @@
   },
   {
     "name": "Kazekiri",
-    "realm": "-",
+    "realm": null,
     "type": "Katana",
     "rarity": "S",
     "stats": {
@@ -25381,7 +25381,7 @@
   },
   {
     "name": "Kiku-ichimonji",
-    "realm": "-",
+    "realm": null,
     "type": "Katana",
     "rarity": "S",
     "stats": {
@@ -25426,7 +25426,7 @@
   },
   {
     "name": "Murasame",
-    "realm": "-",
+    "realm": null,
     "type": "Katana",
     "rarity": "S",
     "stats": {
@@ -25471,7 +25471,7 @@
   },
   {
     "name": "Riot Blade",
-    "realm": "-",
+    "realm": null,
     "type": "Katana",
     "rarity": "S",
     "stats": {
@@ -25516,7 +25516,7 @@
   },
   {
     "name": "Shimmering Blade",
-    "realm": "-",
+    "realm": null,
     "type": "Katana",
     "rarity": "S",
     "stats": {
@@ -25561,7 +25561,7 @@
   },
   {
     "name": "Spider's Kiss",
-    "realm": "-",
+    "realm": null,
     "type": "Katana",
     "rarity": "S",
     "stats": {
@@ -25606,7 +25606,7 @@
   },
   {
     "name": "Yagyu Darkblade",
-    "realm": "-",
+    "realm": null,
     "type": "Katana",
     "rarity": "S",
     "stats": {
@@ -29476,7 +29476,7 @@
   },
   {
     "name": "Demon Axe",
-    "realm": "-",
+    "realm": null,
     "type": "Axe",
     "rarity": "S",
     "stats": {
@@ -29521,7 +29521,7 @@
   },
   {
     "name": "Giant's Axe",
-    "realm": "-",
+    "realm": null,
     "type": "Axe",
     "rarity": "S",
     "stats": {
@@ -29566,7 +29566,7 @@
   },
   {
     "name": "Gigantaxe",
-    "realm": "-",
+    "realm": null,
     "type": "Axe",
     "rarity": "S",
     "stats": {
@@ -29611,7 +29611,7 @@
   },
   {
     "name": "Golden Axe",
-    "realm": "-",
+    "realm": null,
     "type": "Axe",
     "rarity": "S",
     "stats": {
@@ -29656,7 +29656,7 @@
   },
   {
     "name": "Hammerhead",
-    "realm": "-",
+    "realm": null,
     "type": "Axe",
     "rarity": "S",
     "stats": {
@@ -29701,7 +29701,7 @@
   },
   {
     "name": "Poison Axe",
-    "realm": "-",
+    "realm": null,
     "type": "Axe",
     "rarity": "S",
     "stats": {
@@ -29746,7 +29746,7 @@
   },
   {
     "name": "Rune Axe",
-    "realm": "-",
+    "realm": null,
     "type": "Axe",
     "rarity": "S",
     "stats": {
@@ -29791,7 +29791,7 @@
   },
   {
     "name": "Slasher",
-    "realm": "-",
+    "realm": null,
     "type": "Axe",
     "rarity": "S",
     "stats": {
@@ -29836,7 +29836,7 @@
   },
   {
     "name": "Viking Axe",
-    "realm": "-",
+    "realm": null,
     "type": "Axe",
     "rarity": "S",
     "stats": {
@@ -31951,7 +31951,7 @@
   },
   {
     "name": "Behemoth's Bone",
-    "realm": "-",
+    "realm": null,
     "type": "Hammer",
     "rarity": "S",
     "stats": {
@@ -31996,7 +31996,7 @@
   },
   {
     "name": "Blessed Hammer",
-    "realm": "-",
+    "realm": null,
     "type": "Hammer",
     "rarity": "S",
     "stats": {
@@ -32041,7 +32041,7 @@
   },
   {
     "name": "Gaia Hammer",
-    "realm": "-",
+    "realm": null,
     "type": "Hammer",
     "rarity": "S",
     "stats": {
@@ -32086,7 +32086,7 @@
   },
   {
     "name": "Mighty Hammer",
-    "realm": "-",
+    "realm": null,
     "type": "Hammer",
     "rarity": "S",
     "stats": {
@@ -32131,7 +32131,7 @@
   },
   {
     "name": "Scorpion Tail",
-    "realm": "-",
+    "realm": null,
     "type": "Hammer",
     "rarity": "S",
     "stats": {
@@ -32176,7 +32176,7 @@
   },
   {
     "name": "Six-fluted Pole",
-    "realm": "-",
+    "realm": null,
     "type": "Hammer",
     "rarity": "S",
     "stats": {
@@ -32221,7 +32221,7 @@
   },
   {
     "name": "Thor's Hammer",
-    "realm": "-",
+    "realm": null,
     "type": "Hammer",
     "rarity": "S",
     "stats": {
@@ -32266,7 +32266,7 @@
   },
   {
     "name": "Triton Hammer",
-    "realm": "-",
+    "realm": null,
     "type": "Hammer",
     "rarity": "S",
     "stats": {
@@ -34066,7 +34066,7 @@
   },
   {
     "name": "Blood Lance",
-    "realm": "-",
+    "realm": null,
     "type": "Spear",
     "rarity": "S",
     "stats": {
@@ -34111,7 +34111,7 @@
   },
   {
     "name": "Glaive",
-    "realm": "-",
+    "realm": null,
     "type": "Spear",
     "rarity": "S",
     "stats": {
@@ -34156,7 +34156,7 @@
   },
   {
     "name": "Holy Lance",
-    "realm": "-",
+    "realm": null,
     "type": "Spear",
     "rarity": "S",
     "stats": {
@@ -34201,7 +34201,7 @@
   },
   {
     "name": "Longinus",
-    "realm": "-",
+    "realm": null,
     "type": "Spear",
     "rarity": "S",
     "stats": {
@@ -34246,7 +34246,7 @@
   },
   {
     "name": "Partisan",
-    "realm": "-",
+    "realm": null,
     "type": "Spear",
     "rarity": "S",
     "stats": {
@@ -34291,7 +34291,7 @@
   },
   {
     "name": "Hunter's Spear",
-    "realm": "-",
+    "realm": null,
     "type": "Spear",
     "rarity": "S",
     "stats": {
@@ -34336,7 +34336,7 @@
   },
   {
     "name": "Trident",
-    "realm": "-",
+    "realm": null,
     "type": "Spear",
     "rarity": "S",
     "stats": {
@@ -34381,7 +34381,7 @@
   },
   {
     "name": "Wyvern Lance",
-    "realm": "-",
+    "realm": null,
     "type": "Spear",
     "rarity": "S",
     "stats": {
@@ -39826,7 +39826,7 @@
   },
   {
     "name": "Burning Fist",
-    "realm": "-",
+    "realm": null,
     "type": "Fist",
     "rarity": "S",
     "stats": {
@@ -39871,7 +39871,7 @@
   },
   {
     "name": "Coeurl Cesti",
-    "realm": "-",
+    "realm": null,
     "type": "Fist",
     "rarity": "S",
     "stats": {
@@ -39916,7 +39916,7 @@
   },
   {
     "name": "Dragon Claw",
-    "realm": "-",
+    "realm": null,
     "type": "Fist",
     "rarity": "S",
     "stats": {
@@ -39961,7 +39961,7 @@
   },
   {
     "name": "Dual Claw",
-    "realm": "-",
+    "realm": null,
     "type": "Fist",
     "rarity": "S",
     "stats": {
@@ -40006,7 +40006,7 @@
   },
   {
     "name": "Eye Poker",
-    "realm": "-",
+    "realm": null,
     "type": "Fist",
     "rarity": "S",
     "stats": {
@@ -40051,7 +40051,7 @@
   },
   {
     "name": "God's Hand",
-    "realm": "-",
+    "realm": null,
     "type": "Fist",
     "rarity": "S",
     "stats": {
@@ -40096,7 +40096,7 @@
   },
   {
     "name": "Metamorphosis Claws",
-    "realm": "-",
+    "realm": null,
     "type": "Fist",
     "rarity": "S",
     "stats": {
@@ -40141,7 +40141,7 @@
   },
   {
     "name": "Oversoul",
-    "realm": "-",
+    "realm": null,
     "type": "Fist",
     "rarity": "S",
     "stats": {
@@ -40186,7 +40186,7 @@
   },
   {
     "name": "Paladin",
-    "realm": "-",
+    "realm": null,
     "type": "Fist",
     "rarity": "S",
     "stats": {
@@ -40231,7 +40231,7 @@
   },
   {
     "name": "Tidal Knuckles",
-    "realm": "-",
+    "realm": null,
     "type": "Fist",
     "rarity": "S",
     "stats": {
@@ -47206,7 +47206,7 @@
   },
   {
     "name": "Bomb Core",
-    "realm": "-",
+    "realm": null,
     "type": "Rod",
     "rarity": "S",
     "stats": {
@@ -47251,7 +47251,7 @@
   },
   {
     "name": "Demon's Rod",
-    "realm": "-",
+    "realm": null,
     "type": "Rod",
     "rarity": "S",
     "stats": {
@@ -47296,7 +47296,7 @@
   },
   {
     "name": "Gaia Rod",
-    "realm": "-",
+    "realm": null,
     "type": "Rod",
     "rarity": "S",
     "stats": {
@@ -47341,7 +47341,7 @@
   },
   {
     "name": "Healing Rod",
-    "realm": "-",
+    "realm": null,
     "type": "Rod",
     "rarity": "S",
     "stats": {
@@ -47386,7 +47386,7 @@
   },
   {
     "name": "Holy Rod",
-    "realm": "-",
+    "realm": null,
     "type": "Rod",
     "rarity": "S",
     "stats": {
@@ -47431,7 +47431,7 @@
   },
   {
     "name": "Ice Rod",
-    "realm": "-",
+    "realm": null,
     "type": "Rod",
     "rarity": "S",
     "stats": {
@@ -47476,7 +47476,7 @@
   },
   {
     "name": "Poison Rod",
-    "realm": "-",
+    "realm": null,
     "type": "Rod",
     "rarity": "S",
     "stats": {
@@ -47521,7 +47521,7 @@
   },
   {
     "name": "Thunder Rod",
-    "realm": "-",
+    "realm": null,
     "type": "Rod",
     "rarity": "S",
     "stats": {
@@ -47566,7 +47566,7 @@
   },
   {
     "name": "Whale Whisker",
-    "realm": "-",
+    "realm": null,
     "type": "Rod",
     "rarity": "S",
     "stats": {
@@ -47611,7 +47611,7 @@
   },
   {
     "name": "Wind Rod",
-    "realm": "-",
+    "realm": null,
     "type": "Rod",
     "rarity": "S",
     "stats": {
@@ -57511,7 +57511,7 @@
   },
   {
     "name": "Bizarre Staff",
-    "realm": "-",
+    "realm": null,
     "type": "Staff",
     "rarity": "S",
     "stats": {
@@ -57556,7 +57556,7 @@
   },
   {
     "name": "Brightwing Staff",
-    "realm": "-",
+    "realm": null,
     "type": "Staff",
     "rarity": "S",
     "stats": {
@@ -57601,7 +57601,7 @@
   },
   {
     "name": "Empress Kharna",
-    "realm": "-",
+    "realm": null,
     "type": "Staff",
     "rarity": "S",
     "stats": {
@@ -57646,7 +57646,7 @@
   },
   {
     "name": "Flame Staff",
-    "realm": "-",
+    "realm": null,
     "type": "Staff",
     "rarity": "S",
     "stats": {
@@ -57691,7 +57691,7 @@
   },
   {
     "name": "Holy Wand",
-    "realm": "-",
+    "realm": null,
     "type": "Staff",
     "rarity": "S",
     "stats": {
@@ -57736,7 +57736,7 @@
   },
   {
     "name": "Ice Staff",
-    "realm": "-",
+    "realm": null,
     "type": "Staff",
     "rarity": "S",
     "stats": {
@@ -57781,7 +57781,7 @@
   },
   {
     "name": "Judgment Staff",
-    "realm": "-",
+    "realm": null,
     "type": "Staff",
     "rarity": "S",
     "stats": {
@@ -57826,7 +57826,7 @@
   },
   {
     "name": "Nirvana",
-    "realm": "-",
+    "realm": null,
     "type": "Staff",
     "rarity": "S",
     "stats": {
@@ -57871,7 +57871,7 @@
   },
   {
     "name": "Power Staff",
-    "realm": "-",
+    "realm": null,
     "type": "Staff",
     "rarity": "S",
     "stats": {
@@ -57916,7 +57916,7 @@
   },
   {
     "name": "Staff of Light",
-    "realm": "-",
+    "realm": null,
     "type": "Staff",
     "rarity": "S",
     "stats": {
@@ -64126,7 +64126,7 @@
   },
   {
     "name": "Artemis Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64171,7 +64171,7 @@
   },
   {
     "name": "Traitor's Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64216,7 +64216,7 @@
   },
   {
     "name": "Elven Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64261,7 +64261,7 @@
   },
   {
     "name": "Fairy's Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64306,7 +64306,7 @@
   },
   {
     "name": "Flame Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64351,7 +64351,7 @@
   },
   {
     "name": "Frost Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64396,7 +64396,7 @@
   },
   {
     "name": "Hunting Crossbow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64441,7 +64441,7 @@
   },
   {
     "name": "Ice Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64486,7 +64486,7 @@
   },
   {
     "name": "Thunder Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64531,7 +64531,7 @@
   },
   {
     "name": "Loxley Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64576,7 +64576,7 @@
   },
   {
     "name": "Perseus Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64621,7 +64621,7 @@
   },
   {
     "name": "Rune-Graven Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64666,7 +64666,7 @@
   },
   {
     "name": "Selene Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64711,7 +64711,7 @@
   },
   {
     "name": "Silver Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64756,7 +64756,7 @@
   },
   {
     "name": "Windslash Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -64801,7 +64801,7 @@
   },
   {
     "name": "Yoichi's Bow",
-    "realm": "-",
+    "realm": null,
     "type": "Bow",
     "rarity": "S",
     "stats": {
@@ -67816,7 +67816,7 @@
   },
   {
     "name": "Argentic Flute",
-    "realm": "-",
+    "realm": null,
     "type": "Instrument",
     "rarity": "S",
     "stats": {
@@ -67861,7 +67861,7 @@
   },
   {
     "name": "Faerie Harp",
-    "realm": "-",
+    "realm": null,
     "type": "Instrument",
     "rarity": "S",
     "stats": {
@@ -67906,7 +67906,7 @@
   },
   {
     "name": "Loki's Lute",
-    "realm": "-",
+    "realm": null,
     "type": "Instrument",
     "rarity": "S",
     "stats": {
@@ -67951,7 +67951,7 @@
   },
   {
     "name": "Madhura Harp",
-    "realm": "-",
+    "realm": null,
     "type": "Instrument",
     "rarity": "S",
     "stats": {
@@ -67996,7 +67996,7 @@
   },
   {
     "name": "Fallen Angel's Harp",
-    "realm": "-",
+    "realm": null,
     "type": "Instrument",
     "rarity": "S",
     "stats": {
@@ -68041,7 +68041,7 @@
   },
   {
     "name": "Siren's Flute",
-    "realm": "-",
+    "realm": null,
     "type": "Instrument",
     "rarity": "S",
     "stats": {
@@ -70426,7 +70426,7 @@
   },
   {
     "name": "Blitz Whip",
-    "realm": "-",
+    "realm": null,
     "type": "Whip",
     "rarity": "S",
     "stats": {
@@ -70471,7 +70471,7 @@
   },
   {
     "name": "Dragon Whisker",
-    "realm": "-",
+    "realm": null,
     "type": "Whip",
     "rarity": "S",
     "stats": {
@@ -70516,7 +70516,7 @@
   },
   {
     "name": "Earth Whip",
-    "realm": "-",
+    "realm": null,
     "type": "Whip",
     "rarity": "S",
     "stats": {
@@ -70561,7 +70561,7 @@
   },
   {
     "name": "Fire Lash",
-    "realm": "-",
+    "realm": null,
     "type": "Whip",
     "rarity": "S",
     "stats": {
@@ -70606,7 +70606,7 @@
   },
   {
     "name": "Ice Whip",
-    "realm": "-",
+    "realm": null,
     "type": "Whip",
     "rarity": "S",
     "stats": {
@@ -70651,7 +70651,7 @@
   },
   {
     "name": "Malboro Tentacle",
-    "realm": "-",
+    "realm": null,
     "type": "Whip",
     "rarity": "S",
     "stats": {
@@ -70696,7 +70696,7 @@
   },
   {
     "name": "Mystic Whip",
-    "realm": "-",
+    "realm": null,
     "type": "Whip",
     "rarity": "S",
     "stats": {
@@ -70741,7 +70741,7 @@
   },
   {
     "name": "Mythril Whipblade",
-    "realm": "-",
+    "realm": null,
     "type": "Whip",
     "rarity": "S",
     "stats": {
@@ -70786,7 +70786,7 @@
   },
   {
     "name": "Queen's Whip",
-    "realm": "-",
+    "realm": null,
     "type": "Whip",
     "rarity": "S",
     "stats": {
@@ -72406,7 +72406,7 @@
   },
   {
     "name": "Mystic Card",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72451,7 +72451,7 @@
   },
   {
     "name": "Cutlass",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72496,7 +72496,7 @@
   },
   {
     "name": "Death Tarot",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72541,7 +72541,7 @@
   },
   {
     "name": "Derringer",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72586,7 +72586,7 @@
   },
   {
     "name": "Draconic Deck",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72631,7 +72631,7 @@
   },
   {
     "name": "Eagletalon",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72676,7 +72676,7 @@
   },
   {
     "name": "Fuma Shuriken",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72721,7 +72721,7 @@
   },
   {
     "name": "Imperial Tarot",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72766,7 +72766,7 @@
   },
   {
     "name": "Lustrous Deck",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72811,7 +72811,7 @@
   },
   {
     "name": "Spiral Shuriken",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72856,7 +72856,7 @@
   },
   {
     "name": "Oritsuru",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72901,7 +72901,7 @@
   },
   {
     "name": "Pinwheel",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72946,7 +72946,7 @@
   },
   {
     "name": "Pinwheel",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -72991,7 +72991,7 @@
   },
   {
     "name": "Rising Sun",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -73036,7 +73036,7 @@
   },
   {
     "name": "Twin Viper",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -73081,7 +73081,7 @@
   },
   {
     "name": "Wind Slash",
-    "realm": "-",
+    "realm": null,
     "type": "Thrown",
     "rarity": "S",
     "stats": {
@@ -77896,7 +77896,7 @@
   },
   {
     "name": "Aldebarans",
-    "realm": "-",
+    "realm": null,
     "type": "Gun",
     "rarity": "S",
     "stats": {
@@ -77941,7 +77941,7 @@
   },
   {
     "name": "Altair",
-    "realm": "-",
+    "realm": null,
     "type": "Gun",
     "rarity": "S",
     "stats": {
@@ -77986,7 +77986,7 @@
   },
   {
     "name": "Arcturus",
-    "realm": "-",
+    "realm": null,
     "type": "Gun",
     "rarity": "S",
     "stats": {
@@ -78031,7 +78031,7 @@
   },
   {
     "name": "Betelgeuse",
-    "realm": "-",
+    "realm": null,
     "type": "Gun",
     "rarity": "S",
     "stats": {
@@ -78076,7 +78076,7 @@
   },
   {
     "name": "Cerberus (DoC)",
-    "realm": "-",
+    "realm": null,
     "type": "Gun",
     "rarity": "S",
     "stats": {
@@ -78121,7 +78121,7 @@
   },
   {
     "name": "Enhanced Bioblaster",
-    "realm": "-",
+    "realm": null,
     "type": "Gun",
     "rarity": "S",
     "stats": {
@@ -78166,7 +78166,7 @@
   },
   {
     "name": "Peacemaker",
-    "realm": "-",
+    "realm": null,
     "type": "Gun",
     "rarity": "S",
     "stats": {
@@ -78211,7 +78211,7 @@
   },
   {
     "name": "Combat Shotgun",
-    "realm": "-",
+    "realm": null,
     "type": "Gun",
     "rarity": "S",
     "stats": {
@@ -78256,7 +78256,7 @@
   },
   {
     "name": "Supershot ST",
-    "realm": "-",
+    "realm": null,
     "type": "Gun",
     "rarity": "S",
     "stats": {
@@ -78301,7 +78301,7 @@
   },
   {
     "name": "Tiny Bee",
-    "realm": "-",
+    "realm": null,
     "type": "Gun",
     "rarity": "S",
     "stats": {
@@ -82801,7 +82801,7 @@
   },
   {
     "name": "All-Rounder",
-    "realm": "-",
+    "realm": null,
     "type": "Blitzball",
     "rarity": "S",
     "stats": {
@@ -82846,7 +82846,7 @@
   },
   {
     "name": "Blitz King",
-    "realm": "-",
+    "realm": null,
     "type": "Blitzball",
     "rarity": "S",
     "stats": {
@@ -82891,7 +82891,7 @@
   },
   {
     "name": "Water Ball",
-    "realm": "-",
+    "realm": null,
     "type": "Blitzball",
     "rarity": "S",
     "stats": {
@@ -125551,7 +125551,7 @@
   },
   {
     "name": "Bolt Armlet",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -125596,7 +125596,7 @@
   },
   {
     "name": "Aurora Armlet",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -125641,7 +125641,7 @@
   },
   {
     "name": "Blaze Armlet",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -125686,7 +125686,7 @@
   },
   {
     "name": "Tornado Armlet",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -125731,7 +125731,7 @@
   },
   {
     "name": "Maelstrom Armlet",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -125776,7 +125776,7 @@
   },
   {
     "name": "Arctic Armlet",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -125821,7 +125821,7 @@
   },
   {
     "name": "Shadow Armlet",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -125866,7 +125866,7 @@
   },
   {
     "name": "Toxin Armlet",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -125911,7 +125911,7 @@
   },
   {
     "name": "Crag Armlet",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -125956,7 +125956,7 @@
   },
   {
     "name": "Sniper Soul",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -126001,7 +126001,7 @@
   },
   {
     "name": "Starfall Pendant",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -126046,7 +126046,7 @@
   },
   {
     "name": "Brawler's Bandana",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -126091,7 +126091,7 @@
   },
   {
     "name": "Book of Memories",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -126136,7 +126136,7 @@
   },
   {
     "name": "Strategy Guide",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 6,
     "stats": {
@@ -127081,7 +127081,7 @@
   },
   {
     "name": "Angel Brooch",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127126,7 +127126,7 @@
   },
   {
     "name": "Chaos Shard",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127171,7 +127171,7 @@
   },
   {
     "name": "Victory Pendant",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127216,7 +127216,7 @@
   },
   {
     "name": "Holiday Ornament",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127261,7 +127261,7 @@
   },
   {
     "name": "Snowglobe Pendant",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127306,7 +127306,7 @@
   },
   {
     "name": "War Gong",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127351,7 +127351,7 @@
   },
   {
     "name": "30th Anniversary Potion",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127396,7 +127396,7 @@
   },
   {
     "name": "Champion Belt",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127576,7 +127576,7 @@
   },
   {
     "name": "Almighty's Grace",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127621,7 +127621,7 @@
   },
   {
     "name": "Heavenstone Shard",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127666,7 +127666,7 @@
   },
   {
     "name": "Frostbolt Shard",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127711,7 +127711,7 @@
   },
   {
     "name": "Firewind Shard",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127756,7 +127756,7 @@
   },
   {
     "name": "Brinedeep Shard",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127801,7 +127801,7 @@
   },
   {
     "name": "Holiday Hat",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127846,7 +127846,7 @@
   },
   {
     "name": "Wreath",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127891,7 +127891,7 @@
   },
   {
     "name": "Hero's Seal",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127936,7 +127936,7 @@
   },
   {
     "name": "ZOZOTOWN T-shirt",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -127981,7 +127981,7 @@
   },
   {
     "name": "Title of Prestige",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
@@ -128026,7 +128026,7 @@
   },
   {
     "name": "Title of Alliance",
-    "realm": "-",
+    "realm": null,
     "type": "Accessory",
     "rarity": 5,
     "stats": {
