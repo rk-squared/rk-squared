@@ -17265,7 +17265,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (1.07 each), damages the user for 25/15/5% max HP scaling with uses",
+    "effects": "Five single attacks (1.07 each), damages the user for 25/15/5% max HP scaling with 0/1/2 uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

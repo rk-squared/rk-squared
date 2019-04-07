@@ -274,7 +274,7 @@ Array [
   },
   Object {
     "character": "Ashe",
-    "description": "(lgt dmg ⤇ 25% for m9.09/3 lgt+non, ally heal 1.5k HP)",
+    "description": "(lgt dmg ⤇ 25% for m9.09/3 l+n, ally heal 1.5k HP)",
     "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Lightning/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Lightning attack",
     "name": "Self Chosen Future",
   },
@@ -394,7 +394,7 @@ Array [
   },
   Object {
     "character": "Barret",
-    "description": "(Machinist ⤇ 35% for p2.17/7 fire+non rngd)",
+    "description": "(Machinist ⤇ 35% for p2.17/7 f+n rngd)",
     "effect": "35% chance to cast an ability (PHY: random, 7x 0.31 ranged physical Fire/NE) after using a Machinist ability",
     "name": "Vermin Exterminator",
   },
@@ -610,8 +610,8 @@ Array [
   },
   Object {
     "character": "Cecil (Paladin)",
-    "description": "?% dualcast W.Mag",
-    "effect": "?% chance to dualcast White Magic abilities",
+    "description": "25% dualcast W.Mag",
+    "effect": "25% chance to dualcast White Magic abilities",
     "name": "Possibility of Sacred Power",
   },
   Object {
@@ -820,7 +820,7 @@ Array [
   },
   Object {
     "character": "Cloud of Darkness",
-    "description": "(dark ⤇ 35% for AoE m4.4 dark)",
+    "description": "(dark ⤇ 35% for AoE m4.4 d)",
     "effect": "35% chance to cast an ability (BLK: group, 4.40 magical Dark) after using a Dark ability",
     "name": "Effusing Darkness",
   },
@@ -1107,6 +1107,12 @@ Array [
     "name": "Eblan's Legacy",
   },
   Object {
+    "character": "Edge",
+    "description": "(Ninja ⤇ ?% for p?/3 or m?/3 wa+f+l+n)",
+    "effect": "?% chance to cast an ability (PHY/NIN: single, 3x ? hybrid Water/Fire/Lightning/NE) after using a Ninja ability",
+    "name": "Brash Prince",
+  },
+  Object {
     "character": "Edward",
     "description": "1.15x Support dmg",
     "effect": "Support abilities deal 15% more damage",
@@ -1312,7 +1318,7 @@ Array [
   },
   Object {
     "character": "Fang",
-    "description": "(Dragoon ⤇ 35% for p2.16/4 wind+non rngd)",
+    "description": "(Dragoon ⤇ 35% for p2.16/4 wi+n rngd)",
     "effect": "35% chance to cast an ability (PHY: single, 4x 0.54 ranged physical Wind/NE) after using a Dragoon ability",
     "name": "Roar On High",
   },
@@ -1390,8 +1396,8 @@ Array [
   },
   Object {
     "character": "Firion",
-    "description": "?x PHY dmg",
-    "effect": "PHY attacks deal ?% more damage",
+    "description": "1.2x PHY dmg if using a sword",
+    "effect": "PHY attacks deal 20% more damage when equipping a sword",
     "name": "Rebel's Just Cause",
   },
   Object {
@@ -1432,7 +1438,7 @@ Array [
   },
   Object {
     "character": "Freya",
-    "description": "(Dragoon ⤇ 25% for p1.08/2 wind+non, refill 1 abil. use)",
+    "description": "(Dragoon ⤇ 25% for p1.08/2 wi+n, refill 1 abil. use)",
     "effect": "25% chance to cast an ability (PHY: single, 2x 0.54 physical Wind/NE, smart ether 1 to the user) after using a Dragoon ability",
     "name": "Devoted Dragoon",
   },
@@ -1900,7 +1906,7 @@ Array [
   },
   Object {
     "character": "Ingus",
-    "description": "(Knight ⤇ 25% for p1.26/3 earth+non, ally heal 1.5k HP)",
+    "description": "(Knight ⤇ 25% for p1.26/3 e+n, ally heal 1.5k HP)",
     "effect": "25% chance to cast an ability (PHY: single, 3x 0.42 physical Earth/NE, restores 1500 HP to an ally) after using a Knight ability",
     "name": "Silent Knight",
   },
@@ -2650,8 +2656,8 @@ Array [
   },
   Object {
     "character": "Meia",
-    "description": "?% dualcast water",
-    "effect": "?% chance to dualcast abilities that deal Water damage",
+    "description": "25% dualcast water",
+    "effect": "25% chance to dualcast abilities that deal Water damage",
     "name": "Liberation from Hatred",
   },
   Object {
@@ -3388,7 +3394,7 @@ Array [
   },
   Object {
     "character": "Rem",
-    "description": "(holy ⤇ 50% for w5.05 holy+fire+non)",
+    "description": "(holy ⤇ 50% for w5.05 h+f+n)",
     "effect": "50% chance to cast an ability (WHT: single, 5.05 magical Holy/Fire/NE) after using a Holy attack",
     "name": "Saint's Fire",
   },
@@ -4486,7 +4492,7 @@ Array [
   },
   Object {
     "character": "Vanille",
-    "description": "(W.Mag ⤇ 25% for w2.0 holy, AoE -20% DEF/RES)",
+    "description": "(W.Mag ⤇ 25% for w2.0 h, AoE -20% DEF/RES)",
     "effect": "25% chance to cast an ability (WHT: single, 2.00 magical Holy, DEF/RES -20%) after using a White Magic ability",
     "name": "Gentle Atonement",
   },
@@ -4587,6 +4593,12 @@ Array [
     "name": "Technical Control",
   },
   Object {
+    "character": "Wakka",
+    "description": "?% dualcast Sharpshooter",
+    "effect": "?% chance to dualcast Sharpshooter abilities",
+    "name": "Championship Victory",
+  },
+  Object {
     "character": "Warrior of Light",
     "description": "-10% holy dmg taken",
     "effect": "Reduces damage taken by Holy attacks by 10%",
@@ -4612,7 +4624,7 @@ Array [
   },
   Object {
     "character": "Warrior of Light",
-    "description": "(take dmg ⤇ 25% for p1.26/3 holy+non, ally heal 1.5k HP)",
+    "description": "(take dmg ⤇ 25% for p1.26/3 h+n, ally heal 1.5k HP)",
     "effect": "25% chance to cast an ability (PHY: single, 3x 0.42 physical Holy/NE, 1500 HP to an ally) after taking damage from an enemy",
     "name": "Steadfast Warrior",
   },
@@ -4846,7 +4858,7 @@ Array [
   },
   Object {
     "character": "Zack",
-    "description": "(Celerity ⤇ 50% for p1.08 wind)",
+    "description": "(Celerity ⤇ 50% for p1.08 wi)",
     "effect": "50% chance to cast an ability (PHY: single, 1.08 physical Wind) after using a Celerity ability",
     "name": "SOLDIER Follow-Up",
   },

@@ -16,7 +16,7 @@ import {
   appendElement,
   damageTypeAbbreviation,
   formatSchoolOrAbilityList,
-  getElementShortName,
+  getElementAbbreviation,
   getShortName,
 } from './types';
 import { andList, percentToMultiplier, toMrPKilo } from './util';
@@ -75,9 +75,10 @@ const simpleSkillHandlers: HandlerList = [
 
   // Attacks
   [
-    /^(PHY|BLK|WHT): (single|random|group), (?:(\d+)x )?([0-9\.]+) (ranged )?(physical|magical)(?: ([^,]+))?(, .*)?$/,
+    /^(PHY|BLK|WHT|PHY)(?:\/(NIN))?: (single|random|group), (?:(\d+)x )?([0-9\.]+|\?) (ranged )?(physical|magical|hybrid)(?: ([^,]+))?(, .*)?$/,
     ([
       type,
+      hybridType,
       attackType,
       numAttacks,
       attackMultiplier,
@@ -88,14 +89,26 @@ const simpleSkillHandlers: HandlerList = [
     ]) => {
       const damageType = describeDamageType(formula as EnlirFormula, type as EnlirSkillType);
 
+      let hybridDamage: string | undefined;
+      if (hybridType) {
+        const hybridDamageType = describeDamageType(
+          formula as EnlirFormula,
+          hybridType as EnlirSkillType,
+        );
+        hybridDamage =
+          damageTypeAbbreviation(hybridDamageType) +
+          describeDamage(parseFloat(attackMultiplier), numAttacks ? +numAttacks : 1);
+      }
+
+      const elementList = elements ? (elements.split(/\//) as EnlirElement[]) : [];
       let damage =
         (attackType === 'group' ? 'AoE ' : '') +
         damageTypeAbbreviation(damageType) +
         describeDamage(parseFloat(attackMultiplier), numAttacks ? +numAttacks : 1) +
-        appendElement(
-          elements ? (elements.split(/\//) as EnlirElement[]) : [],
-          getElementShortName,
-        );
+        (hybridDamage ? ' or ' + hybridDamage : '') +
+        // Use getElementAbbreviation to match soul break follow-ups.
+        // getElementShortName might be better for 1- or 2- element skills.
+        appendElement(elementList, getElementAbbreviation);
       damage += isRanged ? ' rngd' : '';
 
       const effects = !addedEffects

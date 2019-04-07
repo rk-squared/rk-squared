@@ -3100,18 +3100,18 @@
     "realm": "I",
     "character": "Meia",
     "name": "Megiddo Flood",
-    "type": "?",
+    "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 22.5,
     "element": [
       "Water",
       "NE"
     ],
-    "time": null,
-    "effects": "Fifteen single attacks (? each), grants Water Radiant Shield: 75% to all allies, grants Attach Water, Awoken Water and Damage Cap 19999 to the user",
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), grants Water Radiant Shield: 75% to all allies, grants Attach Water, Awoken Water and Damage Cap 19999 to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "AASB",
     "master": "MAG +10",
@@ -3449,20 +3449,20 @@
     "realm": "II",
     "character": "Firion",
     "name": "Ruler of Arms",
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 9,
     "element": [
       "Holy",
-      "Fire",
       "Ice",
+      "Fire",
       "NE"
     ],
-    "time": null,
-    "effects": "Fifteen single attacks (? each), grants Medium Buff Holy/Ice/Fire, Awoken Loyal Retainer, Damage Cap 19999 and Trinity Rush Follow-Up to the user",
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants Medium Buff Holy/Ice/Fire, Awoken Loyal Retainer, Damage Cap 19999 and Trinity Rush Follow-Up to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "AASB",
     "master": "ATK +10",
@@ -9071,6 +9071,99 @@
   },
   {
     "realm": "IV",
+    "character": "Edge",
+    "name": "Trinity Attack",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Water",
+      "Fire",
+      "Lightning",
+      "NE"
+    ],
+    "time": null,
+    "effects": "Fifteen single attacks (? each), grants Awoken Ninja, Damage Cap 19999, Ninja High Quick Cast and Eblan Way Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "Edge’s Guise (IV)",
+    "nameJp": "三位一体",
+    "id": 20980011,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Edge",
+    "name": "Eblan All Creation",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Water",
+      "Fire",
+      "Lightning"
+    ],
+    "time": null,
+    "effects": "Three single target attacks (? or ? each) capped at 99999",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 750,
+    "tier": "AOSB",
+    "master": "ATK +10",
+    "relic": "Fuma Shuriken (IV)",
+    "nameJp": "エブラーナ流・森羅万象",
+    "id": 20980012,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Edge",
+    "name": "Purple Lightning",
+    "type": "?",
+    "target": null,
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Weakness +30% Boost and High Quick Cast 2",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "ATK +10",
+    "relic": "Kagenui (IV)",
+    "nameJp": " 紫電一閃",
+    "id": 20980013,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Edge",
+    "name": "Chain of Water",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": null,
+    "effects": "Activates Water Chain (max 99, field +20%)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "tier": "CSB",
+    "master": null,
+    "relic": "Edge's Armguard (IV)",
+    "nameJp": "チェインオブウォータ",
+    "id": 20980014,
+    "gl": false
+  },
+  {
+    "realm": "IV",
     "character": "Fusoya",
     "name": "Bless",
     "type": "NAT",
@@ -10598,6 +10691,72 @@
     "nameJp": "潜海イミテーション",
     "id": 22730005,
     "gl": true
+  },
+  {
+    "realm": "V",
+    "character": "Gogo (V)",
+    "name": "Essence of Mimicry",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 2.5,
+    "effects": "Activates Water Chain (max 150, field +50%), MAG +50% for 25 seconds",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "tier": "CSB",
+    "master": "MAG +10",
+    "relic": "Mirage Morion (V)",
+    "nameJp": "極意伝道？",
+    "id": 22730006,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Gogo (V)",
+    "name": "Sunken Fantasista",
+    "type": "?",
+    "target": "?",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": null,
+    "effects": "Fifteen single attacks (? each), grants Attach Water, Awoken Water, Damage Cap 19999 and Dual Mimic Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 500,
+    "tier": "AASB",
+    "master": "MAG +10",
+    "relic": "Oceanic Rod (V)",
+    "nameJp": "海底ファンタジスタ",
+    "id": 22730007,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Gogo (V)",
+    "name": "Surprise of the Abyss",
+    "type": "?",
+    "target": null,
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Attach Water Stacking, Attach Water and Instant Cast 1 to the user",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "MAG +10",
+    "relic": "Mirage Rod (IV)",
+    "nameJp": "深淵サプライズ",
+    "id": 22730008,
+    "gl": false
   },
   {
     "realm": "V",
@@ -23513,7 +23672,7 @@
     "relic": "Golden Shield (IX)",
     "nameJp": "堅守の誓い",
     "id": 20570010,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -24040,7 +24199,7 @@
     "relic": "Angel Flute (IX)",
     "nameJp": "ソニックホーミング",
     "id": 20620008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -24061,7 +24220,7 @@
     "relic": "Gaia Gear (IX)",
     "nameJp": "エーコのおくのて",
     "id": 20620009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -24467,7 +24626,7 @@
     "relic": "Saint Bringer (IX)",
     "nameJp": "聖剣技ホーリーハザード",
     "id": 22050010,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -24488,7 +24647,7 @@
     "relic": "Diamond Gloves (IX)",
     "nameJp": "気高き聖騎士の心",
     "id": 22050011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -24700,7 +24859,7 @@
     "relic": "Millennium Rod (IX)",
     "nameJp": "プラネットレクイエム",
     "id": 22240009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -24723,7 +24882,7 @@
     "relic": "Misty Rod (IX)",
     "nameJp": "カオスラプソディ",
     "id": 22240010,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -24744,7 +24903,7 @@
     "relic": "Treno Hat (IX)",
     "nameJp": "ソウルチャージ",
     "id": 22240011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -25724,6 +25883,54 @@
     "nameJp": "デュアルバスター",
     "id": 20150008,
     "gl": true
+  },
+  {
+    "realm": "X",
+    "character": "Wakka",
+    "name": "Ace Lecture",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": null,
+    "effects": "Fifteen single ranged attacks (? each), causes ATK, DEF and MAG -?%, grants Attach Water, Awoken Sharpshooter, Damage Cap 19999 and Techcopied Volley Shot Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "Noisebreaker (X)",
+    "nameJp": "エースレクチャ",
+    "id": 20150009,
+    "gl": false
+  },
+  {
+    "realm": "X",
+    "character": "Wakka",
+    "name": "Center Attack",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (? each), causes Imperil Water ?%",
+    "counter": false,
+    "autoTarget": "?",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "ATK +10",
+    "relic": "Auroch Blitz (X)",
+    "nameJp": "センターアタック",
+    "id": 20150010,
+    "gl": false
   },
   {
     "realm": "X",
@@ -29962,7 +30169,7 @@
     "realm": "XII",
     "character": "Penelo",
     "name": "Concern for Friends",
-    "type": "?",
+    "type": "NAT",
     "target": "All allies",
     "formula": null,
     "multiplier": null,
@@ -29970,7 +30177,7 @@
     "time": 0.01,
     "effects": "Grants Protect, Shell and Haste",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "All allies",
     "points": 0,
     "tier": "Glint+",
     "master": "MND +10",

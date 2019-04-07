@@ -586,7 +586,7 @@
     "realm": "I",
     "character": "Meia",
     "name": "Liberation from Hatred",
-    "effect": "?% chance to dualcast abilities that deal Water damage",
+    "effect": "25% chance to dualcast abilities that deal Water damage",
     "master": "MAG +10",
     "relic": "Glam Vamp (I)",
     "nameJp": "憎悪からの解放",
@@ -685,7 +685,7 @@
     "realm": "II",
     "character": "Firion",
     "name": "Rebel's Just Cause",
-    "effect": "PHY attacks deal ?% more damage",
+    "effect": "PHY attacks deal 20% more damage when equipping a sword",
     "master": "ATK +10",
     "relic": "Mythril Spear (II)",
     "nameJp": "支配への義憤",
@@ -1663,7 +1663,7 @@
     "realm": "IV",
     "character": "Cecil (Paladin)",
     "name": "Possibility of Sacred Power",
-    "effect": "?% chance to dualcast White Magic abilities",
+    "effect": "25% chance to dualcast White Magic abilities",
     "master": "MND +10",
     "relic": "Platinum Armor (IV)",
     "nameJp": "聖なる力の可能性",
@@ -2065,6 +2065,17 @@
     "nameJp": "エブラーナの秘技",
     "id": 201041202,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Edge",
+    "name": "Brash Prince",
+    "effect": "?% chance to cast an ability (PHY/NIN: single, 3x ? hybrid Water/Fire/Lightning/NE) after using a Ninja ability",
+    "master": "ATK +10",
+    "relic": "Shuriken (IV)",
+    "nameJp": "破天荒な若様",
+    "id": 201041203,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -4968,7 +4979,7 @@
     "relic": "Gold Helm (IX)",
     "nameJp": "忠実な近衛騎士",
     "id": 201090403,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -5111,7 +5122,7 @@
     "relic": "Siren's Flute (IX)",
     "nameJp": "伝説の一族の末裔",
     "id": 201090703,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -5199,7 +5210,7 @@
     "relic": "Minerva's Plate (IX)",
     "nameJp": "美しき女将軍",
     "id": 201090903,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -5398,6 +5409,17 @@
     "nameJp": "テクニカルコントロール",
     "id": 201100302,
     "gl": true
+  },
+  {
+    "realm": "X",
+    "character": "Wakka",
+    "name": "Championship Victory",
+    "effect": "?% chance to dualcast Sharpshooter abilities",
+    "master": "ATK +10",
+    "relic": "Medical Armguard (X)",
+    "nameJp": "目標は優勝",
+    "id": 201100303,
+    "gl": false
   },
   {
     "realm": "X",

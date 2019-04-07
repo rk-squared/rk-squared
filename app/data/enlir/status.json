@@ -11240,6 +11240,28 @@
     "notes": null
   },
   {
+    "id": 50513,
+    "name": "Eblan Way Follow-Up",
+    "effects": "Casts Eblan Way after using a Ninja ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "UNPRECEDENTED_MODE",
+    "notes": null
+  },
+  {
+    "id": 50514,
+    "name": "Techcopied Volley Shot Follow-Up",
+    "effects": "Casts Techcopied Volley Shot after using two Sharpshooter abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ACE_LECTURE",
+    "notes": null
+  },
+  {
     "id": 50517,
     "name": "Awoken Scholar Critical Chance",
     "effects": "Grants Critical Chance =60/70/80/90/100% after using 1/2/3/4/5 Support abilities",
@@ -12170,6 +12192,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_PARAM_MULTI_CRITICAL_100_1",
+    "notes": null
+  },
+  {
+    "id": 633130,
+    "name": "",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_MATK_M70_WITH_DURATION_SMALL",
     "notes": null
   },
   {

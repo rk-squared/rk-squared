@@ -571,6 +571,9 @@ export function parseEnlirAttack(
     } else {
       damage = finisherPercentDamage + '% ' + criteria;
     }
+  } else if (isHybrid && numAttacksRange && numAttacksRange.length === 2) {
+    damage = describeDamage(attackMultiplier, numAttacksRange[0]);
+    hybridDamage = describeDamage(parseFloat(m.hybridAttackMultiplier), numAttacksRange[1]);
   } else if (numAttacksRange || m.altAttackMultiplier) {
     damage = describeThresholdDamage(
       numAttacks,
