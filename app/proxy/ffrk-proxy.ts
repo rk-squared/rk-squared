@@ -57,8 +57,8 @@ const handlers = [
 ];
 
 const ffrkRegex = /ffrk\.denagames\.com\/dff|dff\.sp\.mbga\.jp\/dff/;
-const port = 8888;
-const httpsPort = 8889;
+export const defaultPort = 8888;
+export const defaultHttpsPort = 8889;
 
 function isFfrkApiRequest(req: http.IncomingMessage) {
   return (
@@ -314,9 +314,20 @@ function showServerError(e: any, description: string, store: Store<IState>) {
   );
 }
 
-export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
+interface ProxyArgs {
+  userDataPath: string;
+  port?: number;
+  httpsPort?: number;
+}
+
+export function createFfrkProxy(
+  store: Store<IState>,
+  { userDataPath, port, httpsPort }: ProxyArgs,
+) {
   setStoragePath(userDataPath);
   store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
+  port = port || defaultPort;
+  httpsPort = httpsPort || defaultHttpsPort;
 
   // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {

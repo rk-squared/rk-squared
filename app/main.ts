@@ -1,11 +1,12 @@
 import { app, BrowserWindow, dialog, Menu, shell } from 'electron';
 import * as fsExtra from 'fs-extra';
 import * as path from 'path';
+import * as yargs from 'yargs';
 
 const { replayActionMain } = require('electron-redux');
 
 import { showDanger } from './actions/messages';
-import { createFfrkProxy } from './proxy/ffrk-proxy';
+import { createFfrkProxy, defaultHttpsPort, defaultPort } from './proxy/ffrk-proxy';
 import { createOrLoadCertificate } from './proxy/tls';
 import { configureStore, runSagas } from './store/configureStore.main';
 import { logger } from './utils/logger';
@@ -13,6 +14,18 @@ import { logger } from './utils/logger';
 import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
 
 const enableProdDevTools = false;
+
+const argv = yargs
+  .option('rk-proxy-port', {
+    default: defaultPort,
+    number: true,
+    description: 'Listen on this port for HTTP proxy traffic',
+  })
+  .option('rk-https-proxy-port', {
+    default: defaultHttpsPort,
+    number: true,
+    description: 'Listen on this port for HTTPS proxy traffic (for iOS)',
+  }).argv;
 
 /**
  * Hyperlinks that open in new windows instead open in a web browser.
@@ -349,7 +362,15 @@ app.on('ready', () =>
     const userDataPath = app.getPath('userData');
     fsExtra.ensureDirSync(userDataPath);
     createOrLoadCertificate(userDataPath, (error: string) => store.dispatch(showDanger(error)));
-    createFfrkProxy(store, userDataPath);
+    createFfrkProxy(store, {
+      userDataPath,
+      port:
+        argv['rk-proxy-port'] && !isNaN(argv['rk-proxy-port']) ? argv['rk-proxy-port'] : undefined,
+      httpsPort:
+        argv['rk-https-proxy-port'] && !isNaN(argv['rk-https-proxy-port'])
+          ? argv['rk-https-proxy-port']
+          : undefined,
+    });
   }),
 );
 
