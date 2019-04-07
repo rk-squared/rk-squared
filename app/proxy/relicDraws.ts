@@ -147,7 +147,9 @@ export function convertRelicDrawProbabilities(
     logger.error('Failed to find entry point ID for gacha/probability');
     return null;
   } else if (entryPointIds.length > 1) {
-    logger.warn(`Unexpected entry point IDs for gacha/probability: got ${entryPointIds.length}`);
+    logger.warn(
+      `Unexpected entry point IDs for gacha/probability: got ${entryPointIds.join(', ')}`,
+    );
   }
   const entryPointId = +entryPointIds[0];
   const { prob_by_rarity, equipments } = data[entryPointId];
@@ -181,7 +183,7 @@ const gachaHandler: Handler = {
     { query }: HandlerRequest,
   ) {
     if (!query || !query.series_id) {
-      logger.error('Unrecognized gacha/probability query');
+      logger.error(`Unrecognized gacha/probability query: got ${query}`);
       return;
     }
 
@@ -198,7 +200,7 @@ const gachaHandler: Handler = {
     { query }: HandlerRequest,
   ) {
     if (!query || !query.shop_id) {
-      logger.error('Unrecognized gacha/probability query');
+      logger.error(`Unrecognized exchange_shop/prize_list query: got ${query}`);
       return;
     }
     if (query.group_id) {

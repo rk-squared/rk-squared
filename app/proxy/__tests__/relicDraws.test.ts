@@ -6,6 +6,7 @@ import gachaHandler, {
 import * as _ from 'lodash';
 
 import configureStore from 'redux-mock-store';
+import * as url from 'url';
 
 import { InventoryType } from '../../actions/characters';
 import { RelicDrawBanner } from '../../actions/relicDraws';
@@ -128,6 +129,24 @@ describe('gacha proxy handler', () => {
           },
         },
       ]);
+    });
+  });
+
+  describe('exchange_shop/prize_list', () => {
+    it('converts Dream Selection lists', () => {
+      const data = require('./data/dream_select_prize_list.json');
+      const query = url.parse(data.url, true).query;
+      const store = mockStore();
+      gachaHandler['exchange_shop/prize_list'](data.data, store, { query });
+      expect(store.getActions()).toMatchSnapshot();
+    });
+
+    it('does nothing for a single Dream Selection group', () => {
+      const data = require('./data/dream_select_prize_list_group.json');
+      const query = url.parse(data.url, true).query;
+      const store = mockStore();
+      gachaHandler['exchange_shop/prize_list'](data.data, store, { query });
+      expect(store.getActions()).toEqual([]);
     });
   });
 });
