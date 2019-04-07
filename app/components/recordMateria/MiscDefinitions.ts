@@ -116,7 +116,7 @@ const statusTable: TableDefinition = {
     {
       header: 'Last Stand',
       items: {
-        3: [['Amarant', '3']],
+        3: [['Amarant', '3'], ['Cor', '3']],
       },
     },
     {

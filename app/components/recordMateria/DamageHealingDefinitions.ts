@@ -170,8 +170,8 @@ const abilityTable: TableDefinition = {
       header: 'Samurai',
       items: {
         '1_4': [['Auron', '3'], ['Jack', '3']],
-        '1_3': [['Cyan', '2']],
-        '1_15': [['Ayame', '1']],
+        '1_3': [['Cyan', '2'], ['Cor', '2']],
+        '1_15': [['Ayame', '1'], ['Cor', '1']],
         '13w': [['Auron', '2'], ['Jack', '2']],
       },
     },
