@@ -163,7 +163,7 @@ export function convertRelicDrawProbabilities(
 export function convertExchangeShopSelections(
   data: gachaSchemas.ExchangeShopPrizeList,
 ): number[][] {
-  return _.sortBy(data.exchange_shop.prizes, ['disp_order', 'id']).map(i =>
+  return _.sortBy(data.exchange_shop.prizes, ['group_id', 'disp_order', 'id']).map(i =>
     i.item_package.items.map(j => j.item_id),
   );
 }
@@ -199,6 +199,10 @@ const gachaHandler: Handler = {
   ) {
     if (!query || !query.shop_id) {
       logger.error('Unrecognized gacha/probability query');
+      return;
+    }
+    if (query.group_id) {
+      // Only seeing one group of the dream selection - skip processing
       return;
     }
 

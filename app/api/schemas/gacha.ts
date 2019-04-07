@@ -209,7 +209,7 @@ export interface Prize {
   disp_order: number;
   exchange_shop_id: number;
   image_path: string;
-  group_id: number;
+  group_id: number; // Used to group realms together within a Dream Select
   item_package: ItemPackage;
   id: number;
   required_num: number;
