@@ -18,6 +18,9 @@ const enableProdDevTools = false;
  * Hyperlinks that open in new windows instead open in a web browser.
  * See https://github.com/electron/electron/issues/1344#issuecomment-171516261
  * and our BrowserLink (target="_blank").
+ *
+ * As of April 2019, some messages sent to showMessages may also manually use
+ * target="_blank", relying on this behavior.
  */
 function enableBrowserLinks(webContents: Electron.WebContents) {
   webContents.on('new-window', (event, url) => {
@@ -84,7 +87,7 @@ app.on('ready', () =>
       process.env.NODE_ENV === 'development'
         ? `file://${__dirname}/../../app/app.html`
         : `file://${__dirname}/app.html`;
-    logger.info(`Loading ${mainUrl}`);
+    logger.debug(`Loading ${mainUrl}`);
     mainWindow.loadURL(mainUrl);
 
     mainWindow.webContents.on('did-finish-load', () => {

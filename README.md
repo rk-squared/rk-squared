@@ -6,18 +6,15 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 
 ## To Do
 
-1. React error boundaries
-   - And optionally a way to recover from corrupt state
-2. Responsive (e.g., nav bar collapses)
-3. Better handling of port in use
-4. Clean message if no relic draws available and if no soul break inventory is available
-5. Update Enlir data outside of releases
-6. Check for updates
-7. Soul break list - formatting, show random hits
-8. Stateless components
-9. Error reporting (Sentry?)
-10. Standardize React style - default export vs. named export, where to connect
-11. Rubies / ruby tracker
+1. Page titles
+2. Clean message if no relic draws available and if no soul break inventory is available
+3. Update Enlir data outside of releases
+4. Check for updates
+5. Soul break list - formatting, show random hits
+6. Stateless components
+7. Error reporting (Sentry?)
+8. Standardize React style - default export vs. named export, where to connect
+9. Rubies / ruby tracker
 
 ## Other Resources
 

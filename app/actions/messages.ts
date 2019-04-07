@@ -12,7 +12,7 @@ export type MessageColor =
 
 export interface Message {
   id?: string;
-  text: string;
+  text: string | { __html: string };
   color: MessageColor;
 }
 

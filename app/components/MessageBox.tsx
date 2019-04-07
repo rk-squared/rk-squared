@@ -20,7 +20,7 @@ export default class MessageBox extends React.Component<Props> {
             <span aria-hidden="true">&times;</span>
           </button>
         )}
-        {text}
+        {typeof text === 'string' ? text : <div dangerouslySetInnerHTML={text} />}
       </div>
     );
   }

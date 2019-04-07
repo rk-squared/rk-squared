@@ -13,9 +13,9 @@ import * as url from 'url';
 
 import { Store } from 'redux';
 
-const transformerProxy = require('transformer-proxy');
+import * as _ from 'lodash';
 
-import { decodeData, encodeData, getIpAddresses, getStoragePath, setStoragePath } from './util';
+const transformerProxy = require('transformer-proxy');
 
 import battle from './battle';
 import characters from './characters';
@@ -28,12 +28,14 @@ import recordMateria from './recordMateria';
 import relicDraws from './relicDraws';
 import { sessionHandler } from './session';
 
+import { showMessage } from '../actions/messages';
 import { updateLastTraffic, updateProxyStatus } from '../actions/proxy';
+import { issuesUrl } from '../data/resources';
 import { IState } from '../reducers';
-
-import * as _ from 'lodash';
 import { logger } from '../utils/logger';
+import { escapeHtml } from '../utils/textUtils';
 import { tlsCert, tlsSites } from './tls';
+import { decodeData, encodeData, getIpAddresses, getStoragePath, setStoragePath } from './util';
 
 interface ProxyIncomingMessage extends http.IncomingMessage {
   bodyStream: streamBuffers.WritableStreamBuffer | undefined;
@@ -288,6 +290,30 @@ function handleInternalRequests(
   return false;
 }
 
+function showServerError(e: any, description: string, store: Store<IState>) {
+  // Is it okay to treat *all* server errors as something to yell about?  E.g.,
+  // errors within proxy connections seem to be routine, but I've only seen
+  // server errors if something is already listening on the port.
+  logger.error('Error from ' + description);
+  logger.error(e);
+  store.dispatch(
+    showMessage({
+      text: {
+        __html:
+          `<p>Error from ${description}: ` +
+          escapeHtml(e.message) +
+          '</p>' +
+          "<p>Please check that you aren't running other network software that may interfere with RK&sup2;.</p>" +
+          '<p class="mb-0">If you continue to have trouble, please file an issue at the ' +
+          `<a href="${issuesUrl}" class="alert-link" target="_blank">RK² issues page</a>.` +
+          '</p>',
+      },
+      id: description,
+      color: 'danger',
+    }),
+  );
+}
+
 export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   setStoragePath(userDataPath);
   store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
@@ -373,10 +399,8 @@ export function createFfrkProxy(store: Store<IState>, userDataPath: string) {
   const server = http.createServer(app);
   const httpsServer = https.createServer(tlsCert, tlsApp);
 
-  server.on('error', e => {
-    logger.debug('Error within server');
-    logger.debug(e);
-  });
+  server.on('error', e => showServerError(e, 'proxy server', store));
+  httpsServer.on('error', e => showServerError(e, 'HTTPS proxy server', store));
 
   // Proxy (tunnel) HTTPS requests.  For more information:
   // https://nodejs.org/api/http.html#http_event_connect

@@ -10,3 +10,5 @@ export const misterPUrl = 'http://happypluto.com/~misterp/r/ffrk.pdf';
 export const misterPHelp = "Open MisterP's FFRK PDF in your browser.";
 
 export const redditUrl = 'https://www.reddit.com/r/FFRecordKeeper/';
+
+export const issuesUrl = 'https://github.com/rk-squared/rk-squared/issues';

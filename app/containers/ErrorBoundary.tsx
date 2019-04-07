@@ -3,6 +3,7 @@ import * as React from 'react';
 import { History } from 'history';
 
 import { BrowserLink } from '../components/common/BrowserLink';
+import { issuesUrl } from '../data/resources';
 
 interface Props {
   className?: string;
@@ -58,10 +59,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
           <p>We apologize for the trouble.</p>
           <p>
             Please go to the{' '}
-            <BrowserLink
-              href="https://github.com/rk-squared/rk-squared/issues"
-              className="alert-link"
-            >
+            <BrowserLink href={issuesUrl} className="alert-link">
               RK² issues page
             </BrowserLink>{' '}
             and provide information about what you were doing.
