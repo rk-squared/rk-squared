@@ -107,18 +107,18 @@
     "relic": null,
     "nameJp": "ガムシャラな情熱",
     "id": 201004300,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
     "character": "Biggs",
-    "name": "Last Resort",
+    "name": "Defiant Cry",
     "effect": "Grants Biggs Trance when HP fall below 20%",
     "master": null,
     "relic": null,
     "nameJp": "土壇場の気合",
     "id": 201004301,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -129,7 +129,7 @@
     "relic": "Biggs's Guise (Core)",
     "nameJp": "隠された戦士の誇り",
     "id": 201004302,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -145,24 +145,24 @@
   {
     "realm": "Core",
     "character": "Wedge",
-    "name": "Affection for Animals",
+    "name": "Animal Ally",
     "effect": "Increases Wind damage dealt by 10%",
     "master": null,
     "relic": null,
     "nameJp": "動物への愛情",
     "id": 201004400,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
     "character": "Wedge",
-    "name": "Smart Entertainer",
+    "name": "Quick Study",
     "effect": "35% chance to dualcast abilities that deal Wind damage",
     "master": null,
     "relic": null,
     "nameJp": "すばしっこい芸達者",
     "id": 201004401,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -173,7 +173,7 @@
     "relic": "Wedge's Hat (Core)",
     "nameJp": "秘めた愛らしさ",
     "id": 201004402,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -189,24 +189,24 @@
   {
     "realm": "Core",
     "character": "Dr. Mog",
-    "name": "Master's Preparation",
+    "name": "Hardened Resistance",
     "effect": "Reduces damage taken by BLK attacks by 10%",
     "master": null,
     "relic": null,
     "nameJp": "元祖魔攻への備え",
     "id": 201004500,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
     "character": "Dr. Mog",
-    "name": "Authority of Black Magic",
+    "name": "Master of Destruction",
     "effect": "35% chance to dualcast Black Magic or Summoning abilities",
     "master": null,
     "relic": null,
     "nameJp": "黒魔法の権威",
     "id": 201004501,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -217,7 +217,7 @@
     "relic": "Healing Staff (Core)",
     "nameJp": "白魔法の熟達者",
     "id": 201004502,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -2070,7 +2070,7 @@
     "realm": "IV",
     "character": "Edge",
     "name": "Brash Prince",
-    "effect": "?% chance to cast an ability (PHY/NIN: single, 3x ? hybrid Water/Fire/Lightning/NE) after using a Ninja ability",
+    "effect": "?% chance to cast an ability (PHY/NIN: single, 3x ? hybrid Water/Fire/Lightning/NE)  after using a Ninja ability",
     "master": "ATK +10",
     "relic": "Shuriken (IV)",
     "nameJp": "破天荒な若様",

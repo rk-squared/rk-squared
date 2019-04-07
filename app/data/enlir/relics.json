@@ -1527,7 +1527,7 @@
       "eva": null
     },
     "id": 21001154,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Sargatanas",
@@ -2787,7 +2787,7 @@
       "eva": null
     },
     "id": 21001155,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Behemoth Knife",
@@ -8547,7 +8547,7 @@
       "eva": null
     },
     "id": 21002453,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Erdrick's Sword",
@@ -12122,7 +12122,7 @@
     },
     "effect": "Holy damage +20%",
     "character": "Beatrix",
-    "soulBreak": "Seiken Holy Hazard",
+    "soulBreak": "Seiken Holy Hazzard",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -15477,7 +15477,7 @@
       "eva": null
     },
     "id": 21002454,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Augment Sword",
@@ -58002,7 +58002,7 @@
       "eva": null
     },
     "id": 21009141,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Lunar Fan",
@@ -60072,7 +60072,7 @@
       "eva": null
     },
     "id": 21009142,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Slime Fan",
@@ -89502,7 +89502,7 @@
       "eva": 105
     },
     "id": 22051170,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Wedge's Hat",
@@ -89547,7 +89547,7 @@
       "eva": 105
     },
     "id": 22051169,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Faerie Crown",
@@ -99672,7 +99672,7 @@
       "eva": 100
     },
     "id": 22053371,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Power Suit",

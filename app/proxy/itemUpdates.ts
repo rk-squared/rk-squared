@@ -159,6 +159,7 @@ function compareGlEntity<
   T1 extends { id: number; name: string },
   T2 extends { name: string; gl: boolean }
 >(
+  callback: (message: string) => void,
   item: T1,
   enlirItems: { [id: number]: T2 },
   description: string,
@@ -167,26 +168,28 @@ function compareGlEntity<
 ) {
   const enlirItem = enlirItems[item.id];
   if (!enlirItem) {
-    logger.info(`Item update: Unknown ${description} from ${source}: ${item.name} (ID ${item.id})`);
+    callback(`Item update: Unknown ${description} ID ${item.id}, ${item.name}, from ${source}`);
     return null;
   }
 
   if (!enlirItem.gl) {
-    logger.info(
-      `Item update: ${description} ${item.name} (ID ${item.id}) is now released in global`,
-    );
+    callback(`Item update: ${description} ID ${item.id}, ${item.name}, is now released in global`);
   }
   const trimmedName = trimRe ? item.name.replace(trimRe, '') : item.name.trimRight();
   if (enlirItem.name !== trimmedName) {
-    logger.info(
-      `Item update: ${description} ${item.name} (ID ${item.id}) ` +
+    callback(
+      `Item update: ${description} ID ${item.id}, ${item.name}, ` +
         `is named ${enlirItem.name} in Enlir`,
     );
   }
   return enlirItem;
 }
 
-function checkGlRelicDrawBannerItems(data: gachaSchemas.GachaShow, currentTime: number) {
+function checkGlRelicDrawBannerItems(
+  data: gachaSchemas.GachaShow,
+  currentTime: number,
+  callback: (message: string) => void,
+) {
   for (const i of data.series_list) {
     if (i.opened_at > currentTime / 1000) {
       continue;
@@ -198,15 +201,23 @@ function checkGlRelicDrawBannerItems(data: gachaSchemas.GachaShow, currentTime: 
       const { id, name, soul_strike, legend_materia } = equipment;
       const relicName = `relic ${name} (ID ${id})`;
 
-      const enlirRelic = compareGlEntity(equipment, enlir.relics, 'relic', relicName, / \(.*\) */);
+      const enlirRelic = compareGlEntity(
+        callback,
+        equipment,
+        enlir.relics,
+        'relic',
+        relicName,
+        / \(.*\) */,
+      );
       if (!enlirRelic) {
         continue;
       }
       if (soul_strike) {
-        compareGlEntity(soul_strike, enlir.soulBreaks, 'soul break', relicName);
+        compareGlEntity(callback, soul_strike, enlir.soulBreaks, 'soul break', relicName);
       }
       if (legend_materia) {
         compareGlEntity(
+          callback,
           legend_materia,
           enlir.legendMateria,
           'legend materia',
@@ -239,7 +250,13 @@ const itemUpdatesHandler: Handler = {
   'gacha/show'(data: gachaSchemas.GachaShow, store: Store<IState>, request: HandlerRequest) {
     if (getRequestLang(request) === LangType.Gl) {
       const currentTime = store.getState().timeState.currentTime;
-      checkGlRelicDrawBannerItems(data, currentTime);
+
+      const results: string[] = [];
+      const callback = (message: string) => results.push(message);
+
+      checkGlRelicDrawBannerItems(data, currentTime, callback);
+
+      results.sort().forEach(i => logger.info(i));
     }
   },
 };

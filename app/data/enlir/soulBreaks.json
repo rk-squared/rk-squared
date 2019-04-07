@@ -1236,7 +1236,7 @@
     "relic": "-",
     "nameJp": "オレ様流・デスペル斬",
     "id": 23310001,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1261,7 +1261,7 @@
     "relic": "Ancient Sword (Core)",
     "nameJp": "オレ様流・聖岩裂斬",
     "id": 23310002,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1285,7 +1285,7 @@
     "relic": "Coral Sword (Core)",
     "nameJp": "オレ様流・気合一閃",
     "id": 23310003,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1330,7 +1330,7 @@
     "relic": "-",
     "nameJp": "万能薬っス！",
     "id": 23320001,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1355,7 +1355,7 @@
     "relic": "Main Gauche (Core)",
     "nameJp": "トリックスター",
     "id": 23320002,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1379,7 +1379,7 @@
     "relic": "Ripper (Core)",
     "nameJp": "フェアリースター",
     "id": 23320003,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1452,7 +1452,7 @@
     "relic": "-",
     "nameJp": "テトラブレイク",
     "id": 23060038,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1479,7 +1479,7 @@
     "relic": "Mythril Staff (Core)",
     "nameJp": "テトラディザスター",
     "id": 23060036,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1500,7 +1500,7 @@
     "relic": "Scholar Hat (Core)",
     "nameJp": "歴史省秘技「鉄壁」",
     "id": 23060037,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -24608,7 +24608,7 @@
   {
     "realm": "IX",
     "character": "Beatrix",
-    "name": "Seiken Holy Hazard",
+    "name": "Seiken Holy Hazzard",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",

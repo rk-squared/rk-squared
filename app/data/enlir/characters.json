@@ -2895,7 +2895,7 @@
       "heavy": 5
     },
     "id": 10004300,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -3021,7 +3021,7 @@
       "heavy": null
     },
     "id": 10004400,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -3147,7 +3147,7 @@
       "heavy": null
     },
     "id": 10004500,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
