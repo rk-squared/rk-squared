@@ -9,7 +9,7 @@ export class DesktopHomePage extends React.Component {
 
   render() {
     return (
-      <Page title="RK Squared" footer={this.renderFooter}>
+      <Page title={Page.AppTitle} footer={this.renderFooter}>
         <DesktopHome />
       </Page>
     );

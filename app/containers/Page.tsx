@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
 
 import MessagesList from './MessagesList';
 
@@ -12,6 +13,8 @@ interface Props {
 }
 
 export class Page extends React.Component<Props> {
+  static AppTitle = 'RK Squared';
+
   ref: React.RefObject<HTMLDivElement>;
 
   constructor(props: Props) {
@@ -33,6 +36,14 @@ export class Page extends React.Component<Props> {
         ref={this.ref}
       >
         {title && <h2 className="row">{title}</h2>}
+        {title && (
+          <Helmet>
+            <title>
+              RK Squared
+              {title === Page.AppTitle ? '' : ' - ' + title}
+            </title>
+          </Helmet>
+        )}
         <div className={styles.content}>
           <MessagesList />
           {children}
