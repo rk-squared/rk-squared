@@ -73,6 +73,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         relics={sortRelics(_.keys(probabilities.byRelic).map(i => +i))}
         probabilities={probabilities}
         isAnonymous={isAnonymous}
+        allowCollapse={true}
       />
     );
   }
@@ -92,6 +93,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         relics={offBanner}
         probabilities={probabilities}
         isAnonymous={isAnonymous}
+        allowCollapse={true}
       />
     );
   }

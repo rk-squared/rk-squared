@@ -7,14 +7,35 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 ## To Do
 
 1. Page titles
-2. Clean message if no relic draws available and if no soul break inventory is available
-3. Update Enlir data outside of releases
-4. Check for updates
-5. Soul break list - formatting, show random hits
-6. Stateless components
-7. Error reporting (Sentry?)
-8. Standardize React style - default export vs. named export, where to connect
-9. Rubies / ruby tracker
+2. Disable static background option
+3. Proper menus, including an export option
+4. Better troubleshooting - see recent Reddit traffic
+5. Clean message if no relic draws available and if no soul break inventory is available
+6. Update Enlir data outside of releases
+7. Check for updates
+8. Soul break list - formatting, show random hits
+9. Stateless components
+10. Error reporting (Sentry?)
+11. Standardize React style - default export vs. named export, where to connect
+12. Rubies / ruby tracker
+
+## Troubleshooting
+
+For PC:
+
+1. Click the Start menu.
+2. Type "cmd", without the quotes, and press Enter.
+3. Type the following command, then press Enter: `"%LocalAppData%\Programs\rk-squared\RK Squared.exe"`
+4. Retry whatever operation was resulting in the error.
+5. Copy the log contents from your terminal window, and paste them into a private message to me.
+
+For Mac:
+
+1. Press Command-Space to bring up Spotlight Search.
+2. Type "terminal", and click on the Terminal application.
+3. Paste the following command into your terminal window and press Enter: `/Applications/RK\ Squared.app/Contents/MacOS/RK\ Squared`
+4. Retry whatever operation was resulting in the error.
+5. Copy the log contents from your terminal window, then paste it into a private message to me.
 
 ## Other Resources
 

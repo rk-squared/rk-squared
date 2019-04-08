@@ -11,6 +11,7 @@ import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 import { enlirRealmLongName } from '../../data/series';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
+import { pluralize } from '../../utils/textUtils';
 import { getAllSameValue } from '../../utils/typeUtils';
 import { RelicTypeIcon } from '../shared/RelicTypeIcon';
 import {
@@ -30,17 +31,35 @@ interface Props {
   title: string;
   relics: number[] | number[][];
   probabilities?: RelicDrawProbabilities;
-  isAnonymous?: boolean;
-  groupBySeries?: boolean;
   ownedSoulBreaks?: Set<number>;
   ownedLegendMateria?: Set<number>;
+
+  isAnonymous?: boolean;
+  groupBySeries?: boolean;
+  allowCollapse?: boolean;
+}
+
+interface State {
+  collapsed: boolean;
 }
 
 /**
  * A table of relics for a relic draw banner.
  */
-export class RelicDrawBannerTable extends React.Component<Props> {
+export class RelicDrawBannerTable extends React.Component<Props, State> {
   lastRealm: EnlirRealm | null = null;
+
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      collapsed: true,
+    };
+  }
+
+  toggleCollapsed = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    this.setState({ collapsed: !this.state.collapsed });
+  };
 
   renderAlias(sb?: EnlirSoulBreak, lm?: EnlirLegendMateria) {
     if (sb) {
@@ -125,8 +144,40 @@ export class RelicDrawBannerTable extends React.Component<Props> {
     );
   }
 
+  renderColumnHeaders(showProbability: boolean) {
+    return (
+      <tr>
+        <th>Character</th>
+        <th>Relic</th>
+        <th colSpan={2}>Soul Break / Materia</th>
+        <th>Effects</th>
+        {showProbability && <th>Probability</th>}
+      </tr>
+    );
+  }
+
+  renderShowHideLink() {
+    let caption: string;
+    if (this.state.collapsed) {
+      const relicCount = _.flatten(this.props.relics).length;
+      caption = `show all ${relicCount} ${pluralize(relicCount, 'relic')}`;
+    } else {
+      caption = 'hide';
+    }
+    return (
+      <span>
+        {' '}
+        (
+        <a href="#" onClick={this.toggleCollapsed}>
+          {caption}
+        </a>
+        )
+      </span>
+    );
+  }
+
   render() {
-    const { title, relics, probabilities } = this.props;
+    const { title, relics, probabilities, allowCollapse } = this.props;
 
     let showProbability: boolean;
     let commonProbability: number | null;
@@ -147,6 +198,7 @@ export class RelicDrawBannerTable extends React.Component<Props> {
       relicsArray = relicsArray.map(i => _.sortBy(i, j => -probabilities.byRelic[j]));
     }
 
+    const collapsed = allowCollapse && this.state.collapsed;
     const grouped = relicsArray.length > 1 && _.some(relicsArray, i => i.length > 1);
     this.lastRealm = null;
     return (
@@ -156,26 +208,22 @@ export class RelicDrawBannerTable extends React.Component<Props> {
             <tr className="thead-dark">
               <th colSpan={colCount}>
                 {title}
+                {allowCollapse && this.renderShowHideLink()}
                 {commonProbability && (
                   <span className="float-right">Chance of drawing: {commonProbability}% each</span>
                 )}
               </th>
             </tr>
-            <tr>
-              <th>Character</th>
-              <th>Relic</th>
-              <th colSpan={2}>Soul Break / Materia</th>
-              <th>Effects</th>
-              {showProbability && <th>Probability</th>}
-            </tr>
+            {!collapsed && this.renderColumnHeaders(showProbability)}
           </thead>
-          {relicsArray.map((theseRelics, i) => (
-            <tbody key={i}>
-              {theseRelics.map((relicId, j) =>
-                this.renderRow(relicId, j, showProbability, colCount),
-              )}
-            </tbody>
-          ))}
+          {!collapsed &&
+            relicsArray.map((theseRelics, i) => (
+              <tbody key={i}>
+                {theseRelics.map((relicId, j) =>
+                  this.renderRow(relicId, j, showProbability, colCount),
+                )}
+              </tbody>
+            ))}
         </table>
       </div>
     );

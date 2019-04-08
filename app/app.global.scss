@@ -14,6 +14,14 @@
 // for the first card, which doesn't look right if the first card is also the
 // last card.
 .accordion > .card:first-of-type:last-of-type {
-  border-bottom: 1px solid rgba(0,0,0,.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+}
+
+// Make links on dark table headers, as used by RelicDrawBannerTable, look
+// better.  A default blue link on a white background has a contrast ratio of
+// 3.97; this color is the result of lightening the default blue so that it
+// gives a contrast ratio of about 3.97 against a dark background.
+.table .thead-dark th a {
+  color: #3d9bff;
 }
