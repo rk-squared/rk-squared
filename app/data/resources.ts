@@ -11,4 +11,5 @@ export const misterPHelp = "Open MisterP's FFRK PDF in your browser.";
 
 export const redditUrl = 'https://www.reddit.com/r/FFRecordKeeper/';
 
+export const rkSquaredUrl = 'https://www.rk-squared.com/';
 export const issuesUrl = 'https://github.com/rk-squared/rk-squared/issues';

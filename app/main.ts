@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog, Menu, shell } from 'electron';
+import { app, BrowserWindow, dialog, Menu, MenuItemConstructorOptions, shell } from 'electron';
 import * as fsExtra from 'fs-extra';
 import * as path from 'path';
 import * as yargs from 'yargs';
@@ -6,14 +6,13 @@ import * as yargs from 'yargs';
 const { replayActionMain } = require('electron-redux');
 
 import { showDanger } from './actions/messages';
+import { rkSquaredUrl } from './data/resources';
 import { createFfrkProxy, defaultHttpsPort, defaultPort } from './proxy/ffrk-proxy';
 import { createOrLoadCertificate } from './proxy/tls';
 import { configureStore, runSagas } from './store/configureStore.main';
 import { logger } from './utils/logger';
 
-import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
-
-const enableProdDevTools = false;
+const enableDevTools = process.env.NODE_ENV === 'development';
 
 const argv = yargs
   .option('rk-proxy-port', {
@@ -73,7 +72,7 @@ runSagas();
 replayActionMain(store);
 
 const installExtensions = () => {
-  if (process.env.NODE_ENV === 'development' || enableProdDevTools) {
+  if (enableDevTools) {
     const installer = require('electron-devtools-installer'); // eslint-disable-line global-require
 
     const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
@@ -110,7 +109,7 @@ app.on('ready', () =>
 
     enableBrowserLinks(mainWindow.webContents);
 
-    if (process.env.NODE_ENV === 'development' || enableProdDevTools) {
+    if (enableDevTools) {
       mainWindow.webContents.openDevTools();
       mainWindow.webContents.on('context-menu', (e, props) => {
         const { x, y } = props;
@@ -126,238 +125,123 @@ app.on('ready', () =>
       });
     }
 
-    // FIXME: Remaining standard menus - see https://github.com/electron/electron/blob/master/docs/api/menu.md
+    // https://github.com/electron/electron/blob/master/docs/api/menu.md#main-process
+    const isMac = process.platform === 'darwin';
+    const template: MenuItemConstructorOptions[] = [
+      // { role: 'appMenu' }
+      ...(isMac
+        ? [
+            {
+              label: app.getName(),
+              submenu: [
+                { role: 'about' },
+                { type: 'separator' },
+                { role: 'services' },
+                { type: 'separator' },
+                { role: 'hide' },
+                { role: 'hideothers' },
+                { role: 'unhide' },
+                { type: 'separator' },
+                { role: 'quit' },
+              ] as MenuItemConstructorOptions[],
+            },
+          ]
+        : []),
+      // { role: 'fileMenu' }
+      {
+        label: 'File',
+        submenu: [isMac ? { role: 'close' } : { role: 'quit' }],
+      },
+      // { role: 'editMenu' }
+      {
+        label: 'Edit',
+        submenu: [
+          { role: 'undo' },
+          { role: 'redo' },
+          { type: 'separator' },
+          { role: 'cut' },
+          { role: 'copy' },
+          { role: 'paste' },
+          ...(isMac
+            ? ([
+                // { role: 'pasteAndMatchStyle' },
+                // { role: 'delete' },
+                { role: 'selectAll' },
+                { type: 'separator' },
+                {
+                  label: 'Speech',
+                  submenu: [{ role: 'startspeaking' }, { role: 'stopspeaking' }],
+                },
+              ] as MenuItemConstructorOptions[])
+            : ([
+                // { role: 'delete' },
+                { type: 'separator' },
+                { role: 'selectAll' },
+              ] as MenuItemConstructorOptions[])),
+        ],
+      },
+      // { role: 'viewMenu' }
+      {
+        label: 'View',
+        submenu: [
+          ...(enableDevTools
+            ? [
+                { role: 'reload' },
+                { role: 'forcereload' },
+                { role: 'toggledevtools' },
+                { type: 'separator' },
+              ]
+            : []),
+          // { role: 'resetzoom' },
+          // { role: 'zoomin' },
+          // { role: 'zoomout' },
+          // { type: 'separator' },
+          { role: 'togglefullscreen' },
+        ] as MenuItemConstructorOptions[],
+      },
+      // { role: 'windowMenu' }
+      {
+        label: 'Window',
+        submenu: [
+          { role: 'minimize' },
+          { role: 'zoom' },
+          ...(isMac
+            ? [
+                { type: 'separator' },
+                { role: 'front' },
+                // { type: 'separator' },
+                // { role: 'window' }
+              ]
+            : [
+                // { role: 'close' }
+              ]),
+        ] as MenuItemConstructorOptions[],
+      },
+      {
+        role: 'help',
+        submenu: [
+          {
+            label: 'Learn More',
+            click: () => shell.openExternal(rkSquaredUrl),
+          },
+          ...(isMac
+            ? []
+            : [
+                {
+                  label: 'About',
+                  click: () =>
+                    dialog.showMessageBox({
+                      title: 'RK Squared',
+                      message: `RK Squared version ${app.getVersion()}`,
+                    }),
+                },
+              ]),
+        ] as MenuItemConstructorOptions[],
+      },
+    ];
 
-    if (process.platform === 'darwin') {
-      const template: MenuItemConstructorOptions[] = [
-        {
-          label: 'RK Squared',
-          submenu: [
-            {
-              label: 'About RK Squared',
-              // selector: 'orderFrontStandardAboutPanel:'
-              click() {
-                dialog.showMessageBox({
-                  title: 'RK Squared',
-                  message: `RK Squared version ${app.getVersion()}`,
-                });
-              },
-            },
-            {
-              type: 'separator',
-            },
-            {
-              label: 'Services',
-              submenu: [],
-            },
-            {
-              type: 'separator',
-            },
-            {
-              label: 'Hide RK Squared',
-              accelerator: 'Command+H',
-              // selector: 'hide:'
-            },
-            {
-              label: 'Hide Others',
-              accelerator: 'Command+Shift+H',
-              // selector: 'hideOtherApplications:'
-            },
-            {
-              label: 'Show All',
-              // selector: 'unhideAllApplications:'
-            },
-            {
-              type: 'separator',
-            },
-            {
-              label: 'Quit',
-              accelerator: 'Command+Q',
-              click() {
-                quitApp();
-              },
-            },
-          ],
-        },
-        {
-          label: 'Edit',
-          submenu: [
-            { role: 'undo' },
-            { role: 'redo' },
-            { type: 'separator' },
-            { role: 'cut' },
-            { role: 'copy' },
-            { role: 'paste' },
-            { role: 'selectall' },
-          ],
-        },
-        {
-          label: 'View',
-          submenu:
-            process.env.NODE_ENV === 'development'
-              ? [
-                  {
-                    label: 'Reload',
-                    accelerator: 'Command+R',
-                    click() {
-                      mainWindow.webContents.reload();
-                    },
-                  },
-                  {
-                    label: 'Toggle Full Screen',
-                    accelerator: 'Ctrl+Command+F',
-                    click() {
-                      mainWindow.setFullScreen(!mainWindow.isFullScreen());
-                    },
-                  },
-                  {
-                    label: 'Toggle Developer Tools',
-                    accelerator: 'Alt+Command+I',
-                    click() {
-                      mainWindow.webContents.toggleDevTools();
-                    },
-                  },
-                ]
-              : [
-                  {
-                    label: 'Toggle Full Screen',
-                    accelerator: 'Ctrl+Command+F',
-                    click() {
-                      mainWindow.setFullScreen(!mainWindow.isFullScreen());
-                    },
-                  },
-                ],
-        },
-        {
-          label: 'Window',
-          submenu: [
-            { role: 'minimize' },
-            { role: 'close' },
-            { type: 'separator' },
-            { role: 'front' },
-          ],
-        },
-        {
-          label: 'Help',
-          submenu: [
-            {
-              label: 'Learn More',
-              click() {
-                shell.openExternal('http://electron.atom.io');
-              },
-            },
-            {
-              label: 'Documentation',
-              click() {
-                shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme');
-              },
-            },
-            {
-              label: 'Community Discussions',
-              click() {
-                shell.openExternal('https://discuss.atom.io/c/electron');
-              },
-            },
-            {
-              label: 'Search Issues',
-              click() {
-                shell.openExternal('https://github.com/atom/electron/issues');
-              },
-            },
-          ],
-        },
-      ];
-
-      const menu = Menu.buildFromTemplate(template);
-      Menu.setApplicationMenu(menu);
-    } else {
-      const template: MenuItemConstructorOptions[] = [
-        {
-          label: '&File',
-          submenu: [
-            {
-              label: '&Open',
-              accelerator: 'Ctrl+O',
-            },
-            {
-              label: '&Close',
-              accelerator: 'Ctrl+W',
-              click() {
-                mainWindow.close();
-              },
-            },
-          ],
-        },
-        {
-          label: '&View',
-          submenu:
-            process.env.NODE_ENV === 'development'
-              ? [
-                  {
-                    label: '&Reload',
-                    accelerator: 'Ctrl+R',
-                    click() {
-                      mainWindow.webContents.reload();
-                    },
-                  },
-                  {
-                    label: 'Toggle &Full Screen',
-                    accelerator: 'F11',
-                    click() {
-                      mainWindow.setFullScreen(!mainWindow.isFullScreen());
-                    },
-                  },
-                  {
-                    label: 'Toggle &Developer Tools',
-                    accelerator: 'Alt+Ctrl+I',
-                    click() {
-                      mainWindow.webContents.toggleDevTools();
-                    },
-                  },
-                ]
-              : [
-                  {
-                    label: 'Toggle &Full Screen',
-                    accelerator: 'F11',
-                    click() {
-                      mainWindow.setFullScreen(!mainWindow.isFullScreen());
-                    },
-                  },
-                ],
-        },
-        {
-          label: 'Help',
-          submenu: [
-            {
-              label: 'Learn More',
-              click() {
-                shell.openExternal('http://electron.atom.io');
-              },
-            },
-            {
-              label: 'Documentation',
-              click() {
-                shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme');
-              },
-            },
-            {
-              label: 'Community Discussions',
-              click() {
-                shell.openExternal('https://discuss.atom.io/c/electron');
-              },
-            },
-            {
-              label: 'Search Issues',
-              click() {
-                shell.openExternal('https://github.com/atom/electron/issues');
-              },
-            },
-          ],
-        },
-      ];
-      const menu = Menu.buildFromTemplate(template);
-      mainWindow.setMenu(menu);
-    }
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
 
     const userDataPath = app.getPath('userData');
     fsExtra.ensureDirSync(userDataPath);
