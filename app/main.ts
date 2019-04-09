@@ -9,7 +9,11 @@ import { showDanger } from './actions/messages';
 import { rkSquaredUrl } from './data/resources';
 import { createFfrkProxy, defaultHttpsPort, defaultPort } from './proxy/ffrk-proxy';
 import { createOrLoadCertificate } from './proxy/tls';
-import { exportSoulBreaksToCsv, exportStateToJson } from './selectors/exporters';
+import {
+  exportLegendMateriaToCsv,
+  exportSoulBreaksToCsv,
+  exportStateToJson,
+} from './selectors/exporters';
 import { configureStore, runSagas } from './store/configureStore.main';
 import { csvFilters, handleExport, jsonFilters } from './ui/export';
 import { logger } from './utils/logger';
@@ -167,7 +171,7 @@ app.on('ready', () =>
                 label: 'Legend Materia Inventory (CSV)...',
                 click: () =>
                   handleExport(mainWindow, 'Legend Materia', csvFilters, () =>
-                    exportStateToJson(store.getState()),
+                    exportLegendMateriaToCsv(store.getState()),
                   ),
               },
               { type: 'separator' },

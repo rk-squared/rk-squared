@@ -2,8 +2,9 @@ import * as _ from 'lodash';
 
 const createCsvStringifier = require('csv-writer').createObjectCsvStringifier;
 
-import { enlir, makeSoulBreakAliases } from '../data/enlir';
+import { enlir, makeLegendMateriaAliases, makeSoulBreakAliases } from '../data/enlir';
 import { describeEnlirSoulBreak, formatMrP } from '../data/mrP';
+import { describeMrPLegendMateria } from '../data/mrP/legendMateria';
 import { blacklist, IState } from '../reducers';
 
 // Although these act as selectors, do not use reselect.  The expected use case
@@ -27,7 +28,7 @@ export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: ISt
       { id: 'realm', title: 'Realm' },
       { id: 'name', title: 'Soul Break' },
       { id: 'id', title: 'ID' },
-      { id: 'tier', title: 'Tier' },
+      { id: 'alias', title: 'Tier' },
       { id: 'effects', title: 'Effects' },
     ],
   });
@@ -49,8 +50,54 @@ export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: ISt
           realm: sb.realm,
           name: sb.name,
           id: sb.id,
-          tier: aliases[sb.id],
+          alias: aliases[sb.id],
           effects: formatMrP(describeEnlirSoulBreak(sb)),
+        },
+      ]);
+    }
+  }
+
+  return result;
+}
+
+export function exportLegendMateriaToCsv({ characters: { legendMateria, vault } }: IState): string {
+  if (!legendMateria) {
+    return 'Legend materia have not been loaded.';
+  }
+
+  const allLegendMateria = new Set<number>([
+    ...legendMateria,
+    ...(vault ? vault.legendMateria || [] : []),
+  ]);
+  const aliases = makeLegendMateriaAliases(enlir.legendMateria);
+
+  const stringifier = createCsvStringifier({
+    header: [
+      { id: 'character', title: 'Character' },
+      { id: 'realm', title: 'Realm' },
+      { id: 'name', title: 'Legend Materia' },
+      { id: 'id', title: 'ID' },
+      { id: 'alias', title: 'LM/LMR' },
+      { id: 'effects', title: 'Effects' },
+    ],
+  });
+  let result = stringifier.getHeaderString();
+
+  for (const character of _.keys(enlir.charactersByName).sort()) {
+    if (!enlir.legendMateriaByCharacter[character]) {
+      continue;
+    }
+    for (const lm of _.reverse(
+      _.filter(enlir.legendMateriaByCharacter[character], i => allLegendMateria.has(i.id)),
+    )) {
+      result += stringifier.stringifyRecords([
+        {
+          character,
+          realm: lm.realm,
+          name: lm.name,
+          id: lm.id,
+          alias: aliases[lm.id],
+          effects: describeMrPLegendMateria(lm),
         },
       ]);
     }
