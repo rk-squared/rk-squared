@@ -1,5 +1,5 @@
 import { app, BrowserWindow, dialog, Menu, MenuItemConstructorOptions, shell } from 'electron';
-import * as fsExtra from 'fs-extra';
+import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as yargs from 'yargs';
 
@@ -9,7 +9,9 @@ import { showDanger } from './actions/messages';
 import { rkSquaredUrl } from './data/resources';
 import { createFfrkProxy, defaultHttpsPort, defaultPort } from './proxy/ffrk-proxy';
 import { createOrLoadCertificate } from './proxy/tls';
+import { exportSoulBreaksToCsv, exportStateToJson } from './selectors/exporters';
 import { configureStore, runSagas } from './store/configureStore.main';
+import { csvFilters, handleExport, jsonFilters } from './ui/export';
 import { logger } from './utils/logger';
 
 const enableDevTools = process.env.NODE_ENV === 'development';
@@ -150,7 +152,35 @@ app.on('ready', () =>
       // { role: 'fileMenu' }
       {
         label: 'File',
-        submenu: [isMac ? { role: 'close' } : { role: 'quit' }],
+        submenu: [
+          {
+            label: 'Export',
+            submenu: [
+              {
+                label: 'Soul Break Inventory (CSV)...',
+                click: () =>
+                  handleExport(mainWindow, 'Soul Breaks', csvFilters, () =>
+                    exportSoulBreaksToCsv(store.getState()),
+                  ),
+              },
+              {
+                label: 'Legend Materia Inventory (CSV)...',
+                click: () =>
+                  handleExport(mainWindow, 'Legend Materia', csvFilters, () =>
+                    exportStateToJson(store.getState()),
+                  ),
+              },
+              {
+                label: 'All Data (JSON)...',
+                click: () =>
+                  handleExport(mainWindow, 'rk-squared', jsonFilters, () =>
+                    exportStateToJson(store.getState()),
+                  ),
+              },
+            ],
+          },
+          isMac ? { role: 'close' } : { role: 'quit' },
+        ],
       },
       // { role: 'editMenu' }
       {
@@ -244,7 +274,7 @@ app.on('ready', () =>
     Menu.setApplicationMenu(menu);
 
     const userDataPath = app.getPath('userData');
-    fsExtra.ensureDirSync(userDataPath);
+    fs.ensureDirSync(userDataPath);
     createOrLoadCertificate(userDataPath, (error: string) => store.dispatch(showDanger(error)));
     createFfrkProxy(store, {
       userDataPath,
