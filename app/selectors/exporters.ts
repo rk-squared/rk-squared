@@ -1,5 +1,7 @@
 import * as _ from 'lodash';
 
+const createCsvStringifier = require('csv-writer').createObjectCsvStringifier;
+
 import { enlir, makeSoulBreakAliases } from '../data/enlir';
 import { describeEnlirSoulBreak, formatMrP } from '../data/mrP';
 import { blacklist, IState } from '../reducers';
@@ -19,7 +21,17 @@ export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: ISt
   const allSoulBreaks = new Set<number>([...soulBreaks, ...(vault ? vault.soulBreaks || [] : [])]);
   const aliases = makeSoulBreakAliases(enlir.soulBreaks);
 
-  let result = 'Character,Realm,Soul Break,ID,Tier,Effects\n';
+  const stringifier = createCsvStringifier({
+    header: [
+      { id: 'character', title: 'Character' },
+      { id: 'realm', title: 'Realm' },
+      { id: 'name', title: 'Soul Break' },
+      { id: 'id', title: 'ID' },
+      { id: 'tier', title: 'Tier' },
+      { id: 'effects', title: 'Effects' },
+    ],
+  });
+  let result = stringifier.getHeaderString();
 
   for (const character of _.keys(enlir.charactersByName).sort()) {
     if (!enlir.soulBreaksByCharacter[character]) {
@@ -31,15 +43,16 @@ export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: ISt
         i => i.tier !== 'RW' && i.tier !== 'Default' && allSoulBreaks.has(i.id),
       ),
     )) {
-      result +=
-        [
+      result += stringifier.stringifyRecords([
+        {
           character,
-          sb.realm,
-          sb.name,
-          sb.id,
-          aliases[sb.id],
-          formatMrP(describeEnlirSoulBreak(sb)),
-        ].join(',') + '\n';
+          realm: sb.realm,
+          name: sb.name,
+          id: sb.id,
+          tier: aliases[sb.id],
+          effects: formatMrP(describeEnlirSoulBreak(sb)),
+        },
+      ]);
     }
   }
 

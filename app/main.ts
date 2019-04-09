@@ -170,6 +170,7 @@ app.on('ready', () =>
                     exportStateToJson(store.getState()),
                   ),
               },
+              { type: 'separator' },
               {
                 label: 'All Data (JSON)...',
                 click: () =>
