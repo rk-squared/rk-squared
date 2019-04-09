@@ -6,19 +6,18 @@ You can download it from the [Releases page](https://github.com/rk-squared/rk-sq
 
 Current features:
 
-* Dungeon tracker - track dungeon completion status and unclaimed reward
-* Drop tracker - show what you'll get when you finish the current battle
-* Record Materia tracker - to help you see which RMs you have unlocked but not yet acquired, what you have to to do get the best RMs, and which RMs are cluttering up your inventory and should be stashed
-* Score tracker - view all your torment progress and magicite completion times on a single page to help you see where to focus next
-* Game options
-    * Always show timer
-    * Show static battle backgrounds
+- Dungeon tracker - track dungeon completion status and unclaimed reward
+- Drop tracker - show what you'll get when you finish the current battle
+- Record Materia tracker - to help you see which RMs you have unlocked but not yet acquired, what you have to to do get the best RMs, and which RMs are cluttering up your inventory and should be stashed
+- Score tracker - view all your torment progress and magicite completion times on a single page to help you see where to focus next
+- Game options
+  - Always show timer
 
 RK Squared runs as a proxy: It runs on your PC and Mac, and you configure your phone, tablet, or emulator to connect through it, so that it can track your game status.
 
 Both Android and iOS versions of FFRK are supported.
 
-Both the global and Japanese versions of FFRK are supported.  However, a running copy of RK Squared only supports a single FFRK profile, so trying to use one copy to track both GL and JP will cause confusion.
+Both the global and Japanese versions of FFRK are supported. However, a running copy of RK Squared only supports a single FFRK profile, so trying to use one copy to track both GL and JP will cause confusion.
 
 This repository acts as the issue tracker and releases page for RK Squared.
 

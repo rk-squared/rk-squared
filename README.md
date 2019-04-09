@@ -6,19 +6,18 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 
 ## To Do
 
-1. Disable static background option
-2. Proper menus, including an export option
-3. Better troubleshooting - see recent Reddit traffic
-4. Export of relic draw lists (see Reddit messages)
-5. Clean message if no relic draws available and if no soul break inventory is available
-6. Update Enlir data outside of releases
-7. Check for updates
-8. FFRK Toolkit Helper interop? (see Reddit messages)
-9. Soul break list - formatting, show random hits
-10. Stateless components
-11. Error reporting (Sentry?)
-12. Standardize React style - default export vs. named export, where to connect
-13. Rubies / ruby tracker
+1. Proper menus, including an export option
+2. Better troubleshooting - see recent Reddit traffic
+3. Export of relic draw lists (see Reddit messages)
+4. Clean message if no relic draws available and if no soul break inventory is available
+5. Update Enlir data outside of releases
+6. Check for updates
+7. FFRK Toolkit Helper interop? (see Reddit messages)
+8. Soul break list - formatting, show random hits
+9. Stateless components
+10. Error reporting (Sentry?)
+11. Standardize React style - default export vs. named export, where to connect
+12. Rubies / ruby tracker
 
 ## Troubleshooting
 

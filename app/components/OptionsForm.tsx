@@ -68,22 +68,6 @@ export class OptionsForm extends React.Component<Props> {
         </div>
 
         <div className="form-group">
-          <Checkbox id="staticBattleBackground" {...{ options, setOption }}>
-            Show static battle backgrounds
-          </Checkbox>
-          <HelpText>
-            <p>
-              Replaces all battle backgrounds with the Nightmare's plain, dark caverns. This may
-              help performance on older phones or tablets.
-            </p>
-            <p>
-              You may also want to enable &ldquo;Simplified Display&rdquo; in the in-game Config
-              menu to reduce animations and effects on game menus.
-            </p>
-          </HelpText>
-        </div>
-
-        <div className="form-group">
           <Checkbox id="saveTrafficCaptures" {...{ options, setOption }}>
             Save captured game traffic
           </Checkbox>

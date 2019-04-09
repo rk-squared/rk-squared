@@ -28,7 +28,7 @@ export const AppFeatures = () => (
       are tracked within each banner to help you visualize the chances of a good draw.
     </li>
     <li>
-      <strong>Game options</strong> - always show timer; how static battle backgrounds
+      <strong>Game options</strong> - always show timer
     </li>
   </ul>
 );

@@ -1,3 +1,8 @@
+# v2.1.0
+
+- Options
+  - Disable the static battle background options - It no longer works in current versions of FFRK. In practice, it was of little benefit; enemy special effects and soul break animations hurt performance worse.
+
 # v2.0.0
 
 - New feature: Soul Breaks

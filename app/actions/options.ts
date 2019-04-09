@@ -2,19 +2,28 @@ import { createAction } from 'typesafe-actions';
 
 export interface Options {
   alwaysShowTimer?: boolean;
-  staticBattleBackground?: boolean;
   saveTrafficCaptures?: boolean;
 
   // Obsolete options
+
+  /**
+   * Unreliable - as of April 2019, results in broken UI, and it's too hard to
+   * debug for too little gain.
+   */
+  staticBattleBackground?: boolean;
+
+  /**
+   * Newcomer Banners no longer exist.
+   */
   hideNewcomerBanners?: boolean;
 }
 
 export const defaultOptions: Options = {
   alwaysShowTimer: false,
-  staticBattleBackground: false,
   saveTrafficCaptures: false,
 
   // Obsolete options
+  staticBattleBackground: false,
   hideNewcomerBanners: false,
 };
 
