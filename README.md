@@ -6,18 +6,17 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 
 ## To Do
 
-1. Proper menus, including an export option
-2. Better troubleshooting - see recent Reddit traffic
-3. Export of relic draw lists (see Reddit messages)
-4. Clean message if no relic draws available and if no soul break inventory is available
-5. Update Enlir data outside of releases
-6. Check for updates
-7. FFRK Toolkit Helper interop? (see Reddit messages)
-8. Soul break list - formatting, show random hits
-9. Stateless components
-10. Error reporting (Sentry?)
-11. Standardize React style - default export vs. named export, where to connect
-12. Rubies / ruby tracker
+1. Better troubleshooting - see recent Reddit traffic
+2. Export of relic draw lists (see Reddit messages)
+3. Clean message if no relic draws available and if no soul break inventory is available
+4. Update Enlir data outside of releases
+5. Check for updates
+6. FFRK Toolkit Helper interop? (see Reddit messages)
+7. Soul break list - formatting, show random hits
+8. Stateless components
+9. Error reporting (Sentry?)
+10. Standardize React style - default export vs. named export, where to connect
+11. Rubies / ruby tracker
 
 ## Troubleshooting
 

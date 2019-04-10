@@ -1,12 +1,15 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
+import classNames from 'classnames';
+
 import MessagesList from './MessagesList';
 
 const styles = require('./Page.scss');
 
 interface Props {
   className?: string;
+  contentClassName?: string;
   title?: string;
   children: any;
   footer?: () => any;
@@ -29,12 +32,9 @@ export class Page extends React.Component<Props> {
   }
 
   render() {
-    const { className, title, children, footer } = this.props;
+    const { className, contentClassName, title, children, footer } = this.props;
     return (
-      <div
-        className={'container-fluid ' + styles.component + ' ' + (className || '')}
-        ref={this.ref}
-      >
+      <div className={classNames('container-fluid', styles.component, className)} ref={this.ref}>
         {title && <h2 className="row">{title}</h2>}
         {title && (
           <Helmet>
@@ -44,7 +44,7 @@ export class Page extends React.Component<Props> {
             </title>
           </Helmet>
         )}
-        <div className={styles.content}>
+        <div className={classNames(styles.content, contentClassName)}>
           <MessagesList />
           {children}
         </div>

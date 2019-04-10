@@ -9,7 +9,7 @@ const styles = require('./DungeonScoresPage.scss');
 export default class DungeonScoresPage extends React.Component {
   render() {
     return (
-      <Page title="Dungeon Scores" className={styles.component}>
+      <Page title="Dungeon Scores" contentClassName={styles.component}>
         <h4 className={styles.firstHeader}>Torments</h4>
         <TormentGrid />
 

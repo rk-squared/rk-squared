@@ -53,7 +53,7 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
   renderContents() {
     const { bannersAndGroups, missingBanners, currentTime, match } = this.props;
     const details = bannersAndGroups['undefined'];
-    if (!details) {
+    if (!details || !details.length) {
       return <BadRelicDrawMessage />;
     }
     const isAnonymous = !process.env.IS_ELECTRON;
