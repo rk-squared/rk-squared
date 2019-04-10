@@ -9,8 +9,8 @@ import { enlir } from './enlir';
 import { itemsById, ItemType } from './items';
 
 const baseUrl: BaseUrl = {
-  [LangType.Jp]: 'http://dff.sp.mbga.jp/dff/static/lang/',
-  [LangType.Gl]: 'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/',
+  [LangType.Jp]: 'https://dff.sp.mbga.jp/dff/static/lang/',
+  [LangType.Gl]: 'https://ffrk.denagames.com/dff/static/lang/ww/compile/en/',
 };
 
 export function url(lang: LangType, subPath: string): string {

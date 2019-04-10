@@ -46,19 +46,19 @@ describe('gacha proxy handler', () => {
         {
           groupName: 'group4',
           imageUrl:
-            'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/gacha_series/lineup_image/series_happy_805.png',
+            'https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/gacha_series/lineup_image/series_happy_805.png',
           sortOrder: 1903081700,
         },
         {
           groupName: 'archive',
           imageUrl:
-            'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/gacha_series/lineup_image/book_mission_gacha.png',
+            'https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/gacha_series/lineup_image/book_mission_gacha.png',
           sortOrder: -100,
         },
         {
           groupName: 'realmRelicDraws',
           imageUrl:
-            'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/gacha_series/lineup_image/series_687.png',
+            'https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/gacha_series/lineup_image/series_687.png',
           sortOrder: -99,
         },
       ]);

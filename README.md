@@ -12,11 +12,12 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 4. Update Enlir data outside of releases
 5. Check for updates
 6. FFRK Toolkit Helper interop? (see Reddit messages)
-7. Soul break list - formatting, show random hits
-8. Stateless components
-9. Error reporting (Sentry?)
-10. Standardize React style - default export vs. named export, where to connect
-11. Rubies / ruby tracker
+7. Show Dungeons expirations (see Reddit messages)
+8. Soul break list - formatting, show random hits
+9. Stateless components
+10. Error reporting (Sentry?)
+11. Standardize React style - default export vs. named export, where to connect
+12. Rubies / ruby tracker
 
 ## Troubleshooting
 

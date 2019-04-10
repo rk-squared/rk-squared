@@ -11,7 +11,7 @@ describe('battle proxy handler', () => {
       {
         amount: 1,
         imageUrl:
-          'http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/beast/161000071/161000071_112.png',
+          'https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/beast/161000071/161000071_112.png',
         itemId: 161000071,
         name: 'Ixion',
         rarity: 3,
