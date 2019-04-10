@@ -119,6 +119,31 @@ export const updateLegendMateriaExp = createAction('UPDATE_LEGEND_MATERIA_EXP', 
   payload: exp,
 }));
 
+/**
+ * Updates/sets total experience required for each soul break.  This is a fixed
+ * property of game data, rather than something that varies per profile, so we
+ * don't distinguish between vault and inventory or between setting and
+ * updating.
+ */
+export const setSoulBreakExpRequired = createAction(
+  'SET_SOUL_BREAK_EXP_REQUIRED',
+  (exp: ExpMap) => ({
+    type: 'SET_SOUL_BREAK_EXP_REQUIRED',
+    payload: exp,
+  }),
+);
+
+/**
+ * See setSoulBreakExpRequired.
+ */
+export const setLegendMateriaExpRequired = createAction(
+  'SET_LEGEND_MATERIA_EXP_REQUIRED',
+  (exp: ExpMap) => ({
+    type: 'SET_LEGEND_MATERIA_EXP_REQUIRED',
+    payload: exp,
+  }),
+);
+
 export type CharacterAction = ReturnType<
   | typeof setCharacter
   | typeof setCharacters
@@ -131,4 +156,6 @@ export type CharacterAction = ReturnType<
   | typeof setLegendMateriaExp
   | typeof updateSoulBreakExp
   | typeof updateLegendMateriaExp
+  | typeof setSoulBreakExpRequired
+  | typeof setLegendMateriaExpRequired
 >;

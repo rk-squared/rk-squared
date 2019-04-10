@@ -15,7 +15,9 @@ import {
   setCharacters,
   setLegendMateria,
   setLegendMateriaExp,
+  setLegendMateriaExpRequired,
   setSoulBreakExp,
+  setSoulBreakExpRequired,
   setSoulBreaks,
   updateCharacter,
   updateLegendMateriaExp,
@@ -82,6 +84,10 @@ function getExpMap(
   );
 }
 
+function getExpRequired<T extends { id: number; required_exp: number }>(items: T[]): ExpMap {
+  return _.fromPairs(items.map(i => [i.id, i.required_exp]));
+}
+
 const charactersHandler: Handler = {
   'party/list'(data: schemas.PartyList, store: Store<IState>, request: HandlerRequest) {
     if (schemas.isRecordDungeonPartyList(request.url)) {
@@ -106,6 +112,9 @@ const charactersHandler: Handler = {
 
     store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id)));
     store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id)));
+
+    store.dispatch(setSoulBreakExpRequired(getExpRequired(data.soul_strikes)));
+    store.dispatch(setLegendMateriaExpRequired(getExpRequired(data.legend_materias)));
   },
 
   'warehouse/get_equipment_list'(
@@ -114,6 +123,9 @@ const charactersHandler: Handler = {
   ) {
     store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id), InventoryType.VAULT));
     store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id), InventoryType.VAULT));
+
+    store.dispatch(setSoulBreakExpRequired(getExpRequired(data.soul_strikes)));
+    store.dispatch(setLegendMateriaExpRequired(getExpRequired(data.legend_materias)));
   },
 
   win_battle: handleWinBattle,

@@ -894,7 +894,12 @@ export function makeLegendMateriaAliases(
   return result;
 }
 
-export function getRequiredSoulBreakExp(id: number) {
+/**
+ * Gets estimated experience needed to master a soul break.  This is usually
+ * 10,000 experience for unique soul breaks and 30,000 experience for
+ * everything higher, but not always.
+ */
+export function getEstimatedRequiredSoulBreakExp(id: number) {
   if (enlir.soulBreaks[id] && enlir.soulBreaks[id].tier === 'SB') {
     return 10000;
   } else {

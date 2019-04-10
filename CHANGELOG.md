@@ -3,6 +3,8 @@
 - New feature: Export
   - You can now export your soul break inventory and legend materia inventory in CSV format.
   - Exporting all of RK Squared's state as JSON is also supported.
+- Soul Breaks
+  - Properly track required soul break experience for all soul breaks.
 - Options
   - Disable the static battle background options - It no longer works in current versions of FFRK. In practice, it was of little benefit; enemy special effects and soul break animations hurt performance worse.
 

@@ -12,7 +12,9 @@ import {
   setCharacters,
   setLegendMateria,
   setLegendMateriaExp,
+  setLegendMateriaExpRequired,
   setSoulBreakExp,
+  setSoulBreakExpRequired,
   setSoulBreaks,
   updateCharacter,
   updateLegendMateriaExp,
@@ -58,6 +60,9 @@ export interface CharacterState {
    * Experience towards master for each legend materia.  See soulBreakExp.
    */
   legendMateriaExp?: ExpMap;
+
+  soulBreakExpRequired?: ExpMap;
+  legendMateriaExpRequired?: ExpMap;
 }
 
 const initialState: CharacterState = {
@@ -160,6 +165,20 @@ export function characters(
           ...action.payload,
         };
         return;
+
+      case getType(setSoulBreakExpRequired):
+        draft.soulBreakExpRequired = {
+          ...(draft.soulBreakExpRequired || {}),
+          ...action.payload,
+        };
+        break;
+
+      case getType(setLegendMateriaExpRequired):
+        draft.legendMateriaExpRequired = {
+          ...(draft.legendMateriaExpRequired || {}),
+          ...action.payload,
+        };
+        break;
     }
   });
 }

@@ -8,7 +8,7 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 
 1. Better troubleshooting - see recent Reddit traffic
 2. Export of relic draw lists (see Reddit messages)
-3. Clean message if no relic draws available and if no soul break inventory is available
+3. Clean message if no soul break inventory is available
 4. Update Enlir data outside of releases
 5. Check for updates
 6. FFRK Toolkit Helper interop? (see Reddit messages)
