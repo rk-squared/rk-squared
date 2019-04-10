@@ -33,7 +33,7 @@ export function* doLoadBanners(action: ReturnType<typeof loadBanners>) {
   // FIXME: Throw an error if any of session is missing
   const lang = getLang(session);
 
-  yield put(setProgress(progressKey, { current: 0, max: allBannerIds.length + 1 }));
+  yield put(setProgress(progressKey, { current: 0, max: allBannerIds.length }));
 
   // Re-request the main endpoint, to pick up on things like just-opened fest
   // banners.
@@ -52,7 +52,7 @@ export function* doLoadBanners(action: ReturnType<typeof loadBanners>) {
   for (let i = 0; i < allBannerIds.length; i++) {
     const bannerId = allBannerIds[i];
 
-    yield put(setProgress(progressKey, { current: i + 1, max: allBannerIds.length + 1 }));
+    yield put(setProgress(progressKey, { current: i, max: allBannerIds.length }));
 
     logger.info(`Getting relic probabilities for banner ${bannerId}...`);
     const probabilitiesResult = yield callApi(
