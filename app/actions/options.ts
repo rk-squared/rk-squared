@@ -1,5 +1,9 @@
 import { createAction } from 'typesafe-actions';
 
+/**
+ * User options - explicitly chosen settings that affect the behavior of FFRK
+ * or of RK Squared
+ */
 export interface Options {
   alwaysShowTimer?: boolean;
   saveTrafficCaptures?: boolean;

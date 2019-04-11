@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as _ from 'lodash';
 
-import { enlir } from '../../data/enlir';
+import { enlir, EnlirSoulBreakOrLegendMateria } from '../../data/enlir';
 import { LegendMateriaListItem } from './LegendMateriaListItem';
 import { SoulBreakListItem } from './SoulBreakListItem';
 
@@ -12,9 +12,31 @@ interface Props {
   character: string;
   ownedSoulBreaks?: Set<number>;
   ownedLegendMateria?: Set<number>;
+  soulBreaksFilter?: (item: EnlirSoulBreakOrLegendMateria) => boolean;
+  legendMateriaFilter?: (item: EnlirSoulBreakOrLegendMateria) => boolean;
 }
 
 export class CharacterSoulBreaks extends React.PureComponent<Props> {
+  getSoulBreaks() {
+    const { character, soulBreaksFilter } = this.props;
+    const characterSoulBreaks = enlir.soulBreaksByCharacter[character].filter(
+      i => i.tier !== 'RW' && i.tier !== 'Default',
+    );
+    return _.reverse(
+      soulBreaksFilter ? characterSoulBreaks.filter(soulBreaksFilter) : characterSoulBreaks,
+    );
+  }
+
+  getLegendMateria() {
+    const { character, legendMateriaFilter } = this.props;
+    const characterLegendMateria = enlir.legendMateriaByCharacter[character] || [];
+    return _.reverse(
+      legendMateriaFilter
+        ? characterLegendMateria.filter(legendMateriaFilter)
+        : characterLegendMateria.slice(),
+    );
+  }
+
   render() {
     const { character, ownedSoulBreaks, ownedLegendMateria } = this.props;
     // Class name to use, indexed by the boolean value of whether we have this
@@ -23,10 +45,12 @@ export class CharacterSoulBreaks extends React.PureComponent<Props> {
     const ownedLM = [ownedLegendMateria ? styles.unowned : undefined, undefined];
 
     // TODO: Show default tier someplace, like MrP does?
-    const soulBreaks = _.reverse(
-      enlir.soulBreaksByCharacter[character].filter(i => i.tier !== 'RW' && i.tier !== 'Default'),
-    );
-    const legendMateria = _.reverse((enlir.legendMateriaByCharacter[character] || []).slice());
+
+    const soulBreaks = this.getSoulBreaks();
+    const legendMateria = this.getLegendMateria();
+    if (!soulBreaks.length && !legendMateria.length) {
+      return null;
+    }
 
     return (
       <div className={'card ' + styles.component}>

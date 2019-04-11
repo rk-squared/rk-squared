@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import * as _ from 'lodash';
 
+import { filterSoulBreaks, ShowSoulBreaksType } from '../../actions/prefs';
 import { enlir, isCoreJob } from '../../data/enlir';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
@@ -19,13 +20,22 @@ interface Props {
 
   ownedSoulBreaks?: Set<number>;
   ownedLegendMateria?: Set<number>;
+  showSoulBreaks?: ShowSoulBreaksType;
 
   isAnonymous?: boolean;
 }
 
 export class SoulBreakList extends React.Component<Props> {
   render() {
-    const { letterAnchor, isAnonymous, ownedSoulBreaks, ownedLegendMateria } = this.props;
+    const {
+      letterAnchor,
+      isAnonymous,
+      ownedSoulBreaks,
+      ownedLegendMateria,
+      showSoulBreaks,
+    } = this.props;
+    const soulBreaksFilter = filterSoulBreaks(showSoulBreaks, ownedSoulBreaks);
+    const legendMateriaFilter = filterSoulBreaks(showSoulBreaks, ownedLegendMateria);
     return (
       <>
         {alphabet.map(
@@ -39,6 +49,8 @@ export class SoulBreakList extends React.Component<Props> {
                       character={character.name}
                       ownedSoulBreaks={isAnonymous ? undefined : ownedSoulBreaks}
                       ownedLegendMateria={isAnonymous ? undefined : ownedLegendMateria}
+                      soulBreaksFilter={soulBreaksFilter}
+                      legendMateriaFilter={legendMateriaFilter}
                       key={j}
                     />
                   ))}
@@ -54,4 +66,5 @@ export class SoulBreakList extends React.Component<Props> {
 export default connect((state: IState) => ({
   ownedSoulBreaks: getOwnedSoulBreaks(state),
   ownedLegendMateria: getOwnedLegendMateria(state),
+  showSoulBreaks: state.prefs.showSoulBreaks,
 }))(SoulBreakList);

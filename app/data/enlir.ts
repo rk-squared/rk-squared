@@ -183,6 +183,11 @@ export interface EnlirGenericSkill {
   gl: boolean;
 }
 
+export interface EnlirSoulBreakOrLegendMateria {
+  id: number;
+  gl: boolean;
+}
+
 export interface EnlirAbility extends EnlirGenericSkill {
   rarity: number;
   sb: number;
