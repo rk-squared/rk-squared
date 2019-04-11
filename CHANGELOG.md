@@ -5,8 +5,11 @@
   - Exporting all of RK Squared's state as JSON is also supported.
 - Soul Breaks
   - Properly track required soul break experience for all soul breaks.
+- Record Materia
+  - Attack replacement materia now include details about their replacement skills
+  - Fix Dr. Mog RM3
 - Options
-  - Disable the static battle background options - It no longer works in current versions of FFRK. In practice, it was of little benefit; enemy special effects and soul break animations hurt performance worse.
+  - Disable the static battle background option - It no longer works in current versions of FFRK. In practice, it was of little benefit; enemy special effects and soul break animations hurt performance worse.
 
 # v2.0.0
 

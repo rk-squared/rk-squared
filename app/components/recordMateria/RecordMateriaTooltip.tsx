@@ -5,6 +5,8 @@ import { RecordMateriaDetail, RecordMateriaStatus } from '../../actions/recordMa
 import { LangType } from '../../api/apiUrls';
 import { LangContext } from '../../contexts/LangContext';
 import { enlir } from '../../data';
+import { EnlirRecordMateria } from '../../data/enlir';
+import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
 import * as urls from '../../data/urls';
 import { BrTextToP } from '../common/BrTextToP';
 import { StatusIcon } from './StatusIcon';
@@ -16,6 +18,19 @@ interface Props {
   recordMateria: { [id: number]: RecordMateriaDetail };
   isAnonymous?: boolean;
   descriptionOnly?: boolean;
+}
+
+function getEnlirRecordMateriaEffect(rm: EnlirRecordMateria): string {
+  const m = rm.effect.match(
+    /(?:\d+% chance to turn [Aa]ttack into|[Aa]ttack turns into|[Aa]ttack becomes) ((?:[A-Z][A-Za-z']+ )*[A-Z][A-Za-z']+)/,
+  );
+  if (m) {
+    const ability = enlir.abilitiesByName[m[1]];
+    if (ability) {
+      return rm.effect + ' (' + formatMrP(describeEnlirSoulBreak(ability)) + ')';
+    }
+  }
+  return rm.effect;
 }
 
 export class RecordMateriaTooltip extends React.Component<Props> {
@@ -54,7 +69,9 @@ export class RecordMateriaTooltip extends React.Component<Props> {
     const enlirRM = enlir.recordMateria[rm.id];
 
     const gameDescription = <BrTextToP text={rm.description} className={styles.gameDescription} />;
-    const enlirDescription = enlirRM && <p className={styles.enlirDescription}>{enlirRM.effect}</p>;
+    const enlirDescription = enlirRM && (
+      <p className={styles.enlirDescription}>{getEnlirRecordMateriaEffect(enlirRM)}</p>
+    );
 
     if (this.props.descriptionOnly) {
       return (
