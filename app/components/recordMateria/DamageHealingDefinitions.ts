@@ -375,7 +375,7 @@ const magicTable: TableDefinition = {
       header: 'BLK (always)',
       items: {
         '1_25': [['Rinoa', '3']],
-        '1_2': [['Dr. Mog', '2']],
+        '1_2': [['Dr. Mog', '3']],
         '1_15': [['Rinoa', '2']],
       },
     },
@@ -470,7 +470,7 @@ const magicTable: TableDefinition = {
       header: 'WHT Healing',
       items: {
         '1_3': [['Aria', '3'], ['Lenna', '3'], ['Minwu', '3']],
-        '1_2': [['Aemo', '2'], ['Aerith', '2'], ['Elarra', '2'], ['Minwu', '2'], ['Dr. Mog', '2']],
+        '1_2': [['Aemo', '2'], ['Aerith', '2'], ['Elarra', '2'], ['Minwu', '2'], ['Dr. Mog', '3']],
         '1_1': [
           ['Elarra', '1'],
           ['Lenna', '1'],
