@@ -22,6 +22,7 @@ export interface RelicDrawBannerDetails extends RelicDrawBanner {
 
 export interface RelicDrawGroupDetails extends RelicDrawGroup {
   bannerCount: number;
+  openedAt: number;
   closedAt: number;
   canPull: boolean;
   canSelect: boolean;
@@ -142,6 +143,7 @@ export const getBannersAndGroups = createSelector<
             return {
               ...g,
               bannerCount: groupBanners.length,
+              openedAt: _.min(groupBanners.map(i => i.openedAt))!,
               closedAt: _.max(groupBanners.map(i => i.closedAt))!,
               canPull: _.some(groupBanners, i => i.canPull),
               canSelect: _.some(groupBanners, i => i.canSelect),

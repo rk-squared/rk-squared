@@ -66,20 +66,26 @@ const RelicDrawGroupLink = ({
   details,
   to,
   isAnonymous,
+  currentTime,
 }: RelicLinkProps<RelicDrawGroupDetails>) => {
   const count = isAnonymous ? details.bannerCount : details.canPullOrSelectCount;
   const countText = isAnonymous ? '' : ' available';
   return (
-    <div>
+    <div className={styles.component}>
       <Link to={to}>
         <img className={styles.image} src={details.imageUrl} />
       </Link>
-      <div className={styles.details}>{count + ' ' + pluralize(count, 'banner') + countText}</div>
+      <div className={styles.details}>
+        <span className={styles.count}>{count + ' ' + pluralize(count, 'banner') + countText}</span>
+        {currentTime != null && (
+          <span className={styles.openedClosedAt}>{openedClosedAt(details, currentTime)}</span>
+        )}
+      </div>
     </div>
   );
 };
 
-function openedClosedAt(details: RelicDrawBannerDetails, currentTime: number) {
+function openedClosedAt(details: RelicDrawBannerOrGroup, currentTime: number) {
   const closed = isClosed(details, currentTime);
   if (!closed && details.closedAt >= FAR_FUTURE) {
     return null;
