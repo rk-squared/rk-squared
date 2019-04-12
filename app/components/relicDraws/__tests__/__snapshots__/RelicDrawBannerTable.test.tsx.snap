@@ -59,7 +59,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           <div
             className="relicEffect"
           >
-            Wind damage +20%
+            +wind dmg
           </div>
         </td>
         <td
@@ -166,7 +166,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           <div
             className="relicEffect"
           >
-            Earth damage +20%
+            +earth dmg
           </div>
         </td>
         <td
@@ -200,7 +200,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           <div
             className="relicEffect"
           >
-            Wind damage +20%
+            +wind dmg
           </div>
         </td>
         <td
@@ -234,7 +234,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           <div
             className="relicEffect"
           >
-            Fire damage +20%
+            +fire dmg
           </div>
         </td>
         <td
@@ -268,7 +268,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           <div
             className="relicEffect"
           >
-            Fire damage +20%
+            +fire dmg
           </div>
         </td>
         <td
@@ -811,7 +811,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           <div
             className="relicEffect"
           >
-            Fire damage +20%
+            +fire dmg
           </div>
         </td>
         <td
@@ -849,7 +849,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           <div
             className="relicEffect"
           >
-            Fire damage +20%
+            +fire dmg
           </div>
         </td>
         <td
@@ -887,7 +887,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           <div
             className="relicEffect"
           >
-            Wind damage +20%
+            +wind dmg
           </div>
         </td>
         <td
@@ -925,7 +925,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           <div
             className="relicEffect"
           >
-            Earth damage +20%
+            +earth dmg
           </div>
         </td>
         <td
@@ -1046,7 +1046,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           <div
             className="relicEffect"
           >
-            Wind damage +20%
+            +wind dmg
           </div>
         </td>
         <td
@@ -1124,7 +1124,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           <div
             className="relicEffect"
           >
-            Wind damage +20%
+            +wind dmg
           </div>
         </td>
         <td
@@ -1231,7 +1231,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           <div
             className="relicEffect"
           >
-            Earth damage +20%
+            +earth dmg
           </div>
         </td>
         <td
@@ -1265,7 +1265,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           <div
             className="relicEffect"
           >
-            Wind damage +20%
+            +wind dmg
           </div>
         </td>
         <td
@@ -1299,7 +1299,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           <div
             className="relicEffect"
           >
-            Fire damage +20%
+            +fire dmg
           </div>
         </td>
         <td
@@ -1333,7 +1333,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           <div
             className="relicEffect"
           >
-            Fire damage +20%
+            +fire dmg
           </div>
         </td>
         <td

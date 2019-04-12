@@ -8,6 +8,7 @@ import { RelicDrawProbabilities } from '../../actions/relicDraws';
 import { enlir, EnlirLegendMateria, EnlirRealm, EnlirSoulBreak } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
+import { describeRelicEffect } from '../../data/mrP/relics';
 import { enlirRealmLongName } from '../../data/series';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
@@ -95,7 +96,6 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       ? ownedLegendMateria && ownedLegendMateria.has(lm.id)
       : false;
     const mrP = sb ? describeEnlirSoulBreak(sb) : null;
-    // FIXME: abbreviate relic effects
 
     const commandColumns: Array<[string, string]> = [];
     if (mrP && mrP.braveCommands) {
@@ -120,7 +120,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
           <td rowSpan={rowSpan}>{character}</td>
           <td rowSpan={rowSpan}>
             <RelicTypeIcon type={type} className={styles.relicType} /> {name}
-            {effect && <div className={styles.relicEffect}>{effect}</div>}
+            {effect && <div className={styles.relicEffect}>{describeRelicEffect(effect)}</div>}
           </td>
           <td rowSpan={rowSpan} className={soulBreakStyles.tier}>
             {this.renderAlias(sb, lm)}
