@@ -8108,8 +8108,8 @@
   },
   {
     "id": 50204,
-    "name": "Sharpcast Firaga Follow-Up",
-    "effects": "Casts Sharpcast Firaga after using a Fire attack",
+    "name": "Intensifying Firaga Follow-Up",
+    "effects": "Casts Intensifying Firaga after using a Fire attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -8119,8 +8119,8 @@
   },
   {
     "id": 50205,
-    "name": "Sharpcast Firaga Counter",
-    "effects": "Keeps track of the uses of Sharpcast Firaga, removed if the user hasn't Sharpcast Firaga Follow-Up, reset upon refreshing Sharpcast Firaga Follow-Up",
+    "name": "Intensifying Firaga Counter",
+    "effects": "Keeps track of the uses of Intensifying Firaga, removed if the user hasn't Intensifying Firaga Follow-Up, reset upon refreshing Intensifying Firaga Follow-Up",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -8829,7 +8829,7 @@
   {
     "id": 50283,
     "name": "Lionheart 1",
-    "effects": "Critical chance =30%, cast speed x2.00, grants Lionheart 2 after using a Spellblade ability, removed if the user hasn't EX: Lionheart!",
+    "effects": "Critical chance =30%, cast speed x2.00, grants Lionheart 2 after using a Spellblade ability, removed if the user hasn't EX: Heart of the Lion",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -8842,7 +8842,7 @@
   {
     "id": 50284,
     "name": "Lionheart 2",
-    "effects": "Critical chance =50%, cast speed x2.50, grants Lionheart 3 after using a Spellblade ability, removed if the user hasn't EX: Lionheart!",
+    "effects": "Critical chance =50%, cast speed x2.50, grants Lionheart 3 after using a Spellblade ability, removed if the user hasn't EX: Heart of the Lion",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -8855,7 +8855,7 @@
   {
     "id": 50285,
     "name": "Lionheart 3",
-    "effects": "Critical chance =75%, cast speed x3.00, grants Lionheart 3 after using a Spellblade ability, removed if the user hasn't EX: Lionheart!",
+    "effects": "Critical chance =75%, cast speed x3.00, grants Lionheart 3 after using a Spellblade ability, removed if the user hasn't EX: Heart of the Lion",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9132,7 +9132,7 @@
   {
     "id": 50312,
     "name": "Lionheart 0",
-    "effects": "Grants Lionheart 1 after using a Spellblade ability, removed if the user hasn't EX: Lionheart!",
+    "effects": "Grants Lionheart 1 after using a Spellblade ability, removed if the user hasn't EX: Heart of the Lion",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9394,8 +9394,8 @@
   },
   {
     "id": 50339,
-    "name": "Chaos Impact Follow-Up",
-    "effects": "Casts Chaos Impact after using a Heavy ability",
+    "name": "Damage of Chaos Follow-Up",
+    "effects": "Casts Damage of Chaos after using a Heavy ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11262,6 +11262,17 @@
     "notes": null
   },
   {
+    "id": 50516,
+    "name": "Awoken Potion",
+    "effects": "White Magic abilities don't consume uses, casts speed x2.00-x3.00 for White Magic abilities at ability rank 1/2/3/4/5, casts Custom Potion after using a White Magic ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_POTION",
+    "notes": null
+  },
+  {
     "id": 50517,
     "name": "Awoken Scholar Critical Chance",
     "effects": "Grants Critical Chance =60/70/80/90/100% after using 1/2/3/4/5 Support abilities",
@@ -11270,6 +11281,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_CRITICAL_FOR_AWAKE_MODE_SCHOLAR",
+    "notes": null
+  },
+  {
+    "id": 50518,
+    "name": "Viera Shot Follow-Up",
+    "effects": "Casts Viera Shot after using two Ice attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_FLAN_AWAKE_WILD_DANCE",
     "notes": null
   },
   {
@@ -12196,9 +12218,9 @@
   },
   {
     "id": 633130,
-    "name": "",
-    "effects": null,
-    "defaultDuration": null,
+    "name": "ATK, DEF and MAG -70%",
+    "effects": "ATK, DEF and MAG -70% for 8 seconds",
+    "defaultDuration": 8,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,

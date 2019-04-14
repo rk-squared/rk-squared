@@ -171,6 +171,7 @@ interface EnlirRelicStats {
 export interface EnlirGenericSkill {
   name: string;
   type: EnlirSkillType | null;
+  typeDetails?: EnlirSkillType[];
   target: string;
   formula: EnlirFormula | null;
   multiplier: number | null;
@@ -203,6 +204,7 @@ export interface EnlirBraveCommand extends EnlirGenericSkill {
   source: string;
   brave: 0 | 1 | 2 | 3;
   school: EnlirSchool;
+  schoolDetails?: EnlirSchool[];
   sb: number;
   braveCondition: Array<EnlirElement | EnlirSchool>;
   nameJp: string;
@@ -213,6 +215,7 @@ export interface EnlirBurstCommand extends EnlirGenericSkill {
   source: string;
   sb: number;
   school: EnlirSchool;
+  schoolDetails?: EnlirSchool[];
   nameJp: string;
 }
 
@@ -254,6 +257,7 @@ export interface EnlirOtherSkill extends EnlirGenericSkill {
   source: string;
   sb: number;
   school: EnlirSchool;
+  schoolDetails?: EnlirSchool[];
 }
 
 export interface EnlirRecordMateria {

@@ -69,6 +69,7 @@ export interface ParsedEnlirAttack {
    */
   hybridDamage?: string;
   hybridDamageType?: MrPDamageType;
+  hybridIsPiercing?: boolean;
 
   additionalDamage?: number[];
   additionalDamageType?: string;
@@ -350,18 +351,24 @@ export function describeDamageType(
 }
 
 function describeHybridDamageType(skill: EnlirSkill): MrPDamageType | undefined {
-  // HACK: The spreadsheet doesn't record whether it's a physical/magical
-  // hybrid or a physical/white hybrid.  I'm not even positive that Cecil's
-  // soul break is physical/white instead of physical/magical.  But, since
-  // Cecil's soul breaks are the only skills affected by this, we'll hard-code
-  // it.
   if (skill.formula !== 'Hybrid') {
     return undefined;
-  } else if ('character' in skill && skill.character === 'Cecil (Paladin)') {
-    return 'white';
+  } else if (skill.typeDetails && skill.typeDetails.length === 2) {
+    return describeDamageType('Magical', skill.typeDetails[1]);
   } else {
+    // Fall back to magical.
+    // logger.warn(`Missing type details for hybrid skill ${skill.name}`);
     return 'magic';
   }
+}
+
+function isHybridPiercing(skill: EnlirSkill): boolean {
+  return (
+    skill.formula === 'Hybrid' &&
+    skill.typeDetails != null &&
+    skill.typeDetails.length === 2 &&
+    skill.typeDetails[1] === 'NIN'
+  );
 }
 
 function describeAdditionalCritType(
@@ -733,6 +740,7 @@ export function parseEnlirAttack(
 
     hybridDamage,
     hybridDamageType: describeHybridDamageType(skill),
+    hybridIsPiercing: isHybridPiercing(skill),
 
     additionalDamage,
     additionalDamageType: additionalDamage

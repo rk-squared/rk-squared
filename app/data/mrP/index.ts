@@ -209,6 +209,7 @@ function describeEnlirAttack(
   if (attack.hybridDamageType) {
     damage += ' or ';
     damage += formatDamageType(attack.hybridDamageType, abbreviate);
+    damage += attack.hybridIsPiercing ? '^' : '';
     damage += attack.hybridDamage;
   }
 

@@ -16615,7 +16615,7 @@
     ],
     "time": 1.65,
     "effects": "Four single ranged attacks (0.85 each), 50% chance to cause Imperil Lightning 10% for 15 seconds",
-    "counter": false,
+    "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
     "uses": 2,

@@ -230,6 +230,7 @@ describe('mrP', () => {
           { damage: 'p2.52/4 f+n', other: undefined, school: 'Combat' },
         ],
       });
+      // See also Edge's AASB.
     });
 
     it('converts random attacks', () => {
@@ -2237,6 +2238,14 @@ Object {
           'fire infuse 25s, self dmg cap=19,999 15s, ' +
           '25s: Trance: +30% MAG, 50% dualcast B.Mag, ' +
           '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Edge - Trinity Attack')).toEqual({
+        damage: 'p9.0/15 or m^3337.5/15 water+fire+lgt+non',
+        other:
+          'self dmg cap=19,999 15s, Ninja hi fastcast 15s, ' +
+          '15s: (Ninja ⤇ p1.76/4 or m^44.0/2 wa+f+l+n Ninja, +10% water/fire/lgt dmg 15s), ' +
+          '15s: Awoken Ninja: Ninja inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
     });
 

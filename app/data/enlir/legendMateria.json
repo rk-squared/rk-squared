@@ -113,7 +113,7 @@
     "realm": "Core",
     "character": "Biggs",
     "name": "Defiant Cry",
-    "effect": "Grants Biggs Trance when HP fall below 20%",
+    "effect": "Grants Last Stand and Biggs Trance when HP fall below 20%",
     "master": null,
     "relic": null,
     "nameJp": "土壇場の気合",
@@ -349,7 +349,7 @@
     "relic": "Demon Shield (I)",
     "nameJp": "溢れる戦闘欲",
     "id": 201010204,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -2070,7 +2070,7 @@
     "realm": "IV",
     "character": "Edge",
     "name": "Brash Prince",
-    "effect": "?% chance to cast an ability (PHY/NIN: single, 3x ? hybrid Water/Fire/Lightning/NE)  after using a Ninja ability",
+    "effect": "25% chance to cast Brash Prince after using a Ninja ability",
     "master": "ATK +10",
     "relic": "Shuriken (IV)",
     "nameJp": "破天荒な若様",
@@ -2141,7 +2141,7 @@
     "relic": "Earthbreaker (IV)",
     "nameJp": "暗黒の魔道士",
     "id": 201041403,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -3945,7 +3945,7 @@
     "relic": "Genji Armor (VII)",
     "nameJp": "凶変の英雄",
     "id": 201071003,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -4764,13 +4764,13 @@
   {
     "realm": "VIII",
     "character": "Ultimecia",
-    "name": "Existance Denied",
+    "name": "Existence Denied",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Judgment Staff (VIII)",
     "nameJp": "すべての存在の否定",
     "id": 201082003,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -6248,6 +6248,28 @@
   },
   {
     "realm": "XII",
+    "character": "Fran",
+    "name": "Cool Copilot",
+    "effect": "Grants Attach Ice at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Jade Gown (XII)",
+    "nameJp": "クールな副操縦士 ",
+    "id": 201120304,
+    "gl": false
+  },
+  {
+    "realm": "XII",
+    "character": "Fran",
+    "name": "Master of Weapons",
+    "effect": "?% chance to dualcast Support abilities",
+    "master": "ATK +10",
+    "relic": "Burning Bow (XII)",
+    "nameJp": "優れし射撃の腕",
+    "id": 201120305,
+    "gl": false
+  },
+  {
+    "realm": "XII",
     "character": "Basch",
     "name": "Captain's Honor",
     "effect": "Knight abilities deal 15% more damage",
@@ -6442,6 +6464,17 @@
     "relic": "Lambent Hat (XII)",
     "nameJp": "閃光魔帽",
     "id": 201120803,
+    "gl": false
+  },
+  {
+    "realm": "XII",
+    "character": "Larsa",
+    "name": "Prodigious Wisdom",
+    "effect": "?% chance to cast an ability (?: group, restores HP (25)) after using a White Magic ability",
+    "master": "MND +10",
+    "relic": "Light Woven Shirt (XII)",
+    "nameJp": "天才児の英知",
+    "id": 201120804,
     "gl": false
   },
   {

@@ -524,7 +524,7 @@ function convertRelics(rows: any[]): any[] {
  * Convert "skills" - this includes abilities, soul breaks, burst commands,
  * brave commands, and "other" skills
  */
-function convertSkills(rows: any[], requireId: boolean = true): any[] {
+function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean = true): any[] {
   const skills: any[] = [];
 
   const idColumn = rows[0].indexOf('ID');
@@ -544,8 +544,8 @@ function convertSkills(rows: any[], requireId: boolean = true): any[] {
         continue;
       }
 
+      const field = _.camelCase(col);
       try {
-        const field = _.camelCase(col);
         if (skillFields[col]) {
           item[field] = skillFields[col](rows[i][j]);
         } else {
@@ -555,6 +555,17 @@ function convertSkills(rows: any[], requireId: boolean = true): any[] {
         logError(e, i, j, col, rows[i]);
         throw e;
       }
+
+      const cellNote = _.get(notes, [i, 'values', j, 'note']);
+      if (cellNote) {
+        if (field === 'school') {
+          item['schoolDetails'] = cellNote.split(' / ');
+        } else if (field === 'type') {
+          item['typeDetails'] = cellNote.split('/');
+        } else {
+          item[field + 'Note'] = cellNote;
+        }
+      }
     }
 
     skills.push(item);
@@ -563,7 +574,8 @@ function convertSkills(rows: any[], requireId: boolean = true): any[] {
   return skills;
 }
 
-const convertOtherSkills = (rows: any[]) => convertSkills(rows, false);
+const convertOtherSkills = (rows: any[], notes?: NotesRowData[]) =>
+  convertSkills(rows, notes, false);
 
 function convertStatus(rows: any[]): any[] {
   const status: any[] = [];
@@ -603,10 +615,17 @@ function convertStatus(rows: any[]): any[] {
   return status;
 }
 
+interface NotesRowData {
+  values?: Array<{
+    note?: string;
+  }>;
+}
+
 interface DataType {
   sheet: string;
   localName: string;
-  converter: (rows: any[]) => any[];
+  includeNotes?: boolean;
+  converter: (rows: any[], notes?: NotesRowData[]) => any[];
   postProcessor?: (data: any[], allData: { [localName: string]: any[] }) => void;
 }
 
@@ -614,16 +633,19 @@ const dataTypes: DataType[] = [
   {
     sheet: 'Abilities',
     localName: 'abilities',
+    includeNotes: true,
     converter: convertAbilities,
   },
   {
     sheet: 'Brave',
     localName: 'brave',
+    includeNotes: true,
     converter: convertSkills,
   },
   {
     sheet: 'Burst',
     localName: 'burst',
+    includeNotes: true,
     converter: convertSkills,
   },
   {
@@ -645,6 +667,7 @@ const dataTypes: DataType[] = [
   {
     sheet: 'Other',
     localName: 'otherSkills',
+    includeNotes: true,
     converter: convertOtherSkills,
   },
   {
@@ -660,6 +683,7 @@ const dataTypes: DataType[] = [
   {
     sheet: 'Soul Breaks',
     localName: 'soulBreaks',
+    includeNotes: true,
     converter: convertSkills,
   },
   {
@@ -671,14 +695,30 @@ const dataTypes: DataType[] = [
 
 async function downloadEnlir(auth: OAuth2Client, spreadsheetId: string) {
   const sheets = google.sheets({ version: 'v4', auth });
+  const jsonOptions = { spaces: 2 };
 
-  for (const { sheet, localName } of dataTypes) {
+  for (const { sheet, localName, includeNotes } of dataTypes) {
     logger.info(`Downloading ${localName}...`);
-    const res = await sheets.spreadsheets.values.get({
+
+    const valuesRes = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: sheet,
     });
-    await fs.writeJson(path.join(workPath, localName + '.json'), res.data);
+    await fs.writeJson(path.join(workPath, localName + '.json'), valuesRes.data, jsonOptions);
+
+    if (includeNotes) {
+      // https://stackoverflow.com/a/53473537/25507
+      const sheetRes = await sheets.spreadsheets.get({
+        spreadsheetId,
+        ranges: valuesRes.data.range,
+        fields: 'sheets/data/rowData/values/note',
+      });
+      await fs.writeJson(
+        path.join(workPath, localName + '.notes.json'),
+        sheetRes.data,
+        jsonOptions,
+      );
+    }
   }
 }
 
@@ -686,10 +726,18 @@ async function convertEnlir(outputDirectory: string) {
   await fs.ensureDir(outputDirectory);
 
   const allData: { [name: string]: any[] } = {};
-  for (const { localName, converter } of dataTypes) {
+  for (const { localName, includeNotes, converter } of dataTypes) {
     logger.info(`Converting ${localName}...`);
+
     const rawData = await fs.readJson(path.join(workPath, localName + '.json'));
-    allData[localName] = converter(rawData.values);
+
+    let notes: any;
+    if (includeNotes) {
+      notes = await fs.readJson(path.join(workPath, localName + '.notes.json'));
+      notes = notes.sheets[0].data[0].rowData;
+    }
+
+    allData[localName] = converter(rawData.values, notes);
   }
 
   for (const { localName, postProcessor } of dataTypes) {
