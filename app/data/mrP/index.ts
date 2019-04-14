@@ -65,6 +65,7 @@ export interface MrPSoulBreak {
   damage?: string;
   other?: string;
   school?: EnlirSchool;
+  schoolDetails?: EnlirSchool[];
 
   /**
    * If set, this indicates whether this is a burst command that toggles the
@@ -867,6 +868,9 @@ export function describeEnlirSoulBreak(
   }
   if ('school' in sb) {
     result.school = sb.school;
+  }
+  if ('schoolDetails' in sb) {
+    result.schoolDetails = sb.schoolDetails;
   }
   if (burstToggle != null) {
     result.burstToggle = burstToggle;

@@ -2023,18 +2023,22 @@ Object {
           {
             damage: 'p1.92 or m7.92 l rngd',
             school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
           },
           {
             damage: 'p3.25 or m12.0 l rngd overstrike',
             school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
           },
           {
             damage: 'p6.5 or m20.8 l rngd overstrike',
             school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
           },
           {
             damage: 'p10.15 or m35.0 l rngd overstrike',
             school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
           },
         ],
       });
@@ -2075,10 +2079,27 @@ Object {
       expect(mimic).toEqual({
         braveCondition: ['Black Magic', 'Combat'],
         braveCommands: [
-          { fast: true, damage: 'p1.81 or m7.45', school: 'Special' },
-          { fast: true, other: 'Mimic 1x', school: 'Special' },
-          { fast: true, other: 'Mimic 2x', school: 'Special' },
-          { fast: true, other: 'Mimic 3x', school: 'Special' },
+          {
+            fast: true,
+            damage: 'p1.81 or m7.45',
+            school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
+          },
+          {
+            fast: true,
+            other: 'Mimic 1x',
+            school: 'Special',
+          },
+          {
+            fast: true,
+            other: 'Mimic 2x',
+            school: 'Special',
+          },
+          {
+            fast: true,
+            other: 'Mimic 3x',
+            school: 'Special',
+          },
         ],
         damage: undefined,
         instant: true,
@@ -2465,7 +2486,12 @@ Object {
         other: 'party +30% ATK/MAG 25s',
         burstCommands: [
           { fast: true, other: 'Mimic, +180 SB pts', school: 'Special' },
-          { damage: 'p2.72/4 or m10.68/4', other: undefined, school: 'Special' },
+          {
+            damage: 'p2.72/4 or m10.68/4',
+            other: undefined,
+            school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
+          },
         ],
       });
     });
