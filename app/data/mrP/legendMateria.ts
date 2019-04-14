@@ -1,7 +1,14 @@
 import * as _ from 'lodash';
 
+import { describeEnlirSoulBreak, formatMrP } from '.';
 import { arrayify } from '../../utils/typeUtils';
-import { EnlirElement, EnlirFormula, EnlirLegendMateria, EnlirSkillType } from '../enlir';
+import {
+  EnlirElement,
+  EnlirFormula,
+  EnlirLegendMateria,
+  EnlirSkillType,
+  getEnlirOtherSkill,
+} from '../enlir';
 import { describeDamage, describeDamageType, formatThreshold } from './attack';
 import {
   describeEnlirStatus,
@@ -280,11 +287,31 @@ const legendMateriaHandlers: HandlerList = [
     ([percent, status]) => formatTriggeredEffect('ally W.Mag heal', 'ally Esuna'),
   ],
 
-  // Triggered simple skills
+  // Triggered simple skills and triggered named skills
   [
-    /^(\d+|\?)% chance to cast an ability \((.*)\) after (?:(using|dealing damage with) a (.*) (?:ability|attack)|(taking damage from an enemy))$/,
-    ([percent, effect, isDamageTrigger, schoolOrAbility, takeDamage]) => {
-      const description = resolveWithHandlers(simpleSkillHandlers, effect);
+    /^(\d+|\?)% chance to cast (?:an ability \((.*)\)|(.*)) after (?:(using|dealing damage with) a (.*) (?:ability|attack)|(taking damage from an enemy))$/,
+    ([percent, effect, skillName, isDamageTrigger, schoolOrAbility, takeDamage]) => {
+      let description: string | null = null;
+      if (effect) {
+        description = resolveWithHandlers(simpleSkillHandlers, effect);
+      } else {
+        const otherSkill = getEnlirOtherSkill(skillName, 'Legend Materia');
+        if (otherSkill) {
+          description = formatMrP(
+            describeEnlirSoulBreak(otherSkill, {
+              abbreviate: true,
+              showNoMiss: false,
+              includeSbPoints: false,
+              // Simple skills don't include schools, so, to be consistent,
+              // we'll omit them for named schools too.
+              includeSchool: false,
+            }),
+            {
+              showTime: false,
+            },
+          );
+        }
+      }
       if (!description) {
         return null;
       }
