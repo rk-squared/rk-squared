@@ -24700,39 +24700,39 @@
     "name": "Cor",
     "introducingEventLv50": "Next Generation Shield of the King",
     "lv50": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 3654,
+      "atk": 113,
+      "def": 82,
+      "mag": 65,
+      "res": 70,
+      "mnd": 74,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 142
     },
     "introducingEventLv65": "Next Generation Shield of the King",
     "lv65": {
       "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "atk": 144,
+      "def": 101,
+      "mag": 86,
+      "res": 88,
+      "mnd": 97,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 151
     },
     "introducingEventLv80": "Next Generation Shield of the King",
     "lv80": {
       "hp": 5400,
-      "atk": null,
-      "def": null,
-      "mag": null,
+      "atk": 175,
+      "def": 120,
+      "mag": 107,
       "res": 107,
-      "mnd": null,
+      "mnd": 121,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 160
     },
     "introducingEventLv99": "Next Generation Shield of the King",
     "lv99": {

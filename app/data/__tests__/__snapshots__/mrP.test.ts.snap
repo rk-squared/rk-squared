@@ -478,8 +478,8 @@ Array [
   },
   Object {
     "character": "Biggs",
-    "description": "(<20% HP ⤇ Trance: +50% ATK, fastcast 25s)",
-    "effect": "Grants Biggs Trance when HP fall below 20%",
+    "description": "(<20% HP ⤇ Last stand, Trance: +50% ATK, fastcast 25s)",
+    "effect": "Grants Last Stand and Biggs Trance when HP fall below 20%",
     "name": "Defiant Cry",
   },
   Object {
@@ -1108,8 +1108,8 @@ Array [
   },
   Object {
     "character": "Edge",
-    "description": null,
-    "effect": "?% chance to cast an ability (PHY/NIN: single, 3x ? hybrid Water/Fire/Lightning/NE)  after using a Ninja ability",
+    "description": "(Ninja ⤇ 25% for p1.26/3 or m^1201.5/3 wa+f+l+n)",
+    "effect": "25% chance to cast Brash Prince after using a Ninja ability",
     "name": "Brash Prince",
   },
   Object {
@@ -1423,6 +1423,18 @@ Array [
     "description": "fastcast 3 at battle start",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "name": "Viera Mysteries",
+  },
+  Object {
+    "character": "Fran",
+    "description": "ice infuse at battle start",
+    "effect": "Grants Attach Ice at the beginning of the battle",
+    "name": "Cool Copilot",
+  },
+  Object {
+    "character": "Fran",
+    "description": "?% dualcast Support",
+    "effect": "?% chance to dualcast Support abilities",
+    "name": "Master of Weapons",
   },
   Object {
     "character": "Freya",
@@ -2263,6 +2275,12 @@ Array [
     "description": "(W.Mag ⤇ 35% for Status blink 1)",
     "effect": "35% chance to grant Astra to the user after using a White Magic ability",
     "name": "Young Successor",
+  },
+  Object {
+    "character": "Larsa",
+    "description": null,
+    "effect": "?% chance to cast an ability (?: group, restores HP (25)) after using a White Magic ability",
+    "name": "Prodigious Wisdom",
   },
   Object {
     "character": "Leila",
@@ -3178,7 +3196,7 @@ Array [
   },
   Object {
     "character": "Quina",
-    "description": "(<20% HP ⤇ heal 100% HP, +500 SB pts, Trance: +15% ATK/DEF/MAG/RES/MND 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, +500 SB pts, Trance: +15% A/D/M/R/MND 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP, grants 500 SB points and grants Quina Trance when HP fall below 20%",
     "name": "Qu Banquet",
   },
@@ -4228,7 +4246,7 @@ Array [
   },
   Object {
     "character": "Terra",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +20% ATK/DEF/MAG/RES/MND/ACC/EVA, fastcast 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +20% A/D/M/R/MND/ACC/EVA, fastcast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Terra Trance when HP fall below 20%",
     "name": "Magitek Warrior",
   },
@@ -4392,7 +4410,7 @@ Array [
     "character": "Ultimecia",
     "description": "dark infuse at battle start",
     "effect": "Grants Attach Dark at the beginning of the battle",
-    "name": "Existance Denied",
+    "name": "Existence Denied",
   },
   Object {
     "character": "Ultimecia",
@@ -4528,7 +4546,7 @@ Array [
   },
   Object {
     "character": "Vincent",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +20% ATK/DEF/MAG/RES/MND/ACC/EVA, fastcast 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +20% A/D/M/R/MND/ACC/EVA, fastcast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Galian Beast when HP fall below 20%",
     "name": "Beast Within",
   },
@@ -4918,7 +4936,7 @@ Array [
   },
   Object {
     "character": "Zidane",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +15% ATK/DEF/MAG/RES/MND/ACC/EVA/SPD, Thief instacast 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +15% A/D/M/R/MND/ACC/EVA/SPD, Thief instacast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Zidane Trance when HP fall below 20%",
     "name": "World in Red",
   },

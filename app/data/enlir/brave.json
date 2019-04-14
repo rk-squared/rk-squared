@@ -1419,8 +1419,13 @@
     "character": "Gogo (VI)",
     "source": "Righteous Mimicry",
     "name": "Mimic (VI)",
+    "nameNote": "Alias name: Mimic Preparation!",
     "brave": 0,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -1431,6 +1436,10 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
     "school": "Special",
+    "schoolDetails": [
+      "Combat",
+      "Black Magic"
+    ],
     "braveCondition": [
       "Black Magic",
       "Combat"
@@ -1443,6 +1452,7 @@
     "character": "Gogo (VI)",
     "source": "Righteous Mimicry",
     "name": "Mimic (VI)",
+    "nameNote": "Alias name: Mimic Execution!",
     "brave": 1,
     "type": "NAT",
     "target": "-",
@@ -1467,6 +1477,7 @@
     "character": "Gogo (VI)",
     "source": "Righteous Mimicry",
     "name": "Mimic (VI)",
+    "nameNote": "Alias name: Mimic Execution!",
     "brave": 2,
     "type": "NAT",
     "target": "-",
@@ -1491,6 +1502,7 @@
     "character": "Gogo (VI)",
     "source": "Righteous Mimicry",
     "name": "Mimic (VI)",
+    "nameNote": "Alias name: Mimic Execution!",
     "brave": 3,
     "type": "NAT",
     "target": "-",
@@ -1517,6 +1529,10 @@
     "name": "Beast Shot",
     "brave": 0,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -1529,6 +1545,10 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
     "school": "Special",
+    "schoolDetails": [
+      "Combat",
+      "Black Magic"
+    ],
     "braveCondition": [
       "Fire"
     ],
@@ -1542,6 +1562,10 @@
     "name": "Beast Shot",
     "brave": 1,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -1554,6 +1578,10 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
     "school": "Special",
+    "schoolDetails": [
+      "Combat",
+      "Black Magic"
+    ],
     "braveCondition": [
       "Fire"
     ],
@@ -1567,6 +1595,10 @@
     "name": "Beast Shot",
     "brave": 2,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -1579,6 +1611,10 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
     "school": "Special",
+    "schoolDetails": [
+      "Combat",
+      "Black Magic"
+    ],
     "braveCondition": [
       "Fire"
     ],
@@ -1592,6 +1628,10 @@
     "name": "Beast Shot",
     "brave": 3,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -1604,6 +1644,10 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
     "school": "Special",
+    "schoolDetails": [
+      "Combat",
+      "Black Magic"
+    ],
     "braveCondition": [
       "Fire"
     ],
@@ -1617,6 +1661,10 @@
     "name": "Spark Rod",
     "brave": 0,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -1629,6 +1677,10 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
     "school": "Special",
+    "schoolDetails": [
+      "Combat",
+      "Black Magic"
+    ],
     "braveCondition": [
       "Lightning"
     ],
@@ -1642,6 +1694,10 @@
     "name": "Spark Rod",
     "brave": 1,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -1654,6 +1710,10 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
     "school": "Special",
+    "schoolDetails": [
+      "Combat",
+      "Black Magic"
+    ],
     "braveCondition": [
       "Lightning"
     ],
@@ -1667,6 +1727,10 @@
     "name": "Spark Rod",
     "brave": 2,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -1679,6 +1743,10 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
     "school": "Special",
+    "schoolDetails": [
+      "Combat",
+      "Black Magic"
+    ],
     "braveCondition": [
       "Lightning"
     ],
@@ -1692,6 +1760,10 @@
     "name": "Spark Rod",
     "brave": 3,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -1704,6 +1776,10 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
     "school": "Special",
+    "schoolDetails": [
+      "Combat",
+      "Black Magic"
+    ],
     "braveCondition": [
       "Lightning"
     ],
@@ -2018,7 +2094,7 @@
   {
     "character": "Ultimecia",
     "source": "Hell's Judgment",
-    "name": "Spears of Temperance",
+    "name": "Buffeting Spear",
     "brave": 0,
     "type": "BLK",
     "target": "Single enemy",
@@ -2040,12 +2116,12 @@
     ],
     "nameJp": "拒絶の槍",
     "id": 30541250,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ultimecia",
     "source": "Hell's Judgment",
-    "name": "Spears of Temperance",
+    "name": "Buffeting Spear",
     "brave": 1,
     "type": "BLK",
     "target": "Single enemy",
@@ -2067,12 +2143,12 @@
     ],
     "nameJp": "拒絶の槍",
     "id": 30541251,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ultimecia",
     "source": "Hell's Judgment",
-    "name": "Spears of Temperance",
+    "name": "Buffeting Spear",
     "brave": 2,
     "type": "BLK",
     "target": "Single enemy",
@@ -2094,12 +2170,12 @@
     ],
     "nameJp": "拒絶の槍",
     "id": 30541252,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ultimecia",
     "source": "Hell's Judgment",
-    "name": "Spears of Temperance",
+    "name": "Buffeting Spear",
     "brave": 3,
     "type": "BLK",
     "target": "Single enemy",
@@ -2121,7 +2197,7 @@
     ],
     "nameJp": "拒絶の槍",
     "id": 30541253,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Eiko",
@@ -2243,7 +2319,7 @@
     ],
     "nameJp": "聖獣の咆哮",
     "id": 30543182,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Eiko",
@@ -2269,7 +2345,7 @@
     ],
     "nameJp": "聖獣の咆哮",
     "id": 30543183,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Eiko",
@@ -2295,7 +2371,7 @@
     ],
     "nameJp": "聖獣の咆哮",
     "id": 30543184,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Eiko",
@@ -2321,7 +2397,7 @@
     ],
     "nameJp": "聖獣の咆哮",
     "id": 30543185,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Kuja",
@@ -2346,7 +2422,7 @@
     ],
     "nameJp": "破滅の奏楽",
     "id": 30549464,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Kuja",
@@ -2371,7 +2447,7 @@
     ],
     "nameJp": "破滅の奏楽",
     "id": 30549465,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Kuja",
@@ -2396,7 +2472,7 @@
     ],
     "nameJp": "破滅の奏楽",
     "id": 30549466,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Kuja",
@@ -2421,7 +2497,7 @@
     ],
     "nameJp": "破滅の奏楽",
     "id": 30549467,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Tidus",
@@ -2922,9 +2998,13 @@
   {
     "character": "Vayne",
     "source": "Relentless Drive",
-    "name": "Undertow",
+    "name": "Cast Below",
     "brave": 0,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -2942,14 +3022,18 @@
     ],
     "nameJp": "奈落一蹴",
     "id": 30549361,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vayne",
     "source": "Relentless Drive",
-    "name": "Undertow",
+    "name": "Cast Below",
     "brave": 1,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -2967,14 +3051,18 @@
     ],
     "nameJp": "奈落一蹴",
     "id": 30549362,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vayne",
     "source": "Relentless Drive",
-    "name": "Undertow",
+    "name": "Cast Below",
     "brave": 2,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -2992,14 +3080,18 @@
     ],
     "nameJp": "奈落一蹴",
     "id": 30549363,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vayne",
     "source": "Relentless Drive",
-    "name": "Undertow",
+    "name": "Cast Below",
     "brave": 3,
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
@@ -3017,7 +3109,7 @@
     ],
     "nameJp": "奈落一蹴",
     "id": 30549364,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lightning",

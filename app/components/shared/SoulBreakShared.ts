@@ -46,13 +46,23 @@ export const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
 
 export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
+function getSchoolName(command: MrPSoulBreak): string {
+  if (command.schoolDetails) {
+    return command.schoolDetails.map(getSchoolShortName).join('/');
+  } else if (command.school) {
+    return getSchoolShortName(command.school);
+  } else {
+    return '?';
+  }
+}
+
 export function getBraveColumns(
   mrP: MrPSoulBreak,
   braveCommands: MrPSoulBreak[],
 ): [string, string] {
   return [
     '[' +
-      (braveCommands[0].school ? getSchoolShortName(braveCommands[0].school) : '?') +
+      getSchoolName(braveCommands[0]) +
       '], +1 on ' +
       mrP.braveCondition!.map(getShortName).join('/'),
     formatBraveCommands(braveCommands),
@@ -61,10 +71,6 @@ export function getBraveColumns(
 
 export function getBurstColumns(burstCommands: MrPSoulBreak[]): Array<[string, string]> {
   return burstCommands.map(
-    cmd =>
-      [
-        '[' + (cmd.school ? getSchoolShortName(cmd.school) : '?') + ']',
-        '[' + formatMrP(cmd) + ']',
-      ] as [string, string],
+    cmd => ['[' + getSchoolName(cmd) + ']', '[' + formatMrP(cmd) + ']'] as [string, string],
   );
 }

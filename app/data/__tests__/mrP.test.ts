@@ -230,6 +230,7 @@ describe('mrP', () => {
           { damage: 'p2.52/4 f+n', other: undefined, school: 'Combat' },
         ],
       });
+      // See also Edge's AASB.
     });
 
     it('converts random attacks', () => {
@@ -2022,18 +2023,22 @@ Object {
           {
             damage: 'p1.92 or m7.92 l rngd',
             school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
           },
           {
             damage: 'p3.25 or m12.0 l rngd overstrike',
             school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
           },
           {
             damage: 'p6.5 or m20.8 l rngd overstrike',
             school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
           },
           {
             damage: 'p10.15 or m35.0 l rngd overstrike',
             school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
           },
         ],
       });
@@ -2074,10 +2079,27 @@ Object {
       expect(mimic).toEqual({
         braveCondition: ['Black Magic', 'Combat'],
         braveCommands: [
-          { fast: true, damage: 'p1.81 or m7.45', school: 'Special' },
-          { fast: true, other: 'Mimic 1x', school: 'Special' },
-          { fast: true, other: 'Mimic 2x', school: 'Special' },
-          { fast: true, other: 'Mimic 3x', school: 'Special' },
+          {
+            fast: true,
+            damage: 'p1.81 or m7.45',
+            school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
+          },
+          {
+            fast: true,
+            other: 'Mimic 1x',
+            school: 'Special',
+          },
+          {
+            fast: true,
+            other: 'Mimic 2x',
+            school: 'Special',
+          },
+          {
+            fast: true,
+            other: 'Mimic 3x',
+            school: 'Special',
+          },
         ],
         damage: undefined,
         instant: true,
@@ -2237,6 +2259,14 @@ Object {
           'fire infuse 25s, self dmg cap=19,999 15s, ' +
           '25s: Trance: +30% MAG, 50% dualcast B.Mag, ' +
           '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Edge - Trinity Attack')).toEqual({
+        damage: 'p9.0/15 or m^3337.5/15 water+fire+lgt+non',
+        other:
+          'self dmg cap=19,999 15s, Ninja hi fastcast 15s, ' +
+          '15s: (Ninja ⤇ p1.76/4 or m^44.0/2 wa+f+l+n Ninja, +10% water/fire/lgt dmg 15s), ' +
+          '15s: Awoken Ninja: Ninja inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
     });
 
@@ -2456,7 +2486,12 @@ Object {
         other: 'party +30% ATK/MAG 25s',
         burstCommands: [
           { fast: true, other: 'Mimic, +180 SB pts', school: 'Special' },
-          { damage: 'p2.72/4 or m10.68/4', other: undefined, school: 'Special' },
+          {
+            damage: 'p2.72/4 or m10.68/4',
+            other: undefined,
+            school: 'Special',
+            schoolDetails: ['Combat', 'Black Magic'],
+          },
         ],
       });
     });

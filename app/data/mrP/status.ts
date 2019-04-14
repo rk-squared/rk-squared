@@ -84,14 +84,7 @@ export function includeStatus(status: string, { removes } = { removes: false }):
 }
 
 export function describeStats(stats: string[]): string {
-  const result = stats.join('/');
-  if (result === 'ATK/DEF/MAG/RES/MND') {
-    return 'A/D/M/R/MND';
-  } else if (result === 'ATK/DEF/MAG/RES') {
-    return 'A/D/M/R';
-  } else {
-    return result;
-  }
+  return stats.join('/').replace(/^ATK\/DEF\/MAG\/RES/, 'A/D/M/R');
 }
 
 function parseWho(who: string): string | undefined {
@@ -633,7 +626,7 @@ function describeEnlirStatusEffect(
     // Status effects: e.g., "MAG +30%" from EX: Attack Hand
     // Reorganize stats into, e.g., +30% MAG to match MrP
     const [, stat, amount] = m;
-    return amount + ' ' + stat.split(andList).join('/');
+    return amount + ' ' + describeStats(stat.split(andList));
   }
 
   // Awoken
