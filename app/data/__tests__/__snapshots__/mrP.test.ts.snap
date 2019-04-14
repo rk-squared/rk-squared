@@ -3196,7 +3196,7 @@ Array [
   },
   Object {
     "character": "Quina",
-    "description": "(<20% HP ⤇ heal 100% HP, +500 SB pts, Trance: +15% ATK/DEF/MAG/RES/MND 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, +500 SB pts, Trance: +15% A/D/M/R/MND 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP, grants 500 SB points and grants Quina Trance when HP fall below 20%",
     "name": "Qu Banquet",
   },
@@ -4246,7 +4246,7 @@ Array [
   },
   Object {
     "character": "Terra",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +20% ATK/DEF/MAG/RES/MND/ACC/EVA, fastcast 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +20% A/D/M/R/MND/ACC/EVA, fastcast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Terra Trance when HP fall below 20%",
     "name": "Magitek Warrior",
   },
@@ -4546,7 +4546,7 @@ Array [
   },
   Object {
     "character": "Vincent",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +20% ATK/DEF/MAG/RES/MND/ACC/EVA, fastcast 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +20% A/D/M/R/MND/ACC/EVA, fastcast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Galian Beast when HP fall below 20%",
     "name": "Beast Within",
   },
@@ -4936,7 +4936,7 @@ Array [
   },
   Object {
     "character": "Zidane",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +15% ATK/DEF/MAG/RES/MND/ACC/EVA/SPD, Thief instacast 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +15% A/D/M/R/MND/ACC/EVA/SPD, Thief instacast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Zidane Trance when HP fall below 20%",
     "name": "World in Red",
   },
