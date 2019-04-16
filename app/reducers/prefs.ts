@@ -11,6 +11,7 @@ import * as _ from 'lodash';
 import {
   Prefs,
   PrefsAction,
+  setLastFilename,
   showItemType,
   showItemTypes,
   ShowSoulBreaksType,
@@ -40,6 +41,11 @@ export function prefs(state: PrefsState = initialState, action: PrefsAction): Pr
 
       case getType(updatePrefs):
         Object.assign(draft, action.payload);
+        return;
+
+      case getType(setLastFilename):
+        draft.lastFilename = draft.lastFilename || {};
+        draft.lastFilename[action.payload.key] = action.payload.lastFilename;
         return;
     }
   });

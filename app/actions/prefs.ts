@@ -17,6 +17,10 @@ export interface Prefs {
   showItemType: { [t in ItemType]: boolean };
 
   showSoulBreaks?: ShowSoulBreaksType;
+
+  lastFilename?: {
+    [key: string]: string;
+  };
 }
 
 export function filterSoulBreaks(showSoulBreaks?: ShowSoulBreaksType, owned?: Set<number>) {
@@ -34,6 +38,14 @@ export function filterSoulBreaks(showSoulBreaks?: ShowSoulBreaksType, owned?: Se
       } else {
         return (item: EnlirSoulBreakOrLegendMateria) => owned.has(item.id);
       }
+  }
+}
+
+export function getLastFilename(prefs: Prefs, key: string, defaultFilename: string): string {
+  if (!prefs.lastFilename || !prefs.lastFilename[key]) {
+    return defaultFilename;
+  } else {
+    return prefs.lastFilename[key];
   }
 }
 
@@ -60,6 +72,17 @@ export const updatePrefs = createAction('UPDATE_PREFS', (updates: Partial<Prefs>
   payload: updates,
 }));
 
+export const setLastFilename = createAction(
+  'SET_LAST_FILENAME',
+  (key: string, lastFilename: string) => ({
+    type: 'SET_LAST_FILENAME',
+    payload: {
+      key,
+      lastFilename,
+    },
+  }),
+);
+
 export type PrefsAction = ReturnType<
-  typeof showItemType | typeof showItemTypes | typeof updatePrefs
+  typeof showItemType | typeof showItemTypes | typeof updatePrefs | typeof setLastFilename
 >;

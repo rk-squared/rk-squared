@@ -15,7 +15,7 @@ import {
   exportStateToJson,
 } from './selectors/exporters';
 import { configureStore, runSagas } from './store/configureStore.main';
-import { csvFilters, handleExport, jsonFilters } from './ui/export';
+import { makeExportMenuItem } from './ui/export';
 import { logger } from './utils/logger';
 
 const enableDevTools = process.env.NODE_ENV === 'development';
@@ -160,28 +160,28 @@ app.on('ready', () =>
           {
             label: 'Export',
             submenu: [
-              {
-                label: 'Soul Break Inventory (CSV)...',
-                click: () =>
-                  handleExport(mainWindow, 'Soul Breaks', csvFilters, () =>
-                    exportSoulBreaksToCsv(store.getState()),
-                  ),
-              },
-              {
-                label: 'Legend Materia Inventory (CSV)...',
-                click: () =>
-                  handleExport(mainWindow, 'Legend Materia', csvFilters, () =>
-                    exportLegendMateriaToCsv(store.getState()),
-                  ),
-              },
+              makeExportMenuItem(store, mainWindow, {
+                id: 'soulBreakInventory',
+                label: 'Soul Break Inventory',
+                type: 'CSV',
+                defaultFilename: 'Soul Breaks',
+                exporter: exportSoulBreaksToCsv,
+              }),
+              makeExportMenuItem(store, mainWindow, {
+                id: 'legendMateriaInventory',
+                label: 'Legend Materia Inventory',
+                type: 'CSV',
+                defaultFilename: 'Legend Materia',
+                exporter: exportLegendMateriaToCsv,
+              }),
               { type: 'separator' },
-              {
-                label: 'All Data (JSON)...',
-                click: () =>
-                  handleExport(mainWindow, 'rk-squared', jsonFilters, () =>
-                    exportStateToJson(store.getState()),
-                  ),
-              },
+              makeExportMenuItem(store, mainWindow, {
+                id: 'allData',
+                label: 'All Data',
+                type: 'JSON',
+                defaultFilename: 'rk-squared',
+                exporter: exportStateToJson,
+              }),
             ],
           },
           isMac ? { role: 'close' } : { role: 'quit' },
