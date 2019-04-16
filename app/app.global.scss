@@ -25,3 +25,11 @@
 .table .thead-dark th a {
   color: #3d9bff;
 }
+
+// https://stackoverflow.com/a/50550069/25507
+.caret-off::before {
+  display: none;
+}
+.caret-off::after {
+  display: none;
+}

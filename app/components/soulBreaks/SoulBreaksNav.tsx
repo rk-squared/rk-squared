@@ -23,18 +23,19 @@ interface PrefsMenuProps {
 const alphabetParts = partitionArray(alphabet, 4);
 
 const SoulBreaksNavPrefsMenu = ({ showSoulBreaks, updateShowSoulBreaks }: PrefsMenuProps) => (
-  <li className="nav-item dropdown">
+  <li className="nav-item dropdown ml-auto">
     <a
-      className="nav-link dropdown-toggle"
+      className="nav-link dropdown-toggle caret-off"
       href="#"
       id="soulBreaksPrefsDropdown"
       data-toggle="dropdown"
       aria-haspopup="true"
       aria-expanded="false"
+      aria-label="Preferences"
     >
       <FontAwesomeIcon icon="cog" />
     </a>
-    <div className="dropdown-menu" aria-labelledby="soulBreaksPrefsDropdown">
+    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="soulBreaksPrefsDropdown">
       <a
         className="dropdown-item"
         href="#"
@@ -87,10 +88,10 @@ export class SoulBreaksNav extends React.PureComponent<Props> {
     const { soulBreakAnchor } = this.props;
     return (
       <nav className="navbar navbar-expand sticky-top navbar-light bg-light">
-        <div className="collapse navbar-collapse">
+        <div className="collapse navbar-collapse" role="navigation">
           {/* Switch to dropdowns at lg - which is actually a bit too small, */}
           {/* esp. if side ads are present... */}
-          <ul className="navbar-nav d-none d-lg-flex">
+          <ul className="navbar-nav d-none d-lg-flex w-100">
             {alphabet.map((letter, i) => (
               <li className="nav-item" key={i}>
                 <HashLink className="nav-link" to={'#' + soulBreakAnchor(letter)}>
@@ -100,7 +101,7 @@ export class SoulBreaksNav extends React.PureComponent<Props> {
             ))}
             {this.renderPrefsMenu()}
           </ul>
-          <ul className="navbar-nav d-lg-none">
+          <ul className="navbar-nav d-lg-none w-100">
             {alphabetParts.map((letters, i) => (
               <li className="nav-item dropdown" key={i}>
                 <a
