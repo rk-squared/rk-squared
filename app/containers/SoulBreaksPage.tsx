@@ -12,7 +12,7 @@ export class SoulBreaksPage extends React.Component {
     const isAnonymous = !process.env.IS_ELECTRON;
     return (
       <Page title="Soul Breaks">
-        <SoulBreaksNav soulBreakAnchor={soulBreakAnchor} />
+        <SoulBreaksNav soulBreakAnchor={soulBreakAnchor} isAnonymous={isAnonymous} />
 
         {!isAnonymous && <UnmasteredSoulBreakAlert className="mt-2" />}
         <SoulBreakList letterAnchor={soulBreakAnchor} isAnonymous={isAnonymous} />

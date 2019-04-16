@@ -8,66 +8,55 @@ import { ShowSoulBreaksType, updatePrefs } from '../../actions/prefs';
 import { IState } from '../../reducers';
 import { alphabet } from '../../utils/textUtils';
 import { partitionArray } from '../../utils/typeUtils';
+import { NavDropdownItem } from '../common/NavDropdownItem';
+import { NavMenuDropdown } from '../common/NavMenuDropdown';
 
 interface Props {
+  isAnonymous?: boolean;
   soulBreakAnchor: (letter: string) => string;
   showSoulBreaks?: ShowSoulBreaksType;
   updateShowSoulBreaks?: (showSoulBreaks: ShowSoulBreaksType) => void;
 }
 
 interface PrefsMenuProps {
+  isAnonymous?: boolean;
   showSoulBreaks?: ShowSoulBreaksType;
   updateShowSoulBreaks: (showSoulBreaks: ShowSoulBreaksType) => void;
 }
 
 const alphabetParts = partitionArray(alphabet, 4);
 
-const SoulBreaksNavPrefsMenu = ({ showSoulBreaks, updateShowSoulBreaks }: PrefsMenuProps) => (
-  <li className="nav-item dropdown ml-auto">
-    <a
-      className="nav-link dropdown-toggle caret-off"
-      href="#"
-      id="soulBreaksPrefsDropdown"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-      aria-label="Preferences"
-    >
-      <FontAwesomeIcon icon="cog" />
-    </a>
-    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="soulBreaksPrefsDropdown">
-      <a
-        className="dropdown-item"
-        href="#"
-        onClick={e => {
-          e.preventDefault();
-          updateShowSoulBreaks(ShowSoulBreaksType.ALL);
-        }}
-      >
-        JP and GL
-      </a>
-      <a
-        className="dropdown-item"
-        href="#"
-        onClick={e => {
-          e.preventDefault();
-          updateShowSoulBreaks(ShowSoulBreaksType.GL);
-        }}
-      >
-        GL
-      </a>
-      <a
-        className="dropdown-item"
-        href="#"
-        onClick={e => {
-          e.preventDefault();
-          updateShowSoulBreaks(ShowSoulBreaksType.OWNED);
-        }}
-      >
-        Owned
-      </a>
-    </div>
-  </li>
+const Bullet = ({ show }: { show: boolean }) => (
+  <span className={show ? '' : 'invisible'} aria-label="selected">
+    ●
+  </span>
+);
+
+const SoulBreaksNavPrefsMenu = ({
+  isAnonymous,
+  showSoulBreaks,
+  updateShowSoulBreaks,
+}: PrefsMenuProps) => (
+  <NavMenuDropdown
+    id="soulBreakPrefsDropdown"
+    label="preferences"
+    className="ml-auto"
+    linkClassName="caret-off"
+    display={<FontAwesomeIcon icon="cog" />}
+    right={true}
+  >
+    <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.ALL)}>
+      <Bullet show={showSoulBreaks === ShowSoulBreaksType.ALL} /> JP and GL
+    </NavDropdownItem>
+    <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.GL)}>
+      <Bullet show={showSoulBreaks === ShowSoulBreaksType.GL} /> GL
+    </NavDropdownItem>
+    {!isAnonymous && (
+      <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.OWNED)}>
+        <Bullet show={showSoulBreaks === ShowSoulBreaksType.OWNED} /> Owned
+      </NavDropdownItem>
+    )}
+  </NavMenuDropdown>
 );
 
 export class SoulBreaksNav extends React.PureComponent<Props> {
