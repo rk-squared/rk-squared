@@ -66,3 +66,7 @@ export function partitionArray<T>(items: T[], parts: number): T[][] {
     [[], 0] as Accumulator,
   )[0];
 }
+
+export function simpleFilter<T>(items: Array<T | null | undefined | false>): T[] {
+  return _.filter(items) as T[];
+}

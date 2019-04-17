@@ -6,6 +6,7 @@ import { createAction } from 'typesafe-actions';
  */
 export interface Options {
   alwaysShowTimer?: boolean;
+  enableLogging?: boolean;
   saveTrafficCaptures?: boolean;
 
   // Obsolete options
@@ -24,6 +25,7 @@ export interface Options {
 
 export const defaultOptions: Options = {
   alwaysShowTimer: false,
+  enableLogging: false,
   saveTrafficCaptures: false,
 
   // Obsolete options

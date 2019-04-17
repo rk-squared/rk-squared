@@ -1,6 +1,8 @@
 import { format, TransformableInfo } from 'logform';
 import * as winston from 'winston';
 
+import { simpleFilter } from './typeUtils';
+
 /**
  * Allows logging of bare Error objects.  Calling JSON.stringify on an Error
  * results in an empty object.  Calling printf results in just the message, so
@@ -20,19 +22,31 @@ const error = format((info: TransformableInfo) => {
   return info;
 });
 
-const logFormat = winston.format.combine(
-  error(),
-  winston.format.timestamp(),
+function makeLogFormat(colorize: boolean) {
+  return winston.format.combine(
+    ...simpleFilter([
+      error(),
+      winston.format.timestamp(),
 
-  winston.format.colorize(),
-  winston.format.printf(info => `${info.timestamp} ${info.level}: ${info.message}`),
-  // Or use winston.format.json() for pure JSON.
-);
+      colorize ? winston.format.colorize() : null,
+      winston.format.printf(info => `${info.timestamp} ${info.level}: ${info.message}`),
+      // Or use winston.format.json() for pure JSON.
+    ]),
+  );
+}
 
 const logger = winston.createLogger({
   level: 'debug',
-  format: logFormat,
-  transports: [new winston.transports.Console()],
+  transports: [new winston.transports.Console({ format: makeLogFormat(true) })],
 });
+
+export function logToFile(filename: string) {
+  logger.add(
+    new winston.transports.File({
+      filename,
+      format: makeLogFormat(false),
+    }),
+  );
+}
 
 export { logger };

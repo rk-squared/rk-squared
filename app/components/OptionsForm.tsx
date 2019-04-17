@@ -10,7 +10,8 @@ const styles = require('./OptionsForm.scss');
 
 interface Props {
   options: Options;
-  capturePath: string;
+  capturePath?: string;
+  logFilename?: string;
   setOption: (newOptions: Options) => any;
 }
 
@@ -20,7 +21,7 @@ const Checkbox = ({
   options,
   setOption,
 }: {
-  id: string;
+  id: keyof Options;
   children: any;
   options: Options;
   setOption: (o: Options) => void;
@@ -31,8 +32,8 @@ const Checkbox = ({
       id={id}
       name={id}
       type="checkbox"
-      checked={(options as any)[id]}
-      onChange={() => setOption({ [id]: !(options as any)[id] })}
+      checked={options[id]}
+      onChange={() => setOption({ [id]: !options[id] })}
     />
     <label className="form-check-label" htmlFor={id}>
       {children}
@@ -46,7 +47,7 @@ const HelpText = ({ children }: { children: any }) => (
 
 export class OptionsForm extends React.Component<Props> {
   render() {
-    const { options, capturePath, setOption } = this.props;
+    const { options, capturePath, logFilename, setOption } = this.props;
     return (
       <div className={styles.component}>
         <div className="form-group">
@@ -67,6 +68,11 @@ export class OptionsForm extends React.Component<Props> {
           </HelpText>
         </div>
 
+        <h5>Troubleshooting</h5>
+        <p>
+          These options can be useful for testing and troubleshooting but are otherwise not needed.
+        </p>
+
         <div className="form-group">
           <Checkbox id="saveTrafficCaptures" {...{ options, setOption }}>
             Save captured game traffic
@@ -80,7 +86,25 @@ export class OptionsForm extends React.Component<Props> {
                   under <code>{capturePath}</code>
                 </span>
               )}
-              . This can be helpful for testing and troubleshooting but is otherwise not needed.
+              .
+            </p>
+          </HelpText>
+        </div>
+
+        <div className="form-group">
+          <Checkbox id="enableLogging" {...{ options, setOption }}>
+            Enable logging
+          </Checkbox>
+          <HelpText>
+            <p>
+              Log RK&sup2; troubleshooting details and web traffic summaries
+              {logFilename && (
+                <span>
+                  {' '}
+                  to <code>{logFilename}</code>
+                </span>
+              )}
+              . Changing this setting will not take effect until you restart RK&sup2;.
             </p>
           </HelpText>
         </div>
@@ -90,7 +114,11 @@ export class OptionsForm extends React.Component<Props> {
 }
 
 export default connect(
-  ({ options, proxy }: IState) => ({ options, capturePath: proxy.capturePath }),
+  ({ options, proxy }: IState) => ({
+    options,
+    capturePath: proxy.capturePath,
+    logFilename: proxy.logFilename,
+  }),
   dispatch => ({
     setOption: (newOptions: Options) => dispatch(setOptionAction(newOptions)),
   }),

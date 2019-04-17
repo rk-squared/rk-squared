@@ -6,6 +6,7 @@ import * as yargs from 'yargs';
 const { replayActionMain } = require('electron-redux');
 
 import { showDanger } from './actions/messages';
+import { updateProxyStatus } from './actions/proxy';
 import { rkSquaredUrl } from './data/resources';
 import { createFfrkProxy, defaultHttpsPort, defaultPort } from './proxy/ffrk-proxy';
 import { createOrLoadCertificate } from './proxy/tls';
@@ -16,7 +17,7 @@ import {
 } from './selectors/exporters';
 import { configureStore, runSagas } from './store/configureStore.main';
 import { makeExportMenuItem } from './ui/export';
-import { logger } from './utils/logger';
+import { logger, logToFile } from './utils/logger';
 
 const enableDevTools = process.env.NODE_ENV === 'development';
 
@@ -280,6 +281,13 @@ app.on('ready', () =>
 
     const userDataPath = app.getPath('userData');
     fs.ensureDirSync(userDataPath);
+
+    const logFilename = path.join(userDataPath, 'app.log');
+    store.dispatch(updateProxyStatus({ logFilename }));
+    if (store.getState().options.enableLogging) {
+      logToFile(logFilename);
+    }
+
     createOrLoadCertificate(userDataPath, (error: string) => store.dispatch(showDanger(error)));
     createFfrkProxy(store, {
       userDataPath,
