@@ -15,7 +15,7 @@ import {
   openDungeonChest,
   updateDungeon,
 } from '../actions/dungeons';
-import { unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
+import { setWorldIcon, unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
 import { LangType } from '../api/apiUrls';
 import * as schemas from '../api/schemas';
 import * as dungeonsSchemas from '../api/schemas/dungeons';
@@ -305,6 +305,8 @@ export function convertWorld(
   };
 }
 
+const elementIcon = (elementLike: string) => elementLike.toLowerCase() + 'Element';
+
 function checkForWorldIcon(
   lang: LangType,
   world: World,
@@ -320,7 +322,7 @@ function checkForWorldIcon(
     }
 
     case WorldCategory.Magicite: {
-      world.localIcon = world.name.toLowerCase() + 'Element';
+      world.localIcon = elementIcon(world.name);
       break;
     }
 
@@ -484,6 +486,22 @@ function checkForUpdatedRecordDungeons(
   }
 }
 
+function checkForWorldIconUpdates(world: World, dungeons: Dungeon[]) {
+  if (world.name === 'Corridor of Trials' && dungeons.length) {
+    const m = dungeons[0].name.match(/^Trial of (\w+)/);
+    if (m) {
+      const element = m[1];
+      if (_.every(dungeons, i => i.name.startsWith(`Trial of ${element}`))) {
+        return {
+          worldId: world.id,
+          icon: { localIcon: elementIcon(element) },
+        };
+      }
+    }
+  }
+  return null;
+}
+
 function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
   if (data.result.is_dungeon_clear) {
     store.dispatch(
@@ -529,6 +547,13 @@ const dungeonsHandler: Handler = {
     }
 
     const newDungeons = convertWorldDungeons(data, forceUnlock);
+
+    if (worlds && worlds[query.world_id]) {
+      const update = checkForWorldIconUpdates(worlds[query.world_id], newDungeons);
+      if (update) {
+        store.dispatch(setWorldIcon(update.worldId, update.icon));
+      }
+    }
 
     store.dispatch(unlockWorld(query.world_id));
     store.dispatch(addWorldDungeons(query.world_id, newDungeons));

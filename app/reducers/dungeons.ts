@@ -13,6 +13,7 @@ import { World } from '../actions/worlds';
 
 import * as _ from 'lodash';
 
+// TODO: Remove updeep
 const u = require('updeep');
 
 export interface DungeonState {

@@ -143,4 +143,17 @@ export const unlockWorld = createAction('UNLOCK_WORLD', (worldId: number) => ({
   payload: worldId,
 }));
 
-export type WorldAction = ReturnType<typeof updateWorlds | typeof unlockWorld>;
+export const setWorldIcon = createAction(
+  'SET_WORLD_ICON',
+  (worldId: number, icon: { localIcon?: string; iconUrl?: string }) => ({
+    type: 'SET_WORLD_ICON',
+    payload: {
+      worldId,
+      icon,
+    },
+  }),
+);
+
+export type WorldAction = ReturnType<
+  typeof updateWorlds | typeof unlockWorld | typeof setWorldIcon
+>;
