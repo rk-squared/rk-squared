@@ -84,7 +84,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
       banner.bannerRelics && banner.bannerRelics.length && probabilities
         ? sortRelics(getOffBannerRelics(banner, probabilities))
         : undefined;
-    if (!offBanner) {
+    if (!offBanner || !offBanner.length) {
       return null;
     }
     return (

@@ -10,6 +10,7 @@
   - Fix Dr. Mog RM3
 - Options
   - Disable the static battle background option - It no longer works in current versions of FFRK. In practice, it was of little benefit; enemy special effects and soul break animations hurt performance worse.
+  - Add an option to save the troubleshooting and network log, to aid in troubleshooting.
 
 # v2.0.0
 
