@@ -56,3 +56,34 @@ export function chanceOfDesiredDrawProp5(
     desiredChance: totalDesiredChance / (1 - r),
   };
 }
+
+export function monteCarloProp5(
+  drawCount: number,
+  rareChance: number,
+  desiredChance: number,
+  iterations: number,
+) {
+  let totalCount = 0;
+  let atLeast1Count = 0;
+  for (let i = 0; i < iterations; i++) {
+    let thisRareCount = 0;
+    let thisDesiredCount = 0;
+    while (thisRareCount === 0) {
+      for (let j = 0; j < drawCount; j++) {
+        const result = Math.random();
+        if (result < desiredChance) {
+          thisDesiredCount++;
+        }
+        if (result < rareChance) {
+          thisRareCount++;
+        }
+      }
+    }
+    totalCount += thisDesiredCount;
+    atLeast1Count += thisDesiredCount > 0 ? 1 : 0;
+  }
+  return {
+    ev: totalCount / iterations,
+    desiredChance: atLeast1Count / iterations,
+  };
+}
