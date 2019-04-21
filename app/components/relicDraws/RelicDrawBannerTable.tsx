@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { RelicDrawProbabilities } from '../../actions/relicDraws';
-import { enlir, EnlirLegendMateria, EnlirRealm, EnlirSoulBreak } from '../../data/enlir';
+import { enlir, EnlirLegendMateria, EnlirRealm, EnlirSoulBreak, SbOrLm } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 import { describeRelicEffect } from '../../data/mrP/relics';
@@ -32,10 +32,8 @@ interface Props {
   title: string;
   relics: number[] | number[][];
   probabilities?: RelicDrawProbabilities;
-  ownedSoulBreaks?: Set<number>;
-  ownedLegendMateria?: Set<number>;
+  getStatusAndCss?: (id: number, which: SbOrLm) => [string, string];
 
-  isAnonymous?: boolean;
   groupBySeries?: boolean;
   allowCollapse?: boolean;
 }
@@ -75,26 +73,20 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
   }
 
   renderRow(relicId: number, key: number, showProbability: boolean, colCount: number) {
-    const {
-      probabilities,
-      isAnonymous,
-      ownedSoulBreaks,
-      ownedLegendMateria,
-      groupBySeries,
-    } = this.props;
+    const { probabilities, groupBySeries, getStatusAndCss } = this.props;
     const relic = enlir.relics[relicId];
     const { character, name, type, effect } = relic;
     const sb = enlir.relicSoulBreaks[relicId];
     const lm = enlir.relicLegendMateria[relicId];
 
     const tierClassName = sb ? tierClass[sb.tier] : lm ? soulBreakStyles.legendMateria : undefined;
-    const isDupe = isAnonymous
-      ? false
-      : sb
-      ? ownedSoulBreaks && ownedSoulBreaks.has(sb.id)
-      : lm
-      ? ownedLegendMateria && ownedLegendMateria.has(lm.id)
-      : false;
+    const [status, rowClassName] = getStatusAndCss
+      ? sb
+        ? getStatusAndCss(sb.id, SbOrLm.SoulBreak)
+        : lm
+        ? getStatusAndCss(lm.id, SbOrLm.LegendMateria)
+        : ['', '']
+      : ['', ''];
     const mrP = sb ? describeEnlirSoulBreak(sb) : null;
 
     const commandColumns: Array<[string, string]> = [];
@@ -106,7 +98,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
     }
     const rowSpan = commandColumns.length ? commandColumns.length + 1 : undefined;
 
-    const className = classNames(tierClassName, { [styles.dupe]: isDupe });
+    const className = classNames(tierClassName, rowClassName);
     const showSeries = groupBySeries && relic.realm != null && relic.realm !== this.lastRealm;
     this.lastRealm = relic.realm;
     return (
@@ -116,7 +108,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
             <th colSpan={colCount}>{enlirRealmLongName(relic.realm) || relic.realm}</th>
           </tr>
         )}
-        <tr className={className} title={isDupe ? 'Dupe' : undefined}>
+        <tr className={className}>
           <td rowSpan={rowSpan}>{character}</td>
           <td rowSpan={rowSpan}>
             <RelicTypeIcon type={type} className={styles.relicType} /> {name}
@@ -128,6 +120,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
           <td className={soulBreakStyles.name}>{sb ? sb.name : lm ? lm.name : undefined}</td>
           <td>{mrP ? formatMrP(mrP) : lm ? describeMrPLegendMateria(lm) : undefined}</td>
           {showProbability && <td rowSpan={rowSpan}>{probabilities!.byRelic[relicId]}%</td>}
+          {getStatusAndCss && <td className="sr-only">{status}</td>}
         </tr>
         {commandColumns.map((columns, i) => (
           <tr
@@ -152,6 +145,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
         <th colSpan={2}>Soul Break / Materia</th>
         <th>Effects</th>
         {showProbability && <th>Probability</th>}
+        {this.props.getStatusAndCss && <th className="sr-only">Status</th>}
       </tr>
     );
   }
@@ -238,7 +232,23 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
   }
 }
 
-export default connect((state: IState) => ({
-  ownedSoulBreaks: getOwnedSoulBreaks(state),
-  ownedLegendMateria: getOwnedLegendMateria(state),
-}))(RelicDrawBannerTable);
+interface OwnProps {
+  isAnonymous?: boolean;
+}
+
+export default connect((state: IState, ownProps: OwnProps) => {
+  if (ownProps.isAnonymous) {
+    return {};
+  }
+  const ownedSoulBreaks = getOwnedSoulBreaks(state);
+  const ownedLegendMateria = getOwnedLegendMateria(state);
+  return {
+    getStatusAndCss: (id: number, which: SbOrLm) => {
+      const isDupe =
+        which === SbOrLm.SoulBreak
+          ? ownedSoulBreaks && ownedSoulBreaks.has(id)
+          : ownedLegendMateria && ownedLegendMateria.has(id);
+      return [isDupe ? 'Dupe' : '', isDupe ? styles.dupe : ''] as [string, string];
+    },
+  };
+})(RelicDrawBannerTable);
