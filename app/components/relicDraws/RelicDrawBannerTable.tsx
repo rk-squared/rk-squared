@@ -181,11 +181,14 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
 
     let showProbability: boolean;
     let commonProbability: number | null;
+    let totalProbability: number | null;
     if (!probabilities || _.isEmpty(probabilities.byRelic)) {
       commonProbability = null;
+      totalProbability = null;
       showProbability = false;
     } else {
       commonProbability = getAllSameValue(_.flatten(relics).map(i => probabilities.byRelic[i]));
+      totalProbability = _.sum(_.flatten(relics).map(i => probabilities.byRelic[i]));
       showProbability = commonProbability == null;
     }
 
@@ -211,6 +214,11 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
                 {allowCollapse && this.renderShowHideLink()}
                 {commonProbability && (
                   <span className="float-right">Chance of drawing: {commonProbability}% each</span>
+                )}
+                {!commonProbability && totalProbability && (
+                  <span className="float-right">
+                    Chance of drawing: {totalProbability.toFixed(2)}% total
+                  </span>
                 )}
               </th>
             </tr>
