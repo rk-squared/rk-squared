@@ -45,15 +45,15 @@ const SoulBreaksNavPrefsMenu = ({
     display={<FontAwesomeIcon icon="cog" />}
     right={true}
   >
-    <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.ALL)}>
-      <Bullet show={showSoulBreaks === ShowSoulBreaksType.ALL} /> JP and GL
+    <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.All)}>
+      <Bullet show={showSoulBreaks === ShowSoulBreaksType.All} /> JP and GL
     </NavDropdownItem>
-    <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.GL)}>
-      <Bullet show={showSoulBreaks === ShowSoulBreaksType.GL} /> GL
+    <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.Gl)}>
+      <Bullet show={showSoulBreaks === ShowSoulBreaksType.Gl} /> GL
     </NavDropdownItem>
     {!isAnonymous && (
-      <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.OWNED)}>
-        <Bullet show={showSoulBreaks === ShowSoulBreaksType.OWNED} /> Owned
+      <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.Owned)}>
+        <Bullet show={showSoulBreaks === ShowSoulBreaksType.Owned} /> Owned
       </NavDropdownItem>
     )}
   </NavMenuDropdown>

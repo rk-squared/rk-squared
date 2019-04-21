@@ -25,7 +25,7 @@ const initialState: PrefsState = {
   showItemType: _.fromPairs(Object.keys(ItemType).map(i => [ItemType[i as any], true])) as {
     [t in ItemType]: boolean
   },
-  showSoulBreaks: ShowSoulBreaksType.ALL,
+  showSoulBreaks: ShowSoulBreaksType.All,
 };
 
 export function prefs(state: PrefsState = initialState, action: PrefsAction): PrefsState {

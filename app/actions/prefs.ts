@@ -6,11 +6,11 @@ import { EnlirSoulBreakOrLegendMateria } from '../data/enlir';
 import { ItemType } from '../data/items';
 
 export enum ShowSoulBreaksType {
-  ALL = 0,
-  GL = 1,
-  OWNED = 2,
+  All = 0,
+  Gl = 1,
+  Owned = 2,
 
-  DEFAULT = ALL,
+  Default = All,
 }
 
 export interface Prefs {
@@ -25,14 +25,14 @@ export interface Prefs {
 
 export function filterSoulBreaks(showSoulBreaks?: ShowSoulBreaksType, owned?: Set<number>) {
   if (showSoulBreaks == null) {
-    showSoulBreaks = ShowSoulBreaksType.DEFAULT;
+    showSoulBreaks = ShowSoulBreaksType.Default;
   }
   switch (showSoulBreaks) {
-    case ShowSoulBreaksType.ALL:
+    case ShowSoulBreaksType.All:
       return _.constant(true);
-    case ShowSoulBreaksType.GL:
+    case ShowSoulBreaksType.Gl:
       return (item: EnlirSoulBreakOrLegendMateria) => item.gl;
-    case ShowSoulBreaksType.OWNED:
+    case ShowSoulBreaksType.Owned:
       if (owned == null) {
         return _.constant(true);
       } else {

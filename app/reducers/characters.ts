@@ -77,9 +77,9 @@ const initialState: CharacterState = {
 
 function getDestination(draft: CharacterState, inventoryType: InventoryType) {
   switch (inventoryType) {
-    case InventoryType.INVENTORY:
+    case InventoryType.Inventory:
       return draft;
-    case InventoryType.VAULT:
+    case InventoryType.Vault:
       draft.vault = draft.vault || {};
       return draft.vault;
   }
