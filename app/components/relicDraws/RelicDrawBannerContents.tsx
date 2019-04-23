@@ -58,6 +58,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         relics={banner.bannerRelics}
         probabilities={probabilities}
         isAnonymous={isAnonymous}
+        allowSelect={true}
       />
     );
   }
@@ -74,6 +75,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         probabilities={probabilities}
         isAnonymous={isAnonymous}
         allowCollapse={true}
+        allowSelect={true}
       />
     );
   }
@@ -94,6 +96,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         probabilities={probabilities}
         isAnonymous={isAnonymous}
         allowCollapse={true}
+        allowSelect={true}
       />
     );
   }

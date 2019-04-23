@@ -85,6 +85,14 @@ export const setExchangeShopSelections = createAction(
   }),
 );
 
+export const wantRelic = createAction('WANT_RELIC', (relicId: number, want: boolean) => ({
+  type: 'WANT_RELIC',
+  payload: {
+    relicId,
+    want,
+  },
+}));
+
 /**
  * Instruct the app to load all missing relic probabilities and exchange shop
  * selections from the FFRK servers.
@@ -102,4 +110,5 @@ export type RelicDrawAction = ReturnType<
   | typeof setRelicDrawGroups
   | typeof setRelicDrawProbabilities
   | typeof setExchangeShopSelections
+  | typeof wantRelic
 >;
