@@ -24,8 +24,6 @@ import {
   tierClass,
 } from '../shared/SoulBreakShared';
 
-// FIXME: Better styling - table widths are bad, because SB effects are way too narrow
-
 const styles = require('./RelicDrawBannerTable.scss');
 
 interface Props {
@@ -137,15 +135,35 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
     );
   }
 
+  renderColumnGroup(showProbability: boolean) {
+    return (
+      <colgroup>
+        <col className={styles.characterColumn} />
+        <col className={styles.relicColumn} />
+        <col className={styles.tierColumn} />
+        <col className={styles.soulBreakColumn} />
+        <col className={styles.effectsColumn} />
+        {showProbability && <col className={styles.probabilityColumn} />}
+        {this.props.getStatusAndCss && <col className={styles.statusColumn} />}
+      </colgroup>
+    );
+  }
+
   renderColumnHeaders(showProbability: boolean) {
     return (
       <tr>
-        <th>Character</th>
-        <th>Relic</th>
-        <th colSpan={2}>Soul Break / Materia</th>
-        <th>Effects</th>
-        {showProbability && <th>Probability</th>}
-        {this.props.getStatusAndCss && <th className="sr-only">Status</th>}
+        <th scope="col">Character</th>
+        <th scope="col">Relic</th>
+        <th scope="col" colSpan={2}>
+          Soul Break / Materia
+        </th>
+        <th scope="col">Effects</th>
+        {showProbability && <th scope="col">Chance</th>}
+        {this.props.getStatusAndCss && (
+          <th scope="col" className="sr-only">
+            Status
+          </th>
+        )}
       </tr>
     );
   }
@@ -186,7 +204,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       showProbability = commonProbability == null;
     }
 
-    const colCount = showProbability ? 8 : 7;
+    const colCount = showProbability ? 7 : 6;
 
     let relicsArray = (relics.length > 0 && Array.isArray(relics[0])
       ? relics
@@ -200,7 +218,8 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
     this.lastRealm = null;
     return (
       <div className="table-responsive">
-        <table className={classNames('table', { [styles.grouped]: grouped })}>
+        <table className={classNames('table', styles.component, { [styles.grouped]: grouped })}>
+          {this.renderColumnGroup(showProbability)}
           <thead>
             <tr className="thead-dark">
               <th colSpan={colCount}>
