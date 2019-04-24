@@ -5,8 +5,25 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
   className="table-responsive"
 >
   <table
-    className="table"
+    className="table component"
   >
+    <colgroup>
+      <col
+        className="characterColumn"
+      />
+      <col
+        className="relicColumn"
+      />
+      <col
+        className="tierColumn"
+      />
+      <col
+        className="soulBreakColumn"
+      />
+      <col
+        className="effectsColumn"
+      />
+    </colgroup>
     <thead>
       <tr
         className="thead-dark"
@@ -25,18 +42,25 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
         </th>
       </tr>
       <tr>
-        <th>
+        <th
+          scope="col"
+        >
           Character
         </th>
-        <th>
+        <th
+          scope="col"
+        >
           Relic
         </th>
         <th
           colSpan={2}
+          scope="col"
         >
           Soul Break / Materia
         </th>
-        <th>
+        <th
+          scope="col"
+        >
           Effects
         </th>
       </tr>
@@ -514,8 +538,28 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
   className="table-responsive"
 >
   <table
-    className="table"
+    className="table component"
   >
+    <colgroup>
+      <col
+        className="characterColumn"
+      />
+      <col
+        className="relicColumn"
+      />
+      <col
+        className="tierColumn"
+      />
+      <col
+        className="soulBreakColumn"
+      />
+      <col
+        className="effectsColumn"
+      />
+      <col
+        className="probabilityColumn"
+      />
+    </colgroup>
     <thead>
       <tr
         className="thead-dark"
@@ -524,25 +568,41 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           colSpan={8}
         >
           Featured Relics
+          <span
+            className="float-right"
+          >
+            Chance of drawing: 
+            91.00
+            % total
+          </span>
         </th>
       </tr>
       <tr>
-        <th>
+        <th
+          scope="col"
+        >
           Character
         </th>
-        <th>
+        <th
+          scope="col"
+        >
           Relic
         </th>
         <th
           colSpan={2}
+          scope="col"
         >
           Soul Break / Materia
         </th>
-        <th>
+        <th
+          scope="col"
+        >
           Effects
         </th>
-        <th>
-          Probability
+        <th
+          scope="col"
+        >
+          Chance
         </th>
       </tr>
     </thead>
@@ -1077,8 +1137,25 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
   className="table-responsive"
 >
   <table
-    className="table"
+    className="table component"
   >
+    <colgroup>
+      <col
+        className="characterColumn"
+      />
+      <col
+        className="relicColumn"
+      />
+      <col
+        className="tierColumn"
+      />
+      <col
+        className="soulBreakColumn"
+      />
+      <col
+        className="effectsColumn"
+      />
+    </colgroup>
     <thead>
       <tr
         className="thead-dark"
@@ -1090,18 +1167,25 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
         </th>
       </tr>
       <tr>
-        <th>
+        <th
+          scope="col"
+        >
           Character
         </th>
-        <th>
+        <th
+          scope="col"
+        >
           Relic
         </th>
         <th
           colSpan={2}
+          scope="col"
         >
           Soul Break / Materia
         </th>
-        <th>
+        <th
+          scope="col"
+        >
           Effects
         </th>
       </tr>

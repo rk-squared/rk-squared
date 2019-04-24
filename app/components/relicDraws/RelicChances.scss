@@ -4,7 +4,7 @@
 :local {
   .component {
     > :global(.card-body) {
-      padding: 0.5rem;
+      padding: 0.5rem 0.75rem;
     }
 
     > :global(.card-img-top) {
@@ -20,5 +20,21 @@
     border: solid $table-border-color;
     border-width: $table-border-width 0;
     background: $dupe-background-color;
+  }
+
+  .want {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-height: $line-height-base * 3em;
+  }
+
+  .wantItem {
+    width: 50%;
+  }
+
+  .wantCount {
+    display: inline-block;
+    width: 40%;
   }
 }
