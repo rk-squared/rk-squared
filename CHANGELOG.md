@@ -3,13 +3,20 @@
 - New feature: Export
   - You can now export your soul break inventory and legend materia inventory in CSV format.
   - Exporting all of RK Squared's state as JSON is also supported.
+- Dungeons
+  - Add icons for Corridor of Trials
 - Soul Breaks
-  - Properly track required soul break experience for all soul breaks.
+  - Fix: Properly track required soul break experience for all soul breaks.
+  - Improve display of hybrid soul breaks
+  - Various fixes for individual soul breaks
 - Record Materia
   - Attack replacement materia now include details about their replacement skills
-  - Fix Dr. Mog RM3
+  - Fix: Dr. Mog RM3
+- Relic Draws
+  - Add probability analysis for banners, including the ability to see your chances of getting relics you're interested in. Probabilities are currently based on [proposal 5 of /u/Spiralis's analysis](https://www.reddit.com/r/FFRecordKeeper/comments/83l3jd/analysis_of_fuitads_gacha_data/); this may change in a future version.
+  - Various improvements to formatting and display
 - Options
-  - Disable the static battle background option - It no longer works in current versions of FFRK. In practice, it was of little benefit; enemy special effects and soul break animations hurt performance worse.
+  - Remove the static battle background option - It no longer works in current versions of FFRK. In practice, it was of little benefit; enemy special effects and soul break animations hurt performance worse.
   - Add an option to save the troubleshooting and network log, to aid in troubleshooting.
 
 # v2.0.0
