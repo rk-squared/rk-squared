@@ -1,6 +1,7 @@
 import * as Modal from 'react-modal';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { faDiceD20 } from '@fortawesome/pro-light-svg-icons/faDiceD20';
 import { faArchive } from '@fortawesome/pro-solid-svg-icons/faArchive';
 import { faArrowDown } from '@fortawesome/pro-solid-svg-icons/faArrowDown';
 import { faCheck } from '@fortawesome/pro-solid-svg-icons/faCheck';
@@ -33,6 +34,7 @@ library.add(
   faCheck,
   faCoffeeTogo,
   faCog,
+  faDiceD20,
   faEllipsisH,
   faExternalLink,
   faLock,

@@ -1,11 +1,16 @@
+@import '../shared/relics';
+
 :local {
+  .component {
+    table-layout: fixed;
+  }
+
   .grouped > tbody:hover {
     background-color: #f0f0f0;
   }
 
   .dupe {
-    // Compare with CharacterSoulBreaks.scss's .unowned
-    background-color: #f0f0f7;
+    background-color: $dupe-background-color;
   }
 
   tr.command > td {
@@ -31,5 +36,30 @@
   tr.seriesGroup {
     text-align: center;
     font-style: italic;
+  }
+
+  col.characterColumn {
+    width: 6em;
+  }
+  col.relicColumn {
+    width: 10em;
+  }
+  col.tierColumn {
+    width: 3em;
+  }
+  col.soulBreakColumn {
+    width: 12em;
+  }
+  col.effectsColumn {
+    width: 100%;
+  }
+  col.probabilityColumn {
+    width: 6em;
+  }
+  col.selectedColumn {
+    width: 2em;
+  }
+  col.statusColumn {
+    width: 0;
   }
 }

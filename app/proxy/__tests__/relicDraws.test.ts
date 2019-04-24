@@ -118,14 +118,14 @@ describe('gacha proxy handler', () => {
           type: 'ADD_SOUL_BREAK',
           payload: {
             idOrIds: [20860014],
-            inventoryType: InventoryType.INVENTORY,
+            inventoryType: InventoryType.Inventory,
           },
         },
         {
           type: 'ADD_LEGEND_MATERIA',
           payload: {
             idOrIds: [201110103],
-            inventoryType: InventoryType.INVENTORY,
+            inventoryType: InventoryType.Inventory,
           },
         },
       ]);

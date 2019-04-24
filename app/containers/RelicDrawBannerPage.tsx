@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { RelicDrawProbabilities } from '../actions/relicDraws';
 import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
+import RelicChances from '../components/relicDraws/RelicChances';
 import { RelicDrawBannerContents } from '../components/relicDraws/RelicDrawBannerContents';
 import { IState } from '../reducers';
 import { getBannerDetails, RelicDrawBannerDetails } from '../selectors/relicDraws';
@@ -46,6 +47,14 @@ export class RelicDrawBannerPage extends React.PureComponent<
           probabilities={probability}
           isAnonymous={isAnonymous}
         />
+        {probability && (
+          <RelicChances
+            banner={banner}
+            probabilities={probability}
+            isAnonymous={isAnonymous}
+            className="sticky-bottom"
+          />
+        )}
       </>
     );
   }

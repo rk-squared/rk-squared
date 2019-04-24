@@ -316,6 +316,11 @@ export type EnlirSkill =
   | EnlirOtherSkill
   | EnlirSoulBreak;
 
+export enum SbOrLm {
+  SoulBreak,
+  LegendMateria,
+}
+
 export const tierOrder: { [t in EnlirSoulBreakTier]: number } = {
   Default: 0,
   SB: 1,

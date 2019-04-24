@@ -121,8 +121,8 @@ const charactersHandler: Handler = {
     data: warehouseSchemas.WarehouseGetEquipmentList,
     store: Store<IState>,
   ) {
-    store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id), InventoryType.VAULT));
-    store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id), InventoryType.VAULT));
+    store.dispatch(setSoulBreaks(data.soul_strikes.map(i => i.id), InventoryType.Vault));
+    store.dispatch(setLegendMateria(data.legend_materias.map(i => i.id), InventoryType.Vault));
 
     store.dispatch(setSoulBreakExpRequired(getExpRequired(data.soul_strikes)));
     store.dispatch(setLegendMateriaExpRequired(getExpRequired(data.legend_materias)));

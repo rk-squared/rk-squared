@@ -4,6 +4,7 @@ import { getType } from 'typesafe-actions';
 import * as _ from 'lodash';
 
 import {
+  clearWantedRelics,
   ExchangeShopSelections,
   RelicDrawAction,
   RelicDrawBanner,
@@ -13,6 +14,7 @@ import {
   setRelicDrawBanners,
   setRelicDrawGroups,
   setRelicDrawProbabilities,
+  wantRelic,
 } from '../actions/relicDraws';
 
 export interface RelicDrawState {
@@ -29,6 +31,9 @@ export interface RelicDrawState {
   selections: {
     [exchangeShopId: number]: ExchangeShopSelections;
   };
+  want?: {
+    [relicId: number]: boolean;
+  };
 }
 
 const initialState: RelicDrawState = {
@@ -36,6 +41,7 @@ const initialState: RelicDrawState = {
   groups: {},
   probabilities: {},
   selections: {},
+  want: {},
 };
 
 export function relicDraws(
@@ -67,6 +73,26 @@ export function relicDraws(
         const { exchangeShopId, selections } = action.payload;
         draft.selections = draft.selections || {};
         draft.selections[exchangeShopId] = selections;
+        return;
+      }
+
+      case getType(wantRelic): {
+        const { relicId, want } = action.payload;
+        draft.want = draft.want || {};
+        if (!want) {
+          delete draft.want[relicId];
+        } else {
+          draft.want[relicId] = want;
+        }
+        return;
+      }
+
+      case getType(clearWantedRelics): {
+        draft.want = draft.want || {};
+        for (const id of action.payload) {
+          delete draft.want[id];
+        }
+        return;
       }
     }
   });

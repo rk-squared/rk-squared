@@ -15,8 +15,19 @@ import { isClosed } from '../utils/timeUtils';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from './characters';
 
 export interface RelicDrawBannerDetails extends RelicDrawBanner {
+  /**
+   * Value to show for the total number of relics for this banner.  For most
+   * banners, this is the number of featured relics.  May be missing for
+   * banners that don't have featured relics and for which we haven't loaded
+   * detailed probabilities.
+   */
   totalCount?: number;
+
+  /**
+   * Number of duplicate relics on this banner.
+   */
   dupeCount?: number;
+
   selections?: ExchangeShopSelections;
 }
 
