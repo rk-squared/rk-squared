@@ -68,13 +68,14 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
     if ((banner.bannerRelics && banner.bannerRelics.length) || !probabilities) {
       return null;
     }
+    const hasSelections = banner.selections != null && banner.selections.length !== 0;
     return (
       <RelicDrawBannerTable
         title={'All Relics'}
         relics={sortRelics(_.keys(probabilities.byRelic).map(i => +i))}
         probabilities={probabilities}
         isAnonymous={isAnonymous}
-        allowCollapse={true}
+        allowCollapse={hasSelections}
         allowSelect={true}
       />
     );

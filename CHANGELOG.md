@@ -6,6 +6,7 @@
 - Dungeons
   - Add icons for Corridor of Trials
 - Soul Breaks
+  - Add the ability to filter: all soul breaks, GL only, or owned only
   - Fix: Properly track required soul break experience for all soul breaks.
   - Improve display of hybrid soul breaks
   - Various fixes for individual soul breaks
