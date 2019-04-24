@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import * as _ from 'lodash';
 
@@ -188,7 +189,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
         {showProbability && <th scope="col">Chance</th>}
         {this.props.allowSelect && (
           <th scope="col">
-            <span className="sr-only">Want</span>
+            <FontAwesomeIcon icon={['fal', 'dice-d20']} title="Want" />
           </th>
         )}
         {this.props.getStatusAndCss && (

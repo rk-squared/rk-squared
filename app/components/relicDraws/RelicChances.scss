@@ -1,0 +1,24 @@
+@import '../../variables';
+@import '../shared/relics';
+
+:local {
+  .component {
+    > :global(.card-body) {
+      padding: 0.5rem;
+    }
+
+    > :global(.card-img-top) {
+      padding: 1rem;
+    }
+
+    p:global(.card-text) {
+      margin-bottom: 0;
+    }
+  }
+
+  .dupe {
+    border: solid $table-border-color;
+    border-width: $table-border-width 0;
+    background: $dupe-background-color;
+  }
+}

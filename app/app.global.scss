@@ -10,6 +10,23 @@
   font-variant-numeric: tabular-nums;
 }
 
+.sticky-bottom {
+  position: sticky;
+  bottom: 0;
+}
+
+// Bootstrap variant - horizontally laid out card
+.card.card-horizontal {
+  flex-direction: row;
+
+  > .card-img-top {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-bottom-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: 0;
+    width: inherit;
+  }
+}
+
 // Fix border for a single-card accordion - Bootstrap hides the bottom border
 // for the first card, which doesn't look right if the first card is also the
 // last card.

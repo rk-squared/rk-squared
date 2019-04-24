@@ -1,3 +1,5 @@
+@import '../shared/relics';
+
 :local {
   .component {
     table-layout: fixed;
@@ -8,8 +10,7 @@
   }
 
   .dupe {
-    // Compare with CharacterSoulBreaks.scss's .unowned
-    background-color: #f0f0f7;
+    background-color: $dupe-background-color;
   }
 
   tr.command > td {
