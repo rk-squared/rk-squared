@@ -93,6 +93,11 @@ export const wantRelic = createAction('WANT_RELIC', (relicId: number, want: bool
   },
 }));
 
+export const clearWantedRelics = createAction('CLEAR_WANTED_RELICS', (relicIds: number[]) => ({
+  type: 'CLEAR_WANTED_RELICS',
+  payload: relicIds,
+}));
+
 /**
  * Instruct the app to load all missing relic probabilities and exchange shop
  * selections from the FFRK servers.
@@ -111,4 +116,5 @@ export type RelicDrawAction = ReturnType<
   | typeof setRelicDrawProbabilities
   | typeof setExchangeShopSelections
   | typeof wantRelic
+  | typeof clearWantedRelics
 >;

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import * as _ from 'lodash';
 
-import { RelicDrawProbabilities } from '../../actions/relicDraws';
+import { clearWantedRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
 import { enlir } from '../../data/enlir';
 import { chanceOfDesiredDrawProp5 } from '../../data/probabilities';
 import { IState } from '../../reducers';
@@ -21,6 +21,7 @@ interface Props {
   className?: string;
 
   want?: { [relicId: number]: boolean };
+  onClear?: (relicIds: number[]) => void;
 }
 
 function getRelicChanceDetails(
@@ -74,6 +75,14 @@ function getRelicChanceDetails(
 const chanceAfterNDraws = (chance: number, n: number) => (1 - (1 - chance) ** n) * 100;
 
 export class RelicChances extends React.PureComponent<Props> {
+  handleClear = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const { probabilities, onClear } = this.props;
+    if (onClear) {
+      onClear(_.keys(probabilities.byRelic).map(i => +i));
+    }
+  };
+
   renderWant(count: number, chance: number) {
     if (!count) {
       return (
@@ -86,8 +95,12 @@ export class RelicChances extends React.PureComponent<Props> {
     return (
       <div>
         <p className="card-text">
-          Chance of getting {count === 1 ? '1 selected relic ' : `≥1 of ${count} selected relics `}
-          after&hellip;
+          Odds of {count === 1 ? '1 selected relic ' : `≥1 of ${count} selected relics `}
+          after&hellip; (
+          <a href="#" onClick={this.handleClear}>
+            clear
+          </a>
+          )
         </p>
         <div className={styles.want}>
           {_.times(6, i => (
@@ -100,6 +113,7 @@ export class RelicChances extends React.PureComponent<Props> {
       </div>
     );
   }
+
   render() {
     const { banner, probabilities, want, isAnonymous, className } = this.props;
     if (!banner.totalCount) {
@@ -144,4 +158,7 @@ export class RelicChances extends React.PureComponent<Props> {
   }
 }
 
-export default connect((state: IState) => ({ want: state.relicDraws.want }))(RelicChances);
+export default connect(
+  (state: IState) => ({ want: state.relicDraws.want }),
+  { onClear: clearWantedRelics },
+)(RelicChances);

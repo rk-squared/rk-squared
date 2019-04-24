@@ -4,6 +4,7 @@ import { getType } from 'typesafe-actions';
 import * as _ from 'lodash';
 
 import {
+  clearWantedRelics,
   ExchangeShopSelections,
   RelicDrawAction,
   RelicDrawBanner,
@@ -82,6 +83,14 @@ export function relicDraws(
           delete draft.want[relicId];
         } else {
           draft.want[relicId] = want;
+        }
+        return;
+      }
+
+      case getType(clearWantedRelics): {
+        draft.want = draft.want || {};
+        for (const id of action.payload) {
+          delete draft.want[id];
         }
         return;
       }
