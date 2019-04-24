@@ -47,7 +47,14 @@ export class RelicDrawBannerPage extends React.PureComponent<
           probabilities={probability}
           isAnonymous={isAnonymous}
         />
-        <RelicChances className="sticky-bottom" />
+        {probability && (
+          <RelicChances
+            banner={banner}
+            probabilities={probability}
+            isAnonymous={isAnonymous}
+            className="sticky-bottom"
+          />
+        )}
       </>
     );
   }

@@ -6,18 +6,23 @@
  * See https://www.reddit.com/r/FFRecordKeeper/comments/83l3jd/analysis_of_fuitads_gacha_data/
  */
 
+interface RelicDrawBannerChances {
+  expectedValue: number;
+  desiredChance: number;
+}
+
 /**
  * Analysis of probabilities, following proposal 5 on Reddit.
  *
- * @param drawCount      Number of items in this banner (usually 11)
- * @param rareChance     Total chance of getting a 5* or 6* (e.g., 0.1404)
- * @param desiredChance  Total chance of getting something desirable (e.g., 0.05)
+ * @param drawCount              Number of items in this banner (usually 11)
+ * @param rareChancePerRelic     Total chance of getting a 5* or 6* (e.g., 0.1404)
+ * @param desiredChancePerRelic  Total chance of getting something desirable (e.g., 0.05)
  */
 export function chanceOfDesiredDrawProp5(
   drawCount: number,
-  rareChance: number,
-  desiredChance: number,
-) {
+  rareChancePerRelic: number,
+  desiredChancePerRelic: number,
+): RelicDrawBannerChances {
   // If x is the percentage of getting a 5* or better
   // and y is the percentage of getting what you care about,
   // then an 11 draw has the following possible outcomes:
@@ -27,8 +32,8 @@ export function chanceOfDesiredDrawProp5(
   // - etc.
   // - (1 - x) ^ 11 chance of getting nothing and re-rolling
   const n = drawCount;
-  const x = rareChance;
-  const y = desiredChance;
+  const x = rareChancePerRelic;
+  const y = desiredChancePerRelic;
 
   let totalEv = 0;
   let totalDesiredChance = 0;
@@ -52,7 +57,7 @@ export function chanceOfDesiredDrawProp5(
 
   // Sum of an infinite geometric series is a / (1 - r).
   return {
-    ev: totalEv / (1 - r),
+    expectedValue: totalEv / (1 - r),
     desiredChance: totalDesiredChance / (1 - r),
   };
 }
@@ -62,7 +67,7 @@ export function monteCarloProp5(
   rareChance: number,
   desiredChance: number,
   iterations: number,
-) {
+): RelicDrawBannerChances {
   let totalCount = 0;
   let atLeast1Count = 0;
   for (let i = 0; i < iterations; i++) {
@@ -83,7 +88,7 @@ export function monteCarloProp5(
     atLeast1Count += thisDesiredCount > 0 ? 1 : 0;
   }
   return {
-    ev: totalCount / iterations,
+    expectedValue: totalCount / iterations,
     desiredChance: atLeast1Count / iterations,
   };
 }
