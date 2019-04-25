@@ -2,11 +2,8 @@ import * as _ from 'lodash';
 
 import { describeEnlirSoulBreak, formatMrP } from '../mrP';
 import { formatBraveCommands } from '../mrP/brave';
-import { allTranceStatus, isTranceStatus } from '../mrP/status';
-import { parseNumberString, parsePercentageCounts } from '../mrP/util';
 
 import { enlir, EnlirSoulBreak } from '../enlir';
-import { describeMrPLegendMateria } from '../mrP/legendMateria';
 
 const soulBreaks = _.keyBy(_.values(enlir.soulBreaks), i => i.character + ' - ' + i.name);
 
@@ -173,53 +170,6 @@ function describeSoulBreak(name: string) {
 }
 
 describe('mrP', () => {
-  describe('parseNumberString', () => {
-    it('parses number strings', () => {
-      expect(parseNumberString('One')).toEqual(1);
-      expect(parseNumberString('Twenty-two')).toEqual(22);
-    });
-  });
-
-  describe('parsePercentageCounts', () => {
-    it('parses percentage counts', () => {
-      expect(
-        parsePercentageCounts(
-          'Randomly deals one (74%), two (25%) or thirteen (1%) single attacks',
-        ),
-      ).toEqual([[1, 74], [2, 25], [13, 1]]);
-    });
-  });
-
-  describe('isTranceStatus', () => {
-    it('identifies trance statuses', () => {
-      // It's simpler to list them all...
-      expect(allTranceStatus).toEqual(
-        new Set([
-          'Biggs Trance',
-          'Gilgamesh Trance',
-          'Terra Trance',
-          'Phoenix Mode',
-          'Galian Beast',
-          'Sephiroth Trance',
-          'Angeal Trance',
-          'Zidane Trance',
-          'Garnet Trance',
-          'Vivi Trance',
-          'Steiner Trance',
-          'Freya Trance',
-          'Quina Trance',
-          'Eiko Trance',
-          'Amarant Trance',
-          'Play Rough Mode',
-          'Queen Trance',
-          'Eight Trance',
-        ]),
-      );
-
-      expect(isTranceStatus(enlir.statusByName['EX: Dreadwyrm Trance'])).toEqual(false);
-    });
-  });
-
   describe('describeEnlirSoulBreak', () => {
     it('converts piercing attacks', () => {
       expect(describeSoulBreak('Sephiroth - Reunion')).toEqual({
@@ -2559,19 +2509,5 @@ Object {
       expect(allSoulBreaks).toMatchSnapshot();
     });
     */
-  });
-
-  describe('describeMrPLegendMateria', () => {
-    it('converts all legend materia', () => {
-      const allLegendMateria = _.sortBy(_.values(enlir.legendMateria), ['character', 'id']).map(
-        i => ({
-          name: i.name,
-          character: i.character,
-          effect: i.effect,
-          description: describeMrPLegendMateria(i),
-        }),
-      );
-      expect(allLegendMateria).toMatchSnapshot();
-    });
   });
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mrP describeMrPLegendMateria converts all legend materia 1`] = `
+exports[`mrP/legendMateria describeMrPLegendMateria converts all legend materia 1`] = `
 Array [
   Object {
     "character": "Ace",
