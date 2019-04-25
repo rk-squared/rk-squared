@@ -21,6 +21,12 @@ const rawConfig = fs.readJsonSync(path.join(userDataPath, 'config.json'));
 let config = JSON.parse(rawConfig['persist:root']);
 config = _.mapValues(config, JSON.parse);
 
-const outputPath = path.join(__dirname, '..', 'public', 'data');
+// Anonymize and reset user preferences.
+// TODO: More thorough
+config.relicDraws.want = {};
 
-console.log(JSON.stringify(config, undefined, 2));
+const outputPath = path.join(__dirname, '..', 'app', 'tmp', 'store.json');
+const tmpOutputPath = outputPath + '.new';
+
+fs.writeFileSync(tmpOutputPath, JSON.stringify(config, undefined, 2));
+fs.moveSync(tmpOutputPath, outputPath, { overwrite: true });
