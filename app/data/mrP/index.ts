@@ -854,11 +854,12 @@ export function describeEnlirSoulBreak(
   };
 
   if (sb.time != null) {
-    if (sb.time <= 0.01) {
+    const time = sb.time;
+    if (time <= 0.01) {
       result.instant = true;
-    } else if (sb.time < 1.2 || (isSoulBreak(sb) && sb.time && sb.time <= 1.25)) {
+    } else if (time < 1.2 || (isSoulBreak(sb) && time <= 1.25)) {
       result.fast = true;
-    } else if (!isSoulBreak(sb) && sb.time && sb.time > 2) {
+    } else if (time >= 3.75 || (!isSoulBreak(sb) && time > 2)) {
       result.slow = true;
     }
   }

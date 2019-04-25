@@ -12190,7 +12190,7 @@
   },
   {
     "character": "Eight",
-    "source": "Phantom Hail",
+    "source": "Glacial Phantasm",
     "name": "Super Punch",
     "type": "PHY",
     "target": "Single enemy",
@@ -12212,7 +12212,7 @@
   },
   {
     "character": "Eight",
-    "source": "Phantom Hail",
+    "source": "Glacial Phantasm",
     "name": "Ice Shadow",
     "type": "PHY",
     "target": "Single enemy",

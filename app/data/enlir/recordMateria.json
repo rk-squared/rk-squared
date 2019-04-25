@@ -7250,6 +7250,36 @@
     "gl": false
   },
   {
+    "realm": "Type-0",
+    "character": "Trey",
+    "name": "Hidden Rivalry",
+    "effect": "PHY attacks deal 10?% more damage when equipping a bow",
+    "unlockCriteria": "Use Trey's Memory Crystal",
+    "nameJp": "内に秘めし対抗意識",
+    "id": 111600140,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Trey",
+    "name": "Class Zero's Brain",
+    "effect": "Sharpshooter abilities deal 30?% more damage",
+    "unlockCriteria": "Use Trey's Memory Crystal II, chance to obtain with Trey in party",
+    "nameJp": "0組の知恵袋",
+    "id": 111600141,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Trey",
+    "name": "Master of Knowledge",
+    "effect": "13?% chance to dualcast Sharpshooter abilities",
+    "unlockCriteria": "Bring Trey to level 99",
+    "nameJp": "知の力を司る者",
+    "id": 111600142,
+    "gl": false
+  },
+  {
     "realm": "KH",
     "character": "Sora",
     "name": "Link Between Hearts",

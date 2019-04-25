@@ -27,6 +27,18 @@ Array [
     "name": "Chocobond",
   },
   Object {
+    "character": "Ace",
+    "description": "25?% dualcast fire",
+    "effect": "25?% chance to dualcast abilities that deal Fire damage",
+    "name": "Improv Magic",
+  },
+  Object {
+    "character": "Ace",
+    "description": null,
+    "effect": "25?% chance to cast an ability (?: single, 3x ? magical Fire/NE, 1500 HP to an ally)",
+    "name": "Commander of Magic",
+  },
+  Object {
     "character": "Aemo",
     "description": "1.15x WHT healing",
     "effect": "WHT abilities restore 15% more HP",
@@ -84,7 +96,7 @@ Array [
     "character": "Agrias",
     "description": "holy infuse at battle start",
     "effect": "Grants Attach Holy at the beginning of the battle",
-    "name": "Princess's Guardian",
+    "name": "Princess's Shield",
   },
   Object {
     "character": "Alma",
@@ -546,7 +558,7 @@ Array [
     "character": "Cater",
     "description": "(Machinist ⤇ 35% for fastcast 1)",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Machinist ability",
-    "name": "Bravery on the Battlefield",
+    "name": "Battlefield Swagger",
   },
   Object {
     "character": "Cecil (Dark Knight)",
@@ -763,6 +775,12 @@ Array [
     "description": "earth infuse at battle start",
     "effect": "Grants Attach Earth at the beginning of the battle",
     "name": "Chestnut Braid",
+  },
+  Object {
+    "character": "Cinque",
+    "description": "1.2?x PHY dmg if using a hammer",
+    "effect": "PHY attacks deal 20?% more damage when equipping a hammer",
+    "name": "Massive Damage",
   },
   Object {
     "character": "Cloud",
@@ -1152,7 +1170,7 @@ Array [
     "character": "Eight",
     "description": "ice infuse at battle start",
     "effect": "Grants Attach Ice at the beginning of the battle",
-    "name": "Outstanding Acumen",
+    "name": "Keen Perception",
   },
   Object {
     "character": "Eiko",
@@ -1432,8 +1450,8 @@ Array [
   },
   Object {
     "character": "Fran",
-    "description": "?% dualcast Support",
-    "effect": "?% chance to dualcast Support abilities",
+    "description": "?% dualcast Sharpshooter/Machinist",
+    "effect": "?% chance to dualcast Sharpshooter or Machinist abilities",
     "name": "Master of Weapons",
   },
   Object {
@@ -1536,7 +1554,7 @@ Array [
     "character": "Gaffgarion",
     "description": "dark infuse at battle start",
     "effect": "Grants Attach Dark at the beginning of the battle",
-    "name": "Dark Knight's Nature",
+    "name": "Fell Aspirations",
   },
   Object {
     "character": "Galuf",
@@ -1668,7 +1686,7 @@ Array [
     "character": "Gilgamesh",
     "description": "fire infuse at battle start",
     "effect": "Grants Attach Fire at the beginning of the battle",
-    "name": "Fervid Swordsman",
+    "name": "Melodramatic Swordsman",
   },
   Object {
     "character": "Gladiolus",
@@ -2112,7 +2130,7 @@ Array [
     "character": "Kelger",
     "description": "25% dualcast Ninja",
     "effect": "25% chance to dualcast Ninja abilities",
-    "name": "Fighting Illness",
+    "name": "Dying Breath",
   },
   Object {
     "character": "Kimahri",
@@ -2358,7 +2376,7 @@ Array [
     "character": "Leon",
     "description": "dark infuse at battle start",
     "effect": "Grants Attach Dark at the beginning of the battle",
-    "name": "Skilled Commander",
+    "name": "Knight Superior",
   },
   Object {
     "character": "Lightning",
@@ -2748,7 +2766,7 @@ Array [
     "character": "Minwu",
     "description": "holy infuse at battle start",
     "effect": "Grants Attach Holy at the beginning of the battle",
-    "name": "Heroic Healer",
+    "name": "Heroic Mage",
   },
   Object {
     "character": "Mog",
@@ -2862,7 +2880,7 @@ Array [
     "character": "Nabaat",
     "description": "(dark ⤇ 35% for fastcast 1)",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Dark attack",
-    "name": "Commander's Talent",
+    "name": "Top of the Class",
   },
   Object {
     "character": "Nine",
@@ -2982,7 +3000,7 @@ Array [
     "character": "Orlandeau",
     "description": "1.2x PHY dmg if using a sword",
     "effect": "PHY attacks deal 20% more damage when equipping a sword",
-    "name": "General of the Southern Sky",
+    "name": "Southern Sky General",
   },
   Object {
     "character": "Orran",
@@ -3024,7 +3042,7 @@ Array [
     "character": "Ovelia",
     "description": "+1% MND (max +25%) per W.Mag",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
-    "name": "Mutable Fate",
+    "name": "Throes of Fate",
   },
   Object {
     "character": "Paine",
@@ -3048,7 +3066,7 @@ Array [
     "character": "Paine",
     "description": "water infuse at battle start",
     "effect": "Grants Attach Water at the beginning of the battle",
-    "name": "True Past",
+    "name": "Long-sought Truths",
   },
   Object {
     "character": "Palom",
@@ -3420,7 +3438,7 @@ Array [
     "character": "Rem",
     "description": "holy infuse at battle start",
     "effect": "Grants Attach Holy at the beginning of the battle",
-    "name": "Expert of Magic",
+    "name": "Magic Expert",
   },
   Object {
     "character": "Reno",
@@ -3480,7 +3498,7 @@ Array [
     "character": "Ricard",
     "description": "lgt infuse at battle start",
     "effect": "Grants Attach Lightning at the beginning of the battle",
-    "name": "Stormslice Wyvern",
+    "name": "Storm Strider",
   },
   Object {
     "character": "Rikku",
@@ -3960,7 +3978,7 @@ Array [
     "character": "Seymour",
     "description": "dark infuse at battle start",
     "effect": "Grants Attach Dark at the beginning of the battle",
-    "name": "Patricide",
+    "name": "A Son's Hatred",
   },
   Object {
     "character": "Shadow",
@@ -4357,6 +4375,24 @@ Array [
     "description": "25% dualcast Monk",
     "effect": "25% chance to dualcast Monk abilities",
     "name": "Tomboy Brawler",
+  },
+  Object {
+    "character": "Trey",
+    "description": "1.15?x Sharpshooter dmg",
+    "effect": "Sharpshooter abilities deal 15?% more damage",
+    "name": "Pride of Knowledge",
+  },
+  Object {
+    "character": "Trey",
+    "description": "35?% dualcast Sharpshooter",
+    "effect": "35?% chance to dualcast Sharpshooter abilities",
+    "name": "Sharpened Mind",
+  },
+  Object {
+    "character": "Trey",
+    "description": "1.2?x PHY dmg if using a bow",
+    "effect": "PHY attacks deal 20?% more damage when equipping a bow",
+    "name": "Knowledgeable Archer",
   },
   Object {
     "character": "Tyro",
@@ -4860,7 +4896,7 @@ Array [
     "character": "Yuna",
     "description": "holy infuse at battle start",
     "effect": "Grants Attach Holy at the beginning of the battle",
-    "name": "Immovable Devotion",
+    "name": "Unfaltering Devotion",
   },
   Object {
     "character": "Zack",

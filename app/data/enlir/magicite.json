@@ -5074,7 +5074,7 @@
     },
     "nameJp": "【契】暗黒の運命",
     "id": 161000095,
-    "gl": false
+    "gl": true
   },
   {
     "element": "Dark",
@@ -5132,6 +5132,6 @@
     },
     "nameJp": "【契】不吉なる邂逅",
     "id": 161000096,
-    "gl": false
+    "gl": true
   }
 ]

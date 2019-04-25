@@ -315,8 +315,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Damage of Chaos Follow-Up",
-    "name": "Damage of Chaos",
+    "source": "Damage of Chaos Impact Follow-Up",
+    "name": "Chaos Impact",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -1192,9 +1192,9 @@
     "multiplier": 3.52,
     "element": [
       "Fire",
-      "Wat.",
+      "Water",
       "Wind",
-      "Ea.",
+      "Earth",
       "NE"
     ],
     "time": 0.01,
@@ -2658,7 +2658,7 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Beast and Father",
+    "source": "Struggle Within",
     "name": "Beast Stream",
     "type": "PHY",
     "target": "Single enemy",
@@ -3014,7 +3014,7 @@
     "sourceType": "Follow-Up Status",
     "source": "Awoken Potion",
     "name": "Custom Potion",
-    "type": "?",
+    "type": "NAT",
     "target": "All allies",
     "formula": null,
     "multiplier": null,
@@ -3783,6 +3783,66 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Concentrate (Type-0) Follow-Up",
+    "name": "Concentrate (Type-0)",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Critical Damage +50% 1 and Instant Cast 1",
+    "counter": false,
+    "autoTarget": "Self",
+    "sb": 0,
+    "school": "Special",
+    "id": 30549178,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Blind Stud Follow-Up",
+    "name": "Blind Stud (BLK)",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 4.08,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (2.04 each), grants Magical Quick Cast 2 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541811,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Blind Stud Follow-Up",
+    "name": "Blind Stud (SUM)",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 4.08,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (2.04 each), grants Minor Buff Fire to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541812,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Connected Hearts",
     "name": "Judgment",
     "type": "PHY",
@@ -4389,9 +4449,29 @@
     "gl": true
   },
   {
+    "sourceType": "FInisher Status",
+    "source": "EX: Hawkeye Mode",
+    "name": "Raining Arrows",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "?"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (? each)",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": 0,
+    "school": "?",
+    "id": 30549179,
+    "gl": false
+  },
+  {
     "sourceType": "Periodic Status",
-    "source": "Sketch Mode",
-    "name": "Sketch Bonds 1",
+    "source": "Kindred Sketch",
+    "name": "Kindred Sketch 1",
     "type": "WHT",
     "target": "Single enemy",
     "formula": "Magical",
@@ -4411,8 +4491,8 @@
   },
   {
     "sourceType": "Periodic Status",
-    "source": "Sketch Mode",
-    "name": "Sketch Bonds 2",
+    "source": "Kindred Sketch",
+    "name": "Kindred Sketch 2",
     "type": "WHT",
     "target": "Single enemy",
     "formula": "Magical",
@@ -4433,8 +4513,8 @@
   },
   {
     "sourceType": "Periodic Status",
-    "source": "Sketch Mode",
-    "name": "Sketch Bonds 3",
+    "source": "Kindred Sketch",
+    "name": "Kindred Sketch 3",
     "type": "WHT",
     "target": "Single enemy",
     "formula": "Magical",
@@ -7307,7 +7387,7 @@
     "autoTarget": "Lowest HP% ally",
     "sb": 0,
     "school": "Ninja",
-    "id": null,
+    "id": 30524014,
     "gl": false
   },
   {

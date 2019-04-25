@@ -283,7 +283,7 @@
     "relic": "Crystal Shield (I)",
     "nameJp": "毅然たる戦士",
     "id": 201010104,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -805,7 +805,7 @@
   {
     "realm": "II",
     "character": "Leon",
-    "name": "Skilled Commander",
+    "name": "Knight Superior",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Obelisk (II)",
@@ -860,7 +860,7 @@
   {
     "realm": "II",
     "character": "Minwu",
-    "name": "Heroic Healer",
+    "name": "Heroic Mage",
     "effect": "Grants Attach Holy at the beginning of the battle",
     "master": "MND +10",
     "relic": "Asura's Rod (II)",
@@ -981,7 +981,7 @@
   {
     "realm": "II",
     "character": "Ricard",
-    "name": "Stormslice Wyvern",
+    "name": "Storm Strider",
     "effect": "Grants Attach Lightning at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Dragon Armor (II)",
@@ -2487,10 +2487,10 @@
   {
     "realm": "V",
     "character": "Gilgamesh",
-    "name": "Fervid Swordsman",
+    "name": "Melodramatic Swordsman",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Assassin Dagger (V)",
+    "relic": "Assassin's Dagger (V)",
     "nameJp": "有情なる剣豪",
     "id": 201050704,
     "gl": false
@@ -2795,7 +2795,7 @@
   {
     "realm": "V",
     "character": "Kelger",
-    "name": "Fighting Illness",
+    "name": "Dying Breath",
     "effect": "25% chance to dualcast Ninja abilities",
     "master": "ATK +10",
     "relic": "Ashura (V)",
@@ -3241,7 +3241,7 @@
     "relic": "Silver Card (VI)",
     "nameJp": "空にかける最速の夢",
     "id": 201061103,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -3340,7 +3340,7 @@
     "relic": "Rainbow Brush (VI)",
     "nameJp": "魔導士の末裔たる血",
     "id": 201061304,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -3461,7 +3461,7 @@
     "relic": "Blueleaf Flute (VI)",
     "nameJp": "破壊の喜び",
     "id": 201061603,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -5369,7 +5369,7 @@
   {
     "realm": "X",
     "character": "Yuna",
-    "name": "Immovable Devotion",
+    "name": "Unfaltering Devotion",
     "effect": "Grants Attach Holy at the beginning of the battle",
     "master": "MND +10",
     "relic": "Magic Gun (X)",
@@ -5732,10 +5732,10 @@
   {
     "realm": "X",
     "character": "Paine",
-    "name": "True Past",
+    "name": "Long-sought Truths",
     "effect": "Grants Attach Water at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Paine's Samurai Guise (X)",
+    "relic": "Samurai Paine's Guise (X)",
     "nameJp": "求めし過去の真実",
     "id": 201101503,
     "gl": false
@@ -5776,7 +5776,7 @@
   {
     "realm": "X",
     "character": "Seymour",
-    "name": "Patricide",
+    "name": "A Son's Hatred",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Chaos Mace (X)",
@@ -6261,7 +6261,7 @@
     "realm": "XII",
     "character": "Fran",
     "name": "Master of Weapons",
-    "effect": "?% chance to dualcast Support abilities",
+    "effect": "?% chance to dualcast Sharpshooter or Machinist abilities",
     "master": "ATK +10",
     "relic": "Burning Bow (XII)",
     "nameJp": "優れし射撃の腕",
@@ -7019,7 +7019,7 @@
   {
     "realm": "XIII",
     "character": "Nabaat",
-    "name": "Commander's Talent",
+    "name": "Top of the Class",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Dark attack",
     "master": "MAG +10",
     "relic": "Goggle Mask (XIII)",
@@ -7745,7 +7745,7 @@
   {
     "realm": "FFT",
     "character": "Agrias",
-    "name": "Princess's Guardian",
+    "name": "Princess's Shield",
     "effect": "Grants Attach Holy at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Carabineer Mail (FFT)",
@@ -7833,7 +7833,7 @@
   {
     "realm": "FFT",
     "character": "Ovelia",
-    "name": "Mutable Fate",
+    "name": "Throes of Fate",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
     "master": "MND +10",
     "relic": "Pure Staff (FFT)",
@@ -7910,7 +7910,7 @@
   {
     "realm": "FFT",
     "character": "Orlandeau",
-    "name": "General of the Southern Sky",
+    "name": "Southern Sky General",
     "effect": "PHY attacks deal 20% more damage when equipping a sword",
     "master": "ATK +10",
     "relic": "Moonblade (FFT)",
@@ -7954,7 +7954,7 @@
   {
     "realm": "FFT",
     "character": "Gaffgarion",
-    "name": "Dark Knight's Nature",
+    "name": "Fell Aspirations",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Slasher (FFT)",
@@ -8250,6 +8250,28 @@
   },
   {
     "realm": "Type-0",
+    "character": "Ace",
+    "name": "Improv Magic",
+    "effect": "25?% chance to dualcast abilities that deal Fire damage",
+    "master": "MAG +10",
+    "relic": "Reed Cloak (Type-0)",
+    "nameJp": "臨機応変の奇術",
+    "id": 201600104,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Ace",
+    "name": "Commander of Magic",
+    "effect": "25?% chance to cast an ability (?: single, 3x ? magical Fire/NE, 1500 HP to an ally)",
+    "master": "MAG +10",
+    "relic": "Ironclad Deck (Type-0)",
+    "nameJp": "受け取る力を司る者",
+    "id": 201600105,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
     "character": "Deuce",
     "name": "Kindred Spirit",
     "effect": "WHT abilities restore 15% more HP",
@@ -8405,7 +8427,7 @@
   {
     "realm": "Type-0",
     "character": "Rem",
-    "name": "Expert of Magic",
+    "name": "Magic Expert",
     "effect": "Grants Attach Holy at the beginning of the battle",
     "master": "MND +10",
     "relic": "Mythril Gloves (Type-0)",
@@ -8522,6 +8544,17 @@
     "nameJp": "栗色の三つ編み",
     "id": 201600802,
     "gl": true
+  },
+  {
+    "realm": "Type-0",
+    "character": "Cinque",
+    "name": "Massive Damage",
+    "effect": "PHY attacks deal 20?% more damage when equipping a hammer",
+    "master": "ATK +10",
+    "relic": "Guardian Armor (Type-0)",
+    "nameJp": "大ダメージを好む少女",
+    "id": 201600803,
+    "gl": false
   },
   {
     "realm": "Type-0",
@@ -8647,7 +8680,7 @@
   {
     "realm": "Type-0",
     "character": "Eight",
-    "name": "Outstanding Acumen",
+    "name": "Keen Perception",
     "effect": "Grants Attach Ice at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Silver Knuckles (Type-0)",
@@ -8680,12 +8713,45 @@
   {
     "realm": "Type-0",
     "character": "Cater",
-    "name": "Bravery on the Battlefield",
+    "name": "Battlefield Swagger",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Machinist ability",
     "master": "ATK +10",
     "relic": "Magicite Pistol (Type-0)",
     "nameJp": "戦場に向かう勇姿",
     "id": 201601302,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Trey",
+    "name": "Pride of Knowledge",
+    "effect": "Sharpshooter abilities deal 15?% more damage",
+    "master": null,
+    "relic": null,
+    "nameJp": "自負する博識",
+    "id": 201601400,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Trey",
+    "name": "Sharpened Mind",
+    "effect": "35?% chance to dualcast Sharpshooter abilities",
+    "master": null,
+    "relic": null,
+    "nameJp": "研ぎ澄まされた精神",
+    "id": 201601401,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Trey",
+    "name": "Knowledgeable Archer",
+    "effect": "PHY attacks deal 20?% more damage when equipping a bow",
+    "master": "ATK +10",
+    "relic": "Trey's Guise (Type-0)",
+    "nameJp": "博雅の名射手",
+    "id": 201601402,
     "gl": false
   },
   {

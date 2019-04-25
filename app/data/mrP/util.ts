@@ -299,8 +299,12 @@ export function andJoin(s: string[], oxfordComma: boolean): string {
 }
 
 export function percentToMultiplier(percent: number | string): string {
+  let suffix = '';
   if (typeof percent === 'string') {
+    if (percent.length > 1 && percent.endsWith('?')) {
+      suffix = '?';
+    }
     percent = parseFloat(percent);
   }
-  return toMrPFixed(1 + percent / 100);
+  return toMrPFixed(1 + percent / 100) + suffix;
 }

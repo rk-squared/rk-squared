@@ -60,6 +60,10 @@ function toStringWithDecimals(value: string) {
   }
 }
 
+function toStringWithLookup(lookup: _.Dictionary<string>) {
+  return (s: string) => lookup[s] || s;
+}
+
 function toCommon(field: string, value: string) {
   if (field === 'effects' || field === 'effect') {
     return toStringWithDecimals(value);
@@ -76,6 +80,11 @@ function toCommon(field: string, value: string) {
 
 const stats = new Set(['HP', 'ATK', 'DEF', 'MAG', 'RES', 'MND', 'ACC', 'EVA', 'SPD']);
 
+const elementAbbreviations: _.Dictionary<string> = {
+  'Wat.': 'Water',
+  'Ea.': 'Earth',
+};
+
 // noinspection JSUnusedGlobalSymbols
 /**
  * Fields common to "skills" - abilities, soul breaks, etc.
@@ -85,7 +94,7 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Target: toString,
   Formula: toString,
   Multiplier: toFloat,
-  Element: dashAs([], toCommaSeparatedArray(toString)),
+  Element: dashAs([], toCommaSeparatedArray(toStringWithLookup(elementAbbreviations))),
   Time: toFloat,
   // For skills in particular, a null effect string is annoying.  Avoid it.
   Effects: ifNull(toStringWithDecimals, ''),

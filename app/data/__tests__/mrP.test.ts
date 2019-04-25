@@ -989,7 +989,7 @@ Object {
         school: 'Samurai',
       });
 
-      expect(describeSoulBreak('Eight - Phantom Hail')).toEqual({
+      expect(describeSoulBreak('Eight - Glacial Phantasm')).toEqual({
         instant: true,
         damage: 'phys 5.2/8 ice+non',
         other: '+20% ice vuln. 25s',
@@ -1258,7 +1258,7 @@ Object {
           '15s: (1/2/3/4 + 4n damaging Support ⤇ p1.71/3 d+n rngd Support, -40% ATK/-50% MAG/-40% DEF/-50% RES 15s)',
       });
 
-      expect(describeSoulBreak('Exdeath - Laws of Black and White')).toEqual({
+      expect(describeSoulBreak('Exdeath - Balance of Power')).toEqual({
         damage: 'magic 17.0/10 dark+holy',
         other:
           'self +30% holy/dark dmg 15s, +30% MAG/RES/MND 25s, ' +
@@ -1352,7 +1352,7 @@ Object {
           'dark infuse 25s, 15s: Finisher: phys 35% dark overstrike Darkness, ' +
           '15s: (Darkness ⤇ crit =30-50-75%, 2-2.5-3x cast)',
       });
-      expect(describeSoulBreak('Hope - Reflect Boomerang')).toEqual({
+      expect(describeSoulBreak('Hope - Reflecting Arc')).toEqual({
         damage: 'magic 17.3/10 holy (SUM)',
         other:
           'party Reflect Dmg 75% as holy 30s, ' +
@@ -1425,13 +1425,13 @@ Object {
           'wind infuse 25s, 15s: EX: (1/2/3 +3n wind ⤇ front row phys hi fastcast 1, ' +
           'p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)',
       });
-      expect(describeSoulBreak('Ricard - Winged Roar')).toEqual({
+      expect(describeSoulBreak("Ricard - Wyvern's Roar")).toEqual({
         damage: 'phys 7.1/10 wind+lgt jump',
         other:
           'self jump instacast 15s, ' +
           '15s: (Dragoon ⤇ same row 1.3x Dragoon dmg 1 turn, no air time 1 turn)',
       });
-      expect(describeSoulBreak('Jecht - Beast and Father')).toEqual({
+      expect(describeSoulBreak('Jecht - Struggle Within')).toEqual({
         damage: 'phys 7.0/10 dark+fire+non',
         other: 'dark infuse 25s, (dark ⤇ same row fastcast 1, p1.92/6 d+f+n Darkness)',
       });
@@ -1982,7 +1982,7 @@ Object {
         'instant p1.5 – 2.34/6 – 4.68/6 – 7.26/6 f+wi rngd, -30% DEF 15s – -40% DEF 15s – -70% DEF/RES/MND 8s at brv.1+',
       );
 
-      const darkKnight = describeSoulBreak('Leon - Darkness Weapon');
+      const darkKnight = describeSoulBreak('Leon - Weapon of Darkness');
       expect(darkKnight).toEqual({
         damage: 'phys 7.2/10 dark',
         other: '-40% ATK/MAG 25s, self fastcast 15s',

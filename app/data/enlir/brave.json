@@ -315,7 +315,7 @@
   },
   {
     "character": "Leon",
-    "source": "Darkness Weapon",
+    "source": "Weapon of Darkness",
     "name": "Immoral Blade",
     "brave": 0,
     "type": "PHY",
@@ -340,7 +340,7 @@
   },
   {
     "character": "Leon",
-    "source": "Darkness Weapon",
+    "source": "Weapon of Darkness",
     "name": "Immoral Blade",
     "brave": 1,
     "type": "PHY",
@@ -365,7 +365,7 @@
   },
   {
     "character": "Leon",
-    "source": "Darkness Weapon",
+    "source": "Weapon of Darkness",
     "name": "Immoral Blade",
     "brave": 2,
     "type": "PHY",
@@ -390,7 +390,7 @@
   },
   {
     "character": "Leon",
-    "source": "Darkness Weapon",
+    "source": "Weapon of Darkness",
     "name": "Immoral Blade",
     "brave": 3,
     "type": "PHY",
@@ -813,7 +813,7 @@
   },
   {
     "character": "Gilgamesh",
-    "source": "Nonpareil",
+    "source": "Supreme Deliverance",
     "name": "Blazing Dance",
     "brave": 0,
     "type": "PHY",
@@ -838,7 +838,7 @@
   },
   {
     "character": "Gilgamesh",
-    "source": "Nonpareil",
+    "source": "Supreme Deliverance",
     "name": "Blazing Dance",
     "brave": 1,
     "type": "PHY",
@@ -863,7 +863,7 @@
   },
   {
     "character": "Gilgamesh",
-    "source": "Nonpareil",
+    "source": "Supreme Deliverance",
     "name": "Blazing Dance",
     "brave": 2,
     "type": "PHY",
@@ -888,7 +888,7 @@
   },
   {
     "character": "Gilgamesh",
-    "source": "Nonpareil",
+    "source": "Supreme Deliverance",
     "name": "Blazing Dance",
     "brave": 3,
     "type": "PHY",
@@ -2697,7 +2697,7 @@
   },
   {
     "character": "Paine",
-    "source": "Throttle Whelmen",
+    "source": "Throttle Alluvion",
     "name": "Flowing Dance",
     "brave": 0,
     "type": "PHY",
@@ -2722,7 +2722,7 @@
   },
   {
     "character": "Paine",
-    "source": "Throttle Whelmen",
+    "source": "Throttle Alluvion",
     "name": "Flowing Dance",
     "brave": 1,
     "type": "PHY",
@@ -2747,7 +2747,7 @@
   },
   {
     "character": "Paine",
-    "source": "Throttle Whelmen",
+    "source": "Throttle Alluvion",
     "name": "Flowing Dance",
     "brave": 2,
     "type": "PHY",
@@ -2772,7 +2772,7 @@
   },
   {
     "character": "Paine",
-    "source": "Throttle Whelmen",
+    "source": "Throttle Alluvion",
     "name": "Flowing Dance",
     "brave": 3,
     "type": "PHY",
@@ -3213,7 +3213,7 @@
   },
   {
     "character": "Nabaat",
-    "source": "A Study in Elegant Death",
+    "source": "Fatal Refrain",
     "name": "Downfall Gear",
     "brave": 0,
     "type": "BLK",
@@ -3238,7 +3238,7 @@
   },
   {
     "character": "Nabaat",
-    "source": "A Study in Elegant Death",
+    "source": "Fatal Refrain",
     "name": "Downfall Gear",
     "brave": 1,
     "type": "BLK",
@@ -3263,7 +3263,7 @@
   },
   {
     "character": "Nabaat",
-    "source": "A Study in Elegant Death",
+    "source": "Fatal Refrain",
     "name": "Downfall Gear",
     "brave": 2,
     "type": "BLK",
@@ -3288,7 +3288,7 @@
   },
   {
     "character": "Nabaat",
-    "source": "A Study in Elegant Death",
+    "source": "Fatal Refrain",
     "name": "Downfall Gear",
     "brave": 3,
     "type": "BLK",

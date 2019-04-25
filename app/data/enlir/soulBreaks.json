@@ -2167,7 +2167,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Ten single attacks (0.71 each), ATK and DEF +30% to the user for 25 seconds, grants Attach Dark and Damage of Chaos Follow-Up to the user",
+    "effects": "Ten single attacks (0.71 each), ATK and DEF +30% to the user for 25 seconds, grants Attach Dark and Damage of Chaos Impact Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -3918,7 +3918,7 @@
   {
     "realm": "II",
     "character": "Leon",
-    "name": "Darkness Weapon",
+    "name": "Weapon of Darkness",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -3941,7 +3941,7 @@
   {
     "realm": "II",
     "character": "Leon",
-    "name": "Darkness Force",
+    "name": "Force of Darkness",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -4140,7 +4140,7 @@
   {
     "realm": "II",
     "character": "Minwu",
-    "name": "Shining Secrets",
+    "name": "Divine Dealings",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -4153,7 +4153,7 @@
     "points": 250,
     "tier": "Glint",
     "master": "MND +10",
-    "relic": "Robe of Lords (II)",
+    "relic": "Lordly Robes (II)",
     "nameJp": "光輝なる秘術",
     "id": 22120009,
     "gl": false
@@ -4431,7 +4431,7 @@
   {
     "realm": "II",
     "character": "Leila",
-    "name": "Pirate's Cloud",
+    "name": "Pirate Scourge",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4547,7 +4547,7 @@
   {
     "realm": "II",
     "character": "Ricard",
-    "name": "Winged Roar",
+    "name": "Wyvern's Roar",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4557,7 +4557,7 @@
       "Lightning"
     ],
     "time": 2.5,
-    "effects": "Ten single ranged jump attacks (0.71 each), grants Jump Instant Cast and Winged Roar to the user",
+    "effects": "Ten single ranged jump attacks (0.71 each), grants Jump Instant Cast and Wyvern's Roar to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -10577,7 +10577,7 @@
   {
     "realm": "V",
     "character": "Galuf",
-    "name": "Adamantine",
+    "name": "Abiding Strike",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -11014,7 +11014,7 @@
   {
     "realm": "V",
     "character": "Gilgamesh",
-    "name": "Weapons from All Ages",
+    "name": "Weapons of War",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -11037,7 +11037,7 @@
   {
     "realm": "V",
     "character": "Gilgamesh",
-    "name": "Nonpareil",
+    "name": "Supreme Deliverance",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -11060,7 +11060,7 @@
   {
     "realm": "V",
     "character": "Gilgamesh",
-    "name": "Just Try It!",
+    "name": "Safe Bastion",
     "type": "NAT",
     "target": "All allies",
     "formula": null,
@@ -11486,13 +11486,13 @@
     "multiplier": 9,
     "element": [
       "Fire",
-      "Wat.",
+      "Water",
       "Wind",
-      "Ea.",
+      "Earth",
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Major Buff Fire/Water/Wind/Earth, Awoken Spellblade, Damage Cap 19999 and Barrage Master Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Major Buff Fire, Major Buff Water, Major Buff Wind, Major Buff Earth, Awoken Spellblade, Damage Cap 19999 and Barrage Master Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -12093,7 +12093,7 @@
   {
     "realm": "V",
     "character": "Exdeath",
-    "name": "Dimension Hole",
+    "name": "Dimensional Void",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -12117,7 +12117,7 @@
   {
     "realm": "V",
     "character": "Exdeath",
-    "name": "Laws of Black and White",
+    "name": "Balance of Power",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -12133,7 +12133,7 @@
     "points": 500,
     "tier": "USB",
     "master": "MAG +10",
-    "relic": "Root of Evil (V)",
+    "relic": "Root of Evil I (V)",
     "nameJp": "黒と白の法則転換",
     "id": 22080010,
     "gl": false
@@ -12141,7 +12141,7 @@
   {
     "realm": "V",
     "character": "Exdeath",
-    "name": "Orbit Power",
+    "name": "Orbital Power",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -13107,7 +13107,7 @@
     "points": 250,
     "tier": "Glint",
     "master": "MAG +10",
-    "relic": "Robe of Lords (VI)",
+    "relic": "Lordly Robes (VI)",
     "nameJp": "嵐兆",
     "id": 20100017,
     "gl": false
@@ -14559,7 +14559,7 @@
     "relic": "Fuma Shuriken (VI)",
     "nameJp": "アサシンオブシャドウ",
     "id": 20890007,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -14580,7 +14580,7 @@
     "relic": "Oborozuki (VI)",
     "nameJp": "漆黒の装束",
     "id": 20890008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -14753,7 +14753,7 @@
     "relic": "Yakei (VI)",
     "nameJp": "つばめがえし",
     "id": 20220008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -15007,7 +15007,7 @@
     "multiplier": null,
     "element": [],
     "time": 2.5,
-    "effects": "Randomly deals seven (80%) or fourteen (20%) random ranged attacks (0.95 each), ATK and MAG -40% for 25 seconds, grants Haste and B. M. to the user",
+    "effects": "Randomly deals seven (80%) or fourteen (20%) random ranged attacks (0.95 each), ATK and MAG -40% for 25 seconds, grants Haste and Burst Mode to the user",
     "counter": false,
     "autoTarget": "Random enemies",
     "points": 500,
@@ -15061,7 +15061,7 @@
     "relic": "Mystic Card (VI)",
     "nameJp": "一世一代の大博打",
     "id": 20780008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -15449,7 +15449,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (85), grants Last Stand, grants Sketch Mode to the user",
+    "effects": "Restores HP (85), grants Last Stand, grants Kindred Sketch to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -15458,7 +15458,7 @@
     "relic": "Unicorn Brush (VI)",
     "nameJp": "フレンドスケッチ",
     "id": 22160008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -15844,7 +15844,7 @@
     "relic": "Fallen Angel's Harp (VI)",
     "nameJp": "魔導放出・三闘神顕現",
     "id": 22070009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -15865,7 +15865,7 @@
     "relic": "Hamelin (VI)",
     "nameJp": "狂気の魔導",
     "id": 22070010,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -16875,7 +16875,7 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 9,
     "element": [
       "Earth",
       "NE"
@@ -18777,7 +18777,7 @@
     "character": "Cid (VII)",
     "name": "Proxy Leader Cid",
     "type": "NAT",
-    "target": null,
+    "target": "All allies",
     "formula": null,
     "multiplier": null,
     "element": null,
@@ -19002,7 +19002,7 @@
     "autoTarget": "All allies",
     "points": 500,
     "tier": "CSB",
-    "master": "ATK +5, MAG +5",
+    "master": null,
     "relic": "Power Rod (VII)",
     "nameJp": "チェインオブサンダ",
     "id": 20920009,
@@ -26753,7 +26753,7 @@
   {
     "realm": "X",
     "character": "Rikku",
-    "name": "Always for Oui",
+    "name": "Eternal Dedication",
     "type": "NAT",
     "target": "All allies",
     "formula": null,
@@ -27407,7 +27407,7 @@
   {
     "realm": "X",
     "character": "Jecht",
-    "name": "Beast and Father",
+    "name": "Struggle Within",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -27418,7 +27418,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Ten single attacks (0.70 each), grants Attach Dark and Beast and Father to the user",
+    "effects": "Ten single attacks (0.70 each), grants Attach Dark and Struggle Within to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -27445,7 +27445,7 @@
     "points": 250,
     "tier": "Glint",
     "master": "ATK +10",
-    "relic": "Spiritual Headband (X)",
+    "relic": "Spirit Band (X)",
     "nameJp": "ジェクトスピリット",
     "id": 22090013,
     "gl": false
@@ -27736,7 +27736,7 @@
   {
     "realm": "X",
     "character": "Paine",
-    "name": "Throttle Whelmen",
+    "name": "Throttle Alluvion",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -27751,7 +27751,7 @@
     "points": 500,
     "tier": "USB",
     "master": "ATK +10",
-    "relic": "Full Throttle Wing (X)",
+    "relic": "Full Throttle Blade (X)",
     "nameJp": "斬騎剣術・水乱！",
     "id": 22420007,
     "gl": false
@@ -29659,7 +29659,7 @@
     "autoTarget": "All allies",
     "points": 500,
     "tier": "CSB",
-    "master": "ATK +10",
+    "master": null,
     "relic": "Penetrator Crossbow (XII)",
     "nameJp": "チェインオブブリザド",
     "id": 20390011,
@@ -30707,7 +30707,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (105), removes KO (100% HP), removes negative effects, grants Last Stand and Astra",
+    "effects": "Restores HP (105), removes KO (100% HP), grants Last Stand, Haste and Astra, removes negative effects, grants Awoken Potion to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -30916,10 +30916,10 @@
       "Dark",
       "NE"
     ],
-    "time": null,
-    "effects": "Fifteen single hybrid attacks (? or ? each), grants Instant Cast 1, ATK/DEF or DEF/MAG +50%, Attach Dark, Awoken Darkness and Damage Cap 19999 to the user",
+    "time": 2.5,
+    "effects": "Fifteen single hybrid attacks (0.60 or 1.50 each), grants Instant Cast 1, ATK/DEF or DEF/MAG +50% for 25 seconds, Attach Dark, Awoken Darkness and Damage Cap 19999 to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "tier": "AASB",
     "master": "ATK +5, MAG +5",
@@ -30943,10 +30943,10 @@
     "element": [
       "Dark"
     ],
-    "time": 0.01,
-    "effects": "Twenty single hybrid attacks (? or ? each), followed by one single hyrid attack (? or ?) capped at 99999",
+    "time": 2.5,
+    "effects": "Twenty single hybrid attacks (0.55 or 1.82 each), followed by one single hybrid attack (8.00 or 26.50) capped at 99999",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 750,
     "tier": "AOSB",
     "master": "ATK +5, MAG +5",
@@ -32336,7 +32336,7 @@
   {
     "realm": "XIII",
     "character": "Hope",
-    "name": "Heavenly Blast",
+    "name": "Celesital Prison",
     "type": "SUM",
     "target": "Single enemy",
     "formula": "Magical",
@@ -32359,7 +32359,7 @@
   {
     "realm": "XIII",
     "character": "Hope",
-    "name": "Reflect Boomerang",
+    "name": "Reflecting Arc",
     "type": "SUM",
     "target": "Single enemy",
     "formula": "Magical",
@@ -32374,7 +32374,7 @@
     "points": 500,
     "tier": "USB",
     "master": "MAG +10",
-    "relic": "Academia Uniform (XIII)",
+    "relic": "Academy Uniform (XIII)",
     "nameJp": "リフレクトブーメラン",
     "id": 20770010,
     "gl": false
@@ -32382,7 +32382,7 @@
   {
     "realm": "XIII",
     "character": "Hope",
-    "name": "Hopeful Resolve",
+    "name": "Resolute Faith",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -32702,7 +32702,7 @@
   {
     "realm": "XIII",
     "character": "Fang",
-    "name": "Focus Fighters",
+    "name": "Devoted Warriors",
     "type": "NAT",
     "target": "All allies",
     "formula": null,
@@ -33522,7 +33522,7 @@
   {
     "realm": "XIII",
     "character": "Nabaat",
-    "name": "A Study in Elegant Death",
+    "name": "Fatal Refrain",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -33545,7 +33545,7 @@
   {
     "realm": "XIII",
     "character": "Nabaat",
-    "name": "Deattack Gear",
+    "name": "Destructive Gear",
     "type": "BLK",
     "target": "Random enemies",
     "formula": "Magical",
@@ -36280,7 +36280,7 @@
   {
     "realm": "FFT",
     "character": "Ramza",
-    "name": "Pride of the Order",
+    "name": "Knight Gallant's Glory",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -36316,7 +36316,7 @@
     "points": 250,
     "tier": "Glint",
     "master": "ATK +10",
-    "relic": "Ramza's Mercenary Guise (FFT)",
+    "relic": "Mercenary Ramza's Guise (FFT)",
     "nameJp": "ガッツ",
     "id": 22140012,
     "gl": false
@@ -36506,7 +36506,7 @@
   {
     "realm": "FFT",
     "character": "Agrias",
-    "name": "Divine Havoc",
+    "name": "Divine Retribution",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -36912,7 +36912,7 @@
   {
     "realm": "FFT",
     "character": "Ovelia",
-    "name": "Divine Curaja",
+    "name": "Holy Magick Curaja",
     "type": "WHT",
     "target": "All allies",
     "formula": null,
@@ -36925,7 +36925,7 @@
     "points": 500,
     "tier": "USB",
     "master": "MND +10",
-    "relic": "Bless Staff (FFT)",
+    "relic": "Staff of Blessings (FFT)",
     "nameJp": "聖魔法ケアルジャ",
     "id": 22390008,
     "gl": false
@@ -36933,7 +36933,7 @@
   {
     "realm": "FFT",
     "character": "Ovelia",
-    "name": "Saint Wave",
+    "name": "Saintly Wave",
     "type": "NAT",
     "target": "All allies",
     "formula": null,
@@ -36946,7 +36946,7 @@
     "points": 250,
     "tier": "Glint",
     "master": "MND +10",
-    "relic": "Silver Coat (FFT)",
+    "relic": "Samite Coat  (FFT)",
     "nameJp": "セイントウェーブ",
     "id": 22390009,
     "gl": false
@@ -37200,7 +37200,7 @@
   {
     "realm": "FFT",
     "character": "Orlandeau",
-    "name": "Sword Saint Divine Arts",
+    "name": "Sword Saint's Savvy",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -37217,7 +37217,7 @@
     "points": 500,
     "tier": "AASB",
     "master": "ATK +10",
-    "relic": "Saintly Ragnarok (FFT)",
+    "relic": "Ragnarok Masterblade (FFT)",
     "nameJp": "剣聖神技",
     "id": 22550006,
     "gl": false
@@ -37225,7 +37225,7 @@
   {
     "realm": "FFT",
     "character": "Orlandeau",
-    "name": "Ultimate Swordplay",
+    "name": "Swordplay Extraordinaire",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -37249,7 +37249,7 @@
   {
     "realm": "FFT",
     "character": "Orlandeau",
-    "name": "Sword Saint's Pride",
+    "name": "Sword Saint's Honor",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -37412,7 +37412,7 @@
   {
     "realm": "FFT",
     "character": "Gaffgarion",
-    "name": "Mercenary's Price",
+    "name": "Mercenary's Worth",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -37802,7 +37802,7 @@
   {
     "realm": "FFT",
     "character": "Marche",
-    "name": "Saint Combo",
+    "name": "Saintly Combo",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -37838,7 +37838,7 @@
     "points": 250,
     "tier": "Glint",
     "master": "ATK +10",
-    "relic": "Jack Knife (FFT)",
+    "relic": "Jackknife (FFT)",
     "nameJp": "応急処置【FFT】",
     "id": 23040006,
     "gl": false
@@ -38328,6 +38328,51 @@
     "relic": "Ace's Guise (Type-0)",
     "nameJp": "我ら来たれり",
     "id": 22790010,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Ace",
+    "name": "Wild Card",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 22.5,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Blind Stud Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "MAG +10",
+    "relic": "Platinum Deck (Type-0)",
+    "nameJp": "テレポカード",
+    "id": 22790011,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Ace",
+    "name": "Support Deck",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Attach Fire Stacking, Attach Fire and Instant Cast 1",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "MAG +10",
+    "relic": "Reaper's Tarot (Type-0)",
+    "nameJp": "サポートデッキ",
+    "id": 22790012,
     "gl": false
   },
   {
@@ -38824,7 +38869,7 @@
   {
     "realm": "Type-0",
     "character": "Rem",
-    "name": "Saint Flying Daggers",
+    "name": "Saintly Dagger Toss",
     "type": "WHT",
     "target": "Single enemy",
     "formula": "Magical",
@@ -38848,7 +38893,7 @@
   {
     "realm": "Type-0",
     "character": "Rem",
-    "name": "Saint Aura",
+    "name": "Saintly Aura",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -39217,6 +39262,77 @@
   },
   {
     "realm": "Type-0",
+    "character": "Cinque",
+    "name": "Mace Cyclone",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Earth",
+      "Wind",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), causes DEF, RES and MND -50%, grants Attach Earth, Awoken Heavy and Damage Cap 29999 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "Ogre Hammer (Type-0)",
+    "nameJp": "メイスサイクロン",
+    "id": 23190005,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Cinque",
+    "name": "Cheerleader Swing",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 19,
+    "element": [
+      "Earth"
+    ],
+    "time": 2.5,
+    "effects": "Twenty single attacks (0.55 each), followed by one single attack (8.00) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 750,
+    "tier": "AOSB",
+    "master": "ATK +10",
+    "relic": "White Cap (Type-0)",
+    "nameJp": "21連！気合スイング",
+    "id": 23190006,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Cinque",
+    "name": "Full Swing Now!",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.7,
+    "element": [
+      "Earth"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (2.50/3.25/5.70) capped at 99999 at Heavy Charge 0/1/2, grants Attach Earth Stacking and Attach Earth",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "ATK +10",
+    "relic": "Buster Hammer (Type-0)",
+    "nameJp": "刹那！フルスイング",
+    "id": 23190007,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
     "character": "Seven",
     "name": "Ice Bind",
     "type": "BLK",
@@ -39448,7 +39564,7 @@
   {
     "realm": "Type-0",
     "character": "Eight",
-    "name": "Frostsnow Stance",
+    "name": "Icebound Stance",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -39472,7 +39588,7 @@
   {
     "realm": "Type-0",
     "character": "Eight",
-    "name": "Phantom Hail",
+    "name": "Glacial Phantasm",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -39517,7 +39633,7 @@
   {
     "realm": "Type-0",
     "character": "Cater",
-    "name": "Tri-Charged Shot",
+    "name": "Triple Charged Shot",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -39542,7 +39658,7 @@
   {
     "realm": "Type-0",
     "character": "Cater",
-    "name": "Tricolor Elementillery",
+    "name": "Trine Shot",
     "type": "PHY",
     "target": "Random enemies",
     "formula": "Physical",
@@ -39562,6 +39678,81 @@
     "relic": "Cater's Akademeia Uniform (Type-0)",
     "nameJp": "三色属性弾",
     "id": 23370002,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Trey",
+    "name": "Ice Shot",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Ice"
+    ],
+    "time": 2.5,
+    "effects": "One single ranged attack (9.00), ignores DEF",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "Default",
+    "master": null,
+    "relic": "-",
+    "nameJp": "アイスショット",
+    "id": 23430001,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Trey",
+    "name": "Dynamite Arrow",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Fire",
+      "Ice",
+      "Water",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Extended 100% Critical, Awoken Sharpshooter, Damage Cap 19999 and Concentrate (Type-0) Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "Hunter's Bow (Type-0)",
+    "nameJp": "アローダイナマイト",
+    "id": 23430002,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Trey",
+    "name": "Firewall",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.9,
+    "element": [
+      "Fire",
+      "Ice",
+      "Water",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Ten single ranged attacks (0.69 each), grants Medium Buff Fire, Medium Buff Ice, Medium Buff Water, Quick Cast and EX: Hawkeye Mode to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "USB",
+    "master": "ATK +10",
+    "relic": "Argentic Bow (Type-0)",
+    "nameJp": "ヒット＆シールド",
+    "id": 23430003,
     "gl": false
   },
   {

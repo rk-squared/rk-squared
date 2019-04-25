@@ -7092,7 +7092,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_HEAVY_CHARGE_LEVEL_1_WHEN_HEAVY_CHARGE_LEVEL_INCREASED",
+    "codedName": "INCREASE_HEAVY_CHARGE_LEVEL_1_WHEN_HEAVY_CHARGE_LEVEL_INCREASE",
     "notes": null
   },
   {
@@ -9394,8 +9394,8 @@
   },
   {
     "id": 50339,
-    "name": "Damage of Chaos Follow-Up",
-    "effects": "Casts Damage of Chaos after using a Heavy ability",
+    "name": "Damage of Chaos Impact Follow-Up",
+    "effects": "Casts Chaos Impact after using a Heavy ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9537,7 +9537,7 @@
   },
   {
     "id": 50352,
-    "name": "Winged Roar",
+    "name": "Wyvern's Roar",
     "effects": "Grants Dragoon +30% Boost 1 and No Air Time 1 to all allies in the character's row after using a Dragoon ability",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9691,7 +9691,7 @@
   },
   {
     "id": 50366,
-    "name": "Beast and Father",
+    "name": "Struggle Within",
     "effects": "Grants Quick Cast 1 to all allies in the character's row and casts Beast Stream after using a Dark attack",
     "defaultDuration": null,
     "mndModifier": null,
@@ -9724,8 +9724,8 @@
   },
   {
     "id": 50370,
-    "name": "Sketch Mode",
-    "effects": "Casts Sketch Bonds 1/1/2/3 every 3.50 seconds if there are 0/1/2/3+ VI characters in the party",
+    "name": "Kindred Sketch",
+    "effects": "Casts Kindred Sketch 1/1/2/3 every 3.50 seconds if there are 0/1/2/3+ VI characters in the party",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11295,6 +11295,50 @@
     "notes": null
   },
   {
+    "id": 50519,
+    "name": "Blind Stud Follow-Up",
+    "effects": "Casts Blind Stud (BLK) after using a Black Magic, casts Blind Stud (SUM) after using a Summon ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TELEPORT_CARD",
+    "notes": null
+  },
+  {
+    "id": 50520,
+    "name": "Awoken Heavy",
+    "effects": "Heavy abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, grants Heavy Charge +1 after using a Heavy ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_HEAVY",
+    "notes": null
+  },
+  {
+    "id": 50521,
+    "name": "Concentrate (Type-0) Follow-Up",
+    "effects": "Casts Concentrate (Type-0) after using two Sharpshooter abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ARROW_DYNAMITE",
+    "notes": null
+  },
+  {
+    "id": 50522,
+    "name": "EX: Hawkeye Mode",
+    "effects": "Grants ATK +30%, casts Raining Arrows when removed",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "EX_MODE_HIT_AND_SHIELD",
+    "notes": null
+  },
+  {
     "id": 601,
     "name": "MAG +X%",
     "effects": "MAG +X%",
@@ -11445,7 +11489,18 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CUSTOM_CRITICAL_ABSOLUTE",
+    "codedName": "CUSTOM_CRITICAL",
+    "notes": null
+  },
+  {
+    "id": 614032,
+    "name": "Extended 100% Critical",
+    "effects": "Critical chance =100%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_CRITICAL_100_WITH_DURATION_LARGE",
     "notes": null
   },
   {

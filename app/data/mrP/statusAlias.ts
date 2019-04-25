@@ -134,6 +134,8 @@ export const statusAlias: AliasMap = {
     // The FFRK Community spreadsheet has both forms.  This is probably an error.
     '{X}% Critical': 'crit ={X}%',
     'Critical {X}%': 'crit ={X}%',
+    // Not sure how this differs - its default duration is the same.
+    'Extended {X}% Critical': 'crit ={X}%',
 
     // Hack: The status name is actually "Radiant Shield:" - these aliases
     // without the colon keep our default 100% alias from being invoked.
