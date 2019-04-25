@@ -17,6 +17,10 @@ export interface RelicDrawBanner {
   exchangeShopId?: number;
 
   group?: string;
+
+  /**
+   * Relic IDs of this banner's featured relics
+   */
   bannerRelics?: number[];
 }
 

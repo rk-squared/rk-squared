@@ -44,9 +44,12 @@ function getRelicChanceDetails(
     desiredCountAndChance = [0, 0];
   }
 
-  const sixStarCount = _.keys(probabilities.byRelic)
-    .map(i => enlir.relics[i])
-    .filter(i => !!i && i.rarity >= 6).length;
+  const relicIds =
+    banner.bannerRelics && banner.bannerRelics.length
+      ? banner.bannerRelics
+      : _.keys(probabilities.byRelic).map(i => +i);
+
+  const sixStarCount = relicIds.map(i => enlir.relics[i]).filter(i => !!i && i.rarity >= 6).length;
 
   // FIXME: Get this from banner details
   const drawCount = 11;

@@ -64,7 +64,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
   };
 
   handleClick = (e: React.SyntheticEvent, relicId: number) => {
-    e.preventDefault();
+    e.stopPropagation();
     const { getSelected, onSelect } = this.props;
     if (getSelected && onSelect) {
       onSelect(relicId, !getSelected(relicId));
