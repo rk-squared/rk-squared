@@ -287,6 +287,9 @@ export function describeChances(
   if (allSamePercentage) {
     return [undefined, options.join(' or ')];
   } else {
+    // There are a couple of ways we could do this.  E.g., Fujin USB could be
+    // "40-60% m7.8/5-15.6/10" or "40% m7.8/5 or 60% 15.6/10".  However, it's
+    // probably not worth further development right now.
     return [percentChances.join('-') + '%', options.join(join)];
   }
 }

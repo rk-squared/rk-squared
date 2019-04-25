@@ -743,7 +743,7 @@ async function main() {
     const auth = await authorize(enlirCredentials);
     await downloadEnlir(auth, enlirSpreadsheetIds[argv.sheet]);
   }
-  await convertEnlir(argv.outputDirectory);
+  await convertEnlir(argv.outputDirectory as string);
 }
 
 main().catch(e => console.error(e));

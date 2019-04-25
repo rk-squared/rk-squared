@@ -259,6 +259,8 @@ function describeEnlirAttack(
     damage += ', default ' + damageTypeAbbreviation(attack.damageType) + attack.defaultDamage;
   }
   if (attack.minDamage) {
+    // Is this best?  It's noisy, and MrP rarely included it, but it's commonly
+    // discussed with, e.g., Ark 5* magicite.
     damage += `, min dmg ${attack.minDamage}`;
   }
   if (attack.additionalDamage) {
@@ -934,8 +936,7 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
   return text;
 }
 
-// TODO: Hide min damage?  Hide school for percent-based finishers?
+// TODO: Hide school for percent-based finishers?
 // TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
 // TODO: Slash-combine items like Amarant lightning+fire vuln. or Celes' element boosts - and ideally remove patchEnlir
 // TODO: Use × for times; make Unicode selectable?
-// TODO: Redo percent random attacks to match MrP's Fujin?
