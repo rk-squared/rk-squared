@@ -269,10 +269,20 @@ function convertMagicite(rows: any[]): any[] {
 
   let passive: string | null = null;
 
+  const columnsByName: _.Dictionary<string> = _.fromPairs(
+    rows[0].map((col: string, i: number) => [col, i]),
+  );
+
   for (let i = 1; i < rows.length; i++) {
     if (!rows[i].length) {
       // Skip explanatory text at the bottom of the sheet.
       break;
+    }
+
+    if (!rows[i][columnsByName['ID']]) {
+      // Skip magicite that are not yet released and have no ID.
+      logger.debug('Skipping ' + rows[i][columnsByName['Name']] + ' (not yet released)');
+      continue;
     }
 
     const item: any = {};
@@ -293,40 +303,45 @@ function convertMagicite(rows: any[]): any[] {
         inUltraSkill = false;
       }
 
-      const field = _.camelCase(col);
-      if (col === 'Rarity') {
-        item[field] = toInt(rows[i][j]);
-      } else if (stats.has(col)) {
-        item.stats = item.stats || {};
-        item.stats[field] = toInt(rows[i][j]);
-      } else if (col.match(/Passive \d+/)) {
-        passive = rows[i][j];
-        if (passive) {
-          item.passives = item.passives || {};
-          item.passives[passive] = {};
-        }
-      } else if (col.match(/^\d+$/)) {
-        if (rows[i][j]) {
-          if (!passive) {
-            throw new Error(`Missing passive at row ${i} column ${j}`);
+      try {
+        const field = _.camelCase(col);
+        if (col === 'Rarity') {
+          item[field] = toInt(rows[i][j]);
+        } else if (stats.has(col)) {
+          item.stats = item.stats || {};
+          item.stats[field] = toInt(rows[i][j]);
+        } else if (col.match(/Passive \d+/)) {
+          passive = rows[i][j];
+          if (passive) {
+            item.passives = item.passives || {};
+            item.passives[passive] = {};
           }
-          item.passives[passive][+col] = toInt(rows[i][j]);
+        } else if (col.match(/^\d+$/)) {
+          if (rows[i][j]) {
+            if (!passive) {
+              throw new Error(`Missing passive at row ${i} column ${j}`);
+            }
+            item.passives[passive][+col] = toInt(rows[i][j]);
+          }
+        } else if (col === 'Cooldown' || col === 'Duration') {
+          item[field] = toFloat(rows[i][j]);
+        } else if (col === 'Magicite Ultra Skill') {
+          if (!skipUltraSkill) {
+            item.magiciteUltraSkill = {
+              name: rows[i][j],
+            };
+          }
+        } else if (inUltraSkill) {
+          if (!skipUltraSkill) {
+            const converter = skillFields[col] || toCommon.bind(undefined, field);
+            item.magiciteUltraSkill[field] = converter(rows[i][j]);
+          }
+        } else {
+          item[field] = toCommon(field, rows[i][j]);
         }
-      } else if (col === 'Cooldown' || col === 'Duration') {
-        item[field] = toFloat(rows[i][j]);
-      } else if (col === 'Magicite Ultra Skill') {
-        if (!skipUltraSkill) {
-          item.magiciteUltraSkill = {
-            name: rows[i][j],
-          };
-        }
-      } else if (inUltraSkill) {
-        if (!skipUltraSkill) {
-          const converter = skillFields[col] || toCommon.bind(undefined, field);
-          item.magiciteUltraSkill[field] = converter(rows[i][j]);
-        }
-      } else {
-        item[field] = toCommon(field, rows[i][j]);
+      } catch (e) {
+        logError(e, i, j, col, rows[i]);
+        throw e;
       }
     }
 
