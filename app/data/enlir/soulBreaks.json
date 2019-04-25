@@ -4951,7 +4951,7 @@
     "points": 500,
     "tier": "AASB",
     "master": "MAG +10",
-    "relic": "Tempest Rod (II)\n",
+    "relic": "Tempest Rod (II)",
     "nameJp": "ドミネートエレメンツ",
     "id": 22640008,
     "gl": false
@@ -8783,7 +8783,7 @@
     "points": 250,
     "tier": "Glint",
     "master": "MND +10",
-    "relic": " Nirvana (IV)",
+    "relic": "Nirvana (IV)",
     "nameJp": "ホワイトセンス",
     "id": 22220007,
     "gl": false
@@ -39303,7 +39303,7 @@
     "points": 750,
     "tier": "AOSB",
     "master": "ATK +10",
-    "relic": "White Cap (Type-0)",
+    "relic": "White Cape (Type-0)",
     "nameJp": "21連！気合スイング",
     "id": 23190006,
     "gl": false

@@ -9287,7 +9287,7 @@
     },
     "effect": "Chance to cause Petrify",
     "character": "Scott",
-    "soulBreak": "Boundless Spirit",
+    "soulBreak": "Undying Flames",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -17972,7 +17972,7 @@
     },
     "effect": null,
     "character": "Xezat",
-    "soulBreak": "Spellword Iceshock",
+    "soulBreak": "Spellsword Iceshock",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -48510,7 +48510,7 @@
     "gl": true
   },
   {
-    "name": "Master Rod ",
+    "name": "Master Rod",
     "realm": "IV",
     "type": "Rod",
     "rarity": 6,
@@ -50282,7 +50282,7 @@
     },
     "effect": "Holy damage +20%",
     "character": "Yuna",
-    "soulBreak": "Grand Summon Dragonlord",
+    "soulBreak": "Grand Summon Dragon King",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -72062,7 +72062,7 @@
     },
     "effect": "Ice damage +20%",
     "character": "Rydia",
-    "soulBreak": "Diamond Dust",
+    "soulBreak": "Summon Eidolon II",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -86778,7 +86778,7 @@
     "effect": "Dark resistance (minor)",
     "character": "Warrior of Light",
     "soulBreak": null,
-    "legendMateria": "Determined Warrior",
+    "legendMateria": "Steadfast Warrior",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -100097,7 +100097,7 @@
     },
     "effect": "Ice damage +20%",
     "character": "Snow",
-    "soulBreak": "Crushing Ice Fist!",
+    "soulBreak": "Crushing Ice Fist",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -107027,7 +107027,7 @@
     },
     "effect": null,
     "character": "Yuna",
-    "soulBreak": "Bright Prospects",
+    "soulBreak": "Wish for the Future",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -110131,7 +110131,7 @@
       "eva": 100
     },
     "effect": null,
-    "character": "Trey",
+    "character": "Cinque",
     "soulBreak": null,
     "legendMateria": "Massive Damage",
     "baseStats": {
@@ -110176,7 +110176,7 @@
       "eva": 100
     },
     "effect": null,
-    "character": "Cinque",
+    "character": "Trey",
     "soulBreak": null,
     "legendMateria": "Knowledgeable Archer",
     "baseStats": {
@@ -122553,7 +122553,7 @@
     "effect": "Dark resistance (minor)",
     "character": "Seifer",
     "soulBreak": null,
-    "legendMateria": "Egoistical Dreamer",
+    "legendMateria": "Egotistical Dreamer",
     "baseStats": {
       "rarity": 5,
       "level": 20,

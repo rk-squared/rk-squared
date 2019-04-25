@@ -397,7 +397,7 @@ function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
  *
  * NOTE: Does not include shared soul breaks.
  */
-function makeRelicMap<T extends { character: string; name: string }>(
+function makeRelicMap<T extends { character: string; name: string; relic: string | null }>(
   relics: EnlirRelic[],
   prop: keyof EnlirRelic,
   items: T[],
@@ -409,6 +409,21 @@ function makeRelicMap<T extends { character: string; name: string }>(
       const found = indexedItems[i.character + ':' + i[prop]];
       if (found) {
         result[i.id] = found;
+        // TODO: Enable validation - but there are too many problems right now
+        /*
+        if (
+          found.relic &&
+          found.relic.replace(/ \([^()]+\)$/, '') !== i.name &&
+          found.relic.replace(/ \(.*\)$/, '') !== i.name
+        ) {
+          logger.warn(
+            `Name mismatch: relic lists name as ${i.name}, ` +
+              `${prop} ${found.name} lists name as ${found.relic}`,
+          );
+        }
+        */
+      } else {
+        logger.warn(`Failed to find ${prop} for ${i.character} - ${i.name} - ${i[prop]}`);
       }
     }
   }
