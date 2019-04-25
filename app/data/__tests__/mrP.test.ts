@@ -2127,7 +2127,7 @@ Object {
       expect(describeSoulBreak('Celes - Spinning Twice')).toEqual({
         damage: 'phys 9.0/15 ice+holy+non',
         other:
-          'party Magic blink 1, self +30% ice dmg 15s, +30% holy dmg 15s, dmg cap=19,999 15s, ' +
+          'party Magic blink 1, self +30% ice/holy dmg 15s, dmg cap=19,999 15s, ' +
           '15s: (2 ice/holy ⤇ p2.6/5 i+h+n Spellblade @ 1-2 Magic blink, self Magic blink 2), ' +
           '15s: Awoken Indomitable: holy/ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2224,7 +2224,7 @@ Object {
       expect(describeSoulBreak('Amarant - Exploding Fist')).toEqual({
         instant: true,
         damage: 'phys 6.2/10 lgt+fire+non',
-        other: '+20% fire vuln. 25s, +20% lgt vuln. 25s, self Monk hi fastcast 2',
+        other: '+20% fire/lgt vuln. 25s, self Monk hi fastcast 2',
       });
       expect(describeSoulBreak('Onion Knight - Onion Soul')).toEqual({
         instant: true,

@@ -1384,21 +1384,59 @@ export function sortStatus(a: StatusItem, b: StatusItem): number {
   return getSortOrder(a.statusName) - getSortOrder(b.statusName);
 }
 
-/**
- * Reducer function for handling statuses like "Beast and Father."  If a status
- * like that is split into two items, this function handles recognizing it as
- * one status and re-merging it.
- */
-export function checkForAndStatuses(accumulator: StatusItem[], currentValue: StatusItem) {
+function reduceStatuses(
+  combiner: (a: StatusItem, b: StatusItem) => string | null,
+  accumulator: StatusItem[],
+  currentValue: StatusItem,
+) {
   if (accumulator.length) {
-    const thisAndThat =
-      accumulator[accumulator.length - 1].statusName + ' and ' + currentValue.statusName;
-    if (enlir.statusByName[thisAndThat]) {
-      accumulator[accumulator.length - 1].statusName = thisAndThat;
+    const combined = combiner(accumulator[accumulator.length - 1], currentValue);
+    if (combined) {
+      accumulator[accumulator.length - 1].statusName = combined;
       return accumulator;
     }
   }
 
   accumulator.push(currentValue);
   return accumulator;
+}
+
+/**
+ * Reducer function for handling statuses like "Beast and Father."  If a status
+ * like that is split into two items, this function handles recognizing it as
+ * one status and re-merging it.
+ */
+export function checkForAndStatuses(accumulator: StatusItem[], currentValue: StatusItem) {
+  return reduceStatuses(
+    (a: StatusItem, b: StatusItem) => {
+      const thisAndThat = a.statusName + ' and ' + b.statusName;
+      return enlir.statusByName[thisAndThat] ? thisAndThat : null;
+    },
+    accumulator,
+    currentValue,
+  );
+}
+
+const elementStatuses = [
+  new RegExp('^Minor Buff ([a-zA-Z/]+)$'),
+  new RegExp('^Medium Buff ([a-zA-Z/]+)$'),
+  new RegExp('^Major Buff ([a-zA-Z/]+)$'),
+  new RegExp('^Imperil ([a-zA-Z/]+) 20%$'),
+];
+
+export function slashMergeElementStatuses(accumulator: StatusItem[], currentValue: StatusItem) {
+  return reduceStatuses(
+    (a: StatusItem, b: StatusItem) => {
+      for (const i of elementStatuses) {
+        const ma = a.statusName.match(i);
+        const mb = b.statusName.match(i);
+        if (ma && mb) {
+          return ma && mb ? a.statusName.replace(ma[1], ma[1] + '/' + mb[1]) : null;
+        }
+      }
+      return null;
+    },
+    accumulator,
+    currentValue,
+  );
 }

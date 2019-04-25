@@ -26,6 +26,7 @@ import {
   parseEnlirStatus,
   parseEnlirStatusWithSlashes,
   parseStatusItem,
+  slashMergeElementStatuses,
   sortStatus,
 } from './status';
 import {
@@ -538,6 +539,7 @@ export function describeEnlirSoulBreak(
     const status = splitSkillStatuses(statusString)
       .map(i => parseStatusItem(i, wholeClause))
       .reduce(checkForAndStatuses, [])
+      .reduce(slashMergeElementStatuses, [])
       .sort(sortStatus);
     status.forEach((thisStatus, thisStatusIndex) => {
       // tslint:disable: prefer-const
@@ -938,5 +940,4 @@ export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {
 
 // TODO: Hide school for percent-based finishers?
 // TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
-// TODO: Slash-combine items like Amarant lightning+fire vuln. or Celes' element boosts - and ideally remove patchEnlir
 // TODO: Use × for times; make Unicode selectable?
