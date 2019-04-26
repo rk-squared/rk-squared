@@ -18,7 +18,7 @@ import * as _ from 'lodash';
 // TypeScript warnings.
 import { OAuth2Client } from 'google-auth-library';
 
-import { authorize, enlirSpreadsheetIds, workPath } from './enlirClient';
+import { authorize, enlirSpreadsheetIds, loadEnlirCredentials, workPath } from './enlirClient';
 import { logger } from './logger';
 
 // tslint:disable no-console
@@ -720,18 +720,6 @@ const argv = yargs
     description: 'output directory',
     demandOption: true,
   }).argv;
-
-async function loadEnlirCredentials() {
-  const enlirCredentialsFilename = path.resolve(__dirname, '..', 'credentials.json');
-  try {
-    return await fs.readJson(enlirCredentialsFilename);
-  } catch (e) {
-    console.error(e.message);
-    console.error('Please create a credentials.json file, following the instructions at');
-    console.error('https://developers.google.com/sheets/api/quickstart/nodejs');
-    return null;
-  }
-}
 
 async function main() {
   if (argv.download) {

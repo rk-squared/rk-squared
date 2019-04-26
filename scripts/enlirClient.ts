@@ -24,7 +24,8 @@ fs.ensureDirSync(workPath);
 // The file token.json stores the user's access and refresh tokens.  It's
 // created automatically when the authorization flow completes for the first
 // time.
-const tokenPath = path.join(workPath, 'token.json');
+const tokenPath = (readWrite: boolean) =>
+  path.join(workPath, readWrite ? 'readWriteToken.json' : 'token.json');
 
 // noinspection SpellCheckingInspection
 export const enlirSpreadsheetIds: { [name: string]: string } = {
@@ -49,17 +50,20 @@ interface GoogleApiCredentials {
  * Create an OAuth2 client with the given credentials, and then execute the
  * given callback function.
  */
-export async function authorize(credentials: GoogleApiCredentials): Promise<OAuth2Client> {
+export async function authorize(
+  credentials: GoogleApiCredentials,
+  readWrite = false,
+): Promise<OAuth2Client> {
   const { client_secret, client_id, redirect_uris } = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
 
   // Check if we have previously stored a token.
   try {
-    const token = await fs.readJson(tokenPath);
+    const token = await fs.readJson(tokenPath(readWrite));
     oAuth2Client.setCredentials(token);
     return oAuth2Client;
   } catch (e) {
-    return getNewToken(oAuth2Client);
+    return getNewToken(oAuth2Client, readWrite);
   }
 }
 
@@ -67,10 +71,10 @@ export async function authorize(credentials: GoogleApiCredentials): Promise<OAut
  * Get and store new token after prompting for user authorization, and then
  * execute the given callback with the authorized OAuth2 client.
  */
-async function getNewToken(oAuth2Client: OAuth2Client): Promise<OAuth2Client> {
+async function getNewToken(oAuth2Client: OAuth2Client, readWrite = false): Promise<OAuth2Client> {
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
-    scope: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
+    scope: ['https://www.googleapis.com/auth/spreadsheets' + (readWrite ? '' : '.readonly')],
   });
 
   console.log('Authorize this app by visiting this url:', authUrl);
@@ -85,8 +89,28 @@ async function getNewToken(oAuth2Client: OAuth2Client): Promise<OAuth2Client> {
   oAuth2Client.setCredentials(token);
 
   // Store the token to disk for later program executions
-  await fs.writeFile(tokenPath, JSON.stringify(token));
+  await fs.writeFile(tokenPath(readWrite), JSON.stringify(token));
   logger.info(`Token stored to ${tokenPath}`);
 
   return oAuth2Client;
+}
+
+export async function loadEnlirCredentials() {
+  const enlirCredentialsFilename = path.resolve(__dirname, '..', 'credentials.json');
+  try {
+    return await fs.readJson(enlirCredentialsFilename);
+  } catch (e) {
+    console.error(e.message);
+    console.error('Please create a credentials.json file, following the instructions at');
+    console.error('https://developers.google.com/sheets/api/quickstart/nodejs');
+    return null;
+  }
+}
+
+export function rowColToCellId(row: number, col: number): string {
+  if (col >= 26) {
+    throw new Error('Only one-letter columns are supported');
+  }
+  const colLetter = String.fromCharCode('A'.charCodeAt(0) + col);
+  return colLetter + (row + 1);
 }
