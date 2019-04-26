@@ -4820,8 +4820,8 @@
   {
     "id": 30001,
     "name": "Bar Heal 1",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Healing restores 10% less HP",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4833,8 +4833,8 @@
   {
     "id": 30002,
     "name": "Bar Heal 2",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Healing restores 20% less HP",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4846,8 +4846,8 @@
   {
     "id": 30003,
     "name": "Bar Heal 3",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Healing restores 30% less HP",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4859,8 +4859,8 @@
   {
     "id": 30004,
     "name": "Bar Heal 4",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Healing restores 40% less HP",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4872,8 +4872,8 @@
   {
     "id": 30005,
     "name": "Bar Heal 5",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Healing restores 50% less HP",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4885,8 +4885,8 @@
   {
     "id": 30006,
     "name": "Bar Heal 6",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Healing restores 60% less HP",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4898,8 +4898,8 @@
   {
     "id": 30007,
     "name": "Bar Heal 7",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Healing restores 70% less HP",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4911,8 +4911,8 @@
   {
     "id": 30008,
     "name": "Bar Heal 8",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Healing restores 80% less HP",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4924,8 +4924,8 @@
   {
     "id": 30009,
     "name": "Bar Heal 9",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Healing restores 90% less HP",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4937,8 +4937,8 @@
   {
     "id": 30010,
     "name": "Bar Heal 10",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Healing restores 100% less HP",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4950,8 +4950,8 @@
   {
     "id": 30101,
     "name": "Pain 1",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Take 10% more damage",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4963,8 +4963,8 @@
   {
     "id": 30102,
     "name": "Pain 2",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Take 20% more damage",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4976,8 +4976,8 @@
   {
     "id": 30103,
     "name": "Pain 3",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Take 30% more damage",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -4989,8 +4989,8 @@
   {
     "id": 30104,
     "name": "Pain 4",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Take 40% more damage",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -5002,8 +5002,8 @@
   {
     "id": 30105,
     "name": "Pain 5",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Take 50% more damage",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -5015,8 +5015,8 @@
   {
     "id": 30106,
     "name": "Pain 6",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Take 60% more damage",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -5028,8 +5028,8 @@
   {
     "id": 30107,
     "name": "Pain 7",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Take 70% more damage",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -5041,8 +5041,8 @@
   {
     "id": 30108,
     "name": "Pain 8",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Take 80% more damage",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -5054,8 +5054,8 @@
   {
     "id": 30109,
     "name": "Pain 9",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Take 90% more damage",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -5067,8 +5067,8 @@
   {
     "id": 30110,
     "name": "Pain 10",
-    "effects": null,
-    "defaultDuration": null,
+    "effects": "Take 100% more damage",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -11695,6 +11695,127 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "EX_MODE_HIT_AND_SHIELD",
+    "notes": null
+  },
+  {
+    "id": 50535,
+    "name": "Rhapsody of Wind Follow-Up",
+    "effects": "Casts Rhapsody of Wind after using three Dancer abilities",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_RHAPSODY_OF_WIND",
+    "notes": null
+  },
+  {
+    "id": 50536,
+    "name": "General Slash Follow-Up",
+    "effects": "Casts General Slash after using two Knight abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_GENERAL_SLASH",
+    "notes": null
+  },
+  {
+    "id": 50527,
+    "name": "Break Follow-Up",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_BREAK",
+    "notes": null
+  },
+  {
+    "id": 50524,
+    "name": "Violent Sword Follow-Up",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_VIOLENT_SWORD",
+    "notes": null
+  },
+  {
+    "id": 50528,
+    "name": "Dragon Strike Mode",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DRAGON_STRIKE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50529,
+    "name": "Dragon Strike 1",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DRAGON_STRIKE_MODE_GRADE_1",
+    "notes": null
+  },
+  {
+    "id": 50530,
+    "name": "Dragon Strike 2",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DRAGON_STRIKE_MODE_GRADE_2",
+    "notes": null
+  },
+  {
+    "id": 50531,
+    "name": "Dragon Strike 3",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DRAGON_STRIKE_MODE_GRADE_3",
+    "notes": null
+  },
+  {
+    "id": 50532,
+    "name": "Dragon Strike 4",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DRAGON_STRIKE_MODE_GRADE_4",
+    "notes": null
+  },
+  {
+    "id": 50525,
+    "name": "Twin Element Mode",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE",
+    "notes": null
+  },
+  {
+    "id": 50526,
+    "name": "Pirate's Brave Follow-Up",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_PIRATES_BRAVE",
     "notes": null
   },
   {

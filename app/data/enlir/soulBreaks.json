@@ -3913,7 +3913,7 @@
     "relic": "Blood Lance (II)",
     "nameJp": "ソウルオブダークネス",
     "id": 20580006,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -3936,7 +3936,7 @@
     "relic": "Leon's Guise (II)",
     "nameJp": "ダークネスウェポン",
     "id": 20580007,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -3954,10 +3954,10 @@
     "points": 250,
     "tier": "Glint",
     "master": "ATK +10",
-    "relic": "Leon's Sword (II)",
+    "relic": "Leon's Blade (II)",
     "nameJp": "ダークネスフォース",
     "id": 20580008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -4135,7 +4135,7 @@
     "relic": "Rune Staff (II)",
     "nameJp": "アルテマ【II】",
     "id": 22120008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -4156,7 +4156,7 @@
     "relic": "Lordly Robes (II)",
     "nameJp": "光輝なる秘術",
     "id": 22120009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -5158,7 +5158,7 @@
   {
     "realm": "II",
     "character": "Scott",
-    "name": "Undying Flames",
+    "name": "Boundless Spirit",
     "type": "NAT",
     "target": "All allies",
     "formula": null,
@@ -5174,7 +5174,7 @@
     "relic": "Stoneblade (II)",
     "nameJp": "潰えぬ気炎",
     "id": 22940005,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -14777,7 +14777,7 @@
     "relic": "Spider's Kiss (VI)",
     "nameJp": "必殺剣・紅",
     "id": 20220009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",

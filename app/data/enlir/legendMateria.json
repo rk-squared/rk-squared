@@ -811,7 +811,7 @@
     "relic": "Obelisk (II)",
     "nameJp": "優秀なる司令官",
     "id": 201020403,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -866,7 +866,7 @@
     "relic": "Asura's Rod (II)",
     "nameJp": "勇敢な白魔道士",
     "id": 201020504,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",

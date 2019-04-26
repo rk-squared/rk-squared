@@ -9287,7 +9287,7 @@
     },
     "effect": "Chance to cause Petrify",
     "character": "Scott",
-    "soulBreak": "Undying Flames",
+    "soulBreak": "Boundless Spirit",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -9312,7 +9312,7 @@
       "eva": null
     },
     "id": 21002332,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mythril Sword",
@@ -16290,7 +16290,7 @@
     "gl": true
   },
   {
-    "name": "Leon's Sword",
+    "name": "Leon's Blade",
     "realm": "II",
     "type": "Sword",
     "rarity": 5,
@@ -16332,7 +16332,7 @@
       "eva": null
     },
     "id": 21002474,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Deathbringer",
@@ -34827,7 +34827,7 @@
       "eva": null
     },
     "id": 21006145,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Holy Lance",
@@ -36312,7 +36312,7 @@
       "eva": null
     },
     "id": 21006106,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Partisan",
@@ -51477,7 +51477,7 @@
       "eva": null
     },
     "id": 21008239,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ice Staff",
@@ -58722,7 +58722,7 @@
       "eva": null
     },
     "id": 21009127,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Empress Kharna",
@@ -98457,7 +98457,7 @@
       "eva": 100
     },
     "id": 22053389,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Onion Knight's Guise",
@@ -116142,7 +116142,7 @@
       "eva": 105
     },
     "id": 22055097,
-    "gl": false
+    "gl": true
   },
   {
     "name": "White Robe",

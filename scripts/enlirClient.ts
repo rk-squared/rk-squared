@@ -107,10 +107,14 @@ export async function loadEnlirCredentials() {
   }
 }
 
+const numberToLetter = (n: number) => String.fromCharCode('A'.charCodeAt(0) + n);
+
 export function rowColToCellId(row: number, col: number): string {
+  let colLetter: string;
   if (col >= 26) {
-    throw new Error('Only one-letter columns are supported');
+    colLetter = numberToLetter(Math.floor(col / 26) - 1) + numberToLetter(col % 26);
+  } else {
+    colLetter = numberToLetter(col);
   }
-  const colLetter = String.fromCharCode('A'.charCodeAt(0) + col);
   return colLetter + (row + 1);
 }
