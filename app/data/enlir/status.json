@@ -1328,13 +1328,13 @@
   },
   {
     "id": 274,
-    "name": "Heals +X%",
-    "effects": "Abilities restore X% more HP",
-    "defaultDuration": 40,
+    "name": "Heals +30%",
+    "effects": "Abilities restore 30% more HP",
+    "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "HEAL_BOOST",
+    "codedName": "HEAL_BOOST_130_WITH_DURATION_10000",
     "notes": null
   },
   {
@@ -1755,6 +1755,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "DAMAGE_BOOST_BLACK_MAGIC_150_2",
+    "notes": null
+  },
+  {
+    "id": 282015,
+    "name": "Black Magic +70% Boost 1",
+    "effects": "Black Magic abilities deal 70% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BOOST_MAGICAL_170_1",
     "notes": null
   },
   {
@@ -4669,7 +4680,7 @@
   {
     "id": 2217,
     "name": "Heavy Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Heavy abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Heavy abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -4782,6 +4793,288 @@
       "All other \"Beyond Vengeance Mode\" status"
     ],
     "codedName": "CHANGE_CAST_TIME_100_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
+    "notes": null
+  },
+  {
+    "id": 2227,
+    "name": "Combat Instant Cast",
+    "effects": "Cast speed x9999999 for Combat abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_MAX_15000_MSEC_COMBAT",
+    "notes": null
+  },
+  {
+    "id": 2228,
+    "name": "Celerity Instant Cast",
+    "effects": "Cast speed x9999999 for Celerity abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_MAX_15000_MSEC_CELERITY",
+    "notes": null
+  },
+  {
+    "id": 30001,
+    "name": "Bar Heal 1",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Bar Heal\""
+    ],
+    "codedName": "BAR_HEAL_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 30002,
+    "name": "Bar Heal 2",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Bar Heal\""
+    ],
+    "codedName": "BAR_HEAL_LEVEL_2",
+    "notes": null
+  },
+  {
+    "id": 30003,
+    "name": "Bar Heal 3",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Bar Heal\""
+    ],
+    "codedName": "BAR_HEAL_LEVEL_3",
+    "notes": null
+  },
+  {
+    "id": 30004,
+    "name": "Bar Heal 4",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Bar Heal\""
+    ],
+    "codedName": "BAR_HEAL_LEVEL_4",
+    "notes": null
+  },
+  {
+    "id": 30005,
+    "name": "Bar Heal 5",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Bar Heal\""
+    ],
+    "codedName": "BAR_HEAL_LEVEL_5",
+    "notes": null
+  },
+  {
+    "id": 30006,
+    "name": "Bar Heal 6",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Bar Heal\""
+    ],
+    "codedName": "BAR_HEAL_LEVEL_6",
+    "notes": null
+  },
+  {
+    "id": 30007,
+    "name": "Bar Heal 7",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Bar Heal\""
+    ],
+    "codedName": "BAR_HEAL_LEVEL_7",
+    "notes": null
+  },
+  {
+    "id": 30008,
+    "name": "Bar Heal 8",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Bar Heal\""
+    ],
+    "codedName": "BAR_HEAL_LEVEL_8",
+    "notes": null
+  },
+  {
+    "id": 30009,
+    "name": "Bar Heal 9",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Bar Heal\""
+    ],
+    "codedName": "BAR_HEAL_LEVEL_9",
+    "notes": null
+  },
+  {
+    "id": 30010,
+    "name": "Bar Heal 10",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Bar Heal\""
+    ],
+    "codedName": "BAR_HEAL_LEVEL_10",
+    "notes": null
+  },
+  {
+    "id": 30101,
+    "name": "Pain 1",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Pain\""
+    ],
+    "codedName": "PAIN_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 30102,
+    "name": "Pain 2",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Pain\""
+    ],
+    "codedName": "PAIN_LEVEL_2",
+    "notes": null
+  },
+  {
+    "id": 30103,
+    "name": "Pain 3",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Pain\""
+    ],
+    "codedName": "PAIN_LEVEL_3",
+    "notes": null
+  },
+  {
+    "id": 30104,
+    "name": "Pain 4",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Pain\""
+    ],
+    "codedName": "PAIN_LEVEL_4",
+    "notes": null
+  },
+  {
+    "id": 30105,
+    "name": "Pain 5",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Pain\""
+    ],
+    "codedName": "PAIN_LEVEL_5",
+    "notes": null
+  },
+  {
+    "id": 30106,
+    "name": "Pain 6",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Pain\""
+    ],
+    "codedName": "PAIN_LEVEL_6",
+    "notes": null
+  },
+  {
+    "id": 30107,
+    "name": "Pain 7",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Pain\""
+    ],
+    "codedName": "PAIN_LEVEL_7",
+    "notes": null
+  },
+  {
+    "id": 30108,
+    "name": "Pain 8",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Pain\""
+    ],
+    "codedName": "PAIN_LEVEL_8",
+    "notes": null
+  },
+  {
+    "id": 30109,
+    "name": "Pain 9",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Pain\""
+    ],
+    "codedName": "PAIN_LEVEL_9",
+    "notes": null
+  },
+  {
+    "id": 30110,
+    "name": "Pain 10",
+    "effects": null,
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Pain\""
+    ],
+    "codedName": "PAIN_LEVEL_10",
     "notes": null
   },
   {
@@ -9687,6 +9980,72 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "SET_DOOM_180",
+    "notes": null
+  },
+  {
+    "id": 50540,
+    "name": "Doom Timer +5",
+    "effects": "Increases the character's Doom timer by 5 when set",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_DOOM_COUNT_5",
+    "notes": null
+  },
+  {
+    "id": 50541,
+    "name": "Doom Timer +10",
+    "effects": "Increases the character's Doom timer by 10 when set",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_DOOM_COUNT_10",
+    "notes": null
+  },
+  {
+    "id": 50542,
+    "name": "Doom Timer +15",
+    "effects": "Increases the character's Doom timer by 15 when set",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_DOOM_COUNT_15",
+    "notes": null
+  },
+  {
+    "id": 50543,
+    "name": "Doom Timer +20",
+    "effects": "Increases the character's Doom timer by 20 when set",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_DOOM_COUNT_20",
+    "notes": null
+  },
+  {
+    "id": 50544,
+    "name": "Doom Timer +25",
+    "effects": "Increases the character's Doom timer by 25 when set",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_DOOM_COUNT_25",
+    "notes": null
+  },
+  {
+    "id": 50545,
+    "name": "Doom Timer +30",
+    "effects": "Increases the character's Doom timer by 30 when set",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_DOOM_COUNT_30",
     "notes": null
   },
   {

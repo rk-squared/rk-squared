@@ -4781,7 +4781,7 @@
     "introducingEvent": "Beast of the Sanctuary",
     "nameJp": "ホーリジャ",
     "id": 30121321,
-    "gl": false
+    "gl": true
   },
   {
     "school": "White Magic",
@@ -18405,7 +18405,7 @@
     "introducingEvent": "Beast of the Sanctuary",
     "nameJp": "デモンズクロス",
     "id": 30271131,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Darkness",
@@ -18454,7 +18454,7 @@
     "introducingEvent": "Beast of the Sanctuary",
     "nameJp": "ネクロカウント",
     "id": 30271141,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Darkness",
