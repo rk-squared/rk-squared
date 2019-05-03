@@ -53,7 +53,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
             Lance of the Dragon
           </td>
           <td>
-            phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap=29,999 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
+            phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap +20k 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
           </td>
         </tr>
         <tr
@@ -431,7 +431,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
             Lance of the Dragon
           </td>
           <td>
-            phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap=29,999 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
+            phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap +20k 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
           </td>
         </tr>
         <tr

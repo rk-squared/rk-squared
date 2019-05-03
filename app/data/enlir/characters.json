@@ -28095,7 +28095,7 @@
       "heavy": null
     },
     "id": 16001200,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -28221,7 +28221,7 @@
       "heavy": null
     },
     "id": 16001300,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

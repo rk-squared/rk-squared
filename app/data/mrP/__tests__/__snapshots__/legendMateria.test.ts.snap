@@ -778,8 +778,8 @@ Array [
   },
   Object {
     "character": "Cinque",
-    "description": "1.2?x PHY dmg if using a hammer",
-    "effect": "PHY attacks deal 20?% more damage when equipping a hammer",
+    "description": "1.2x PHY dmg if using a hammer",
+    "effect": "PHY attacks deal 20% more damage when equipping a hammer",
     "name": "Massive Damage",
   },
   Object {
@@ -1359,6 +1359,12 @@ Array [
     "name": "Oath of Protection",
   },
   Object {
+    "character": "Fang",
+    "description": "25% dualcast Dragoon",
+    "effect": "25% chance to dualcast Dragoon abilities",
+    "name": "Tough Kindness",
+  },
+  Object {
     "character": "Faris",
     "description": "1.15x Support dmg",
     "effect": "Support abilities deal 15% more damage",
@@ -1381,6 +1387,12 @@ Array [
     "description": "25% dualcast Thief",
     "effect": "25% chance to dualcast Thief abilities",
     "name": "Rabble Wrangler",
+  },
+  Object {
+    "character": "Faris",
+    "description": "wind infuse at battle start",
+    "effect": "Grants Attach Wind at the beginning of the battle",
+    "name": "Tomboy Princess",
   },
   Object {
     "character": "Firion",
@@ -1450,8 +1462,8 @@ Array [
   },
   Object {
     "character": "Fran",
-    "description": "?% dualcast Sharpshooter/Machinist",
-    "effect": "?% chance to dualcast Sharpshooter or Machinist abilities",
+    "description": "25% dualcast Sharpshooter/Machinist",
+    "effect": "25% chance to dualcast Sharpshooter or Machinist abilities",
     "name": "Master of Weapons",
   },
   Object {
@@ -1495,6 +1507,12 @@ Array [
     "description": "wind infuse at battle start",
     "effect": "Grants Attach Wind at the beginning of the battle",
     "name": "Raging Winds",
+  },
+  Object {
+    "character": "Fujin",
+    "description": "25% dualcast wind",
+    "effect": "25% chance to dualcast abilities that deal Wind damage",
+    "name": "Fully Agree!",
   },
   Object {
     "character": "Fusoya",
@@ -2304,13 +2322,13 @@ Array [
     "character": "Leila",
     "description": "1.1x PHY dmg",
     "effect": "PHY attacks deal 10% more damage",
-    "name": "Meddlesome Nature",
+    "name": "Mischievous Meddler",
   },
   Object {
     "character": "Leila",
     "description": "Haste, instacast 3 at battle start",
     "effect": "Grants Haste and Instant Cast 3 at the beginning of the battle",
-    "name": "Good-Hearted Captain",
+    "name": "Resourceful Captain",
   },
   Object {
     "character": "Leila",
@@ -4378,14 +4396,14 @@ Array [
   },
   Object {
     "character": "Trey",
-    "description": "1.15?x Sharpshooter dmg",
-    "effect": "Sharpshooter abilities deal 15?% more damage",
+    "description": "1.15x Sharpshooter dmg",
+    "effect": "Sharpshooter abilities deal 15% more damage",
     "name": "Pride of Knowledge",
   },
   Object {
     "character": "Trey",
-    "description": "35?% dualcast Sharpshooter",
-    "effect": "35?% chance to dualcast Sharpshooter abilities",
+    "description": "35% dualcast Sharpshooter",
+    "effect": "35% chance to dualcast Sharpshooter abilities",
     "name": "Sharpened Mind",
   },
   Object {

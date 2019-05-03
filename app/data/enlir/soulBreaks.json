@@ -1561,6 +1561,27 @@
     "gl": false
   },
   {
+    "realm": "Core",
+    "character": "Dr. Mog",
+    "name": "Our Historia",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 2.5,
+    "effects": "Activates Core Chain (max 150, field +50%), grants Haste, ATK and MAG +30% for 25 seconds",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "tier": "CSB",
+    "master": null,
+    "relic": "Power Staff (Core)",
+    "nameJp": "我らが記すヒストリア",
+    "id": 23060047,
+    "gl": false
+  },
+  {
     "realm": "I",
     "character": "Warrior of Light",
     "name": "Class Change",
@@ -1848,7 +1869,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Holy, Awoken Holy, Damage Cap 19999 to the user, grants Major Buff Holy to all allies",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Holy, Awoken Holy, Damage Cap +10000 to the user, grants Major Buff Holy to all allies",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -2191,7 +2212,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Dark Radiant Shield: 75% to all allies, grants Attach Dark, Awoken Dark and Damage Cap 19999 to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Dark Radiant Shield: 75% to all allies, grants Attach Dark, Awoken Dark and Damage Cap +10000 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -3119,7 +3140,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Water Radiant Shield: 75% to all allies, grants Attach Water, Awoken Water and Damage Cap 19999 to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Water Radiant Shield: 75% to all allies, grants Attach Water, Awoken Water and Damage Cap +10000 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -3471,7 +3492,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Medium Buff Holy/Ice/Fire, Awoken Loyal Retainer, Damage Cap 19999 and Trinity Rush Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Medium Buff Holy/Ice/Fire, Awoken Loyal Retainer, Damage Cap +10000 and Trinity Rush Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -3676,7 +3697,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Earth, Awoken Earth, Damage Cap 19999 and Kaus Australis Follow-Up",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Earth, Awoken Earth, Damage Cap +10000 and Kaus Australis Follow-Up",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -4451,7 +4472,7 @@
     "relic": "Zwill Crossblade (II)",
     "nameJp": "パイレーツ・クラウダ",
     "id": 22130005,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -4566,7 +4587,7 @@
     "relic": "Holy Lance (II)",
     "nameJp": "竜翼竜哮",
     "id": 20460005,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -4945,7 +4966,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Awoken Imperial, Damage Cap 19999, Major Buff Earth, Major Buff Wind, Major Buff Dark and Resist Break Follow-Up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Awoken Imperial, Damage Cap +10000, Major Buff Earth, Major Buff Wind, Major Buff Dark and Resist Break Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -5419,7 +5440,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Wind, Awoken Wind, Damage Cap 19999 and No Air Time to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Wind, Awoken Wind, Damage Cap +10000 and No Air Time to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -5427,7 +5448,7 @@
     "master": "ATK +10",
     "relic": "Ama-no-Murakumo (III)",
     "nameJp": "風の啓示受けし者",
-    "id": 20290011,
+    "id": 20290012,
     "gl": false
   },
   {
@@ -5448,7 +5469,28 @@
     "master": "ATK +10",
     "relic": "Luneth's Guise (III)",
     "nameJp": "りゅうきしマスタ",
-    "id": 20290012,
+    "id": 20290013,
+    "gl": false
+  },
+  {
+    "realm": "III",
+    "character": "Luneth",
+    "name": "Overflowing Potential",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 2.5,
+    "effects": "Activates Wind Chain (max 150, field +50%), ATK +50% for 25 seconds",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "tier": "CSB",
+    "master": "ATK +10",
+    "relic": "Orichalcum (III)",
+    "nameJp": "溢れる風の可能性",
+    "id": 20290014,
     "gl": false
   },
   {
@@ -6022,7 +6064,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Earth, Awoken Earth and Damage Cap 19999 to the user, grants Earth Radiant Shield: 75% to all allies",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Earth, Awoken Earth and Damage Cap +10000 to the user, grants Earth Radiant Shield: 75% to all allies",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 750,
@@ -6502,7 +6544,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants MAG and RES +30% to all allies for 25 seconds, grants Awoken Black Magic, Damage Cap 19999 and Onion Sorcery Follow-Up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants MAG and RES +30% to all allies for 25 seconds, grants Awoken Black Magic, Damage Cap +10000 and Onion Sorcery Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -7042,7 +7084,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Dark, Awoken Darkness, Damage Cap 19999 and Evil Blade Follow-Up",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Dark, Awoken Darkness, Damage Cap +10000 and Evil Blade Follow-Up",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -7362,7 +7404,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single hybrid attacks (0.60 or 1.6 each), grants Attach Holy, Awoken Holy, Damage Cap 19999 to the user and 75% Damage Reduction Barrier 3 to all allies",
+    "effects": "Fifteen single hybrid attacks (0.60 or 1.6 each), grants Attach Holy, Awoken Holy, Damage Cap +10000 to the user and 75% Damage Reduction Barrier 3 to all allies",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -7661,7 +7703,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged jump attacks (0.60 each), grants Attach Lightning, Awoken Dragoon, Damage Cap 29999 and Boltstorm Spear Follow-Up to the user",
+    "effects": "Fifteen single ranged jump attacks (0.60 each), grants Attach Lightning, Awoken Dragoon, Damage Cap +20000 and Boltstorm Spear Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -7990,7 +8032,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants MAG and RES +30% to all allies for 25 seconds, grants Awoken Summoning, Damage Cap 19999 and Trinity Summon Follow-Up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants MAG and RES +30% to all allies for 25 seconds, grants Awoken Summoning, Damage Cap +10000 and Trinity Summon Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -9117,7 +9159,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single hybrid attacks (0.60 or 222.50 each), grants Awoken Ninja, Damage Cap 19999, Ninja High Quick Cast and Eblan Way Follow-Up to the user",
+    "effects": "Fifteen single hybrid attacks (0.60 or 222.50 each), grants Awoken Ninja, Damage Cap +10000, Ninja High Quick Cast and Eblan Way Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -10763,7 +10805,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Water, Awoken Water, Damage Cap 19999 to the user, casts the last ability used by an ally twice, default ability (PHY: single, 1.50 physical)",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Water, Awoken Water, Damage Cap +10000 to the user, casts the last ability used by an ally twice, default ability (PHY: single, 1.50 physical)",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -11492,7 +11534,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Major Buff Fire, Major Buff Water, Major Buff Wind, Major Buff Earth, Awoken Spellblade, Damage Cap 19999 and Barrage Master Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Major Buff Fire, Major Buff Water, Major Buff Wind, Major Buff Earth, Awoken Spellblade, Damage Cap +10000 and Barrage Master Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -11796,6 +11838,77 @@
     "nameJp": "永遠の絆",
     "id": 20930013,
     "gl": true
+  },
+  {
+    "realm": "V",
+    "character": "Faris",
+    "name": "Pirate Brave",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Wind",
+      "Fire",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single ranged attacks (0.60 each), causes Imperil Wind 20% and Imperil Fire 20% for 25 seconds, grants Awoken Thief, Damage Cap +10000, Twin Element Mode and Twin Anchor Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "Leviathan's Bow (V)",
+    "nameJp": "パイレーツブレイブ",
+    "id": 20930015,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Faris",
+    "name": "Azure Bow",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 19,
+    "element": [
+      "Wind",
+      "Fire",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Twenty single ranged attacks (0.55 each), followed by one single attack (8.00) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 750,
+    "tier": "AOSB",
+    "master": "ATK +10",
+    "relic": "Sagittarius (V)",
+    "nameJp": "蒼炎の弩",
+    "id": 20930016,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Faris",
+    "name": "Syldra's Blessing",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Soul Break Gauge +500",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "ATK +10",
+    "relic": "Freelancer Faris's Guise (V)",
+    "nameJp": "シルドラの恵み",
+    "id": 20930017,
+    "gl": false
   },
   {
     "realm": "V",
@@ -13033,7 +13146,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Terra Trance to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Fire, Awoken Fire, Damage Cap +10000 and Terra Trance to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -13110,6 +13223,30 @@
     "relic": "Lordly Robes (VI)",
     "nameJp": "嵐兆",
     "id": 20100017,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Terra",
+    "name": "Violent Sword",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 22.5,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Wind, Awoken Flash Wind, Damage Cap +10000 and Violent Storm Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "MAG +10",
+    "relic": "Ancient Sword (VI)",
+    "nameJp": "バイオレントソード",
+    "id": 20100018,
     "gl": false
   },
   {
@@ -13446,7 +13583,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen attacks (0.60 each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Flame Chaser Follow-Up to the user",
+    "effects": "Fifteen attacks (0.60 each), grants Attach Fire, Awoken Fire, Damage Cap +10000 and Flame Chaser Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -13767,7 +13904,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Magical Blink 1 to all allies, grants Major Buff Ice, Major Buff Holy, Awoken Indomitable, Damage Cap 19999 and Runic Awakening Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Magical Blink 1 to all allies, grants Major Buff Ice, Major Buff Holy, Awoken Indomitable, Damage Cap +10000 and Runic Awakening Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -15255,7 +15392,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Water, Awoken Water, Damage Cap 19999 and Tidal Stream Follow-Up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Water, Awoken Water, Damage Cap +10000 and Tidal Stream Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -15881,7 +16018,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Dark, Awoken Darkness, Damage Cap 19999 and Jester's Scorn Follow-Up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Dark, Awoken Darkness, Damage Cap +10000 and Jester's Scorn Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -16389,7 +16526,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Wind, Awoken Wind, Damage Cap 19999, 100% Critical, High Quick Cast and Cloudy Wolf Mode to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Wind, Awoken Wind, Damage Cap +10000, 100% Critical, High Quick Cast and Cloudy Wolf Mode to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -16881,7 +17018,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Earth, Awoken Monk, Damage Cap 19999 and Gaia Crusher Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Earth, Awoken Monk, Damage Cap +10000 and Gaia Crusher Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -17669,7 +17806,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Water, Awoken Ninja, Damage Cap 19999 and Unpredictable Speed Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Water, Awoken Ninja, Damage Cap +10000 and Unpredictable Speed Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -18069,7 +18206,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single hybrid ranged attacks (0.60 or 1.50 each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Galian Beast to the user",
+    "effects": "Fifteen single hybrid ranged attacks (0.60 or 1.50 each), grants Attach Fire, Awoken Fire, Damage Cap +10000 and Galian Beast to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -18246,7 +18383,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Critical Damage +50% to all allies for 25 seconds, grants Awoken Wind, Damage Cap 19999 and Hard Blast Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Critical Damage +50% to all allies for 25 seconds, grants Awoken Wind, Damage Cap +10000 and Hard Blast Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -18583,7 +18720,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Dark, Awoken Darkness, Damage Cap 19999 and Soul Break Gauge +500 to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Dark, Awoken Darkness, Damage Cap +10000 and Soul Break Gauge +500 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -19206,7 +19343,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Dark, Awoken Darkness, Damage Cap 19999 and Dive to Ground Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Dark, Awoken Darkness, Damage Cap +10000 and Dive to Ground Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -20006,7 +20143,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Ice, Awoken Ice, Damage Cap 19999, Quick Cast and Blasting Freeze to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Ice, Awoken Ice, Damage Cap +10000, Quick Cast and Blasting Freeze to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -20376,7 +20513,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Ice, Awoken Ice, Damage Cap 19999 and Freeze Apocalypse Follow-up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Ice, Awoken Ice, Damage Cap +10000 and Freeze Apocalypse Follow-up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -21501,7 +21638,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Awoken Sorceress Knight, Damage Cap 19999, Switch Draw Mode and Egotistic Blade Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Awoken Sorceress Knight, Damage Cap +10000, Switch Draw Mode and Egotistic Blade Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -22336,6 +22473,30 @@
   },
   {
     "realm": "VIII",
+    "character": "Fujin",
+    "name": "Ran",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 22.5,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Wind, Awoken Wind, Damage Cap +10000 and Retsu Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "MAG +10",
+    "relic": "Fuma Shuriken (VIII)",
+    "nameJp": "乱",
+    "id": 22600010,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
     "character": "Kiros",
     "name": "Fancy Footwork",
     "type": "NAT",
@@ -22620,7 +22781,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Awoken Magic Archer, Damage Cap 19999, Apocalypse Switch Draw Mode and Cruel Blow Follow-up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Awoken Magic Archer, Damage Cap +10000, Apocalypse Switch Draw Mode and Cruel Blow Follow-up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -22963,7 +23124,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Wind, Awoken Thief, Damage Cap 19999 and Thief Gauge +25% Booster to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Wind, Awoken Thief, Damage Cap +10000 and Thief Gauge +25% Booster to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -23535,7 +23696,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Vivi Trance to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Fire, Awoken Fire, Damage Cap +10000 and Vivi Trance to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -23982,6 +24143,27 @@
     "nameJp": "美竜の嵐",
     "id": 22110007,
     "gl": true
+  },
+  {
+    "realm": "IX",
+    "character": "Freya",
+    "name": "Chain of Wind",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 2.5,
+    "effects": "Activates Wind Chain (max 99, field +20%)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "tier": "CSB",
+    "master": null,
+    "relic": "Caesar Helm (IX)",
+    "nameJp": "カエサルヘルム",
+    "id": 22110009,
+    "gl": false
   },
   {
     "realm": "IX",
@@ -25427,7 +25609,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Water, Awoken Sharpshooter, Damage Cap 19999 and Ace Shot Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Water, Awoken Sharpshooter, Damage Cap +10000 and Ace Shot Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -25778,7 +25960,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Fifteen single attacks (1.32 each), restores HP (85) to all allies, grants Regenga to all allies, grants Awoken Bond and Damage Cap 19999 to the user",
+    "effects": "Fifteen single attacks (1.32 each), restores HP (85) to all allies, grants Regenga to all allies, grants Awoken Bond and Damage Cap +10000 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -26001,7 +26183,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), causes ATK, DEF and MAG -70%, grants Attach Water, Awoken Sharpshooter, Damage Cap 19999 and Techcopied Volley Shot Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), causes ATK, DEF and MAG -70%, grants Attach Water, Awoken Sharpshooter, Damage Cap +10000 and Techcopied Volley Shot Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -26302,7 +26484,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Major Buff Ice, Major Buff Water, Awoken Black Scholar, Damage Cap 19999 and Freezing Water Follow-Up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Major Buff Ice, Major Buff Water, Awoken Black Scholar, Damage Cap +10000 and Freezing Water Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -26455,7 +26637,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single jump attacks (0.60 each), grants Attach Water, Awoken Water, Damage Cap 19999 and No Air Time to the user",
+    "effects": "Fifteen single jump attacks (0.60 each), grants Attach Water, Awoken Water, Damage Cap +10000 and No Air Time to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -27096,7 +27278,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Fire, Awoken Samurai, Damage Cap 19999 and Law Breaker Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Fire, Awoken Samurai, Damage Cap +10000 and Law Breaker Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -28120,7 +28302,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Lightning, Awoken Witch, Damage Cap 19999 and Play Rough Mode to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Lightning, Awoken Witch, Damage Cap +10000 and Play Rough Mode to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -29136,7 +29318,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants 100% Critical, Awoken Thief, Damage Cap 19999 and Blast & Run Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants 100% Critical, Awoken Thief, Damage Cap +10000 and Blast & Run Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -29679,7 +29861,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Ice, Awoken Ice, Damage Cap 19999, and Viera Shot Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Ice, Awoken Ice, Damage Cap +10000, and Viera Shot Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -30088,7 +30270,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attack (1.50 each), grants Attach Lightning, Awoken Lightning, Damage Cap 19999 and Wrathful Thunder Follow-Up to the user",
+    "effects": "Fifteen single attack (1.50 each), grants Attach Lightning, Awoken Lightning, Damage Cap +10000 and Wrathful Thunder Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -30917,7 +31099,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single hybrid attacks (0.60 or 1.50 each), grants Instant Cast 1, ATK/DEF or DEF/MAG +50% for 25 seconds, Attach Dark, Awoken Darkness and Damage Cap 19999 to the user",
+    "effects": "Fifteen single hybrid attacks (0.60 or 1.50 each), grants Instant Cast 1, ATK/DEF or DEF/MAG +50% for 25 seconds, Attach Dark, Awoken Darkness and Damage Cap +10000 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -30972,9 +31154,9 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single hybrid attacks (? or ? each), grants Attach Dark Stacking and Attach Dark to the user",
+    "effects": "Six single hybrid attacks (0.52 or 1.25 each), grants Attach Dark Stacking and Attach Dark to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 0,
     "tier": "Glint+",
     "master": "ATK +5, MAG +5",
@@ -31398,7 +31580,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Lightning, Awoken Lightning, Damage Cap 19999 and Chain Lightning Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Lightning, Awoken Lightning, Damage Cap +10000 and Chain Lightning Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -31690,7 +31872,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Ice, Awoken Ice, Damage Cap 19999 and Diamond Geyser Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Ice, Awoken Ice, Damage Cap +10000 and Diamond Geyser Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -32722,6 +32904,54 @@
   },
   {
     "realm": "XIII",
+    "character": "Fang",
+    "name": "Destroy Dive",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single ranged jump attacks (0.60 each), grants Attach Wind, Awoken Dragoon, Damage Cap +20000 and Dragon Strike Mode to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "Venus Gospel (XIII)",
+    "nameJp": "デストロイダイブ",
+    "id": 22030014,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
+    "character": "Fang",
+    "name": "Dragon Blast",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.12,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.52 each), grants Attach Wind Stacking and Attach Wind to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "ATK +10",
+    "relic": "Laevateinn (XIII)",
+    "nameJp": "ドラゴンブラスト",
+    "id": 22030015,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
     "character": "Serah",
     "name": "Wound",
     "type": "BLK",
@@ -33163,7 +33393,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Dark, Awoken Darkness, Damage Cap 19999 and Wings of Doom Follow-Up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Dark, Awoken Darkness, Damage Cap +10000 and Wings of Doom Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -33367,7 +33597,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Ice, Awoken Ice, Damage Cap 19999, High Quick Cast 1 and Ice High Quick Cycle to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Ice, Awoken Ice, Damage Cap +10000, High Quick Cast 1 and Ice High Quick Cycle to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -34132,7 +34362,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Fire, Awoken Monk, Damage Cap 19999, True Greased Lightning Mode and True Greased Lightning 0 to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Fire, Awoken Monk, Damage Cap +10000, True Greased Lightning Mode and True Greased Lightning 0 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -34563,7 +34793,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Wind, Awoken Summoning, Damage Cap 19999 and Cometeor Follow-Up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Wind, Awoken Summoning, Damage Cap +10000 and Cometeor Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -35276,7 +35506,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants 100% Critical, Damage Cap 19999, Awoken Lucis King and Royal Mode to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants 100% Critical, Damage Cap +10000, Awoken Lucis King and Royal Mode to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -35461,7 +35691,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Earth, Awoken Earth, PHY +30% Boost, Break Arts Mode and Damage Cap 19999 to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Earth, Awoken Earth, PHY +30% Boost, Break Arts Mode and Damage Cap +10000 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -35980,7 +36210,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Fire, Awoken Samurai, Damage Cap 19999, Samurai Quick Cast, High Retaliate and Critical Damage +50% to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Fire, Awoken Samurai, Damage Cap +10000, Samurai Quick Cast, High Retaliate and Critical Damage +50% to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -36539,7 +36769,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Holy, Awoken Knight, Damage Cap 19999 and Divine Ruination Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Holy, Awoken Knight, Damage Cap +10000 and Divine Ruination Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -37211,7 +37441,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), 100% add. crit., grants 100% Critical, Awoken Thunder God, Damage Cap 19999 and Thunder God's Might to the user",
+    "effects": "Fifteen single attacks (0.60 each), 100% add. crit., grants 100% Critical, Awoken Thunder God, Damage Cap +10000 and Thunder God's Might to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -38343,7 +38573,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Blind Stud Follow-Up to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Fire, Awoken Fire, Damage Cap +10000 and Blind Stud Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -38855,7 +39085,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.60 each), grants Attach Holy, Awoken Holy, Damage Cap 19999, High Quick Cast 1 and Holy High Quick Cycle to the user",
+    "effects": "Fifteen single attacks (1.60 each), grants Attach Holy, Awoken Holy, Damage Cap +10000, High Quick Cast 1 and Holy High Quick Cycle to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -38864,7 +39094,7 @@
     "relic": "Survival Edges (Type-0)",
     "nameJp": "マジックサテライト",
     "id": 23080007,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -38888,7 +39118,7 @@
     "relic": "Parrying Daggers (Type-0)",
     "nameJp": "セイントダガーショット",
     "id": 23080008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -38909,7 +39139,7 @@
     "relic": "Lustrous Armlet (Type-0)",
     "nameJp": "セイントオーラ",
     "id": 23080009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -39042,7 +39272,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Lightning, Awoken Lightning, Damage Cap 19999, Merciless Oracle Mode and Merciless Oracle 0 to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Lightning, Awoken Lightning, Damage Cap +10000, Merciless Oracle Mode and Merciless Oracle 0 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -39274,7 +39504,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), causes DEF, RES and MND -50%, grants Attach Earth, Awoken Heavy and Damage Cap 29999 to the user",
+    "effects": "Fifteen single attacks (0.60 each), causes DEF, RES and MND -50%, grants Attach Earth, Awoken Heavy and Damage Cap +20000 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -39574,7 +39804,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single attacks (0.63 each), grants Last Stand to all allies, grants Attach Ice and Ice Crusher Follow-Up to the user",
+    "effects": "Ten single attacks (0.63 each), grants Last Stand to all allies, grants Attach Ice and Shard Smasher Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -39583,7 +39813,7 @@
     "relic": "Killer Knuckles (Type-0)",
     "nameJp": "氷雪の型",
     "id": 23360003,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -39607,7 +39837,7 @@
     "relic": "Eight's Akademeia Uniform (Type-0)",
     "nameJp": "夢幻氷舞",
     "id": 23360002,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -39653,7 +39883,7 @@
     "relic": "Magicite Blaster (Type-0)",
     "nameJp": "トライチャージショット",
     "id": 23370003,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -39678,7 +39908,7 @@
     "relic": "Cater's Akademeia Uniform (Type-0)",
     "nameJp": "三色属性弾",
     "id": 23370002,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -39718,7 +39948,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Extended 100% Critical, Awoken Sharpshooter, Damage Cap 19999 and Concentrate (Type-0) Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Extended 100% Critical, Awoken Sharpshooter, Damage Cap +10000 and Concentrate (Type-0) Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -39929,7 +40159,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Awoken Spellblade, Damage Cap 19999, Major Buff Fire, Major Buff Lightning, Major Buff Ice and Blitz Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Awoken Spellblade, Damage Cap +10000, Major Buff Fire, Major Buff Lightning, Major Buff Ice and Blitz Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -40066,7 +40296,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Dark, Awoken Darkness, Damage Cap 19999 and Dark Barrage Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Dark, Awoken Darkness, Damage Cap +10000 and Dark Barrage Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -40112,7 +40342,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Holy, Awoken Knight, Damage Cap 19999 and Dual Hero Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Holy, Awoken Knight, Damage Cap +10000 and Dual Hero Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -40236,7 +40466,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged hybrid attacks (0.60 or 1.50 each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Fiery Tornado Follow-Up to the user",
+    "effects": "Fifteen single ranged hybrid attacks (0.60 or 1.50 each), grants Attach Fire, Awoken Fire, Damage Cap +10000 and Fiery Tornado Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

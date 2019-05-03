@@ -1,16 +1,10 @@
 import { allEnlirElements, allEnlirSchools } from '../enlir';
 import { getElementShortName, getSchoolShortName } from './types';
-import {
-  lowerCaseFirst,
-  numberWithCommas,
-  percentToMultiplier,
-  toMrPGeneral,
-  toMrPKilo,
-} from './util';
+import { lowerCaseFirst, percentToMultiplier, toMrPGeneral, toMrPKilo } from './util';
 
 export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
 export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
-export const enlirRankCastSpeedRe = /cast speed x2\.00-x3\.00 for (.*) (abilities|attacks) at ability rank 1\/2\/3\/4\/5/;
+export const enlirRankCastSpeedRe = /cast speed (?:x2\.00-x3\.00|x2\.00\/2\.25\/2\.50\/2\.75\/3\.00) for (.*) (abilities|attacks) at ability rank 1\/2\/3\/4\/5/;
 
 export const rankBoostAlias = (s: string) => `1.05-1.1-1.15-1.2-1.3x ${s} dmg @ rank 1-5`;
 export const rankCastSpeedAlias = (s: string) => `2-3x ${s} cast @ rank 1-5`;
@@ -56,7 +50,6 @@ function aliasConverter(converter: (value: number) => string): (value: string) =
   };
 }
 const kiloConverter = aliasConverter(toMrPKilo);
-const numberWithCommasConverter = aliasConverter(numberWithCommas);
 const multiplierConverter = aliasConverter(percentToMultiplier);
 
 /**
@@ -152,7 +145,7 @@ export const statusAlias: AliasMap = {
 
     // Aliases with more complex formatting.
     'HP Stock ({X})': ['Autoheal {X}', kiloConverter],
-    'Damage Cap {X}': ['dmg cap={X}', numberWithCommasConverter],
+    'Damage Cap +{X}': ['dmg cap +{X}', kiloConverter],
     'Status Chance {X}%': ['{X}x status chance', multiplierConverter],
 
     // Manually expand non-standard stat buffs to give their effects instead -

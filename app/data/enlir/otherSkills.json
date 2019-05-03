@@ -217,7 +217,7 @@
     "sb": 0,
     "school": "Heavy",
     "id": 30544151,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -246,7 +246,7 @@
       "Black Magic"
     ],
     "id": 30544154,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -270,7 +270,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30540111,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -290,7 +290,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542311,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -394,7 +394,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541060,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1136,7 +1136,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547050,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1158,7 +1158,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547051,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1180,7 +1180,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547052,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1204,7 +1204,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547114,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1401,6 +1401,24 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Twin Anchor Follow-Up",
+    "name": "Twin Anchor",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Imperil Wind 10% and Imperil Fire 10% for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Thief",
+    "id": 30548431,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Knower of Love",
     "name": "Trance Wind",
     "type": "BLK",
@@ -1589,7 +1607,7 @@
     "sb": 0,
     "school": "Ninja",
     "id": 30549125,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1667,6 +1685,7 @@
     "sourceType": "Follow-Up Status",
     "source": "Darkness Card Follow-Up",
     "name": "Darkness Card 1",
+    "nameNote": "Alias Name: ?",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -1900,6 +1919,108 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Violent Storm Follow-Up",
+    "name": "Violent Storm 1",
+    "nameNote": "Alias Name: ?",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 3.75,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single attacks (0.75 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541354,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Violent Storm Follow-Up",
+    "name": "Violent Storm 2",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.5,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.75 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541355,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Violent Storm Follow-Up",
+    "name": "Violent Storm 3",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 11.25,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Fifteen single attacks (0.75 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541356,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Rhapsody of Wind Follow-Up",
+    "name": "Rhapsody of Wind",
+    "type": "?",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "?",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": null,
+    "school": "?",
+    "id": 30549141,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "General's Slash Follow-Up",
+    "name": "General's Slash",
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "?"
+    ],
+    "time": 0.01,
+    "effects": "?",
+    "counter": false,
+    "autoTarget": "?",
+    "sb": null,
+    "school": "?",
+    "id": 30544309,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: True Form",
     "name": "Air Hazard",
     "nameNote": "Alias name: Blast Hazard / Storm Hazard",
@@ -1939,7 +2060,7 @@
     "sb": 0,
     "school": "Heavy",
     "id": 30549291,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2358,6 +2479,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Retsu Follow-Up",
+    "name": "Retsu",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.62,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (2.77 each), grants Minor Buff Wind to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541358,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Master Thief",
     "name": "Steel Storm",
     "type": "PHY",
@@ -2568,7 +2710,7 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 30549079,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3705,8 +3847,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Ice Crusher Follow-Up",
-    "name": "Ice Crusher",
+    "source": "Shard Smasher Follow-Up",
+    "name": "Shard Smasher",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4487,7 +4629,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542063,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Periodic Status",
@@ -4509,7 +4651,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542063,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Periodic Status",
@@ -4532,7 +4674,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542063,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Periodic Status",

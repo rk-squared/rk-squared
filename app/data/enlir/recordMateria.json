@@ -7197,7 +7197,7 @@
     "unlockCriteria": "Use Eight's Memory Crystal",
     "nameJp": "俊敏な格闘少年",
     "id": 111600120,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -7207,7 +7207,7 @@
     "unlockCriteria": "Use Eight's Memory Crystal II, chance to obtain with Eight in party",
     "nameJp": "0組の良心",
     "id": 111600121,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -7217,7 +7217,7 @@
     "unlockCriteria": "Bring Eight to level 99",
     "nameJp": "冷静なる力を司る者",
     "id": 111600122,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -7227,7 +7227,7 @@
     "unlockCriteria": "Use Cater's Memory Crystal",
     "nameJp": "魔法銃を操る少女",
     "id": 111600130,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -7237,7 +7237,7 @@
     "unlockCriteria": "Use Cater's Memory Crystal II, chance to obtain with Cater in party",
     "nameJp": "トリッキーな戦法",
     "id": 111600131,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -7247,7 +7247,7 @@
     "unlockCriteria": "Bring Cater to level 99",
     "nameJp": "勇敢なる力を司る者",
     "id": 111600132,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

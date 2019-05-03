@@ -19,7 +19,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     element: ['Fire', 'Wind', 'NE'],
     time: null,
     effects:
-      'Fifteen single ranged hybrid attacks (? or ? each), grants Attach Fire, Awoken Fire, Damage Cap 19999 and Fiery Tornado Follow-Up to the user',
+      'Fifteen single ranged hybrid attacks (? or ? each), grants Attach Fire, Awoken Fire, Damage Cap +10000 and Fiery Tornado Follow-Up to the user',
     counter: false,
     autoTarget: '?',
     points: 500,
@@ -1321,7 +1321,7 @@ Object {
       expect(describeSoulBreak('Yda - Fire Tackle')).toEqual({
         damage: 'phys 9.0/15 fire+non',
         other:
-          'fire infuse 25s, self dmg cap=19,999 15s, ' +
+          'fire infuse 25s, self dmg cap +10k 15s, ' +
           '15s: (Monk ⤇ 1.1-1.2-1.3x Monk dmg, 2-3-4x cast), ' +
           '15s: Awoken Monk: Monk inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -1329,7 +1329,7 @@ Object {
         damage: 'magic 19.8/15 holy+wind+non (SUM)',
         instant: true,
         other:
-          'party h85, Regenga, self dmg cap=19,999 15s, ' +
+          'party h85, Regenga, self dmg cap +10k 15s, ' +
           '15s: Awoken Bond: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10/15/25/35/45 @ rank 1-5)',
       });
       expect(describeSoulBreak("Y'shtola - Pulse of Life")).toEqual({
@@ -2064,13 +2064,13 @@ Object {
       expect(describeSoulBreak('Agrias - Holy Cross Blade')).toEqual({
         damage: 'phys 9.0/15 holy+non',
         other:
-          'holy infuse 25s, self dmg cap=19,999 15s, 15s: (2 Knight ⤇ +10% holy vuln. 15s), ' +
+          'holy infuse 25s, self dmg cap +10k 15s, 15s: (2 Knight ⤇ +10% holy vuln. 15s), ' +
           '15s: Awoken Knight: Knight inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
       expect(describeSoulBreak('Noctis - Kingly Duties')).toEqual({
         damage: 'phys 9.0/15 fire+earth+lgt+non',
         other:
-          'self crit =100% 25s, dmg cap=19,999 15s, ' +
+          'self crit =100% 25s, dmg cap +10k 15s, ' +
           '15s: hi fastcast, ' +
           'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non overstrike Combat @ 0-7-11 fire/earth/lgt used, ' +
           '15s: Awoken Lucis King: fire/earth/lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
@@ -2081,7 +2081,7 @@ Object {
       expect(describeSoulBreak('Auron - Living Flame')).toEqual({
         damage: 'phys 9.0/15 fire+non',
         other:
-          'fire infuse 25s, self dmg cap=19,999 15s, ' +
+          'fire infuse 25s, self dmg cap +10k 15s, ' +
           '15s: (3 Samurai ⤇ p5.28 f+n overstrike Samurai, -70% DEF/RES/MND 8s), ' +
           '15s: Awoken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2090,13 +2090,13 @@ Object {
         damage: 'p9.0/15 or w24.0/15 holy+non',
         other:
           'holy infuse 25s, party 75% Dmg barrier 3, ' +
-          'self dmg cap=19,999 15s, 15s: Awoken Holy: holy inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          'self dmg cap +10k 15s, 15s: Awoken Holy: holy inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeSoulBreak('Cloud - Heavensent')).toEqual({
         damage: 'phys 9.0/15 wind+non',
         other:
-          'wind infuse 25s, self dmg cap=19,999 15s, crit =100% 25s, hi fastcast 15s, ' +
+          'wind infuse 25s, self dmg cap +10k 15s, crit =100% 25s, hi fastcast 15s, ' +
           '15s: (3 wind ⤇ instacast 1, +250 SB pts (once only)), ' +
           '15s: Awoken Wind: wind inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2104,7 +2104,7 @@ Object {
       expect(describeSoulBreak('Kain - Lance of the Dragon')).toEqual({
         damage: 'phys 9.0/15 lgt+non jump',
         other:
-          'lgt infuse 25s, self dmg cap=29,999 15s, ' +
+          'lgt infuse 25s, self dmg cap +20k 15s, ' +
           '15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), ' +
           '15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast',
       });
@@ -2112,14 +2112,14 @@ Object {
       expect(describeSoulBreak('Zidane - Reverse Gaia')).toEqual({
         damage: 'phys 9.0/15 wind+non',
         other:
-          'wind infuse 25s, self dmg cap=19,999 15s, 1.25x SB gauge from Thief 15s, ' +
+          'wind infuse 25s, self dmg cap +10k 15s, 1.25x SB gauge from Thief 15s, ' +
           '15s: Awoken Thief: Thief inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeSoulBreak('Cecil (Dark Knight) - Dark Moon')).toEqual({
         damage: 'phys 9.0/15 dark+non',
         other:
-          'dmg cap=19,999 15s, dark infuse 25s, ' +
+          'dmg cap +10k 15s, dark infuse 25s, ' +
           '15s: (2 Darkness ⤇ p4.16/8 - 4.32/8 - 4.48/8 d+n Darkness @ +0 - 30 - 75% crit @ 2-4-6 Darkness used, self lose 25% max HP), ' +
           '15s: Awoken Darkness: Darkness inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2127,7 +2127,7 @@ Object {
       expect(describeSoulBreak('Celes - Spinning Twice')).toEqual({
         damage: 'phys 9.0/15 ice+holy+non',
         other:
-          'party Magic blink 1, self +30% ice/holy dmg 15s, dmg cap=19,999 15s, ' +
+          'party Magic blink 1, self +30% ice/holy dmg 15s, dmg cap +10k 15s, ' +
           '15s: (2 ice/holy ⤇ p2.6/5 i+h+n Spellblade @ 1-2 Magic blink, self Magic blink 2), ' +
           '15s: Awoken Indomitable: holy/ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2135,7 +2135,7 @@ Object {
       expect(describeSoulBreak('Sephiroth - Stigma')).toEqual({
         damage: 'phys 9.0/15 dark+non',
         other:
-          'dark infuse 25s, self dmg cap=19,999 15s, +500 SB pts, ' +
+          'dark infuse 25s, self dmg cap +10k 15s, +500 SB pts, ' +
           '15s: Awoken Darkness: Darkness inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2158,7 +2158,7 @@ Object {
       expect(describeSoulBreak('Queen - Savage Judgment')).toEqual({
         damage: 'phys 9.0/15 lgt+dark+non',
         other:
-          'lgt infuse 25s, self dmg cap=19,999 15s, 15s: fastcast, ' +
+          'lgt infuse 25s, self dmg cap +10k 15s, 15s: fastcast, ' +
           '15s: (lgt ⤇ crit =30-50-70-100%), ' +
           '15s: Awoken Lightning: lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2166,7 +2166,7 @@ Object {
       expect(describeSoulBreak('Seifer - Carnage Slice')).toEqual({
         damage: 'phys 9.0/15 dark+fire+non rngd',
         other:
-          'self dmg cap=19,999 15s, 1 turn: (fire ⤇ fire infuse), (dark ⤇ dark infuse), ' +
+          'self dmg cap +10k 15s, 1 turn: (fire ⤇ fire infuse), (dark ⤇ dark infuse), ' +
           '15s: (2 dark/fire ⤇ p3.68/8 d+f+n rngd Darkness), ' +
           '15s: Awoken Sorceress Knight: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2174,13 +2174,13 @@ Object {
       expect(describeSoulBreak('Shantotto - Demon of the Federation')).toEqual({
         damage: 'magic 22.5/15 lgt+non',
         other:
-          'lgt infuse 25s, self dmg cap=19,999 15s, 25s: Trance: +30% MAG, -30% DEF/RES, hi fastcast, 15s: Awoken Witch: Witch inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          'lgt infuse 25s, self dmg cap +10k 15s, 25s: Trance: +30% MAG, -30% DEF/RES, hi fastcast, 15s: Awoken Witch: Witch inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeSoulBreak('Squall - Freezing End')).toEqual({
         damage: 'phys 9.0/15 ice+non',
         other:
-          'ice infuse 25s, self dmg cap=19,999 15s, fastcast 15s, ' +
+          'ice infuse 25s, self dmg cap +10k 15s, fastcast 15s, ' +
           'Finisher: phys 9.6/10 ice+non Spellblade @ +10 - 30 - 50% crit @ 0-5-9 ice, then phys 6.4 ice+non overstrike Spellblade @ 9 ice used, ' +
           '15s: Awoken Ice: ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2188,7 +2188,7 @@ Object {
       expect(describeSoulBreak('Gladiolus - Shield of the True King')).toEqual({
         damage: 'phys 9.0/15 earth+non',
         other:
-          'earth infuse 25s, self 1.3x PHY dmg 15s, dmg cap=19,999 15s, ' +
+          'earth infuse 25s, self 1.3x PHY dmg 15s, dmg cap +10k 15s, ' +
           '15s: (3 earth ⤇ p1.56/3 - 2.6/5 - 2.6/5 e+n Knight @ 0-72001-240001 dmg dealt, ' +
           'then p5.0/10, then 5.0 overstrike, e+n Knight @ 240001 dmg dealt (once only)), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
@@ -2206,7 +2206,7 @@ Object {
       expect(describeSoulBreak('Vivi - Fire for the Future')).toEqual({
         damage: 'magic 22.5/15 fire+non',
         other:
-          'fire infuse 25s, self dmg cap=19,999 15s, ' +
+          'fire infuse 25s, self dmg cap +10k 15s, ' +
           '25s: Trance: +30% MAG, 50% dualcast B.Mag, ' +
           '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2214,7 +2214,7 @@ Object {
       expect(describeSoulBreak('Edge - Trinity Attack')).toEqual({
         damage: 'p9.0/15 or m^3337.5/15 water+fire+lgt+non',
         other:
-          'self dmg cap=19,999 15s, Ninja hi fastcast 15s, ' +
+          'self dmg cap +10k 15s, Ninja hi fastcast 15s, ' +
           '15s: (Ninja ⤇ p1.76/4 or m^44.0/2 wa+f+l+n Ninja, +10% water/fire/lgt dmg 15s), ' +
           '15s: Awoken Ninja: Ninja inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2456,7 +2456,7 @@ Object {
       expect(describeEnlirSoulBreak(unknownSoulBreaks[0])).toEqual({
         damage: 'p?/15 or m?/15 fire+wind+non rngd',
         other:
-          'fire infuse 25s, self dmg cap=19,999 15s, ' +
+          'fire infuse 25s, self dmg cap +10k 15s, ' +
           '15s: (3 fire ⤇ p4.24 or m15.35 f+wi+n rngd overstrike), ' +
           '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });

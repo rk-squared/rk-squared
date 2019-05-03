@@ -2834,7 +2834,7 @@
     "introducingEvent": "Beast of the Sanctuary",
     "nameJp": "連続トルネド",
     "id": 30111361,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Black Magic",
@@ -11633,18 +11633,18 @@
     "school": "Dragoon",
     "name": "Hurricane Bolt",
     "rarity": 6,
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 3.2,
     "element": [
       "Lightning",
       "Wind"
     ],
-    "time": null,
-    "effects": "Three single ranged attacks (? each), grants No Air Time 4 to the user",
-    "counter": false,
-    "autoTarget": "?",
+    "time": 1.5,
+    "effects": "Four single ranged attacks (0.80 each), grants No Air Time 3 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
     "sb": 90,
     "uses": 2,
     "max": 10,
@@ -11673,7 +11673,7 @@
     "4R3": null,
     "4R4": null,
     "4R5": null,
-    "introducingEvent": "?",
+    "introducingEvent": "Fat Black Chocobo Event: Wind",
     "nameJp": "ハリケーンボルト",
     "id": 30181161,
     "gl": false

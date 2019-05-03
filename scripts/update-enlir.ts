@@ -72,7 +72,11 @@ async function getSheetId(
     spreadsheetId,
     fields: 'sheets/properties',
   });
-  return sheetsRes.data.sheets!.find(i => i.properties.title === sheetName).properties.sheetId;
+  const sheet = sheetsRes.data.sheets!.find(i => i.properties.title === sheetName);
+  if (!sheet) {
+    throw new Error(`Failed to find tab ${sheetName}`);
+  }
+  return sheet.properties.sheetId;
 }
 
 async function main() {

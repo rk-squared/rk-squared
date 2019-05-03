@@ -915,24 +915,24 @@
   {
     "realm": "II",
     "character": "Leila",
-    "name": "Meddlesome Nature",
+    "name": "Mischievous Meddler",
     "effect": "PHY attacks deal 10% more damage",
     "master": null,
     "relic": null,
     "nameJp": "おせっかいな性分",
     "id": 201020700,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
     "character": "Leila",
-    "name": "Good-Hearted Captain",
+    "name": "Resourceful Captain",
     "effect": "Grants Haste and Instant Cast 3 at the beginning of the battle",
     "master": null,
     "relic": null,
     "nameJp": "世渡り上手な女ボス",
     "id": 201020701,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -943,7 +943,7 @@
     "relic": "Leila's Bandana (II)",
     "nameJp": "海上の女傑",
     "id": 201020702,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -987,7 +987,7 @@
     "relic": "Dragon Armor (II)",
     "nameJp": "雷雲駆け抜けし竜",
     "id": 201020803,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -2582,6 +2582,17 @@
     "nameJp": "荒くれ者を統べる者",
     "id": 201050903,
     "gl": true
+  },
+  {
+    "realm": "V",
+    "character": "Faris",
+    "name": "Tomboy Princess",
+    "effect": "Grants Attach Wind at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Thief's Gloves (V)",
+    "nameJp": "男装のお姫様",
+    "id": 201050904,
+    "gl": false
   },
   {
     "realm": "V",
@@ -4730,6 +4741,17 @@
   },
   {
     "realm": "VIII",
+    "character": "Fujin",
+    "name": "Fully Agree!",
+    "effect": "25% chance to dualcast abilities that deal Wind damage",
+    "master": "MAG +10",
+    "relic": "Platinum Bangle (VIII)",
+    "nameJp": "全部肯定！",
+    "id": 201081303,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
     "character": "Ultimecia",
     "name": "Hubris",
     "effect": "BLK attacks deal 10% more damage",
@@ -6261,7 +6283,7 @@
     "realm": "XII",
     "character": "Fran",
     "name": "Master of Weapons",
-    "effect": "?% chance to dualcast Sharpshooter or Machinist abilities",
+    "effect": "25% chance to dualcast Sharpshooter or Machinist abilities",
     "master": "ATK +10",
     "relic": "Burning Bow (XII)",
     "nameJp": "優れし射撃の腕",
@@ -6838,6 +6860,17 @@
     "relic": "Rune Bracelet (XIII)",
     "nameJp": "仲間を守る誓い",
     "id": 201130604,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
+    "character": "Fang",
+    "name": "Tough Kindness",
+    "effect": "25% chance to dualcast Dragoon abilities",
+    "master": "ATK +10",
+    "relic": "Wurtzite Bangle (XIII)",
+    "nameJp": "乱暴な優しさ",
+    "id": 201130605,
     "gl": false
   },
   {
@@ -8433,7 +8466,7 @@
     "relic": "Mythril Gloves (Type-0)",
     "nameJp": "魔法のエキスパート",
     "id": 201600504,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -8549,7 +8582,7 @@
     "realm": "Type-0",
     "character": "Cinque",
     "name": "Massive Damage",
-    "effect": "PHY attacks deal 20?% more damage when equipping a hammer",
+    "effect": "PHY attacks deal 20% more damage when equipping a hammer",
     "master": "ATK +10",
     "relic": "Guardian Armor (Type-0)",
     "nameJp": "大ダメージを好む少女",
@@ -8686,7 +8719,7 @@
     "relic": "Silver Knuckles (Type-0)",
     "nameJp": "優れた見識",
     "id": 201601202,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -8719,13 +8752,13 @@
     "relic": "Magicite Pistol (Type-0)",
     "nameJp": "戦場に向かう勇姿",
     "id": 201601302,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Trey",
     "name": "Pride of Knowledge",
-    "effect": "Sharpshooter abilities deal 15?% more damage",
+    "effect": "Sharpshooter abilities deal 15% more damage",
     "master": null,
     "relic": null,
     "nameJp": "自負する博識",
@@ -8736,7 +8769,7 @@
     "realm": "Type-0",
     "character": "Trey",
     "name": "Sharpened Mind",
-    "effect": "35?% chance to dualcast Sharpshooter abilities",
+    "effect": "35% chance to dualcast Sharpshooter abilities",
     "master": null,
     "relic": null,
     "nameJp": "研ぎ澄まされた精神",

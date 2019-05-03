@@ -316,7 +316,7 @@
   {
     "character": "Leon",
     "source": "Weapon of Darkness",
-    "name": "Immoral Blade",
+    "name": "Corrupt Blade",
     "brave": 0,
     "type": "PHY",
     "target": "Single enemy",
@@ -336,12 +336,12 @@
     ],
     "nameJp": "背徳の剣",
     "id": 30549564,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Leon",
     "source": "Weapon of Darkness",
-    "name": "Immoral Blade",
+    "name": "Corrupt Blade",
     "brave": 1,
     "type": "PHY",
     "target": "Single enemy",
@@ -361,12 +361,12 @@
     ],
     "nameJp": "背徳の剣",
     "id": 30549565,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Leon",
     "source": "Weapon of Darkness",
-    "name": "Immoral Blade",
+    "name": "Corrupt Blade",
     "brave": 2,
     "type": "PHY",
     "target": "Single enemy",
@@ -386,12 +386,12 @@
     ],
     "nameJp": "背徳の剣",
     "id": 30549566,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Leon",
     "source": "Weapon of Darkness",
-    "name": "Immoral Blade",
+    "name": "Corrupt Blade",
     "brave": 3,
     "type": "PHY",
     "target": "Single enemy",
@@ -411,7 +411,7 @@
     ],
     "nameJp": "背徳の剣",
     "id": 30549567,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Arc",

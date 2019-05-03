@@ -1617,7 +1617,7 @@
       "eva": null
     },
     "id": 21001148,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Gladius",
@@ -2697,7 +2697,7 @@
       "eva": null
     },
     "id": 21001150,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Parrying Daggers",
@@ -2742,7 +2742,7 @@
       "eva": null
     },
     "id": 21001145,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ripper",
@@ -34872,7 +34872,7 @@
       "eva": null
     },
     "id": 21006135,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Heat Lance",
@@ -42387,7 +42387,7 @@
       "eva": null
     },
     "id": 21007164,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Yellow Alpha Arm",
@@ -46167,7 +46167,7 @@
       "eva": null
     },
     "id": 21007163,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Blue Alpha Arm",
@@ -58542,6 +58542,51 @@
       "eva": null
     },
     "id": 21009151,
+    "gl": false
+  },
+  {
+    "name": "Power Staff",
+    "realm": "Core",
+    "type": "Staff",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 91,
+      "def": 0,
+      "mag": 149,
+      "res": 0,
+      "mnd": 146,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Dr. Mog",
+    "soulBreak": "Our Historia",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 62,
+      "def": null,
+      "mag": 103,
+      "res": null,
+      "mnd": 101,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 102,
+      "def": null,
+      "mag": 167,
+      "res": null,
+      "mnd": 164,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009167,
     "gl": false
   },
   {
@@ -80232,7 +80277,7 @@
       "eva": null
     },
     "id": 21015096,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Noiseblaster",
@@ -82257,7 +82302,7 @@
       "eva": null
     },
     "id": 21015094,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Quicksilver",
@@ -90897,7 +90942,7 @@
       "eva": 105
     },
     "id": 22051087,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Twist Headband",
@@ -110022,7 +110067,7 @@
       "eva": 100
     },
     "id": 22053380,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Eight's Akademeia Uniform",
@@ -110067,7 +110112,7 @@
       "eva": 100
     },
     "id": 22053381,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Reed Cloak",
@@ -112542,7 +112587,7 @@
       "eva": 105
     },
     "id": 22054059,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Crystal Mail",
@@ -126132,7 +126177,7 @@
       "eva": 105
     },
     "id": 22056241,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mythril Gloves",
@@ -126177,7 +126222,7 @@
       "eva": 105
     },
     "id": 22056223,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Blitz Armlet",

@@ -2570,15 +2570,15 @@
     "name": "Titan",
     "realm": "V",
     "rarity": 6,
-    "introducingEventLv99": "Magicite Dawn, Part 13?",
+    "introducingEventLv99": "Magicite Dawn, Part 13",
     "stats": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 5371,
+      "atk": 265,
+      "def": 232,
+      "mag": 265,
+      "res": 232,
+      "mnd": 232,
+      "spd": 163
     },
     "passives": {
       "Gaia's Blessing": {
@@ -2604,23 +2604,21 @@
         "99": 10
       }
     },
-    "cooldown": null,
-    "duration": null,
+    "cooldown": 10,
+    "duration": 10,
     "magiciteUltraSkill": {
       "name": "Ultra Gaia's Wrath",
-      "type": "?",
-      "autoTarget": "?",
+      "type": "NAT",
+      "autoTarget": "Lowest HP% enemy",
       "formula": null,
       "multiplier": null,
-      "element": [
-        "Earth"
-      ],
+      "element": null,
       "time": 0.01,
-      "effects": "One single attack that deals 99999 damage, grants Minor Buff Earth to all allies",
+      "effects": "One single attack that deals 99999 damage, grants Medium Buff Earth to all allies",
       "counter": false
     },
     "nameJp": "【契】大地の怒り",
-    "id": null,
+    "id": 161000097,
     "gl": false
   },
   {
