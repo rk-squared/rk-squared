@@ -10,6 +10,7 @@ import { ItemType } from '../../data/items';
 import { Dungeon } from '../dungeons';
 import { World } from '../worlds';
 
+// Final Fantasy Tactics D???, not 100%, rewards at 50%+
 const fftDUnknownTormentDungeon: Dungeon = {
   name: 'Tyranny of the Impure, Part 3',
   id: 15048603,
@@ -23,207 +24,45 @@ const fftDUnknownTormentDungeon: Dungeon = {
   totalStamina: 1,
   staminaList: [1],
   prizes: {
-    completion: [
-      {
-        id: 92000000,
-        name: 'Gil',
-        amount: 1500,
-        type: ItemType.Common,
-      },
-    ],
+    completion: [{ id: 92000000, name: 'Gil', amount: 1500, type: ItemType.Common }],
     firstTime: [
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 20,
-        type: ItemType.Common,
-      },
-      {
-        id: 92000000,
-        name: 'Gil',
-        amount: 200000,
-        type: ItemType.Common,
-      },
-      {
-        id: 91000000,
-        name: 'Mythril',
-        amount: 1,
-        type: ItemType.Common,
-      },
+      { id: 95001080, name: 'Record Rubies', amount: 20, type: ItemType.Common },
+      { id: 92000000, name: 'Gil', amount: 200000, type: ItemType.Common },
+      { id: 91000000, name: 'Mythril', amount: 1, type: ItemType.Common },
     ],
     mastery: [
-      {
-        id: 40000066,
-        name: 'Power Crystal',
-        amount: 8,
-        type: ItemType.Orb,
-      },
-      {
-        id: 40000060,
-        name: 'Major Holy Orb',
-        amount: 10,
-        type: ItemType.Orb,
-      },
-      {
-        id: 92000000,
-        name: 'Gil',
-        amount: 200000,
-        type: ItemType.Common,
-      },
+      { id: 40000066, name: 'Power Crystal', amount: 8, type: ItemType.Orb },
+      { id: 40000060, name: 'Major Holy Orb', amount: 10, type: ItemType.Orb },
+      { id: 92000000, name: 'Gil', amount: 200000, type: ItemType.Common },
     ],
     claimedGrade: [
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 10,
-        type: ItemType.Common,
-      },
-      {
-        id: 130100300,
-        name: 'Spirit Mote (5★)',
-        amount: 20,
-        type: ItemType.Mote,
-      },
-      {
-        id: 40000073,
-        name: 'Ice Crystal',
-        amount: 4,
-        type: ItemType.Orb,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 10,
-        type: ItemType.Common,
-      },
-      {
-        id: 130100300,
-        name: 'Spirit Mote (5★)',
-        amount: 20,
-        type: ItemType.Mote,
-      },
-      {
-        id: 40000072,
-        name: 'Fire Crystal',
-        amount: 4,
-        type: ItemType.Orb,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 20,
-        type: ItemType.Common,
-      },
-      {
-        id: 130100300,
-        name: 'Spirit Mote (5★)',
-        amount: 25,
-        type: ItemType.Mote,
-      },
+      { id: 95001080, name: 'Record Rubies', amount: 10, type: ItemType.Common },
+      { id: 130100300, name: 'Spirit Mote (5★)', amount: 20, type: ItemType.Mote },
+      { id: 40000073, name: 'Ice Crystal', amount: 4, type: ItemType.Orb },
+      { id: 95001080, name: 'Record Rubies', amount: 10, type: ItemType.Common },
+      { id: 130100300, name: 'Spirit Mote (5★)', amount: 20, type: ItemType.Mote },
+      { id: 40000072, name: 'Fire Crystal', amount: 4, type: ItemType.Orb },
+      { id: 95001080, name: 'Record Rubies', amount: 20, type: ItemType.Common },
+      { id: 130100300, name: 'Spirit Mote (5★)', amount: 25, type: ItemType.Mote },
     ],
     unclaimedGrade: [
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 40,
-        type: ItemType.Common,
-      },
-      {
-        id: 130100300,
-        name: 'Spirit Mote (5★)',
-        amount: 25,
-        type: ItemType.Mote,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 40,
-        type: ItemType.Common,
-      },
-      {
-        id: 92000000,
-        name: 'Gil',
-        amount: 200000,
-        type: ItemType.Common,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 40,
-        type: ItemType.Common,
-      },
-      {
-        id: 92000000,
-        name: 'Gil',
-        amount: 200000,
-        type: ItemType.Common,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 40,
-        type: ItemType.Common,
-      },
-      {
-        id: 130100300,
-        name: 'Spirit Mote (5★)',
-        amount: 25,
-        type: ItemType.Mote,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 40,
-        type: ItemType.Common,
-      },
-      {
-        id: 40000078,
-        name: 'Dark Crystal',
-        amount: 4,
-        type: ItemType.Orb,
-      },
-      {
-        id: 130100300,
-        name: 'Spirit Mote (5★)',
-        amount: 25,
-        type: ItemType.Mote,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 10,
-        type: ItemType.Common,
-      },
-      {
-        id: 130100300,
-        name: 'Spirit Mote (5★)',
-        amount: 20,
-        type: ItemType.Mote,
-      },
-      {
-        id: 40000075,
-        name: 'Earth Crystal',
-        amount: 4,
-        type: ItemType.Orb,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 10,
-        type: ItemType.Common,
-      },
-      {
-        id: 40000074,
-        name: 'Lightning Crystal',
-        amount: 4,
-        type: ItemType.Orb,
-      },
-      {
-        id: 130100300,
-        name: 'Spirit Mote (5★)',
-        amount: 20,
-        type: ItemType.Mote,
-      },
+      { id: 95001080, name: 'Record Rubies', amount: 40, type: ItemType.Common },
+      { id: 130100300, name: 'Spirit Mote (5★)', amount: 25, type: ItemType.Mote },
+      { id: 95001080, name: 'Record Rubies', amount: 40, type: ItemType.Common },
+      { id: 92000000, name: 'Gil', amount: 200000, type: ItemType.Common },
+      { id: 95001080, name: 'Record Rubies', amount: 40, type: ItemType.Common },
+      { id: 92000000, name: 'Gil', amount: 200000, type: ItemType.Common },
+      { id: 95001080, name: 'Record Rubies', amount: 40, type: ItemType.Common },
+      { id: 130100300, name: 'Spirit Mote (5★)', amount: 25, type: ItemType.Mote },
+      { id: 95001080, name: 'Record Rubies', amount: 40, type: ItemType.Common },
+      { id: 40000078, name: 'Dark Crystal', amount: 4, type: ItemType.Orb },
+      { id: 130100300, name: 'Spirit Mote (5★)', amount: 25, type: ItemType.Mote },
+      { id: 95001080, name: 'Record Rubies', amount: 10, type: ItemType.Common },
+      { id: 130100300, name: 'Spirit Mote (5★)', amount: 20, type: ItemType.Mote },
+      { id: 40000075, name: 'Earth Crystal', amount: 4, type: ItemType.Orb },
+      { id: 95001080, name: 'Record Rubies', amount: 10, type: ItemType.Common },
+      { id: 40000074, name: 'Lightning Crystal', amount: 4, type: ItemType.Orb },
+      { id: 130100300, name: 'Spirit Mote (5★)', amount: 20, type: ItemType.Mote },
     ],
   },
 };
@@ -236,6 +75,7 @@ const fftTormentWorld: World = {
   seriesId: 150001,
   isUnlocked: true,
 };
+// Final Fantasy 8 D???, 100%, rewards at 50+%
 const ff8D280TormentDungeon: Dungeon = {
   name: 'Putrid Malice, Part 2',
   id: 10830602,
@@ -249,196 +89,42 @@ const ff8D280TormentDungeon: Dungeon = {
   totalStamina: 1,
   staminaList: [1],
   prizes: {
-    completion: [
-      {
-        id: 92000000,
-        name: 'Gil',
-        amount: 1500,
-        type: ItemType.Common,
-      },
-    ],
+    completion: [{ id: 92000000, name: 'Gil', amount: 1500, type: ItemType.Common }],
     firstTime: [
-      {
-        id: 25096005,
-        name: 'Dark Matter (5★)',
-        amount: 3,
-        type: ItemType.DarkMatter,
-      },
-      {
-        id: 92000000,
-        name: 'Gil',
-        amount: 150000,
-        type: ItemType.Common,
-      },
-      {
-        id: 91000000,
-        name: 'Mythril',
-        amount: 1,
-        type: ItemType.Common,
-      },
+      { id: 25096005, name: 'Dark Matter (5★)', amount: 3, type: ItemType.DarkMatter },
+      { id: 92000000, name: 'Gil', amount: 150000, type: ItemType.Common },
+      { id: 91000000, name: 'Mythril', amount: 1, type: ItemType.Common },
     ],
     mastery: [
-      {
-        id: 92000000,
-        name: 'Gil',
-        amount: 150000,
-        type: ItemType.Common,
-      },
-      {
-        id: 40000075,
-        name: 'Earth Crystal',
-        amount: 4,
-        type: ItemType.Orb,
-      },
-      {
-        id: 40000040,
-        name: 'Major Ice Orb',
-        amount: 10,
-        type: ItemType.Orb,
-      },
+      { id: 92000000, name: 'Gil', amount: 150000, type: ItemType.Common },
+      { id: 40000075, name: 'Earth Crystal', amount: 4, type: ItemType.Orb },
+      { id: 40000040, name: 'Major Ice Orb', amount: 10, type: ItemType.Orb },
     ],
     claimedGrade: [
-      {
-        id: 130400300,
-        name: 'Wisdom Mote (5★)',
-        amount: 30,
-        type: ItemType.Mote,
-      },
-      {
-        id: 92000000,
-        name: 'Gil',
-        amount: 150000,
-        type: ItemType.Common,
-      },
-      {
-        id: 130400300,
-        name: 'Wisdom Mote (5★)',
-        amount: 30,
-        type: ItemType.Mote,
-      },
-      {
-        id: 92000000,
-        name: 'Gil',
-        amount: 150000,
-        type: ItemType.Common,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 30,
-        type: ItemType.Common,
-      },
-      {
-        id: 130400300,
-        name: 'Wisdom Mote (5★)',
-        amount: 20,
-        type: ItemType.Mote,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 30,
-        type: ItemType.Common,
-      },
-      {
-        id: 40000072,
-        name: 'Fire Crystal',
-        amount: 2,
-        type: ItemType.Orb,
-      },
-      {
-        id: 130400300,
-        name: 'Wisdom Mote (5★)',
-        amount: 10,
-        type: ItemType.Mote,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 10,
-        type: ItemType.Common,
-      },
-      {
-        id: 40000072,
-        name: 'Fire Crystal',
-        amount: 2,
-        type: ItemType.Orb,
-      },
-      {
-        id: 130400300,
-        name: 'Wisdom Mote (5★)',
-        amount: 10,
-        type: ItemType.Mote,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 10,
-        type: ItemType.Common,
-      },
-      {
-        id: 40000072,
-        name: 'Fire Crystal',
-        amount: 2,
-        type: ItemType.Orb,
-      },
-      {
-        id: 130400300,
-        name: 'Wisdom Mote (5★)',
-        amount: 10,
-        type: ItemType.Mote,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 10,
-        type: ItemType.Common,
-      },
-      {
-        id: 40000072,
-        name: 'Fire Crystal',
-        amount: 2,
-        type: ItemType.Orb,
-      },
-      {
-        id: 130400300,
-        name: 'Wisdom Mote (5★)',
-        amount: 10,
-        type: ItemType.Mote,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 10,
-        type: ItemType.Common,
-      },
-      {
-        id: 40000072,
-        name: 'Fire Crystal',
-        amount: 2,
-        type: ItemType.Orb,
-      },
-      {
-        id: 130400300,
-        name: 'Wisdom Mote (5★)',
-        amount: 20,
-        type: ItemType.Mote,
-      },
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 30,
-        type: ItemType.Common,
-      },
+      { id: 130400300, name: 'Wisdom Mote (5★)', amount: 30, type: ItemType.Mote },
+      { id: 92000000, name: 'Gil', amount: 150000, type: ItemType.Common },
+      { id: 130400300, name: 'Wisdom Mote (5★)', amount: 30, type: ItemType.Mote },
+      { id: 92000000, name: 'Gil', amount: 150000, type: ItemType.Common },
+      { id: 95001080, name: 'Record Rubies', amount: 30, type: ItemType.Common },
+      { id: 130400300, name: 'Wisdom Mote (5★)', amount: 20, type: ItemType.Mote },
+      { id: 95001080, name: 'Record Rubies', amount: 30, type: ItemType.Common },
+      { id: 40000072, name: 'Fire Crystal', amount: 2, type: ItemType.Orb },
+      { id: 130400300, name: 'Wisdom Mote (5★)', amount: 10, type: ItemType.Mote },
+      { id: 95001080, name: 'Record Rubies', amount: 10, type: ItemType.Common },
+      { id: 40000072, name: 'Fire Crystal', amount: 2, type: ItemType.Orb },
+      { id: 130400300, name: 'Wisdom Mote (5★)', amount: 10, type: ItemType.Mote },
+      { id: 95001080, name: 'Record Rubies', amount: 10, type: ItemType.Common },
+      { id: 40000072, name: 'Fire Crystal', amount: 2, type: ItemType.Orb },
+      { id: 130400300, name: 'Wisdom Mote (5★)', amount: 10, type: ItemType.Mote },
+      { id: 95001080, name: 'Record Rubies', amount: 10, type: ItemType.Common },
+      { id: 40000072, name: 'Fire Crystal', amount: 2, type: ItemType.Orb },
+      { id: 130400300, name: 'Wisdom Mote (5★)', amount: 10, type: ItemType.Mote },
+      { id: 95001080, name: 'Record Rubies', amount: 10, type: ItemType.Common },
+      { id: 40000072, name: 'Fire Crystal', amount: 2, type: ItemType.Orb },
+      { id: 130400300, name: 'Wisdom Mote (5★)', amount: 20, type: ItemType.Mote },
+      { id: 95001080, name: 'Record Rubies', amount: 30, type: ItemType.Common },
     ],
-    unclaimedGrade: [
-      {
-        id: 95001080,
-        name: 'Record Rubies',
-        amount: 30,
-        type: ItemType.Common,
-      },
-    ],
+    unclaimedGrade: [{ id: 95001080, name: 'Record Rubies', amount: 30, type: ItemType.Common }],
   },
 };
 const ff8TormentWorld: World = {
@@ -448,6 +134,83 @@ const ff8TormentWorld: World = {
   openedAt: 1536800400,
   closedAt: 2145945599,
   seriesId: 108001,
+  isUnlocked: true,
+};
+// Final Fantasy 7 D???, not 100%, rewards at 10+%
+const ff7DUnknownTormentDungeon: Dungeon = {
+  closedAt: 2145074400,
+  difficulty: 0,
+  id: 10748903,
+  isComplete: true,
+  isMaster: false,
+  isUnlocked: true,
+  name: 'Devourer of Worlds, Part 3',
+  openedAt: 1534381200,
+  prizes: {
+    claimedGrade: [
+      { amount: 20, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 10, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 4, id: 40000074, name: 'Lightning Crystal', type: ItemType.Orb },
+      { amount: 25, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 20, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 20, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 10, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 4, id: 40000072, name: 'Fire Crystal', type: ItemType.Orb },
+      { amount: 20, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 10, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 4, id: 40000073, name: 'Ice Crystal', type: ItemType.Orb },
+      { amount: 20, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 10, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 4, id: 40000076, name: 'Wind Crystal', type: ItemType.Orb },
+      { amount: 20, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 4, id: 40000074, name: 'Lightning Crystal', type: ItemType.Orb },
+      { amount: 10, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+    ],
+    completion: [{ amount: 1500, id: 92000000, name: 'Gil', type: ItemType.Common }],
+    firstTime: [
+      { amount: 20, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 200000, id: 92000000, name: 'Gil', type: ItemType.Common },
+      { amount: 1, id: 91000000, name: 'Mythril', type: ItemType.Common },
+    ],
+    mastery: [
+      { amount: 10, id: 40000005, name: 'Major Power Orb', type: ItemType.Orb },
+      { amount: 200000, id: 92000000, name: 'Gil', type: ItemType.Common },
+      { amount: 8, id: 40000068, name: 'Black Crystal', type: ItemType.Orb },
+    ],
+    unclaimedGrade: [
+      { amount: 25, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 40, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 40, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 200000, id: 92000000, name: 'Gil', type: ItemType.Common },
+      { amount: 40, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 200000, id: 92000000, name: 'Gil', type: ItemType.Common },
+      { amount: 25, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 40, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 4, id: 40000071, name: 'Non-Elemental Crystal', type: ItemType.Orb },
+      { amount: 25, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 40, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 20, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 10, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 4, id: 40000072, name: 'Fire Crystal', type: ItemType.Orb },
+      { amount: 20, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 10, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 4, id: 40000073, name: 'Ice Crystal', type: ItemType.Orb },
+      { amount: 20, id: 130400300, name: 'Wisdom Mote (5★)', type: ItemType.Mote },
+      { amount: 10, id: 95001080, name: 'Record Rubies', type: ItemType.Common },
+      { amount: 4, id: 40000076, name: 'Wind Crystal', type: ItemType.Orb },
+    ],
+  },
+  seriesId: 107001,
+  staminaList: [1],
+  totalStamina: 1,
+};
+const ff7TormentWorld: World = {
+  id: 107489,
+  name: 'Devourer of Worlds (FF VII)',
+  category: 3,
+  openedAt: 1534381200,
+  closedAt: 2145938400,
+  seriesId: 107001,
   isUnlocked: true,
 };
 
@@ -486,6 +249,23 @@ describe('actions/dungeonScores', () => {
       }
 
       expect(formatEstimatedScore(estimatedScore)).toEqual('≤40.00');
+    });
+
+    it('estimates an incomplete Torment with updated rewards', () => {
+      const estimatedScore = estimateScore(ff7DUnknownTormentDungeon, ff7TormentWorld);
+
+      expect(estimatedScore).toEqual({
+        type: DungeonScoreType.PercentHpOrClearTime,
+        maxHp: 2000000,
+        totalDamage: 1200000,
+        won: false,
+      });
+
+      if (!estimatedScore) {
+        return;
+      }
+
+      expect(formatEstimatedScore(estimatedScore)).toEqual('≥60%');
     });
   });
 

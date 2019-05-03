@@ -45,21 +45,33 @@ export function estimateScore(dungeon: Dungeon, world: World): DungeonScore | nu
   // descriptions that it does provide, and we haven't necessarily saved them
   // and don't want to make the user re-scan dungeons to get them.)
   //
-  // Prizes: 1 or 2 (D???) for sub 30, 2 each for sub 40 and 50, 1 or 2 (D???) for 1 minute
-  // 2 (D240) or 3 for victory, 3 each for 90%, 80%, 70%, 60%, 2 for 50%
-  const timePrizes = [[30, 1], [40, 2], [50, 2], [60, 1]];
-  const percentPrizes = [[100, 3], [90, 3], [80, 3], [70, 3], [60, 3], [50, 2]];
+  // Prizes: 1 or 2 (D???) for sub 30, 2 each for sub 40 and 50, 1 or 2 (D???) for 1 minute.
+  // Initial rewards were for 50% HP or above: 2 (D240) or 3 for victory, 3 each for
+  // 90%, 80%, 70%, 60%, 2 for 50%.
+  // An update added rewards for 10% HP or above: 3 each for 40%, 30%, 20%, 10%.
+  type PrizeList = Array<[number, number]>;
+  const timePrizes: PrizeList = [[30, 1], [40, 2], [50, 2], [60, 1]];
+  const percentPrizes50: PrizeList = [[100, 3], [90, 3], [80, 3], [70, 3], [60, 3], [50, 2]];
+  const percentPrizes10: PrizeList = [[40, 3], [30, 3], [20, 3], [10, 3]];
   if (dungeon.difficulty === 240) {
-    percentPrizes[0][1]--;
+    percentPrizes50[0][1]--;
   }
   if (dungeon.difficulty === 0) {
     timePrizes[0][1]++;
     timePrizes[timePrizes.length - 1][1]++;
   }
 
-  // Safety check for unexpected rewards
-  const totalPrizeCount = _.sum(timePrizes.map(i => i[1])) + _.sum(percentPrizes.map(i => i[1]));
-  if (totalPrizeCount !== claimed + unclaimed) {
+  // Check whether we're using the old or new prize list, and do a sanity check
+  // for unexpected prizes.
+  const prizeCount = (prizes: PrizeList) => _.sum(prizes.map(i => i[1]));
+  const totalPrizeCount50 = prizeCount(timePrizes) + prizeCount(percentPrizes50);
+  const totalPrizeCount10 = totalPrizeCount50 + prizeCount(percentPrizes10);
+  let percentPrizes: PrizeList;
+  if (totalPrizeCount50 === claimed + unclaimed) {
+    percentPrizes = percentPrizes50;
+  } else if (totalPrizeCount10 === claimed + unclaimed) {
+    percentPrizes = [...percentPrizes50, ...percentPrizes10];
+  } else {
     return null;
   }
 
