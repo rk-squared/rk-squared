@@ -416,7 +416,7 @@ export function createFfrkProxy(
   // Proxy (tunnel) HTTPS requests.  For more information:
   // https://nodejs.org/api/http.html#http_event_connect
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT
-  server.on('connect', (req, clientSocket, head) => {
+  server.on('connect', (req: http.IncomingMessage, clientSocket: net.Socket, head: Buffer) => {
     logger.debug(`CONNECT ${req.url}`);
     store.dispatch(updateLastTraffic());
 
@@ -457,7 +457,9 @@ export function createFfrkProxy(
       });
     clientSocket.on('error', (e: Error) => {
       logger.debug(`Error communicating with ${serverUrl.hostname}`);
-      logger.debug(e);
+      if (e) {
+        logger.debug(e);
+      }
       serverSocket.destroy();
     });
   });
