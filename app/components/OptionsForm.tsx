@@ -104,7 +104,9 @@ export class OptionsForm extends React.Component<Props> {
                   to <code>{logFilename}</code>
                 </span>
               )}
-              . Changing this setting will not take effect until you restart RK&sup2;.
+              . Changing this setting will not take effect until you restart RK&sup2; .{' '}
+              <strong>Privacy note:</strong> These troubleshooting details include the URLs (but not
+              contents) of web sites that your mobile device visits.
             </p>
           </HelpText>
         </div>
