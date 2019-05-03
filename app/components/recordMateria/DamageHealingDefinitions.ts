@@ -78,7 +78,13 @@ const elementalTable: TableDefinition = {
       header: 'Wind',
       items: {
         13: [['Bartz', '3'], ['Wedge', '3']],
-        12: [['Barbariccia', '2'], ['Cid (VII)', '2'], ['Fujin', '2'], ['Thancred', '2']],
+        12: [
+          ['Barbariccia', '2'],
+          ['Cid (VII)', '2'],
+          ['Fujin', '2'],
+          ['Thancred', '2'],
+          ['Ultimecia', '2'],
+        ],
         11: [['Luneth', '1a'], ['Bartz', '1']],
       },
     },
@@ -179,8 +185,9 @@ const abilityTable: TableDefinition = {
       header: 'Sharpshooter',
       items: {
         '1_4': [['Irvine', '3']],
-        '1_3': [['Rufus', '2']],
+        '1_3': [['Rufus', '2'], ['Trey', '2']],
         '1_15': [['Rufus', '1']],
+        '13w': [['Trey', '3']],
       },
     },
     {
@@ -244,7 +251,7 @@ const physicalTable: TableDefinition = {
       items: {
         '1_3': [['Fran', '3']],
         '1_2': [['Faris', '2'], ['Fran', '1b']],
-        '1_1': [['Ranger', '1a'], ['Maria', '1b']],
+        '1_1': [['Ranger', '1a'], ['Maria', '1b'], ['Trey', '1']],
       },
     },
     {
@@ -395,6 +402,7 @@ const magicTable: TableDefinition = {
     {
       header: 'BLK Rod',
       items: {
+        '1_3': [['Ultimecia', '3']],
         '1_2': [['Papalymo', '2'], ['Reno', '2']],
         '1_1': [['Meia', '1'], ['Fusoya', '2'], ['Vivi', '1a']],
       },

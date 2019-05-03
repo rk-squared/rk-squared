@@ -4,6 +4,7 @@
  */
 
 import { Order } from '../../../actions/recordMateria';
+import { enlir, isCoreJob } from '../../../data/enlir';
 import attackReplacementTables from '../AttackReplacementDefinitions';
 import damageHealingTables from '../DamageHealingDefinitions';
 import miscTables from '../MiscDefinitions';
@@ -11,7 +12,7 @@ import statBuffsTables from '../StatBuffsDefinitions';
 
 import * as _ from 'lodash';
 
-function getIncompleteCharacters(): string[] {
+function getAllCharactersAndOrders() {
   const allTables = _.flatten([
     attackReplacementTables,
     damageHealingTables,
@@ -19,7 +20,11 @@ function getIncompleteCharacters(): string[] {
     statBuffsTables,
   ]);
   const allRows = _.flatten(allTables.map(i => i.rows));
-  const allCharactersAndOrders = _.flatten(_.flatten(allRows.map(i => _.values(i.items))));
+  return _.flatten(_.flatten(allRows.map(i => _.values(i.items))));
+}
+
+function getIncompleteCharacters(): string[] {
+  const allCharactersAndOrders = getAllCharactersAndOrders();
 
   const byCharacter: { [character: string]: { [order in Order]: boolean } } = {};
   for (const [character, order] of allCharactersAndOrders) {
@@ -42,9 +47,19 @@ function getIncompleteCharacters(): string[] {
   return result;
 }
 
+function getMissingCharacters(): string[] {
+  const allCharactersAndOrders = getAllCharactersAndOrders();
+  const rmCharacters = new Set(allCharactersAndOrders.map(([character]) => character));
+  return _.values(enlir.characters)
+    .filter(i => !isCoreJob(i))
+    .map(i => i.name)
+    .filter(i => !rmCharacters.has(i));
+}
+
 // tslint:disable no-console
 describe('RecordMateriaTableDefinitions', () => {
   it('contains consistent and complete character information', () => {
     expect(getIncompleteCharacters()).toEqual([]);
+    expect(getMissingCharacters()).toEqual([]);
   });
 });

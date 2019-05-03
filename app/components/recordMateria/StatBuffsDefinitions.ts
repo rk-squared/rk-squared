@@ -183,6 +183,7 @@ const magTable: TableDefinition = {
           ['Ysayle', '1'],
           ['Barbariccia', '1'],
           ['Golbez', '1'],
+          ['Ultimecia', '1'],
         ],
       },
     },
