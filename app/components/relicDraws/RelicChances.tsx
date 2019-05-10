@@ -33,7 +33,7 @@ function getRelicChanceDetails(
     return null;
   }
 
-  const rareChancePerRelic = probabilities.byRarity[5] + probabilities.byRarity[6];
+  const rareChancePerRelic = (probabilities.byRarity[5] || 0) + (probabilities.byRarity[6] || 0);
   let desiredCountAndChance: [number, number];
   if (want) {
     desiredCountAndChance = _.map(

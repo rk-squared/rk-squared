@@ -10,7 +10,7 @@ import { enlir, EnlirLegendMateria, EnlirRealm, EnlirSoulBreak, SbOrLm } from '.
 import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 import { describeRelicEffect } from '../../data/mrP/relics';
-import { enlirRealmLongName } from '../../data/series';
+import { enlirRealmLongName, enlirRealmToSeriesId } from '../../data/series';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
 import { pluralize } from '../../utils/textUtils';
@@ -43,6 +43,17 @@ interface Props {
 
 interface State {
   collapsed: boolean;
+}
+
+function getRelicGroupRealmId(relics: number[]): number | undefined {
+  const firstRealm = _.filter(
+    relics.map(i => (enlir.relics[i] ? enlir.relics[i].realm : undefined)),
+  )[0];
+  if (firstRealm) {
+    return enlirRealmToSeriesId[firstRealm];
+  } else {
+    return undefined;
+  }
 }
 
 /**
@@ -222,7 +233,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
   }
 
   render() {
-    const { title, relics, probabilities, allowCollapse, allowSelect } = this.props;
+    const { title, relics, probabilities, allowCollapse, allowSelect, groupBySeries } = this.props;
 
     let showProbability: boolean;
     let commonProbability: number | null;
@@ -244,6 +255,8 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       : [relics]) as number[][];
     if (probabilities && showProbability) {
       relicsArray = relicsArray.map(i => _.sortBy(i, j => -probabilities.byRelic[j]));
+    } else if (groupBySeries && relicsArray.length > 1) {
+      relicsArray = _.sortBy(relicsArray, getRelicGroupRealmId);
     }
 
     const collapsed = allowCollapse && this.state.collapsed;
