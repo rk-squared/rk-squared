@@ -21,7 +21,7 @@ import * as schemas from '../api/schemas';
 import * as dungeonsSchemas from '../api/schemas/dungeons';
 import * as mainSchemas from '../api/schemas/main';
 import { enlir } from '../data';
-import { ItemType } from '../data/items';
+import { Item, itemsByName, ItemType } from '../data/items';
 import { crystalTowerFloorIcon, itemImage } from '../data/urls';
 import { IState } from '../reducers';
 import { DungeonState } from '../reducers/dungeons';
@@ -49,7 +49,12 @@ function shouldForceUnlock(world: World): boolean {
   // reality, it's somewhat complicated, since it may depend on day of the
   // week, whether special events are going on, and (I think) Acolyte Archive
   // completion status.  But just setting it to true is good enough.
-  return world.category === WorldCategory.PowerUpMote && world.name === 'Power Up Dungeons';
+  //
+  // Similarly, after the mote dungeon revamp that added 3* motes and made 4*
+  // motes always available, mote dungeons are reported as locked.  These too
+  // likely depend on Acolyte Archive completion status, but it's simplest to
+  // always report as true.
+  return world.category === WorldCategory.PowerUpMote;
 }
 
 /**
@@ -230,6 +235,8 @@ export function convertWorldDungeons(
   return dungeons;
 }
 
+const moteDungeonsSubcategory = 'Mote Dungeons';
+
 export function convertWorld(
   event: mainSchemas.Event,
   world: mainSchemas.World,
@@ -241,16 +248,20 @@ export function convertWorld(
   let subcategorySortOrder: number | undefined;
   const seriesShortName = textMaster[`sortmodal_short_summary_series_${world.series_id}`];
 
-  if (event.type_name === 'rotation' || event.type_name === 'wday') {
-    // For mote ("rotation") and power up ("wday") dungeons, there are only
-    // two worlds ("Mote Dungeons" and "Power Up Dungeons"), each with only
-    // one dungeon visible at a time.  No need to assign a subcategory.
+  if (event.type_name === 'rotation') {
+    // The old 4* rotating mote dungeons are obsolete, now that full open
+    // "fragment" dungeons are in GL.
+    return null;
+  } else if (event.type_name === 'rotation' || event.type_name === 'wday') {
+    // For power up ("wday") dungeons, there's only one worlds ("Power Up
+    // Dungeons"), with normally only a few dungeons visible at a time.  No
+    // need to assign a subcategory.
     category = WorldCategory.PowerUpMote;
   } else if (event.type_name === 'fragment') {
-    // Full open "fragment" (mote) dungeons - JP only as of January 2019.
-    // Put them in their own subcategory for now; we may improve this later.
+    // Full open "fragment" (3* and 4* mote) dungeons.  Put them in their own
+    // subcategory.
     category = WorldCategory.PowerUpMote;
-    subcategory = 'Mote Dungeons';
+    subcategory = moteDungeonsSubcategory;
   } else if (event.type_name === 'extreme') {
     category = WorldCategory.Nightmare;
   } else if (event.type_name === 'beast') {
@@ -330,6 +341,23 @@ function checkForWorldIcon(
       if (crystalTowerIcons[world.id]) {
         world.iconUrl = crystalTowerFloorIcon(lang, crystalTowerIcons[world.id]);
       }
+      break;
+    }
+
+    case WorldCategory.PowerUpMote: {
+      let item: Item | undefined;
+      if (world.subcategory === moteDungeonsSubcategory) {
+        const m = world.name.match(/^(\w+)/);
+        if (m) {
+          item = itemsByName[`${m[1]} Mote (4★)`];
+        }
+      } else if (!world.subcategory && world.name === 'Power Up Dungeons') {
+        item = itemsByName['Gysahl Greens'];
+      }
+      if (item) {
+        world.iconUrl = itemImage(lang, item.id, item.type);
+      }
+      break;
     }
   }
 }

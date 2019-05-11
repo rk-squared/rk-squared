@@ -63,7 +63,7 @@ export function formatRelicName({ name, realm }: { name: string; realm: string |
   return realm && realm !== '-' ? `${name} (${realm})` : name;
 }
 
-interface Item {
+export interface Item {
   name: string;
   type: ItemType;
   id: number;
@@ -1071,3 +1071,4 @@ export const items: Item[] = [
 ];
 
 export const itemsById = _.keyBy(items, 'id');
+export const itemsByName = _.keyBy(items, 'name');

@@ -17,8 +17,8 @@ interface Props {
   isAnonymous?: boolean;
 }
 
-// TODO: Include banner images?
-// E.g.:
+// We could try including banner images, although I don't know how to lay them
+// out within our collapsible, annotated cards.  E.g.:
 // http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/crystal_tower/event_list/banner/7.png
 // (determined by crystal_tower_bundles.0.bundle_id???)
 // http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/event/3026.png
