@@ -26,6 +26,8 @@ interface Props {
   tormentScores: TormentWorldWithScore[];
 }
 
+// TODO: Tooltips break if a tooltip is up while the score updates
+
 const dColumnDef = {
   width: 85,
   cellRendererFramework: TormentScoreCellRenderer,

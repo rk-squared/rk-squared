@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { clearWantedRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
@@ -11,6 +9,7 @@ import { chanceOfDesiredDrawProp5 } from '../../data/probabilities';
 import { IState } from '../../reducers';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
+import { MinableCard } from '../common/MinableCard';
 
 const styles = require('./RelicChances.scss');
 
@@ -129,34 +128,34 @@ export class RelicChances extends React.PureComponent<Props> {
     }
 
     return (
-      <div className={classNames('card card-horizontal', styles.component, className)}>
-        <div className="card-img-top bg-success text-white">
-          <FontAwesomeIcon icon={['fal', 'dice-d20']} size="2x" />
+      <MinableCard
+        icon={['fal', 'dice-d20']}
+        className={styles.component + ' ' + className}
+        iconClassName="bg-success text-white"
+        bodyClassName="row"
+      >
+        <div className="col-sm-6">
+          <p className="card-text">
+            {details.rareChancePerRelic.toFixed(2)}% chance of 5★ or better
+          </p>
+          <p className="card-text">
+            (ave. {details.expectedValue.toFixed(2)} 5★ or better per 11× pull)
+          </p>
+          <p className="card-text">
+            {details.sixStarCount} / {banner.totalCount} 6★ relics
+          </p>
+          {!isAnonymous && banner.dupeCount != null && (
+            <p className="card-text">
+              <span className={styles.dupe}>
+                {banner.dupeCount} / {banner.totalCount} dupes
+              </span>
+            </p>
+          )}
         </div>
-        <div className="card-body row">
-          <div className="col-sm-6">
-            <p className="card-text">
-              {details.rareChancePerRelic.toFixed(2)}% chance of 5★ or better
-            </p>
-            <p className="card-text">
-              (ave. {details.expectedValue.toFixed(2)} 5★ or better per 11× pull)
-            </p>
-            <p className="card-text">
-              {details.sixStarCount} / {banner.totalCount} 6★ relics
-            </p>
-            {!isAnonymous && banner.dupeCount != null && (
-              <p className="card-text">
-                <span className={styles.dupe}>
-                  {banner.dupeCount} / {banner.totalCount} dupes
-                </span>
-              </p>
-            )}
-          </div>
-          <div className="col-sm-6">
-            {this.renderWant(details.desiredCount, details.desiredChance)}
-          </div>
+        <div className="col-sm-6">
+          {this.renderWant(details.desiredCount, details.desiredChance)}
         </div>
-      </div>
+      </MinableCard>
     );
   }
 }

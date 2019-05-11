@@ -1,0 +1,23 @@
+:local {
+  .component:not(.collapsed) > :global(.card-img-top) {
+    padding: 1rem;
+  }
+
+  .component.collapsed {
+    float: right;
+    cursor: pointer;
+
+    > :global(.card-img-top) {
+      padding: 0.5rem;
+    }
+  }
+
+  .collapseButton {
+    background: transparent;
+    border: transparent;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
