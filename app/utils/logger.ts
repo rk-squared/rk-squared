@@ -18,6 +18,15 @@ const error = format((info: TransformableInfo) => {
       name: info.name,
       stack: info.stack,
     };
+  } else if (info.syscall && info.code) {
+    // Errors from sockets ("Error communicating with") lack details.  Try this
+    // alternate code for handling them.
+    return {
+      ...info,
+      message: `${info.syscall} ${info.code}` + (info.stack ? `\n${info.stack}` : ''),
+      rawMessage: `${info.syscall} ${info.code}`,
+      stack: info.stack,
+    };
   }
   return info;
 });

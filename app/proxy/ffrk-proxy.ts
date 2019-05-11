@@ -457,9 +457,7 @@ export function createFfrkProxy(
       });
     clientSocket.on('error', (e: Error) => {
       logger.debug(`Error communicating with ${serverUrl.hostname}`);
-      if (e) {
-        logger.debug(e);
-      }
+      logger.debug(e);
       serverSocket.destroy();
     });
   });
