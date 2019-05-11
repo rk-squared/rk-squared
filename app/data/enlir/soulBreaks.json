@@ -11874,8 +11874,7 @@
     "multiplier": 19,
     "element": [
       "Wind",
-      "Fire",
-      "NE"
+      "Fire"
     ],
     "time": 2.5,
     "effects": "Twenty single ranged attacks (0.55 each), followed by one single attack (8.00) capped at 99999",
@@ -14088,6 +14087,48 @@
   },
   {
     "realm": "VI",
+    "character": "Mog",
+    "name": "Wind Rhapsody",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "MAG and MND +50% for 25 seconds, grants Haste and Magical Quick Cast to all allies, grants Awoken Dance Tune and Rhapsody of Wind Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "tier": "AASB",
+    "master": "MND +10",
+    "relic": "Moogle Shield (VI)",
+    "nameJp": "風のラプソディ",
+    "id": 20900007,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Mog",
+    "name": "Sheltering Symphony",
+    "type": null,
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Protect, Shell and Stoneskin: 30%",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "MND +10",
+    "relic": "Battle Trumpet (VI)",
+    "nameJp": "守りのシンフォニー",
+    "id": 20900008,
+    "gl": false
+  },
+  {
+    "realm": "VI",
     "character": "Edgar",
     "name": "Auto Crossbow",
     "type": "PHY",
@@ -15026,6 +15067,100 @@
     "nameJp": "ほしにくブースト",
     "id": 20850005,
     "gl": true
+  },
+  {
+    "realm": "VI",
+    "character": "Gau",
+    "name": "Feral Rampage",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Wind",
+      "Lightning",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (? each), grants Attach Wind, Awoken Beast, Damage Cap +10000, Combat Instant Cast and Celerity Instant Cast to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "Cat Claw (VI)",
+    "nameJp": "やせいじおおあばれ",
+    "id": 20850006,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Gau",
+    "name": "Feral Rush",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 19,
+    "element": [
+      "Wind",
+      "Lightning"
+    ],
+    "time": 2.5,
+    "effects": "Twenty single attacks (0.55 each), followed by one single attack (8.00) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 750,
+    "tier": "AOSB",
+    "master": "ATK +10",
+    "relic": "Gau's Guise (VI)",
+    "nameJp": "まものとだいこうしん",
+    "id": 20850007,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Gau",
+    "name": "Savage Setup",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants 100% Critical 1, Critical Damage +50% and Instant Cast 1",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "ATK +10",
+    "relic": "Boxing Glove (VI)",
+    "nameJp": "あばれるじゅんび",
+    "id": 20850008,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Gau",
+    "name": "Leap",
+    "type": null,
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.52 each), grants Attach Wind Stacking and Attach Wind to the user",
+    "counter": false,
+    "autoTarget": null,
+    "points": 250,
+    "tier": "Glint",
+    "master": "ATK +10",
+    "relic": "Tiger Claw (VI)",
+    "nameJp": "とびかかる",
+    "id": 20850009,
+    "gl": false
   },
   {
     "realm": "VI",
@@ -16122,6 +16257,97 @@
     "nameJp": "ショック・インペリアル",
     "id": 22490004,
     "gl": true
+  },
+  {
+    "realm": "VI",
+    "character": "Leo",
+    "name": "Imperial Rush",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Earth",
+      "Holy",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Earth, Awoken Knight, Damage Cap +10000 and General's Slash Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "master": "ATK +10",
+    "relic": "Ultima Sword (VI)",
+    "nameJp": "ジェネラルスラッシュ",
+    "id": 22490005,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Leo",
+    "name": "Shock Glory",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 24,
+    "element": [
+      "Earth",
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Three single attacks (8.00 each) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 750,
+    "tier": "AOSB",
+    "master": "ATK +10",
+    "relic": "Warlord (VI)",
+    "nameJp": "ショック・グローリー",
+    "id": 22490007,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Leo",
+    "name": "Indomitable Will",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Last Stand to all allies, grants Instant Cast 1 to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 0,
+    "tier": "Glint+",
+    "master": "ATK +10",
+    "relic": "Shield Armor (VI)",
+    "nameJp": "インドミタブルウィル",
+    "id": 22490008,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Leo",
+    "name": "Imperial Rampart",
+    "type": null,
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Attach Earth Stacking, Attach Earth and Stoneskin: 100%",
+    "counter": false,
+    "autoTarget": null,
+    "points": 250,
+    "tier": "Glint",
+    "master": "ATK +10",
+    "relic": "Brave Blade (VI)",
+    "nameJp": "ジェネラルプロテクト",
+    "id": 22490009,
+    "gl": false
   },
   {
     "realm": "VII",
@@ -25883,7 +26109,7 @@
   {
     "realm": "X",
     "character": "Yuna",
-    "name": "Grand Summon Dragon King",
+    "name": "Grand Summon Dragonlord",
     "type": "SUM",
     "target": "Single enemy",
     "formula": "Magical",
@@ -25902,12 +26128,12 @@
     "relic": "Rod of Wisdom (X)",
     "nameJp": "マスター召喚・竜王",
     "id": 20520014,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
     "character": "Yuna",
-    "name": "Wish for the Future",
+    "name": "Bright Prospects",
     "type": "NAT",
     "target": "All allies",
     "formula": null,
@@ -25920,10 +26146,10 @@
     "points": 250,
     "tier": "Glint",
     "master": "MAG +10",
-    "relic": "Yuna's Songstress Guise (X)",
+    "relic": "Songstress Yuna's Guise (X)",
     "nameJp": "未来への願い",
     "id": 20520015,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -26951,7 +27177,7 @@
     "relic": "Shocking Fist (X)",
     "nameJp": "いつもチイのために",
     "id": 20970013,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -27584,7 +27810,7 @@
     "relic": "Lufenian Claw (X)",
     "nameJp": "ジェクトインパクト",
     "id": 22090011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -27609,7 +27835,7 @@
     "relic": "Seafang (X)",
     "nameJp": "ケモノと父の狭間",
     "id": 22090012,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -27630,7 +27856,7 @@
     "relic": "Spirit Band (X)",
     "nameJp": "ジェクトスピリット",
     "id": 22090013,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -39773,7 +39999,7 @@
   {
     "realm": "Type-0",
     "character": "Eight",
-    "name": "Backhand",
+    "name": "Backfist Blow",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -41422,7 +41648,7 @@
     "relic": "Chocobo Wing (X)",
     "nameJp": "チョコボブレイク",
     "id": 21000123,
-    "gl": false
+    "gl": true
   },
   {
     "realm": null,

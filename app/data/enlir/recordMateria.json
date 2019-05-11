@@ -7192,7 +7192,7 @@
   {
     "realm": "Type-0",
     "character": "Eight",
-    "name": "Nimble Fighter",
+    "name": "Nimble Pugilist",
     "effect": "Grants Haste at the beginning of the battle",
     "unlockCriteria": "Use Eight's Memory Crystal",
     "nameJp": "俊敏な格闘少年",
@@ -7202,7 +7202,7 @@
   {
     "realm": "Type-0",
     "character": "Eight",
-    "name": "Class Zero's Virtue",
+    "name": "Class Zero Conscience",
     "effect": "13% chance to dualcast Monk abilities",
     "unlockCriteria": "Use Eight's Memory Crystal II, chance to obtain with Eight in party",
     "nameJp": "0組の良心",
@@ -7212,7 +7212,7 @@
   {
     "realm": "Type-0",
     "character": "Eight",
-    "name": "Tranquil Power",
+    "name": "Serene Power",
     "effect": "Monk abilities deal 40% more damage",
     "unlockCriteria": "Bring Eight to level 99",
     "nameJp": "冷静なる力を司る者",
@@ -7222,7 +7222,7 @@
   {
     "realm": "Type-0",
     "character": "Cater",
-    "name": "Magic Pistol Wielder",
+    "name": "Magicite Pistoleer",
     "effect": "PHY attacks deal 10% more damage when equipping a gun",
     "unlockCriteria": "Use Cater's Memory Crystal",
     "nameJp": "魔法銃を操る少女",
@@ -7242,7 +7242,7 @@
   {
     "realm": "Type-0",
     "character": "Cater",
-    "name": "Valiant Power",
+    "name": "Heroic Power",
     "effect": "PHY attacks deal 30% more damage when equipping a gun",
     "unlockCriteria": "Bring Cater to level 99",
     "nameJp": "勇敢なる力を司る者",

@@ -12191,7 +12191,7 @@
   {
     "character": "Eight",
     "source": "Glacial Phantasm",
-    "name": "Super Punch",
+    "name": "Apex Strike",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -12208,12 +12208,12 @@
     "school": "Monk",
     "nameJp": "極拳",
     "id": 30512831,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Eight",
     "source": "Glacial Phantasm",
-    "name": "Ice Shadow",
+    "name": "Umbral Frost",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -12230,7 +12230,7 @@
     "school": "Monk",
     "nameJp": "氷影",
     "id": 30512832,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Sora",

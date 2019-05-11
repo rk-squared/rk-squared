@@ -27905,7 +27905,7 @@
       "res": 1,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Scarlet Blade",
+    "introducingEventLegendSpheres": "Slash of Crimson",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -27974,7 +27974,7 @@
   {
     "realm": "Type-0",
     "name": "Eight",
-    "introducingEventLv50": "Wings of Flame",
+    "introducingEventLv50": "Courage Takes Flight",
     "lv50": {
       "hp": 3712,
       "atk": 117,
@@ -27986,7 +27986,7 @@
       "eva": 27,
       "spd": 152
     },
-    "introducingEventLv65": "Wings of Flame",
+    "introducingEventLv65": "Courage Takes Flight",
     "lv65": {
       "hp": 4614,
       "atk": 144,
@@ -27998,7 +27998,7 @@
       "eva": 27,
       "spd": 163
     },
-    "introducingEventLv80": "Wings of Flame",
+    "introducingEventLv80": "Courage Takes Flight",
     "lv80": {
       "hp": 5486,
       "atk": 170,
@@ -28010,7 +28010,7 @@
       "eva": 28,
       "spd": 174
     },
-    "introducingEventLv99": "Wings of Flame",
+    "introducingEventLv99": "Courage Takes Flight",
     "lv99": {
       "hp": 6557,
       "atk": 203,
@@ -28022,7 +28022,7 @@
       "eva": 30,
       "spd": 188
     },
-    "introducingEventRecordSpheres": "Wings of Flame",
+    "introducingEventRecordSpheres": "Courage Takes Flight",
     "recordSpheres": {
       "hp": 605,
       "atk": 46,
@@ -28031,7 +28031,7 @@
       "res": 2,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Wings of Flame",
+    "introducingEventLegendSpheres": "Courage Takes Flight",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -28100,7 +28100,7 @@
   {
     "realm": "Type-0",
     "name": "Cater",
-    "introducingEventLv50": "Wings of Flame",
+    "introducingEventLv50": "Courage Takes Flight",
     "lv50": {
       "hp": 3326,
       "atk": 101,
@@ -28112,7 +28112,7 @@
       "eva": 22,
       "spd": 146
     },
-    "introducingEventLv65": "Wings of Flame",
+    "introducingEventLv65": "Courage Takes Flight",
     "lv65": {
       "hp": 4284,
       "atk": 128,
@@ -28124,7 +28124,7 @@
       "eva": 23,
       "spd": 155
     },
-    "introducingEventLv80": "Wings of Flame",
+    "introducingEventLv80": "Courage Takes Flight",
     "lv80": {
       "hp": 5241,
       "atk": 156,
@@ -28136,7 +28136,7 @@
       "eva": 24,
       "spd": 164
     },
-    "introducingEventLv99": "Wings of Flame",
+    "introducingEventLv99": "Courage Takes Flight",
     "lv99": {
       "hp": 6454,
       "atk": 191,
@@ -28148,7 +28148,7 @@
       "eva": 25,
       "spd": 176
     },
-    "introducingEventRecordSpheres": "Wings of Flame",
+    "introducingEventRecordSpheres": "Courage Takes Flight",
     "recordSpheres": {
       "hp": 535,
       "atk": 35,
@@ -28157,7 +28157,7 @@
       "res": 11,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Wings of Flame",
+    "introducingEventLegendSpheres": "Courage Takes Flight",
     "legendSpheres": {
       "hp": 800,
       "atk": 35,
@@ -28264,34 +28264,34 @@
     },
     "introducingEventLv99": "Raise the Vermilion Banner",
     "lv99": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "acc": null,
-      "eva": null,
-      "spd": null
+      "hp": 6119,
+      "atk": 200,
+      "def": 126,
+      "mag": 151,
+      "res": 129,
+      "mnd": 149,
+      "acc": 26,
+      "eva": 25,
+      "spd": 157
     },
     "introducingEventRecordSpheres": "Raise the Vermilion Banner",
     "recordSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null
+      "hp": 640,
+      "atk": 37,
+      "def": 7,
+      "mag": 0,
+      "res": 3,
+      "mnd": 1
     },
     "introducingEventLegendSpheres": "Raise the Vermilion Banner",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,

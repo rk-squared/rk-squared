@@ -3508,6 +3508,17 @@
     "gl": true
   },
   {
+    "realm": "VI",
+    "character": "Leo",
+    "name": "Inborn Warrior",
+    "effect": "Grants Attach Earth at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Imperial Gloves (VI)",
+    "nameJp": "根っからの武人",
+    "id": 201061803,
+    "gl": false
+  },
+  {
     "realm": "VII",
     "character": "Cloud",
     "name": "Lone Wolf",
@@ -5397,7 +5408,7 @@
     "relic": "Magic Gun (X)",
     "nameJp": "変わらぬ献身",
     "id": 201100204,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -8691,24 +8702,24 @@
   {
     "realm": "Type-0",
     "character": "Eight",
-    "name": "Tranquil Enthusiasm",
+    "name": "Quiet Zeal",
     "effect": "Monk abilities deal 15% more damage",
     "master": null,
     "relic": null,
     "nameJp": "静かなる熱意",
     "id": 201601200,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Eight",
-    "name": "Fists for Justice",
-    "effect": "Restores HP for 100% of the user's maximum HP and grants Eight Trance when HP fall below 20%",
+    "name": "Righteous Fists",
+    "effect": "Restores HP for 100% of the user's maximum HP and grants Back to the Wall Mode when HP fall below 20%",
     "master": null,
     "relic": null,
     "nameJp": "正義を掲げる拳",
     "id": 201601201,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -8724,24 +8735,24 @@
   {
     "realm": "Type-0",
     "character": "Cater",
-    "name": "Cheerful Gunslinger",
+    "name": "Feisty Firecracker",
     "effect": "Machinist abilities deal 15% more damage",
     "master": null,
     "relic": null,
     "nameJp": "明朗快活な銃士",
     "id": 201601300,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Cater",
-    "name": "Remarkable Talent",
+    "name": "Prodigal Talent",
     "effect": "35% chance to dualcast Machinist abilities",
     "master": null,
     "relic": null,
     "nameJp": "非凡なる才",
     "id": 201601301,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

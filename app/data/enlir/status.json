@@ -3910,8 +3910,8 @@
   },
   {
     "id": 282015,
-    "name": "Black Magic +70% Boost 1",
-    "effects": "Black Magic abilities deal 70% more damage, lasts for 1 turn",
+    "name": "Magical +70% Boost 1",
+    "effects": "Magical abilities deal 70% more damage, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9080,7 +9080,7 @@
   },
   {
     "id": 50378,
-    "name": "Eight Trance",
+    "name": "Back to the Wall Mode",
     "effects": "ATK +50%, cast speed x3.00 for Monk abilities, causes Stun when removed",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -10742,7 +10742,7 @@
   },
   {
     "id": 50533,
-    "name": "Awoken Musical Dancer",
+    "name": "Awoken Dance Tune",
     "effects": "Dancer abilities don't consume uses, casts speed x2.00/2.25/2.50/2.75/3.00 for Dancer abilities at ability rank 1/2/3/4/5, dualcasts Dancer abilities",
     "defaultDuration": 15,
     "mndModifier": null,

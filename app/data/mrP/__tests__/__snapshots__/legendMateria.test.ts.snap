@@ -546,13 +546,13 @@ Array [
     "character": "Cater",
     "description": "1.15x Machinist dmg",
     "effect": "Machinist abilities deal 15% more damage",
-    "name": "Cheerful Gunslinger",
+    "name": "Feisty Firecracker",
   },
   Object {
     "character": "Cater",
     "description": "35% dualcast Machinist",
     "effect": "35% chance to dualcast Machinist abilities",
-    "name": "Remarkable Talent",
+    "name": "Prodigal Talent",
   },
   Object {
     "character": "Cater",
@@ -1158,13 +1158,13 @@ Array [
     "character": "Eight",
     "description": "1.15x Monk dmg",
     "effect": "Monk abilities deal 15% more damage",
-    "name": "Tranquil Enthusiasm",
+    "name": "Quiet Zeal",
   },
   Object {
     "character": "Eight",
     "description": "(<20% HP ⤇ heal 100% HP, Trance: +50% ATK, Monk hi fastcast, causes Stun when removed 25s)",
-    "effect": "Restores HP for 100% of the user's maximum HP and grants Eight Trance when HP fall below 20%",
-    "name": "Fists for Justice",
+    "effect": "Restores HP for 100% of the user's maximum HP and grants Back to the Wall Mode when HP fall below 20%",
+    "name": "Righteous Fists",
   },
   Object {
     "character": "Eight",
@@ -2371,6 +2371,12 @@ Array [
     "description": "1.2x PHY dmg if using a sword",
     "effect": "PHY attacks deal 20% more damage when equipping a sword",
     "name": "In Search of Peace",
+  },
+  Object {
+    "character": "Leo",
+    "description": "earth infuse at battle start",
+    "effect": "Grants Attach Earth at the beginning of the battle",
+    "name": "Inborn Warrior",
   },
   Object {
     "character": "Leon",

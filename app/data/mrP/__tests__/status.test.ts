@@ -25,7 +25,7 @@ describe('mrP/status', () => {
           'Amarant Trance',
           'Play Rough Mode',
           'Queen Trance',
-          'Eight Trance',
+          'Back to the Wall Mode',
         ]),
       );
 

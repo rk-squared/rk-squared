@@ -1985,17 +1985,17 @@
     "sourceType": "Follow-Up Status",
     "source": "Rhapsody of Wind Follow-Up",
     "name": "Rhapsody of Wind",
-    "type": "?",
+    "type": "NAT",
     "target": "All allies",
     "formula": null,
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "?",
-    "counter": false,
-    "autoTarget": "?",
-    "sb": null,
-    "school": "?",
+    "effects": "Grants Magical +70% Boost 1 to all allies",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Dancer",
     "id": 30549141,
     "gl": false
   },
@@ -2003,19 +2003,17 @@
     "sourceType": "Follow-Up Status",
     "source": "General's Slash Follow-Up",
     "name": "General's Slash",
-    "type": "?",
-    "target": "Single enemy",
-    "formula": "Physical",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
     "multiplier": null,
-    "element": [
-      "?"
-    ],
+    "element": null,
     "time": 0.01,
-    "effects": "?",
+    "effects": "Grants 40% Damage Reduction Barrier 1",
     "counter": false,
-    "autoTarget": "?",
-    "sb": null,
-    "school": "?",
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Special",
     "id": 30544309,
     "gl": false
   },
@@ -2818,7 +2816,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30549663,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3864,7 +3862,7 @@
     "sb": 0,
     "school": "Monk",
     "id": 30548227,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3883,7 +3881,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549152,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3902,7 +3900,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549153,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3921,7 +3919,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549154,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4594,19 +4592,22 @@
     "sourceType": "FInisher Status",
     "source": "EX: Hawkeye Mode",
     "name": "Raining Arrows",
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 9.6,
     "element": [
-      "?"
+      "Fire",
+      "Ice",
+      "Water",
+      "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single ranged attacks (? each)",
-    "counter": false,
-    "autoTarget": "?",
+    "effects": "Ten single ranged attacks (0.96 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
     "sb": 0,
-    "school": "?",
+    "school": "Sharpshooter",
     "id": 30549179,
     "gl": false
   },
