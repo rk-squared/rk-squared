@@ -481,7 +481,10 @@ describe('mrP', () => {
       expect(describeSoulBreak('Auron - Miracle Blade')).toEqual({
         instant: true,
         damage: 'phys 3.12/6 fire+non',
-        other: '+10% fire vuln. 25s, -50% DEF 15s',
+        other: '+10% fire vuln. 15s, -50% DEF 15s',
+      });
+      expect(describeSoulBreak('Reks - Son of Dalmasca')).toEqual({
+        other: 'party Haste, Reflect Dmg 75% as lgt 30s, +50% ATK 25s',
       });
     });
 
@@ -2217,6 +2220,15 @@ Object {
           'self dmg cap +10k 15s, Ninja hi fastcast 15s, ' +
           '15s: (Ninja ⤇ p1.76/4 or m^44.0/2 wa+f+l+n Ninja, +10% water/fire/lgt dmg 15s), ' +
           '15s: Awoken Ninja: Ninja inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Faris - Pirate Brave')).toEqual({
+        damage: 'phys 9.0/15 wind+fire+non rngd',
+        other:
+          '+20% wind/fire vuln. 25s, self dmg cap +10k 15s, ' +
+          '1 turn: (fire ⤇ fire infuse), (wind ⤇ wind infuse), ' +
+          '15s: (3 Thief ⤇ +10% wind/fire vuln. 15s), ' +
+          '15s: Awoken Thief: Thief inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
     });
 

@@ -1266,7 +1266,8 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
   // right.  For example:
   // - "grants Haste and Burst mode to the user" - Haste is "to the user"
   // - "causes Imperil Fire 10% and DEF -50% for 15 seconds" - imperil is
-  //   standard 25 seconds (I think)
+  //   shortened to 15 seconds (I think) - but we handle that via
+  //   shareStatusDurations
   // - "grants Magical Blink 1, RES and MND +30% to the user for 25
   //   seconds" - m.blink is to the party, stat boosts are to the user
 
@@ -1421,6 +1422,7 @@ const elementStatuses = [
   new RegExp('^Minor Buff ([a-zA-Z/]+)$'),
   new RegExp('^Medium Buff ([a-zA-Z/]+)$'),
   new RegExp('^Major Buff ([a-zA-Z/]+)$'),
+  new RegExp('^Imperil ([a-zA-Z/]+) 10%$'),
   new RegExp('^Imperil ([a-zA-Z/]+) 20%$'),
 ];
 
@@ -1439,4 +1441,54 @@ export function slashMergeElementStatuses(accumulator: StatusItem[], currentValu
     accumulator,
     currentValue,
   );
+}
+
+/**
+ * Special case for shareStatusDuration - Reks' USB's Lightning Radiant Shield
+ * shouldn't be shared.  We try to generalize this by saying that some statuses
+ * never get non-default durations.
+ */
+function forceOwnDuration(status: EnlirStatus) {
+  return status.name.match(/Radiant Shield/);
+}
+
+export function shareStatusDurations(accumulator: StatusItem[], currentItem: StatusItem) {
+  if (accumulator.length) {
+    const prevItem = accumulator[accumulator.length - 1];
+    const prevStatus = getEnlirStatusByName(prevItem.statusName);
+    const thisStatus = getEnlirStatusByName(currentItem.statusName);
+    // If the previous status can have a duration (as implied by the
+    // defaultDuration field) and doesn't have an explicit duration, and the
+    // current status has an explicit duration, then assume that the current
+    // status's duration also applies to the previous.  E.g.:
+    //
+    // - "causes Imperil Fire 10% and DEF -50% for 15 seconds"
+    // - "Causes Imperil Wind 10% and Imperil Fire 10% for 15 seconds"
+    //
+    // As an exception, if both have an explicit target, then that's intended
+    // to separate the two statues.  E.g.:
+    //
+    // - "grants Unyielding Fist to the user, ATK +50% to the user for 25
+    //   seconds"
+    //
+    // And we still need a special case for Reks' SB.  Sigh.
+    if (
+      prevStatus &&
+      thisStatus &&
+      !prevItem.duration &&
+      currentItem.duration &&
+      prevStatus.defaultDuration &&
+      !prevItem.who &&
+      !forceOwnDuration(prevStatus)
+    ) {
+      accumulator[accumulator.length - 1] = {
+        ...prevItem,
+        duration: currentItem.duration,
+        durationUnits: currentItem.durationUnits,
+      };
+    }
+  }
+
+  accumulator.push(currentItem);
+  return accumulator;
 }

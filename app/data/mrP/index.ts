@@ -26,6 +26,7 @@ import {
   parseEnlirStatus,
   parseEnlirStatusWithSlashes,
   parseStatusItem,
+  shareStatusDurations,
   slashMergeElementStatuses,
   sortStatus,
 } from './status';
@@ -539,6 +540,7 @@ export function describeEnlirSoulBreak(
     const status = splitSkillStatuses(statusString)
       .map(i => parseStatusItem(i, wholeClause))
       .reduce(checkForAndStatuses, [])
+      .reduce(shareStatusDurations, [])
       .reduce(slashMergeElementStatuses, [])
       .sort(sortStatus);
     status.forEach((thisStatus, thisStatusIndex) => {
