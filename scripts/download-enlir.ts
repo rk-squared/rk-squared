@@ -57,10 +57,8 @@ function toStringWithDecimals(value: string) {
     return null;
   } else {
     // Convert commas (European decimal separator) to decimals for versions
-    // of the spreadsheet prior to 5/6/2019.  Convert periods after numbers
-    // back to commas - these were mistakenly converted by the 5/6/2019
-    // conversion.
-    return value.replace(/(\d+),(\d+)/g, '$1.$2').replace(/(\d+)\. /g, '$1, ');
+    // of the spreadsheet prior to 5/6/2019.
+    return value.replace(/(\d+),(\d+)/g, '$1.$2');
   }
 }
 
