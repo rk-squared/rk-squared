@@ -1162,7 +1162,7 @@ Array [
   },
   Object {
     "character": "Eight",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +50% ATK, Monk hi fastcast, causes Stun when removed 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +50% ATK, Monk hi fastcast, causes Stun (100%) when removed 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Back to the Wall Mode when HP fall below 20%",
     "name": "Righteous Fists",
   },

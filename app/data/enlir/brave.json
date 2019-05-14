@@ -2698,7 +2698,7 @@
   {
     "character": "Paine",
     "source": "Throttle Alluvion",
-    "name": "Flowing Dance",
+    "name": "Flowing Feint",
     "brave": 0,
     "type": "PHY",
     "target": "Single enemy",
@@ -2718,12 +2718,12 @@
     ],
     "nameJp": "流舞！",
     "id": 30547061,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Paine",
     "source": "Throttle Alluvion",
-    "name": "Flowing Dance",
+    "name": "Flowing Feint",
     "brave": 1,
     "type": "PHY",
     "target": "Single enemy",
@@ -2743,12 +2743,12 @@
     ],
     "nameJp": "流舞！",
     "id": 30547062,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Paine",
     "source": "Throttle Alluvion",
-    "name": "Flowing Dance",
+    "name": "Flowing Feint",
     "brave": 2,
     "type": "PHY",
     "target": "Single enemy",
@@ -2768,12 +2768,12 @@
     ],
     "nameJp": "流舞！",
     "id": 30547063,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Paine",
     "source": "Throttle Alluvion",
-    "name": "Flowing Dance",
+    "name": "Flowing Feint",
     "brave": 3,
     "type": "PHY",
     "target": "Single enemy",
@@ -2793,7 +2793,7 @@
     ],
     "nameJp": "流舞！",
     "id": 30547064,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vaan",

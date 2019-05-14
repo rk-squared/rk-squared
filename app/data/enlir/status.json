@@ -2083,7 +2083,7 @@
   {
     "id": 2193,
     "name": "Dragoon Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Dragoon abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Dragoon abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9081,7 +9081,7 @@
   {
     "id": 50378,
     "name": "Back to the Wall Mode",
-    "effects": "ATK +50%, cast speed x3.00 for Monk abilities, causes Stun when removed",
+    "effects": "ATK +50%, cast speed x3.00 for Monk abilities, causes Stun (100%) when removed",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10567,7 +10567,7 @@
   {
     "id": 50517,
     "name": "Awoken Scholar Critical Chance",
-    "effects": "Grants Critical Chance =60/70/80/90/100% after using 1/2/3/4/5 Support abilities",
+    "effects": "Grants Critical Chance 60/70/80/90/100% after using 1/2/3/4/5 Support abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10688,7 +10688,7 @@
   {
     "id": 50528,
     "name": "Dragon Strike Mode",
-    "effects": "Grants Dragon Strike 1/2/3/4 after using a Dragoon ability",
+    "effects": "Grants Dragon Strike 1/2/3/4 after using 1/2/3/4 Dragoon abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10699,7 +10699,7 @@
   {
     "id": 50529,
     "name": "Dragon Strike 1",
-    "effects": "Dragoon abilities deal 15%, more damage, Critical Chance =30% removed if the user hasn't Dragon Strike Mode",
+    "effects": "Dragoon abilities deal 15% more damage, Critical chance =30%, removed if the user hasn't Dragon Strike Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10710,7 +10710,7 @@
   {
     "id": 50530,
     "name": "Dragon Strike 2",
-    "effects": "Dragoon abilities deal 30%, more damage, Critical Chance =50%, removed if the user hasn't Dragon Strike Mode",
+    "effects": "Dragoon abilities deal 30% more damage, Critical chance =50%, removed if the user hasn't Dragon Strike Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10721,7 +10721,7 @@
   {
     "id": 50531,
     "name": "Dragon Strike 3",
-    "effects": "Dragoon abilities deal 50%, more damage, Critical Chance =75%, removed if the user hasn't Dragon Strike Mode",
+    "effects": "Dragoon abilities deal 50% more damage, Critical chance =75%, removed if the user hasn't Dragon Strike Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10732,7 +10732,7 @@
   {
     "id": 50532,
     "name": "Dragon Strike 4",
-    "effects": "Dragoon abilities deal 70%, more damage, Critical Chance =100%, removed if the user hasn't Dragon Strike Mode",
+    "effects": "Dragoon abilities deal 70% more damage, Critical chance =100%, removed if the user hasn't Dragon Strike Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

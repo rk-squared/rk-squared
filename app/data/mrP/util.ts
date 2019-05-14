@@ -153,7 +153,7 @@ function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
   // We normally break at plus signs, so, e.g., f+n / wa+n / wi+n / e+n can
   // become f/wa/wi/e+n.  But there are times when it works out better to
   // instead treat plus-separated terms as units.
-  const splitAt = opt.splitAtPlus ? /([,? +])/ : /([,? ])/;
+  const splitAt = opt.splitAtPlus ? /([,? +=])/ : /([,? ])/;
 
   const optionParts = options.map(i => i.split(splitAt));
   const maxLength = _.max(optionParts.map(i => i.length))!;

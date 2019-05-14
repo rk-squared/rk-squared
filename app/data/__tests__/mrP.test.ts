@@ -879,7 +879,7 @@ Object {
     it('handles stacking statuses', () => {
       expect(describeSoulBreak('Ursula - Assert Dominance')).toEqual({
         instant: true,
-        other: 'self hi fastcast 2, 15s: stacking crit =50%/=75%/=100%',
+        other: 'self hi fastcast 2, 15s: stacking crit =50%/75%/100%',
       });
       expect(describeSoulBreak('Refia - Bridled Love')).toEqual({
         instant: true,
@@ -907,7 +907,7 @@ Object {
         instant: true,
         other:
           'party Haste, crit =50% 25s, self hi fastcast 15s, ' +
-          '15s: (1/2/3/4/5+ Support ⤇ party crit =60%/=70%/=80%/=90%/=100% 15s)',
+          '15s: (1/2/3/4/5+ Support ⤇ party crit =60%/70%/80%/90%/100% 15s)',
       });
       expect(describeSoulBreak('Warrior of Light - Bitter End')).toEqual({
         damage: 'phys 7.1/10 holy+non',
@@ -2201,7 +2201,7 @@ Object {
         instant: true,
         other:
           'party Haste, crit =50% 25s, +30% ATK/DEF 25s, ' +
-          '15s: (1-5 Support ⤇ Critical Chance =60%/=70%/=80%/=90%/=100%), ' +
+          '15s: (1-5 Support ⤇ crit =60%/70%/80%/90%/100%), ' +
           '15s: (3 Support ⤇ party +50% crit dmg 1 turn), ' +
           '15s: Awoken Scholar: Support inf. hones, 2-3x Support cast @ rank 1-5',
       });
@@ -2229,6 +2229,14 @@ Object {
           '1 turn: (fire ⤇ fire infuse), (wind ⤇ wind infuse), ' +
           '15s: (3 Thief ⤇ +10% wind/fire vuln. 15s), ' +
           '15s: Awoken Thief: Thief inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Fang - Destroy Dive')).toEqual({
+        damage: 'phys 9.0/15 wind+non jump',
+        other:
+          'wind infuse 25s, self dmg cap +20k 15s, ' +
+          '15s: (1/2/3/4 Dragoon ⤇ 1.15x/1.3x/1.5x/1.7x Dragoon dmg, crit =30%/50%/75%/100%), ' +
+          '15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast',
       });
     });
 
@@ -2308,7 +2316,7 @@ Object {
 
     it('handles hybrid attacks', () => {
       expect(describeSoulBreak('Reno - Turk Special')).toEqual({
-        damage: 'p7.1/10 or m17.0/10 lgt+non',
+        damage: 'p7.1/10 or m17.0/10 lgt+non rngd',
         other: 'lgt infuse 25s, self +30% ATK/DEF or DEF/MAG, fastcast 1, 15s: (lgt ⤇ fastcast 1)',
       });
       expect(describeEnlirSoulBreak(soulBreaks["Vincent - Lucrecia's Lament"])).toEqual({

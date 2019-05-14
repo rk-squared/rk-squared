@@ -569,7 +569,9 @@ function patchEnlir() {
     '22300009',
     aria =>
       aria.effects ===
-      'Restores HP (85), grants Regenga, grants Quick Cast to the user. Grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, grants Medium Buff Holy and Medium Buff Dark if both are in the party',
+      'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
+      'grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, ' +
+      'grants Medium Buff Holy and Medium Buff Dark if both are in the party',
     aria => {
       aria.effects =
         'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +

@@ -5771,7 +5771,7 @@
     "relic": "Samurai Paine's Guise (X)",
     "nameJp": "求めし過去の真実",
     "id": 201101503,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -5815,7 +5815,7 @@
     "relic": "Chaos Mace (X)",
     "nameJp": "父への憎悪",
     "id": 201101803,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",

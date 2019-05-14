@@ -12822,7 +12822,7 @@
       "eva": null
     },
     "id": 21002437,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Gluttony Sword",
@@ -55752,7 +55752,7 @@
       "eva": null
     },
     "id": 21008192,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Monster Signa",
@@ -59982,7 +59982,7 @@
       "eva": null
     },
     "id": 21009147,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Healing Rod",
@@ -108042,7 +108042,7 @@
       "eva": 100
     },
     "id": 22053282,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Tactician Magician's Coat",

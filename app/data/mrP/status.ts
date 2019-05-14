@@ -979,7 +979,7 @@ function describeFollowUpStatus(item: StatusItem): string {
   let result: string;
   if (!status && options) {
     const statusOptions = options.map(i => statusName.replace(slashOptionsRe, i));
-    result = slashMerge(statusOptions.map((i: string) => describeEnlirStatus(i, status)));
+    result = slashMerge(statusOptions.map(i => parseEnlirStatus(i).description));
   } else {
     result = describeEnlirStatus(statusName, status);
   }

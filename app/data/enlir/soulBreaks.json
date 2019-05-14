@@ -2405,7 +2405,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (85), grants Regenga, grants Quick Cast to the user. Grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, grants Medium Buff Holy and Medium Buff Dark if both are in the party",
+    "effects": "Restores HP (85), grants Regenga, grants Quick Cast to the user, grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, grants Medium Buff Holy and Medium Buff Dark if both are in the party",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -19285,7 +19285,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Ten single hybrid rang. attacks (0.71 or 1.70 each), grants ATK/DEF or DEF/MAG +30%, Attach Lightning, Quick Cast 1 and Lightning Quick Cycle to the user",
+    "effects": "Ten single hybrid ranged attacks (0.71 or 1.70 each), grants ATK/DEF or DEF/MAG +30%, Attach Lightning, Quick Cast 1 and Lightning Quick Cycle to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -19723,7 +19723,7 @@
     "character": "Shelke",
     "name": "Technical Defense",
     "type": "NAT",
-    "target": "Self",
+    "target": "All allies",
     "formula": null,
     "multiplier": null,
     "element": null,
@@ -28162,7 +28162,7 @@
     "relic": "Full Throttle Blade (X)",
     "nameJp": "斬騎剣術・水乱！",
     "id": 22420007,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -28327,7 +28327,7 @@
     "relic": "Staff of Atrophy (X)",
     "nameJp": "滅びのヤリ",
     "id": 22540007,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
