@@ -36,7 +36,7 @@ function makeRowLookup(
   const nameCol = cols['Name'];
   const isRW = cols['Tier'] ? (row: string[]) => row[cols['Tier']] === 'RW' : _.constant(false);
 
-  const result: _.Dictionary<number> = {};
+  const result: _.Dictionary<number | null> = {};
   for (let i = 1; i < values.length; i++) {
     const id = values[i][idCol];
     const name = values[i][nameCol];
@@ -72,9 +72,14 @@ async function getSheetId(
     spreadsheetId,
     fields: 'sheets/properties',
   });
-  const sheet = sheetsRes.data.sheets!.find(i => i.properties.title === sheetName);
+  const sheet = sheetsRes.data.sheets!.find(
+    i => i.properties != null && i.properties.title === sheetName,
+  );
   if (!sheet) {
     throw new Error(`Failed to find tab ${sheetName}`);
+  }
+  if (!sheet.properties || sheet.properties.sheetId == null) {
+    throw new Error(`Failed to get sheet ID for tab ${sheetName}`);
   }
   return sheet.properties.sheetId;
 }
@@ -108,8 +113,9 @@ async function main() {
           .positional('item', {
             describe: 'entity ID or name',
             type: 'string',
-            array: true,
-          }),
+          })
+          .array('item')
+          .required('item'),
       async argv => {
         const spreadsheetId = enlirSpreadsheetIds[argv.sheet];
         const sheetName = _.startCase(argv.tab);

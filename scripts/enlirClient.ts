@@ -89,8 +89,9 @@ async function getNewToken(oAuth2Client: OAuth2Client, readWrite = false): Promi
   oAuth2Client.setCredentials(token);
 
   // Store the token to disk for later program executions
-  await fs.writeFile(tokenPath(readWrite), JSON.stringify(token));
-  logger.info(`Token stored to ${tokenPath}`);
+  const filename = tokenPath(readWrite);
+  await fs.writeFile(filename, JSON.stringify(token));
+  logger.info(`Token stored to ${filename}`);
 
   return oAuth2Client;
 }

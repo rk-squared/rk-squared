@@ -184,7 +184,7 @@
     "@types/sinon": "^4.0.0",
     "@types/stream-buffers": "^3.0.2",
     "@types/xregexp": "^3.0.29",
-    "@types/yargs": "^12.0.1",
+    "@types/yargs": "^13.0",
     "asar": "^0.14.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-named-asset-import": "^0.3.1",
