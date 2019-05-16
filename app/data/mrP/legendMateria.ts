@@ -42,6 +42,26 @@ function describeBattleStart(statuses: string) {
   );
 }
 
+const hitOrAbilityAbbrev: _.Dictionary<string> = {
+  hit: 'hit',
+  ability: 'abil.',
+  attack: 'atk',
+};
+
+function describeBuildUp(
+  stat: string,
+  bonus: string,
+  hitOrAbility: string,
+  types: string[],
+  max: string,
+) {
+  let type = types.map(formatSchoolOrAbilityList).join(' ');
+  if (hitOrAbilityAbbrev[hitOrAbility]) {
+    type += ' ' + hitOrAbilityAbbrev[hitOrAbility];
+  }
+  return `+${bonus}% ${stat} (max +${max}%) per ${type}`;
+}
+
 type HandlerList = Array<[RegExp | RegExp[], (parts: string[], allText: string) => string | null]>;
 
 function resolveWithHandlers(handlers: HandlerList, item: string): string | null {
@@ -208,18 +228,15 @@ const legendMateriaHandlers: HandlerList = [
 
   // Build-ups
   [
-    [
-      /([A-Z]{3}) \+(\d+|\?)% for each hit dealt with (.*) (?:abilities|attacks)(?: that deal (.*) damage)?, up to \+?(\d+|\?)%/,
-      // "that deal damage" should never be used for this regex, but we leave it to keep groups consistent
-      /([A-Z]{3}) \+(\d+|\?)% for each (.*) (?:ability|attack) used(?: that deal (.*) damage)?, up to \+?(\d+|\?)%/,
-    ],
-    ([stat, bonus, type1, type2, max]) => {
-      let type = formatSchoolOrAbilityList(type1);
-      if (type2) {
-        type += ' ' + formatSchoolOrAbilityList(type2);
-      }
-      return `+${bonus}% ${stat} (max +${max}%) per ${type}`;
-    },
+    /([A-Z]{3}) \+(\d+|\?)% for each hit dealt with (.*) (?:abilities|attacks)(?: that deal (.*) damage)?, up to \+?(\d+|\?)%/,
+    ([stat, bonus, type1, type2, max]) =>
+      describeBuildUp(stat, bonus, 'hit', _.filter([type1, type2]), max),
+  ],
+  [
+    // "that deal damage" should never be used for this regex, but we leave it to keep groups consistent
+    /([A-Z]{3}) \+(\d+|\?)% for each (.*) (ability|attack) used(?: that deal (.*) damage)?, up to \+?(\d+|\?)%/,
+    ([stat, bonus, type1, hitOrAbility, type2, max]) =>
+      describeBuildUp(stat, bonus, hitOrAbility, _.filter([type1, type2]), max),
   ],
   [
     /([A-Z]{3}) \+(\d+)% for each hit taken by damaging attacks, up to \+(\d+)%/,

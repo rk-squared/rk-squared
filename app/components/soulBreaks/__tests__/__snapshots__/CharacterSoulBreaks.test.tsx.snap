@@ -348,7 +348,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
             Soaring Dragoon
           </td>
           <td>
-            +2% ATK (max +50%) per jump
+            +2% ATK (max +50%) per jump hit
           </td>
         </tr>
         <tr
@@ -726,7 +726,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
             Soaring Dragoon
           </td>
           <td>
-            +2% ATK (max +50%) per jump
+            +2% ATK (max +50%) per jump hit
           </td>
         </tr>
         <tr

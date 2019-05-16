@@ -202,7 +202,7 @@ Array [
   },
   Object {
     "character": "Aranea",
-    "description": "+2% ATK (max +50%) per Dragoon",
+    "description": "+2% ATK (max +50%) per Dragoon hit",
     "effect": "ATK +2% for each hit dealt with Dragoon abilities, up to +50%",
     "name": "Airborne Commander",
   },
@@ -226,7 +226,7 @@ Array [
   },
   Object {
     "character": "Arc",
-    "description": "+1% MND (max +25%) per W.Mag",
+    "description": "+1% MND (max +25%) per W.Mag hit",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
     "name": "Bookworm",
   },
@@ -616,7 +616,7 @@ Array [
   },
   Object {
     "character": "Cecil (Paladin)",
-    "description": "+1% MND (max +25%) per W.Mag",
+    "description": "+1% MND (max +25%) per W.Mag hit",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
     "name": "Blossoming of Sacred Power",
   },
@@ -700,7 +700,7 @@ Array [
   },
   Object {
     "character": "Cid (VII)",
-    "description": "+2% ATK (max +50%) per PHY wind",
+    "description": "+2% ATK (max +50%) per PHY wind hit",
     "effect": "ATK +2% for each hit dealt with PHY attacks that deal Wind damage, up to +50%",
     "name": "Air Supremacy",
   },
@@ -928,7 +928,7 @@ Array [
   },
   Object {
     "character": "Delita",
-    "description": "+2% ATK (max +34%) per Spellblade",
+    "description": "+2% ATK (max +34%) per Spellblade hit",
     "effect": "ATK +2% for each hit dealt with Spellblade abilities, up to +34%",
     "name": "Ark Knight's Finesse",
   },
@@ -952,7 +952,7 @@ Array [
   },
   Object {
     "character": "Desch",
-    "description": "+1% MAG (max +20%) per damaging BLK",
+    "description": "+1% MAG (max +20%) per damaging BLK hit",
     "effect": "MAG +1% for each hit dealt with damaging BLK attacks, up to +20%",
     "name": "Total Devotion",
   },
@@ -1060,7 +1060,7 @@ Array [
   },
   Object {
     "character": "Edea",
-    "description": "+1% MAG (max +30%) per BLK ice",
+    "description": "+1% MAG (max +30%) per BLK ice hit",
     "effect": "MAG +1% for each hit dealt with BLK attacks that deal Ice damage, up to +30%",
     "name": "Future Secrets",
   },
@@ -1402,7 +1402,7 @@ Array [
   },
   Object {
     "character": "Firion",
-    "description": "+1% ATK (max +50%) per damaging PHY",
+    "description": "+1% ATK (max +50%) per damaging PHY hit",
     "effect": "ATK +1% for each hit dealt with damaging PHY attacks, up to +50%",
     "name": "Honed Skills",
   },
@@ -1534,7 +1534,7 @@ Array [
   },
   Object {
     "character": "Gabranth",
-    "description": "+2% ATK (max +50%) per PHY dark",
+    "description": "+2% ATK (max +50%) per PHY dark hit",
     "effect": "ATK +2% for each hit dealt with PHY attacks that deal Dark damage, up to +50%",
     "name": "Fed by Hatred",
   },
@@ -1582,7 +1582,7 @@ Array [
   },
   Object {
     "character": "Galuf",
-    "description": "+2% ATK (max +50%) per Monk",
+    "description": "+2% ATK (max +50%) per Monk hit",
     "effect": "ATK +2% for each hit dealt with Monk abilities, up to +50%",
     "name": "Timeless Valor",
   },
@@ -1762,7 +1762,7 @@ Array [
   },
   Object {
     "character": "Gogo (VI)",
-    "description": "+2% MAG (max +30%) per Mimic",
+    "description": "+2% MAG (max +30%) per Mimic hit",
     "effect": "ATK and MAG +2% for each hit dealt with Mimic attacks, up to +30%",
     "name": "Perfect Likeness",
   },
@@ -1966,7 +1966,7 @@ Array [
   },
   Object {
     "character": "Iris",
-    "description": "+1% MND (max +35%) per W.Mag",
+    "description": "+1% MND (max +35%) per W.Mag hit",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +35%",
     "name": "Got Your Back",
   },
@@ -2074,7 +2074,7 @@ Array [
   },
   Object {
     "character": "Kain",
-    "description": "+2% ATK (max +50%) per jump",
+    "description": "+2% ATK (max +50%) per jump hit",
     "effect": "ATK +2% for each hit dealt with jump attacks, up to +50%",
     "name": "Soaring Dragoon",
   },
@@ -2386,7 +2386,7 @@ Array [
   },
   Object {
     "character": "Leon",
-    "description": "+2% ATK (max +50%) per PHY dark",
+    "description": "+2% ATK (max +50%) per PHY dark hit",
     "effect": "ATK +2% for each hit dealt with PHY attacks that deal Dark damage, up to 50%",
     "name": "Penance",
   },
@@ -2512,7 +2512,7 @@ Array [
   },
   Object {
     "character": "Lulu",
-    "description": "+1% MAG (max +20%) per BLK ice",
+    "description": "+1% MAG (max +20%) per BLK ice hit",
     "effect": "MAG +1% for each hit dealt with BLK attacks that deal Ice damage, up to +20%",
     "name": "Third Pilgrimage",
   },
@@ -2638,7 +2638,7 @@ Array [
   },
   Object {
     "character": "Maria",
-    "description": "+1% MAG (max +30%) per damaging BLK",
+    "description": "+1% MAG (max +30%) per damaging BLK hit",
     "effect": "MAG +1% for each hit dealt with damaging BLK attacks, up to +30%",
     "name": "Master of Magics",
   },
@@ -2914,7 +2914,7 @@ Array [
   },
   Object {
     "character": "Nine",
-    "description": "+2% ATK (max +50%) per damaging jump",
+    "description": "+2% ATK (max +50%) per damaging jump hit",
     "effect": "ATK +2% for each hit dealt with damaging jump attacks, up to +50%",
     "name": "Basher-in-Chief",
   },
@@ -3064,7 +3064,7 @@ Array [
   },
   Object {
     "character": "Ovelia",
-    "description": "+1% MND (max +25%) per W.Mag",
+    "description": "+1% MND (max +25%) per W.Mag hit",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
     "name": "Throes of Fate",
   },
@@ -3082,7 +3082,7 @@ Array [
   },
   Object {
     "character": "Paine",
-    "description": "+2% ATK (max +34%) per Spellblade",
+    "description": "+2% ATK (max +34%) per Spellblade hit",
     "effect": "ATK +2% for each hit dealt with Spellblade abilities, up to +34%",
     "name": "Gullwing Enforcer",
   },
@@ -3280,7 +3280,7 @@ Array [
   },
   Object {
     "character": "Raijin",
-    "description": "+2% ATK (max +50%) per Monk",
+    "description": "+2% ATK (max +50%) per Monk hit",
     "effect": "ATK +2% for each hit dealt with Monk abilities, up to +50%",
     "name": "Test of Bravery",
   },
@@ -3430,7 +3430,7 @@ Array [
   },
   Object {
     "character": "Relm",
-    "description": "+1% MND (max +25%) per W.Mag",
+    "description": "+1% MND (max +25%) per W.Mag hit",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
     "name": "Ancient Blood",
   },
@@ -3448,7 +3448,7 @@ Array [
   },
   Object {
     "character": "Rem",
-    "description": "+1% MND (max +25%) per W.Mag",
+    "description": "+1% MND (max +25%) per W.Mag hit",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
     "name": "Gentle Spirit",
   },
@@ -3508,7 +3508,7 @@ Array [
   },
   Object {
     "character": "Ricard",
-    "description": "+2% ATK (max +50%) per Dragoon",
+    "description": "+2% ATK (max +50%) per Dragoon hit",
     "effect": "ATK +2% for each hit dealt with Dragoon abilities, up to +50%",
     "name": "Promise of Peace",
   },
@@ -3580,7 +3580,7 @@ Array [
   },
   Object {
     "character": "Rinoa",
-    "description": "+1% MAG (max +20%) per damaging BLK",
+    "description": "+1% MAG (max +20%) per damaging BLK hit",
     "effect": "MAG +1% for each hit dealt with damaging BLK attacks, up to +20%",
     "name": "Defier of Fate",
   },
@@ -3622,7 +3622,7 @@ Array [
   },
   Object {
     "character": "Rosa",
-    "description": "+1% MND (max +25%) per W.Mag",
+    "description": "+1% MND (max +25%) per W.Mag hit",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
     "name": "Quiet Devotion",
   },
@@ -3760,7 +3760,7 @@ Array [
   },
   Object {
     "character": "Sabin",
-    "description": "+2% ATK (max +34%) per Monk",
+    "description": "+2% ATK (max +34%) per Monk hit",
     "effect": "ATK +2% for each hit dealt with Monk abilities, up to +34%",
     "name": "Master's Teachings",
   },
@@ -3886,7 +3886,7 @@ Array [
   },
   Object {
     "character": "Selphie",
-    "description": "+?% MND (max +?%) per Dancer",
+    "description": "+?% MND (max +?%) per Dancer abil.",
     "effect": "MND +?% for each Dancer ability used, up to +?%",
     "name": "Will of Trabia",
   },
@@ -3922,7 +3922,7 @@ Array [
   },
   Object {
     "character": "Serah",
-    "description": "+1% MAG (max +30%) per BLK ice",
+    "description": "+1% MAG (max +30%) per BLK ice hit",
     "effect": "MAG +1% for each hit dealt with BLK attacks that deal Ice damage, up to +30%",
     "name": "Time Traveller",
   },
@@ -4054,7 +4054,7 @@ Array [
   },
   Object {
     "character": "Shantotto",
-    "description": "+1% MAG (max +20%) per BLK",
+    "description": "+1% MAG (max +20%) per BLK hit",
     "effect": "MAG +1% for each hit dealt with BLK attacks, up to 20%",
     "name": "Strongest Black Mage",
   },
@@ -4264,7 +4264,7 @@ Array [
   },
   Object {
     "character": "Tellah",
-    "description": "+1% MAG (max +30%) per damaging BLK",
+    "description": "+1% MAG (max +30%) per damaging BLK hit",
     "effect": "MAG +1% for each hit dealt with damaging BLK attacks, up to +30%",
     "name": "Renowned Sage",
   },
@@ -4384,7 +4384,7 @@ Array [
   },
   Object {
     "character": "Tifa",
-    "description": "+1% ATK (max +35%) per damaging PHY",
+    "description": "+1% ATK (max +35%) per damaging PHY hit",
     "effect": "ATK +1% for each hit dealt with damaging PHY attacks, up to +35%",
     "name": "Brawling Barkeep",
   },
@@ -4504,7 +4504,7 @@ Array [
   },
   Object {
     "character": "Ursula",
-    "description": "+2% ATK (max +50%) per Monk",
+    "description": "+2% ATK (max +50%) per Monk hit",
     "effect": "ATK +2% for each hit dealt with Monk abilities, up to +50%",
     "name": "Father's Legacy",
   },
