@@ -15,7 +15,7 @@ interface Props {
   enlirItems: {
     [id: number]: {
       name: string;
-      character: string;
+      character: string | null;
       relic: string | null;
     };
   };

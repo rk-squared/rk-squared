@@ -288,7 +288,7 @@ describe('mrP', () => {
         other: 'party +30% ATK/MAG 25s, self -30% DEF 25s',
       });
 
-      expect(describeSoulBreak('- - Rend Weapon')).toEqual({
+      expect(describeSoulBreak('null - Rend Weapon')).toEqual({
         damage: 'AoE phys 1.4',
         other: '-30% ATK 20s',
       });
@@ -1488,7 +1488,7 @@ Object {
     });
 
     it('converts revives', () => {
-      expect(describeSoulBreak('- - Mending Touch')).toEqual({
+      expect(describeSoulBreak('null - Mending Touch')).toEqual({
         other: 'revive @ 20% HP',
       });
 

@@ -41417,7 +41417,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Scarlet Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -41438,7 +41438,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Meteorite",
     "type": "BLK",
     "target": "All enemies",
@@ -41459,7 +41459,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Rend Weapon",
     "type": "PHY",
     "target": "All enemies",
@@ -41480,7 +41480,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Magic Buster",
     "type": "PHY",
     "target": "Single enemy",
@@ -41501,7 +41501,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Veil of Protection",
     "type": "WHT",
     "target": "All allies",
@@ -41522,7 +41522,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Stunner",
     "type": "PHY",
     "target": "Single enemy",
@@ -41543,7 +41543,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Sword Dance",
     "type": "PHY",
     "target": "All enemies",
@@ -41566,7 +41566,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Doublestrike",
     "type": "PHY",
     "target": "Single enemy",
@@ -41587,7 +41587,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Inferno Fang",
     "type": "PHY",
     "target": "Single enemy",
@@ -41610,7 +41610,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Festive Miracle",
     "type": "PHY",
     "target": "All enemies",
@@ -41631,7 +41631,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Chocobreak",
     "type": "PHY",
     "target": "Single enemy",
@@ -41652,7 +41652,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Lightning Slash",
     "type": "PHY",
     "target": "All enemies",
@@ -41675,7 +41675,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Bladestorm Flames",
     "type": "PHY",
     "target": "All enemies",
@@ -41698,7 +41698,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Bladestorm Hail",
     "type": "PHY",
     "target": "All enemies",
@@ -41721,7 +41721,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Earthquake",
     "type": "BLK",
     "target": "All enemies",
@@ -41744,7 +41744,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Darkest Cut",
     "type": "PHY",
     "target": "All enemies",
@@ -41767,7 +41767,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Sonic Buster",
     "type": "PHY",
     "target": "Single enemy",
@@ -41788,7 +41788,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Zeus Wrath",
     "type": "PHY",
     "target": "Single enemy",
@@ -41811,7 +41811,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Double Thunder Cut",
     "type": "PHY",
     "target": "Single enemy",
@@ -41834,7 +41834,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Petrifying Strike",
     "type": "PHY",
     "target": "Single",
@@ -41855,7 +41855,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Immobility Strike",
     "type": "PHY",
     "target": "Single enemy",
@@ -41876,7 +41876,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Frozen Strike",
     "type": "PHY",
     "target": "Single enemy",
@@ -41899,7 +41899,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Nibelung Valesti",
     "type": "PHY",
     "target": "Single enemy",
@@ -41922,7 +41922,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Final Blast",
     "type": "PHY",
     "target": "Single enemy",
@@ -41945,7 +41945,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Gemini Crisis",
     "type": "PHY",
     "target": "All enemies",
@@ -41966,7 +41966,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Schwertleite",
     "type": "NAT",
     "target": "All allies",
@@ -41987,7 +41987,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Slow Buster",
     "type": "PHY",
     "target": "Single enemy",
@@ -42008,7 +42008,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Slowing Blast",
     "type": "PHY",
     "target": "All enemies",
@@ -42029,7 +42029,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Bladestorm Rend",
     "type": "PHY",
     "target": "All enemies",
@@ -42050,7 +42050,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Sword Oath",
     "type": "PHY",
     "target": "Single enemy",
@@ -42071,7 +42071,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Mana Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -42094,7 +42094,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Battle Roar",
     "type": "NAT",
     "target": "All allies",
@@ -42115,7 +42115,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Snowblossom Barrage",
     "type": "PHY",
     "target": "Random enemies",
@@ -42138,7 +42138,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Chain Attack",
     "type": "PHY",
     "target": "Single enemy",
@@ -42159,7 +42159,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Molecular Decomposition",
     "type": "PHY",
     "target": "All enemies",
@@ -42180,7 +42180,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Lightning Pierce",
     "type": "PHY",
     "target": "Single enemy",
@@ -42204,7 +42204,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Bladestorm Rain",
     "type": "PHY",
     "target": "All enemies",
@@ -42227,7 +42227,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Brain Attack",
     "type": "PHY",
     "target": "Single enemy",
@@ -42248,7 +42248,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Turtle Killer",
     "type": "PHY",
     "target": "Single enemy",
@@ -42269,7 +42269,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Helmsplitter",
     "type": "PHY",
     "target": "Single enemy",
@@ -42290,7 +42290,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Slowing Strike",
     "type": "PHY",
     "target": "Single enemy",
@@ -42311,7 +42311,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Somnolent Strike",
     "type": "PHY",
     "target": "All enemies",
@@ -42332,7 +42332,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Spiral Charge",
     "type": "PHY",
     "target": "Single enemy",
@@ -42353,7 +42353,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Crush Defenses",
     "type": "PHY",
     "target": "Single enemy",
@@ -42374,7 +42374,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Bloody Curse",
     "type": "PHY",
     "target": "Single enemy",
@@ -42397,7 +42397,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Light of Ruin",
     "type": "NAT",
     "target": "All enemies",
@@ -42420,7 +42420,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Thunder Trap",
     "type": "BLK",
     "target": "Single enemy",
@@ -42443,7 +42443,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Healing Aura",
     "type": "WHT",
     "target": "All allies",
@@ -42464,7 +42464,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Mass Mending",
     "type": "WHT",
     "target": "All allies",
@@ -42485,7 +42485,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Will-o'-the-Wisp",
     "type": "BLK",
     "target": "Single enemy",
@@ -42508,7 +42508,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Aurora of Destruction",
     "type": "WHT",
     "target": "Single enemy",
@@ -42531,7 +42531,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Poison Mist",
     "type": "BLK",
     "target": "All enemies",
@@ -42554,7 +42554,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "White Blizzard",
     "type": "BLK",
     "target": "Single enemy",
@@ -42577,7 +42577,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Mending Flame",
     "type": "WHT",
     "target": "All allies",
@@ -42598,7 +42598,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Tiger's Roar",
     "type": "BLK",
     "target": "Single enemy",
@@ -42619,7 +42619,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Saintly Beam",
     "type": "WHT",
     "target": "Single enemy",
@@ -42642,7 +42642,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Scathe",
     "type": "BLK",
     "target": "Single enemy",
@@ -42663,7 +42663,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Sleet",
     "type": "BLK",
     "target": "Single enemy",
@@ -42686,7 +42686,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Flammie",
     "type": "NAT",
     "target": "All enemies",
@@ -42709,7 +42709,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Octopus Tentacle",
     "type": "SUM",
     "target": "Single enemy",
@@ -42730,7 +42730,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Octopus Ink",
     "type": "SUM",
     "target": "Single enemy",
@@ -42751,7 +42751,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Soothing Aroma",
     "type": "WHT",
     "target": "All allies",
@@ -42772,7 +42772,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Frost",
     "type": "BLK",
     "target": "Single enemy",
@@ -42795,7 +42795,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Prayer",
     "type": "WHT",
     "target": "All allies",
@@ -42816,7 +42816,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Heal",
     "type": "WHT",
     "target": "Single ally",
@@ -42837,7 +42837,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Regenerate",
     "type": "WHT",
     "target": "All allies",
@@ -42858,7 +42858,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Blessing",
     "type": "NAT",
     "target": "All allies",
@@ -42879,7 +42879,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Thorn Bind",
     "type": "BLK",
     "target": "Random enemies",
@@ -42903,7 +42903,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Celestial Star",
     "type": "BLK",
     "target": "All enemies",
@@ -42926,7 +42926,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Blinding Shot",
     "type": "PHY",
     "target": "Single enemy",
@@ -42947,7 +42947,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Spellbane Strike",
     "type": "PHY",
     "target": "Single enemy",
@@ -42968,7 +42968,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Death Arrow",
     "type": "PHY",
     "target": "All enemies",
@@ -42989,7 +42989,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Fire Bouquet",
     "type": "BLK",
     "target": "All enemies",
@@ -43012,7 +43012,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Falling Phoenix's Song",
     "type": "PHY",
     "target": "All enemies",
@@ -43036,7 +43036,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Sylvan Storm",
     "type": "BLK",
     "target": "All enemies",
@@ -43059,7 +43059,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Airship Assault",
     "type": "PHY",
     "target": "All enemies",
@@ -43080,7 +43080,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Debilitating Throw",
     "type": "PHY",
     "target": "Single enemy",
@@ -43101,7 +43101,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Cyclone",
     "type": "BLK",
     "target": "All enemies",
@@ -43124,7 +43124,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Slow Shot",
     "type": "PHY",
     "target": "All enemies",
@@ -43145,7 +43145,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Balloon",
     "type": "BLK",
     "target": "All enemies",
@@ -43168,7 +43168,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Phantom Frenzy",
     "type": "PHY",
     "target": "Single enemy",
@@ -43189,7 +43189,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Gatling Ammo",
     "type": "PHY",
     "target": "All enemies",
@@ -43210,7 +43210,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Meteor Swarm",
     "type": "BLK",
     "target": "All enemies",
@@ -43233,7 +43233,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Breakdown",
     "type": "PHY",
     "target": "All enemies",
@@ -43254,7 +43254,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Magebane Aegis",
     "type": "NAT",
     "target": "All allies",
@@ -43275,7 +43275,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Glimmer of Hope",
     "type": "WHT",
     "target": "All allies",
@@ -43296,7 +43296,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Mystic Prayer",
     "type": "WHT",
     "target": "All allies",
@@ -43317,7 +43317,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Attack Boost",
     "type": "NAT",
     "target": "All allies",
@@ -43338,7 +43338,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Healing Magic",
     "type": "NAT",
     "target": "Single ally",
@@ -43359,7 +43359,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Rekindle",
     "type": "WHT",
     "target": "Single ally",
@@ -43380,7 +43380,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Virus",
     "type": "BLK",
     "target": "Single enemy",
@@ -43401,7 +43401,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Cure Water",
     "type": "WHT",
     "target": "All allies",
@@ -43422,7 +43422,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Witchcraft",
     "type": "NAT",
     "target": "All allies",
@@ -43443,7 +43443,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Apothecary Lore",
     "type": "WHT",
     "target": "All allies",
@@ -43464,7 +43464,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Dark Shot",
     "type": "PHY",
     "target": "Single enemy",
@@ -43487,7 +43487,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Divine Majesty",
     "type": "NAT",
     "target": "All allies",
@@ -43508,7 +43508,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Lucid Barrier",
     "type": "NAT",
     "target": "All allies",
@@ -43529,7 +43529,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Shimmering Mirage",
     "type": "NAT",
     "target": "Single ally",
@@ -43550,7 +43550,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Sleeping Gas",
     "type": "NAT",
     "target": "All enemies",
@@ -43571,7 +43571,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Blaster",
     "type": "NAT",
     "target": "All enemies",
@@ -43592,7 +43592,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Flash",
     "type": "NAT",
     "target": "All enemies",
@@ -43613,7 +43613,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Cerulean Shock",
     "type": "PHY",
     "target": "All enemies",
@@ -43636,7 +43636,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Teamwork",
     "type": "NAT",
     "target": "All allies",
@@ -43657,7 +43657,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Body Blow",
     "type": "PHY",
     "target": "Single enemy",
@@ -43678,7 +43678,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Defender",
     "type": "WHT",
     "target": "All allies",
@@ -43699,7 +43699,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Dispel Magic",
     "type": "WHT",
     "target": "All enemies",
@@ -43720,7 +43720,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Feathered Fortress",
     "type": "NAT",
     "target": "All allies",
@@ -43741,7 +43741,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Provoke",
     "type": "NAT",
     "target": "Self",
@@ -43762,7 +43762,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Light Curtain",
     "type": "WHT",
     "target": "All allies",
@@ -43783,7 +43783,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Veil of Annulment",
     "type": "WHT",
     "target": "All allies",
@@ -43804,7 +43804,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Hand of Doom",
     "type": "BLK",
     "target": "Single enemy",
@@ -43827,7 +43827,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Galaxy Rush",
     "type": "BLK",
     "target": "All enemies",
@@ -43850,7 +43850,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Raven's Yawn",
     "type": "WHT",
     "target": "Single enemy",
@@ -43873,7 +43873,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Earthmend",
     "type": "WHT",
     "target": "All allies",
@@ -43894,7 +43894,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Blessing of Spira",
     "type": "WHT",
     "target": "Single",
@@ -43915,7 +43915,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Engulfing Flames",
     "type": "BLK",
     "target": "All enemies",
@@ -43938,7 +43938,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Mending Touch",
     "type": "WHT",
     "target": "Single ally",
@@ -43959,7 +43959,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Purging Light",
     "type": "WHT",
     "target": "Single enemy",
@@ -43980,7 +43980,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Light's Protection",
     "type": "NAT",
     "target": "All allies",
@@ -44001,7 +44001,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Firewyrm Breath",
     "type": "BLK",
     "target": "All enemies",
@@ -44024,7 +44024,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Snowstorm",
     "type": "BLK",
     "target": "All enemies",
@@ -44047,7 +44047,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "First Aid",
     "type": "WHT",
     "target": "All allies",
@@ -44068,7 +44068,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Salvation",
     "type": "WHT",
     "target": "All allies",
@@ -44089,7 +44089,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Power Sigil",
     "type": "BLK",
     "target": "Single enemy",
@@ -44110,7 +44110,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Mending Melody",
     "type": "NAT",
     "target": "All allies",
@@ -44131,7 +44131,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Warrior's Ward",
     "type": "WHT",
     "target": "All allies",
@@ -44152,7 +44152,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Healing Moment",
     "type": "WHT",
     "target": "All allies",
@@ -44173,7 +44173,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Smoke Screen",
     "type": "NAT",
     "target": "All enemies",
@@ -44194,7 +44194,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Renewing Feather",
     "type": "WHT",
     "target": "All allies",
@@ -44215,7 +44215,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Inspiring Light",
     "type": "NAT",
     "target": "All allies",
@@ -44236,7 +44236,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Moon Energy",
     "type": "NAT",
     "target": "All allies",
@@ -44257,7 +44257,7 @@
   },
   {
     "realm": null,
-    "character": "-",
+    "character": null,
     "name": "Jolt Counter",
     "type": "NAT",
     "target": "Self",

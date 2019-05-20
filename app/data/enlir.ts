@@ -289,7 +289,7 @@ export interface EnlirRelic {
 
 export interface EnlirSoulBreak extends EnlirGenericSkill {
   realm: EnlirRealm | null;
-  character: string;
+  character: string | null;
   points: number;
   tier: EnlirSoulBreakTier;
   master: string | null;
@@ -368,13 +368,16 @@ interface CommandsMap<T> {
   };
 }
 
-function makeCharacterMap<T extends { character: string }>(
+function makeCharacterMap<T extends { character: string | null }>(
   items: T[],
   sortOrder: _.Many<_.ListIteratee<T>>,
 ): CharacterMap<T> {
   const result: CharacterMap<T> = {};
 
   for (const i of items) {
+    if (!i.character) {
+      continue;
+    }
     result[i.character] = result[i.character] || [];
     result[i.character].push(i);
   }
@@ -397,13 +400,13 @@ function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
  *
  * NOTE: Does not include shared soul breaks.
  */
-function makeRelicMap<T extends { character: string; name: string; relic: string | null }>(
+function makeRelicMap<T extends { character: string | null; name: string; relic: string | null }>(
   relics: EnlirRelic[],
   prop: keyof EnlirRelic,
   items: T[],
 ): { [relicId: number]: T } {
   const result: { [relicId: number]: T } = {};
-  const indexedItems = _.keyBy(items, i => i.character + ':' + i.name);
+  const indexedItems = _.keyBy(items, i => (i.character || '') + ':' + i.name);
   for (const i of relics) {
     if (i[prop] && i.character) {
       const found = indexedItems[i.character + ':' + i[prop]];
@@ -570,8 +573,8 @@ function patchEnlir() {
     aria =>
       aria.effects ===
       'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
-      'grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, ' +
-      'grants Medium Buff Holy and Medium Buff Dark if both are in the party',
+        'grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, ' +
+        'grants Medium Buff Holy and Medium Buff Dark if both are in the party',
     aria => {
       aria.effects =
         'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
@@ -843,6 +846,10 @@ export function isBurstSoulBreak(sb: EnlirSoulBreak): boolean {
 
 export function isBraveCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
   return 'brave' in skill;
+}
+
+export function isSharedSoulBreak(sb: EnlirSoulBreak): boolean {
+  return sb.character == null;
 }
 
 export function makeSoulBreakAliases(

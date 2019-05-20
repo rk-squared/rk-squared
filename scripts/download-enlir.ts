@@ -69,7 +69,7 @@ function toStringWithLookup(lookup: _.Dictionary<string>) {
 function toCommon(field: string, value: string) {
   if (field === 'effects' || field === 'effect') {
     return toStringWithDecimals(value);
-  } else if (field === 'realm') {
+  } else if (field === 'character' || field === 'realm' || field === 'relic') {
     return dashNull(toString)(value);
   } else if (field === 'id') {
     return toInt(value);
@@ -455,8 +455,6 @@ function convertRelics(rows: any[]): any[] {
         const f2 = _.camelCase(colAsAltStat(col));
         item[f1] = item[f1] || {};
         item[f1][f2] = toStat(f2, rows[i][j]);
-      } else if (field === 'character' || field === 'relic') {
-        item[field] = dashNull(toString)(rows[i][j]);
       } else {
         item[field] = toCommon(field, rows[i][j]);
       }

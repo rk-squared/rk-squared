@@ -886,6 +886,7 @@ export function describeEnlirSoulBreak(
   if (
     isSoulBreak(sb) &&
     isBurstSoulBreak(sb) &&
+    sb.character &&
     enlir.burstCommandsByCharacter[sb.character] &&
     enlir.burstCommandsByCharacter[sb.character][sb.name]
   ) {
@@ -897,6 +898,7 @@ export function describeEnlirSoulBreak(
   if (
     isSoulBreak(sb) &&
     isBraveSoulBreak(sb) &&
+    sb.character &&
     enlir.braveCommandsByCharacter[sb.character] &&
     enlir.braveCommandsByCharacter[sb.character][sb.name]
   ) {
