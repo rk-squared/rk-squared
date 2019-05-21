@@ -241,7 +241,7 @@ export function convertWorld(
   event: mainSchemas.Event,
   world: mainSchemas.World,
   textMaster: mainSchemas.TextMaster,
-): World | null {
+): World | false | null {
   let name = world.name;
   let category: WorldCategory | undefined;
   let subcategory: string | undefined;
@@ -251,7 +251,7 @@ export function convertWorld(
   if (event.type_name === 'rotation') {
     // The old 4* rotating mote dungeons are obsolete, now that full open
     // "fragment" dungeons are in GL.
-    return null;
+    return false;
   } else if (event.type_name === 'rotation' || event.type_name === 'wday') {
     // For power up ("wday") dungeons, there's only one worlds ("Power Up
     // Dungeons"), with normally only a few dungeons visible at a time.  No
@@ -389,7 +389,9 @@ function convertWorlds(
 
     const resultWorld = convertWorld(e, world, textMaster);
 
-    if (resultWorld == null) {
+    if (resultWorld === false) {
+      logger.debug(`Skipping world ${e.world_id} (${world.name})`);
+    } else if (resultWorld == null) {
       logger.error(`Unknown: ${e.world_id} (${world.name})`);
       totalUnknown++;
     } else {

@@ -17,6 +17,9 @@ export class TormentScoreCellRenderer extends React.Component<ICellRendererParam
   render() {
     const { value } = this.props;
     const dungeon = value as DungeonWithScore;
+    if (!dungeon) {
+      return null;
+    }
     const useEstimated = shouldUseEstimatedScore(dungeon.score, dungeon.estimatedScore);
     const score = useEstimated ? dungeon.estimatedScore : dungeon.score;
     if (!score) {
