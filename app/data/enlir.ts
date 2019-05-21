@@ -433,14 +433,19 @@ function makeRelicMap<T extends { character: string | null; name: string; relic:
   return result;
 }
 
+export interface SharedSoulBreak {
+  relic: EnlirRelic;
+  soulBreak: EnlirSoulBreak;
+}
+
 function getSharedSoulBreaks(
   relics: EnlirRelic[],
   soulBreaks: EnlirSoulBreak[],
-): Array<[EnlirRelic, EnlirSoulBreak]> {
+): SharedSoulBreak[] {
   const soulBreaksByName = _.keyBy(soulBreaks.filter(i => i.character == null), 'name');
   return relics
     .filter(i => i.soulBreak != null && soulBreaksByName[i.soulBreak] != null)
-    .map(i => [i, soulBreaksByName[i.soulBreak!]] as [EnlirRelic, EnlirSoulBreak]);
+    .map(i => ({ relic: i, soulBreak: soulBreaksByName[i.soulBreak!] }));
 }
 
 const otherSkillSourceKey = (source: string, name: string) => source + '_' + name;
