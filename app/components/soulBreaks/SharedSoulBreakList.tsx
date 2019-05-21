@@ -73,6 +73,7 @@ export class SharedSoulBreakList extends React.Component<Props> {
           rowData={sortedSoulBreaks}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
+          rowHeight={30}
         />
       </GridContainer>
     );
