@@ -433,6 +433,16 @@ function makeRelicMap<T extends { character: string | null; name: string; relic:
   return result;
 }
 
+function getSharedSoulBreaks(
+  relics: EnlirRelic[],
+  soulBreaks: EnlirSoulBreak[],
+): Array<[EnlirRelic, EnlirSoulBreak]> {
+  const soulBreaksByName = _.keyBy(soulBreaks.filter(i => i.character == null), 'name');
+  return relics
+    .filter(i => i.soulBreak != null && soulBreaksByName[i.soulBreak] != null)
+    .map(i => [i, soulBreaksByName[i.soulBreak!]] as [EnlirRelic, EnlirSoulBreak]);
+}
+
 const otherSkillSourceKey = (source: string, name: string) => source + '_' + name;
 
 export const enlir = {
@@ -477,6 +487,7 @@ export const enlir = {
 
   relicSoulBreaks: makeRelicMap(rawData.relics, 'soulBreak', rawData.soulBreaks),
   relicLegendMateria: makeRelicMap(rawData.relics, 'legendMateria', rawData.legendMateria),
+  sharedSoulBreaks: getSharedSoulBreaks(rawData.relics, rawData.soulBreaks),
 };
 
 function applyPatch<T>(
