@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 
 import * as _ from 'lodash';
 
@@ -7,12 +8,15 @@ import { AgGridReact } from 'ag-grid-react';
 
 import { enlir, EnlirSoulBreak, SharedSoulBreak } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
+import { IState } from '../../reducers';
+import { getOwnedSoulBreaks } from '../../selectors/characters';
 import { GridContainer } from '../common/GridContainer';
 import { RelicTypeIcon } from '../shared/RelicTypeIcon';
 
 const styles = require('./SharedSoulBreakList.scss');
 
 interface Props {
+  ownedSoulBreaks?: Set<number>;
   isAnonymous?: boolean;
 }
 
@@ -62,6 +66,11 @@ export class SharedSoulBreakList extends React.Component<Props> {
   }
 
   getRowNodeId = (row: SharedSoulBreak) => '' + row.soulBreak.id;
+  getRowClass = ({ data }: any) =>
+    this.props.isAnonymous ||
+    (this.props.ownedSoulBreaks && this.props.ownedSoulBreaks.has(data.soulBreak.id))
+      ? ''
+      : styles.unowned;
 
   render() {
     return (
@@ -73,6 +82,7 @@ export class SharedSoulBreakList extends React.Component<Props> {
           rowData={sortedSoulBreaks}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
+          getRowClass={this.getRowClass}
           rowHeight={30}
         />
       </GridContainer>
@@ -80,4 +90,6 @@ export class SharedSoulBreakList extends React.Component<Props> {
   }
 }
 
-export default SharedSoulBreakList;
+export default connect((state: IState) => ({
+  ownedSoulBreaks: getOwnedSoulBreaks(state),
+}))(SharedSoulBreakList);
