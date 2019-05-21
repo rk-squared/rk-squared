@@ -44,9 +44,11 @@
 }
 
 // https://stackoverflow.com/a/50550069/25507
-.caret-off::before {
+.caret-off::before,
+:global(.dropup) .caret-off::before {
   display: none;
 }
-.caret-off::after {
+.caret-off::after,
+:global(.dropup) .caret-off::after {
   display: none;
 }

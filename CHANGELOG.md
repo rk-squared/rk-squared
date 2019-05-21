@@ -10,6 +10,7 @@
 - Soul Breaks
   - Add the ability to filter: all soul breaks, GL only, or owned only
   - Fix: Properly track required soul break experience for all soul breaks.
+  - Add shared soul breaks page
   - Improve display of hybrid soul breaks
   - Various fixes for individual soul breaks
 - Record Materia

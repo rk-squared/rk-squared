@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 import { ColDef, ICellRendererParams } from 'ag-grid';
 import { AgGridReact } from 'ag-grid-react';
 
+import { filterSoulBreaks, ShowSoulBreaksType } from '../../actions/prefs';
 import { enlir, EnlirSoulBreak, SharedSoulBreak } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
 import { IState } from '../../reducers';
@@ -17,6 +18,7 @@ const styles = require('./SharedSoulBreakList.scss');
 
 interface Props {
   ownedSoulBreaks?: Set<number>;
+  showSoulBreaks?: ShowSoulBreaksType;
   isAnonymous?: boolean;
 }
 
@@ -30,7 +32,7 @@ function getSharedSoulBreakDescription(soulBreak: EnlirSoulBreak): string {
   return formatMrP(sharedMrPSoulBreaks[soulBreak.id]);
 }
 
-export class SharedSoulBreakList extends React.Component<Props> {
+export class SharedSoulBreakList extends React.PureComponent<Props> {
   columnDefs: ColDef[];
 
   constructor(props: Props) {
@@ -65,7 +67,10 @@ export class SharedSoulBreakList extends React.Component<Props> {
     ];
   }
 
-  getRowNodeId = (row: SharedSoulBreak) => '' + row.soulBreak.id;
+  // Some soul breaks are provided by more than one relic, so we need to use
+  // relic ID instead of soul break ID to identify rows.
+  getRowNodeId = (row: SharedSoulBreak) => '' + row.relic.id;
+
   getRowClass = ({ data }: any) =>
     this.props.isAnonymous ||
     (this.props.ownedSoulBreaks && this.props.ownedSoulBreaks.has(data.soulBreak.id))
@@ -73,13 +78,15 @@ export class SharedSoulBreakList extends React.Component<Props> {
       : styles.unowned;
 
   render() {
+    const { showSoulBreaks, ownedSoulBreaks } = this.props;
+    const filter = filterSoulBreaks(showSoulBreaks, ownedSoulBreaks);
     return (
       <GridContainer style={{ height: '500px', width: '100%' }}>
         <AgGridReact
           enableSorting={true}
           enableColResize={true}
           columnDefs={this.columnDefs}
-          rowData={sortedSoulBreaks}
+          rowData={_.filter(sortedSoulBreaks, i => filter(i.soulBreak))}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
           getRowClass={this.getRowClass}
@@ -92,4 +99,5 @@ export class SharedSoulBreakList extends React.Component<Props> {
 
 export default connect((state: IState) => ({
   ownedSoulBreaks: getOwnedSoulBreaks(state),
+  showSoulBreaks: state.prefs.showSoulBreaks,
 }))(SharedSoulBreakList);

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import SoulBreakList from '../components/soulBreaks/SoulBreakList';
-import SoulBreaksNav from '../components/soulBreaks/SoulBreaksNav';
+import { SoulBreaksNav } from '../components/soulBreaks/SoulBreaksNav';
 import UnmasteredSoulBreakAlert from '../components/soulBreaks/UnmasteredSoulBreakAlert';
 import { Page } from './Page';
 

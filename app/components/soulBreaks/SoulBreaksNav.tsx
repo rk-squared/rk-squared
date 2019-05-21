@@ -1,80 +1,20 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { HashLink } from 'react-router-hash-link';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { ShowSoulBreaksType, updatePrefs } from '../../actions/prefs';
-import { IState } from '../../reducers';
 import { alphabet } from '../../utils/textUtils';
 import { partitionArray } from '../../utils/typeUtils';
-import { NavDropdownItem } from '../common/NavDropdownItem';
-import { NavMenuDropdown } from '../common/NavMenuDropdown';
+import SoulBreaksNavPrefsMenu from './SoulBreaksNavPrefsMenu';
 
 interface Props {
   isAnonymous?: boolean;
   soulBreakAnchor: (letter: string) => string;
-  showSoulBreaks?: ShowSoulBreaksType;
-  updateShowSoulBreaks?: (showSoulBreaks: ShowSoulBreaksType) => void;
-}
-
-interface PrefsMenuProps {
-  isAnonymous?: boolean;
-  showSoulBreaks?: ShowSoulBreaksType;
-  updateShowSoulBreaks: (showSoulBreaks: ShowSoulBreaksType) => void;
 }
 
 const alphabetParts = partitionArray(alphabet, 4);
 
-const Bullet = ({ show }: { show: boolean }) => (
-  <span className={show ? '' : 'invisible'} aria-label="selected">
-    ●
-  </span>
-);
-
-const SoulBreaksNavPrefsMenu = ({
-  isAnonymous,
-  showSoulBreaks,
-  updateShowSoulBreaks,
-}: PrefsMenuProps) => (
-  <NavMenuDropdown
-    id="soulBreakPrefsDropdown"
-    label="preferences"
-    className="ml-auto"
-    linkClassName="caret-off"
-    display={<FontAwesomeIcon icon="cog" />}
-    right={true}
-  >
-    <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.All)}>
-      <Bullet show={showSoulBreaks === ShowSoulBreaksType.All} /> JP and GL
-    </NavDropdownItem>
-    <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.Gl)}>
-      <Bullet show={showSoulBreaks === ShowSoulBreaksType.Gl} /> GL
-    </NavDropdownItem>
-    {!isAnonymous && (
-      <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.Owned)}>
-        <Bullet show={showSoulBreaks === ShowSoulBreaksType.Owned} /> Owned
-      </NavDropdownItem>
-    )}
-  </NavMenuDropdown>
-);
-
 export class SoulBreaksNav extends React.PureComponent<Props> {
-  renderPrefsMenu() {
-    const { showSoulBreaks, updateShowSoulBreaks } = this.props;
-    if (!updateShowSoulBreaks) {
-      return null;
-    }
-    return (
-      <SoulBreaksNavPrefsMenu
-        showSoulBreaks={showSoulBreaks}
-        updateShowSoulBreaks={updateShowSoulBreaks}
-      />
-    );
-  }
-
   render() {
-    const { soulBreakAnchor } = this.props;
+    const { isAnonymous, soulBreakAnchor } = this.props;
     return (
       <nav className="navbar navbar-expand sticky-top navbar-light bg-light">
         <div className="collapse navbar-collapse" role="navigation">
@@ -88,7 +28,7 @@ export class SoulBreaksNav extends React.PureComponent<Props> {
                 </HashLink>
               </li>
             ))}
-            {this.renderPrefsMenu()}
+            <SoulBreaksNavPrefsMenu isAnonymous={isAnonymous} />
           </ul>
           <ul className="navbar-nav d-lg-none w-100">
             {alphabetParts.map((letters, i) => (
@@ -112,18 +52,10 @@ export class SoulBreaksNav extends React.PureComponent<Props> {
                 </div>
               </li>
             ))}
-            {this.renderPrefsMenu()}
+            <SoulBreaksNavPrefsMenu isAnonymous={isAnonymous} />
           </ul>
         </div>
       </nav>
     );
   }
 }
-
-export default connect(
-  ({ prefs: { showSoulBreaks } }: IState) => ({ showSoulBreaks }),
-  dispatch => ({
-    updateShowSoulBreaks: (showSoulBreaks: ShowSoulBreaksType) =>
-      dispatch(updatePrefs({ showSoulBreaks })),
-  }),
-)(SoulBreaksNav);
