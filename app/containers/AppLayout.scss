@@ -28,6 +28,21 @@
     > :global(.navbar-collapse) {
       align-items: flex-start;
     }
+
+    // Nested nav / sub-nav support
+    .nav {
+      display: none;
+    }
+    :global(.nav-link.active) + .nav {
+      display: block;
+      font-size: 93.75%;
+      margin-left: 1rem;
+      padding-top: 0 !important;
+
+      :global(.nav-link) {
+        padding-top: 0;
+      }
+    }
   }
 
   .logo {

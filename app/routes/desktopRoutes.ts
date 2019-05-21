@@ -5,6 +5,7 @@ import DungeonsPage from '../containers/DungeonsPage';
 import OptionsPage from '../containers/OptionsPage';
 import RecordMateriaPage from '../containers/RecordMateriaPage';
 import RelicDrawsPage from '../containers/RelicDrawsPage';
+import SharedSoulBreaksPage from '../containers/SharedSoulBreaksPage';
 import SoulBreaksPage from '../containers/SoulBreaksPage';
 import { RouteItem } from './types';
 
@@ -33,6 +34,13 @@ const routes: RouteItem[] = [
     component: SoulBreaksPage,
     description: 'Soul Breaks',
     path: '/soulBreaks',
+    children: [
+      {
+        component: SharedSoulBreaksPage,
+        description: 'Shared',
+        path: '/soulBreaks/shared',
+      },
+    ],
   },
   {
     component: RelicDrawsPage,

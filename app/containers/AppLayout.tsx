@@ -5,6 +5,7 @@ import { History } from 'history';
 
 import { GoogleAd250x250 } from '../components/common/GoogleAd250x250';
 import { routes } from '../routes';
+import { RouteItem } from '../routes/types';
 import { ErrorBoundary } from './ErrorBoundary';
 
 const styles = require('./AppLayout.scss');
@@ -14,6 +15,21 @@ interface Props {
   history?: History;
   children: any;
 }
+
+const RouteNavItem = ({ description, path, children }: RouteItem) => (
+  <li className="nav-item">
+    <NavLink className="nav-link" activeClassName="active" to={path}>
+      {description}
+    </NavLink>
+    {children && (
+      <ul className={`nav ${styles.nav}`}>
+        {children.map((child, i) => (
+          <RouteNavItem {...child} key={i} />
+        ))}
+      </ul>
+    )}
+  </li>
+);
 
 export class AppLayout extends React.Component<Props> {
   render() {
@@ -45,12 +61,8 @@ export class AppLayout extends React.Component<Props> {
               <ul className="navbar-nav mr-auto flex-column">
                 {routes
                   .filter(i => i.description != null)
-                  .map(({ description, path }, i) => (
-                    <li className="nav-item" key={i}>
-                      <NavLink className="nav-link" activeClassName="active" to={path}>
-                        {description}
-                      </NavLink>
-                    </li>
+                  .map((i, n) => (
+                    <RouteNavItem {...i} key={n} />
                   ))}
               </ul>
             </div>
