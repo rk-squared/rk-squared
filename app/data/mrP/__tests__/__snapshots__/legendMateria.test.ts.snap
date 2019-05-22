@@ -3928,8 +3928,8 @@ Array [
   },
   Object {
     "character": "Serafie",
-    "description": "1.1?x ice dmg",
-    "effect": "Increases Ice damage dealt by 10?%",
+    "description": "1.1?x wind dmg",
+    "effect": "Increases Wind damage dealt by 10?%",
     "name": "Gossip Collector",
   },
   Object {

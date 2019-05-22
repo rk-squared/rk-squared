@@ -2238,6 +2238,15 @@ Object {
           '15s: (1/2/3/4 Dragoon ⤇ 1.15x/1.3x/1.5x/1.7x Dragoon dmg, crit =30%/50%/75%/100%), ' +
           '15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast',
       });
+
+      expect(describeSoulBreak('Enna - God Geocrush')).toEqual({
+        damage: 'magic 22.5/15 earth+holy+non',
+        other:
+          'earth infuse 25s, self dmg cap +10k 15s, fastcast 15s, ' +
+          '15s: (3 earth ⤇ m3.6/3 - 6.0/5 - 18.0/15 e+h+n B.Mag @ 0-72001-240001 dmg dealt, ' +
+          'then m17.3 e+h+n overstrike B.Mag @ 240001 dmg dealt (once only)), ' +
+          '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles turn-limited effects', () => {
