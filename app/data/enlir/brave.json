@@ -3712,5 +3712,105 @@
     "nameJp": "イービルブレード",
     "id": 30549562,
     "gl": false
+  },
+  {
+    "character": "Serafie",
+    "source": "Wind Rhapsody",
+    "name": "Triumphant March",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 6.18,
+    "element": [
+      "Wind"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (6.18)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "凱旋マーチ",
+    "id": 30541453,
+    "gl": false
+  },
+  {
+    "character": "Serafie",
+    "source": "Wind Rhapsody",
+    "name": "Triumphant March",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.7,
+    "element": [
+      "Wind"
+    ],
+    "time": 0.01,
+    "effects": "Six single attack (1.47 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "凱旋マーチ",
+    "id": 30541454,
+    "gl": false
+  },
+  {
+    "character": "Serafie",
+    "source": "Wind Rhapsody",
+    "name": "Triumphant March",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 15.06,
+    "element": [
+      "Wind"
+    ],
+    "time": 0.01,
+    "effects": "Six single attack (2.51 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "凱旋マーチ",
+    "id": 30541455,
+    "gl": false
+  },
+  {
+    "character": "Serafie",
+    "source": "Wind Rhapsody",
+    "name": "Triumphant March",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 25.32,
+    "element": [
+      "Wind"
+    ],
+    "time": 0.01,
+    "effects": "Six single attack (4.22 each), causes Imperil Wind 40% for 5 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "凱旋マーチ",
+    "id": 30541456,
+    "gl": false
   }
 ]

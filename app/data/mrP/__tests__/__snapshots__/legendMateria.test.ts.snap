@@ -34,8 +34,8 @@ Array [
   },
   Object {
     "character": "Ace",
-    "description": null,
-    "effect": "25?% chance to cast an ability (?: single, 3x ? magical Fire/NE, 1500 HP to an ally)",
+    "description": "(fire ⤇ 25?% for ??/3 f+n, ally heal 1.5k HP)",
+    "effect": "25?% chance to cast an ability (?: single, 3x ? magical Fire/NE, 1500 HP to an ally) after using a Fire attack",
     "name": "Commander of Magic",
   },
   Object {
@@ -1491,6 +1491,12 @@ Array [
     "name": "Woman of Courage",
   },
   Object {
+    "character": "Freya",
+    "description": "(Dance ⤇ no air time 1 turn)",
+    "effect": "Grants No Air Time 1 to the user after using a Dance ability",
+    "name": "Marvelous Leap",
+  },
+  Object {
     "character": "Fujin",
     "description": "1.1x wind dmg",
     "effect": "Increases Wind damage dealt by 10%",
@@ -1663,6 +1669,12 @@ Array [
     "description": "lgt infuse at battle start",
     "effect": "Grants Attach Lightning at the beginning of the battle",
     "name": "Conqueror of Trials",
+  },
+  Object {
+    "character": "Garnet",
+    "description": "fastcast 3 at battle start",
+    "effect": "Grants Quick Cast 3 at the beginning of the battle",
+    "name": "I Want to Be Your Canary",
   },
   Object {
     "character": "Gau",
@@ -2314,8 +2326,8 @@ Array [
   },
   Object {
     "character": "Larsa",
-    "description": null,
-    "effect": "?% chance to cast an ability (?: group, restores HP (25)) after using a White Magic ability",
+    "description": "(W.Mag ⤇ 25% for party h25)",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25), damages undeads) after using a White Magic ability",
     "name": "Prodigious Wisdom",
   },
   Object {
@@ -2818,8 +2830,8 @@ Array [
   },
   Object {
     "character": "Mog",
-    "description": "fastcast 3 at battle start?",
-    "effect": "Grants Quick Cast 3 at the beginning of the battle?",
+    "description": "fastcast 3 at battle start",
+    "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "name": "Dancing Warrior",
   },
   Object {
@@ -3913,6 +3925,18 @@ Array [
     "description": "25% dualcast Darkness",
     "effect": "25% chance to dualcast Darkness abilities",
     "name": "Apocalyptic Hero",
+  },
+  Object {
+    "character": "Serafie",
+    "description": "1.1?x ice dmg",
+    "effect": "Increases Ice damage dealt by 10?%",
+    "name": "Gossip Collector",
+  },
+  Object {
+    "character": "Serafie",
+    "description": "(wind ⤇ 30?% for +10% wind vuln.)",
+    "effect": "30?% chance to cause Minor Imperil Wind to the target after using a Wind attack on an enemy",
+    "name": "Worldly Mascot",
   },
   Object {
     "character": "Serah",

@@ -1456,7 +1456,7 @@
   {
     "id": 2141,
     "name": "White Magic High Quick Cast 3",
-    "effects": "Cast speed x2.00 for White Magic abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for White Magic abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1478,7 +1478,7 @@
   {
     "id": 2143,
     "name": "Summoning High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Summoning abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Summoning abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1500,7 +1500,7 @@
   {
     "id": 2145,
     "name": "Spellblade High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Spellblade abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Spellblade abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1522,7 +1522,7 @@
   {
     "id": 2147,
     "name": "Combat High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Combat abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Combat abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1544,7 +1544,7 @@
   {
     "id": 2149,
     "name": "Support High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Support abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Support abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1581,7 +1581,7 @@
   {
     "id": 2151,
     "name": "Celerity High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Celerity abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Celerity abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1603,7 +1603,7 @@
   {
     "id": 2153,
     "name": "Dragoon High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Dragoon abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Dragoon abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1625,7 +1625,7 @@
   {
     "id": 2155,
     "name": "Monk High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Monk abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Monk abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1647,7 +1647,7 @@
   {
     "id": 2157,
     "name": "Thief High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Thief abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Thief abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1669,7 +1669,7 @@
   {
     "id": 2159,
     "name": "Knight High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Knight abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Knight abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1709,7 +1709,7 @@
   {
     "id": 2161,
     "name": "Samurai High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Samurai abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Samurai abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1731,7 +1731,7 @@
   {
     "id": 2163,
     "name": "Ninja High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Ninja abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Ninja abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1753,7 +1753,7 @@
   {
     "id": 2165,
     "name": "Bard High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Bard abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Bard abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1775,7 +1775,7 @@
   {
     "id": 2167,
     "name": "Dancer High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Dancer abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Dancer abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1797,7 +1797,7 @@
   {
     "id": 2169,
     "name": "Machinist High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Machinist abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Machinist abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1819,7 +1819,7 @@
   {
     "id": 2171,
     "name": "Darkness High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Darkness abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Darkness abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1841,7 +1841,7 @@
   {
     "id": 2173,
     "name": "Sharpshooter High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Sharpshooter abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Sharpshooter abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1863,7 +1863,7 @@
   {
     "id": 2175,
     "name": "Witch High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Witch abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Witch abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1885,7 +1885,7 @@
   {
     "id": 2177,
     "name": "Heavy High Quick Cast 3",
-    "effects": "Cast speed x2.00 for Heavy abilities, lasts for 3 turns",
+    "effects": "Cast speed x3.00 for Heavy abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1907,7 +1907,7 @@
   {
     "id": 2179,
     "name": "Black Magic Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Black Magic abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Black Magic abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1940,7 +1940,7 @@
   {
     "id": 2181,
     "name": "White Magic Instant Cast 3",
-    "effects": "Cast speed xx9999999 for White Magic abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for White Magic abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1962,7 +1962,7 @@
   {
     "id": 2183,
     "name": "Summoning Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Summoning abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Summoning abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -1984,7 +1984,7 @@
   {
     "id": 2185,
     "name": "Spellblade Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Spellblade abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Spellblade abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2006,7 +2006,7 @@
   {
     "id": 2187,
     "name": "Combat Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Combat abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Combat abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2028,7 +2028,7 @@
   {
     "id": 2189,
     "name": "Support Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Support abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Support abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2061,7 +2061,7 @@
   {
     "id": 2191,
     "name": "Celerity Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Celerity abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Celerity abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2127,7 +2127,7 @@
   {
     "id": 2197,
     "name": "Thief Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Thief abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Thief abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2149,7 +2149,7 @@
   {
     "id": 2199,
     "name": "Knight Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Knight abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Knight abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2182,7 +2182,7 @@
   {
     "id": 2201,
     "name": "Samurai Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Samurai abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Samurai abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2204,7 +2204,7 @@
   {
     "id": 2203,
     "name": "Ninja Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Ninja abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Ninja abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2226,7 +2226,7 @@
   {
     "id": 2205,
     "name": "Bard Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Bard abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Bard abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2248,7 +2248,7 @@
   {
     "id": 2207,
     "name": "Dancer Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Dancer abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Dancer abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2259,7 +2259,7 @@
   {
     "id": 2209,
     "name": "Machinist Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Machinist abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Machinist abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2292,7 +2292,7 @@
   {
     "id": 2211,
     "name": "Darkness Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Darkness abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Darkness abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2314,7 +2314,7 @@
   {
     "id": 2213,
     "name": "Sharpshooter Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Sharpshooter abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Sharpshooter abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2336,7 +2336,7 @@
   {
     "id": 2215,
     "name": "Witch Instant Cast 3",
-    "effects": "Cast speed xx9999999 for Witch abilities, lasts for 3 turns",
+    "effects": "Cast speed x9999999 for Witch abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10785,6 +10785,39 @@
     "notes": null
   },
   {
+    "id": 50537,
+    "name": "God of Creation Mode",
+    "effects": "Casts Whimsical Crash after using 3 Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CREATOR_DEITY_MODE",
+    "notes": null
+  },
+  {
+    "id": 50538,
+    "name": "Awoken 2P",
+    "effects": "White Magic abilities don't consume uses, dualcasts White Magic abilities, casts Banishra after using 2 White Magic abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_TWO_P",
+    "notes": null
+  },
+  {
+    "id": 50539,
+    "name": "Gleed Stack Mode",
+    "effects": "Critical chance =100%, casts Crimson Straight after using 3 Fire attacks, removed if the user doesn't have any Stoneskin",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "FAIRY_NOSENOSE_MODE",
+    "notes": null
+  },
+  {
     "id": 50540,
     "name": "Doom Timer +5",
     "effects": "Increases the character's Doom timer by 5 when set",
@@ -10848,6 +10881,28 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_DOOM_COUNT_30",
+    "notes": null
+  },
+  {
+    "id": 50549,
+    "name": "Awoken Leap",
+    "effects": "Dragoon and Dancer abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Dragoon and Dancer abilities at ability rank 1/2/3/4/5, dualcasts Dragoon and Dancer abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_LEAP",
+    "notes": null
+  },
+  {
+    "id": 50550,
+    "name": "Awoken Enchant",
+    "effects": "Summoning and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Summoning and Bard abilities at ability rank 1/2/3/4/5, casts Storm Encore after using two Dancer or Bard abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_ARIA",
     "notes": null
   },
   {

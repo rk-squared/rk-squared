@@ -142,7 +142,7 @@ const expTable: TableDefinition = {
     {
       header: '40% chance',
       items: {
-        3: [['Luneth', '3'], ['Elarra', '3']],
+        3: [['Luneth', '3'], ['Elarra', '3'], ['Serafie', '3']],
       },
     },
     {

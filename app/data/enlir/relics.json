@@ -10347,7 +10347,7 @@
       "eva": null
     },
     "id": 21002430,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Blood Sword",
@@ -26457,7 +26457,7 @@
       "eva": null
     },
     "id": 21003097,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Kagenui",
@@ -28122,7 +28122,7 @@
       "eva": null
     },
     "id": 21003072,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Yakei",
@@ -35775,14 +35775,14 @@
     "gl": true
   },
   {
-    "name": "Banescissor Spear",
-    "realm": "XIII",
+    "name": "Dragoon Lance",
+    "realm": "IX",
     "type": "Spear",
     "rarity": 6,
     "stats": {
       "rarity": 6,
       "level": 25,
-      "atk": 169,
+      "atk": 180,
       "def": 0,
       "mag": 0,
       "res": 0,
@@ -35790,14 +35790,14 @@
       "acc": 95,
       "eva": 0
     },
-    "effect": "RS: Wind damage +20%",
-    "character": "Fang",
-    "soulBreak": "Soaring Spear",
+    "effect": "Wind damage +20%",
+    "character": "Freya",
+    "soulBreak": "Dragon Cross",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
       "level": 25,
-      "atk": 123,
+      "atk": 134,
       "def": null,
       "mag": null,
       "res": null,
@@ -35808,7 +35808,7 @@
     "maxStats": {
       "rarity": 8,
       "level": 35,
-      "atk": 187,
+      "atk": 198,
       "def": null,
       "mag": null,
       "res": null,
@@ -35816,8 +35816,98 @@
       "acc": 95,
       "eva": null
     },
-    "id": 21006079,
-    "gl": true
+    "id": 21006146,
+    "gl": false
+  },
+  {
+    "name": "Dragon Whisker",
+    "realm": "IX",
+    "type": "Spear",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Wind damage +20%",
+    "character": "Freya",
+    "soulBreak": "Lunar Ray",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21006139,
+    "gl": false
+  },
+  {
+    "name": "Gungnir",
+    "realm": "IX",
+    "type": "Spear",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Freya",
+    "soulBreak": "Eternal Harvest",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21006140,
+    "gl": false
   },
   {
     "name": "Knight Lancer",
@@ -35908,6 +35998,51 @@
     },
     "id": 21006149,
     "gl": false
+  },
+  {
+    "name": "Banescissor Spear",
+    "realm": "XIII",
+    "type": "Spear",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 169,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "RS: Wind damage +20%",
+    "character": "Fang",
+    "soulBreak": "Soaring Spear",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 123,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 187,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21006079,
+    "gl": true
   },
   {
     "name": "Shamanic Spear",
@@ -38428,6 +38563,51 @@
     },
     "id": 21006087,
     "gl": true
+  },
+  {
+    "name": "Ice Lance",
+    "realm": "IX",
+    "type": "Spear",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 147,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Freya",
+    "soulBreak": null,
+    "legendMateria": "Marvelous Leap",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 112,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 164,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21006064,
+    "gl": false
   },
   {
     "name": "Heat Lance",
@@ -50625,6 +50805,96 @@
     "gl": false
   },
   {
+    "name": "Faerie Rod",
+    "realm": "IX",
+    "type": "Rod",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 140,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Lightning damage +20%",
+    "character": "Garnet",
+    "soulBreak": "Storm Serenade",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": 96,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": 158,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008254,
+    "gl": false
+  },
+  {
+    "name": "Mistilteinn",
+    "realm": "IX",
+    "type": "Rod",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 174,
+      "res": 0,
+      "mnd": 140,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Garnet",
+    "soulBreak": "Princess' Resolve",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 129,
+      "res": null,
+      "mnd": 96,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 192,
+      "res": null,
+      "mnd": 158,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008255,
+    "gl": false
+  },
+  {
     "name": "Conductor",
     "realm": "X",
     "type": "Rod",
@@ -51207,6 +51477,51 @@
       "eva": null
     },
     "id": 21008188,
+    "gl": false
+  },
+  {
+    "name": "Magical Rod",
+    "realm": "Beyond",
+    "type": "Rod",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 130,
+      "res": 0,
+      "mnd": 177,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Tama",
+    "soulBreak": "Stack Challenge",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 86,
+      "res": null,
+      "mnd": 133,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 148,
+      "res": null,
+      "mnd": 195,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008186,
     "gl": false
   },
   {
@@ -55302,6 +55617,51 @@
       "eva": null
     },
     "id": 21008167,
+    "gl": false
+  },
+  {
+    "name": "Mythril Rod",
+    "realm": "IX",
+    "type": "Rod",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 55,
+      "def": 0,
+      "mag": 143,
+      "res": 0,
+      "mnd": 105,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Garnet",
+    "soulBreak": null,
+    "legendMateria": "I Want to Be Your Canary",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 35,
+      "def": null,
+      "mag": 109,
+      "res": null,
+      "mnd": 72,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 65,
+      "def": null,
+      "mag": 160,
+      "res": null,
+      "mnd": 122,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008059,
     "gl": false
   },
   {
@@ -62547,7 +62907,7 @@
       "eva": null
     },
     "id": 21009085,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Aura Staff",
@@ -69930,6 +70290,96 @@
     "gl": true
   },
   {
+    "name": "Moogle's Flute",
+    "realm": "IX",
+    "type": "Instrument",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 168,
+      "res": 0,
+      "mnd": 171,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Eiko",
+    "soulBreak": "Terra Homing",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 88,
+      "def": null,
+      "mag": 123,
+      "res": null,
+      "mnd": 127,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 126,
+      "def": null,
+      "mag": 186,
+      "res": null,
+      "mnd": 189,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21011057,
+    "gl": false
+  },
+  {
+    "name": "Carbuncle's Flute",
+    "realm": "IX",
+    "type": "Instrument",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 135,
+      "res": 0,
+      "mnd": 177,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Eiko",
+    "soulBreak": "Eiko's Secret Weapon",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 88,
+      "def": null,
+      "mag": 91,
+      "res": null,
+      "mnd": 133,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 126,
+      "def": null,
+      "mag": 153,
+      "res": null,
+      "mnd": 195,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21011049,
+    "gl": false
+  },
+  {
     "name": "Argentic Flute",
     "realm": "Type-0",
     "type": "Instrument",
@@ -70062,6 +70512,51 @@
       "eva": null
     },
     "id": 21011056,
+    "gl": false
+  },
+  {
+    "name": "Diva Serafie's Harp",
+    "realm": "Beyond",
+    "type": "Instrument",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 78,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Wind damage +20%",
+    "character": "Serafie",
+    "soulBreak": "Silent Voice",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 88,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": 55,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 126,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": 87,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21011066,
     "gl": false
   },
   {
@@ -76067,7 +76562,7 @@
     },
     "effect": "Earth damage +20%",
     "character": "Enna",
-    "soulBreak": "World Fracture",
+    "soulBreak": "Worldbreaker",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -76228,6 +76723,186 @@
     },
     "id": 21013063,
     "gl": true
+  },
+  {
+    "name": "Siren Mirage",
+    "realm": "Beyond",
+    "type": "Thrown",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 78,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Wind damage +20%",
+    "character": "Serafie",
+    "soulBreak": "Misdirection",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 88,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": 55,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 126,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": 87,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21013132,
+    "gl": false
+  },
+  {
+    "name": "Sandicore Mirage",
+    "realm": "Beyond",
+    "type": "Thrown",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 174,
+      "res": 0,
+      "mnd": 78,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Enna",
+    "soulBreak": "Hopeful Soul",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 88,
+      "def": null,
+      "mag": 129,
+      "res": null,
+      "mnd": 55,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 126,
+      "def": null,
+      "mag": 192,
+      "res": null,
+      "mnd": 87,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21013134,
+    "gl": false
+  },
+  {
+    "name": "Carbuncle T Mirage",
+    "realm": "Beyond",
+    "type": "Thrown",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 78,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Enna",
+    "soulBreak": "God Geocrush",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 88,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": 55,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 126,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": 87,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21013133,
+    "gl": false
+  },
+  {
+    "name": "Gleed Mirage",
+    "realm": "Beyond",
+    "type": "Thrown",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 164,
+      "def": 0,
+      "mag": 94,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Fire damage +20%",
+    "character": "Lann",
+    "soulBreak": "Crimson Punch",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 118,
+      "def": null,
+      "mag": 63,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 182,
+      "def": null,
+      "mag": 106,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21013136,
+    "gl": false
   },
   {
     "name": "Eternal Flames",
@@ -91125,6 +91800,51 @@
     "gl": false
   },
   {
+    "name": "Hairpin",
+    "realm": "Beyond",
+    "type": "Hat",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 112,
+      "mag": 45,
+      "res": 165,
+      "mnd": 34,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Serafie",
+    "soulBreak": "Gossip Collector",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 90,
+      "mag": 35,
+      "res": 126,
+      "mnd": 24,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 121,
+      "mag": 48,
+      "res": 181,
+      "mnd": 37,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22051212,
+    "gl": false
+  },
+  {
     "name": "Pumpkin Head",
     "realm": "Core",
     "type": "Hat",
@@ -96972,7 +97692,7 @@
       "eva": 105
     },
     "id": 22052062,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Caesar Helm",
@@ -101518,6 +102238,51 @@
     },
     "id": 22053407,
     "gl": true
+  },
+  {
+    "name": "Serafie's Guise",
+    "realm": "Beyond",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 151,
+      "mag": 19,
+      "res": 151,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Wind damage +20%",
+    "character": "Serafie",
+    "soulBreak": "Wind Rhapsody",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 110,
+      "mag": 10,
+      "res": 110,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 167,
+      "mag": 22,
+      "res": 167,
+      "mnd": 22,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053435,
+    "gl": false
   },
   {
     "name": "Akademia Uniform",
@@ -112902,7 +113667,7 @@
       "eva": 105
     },
     "id": 22054102,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Shield Armor",
@@ -116773,6 +117538,51 @@
     },
     "id": 22055091,
     "gl": true
+  },
+  {
+    "name": "Light Robe",
+    "realm": "IX",
+    "type": "Robe",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 122,
+      "mag": 19,
+      "res": 186,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Eiko",
+    "soulBreak": "Trance Regenga",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 90,
+      "mag": 10,
+      "res": 146,
+      "mnd": 10,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 134,
+      "mag": 22,
+      "res": 202,
+      "mnd": 22,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22055031,
+    "gl": false
   },
   {
     "name": "Maduin Gear",
@@ -130230,6 +131040,51 @@
     "gl": false
   },
   {
+    "name": "5th Bravo Flag",
+    "realm": "Core",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 15,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Dark resistance (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 15,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 15,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080568,
+    "gl": false
+  },
+  {
     "name": "Almighty's Grace",
     "realm": null,
     "type": "Accessory",
@@ -140533,6 +141388,51 @@
     },
     "id": 23080424,
     "gl": true
+  },
+  {
+    "name": "Fairy's Cane",
+    "realm": "Beyond",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 15,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Earth resistance (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": null,
+      "mag": 15,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": null,
+      "mag": 15,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080567,
+    "gl": false
   },
   {
     "name": "Power Gloves",

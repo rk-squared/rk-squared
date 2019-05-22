@@ -85,7 +85,7 @@ const elementalTable: TableDefinition = {
           ['Thancred', '2'],
           ['Ultimecia', '2'],
         ],
-        11: [['Luneth', '1a'], ['Bartz', '1']],
+        11: [['Luneth', '1a'], ['Bartz', '1'], ['Serafie', '1']],
       },
     },
   ],
@@ -397,6 +397,12 @@ const magicTable: TableDefinition = {
       items: {
         '1_2': [['Serah', '2']],
         '1_1': [['Maria', '1a'], ['Maria', '1b']],
+      },
+    },
+    {
+      header: 'BLK Instrument',
+      items: {
+        '1_2': [['Serafie', '2']],
       },
     },
     {

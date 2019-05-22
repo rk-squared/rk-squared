@@ -7608,5 +7608,35 @@
     "nameJp": "神の微笑み",
     "id": 111900172,
     "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Serafie",
+    "name": "Grymoire Fairy",
+    "effect": "Increases Wind damage dealt by 10?%",
+    "unlockCriteria": "Use Serafie's Memory Crystal",
+    "nameJp": "グリモワルの妖精",
+    "id": 111900320,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Serafie",
+    "name": "Talkative Fairy",
+    "effect": "BLK attacks deal 20?% more damage when equipping an instrument",
+    "unlockCriteria": "Use Serafie's Memory Crystal II, chance to obtain with Serafie in party",
+    "nameJp": "気だるげなしゃべり方",
+    "id": 111900321,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Serafie",
+    "name": "Garden Gem Caretaker",
+    "effect": "40?% chance to double Experience gained at the end of the battle",
+    "unlockCriteria": "Bring Serafie to level 99",
+    "nameJp": "ガーデンジェムの管理人",
+    "id": 111900322,
+    "gl": false
   }
 ]

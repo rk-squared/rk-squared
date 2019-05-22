@@ -36,6 +36,7 @@ import {
 import {
   andJoin,
   andList,
+  andOrList,
   cleanUpSlashedNumbers,
   describeChances,
   enDashJoin,
@@ -662,10 +663,10 @@ function describeEnlirStatusEffect(
   }
 
   if ((m = effect.match(enlirRankBoostRe))) {
-    return rankBoostAlias(m[1]);
+    return rankBoostAlias(formatSchoolOrAbilityList(m[1]));
   }
   if ((m = effect.match(enlirRankCastSpeedRe))) {
-    return rankCastSpeedAlias(m[1]);
+    return rankCastSpeedAlias(formatSchoolOrAbilityList(m[1]));
   }
 
   // Stacking ability boost and element boost.
@@ -735,7 +736,7 @@ function describeEnlirStatusEffect(
     if (baseAlias) {
       return (
         kind
-          .split(orList)
+          .split(andOrList)
           .map(getShortName)
           .join('/') +
         ' ' +

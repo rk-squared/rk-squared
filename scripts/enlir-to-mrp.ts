@@ -24,7 +24,7 @@ const filtered = argv.brave || argv.burst;
 const onlySoulBreaks = process.argv.slice(2);
 
 for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
-  'character',
+  i => i.character || '-',
   i => tierOrder[i.tier],
   'id',
 ])) {
@@ -44,7 +44,7 @@ for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
   }
 
   const text = formatMrP(mrP);
-  console.log(sb.character + ': ' + sb.tier + ': ' + sb.name);
+  console.log((sb.character || '-') + ': ' + sb.tier + ': ' + sb.name);
   console.log(text || '???');
   if (mrP.braveCommands) {
     // console.log('    [' + getSchoolShortName(mrP.braveCommands[0].school) + '], +1 on ' + mrP.braveCondition.map(getShortName).join(', ');

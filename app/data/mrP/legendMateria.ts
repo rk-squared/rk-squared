@@ -1,5 +1,7 @@
 import * as _ from 'lodash';
 
+import { logger } from '../../utils/logger';
+
 import { describeEnlirSoulBreak, formatMrP } from '.';
 import { arrayify } from '../../utils/typeUtils';
 import {
@@ -91,7 +93,10 @@ const skillEffectHandlers: HandlerList = [
 
 const simpleSkillHandlers: HandlerList = [
   // Healing
-  [/^WHT: group, restores HP \((\d+|\?)\)$/, ([healFactor]) => `party h${healFactor}`],
+  [
+    /^(?:WHT|\?): group, restores HP \((\d+\??|\?)\)(?:, damages undeads)?$/,
+    ([healFactor]) => `party h${healFactor}`,
+  ],
   [
     /^NAT: (single|group), restores HP for (\d+)% of the target's maximum HP$/,
     ([who, healPercent]) => {
@@ -102,7 +107,7 @@ const simpleSkillHandlers: HandlerList = [
 
   // Attacks
   [
-    /^(PHY|BLK|WHT|PHY)(?:\/(NIN))?: (single|random|group), (?:(\d+)x )?([0-9\.]+|\?) (ranged )?(physical|magical|hybrid)(?: ([^,]+))?(, .*)?$/,
+    /^(PHY|BLK|WHT|PHY|\?)(?:\/(NIN))?: (single|random|group), (?:(\d+)x )?([0-9\.]+|\?) (ranged )?(physical|magical|hybrid)(?: ([^,]+))?(, .*)?$/,
     ([
       type,
       hybridType,
@@ -306,11 +311,14 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered simple skills and triggered named skills
   [
-    /^(\d+|\?)% chance to cast (?:an ability \((.*)\)|(.*)) after (?:(using|dealing damage with) a (.*) (?:ability|attack)|(taking damage from an enemy))$/,
+    /^(\d+\??|\?)% chance to cast (?:an ability \((.*)\)|(.*)) after (?:(using|dealing damage with) a (.*) (?:ability|attack)|(taking damage from an enemy))$/,
     ([percent, effect, skillName, isDamageTrigger, schoolOrAbility, takeDamage]) => {
       let description: string | null = null;
       if (effect) {
         description = resolveWithHandlers(simpleSkillHandlers, effect);
+        if (!description) {
+          logger.warn(`Failed to parse legend materia effect: ${effect}`);
+        }
       } else {
         const otherSkill = getEnlirOtherSkill(skillName, 'Legend Materia');
         if (otherSkill) {
@@ -353,7 +361,7 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered status ailments (imperils)
   [
-    /^(\d+|\?)% chance to cause (.*) to the target after (using|dealing damage with) a (.*) (?:ability|attack) on an enemy(?: when equipping (.*))?$/,
+    /^(\d+\??|\?)% chance to cause (.*) to the target after (using|dealing damage with) a (.*) (?:ability|attack) on an enemy(?: when equipping (.*))?$/,
     ([percent, status, isDamageTrigger, schoolOrAbility, when]) => {
       const trigger = getShortName(schoolOrAbility) + dmg(isDamageTrigger) + whenDescription(when);
       return formatTriggeredEffect(trigger, describeEnlirStatus(status), percent);
@@ -455,9 +463,16 @@ const legendMateriaHandlers: HandlerList = [
   ],
 ];
 
-export function describeMrPLegendMateria({ effect }: EnlirLegendMateria): string | null {
+export function describeMrPLegendMateria({
+  character,
+  name,
+  effect,
+}: EnlirLegendMateria): string | null {
   const isUncertain = effect.endsWith('?');
   const result = resolveWithHandlers(legendMateriaHandlers, effect.replace(/\?$/, ''));
+  if (!result) {
+    logger.warn(`Failed to process legend materia: ${character} ${name}: ${effect}`);
+  }
   if (result && isUncertain) {
     return result + '?';
   } else {
