@@ -57,7 +57,9 @@ export function relicDraws(
           draft.probabilities,
           (value, key) => newBanners[key] != null,
         );
-        // TODO: Also expire old exchange shop selections here?
+        // This would be the logical place to also expire old exchange shop
+        // selections, but we want to keep those around so that we can show
+        // which selections are new.
         return;
       }
 

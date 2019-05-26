@@ -11,6 +11,7 @@ import {
 import { enlir } from '../data/enlir';
 import { IState } from '../reducers';
 import { RelicDrawState } from '../reducers/relicDraws';
+import { difference } from '../utils/setUtils';
 import { isClosed } from '../utils/timeUtils';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from './characters';
 
@@ -195,5 +196,37 @@ export const getMissingBanners = createSelector<IState, RelicDrawState, number, 
       .forEach(i => missing.delete(+i));
 
     return Array.from(missing);
+  },
+);
+
+export const getNewExchangeShopSelections = createSelector<
+  IState,
+  RelicDrawState,
+  number,
+  Set<number>
+>(
+  (state: IState) => state.relicDraws,
+  (state: IState) => state.timeState.currentTime,
+  ({ banners, selections }, currentTime) => {
+    const openShopIds = new Set<number>(
+      _.values(banners)
+        .filter(i => !isClosed(i, currentTime) && i.exchangeShopId)
+        .map(i => i.exchangeShopId!),
+    );
+
+    function getSelections(wantOpen: boolean): Set<number> {
+      return new Set<number>(
+        _.flatten(
+          _.filter(selections, (items, id) => openShopIds.has(+id) === wantOpen).map(items =>
+            _.flatten(items),
+          ),
+        ),
+      );
+    }
+
+    const closedSelections = getSelections(false);
+    const openSelections = getSelections(true);
+
+    return difference(openSelections, closedSelections);
   },
 );

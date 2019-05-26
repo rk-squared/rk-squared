@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faDiceD20 } from '@fortawesome/pro-light-svg-icons/faDiceD20';
 import { faArchive } from '@fortawesome/pro-solid-svg-icons/faArchive';
 import { faArrowDown } from '@fortawesome/pro-solid-svg-icons/faArrowDown';
+import { faCertificate } from '@fortawesome/pro-solid-svg-icons/faCertificate';
 import { faCheck } from '@fortawesome/pro-solid-svg-icons/faCheck';
 import { faChevronDown } from '@fortawesome/pro-solid-svg-icons/faChevronDown';
 import { faCoffeeTogo } from '@fortawesome/pro-solid-svg-icons/faCoffeeTogo';
@@ -32,6 +33,7 @@ import './app.global.scss';
 library.add(
   faArchive,
   faArrowDown,
+  faCertificate,
   faCheck,
   faChevronDown,
   faCoffeeTogo,

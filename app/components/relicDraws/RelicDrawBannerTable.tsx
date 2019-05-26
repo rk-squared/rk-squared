@@ -13,6 +13,7 @@ import { describeRelicEffect } from '../../data/mrP/relics';
 import { enlirRealmLongName, enlirRealmToSeriesId } from '../../data/series';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
+import { getNewExchangeShopSelections } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
 import { getAllSameValue } from '../../utils/typeUtils';
 import { RelicTypeIcon } from '../shared/RelicTypeIcon';
@@ -37,6 +38,8 @@ interface Props {
   groupBySeries?: boolean;
   allowCollapse?: boolean;
   includeAvailability?: boolean;
+
+  newExchangeShopSelections?: Set<number>;
 
   allowSelect?: boolean;
   getSelected?: (relicId: number) => boolean;
@@ -104,6 +107,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       includeAvailability,
       allowSelect,
       getSelected,
+      newExchangeShopSelections,
     } = this.props;
     const relic = enlir.relics[relicId];
     const { character, name, type, effect } = relic;
@@ -148,7 +152,12 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
             {includeAvailability && (
               <>
                 <br />
-                <RelicAvailability item={sb || lm} />
+                <RelicAvailability
+                  item={sb || lm}
+                  isNewSelection={
+                    newExchangeShopSelections && newExchangeShopSelections.has(relic.id)
+                  }
+                />
               </>
             )}
           </td>
@@ -333,6 +342,7 @@ export default connect(
       };
     }
     return {
+      newExchangeShopSelections: getNewExchangeShopSelections(state),
       getStatusAndCss,
       getSelected: (relicId: number) =>
         state.relicDraws.want ? !!state.relicDraws.want[relicId] : false,

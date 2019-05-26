@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as moment from 'moment';
 
 import { animaWaves } from '../../data/anima';
@@ -10,6 +11,7 @@ const styles = require('./RelicAvailability.scss');
 
 interface Props {
   item: EnlirSoulBreakOrLegendMateria;
+  isNewSelection?: boolean;
 }
 
 export class RelicAvailability extends React.Component<Props> {
@@ -34,7 +36,28 @@ export class RelicAvailability extends React.Component<Props> {
     return <img className={styles.anima} src={icon} title={title} />;
   }
 
+  renderNewSelection() {
+    if (!this.props.isNewSelection) {
+      return null;
+    }
+    // FIXME: Not accessible - get a proper tooltip and fix
+    return (
+      <span title="New in this Dream Relic Draw">
+        <FontAwesomeIcon
+          icon="certificate"
+          className={styles.newSelection}
+          title="New in this Dream Relic Draw"
+        />
+      </span>
+    );
+  }
+
   render() {
-    return <>{this.renderAnima()}</>;
+    return (
+      <>
+        {this.renderAnima()}
+        {this.renderNewSelection()}
+      </>
+    );
   }
 }
