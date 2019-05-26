@@ -9003,8 +9003,8 @@
   },
   {
     "id": 50371,
-    "name": "EX: Fated Princess",
-    "effects": "MND +30%, casts Divine Holy after using a White Magic ability",
+    "name": "EX: Princess of Destiny",
+    "effects": "MND +30%, casts Holy Vengeance after using a White Magic ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9025,7 +9025,7 @@
   },
   {
     "id": 50373,
-    "name": "Awoken Thunder God",
+    "name": "Awoken Thunder God Mode",
     "effects": "Knight or Darkness abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Knight or Darkness abilities",
     "defaultDuration": 15,
     "mndModifier": null,

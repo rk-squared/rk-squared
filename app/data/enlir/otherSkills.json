@@ -3658,8 +3658,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "EX: Fated Princess",
-    "name": "Divine Holy",
+    "source": "EX: Princess of Destiny",
+    "name": "Holy Vengeance",
     "type": "WHT",
     "target": "Single enemy",
     "formula": "Magical",
@@ -3675,7 +3675,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542150,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",

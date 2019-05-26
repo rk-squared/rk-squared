@@ -3687,7 +3687,7 @@
       "eva": null
     },
     "id": 21001066,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Assassin's Dagger",
@@ -14757,7 +14757,7 @@
       "eva": null
     },
     "id": 21002477,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ancient Sword",
@@ -14802,7 +14802,7 @@
       "eva": null
     },
     "id": 21002426,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Sun Blade",
@@ -14847,7 +14847,7 @@
       "eva": null
     },
     "id": 21002275,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Deathbringer",
@@ -23622,7 +23622,7 @@
       "eva": null
     },
     "id": 21002311,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Bolt Rapiers",
@@ -27537,7 +27537,7 @@
       "eva": null
     },
     "id": 21003088,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Nagamitsu",
@@ -28080,7 +28080,7 @@
     "gl": true
   },
   {
-    "name": "Masamune Dimensional ",
+    "name": "Masamune Dimensional",
     "realm": "V",
     "type": "Katana",
     "rarity": 5,
@@ -28167,7 +28167,7 @@
       "eva": null
     },
     "id": 21003095,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ashura",
@@ -28212,7 +28212,7 @@
       "eva": null
     },
     "id": 21003105,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Kiku-ichimonji",
@@ -61152,7 +61152,7 @@
       "eva": null
     },
     "id": 21009134,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Holy Wand of Telos",
@@ -64212,7 +64212,7 @@
       "eva": null
     },
     "id": 21009132,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Light Staff",
@@ -99087,7 +99087,7 @@
       "eva": 105
     },
     "id": 22052040,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Diamond Helm",
@@ -116187,7 +116187,7 @@
       "eva": 105
     },
     "id": 22054106,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Carabineer Mail",
@@ -116232,7 +116232,7 @@
       "eva": 105
     },
     "id": 22054094,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Knight's Armor",
@@ -119880,7 +119880,7 @@
     "gl": true
   },
   {
-    "name": "Samite Coat ",
+    "name": "Samite Coat",
     "realm": "FFT",
     "type": "Robe",
     "rarity": 5,
@@ -119922,7 +119922,7 @@
       "eva": 105
     },
     "id": 22055092,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Luminous Robe",
@@ -122912,7 +122912,7 @@
     },
     "effect": "Earth damage +20%",
     "character": "Dorgann",
-    "soulBreak": "Lingering Resolve",
+    "soulBreak": "Last Word",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -122937,7 +122937,7 @@
       "eva": 105
     },
     "id": 22056217,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Thief's Gloves",

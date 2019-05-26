@@ -11112,7 +11112,7 @@
     "nameJp": "金剛",
     "id": 20650012,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -11610,7 +11610,7 @@
     "points": 250,
     "tier": "Glint",
     "master": "ATK +10",
-    "relic": "Interdimensional Masamune (V)",
+    "relic": "Masamune Dimensional (V)",
     "nameJp": "じょうとうだぜ！",
     "id": 20810014,
     "anima": null,
@@ -12535,7 +12535,7 @@
   {
     "realm": "V",
     "character": "Dorgann",
-    "name": "Lingering Resolve",
+    "name": "Last Word",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -12552,7 +12552,7 @@
     "nameJp": "留まりし者の覚悟",
     "id": 22510005,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -30995,7 +30995,7 @@
     "points": 500,
     "tier": "USB",
     "master": "ATK +10",
-    "relic": "Lowtown Trousers (XII)",
+    "relic": "Lowtown Pants (XII)",
     "nameJp": "カラミティドライブ",
     "id": 20700014,
     "anima": null,
@@ -38568,7 +38568,7 @@
     "nameJp": "天騎士の誇り",
     "id": 22140011,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -38590,7 +38590,7 @@
     "nameJp": "ガッツ",
     "id": 22140012,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -38804,7 +38804,7 @@
     "nameJp": "聖光爆裂連破",
     "id": 22150009,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -39216,7 +39216,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (85), grants Quick Cast and EX: Fated Princess to the user",
+    "effects": "Restores HP (85), grants Quick Cast and EX: Princess of Destiny to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -39226,7 +39226,7 @@
     "nameJp": "聖魔法ケアルジャ",
     "id": 22390008,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -39244,11 +39244,11 @@
     "points": 250,
     "tier": "Glint",
     "master": "MND +10",
-    "relic": "Samite Coat  (FFT)",
+    "relic": "Samite Coat (FFT)",
     "nameJp": "セイントウェーブ",
     "id": 22390009,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -39521,7 +39521,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), 100% add. crit., grants 100% Critical, Awoken Thunder God, Damage Cap +10000 and Thunder God's Might to the user",
+    "effects": "Fifteen single attacks (0.60 each), 100% add. crit., grants 100% Critical, Awoken Thunder God Mode, Damage Cap +10000 and Thunder God's Might to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -39531,7 +39531,7 @@
     "nameJp": "剣聖神技",
     "id": 22550006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -39556,7 +39556,7 @@
     "nameJp": "全剣技・極",
     "id": 22550007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -39578,7 +39578,7 @@
     "nameJp": "剣聖ノ矜持",
     "id": 22550008,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
