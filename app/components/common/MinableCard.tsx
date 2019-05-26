@@ -18,6 +18,11 @@ interface State {
   collapsed: boolean;
 }
 
+/**
+ * A Bootstrap card that can be minified - collapsed to a single icon, like
+ * Toggl's alerts, vs. collapsing to the title, like a normal Bootstrap
+ * collapsible card.
+ */
 export class MinableCard extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -45,7 +50,7 @@ export class MinableCard extends React.Component<Props, State> {
             styles.collapsed,
           )}
           onClick={this.handleClick}
-          aria-role="button"
+          role="button"
         >
           <div className={classNames('card-img-top', iconClassName)}>
             <FontAwesomeIcon icon={icon} size="2x" />
