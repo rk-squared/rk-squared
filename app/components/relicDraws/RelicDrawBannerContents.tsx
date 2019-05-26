@@ -44,6 +44,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         isAnonymous={isAnonymous}
         groupBySeries={true}
         allowSelect={true}
+        includeAvailability={true}
       />
     );
   }

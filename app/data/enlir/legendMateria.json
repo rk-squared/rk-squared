@@ -32,7 +32,7 @@
     "relic": "Keeper's Cap (Core)",
     "nameJp": "歴史省の奥伝",
     "id": 201000202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -92,7 +92,7 @@
     "relic": "Elarra's Hat (Core)",
     "nameJp": "芸術への興味",
     "id": 201000503,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -140,7 +140,7 @@
     "relic": "Biggs's Guise (Core)",
     "nameJp": "隠された戦士の誇り",
     "id": 201004302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -188,7 +188,7 @@
     "relic": "Wedge's Hat (Core)",
     "nameJp": "秘めた愛らしさ",
     "id": 201004402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -236,7 +236,7 @@
     "relic": "Healing Staff (Core)",
     "nameJp": "白魔法の熟達者",
     "id": 201004502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -296,7 +296,7 @@
     "relic": "Flame Shield (I)",
     "nameJp": "正義を信じぬく心",
     "id": 201010103,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -356,7 +356,7 @@
     "relic": "Demon Mail (I)",
     "nameJp": "狂乱の古強者",
     "id": 201010202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -416,7 +416,7 @@
     "relic": "Princess Veil (I)",
     "nameJp": "戦う者たちを想う歌",
     "id": 201010301,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -428,6 +428,7 @@
     "relic": "Golden Hairpin (I)",
     "nameJp": "はやての調べ",
     "id": 201010303,
+    "anima": null,
     "gl": false
   },
   {
@@ -463,7 +464,7 @@
     "relic": "Sirius (I)",
     "nameJp": "ルールを覆す者",
     "id": 201010402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -499,7 +500,7 @@
     "relic": "Captain Costume (I)",
     "nameJp": "気まぐれなごほうび",
     "id": 201010501,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -547,7 +548,7 @@
     "relic": "Kenpogi (I)",
     "nameJp": "熟練の瞬技",
     "id": 201010602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -595,7 +596,7 @@
     "relic": "Matoya's Hat (I)",
     "nameJp": "魔道の老手",
     "id": 201010701,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -631,7 +632,7 @@
     "relic": "Vesna Krasna (I)",
     "nameJp": "復讐の碧き魔力",
     "id": 201010801,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -679,7 +680,7 @@
     "relic": "Thief's Bandana (I)",
     "nameJp": "幸運な盗賊",
     "id": 201010901,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -715,7 +716,7 @@
     "relic": "Mythril Shield (II)",
     "nameJp": "折れぬ義侠心",
     "id": 201020103,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -787,7 +788,7 @@
     "relic": "Maria's Armguards (II)",
     "nameJp": "深き慈しみの少女",
     "id": 201020202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -835,7 +836,7 @@
     "relic": "Viking Axe (II)",
     "nameJp": "頑健なる肉体",
     "id": 201020302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -871,7 +872,7 @@
     "relic": "Diamond Armor (II)",
     "nameJp": "開花せし闇の力",
     "id": 201020402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -919,7 +920,7 @@
     "relic": "Minwu's Bulwark (II)",
     "nameJp": "反乱軍のブレーン",
     "id": 201020502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -979,7 +980,7 @@
     "relic": "Diamond Shield (II)",
     "nameJp": "カシュオーンの後継者",
     "id": 201020602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1027,7 +1028,7 @@
     "relic": "Leila's Bandana (II)",
     "nameJp": "海上の女傑",
     "id": 201020702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1063,7 +1064,7 @@
     "relic": "Ricard's Gauntlets (II)",
     "nameJp": "嵐を駆け抜けし竜",
     "id": 201020802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1111,7 +1112,7 @@
     "relic": "Aegis Shield (II)",
     "nameJp": "仁義あふれる諜報員",
     "id": 201020902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1159,7 +1160,7 @@
     "relic": "Imperial Shell (II)",
     "nameJp": "ソウルオブリバース",
     "id": 201021002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1231,7 +1232,7 @@
     "relic": "Hilda's Cloak (II)",
     "nameJp": "高潔な血筋の淑女",
     "id": 201021102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1267,7 +1268,7 @@
     "relic": "Demon Shield (II)",
     "nameJp": "語らぬ愛",
     "id": 201021202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1303,7 +1304,7 @@
     "relic": "Blessed Hammer (III)",
     "nameJp": "ウルのやんちゃ坊主",
     "id": 201030102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1326,6 +1327,7 @@
     "master": "ATK +10",
     "relic": "Dual Haken (III)",
     "id": null,
+    "anima": null,
     "gl": false
   },
   {
@@ -1361,7 +1363,7 @@
     "relic": "Lordly Robes (III)",
     "nameJp": "読書家の理知",
     "id": 201030202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1421,7 +1423,7 @@
     "relic": "Refia's Tunic (III)",
     "nameJp": "乙女の可愛げ",
     "id": 201030302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1469,7 +1471,7 @@
     "relic": "Genji Shield (III)",
     "nameJp": "忠義の精神",
     "id": 201030402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1529,7 +1531,7 @@
     "relic": "Bracer (III)",
     "nameJp": "使命にかける気概",
     "id": 201030502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1577,7 +1579,7 @@
     "relic": "Onion Cape (III)",
     "nameJp": "伝説の称号を持つ少年",
     "id": 201030602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1625,7 +1627,7 @@
     "relic": "Brooding Armguard (III)",
     "nameJp": "闇の氾濫より出でし存在",
     "id": 201030702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1673,7 +1675,7 @@
     "relic": "Spirit Ring (III)",
     "nameJp": "クリスタルに捧ぐ祈り",
     "id": 201030902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1721,7 +1723,7 @@
     "relic": "Hades Armor (IV)",
     "nameJp": "赤き呪いの剣",
     "id": 201040102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1781,7 +1783,7 @@
     "relic": "Caesar's Plate (IV)",
     "nameJp": "試練の果てに掴んだ光",
     "id": 201040203,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1853,7 +1855,7 @@
     "relic": "Dragoon Bracers (IV)",
     "nameJp": "竜騎士の証",
     "id": 201040302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1913,7 +1915,7 @@
     "relic": "Rydia's Guise (IV)",
     "nameJp": "類まれな召喚の才",
     "id": 201040402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -1985,7 +1987,7 @@
     "relic": "Rosa's Armguard (IV)",
     "nameJp": "ひたむきな想い",
     "id": 201040602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2033,7 +2035,7 @@
     "relic": "Requiem Harp (IV)",
     "nameJp": "才能溢れる吟遊詩人",
     "id": 201040702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2081,7 +2083,7 @@
     "relic": "Yang's Guise (IV)",
     "nameJp": "強靭な心身",
     "id": 201040802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2117,7 +2119,7 @@
     "relic": "Hypno Crown (IV)",
     "nameJp": "いたずら好きの少年",
     "id": 201040902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2165,7 +2167,7 @@
     "relic": "Tabby Suit (IV)",
     "nameJp": "世話焼きな少女",
     "id": 201041002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2201,7 +2203,7 @@
     "relic": "Magus Robe (IV)",
     "nameJp": "賢者の本領",
     "id": 201041102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2249,7 +2251,7 @@
     "relic": "Edge's Cloak (IV)",
     "nameJp": "エブラーナの秘技",
     "id": 201041202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2321,7 +2323,7 @@
     "relic": "Golbez's Bascinet (IV)",
     "nameJp": "黒き威圧感",
     "id": 201041402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2369,7 +2371,7 @@
     "relic": "Cid's Mask (IV)",
     "nameJp": "オヤジのバイタリティ",
     "id": 201041502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2417,7 +2419,7 @@
     "relic": "Genji Helm (IV)",
     "nameJp": "父譲りの正義感",
     "id": 201041802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2453,7 +2455,7 @@
     "relic": "Ursula's Dress (IV)",
     "nameJp": "強き背を追って",
     "id": 201042102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2501,7 +2503,7 @@
     "relic": "Duel Claw (IV)",
     "nameJp": "紅きマントの武人",
     "id": 201042002,
-    "anima": "2",
+    "anima": 2,
     "gl": false
   },
   {
@@ -2537,7 +2539,7 @@
     "relic": "Barbariccia's Guise (IV)",
     "nameJp": "風を操る妖女",
     "id": 201042202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2573,7 +2575,7 @@
     "relic": "Laurel Crown (V)",
     "nameJp": "わけへだてなき優しさ",
     "id": 201050202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2609,7 +2611,7 @@
     "relic": "Kenpogi (V)",
     "nameJp": "豊かなる経験",
     "id": 201050502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2669,7 +2671,7 @@
     "relic": "Power Rod (V)",
     "nameJp": "水底の変わり者",
     "id": 201050602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2705,7 +2707,7 @@
     "relic": "Golden Armor (V)",
     "nameJp": "厚情なる豪傑",
     "id": 201050703,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2753,7 +2755,7 @@
     "relic": "Maximillian (V)",
     "nameJp": "クリスタルのかけらの加護",
     "id": 201050102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2801,7 +2803,7 @@
     "relic": "Faris's Epaulet (V)",
     "nameJp": "勇ましき王女",
     "id": 201050902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2861,7 +2863,7 @@
     "relic": "Bastard Sword (V)",
     "nameJp": "大地を歩んだ冒険者",
     "id": 201051002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2897,7 +2899,7 @@
     "relic": "Exdeath's Visage (V)",
     "nameJp": "邪心より出でし魔道士",
     "id": 201051102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -2933,7 +2935,7 @@
     "relic": "Krile's Dress (V)",
     "nameJp": "熱意あふれる少女",
     "id": 201051202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3005,7 +3007,7 @@
     "relic": "Xezat's Gauntlets (V)",
     "nameJp": "船団を率いし器",
     "id": 201051602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3041,7 +3043,7 @@
     "relic": "Kelger's Cloak (V)",
     "nameJp": "敏速なるウェアウルフ",
     "id": 201051702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3101,7 +3103,7 @@
     "relic": "Asura's Rod (VI)",
     "nameJp": "天性の魔導",
     "id": 201060102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3161,7 +3163,7 @@
     "relic": "Locke's Armguard (VI)",
     "nameJp": "秘宝を求めし熱情",
     "id": 201060302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3209,7 +3211,7 @@
     "relic": "Celes's Cloak (VI)",
     "nameJp": "ルーンナイトの妙技",
     "id": 201060402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3257,7 +3259,7 @@
     "relic": "Pixie's Scythe (VI)",
     "nameJp": "モーグリ族の長",
     "id": 201060502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3317,7 +3319,7 @@
     "relic": "Genji Shield (VI)",
     "nameJp": "機械文明の牽引者",
     "id": 201060602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3365,7 +3367,7 @@
     "relic": "Vishnu Vest (VI)",
     "nameJp": "師の教え",
     "id": 201060702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3413,7 +3415,7 @@
     "relic": "Black Hood (VI)",
     "nameJp": "闇に棲む暗殺者",
     "id": 201060802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3461,7 +3463,7 @@
     "relic": "Cyan's Bracer (VI)",
     "nameJp": "己の信ずる道",
     "id": 201060902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3497,7 +3499,7 @@
     "relic": "Dueling Mask (VI)",
     "nameJp": "野生の底力",
     "id": 201061002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3533,7 +3535,7 @@
     "relic": "Setzer's Long Coat (VI)",
     "nameJp": "蘇りしもう一つの翼",
     "id": 201061102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3581,7 +3583,7 @@
     "relic": "Rod of Faith (VI)",
     "nameJp": "烈火に挑む魔導の力",
     "id": 201061202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3629,7 +3631,7 @@
     "relic": "Relm's Hat (VI)",
     "nameJp": "奇跡の色彩",
     "id": 201061302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3689,7 +3691,7 @@
     "relic": "Thornlet (VI)",
     "nameJp": "世界を救うものまね",
     "id": 201061402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3737,7 +3739,7 @@
     "relic": "Earth Mallet (VI)",
     "nameJp": "ウガー！",
     "id": 201061502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3773,7 +3775,7 @@
     "relic": "Mischief Cap (VI)",
     "nameJp": "裏切りの道化師",
     "id": 201061602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3821,7 +3823,7 @@
     "relic": "Aegis Shield (VI)",
     "nameJp": "和平への希望",
     "id": 201061802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3833,6 +3835,7 @@
     "relic": "Imperial Gloves (VI)",
     "nameJp": "根っからの武人",
     "id": 201061803,
+    "anima": null,
     "gl": false
   },
   {
@@ -3868,7 +3871,7 @@
     "relic": "Steady Light (VII)",
     "nameJp": "狼の疾走",
     "id": 201070102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -3964,7 +3967,7 @@
     "relic": "Drill Arm (VII)",
     "nameJp": "誓いの右腕",
     "id": 201070202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4012,7 +4015,7 @@
     "relic": "Tifa's Guise (VII)",
     "nameJp": "心温かな女闘士",
     "id": 201070303,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4060,7 +4063,7 @@
     "relic": "Aerith's Jacket (VII)",
     "nameJp": "スラムの花売り",
     "id": 201070402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4096,7 +4099,7 @@
     "relic": "Hairpin (VII)",
     "nameJp": "勇者の息子",
     "id": 201070502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4144,7 +4147,7 @@
     "relic": "Yuffie's Guise (VII)",
     "nameJp": "アタシのもの！",
     "id": 201070602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4180,7 +4183,7 @@
     "relic": "Cait Sith's Crown (VII)",
     "nameJp": "移ろう救星への想い",
     "id": 201070702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4216,7 +4219,7 @@
     "relic": "Vincent's Bandana (DoC) (VII)",
     "nameJp": "赤き決意",
     "id": 201070802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4264,7 +4267,7 @@
     "relic": "Shinra Beta+ (CC) (VII)",
     "nameJp": "ソルジャーの追撃",
     "id": 201070902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4312,7 +4315,7 @@
     "relic": "Sephiroth's Darkcoat (VII)",
     "nameJp": "運命を変えし秘密",
     "id": 201071002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4360,7 +4363,7 @@
     "relic": "Cid's Jacket (VII)",
     "nameJp": "大空の覇者",
     "id": 201071102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4408,7 +4411,7 @@
     "relic": "Enhanced Light Rod (VII)",
     "nameJp": "調査課の自負と誇り",
     "id": 201071202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4444,7 +4447,7 @@
     "relic": "Rufus's Jacket (VII)",
     "nameJp": "世界の代表者",
     "id": 201071802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4492,7 +4495,7 @@
     "relic": "Slash Lance (VII)",
     "nameJp": "時の止まりし戦士",
     "id": 201071902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4528,7 +4531,7 @@
     "relic": "Heavy Lance (CC) (VII)",
     "nameJp": "羽ばたく白き翼",
     "id": 201071502,
-    "anima": "1",
+    "anima": 1,
     "gl": false
   },
   {
@@ -4564,7 +4567,7 @@
     "relic": "Shinra Headset (VII)",
     "nameJp": "敵方への恋心",
     "id": 201072002,
-    "anima": "2",
+    "anima": 2,
     "gl": false
   },
   {
@@ -4600,7 +4603,7 @@
     "relic": "Commander (VII)",
     "nameJp": "主任への淡き想い",
     "id": 201072102,
-    "anima": "2",
+    "anima": 2,
     "gl": false
   },
   {
@@ -4636,7 +4639,7 @@
     "relic": "Lion Gloves (VIII)",
     "nameJp": "猛々しき獅子の牙",
     "id": 201080102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4696,7 +4699,7 @@
     "relic": "Rinoa's Arm Warmers (VIII)",
     "nameJp": "運命に屈せぬ魔女",
     "id": 201080202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4780,7 +4783,7 @@
     "relic": "Quistis's Uniform (VIII)",
     "nameJp": "SeeDきっての才媛",
     "id": 201080302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4816,7 +4819,7 @@
     "relic": "Zell's Jacket (VIII)",
     "nameJp": "暴れん坊の気迫",
     "id": 201080402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4864,7 +4867,7 @@
     "relic": "Selphie's Guise (VIII)",
     "nameJp": "学園祭への執念",
     "id": 201080502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4888,6 +4891,7 @@
     "relic": "White Dress (VIII)",
     "nameJp": "トラビアを想う意志",
     "id": 201080504,
+    "anima": null,
     "gl": false
   },
   {
@@ -4923,7 +4927,7 @@
     "relic": "Irvine's Guise (VIII)",
     "nameJp": "過去を知る者",
     "id": 201081202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -4959,7 +4963,7 @@
     "relic": "Seifer's Guise (VIII)",
     "nameJp": "執拗なる襲撃者",
     "id": 201080702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5019,7 +5023,7 @@
     "relic": "Presidential Casual (VIII)",
     "nameJp": "好漢の茶目っ気",
     "id": 201080902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5067,7 +5071,7 @@
     "relic": "Sorceress Crown+ (VIII)",
     "nameJp": "巨大なる魔力",
     "id": 201081002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5127,7 +5131,7 @@
     "relic": "Bolt Armlet (VIII)",
     "nameJp": "轟く豪雷",
     "id": 201080602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5175,7 +5179,7 @@
     "relic": "Fujin's Bracers (VIII)",
     "nameJp": "猛る烈風",
     "id": 201081302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5223,7 +5227,7 @@
     "relic": "Harmonia's Guard (VIII)",
     "nameJp": "傲慢な野望",
     "id": 201082002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5295,7 +5299,7 @@
     "relic": "Ninja Gear (IX)",
     "nameJp": "盗賊の機転",
     "id": 201090103,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5331,7 +5335,7 @@
     "relic": "Lamia's Tiara (IX)",
     "nameJp": "気高き決意",
     "id": 201090202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5367,6 +5371,7 @@
     "relic": "Mythril Rod (IX)",
     "nameJp": "君の小鳥になりたい",
     "id": 201090205,
+    "anima": null,
     "gl": false
   },
   {
@@ -5402,7 +5407,7 @@
     "relic": "Vivi's Hat (IX)",
     "nameJp": "蓄積されし魔力",
     "id": 201090302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5462,7 +5467,7 @@
     "relic": "Gold Armor (IX)",
     "nameJp": "創意工夫の魔法剣",
     "id": 201090402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5522,7 +5527,7 @@
     "relic": "Freya's Cap (IX)",
     "nameJp": "精進を怠らぬ騎士",
     "id": 201090502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5546,6 +5551,7 @@
     "relic": "Ice Lance (IX)",
     "nameJp": "驚異的な跳躍",
     "id": 201090504,
+    "anima": null,
     "gl": false
   },
   {
@@ -5581,7 +5587,7 @@
     "relic": "Silver Fork (IX)",
     "nameJp": "ク族の備え",
     "id": 201090602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5629,7 +5635,7 @@
     "relic": "Eiko's Guise (IX)",
     "nameJp": "故郷に馳せる想い",
     "id": 201090702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5677,7 +5683,7 @@
     "relic": "Amarant's Suit (IX)",
     "nameJp": "裏稼業の凄腕",
     "id": 201090802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5725,7 +5731,7 @@
     "relic": "Beatrix's Plate (IX)",
     "nameJp": "絶対なる忠誠心",
     "id": 201090902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5773,7 +5779,7 @@
     "relic": "Chosen of Treno (IX)",
     "nameJp": " 無彩色の自己愛",
     "id": 201091002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5809,7 +5815,7 @@
     "relic": "Marcus's Armlet (IX)",
     "nameJp": "真面目なコワモテ青年",
     "id": 201091500,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5845,7 +5851,7 @@
     "relic": "Tidus's Armguards (X)",
     "nameJp": "幻光の加護",
     "id": 201100102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5905,7 +5911,7 @@
     "relic": "Bridal Gown (X)",
     "nameJp": "指笛の約束",
     "id": 201100203,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5953,7 +5959,7 @@
     "relic": "Cerulean Armguard (X)",
     "nameJp": "テクニカルコントロール",
     "id": 201100302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -5965,6 +5971,7 @@
     "relic": "Medical Armguard (X)",
     "nameJp": "目標は優勝",
     "id": 201100303,
+    "anima": null,
     "gl": false
   },
   {
@@ -6000,7 +6007,7 @@
     "relic": "Sapphire Bangle (X)",
     "nameJp": "3度目の旅路",
     "id": 201100402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6060,7 +6067,7 @@
     "relic": "Thanatos Lance (X)",
     "nameJp": "槍に宿りし怒り",
     "id": 201100502,
-    "anima": "1",
+    "anima": 1,
     "gl": false
   },
   {
@@ -6108,7 +6115,7 @@
     "relic": "Warrior's Targe (X)",
     "nameJp": "遺物の修復者",
     "id": 201100602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6156,7 +6163,7 @@
     "relic": "Blurry Moon (X)",
     "nameJp": "牙を剥きし龍",
     "id": 201100702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6204,7 +6211,7 @@
     "relic": "Jecht's Sparring Suit (X)",
     "nameJp": "ブリッツの王者",
     "id": 201101002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6264,7 +6271,7 @@
     "relic": "High Summoner's Helm (X)",
     "nameJp": "大召喚士の静かなる怒り",
     "id": 201101202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6300,7 +6307,7 @@
     "relic": "Gunner's Guise (X)",
     "nameJp": "カモメ団のお目付役",
     "id": 201101502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6348,7 +6355,7 @@
     "relic": "Moonglow Rod (X)",
     "nameJp": "破滅に導く救済者",
     "id": 201101802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6396,7 +6403,7 @@
     "relic": "Wizard's Coat (XI)",
     "nameJp": "絶対なる唯我独尊",
     "id": 201110102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6456,7 +6463,7 @@
     "relic": "Myochin Domaru (XI)",
     "nameJp": "即撃ちの型",
     "id": 201110202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6504,7 +6511,7 @@
     "relic": "Royal Squire's Mufflers (XI)",
     "nameJp": "騎士団長の配慮",
     "id": 201110302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6552,7 +6559,7 @@
     "relic": "Temple Cyclas (XI)",
     "nameJp": "宿りし魔晶石の力",
     "id": 201110402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6588,7 +6595,7 @@
     "relic": "Kidney Dagger (XI)",
     "nameJp": "造詣深きエージェント",
     "id": 201110502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6624,7 +6631,7 @@
     "relic": "Alkyoneus's Bracelet (XI)",
     "nameJp": "宮廷傀儡師の秘術",
     "id": 201110602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6660,7 +6667,7 @@
     "relic": "Balin's Sword (XI)",
     "nameJp": "黒く輝く刃",
     "id": 201110702,
-    "anima": "1",
+    "anima": 1,
     "gl": false
   },
   {
@@ -6696,7 +6703,7 @@
     "relic": "Cermet Knife (XI)",
     "nameJp": "跳ねっ返りな踊り子",
     "id": 201110802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6732,7 +6739,7 @@
     "relic": "Vaan's Vest (XII)",
     "nameJp": "物怖じしない度胸",
     "id": 201120102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6804,7 +6811,7 @@
     "relic": "Goggle Mask (XII)",
     "nameJp": "主人公を自負する者",
     "id": 201120202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6852,7 +6859,7 @@
     "relic": "Fran's Bracers (XII)",
     "nameJp": "知勇兼ね備えし女戦士",
     "id": 201120302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6924,7 +6931,7 @@
     "relic": "Basch's Gloves (XII)",
     "nameJp": "ダルマスカに捧ぐ忠心",
     "id": 201120402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -6960,7 +6967,7 @@
     "relic": "Ashe's Bracers (XII)",
     "nameJp": "誇り失わぬ王女",
     "id": 201120502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7008,7 +7015,7 @@
     "relic": "Feathered Cap (XII)",
     "nameJp": "溢れる思いやり",
     "id": 201120602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7044,7 +7051,7 @@
     "relic": "Barbut (XII)",
     "nameJp": "黒鉄を纏いし武人",
     "id": 201120702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7092,7 +7099,7 @@
     "relic": "Swordbreaker (XII)",
     "nameJp": "歪みを正す信念",
     "id": 201120802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7116,6 +7123,7 @@
     "relic": "Light Woven Shirt (XII)",
     "nameJp": "天才児の英知",
     "id": 201120804,
+    "anima": null,
     "gl": false
   },
   {
@@ -7151,7 +7159,7 @@
     "relic": "Novus Leathers (XII)",
     "nameJp": "血塗られた剣",
     "id": 201121002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7187,7 +7195,7 @@
     "relic": "Bone Mail (XII)",
     "nameJp": "若き義勇兵",
     "id": 201121102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7223,7 +7231,7 @@
     "relic": "Lightning's Reprise (XIII)",
     "nameJp": "閃きし女剣士",
     "id": 201130102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7295,7 +7303,7 @@
     "relic": "Snow's Longcoat (XIII)",
     "nameJp": "不退転の決意",
     "id": 201130202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7355,7 +7363,7 @@
     "relic": "Rod of Thorns (XIII)",
     "nameJp": "優しき贖罪",
     "id": 201130302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7403,7 +7411,7 @@
     "relic": "Sazh's Coat (XIII)",
     "nameJp": "奮闘する父",
     "id": 201130402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7439,7 +7447,7 @@
     "relic": "Hope's Guise (XIII)",
     "nameJp": "めざましき成長",
     "id": 201130502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7487,7 +7495,7 @@
     "relic": "Fang's Guise (XIII)",
     "nameJp": "男まさりの女闘士",
     "id": 201130602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7559,7 +7567,7 @@
     "relic": "Beachwear (XIII)",
     "nameJp": "未来視の異能",
     "id": 201130702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7607,7 +7615,7 @@
     "relic": "Raines's Reprise (XIII)",
     "nameJp": "死者たちの代弁者",
     "id": 201131002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7679,6 +7687,7 @@
     "relic": "Grimoire Hat (XIII)",
     "nameJp": "溢れるバイタリティー",
     "id": 201131104,
+    "anima": null,
     "gl": false
   },
   {
@@ -7714,7 +7723,7 @@
     "relic": "Nabaat's Glove (XIII)",
     "nameJp": "悪意の発露",
     "id": 201131202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7762,7 +7771,7 @@
     "relic": "Ironworks Healing Robe (XIV)",
     "nameJp": "幻術の熟手",
     "id": 201140102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7810,7 +7819,7 @@
     "relic": "Hofuds (XIV)",
     "nameJp": "天性の身軽さ",
     "id": 201140203,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7846,7 +7855,7 @@
     "relic": "Striker's Cuirass (XIV)",
     "nameJp": "格闘の名手",
     "id": 201140302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7894,7 +7903,7 @@
     "relic": "Caster's Doublet (XIV)",
     "nameJp": "呪術の老手",
     "id": 201140502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7930,7 +7939,7 @@
     "relic": "Caller's Himation (XIV)",
     "nameJp": "学び多き旅路",
     "id": 201140603,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -7966,7 +7975,7 @@
     "relic": "Magitek Shield (XIV)",
     "nameJp": "盟主の資質",
     "id": 201140702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8014,7 +8023,7 @@
     "relic": "Machinist's Shirt (XIV)",
     "nameJp": "自由のための技術",
     "id": 201140803,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8050,7 +8059,7 @@
     "relic": "Halonic Exorcist's Rod (XIV)",
     "nameJp": "想いを超える力",
     "id": 201140903,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8086,7 +8095,7 @@
     "relic": "Fortemps Haubergeon (XIV)",
     "nameJp": "一角獣への誓い",
     "id": 201141003,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8122,7 +8131,7 @@
     "relic": "Drachen Gauntlets (XIV)",
     "nameJp": "貫く意思の槍",
     "id": 201141103,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8158,7 +8167,7 @@
     "relic": "Bronze Bangle (XV)",
     "nameJp": "啓示を受けし者",
     "id": 201150102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8206,7 +8215,7 @@
     "relic": "Kite Shield (XV)",
     "nameJp": "王の盾",
     "id": 201150202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8266,7 +8275,7 @@
     "relic": "Ignis's Fatigues (XV)",
     "nameJp": "生真面目な料理人",
     "id": 201150302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8314,7 +8323,7 @@
     "relic": "Iron Bangle (XV)",
     "nameJp": "一般人の覚悟",
     "id": 201150402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8350,7 +8359,7 @@
     "relic": "Power Wristband (XV)",
     "nameJp": "アミシティアの系譜",
     "id": 201150502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8386,7 +8395,7 @@
     "relic": "Aranea's Gauntlet (XV)",
     "nameJp": "天空を翔けし女傑",
     "id": 201150602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8458,7 +8467,7 @@
     "relic": "Brigandine (FFT)",
     "nameJp": "真なる勇者",
     "id": 201500102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8506,7 +8515,7 @@
     "relic": "Jade Armlet (FFT)",
     "nameJp": "揺るがぬ信義",
     "id": 201500202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8554,7 +8563,7 @@
     "relic": "Aegis Shield (FFT)",
     "nameJp": "アークナイトの妙技",
     "id": 201500302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8602,7 +8611,7 @@
     "relic": "Celebrant's Miter (FFT)",
     "nameJp": "聖魔法の心得",
     "id": 201500402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8650,7 +8659,7 @@
     "relic": "Empyreal Armband (FFT)",
     "nameJp": "機工士の早撃ち",
     "id": 201500502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8686,7 +8695,7 @@
     "relic": "Flame Shield (FFT)",
     "nameJp": "至高の剣技",
     "id": 201500602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8734,7 +8743,7 @@
     "relic": "Power Garb (FFT)",
     "nameJp": "ダークナイトの妙技",
     "id": 201500702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8782,7 +8791,7 @@
     "relic": "Rapha's Bracer (FFT)",
     "nameJp": "受け継ぎし真言",
     "id": 201500902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8818,7 +8827,7 @@
     "relic": "Marach's Guise (FFT)",
     "nameJp": "裏真言の真価",
     "id": 201501002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8854,7 +8863,7 @@
     "relic": "Venus Blade (FFT)",
     "nameJp": "剛剣の真髄",
     "id": 201501102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8890,7 +8899,7 @@
     "relic": "Bronze Helm (A) (FFT)",
     "nameJp": "心の底に秘めた望み",
     "id": 201501202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8926,7 +8935,7 @@
     "relic": "Silken Robe (A) (FFT)",
     "nameJp": "補うための魔法の知識",
     "id": 201501302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -8974,7 +8983,7 @@
     "relic": "Wizard's Rod (FFT)",
     "nameJp": "兄を案じる心",
     "id": 201501402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9010,7 +9019,7 @@
     "relic": "Battle Folio (FFT)",
     "nameJp": "南天騎士団の軍師",
     "id": 201502802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9046,7 +9055,7 @@
     "relic": "Argentic Deck (Type-0)",
     "nameJp": "未来を手繰り寄せる者",
     "id": 201600102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9070,6 +9079,7 @@
     "relic": "Reed Cloak (Type-0)",
     "nameJp": "臨機応変の奇術",
     "id": 201600104,
+    "anima": null,
     "gl": false
   },
   {
@@ -9081,6 +9091,7 @@
     "relic": "Ironclad Deck (Type-0)",
     "nameJp": "受け取る力を司る者",
     "id": 201600105,
+    "anima": null,
     "gl": false
   },
   {
@@ -9116,7 +9127,7 @@
     "relic": "Feathered Cap (Type-0)",
     "nameJp": "少女の心くばり",
     "id": 201600202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9164,7 +9175,7 @@
     "relic": "Heavy Lance (Type-0)",
     "nameJp": "破天荒な跳躍",
     "id": 201600302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9200,7 +9211,7 @@
     "relic": "Platinum Bangle (Type-0)",
     "nameJp": "力を渇望する少年",
     "id": 201600402,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9236,7 +9247,7 @@
     "relic": "Gold Hairpin (Type-0)",
     "nameJp": "慈愛の乙女",
     "id": 201600502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9296,7 +9307,7 @@
     "relic": "Queen's Guise (Type-0)",
     "nameJp": "冷静沈着な戦術",
     "id": 201600602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9344,7 +9355,7 @@
     "relic": "Platinum Gloves (Type-0)",
     "nameJp": "内に秘めたる深情",
     "id": 201600702,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9380,7 +9391,7 @@
     "relic": "Dominion Helmet (Type-0)",
     "nameJp": "栗色の三つ編み",
     "id": 201600802,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9428,7 +9439,7 @@
     "relic": "Gauntlet (Type-0)",
     "nameJp": "0組女生徒の憧れ",
     "id": 201600902,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9464,7 +9475,7 @@
     "relic": "Silver Bracelet (Type-0)",
     "nameJp": "弱肉強食の思想",
     "id": 201601002,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9500,7 +9511,7 @@
     "relic": "Diamond Gloves (Type-0)",
     "nameJp": "二の太刀いらずの剣士",
     "id": 201601102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9536,7 +9547,7 @@
     "relic": "Silver Knuckles (Type-0)",
     "nameJp": "優れた見識",
     "id": 201601202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9572,7 +9583,7 @@
     "relic": "Magicite Pistol (Type-0)",
     "nameJp": "戦場に向かう勇姿",
     "id": 201601302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9608,6 +9619,7 @@
     "relic": "Trey's Guise (Type-0)",
     "nameJp": "博雅の名射手",
     "id": 201601402,
+    "anima": null,
     "gl": false
   },
   {
@@ -9811,7 +9823,7 @@
     "relic": "Blue Alpha Arm (Beyond)",
     "nameJp": "氷のシンフォニー",
     "id": 201900502,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9847,7 +9859,7 @@
     "relic": "Surge Searcher (Beyond)",
     "nameJp": "炎のハーモニー",
     "id": 201900602,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9883,7 +9895,7 @@
     "relic": "Zephyr Cape (Beyond)",
     "nameJp": "駆け巡る時",
     "id": 201901102,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9919,7 +9931,7 @@
     "relic": "White Cape (Beyond)",
     "nameJp": "優しく可憐な橙",
     "id": 201901202,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9955,7 +9967,7 @@
     "relic": "Energy Sash (Beyond)",
     "nameJp": "世界を翔る冒険家",
     "id": 201901302,
-    "anima": "1",
+    "anima": 1,
     "gl": true
   },
   {
@@ -9991,7 +10003,7 @@
     "relic": "Tama's Apron (Beyond)",
     "nameJp": "命の残し方",
     "id": 201901602,
-    "anima": "1",
+    "anima": 1,
     "gl": false
   },
   {
@@ -10027,7 +10039,7 @@
     "relic": "Roxanne Gloves (Beyond)",
     "nameJp": "神秘の存在",
     "id": 201901702,
-    "anima": "1",
+    "anima": 1,
     "gl": false
   },
   {
@@ -10039,6 +10051,7 @@
     "relic": null,
     "nameJp": "噂話の収集",
     "id": 201903200,
+    "anima": null,
     "gl": false
   },
   {
@@ -10050,6 +10063,7 @@
     "relic": null,
     "nameJp": "いろんな世界のマスコット",
     "id": 201903201,
+    "anima": null,
     "gl": false
   }
 ]

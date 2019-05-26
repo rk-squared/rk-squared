@@ -10,6 +10,9 @@ export const localIcons: { [s: string]: string } = {
   poisonElement: require('../images/ffrk-icons/poison.png'),
   waterElement: require('../images/ffrk-icons/water.png'),
   windElement: require('../images/ffrk-icons/wind.png'),
+  animaWave1: require('../images/game-icons/checkered-diamond-6daf50.svg'),
+  animaWave2: require('../images/game-icons/checkered-diamond-d22d2d.svg'),
+  animaWaveUnknown: require('../images/game-icons/checkered-diamond-000000.svg'),
 };
 
 export const equipmentIcons: { [s in EnlirRelicType]: string | undefined } = {

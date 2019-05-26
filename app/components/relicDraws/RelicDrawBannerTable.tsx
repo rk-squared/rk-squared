@@ -24,6 +24,7 @@ import {
   styles as soulBreakStyles,
   tierClass,
 } from '../shared/SoulBreakShared';
+import { RelicAvailability } from './RelicAvailability';
 
 const styles = require('./RelicDrawBannerTable.scss');
 
@@ -35,6 +36,7 @@ interface Props {
 
   groupBySeries?: boolean;
   allowCollapse?: boolean;
+  includeAvailability?: boolean;
 
   allowSelect?: boolean;
   getSelected?: (relicId: number) => boolean;
@@ -95,7 +97,14 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
   }
 
   renderRow(relicId: number, key: number, showProbability: boolean, colCount: number) {
-    const { probabilities, groupBySeries, getStatusAndCss, allowSelect, getSelected } = this.props;
+    const {
+      probabilities,
+      groupBySeries,
+      getStatusAndCss,
+      includeAvailability,
+      allowSelect,
+      getSelected,
+    } = this.props;
     const relic = enlir.relics[relicId];
     const { character, name, type, effect } = relic;
     const sb = enlir.relicSoulBreaks[relicId];
@@ -134,7 +143,15 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
           </tr>
         )}
         <tr className={className} onClick={handleClick}>
-          <td rowSpan={rowSpan}>{character}</td>
+          <td rowSpan={rowSpan}>
+            {character}
+            {includeAvailability && (
+              <>
+                <br />
+                <RelicAvailability item={sb || lm} />
+              </>
+            )}
+          </td>
           <td rowSpan={rowSpan}>
             <RelicTypeIcon type={type} className={styles.relicType} /> {name}
             {effect && <div className={styles.relicEffect}>{describeRelicEffect(effect)}</div>}

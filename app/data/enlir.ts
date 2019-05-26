@@ -186,6 +186,7 @@ export interface EnlirGenericSkill {
 
 export interface EnlirSoulBreakOrLegendMateria {
   id: number;
+  anima: number | null;
   gl: boolean;
 }
 
@@ -249,6 +250,7 @@ export interface EnlirLegendMateria {
   relic: string | null;
   nameJp: string;
   id: number;
+  anima: number | null;
   gl: boolean;
 }
 
@@ -295,6 +297,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
   master: string | null;
   relic: string | null;
   nameJp: string;
+  anima: number | null;
 }
 
 export interface EnlirStatus {

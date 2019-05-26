@@ -112,6 +112,10 @@ const skillFields: { [col: string]: (value: string) => any } = {
 // via data mining, instead of just being written up from descriptions).
 const shouldAlwaysSkip = (col: string) => col === '✓' || col === 'Img';
 
+// As of May 2019, the Anima column is inconsistent across different tabs:
+// "Anima?" for legend materia and "Anima" for soul breaks.
+const isAnima = (col: string) => col === 'Anima' || col === 'Anima?';
+
 function convertAbilities(rows: any[]): any[] {
   const abilities = [];
 
@@ -129,6 +133,8 @@ function convertAbilities(rows: any[]): any[] {
       const field = _.camelCase(col);
       if (col === 'Rarity' || col === 'Uses' || col === 'Max') {
         item[field] = toInt(rows[i][j]);
+      } else if (isAnima(col)) {
+        item['anima'] = toInt(rows[i][j]);
       } else if (skillFields[col]) {
         item[field] = skillFields[col](rows[i][j]);
       } else if (col.match(/Orb \d+ Required/)) {
@@ -264,6 +270,8 @@ function convertLegendMateria(rows: any[]): any[] {
       const field = _.camelCase(col);
       if (field === 'relic') {
         item[field] = dashNull(toString)(rows[i][j]);
+      } else if (isAnima(col)) {
+        item['anima'] = toInt(rows[i][j]);
       } else {
         item[field] = toCommon(field, rows[i][j]);
       }

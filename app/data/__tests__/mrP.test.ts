@@ -28,6 +28,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     relic: 'Wildfire (KH)',
     nameJp: 'エクスプロージョン',
     id: 23410001,
+    anima: null,
     gl: false,
   },
   {
@@ -49,6 +50,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     relic: 'Eternal Flames (KH)',
     nameJp: 'バーストインフェルノ',
     id: 23410002,
+    anima: null,
     gl: false,
   },
   {
@@ -71,6 +73,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     relic: 'Prominence (KH)',
     nameJp: '乱舞',
     id: 23410003,
+    anima: null,
     gl: false,
   },
   {
@@ -93,6 +96,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     relic: 'Magma Ocean (KH)',
     nameJp: 'ファイアウォール',
     id: 23410004,
+    anima: null,
     gl: false,
   },
   {
@@ -114,6 +118,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     relic: "Magician's Mark (XIII)",
     nameJp: 'ダークシフト',
     id: 22410011,
+    anima: null,
     gl: false,
   },
   {
@@ -136,6 +141,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     relic: 'Tiger Fangs (II)',
     nameJp: '漢の拳骨',
     id: 20190009,
+    anima: null,
     gl: false,
   },
   {
@@ -158,6 +164,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     relic: 'Hyper Fist (VII)',
     nameJp: '掌打破岩',
     id: 20230014,
+    anima: null,
     gl: false,
   },
 ];
