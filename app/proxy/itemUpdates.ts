@@ -14,6 +14,7 @@ import * as schemas from '../api/schemas';
 import * as gachaSchemas from '../api/schemas/gacha';
 import { enlir } from '../data';
 import { dressRecordsById } from '../data/dressRecords';
+import { EnlirLegendMateria, EnlirRelic, EnlirSoulBreak } from '../data/enlir';
 import { items, ItemType, ItemTypeLookup } from '../data/items';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
@@ -155,6 +156,12 @@ function handleWinBattle(data: schemas.WinBattle) {
   });
 }
 
+interface CheckedEntity<T> {
+  enlirItem: T;
+  updateRelease: boolean;
+  updateName: string | undefined;
+}
+
 function compareGlEntity<
   T1 extends { id: number; name: string },
   T2 extends { name: string; gl: boolean }
@@ -165,24 +172,45 @@ function compareGlEntity<
   description: string,
   source: string,
   trimRe?: RegExp,
-) {
+): CheckedEntity<T2> | null {
   const enlirItem = enlirItems[item.id];
   if (!enlirItem) {
     callback(`Item update: Unknown ${description} ID ${item.id}, ${item.name}, from ${source}`);
     return null;
   }
 
+  let updateRelease = false;
   if (!enlirItem.gl) {
     callback(`Item update: ${description} ID ${item.id}, ${item.name}, is now released in global`);
+    updateRelease = true;
   }
+
   const trimmedName = trimRe ? item.name.replace(trimRe, '') : item.name.trimRight();
+  let updateName: string | undefined;
   if (enlirItem.name !== trimmedName) {
     callback(
       `Item update: ${description} ID ${item.id}, ${item.name}, ` +
         `is named ${enlirItem.name} in Enlir`,
     );
+    updateName = item.name;
   }
-  return enlirItem;
+
+  return {
+    enlirItem,
+    updateRelease,
+    updateName,
+  };
+}
+
+function showUpdateCommands<T extends { id: number }>(
+  checked: Array<CheckedEntity<T>>,
+  tabName: string,
+  callback: (message: string) => void,
+) {
+  const releaseIds = checked.filter(i => i.updateRelease).map(i => i.enlirItem.id);
+  if (releaseIds.length) {
+    callback(`update-enlir.ts releaseInGl ${tabName} ${releaseIds.join(' ')}`);
+  }
 }
 
 function checkGlRelicDrawBannerItems(
@@ -190,6 +218,10 @@ function checkGlRelicDrawBannerItems(
   currentTime: number,
   callback: (message: string) => void,
 ) {
+  const checkedRelics: Array<CheckedEntity<EnlirRelic>> = [];
+  const checkedSoulBreaks: Array<CheckedEntity<EnlirSoulBreak>> = [];
+  const checkedLegendMateria: Array<CheckedEntity<EnlirLegendMateria>> = [];
+
   for (const i of data.series_list) {
     if (i.opened_at > currentTime / 1000) {
       continue;
@@ -201,7 +233,7 @@ function checkGlRelicDrawBannerItems(
       const { id, name, soul_strike, legend_materia } = equipment;
       const relicName = `relic ${name} (ID ${id})`;
 
-      const enlirRelic = compareGlEntity(
+      const compareRelic = compareGlEntity(
         callback,
         equipment,
         enlir.relics,
@@ -209,14 +241,24 @@ function checkGlRelicDrawBannerItems(
         relicName,
         / \(.*\) */,
       );
-      if (!enlirRelic) {
+      if (!compareRelic) {
         continue;
       }
+      checkedRelics.push(compareRelic);
       if (soul_strike) {
-        compareGlEntity(callback, soul_strike, enlir.soulBreaks, 'soul break', relicName);
+        const compareSoulBreak = compareGlEntity(
+          callback,
+          soul_strike,
+          enlir.soulBreaks,
+          'soul break',
+          relicName,
+        );
+        if (compareSoulBreak) {
+          checkedSoulBreaks.push(compareSoulBreak);
+        }
       }
       if (legend_materia) {
-        compareGlEntity(
+        const compareLegendMateria = compareGlEntity(
           callback,
           legend_materia,
           enlir.legendMateria,
@@ -224,9 +266,16 @@ function checkGlRelicDrawBannerItems(
           relicName,
           / \(.*\) */,
         );
+        if (compareLegendMateria) {
+          checkedLegendMateria.push(compareLegendMateria);
+        }
       }
     }
   }
+
+  showUpdateCommands(checkedRelics, 'relics', callback);
+  showUpdateCommands(checkedSoulBreaks, 'soulBreaks', callback);
+  showUpdateCommands(checkedLegendMateria, 'legendMateria', callback);
 }
 
 const itemUpdatesHandler: Handler = {

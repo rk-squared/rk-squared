@@ -5532,7 +5532,7 @@
       "eva": null
     },
     "id": 21001118,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Dancing Daggers",
@@ -14892,7 +14892,7 @@
       "eva": null
     },
     "id": 21002478,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Restorer",
@@ -14937,7 +14937,7 @@
       "eva": null
     },
     "id": 21002479,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Argentic Rapiers",
@@ -31722,7 +31722,7 @@
       "eva": null
     },
     "id": 21004054,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Slasher",
@@ -31767,7 +31767,7 @@
       "eva": null
     },
     "id": 21004046,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rune Axe",
@@ -97827,7 +97827,7 @@
       "eva": 105
     },
     "id": 22052059,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Helm of Light",
@@ -113847,7 +113847,7 @@
       "eva": 105
     },
     "id": 22054105,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Death Armor",
@@ -119880,7 +119880,7 @@
     "gl": true
   },
   {
-    "name": "Samite Coat ",
+    "name": "Samite Coat",
     "realm": "FFT",
     "type": "Robe",
     "rarity": 5,

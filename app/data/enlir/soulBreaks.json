@@ -39244,7 +39244,7 @@
     "points": 250,
     "tier": "Glint",
     "master": "MND +10",
-    "relic": "Samite Coat  (FFT)",
+    "relic": "Samite Coat (FFT)",
     "nameJp": "セイントウェーブ",
     "id": 22390009,
     "anima": null,
@@ -39701,7 +39701,7 @@
     "nameJp": "漆黒の剣",
     "id": 22560005,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -39726,7 +39726,7 @@
     "nameJp": "イービルデッド",
     "id": 22560006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -39748,7 +39748,7 @@
     "nameJp": "傭兵の真価",
     "id": 22560007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -40157,7 +40157,7 @@
     "nameJp": "セイントコンボ",
     "id": 23040005,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -40179,7 +40179,7 @@
     "nameJp": "応急処置【FFT】",
     "id": 23040006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
