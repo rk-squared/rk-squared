@@ -304,7 +304,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
 export interface EnlirStatus {
   id: number;
   name: string;
-  effects: string; // TODO: null is actually permitted, but it complicates code a lot
+  effects: string; // May be the empty string; to simplify code, we use '' instead of null
   defaultDuration: number | null;
   mndModifier: number | null;
   mndModifierIsOpposed: boolean;

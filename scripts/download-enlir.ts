@@ -45,21 +45,15 @@ const dashNull = <T>(f: (value: string) => T) => dashAs(null, f);
 function toCommaSeparatedArray<T>(f: (value: string) => T): (value: string) => T[] | null {
   return (value: string) => (value === '' ? null : value.split(', ').map(f));
 }
-function ifNull<T>(f: (value: string) => T | null, nullValue: T): (value: string) => T {
-  return (value: string) => {
-    const result = f(value);
-    return result == null ? nullValue : result;
-  };
-}
 
 function toStringWithDecimals(value: string) {
-  if (value === '') {
-    return null;
-  } else {
-    // Convert commas (European decimal separator) to decimals for versions
-    // of the spreadsheet prior to 5/6/2019.
-    return value.replace(/(\d+),(\d+)/g, '$1.$2');
-  }
+  // Convert commas (European decimal separator) to decimals for versions
+  // of the spreadsheet prior to 5/6/2019.
+  //
+  // We used to also convert '' to null, but nearly all skills, statuses,
+  // legend materia, and record materia have non-null effect(s), so requiring
+  // code to support null adds too much complexity for too little benefit.
+  return value.replace(/(\d+),(\d+)/g, '$1.$2');
 }
 
 function toStringWithLookup(lookup: _.Dictionary<string>) {
@@ -98,8 +92,7 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Multiplier: toFloat,
   Element: dashAs([], toCommaSeparatedArray(toStringWithLookup(elementAbbreviations))),
   Time: toFloat,
-  // For skills in particular, a null effect string is annoying.  Avoid it.
-  Effects: ifNull(toStringWithDecimals, ''),
+  Effects: toStringWithDecimals,
   Counter: toBool,
   'Auto Target': toString,
   SB: toInt,
@@ -469,6 +462,8 @@ function convertRelics(rows: any[]): any[] {
         const f2 = _.camelCase(colAsAltStat(col));
         item[f1] = item[f1] || {};
         item[f1][f2] = toStat(f2, rows[i][j]);
+      } else if (col === 'Effect') {
+        item[field] = toStringWithDecimals(rows[i][j]) || null;
       } else {
         item[field] = toCommon(field, rows[i][j]);
       }

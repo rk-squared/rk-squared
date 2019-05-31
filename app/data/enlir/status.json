@@ -1918,7 +1918,7 @@
   {
     "id": 218,
     "name": "Float",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2039,7 +2039,7 @@
   {
     "id": 219,
     "name": "Weak",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2160,7 +2160,7 @@
   {
     "id": 220,
     "name": "Zombie",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2270,7 +2270,7 @@
   {
     "id": 221,
     "name": "Mini",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2391,7 +2391,7 @@
   {
     "id": 222,
     "name": "Toad",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2522,7 +2522,7 @@
   {
     "id": 223,
     "name": "Curse",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2533,7 +2533,7 @@
   {
     "id": 224,
     "name": "Slownumb",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2544,7 +2544,7 @@
   {
     "id": 225,
     "name": "Blink",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2555,7 +2555,7 @@
   {
     "id": 226,
     "name": "Imp",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2566,7 +2566,7 @@
   {
     "id": 227,
     "name": "Vanish",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2577,7 +2577,7 @@
   {
     "id": 228,
     "name": "Pig",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2813,7 +2813,7 @@
   {
     "id": 246,
     "name": "Glyph Mine",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -7587,7 +7587,7 @@
   {
     "id": 50191,
     "name": "Boundless Barrier",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -7815,7 +7815,7 @@
   {
     "id": 50211,
     "name": "Deprecated Doom of Atomos",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11324,7 +11324,7 @@
   {
     "id": 50552,
     "name": "Synchro Mode",
-    "effects": null,
+    "effects": "",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11335,7 +11335,7 @@
   {
     "id": 50573,
     "name": "Sword Field Follow-Up",
-    "effects": null,
+    "effects": "",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11346,7 +11346,7 @@
   {
     "id": 50577,
     "name": "Fear Mode",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11390,7 +11390,7 @@
   {
     "id": 507,
     "name": "Disable",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11555,7 +11555,7 @@
   {
     "id": 521,
     "name": "No Damage",
-    "effects": null,
+    "effects": "",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11590,7 +11590,7 @@
   {
     "id": 524,
     "name": "Doom of Atomos",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11901,7 +11901,7 @@
   {
     "id": 552,
     "name": "Nightmare Necrophobe ATK Doom",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11912,7 +11912,7 @@
   {
     "id": 553,
     "name": "Nightmare Necrophobe MAG Doom",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11923,7 +11923,7 @@
   {
     "id": 554,
     "name": "Nightmare Necrophobe DEF Doom",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11934,7 +11934,7 @@
   {
     "id": 555,
     "name": "Nightmare Necrophobe RES Doom",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11956,7 +11956,7 @@
   {
     "id": 557,
     "name": "Geosgaeno Swallow",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15268,7 +15268,7 @@
   {
     "id": 901,
     "name": "Ignore Control Loss",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15279,7 +15279,7 @@
   {
     "id": 902,
     "name": "Ignore Esuna",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15290,7 +15290,7 @@
   {
     "id": 903,
     "name": "Ignore Dispel",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15301,7 +15301,7 @@
   {
     "id": 904,
     "name": "Ignore Realm Chain",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15312,7 +15312,7 @@
   {
     "id": 905,
     "name": "Ignore AI",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15323,7 +15323,7 @@
   {
     "id": 906,
     "name": "Ignore AI 2",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15334,7 +15334,7 @@
   {
     "id": 907,
     "name": "Untargettable",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15345,7 +15345,7 @@
   {
     "id": 908,
     "name": "Hidden HP Gauge",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
