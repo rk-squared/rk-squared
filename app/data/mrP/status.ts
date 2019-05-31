@@ -351,19 +351,39 @@ function describeMergedSequence(sequence: FollowUpStatusSequence) {
 const isFinisherStatus = ({ effects }: EnlirStatus) => !!getFinisherSkillName(effects);
 const isFollowUpStatus = ({ effects }: EnlirStatus) => !!parseFollowUpEffect(effects);
 
+const isSoulBreakMode = ({ name, codedName }: EnlirStatus) =>
+  codedName === 'BRAVE_MODE' ||
+  codedName === 'BURST_MODE' ||
+  codedName === 'SYNCHRO_MODE' ||
+  // Prior to the introduction of Synchro, this was the coded name for burst.
+  codedName === 'TRANCE' ||
+  name === 'Brave Mode' ||
+  name === 'Burst Mode' ||
+  name === 'Synchro Mode';
+
 /**
  * "Mode" statuses are, typically, character-specific trances or EX-like
  * statuses provided by a single Ultra or Awakening soul break.
  */
-const isModeStatus = ({ name, codedName, effects }: EnlirStatus) =>
-  (!!codedName.match(/_MODE/) && codedName !== 'BRAVE_MODE') ||
-  (name.endsWith(' Mode') && name !== 'Brave Mode' && name !== 'Burst Mode') ||
-  // Specialized counter-attacks
-  (codedName.startsWith('COUNTER_AIMING') && name !== 'Retaliate' && name !== 'High Retaliate') ||
-  // Rage statuses
-  effects.match(/[Ff]orces a specified action/) != null ||
-  // Special cases - treat as a mode to give it more room for its description.
-  name === 'Haurchefant Cover';
+function isModeStatus(enlirStatus: EnlirStatus): boolean {
+  const { name, codedName, effects } = enlirStatus;
+  if (isSoulBreakMode(enlirStatus)) {
+    return false;
+  } else {
+    return (
+      !!codedName.match(/_MODE/) ||
+      name.endsWith(' Mode') ||
+      // Specialized counter-attacks
+      (codedName.startsWith('COUNTER_AIMING') &&
+        name !== 'Retaliate' &&
+        name !== 'High Retaliate') ||
+      // Rage statuses
+      effects.match(/[Ff]orces a specified action/) != null ||
+      // Special cases - treat as a mode to give it more room for its description.
+      name === 'Haurchefant Cover'
+    );
+  }
+}
 
 /**
  * Various usual statuses for which we want to force showing individual

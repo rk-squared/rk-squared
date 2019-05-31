@@ -129,7 +129,7 @@ function formatChance(chance: number, attack?: ParsedEnlirAttack | null): string
  * Brave Ultra Soul Breaks, but MrP's format doesn't.
  */
 function checkBurstAndBraveMode(selfOther: string[]): string[] {
-  selfOther = _.filter(selfOther, i => i !== 'Brave Mode');
+  selfOther = _.filter(selfOther, i => i !== 'Brave Mode' && i !== 'Synchro Mode');
   return selfOther.indexOf('Burst Mode') !== -1
     ? _.filter(selfOther, i => i !== 'Burst Mode' && i !== 'Haste')
     : selfOther;
@@ -805,7 +805,7 @@ export function describeEnlirSoulBreak(
       other.push(description);
     }
   }
-  if ('sb' in sb) {
+  if ('sb' in sb && sb.sb != null) {
     if (opt.includeSbPoints && sb.sb === 0) {
       // If we weren't asked to suppress SB points (which we are for follow-ups
       // and finishers, since those don't generate gauge), then call out

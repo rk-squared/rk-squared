@@ -148,6 +148,7 @@ export type EnlirSoulBreakTier =
   | 'AOSB'
   | 'AASB'
   | 'Glint+'
+  | 'SASB'
   | 'RW'
   | 'Shared';
 
@@ -312,11 +313,23 @@ export interface EnlirStatus {
   notes: string | null;
 }
 
+export interface EnlirSynchro extends EnlirGenericSkill {
+  character: string;
+  source: string;
+  synchroAbilitySlot: 1 | 2;
+  synchroCondition: EnlirElement | EnlirSchool;
+  sb: number | null;
+  school: EnlirSchool;
+  nameJp: string;
+  synchroConditionId: number;
+}
+
 export type EnlirSkill =
   | EnlirAbility
   | EnlirBraveCommand
   | EnlirBurstCommand
   | EnlirOtherSkill
+  | EnlirSynchro
   | EnlirSoulBreak;
 
 export enum SbOrLm {
@@ -335,7 +348,8 @@ export const tierOrder: { [t in EnlirSoulBreakTier]: number } = {
   AOSB: 7,
   USB: 8,
   AASB: 9,
-  CSB: 10,
+  SASB: 10,
+  CSB: 11,
   RW: 100,
   Shared: 101,
 };

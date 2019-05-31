@@ -131,7 +131,13 @@ function convertAbilities(rows: any[]): any[] {
       }
 
       const field = _.camelCase(col);
-      if (col === 'Rarity' || col === 'Uses' || col === 'Max') {
+      if (
+        col === 'Rarity' ||
+        col === 'Uses' ||
+        col === 'Max' ||
+        col === 'Synchro Ability Slot' ||
+        col === 'Synchro Condition ID'
+      ) {
         item[field] = toInt(rows[i][j]);
       } else if (isAnima(col)) {
         item['anima'] = toInt(rows[i][j]);
@@ -633,6 +639,11 @@ const dataTypes: DataType[] = [
     sheet: 'Relics',
     localName: 'relics',
     converter: convertRelics,
+  },
+  {
+    sheet: 'Synchro',
+    localName: 'synchro',
+    converter: convertAbilities,
   },
   {
     sheet: 'Soul Breaks',

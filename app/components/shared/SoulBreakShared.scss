@@ -62,6 +62,12 @@
     color: #5b9bd5;
   }
 
+  tr.synchro > td.tier,
+  tr.synchro > td.name {
+    font-weight: bold;
+    color: #5b60d5;
+  }
+
   tr.glint > td.tier,
   tr.glint > td.name {
     font-weight: bold;

@@ -19,6 +19,7 @@ export const tierClass: { [tier in EnlirSoulBreakTier]: string | undefined } = {
   USB: styles.ultra,
   CSB: styles.chain,
   AASB: styles.awakening,
+  SASB: styles.synchro,
   Glint: styles.glint,
   'Glint+': styles.glint,
 
@@ -40,6 +41,7 @@ export const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   USB: 'U',
   CSB: 'C',
   AASB: 'AA',
+  SASB: 'Sy',
   RW: '-',
   Shared: '-',
 });
