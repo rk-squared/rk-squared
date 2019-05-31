@@ -9379,7 +9379,9 @@
     "4R3": "0",
     "4R4": "0",
     "4R5": "0",
-    "id": null,
+    "introducingEvent": null,
+    "nameJp": null,
+    "id": 30131411,
     "gl": false
   },
   {
@@ -11582,7 +11584,7 @@
   },
   {
     "school": "Dragoon",
-    "name": "Impulse Drive",
+    "name": "Impulse Dive",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",

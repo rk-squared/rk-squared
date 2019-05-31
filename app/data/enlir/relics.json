@@ -27270,6 +27270,96 @@
     "gl": true
   },
   {
+    "name": "Kumokirimaru",
+    "realm": "XI",
+    "type": "Katana",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Ice damage +20%",
+    "character": "Ayame",
+    "soulBreak": "Shin Setsugetsuka",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21003118,
+    "gl": false
+  },
+  {
+    "name": "Kazaridachi",
+    "realm": "XI",
+    "type": "Katana",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Ayame",
+    "soulBreak": "Ikishoten",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21003119,
+    "gl": false
+  },
+  {
     "name": "Yagyu Darkblade",
     "realm": "XII",
     "type": "Katana",
@@ -33030,6 +33120,51 @@
     "gl": true
   },
   {
+    "name": "Morgenstern",
+    "realm": "XI",
+    "type": "Hammer",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Naja",
+    "soulBreak": "Feline President's Hammer",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21005046,
+    "gl": false
+  },
+  {
     "name": "Scorpion Tail",
     "realm": "XII",
     "type": "Hammer",
@@ -33793,6 +33928,51 @@
     },
     "id": 21005028,
     "gl": true
+  },
+  {
+    "name": "Warhammer",
+    "realm": "XI",
+    "type": "Hammer",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 147,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Naja",
+    "soulBreak": null,
+    "legendMateria": "Wishing for Reinstatement",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 112,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 164,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21005047,
+    "gl": false
   },
   {
     "name": "Skull Crusher",
@@ -42480,6 +42660,51 @@
     "gl": true
   },
   {
+    "name": "Hydro Patas",
+    "realm": "XI",
+    "type": "Fist",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Prishe",
+    "soulBreak": "Heroine's Combat",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007196,
+    "gl": false
+  },
+  {
     "name": "Oversoul",
     "realm": "XIII",
     "type": "Fist",
@@ -51073,6 +51298,51 @@
     },
     "id": 21008222,
     "gl": true
+  },
+  {
+    "name": "Platinum Rod",
+    "realm": "XI",
+    "type": "Rod",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 130,
+      "res": 0,
+      "mnd": 177,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Aphmau",
+    "soulBreak": "Benediction (XI)",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 86,
+      "res": null,
+      "mnd": 133,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 148,
+      "res": null,
+      "mnd": 195,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008279,
+    "gl": false
   },
   {
     "name": "Rod of Faith",
@@ -60660,6 +60930,51 @@
     "gl": true
   },
   {
+    "name": "Flanged Mace",
+    "realm": "XI",
+    "type": "Staff",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 130,
+      "res": 0,
+      "mnd": 177,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Aphmau",
+    "soulBreak": "Imperial Heal",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 86,
+      "res": null,
+      "mnd": 133,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 148,
+      "res": null,
+      "mnd": 195,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009117,
+    "gl": false
+  },
+  {
     "name": "Brightwing Staff",
     "realm": "XIII",
     "type": "Staff",
@@ -63583,6 +63898,51 @@
     },
     "id": 21009089,
     "gl": true
+  },
+  {
+    "name": "Healing Mace",
+    "realm": "XI",
+    "type": "Staff",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 55,
+      "def": 0,
+      "mag": 100,
+      "res": 0,
+      "mnd": 146,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Aphmau",
+    "soulBreak": null,
+    "legendMateria": "Affection for Automaton",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 35,
+      "def": null,
+      "mag": 67,
+      "res": null,
+      "mnd": 113,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 65,
+      "def": null,
+      "mag": 117,
+      "res": null,
+      "mnd": 162,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009080,
+    "gl": false
   },
   {
     "name": "Musk Stick",
@@ -95490,6 +95850,51 @@
     "gl": true
   },
   {
+    "name": "Crow Beret",
+    "realm": "XI",
+    "type": "Hat",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 17,
+      "def": 88,
+      "mag": 28,
+      "res": 130,
+      "mnd": 27,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Prishe",
+    "soulBreak": null,
+    "legendMateria": "Straightforward Girl",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 10,
+      "def": 71,
+      "mag": 21,
+      "res": 100,
+      "mnd": 20,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 20,
+      "def": 96,
+      "mag": 31,
+      "res": 145,
+      "mnd": 30,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22051213,
+    "gl": false
+  },
+  {
     "name": "Lamia's Tiara",
     "realm": "XII",
     "type": "Hat",
@@ -101428,6 +101833,96 @@
     },
     "id": 22053165,
     "gl": true
+  },
+  {
+    "name": "Vivacity Coat",
+    "realm": "XI",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 152,
+      "mag": 0,
+      "res": 152,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Aphmau",
+    "soulBreak": "Instant Optimization",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 111,
+      "mag": null,
+      "res": 111,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 168,
+      "mag": null,
+      "res": 168,
+      "mnd": 22,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053146,
+    "gl": false
+  },
+  {
+    "name": "Nashira Manteel",
+    "realm": "XI",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 151,
+      "mag": 0,
+      "res": 151,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Earth damage +20%",
+    "character": "Naja",
+    "soulBreak": "True Strike",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 110,
+      "mag": null,
+      "res": 110,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 167,
+      "mag": null,
+      "res": 167,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053437,
+    "gl": false
   },
   {
     "name": "Hermes' Suit",
@@ -126000,6 +126495,51 @@
     "gl": true
   },
   {
+    "name": "Nashira Gages",
+    "realm": "XI",
+    "type": "Bracer",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 34,
+      "def": 99,
+      "mag": 18,
+      "res": 95,
+      "mnd": 18,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Naja",
+    "soulBreak": "Warrior's Charge",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 26,
+      "def": 81,
+      "mag": 11,
+      "res": 71,
+      "mnd": 11,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 38,
+      "def": 107,
+      "mag": 21,
+      "res": 107,
+      "mnd": 21,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056277,
+    "gl": false
+  },
+  {
     "name": "Armguard",
     "realm": "XII",
     "type": "Bracer",
@@ -137565,6 +138105,51 @@
     "gl": false
   },
   {
+    "name": "Rosetta Ring",
+    "realm": "IX",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 15,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Fire resistance (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": null,
+      "mag": 15,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": null,
+      "mag": 15,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080080,
+    "gl": false
+  },
+  {
     "name": "Safety Bit",
     "realm": "X",
     "type": "Accessory",
@@ -138552,6 +139137,51 @@
       "eva": null
     },
     "id": 23080304,
+    "gl": false
+  },
+  {
+    "name": "Bitter Earring",
+    "realm": "XI",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 0,
+      "def": 15,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Dark resistance (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": 15,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": 15,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080394,
     "gl": false
   },
   {
