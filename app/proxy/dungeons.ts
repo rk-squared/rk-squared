@@ -237,6 +237,12 @@ export function convertWorldDungeons(
 
 const moteDungeonsSubcategory = 'Mote Dungeons';
 
+/**
+ * Converts a single world from FFRK JSON to RK Squared data structures.
+ *
+ * Returns the converted world, or false if the world should be omitted, or
+ * null if conversion failed.
+ */
 export function convertWorld(
   event: mainSchemas.Event,
   world: mainSchemas.World,
