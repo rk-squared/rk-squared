@@ -34,8 +34,8 @@ Array [
   },
   Object {
     "character": "Ace",
-    "description": "(fire ⤇ 25?% for ??/3 f+n, ally heal 1.5k HP)",
-    "effect": "25?% chance to cast an ability (?: single, 3x ? magical Fire/NE, 1500 HP to an ally) after using a Fire attack",
+    "description": "(fire dmg ⤇ 25% for m9.09/3 f+n, ally heal 1.5k HP)",
+    "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Fire/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Fire attack",
     "name": "Commander of Magic",
   },
   Object {
@@ -2919,6 +2919,24 @@ Array [
     "name": "Top of the Class",
   },
   Object {
+    "character": "Naja",
+    "description": "1.1x earth dmg",
+    "effect": "Increases Earth damage dealt by 10%",
+    "name": "Whismical One",
+  },
+  Object {
+    "character": "Naja",
+    "description": "Haste, instacast 3 at battle start",
+    "effect": "Grants Haste and Instant Cast 3 at the beginning of the battle",
+    "name": "High Class Cat President",
+  },
+  Object {
+    "character": "Naja",
+    "description": "earth infuse at battle start",
+    "effect": "Grants Attach Earth at the beginning of the battle",
+    "name": "Wishing for Reinstatement",
+  },
+  Object {
     "character": "Nine",
     "description": "1.1x wind dmg",
     "effect": "Increases Wind damage dealt by 10%",
@@ -3199,6 +3217,12 @@ Array [
     "description": "crit =50% at battle start",
     "effect": "Grants 50% Critical at the beginning of the battle",
     "name": "Magicite Might",
+  },
+  Object {
+    "character": "Prishe",
+    "description": "fastcast 3 at battle start",
+    "effect": "Grants Quick Cast 3 at the beginning of the battle",
+    "name": "Straightforward Girl",
   },
   Object {
     "character": "Prompto",
@@ -3934,8 +3958,8 @@ Array [
   },
   Object {
     "character": "Serafie",
-    "description": "(wind ⤇ 30?% for +10% wind vuln.)",
-    "effect": "30?% chance to cause Minor Imperil Wind to the target after using a Wind attack on an enemy",
+    "description": "(wind ⤇ 30% for +10% wind vuln.)",
+    "effect": "30% chance to cause Minor Imperil Wind to the target after using a Wind attack on an enemy",
     "name": "Worldly Mascot",
   },
   Object {
