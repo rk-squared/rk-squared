@@ -97,6 +97,7 @@ const simpleSkillHandlers: HandlerList = [
     /^(?:WHT|\?): group, restores HP \((\d+\??|\?)\)(?:, damages undeads)?$/,
     ([healFactor]) => `party h${healFactor}`,
   ],
+  [/^(?:WHT|NAT|\?): group, restores (\d+\??|\?) HP$/, ([hp]) => `party heal ${toMrPKilo(hp)} HP`],
   [
     /^NAT: (single|group), restores HP for (\d+)% of the target's maximum HP$/,
     ([who, healPercent]) => {
@@ -341,7 +342,7 @@ const legendMateriaHandlers: HandlerList = [
         return null;
       }
       const trigger = schoolOrAbility
-        ? getShortName(schoolOrAbility) + dmg(isDamageTrigger)
+        ? formatSchoolOrAbilityList(schoolOrAbility) + dmg(isDamageTrigger)
         : 'take dmg';
       return formatTriggeredEffect(trigger, description, percent);
     },

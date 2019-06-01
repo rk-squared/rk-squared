@@ -195,6 +195,12 @@ Array [
     "name": "Court Secrets",
   },
   Object {
+    "character": "Aphmau",
+    "description": "(W.Mag/Monk ⤇ 25% for party heal 1k? HP)",
+    "effect": "25% chance to cast an ability (?: group, restores 1000? HP) after using a White Magic or Monk ability",
+    "name": "Affection for Automaton",
+  },
+  Object {
     "character": "Aranea",
     "description": "1.1x lgt dmg",
     "effect": "Increases Lightning damage dealt by 10%",

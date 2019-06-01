@@ -6650,7 +6650,7 @@
     "realm": "XI",
     "character": "Aphmau",
     "name": "Affection for Automaton",
-    "effect": "25% chance to restore 1000? HP to all allies after using a White Magic or Monk ability",
+    "effect": "25% chance to cast an ability (?: group, restores 1000? HP) after using a White Magic or Monk ability",
     "master": "MND +10",
     "relic": "Healing Mace (XI)",
     "nameJp": "オートマトンへの友愛",
