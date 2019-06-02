@@ -476,8 +476,9 @@ function convertRelics(rows: any[]): any[] {
 }
 
 /**
- * Convert "skills" - this includes abilities, soul breaks, burst commands,
- * brave commands, and "other" skills
+ * Convert "skills" - this includes soul breaks, burst commands, brave
+ * commands, synchro commands, and "other" skills.  Abilities are more
+ * complicated due to orb costs, so they're processed separarely.
  */
 function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean = true): any[] {
   const skills: any[] = [];
@@ -485,6 +486,11 @@ function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean =
   const idColumn = rows[0].indexOf('ID');
 
   for (let i = 1; i < rows.length; i++) {
+    if (!rows[i].length) {
+      // Skip explanatory text at the bottom of the sheet.
+      break;
+    }
+
     const item: any = {};
 
     if (requireId && !rows[i][idColumn]) {

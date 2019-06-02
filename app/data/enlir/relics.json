@@ -36402,7 +36402,7 @@
       "eva": null
     },
     "id": 21006138,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Venus Gospel",
@@ -73527,7 +73527,7 @@
       "eva": null
     },
     "id": 21012030,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Silver Whipblade",
@@ -76472,7 +76472,7 @@
     },
     "effect": "Holy damage +20%",
     "character": "Hope",
-    "soulBreak": "Celesital Prison",
+    "soulBreak": "Celestial Prison",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -79422,7 +79422,7 @@
       "eva": null
     },
     "id": 21013048,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Moogle Plushie",
@@ -88107,7 +88107,7 @@
       "eva": 112
     },
     "id": 22050108,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Moogle Shield",
@@ -96342,7 +96342,7 @@
       "eva": 105
     },
     "id": 22051179,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Grimoire Hat",
@@ -102237,7 +102237,7 @@
       "eva": 100
     },
     "id": 22053062,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Snow's Guise",
@@ -110967,7 +110967,7 @@
       "eva": 100
     },
     "id": 22053384,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ninja Chainmail",
@@ -127257,7 +127257,7 @@
       "eva": 105
     },
     "id": 22056243,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Magician's Mark",

@@ -2595,6 +2595,12 @@ Array [
     "name": "Power Hungry",
   },
   Object {
+    "character": "Machina",
+    "description": "25?% dualcast Spellblade",
+    "effect": "25?% chance to dualcast Spellblade abilities",
+    "name": "Destiny's Namer",
+  },
+  Object {
     "character": "Marach",
     "description": "1.1x lgt dmg",
     "effect": "Increases Lightning damage dealt by 10%",
@@ -3403,6 +3409,12 @@ Array [
     "description": "25% dualcast B.Mag",
     "effect": "25% chance to dualcast Black Magic abilities",
     "name": "Elder Race",
+  },
+  Object {
+    "character": "Red XIII",
+    "description": "(<20% HP ⤇ +30% MAG, -30% RES, fastcast 15s)",
+    "effect": "Grants Lingering Spirit and Quick Cast when HP fall below 20%",
+    "name": "Warrior's Amulet",
   },
   Object {
     "character": "Refia",

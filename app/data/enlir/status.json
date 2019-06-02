@@ -2412,39 +2412,39 @@
   },
   {
     "id": 2221,
-    "name": "Beyond Vengeance Mode 1",
-    "effects": "Cast speed x2.00 for magical damage, grants Beyond Vengeance Mode 2 after using a Holy attack, removed if the user hasn't Saint Boomerang Finisher",
+    "name": "Beyond Enlightened Mode 1",
+    "effects": "Cast speed x2.00 for magical damage, grants Beyond Enlightened Mode 2 after using a Holy attack, removed if the user hasn't Saintly Arc Finisher",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
+      "All other \"Beyond Enlightened Mode\" status"
     ],
     "codedName": "CHANGE_CAST_TIME_200_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
   },
   {
     "id": 2222,
-    "name": "Beyond Vengeance Mode 2",
-    "effects": "Cast speed x2.50 for magical damage, grants Beyond Vengeance Mode 3 after using a Holy attack, removed if the user hasn't Saint Boomerang Finisher",
+    "name": "Beyond Enlightened Mode 2",
+    "effects": "Cast speed x2.50 for magical damage, grants Beyond Enlightened Mode 3 after using a Holy attack, removed if the user hasn't Saintly Arc Finisher",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
+      "All other \"Beyond Enlightened Mode\" status"
     ],
     "codedName": "CHANGE_CAST_TIME_250_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
   },
   {
     "id": 2223,
-    "name": "Beyond Vengeance Mode 3",
-    "effects": "Cast speed x3.00 for magical damage, grants Beyond Vengeance Mode 3 after using a Holy attack, removed if the user hasn't Saint Boomerang Finisher",
+    "name": "Beyond Enlightened Mode 3",
+    "effects": "Cast speed x3.00 for magical damage, grants Beyond Enlightened Mode 3 after using a Holy attack, removed if the user hasn't Saintly Arc Finisher",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
+      "All other \"Beyond Enlightened Mode\" status"
     ],
     "codedName": "CHANGE_CAST_TIME_300_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
@@ -2473,13 +2473,13 @@
   },
   {
     "id": 2226,
-    "name": "Beyond Vengeance Mode 0",
-    "effects": "Grants Beyond Vengeance Mode 1 after using a Holy attack, removed if the user hasn't Saint Boomerang Finisher",
+    "name": "Beyond Enlightened Mode 0",
+    "effects": "Grants Beyond Enlightened Mode 1 after using a Holy attack, removed if the user hasn't Saintly Arc Finisher",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
+      "All other \"Beyond Enlightened Mode\" status"
     ],
     "codedName": "CHANGE_CAST_TIME_100_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
@@ -7568,7 +7568,8 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "Burst Mode"
+      "Burst Mode",
+      "Synchro Mode"
     ],
     "codedName": "BRAVE_MODE",
     "notes": null
@@ -9496,8 +9497,8 @@
   },
   {
     "id": 50382,
-    "name": "Saint Boomerang Finisher",
-    "effects": "Casts Saint Boomerang when removed",
+    "name": "Saintly Arc Finisher",
+    "effects": "Casts Saintly Arc when removed",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11302,7 +11303,7 @@
   {
     "id": 50550,
     "name": "Awoken Enchant",
-    "effects": "Summoning and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Summoning and Bard abilities at ability rank 1/2/3/4/5, casts Storm Encore after using two Dancer or Bard abilities",
+    "effects": "Summoning and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Summoning and Bard abilities at ability rank 1/2/3/4/5, casts Storm Encore after using two Summoning or Bard abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11312,8 +11313,8 @@
   },
   {
     "id": 50551,
-    "name": "Lunatic Lower Follow-Up",
-    "effects": "Casts Lunatic Lower after using two Earth attacks",
+    "name": "Howling Stone Follow-Up",
+    "effects": "Casts Howling Stone after using two Earth attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11324,18 +11325,21 @@
   {
     "id": 50552,
     "name": "Synchro Mode",
-    "effects": "",
+    "effects": "Replaces the Attack and Defend commands",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "Burst Mode",
+      "Brave Mode"
+    ],
     "codedName": "SYNCHRO_MODE",
     "notes": null
   },
   {
     "id": 50573,
-    "name": "Sword Field Follow-Up",
-    "effects": "",
+    "name": "Grand Blow Follow-Up",
+    "effects": "Casts Grand Blow after using four Earth attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11346,8 +11350,8 @@
   {
     "id": 50577,
     "name": "Fear Mode",
-    "effects": "",
-    "defaultDuration": null,
+    "effects": "Grants Overflow Earth Radiant Shield: 125/200/300% after using 1/2/3 + 3n Earth attacks",
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
@@ -11682,7 +11686,8 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "Brave Mode"
+      "Brave Mode",
+      "Synchro Mode"
     ],
     "codedName": "BURST_MODE",
     "notes": null

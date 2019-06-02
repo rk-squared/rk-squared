@@ -295,7 +295,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
   character: string | null;
   points: number;
   tier: EnlirSoulBreakTier;
-  master: string | null;
+  soulbreakBonus: string | null;  // Formerly 'master'
   relic: string | null;
   nameJp: string;
   anima: number | null;

@@ -4116,6 +4116,18 @@
   },
   {
     "realm": "VII",
+    "character": "Red XIII",
+    "name": "Warrior's Amulet",
+    "effect": "Grants Lingering Spirit and Quick Cast when HP fall below 20%",
+    "master": "MAG +10",
+    "relic": "Aegis Armlet (VII)",
+    "nameJp": "戦士の魔除け",
+    "id": 201070504,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Yuffie",
     "name": "The Elder Ways",
     "effect": "Increases Water damage dealt by 10%",
@@ -7580,7 +7592,7 @@
     "nameJp": "仲間を守る誓い",
     "id": 201130604,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -7796,7 +7808,7 @@
     "nameJp": "士官学校首席の才腕",
     "id": 201131203,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -9015,7 +9027,7 @@
     "character": "Alma",
     "name": "Sanguine Sister",
     "effect": "WHT abilities restore 15% more HP",
-    "master": "✓",
+    "master": null,
     "relic": null,
     "nameJp": "明朗活発な妹",
     "id": 201501400,
@@ -9273,6 +9285,18 @@
     "id": 201600402,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "Type-0",
+    "character": "Machina",
+    "name": "Destiny's Namer",
+    "effect": "25?% chance to dualcast Spellblade abilities",
+    "master": "ATK +10",
+    "relic": "Metal Gloves (Type-0)",
+    "nameJp": "チチリの名付け親",
+    "id": 201600403,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "Type-0",

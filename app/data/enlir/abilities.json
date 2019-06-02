@@ -2062,7 +2062,7 @@
     "introducingEvent": "Forgiveness Over Vengeance",
     "nameJp": "連続ブリザジャ",
     "id": 30111262,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Black Magic",
@@ -9333,7 +9333,7 @@
     "introducingEvent": "Forgiveness Over Vengeance",
     "nameJp": "ルナドラゴン",
     "id": 30131401,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Summoning",
@@ -9349,10 +9349,10 @@
     "time": 1.8,
     "effects": "Four group attacks (4.73 each), minimum damage 2000",
     "counter": false,
-    "autoTarget": null,
-    "sb": null,
-    "uses": null,
-    "max": null,
+    "autoTarget": "All enemies",
+    "sb": 90,
+    "uses": 2,
+    "max": 6,
     "orbs": {
       "Summoning Crystal": [],
       "Fire Crystal": [],
@@ -12662,6 +12662,53 @@
     "introducingEvent": "New Year Party 2019",
     "nameJp": "剛拳・氷の型",
     "id": 30191191,
+    "gl": false
+  },
+  {
+    "school": "Monk",
+    "name": "Rousing Stance",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.65,
+    "effects": "Grants ATK and DEF +50% to the user for 5 seconds, HP Stock (2000) and Monk High Quick Cast 1",
+    "counter": true,
+    "autoTarget": "Self",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [],
+      "Fire Crystal": [],
+      "Earth Crystal": [],
+      "Ability Record": []
+    },
+    "1R1": "6",
+    "1R2": "12",
+    "1R3": "18",
+    "1R4": "30",
+    "1R5": "60",
+    "2R1": "6",
+    "2R2": "12",
+    "2R3": "18",
+    "2R4": "30",
+    "2R5": "60",
+    "3R1": "10",
+    "3R2": "20",
+    "3R3": "30",
+    "3R4": "50",
+    "3R5": "100",
+    "4R1": "1",
+    "4R2": "0",
+    "4R3": "0",
+    "4R4": "0",
+    "4R5": "0",
+    "introducingEvent": "Black Fat Chocobo: Earth",
+    "nameJp": "軒昂の構え",
+    "id": 30191201,
     "gl": false
   },
   {

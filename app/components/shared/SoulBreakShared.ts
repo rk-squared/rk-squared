@@ -1,3 +1,9 @@
+/**
+ * @file
+ * Types and helpers shared across all soul break components.  (Not to be
+ * confused with support for shared soul breaks.)
+ */
+
 import {
   enlir,
   EnlirSoulBreakTier,
