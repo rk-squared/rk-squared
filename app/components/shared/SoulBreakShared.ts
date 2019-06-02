@@ -82,3 +82,21 @@ export function getBurstColumns(burstCommands: MrPSoulBreak[]): Array<[string, s
     cmd => ['[' + getSchoolName(cmd) + ']', '[' + formatMrP(cmd) + ']'] as [string, string],
   );
 }
+
+export function getSynchroColumns(
+  mrP: MrPSoulBreak,
+  synchroCommands: MrPSoulBreak[],
+): Array<[string, string]> {
+  return synchroCommands.map(
+    (cmd, i) =>
+      [
+        '[' +
+          getSchoolName(cmd) +
+          ']' +
+          (mrP.synchroCondition && mrP.synchroCondition[i]
+            ? ', w/ ' + getShortName(mrP.synchroCondition[i])
+            : ''),
+        formatMrP(cmd),
+      ] as [string, string],
+  );
+}

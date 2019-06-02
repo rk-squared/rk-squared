@@ -8,6 +8,7 @@ import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP'
 import {
   getBraveColumns,
   getBurstColumns,
+  getSynchroColumns,
   soulBreakAliases,
   styles,
   tierClass,
@@ -46,6 +47,20 @@ export class SoulBreakListItem extends React.Component<Props> {
     );
   }
 
+  renderSynchroCommands(mrP: MrPSoulBreak, synchroCommands: MrPSoulBreak[]) {
+    return (
+      <>
+        {getSynchroColumns(mrP, synchroCommands).map((columns, i) => (
+          <tr className={classNames(this.props.className, styles.synchroCommand)} key={i}>
+            <td />
+            <td className={styles.school}>{columns[0]}</td>
+            <td className={styles.command}>{columns[1]}</td>
+          </tr>
+        ))}
+      </>
+    );
+  }
+
   render() {
     const { soulBreak, className } = this.props;
 
@@ -74,6 +89,7 @@ export class SoulBreakListItem extends React.Component<Props> {
         </tr>
         {mrP.braveCommands && this.renderBraveCommands(mrP, mrP.braveCommands)}
         {mrP.burstCommands && this.renderBurstCommands(mrP.burstCommands)}
+        {mrP.synchroCommands && this.renderSynchroCommands(mrP, mrP.synchroCommands)}
       </>
     );
   }
