@@ -14,7 +14,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86 each), 25%/50%/75%/100% additional critical chance at 1/2/3/4 uses",
+    "effects": "Six single attacks (0.86 each), 25/50/75/100% additional critical chance scaling with uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

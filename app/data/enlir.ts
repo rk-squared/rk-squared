@@ -295,7 +295,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
   character: string | null;
   points: number;
   tier: EnlirSoulBreakTier;
-  soulbreakBonus: string | null;  // Formerly 'master'
+  soulbreakBonus: string | null; // Formerly 'master'
   relic: string | null;
   nameJp: string;
   anima: number | null;
@@ -313,7 +313,7 @@ export interface EnlirStatus {
   notes: string | null;
 }
 
-export interface EnlirSynchro extends EnlirGenericSkill {
+export interface EnlirSynchroCommand extends EnlirGenericSkill {
   character: string;
   source: string;
   synchroAbilitySlot: 1 | 2;
@@ -329,7 +329,7 @@ export type EnlirSkill =
   | EnlirBraveCommand
   | EnlirBurstCommand
   | EnlirOtherSkill
-  | EnlirSynchro
+  | EnlirSynchroCommand
   | EnlirSoulBreak;
 
 export enum SbOrLm {
@@ -366,6 +366,7 @@ const rawData = {
   relics: require('./enlir/relics.json') as EnlirRelic[],
   soulBreaks: require('./enlir/soulBreaks.json') as EnlirSoulBreak[],
   status: require('./enlir/status.json') as EnlirStatus[],
+  synchroCommands: require('./enlir/synchro.json') as EnlirSynchroCommand[],
 };
 
 // FIXME: Properly update rawData outside of app
@@ -506,6 +507,9 @@ export const enlir = {
   ]),
 
   statusByName: _.keyBy(rawData.status, 'name'),
+
+  synchroCommands: _.keyBy(rawData.synchroCommands, 'id'),
+  synchroCommandsByCharacter: makeCommandsMap(rawData.synchroCommands),
 
   relicSoulBreaks: makeRelicMap(rawData.relics, 'soulBreak', rawData.soulBreaks),
   relicLegendMateria: makeRelicMap(rawData.relics, 'legendMateria', rawData.legendMateria),
@@ -899,6 +903,10 @@ export function isBraveSoulBreak(sb: EnlirSoulBreak): boolean {
 
 export function isBurstSoulBreak(sb: EnlirSoulBreak): boolean {
   return sb.tier === 'BSB';
+}
+
+export function isSynchroSoulBreak(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'SASB';
 }
 
 export function isBraveCommand(skill: EnlirSkill): skill is EnlirBraveCommand {

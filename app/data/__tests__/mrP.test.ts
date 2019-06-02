@@ -2256,6 +2256,26 @@ Object {
       });
     });
 
+    it('handles synchro soul breaks', () => {
+      expect(describeSoulBreak('Tifa - Infinite Zangan Style')).toEqual({
+        damage: 'phys 9.0/15 earth+non',
+        other: 'earth infuse 25s, self dmg cap +10k 15s',
+        synchroCommands: [
+          {
+            damage: 'p5.16/6 e+n @ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses',
+            other: undefined,
+            school: 'Monk',
+          },
+          {
+            damage: 'p2.7/3 e+n',
+            other: 'self 1.3x Monk dmg 3 turns',
+            school: 'Monk',
+          },
+        ],
+        synchroCondition: ['Earth', 'Monk'],
+      });
+    });
+
     it('handles turn-limited effects', () => {
       expect(describeSoulBreak('Amarant - Exploding Fist')).toEqual({
         instant: true,
