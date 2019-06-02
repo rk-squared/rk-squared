@@ -1918,7 +1918,7 @@
   {
     "id": 218,
     "name": "Float",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2039,7 +2039,7 @@
   {
     "id": 219,
     "name": "Weak",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2160,7 +2160,7 @@
   {
     "id": 220,
     "name": "Zombie",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2270,7 +2270,7 @@
   {
     "id": 221,
     "name": "Mini",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2391,7 +2391,7 @@
   {
     "id": 222,
     "name": "Toad",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2412,39 +2412,39 @@
   },
   {
     "id": 2221,
-    "name": "Beyond Vengeance Mode 1",
-    "effects": "Cast speed x2.00 for magical damage, grants Beyond Vengeance Mode 2 after using a Holy attack, removed if the user hasn't Saint Boomerang Finisher",
+    "name": "Beyond Enlightened Mode 1",
+    "effects": "Cast speed x2.00 for magical damage, grants Beyond Enlightened Mode 2 after using a Holy attack, removed if the user hasn't Saintly Arc Finisher",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
+      "All other \"Beyond Enlightened Mode\" status"
     ],
     "codedName": "CHANGE_CAST_TIME_200_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
   },
   {
     "id": 2222,
-    "name": "Beyond Vengeance Mode 2",
-    "effects": "Cast speed x2.50 for magical damage, grants Beyond Vengeance Mode 3 after using a Holy attack, removed if the user hasn't Saint Boomerang Finisher",
+    "name": "Beyond Enlightened Mode 2",
+    "effects": "Cast speed x2.50 for magical damage, grants Beyond Enlightened Mode 3 after using a Holy attack, removed if the user hasn't Saintly Arc Finisher",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
+      "All other \"Beyond Enlightened Mode\" status"
     ],
     "codedName": "CHANGE_CAST_TIME_250_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
   },
   {
     "id": 2223,
-    "name": "Beyond Vengeance Mode 3",
-    "effects": "Cast speed x3.00 for magical damage, grants Beyond Vengeance Mode 3 after using a Holy attack, removed if the user hasn't Saint Boomerang Finisher",
+    "name": "Beyond Enlightened Mode 3",
+    "effects": "Cast speed x3.00 for magical damage, grants Beyond Enlightened Mode 3 after using a Holy attack, removed if the user hasn't Saintly Arc Finisher",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
+      "All other \"Beyond Enlightened Mode\" status"
     ],
     "codedName": "CHANGE_CAST_TIME_300_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
@@ -2473,13 +2473,13 @@
   },
   {
     "id": 2226,
-    "name": "Beyond Vengeance Mode 0",
-    "effects": "Grants Beyond Vengeance Mode 1 after using a Holy attack, removed if the user hasn't Saint Boomerang Finisher",
+    "name": "Beyond Enlightened Mode 0",
+    "effects": "Grants Beyond Enlightened Mode 1 after using a Holy attack, removed if the user hasn't Saintly Arc Finisher",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Beyond Vengeance Mode\" status"
+      "All other \"Beyond Enlightened Mode\" status"
     ],
     "codedName": "CHANGE_CAST_TIME_100_15000_MSEC_ALL_FOR_BEYOND_HOPE_MODE",
     "notes": null
@@ -2507,9 +2507,22 @@
     "notes": null
   },
   {
+    "id": 2229,
+    "name": "Monk High Quick Cast 1",
+    "effects": "Cast speed x3.00 for Monk abilities, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "-%"
+    ],
+    "codedName": "CHANGE_CAST_TIME_300_1_ABILITY_CATEGORY_ID_MONK",
+    "notes": null
+  },
+  {
     "id": 223,
     "name": "Curse",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2520,7 +2533,7 @@
   {
     "id": 224,
     "name": "Slownumb",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2531,7 +2544,7 @@
   {
     "id": 225,
     "name": "Blink",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2542,7 +2555,7 @@
   {
     "id": 226,
     "name": "Imp",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2553,7 +2566,7 @@
   {
     "id": 227,
     "name": "Vanish",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2564,7 +2577,7 @@
   {
     "id": 228,
     "name": "Pig",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -2800,7 +2813,7 @@
   {
     "id": 246,
     "name": "Glyph Mine",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -3033,6 +3046,50 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "HP_STOCK_1500",
+    "notes": null
+  },
+  {
+    "id": 25908,
+    "name": "HP Stock (400)",
+    "effects": "Automatically restores HP, up to 400 HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "HP_STOCK_400",
+    "notes": null
+  },
+  {
+    "id": 25909,
+    "name": "HP Stock (800)",
+    "effects": "Automatically restores HP, up to 800 HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "HP_STOCK_800",
+    "notes": null
+  },
+  {
+    "id": 25910,
+    "name": "HP Stock (1200)",
+    "effects": "Automatically restores HP, up to 1200 HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "HP_STOCK_1200",
+    "notes": null
+  },
+  {
+    "id": 25911,
+    "name": "HP Stock (1600)",
+    "effects": "Automatically restores HP, up to 1600 HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "HP_STOCK_1600",
     "notes": null
   },
   {
@@ -3447,7 +3504,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_CRITICAL_COEFFICIENT_50",
+    "codedName": "CHANGE_CRITICAL_COEFFICIENT_50_25000_MSEC",
     "notes": null
   },
   {
@@ -3840,6 +3897,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "DAMAGE_BOOST_HEAVY_115_3",
+    "notes": null
+  },
+  {
+    "id": 282016,
+    "name": "Monk +30% Boost 3",
+    "effects": "Monk abilities deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BOOST_MONK_130_3",
     "notes": null
   },
   {
@@ -4602,6 +4670,50 @@
     "notes": null
   },
   {
+    "id": 28311,
+    "name": "Overflow Earth Radiant Shield: 75%",
+    "effects": "Returns 75% of the damage taken to the attacker as Earth damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_EARTH_75_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28312,
+    "name": "Overflow Earth Radiant Shield: 125%",
+    "effects": "Returns 125% of the damage taken to the attacker as Earth damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_EARTH_125_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28313,
+    "name": "Overflow Earth Radiant Shield: 200%",
+    "effects": "Returns 200% of the damage taken to the attacker as Earth damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_EARTH_200_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28314,
+    "name": "Overflow Earth Radiant Shield: 300%",
+    "effects": "Returns 300% of the damage taken to the attacker as Earth damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_EARTH_300_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
     "id": 284,
     "name": "Vivi Trance",
     "effects": "MAG +30%, 50% chance to dualcast Black Magic abilities",
@@ -5078,6 +5190,266 @@
     "notes": null
   },
   {
+    "id": 5001,
+    "name": "Soulbreak Hone Boost 1",
+    "effects": "ATK, DEF, MAG, RES and MND +1%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_1_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5002,
+    "name": "Soulbreak Hone Boost 2",
+    "effects": "ATK, DEF, MAG, RES and MND +2%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_2_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5003,
+    "name": "Soulbreak Hone Boost 3",
+    "effects": "ATK, DEF, MAG, RES and MND +3%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_3_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5004,
+    "name": "Soulbreak Hone Boost 4",
+    "effects": "ATK, DEF, MAG, RES and MND +4%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_4_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5005,
+    "name": "Soulbreak Hone Boost 5",
+    "effects": "ATK, DEF, MAG, RES and MND +5%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_5_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5006,
+    "name": "Soulbreak Hone Boost 6",
+    "effects": "ATK, DEF, MAG, RES and MND +6%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_6_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5007,
+    "name": "Soulbreak Hone Boost 7",
+    "effects": "ATK, DEF, MAG, RES and MND +7%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_7_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5008,
+    "name": "Soulbreak Hone Boost 8",
+    "effects": "ATK, DEF, MAG, RES and MND +8%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_8_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5009,
+    "name": "Soulbreak Hone Boost 9",
+    "effects": "ATK, DEF, MAG, RES and MND +9%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_9_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5010,
+    "name": "Soulbreak Hone Boost 10",
+    "effects": "ATK, DEF, MAG, RES and MND +10%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_10_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5011,
+    "name": "Soulbreak Hone Boost 11",
+    "effects": "ATK, DEF, MAG, RES and MND +11%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_11_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5012,
+    "name": "Soulbreak Hone Boost 12",
+    "effects": "ATK, DEF, MAG, RES and MND +12%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_12_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5013,
+    "name": "Soulbreak Hone Boost 13",
+    "effects": "ATK, DEF, MAG, RES and MND +13%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_13_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5014,
+    "name": "Soulbreak Hone Boost 14",
+    "effects": "ATK, DEF, MAG, RES and MND +14%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_14_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5015,
+    "name": "Soulbreak Hone Boost 15",
+    "effects": "ATK, DEF, MAG, RES and MND +15%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_15_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5016,
+    "name": "Soulbreak Hone Boost 16",
+    "effects": "ATK, DEF, MAG, RES and MND +16%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_16_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5017,
+    "name": "Soulbreak Hone Boost 17",
+    "effects": "ATK, DEF, MAG, RES and MND +17%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_17_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5018,
+    "name": "Soulbreak Hone Boost 18",
+    "effects": "ATK, DEF, MAG, RES and MND +18%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_18_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5019,
+    "name": "Soulbreak Hone Boost 19",
+    "effects": "ATK, DEF, MAG, RES and MND +19%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_19_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5020,
+    "name": "Soulbreak Hone Boost 20",
+    "effects": "ATK, DEF, MAG, RES and MND +20%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Boost\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_20_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
     "id": 50002,
     "name": "EX: Dreadwyrm Trance",
     "effects": "SUM attacks deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, casts Deathflare when removed",
@@ -5361,7 +5733,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_WITCH_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_WITCH_ABILITY",
     "notes": null
   },
   {
@@ -5519,7 +5891,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_BLACK_MAGIC",
+    "codedName": "ABILITY_DOUBLE_FOR_BLACK_MAGIC",
     "notes": null
   },
   {
@@ -6217,7 +6589,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_WHITE_MAGIC",
+    "codedName": "ABILITY_DOUBLE_FOR_WHITE_MAGIC",
     "notes": null
   },
   {
@@ -6349,7 +6721,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_MACHINIST_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_MACHINIST_ABILITY",
     "notes": null
   },
   {
@@ -6464,7 +6836,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_SPELL_BLADE",
+    "codedName": "ABILITY_DOUBLE_FOR_SPELL_BLADE",
     "notes": null
   },
   {
@@ -6669,7 +7041,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_MONK_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_MONK_ABILITY",
     "notes": null
   },
   {
@@ -7196,7 +7568,8 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "Burst Mode"
+      "Burst Mode",
+      "Synchro Mode"
     ],
     "codedName": "BRAVE_MODE",
     "notes": null
@@ -7215,7 +7588,7 @@
   {
     "id": 50191,
     "name": "Boundless Barrier",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -7426,7 +7799,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_COMBAT_OR_CELERITY",
+    "codedName": "ABILITY_DOUBLE_FOR_COMBAT_OR_CELERITY",
     "notes": null
   },
   {
@@ -7443,7 +7816,7 @@
   {
     "id": 50211,
     "name": "Deprecated Doom of Atomos",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -7481,7 +7854,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_DRAGOON_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_DRAGOON_ABILITY",
     "notes": null
   },
   {
@@ -7492,7 +7865,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_THIEF_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_THIEF_ABILITY",
     "notes": null
   },
   {
@@ -7503,7 +7876,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_KNIGHT_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_KNIGHT_ABILITY",
     "notes": null
   },
   {
@@ -7514,7 +7887,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_SAMURAI_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_SAMURAI_ABILITY",
     "notes": null
   },
   {
@@ -7525,7 +7898,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_NINJA_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_NINJA_ABILITY",
     "notes": null
   },
   {
@@ -7536,7 +7909,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_BARD_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_BARD_ABILITY",
     "notes": null
   },
   {
@@ -7547,7 +7920,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_DANCER_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_DANCER_ABILITY",
     "notes": null
   },
   {
@@ -7558,7 +7931,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_DARKNESS_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_DARKNESS_ABILITY",
     "notes": null
   },
   {
@@ -7569,7 +7942,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_SHOOTER_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_SHOOTER_ABILITY",
     "notes": null
   },
   {
@@ -7580,7 +7953,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_HEAVY_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_HEAVY_ABILITY",
     "notes": null
   },
   {
@@ -7938,7 +8311,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_SUMMONING_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_SUMMONING_ABILITY",
     "notes": null
   },
   {
@@ -7949,7 +8322,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_COMBAT_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_COMBAT_ABILITY",
     "notes": null
   },
   {
@@ -7960,7 +8333,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_SUPPORT_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_SUPPORT_ABILITY",
     "notes": null
   },
   {
@@ -7971,7 +8344,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_CELERITY_ABILITY",
+    "codedName": "ABILITY_DOUBLE_FOR_CELERITY_ABILITY",
     "notes": null
   },
   {
@@ -8844,7 +9217,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DUAL_CAST_FOR_THIEF_OR_SHOOTER",
+    "codedName": "ABILITY_DOUBLE_FOR_THIEF_OR_SHOOTER",
     "notes": null
   },
   {
@@ -9124,8 +9497,8 @@
   },
   {
     "id": 50382,
-    "name": "Saint Boomerang Finisher",
-    "effects": "Casts Saint Boomerang when removed",
+    "name": "Saintly Arc Finisher",
+    "effects": "Casts Saintly Arc when removed",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10884,6 +11257,39 @@
     "notes": null
   },
   {
+    "id": 50546,
+    "name": "Awoken Automaton Mode",
+    "effects": "White Magic and Monk abilities don't consume uses, cast speed x2.00 for White Magic and Monk abilities, grants HP Stock 500/1000/1500/2000/3000 after using White Magic or Monk abilities at rank 1/2/3/4/5  ",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_AUTOMATON",
+    "notes": null
+  },
+  {
+    "id": 50547,
+    "name": "Imperial Heal",
+    "effects": "Grants Quick Cast 1 to all allies in the character's row after using a White Magic ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_IMPERIAL_HEAL_1",
+    "notes": null
+  },
+  {
+    "id": 50548,
+    "name": "True Strike",
+    "effects": "Grants Physical High Quick Cast 1 to all allies in the front row after using an Earth attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TRUE_STRIKE_1",
+    "notes": null
+  },
+  {
     "id": 50549,
     "name": "Awoken Leap",
     "effects": "Dragoon and Dancer abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Dragoon and Dancer abilities at ability rank 1/2/3/4/5, dualcasts Dragoon and Dancer abilities",
@@ -10897,12 +11303,81 @@
   {
     "id": 50550,
     "name": "Awoken Enchant",
-    "effects": "Summoning and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Summoning and Bard abilities at ability rank 1/2/3/4/5, casts Storm Encore after using two Dancer or Bard abilities",
+    "effects": "Summoning and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Summoning and Bard abilities at ability rank 1/2/3/4/5, casts Storm Encore after using two Summoning or Bard abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "AWAKE_MODE_ARIA",
+    "notes": null
+  },
+  {
+    "id": 50551,
+    "name": "Howling Stone Follow-Up",
+    "effects": "Casts Howling Stone after using two Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_LUNATIC_LOWER",
+    "notes": null
+  },
+  {
+    "id": 50552,
+    "name": "Synchro Mode",
+    "effects": "Replaces the Attack and Defend commands",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Burst Mode",
+      "Brave Mode"
+    ],
+    "codedName": "SYNCHRO_MODE",
+    "notes": null
+  },
+  {
+    "id": 50573,
+    "name": "Grand Blow Follow-Up",
+    "effects": "Casts Grand Blow after using four Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SWORD_FIELD",
+    "notes": null
+  },
+  {
+    "id": 50577,
+    "name": "Fear Mode",
+    "effects": "Grants Overflow Earth Radiant Shield: 125/200/300% after using 1/2/3 + 3n Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "FEAR_MODE",
+    "notes": null
+  },
+  {
+    "id": 50583,
+    "name": "Pope's Fragment Follow-Up",
+    "effects": "Casts Pope's Fragment after using two White Magic abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_IMPERIAL_HEAL_2",
+    "notes": null
+  },
+  {
+    "id": 50584,
+    "name": "Special Bonus",
+    "effects": "Grants Minor Buff Earth to all allies after using three Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TRUE_STRIKE_2",
     "notes": null
   },
   {
@@ -10919,7 +11394,7 @@
   {
     "id": 507,
     "name": "Disable",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11084,7 +11559,7 @@
   {
     "id": 521,
     "name": "No Damage",
-    "effects": null,
+    "effects": "",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11119,7 +11594,7 @@
   {
     "id": 524,
     "name": "Doom of Atomos",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11211,9 +11686,10 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "Brave Mode"
+      "Brave Mode",
+      "Synchro Mode"
     ],
-    "codedName": "TRANCE",
+    "codedName": "BURST_MODE",
     "notes": null
   },
   {
@@ -11430,7 +11906,7 @@
   {
     "id": 552,
     "name": "Nightmare Necrophobe ATK Doom",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11441,7 +11917,7 @@
   {
     "id": 553,
     "name": "Nightmare Necrophobe MAG Doom",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11452,7 +11928,7 @@
   {
     "id": 554,
     "name": "Nightmare Necrophobe DEF Doom",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11463,7 +11939,7 @@
   {
     "id": 555,
     "name": "Nightmare Necrophobe RES Doom",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11485,7 +11961,7 @@
   {
     "id": 557,
     "name": "Geosgaeno Swallow",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11833,7 +12309,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "EX_MODE_DUAL_CAST_FOR_SHANTOTTO",
+    "codedName": "EX_MODE_TWINSTRIKE",
     "notes": null
   },
   {
@@ -12345,6 +12821,17 @@
     "notes": null
   },
   {
+    "id": 609121,
+    "name": "ATK, DEF, MAG and RES -50%",
+    "effects": "ATK, DEF, MAG and RES -50%",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_M50_WITH_DURATION_SMALL_10000",
+    "notes": null
+  },
+  {
     "id": 610,
     "name": "ATK and MAG +X%",
     "effects": "ATK and MAG +X%",
@@ -12627,7 +13114,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CUSTOM_ATK_DEF_MATK_M70_WITH_DURATION_SMALL",
+    "codedName": "CUSTOM_ATK_DEF_MATK_M70_WITH_DURATION_SMALL_8000",
     "notes": null
   },
   {
@@ -13045,7 +13532,21 @@
     "exclusiveStatus": [
       "All other \"Attach X\" statuses"
     ],
-    "codedName": "INCREASE_ATTACH_ELEMENT_FIRE_MAX_LEVEL_2_AND_LEVEL_1"
+    "codedName": "INCREASE_ATTACH_ELEMENT_FIRE_MAX_LEVEL_2_AND_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 7201,
+    "name": "Attach Fire 3 with Stacking",
+    "effects": "Increase Attach Fire Level by 3 and increase Max Attach Element Level by 2",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Attach X\" statuses"
+    ],
+    "codedName": "INCREASE_ATTACH_ELEMENT_FIRE_MAX_LEVEL_2_AND_LEVEL_3",
+    "notes": null
   },
   {
     "id": 7210,
@@ -13057,11 +13558,25 @@
     "exclusiveStatus": [
       "All other \"Attach X\" statuses"
     ],
-    "codedName": "INCREASE_ATTACH_ELEMENT_ICE_MAX_LEVEL_2_AND_LEVEL_1"
+    "codedName": "INCREASE_ATTACH_ELEMENT_ICE_MAX_LEVEL_2_AND_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 7211,
+    "name": "Attach Ice 3 with Stacking",
+    "effects": "Increase Attach Ice Level by 3 and increase Max Attach Element Level by 2",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Attach X\" statuses"
+    ],
+    "codedName": "INCREASE_ATTACH_ELEMENT_ICE_MAX_LEVEL_2_AND_LEVEL_3",
+    "notes": null
   },
   {
     "id": 7220,
-    "name": "Attach Ligthning with Stacking",
+    "name": "Attach Lightning with Stacking",
     "effects": "Increase Attach Lightning Level by 1 and increase Max Attach Element Level by 2",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -13069,7 +13584,21 @@
     "exclusiveStatus": [
       "All other \"Attach X\" statuses"
     ],
-    "codedName": "INCREASE_ATTACH_ELEMENT_LIGHTNING_MAX_LEVEL_2_AND_LEVEL_1"
+    "codedName": "INCREASE_ATTACH_ELEMENT_LIGHTNING_MAX_LEVEL_2_AND_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 7221,
+    "name": "Attach Lightning 3 with Stacking",
+    "effects": "Increase Attach Lightning Level by 3 and increase Max Attach Element Level by 2",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Attach X\" statuses"
+    ],
+    "codedName": "INCREASE_ATTACH_ELEMENT_LIGHTNING_MAX_LEVEL_2_AND_LEVEL_3",
+    "notes": null
   },
   {
     "id": 7230,
@@ -13081,7 +13610,21 @@
     "exclusiveStatus": [
       "All other \"Attach X\" statuses"
     ],
-    "codedName": "INCREASE_ATTACH_ELEMENT_EARTH_MAX_LEVEL_2_AND_LEVEL_1"
+    "codedName": "INCREASE_ATTACH_ELEMENT_EARTH_MAX_LEVEL_2_AND_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 7231,
+    "name": "Attach Earth 3 with Stacking",
+    "effects": "Increase Attach Earth Level by 3 and increase Max Attach Element Level by 2",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Attach X\" statuses"
+    ],
+    "codedName": "INCREASE_ATTACH_ELEMENT_EARTH_MAX_LEVEL_2_AND_LEVEL_3",
+    "notes": null
   },
   {
     "id": 7240,
@@ -13093,7 +13636,21 @@
     "exclusiveStatus": [
       "All other \"Attach X\" statuses"
     ],
-    "codedName": "INCREASE_ATTACH_ELEMENT_WIND_MAX_LEVEL_2_AND_LEVEL_1"
+    "codedName": "INCREASE_ATTACH_ELEMENT_WIND_MAX_LEVEL_2_AND_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 7241,
+    "name": "Attach Wind 3 with Stacking",
+    "effects": "Increase Attach Wind Level by 3 and increase Max Attach Element Level by 2",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Attach X\" statuses"
+    ],
+    "codedName": "INCREASE_ATTACH_ELEMENT_WIND_MAX_LEVEL_2_AND_LEVEL_3",
+    "notes": null
   },
   {
     "id": 7250,
@@ -13105,7 +13662,21 @@
     "exclusiveStatus": [
       "All other \"Attach X\" statuses"
     ],
-    "codedName": "INCREASE_ATTACH_ELEMENT_WATER_MAX_LEVEL_2_AND_LEVEL_1"
+    "codedName": "INCREASE_ATTACH_ELEMENT_WATER_MAX_LEVEL_2_AND_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 7251,
+    "name": "Attach Water 3 with Stacking",
+    "effects": "Increase Attach Water Level by 3 and increase Max Attach Element Level by 2",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Attach X\" statuses"
+    ],
+    "codedName": "INCREASE_ATTACH_ELEMENT_WATER_MAX_LEVEL_2_AND_LEVEL_3",
+    "notes": null
   },
   {
     "id": 7260,
@@ -13117,7 +13688,21 @@
     "exclusiveStatus": [
       "All other \"Attach X\" statuses"
     ],
-    "codedName": "INCREASE_ATTACH_ELEMENT_HOLY_MAX_LEVEL_2_AND_LEVEL_1"
+    "codedName": "INCREASE_ATTACH_ELEMENT_HOLY_MAX_LEVEL_2_AND_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 7261,
+    "name": "Attach Holy 3 with Stacking",
+    "effects": "Increase Attach Holy Level by 3 and increase Max Attach Element Level by 2",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Attach X\" statuses"
+    ],
+    "codedName": "INCREASE_ATTACH_ELEMENT_HOLY_MAX_LEVEL_2_AND_LEVEL_3",
+    "notes": null
   },
   {
     "id": 7270,
@@ -13129,7 +13714,21 @@
     "exclusiveStatus": [
       "All other \"Attach X\" statuses"
     ],
-    "codedName": "INCREASE_ATTACH_ELEMENT_DARK_MAX_LEVEL_2_AND_LEVEL_1"
+    "codedName": "INCREASE_ATTACH_ELEMENT_DARK_MAX_LEVEL_2_AND_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 7271,
+    "name": "Attach Dark 3 with Stacking",
+    "effects": "Increase Attach Dark Level by 3 and increase Max Attach Element Level by 2",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Attach X\" statuses"
+    ],
+    "codedName": "INCREASE_ATTACH_ELEMENT_DARK_MAX_LEVEL_2_AND_LEVEL_3",
+    "notes": null
   },
   {
     "id": 7280,
@@ -13141,7 +13740,21 @@
     "exclusiveStatus": [
       "All other \"Attach X\" statuses"
     ],
-    "codedName": "INCREASE_ATTACH_ELEMENT_POISON_MAX_LEVEL_2_AND_LEVEL_1"
+    "codedName": "INCREASE_ATTACH_ELEMENT_POISON_MAX_LEVEL_2_AND_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 7281,
+    "name": "Attach Poison 3 with Stacking",
+    "effects": "Increase Attach Poison Level by 3 and increase Max Attach Element Level by 2",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Attach X\" statuses"
+    ],
+    "codedName": "INCREASE_ATTACH_ELEMENT_POISON_MAX_LEVEL_2_AND_LEVEL_3",
+    "notes": null
   },
   {
     "id": 8001,
@@ -14660,7 +15273,7 @@
   {
     "id": 901,
     "name": "Ignore Control Loss",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14671,7 +15284,7 @@
   {
     "id": 902,
     "name": "Ignore Esuna",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14682,7 +15295,7 @@
   {
     "id": 903,
     "name": "Ignore Dispel",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14693,7 +15306,7 @@
   {
     "id": 904,
     "name": "Ignore Realm Chain",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14704,7 +15317,7 @@
   {
     "id": 905,
     "name": "Ignore AI",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14715,7 +15328,7 @@
   {
     "id": 906,
     "name": "Ignore AI 2",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14726,7 +15339,7 @@
   {
     "id": 907,
     "name": "Untargettable",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14737,7 +15350,7 @@
   {
     "id": 908,
     "name": "Hidden HP Gauge",
-    "effects": null,
+    "effects": "",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

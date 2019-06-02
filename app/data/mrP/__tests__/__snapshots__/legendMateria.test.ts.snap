@@ -34,8 +34,8 @@ Array [
   },
   Object {
     "character": "Ace",
-    "description": "(fire ⤇ 25?% for ??/3 f+n, ally heal 1.5k HP)",
-    "effect": "25?% chance to cast an ability (?: single, 3x ? magical Fire/NE, 1500 HP to an ally) after using a Fire attack",
+    "description": "(fire dmg ⤇ 25% for m9.09/3 f+n, ally heal 1.5k HP)",
+    "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Fire/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Fire attack",
     "name": "Commander of Magic",
   },
   Object {
@@ -193,6 +193,12 @@ Array [
     "description": "(ally W.Mag heal ⤇ 25% for ally Autoheal 2k)",
     "effect": "25% chance to grant HP Stock (2000) to the target after using a single-target White Magic ability that restores HP on an ally",
     "name": "Court Secrets",
+  },
+  Object {
+    "character": "Aphmau",
+    "description": "(W.Mag/Monk ⤇ 25% for party heal 1k? HP)",
+    "effect": "25% chance to cast an ability (?: group, restores 1000? HP) after using a White Magic or Monk ability",
+    "name": "Affection for Automaton",
   },
   Object {
     "character": "Aranea",
@@ -2589,6 +2595,12 @@ Array [
     "name": "Power Hungry",
   },
   Object {
+    "character": "Machina",
+    "description": "25?% dualcast Spellblade",
+    "effect": "25?% chance to dualcast Spellblade abilities",
+    "name": "Destiny's Namer",
+  },
+  Object {
     "character": "Marach",
     "description": "1.1x lgt dmg",
     "effect": "Increases Lightning damage dealt by 10%",
@@ -2919,6 +2931,24 @@ Array [
     "name": "Top of the Class",
   },
   Object {
+    "character": "Naja",
+    "description": "1.1x earth dmg",
+    "effect": "Increases Earth damage dealt by 10%",
+    "name": "Whismical One",
+  },
+  Object {
+    "character": "Naja",
+    "description": "Haste, instacast 3 at battle start",
+    "effect": "Grants Haste and Instant Cast 3 at the beginning of the battle",
+    "name": "High Class Cat President",
+  },
+  Object {
+    "character": "Naja",
+    "description": "earth infuse at battle start",
+    "effect": "Grants Attach Earth at the beginning of the battle",
+    "name": "Wishing for Reinstatement",
+  },
+  Object {
     "character": "Nine",
     "description": "1.1x wind dmg",
     "effect": "Increases Wind damage dealt by 10%",
@@ -3201,6 +3231,12 @@ Array [
     "name": "Magicite Might",
   },
   Object {
+    "character": "Prishe",
+    "description": "fastcast 3 at battle start",
+    "effect": "Grants Quick Cast 3 at the beginning of the battle",
+    "name": "Straightforward Girl",
+  },
+  Object {
     "character": "Prompto",
     "description": "1.1x lgt dmg",
     "effect": "Increases Lightning damage dealt by 10%",
@@ -3373,6 +3409,12 @@ Array [
     "description": "25% dualcast B.Mag",
     "effect": "25% chance to dualcast Black Magic abilities",
     "name": "Elder Race",
+  },
+  Object {
+    "character": "Red XIII",
+    "description": "(<20% HP ⤇ +30% MAG, -30% RES, fastcast 15s)",
+    "effect": "Grants Lingering Spirit and Quick Cast when HP fall below 20%",
+    "name": "Warrior's Amulet",
   },
   Object {
     "character": "Refia",
@@ -3934,8 +3976,8 @@ Array [
   },
   Object {
     "character": "Serafie",
-    "description": "(wind ⤇ 30?% for +10% wind vuln.)",
-    "effect": "30?% chance to cause Minor Imperil Wind to the target after using a Wind attack on an enemy",
+    "description": "(wind ⤇ 30% for +10% wind vuln.)",
+    "effect": "30% chance to cause Minor Imperil Wind to the target after using a Wind attack on an enemy",
     "name": "Worldly Mascot",
   },
   Object {

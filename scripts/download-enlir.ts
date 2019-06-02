@@ -45,21 +45,15 @@ const dashNull = <T>(f: (value: string) => T) => dashAs(null, f);
 function toCommaSeparatedArray<T>(f: (value: string) => T): (value: string) => T[] | null {
   return (value: string) => (value === '' ? null : value.split(', ').map(f));
 }
-function ifNull<T>(f: (value: string) => T | null, nullValue: T): (value: string) => T {
-  return (value: string) => {
-    const result = f(value);
-    return result == null ? nullValue : result;
-  };
-}
 
 function toStringWithDecimals(value: string) {
-  if (value === '') {
-    return null;
-  } else {
-    // Convert commas (European decimal separator) to decimals for versions
-    // of the spreadsheet prior to 5/6/2019.
-    return value.replace(/(\d+),(\d+)/g, '$1.$2');
-  }
+  // Convert commas (European decimal separator) to decimals for versions
+  // of the spreadsheet prior to 5/6/2019.
+  //
+  // We used to also convert '' to null, but nearly all skills, statuses,
+  // legend materia, and record materia have non-null effect(s), so requiring
+  // code to support null adds too much complexity for too little benefit.
+  return value.replace(/(\d+),(\d+)/g, '$1.$2');
 }
 
 function toStringWithLookup(lookup: _.Dictionary<string>) {
@@ -98,8 +92,7 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Multiplier: toFloat,
   Element: dashAs([], toCommaSeparatedArray(toStringWithLookup(elementAbbreviations))),
   Time: toFloat,
-  // For skills in particular, a null effect string is annoying.  Avoid it.
-  Effects: ifNull(toStringWithDecimals, ''),
+  Effects: toStringWithDecimals,
   Counter: toBool,
   'Auto Target': toString,
   SB: toInt,
@@ -131,7 +124,13 @@ function convertAbilities(rows: any[]): any[] {
       }
 
       const field = _.camelCase(col);
-      if (col === 'Rarity' || col === 'Uses' || col === 'Max') {
+      if (
+        col === 'Rarity' ||
+        col === 'Uses' ||
+        col === 'Max' ||
+        col === 'Synchro Ability Slot' ||
+        col === 'Synchro Condition ID'
+      ) {
         item[field] = toInt(rows[i][j]);
       } else if (isAnima(col)) {
         item['anima'] = toInt(rows[i][j]);
@@ -143,7 +142,10 @@ function convertAbilities(rows: any[]): any[] {
         if (orb) {
           item.orbs[orb] = [];
         }
-      } else if (col === '') {
+      } else if (col === '' || col.match(/^\d-R\d$/)) {
+        // The spreadsheet used to have blank column names for orb costs.  Now,
+        // it has columns 1-R1 through 4-R5.  We could perhaps simplify our code
+        // by taking advantage of those numbers.
         if (rows[i][j]) {
           if (orb == null || orb === '') {
             throw new Error(`Got orb count with no orb at row ${i} column ${j}`);
@@ -463,6 +465,8 @@ function convertRelics(rows: any[]): any[] {
         const f2 = _.camelCase(colAsAltStat(col));
         item[f1] = item[f1] || {};
         item[f1][f2] = toStat(f2, rows[i][j]);
+      } else if (col === 'Effect') {
+        item[field] = toStringWithDecimals(rows[i][j]) || null;
       } else {
         item[field] = toCommon(field, rows[i][j]);
       }
@@ -475,8 +479,9 @@ function convertRelics(rows: any[]): any[] {
 }
 
 /**
- * Convert "skills" - this includes abilities, soul breaks, burst commands,
- * brave commands, and "other" skills
+ * Convert "skills" - this includes soul breaks, burst commands, brave
+ * commands, synchro commands, and "other" skills.  Abilities are more
+ * complicated due to orb costs, so they're processed separarely.
  */
 function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean = true): any[] {
   const skills: any[] = [];
@@ -484,6 +489,11 @@ function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean =
   const idColumn = rows[0].indexOf('ID');
 
   for (let i = 1; i < rows.length; i++) {
+    if (!rows[i].length) {
+      // Skip explanatory text at the bottom of the sheet.
+      break;
+    }
+
     const item: any = {};
 
     if (requireId && !rows[i][idColumn]) {
@@ -633,6 +643,11 @@ const dataTypes: DataType[] = [
     sheet: 'Relics',
     localName: 'relics',
     converter: convertRelics,
+  },
+  {
+    sheet: 'Synchro',
+    localName: 'synchro',
+    converter: convertAbilities,
   },
   {
     sheet: 'Soul Breaks',

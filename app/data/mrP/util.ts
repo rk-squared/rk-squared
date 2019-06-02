@@ -113,8 +113,19 @@ export function toMrPFixed(n: number): string {
   return result;
 }
 
-export function toMrPKilo(n: number): string {
-  return n / 1000 + 'k';
+export function toMrPKilo(n: number | string): string {
+  if (n === '?') {
+    return '?';
+  }
+  let suffix = '';
+  if (typeof n === 'string') {
+    if (n.length > 1 && n.endsWith('?')) {
+      suffix = '?';
+    }
+    n = parseFloat(n);
+  }
+
+  return +n / 1000 + 'k' + suffix;
 }
 
 /**

@@ -24,7 +24,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     autoTarget: '?',
     points: 500,
     tier: 'AASB',
-    master: 'ATK +5, MAG +5',
+    soulbreakBonus: 'ATK +5, MAG +5',
     relic: 'Wildfire (KH)',
     nameJp: 'エクスプロージョン',
     id: 23410001,
@@ -46,7 +46,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     autoTarget: '?',
     points: 750,
     tier: 'AOSB',
-    master: 'ATK +5, MAG +5',
+    soulbreakBonus: 'ATK +5, MAG +5',
     relic: 'Eternal Flames (KH)',
     nameJp: 'バーストインフェルノ',
     id: 23410002,
@@ -69,7 +69,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     autoTarget: '?',
     points: 500,
     tier: 'USB',
-    master: 'ATK +5, MAG +5',
+    soulbreakBonus: 'ATK +5, MAG +5',
     relic: 'Prominence (KH)',
     nameJp: '乱舞',
     id: 23410003,
@@ -92,7 +92,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     autoTarget: '?',
     points: 250,
     tier: 'Glint',
-    master: 'ATK +5, MAG +5',
+    soulbreakBonus: 'ATK +5, MAG +5',
     relic: 'Magma Ocean (KH)',
     nameJp: 'ファイアウォール',
     id: 23410004,
@@ -114,7 +114,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     autoTarget: '?',
     points: 250,
     tier: 'Glint',
-    master: 'MAG +10',
+    soulbreakBonus: 'MAG +10',
     relic: "Magician's Mark (XIII)",
     nameJp: 'ダークシフト',
     id: 22410011,
@@ -137,7 +137,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     autoTarget: '?',
     points: 500,
     tier: 'USB',
-    master: 'ATK +10',
+    soulbreakBonus: 'ATK +10',
     relic: 'Tiger Fangs (II)',
     nameJp: '漢の拳骨',
     id: 20190009,
@@ -160,7 +160,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     autoTarget: '?',
     points: 250,
     tier: 'Glint',
-    master: 'ATK +10',
+    soulbreakBonus: 'ATK +10',
     relic: 'Hyper Fist (VII)',
     nameJp: '掌打破岩',
     id: 20230014,
@@ -2253,6 +2253,26 @@ Object {
           '15s: (3 earth ⤇ m3.6/3 - 6.0/5 - 18.0/15 e+h+n B.Mag @ 0-72001-240001 dmg dealt, ' +
           'then m17.3 e+h+n overstrike B.Mag @ 240001 dmg dealt (once only)), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+    });
+
+    it('handles synchro soul breaks', () => {
+      expect(describeSoulBreak('Tifa - Infinite Zangan Style')).toEqual({
+        damage: 'phys 9.0/15 earth+non',
+        other: 'earth infuse 25s, self dmg cap +10k 15s',
+        synchroCommands: [
+          {
+            damage: 'p5.16/6 e+n @ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses',
+            other: undefined,
+            school: 'Monk',
+          },
+          {
+            damage: 'p2.7/3 e+n',
+            other: 'self 1.3x Monk dmg 3 turns',
+            school: 'Monk',
+          },
+        ],
+        synchroCondition: ['Earth', 'Monk'],
       });
     });
 

@@ -1,3 +1,9 @@
+/**
+ * @file
+ * Types and helpers shared across all soul break components.  (Not to be
+ * confused with support for shared soul breaks.)
+ */
+
 import {
   enlir,
   EnlirSoulBreakTier,
@@ -19,6 +25,7 @@ export const tierClass: { [tier in EnlirSoulBreakTier]: string | undefined } = {
   USB: styles.ultra,
   CSB: styles.chain,
   AASB: styles.awakening,
+  SASB: styles.synchro,
   Glint: styles.glint,
   'Glint+': styles.glint,
 
@@ -40,6 +47,7 @@ export const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   USB: 'U',
   CSB: 'C',
   AASB: 'AA',
+  SASB: 'Sy',
   RW: '-',
   Shared: '-',
 });
@@ -72,5 +80,23 @@ export function getBraveColumns(
 export function getBurstColumns(burstCommands: MrPSoulBreak[]): Array<[string, string]> {
   return burstCommands.map(
     cmd => ['[' + getSchoolName(cmd) + ']', '[' + formatMrP(cmd) + ']'] as [string, string],
+  );
+}
+
+export function getSynchroColumns(
+  mrP: MrPSoulBreak,
+  synchroCommands: MrPSoulBreak[],
+): Array<[string, string]> {
+  return synchroCommands.map(
+    (cmd, i) =>
+      [
+        '[' +
+          getSchoolName(cmd) +
+          ']' +
+          (mrP.synchroCondition && mrP.synchroCondition[i]
+            ? ', w/ ' + getShortName(mrP.synchroCondition[i])
+            : ''),
+        formatMrP(cmd),
+      ] as [string, string],
   );
 }

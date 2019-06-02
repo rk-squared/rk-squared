@@ -2225,6 +2225,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Howling Stone Follow-Up",
+    "name": "Howling Stone",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.62,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (2.77 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541244,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Torrent Blade Follow-Up",
     "name": "Torrent Blade",
     "type": "PHY",
@@ -2963,6 +2984,24 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30549066,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Pope's Fragment Follow-Up",
+    "name": "Pope's Fragment",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Imperil Holy 10% for 15 seconds",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 30542165,
     "gl": false
   },
   {
@@ -4004,6 +4043,28 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Grand Blow Follow-Up",
+    "name": "Grand Blow",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.2,
+    "element": [
+      "Earth",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (5.20) capped at 99999, 100% hit rate, grants Instant Cast 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 30547042,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Connected Hearts",
     "name": "Judgment",
     "type": "PHY",
@@ -4582,8 +4643,8 @@
   },
   {
     "sourceType": "Finisher Status",
-    "source": "Saint Boomerang Finisher",
-    "name": "Saint Boomerang",
+    "source": "Saintly Arc Finisher",
+    "name": "Saintly Arc",
     "type": "SUM",
     "target": "Single enemy",
     "formula": "Magical",

@@ -148,6 +148,7 @@ export type EnlirSoulBreakTier =
   | 'AOSB'
   | 'AASB'
   | 'Glint+'
+  | 'SASB'
   | 'RW'
   | 'Shared';
 
@@ -294,7 +295,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
   character: string | null;
   points: number;
   tier: EnlirSoulBreakTier;
-  master: string | null;
+  soulbreakBonus: string | null; // Formerly 'master'
   relic: string | null;
   nameJp: string;
   anima: number | null;
@@ -303,7 +304,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
 export interface EnlirStatus {
   id: number;
   name: string;
-  effects: string; // TODO: null is actually permitted, but it complicates code a lot
+  effects: string; // May be the empty string; to simplify code, we use '' instead of null
   defaultDuration: number | null;
   mndModifier: number | null;
   mndModifierIsOpposed: boolean;
@@ -312,11 +313,23 @@ export interface EnlirStatus {
   notes: string | null;
 }
 
+export interface EnlirSynchroCommand extends EnlirGenericSkill {
+  character: string;
+  source: string;
+  synchroAbilitySlot: 1 | 2;
+  synchroCondition: EnlirElement | EnlirSchool;
+  sb: number | null;
+  school: EnlirSchool;
+  nameJp: string;
+  synchroConditionId: number;
+}
+
 export type EnlirSkill =
   | EnlirAbility
   | EnlirBraveCommand
   | EnlirBurstCommand
   | EnlirOtherSkill
+  | EnlirSynchroCommand
   | EnlirSoulBreak;
 
 export enum SbOrLm {
@@ -335,7 +348,8 @@ export const tierOrder: { [t in EnlirSoulBreakTier]: number } = {
   AOSB: 7,
   USB: 8,
   AASB: 9,
-  CSB: 10,
+  SASB: 10,
+  CSB: 11,
   RW: 100,
   Shared: 101,
 };
@@ -352,6 +366,7 @@ const rawData = {
   relics: require('./enlir/relics.json') as EnlirRelic[],
   soulBreaks: require('./enlir/soulBreaks.json') as EnlirSoulBreak[],
   status: require('./enlir/status.json') as EnlirStatus[],
+  synchroCommands: require('./enlir/synchro.json') as EnlirSynchroCommand[],
 };
 
 // FIXME: Properly update rawData outside of app
@@ -492,6 +507,9 @@ export const enlir = {
   ]),
 
   statusByName: _.keyBy(rawData.status, 'name'),
+
+  synchroCommands: _.keyBy(rawData.synchroCommands, 'id'),
+  synchroCommandsByCharacter: makeCommandsMap(rawData.synchroCommands),
 
   relicSoulBreaks: makeRelicMap(rawData.relics, 'soulBreak', rawData.soulBreaks),
   relicLegendMateria: makeRelicMap(rawData.relics, 'legendMateria', rawData.legendMateria),
@@ -885,6 +903,10 @@ export function isBraveSoulBreak(sb: EnlirSoulBreak): boolean {
 
 export function isBurstSoulBreak(sb: EnlirSoulBreak): boolean {
   return sb.tier === 'BSB';
+}
+
+export function isSynchroSoulBreak(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'SASB';
 }
 
 export function isBraveCommand(skill: EnlirSkill): skill is EnlirBraveCommand {

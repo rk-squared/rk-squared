@@ -14,6 +14,7 @@ import {
   isEnlirElement,
   isGlint,
   isSoulBreak,
+  isSynchroSoulBreak,
 } from '../enlir';
 import { ParsedEnlirAttack, parseEnlirAttack } from './attack';
 import { splitSkillStatuses } from './split';
@@ -78,6 +79,8 @@ export interface MrPSoulBreak {
   burstCommands?: MrPSoulBreak[];
   braveCondition?: Array<EnlirElement | EnlirSchool>;
   braveCommands?: MrPSoulBreak[];
+  synchroCommands?: MrPSoulBreak[];
+  synchroCondition?: Array<EnlirElement | EnlirSchool>;
 }
 
 function appendGroup(outGroup: string[], inGroup: string[], description?: string) {
@@ -129,7 +132,7 @@ function formatChance(chance: number, attack?: ParsedEnlirAttack | null): string
  * Brave Ultra Soul Breaks, but MrP's format doesn't.
  */
 function checkBurstAndBraveMode(selfOther: string[]): string[] {
-  selfOther = _.filter(selfOther, i => i !== 'Brave Mode');
+  selfOther = _.filter(selfOther, i => !i.match(/^(Brave|Synchro) Mode(?: \d+s)?$/));
   return selfOther.indexOf('Burst Mode') !== -1
     ? _.filter(selfOther, i => i !== 'Burst Mode' && i !== 'Haste')
     : selfOther;
@@ -805,7 +808,7 @@ export function describeEnlirSoulBreak(
       other.push(description);
     }
   }
-  if ('sb' in sb) {
+  if ('sb' in sb && sb.sb != null) {
     if (opt.includeSbPoints && sb.sb === 0) {
       // If we weren't asked to suppress SB points (which we are for follow-ups
       // and finishers, since those don't generate gauge), then call out
@@ -905,6 +908,19 @@ export function describeEnlirSoulBreak(
     const braveCommands = enlir.braveCommandsByCharacter[sb.character][sb.name];
     result.braveCondition = braveCommands[0].braveCondition;
     result.braveCommands = braveCommands.map(i =>
+      describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false }),
+    );
+  }
+  if (
+    isSoulBreak(sb) &&
+    isSynchroSoulBreak(sb) &&
+    sb.character &&
+    enlir.synchroCommandsByCharacter[sb.character] &&
+    enlir.synchroCommandsByCharacter[sb.character][sb.name]
+  ) {
+    const synchroCommands = enlir.synchroCommandsByCharacter[sb.character][sb.name];
+    result.synchroCondition = synchroCommands.map(i => i.synchroCondition);
+    result.synchroCommands = synchroCommands.map(i =>
       describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false }),
     );
   }

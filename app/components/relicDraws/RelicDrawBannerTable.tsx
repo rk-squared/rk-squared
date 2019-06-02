@@ -20,6 +20,7 @@ import { RelicTypeIcon } from '../shared/RelicTypeIcon';
 import {
   getBraveColumns,
   getBurstColumns,
+  getSynchroColumns,
   legendMateriaAliases,
   soulBreakAliases,
   styles as soulBreakStyles,
@@ -130,6 +131,9 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
     }
     if (mrP && mrP.burstCommands) {
       commandColumns.push(...getBurstColumns(mrP.burstCommands));
+    }
+    if (mrP && mrP.synchroCommands) {
+      commandColumns.push(...getSynchroColumns(mrP, mrP.synchroCommands));
     }
     const rowSpan = commandColumns.length ? commandColumns.length + 1 : undefined;
 

@@ -4116,6 +4116,18 @@
   },
   {
     "realm": "VII",
+    "character": "Red XIII",
+    "name": "Warrior's Amulet",
+    "effect": "Grants Lingering Spirit and Quick Cast when HP fall below 20%",
+    "master": "MAG +10",
+    "relic": "Aegis Armlet (VII)",
+    "nameJp": "戦士の魔除け",
+    "id": 201070504,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Yuffie",
     "name": "The Elder Ways",
     "effect": "Increases Water damage dealt by 10%",
@@ -6564,6 +6576,18 @@
   },
   {
     "realm": "XI",
+    "character": "Prishe",
+    "name": "Straightforward Girl",
+    "effect": "Grants Quick Cast 3 at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Crow Beret (XI)",
+    "nameJp": "天衣無縫な少女",
+    "id": 201110403,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XI",
     "character": "Lion",
     "name": "Agent's Shiv",
     "effect": "PHY attacks deal 10% more damage when equipping a dagger",
@@ -6636,6 +6660,18 @@
   },
   {
     "realm": "XI",
+    "character": "Aphmau",
+    "name": "Affection for Automaton",
+    "effect": "25% chance to cast an ability (?: group, restores 1000? HP) after using a White Magic or Monk ability",
+    "master": "MND +10",
+    "relic": "Healing Mace (XI)",
+    "nameJp": "オートマトンへの友愛",
+    "id": 201110603,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XI",
     "character": "Zeid",
     "name": "Kindred Hunter",
     "effect": "Increases Dark damage dealt by 10%",
@@ -6705,6 +6741,42 @@
     "id": 201110802,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "XI",
+    "character": "Naja",
+    "name": "Whismical One",
+    "effect": "Increases Earth damage dealt by 10%",
+    "master": null,
+    "relic": null,
+    "nameJp": "気まぐれなワンマン",
+    "id": 201110900,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XI",
+    "character": "Naja",
+    "name": "High Class Cat President",
+    "effect": "Grants Haste and Instant Cast 3 at the beginning of the battle",
+    "master": null,
+    "relic": null,
+    "nameJp": "豪腕ネコ社長",
+    "id": 201110901,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XI",
+    "character": "Naja",
+    "name": "Wishing for Reinstatement",
+    "effect": "Grants Attach Earth at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Warhammer (XI)",
+    "nameJp": "復権への願い",
+    "id": 201110902,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XII",
@@ -7520,7 +7592,7 @@
     "nameJp": "仲間を守る誓い",
     "id": 201130604,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -7736,7 +7808,7 @@
     "nameJp": "士官学校首席の才腕",
     "id": 201131203,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -9086,7 +9158,7 @@
     "realm": "Type-0",
     "character": "Ace",
     "name": "Commander of Magic",
-    "effect": "25?% chance to cast an ability (?: single, 3x ? magical Fire/NE, 1500 HP to an ally) after using a Fire attack",
+    "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Fire/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Fire attack",
     "master": "MAG +10",
     "relic": "Ironclad Deck (Type-0)",
     "nameJp": "受け取る力を司る者",
@@ -9213,6 +9285,18 @@
     "id": 201600402,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "Type-0",
+    "character": "Machina",
+    "name": "Destiny's Namer",
+    "effect": "25?% chance to dualcast Spellblade abilities",
+    "master": "ATK +10",
+    "relic": "Metal Gloves (Type-0)",
+    "nameJp": "チチリの名付け親",
+    "id": 201600403,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "Type-0",
@@ -10058,7 +10142,7 @@
     "realm": "Beyond",
     "character": "Serafie",
     "name": "Worldly Mascot",
-    "effect": "30?% chance to cause Minor Imperil Wind to the target after using a Wind attack on an enemy",
+    "effect": "30% chance to cause Minor Imperil Wind to the target after using a Wind attack on an enemy",
     "master": null,
     "relic": null,
     "nameJp": "いろんな世界のマスコット",

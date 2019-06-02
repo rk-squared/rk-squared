@@ -8,7 +8,8 @@
   }
 
   tr.burstCommand > td,
-  tr.braveCommand > td {
+  tr.braveCommand > td,
+  tr.synchroCommand > td {
     border-top: none;
   }
 
@@ -60,6 +61,12 @@
   tr.awakening > td.name {
     font-weight: bold;
     color: #5b9bd5;
+  }
+
+  tr.synchro > td.tier,
+  tr.synchro > td.name {
+    font-weight: bold;
+    color: #5b60d5;
   }
 
   tr.glint > td.tier,

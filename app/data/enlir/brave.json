@@ -3214,7 +3214,7 @@
   {
     "character": "Nabaat",
     "source": "Fatal Refrain",
-    "name": "Downfall Gear",
+    "name": "Descent Gear",
     "brave": 0,
     "type": "BLK",
     "target": "Single enemy",
@@ -3234,12 +3234,12 @@
     ],
     "nameJp": "フォールダウン=ギア",
     "id": 30549665,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Nabaat",
     "source": "Fatal Refrain",
-    "name": "Downfall Gear",
+    "name": "Descent Gear",
     "brave": 1,
     "type": "BLK",
     "target": "Single enemy",
@@ -3259,12 +3259,12 @@
     ],
     "nameJp": "フォールダウン=ギア",
     "id": 30549666,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Nabaat",
     "source": "Fatal Refrain",
-    "name": "Downfall Gear",
+    "name": "Descent Gear",
     "brave": 2,
     "type": "BLK",
     "target": "Single enemy",
@@ -3284,12 +3284,12 @@
     ],
     "nameJp": "フォールダウン=ギア",
     "id": 30549667,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Nabaat",
     "source": "Fatal Refrain",
-    "name": "Downfall Gear",
+    "name": "Descent Gear",
     "brave": 3,
     "type": "BLK",
     "target": "Single enemy",
@@ -3309,7 +3309,7 @@
     ],
     "nameJp": "フォールダウン=ギア",
     "id": 30549668,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Y'shtola",

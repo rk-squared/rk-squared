@@ -1926,6 +1926,53 @@
     "gl": true
   },
   {
+    "element": "Lightning",
+    "name": "Ramuh",
+    "realm": null,
+    "rarity": 6,
+    "introducingEventLv99": "Magicite Dawn, Part 14",
+    "stats": {
+      "hp": null,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "spd": null
+    },
+    "passives": {
+      "?": {
+        "1": null,
+        "10": null,
+        "25": null,
+        "50": null,
+        "65": null,
+        "80": null,
+        "81": null,
+        "90": null,
+        "99": null
+      }
+    },
+    "cooldown": null,
+    "duration": null,
+    "magiciteUltraSkill": {
+      "name": "?",
+      "type": "?",
+      "autoTarget": "?",
+      "formula": "?",
+      "multiplier": null,
+      "element": [
+        "?"
+      ],
+      "time": null,
+      "effects": "?",
+      "counter": false
+    },
+    "nameJp": null,
+    "id": 161000098,
+    "gl": false
+  },
+  {
     "element": "Earth",
     "name": "Earth Elemental",
     "realm": "I",

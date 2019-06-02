@@ -1,0 +1,52 @@
+[
+  {
+    "character": "Tifa",
+    "source": "Infinite Zangan Style",
+    "name": "Neo Falcon Dive",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": "Earth",
+    "type": "PHY",
+    "target": "Single Enemy",
+    "formula": "Physical",
+    "multiplier": 5.16,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.86 each), 25/50/75/100% additional critical chance scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Monk",
+    "nameJp": "ネオ・ファルコンダイブ",
+    "id": 30548420,
+    "synchroConditionId": 103,
+    "gl": false
+  },
+  {
+    "character": "Tifa",
+    "source": "Infinite Zangan Style",
+    "name": "Elbow Clash",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": "Monk",
+    "type": "PHY",
+    "target": "Single Enemy",
+    "formula": "Physical",
+    "multiplier": 2.7,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (0.90 each), grants Monk +30% Boost 3 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Monk",
+    "nameJp": "エルボークラッシュ",
+    "id": 30548425,
+    "synchroConditionId": 9,
+    "gl": false
+  }
+]

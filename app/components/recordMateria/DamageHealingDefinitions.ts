@@ -159,7 +159,7 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Sabin', '3'], ['Eight', '3']],
         '1_3': [['Zell', '2']],
-        '1_15': [['Monk', '1a'], ['Yda', '1']],
+        '1_15': [['Monk', '1a'], ['Yda', '1'], ['Naja', '1']],
         '13w': [['Master', '2'], ['Sabin', '2'], ['Eight', '2']],
         '8w': [['Monk', '1b']],
       },
@@ -294,7 +294,8 @@ const physicalTable: TableDefinition = {
     {
       header: 'PHY Hammer',
       items: {
-        '1_2': [['Cid (IV)', '2']],
+        '1_3': [['Naja', '3']],
+        '1_2': [['Cid (IV)', '2'], ['Naja', '2']],
         '1_1': [['Viking', '1a']],
       },
     },
