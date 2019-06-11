@@ -11268,7 +11268,7 @@
   {
     "id": 50546,
     "name": "Awoken Automaton Mode",
-    "effects": "White Magic and Monk abilities don't consume uses, cast speed x2.00 for White Magic and Monk abilities, grants HP Stock 500/1000/1500/2000/3000 after using White Magic or Monk abilities at rank 1/2/3/4/5  ",
+    "effects": "White Magic and Monk abilities don't consume uses, cast speed x2.00 for White Magic and Monk abilities, grants HP Stock (500/1000/1500/2000/3000) after using White Magic or Monk abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

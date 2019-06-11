@@ -215,6 +215,8 @@ for (const i of allEnlirElements) {
     'Negate dmg {X}% (' + getElementShortName(i) + ' only)';
   statusAlias.numbered[`${i} Radiant Shield: {X}%`] =
     'Reflect Dmg {X}% as ' + getElementShortName(i);
+  statusAlias.numbered[`Overflow ${i} Radiant Shield: {X}%`] =
+    'Reflect Dmg {X}% as overstrike ' + getElementShortName(i);
 }
 for (const i of allEnlirSchools) {
   addCastSpeedAliases(statusAlias.numbered, i, getSchoolShortName(i), ' {X}');

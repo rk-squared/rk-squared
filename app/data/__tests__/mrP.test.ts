@@ -2246,12 +2246,30 @@ Object {
           '15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast',
       });
 
+      expect(describeSoulBreak('Aphmau - Benediction (XI)')).toEqual({
+        other:
+          'party h105 (NAT), Haste, PM blink 1, instacast 1, revive @ 100% HP, ' +
+          '15s: Awoken Automaton Mode: W.Mag/Monk inf. hones, W.Mag/Monk fastcast, ' +
+          '(W.Mag/Monk abilities at rank 1/2/3/4/5 ⤇ Autoheal 0.5k/1k/1.5k/2k/3k)',
+        instant: true,
+      });
+
       expect(describeSoulBreak('Enna Kros - God Geocrush')).toEqual({
         damage: 'magic 22.5/15 earth+holy+non',
         other:
           'earth infuse 25s, self dmg cap +10k 15s, fastcast 15s, ' +
           '15s: (3 earth ⤇ m3.6/3 - 6.0/5 - 18.0/15 e+h+n B.Mag @ 0-72001-240001 dmg dealt, ' +
           'then m17.3 e+h+n overstrike B.Mag @ 240001 dmg dealt (once only)), ' +
+          '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Machina - Grand Blow')).toEqual({
+        damage: 'phys 9.0/15 earth+dark+non',
+        other:
+          'earth infuse 25s, self dmg cap +10k 15s, ' +
+          'Reflect Dmg 75% as overstrike earth 30s, ' +
+          '15s: (4 earth ⤇ p5.2 e+d+n overstrike Spellblade, self instacast 1), ' +
+          '15s: (1/2/3+ earth ⤇ Reflect Dmg 125%/200%/300% as overstrike earth), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
     });
