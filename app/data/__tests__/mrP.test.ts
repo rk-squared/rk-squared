@@ -2277,7 +2277,7 @@ Object {
     it('handles synchro soul breaks', () => {
       expect(describeSoulBreak('Tifa - Infinite Zangan Style')).toEqual({
         damage: 'phys 9.0/15 earth+non',
-        other: 'earth infuse 25s, self dmg cap +10k 15s',
+        other: 'earth infuse 3 w/ stacking 25s, self dmg cap +10k 15s',
         synchroCommands: [
           {
             damage:

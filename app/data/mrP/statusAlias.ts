@@ -181,6 +181,8 @@ function addCastSpeedAliases<T>(
 for (const i of allEnlirElements) {
   statusAlias.simple[`Attach ${i}`] = `${getElementShortName(i)} infuse`;
   statusAlias.simple[`Attach ${i} Stacking`] = `${getElementShortName(i)} infuse stacking`;
+  statusAlias.numbered[`Attach ${i} {X} with Stacking`] =
+    getElementShortName(i) + ' infuse {X} w/ stacking';
 
   statusAlias.simple[`Minor Resist ${i}`] = `-10% ${getElementShortName(i)} vuln.`;
   statusAlias.simple[`Medium Resist ${i}`] = `-20% ${getElementShortName(i)} vuln.`;

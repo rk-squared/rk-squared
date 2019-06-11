@@ -721,7 +721,12 @@ export function describeEnlirSoulBreak(
     other.push(resolveStatusAlias(`Attach ${element} Stacking`) + ' 25s');
   }
 
-  if ((m = sb.effects.match(/Attach (\w+)(?: |,|$)(?! Stacking)/))) {
+  if ((m = sb.effects.match(/Attach (\w+) (\d+) with Stacking/))) {
+    const [, element, level] = m;
+    other.push(resolveStatusAlias(`Attach ${element} ${level} with Stacking`) + ' 25s');
+  }
+
+  if ((m = sb.effects.match(/Attach (\w+)(?: |,|$)(?! Stacking|\d with Stacking)/))) {
     const [, element] = m;
     other.push(resolveStatusAlias(`Attach ${element}`) + ' 25s');
   }

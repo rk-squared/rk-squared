@@ -6,6 +6,7 @@ import * as yargs from 'yargs';
 import { enlir, tierOrder } from '../app/data/enlir';
 import { describeEnlirSoulBreak, formatMrP } from '../app/data/mrP';
 import { formatBraveCommands } from '../app/data/mrP/brave';
+import { getShortName } from '../app/data/mrP/types';
 
 // tslint:disable: no-console
 
@@ -47,12 +48,23 @@ for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
   console.log((sb.character || '-') + ': ' + sb.tier + ': ' + sb.name);
   console.log(text || '???');
   if (mrP.braveCommands) {
-    // console.log('    [' + getSchoolShortName(mrP.braveCommands[0].school) + '], +1 on ' + mrP.braveCondition.map(getShortName).join(', ');
+    console.log(
+      '    [' +
+        getShortName(mrP.braveCommands[0].school) +
+        '], +1 on ' +
+        mrP.braveCondition.map(getShortName).join(', '),
+    );
     console.log('    ' + formatBraveCommands(mrP.braveCommands));
   }
   if (mrP.burstCommands) {
     for (const i of mrP.burstCommands) {
       console.log('    ' + formatMrP(i));
+    }
+  }
+  if (mrP.synchroCondition && mrP.synchroCommands) {
+    for (let i = 0; i < mrP.synchroCommands.length; i++) {
+      console.log('    [' + getShortName(mrP.synchroCondition[i]) + ']');
+      console.log('    ' + formatMrP(mrP.synchroCommands[i]));
     }
   }
   console.log();
