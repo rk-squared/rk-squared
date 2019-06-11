@@ -32,7 +32,7 @@ const elementalTable: TableDefinition = {
       items: {
         13: [['Tifa', '3']],
         12: [['Cinque', '2']],
-        11: [['Ingus', '1a'], ['Rude', '1'], ['Enna', '1']],
+        11: [['Ingus', '1a'], ['Rude', '1'], ['Enna Kros', '1']],
       },
     },
     {

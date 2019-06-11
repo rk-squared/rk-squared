@@ -2513,10 +2513,19 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": [
-      "-%"
-    ],
+    "exclusiveStatus": null,
     "codedName": "CHANGE_CAST_TIME_300_1_ABILITY_CATEGORY_ID_MONK",
+    "notes": null
+  },
+  {
+    "id": 2230,
+    "name": "Instant Cast",
+    "effects": "Cast speed x9999999",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_MAX_15000_MSEC_ALL",
     "notes": null
   },
   {
@@ -3504,7 +3513,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_CRITICAL_COEFFICIENT_50_25000_MSEC",
+    "codedName": "INCREASE_CRITICAL_DAMAGE_50_TIME_LARGE",
     "notes": null
   },
   {
@@ -3515,7 +3524,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_CRITICAL_COEFFICIENT_50_1",
+    "codedName": "INCREASE_CRITICAL_DAMAGE_50_TURN_1",
     "notes": null
   },
   {
@@ -5706,7 +5715,7 @@
   {
     "id": 50022,
     "name": "Attach Dark Stacking",
-    "effects": "Allows to cumulate Attach Dark",
+    "effects": "Allow to stack Attach Dark, up to Attach Dark 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9508,7 +9517,7 @@
   },
   {
     "id": 50383,
-    "name": "EX: Martial Pinnacle",
+    "name": "EX: Military Prowess",
     "effects": "Cast speed x9999999 for Knight or Samurai abilities, restores HP for 10% of the damage dealt with Knight or Samurai abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9519,8 +9528,8 @@
   },
   {
     "id": 50384,
-    "name": "EX: Knight of the Goddess",
-    "effects": "Grants Physical High Quick Cast 1 to all allies in the front row and casts Saint Sabre 1/2/3 after using 1/2/3 +3n Holy attacks",
+    "name": "EX: Knight of Etro",
+    "effects": "Grants Physical High Quick Cast 1 to all allies in the front row and casts Divine Edge 1/2/3 after using 1/2/3 +3n Holy attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9530,7 +9539,7 @@
   },
   {
     "id": 50385,
-    "name": "EX: Knower of Love",
+    "name": "EX: Enlightened Yearning",
     "effects": "MAG +30%, casts Trance Wind after using a Wind attack",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11350,7 +11359,7 @@
   {
     "id": 50577,
     "name": "Fear Mode",
-    "effects": "Grants Overflow Earth Radiant Shield: 125/200/300% after using 1/2/3 + 3n Earth attacks",
+    "effects": "Grants Overflow Earth Radiant Shield: 125/200/300% after using 1/2/3+ Earth attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11378,6 +11387,50 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_TRUE_STRIKE_2",
+    "notes": null
+  },
+  {
+    "id": 50595,
+    "name": "Awoken Endurance",
+    "effects": "Earth abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, casts Persistence after using an Earth attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_INDOMITABLE_PERSEVERANCE",
+    "notes": null
+  },
+  {
+    "id": 50596,
+    "name": "Final Stand",
+    "effects": "Removed if the user doesn't have any Stoneskin, grants Instant Cast when removed",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_KING_AND_GENERAL",
+    "notes": null
+  },
+  {
+    "id": 50597,
+    "name": "Lupine Pulse Follow-Up",
+    "effects": "Casts Lupine Pulse after using two Ninja abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_PRIME_LUPINE_ATTACK",
+    "notes": null
+  },
+  {
+    "id": 50598,
+    "name": "Second Home Follow-Up",
+    "effects": "Casts Second Home after using two Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_POWER_PASSED_TO_SON",
     "notes": null
   },
   {
@@ -12822,13 +12875,35 @@
   },
   {
     "id": 609121,
-    "name": "ATK, DEF, MAG and RES -50%",
+    "name": "Brief ATK, DEF, MAG and RES -50%",
     "effects": "ATK, DEF, MAG and RES -50%",
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_M50_WITH_DURATION_SMALL_10000",
+    "notes": null
+  },
+  {
+    "id": 609123,
+    "name": "ATK, DEF, MAG and RES -50%",
+    "effects": "ATK, DEF, MAG and RES -50%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_M50_WITH_DURATION_LARGE",
+    "notes": null
+  },
+  {
+    "id": 609143,
+    "name": "ATK, DEF, MAG and RES -40%",
+    "effects": "ATK, DEF, MAG and RES -40%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_M40_WITH_DURATION_LARGE",
     "notes": null
   },
   {
@@ -13525,7 +13600,7 @@
   {
     "id": 7200,
     "name": "Attach Fire with Stacking",
-    "effects": "Increase Attach Fire Level by 1 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Fire Level by 1 and increase Max Attach Element Level by 2, up to Attach Fire 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13538,7 +13613,7 @@
   {
     "id": 7201,
     "name": "Attach Fire 3 with Stacking",
-    "effects": "Increase Attach Fire Level by 3 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Fire Level by 3 and increase Max Attach Element Level by 2, up to Attach Fire 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13551,7 +13626,7 @@
   {
     "id": 7210,
     "name": "Attach Ice with Stacking",
-    "effects": "Increase Attach Ice Level by 1 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Ice Level by 1 and increase Max Attach Element Level by 2, up to Attach Ice 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13564,7 +13639,7 @@
   {
     "id": 7211,
     "name": "Attach Ice 3 with Stacking",
-    "effects": "Increase Attach Ice Level by 3 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Ice Level by 3 and increase Max Attach Element Level by 2, up to Attach Ice 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13577,7 +13652,7 @@
   {
     "id": 7220,
     "name": "Attach Lightning with Stacking",
-    "effects": "Increase Attach Lightning Level by 1 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Lightning Level by 1 and increase Max Attach Element Level by 2, up to Attach Lightning 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13590,7 +13665,7 @@
   {
     "id": 7221,
     "name": "Attach Lightning 3 with Stacking",
-    "effects": "Increase Attach Lightning Level by 3 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Lightning Level by 3 and increase Max Attach Element Level by 2, up to Attach Lightning 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13603,7 +13678,7 @@
   {
     "id": 7230,
     "name": "Attach Earth with Stacking",
-    "effects": "Increase Attach Earth Level by 1 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Earth Level by 1 and increase Max Attach Element Level by 2, up to Attach Earth 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13616,7 +13691,7 @@
   {
     "id": 7231,
     "name": "Attach Earth 3 with Stacking",
-    "effects": "Increase Attach Earth Level by 3 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Earth Level by 3 and increase Max Attach Element Level by 2, up to Attach Earth 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13629,7 +13704,7 @@
   {
     "id": 7240,
     "name": "Attach Wind with Stacking",
-    "effects": "Increase Attach Wind Level by 1 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Wind Level by 1 and increase Max Attach Element Level by 2, up to Attach Wind 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13642,7 +13717,7 @@
   {
     "id": 7241,
     "name": "Attach Wind 3 with Stacking",
-    "effects": "Increase Attach Wind Level by 3 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Wind Level by 3 and increase Max Attach Element Level by 2, up to Attach Wind 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13655,7 +13730,7 @@
   {
     "id": 7250,
     "name": "Attach Water with Stacking",
-    "effects": "Increase Attach Water Level by 1 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Water Level by 1 and increase Max Attach Element Level by 2, up to Attach Water 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13668,7 +13743,7 @@
   {
     "id": 7251,
     "name": "Attach Water 3 with Stacking",
-    "effects": "Increase Attach Water Level by 3 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Water Level by 3 and increase Max Attach Element Level by 2, up to Attach Water 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13681,7 +13756,7 @@
   {
     "id": 7260,
     "name": "Attach Holy with Stacking",
-    "effects": "Increase Attach Holy Level by 1 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Holy Level by 1 and increase Max Attach Element Level by 2, up to Attach Holy 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13694,7 +13769,7 @@
   {
     "id": 7261,
     "name": "Attach Holy 3 with Stacking",
-    "effects": "Increase Attach Holy Level by 3 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Holy Level by 3 and increase Max Attach Element Level by 2, up to Attach Holy 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13707,7 +13782,7 @@
   {
     "id": 7270,
     "name": "Attach Dark with Stacking",
-    "effects": "Increase Attach Dark Level by 1 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Dark Level by 1 and increase Max Attach Element Level by 2, up to Attach Dark 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13720,7 +13795,7 @@
   {
     "id": 7271,
     "name": "Attach Dark 3 with Stacking",
-    "effects": "Increase Attach Dark Level by 3 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Dark Level by 3 and increase Max Attach Element Level by 2, up to Attach Dark 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13733,7 +13808,7 @@
   {
     "id": 7280,
     "name": "Attach Poison with Stacking",
-    "effects": "Increase Attach Poison Level by 1 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Poison Level by 1 and increase Max Attach Element Level by 2, up to Attach Poison 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13746,7 +13821,7 @@
   {
     "id": 7281,
     "name": "Attach Poison 3 with Stacking",
-    "effects": "Increase Attach Poison Level by 3 and increase Max Attach Element Level by 2",
+    "effects": "Increase Attach Poison Level by 3 and increase Max Attach Element Level by 2, up to Attach Poison 3",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

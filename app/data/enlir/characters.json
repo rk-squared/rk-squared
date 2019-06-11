@@ -29733,11 +29733,11 @@
       "heavy": null
     },
     "id": 19001600,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "name": "Enna",
+    "name": "Enna Kros",
     "introducingEventLv50": "World of Valgallan",
     "lv50": {
       "hp": 2989,
@@ -29859,7 +29859,7 @@
       "heavy": null
     },
     "id": 19001700,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",

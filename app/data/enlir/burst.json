@@ -12538,8 +12538,8 @@
   },
   {
     "character": "Tama",
-    "source": "Blossom Breeze",
-    "name": "Crossing Time",
+    "source": "Petal Pummel",
+    "name": "Bid for Time",
     "type": "WHT",
     "target": "Single ally",
     "formula": "Magical",
@@ -12555,12 +12555,12 @@
     "school": "White Magic",
     "nameJp": "ときわたり",
     "id": 30512751,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Tama",
-    "source": "Blossom Breeze",
-    "name": "Encouragement",
+    "source": "Petal Pummel",
+    "name": "Cheer",
     "type": "WHT",
     "target": "All allies",
     "formula": "Magical",
@@ -12576,12 +12576,12 @@
     "school": "White Magic",
     "nameJp": "げきれい",
     "id": 30512752,
-    "gl": false
+    "gl": true
   },
   {
-    "character": "Enna",
-    "source": "Maker's Judgment",
-    "name": "Alpha Power",
+    "character": "Enna Kros",
+    "source": "Creator's Judgment",
+    "name": "Might of A",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -12598,12 +12598,12 @@
     "school": "Black Magic",
     "nameJp": "Aの力",
     "id": 30512741,
-    "gl": false
+    "gl": true
   },
   {
-    "character": "Enna",
-    "source": "Maker's Judgment",
-    "name": "World's Intervention",
+    "character": "Enna Kros",
+    "source": "Creator's Judgment",
+    "name": "Mortal Meddling",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -12620,6 +12620,6 @@
     "school": "Black Magic",
     "nameJp": "世界への干渉",
     "id": 30512742,
-    "gl": false
+    "gl": true
   }
 ]

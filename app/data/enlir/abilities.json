@@ -8689,8 +8689,8 @@
         0
       ]
     },
-    "introducingEvent": null,
-    "nameJp": null,
+    "introducingEvent": "Braving the Countless Ordeals",
+    "nameJp": "ブラザーズ",
     "id": 30131411,
     "gl": false
   },
@@ -10857,6 +10857,13 @@
         18,
         30,
         60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
       ]
     },
     "introducingEvent": "New Year Party 2019",
@@ -10950,6 +10957,13 @@
         18,
         30,
         60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
       ]
     },
     "introducingEvent": "Fat Black Chocobo Event: Wind",
@@ -11829,6 +11843,13 @@
         18,
         30,
         60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
       ]
     },
     "introducingEvent": "New Year Party 2019",
@@ -15499,7 +15520,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Critical Chance 10/20/30/40/50%, grants Tactical Bard 1/2/3/4/4 to the user if the user has Tactical Bard 0/1/2/3/4",
+    "effects": "Grants Critical Chance 10/20/30/40/50% for 10 seconds, grants Tactical Bard 1/2/3/4/4 to the user if the user has Tactical Bard 0/1/2/3/4",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 85,

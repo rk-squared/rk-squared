@@ -1011,6 +1011,12 @@ Array [
     "name": "Wandering Adventurer",
   },
   Object {
+    "character": "Dorgann",
+    "description": "(earth ⤇ 20?% for +10% earth vuln.)",
+    "effect": "20?% chance to cause Minor Imperil Earth to the target after using a Earth attack on an enemy",
+    "name": "Warrior of Regole",
+  },
+  Object {
     "character": "Dr. Mog",
     "description": "-10% BLK dmg taken",
     "effect": "Reduces damage taken by BLK attacks by 10%",
@@ -1281,22 +1287,22 @@ Array [
     "name": "Risen Tyrant",
   },
   Object {
-    "character": "Enna",
+    "character": "Enna Kros",
     "description": "1.1x BLK dmg",
     "effect": "BLK attacks deal 10% more damage",
-    "name": "Mysterious Woman",
+    "name": "Abounding Mystery",
   },
   Object {
-    "character": "Enna",
+    "character": "Enna Kros",
     "description": "(B.Mag ⤇ 30% for fastcast 3)",
     "effect": "30% chance to grant Quick Cast 3 to the user after using a Black Magic ability",
-    "name": "Creator of Worlds",
+    "name": "Power of Creation",
   },
   Object {
-    "character": "Enna",
+    "character": "Enna Kros",
     "description": "25% dualcast B.Mag",
     "effect": "25% chance to dualcast Black Magic abilities",
-    "name": "Mysterious Being",
+    "name": "Mystic Presence",
   },
   Object {
     "character": "Estinien",
@@ -1428,7 +1434,7 @@ Array [
     "character": "Firion",
     "description": "25% dualcast Knight",
     "effect": "25% chance to dualcast Knight abilities",
-    "name": "Righteous Ardor",
+    "name": "Impassioned Leader",
   },
   Object {
     "character": "Firion",
@@ -2448,7 +2454,7 @@ Array [
     "character": "Lightning",
     "description": "holy infuse at battle start",
     "effect": "Grants Attach Holy at the beginning of the battle",
-    "name": "Etro's Knight",
+    "name": "Chosen of Etro",
   },
   Object {
     "character": "Lightning",
@@ -3412,8 +3418,8 @@ Array [
   },
   Object {
     "character": "Red XIII",
-    "description": "(<20% HP ⤇ +30% MAG, -30% RES, fastcast 15s)",
-    "effect": "Grants Lingering Spirit and Quick Cast when HP fall below 20%",
+    "description": "(<20% HP ⤇ fastcast, +30% MAG, -30% RES 25s)",
+    "effect": "Grants Quick Cast and Lingering Spirit for 25 seconds when HP fall below 20%",
     "name": "Warrior's Amulet",
   },
   Object {
@@ -4308,19 +4314,19 @@ Array [
     "character": "Tama",
     "description": "1.15x WHT healing",
     "effect": "WHT abilities restore 15% more HP",
-    "name": "Reliable Creature",
+    "name": "Steadfast Presence",
   },
   Object {
     "character": "Tama",
     "description": "35% dualcast W.Mag",
     "effect": "35% chance to dualcast White Magic abilities",
-    "name": "Power to Bring Back Time",
+    "name": "Microreversal",
   },
   Object {
     "character": "Tama",
     "description": "(ally W.Mag heal ⤇ 20% for ally Last stand)",
     "effect": "20% chance to grant Last Stand to the target after using a single-target White Magic ability that restores HP on an ally",
-    "name": "Lifesaver",
+    "name": "Lifeline",
   },
   Object {
     "character": "Tellah",
@@ -4374,7 +4380,7 @@ Array [
     "character": "Terra",
     "description": "wind infuse at battle start",
     "effect": "Grants Attach Wind at the beginning of the battle",
-    "name": "Strength of Protection",
+    "name": "Savior's Gift",
   },
   Object {
     "character": "Thancred",
@@ -4855,6 +4861,12 @@ Array [
     "description": "25% dualcast Spellblade",
     "effect": "25% chance to dualcast Spellblade abilities",
     "name": "Head of the Fleet",
+  },
+  Object {
+    "character": "Xezat",
+    "description": "1.25?x Spellblade dmg if using a sword",
+    "effect": "Spellblade abilities deal 25?% more damage when equipping a sword",
+    "name": "Master of Castle Surgate",
   },
   Object {
     "character": "Y'shtola",

@@ -211,7 +211,7 @@ const blackElementalTable: TableDefinition = {
     {
       header: 'Earth',
       items: {
-        3: [['Enna', '3']],
+        3: [['Enna Kros', '3']],
       },
     },
     {

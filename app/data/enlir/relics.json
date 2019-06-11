@@ -3060,6 +3060,51 @@
     "gl": false
   },
   {
+    "name": "Earth Dagger",
+    "realm": "Core",
+    "type": "Dagger",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 136,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 101,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 153,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21001178,
+    "gl": false
+  },
+  {
     "name": "Gladius",
     "realm": "I",
     "type": "Dagger",
@@ -9087,7 +9132,7 @@
       "eva": null
     },
     "id": 21002457,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Durandal",
@@ -9447,7 +9492,7 @@
       "eva": null
     },
     "id": 21002429,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Soul Devourer",
@@ -10842,7 +10887,7 @@
       "eva": null
     },
     "id": 21002194,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ice Brand",
@@ -15207,6 +15252,141 @@
       "eva": null
     },
     "id": 21002427,
+    "gl": false
+  },
+  {
+    "name": "Rune Rapiers",
+    "realm": "Type-0",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Machina",
+    "soulBreak": "Grand Blow",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002428,
+    "gl": false
+  },
+  {
+    "name": "Platinum Rapiers",
+    "realm": "Type-0",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Machina",
+    "soulBreak": "Earth's Power",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002383,
+    "gl": false
+  },
+  {
+    "name": "Mecha-Rapiers",
+    "realm": "Type-0",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Machina",
+    "soulBreak": "Grand Cascade",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002476,
     "gl": false
   },
   {
@@ -22608,7 +22788,7 @@
     "effect": null,
     "character": "Lightning",
     "soulBreak": null,
-    "legendMateria": "Etro's Knight",
+    "legendMateria": "Chosen of Etro",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -22632,7 +22812,7 @@
       "eva": null
     },
     "id": 21002059,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Cobalt Katzbalger",
@@ -41265,6 +41445,51 @@
     "gl": false
   },
   {
+    "name": "Rune Claw",
+    "realm": "VII",
+    "type": "Fist",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Tifa",
+    "soulBreak": "Infinite Zangan Style",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007174,
+    "gl": false
+  },
+  {
     "name": "Kaiser Knuckles",
     "realm": "I",
     "type": "Fist",
@@ -43422,6 +43647,51 @@
       "eva": null
     },
     "id": 21007183,
+    "gl": false
+  },
+  {
+    "name": "Earth Claw",
+    "realm": "Core",
+    "type": "Fist",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 146,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 111,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 163,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007200,
     "gl": false
   },
   {
@@ -51747,7 +52017,7 @@
       "eva": null
     },
     "id": 21008188,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Magical Rod",
@@ -54423,7 +54693,7 @@
     "effect": null,
     "character": "Terra",
     "soulBreak": null,
-    "legendMateria": "Strength of Protection",
+    "legendMateria": "Savior's Gift",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -54447,7 +54717,7 @@
       "eva": null
     },
     "id": 21008068,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Guard Stick",
@@ -76905,7 +77175,7 @@
     "gl": false
   },
   {
-    "name": "Surge Babyhemoth",
+    "name": "Babyhemoth Mirage",
     "realm": "Beyond",
     "type": "Thrown",
     "rarity": 6,
@@ -76921,7 +77191,7 @@
       "eva": 0
     },
     "effect": "Earth damage +20%",
-    "character": "Enna",
+    "character": "Enna Kros",
     "soulBreak": "Worldbreaker",
     "legendMateria": null,
     "baseStats": {
@@ -76947,10 +77217,10 @@
       "eva": null
     },
     "id": 21013078,
-    "gl": false
+    "gl": true
   },
   {
-    "name": "Surge Chocochick",
+    "name": "Chocochick Mirage",
     "realm": "Beyond",
     "type": "Thrown",
     "rarity": 6,
@@ -76966,7 +77236,7 @@
       "eva": 0
     },
     "effect": null,
-    "character": "Enna",
+    "character": "Enna Kros",
     "soulBreak": "Break Time",
     "legendMateria": null,
     "baseStats": {
@@ -76992,7 +77262,7 @@
       "eva": null
     },
     "id": 21013079,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Surge Affrite",
@@ -77146,7 +77416,7 @@
       "eva": 0
     },
     "effect": null,
-    "character": "Enna",
+    "character": "Enna Kros",
     "soulBreak": "Hopeful Soul",
     "legendMateria": null,
     "baseStats": {
@@ -77191,7 +77461,7 @@
       "eva": 0
     },
     "effect": "Earth damage +20%",
-    "character": "Enna",
+    "character": "Enna Kros",
     "soulBreak": "God Geocrush",
     "legendMateria": null,
     "baseStats": {
@@ -79740,7 +80010,7 @@
     "gl": true
   },
   {
-    "name": "Surge Copper Gnome",
+    "name": "Copper Gnome Mirage",
     "realm": "Beyond",
     "type": "Thrown",
     "rarity": 5,
@@ -79756,8 +80026,8 @@
       "eva": 0
     },
     "effect": null,
-    "character": "Enna",
-    "soulBreak": "Rules of the World",
+    "character": "Enna Kros",
+    "soulBreak": "The World's Rules",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -79782,7 +80052,7 @@
       "eva": null
     },
     "id": 21013096,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Surge Searcher",
@@ -86310,6 +86580,96 @@
     "gl": true
   },
   {
+    "name": "Cosmo Barrette",
+    "realm": "VII",
+    "type": "Hairpin",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 122,
+      "def": 0,
+      "mag": 172,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Red XIII",
+    "soulBreak": "Stardust Shower",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 91,
+      "def": null,
+      "mag": 127,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 134,
+      "def": null,
+      "mag": 190,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 22031014,
+    "gl": false
+  },
+  {
+    "name": "Diamond Barrette",
+    "realm": "VII",
+    "type": "Hairpin",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 122,
+      "def": 0,
+      "mag": 172,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Red XIII",
+    "soulBreak": "Howling Stone",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 91,
+      "def": null,
+      "mag": 127,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 134,
+      "def": null,
+      "mag": 190,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 22031015,
+    "gl": false
+  },
+  {
     "name": "Diamond Pin",
     "realm": "VII",
     "type": "Hairpin",
@@ -90405,7 +90765,7 @@
     "gl": false
   },
   {
-    "name": "Goddess's Favor",
+    "name": "Goddess's Grace",
     "realm": "XIII",
     "type": "Shield",
     "rarity": 5,
@@ -90447,7 +90807,7 @@
       "eva": 112
     },
     "id": 22050105,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Holy Shield",
@@ -91933,6 +92293,51 @@
     },
     "id": 22051098,
     "gl": true
+  },
+  {
+    "name": "Chakra Band",
+    "realm": "VII",
+    "type": "Hat",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 100,
+      "mag": 35,
+      "res": 147,
+      "mnd": 34,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Rude",
+    "soulBreak": "Chain of Stone",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 77,
+      "mag": 25,
+      "res": 107,
+      "mnd": 24,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 109,
+      "mag": 38,
+      "res": 163,
+      "mnd": 37,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22051210,
+    "gl": false
   },
   {
     "name": "Witch Tiara",
@@ -97127,7 +97532,7 @@
     },
     "effect": null,
     "character": "Tama",
-    "soulBreak": "Blossom Breeze",
+    "soulBreak": "Petal Pummel",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -97152,7 +97557,7 @@
       "eva": 105
     },
     "id": 22051140,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Feathered Hat",
@@ -101247,7 +101652,7 @@
       "eva": 100
     },
     "id": 22053289,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Gau's Guise",
@@ -101472,6 +101877,51 @@
       "eva": 100
     },
     "id": 22053292,
+    "gl": false
+  },
+  {
+    "name": "Nibelheim Guide",
+    "realm": "VII",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 152,
+      "mag": 0,
+      "res": 152,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Tifa",
+    "soulBreak": "Sprouting Earth",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 111,
+      "mag": null,
+      "res": 111,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 168,
+      "mag": null,
+      "res": 168,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053058,
     "gl": false
   },
   {
@@ -112770,7 +113220,7 @@
     "gl": true
   },
   {
-    "name": "Roxanne Coat",
+    "name": "Roksanne's Coat",
     "realm": "Beyond",
     "type": "Light Armor",
     "rarity": 5,
@@ -112786,8 +113236,8 @@
       "eva": 100
     },
     "effect": "Earth resistance (minor)",
-    "character": "Enna",
-    "soulBreak": "Maker's Judgment",
+    "character": "Enna Kros",
+    "soulBreak": "Creator's Judgment",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -112812,10 +113262,10 @@
       "eva": 100
     },
     "id": 22053270,
-    "gl": false
+    "gl": true
   },
   {
-    "name": "Tama's Apron",
+    "name": "Tama's Bib",
     "realm": "Beyond",
     "type": "Light Armor",
     "rarity": 5,
@@ -112833,7 +113283,7 @@
     "effect": null,
     "character": "Tama",
     "soulBreak": null,
-    "legendMateria": "Lifesaver",
+    "legendMateria": "Lifeline",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -112857,7 +113307,7 @@
       "eva": 100
     },
     "id": 22053272,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Black Garb",
@@ -114813,7 +115263,7 @@
     "effect": null,
     "character": "Firion",
     "soulBreak": null,
-    "legendMateria": "Righteous Ardor",
+    "legendMateria": "Impassioned Leader",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -114837,7 +115287,7 @@
       "eva": 105
     },
     "id": 22054111,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Reflect Mail",
@@ -119177,7 +119627,7 @@
     },
     "effect": null,
     "character": "Terra",
-    "soulBreak": "Looming Storm",
+    "soulBreak": "Storm Harbinger",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -119202,7 +119652,7 @@
       "eva": 105
     },
     "id": 22055060,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Sorceress Gown",
@@ -121500,6 +121950,51 @@
     "gl": false
   },
   {
+    "name": "Armlet",
+    "realm": "VII",
+    "type": "Bracer",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 32,
+      "def": 124,
+      "mag": 34,
+      "res": 121,
+      "mnd": 25,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": "Earth damage +20%",
+    "character": "Red XIII",
+    "soulBreak": "Earth Expanse",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 20,
+      "def": 101,
+      "mag": 24,
+      "res": 89,
+      "mnd": 15,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 36,
+      "def": 133,
+      "mag": 38,
+      "res": 133,
+      "mnd": 29,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056068,
+    "gl": false
+  },
+  {
     "name": "Selphie's Bracelet",
     "realm": "VIII",
     "type": "Bracer",
@@ -121922,7 +122417,7 @@
     },
     "effect": "Holy damage +20%",
     "character": "Lightning",
-    "soulBreak": "Warrior Goddess",
+    "soulBreak": "Dangerous Beauty",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -121947,7 +122442,7 @@
       "eva": 105
     },
     "id": 22056074,
-    "gl": false
+    "gl": true
   },
   {
     "name": "A1-Class Powershield",
@@ -121993,6 +122488,51 @@
     },
     "id": 22056193,
     "gl": true
+  },
+  {
+    "name": "Silver Gloves",
+    "realm": "Type-0",
+    "type": "Bracer",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 42,
+      "def": 125,
+      "mag": 24,
+      "res": 122,
+      "mnd": 23,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Machina",
+    "soulBreak": "Stone Crash",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 30,
+      "def": 102,
+      "mag": 14,
+      "res": 90,
+      "mnd": 13,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 46,
+      "def": 134,
+      "mag": 28,
+      "res": 134,
+      "mnd": 27,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056249,
+    "gl": false
   },
   {
     "name": "Diamond Gloves",
@@ -124647,6 +125187,51 @@
       "eva": 105
     },
     "id": 22056207,
+    "gl": false
+  },
+  {
+    "name": "Aegis Armlet",
+    "realm": "VII",
+    "type": "Bracer",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 24,
+      "def": 99,
+      "mag": 28,
+      "res": 95,
+      "mnd": 18,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Red XIII",
+    "soulBreak": null,
+    "legendMateria": "Warrior's Amulet",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 16,
+      "def": 81,
+      "mag": 21,
+      "res": 71,
+      "mnd": 11,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 28,
+      "def": 107,
+      "mag": 31,
+      "res": 107,
+      "mnd": 21,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056052,
     "gl": false
   },
   {
@@ -128745,6 +129330,51 @@
     "gl": false
   },
   {
+    "name": "Metal Gloves",
+    "realm": "Type-0",
+    "type": "Bracer",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 34,
+      "def": 99,
+      "mag": 18,
+      "res": 95,
+      "mnd": 18,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Machina",
+    "soulBreak": null,
+    "legendMateria": "Destiny's Namer",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 26,
+      "def": 81,
+      "mag": 11,
+      "res": 71,
+      "mnd": 11,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 38,
+      "def": 107,
+      "mag": 21,
+      "res": 107,
+      "mnd": 21,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056225,
+    "gl": false
+  },
+  {
     "name": "Riku's Gloves",
     "realm": "KH",
     "type": "Bracer",
@@ -128835,7 +129465,7 @@
     "gl": true
   },
   {
-    "name": "Roxanne Gloves",
+    "name": "Roksanne's Gloves",
     "realm": "Beyond",
     "type": "Bracer",
     "rarity": 5,
@@ -128851,9 +129481,9 @@
       "eva": 105
     },
     "effect": null,
-    "character": "Enna",
+    "character": "Enna Kros",
     "soulBreak": null,
-    "legendMateria": "Mysterious Being",
+    "legendMateria": "Mystic Presence",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -128877,7 +129507,7 @@
       "eva": 105
     },
     "id": 22056187,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Crystal Bangle",
@@ -132075,7 +132705,7 @@
     "gl": true
   },
   {
-    "name": "Title of Alliance",
+    "name": "Mark of Glory",
     "realm": null,
     "type": "Accessory",
     "rarity": 5,
@@ -132117,7 +132747,7 @@
       "eva": null
     },
     "id": 23080533,
-    "gl": false
+    "gl": true
   },
   {
     "name": "White Musk",

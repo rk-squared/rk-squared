@@ -562,15 +562,25 @@ function convertStatus(rows: any[]): any[] {
       const col = rows[0][j];
 
       const field = _.camelCase(col);
-      if (field === 'mndModifier') {
-        item['mndModifier'] = toFloat(rows[i][j].replace('± ', '').replace('%', ''));
-        item['mndModifierIsOpposed'] = rows[i][j].startsWith('± ');
-      } else if (field === 'commonName') {
-        // Rename for consistency with other Enlir sheets
-        item['name'] = rows[i][j];
-      } else {
-        const converter = statusFields[field] || toCommon.bind(undefined, field);
-        item[field] = converter(rows[i][j]);
+      try {
+        if (field === 'mndModifier') {
+          if (rows[i][j]) {
+            item['mndModifier'] = toFloat(rows[i][j].replace('± ', '').replace('%', ''));
+            item['mndModifierIsOpposed'] = rows[i][j].startsWith('± ');
+          } else {
+            item['mndModifier'] = null;
+            item['mndModifierIsOpposed'] = false;
+          }
+        } else if (field === 'commonName') {
+          // Rename for consistency with other Enlir sheets
+          item['name'] = rows[i][j];
+        } else {
+          const converter = statusFields[field] || toCommon.bind(undefined, field);
+          item[field] = converter(rows[i][j]);
+        }
+      } catch (e) {
+        logError(e, i, j, col, rows[i]);
+        throw e;
       }
     }
 

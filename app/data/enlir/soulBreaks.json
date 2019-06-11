@@ -1240,7 +1240,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (105), grants Last Stand and Haste, removes KO (100% HP), grants Awoken Magika to the user",
+    "effects": "Restores HP (105), removes KO (100% HP), grants Last Stand and Haste, grants Awoken Magika to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -1938,7 +1938,7 @@
     "nameJp": "レディアントバックラー",
     "id": 20330015,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -3621,7 +3621,7 @@
       "Ice"
     ],
     "time": 2.5,
-    "effects": "Ten single attacks (0.70 each), grants PHY +30% Boost and EX: Martial Pinnacle to the user",
+    "effects": "Ten single attacks (0.70 each), grants PHY +30% Boost and EX: Military Prowess to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -3631,7 +3631,7 @@
     "nameJp": "ラッシュオブアームズ",
     "id": 20270014,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -11140,6 +11140,52 @@
   },
   {
     "realm": "V",
+    "character": "Galuf",
+    "name": "Righteous Conviction",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Earth, Damage Cap +10000, Awoken Endurance, Last Stand, Stoneskin: 100% and Final Stand to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "soulbreakBonus": "ATK +10",
+    "relic": "Buster Hammer (V)",
+    "nameJp": "天理人情",
+    "id": 20650014,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Galuf",
+    "name": "Indomitable Strength",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Attach Earth Stacking, Attach Earth and Instant Cast 1",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "tier": "Glint+",
+    "soulbreakBonus": "ATK +10",
+    "relic": "Tiger Fang (V)",
+    "nameJp": "勇剛",
+    "id": 20650015,
+    "gl": false
+  },
+  {
+    "realm": "V",
     "character": "Gogo (V)",
     "name": "Art of Mimicry",
     "type": "NAT",
@@ -12556,6 +12602,57 @@
   },
   {
     "realm": "V",
+    "character": "Dorgann",
+    "name": "Power for Inheritance",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Earth",
+      "Wind",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Earth, Damage Cap +10000, Awoken Earth and Second Home Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "soulbreakBonus": "ATK +10",
+    "relic": "Break Blade (V)",
+    "nameJp": "息子へと受け継がれし力",
+    "id": 22510006,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Dorgann",
+    "name": "Protector of Two Worlds",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 24,
+    "element": [
+      "Earth",
+      "Wind"
+    ],
+    "time": 2.5,
+    "effects": "Three single attacks (8.00 each) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 750,
+    "tier": "AOSB",
+    "soulbreakBonus": "ATK +10",
+    "relic": "Crystal Sword (V)",
+    "nameJp": "二つの世界の守護者",
+    "id": 22510007,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "V",
     "character": "Exdeath",
     "name": "Black Hole",
     "type": "NAT",
@@ -13292,6 +13389,59 @@
   },
   {
     "realm": "V",
+    "character": "Xezat",
+    "name": "Crew's Unison Strike",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Ice",
+      "Earth",
+      "Lightning",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants Major Buff Ice, Major Buff Earth, Major Buff Lightning, Awoken Spellblade, Damage Cap +10000 to the user, grants 50% Critical to all allies, grants High Quick Cast 1/High Quick Cast 2/Extended 100% Critical, Critical Damage +50% and High Quick Cast 2 if 1/2/3 of Kelger, Galuf or Dorgann are alive to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "soulbreakBonus": "ATK +10",
+    "relic": "Morning Star (V)",
+    "nameJp": "船団一斉攻撃",
+    "id": 23160005,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Xezat",
+    "name": "Spellmight Blitzshard",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 24,
+    "element": [
+      "Ice",
+      "Earth",
+      "Lightning"
+    ],
+    "time": 2.5,
+    "effects": "Three single attacks (8.00 each) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 750,
+    "tier": "AOSB",
+    "soulbreakBonus": "ATK +10",
+    "relic": "Freezing Blade (V)",
+    "nameJp": "魔法剣奥義・塊氷閃",
+    "id": 23160006,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "V",
     "character": "Kelger",
     "name": "Lupine Fang",
     "type": "PHY",
@@ -13432,6 +13582,53 @@
     "id": 23170006,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "V",
+    "character": "Kelger",
+    "name": "True Lupine Attack",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Earth, Awoken Ninja, Damage Cap +10000 and Lupine Pulse Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "tier": "AASB",
+    "soulbreakBonus": "ATK +10",
+    "relic": "Lupine Blade (V)",
+    "nameJp": "真・ルパインアタック",
+    "id": 23170007,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Kelger",
+    "name": "Lupine Ferocity",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Attach Earth Stacking, Attach Earth and Instant Cast 1",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "tier": "Glint+",
+    "soulbreakBonus": "ATK +10",
+    "relic": "Koga Blade (V)",
+    "nameJp": "狼の猛威",
+    "id": 23170008,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "VI",
@@ -13763,7 +13960,7 @@
     "nameJp": "ライオットウィンド",
     "id": 20100015,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -13778,7 +13975,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Ten single attacks (1.70 each), grants Attach Wind, High Quick Cast 2 and EX: Knower of Love to the user",
+    "effects": "Ten single attacks (1.70 each), grants Attach Wind, High Quick Cast 2 and EX: Enlightened Yearning to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -13788,12 +13985,12 @@
     "nameJp": "トルネドコンボ",
     "id": 20100016,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
     "character": "Terra",
-    "name": "Looming Storm",
+    "name": "Storm Harbinger",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -13810,7 +14007,7 @@
     "nameJp": "嵐兆",
     "id": 20100017,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -18075,7 +18272,7 @@
   {
     "realm": "VII",
     "character": "Tifa",
-    "name": null,
+    "name": "Sprouting Earth",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -20855,6 +21052,27 @@
     "relic": "Battle Gloves (VII)",
     "nameJp": "いぶし銀の巧手",
     "id": 23010005,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Rude",
+    "name": "Chain of Stone",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 2.5,
+    "effects": "Activates Earth Chain (max 99, field +20%)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "tier": "CSB",
+    "soulbreakBonus": null,
+    "relic": "Chakra Band (VII)",
+    "nameJp": null,
+    "id": 23010006,
     "gl": false
   },
   {
@@ -30262,7 +30480,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Attach Ice Stacking, Attach Ice and Instant Cast 1",
+    "effects": "Grants Attach Ice Stacking, Attach Ice and High Quick Cast 2",
     "counter": false,
     "autoTarget": "Self",
     "points": 250,
@@ -33707,7 +33925,7 @@
   {
     "realm": "XIII",
     "character": "Lightning",
-    "name": "Warrior Goddess",
+    "name": "Dangerous Beauty",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -33717,7 +33935,7 @@
       "Lightning"
     ],
     "time": 2.5,
-    "effects": "Ten single attacks (0.71 each), grants Attach Holy and EX: Knight of the Goddess to the user",
+    "effects": "Ten single attacks (0.71 each), grants Attach Holy and EX: Knight of Etro to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -33727,7 +33945,7 @@
     "nameJp": "麗しき軍神",
     "id": 20600019,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -41509,7 +41727,7 @@
     "formula": null,
     "multiplier": null,
     "element": null,
-    "time": null,
+    "time": 2.5,
     "effects": "Activates Earth Chain (max 150, field +50%), ATK +50% for 25 seconds",
     "counter": false,
     "autoTarget": "All allies",
@@ -41519,6 +41737,7 @@
     "relic": "Platinum Rapiers (Type-0)",
     "nameJp": "ルシの力",
     "id": 23090009,
+    "anima": null,
     "gl": false
   },
   {
@@ -43728,7 +43947,7 @@
     "nameJp": "精神の歌",
     "id": 23290003,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
@@ -43750,12 +43969,12 @@
     "nameJp": "ワールド・パレード",
     "id": 23290001,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Tama",
-    "name": "Blossom Breeze",
+    "name": "Petal Pummel",
     "type": "WHT",
     "target": "Single enemy",
     "formula": "Magical",
@@ -43775,7 +43994,7 @@
     "nameJp": "十花繚乱",
     "id": 23290002,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
@@ -43801,8 +44020,8 @@
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
-    "name": "Grymoire's Protection",
+    "character": "Enna Kros",
+    "name": "Grymoire's Grace",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -43819,11 +44038,11 @@
     "nameJp": "グリモワルの加護",
     "id": 23280005,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
+    "character": "Enna Kros",
     "name": "Worldbreaker",
     "type": "BLK",
     "target": "Single enemy",
@@ -43840,15 +44059,15 @@
     "points": 750,
     "tier": "AOSB",
     "soulbreakBonus": "MAG +10",
-    "relic": "Surge Babyhemoth (Beyond)",
+    "relic": "Babyhemoth Mirage (Beyond)",
     "nameJp": "破界",
     "id": 23280001,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
+    "character": "Enna Kros",
     "name": "Break Time",
     "type": "BLK",
     "target": "Single enemy",
@@ -43865,16 +44084,16 @@
     "points": 500,
     "tier": "USB",
     "soulbreakBonus": "MAG +10",
-    "relic": "Surge Chocochick (Beyond)",
+    "relic": "Chocochick Mirage (Beyond)",
     "nameJp": "ブレイクタイム",
     "id": 23280002,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
-    "name": "Rules of the World",
+    "character": "Enna Kros",
+    "name": "The World's Rules",
     "type": "NAT",
     "target": "Self",
     "formula": null,
@@ -43887,16 +44106,16 @@
     "points": 250,
     "tier": "Glint",
     "soulbreakBonus": "MAG +10",
-    "relic": "Surge Copper Gnome (Beyond)",
+    "relic": "Copper Gnome Mirage (Beyond)",
     "nameJp": "世界のルール",
     "id": 23280003,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
-    "name": "Maker's Judgment",
+    "character": "Enna Kros",
+    "name": "Creator's Judgment",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -43912,15 +44131,15 @@
     "points": 500,
     "tier": "BSB",
     "soulbreakBonus": "MAG +10",
-    "relic": "Roxanne Coat (Beyond)",
+    "relic": "Roksanne's Coat (Beyond)",
     "nameJp": "創造神の審判",
     "id": 23280004,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
+    "character": "Enna Kros",
     "name": "God Geocrush",
     "type": "BLK",
     "target": "Single enemy",
@@ -43942,11 +44161,11 @@
     "nameJp": "神さまジオクラッシュ",
     "id": 23280006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
+    "character": "Enna Kros",
     "name": "Hopeful Soul",
     "type": "?",
     "target": "Single enemy",

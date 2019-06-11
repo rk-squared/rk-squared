@@ -734,14 +734,14 @@
   {
     "realm": "II",
     "character": "Firion",
-    "name": "Righteous Ardor",
+    "name": "Impassioned Leader",
     "effect": "25% chance to dualcast Knight abilities",
     "master": "ATK +10",
     "relic": "Crystal Mail (II)",
     "nameJp": "熱き魂を持つ義士",
     "id": 201020105,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -1326,7 +1326,8 @@
     "effect": "?% chance to dualcast abilities that deal Wind damage",
     "master": "ATK +10",
     "relic": "Dual Haken (III)",
-    "id": null,
+    "nameJp": "ウルのわんぱく小僧",
+    "id": 201030104,
     "anima": null,
     "gl": false
   },
@@ -2868,6 +2869,18 @@
   },
   {
     "realm": "V",
+    "character": "Dorgann",
+    "name": "Warrior of Regole",
+    "effect": "20?% chance to cause Minor Imperil Earth to the target after using a Earth attack on an enemy",
+    "master": "ATK +10",
+    "relic": "Crystal Shield (V)",
+    "nameJp": "ルゴルの戦士",
+    "id": 201051003,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "V",
     "character": "Exdeath",
     "name": "Evil Incarnate",
     "effect": "Increases Dark damage dealt by 10%",
@@ -3012,6 +3025,18 @@
   },
   {
     "realm": "V",
+    "character": "Xezat",
+    "name": "Master of Castle Surgate",
+    "effect": "Spellblade abilities deal 25?% more damage when equipping a sword",
+    "master": "ATK +10",
+    "relic": "Xezat's Cloak (V)",
+    "nameJp": "サーゲイト城の主",
+    "id": 201051603,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "V",
     "character": "Kelger",
     "name": "Detester of Evil",
     "effect": "Increases Earth damage dealt by 10%",
@@ -3121,14 +3146,14 @@
   {
     "realm": "VI",
     "character": "Terra",
-    "name": "Strength of Protection",
+    "name": "Savior's Gift",
     "effect": "Grants Attach Wind at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Healing Rod (VI)",
     "nameJp": "未来を守る力",
     "id": 201060104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -4118,7 +4143,7 @@
     "realm": "VII",
     "character": "Red XIII",
     "name": "Warrior's Amulet",
-    "effect": "Grants Lingering Spirit and Quick Cast when HP fall below 20%",
+    "effect": "Grants Quick Cast and Lingering Spirit for 25 seconds when HP fall below 20%",
     "master": "MAG +10",
     "relic": "Aegis Armlet (VII)",
     "nameJp": "戦士の魔除け",
@@ -7321,14 +7346,14 @@
   {
     "realm": "XIII",
     "character": "Lightning",
-    "name": "Etro's Knight",
+    "name": "Chosen of Etro",
     "effect": "Grants Attach Holy at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Edged Carbine (XIII)",
     "nameJp": "エトロの騎士",
     "id": 201130104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -7336,11 +7361,11 @@
     "name": "Heir of the Goddess",
     "effect": "25% chance to dualcast abilities that deal Holy damage",
     "master": "ATK +10",
-    "relic": "Goddess's Favor (XIII)",
+    "relic": "Goddess's Grace (XIII)",
     "nameJp": "女神の恩寵",
     "id": 201130105,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -10057,74 +10082,74 @@
   {
     "realm": "Beyond",
     "character": "Tama",
-    "name": "Reliable Creature",
+    "name": "Steadfast Presence",
     "effect": "WHT abilities restore 15% more HP",
     "master": null,
     "relic": null,
     "nameJp": "頼れる存在",
     "id": 201901600,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Tama",
-    "name": "Power to Bring Back Time",
+    "name": "Microreversal",
     "effect": "35% chance to dualcast White Magic abilities",
     "master": null,
     "relic": null,
     "nameJp": "時を戻す力",
     "id": 201901601,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Tama",
-    "name": "Lifesaver",
+    "name": "Lifeline",
     "effect": "20% chance to grant Last Stand to the target after using a single-target White Magic ability that restores HP on an ally",
     "master": "MND +10",
-    "relic": "Tama's Apron (Beyond)",
+    "relic": "Tama's Bib (Beyond)",
     "nameJp": "命の残し方",
     "id": 201901602,
     "anima": 1,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
-    "name": "Mysterious Woman",
+    "character": "Enna Kros",
+    "name": "Abounding Mystery",
     "effect": "BLK attacks deal 10% more damage",
     "master": null,
     "relic": null,
     "nameJp": "謎多き女性",
     "id": 201901700,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
-    "name": "Creator of Worlds",
+    "character": "Enna Kros",
+    "name": "Power of Creation",
     "effect": "30% chance to grant Quick Cast 3 to the user after using a Black Magic ability",
     "master": null,
     "relic": null,
     "nameJp": "世界の創造神",
     "id": 201901701,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
-    "name": "Mysterious Being",
+    "character": "Enna Kros",
+    "name": "Mystic Presence",
     "effect": "25% chance to dualcast Black Magic abilities",
     "master": "MAG +10",
-    "relic": "Roxanne Gloves (Beyond)",
+    "relic": "Roksanne's Gloves (Beyond)",
     "nameJp": "神秘の存在",
     "id": 201901702,
     "anima": 1,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",

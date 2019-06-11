@@ -8,13 +8,13 @@
     "type": "PHY",
     "target": "Single Enemy",
     "formula": "Physical",
-    "multiplier": 5.16,
+    "multiplier": 5.7,
     "element": [
       "Earth",
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86 each), 25/50/75/100% additional critical chance scaling with uses",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with uses, 25/50/75/100% additional critical chance scaling with uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

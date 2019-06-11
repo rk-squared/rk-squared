@@ -1419,7 +1419,71 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "EX: Knower of Love",
+    "source": "Awoken Endurance",
+    "name": "Persistence",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.32 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 30544331,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Lupine Pulse Follow-Up",
+    "name": "Lupine Pulse",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.36,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "4/6/8 single attacks (0.67 each) if the user has Physical Blink 0/1/2",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Ninja",
+    "id": 30544333,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Second Home Follow-Up",
+    "name": "Second Home",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.96,
+    "element": [
+      "Earth",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.66 each), causes Minor Imperil Earth",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Knight",
+    "id": 30544336,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "EX: Enlightened Yearning",
     "name": "Trance Wind",
     "type": "BLK",
     "target": "Single enemy",
@@ -1436,7 +1500,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541259,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3230,8 +3294,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "EX: Knight of the Goddess",
-    "name": "Saint Sabre 1",
+    "source": "EX: Knight of Etro",
+    "name": "Divine Edge 1",
     "nameNote": "Alias name: Saint Sabre",
     "type": "PHY",
     "target": "Single enemy",
@@ -3249,12 +3313,12 @@
     "sb": 0,
     "school": "Knight",
     "id": 30548342,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "EX: Knight of the Goddess",
-    "name": "Saint Sabre 2",
+    "source": "EX: Knight of Etro",
+    "name": "Divine Edge 2",
     "nameNote": "Alias name: Saint Sabre",
     "type": "PHY",
     "target": "Single enemy",
@@ -3272,12 +3336,12 @@
     "sb": 0,
     "school": "Knight",
     "id": 30548343,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "EX: Knight of the Goddess",
-    "name": "Saint Sabre 3",
+    "source": "EX: Knight of Etro",
+    "name": "Divine Edge 3",
     "nameNote": "Alias name: Saint Sabre",
     "type": "PHY",
     "target": "Single enemy",
@@ -3295,7 +3359,7 @@
     "sb": 0,
     "school": "Knight",
     "id": 30548344,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",

@@ -1395,7 +1395,7 @@ Object {
         damage: 'phys 7.0/10 dark+fire+non',
         other: 'dark infuse 25s, (dark ⤇ same row fastcast 1, p1.92/6 d+f+n Darkness)',
       });
-      expect(describeSoulBreak('Lightning - Warrior Goddess')).toEqual({
+      expect(describeSoulBreak('Lightning - Dangerous Beauty')).toEqual({
         damage: 'phys 7.1/10 holy+lgt',
         other:
           'holy infuse 25s, 15s: EX: (1/2/3 +3n holy ⤇ front row phys hi fastcast 1, ' +
@@ -2246,7 +2246,7 @@ Object {
           '15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast',
       });
 
-      expect(describeSoulBreak('Enna - God Geocrush')).toEqual({
+      expect(describeSoulBreak('Enna Kros - God Geocrush')).toEqual({
         damage: 'magic 22.5/15 earth+holy+non',
         other:
           'earth infuse 25s, self dmg cap +10k 15s, fastcast 15s, ' +
@@ -2262,7 +2262,9 @@ Object {
         other: 'earth infuse 25s, self dmg cap +10k 15s',
         synchroCommands: [
           {
-            damage: 'p5.16/6 e+n @ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses',
+            damage:
+              'p5.16/6 - 5.34/6 - 5.52/6 - 5.7/6 e+n w/ 0-1-2-3 uses ' +
+              '@ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses',
             other: undefined,
             school: 'Monk',
           },
@@ -2316,7 +2318,7 @@ Object {
       expect(describeSoulBreak('Red XIII - Howling Moon')).toEqual({
         other: 'party refill 1 random abil. use',
       });
-      expect(describeEnlirSoulBreak(soulBreaks["Enna - Grymoire's Protection"])).toEqual({
+      expect(describeEnlirSoulBreak(soulBreaks["Enna Kros - Grymoire's Grace"])).toEqual({
         other: 'self refill 1 abil. use',
       });
       expect(describeSoulBreak('Xezat - Spellsword Iceshock')).toEqual({

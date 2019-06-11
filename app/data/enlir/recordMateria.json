@@ -7582,62 +7582,62 @@
   {
     "realm": "Beyond",
     "character": "Tama",
-    "name": "Guide of the Journey",
+    "name": "Journey's Guide",
     "effect": "MND +10% when equipping a rod",
     "unlockCriteria": "Use Tama's Memory Crystal",
     "nameJp": "旅の案内役",
     "id": 111900160,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Tama",
-    "name": "Good Luck",
+    "name": "Mood Maker",
     "effect": "Restores 1 use for all Black Magic and White Magic abilities at the beginning of the battle",
     "unlockCriteria": "Use Tama's Memory Crystal II, chance to obtain with Tama in party",
     "nameJp": "ノリ上手",
     "id": 111900161,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Tama",
-    "name": "Guide's Ward",
+    "name": "Hand of Protection",
     "effect": "MAG and MND +13% when equipping a light armor",
     "unlockCriteria": "Bring Tama to level 99",
     "nameJp": "導きの守り手",
     "id": 111900162,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
-    "name": "Self-Proclaimed God",
+    "character": "Enna Kros",
+    "name": "Self-Styled God",
     "effect": "Increases Earth damage dealt by 10%",
-    "unlockCriteria": "Use Enna's Memory Crystal",
+    "unlockCriteria": "Use Enna Kros's Memory Crystal",
     "nameJp": "自称神様",
     "id": 111900170,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
-    "name": "Watcher of the Journey",
+    "character": "Enna Kros",
+    "name": "Journey's Observer",
     "effect": "MAG +13% when equipping a thrown weapon",
-    "unlockCriteria": "Use Enna's Memory Crystal II, chance to obtain with Enna in party",
+    "unlockCriteria": "Use Enna Kros's Memory Crystal II, chance to obtain with Enna Kros in party",
     "nameJp": "旅の傍観者",
     "id": 111900171,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
-    "character": "Enna",
-    "name": "Smile of God",
+    "character": "Enna Kros",
+    "name": "Divine Smile",
     "effect": "Attack turns into an ability (BLK: single, 2.60 magical Earth)",
-    "unlockCriteria": "Bring Enna to level 99",
+    "unlockCriteria": "Bring Enna Kros to level 99",
     "nameJp": "神の微笑み",
     "id": 111900172,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",

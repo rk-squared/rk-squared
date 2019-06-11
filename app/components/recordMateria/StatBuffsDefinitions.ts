@@ -252,7 +252,7 @@ const magTable: TableDefinition = {
       items: {
         '15': [['Hope', '3']],
         '13x': [['Fujin', '3']],
-        '13': [['Ace', '2'], ['Enna', '2']],
+        '13': [['Ace', '2'], ['Enna Kros', '2']],
         '10': [['Ace', '1'], ['Edea', '2']],
       },
     },
