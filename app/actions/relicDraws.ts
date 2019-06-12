@@ -4,6 +4,17 @@ import * as _ from 'lodash';
 
 import { TimeT } from '../utils/timeUtils';
 
+/**
+ * Details on how much it costs to draw on a banner.  This is slightly
+ * complicated by the time 1 vs. 3 vs. 11 pulls and gems vs. mythril and
+ * various promotions are considered, so we try and simplify it and present it
+ * in its own derived structure.
+ */
+export interface RelicDrawBannerCost {
+  drawCount?: number;
+  mythrilCost?: number;
+}
+
 export interface RelicDrawBanner {
   id: number;
   imageUrl: string;
@@ -13,6 +24,7 @@ export interface RelicDrawBanner {
 
   canPull: boolean;
   canSelect: boolean;
+  pullLimit?: number;
 
   exchangeShopId?: number;
 
@@ -22,6 +34,8 @@ export interface RelicDrawBanner {
    * Relic IDs of this banner's featured relics
    */
   bannerRelics?: number[];
+
+  cost?: RelicDrawBannerCost;
 }
 
 export interface RelicDrawGroup {

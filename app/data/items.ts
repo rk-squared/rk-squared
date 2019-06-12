@@ -70,6 +70,13 @@ export interface Item {
   internalType?: schemas.ItemTypeName;
 }
 
+/**
+ * A few select item IDs are important enough to duplicate as enums.
+ */
+export enum ItemId {
+  Mythril = 91000000,
+}
+
 export const items: Item[] = [
   {
     name: 'Dark Matter (1★)',

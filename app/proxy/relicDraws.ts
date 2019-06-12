@@ -18,6 +18,7 @@ import {
 } from '../actions/relicDraws';
 import { LangType } from '../api/apiUrls';
 import * as gachaSchemas from '../api/schemas/gacha';
+import { ItemId } from '../data/items';
 import { relativeUrl } from '../data/urls';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
@@ -35,21 +36,20 @@ export function convertBanner(
   gacha: gachaSchemas.GachaSeriesList,
   group?: string,
 ): RelicDrawBanner {
+  const entryPoints = _.flatten(gacha.box_list.map(i => i.entry_point_list));
   return {
     id: gacha.series_id,
     openedAt: gacha.opened_at,
     closedAt: gacha.closed_at,
     sortOrder: gacha.priority,
 
-    canPull: _.some(gacha.box_list, i =>
-      _.some(
-        i.entry_point_list,
-        // Original attempt: Partially successful, but it doesn't handle cases
-        // like the Realms on Parade / Luck of the Realms where a single pull
-        // is permitted but can be of several payment types.
-        // j => j.term_limit_num === 0 || j.purchased_count < j.term_limit_num,
-        j => j.executable_num > 0,
-      ),
+    canPull: _.some(
+      entryPoints,
+      // Original attempt: Partially successful, but it doesn't handle cases
+      // like the Realms on Parade / Luck of the Realms where a single pull
+      // is permitted but can be of several payment types.
+      // i => i.term_limit_num === 0 || i.purchased_count < i.term_limit_num,
+      i => i.executable_num > 0,
     ),
     canSelect:
       // Original attempt: But total_executable_num actually refers to pulls.
@@ -58,6 +58,7 @@ export function convertBanner(
       gacha.exchange_shop_id != null &&
       gacha.exchange_shop_id !== 0 &&
       gacha.user_exchange_shop_exchanged_num === 0,
+    pullLimit: gacha.total_executable_num || undefined,
 
     bannerRelics: _.sortBy(gacha.banner_list, 'disp_order')
       .map(i => i.item_id)
@@ -66,6 +67,13 @@ export function convertBanner(
     exchangeShopId: +gacha.exchange_shop_id || undefined,
     imageUrl: relativeUrl(lang, gacha.line_up_image_path),
     group,
+
+    cost: {
+      drawCount: _.max(entryPoints.map(i => i.lot_num)),
+      mythrilCost: _.max(
+        _.filter(entryPoints, i => i.pay_id === ItemId.Mythril).map(i => i.pay_cost),
+      ),
+    },
   };
 }
 

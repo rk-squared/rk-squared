@@ -23,7 +23,11 @@ describe('gacha proxy handler', () => {
 
       expect(_.values(banners).length).toEqual(45);
 
-      const ff5BannerRelics = _.find(banners, i => i.id === 788)!.bannerRelics!;
+      const ff5Banner = _.find(banners, i => i.id === 788)!;
+      expect(ff5Banner.pullLimit).toBeUndefined();
+      expect(ff5Banner.cost!.drawCount).toEqual(11);
+      expect(ff5Banner.cost!.mythrilCost).toEqual(50);
+      const ff5BannerRelics = ff5Banner.bannerRelics!;
       expect(ff5BannerRelics.length).toEqual(14);
       expect(ff5BannerRelics).toEqual([
         21004035,
@@ -74,6 +78,7 @@ describe('gacha proxy handler', () => {
           .sort();
 
       const archiveBanners = _.filter(banners, i => i.group === 'archive');
+      expect(_.every(archiveBanners, i => i.pullLimit === 1));
       // Acolyte Archives are 9 banners starting at ID 7001.
       expect(filteredIds(archiveBanners)).toEqual(_.times(9, i => i + 7001));
       // All Acolyte Archive banners have been pulled.
@@ -83,6 +88,7 @@ describe('gacha proxy handler', () => {
 
       const luckOfTheRealms = _.filter(banners, i => i.group === 'group4');
       // This capture was taken when all 17 banners were available.
+      expect(_.every(luckOfTheRealms, i => i.pullLimit === 1));
       expect(filteredIds(luckOfTheRealms)).toEqual(_.times(17, i => i + 805));
       // All but FF1 have been used.
       expect(filteredIds(luckOfTheRealms, i => i.canPull)).toEqual([821]);

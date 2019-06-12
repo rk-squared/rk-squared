@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 
 import { clearWantedRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
 import { enlir } from '../../data/enlir';
-import { chanceOfDesiredDrawProp5 } from '../../data/probabilities';
+import { chanceOfDesiredDrawProp5, STANDARD_DRAW_COUNT } from '../../data/probabilities';
 import { IState } from '../../reducers';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
@@ -50,8 +50,8 @@ function getRelicChanceDetails(
 
   const sixStarCount = relicIds.map(i => enlir.relics[i]).filter(i => !!i && i.rarity >= 6).length;
 
-  // FIXME: Get this from banner details
-  const drawCount = 11;
+  const drawCount =
+    banner.cost && banner.cost.drawCount ? banner.cost.drawCount : STANDARD_DRAW_COUNT;
 
   const totalDetails = chanceOfDesiredDrawProp5(
     drawCount,

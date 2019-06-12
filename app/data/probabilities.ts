@@ -6,6 +6,10 @@
  * See https://www.reddit.com/r/FFRecordKeeper/comments/83l3jd/analysis_of_fuitads_gacha_data/
  */
 
+export const STANDARD_DRAW_COUNT = 11;
+
+export const STANDARD_MYTHRIL_COST = 50;
+
 interface RelicDrawBannerChances {
   expectedValue: number;
   desiredChance: number;
@@ -62,6 +66,10 @@ export function chanceOfDesiredDrawProp5(
   };
 }
 
+/**
+ * Performs a Monte Carlo simulation of proposal 5 on Reddit, to help validate
+ * assumptions.  See chanceOfDesiredDrawProp5.
+ */
 export function monteCarloProp5(
   drawCount: number,
   rareChance: number,

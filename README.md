@@ -10,13 +10,14 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 2. Update Enlir data outside of releases
 3. Check for updates
 4. Support for multiple profiles
-5. FFRK Toolkit Helper interop? (see Reddit messages)
-6. Switch languages for JP
-7. Show Dungeons expirations (see Reddit messages)
-8. Soul break list - formatting, show random hits
-9. Stateless components
-10. Error reporting (Sentry?)
-11. Rubies / ruby tracker
+5. Extend probability analysis for G2 on JP
+6. FFRK Toolkit Helper interop? (see Reddit messages)
+7. Switch languages for JP
+8. Show Dungeons expirations (see Reddit messages)
+9. Soul break list - formatting, show random hits
+10. Stateless components
+11. Error reporting (Sentry?)
+12. Rubies / ruby tracker
 
 ## Troubleshooting
 
