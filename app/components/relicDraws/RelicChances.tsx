@@ -85,7 +85,7 @@ export class RelicChances extends React.PureComponent<Props> {
     }
   };
 
-  renderWant(count: number, chance: number) {
+  renderWant(count: number, chance: number, limit?: number) {
     if (!count) {
       return (
         <p className="card-text">
@@ -94,6 +94,10 @@ export class RelicChances extends React.PureComponent<Props> {
         </p>
       );
     }
+
+    const defaultLimit = 6;
+    limit = Math.min(defaultLimit, limit || defaultLimit);
+
     return (
       <div>
         <p className="card-text">
@@ -105,7 +109,7 @@ export class RelicChances extends React.PureComponent<Props> {
           )
         </p>
         <div className={styles.want}>
-          {_.times(6, i => (
+          {_.times(limit, i => (
             <div key={i} className={styles.wantItem}>
               <span className={styles.wantCount}>{i + 1 + ' ' + pluralize(i + 1, 'pull')}</span>
               {chanceAfterNDraws(chance, i + 1).toFixed(2)}%
@@ -153,7 +157,7 @@ export class RelicChances extends React.PureComponent<Props> {
           )}
         </div>
         <div className="col-sm-6">
-          {this.renderWant(details.desiredCount, details.desiredChance)}
+          {this.renderWant(details.desiredCount, details.desiredChance, banner.pullLimit)}
         </div>
       </MinableCard>
     );
