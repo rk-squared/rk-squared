@@ -348,7 +348,8 @@ function describeMergedSequence(sequence: FollowUpStatusSequence) {
   ).join(', ');
 }
 
-const isFinisherStatus = ({ effects }: EnlirStatus) => !!getFinisherSkillName(effects);
+const isFinisherStatus = ({ effects }: EnlirStatus) =>
+  !!getFinisherSkillName(effects) || !!getFinisherStatusName(effects);
 const isFollowUpStatus = ({ effects }: EnlirStatus) => !!parseFollowUpEffect(effects);
 
 const isSoulBreakMode = ({ name, codedName }: EnlirStatus) =>
@@ -558,7 +559,12 @@ const getFinisherSkillName = (effect: string) => {
   return m ? m[1] : null;
 };
 
-function describeFinisher(skillName: string, sourceStatusName: string) {
+const getFinisherStatusName = (effect: string) => {
+  const m = effect.match(/[Gg]rants (.*?) when removed/);
+  return m ? m[1] : null;
+};
+
+function describeFinisherSkill(skillName: string, sourceStatusName: string) {
   const skill = getEnlirOtherSkill(skillName, sourceStatusName);
   if (!skill) {
     logger.warn(`Unknown finisher skill ${skill}`);
@@ -568,6 +574,19 @@ function describeFinisher(skillName: string, sourceStatusName: string) {
   const mrP = describeEnlirSoulBreak(skill, { showNoMiss: false, includeSbPoints: false });
 
   return finisherText + formatMrP(mrP, { showTime: false });
+}
+
+function describeFinisherStatus(statusName: string): string {
+  const status = getEnlirStatusByName(statusName);
+  let result = describeEnlirStatus(statusName);
+
+  // Hack: Partially duplicated from describeEnlirSoulBreak.  We currently
+  // only support default durations.
+  if (status && status.defaultDuration) {
+    result += ' ' + formatDuration(status.defaultDuration, 'second');
+  }
+
+  return finisherText + result;
 }
 
 /**
@@ -583,6 +602,7 @@ function shouldSkipEffect(effect: string) {
     // leaving Burst Mode.
     effect.startsWith('removed after using ') ||
     effect.startsWith("removed if the user hasn't") ||
+    effect.startsWith("Removed if the user doesn't have any") ||
     effect === 'reset upon refreshing Burst Mode' ||
     // Custom triggers
     effect.startsWith('removed after triggering') ||
@@ -625,7 +645,12 @@ function describeEnlirStatusEffect(
 
     const finisherSkillName = getFinisherSkillName(effect);
     if (finisherSkillName) {
-      return describeFinisher(finisherSkillName, enlirStatus.name);
+      return describeFinisherSkill(finisherSkillName, enlirStatus.name);
+    }
+
+    const finisherStatusName = getFinisherStatusName(effect);
+    if (finisherStatusName) {
+      return describeFinisherStatus(finisherStatusName);
     }
   }
 
@@ -1127,11 +1152,17 @@ function describeFollowUp(followUp: FollowUpEffect, sourceStatusName: string): s
   );
 }
 
+function isFinisherOnly({ effects }: EnlirStatus): boolean {
+  // Hack: If the skill starts with 'Removed ', instead of having ', removed'
+  // in the middle, then assume that it consists only of finisher effects.
+  return effects.startsWith('Removed ');
+}
+
 function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
   let m: RegExpMatchArray | null;
-  if (effects.match(/, removed if the user doesn't have any Stoneskin/)) {
+  if (effects.match(/(?:, |^)[Rr]emoved if the user doesn't have any Stoneskin/)) {
     return 'until Neg. Dmg. lost';
-  } else if (effects.match(/, removed upon taking damage/)) {
+  } else if (effects.match(/(?:, |^)[Rr]emoved upon taking damage/)) {
     return 'until damaged';
   } else if ((m = effects.match(/, lasts (\d+) turns?(?:$|,)/))) {
     return formatDuration(+m[1], 'turn');
@@ -1176,6 +1207,19 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     }
   }
 
+  let specialDuration = enlirStatus ? getSpecialDuration(enlirStatus) : undefined;
+
+  if (enlirStatus && isFinisherOnly(enlirStatus)) {
+    // Hack: Munge the text to change 'until foo: Finisher: bar' to
+    // 'when foo: bar'
+    if (description.startsWith(finisherText)) {
+      description = description.replace(finisherText, '');
+    }
+    if (specialDuration) {
+      specialDuration = specialDuration.replace(/^until /, 'when ');
+    }
+  }
+
   return {
     description,
     isExLike,
@@ -1184,7 +1228,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     isTrance: enlirStatus != null && isTranceStatus(enlirStatus),
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
-    specialDuration: enlirStatus ? getSpecialDuration(enlirStatus) : undefined,
+    specialDuration,
   };
 }
 

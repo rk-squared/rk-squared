@@ -2272,6 +2272,15 @@ Object {
           '15s: (1/2/3+ earth ⤇ Reflect Dmg 125%/200%/300% as overstrike earth), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeSoulBreak('Galuf - Righteous Conviction')).toEqual({
+        damage: 'phys 9.0/15 earth+non',
+        other:
+          'earth infuse 25s, self dmg cap +10k 15s, Negate dmg 100%, ' +
+          'Last stand, when Neg. Dmg. lost: instacast 15s, ' +
+          '15s: Awoken Endurance: earth inf. hones, up to 1.3x dmg @ rank 5, ' +
+          '(earth ⤇ p1.92/6 e+n Monk)',
+      });
     });
 
     it('handles synchro soul breaks', () => {
