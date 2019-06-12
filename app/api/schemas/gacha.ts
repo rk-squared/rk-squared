@@ -8,6 +8,7 @@ import {
   DecimalNumberAsString,
   NumberAsString,
   RelativeUrlPath,
+  Timestamp,
 } from './common';
 import { Equipment } from './equipment';
 import { MemoryCrystal } from './party';
@@ -51,27 +52,27 @@ export interface GachaGroup {
 export interface GachaSeriesList {
   priority: number; // 0 means free daily draw and no-longer-active promos (like the "first relic draw", ID 1000)
   user_exchange_shop_exchanged_num: number;
-  closed_at: number;
+  closed_at: Timestamp;
   rise_message: string;
   is_book_gacha: boolean;
   banner_list: BannerList[];
-  line_up_image_path: string;
+  line_up_image_path: RelativeUrlPath;
   logic_name: LogicType;
   box_list: BoxList[];
-  is_all_free_payment: boolean;
+  is_all_free_payment: boolean; // always (?) false
   user_exchange_shop_prize_num: number;
   show_prob_rise_flg: boolean;
   additional_appeal_type: number;
   bgm: string;
-  rise_image_path: string;
+  rise_image_path: RelativeUrlPath;
   series_name: string;
   tab_type_list: number[];
   bgm_id: number;
-  total_executable_num: number;
+  total_executable_num: number; // 1 for a one-time banner (Realm Dungeon Lucky Draw), 0 otherwise
   appeal_message: string;
-  top_image_path: string;
+  top_image_path: RelativeUrlPath;
   series_id: number;
-  opened_at: number;
+  opened_at: Timestamp;
   line_up_disable_image_path: string;
   exchange_shop_id: number; // Identifies selectable relics (Acolyte Archives, Wondrous Selects, etc.)?
   show_closed_at_flg: boolean;
@@ -83,11 +84,11 @@ interface BannerList {
   item_id: number;
   disp_order: number;
   gacha_series_id: number;
-  image_path: string;
+  image_path: RelativeUrlPath;
   font_type: number;
   type: number;
   id: number;
-  buddy_image_path: string;
+  buddy_image_path: RelativeUrlPath;
   equipment?: Equipment;
 }
 
@@ -107,30 +108,25 @@ interface EntryPointList {
   is_normal_gacha: boolean;
   animation_type_name: AnimationTypeName;
   limit_type_name: LimitTypeName;
-  executable_num: number;
-  lot_num: number;
+  executable_num: number; // 1 for 100-gem, 99999 otherwise
+  lot_num: number; // How many items you get
   image_id: number;
   pay_id: number; // 0 for gems or 91000000 for mythril
   required_user_item?: RequiredUserItem;
   tag: string;
-  pay_cost: number;
-  name: Name;
-  description: Description;
-  opened_at: number;
+  pay_cost: number; // Number of gems or Mythril
+  name: string; // e.g., "100-Gem Rare Relic Draw", "Rare Relic Draw x11"
+  description: string; // '' or '### need_translate_text ###'
+  opened_at: Timestamp;
   coin_cost_of_item_and_coin_payment: number;
   disp_order: number;
   show_closed_at_flg: boolean;
-  term_limit_num: number;
+  term_limit_num: number; // 1 for a single-time draw (Realm Dungeon Lucky Draw or 100-gem pull), 0 otherwise
 }
 
 enum AnimationTypeName {
   Empty = '',
   Fee = 'fee',
-}
-
-enum Description {
-  Empty = '',
-  NeedTranslateText = '### need_translate_text ###',
 }
 
 enum LimitTypeName {
@@ -139,25 +135,16 @@ enum LimitTypeName {
   Total = 'total',
 }
 
-enum Name {
-  FirstRelicDraw = 'First Relic Draw',
-  Free = 'Free',
-  RareRelicDraw = 'Rare Relic Draw',
-  RareRelicDrawX11 = 'Rare Relic Draw x11',
-  RareRelicDrawX3 = 'Rare Relic Draw x 3',
-  The100GemRareRelicDraw = '100-Gem Rare Relic Draw',
-}
-
 enum PayType {
-  Coin = 'coin',
+  Coin = 'coin', // gems
   Free = 'free',
   Item = 'item',
   ItemAndCoin = 'item_and_coin',
 }
 
 /**
- * Items needed to do a relic draw.  This is usually 91000000 ("Mythril"), but
- * Acolyte Archives draws use 95003001 through 95003009.
+ * Items needed to do a relic draw.  This is usually item_id 91000000 (name
+ * "Mythril"), but Acolyte Archives draws use 95003001 through 95003009.
  */
 interface RequiredUserItem {
   num: number;
@@ -167,7 +154,7 @@ interface RequiredUserItem {
 }
 
 enum LogicType {
-  Plain = 'plain',
+  Plain = 'plain', // only used for initial freebie
   RarityAssurance = 'rarity_assurance',
 }
 
