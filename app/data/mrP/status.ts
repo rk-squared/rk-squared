@@ -1310,6 +1310,7 @@ const statusItemRe = XRegExp(
   (?<scalesWithUses2>\ scaling\ with\ (?<scaleWithUsesSkill2>[A-Za-z ]+\ )?uses)?
   (?:\ if\ the\ user\ has\ (?<prereq>.*))?
   (?:\ if\ (?<characterInParty>.*?)\ (?:is|are)\ in\ the\ party)?
+  (?:\ if\ (?<characterAlive>.*?)\ (?:is|are)\ alive)?
   (?<weakness>\ if\ exploiting\ elemental\ weakness)?
   ()
   $
@@ -1358,6 +1359,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     prereq,
     weakness,
     characterInParty,
+    characterAlive,
   } = (m as unknown) as XRegExpNamedGroups;
   // tslint:enable prefer-const
 
@@ -1403,6 +1405,8 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     condition = 'if hits weak';
   } else if (characterInParty) {
     condition = 'if ' + characterInParty + ' in party';
+  } else if (characterAlive) {
+    condition = 'if ' + characterAlive + ' alive';
   }
 
   return {

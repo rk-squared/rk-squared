@@ -2281,6 +2281,16 @@ Object {
           '15s: Awoken Endurance: earth inf. hones, up to 1.3x dmg @ rank 5, ' +
           '(earth ⤇ p1.92/6 e+n Monk)',
       });
+
+      expect(describeSoulBreak("Xezat - Crew's Unison Strike")).toEqual({
+        damage: 'phys 9.0/15 ice+earth+lgt+non',
+        other:
+          'party crit =50% 25s, ' +
+          'hi fastcast 1/2/2 if 1/2/3 of Kelger/Galuf/Dorgann alive, ' +
+          'crit =100% 25s, +50% crit dmg if Kelger & Galuf & Dorgann alive 25s, ' +
+          'self +30% ice/earth/lgt dmg 15s, dmg cap +10k 15s, ' +
+          '15s: Awoken Spellblade: Spellblade inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles synchro soul breaks', () => {

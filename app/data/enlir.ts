@@ -626,8 +626,8 @@ function patchEnlir() {
     },
   );
 
-  // Sarah's USB3 is pure madness.  I have no shame in whatever hacks it takes
-  // to process it.
+  // Sarah's USB3 and Xezat's AASB are pure madness.  I have no shame in
+  // whatever hacks it takes to process them.
   applyPatch(
     enlir.soulBreaks,
     '22300009',
@@ -642,6 +642,17 @@ function patchEnlir() {
         'grants Minor Buff Holy if Warrior of Light is in the party, ' +
         'grants Minor Buff Dark if Garland is in the party, ' +
         'grants Medium Buff Holy/Dark if Warrior of Light & Garland are in the party';
+    },
+  );
+  applyPatch(
+    enlir.soulBreaks,
+    '23160005',
+    strike =>
+      strike.effects ===
+      'Fifteen single attacks (0.60 each), grants Major Buff Ice, Major Buff Earth, Major Buff Lightning, Awoken Spellblade, Damage Cap +10000 to the user, grants 50% Critical to all allies, grants High Quick Cast 1/High Quick Cast 2/Extended 100% Critical, Critical Damage +50% and High Quick Cast 2 if 1/2/3 of Kelger, Galuf or Dorgann are alive to all allies',
+    strike => {
+      strike.effects =
+        'Fifteen single attacks (0.60 each), grants Major Buff Ice, Major Buff Earth, Major Buff Lightning, Awoken Spellblade, Damage Cap +10000 to the user, grants 50% Critical to all allies, grants High Quick Cast 1/2/2 to all allies if 1/2/3 of Kelger/Galuf/Dorgann are alive, grants Extended 100% Critical and Critical Damage +50% to all allies if Kelger & Galuf & Dorgann are alive';
     },
   );
 
