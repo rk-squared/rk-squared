@@ -35,6 +35,8 @@ export enum RewardType {
   Hp70 = '15',
   Hp60 = '16',
   Hp50 = '17',
+  // Anima lenses are shown separately; I'm not sure why.
+  AnimaLens = '28',
 }
 
 export const MinRewardGrade = 8;
