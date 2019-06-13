@@ -1,7 +1,11 @@
-# v2.1.1
+# v2.2.0
 
+- Dungeons
+  - Show anima lense rewards in record dungeons
 - Relic Draws
+  - Show mythril costs in banner summaries
   - Add anima lens information to relic draw selections
+  - Correctly calculate probabilities for non-standard banners like Luck of the Realms
 
 # v2.1.0
 
