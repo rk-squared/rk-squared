@@ -111,6 +111,7 @@ const RelicDrawBannerLink = ({
   const count = isAnonymous
     ? formatTotalCount(details)
     : formatAvailableCount(details, currentTime);
+  const mythrilCost = details.cost && details.cost.mythrilCost ? details.cost.mythrilCost : null;
   return (
     <div className={styles.component}>
       <Link to={to}>
@@ -121,6 +122,9 @@ const RelicDrawBannerLink = ({
           className={classNames(styles.count, { ['text-muted']: !isAnonymous && !details.canPull })}
         >
           {count}
+          <span className={classNames(styles.mythrilCost, { ['invisible']: !mythrilCost })}>
+            {mythrilCost}
+          </span>
         </span>
         {currentTime != null && (
           <span className={styles.openedClosedAt}>{openedClosedAt(details, currentTime)}</span>

@@ -24,6 +24,16 @@
     width: 50%;
   }
 
+  span.mythrilCost {
+    display: inline-block;
+    margin-left: 2em;
+  }
+
+  span.mythrilCost:after {
+    content: '⬢';
+    color: #238ae9;
+  }
+
   span.openedClosedAt {
     display: inline-block;
     width: 50%;
