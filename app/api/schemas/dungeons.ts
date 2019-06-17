@@ -9,7 +9,6 @@ import {
 import { User } from './user';
 
 export enum NodeType {
-  // noinspection JSUnusedGlobalSymbols
   Start = 1,
   Regular = 2, // Normal "Corrupted" paintings (unconfirmed)
   Free = 3, // Free play "Record" paintings (unconfirmed)
@@ -17,8 +16,9 @@ export enum NodeType {
 }
 
 export enum RewardType {
-  // noinspection JSUnusedGlobalSymbols
-  Completion = '1',
+  // EachCompletion is referred to as "Completion" in game; this name makes it
+  // very explicit that it's available multiple times.
+  EachCompletion = '1',
   FirstTime = '2',
   Mastery = '3',
   // Recurring (?) time-based (?) bonuses - e.g., for Magicite
@@ -35,7 +35,8 @@ export enum RewardType {
   Hp70 = '15',
   Hp60 = '16',
   Hp50 = '17',
-  // Anima lenses are shown separately; I'm not sure why.
+  // Anima lenses are shown separately.  I don't know why the game is designed
+  // this way.
   AnimaLens = '28',
 }
 

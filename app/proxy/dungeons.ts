@@ -221,7 +221,7 @@ export function convertWorldDungeons(
     totalStamina: d.total_stamina,
     staminaList: d.stamina_list,
     prizes: {
-      completion: convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.Completion]),
+      completion: convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.EachCompletion]),
       firstTime: [
         ...convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.FirstTime]),
         ...convertPrizeItems(d.prizes[dungeonsSchemas.RewardType.AnimaLens]),

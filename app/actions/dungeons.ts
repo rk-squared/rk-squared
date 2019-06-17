@@ -30,7 +30,7 @@ export interface Dungeon {
   dungeonChests?: number | undefined; // Unclaimed record dungeon chests
 
   prizes: {
-    completion: PrizeItem[];
+    completion: PrizeItem[]; // Prizes for each completion (available multiple times)
     firstTime: PrizeItem[];
     mastery: PrizeItem[];
     claimedGrade?: PrizeItem[]; // One-time grade-based prizes
