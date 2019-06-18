@@ -33,4 +33,12 @@
     display: inline-block;
     width: 40%;
   }
+
+  .discountTooltip {
+    max-width: 40em;
+  }
+
+  .discountTooltip > p:last-child {
+    margin-bottom: 0;
+  }
 }

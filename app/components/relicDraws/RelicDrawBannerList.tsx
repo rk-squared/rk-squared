@@ -11,6 +11,7 @@ import {
 } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
 import { FAR_FUTURE, formatTimeT, formatTimeTNoYear, isClosed } from '../../utils/timeUtils';
+import { Mythril } from '../shared/Mythril';
 
 const styles = require('./RelicDrawBannerList.scss');
 
@@ -122,9 +123,9 @@ const RelicDrawBannerLink = ({
           className={classNames(styles.count, { ['text-muted']: !isAnonymous && !details.canPull })}
         >
           {count}
-          <span className={classNames(styles.mythrilCost, { ['invisible']: !mythrilCost })}>
+          <Mythril className={classNames(styles.mythrilCost, { ['invisible']: !mythrilCost })}>
             {mythrilCost}
-          </span>
+          </Mythril>
         </span>
         {currentTime != null && (
           <span className={styles.openedClosedAt}>{openedClosedAt(details, currentTime)}</span>

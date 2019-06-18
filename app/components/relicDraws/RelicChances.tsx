@@ -2,14 +2,20 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import * as _ from 'lodash';
+import * as ReactTooltip from 'react-tooltip';
 
 import { clearWantedRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
 import { enlir } from '../../data/enlir';
-import { chanceOfDesiredDrawProp5, STANDARD_DRAW_COUNT } from '../../data/probabilities';
+import {
+  chanceOfDesiredDrawProp5,
+  STANDARD_DRAW_COUNT,
+  STANDARD_MYTHRIL_COST,
+} from '../../data/probabilities';
 import { IState } from '../../reducers';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
 import { MinableCard } from '../common/MinableCard';
+import { Mythril } from '../shared/Mythril';
 
 const styles = require('./RelicChances.scss');
 
@@ -85,7 +91,7 @@ export class RelicChances extends React.PureComponent<Props> {
     }
   };
 
-  renderWant(count: number, chance: number, limit?: number) {
+  renderWant(banner: RelicDrawBannerDetails, count: number, chance: number) {
     if (!count) {
       return (
         <p className="card-text">
@@ -95,8 +101,26 @@ export class RelicChances extends React.PureComponent<Props> {
       );
     }
 
-    const defaultLimit = 6;
-    limit = Math.min(defaultLimit, limit || defaultLimit);
+    const formatChance = (c: number, n: number) => chanceAfterNDraws(c, n).toFixed(2) + '%';
+
+    let discount: number | undefined;
+    let discountCost: string | undefined;
+    if (banner.cost && banner.cost.mythrilCost && banner.cost.mythrilCost < STANDARD_MYTHRIL_COST) {
+      discount = STANDARD_MYTHRIL_COST / banner.cost.mythrilCost;
+      discountCost = formatChance(chance, discount);
+    }
+    const discountId = 'discountChance' + banner.id;
+
+    // Two columns of 3 rows.
+    let limit = 6;
+    // Leave space for the normalized count for discounted banners.
+    if (discount) {
+      limit--;
+    }
+    // Show no more pulls than are possible.
+    if (banner.pullLimit) {
+      limit = Math.min(limit, banner.pullLimit);
+    }
 
     return (
       <div>
@@ -112,9 +136,31 @@ export class RelicChances extends React.PureComponent<Props> {
           {_.times(limit, i => (
             <div key={i} className={styles.wantItem}>
               <span className={styles.wantCount}>{i + 1 + ' ' + pluralize(i + 1, 'pull')}</span>
-              {chanceAfterNDraws(chance, i + 1).toFixed(2)}%
+              {formatChance(chance, i + 1)}
             </div>
           ))}
+          {discount && (
+            <>
+              <div className={styles.wantItem}>
+                <Mythril className={styles.wantCount} data-tip data-for={discountId}>
+                  50
+                </Mythril>
+                {discountCost}
+              </div>
+              <ReactTooltip id={discountId} className={styles.discountTooltip}>
+                <p>
+                  The chances of getting a selected relic if it were possible to pull multiple times
+                  on this banner, spending exactly 50 mythril total.
+                </p>
+                <p>
+                  This helps evaluate discounted banners: the answers to &ldquo;Should I pull on
+                  this discounted banner?&rdquo; and &ldquo;Would I pull on a full-priced banner
+                  that gave a {discountCost} chance of getting what I want?&rdquo; are, in theory,
+                  the same.
+                </p>
+              </ReactTooltip>
+            </>
+          )}
         </div>
       </div>
     );
@@ -157,7 +203,7 @@ export class RelicChances extends React.PureComponent<Props> {
           )}
         </div>
         <div className="col-sm-6">
-          {this.renderWant(details.desiredCount, details.desiredChance, banner.pullLimit)}
+          {this.renderWant(banner, details.desiredCount, details.desiredChance)}
         </div>
       </MinableCard>
     );
