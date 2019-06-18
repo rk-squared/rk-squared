@@ -3,9 +3,16 @@ import * as _ from 'lodash';
 import { describeEnlirSoulBreak, formatMrP } from '../mrP';
 import { formatBraveCommands } from '../mrP/brave';
 
-import { enlir, EnlirSoulBreak } from '../enlir';
+import { enlir, EnlirSoulBreak, makeSoulBreakAliases } from '../enlir';
 
-const soulBreaks = _.keyBy(_.values(enlir.soulBreaks), i => i.character + ' - ' + i.name);
+// Allow looking up soul breaks both by name and type.  This keeps tests from
+// breaking just because a soul break is renamed from JP to GL.
+const soulBreaksByName = _.keyBy(_.values(enlir.soulBreaks), i => i.character + ' - ' + i.name);
+const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks);
+const soulBreaksByAlias = _.keyBy(
+  _.values(enlir.soulBreaks),
+  i => i.character + ' - ' + soulBreakAliases[i.id],
+);
 
 const unknownSoulBreaks: EnlirSoulBreak[] = [
   {
@@ -169,11 +176,12 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
   },
 ];
 
-function describeSoulBreak(name: string) {
-  if (!soulBreaks[name]) {
-    throw new Error('Unknown soul break: ' + name);
+function describeSoulBreak(nameOrAlias: string) {
+  const sb = soulBreaksByName[nameOrAlias] || soulBreaksByAlias[nameOrAlias];
+  if (!sb) {
+    throw new Error('Unknown soul break: ' + nameOrAlias);
   }
-  return describeEnlirSoulBreak(soulBreaks[name]);
+  return describeEnlirSoulBreak(sb);
 }
 
 describe('mrP', () => {
@@ -352,7 +360,7 @@ describe('mrP', () => {
       expect(describeSoulBreak('Alma - Sacred Barrier')).toEqual({
         other: 'party Haste, Protect, Shell, Regen (hi), Status blink 1, Reraise 40%',
       });
-      expect(describeEnlirSoulBreak(soulBreaks["Alma - Cleric's Prayer"])).toEqual({
+      expect(describeSoulBreak("Alma - Cleric's Prayer")).toEqual({
         other: 'party -10% holy vuln. 15s, Autoheal 3k',
       });
       expect(describeSoulBreak('Alma - Angelic Vessel')).toEqual({
@@ -463,7 +471,7 @@ describe('mrP', () => {
     });
 
     it('converts multiple statuses', () => {
-      expect(describeEnlirSoulBreak(soulBreaks["Tyro - Warder's Apocrypha"])).toEqual({
+      expect(describeSoulBreak("Tyro - Warder's Apocrypha")).toEqual({
         other: 'party Haste, Status blink 1, Autoheal 2k, self instacast 2',
       });
       expect(describeSoulBreak('Tyro - Divine Veil Grimoire')).toEqual({
@@ -477,15 +485,15 @@ describe('mrP', () => {
         other: 'party Reflect Dmg 30s, +30% ATK/MAG 25s',
       });
 
-      expect(describeSoulBreak('Angeal - Thunder of Envy')).toEqual({
+      expect(describeSoulBreak('Angeal - Glint')).toEqual({
         instant: true,
         other: 'party Negate dmg 30%, +100% RES 25s',
       });
-      expect(describeSoulBreak('Angeal - Rage of Sloth')).toEqual({
+      expect(describeSoulBreak('Angeal - USB')).toEqual({
         damage: 'phys 7.1/10 holy+wind',
         other: 'party 50% Dmg barrier 2, Regenga, self crit =100% 25s',
       });
-      expect(describeSoulBreak('Auron - Miracle Blade')).toEqual({
+      expect(describeSoulBreak('Auron - Glint2')).toEqual({
         instant: true,
         damage: 'phys 3.12/6 fire+non',
         other: '+10% fire vuln. 15s, -50% DEF 15s',
@@ -898,7 +906,7 @@ Object {
         other:
           'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ rank 1-5 15s, 15s: stacking 2.0x/4.0x/6.0x cast',
       });
-      expect(describeEnlirSoulBreak(soulBreaks["Sabin - Perdition's Phoenix"])).toEqual({
+      expect(describeSoulBreak("Sabin - Perdition's Phoenix")).toEqual({
         damage: 'phys 4.9/7 - 5.6/8 - 6.3/9 - 7.0/10 fire+non @ 700-1250-1700 ATK',
         other: 'fire infuse 25s',
         burstCommands: [
@@ -910,7 +918,7 @@ Object {
           { damage: 'AoE p1.5/2 f+n', other: undefined, school: 'Monk' },
         ],
       });
-      expect(describeEnlirSoulBreak(soulBreaks["Tyro - Arbiter's Tome"])).toEqual({
+      expect(describeSoulBreak("Tyro - Arbiter's Tome")).toEqual({
         instant: true,
         other:
           'party Haste, crit =50% 25s, self hi fastcast 15s, ' +
@@ -1005,7 +1013,7 @@ Object {
     });
 
     it('converts EX modes with rank chases', () => {
-      expect(describeEnlirSoulBreak(soulBreaks["Arc - Water's Grace"])).toEqual({
+      expect(describeSoulBreak("Arc - Water's Grace")).toEqual({
         damage: 'white 18.0/10 holy+water',
         other:
           'holy infuse 25s, self +30% RES/MND 25s, ' +
@@ -1176,7 +1184,7 @@ Object {
         other: '+20% holy vuln. 25s, 15s: (2 Knight ⤇ +10% holy vuln. 15s)',
       });
 
-      expect(describeSoulBreak('Arc - Summon Leviathan')).toEqual({
+      expect(describeSoulBreak('Arc - Summon Leviath')).toEqual({
         damage: 'magic 17.0/10 water+non (SUM)',
         other:
           'water infuse 25s, 15s: EX: +30% MAG, (2 W.Mag/Summon ⤇ m7.95/5 wa+n Summon, party h25)',
@@ -1227,7 +1235,7 @@ Object {
           'm20.2 d+h+n overstrike Darkness, self heal 10% of dmg)',
       });
 
-      expect(describeEnlirSoulBreak(soulBreaks["Bartz - Crystals' Chosen"])).toEqual({
+      expect(describeSoulBreak("Bartz - Crystals' Chosen")).toEqual({
         damage: 'phys 6.9/10 wind+water+fire+earth',
         other:
           '15s: EX: (0-8 wind/water/fire/earth ⤇ 1.3-1.35-1.4-1.45-1.5-1.55-1.6-1.65-1.7x Spellblade dmg), ' +
@@ -1238,7 +1246,7 @@ Object {
     it('converts EX modes with follow-up statuses', () => {
       // Deviation: MrP variously describes abilities like Minor Buff Lightning
       // as "+3 elem attack level" or "stackable +20% earth dmg"
-      expect(describeSoulBreak('Ashe - Thunder of Innovation')).toEqual({
+      expect(describeSoulBreak('Ashe - USB2')).toEqual({
         damage: 'magic 17.0/10 lgt+non',
         other:
           'lgt infuse 25s, ' +
@@ -1401,7 +1409,7 @@ Object {
           'holy infuse 25s, 15s: EX: (1/2/3 +3n holy ⤇ front row phys hi fastcast 1, ' +
           'p0.3 – p1.5/5 – p4.5/15 h+l+n Knight)',
       });
-      expect(describeSoulBreak('Steiner - Reckless Steiner')).toEqual({
+      expect(describeSoulBreak('Steiner - USB2')).toEqual({
         damage: 'phys 6.9/10 fire+lgt+ice+non',
         other:
           'party instacast 1, 15s: (hit weak ⤇ +10% fire/lgt/ice dmg, p1.86/6 f+l+i+n Spellblade)',
@@ -1409,7 +1417,7 @@ Object {
     });
 
     it('converts heals', () => {
-      expect(describeSoulBreak('Porom - Twin Full Cure')).toEqual({
+      expect(describeSoulBreak('Porom - USB2')).toEqual({
         instant: true,
         other:
           'party h85, hi fastzap 2, Last stand, ' +
@@ -1499,7 +1507,7 @@ Object {
         other: 'revive @ 20% HP',
       });
 
-      expect(describeEnlirSoulBreak(soulBreaks["Iris - Amicitia's Cheer"])).toEqual({
+      expect(describeSoulBreak("Iris - Amicitia's Cheer")).toEqual({
         instant: true,
         other: 'party h85, Haste, revive @ 40% HP, self hi fastcast 15s',
       });
@@ -1524,7 +1532,7 @@ Object {
     });
 
     it('converts status ailments', () => {
-      expect(describeEnlirSoulBreak(soulBreaks["Seymour - Anima's Pain"])).toEqual({
+      expect(describeSoulBreak("Seymour - Anima's Pain")).toEqual({
         damage: 'magic 17.44/8 dark+non (SUM)',
         other: '53% (9% × 8) KO, +20% dark vuln. 25s',
         burstCommands: [
@@ -1547,7 +1555,7 @@ Object {
       expect(describeSoulBreak('Shelke - Countertek')).toEqual({
         other: 'AoE Dispel, party Esuna, Regen (hi)',
       });
-      expect(describeSoulBreak('Larsa - Righteous Prince')).toEqual({
+      expect(describeSoulBreak('Larsa - Glint')).toEqual({
         instant: true,
         other: 'party Esuna, Status blink 1',
       });
@@ -2088,7 +2096,7 @@ Object {
 
       // This also helps test the interaction of status effects and stat mods,
       // because of the "causes DEF, RES and MND -70% for 8 seconds" follow-up.
-      expect(describeSoulBreak('Auron - Living Flame')).toEqual({
+      expect(describeSoulBreak('Auron - AASB')).toEqual({
         damage: 'phys 9.0/15 fire+non',
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +
@@ -2096,7 +2104,7 @@ Object {
           '15s: Awoken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
-      expect(describeSoulBreak('Cecil (Paladin) - Radiant Moon')).toEqual({
+      expect(describeSoulBreak('Cecil (Paladin) - AASB')).toEqual({
         damage: 'p9.0/15 or w24.0/15 holy+non',
         other:
           'holy infuse 25s, party 75% Dmg barrier 3, ' +
@@ -2126,7 +2134,7 @@ Object {
           '15s: Awoken Thief: Thief inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
-      expect(describeSoulBreak('Cecil (Dark Knight) - Dark Moon')).toEqual({
+      expect(describeSoulBreak('Cecil (Dark Knight) - AASB')).toEqual({
         damage: 'phys 9.0/15 dark+non',
         other:
           'dmg cap +10k 15s, dark infuse 25s, ' +
@@ -2291,6 +2299,16 @@ Object {
           'self +30% ice/earth/lgt dmg 15s, dmg cap +10k 15s, ' +
           '15s: Awoken Spellblade: Spellblade inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeSoulBreak('Desch - AASB')).toEqual({
+        damage: 'magic 22.5/15 lgt+non',
+        other:
+          'lgt infuse 25s, self dmg cap +10k 15s, ' +
+          '15s: (lgt ⤇ m5.28/4 - 5.28/4 - 5.28/4 - 7.92/6 l+n B.Mag @ 1-2-3-4 females in party, ' +
+          'same row fastcast 1 if ≥2 females in party, ' +
+          'party +10% lgt dmg if ≥3 females in party 15s), ' +
+          '15s: Awoken Lightning: lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles synchro soul breaks', () => {
@@ -2316,7 +2334,7 @@ Object {
     });
 
     it('handles turn-limited effects', () => {
-      expect(describeSoulBreak('Amarant - Exploding Fist')).toEqual({
+      expect(describeSoulBreak('Amarant - USB2')).toEqual({
         instant: true,
         damage: 'phys 6.2/10 lgt+fire+non',
         other: '+20% fire/lgt vuln. 25s, self Monk hi fastcast 2',
@@ -2326,7 +2344,7 @@ Object {
         other: '1.3x dmg vs weak 15s, hi fastcast 2',
       });
       // This also tests elemental infuse with the Oxford comma.
-      expect(describeEnlirSoulBreak(soulBreaks["Amarant - Outlaw's Spirit"])).toEqual({
+      expect(describeSoulBreak('Amarant - Glint')).toEqual({
         instant: true,
         other: 'fire infuse stacking 25s, fire infuse 25s, self crit =100% 2 turns',
       });
@@ -2355,14 +2373,14 @@ Object {
       expect(describeSoulBreak('Red XIII - Howling Moon')).toEqual({
         other: 'party refill 1 random abil. use',
       });
-      expect(describeEnlirSoulBreak(soulBreaks["Enna Kros - Grymoire's Grace"])).toEqual({
+      expect(describeSoulBreak("Enna Kros - Grymoire's Grace")).toEqual({
         other: 'self refill 1 abil. use',
       });
       expect(describeSoulBreak('Xezat - Spellsword Iceshock')).toEqual({
         damage: 'phys 7.92/6 ice+lgt',
         other: 'party refill 1 abil. use',
       });
-      expect(describeSoulBreak('Arc - Heavenly Aria')).toEqual({
+      expect(describeSoulBreak('Arc - Glint')).toEqual({
         instant: true,
         other: 'Summon hi fastcast 15s, refill 2 Summon abil. use',
       });
@@ -2394,7 +2412,7 @@ Object {
         damage: 'p7.1/10 or m17.0/10 lgt+non rngd',
         other: 'lgt infuse 25s, self +30% ATK/DEF or DEF/MAG, fastcast 1, 15s: (lgt ⤇ fastcast 1)',
       });
-      expect(describeEnlirSoulBreak(soulBreaks["Vincent - Lucrecia's Lament"])).toEqual({
+      expect(describeSoulBreak("Vincent - Lucrecia's Lament")).toEqual({
         damage: 'AoE p5.1/6 or m13.5/6 fire+non rngd',
         other:
           'fire infuse 25s, self fastcast 1, 15s: +30% ATK or MAG, 15s: EX: (fire ⤇ fastcast 1)',

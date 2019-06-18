@@ -333,6 +333,7 @@ export function describeEnlirSoulBreak(
   const other: string[] = [];
   const aoeOther: string[] = [];
   const selfOther: string[] = [];
+  const sameRowOther: string[] = [];
   const partyOther: string[] = [];
   const detailOther: string[] = [];
 
@@ -659,6 +660,8 @@ export function describeEnlirSoulBreak(
         selfOther.push(description);
       } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
         partyOther.push(description);
+      } else if (who === " to all allies in the character's row") {
+        sameRowOther.push(description);
       } else if (who && who.match(/random ally/)) {
         other.push('ally ' + description);
       } else {
@@ -853,6 +856,9 @@ export function describeEnlirSoulBreak(
     other.push(...checkBurstAndBraveMode(selfOther));
   } else {
     appendGroup(other, aoeOther, 'AoE');
+    // Hack: Same row is currently only used for Desch AASB, where it fits
+    // naturally before partyOther.
+    appendGroup(other, sameRowOther, 'same row');
     appendGroup(other, partyOther, 'party');
     appendGroup(other, checkBurstAndBraveMode(selfOther), 'self');
     appendGroup(other, detailOther);

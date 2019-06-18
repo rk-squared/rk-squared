@@ -7032,7 +7032,7 @@
     },
     "skills": {
       "blackMagic": null,
-      "whiteMagic": 4,
+      "whiteMagic": 5,
       "combat": 5,
       "support": 3,
       "celerity": null,
@@ -8753,7 +8753,7 @@
       "res": 14,
       "mnd": 10
     },
-    "introducingEventLegendSpheres": "Encounter With the Stars",
+    "introducingEventLegendSpheres": "Passing Stars",
     "legendSpheres": {
       "hp": 500,
       "atk": 0,
@@ -14045,7 +14045,7 @@
       "res": 2,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "History of the Planet's Salvation",
+    "introducingEventLegendSpheres": "Struggle for the Planet",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -14088,12 +14088,12 @@
     },
     "skills": {
       "blackMagic": null,
-      "whiteMagic": null,
+      "whiteMagic": 4,
       "combat": 5,
       "support": null,
       "celerity": null,
       "summoning": null,
-      "spellblade": 3,
+      "spellblade": 5,
       "dragoon": null,
       "monk": null,
       "thief": null,
@@ -14423,7 +14423,7 @@
       "res": 0,
       "mnd": 5
     },
-    "introducingEventLegendSpheres": "History of the Planet's Salvation",
+    "introducingEventLegendSpheres": "Struggle for the Planet",
     "legendSpheres": {
       "hp": 700,
       "atk": 40,
@@ -14549,7 +14549,7 @@
       "res": 6,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "History of the Planet's Salvation",
+    "introducingEventLegendSpheres": "Struggle for the Planet",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -14606,7 +14606,7 @@
       "ninja": null,
       "bard": null,
       "dancer": null,
-      "machinist": null,
+      "machinist": 5,
       "darkness": null,
       "sharpshooter": 6,
       "witch": null,
@@ -14718,7 +14718,7 @@
     },
     "skills": {
       "blackMagic": 2,
-      "whiteMagic": 2,
+      "whiteMagic": 3,
       "combat": 5,
       "support": null,
       "celerity": 3,
@@ -15484,7 +15484,7 @@
       "monk": null,
       "thief": null,
       "knight": 5,
-      "samurai": null,
+      "samurai": 5,
       "ninja": null,
       "bard": null,
       "dancer": null,
@@ -24178,7 +24178,7 @@
       "monk": null,
       "thief": null,
       "knight": null,
-      "samurai": null,
+      "samurai": 5,
       "ninja": null,
       "bard": null,
       "dancer": null,
@@ -24186,7 +24186,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": null
+      "heavy": 5
     },
     "id": 11500100,
     "gl": true

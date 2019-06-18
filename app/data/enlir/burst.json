@@ -12504,7 +12504,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Four single ranged jump attacks (0.83 each), air time (3.50 sec.)",
+    "effects": "Four single ranged jump attacks (0.83 each), air time (2.50 sec.)",
     "effectsNote": "[JP - 10/01/2019] 3,50 -> 2,50 air time",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",

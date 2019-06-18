@@ -1370,7 +1370,7 @@
   {
     "realm": "III",
     "character": "Arc",
-    "name": "Knowledgeable Child",
+    "name": "Studious Orphan",
     "effect": "Grants Attach Water at the beginning of the battle",
     "master": "MND +10",
     "relic": "Golden Staff (III)",
@@ -1382,7 +1382,7 @@
   {
     "realm": "III",
     "character": "Arc",
-    "name": "Headstrong Youth",
+    "name": "Plucky Orphan",
     "effect": "25% chance to dualcast Summoning abilities",
     "master": "MND +10",
     "relic": "Royal Crown (III)",
@@ -1490,7 +1490,7 @@
   {
     "realm": "III",
     "character": "Ingus",
-    "name": "Silent Knight",
+    "name": "Stoic Knight",
     "effect": "25% chance to cast an ability (PHY: single, 3x 0.42 physical Earth/NE, restores 1500 HP to an ally) after using a Knight ability",
     "master": "ATK +10",
     "relic": "Knight's Helm (III)",
@@ -1544,6 +1544,18 @@
     "relic": "Blood Sword (III)",
     "nameJp": "飄々とした風来坊",
     "id": 201030503,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "III",
+    "character": "Desch",
+    "name": "Wandering Stud",
+    "effect": "Grants Attach Lightning at the beginning of the battle",
+    "master": "MAG +10",
+    "relic": "Coral Sword (III)",
+    "nameJp": "流浪の伊達男",
+    "id": 201030504,
     "anima": null,
     "gl": false
   },
@@ -1690,6 +1702,18 @@
     "id": 201030903,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "III",
+    "character": "Aria",
+    "name": "Shipwrecked Priestess",
+    "effect": "25?% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "master": "MND +10",
+    "relic": "Angel Robe (III)",
+    "nameJp": "難破船に眠りし巫女",
+    "id": 201030904,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -2126,7 +2150,7 @@
   {
     "realm": "IV",
     "character": "Palom",
-    "name": "Aspiring Sage",
+    "name": "Eager Prodigy",
     "effect": "BLK attacks deal 25% more damage when equipping a rod",
     "master": "MAG +10",
     "relic": "Sage's Robe (IV)",
@@ -2498,10 +2522,10 @@
   {
     "realm": "IV",
     "character": "Rubicante",
-    "name": "Crimson Cloaked Warrior",
+    "name": "Red-cloaked Terror",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "MAG +10",
-    "relic": "Duel Claw (IV)",
+    "relic": "Dual Claw (IV)",
     "nameJp": "紅きマントの武人",
     "id": 201042002,
     "anima": 2,
@@ -4310,10 +4334,10 @@
   {
     "realm": "VII",
     "character": "Zack",
-    "name": "SOLDIER's Dream",
+    "name": "SOLDIER Dreams",
     "effect": "25% chance to dualcast abilities that deal Wind damage",
     "master": "ATK +10",
-    "relic": "Swimwear (CC) (VII)",
+    "relic": "Zack's Swim Trunks (CC) (VII)",
     "nameJp": "ソルジャーの夢",
     "id": 201070903,
     "anima": null,
@@ -4562,7 +4586,7 @@
   {
     "realm": "VII",
     "character": "Angeal",
-    "name": "Spread White Wing",
+    "name": "Beating Wings",
     "effect": "25% chance to dualcast abilities that deal Holy or Wind damage",
     "master": "ATK +10",
     "relic": "Heavy Lance (CC) (VII)",
@@ -4598,7 +4622,7 @@
   {
     "realm": "VII",
     "character": "Rude",
-    "name": "Love of Enemies",
+    "name": "Paying Respect",
     "effect": "Grants Attach Earth at the beginning of the battle",
     "master": "ATK +5, MAG +5",
     "relic": "Shinra Headset (VII)",
@@ -4634,7 +4658,7 @@
   {
     "realm": "VII",
     "character": "Elena",
-    "name": "Crush on Leader",
+    "name": "Faint Respect",
     "effect": "25% chance to dualcast Sharpshooter abilities",
     "master": "ATK +10",
     "relic": "Commander (VII)",
@@ -5282,7 +5306,7 @@
   {
     "realm": "VIII",
     "character": "Ultimecia",
-    "name": "Sucession of Witches",
+    "name": "Succession of Witches",
     "effect": "25% chance to dualcast abilities that deal Dark damage",
     "master": "MAG +10",
     "relic": "Lamia's Tiara (VIII)",
@@ -5390,10 +5414,10 @@
   {
     "realm": "IX",
     "character": "Garnet",
-    "name": "Conqueror of Trials",
+    "name": "Proven Princess",
     "effect": "Grants Attach Lightning at the beginning of the battle",
     "master": "MAG +10",
-    "relic": "Faerie Tail (IX)",
+    "relic": "Faerie Staff (IX)",
     "nameJp": "試練を越えし姫",
     "id": 201090204,
     "anima": null,
@@ -5462,10 +5486,10 @@
   {
     "realm": "IX",
     "character": "Vivi",
-    "name": "Magus Potential",
+    "name": "Untapped Power",
     "effect": "Black Magic abilities deal 25% more damage when equipping a rod",
     "master": "MAG +10",
-    "relic": "Vivi's Gloves (IX)",
+    "relic": "Vivi's Glove (IX)",
     "nameJp": "潜在する魔道の力",
     "id": 201090304,
     "anima": null,
@@ -5522,7 +5546,7 @@
   {
     "realm": "IX",
     "character": "Steiner",
-    "name": "Self-Conviction",
+    "name": "Honed Judgment",
     "effect": "Spellblade abilities deal 25% more damage when equipping a sword",
     "master": "ATK +10",
     "relic": "Blood Sword (IX)",
@@ -5726,7 +5750,7 @@
   {
     "realm": "IX",
     "character": "Amarant",
-    "name": "Cool Guard",
+    "name": "Stolid Bodyguard",
     "effect": "25% chance to dualcast Monk abilities",
     "master": "ATK +10",
     "relic": "Judo Uniform (IX)",
@@ -6003,7 +6027,7 @@
     "realm": "X",
     "character": "Wakka",
     "name": "Championship Victory",
-    "effect": "?% chance to dualcast Sharpshooter abilities",
+    "effect": "25?% chance to dualcast Sharpshooter abilities",
     "master": "ATK +10",
     "relic": "Medical Armguard (X)",
     "nameJp": "目標は優勝",
@@ -6062,7 +6086,7 @@
   {
     "realm": "X",
     "character": "Lulu",
-    "name": "Self-Condemnation's End",
+    "name": "Harshest Judge",
     "effect": "Grants Attach Water at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Guardian Bangle (X)",
@@ -6110,7 +6134,7 @@
   {
     "realm": "X",
     "character": "Kimahri",
-    "name": "Dutiful Guardian",
+    "name": "Devoted Guardian",
     "effect": "Grants Attach Water at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Harpoon (X)",
@@ -10155,7 +10179,7 @@
     "realm": "Beyond",
     "character": "Serafie",
     "name": "Gossip Collector",
-    "effect": "Increases Wind damage dealt by 10?%",
+    "effect": "Increases Wind damage dealt by 10%",
     "master": null,
     "relic": null,
     "nameJp": "噂話の収集",

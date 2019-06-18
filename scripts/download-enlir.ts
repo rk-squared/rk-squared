@@ -192,12 +192,14 @@ function convertCharacters(rows: any[]): any[] {
       // Check which group of columns we're in.  The code is written like this
       // to try to avoid having to hard-code a list of all equipment types and
       // all skill types.
+      const colWithinStatGroup = col.replace(/ - (50|65|80|99|RS|LD)$/, '');
       if (statGroups.has(col)) {
         currentStatGroup = _.camelCase(col.match(/\((.*)\)/)[0]);
         inSkills = inEquipment = false;
-      } else if (currentStatGroup && !stats.has(col)) {
+      } else if (currentStatGroup && !stats.has(colWithinStatGroup)) {
         currentStatGroup = null;
       }
+
       if (col === 'Dagger') {
         inEquipment = true;
         inSkills = false;
@@ -210,9 +212,10 @@ function convertCharacters(rows: any[]): any[] {
 
       // Process the columns.
       const field = _.camelCase(col);
+      const fieldWithinStatGroup = _.camelCase(colWithinStatGroup);
       if (currentStatGroup && !statGroups.has(col)) {
         item[currentStatGroup] = item[currentStatGroup] || {};
-        item[currentStatGroup][field] = toInt(rows[i][j]);
+        item[currentStatGroup][fieldWithinStatGroup] = toInt(rows[i][j]);
       } else if (inSkills) {
         item['skills'] = item['skills'] || {};
         item['skills'][field] = toInt(rows[i][j]);

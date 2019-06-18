@@ -9617,7 +9617,7 @@
   {
     "id": 50393,
     "name": "Stratagem of a Genius Follow-Up",
-    "effects": "Casts Mixed Potion after using a White Magic or Support ability",
+    "effects": "Casts Scintillating Potion after using a White Magic or Support ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11431,6 +11431,61 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_POWER_PASSED_TO_SON",
+    "notes": null
+  },
+  {
+    "id": 50601,
+    "name": "Awoken Kindness",
+    "effects": "Holy and Water abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Holy and Water abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_CONSCIENCE",
+    "notes": null
+  },
+  {
+    "id": 50602,
+    "name": "Twin Element Mode (Arc)",
+    "effects": "Grants Attach Holy after using a Holy attack, grants Attach Water after using a Water attack, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_ARUKUU_AWAKE",
+    "notes": null
+  },
+  {
+    "id": 50603,
+    "name": "Sacred Breath Follow-Up",
+    "effects": "Casts Sacred Breath after using three Water or Holy attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_HOLY_BREATH",
+    "notes": null
+  },
+  {
+    "id": 50604,
+    "name": "Gentleman's Thunder Follow-Up",
+    "effects": "Casts Gentleman's Thunder after using a Lightning attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_OWENS_ANGER",
+    "notes": null
+  },
+  {
+    "id": 50605,
+    "name": "Awoken Priestess",
+    "effects": "White Magic and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for White Magic and Bard abilities at ability rank 1/2/3/4/5, grants HP Stock (500/1000/1500/2000/3000) to all allies after using White Magic or Bard abilities at rank 1/2/3/4/5",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_MAIDEN",
     "notes": null
   },
   {

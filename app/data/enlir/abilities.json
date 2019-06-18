@@ -10240,7 +10240,7 @@
     "multiplier": 2,
     "element": [],
     "time": 1.65,
-    "effects": "One single ranged jump attack (2.00), air time (2.20 sec.)",
+    "effects": "One single ranged jump attack (2.00), air time (1.65 sec.)",
     "counter": true,
     "autoTarget": "Highest HP% enemy",
     "sb": 60,
@@ -10286,7 +10286,7 @@
       "Wind"
     ],
     "time": 1.65,
-    "effects": "One single ranged jump attack (2.10), air time (2.20 sec.)",
+    "effects": "One single ranged jump attack (2.10), air time (1.65 sec.)",
     "counter": true,
     "autoTarget": "Highest HP% enemy",
     "sb": 60,
@@ -10330,7 +10330,7 @@
     "multiplier": 2.5,
     "element": [],
     "time": 1.65,
-    "effects": "One single ranged jump attack (2.50), air time (2.20 sec.)",
+    "effects": "One single ranged jump attack (2.50), air time (1.65 sec.)",
     "counter": true,
     "autoTarget": "Highest HP% enemy",
     "sb": 75,
@@ -10376,7 +10376,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "One single ranged jump attack (2.10), air time (2.20 sec.)",
+    "effects": "One single ranged jump attack (2.10), air time (1.65 sec.)",
     "counter": true,
     "autoTarget": "Highest HP% enemy",
     "sb": 60,
@@ -10422,7 +10422,7 @@
       "Lightning"
     ],
     "time": 1.65,
-    "effects": "One single ranged jump attack (2.10), air time (2.20 sec.)",
+    "effects": "One single ranged jump attack (2.10), air time (1.65 sec.)",
     "counter": true,
     "autoTarget": "Highest HP% enemy",
     "sb": 60,
@@ -10510,7 +10510,7 @@
     "multiplier": 2.3,
     "element": [],
     "time": 1.65,
-    "effects": "One single ranged jump attack (2.30), air time (2.20 sec.), heals the user for 40% of the damage dealt",
+    "effects": "One single ranged jump attack (2.30), air time (1.65 sec.), heals the user for 40% of the damage dealt",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -10554,7 +10554,7 @@
     "multiplier": 4.92,
     "element": [],
     "time": 1.5,
-    "effects": "Four single ranged jump attacks (1.23 each), air time (3.50 sec.)",
+    "effects": "Four single ranged jump attacks (1.23 each), air time (2.50 sec.)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 85,
@@ -10691,7 +10691,7 @@
       "Lightning"
     ],
     "time": 1.5,
-    "effects": "Four single ranged jump attacks (1.13 each), air time (3.50 sec.)",
+    "effects": "Four single ranged jump attacks (1.13 each), air time (2.50 sec.)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -10737,7 +10737,7 @@
       "Wind"
     ],
     "time": 1.5,
-    "effects": "Four single ranged jump attacks (1.13 each), air time (3.50 sec.)",
+    "effects": "Four single ranged jump attacks (1.13 each), air time (2.50 sec.)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -10912,7 +10912,7 @@
         60
       ]
     },
-    "introducingEvent": "Hornless' Unbroken Spirit",
+    "introducingEvent": "Broken Horn, Unbroken Spirit",
     "nameJp": "レイニースクリュー",
     "id": 30181151,
     "gl": false
@@ -15038,6 +15038,59 @@
     "introducingEvent": "Setting Things Right",
     "nameJp": "水天一碧",
     "id": 30231181,
+    "gl": false
+  },
+  {
+    "school": "Ninja",
+    "name": "Earth Dust",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Earth"
+    ],
+    "time": 0.83,
+    "effects": "3/5/7 single attacks (? each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Earth Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Blazing Dawn",
+    "nameJp": "木端微塵",
+    "id": 30231185,
     "gl": false
   },
   {
