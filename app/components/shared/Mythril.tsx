@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import * as classNames from 'classnames';
-
-const styles = require('./Mythril.scss');
+import { localIcons } from '../../data/localData';
 
 interface Props {
   children: any;
@@ -10,5 +8,8 @@ interface Props {
 }
 
 export const Mythril = ({ children, className }: Props) => (
-  <span className={classNames(className, styles.mythril)}>{children}</span>
+  <span className={className}>
+    {children}
+    <img src={localIcons.mythril} style={{ height: '1em' }} />
+  </span>
 );
