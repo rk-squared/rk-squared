@@ -7,9 +7,9 @@ interface Props {
   className?: string;
 }
 
-export const Mythril = ({ children, className }: Props) => (
-  <span className={className}>
+export const Mythril = ({ children, ...props }: Props) => (
+  <span {...props}>
     {children}
-    <img src={localIcons.mythril} style={{ height: '1em' }} />
+    <img src={localIcons.mythril} style={{ height: '1em' }} alt="mythril" />
   </span>
 );
