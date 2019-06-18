@@ -5,11 +5,16 @@ import * as _ from 'lodash';
 
 import { clearWantedRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
 import { enlir } from '../../data/enlir';
-import { chanceOfDesiredDrawProp5, STANDARD_DRAW_COUNT } from '../../data/probabilities';
+import {
+  chanceOfDesiredDrawProp5,
+  STANDARD_DRAW_COUNT,
+  STANDARD_MYTHRIL_COST,
+} from '../../data/probabilities';
 import { IState } from '../../reducers';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
 import { MinableCard } from '../common/MinableCard';
+import { Mythril } from '../shared/Mythril';
 
 const styles = require('./RelicChances.scss');
 
@@ -85,7 +90,7 @@ export class RelicChances extends React.PureComponent<Props> {
     }
   };
 
-  renderWant(count: number, chance: number, limit?: number) {
+  renderWant(banner: RelicDrawBannerDetails, count: number, chance: number) {
     if (!count) {
       return (
         <p className="card-text">
@@ -95,8 +100,21 @@ export class RelicChances extends React.PureComponent<Props> {
       );
     }
 
-    const defaultLimit = 6;
-    limit = Math.min(defaultLimit, limit || defaultLimit);
+    let discount: number | undefined;
+    if (banner.cost && banner.cost.mythrilCost && banner.cost.mythrilCost < STANDARD_MYTHRIL_COST) {
+      discount = STANDARD_MYTHRIL_COST / banner.cost.mythrilCost;
+    }
+
+    // Two columns of 3 rows.
+    let limit = 6;
+    // Leave space for the normalized count for discounted banners.
+    if (discount) {
+      limit--;
+    }
+    // Show no more pulls than are possible.
+    if (banner.pullLimit) {
+      limit = Math.min(limit, banner.pullLimit);
+    }
 
     return (
       <div>
@@ -115,6 +133,12 @@ export class RelicChances extends React.PureComponent<Props> {
               {chanceAfterNDraws(chance, i + 1).toFixed(2)}%
             </div>
           ))}
+          {discount && (
+            <div className={styles.wantItem}>
+              <Mythril className={styles.wantCount}>50</Mythril>
+              {chanceAfterNDraws(chance, discount).toFixed(2)}%
+            </div>
+          )}
         </div>
       </div>
     );
@@ -157,7 +181,7 @@ export class RelicChances extends React.PureComponent<Props> {
           )}
         </div>
         <div className="col-sm-6">
-          {this.renderWant(details.desiredCount, details.desiredChance, banner.pullLimit)}
+          {this.renderWant(banner, details.desiredCount, details.desiredChance)}
         </div>
       </MinableCard>
     );
