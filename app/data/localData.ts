@@ -14,6 +14,7 @@ export const localIcons: { [s: string]: string } = {
   animaWave2: require('../images/game-icons/checkered-diamond-d22d2d.svg'),
   animaWaveUnknown: require('../images/game-icons/checkered-diamond-000000.svg'),
   mythril: require('../images/ffrk-icons/mythril.png'),
+  odin: require('../images/game-icons/mounted-knight.svg'),
 };
 
 export const equipmentIcons: { [s in EnlirRelicType]: string | undefined } = {

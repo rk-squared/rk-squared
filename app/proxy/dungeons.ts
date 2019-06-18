@@ -342,7 +342,11 @@ function checkForWorldIcon(
     }
 
     case WorldCategory.Magicite: {
-      world.localIcon = elementIcon(world.name);
+      if (world.name === 'Lord of Knights Record') {
+        world.localIcon = 'odin';
+      } else {
+        world.localIcon = elementIcon(world.name);
+      }
       break;
     }
 
