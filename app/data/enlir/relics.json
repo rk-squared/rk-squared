@@ -131805,7 +131805,7 @@
     "gl": true
   },
   {
-    "name": "Black Armor's Reminiscence",
+    "name": "Black-Armored Echoes",
     "realm": "Core",
     "type": "Accessory",
     "rarity": 6,
@@ -131847,7 +131847,7 @@
       "eva": null
     },
     "id": 23080544,
-    "gl": false
+    "gl": true
   },
   {
     "name": "The Greatest Heroes",

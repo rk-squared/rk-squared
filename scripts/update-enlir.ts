@@ -95,6 +95,7 @@ async function main() {
 
   // tslint:disable-next-line: no-unused-expression
   yargs
+    .strict()
     .option('sheet', {
       default: 'community',
       choices: Object.keys(enlirSpreadsheetIds),
