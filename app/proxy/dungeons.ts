@@ -22,6 +22,7 @@ import * as dungeonsSchemas from '../api/schemas/dungeons';
 import * as mainSchemas from '../api/schemas/main';
 import { enlir } from '../data';
 import { Item, itemsByName, ItemType } from '../data/items';
+import { LocalIconType } from '../data/localData';
 import { crystalTowerFloorIcon, itemImage } from '../data/urls';
 import { IState } from '../reducers';
 import { DungeonState } from '../reducers/dungeons';
@@ -325,7 +326,8 @@ export function convertWorld(
   };
 }
 
-const elementIcon = (elementLike: string) => elementLike.toLowerCase() + 'Element';
+const elementIcon = (elementLike: string) =>
+  (elementLike.toLowerCase() + 'Element') as LocalIconType;
 
 function checkForWorldIcon(
   lang: LangType,

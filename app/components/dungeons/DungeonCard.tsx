@@ -94,7 +94,7 @@ export class DungeonCard extends React.PureComponent<ConnectedProps> {
       ? 'You have not yet entered these dungeons.'
       : 'These dungeons have not been loaded.';
 
-    let icon: string | null;
+    let icon: string | undefined | null;
     let isSeriesIcon = false;
     if (world.iconUrl) {
       icon = world.iconUrl;

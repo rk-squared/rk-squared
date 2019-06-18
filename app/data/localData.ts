@@ -1,6 +1,22 @@
 import { EnlirRelicType } from '../data/enlir';
 
-export const localIcons: { [s: string]: string } = {
+export type LocalIconType =
+  | 'darkElement'
+  | 'earthElement'
+  | 'fireElement'
+  | 'holyElement'
+  | 'iceElement'
+  | 'lightningElement'
+  | 'poisonElement'
+  | 'waterElement'
+  | 'windElement'
+  | 'animaWave1'
+  | 'animaWave2'
+  | 'animaWaveUnknown'
+  | 'mythril'
+  | 'odin';
+
+export const localIcons: { [s in LocalIconType]: string | undefined } = {
   darkElement: require('../images/ffrk-icons/dark.png'),
   earthElement: require('../images/ffrk-icons/earth.png'),
   fireElement: require('../images/ffrk-icons/fire.png'),
@@ -15,6 +31,13 @@ export const localIcons: { [s: string]: string } = {
   animaWaveUnknown: require('../images/game-icons/checkered-diamond-000000.svg'),
   mythril: require('../images/ffrk-icons/mythril.png'),
   odin: require('../images/game-icons/mounted-knight.svg'),
+};
+
+export const getAnimaWaveIcon = (anima: number) => {
+  const animaWave = `animaWave${anima}`;
+  return animaWave in localIcons
+    ? localIcons[animaWave as LocalIconType]
+    : localIcons.animaWaveUnknown;
 };
 
 export const equipmentIcons: { [s in EnlirRelicType]: string | undefined } = {

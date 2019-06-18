@@ -5,7 +5,7 @@ import * as moment from 'moment';
 
 import { animaWaves } from '../../data/anima';
 import { EnlirSoulBreakOrLegendMateria } from '../../data/enlir';
-import { localIcons } from '../../data/localData';
+import { getAnimaWaveIcon } from '../../data/localData';
 
 const styles = require('./RelicAvailability.scss');
 
@@ -32,8 +32,7 @@ export class RelicAvailability extends React.Component<Props> {
       }
     }
 
-    const icon = localIcons[`animaWave${item.anima}`] || localIcons.animaUnknown;
-    return <img className={styles.anima} src={icon} title={title} />;
+    return <img className={styles.anima} src={getAnimaWaveIcon(item.anima)} title={title} />;
   }
 
   renderNewSelection() {

@@ -2,6 +2,7 @@ import { createAction } from 'typesafe-actions';
 
 import * as _ from 'lodash';
 
+import { LocalIconType } from '../data/localData';
 import { FAR_FUTURE, TimeT } from '../utils/timeUtils';
 
 export enum WorldCategory {
@@ -72,7 +73,7 @@ export interface World {
   /**
    * Optional key of a localIcon (see data/localData)
    */
-  localIcon?: string;
+  localIcon?: LocalIconType;
 }
 
 enum WorldSortOrder {
@@ -145,7 +146,7 @@ export const unlockWorld = createAction('UNLOCK_WORLD', (worldId: number) => ({
 
 export const setWorldIcon = createAction(
   'SET_WORLD_ICON',
-  (worldId: number, icon: { localIcon?: string; iconUrl?: string }) => ({
+  (worldId: number, icon: { localIcon?: LocalIconType; iconUrl?: string }) => ({
     type: 'SET_WORLD_ICON',
     payload: {
       worldId,
