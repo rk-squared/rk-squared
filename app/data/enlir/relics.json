@@ -13677,7 +13677,7 @@
       "eva": null
     },
     "id": 21002353,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Balmung",
@@ -13767,7 +13767,7 @@
       "eva": null
     },
     "id": 21002278,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Sleep Blade",
@@ -13812,7 +13812,7 @@
       "eva": null
     },
     "id": 21002390,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Qliphoth",
@@ -91548,7 +91548,7 @@
     "effect": null,
     "character": "Ashe",
     "soulBreak": null,
-    "legendMateria": "Self Chosen Future",
+    "legendMateria": "Chosen Future",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -91572,7 +91572,7 @@
       "eva": 112
     },
     "id": 22050037,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Goddess's Grace",
@@ -97422,7 +97422,7 @@
       "eva": 105
     },
     "id": 22051107,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Witch's Hat",
@@ -111417,7 +111417,7 @@
       "eva": 100
     },
     "id": 22053302,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Adamant Vest",
