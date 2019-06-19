@@ -6,9 +6,10 @@
  * See https://www.reddit.com/r/FFRecordKeeper/comments/83l3jd/analysis_of_fuitads_gacha_data/
  */
 
-export const STANDARD_DRAW_COUNT = 11;
+export const StandardDrawCount = 11;
 
-export const STANDARD_MYTHRIL_COST = 50;
+export const StandardMythrilCost = 50;
+export const RealmRelicDrawMythrilCost = 15;
 
 interface RelicDrawBannerChances {
   expectedValue: number;

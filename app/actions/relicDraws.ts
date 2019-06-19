@@ -15,7 +15,10 @@ export interface RelicDrawBannerCost {
   mythrilCost?: number;
 
   /**
-   * Cost for 1st pull only, for cases where that differs.
+   * Cost for 1st pull only, for cases where that differs.  Currently only
+   * populated for banners where we know that it differs from mythrilCost
+   * (i.e., for banners where we've already pulled once and seen the full
+   * price ourselves), so it should always differ from mythrilCost.
    */
   firstMythrilCost?: number;
 }

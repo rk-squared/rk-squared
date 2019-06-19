@@ -16,6 +16,7 @@ import {
   setRelicDrawProbabilities,
   wantRelic,
 } from '../actions/relicDraws';
+import { RealmRelicDrawMythrilCost } from '../data/probabilities';
 
 export interface RelicDrawState {
   banners: {
@@ -84,14 +85,43 @@ export function mergeBannersFirstMythrilCost(
     [bannerId: number]: RelicDrawBanner;
   },
 ) {
-  for (const bannerId in newBanners) {
-    if (prevBanners[bannerId]) {
-      const update = mergeFirstMythrilCost(prevBanners[bannerId], newBanners[bannerId]);
+  _.forEach(newBanners, (newBanner, id) => {
+    if (prevBanners[+id]) {
+      const update = mergeFirstMythrilCost(prevBanners[+id], newBanner);
       if (update) {
-        newBanners[bannerId] = update;
+        newBanners[+id] = update;
       }
     }
-  }
+  });
+}
+
+/**
+ * Realm Relic Draws were refreshed before tracking of mythrilCost and
+ * firstMythrilCost was implemented, so backfill our data structures with what
+ * we know those to be.
+ */
+export function updateGroupFirstMythrilCosts(
+  banners: { [bannerId: number]: RelicDrawBanner },
+  group: string,
+  firstMythrilCost: number,
+) {
+  _.forEach(banners, (banner, id) => {
+    if (
+      banner.group !== group ||
+      !banner.cost ||
+      !banner.cost.mythrilCost ||
+      banner.cost.mythrilCost === firstMythrilCost
+    ) {
+      return;
+    }
+    banners[+id] = {
+      ...banner,
+      cost: {
+        ...banner.cost,
+        firstMythrilCost,
+      },
+    };
+  });
 }
 
 export function relicDraws(
@@ -102,8 +132,12 @@ export function relicDraws(
     switch (action.type) {
       case getType(setRelicDrawBanners): {
         const newBanners = _.keyBy(action.payload, 'id');
+
         mergeBannersFirstMythrilCost(draft.banners, newBanners);
+        updateGroupFirstMythrilCosts(newBanners, 'group7', RealmRelicDrawMythrilCost);
+
         draft.banners = newBanners;
+
         draft.probabilities = _.pickBy(
           draft.probabilities,
           (value, key) => newBanners[key] != null,

@@ -8,8 +8,8 @@ import { clearWantedRelics, RelicDrawProbabilities } from '../../actions/relicDr
 import { enlir } from '../../data/enlir';
 import {
   chanceOfDesiredDrawProp5,
-  STANDARD_DRAW_COUNT,
-  STANDARD_MYTHRIL_COST,
+  StandardDrawCount,
+  StandardMythrilCost,
 } from '../../data/probabilities';
 import { IState } from '../../reducers';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
@@ -57,7 +57,7 @@ function getRelicChanceDetails(
   const sixStarCount = relicIds.map(i => enlir.relics[i]).filter(i => !!i && i.rarity >= 6).length;
 
   const drawCount =
-    banner.cost && banner.cost.drawCount ? banner.cost.drawCount : STANDARD_DRAW_COUNT;
+    banner.cost && banner.cost.drawCount ? banner.cost.drawCount : StandardDrawCount;
 
   const totalDetails = chanceOfDesiredDrawProp5(
     drawCount,
@@ -105,8 +105,8 @@ export class RelicChances extends React.PureComponent<Props> {
 
     let discount: number | undefined;
     let discountCost: string | undefined;
-    if (banner.cost && banner.cost.mythrilCost && banner.cost.mythrilCost < STANDARD_MYTHRIL_COST) {
-      discount = STANDARD_MYTHRIL_COST / banner.cost.mythrilCost;
+    if (banner.cost && banner.cost.mythrilCost && banner.cost.mythrilCost < StandardMythrilCost) {
+      discount = StandardMythrilCost / banner.cost.mythrilCost;
       discountCost = formatChance(chance, discount);
     }
     const discountId = 'discountChance' + banner.id;
