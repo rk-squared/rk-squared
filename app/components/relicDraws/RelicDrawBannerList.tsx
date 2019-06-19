@@ -112,7 +112,12 @@ const RelicDrawBannerLink = ({
   const count = isAnonymous
     ? formatTotalCount(details)
     : formatAvailableCount(details, currentTime);
-  const mythrilCost = details.cost && details.cost.mythrilCost ? details.cost.mythrilCost : null;
+
+  let mythrilCost = details.cost && details.cost.mythrilCost ? details.cost.mythrilCost : null;
+  if (isAnonymous && details.cost && details.cost.firstMythrilCost) {
+    mythrilCost = details.cost.firstMythrilCost;
+  }
+
   return (
     <div className={styles.component}>
       <Link to={to}>

@@ -44,6 +44,56 @@ const initialState: RelicDrawState = {
   want: {},
 };
 
+export function mergeFirstMythrilCost(
+  prevBanner: RelicDrawBanner,
+  newBanner: RelicDrawBanner,
+): RelicDrawBanner | null {
+  const prevCost = prevBanner.cost;
+  const newCost = newBanner.cost;
+  if (!prevCost || !newCost) {
+    return null;
+  }
+  const firstMythrilCost = _.min(
+    _.filter(
+      [
+        prevCost.mythrilCost,
+        prevCost.firstMythrilCost,
+        newCost.mythrilCost,
+        newCost.firstMythrilCost,
+      ],
+      i => i != null,
+    ),
+  );
+  if (firstMythrilCost == null || firstMythrilCost === newCost.mythrilCost) {
+    return null;
+  }
+  return {
+    ...newBanner,
+    cost: {
+      ...newBanner.cost,
+      firstMythrilCost,
+    },
+  };
+}
+
+export function mergeBannersFirstMythrilCost(
+  prevBanners: {
+    [bannerId: number]: RelicDrawBanner;
+  },
+  newBanners: {
+    [bannerId: number]: RelicDrawBanner;
+  },
+) {
+  for (const bannerId in newBanners) {
+    if (prevBanners[bannerId]) {
+      const update = mergeFirstMythrilCost(prevBanners[bannerId], newBanners[bannerId]);
+      if (update) {
+        newBanners[bannerId] = update;
+      }
+    }
+  }
+}
+
 export function relicDraws(
   state: RelicDrawState = initialState,
   action: RelicDrawAction,
@@ -52,6 +102,7 @@ export function relicDraws(
     switch (action.type) {
       case getType(setRelicDrawBanners): {
         const newBanners = _.keyBy(action.payload, 'id');
+        mergeBannersFirstMythrilCost(draft.banners, newBanners);
         draft.banners = newBanners;
         draft.probabilities = _.pickBy(
           draft.probabilities,

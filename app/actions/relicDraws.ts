@@ -13,6 +13,11 @@ import { TimeT } from '../utils/timeUtils';
 export interface RelicDrawBannerCost {
   drawCount?: number;
   mythrilCost?: number;
+
+  /**
+   * Cost for 1st pull only, for cases where that differs.
+   */
+  firstMythrilCost?: number;
 }
 
 export interface RelicDrawBanner {
