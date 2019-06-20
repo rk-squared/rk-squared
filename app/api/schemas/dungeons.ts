@@ -1,6 +1,7 @@
 import {
   Asset,
   AssetCollection,
+  BoolAsString,
   ItemTypeName,
   NumberAsString,
   RelativeUrlPath,
@@ -21,8 +22,10 @@ export enum RewardType {
   EachCompletion = '1',
   FirstTime = '2',
   Mastery = '3',
+
   // Recurring (?) time-based (?) bonuses - e.g., for Magicite
   Bonus = '7',
+
   // One-time bonuses - e.g., for Neo Torments, or damage-based for
   // "Damage Race - Ancient Foes",
   GradeAOrSub30 = '8',
@@ -35,12 +38,30 @@ export enum RewardType {
   Hp70 = '15',
   Hp60 = '16',
   Hp50 = '17',
+
+  // Alternate one-time bonuses for Odin.
+  ElementalFire = '8',
+  ElementalIce = '9',
+  ElementalWind = '10',
+  ElementalEarth = '11',
+  ElementalLightning = '12',
+  ElementalWater = '13',
+  ElementalHoly = '14',
+  ElementalDark = '15',
+  Elemental1Win = '16',
+
   // Anima lenses are shown separately.  I don't know why the game is designed
   // this way.
   AnimaLens = '28',
 }
 
 export const MinRewardGrade = 8;
+
+/**
+ * We normally try to avoid hard-coding world IDs, but Dark Odin has a few
+ * unique traits, so it simplifies code to have this available.
+ */
+export const DarkOdinWorldId = 13052;
 
 export interface DungeonPrizeItem {
   type_name: ItemTypeName;
@@ -56,28 +77,60 @@ export interface DungeonPrizeItem {
 
 export interface Dungeon {
   id: number;
+  world_id?: number;
+  rank?: number;
   name: string;
   series_id: number;
+  order_no: number;
   prologue: string;
+  prologue_image_path: RelativeUrlPath;
   epilogue: string;
+  epilogue_image_path: RelativeUrlPath;
+  background_image_path: RelativeUrlPath;
   is_clear: boolean;
   is_master: boolean;
   is_new: boolean;
   is_unlocked: boolean;
+  is_restricted: boolean;
+  has_battle: boolean;
   type: number; // Whether it's on page 1 (normal) or page 2 (elite, part 2, etc.)
 
   // Does not take 1/2 stamina into account.  Summing stamina_list, dividing
   // by 2 and rounding down, minimum 1, is necessary to handle that.
   total_stamina: number;
   stamina_list: number[];
+  required_max_stamina?: number;
+
+  stamina_consume_type: number; // Magicites use 1
+  supporter_type: number; // Magicites use 1
+  recommend_beast_type?: number;
+  ss_gauge_type: number; // 0 is normal
+  buddy_additional_status_bonus_level: number; // normally 0
+  continue_allowable_type: number;
 
   opened_at: Timestamp;
   closed_at: Timestamp;
 
   challenge_level: number;
   progress_map_level: number;
-  button_style: string; // "NORMAL", "EXTRA", or "DOOM"
+  platform_style: number;
+  button_style: 'NORMAL' | 'EXTRA' | 'DOOM';
   prizes: { [s in RewardType]: DungeonPrizeItem[] };
+
+  // Dungeon IDs that must be cleared to access this dungeon.
+  unlock_conditions: {
+    [dungeonId: string]: BoolAsString;
+  };
+
+  unlocked_series_ids: number[];
+  ability_category_bonus_map: {};
+  battle_ticket_id_2_num: {};
+  battle_drop_items: [];
+
+  memory_labo_group_id?: number;
+  // Not implemented: memory_labo_recommendation_infos
+
+  // Not yet tracked: captures (medal conditions)
 }
 
 // A node in a record dungeon's graph

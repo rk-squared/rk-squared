@@ -344,7 +344,7 @@ function checkForWorldIcon(
     }
 
     case WorldCategory.Magicite: {
-      if (world.name === 'Lord of Knights Record') {
+      if (world.id === dungeonsSchemas.DarkOdinWorldId) {
         world.localIcon = 'odin';
       } else {
         world.localIcon = elementIcon(world.name);

@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect';
 
+import * as _ from 'lodash';
+
 import { Dungeon } from '../actions/dungeons';
 import {
   compareScore,
@@ -8,12 +10,11 @@ import {
   shouldUseEstimatedScore,
 } from '../actions/dungeonScores';
 import { getSorter, World, WorldCategory } from '../actions/worlds';
+import { DarkOdinWorldId } from '../api/schemas/dungeons';
 import { IState } from '../reducers';
 import { DungeonState, getDungeonsForWorld } from '../reducers/dungeons';
 import { DungeonScoreState } from '../reducers/dungeonScores';
 import { WorldState } from '../reducers/worlds';
-
-import * as _ from 'lodash';
 import { compareWithUndefined } from '../utils/typeUtils';
 
 export interface DungeonWithScore extends Dungeon {
@@ -103,14 +104,16 @@ export const getMagiciteScores = createSelector<
     const worlds = getWorlds(worldsState, WorldCategory.Magicite);
 
     let dungeons: MagiciteDungeonWithScore[] = _.flatten(
-      worlds.map(w =>
-        getDungeonsWithScoreForWorld(dungeonsState, scoresState, w).map(d => ({
-          ...d,
-          stars: magiciteStarsByDifficulty[d.difficulty],
-          element: w.name,
-          worldId: w.id,
-        })),
-      ),
+      worlds
+        .filter(w => w.id !== DarkOdinWorldId)
+        .map(w =>
+          getDungeonsWithScoreForWorld(dungeonsState, scoresState, w).map(d => ({
+            ...d,
+            stars: magiciteStarsByDifficulty[d.difficulty],
+            element: w.name,
+            worldId: w.id,
+          })),
+        ),
     );
 
     const highestUnlocked = getHighestUnlocked(dungeons);
