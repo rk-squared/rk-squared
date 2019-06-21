@@ -10122,7 +10122,7 @@
       "eva": null
     },
     "id": 21002458,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Claw of Darkness",
@@ -10167,7 +10167,7 @@
       "eva": null
     },
     "id": 21002441,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ultima Blade",
@@ -50442,7 +50442,7 @@
       "eva": null
     },
     "id": 21008221,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Stardust Rod",
@@ -63627,7 +63627,7 @@
       "eva": null
     },
     "id": 21009042,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Cloud Staff",
@@ -63672,7 +63672,7 @@
       "eva": null
     },
     "id": 21009135,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Healing Staff",
@@ -92967,7 +92967,7 @@
       "eva": 105
     },
     "id": 22051083,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mirage Morion",
@@ -120237,7 +120237,7 @@
       "eva": 105
     },
     "id": 22055035,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Gaia Gear",

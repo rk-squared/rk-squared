@@ -7646,7 +7646,7 @@
     "nameJp": "闇月",
     "id": 20060014,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -7980,7 +7980,7 @@
     "nameJp": "輝月",
     "id": 20070016,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -9282,7 +9282,7 @@
     "nameJp": "サンダーエクストリーム",
     "id": 22210006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -9304,7 +9304,7 @@
     "nameJp": "ブラックセンス",
     "id": 22210007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -9436,7 +9436,7 @@
     "nameJp": "ふたりがけ・フルケア",
     "id": 22220006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -9458,7 +9458,7 @@
     "nameJp": "ホワイトセンス",
     "id": 22220007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -21308,8 +21308,9 @@
     "points": 500,
     "soulbreakBonus": null,
     "relic": "Chakra Band (VII)",
-    "nameJp": null,
+    "nameJp": "チェインオブストーン",
     "id": 23010006,
+    "anima": null,
     "gl": false
   },
   {
@@ -41935,23 +41936,24 @@
     "character": "Machina",
     "name": "Stone Crash",
     "tier": "Glint+",
-    "type": "?",
+    "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 3.12,
     "element": [
       "Earth",
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (? each), grants Attach Earth Stacking and Attach Earth to the user",
+    "effects": "Six single attacks (0.52 each), grants Attach Earth Stacking and Attach Earth to the user",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 0,
     "soulbreakBonus": "ATK +10",
     "relic": "Silver Gloves (Type-0)",
     "nameJp": "クエイクラッシュ",
     "id": 23090008,
+    "anima": null,
     "gl": false
   },
   {

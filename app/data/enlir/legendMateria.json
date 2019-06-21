@@ -2157,7 +2157,7 @@
     "nameJp": "賢者への憧れ",
     "id": 201041003,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -2498,26 +2498,26 @@
   {
     "realm": "IV",
     "character": "Rubicante",
-    "name": "Leader of the Four Heavenly Kings",
+    "name": "Chief Archfiend",
     "effect": "Increases Fire damage dealt by 10%",
     "master": null,
     "relic": null,
     "nameJp": "四天王のリーダー格",
     "id": 201042000,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
     "character": "Rubicante",
-    "name": "Respect for Bravery",
+    "name": "Grudging Respect",
     "effect": "35% chance to dualcast abilities that deal Fire damage",
     "master": null,
     "relic": null,
     "nameJp": "勇者への敬意",
     "id": 201042001,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -4947,7 +4947,7 @@
     "realm": "VIII",
     "character": "Selphie",
     "name": "Will of Trabia",
-    "effect": "MND +?% for each Dancer ability used, up to +?%",
+    "effect": "MND +1% for each Dancer ability used, up to +25%",
     "master": "MND +10",
     "relic": "White Dress (VIII)",
     "nameJp": "トラビアを想う意志",
