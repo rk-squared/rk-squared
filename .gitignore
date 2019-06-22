@@ -58,3 +58,4 @@ credentials.json
 tmp/
 scripts/tmp/
 app/data/enlir/*.json.bak
+.env
