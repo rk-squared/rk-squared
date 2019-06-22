@@ -23,7 +23,7 @@ export class RecordMateriaPage extends React.Component<Props & RouteComponentPro
         <>
           <p>Record materia information has not been loaded.</p>
           <p>
-            Within FFRK, please go under the Annex, under the Library, and choose Record Materia.
+            Within FFRK, please go under the Menu, under the Library, and choose Record Materia.
           </p>
         </>
       );
@@ -31,7 +31,7 @@ export class RecordMateriaPage extends React.Component<Props & RouteComponentPro
       return (
         <>
           <p>Record materia inventory has not been loaded.</p>
-          <p>Please restart FFRK then go under Party, or go under the Annex, under the Library.</p>
+          <p>Please restart FFRK then go under Party, or go under the Menu, under the Library.</p>
         </>
       );
     } else {
