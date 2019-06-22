@@ -4,10 +4,11 @@ import * as child_process from 'child_process';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as process from 'process';
-import * as util from 'util';
+import * as querystring from 'querystring';
 
 import * as dotenv from 'dotenv';
 import * as github from 'octonode';
+import * as open from 'open';
 
 // tslint:disable no-console
 
@@ -123,6 +124,13 @@ async function main() {
   await uploadReleaseAsset(ghRelease, `RK Squared-${version}.dmg`);
 
   showRedditDraft(version, releaseNotes);
+
+  open(`https://github.com/rk-squared/rk-squared/releases/edit/${tag}`);
+  const postTitle = `RK Squared ${version} - track soul breaks, LMs, relic banners, etc.`;
+  open(
+    'https://www.reddit.com/r/FFRecordKeeper/submit?selftext=true&title=' +
+      querystring.escape(postTitle),
+  );
 }
 
 main().catch(e => console.error(e));
