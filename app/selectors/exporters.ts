@@ -24,10 +24,10 @@ export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: ISt
 
   const stringifier = createCsvStringifier({
     header: [
+      { id: 'id', title: 'ID' },
       { id: 'character', title: 'Character' },
       { id: 'realm', title: 'Realm' },
       { id: 'name', title: 'Soul Break' },
-      { id: 'id', title: 'ID' },
       { id: 'alias', title: 'Tier' },
       { id: 'effects', title: 'Effects' },
     ],
@@ -73,10 +73,10 @@ export function exportLegendMateriaToCsv({ characters: { legendMateria, vault } 
 
   const stringifier = createCsvStringifier({
     header: [
+      { id: 'id', title: 'ID' },
       { id: 'character', title: 'Character' },
       { id: 'realm', title: 'Realm' },
       { id: 'name', title: 'Legend Materia' },
-      { id: 'id', title: 'ID' },
       { id: 'alias', title: 'LM/LMR' },
       { id: 'effects', title: 'Effects' },
     ],

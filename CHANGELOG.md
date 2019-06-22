@@ -1,14 +1,17 @@
 # v2.2.0
 
 - Dungeons
-  - Show anima lens rewards
+  - Show anima lens rewards within the Dungeon Tracker
   - Handle Dark Odin Record
 - Dungeon Scores
-  - Show Dark Odin Record progress (no bio)
+  - Show Dark Odin Record progress. (Bio is not included, since it doesn't have separate rewards.)
 - Relic Draws
   - Show mythril costs in banner summaries
   - Add anima lens information to relic draw selections
   - Correctly calculate probabilities for non-standard banners like Luck of the Realms
+- Export
+  - The ID column is now first, for compatibility with excellent tools like /u/Jaryth000's [SoulBreak Search](https://sbs.jaryth.net/).
+- Various bug fixes
 
 # v2.1.0
 
