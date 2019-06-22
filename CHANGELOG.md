@@ -1,7 +1,10 @@
 # v2.2.0
 
 - Dungeons
-  - Show anima lense rewards in record dungeons
+  - Show anima lens rewards
+  - Handle Dark Odin Record
+- Dungeon Scores
+  - Show Dark Odin Record progress (no bio)
 - Relic Draws
   - Show mythril costs in banner summaries
   - Add anima lens information to relic draw selections

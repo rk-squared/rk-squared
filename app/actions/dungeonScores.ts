@@ -5,6 +5,7 @@ import { Dungeon } from './dungeons';
 import { World, WorldCategory } from './worlds';
 
 import * as _ from 'lodash';
+import { EnlirElement } from '../data/enlir';
 
 export enum DungeonScoreType {
   ClearTime = 1,
@@ -250,4 +251,18 @@ export const updateDungeonScore = createAction(
   }),
 );
 
-export type DungeonScoresAction = ReturnType<typeof setDungeonScore | typeof updateDungeonScore>;
+export const updateDungeonElementScore = createAction(
+  'UPDATE_DUNGEON_ELEMENT_SCORE',
+  (dungeonId: number, element: EnlirElement, newScore: DungeonScore) => ({
+    type: 'UPDATE_DUNGEON_ELEMENT_SCORE',
+    payload: {
+      dungeonId,
+      element,
+      newScore,
+    },
+  }),
+);
+
+export type DungeonScoresAction = ReturnType<
+  typeof setDungeonScore | typeof updateDungeonScore | typeof updateDungeonElementScore
+>;

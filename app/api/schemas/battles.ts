@@ -43,10 +43,11 @@ export interface Battle {
   show_timer_type: number;
 }
 
-export enum GradeScoreType {
+export enum GradeScoreType { // GRADE_SCORE_TYPE in app.js
   // noinspection JSUnusedGlobalSymbols
-  DecreasedHp = 3, // Observed with Bomb Brigade
-  DecreasedHpAndClearTime = 4, // Standard for Neo Torments
+  DecreasedHp = 3, // Observed with Bomb Brigade.  DAMAGE_CONTEST in app.js
+  DecreasedHpAndClearTime = 4, // Standard for Neo Torments.  DAMAGE_RATE_OR_DEFEATED_TIME in app.js
+  Element = 6, // Dark Odin.  DEFEATED_ELEMENT in app.js
 }
 
 export interface GradeScore {

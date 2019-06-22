@@ -11,6 +11,7 @@ import {
 } from '../actions/dungeonScores';
 import { getSorter, World, WorldCategory } from '../actions/worlds';
 import { DarkOdinWorldId } from '../api/schemas/dungeons';
+import { allEnlirElements } from '../data/enlir';
 import { IState } from '../reducers';
 import { DungeonState, getDungeonsForWorld } from '../reducers/dungeons';
 import { DungeonScoreState } from '../reducers/dungeonScores';
@@ -155,5 +156,50 @@ export const getTormentScores = createSelector<
         dUnknown: dungeons[0],
       };
     });
+  },
+);
+
+export const getDarkOdinScores = createSelector<
+  IState,
+  WorldState,
+  DungeonState,
+  DungeonScoreState,
+  MagiciteDungeonWithScore[]
+>(
+  [
+    (state: IState) => state.worlds,
+    (state: IState) => state.dungeons,
+    (state: IState) => state.dungeonScores,
+  ],
+  (
+    worldsState: WorldState,
+    dungeonsState: DungeonState,
+    scoresState: DungeonScoreState,
+  ): MagiciteDungeonWithScore[] => {
+    const darkOdinDungeons = getDungeonsForWorld(dungeonsState, DarkOdinWorldId);
+    if (!darkOdinDungeons || !darkOdinDungeons.length) {
+      return [];
+    }
+
+    const dungeon = darkOdinDungeons[0];
+    if (!scoresState.elementScores || !scoresState.elementScores[dungeon.id]) {
+      return [];
+    }
+    const scores = scoresState.elementScores[dungeon.id];
+    const result: MagiciteDungeonWithScore[] = [];
+    for (const element of allEnlirElements) {
+      if (scores[element]) {
+        result.push({
+          ...dungeon,
+          stars: undefined,
+          element,
+          score: scores[element],
+          estimatedScore: undefined,
+          worldId: DarkOdinWorldId,
+        });
+      }
+    }
+
+    return result;
   },
 );

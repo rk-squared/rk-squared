@@ -1,14 +1,18 @@
 import configureStore from 'redux-mock-store';
 
+import * as _ from 'lodash';
+
 import { DungeonScoreType } from '../../actions/dungeonScores';
 import { WorldCategory } from '../../actions/worlds';
+import * as dungeonsSchemas from '../../api/schemas/dungeons';
 import { IState } from '../../reducers';
-import { default as dungeonScoresHandler } from '../dungeonScores';
+import { default as dungeonScoresHandler, getElementsClaimed } from '../dungeonScores';
 
 const neoTormentT280Battles = require('./data/neo_torment_t_280_world_battles.json');
 const neoTormentTUnkBattles = require('./data/neo_torment_t_unk_world_battles.json');
 const magiciteWorldBattles = require('./data/magicite_world_battles.json');
 const magiciteWinBattle = require('./data/magicite_win_battle.json');
+const darkOdinDungeons = require('./data/dark_odin_dungeons.json');
 
 describe('dungeonScores proxy handler', () => {
   const mockStore = configureStore<IState>();
@@ -122,6 +126,41 @@ describe('dungeonScores proxy handler', () => {
           },
         },
       ]);
+    });
+  });
+
+  describe('dungeons', () => {
+    it('handles Dark Odin with no wins', () => {
+      const elements = getElementsClaimed(darkOdinDungeons.data.dungeons[0]);
+
+      expect(elements.claimed).toEqual([]);
+      expect(elements.unclaimed).toEqual([
+        'Fire',
+        'Ice',
+        'Wind',
+        'Earth',
+        'Lightning',
+        'Water',
+        'Holy',
+        'Dark',
+      ]);
+    });
+
+    it('handles Dark Odin with two simulated wins', () => {
+      const dungeon = _.cloneDeep(darkOdinDungeons.data.dungeons[0]) as dungeonsSchemas.Dungeon;
+      _.forEach(
+        dungeon.prizes[dungeonsSchemas.RewardType.ElementalEarth],
+        i => (i.is_got_grade_bonus_prize = 1),
+      );
+      _.forEach(
+        dungeon.prizes[dungeonsSchemas.RewardType.ElementalHoly],
+        i => (i.is_got_grade_bonus_prize = 1),
+      );
+
+      const elements = getElementsClaimed(dungeon);
+
+      expect(elements.claimed).toEqual(['Earth', 'Holy']);
+      expect(elements.unclaimed).toEqual(['Fire', 'Ice', 'Wind', 'Lightning', 'Water', 'Dark']);
     });
   });
 });

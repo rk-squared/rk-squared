@@ -1,0 +1,2012 @@
+{
+  "url": "http://ffrk.denagames.com/dff/event/beast/3052/dungeons?world_id=13052",
+  "data": {
+    "success": true,
+    "room_of_beast_assets": {
+      "common": {
+        "dungeon_spec": {
+          "bundle": {
+            "/Content/lang/font/gillsansstd_for_ab.ttf": {
+              "hash": "WkG5Tec3NUt1ie9hJyv/3g"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_spec.json": {
+              "hash": "O0jVQbSz0aRJBIp3NFZzfQ"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_spec.json"
+        },
+        "dungeon_100821": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+              "hash": "EA6uqfa1hppFVrRzmZzuxw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+              "hash": "MsDaWdAq52FE3rZDizThoQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+              "hash": "V08fQyTG4T6GDMosX2YVxg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.png": {
+              "hash": "j+HBYS1K5ZE+aiEuxnu4DQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+              "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_touch.json": {
+              "hash": "mUlco3aoBBSjX4atBWHZ2g"
+            },
+            "/Content/lang/se/se_ogg/se_ability_50005.ogg": {
+              "hash": "g2Z1VAJgaFdDdV+bxp1Qfw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
+              "hash": "ca2IYwaOt0fx1YN5Get1IQ"
+            },
+            "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+              "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+              "hash": "Sjv72DvWV55JpDKAYs1tmA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00581.ogg": {
+              "hash": "pj9pdeEpYAei8c5UtvqSyw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+              "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_slashWhite.png": {
+              "hash": "jErEHDOk5Q+z+dJMbp5nQg"
+            },
+            "/Content/lang/se/se_ogg/se_common_100037.ogg": {
+              "hash": "S8utnUozF6gyLvS7/11pgg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_fire/pb_dungeon_broken_mini_back.json": {
+              "hash": "O59svKKsbkKnPOm4Y1p8Eg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+              "hash": "5W889sndvoo+0O/fwwRDBg"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10071.ogg": {
+              "hash": "GvVswuzk/Y1vfnGB0sqQvA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+              "hash": "GujndlRehOCpugEsLAHIVg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave_rainbow.png": {
+              "hash": "8TUwIJDXDK6V4KCX5Gd5Ow"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_fire/pb_dungeon_broken.json": {
+              "hash": "Q4qh1jwfcYJEPiXglaak3A"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_fire/pb_dungeon_broken_mini.json": {
+              "hash": "xtok4UefhCulBjbGEhNQpQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+              "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+              "hash": "lqlI1yYIl8hfQIawA1sRlg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_fire/img_element.png": {
+              "hash": "P0FzMXSObh9G40pdx95p/Q"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_master_back.json": {
+              "hash": "DiMqE18frnyYYpoy4lVbxA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00024.ogg": {
+              "hash": "YGL+XDsDMv14lVBXEu06Xw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_ui.json": {
+              "hash": "bLHzyOflrajZLUi1Cvcq7w"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+              "hash": "6bAULnwkhXKcYlElSbEtDA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00320.ogg": {
+              "hash": "gTwQrpCZJ1irejE0KsGqkA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+              "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.png": {
+              "hash": "ktAEzQHWbusQhF3PTCAINw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_fire/dungeon_base.json": {
+              "hash": "5KP5TBdyEgell+x6zsUWjg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open_kirakira.json": {
+              "hash": "OtTIJXbIBWnENFzr7DueIA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10102.ogg": {
+              "hash": "KAsuajlKdwA+q/4BHh/Ung"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.json": {
+              "hash": "/b+VT5U8YvjD4N+xkChkrA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00432.ogg": {
+              "hash": "nYDONfr7Ercagzp0WUQKwg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+              "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open.json": {
+              "hash": "Q6UbqhH2U7e6OpYlcNSbTg"
+            },
+            "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
+              "hash": "uW4g5yUFE8OWYhD1p06WNg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_aura_flash.png": {
+              "hash": "+NxUhWmw6DXNZCQo1BxpVw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_fire/img_element.json": {
+              "hash": "Dzf8oPRRN5cIfW5W7P+xzg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+              "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+            },
+            "/Content/lang/se/se_ogg/se_fusion_common_100062.ogg": {
+              "hash": "wStnR3SBNNksWQgrI5h/hg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+              "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_fire/dungeon_base.json"
+        },
+        "dungeon_100827": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+              "hash": "EA6uqfa1hppFVrRzmZzuxw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+              "hash": "MsDaWdAq52FE3rZDizThoQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+              "hash": "V08fQyTG4T6GDMosX2YVxg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.png": {
+              "hash": "j+HBYS1K5ZE+aiEuxnu4DQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+              "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_holy/pb_dungeon_broken_mini_back.json": {
+              "hash": "+WFbqnh6RZz9o4z3p9Yl4w"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_touch.json": {
+              "hash": "mUlco3aoBBSjX4atBWHZ2g"
+            },
+            "/Content/lang/se/se_ogg/se_ability_50005.ogg": {
+              "hash": "g2Z1VAJgaFdDdV+bxp1Qfw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
+              "hash": "ca2IYwaOt0fx1YN5Get1IQ"
+            },
+            "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+              "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+              "hash": "Sjv72DvWV55JpDKAYs1tmA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00581.ogg": {
+              "hash": "pj9pdeEpYAei8c5UtvqSyw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+              "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_slashWhite.png": {
+              "hash": "jErEHDOk5Q+z+dJMbp5nQg"
+            },
+            "/Content/lang/se/se_ogg/se_common_100037.ogg": {
+              "hash": "S8utnUozF6gyLvS7/11pgg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_holy/pb_dungeon_broken_mini.json": {
+              "hash": "qopO0lT6WX6qCG+Y+yrj8g"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+              "hash": "5W889sndvoo+0O/fwwRDBg"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10071.ogg": {
+              "hash": "GvVswuzk/Y1vfnGB0sqQvA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+              "hash": "GujndlRehOCpugEsLAHIVg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave_rainbow.png": {
+              "hash": "8TUwIJDXDK6V4KCX5Gd5Ow"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+              "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+              "hash": "lqlI1yYIl8hfQIawA1sRlg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_holy/pb_dungeon_broken.json": {
+              "hash": "b9YvFfp7NTGP0ncfhvBopQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_master_back.json": {
+              "hash": "DiMqE18frnyYYpoy4lVbxA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00024.ogg": {
+              "hash": "YGL+XDsDMv14lVBXEu06Xw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_ui.json": {
+              "hash": "bLHzyOflrajZLUi1Cvcq7w"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+              "hash": "6bAULnwkhXKcYlElSbEtDA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00320.ogg": {
+              "hash": "gTwQrpCZJ1irejE0KsGqkA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_holy/img_element.json": {
+              "hash": "Dzf8oPRRN5cIfW5W7P+xzg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+              "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.png": {
+              "hash": "ktAEzQHWbusQhF3PTCAINw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open_kirakira.json": {
+              "hash": "OtTIJXbIBWnENFzr7DueIA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10102.ogg": {
+              "hash": "KAsuajlKdwA+q/4BHh/Ung"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.json": {
+              "hash": "/b+VT5U8YvjD4N+xkChkrA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00432.ogg": {
+              "hash": "nYDONfr7Ercagzp0WUQKwg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_holy/img_element.png": {
+              "hash": "uisy1lLDFlUGZnuuGYOQZw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+              "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open.json": {
+              "hash": "Q6UbqhH2U7e6OpYlcNSbTg"
+            },
+            "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
+              "hash": "uW4g5yUFE8OWYhD1p06WNg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_aura_flash.png": {
+              "hash": "+NxUhWmw6DXNZCQo1BxpVw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+              "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_holy/dungeon_base.json": {
+              "hash": "ClO3+exaU7K616/87AUsRQ"
+            },
+            "/Content/lang/se/se_ogg/se_fusion_common_100062.ogg": {
+              "hash": "wStnR3SBNNksWQgrI5h/hg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+              "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_holy/dungeon_base.json"
+        },
+        "dungeon_100822": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+              "hash": "EA6uqfa1hppFVrRzmZzuxw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+              "hash": "MsDaWdAq52FE3rZDizThoQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+              "hash": "V08fQyTG4T6GDMosX2YVxg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_ice/dungeon_base.json": {
+              "hash": "zld4nUKBVyCAaZPblZDttA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.png": {
+              "hash": "j+HBYS1K5ZE+aiEuxnu4DQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+              "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_ice/img_element.json": {
+              "hash": "Dzf8oPRRN5cIfW5W7P+xzg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_touch.json": {
+              "hash": "mUlco3aoBBSjX4atBWHZ2g"
+            },
+            "/Content/lang/se/se_ogg/se_ability_50005.ogg": {
+              "hash": "g2Z1VAJgaFdDdV+bxp1Qfw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
+              "hash": "ca2IYwaOt0fx1YN5Get1IQ"
+            },
+            "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+              "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+              "hash": "Sjv72DvWV55JpDKAYs1tmA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00581.ogg": {
+              "hash": "pj9pdeEpYAei8c5UtvqSyw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+              "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_slashWhite.png": {
+              "hash": "jErEHDOk5Q+z+dJMbp5nQg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_ice/pb_dungeon_broken_mini.json": {
+              "hash": "BUJDqAjAbmCZeivZGkhGoQ"
+            },
+            "/Content/lang/se/se_ogg/se_common_100037.ogg": {
+              "hash": "S8utnUozF6gyLvS7/11pgg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+              "hash": "5W889sndvoo+0O/fwwRDBg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_ice/pb_dungeon_broken.json": {
+              "hash": "GmaNc3UaGP+YrHX7tD06hA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10071.ogg": {
+              "hash": "GvVswuzk/Y1vfnGB0sqQvA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+              "hash": "GujndlRehOCpugEsLAHIVg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave_rainbow.png": {
+              "hash": "8TUwIJDXDK6V4KCX5Gd5Ow"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+              "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_ice/pb_dungeon_broken_mini_back.json": {
+              "hash": "7ME6EHAMbwWadyIZUuGWQg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+              "hash": "lqlI1yYIl8hfQIawA1sRlg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_master_back.json": {
+              "hash": "DiMqE18frnyYYpoy4lVbxA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00024.ogg": {
+              "hash": "YGL+XDsDMv14lVBXEu06Xw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_ui.json": {
+              "hash": "bLHzyOflrajZLUi1Cvcq7w"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+              "hash": "6bAULnwkhXKcYlElSbEtDA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00320.ogg": {
+              "hash": "gTwQrpCZJ1irejE0KsGqkA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+              "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.png": {
+              "hash": "ktAEzQHWbusQhF3PTCAINw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open_kirakira.json": {
+              "hash": "OtTIJXbIBWnENFzr7DueIA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10102.ogg": {
+              "hash": "KAsuajlKdwA+q/4BHh/Ung"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.json": {
+              "hash": "/b+VT5U8YvjD4N+xkChkrA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00432.ogg": {
+              "hash": "nYDONfr7Ercagzp0WUQKwg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+              "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open.json": {
+              "hash": "Q6UbqhH2U7e6OpYlcNSbTg"
+            },
+            "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
+              "hash": "uW4g5yUFE8OWYhD1p06WNg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_aura_flash.png": {
+              "hash": "+NxUhWmw6DXNZCQo1BxpVw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_ice/img_element.png": {
+              "hash": "R5YBE1ve11NDi4uBbDMABA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+              "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+            },
+            "/Content/lang/se/se_ogg/se_fusion_common_100062.ogg": {
+              "hash": "wStnR3SBNNksWQgrI5h/hg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+              "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_ice/dungeon_base.json"
+        },
+        "dungeon_100825": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+              "hash": "EA6uqfa1hppFVrRzmZzuxw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+              "hash": "MsDaWdAq52FE3rZDizThoQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+              "hash": "V08fQyTG4T6GDMosX2YVxg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.png": {
+              "hash": "j+HBYS1K5ZE+aiEuxnu4DQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+              "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_lightning/pb_dungeon_broken_mini.json": {
+              "hash": "0cM0Dycy3O2WnKqB9+HquA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_touch.json": {
+              "hash": "mUlco3aoBBSjX4atBWHZ2g"
+            },
+            "/Content/lang/se/se_ogg/se_ability_50005.ogg": {
+              "hash": "g2Z1VAJgaFdDdV+bxp1Qfw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
+              "hash": "ca2IYwaOt0fx1YN5Get1IQ"
+            },
+            "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+              "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_lightning/dungeon_base.json": {
+              "hash": "k+bS4RNnLcfGJCZPlampFg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+              "hash": "Sjv72DvWV55JpDKAYs1tmA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00581.ogg": {
+              "hash": "pj9pdeEpYAei8c5UtvqSyw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+              "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_slashWhite.png": {
+              "hash": "jErEHDOk5Q+z+dJMbp5nQg"
+            },
+            "/Content/lang/se/se_ogg/se_common_100037.ogg": {
+              "hash": "S8utnUozF6gyLvS7/11pgg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+              "hash": "5W889sndvoo+0O/fwwRDBg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_lightning/pb_dungeon_broken_mini_back.json": {
+              "hash": "SfvWKNInDDOCxrt8FYYRBQ"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10071.ogg": {
+              "hash": "GvVswuzk/Y1vfnGB0sqQvA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+              "hash": "GujndlRehOCpugEsLAHIVg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave_rainbow.png": {
+              "hash": "8TUwIJDXDK6V4KCX5Gd5Ow"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_lightning/img_element.json": {
+              "hash": "Dzf8oPRRN5cIfW5W7P+xzg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+              "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+              "hash": "lqlI1yYIl8hfQIawA1sRlg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_master_back.json": {
+              "hash": "DiMqE18frnyYYpoy4lVbxA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00024.ogg": {
+              "hash": "YGL+XDsDMv14lVBXEu06Xw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_lightning/pb_dungeon_broken.json": {
+              "hash": "am/LwvbBZ/Hp07BAnnfnGA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_ui.json": {
+              "hash": "bLHzyOflrajZLUi1Cvcq7w"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+              "hash": "6bAULnwkhXKcYlElSbEtDA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00320.ogg": {
+              "hash": "gTwQrpCZJ1irejE0KsGqkA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+              "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.png": {
+              "hash": "ktAEzQHWbusQhF3PTCAINw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_lightning/img_element.png": {
+              "hash": "D5c+Hhw00WbF61OtdpGZBQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open_kirakira.json": {
+              "hash": "OtTIJXbIBWnENFzr7DueIA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10102.ogg": {
+              "hash": "KAsuajlKdwA+q/4BHh/Ung"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.json": {
+              "hash": "/b+VT5U8YvjD4N+xkChkrA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00432.ogg": {
+              "hash": "nYDONfr7Ercagzp0WUQKwg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+              "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open.json": {
+              "hash": "Q6UbqhH2U7e6OpYlcNSbTg"
+            },
+            "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
+              "hash": "uW4g5yUFE8OWYhD1p06WNg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_aura_flash.png": {
+              "hash": "+NxUhWmw6DXNZCQo1BxpVw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+              "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+            },
+            "/Content/lang/se/se_ogg/se_fusion_common_100062.ogg": {
+              "hash": "wStnR3SBNNksWQgrI5h/hg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+              "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_lightning/dungeon_base.json"
+        },
+        "dungeon_100828": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+              "hash": "EA6uqfa1hppFVrRzmZzuxw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+              "hash": "MsDaWdAq52FE3rZDizThoQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+              "hash": "V08fQyTG4T6GDMosX2YVxg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_dark/dungeon_base.json": {
+              "hash": "LQXV3kS+aBZGHJYm44hfNg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_dark/img_element.json": {
+              "hash": "Dzf8oPRRN5cIfW5W7P+xzg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.png": {
+              "hash": "j+HBYS1K5ZE+aiEuxnu4DQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+              "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_touch.json": {
+              "hash": "mUlco3aoBBSjX4atBWHZ2g"
+            },
+            "/Content/lang/se/se_ogg/se_ability_50005.ogg": {
+              "hash": "g2Z1VAJgaFdDdV+bxp1Qfw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
+              "hash": "ca2IYwaOt0fx1YN5Get1IQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_dark/pb_dungeon_broken.json": {
+              "hash": "IzOufSxfD9tbgNwTcB9oPw"
+            },
+            "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+              "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+              "hash": "Sjv72DvWV55JpDKAYs1tmA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00581.ogg": {
+              "hash": "pj9pdeEpYAei8c5UtvqSyw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_dark/pb_dungeon_broken_mini_back.json": {
+              "hash": "P3eBsnr0oJTut8beclnsOA"
+            },
+            "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+              "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_slashWhite.png": {
+              "hash": "jErEHDOk5Q+z+dJMbp5nQg"
+            },
+            "/Content/lang/se/se_ogg/se_common_100037.ogg": {
+              "hash": "S8utnUozF6gyLvS7/11pgg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_dark/pb_dungeon_broken_mini.json": {
+              "hash": "xHuvvXUy86jMa+Vx0PgXWQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+              "hash": "5W889sndvoo+0O/fwwRDBg"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10071.ogg": {
+              "hash": "GvVswuzk/Y1vfnGB0sqQvA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+              "hash": "GujndlRehOCpugEsLAHIVg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave_rainbow.png": {
+              "hash": "8TUwIJDXDK6V4KCX5Gd5Ow"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+              "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+              "hash": "lqlI1yYIl8hfQIawA1sRlg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_master_back.json": {
+              "hash": "DiMqE18frnyYYpoy4lVbxA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00024.ogg": {
+              "hash": "YGL+XDsDMv14lVBXEu06Xw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_ui.json": {
+              "hash": "bLHzyOflrajZLUi1Cvcq7w"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+              "hash": "6bAULnwkhXKcYlElSbEtDA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00320.ogg": {
+              "hash": "gTwQrpCZJ1irejE0KsGqkA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+              "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.png": {
+              "hash": "ktAEzQHWbusQhF3PTCAINw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open_kirakira.json": {
+              "hash": "OtTIJXbIBWnENFzr7DueIA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10102.ogg": {
+              "hash": "KAsuajlKdwA+q/4BHh/Ung"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.json": {
+              "hash": "/b+VT5U8YvjD4N+xkChkrA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00432.ogg": {
+              "hash": "nYDONfr7Ercagzp0WUQKwg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_dark/img_element.png": {
+              "hash": "RS1085Q6QlzCdTKokb4WUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+              "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open.json": {
+              "hash": "Q6UbqhH2U7e6OpYlcNSbTg"
+            },
+            "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
+              "hash": "uW4g5yUFE8OWYhD1p06WNg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_aura_flash.png": {
+              "hash": "+NxUhWmw6DXNZCQo1BxpVw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+              "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+            },
+            "/Content/lang/se/se_ogg/se_fusion_common_100062.ogg": {
+              "hash": "wStnR3SBNNksWQgrI5h/hg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+              "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_dark/dungeon_base.json"
+        },
+        "dungeon_13052": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+              "hash": "EA6uqfa1hppFVrRzmZzuxw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+              "hash": "MsDaWdAq52FE3rZDizThoQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+              "hash": "V08fQyTG4T6GDMosX2YVxg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.png": {
+              "hash": "j+HBYS1K5ZE+aiEuxnu4DQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+              "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/attribute_dark/dungeon_base.json": {
+              "hash": "j8TW2iThGYyAf/v5it/NIg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_touch.json": {
+              "hash": "mUlco3aoBBSjX4atBWHZ2g"
+            },
+            "/Content/lang/se/se_ogg/se_ability_50005.ogg": {
+              "hash": "g2Z1VAJgaFdDdV+bxp1Qfw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
+              "hash": "ca2IYwaOt0fx1YN5Get1IQ"
+            },
+            "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+              "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/attribute_dark/pb_dungeon_broken_mini_back.json": {
+              "hash": "qSQbVL7HZxcWSNJuPTlkYA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+              "hash": "Sjv72DvWV55JpDKAYs1tmA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00581.ogg": {
+              "hash": "pj9pdeEpYAei8c5UtvqSyw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+              "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_slashWhite.png": {
+              "hash": "jErEHDOk5Q+z+dJMbp5nQg"
+            },
+            "/Content/lang/se/se_ogg/se_common_100037.ogg": {
+              "hash": "S8utnUozF6gyLvS7/11pgg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+              "hash": "5W889sndvoo+0O/fwwRDBg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/attribute_dark/img_element.json": {
+              "hash": "Dzf8oPRRN5cIfW5W7P+xzg"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10071.ogg": {
+              "hash": "GvVswuzk/Y1vfnGB0sqQvA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+              "hash": "GujndlRehOCpugEsLAHIVg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave_rainbow.png": {
+              "hash": "8TUwIJDXDK6V4KCX5Gd5Ow"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+              "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+              "hash": "lqlI1yYIl8hfQIawA1sRlg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_master_back.json": {
+              "hash": "DiMqE18frnyYYpoy4lVbxA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00024.ogg": {
+              "hash": "YGL+XDsDMv14lVBXEu06Xw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_ui.json": {
+              "hash": "bLHzyOflrajZLUi1Cvcq7w"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+              "hash": "6bAULnwkhXKcYlElSbEtDA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00320.ogg": {
+              "hash": "gTwQrpCZJ1irejE0KsGqkA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+              "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.png": {
+              "hash": "ktAEzQHWbusQhF3PTCAINw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open_kirakira.json": {
+              "hash": "OtTIJXbIBWnENFzr7DueIA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10102.ogg": {
+              "hash": "KAsuajlKdwA+q/4BHh/Ung"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.json": {
+              "hash": "/b+VT5U8YvjD4N+xkChkrA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00432.ogg": {
+              "hash": "nYDONfr7Ercagzp0WUQKwg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+              "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open.json": {
+              "hash": "Q6UbqhH2U7e6OpYlcNSbTg"
+            },
+            "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
+              "hash": "uW4g5yUFE8OWYhD1p06WNg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_aura_flash.png": {
+              "hash": "+NxUhWmw6DXNZCQo1BxpVw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/attribute_dark/pb_dungeon_broken_mini.json": {
+              "hash": "XkVwyIA+II12ezUZqEJgFQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/attribute_dark/img_element.png": {
+              "hash": "RS1085Q6QlzCdTKokb4WUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+              "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/attribute_dark/pb_dungeon_broken.json": {
+              "hash": "z83qNtS3piEzgMEK/EYE/Q"
+            },
+            "/Content/lang/se/se_ogg/se_fusion_common_100062.ogg": {
+              "hash": "wStnR3SBNNksWQgrI5h/hg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+              "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/attribute_dark/dungeon_base.json"
+        },
+        "dungeon_100824": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+              "hash": "EA6uqfa1hppFVrRzmZzuxw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+              "hash": "MsDaWdAq52FE3rZDizThoQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+              "hash": "V08fQyTG4T6GDMosX2YVxg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.png": {
+              "hash": "j+HBYS1K5ZE+aiEuxnu4DQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+              "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_touch.json": {
+              "hash": "mUlco3aoBBSjX4atBWHZ2g"
+            },
+            "/Content/lang/se/se_ogg/se_ability_50005.ogg": {
+              "hash": "g2Z1VAJgaFdDdV+bxp1Qfw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
+              "hash": "ca2IYwaOt0fx1YN5Get1IQ"
+            },
+            "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+              "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+              "hash": "Sjv72DvWV55JpDKAYs1tmA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00581.ogg": {
+              "hash": "pj9pdeEpYAei8c5UtvqSyw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+              "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_slashWhite.png": {
+              "hash": "jErEHDOk5Q+z+dJMbp5nQg"
+            },
+            "/Content/lang/se/se_ogg/se_common_100037.ogg": {
+              "hash": "S8utnUozF6gyLvS7/11pgg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_earth/pb_dungeon_broken.json": {
+              "hash": "77e7/buZ0PgBMCJzstCPgA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+              "hash": "5W889sndvoo+0O/fwwRDBg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_earth/pb_dungeon_broken_mini_back.json": {
+              "hash": "c/LJMMYs2XGCn0ddhu+f7g"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10071.ogg": {
+              "hash": "GvVswuzk/Y1vfnGB0sqQvA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+              "hash": "GujndlRehOCpugEsLAHIVg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave_rainbow.png": {
+              "hash": "8TUwIJDXDK6V4KCX5Gd5Ow"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_earth/pb_dungeon_broken_mini.json": {
+              "hash": "N3oVDGeZfAILUchYtRgZjA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_earth/dungeon_base.json": {
+              "hash": "yUda6gJEL2XXtQAgRR1hGQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+              "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+              "hash": "lqlI1yYIl8hfQIawA1sRlg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_earth/img_element.json": {
+              "hash": "Dzf8oPRRN5cIfW5W7P+xzg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_master_back.json": {
+              "hash": "DiMqE18frnyYYpoy4lVbxA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00024.ogg": {
+              "hash": "YGL+XDsDMv14lVBXEu06Xw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_earth/img_element.png": {
+              "hash": "u1bk3Yjg4xBbFvZ4gVHYkQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_ui.json": {
+              "hash": "bLHzyOflrajZLUi1Cvcq7w"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+              "hash": "6bAULnwkhXKcYlElSbEtDA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00320.ogg": {
+              "hash": "gTwQrpCZJ1irejE0KsGqkA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+              "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.png": {
+              "hash": "ktAEzQHWbusQhF3PTCAINw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open_kirakira.json": {
+              "hash": "OtTIJXbIBWnENFzr7DueIA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10102.ogg": {
+              "hash": "KAsuajlKdwA+q/4BHh/Ung"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.json": {
+              "hash": "/b+VT5U8YvjD4N+xkChkrA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00432.ogg": {
+              "hash": "nYDONfr7Ercagzp0WUQKwg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+              "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open.json": {
+              "hash": "Q6UbqhH2U7e6OpYlcNSbTg"
+            },
+            "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
+              "hash": "uW4g5yUFE8OWYhD1p06WNg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_aura_flash.png": {
+              "hash": "+NxUhWmw6DXNZCQo1BxpVw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+              "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+            },
+            "/Content/lang/se/se_ogg/se_fusion_common_100062.ogg": {
+              "hash": "wStnR3SBNNksWQgrI5h/hg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+              "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_earth/dungeon_base.json"
+        },
+        "dungeon_base": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+              "hash": "V08fQyTG4T6GDMosX2YVxg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_bg_smoke_1.json": {
+              "hash": "eCp8soUTFqajIz1hB0+Qyw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+              "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_attractor.json": {
+              "hash": "7yXv55OQIqoDKgbmitn0yQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+              "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_kirakira1_128.png": {
+              "hash": "dyRBk7Kw9GAx2IeBLoxdsQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_bg_beast_world.png": {
+              "hash": "mk/6jxwRQXSKUhYpjvl+CA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00024.ogg": {
+              "hash": "YGL+XDsDMv14lVBXEu06Xw"
+            },
+            "/Content/lang/se/se_ogg/se_ability_50005.ogg": {
+              "hash": "g2Z1VAJgaFdDdV+bxp1Qfw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+              "hash": "6bAULnwkhXKcYlElSbEtDA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_list.json": {
+              "hash": "+YOAlZItJ4Cg0aq/2JmOqQ"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00320.ogg": {
+              "hash": "gTwQrpCZJ1irejE0KsGqkA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+              "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.png": {
+              "hash": "ktAEzQHWbusQhF3PTCAINw"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10102.ogg": {
+              "hash": "KAsuajlKdwA+q/4BHh/Ung"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/ab_sound.json": {
+              "hash": "DM/RkTH8kJO5APx2QB4sMA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.json": {
+              "hash": "/b+VT5U8YvjD4N+xkChkrA"
+            },
+            "/Content/lang/font/gillsansstd_for_ab.ttf": {
+              "hash": "WkG5Tec3NUt1ie9hJyv/3g"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_common_anima.json": {
+              "hash": "8o5sJFjzbX1TwFjGP50/GQ"
+            },
+            "/Content/lang/se/se_ogg/se_common_100037.ogg": {
+              "hash": "S8utnUozF6gyLvS7/11pgg"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00432.ogg": {
+              "hash": "nYDONfr7Ercagzp0WUQKwg"
+            },
+            "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
+              "hash": "uW4g5yUFE8OWYhD1p06WNg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/bg_beast_world_boss1.png": {
+              "hash": "RvNfi4+OUksIo33c6vrUdQ"
+            },
+            "/Content/lang/se/se_ogg/se_fusion_common_100062.ogg": {
+              "hash": "wStnR3SBNNksWQgrI5h/hg"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10071.ogg": {
+              "hash": "GvVswuzk/Y1vfnGB0sqQvA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_common_anima.png": {
+              "hash": "3SVokOXRh0uHeGEYQQzN8g"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_list.json"
+        },
+        "dungeon_100826": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+              "hash": "EA6uqfa1hppFVrRzmZzuxw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+              "hash": "MsDaWdAq52FE3rZDizThoQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+              "hash": "V08fQyTG4T6GDMosX2YVxg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.png": {
+              "hash": "j+HBYS1K5ZE+aiEuxnu4DQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+              "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_water/img_element.json": {
+              "hash": "Dzf8oPRRN5cIfW5W7P+xzg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_touch.json": {
+              "hash": "mUlco3aoBBSjX4atBWHZ2g"
+            },
+            "/Content/lang/se/se_ogg/se_ability_50005.ogg": {
+              "hash": "g2Z1VAJgaFdDdV+bxp1Qfw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
+              "hash": "ca2IYwaOt0fx1YN5Get1IQ"
+            },
+            "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+              "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+              "hash": "Sjv72DvWV55JpDKAYs1tmA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00581.ogg": {
+              "hash": "pj9pdeEpYAei8c5UtvqSyw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_water/pb_dungeon_broken.json": {
+              "hash": "uRP6koJoljRsHB5fhePimw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+              "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_slashWhite.png": {
+              "hash": "jErEHDOk5Q+z+dJMbp5nQg"
+            },
+            "/Content/lang/se/se_ogg/se_common_100037.ogg": {
+              "hash": "S8utnUozF6gyLvS7/11pgg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+              "hash": "5W889sndvoo+0O/fwwRDBg"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10071.ogg": {
+              "hash": "GvVswuzk/Y1vfnGB0sqQvA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_water/dungeon_base.json": {
+              "hash": "cwpTkUtIqWKiyYd1OFiXUw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+              "hash": "GujndlRehOCpugEsLAHIVg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave_rainbow.png": {
+              "hash": "8TUwIJDXDK6V4KCX5Gd5Ow"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_water/img_element.png": {
+              "hash": "eNOh8+a18eiPu0YpfxOnew"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+              "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+              "hash": "lqlI1yYIl8hfQIawA1sRlg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_master_back.json": {
+              "hash": "DiMqE18frnyYYpoy4lVbxA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00024.ogg": {
+              "hash": "YGL+XDsDMv14lVBXEu06Xw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_water/pb_dungeon_broken_mini.json": {
+              "hash": "SFYNWhJPtTE7wp24/el5Xg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_ui.json": {
+              "hash": "bLHzyOflrajZLUi1Cvcq7w"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+              "hash": "6bAULnwkhXKcYlElSbEtDA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00320.ogg": {
+              "hash": "gTwQrpCZJ1irejE0KsGqkA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_water/pb_dungeon_broken_mini_back.json": {
+              "hash": "rPIq24E5u+Kuk7Kgs8faow"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+              "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.png": {
+              "hash": "ktAEzQHWbusQhF3PTCAINw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open_kirakira.json": {
+              "hash": "OtTIJXbIBWnENFzr7DueIA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10102.ogg": {
+              "hash": "KAsuajlKdwA+q/4BHh/Ung"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.json": {
+              "hash": "/b+VT5U8YvjD4N+xkChkrA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00432.ogg": {
+              "hash": "nYDONfr7Ercagzp0WUQKwg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+              "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open.json": {
+              "hash": "Q6UbqhH2U7e6OpYlcNSbTg"
+            },
+            "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
+              "hash": "uW4g5yUFE8OWYhD1p06WNg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_aura_flash.png": {
+              "hash": "+NxUhWmw6DXNZCQo1BxpVw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+              "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+            },
+            "/Content/lang/se/se_ogg/se_fusion_common_100062.ogg": {
+              "hash": "wStnR3SBNNksWQgrI5h/hg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+              "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_water/dungeon_base.json"
+        },
+        "dungeon_100823": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+              "hash": "EA6uqfa1hppFVrRzmZzuxw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+              "hash": "MsDaWdAq52FE3rZDizThoQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+              "hash": "V08fQyTG4T6GDMosX2YVxg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.png": {
+              "hash": "j+HBYS1K5ZE+aiEuxnu4DQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+              "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_touch.json": {
+              "hash": "mUlco3aoBBSjX4atBWHZ2g"
+            },
+            "/Content/lang/se/se_ogg/se_ability_50005.ogg": {
+              "hash": "g2Z1VAJgaFdDdV+bxp1Qfw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_cross_01.json": {
+              "hash": "ca2IYwaOt0fx1YN5Get1IQ"
+            },
+            "/Content/lang/se/se_ogg/se_ability_launch_100008.ogg": {
+              "hash": "Ksl9WJI7tbWt5IrZPr7cQA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+              "hash": "Sjv72DvWV55JpDKAYs1tmA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00581.ogg": {
+              "hash": "pj9pdeEpYAei8c5UtvqSyw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.png": {
+              "hash": "asASpCKD+b9g4Kb0megKPw"
+            },
+            "/Content/lang/se/se_ogg/se_gacha_common_100046.ogg": {
+              "hash": "Uj+A/Oj3lHya3WzUkTWhUg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_slashWhite.png": {
+              "hash": "jErEHDOk5Q+z+dJMbp5nQg"
+            },
+            "/Content/lang/se/se_ogg/se_common_100037.ogg": {
+              "hash": "S8utnUozF6gyLvS7/11pgg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_wind/img_element.json": {
+              "hash": "Dzf8oPRRN5cIfW5W7P+xzg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+              "hash": "5W889sndvoo+0O/fwwRDBg"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10071.ogg": {
+              "hash": "GvVswuzk/Y1vfnGB0sqQvA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+              "hash": "GujndlRehOCpugEsLAHIVg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave_rainbow.png": {
+              "hash": "8TUwIJDXDK6V4KCX5Gd5Ow"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+              "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+              "hash": "lqlI1yYIl8hfQIawA1sRlg"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui_text.json": {
+              "hash": "WRM6Po9FIiuriKs+U3KrmA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_master_back.json": {
+              "hash": "DiMqE18frnyYYpoy4lVbxA"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_wind/dungeon_base.json": {
+              "hash": "7HlKMbQy/ibUkx0FurqZvw"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00024.ogg": {
+              "hash": "YGL+XDsDMv14lVBXEu06Xw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/dungeon_ui.json": {
+              "hash": "bLHzyOflrajZLUi1Cvcq7w"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+              "hash": "6bAULnwkhXKcYlElSbEtDA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00320.ogg": {
+              "hash": "gTwQrpCZJ1irejE0KsGqkA"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+              "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.png": {
+              "hash": "ktAEzQHWbusQhF3PTCAINw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open_kirakira.json": {
+              "hash": "OtTIJXbIBWnENFzr7DueIA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_10102.ogg": {
+              "hash": "KAsuajlKdwA+q/4BHh/Ung"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_wind/pb_dungeon_broken.json": {
+              "hash": "8j06PmQz4pPUTvK+XnjPJw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/img/img_ui.json": {
+              "hash": "/b+VT5U8YvjD4N+xkChkrA"
+            },
+            "/Content/lang/se/se_ogg/se_ability_00432.ogg": {
+              "hash": "nYDONfr7Ercagzp0WUQKwg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+              "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/pb_dungeon_open.json": {
+              "hash": "Q6UbqhH2U7e6OpYlcNSbTg"
+            },
+            "/Content/lang/se/se_ogg/se_battle_common_101053.ogg": {
+              "hash": "uW4g5yUFE8OWYhD1p06WNg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_aura_flash.png": {
+              "hash": "+NxUhWmw6DXNZCQo1BxpVw"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+              "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_wind/pb_dungeon_broken_mini_back.json": {
+              "hash": "9e1nB4x4h4Pm8YkKkOJUyw"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_wind/pb_dungeon_broken_mini.json": {
+              "hash": "K3/7u9nu/6oHgfS1mw3X5A"
+            },
+            "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_wind/img_element.png": {
+              "hash": "YKVNWStmkes+SDJTFt464Q"
+            },
+            "/Content/lang/se/se_ogg/se_fusion_common_100062.ogg": {
+              "hash": "wStnR3SBNNksWQgrI5h/hg"
+            },
+            "/Content/lang/ww/compile/en/ab/effect_image/white.png": {
+              "hash": "oYuoUdiFfAgAeZt5vHlJLA"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/ab/magicite_dungeon/dungeon_list/element_wind/dungeon_base.json"
+        }
+      },
+      "picture": {
+        "dungeon-picture-1305201": {
+          "bundle": {
+            "/Content/lang/ww/compile/en/image/dungeon/1305201/1305201_prologue.png": {
+              "hash": "WKm1++75tGHVmhJjIE0bRQ"
+            }
+          },
+          "assetPath": "/Content/lang/ww/compile/en/image/dungeon/1305201/1305201_prologue.png"
+        }
+      }
+    },
+    "world": {
+      "has_brave_series_buddies": false,
+      "closed_at": 2145938400,
+      "name": "Lord of Knights Record",
+      "has_new_dungeon": false,
+      "series_id": 1,
+      "opened_at": 1560819600,
+      "bgm": "bgm_12_087",
+      "kept_out_at": 2145938400,
+      "is_unlocked": true,
+      "door_image_path": "/dff/static/lang/image/world/13052_door.png",
+      "image_path": "/dff/static/lang/image/world/13052.png",
+      "type": 2,
+      "id": 13052,
+      "series_formal_name": "",
+      "banner_message": ""
+    },
+    "assets": [
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_12_087.ogg": {
+            "hash": "W/wiVV2OV8r4x6PMBS7Zjw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_12_087.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_05_008.json": {
+            "hash": "YMgidrcIR/GDbM6M8srDeQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_05_008.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_30_016.ogg": {
+            "hash": "2Xc9d1tBSR7rl3FRomj8Zg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_30_016.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_12_087.json": {
+            "hash": "dGi3i+inq7N1dgQRNQhAEg"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_12_087.json"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_ogg/bgm_05_008.ogg": {
+            "hash": "iH+Ht64f2qTQMDEAiVLYRQ"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_ogg/bgm_05_008.ogg"
+      },
+      {
+        "bundle": {
+          "/Content/lang/bgm/bgm_m4a/bgm_30_016.json": {
+            "hash": "tHhfbfKsKIwFTUyXpCC0Gw"
+          }
+        },
+        "assetPath": "/Content/lang/bgm/bgm_m4a/bgm_30_016.json"
+      }
+    ],
+    "dungeons": [
+      {
+        "unlock_conditions": {
+          "10082103": "1",
+          "10082104": "1",
+          "10082203": "1",
+          "10082204": "1",
+          "10082303": "1",
+          "10082304": "1",
+          "10082403": "1",
+          "10082404": "1",
+          "10082503": "1",
+          "10082504": "1",
+          "10082603": "1",
+          "10082604": "1",
+          "10082703": "1",
+          "10082704": "1",
+          "10082803": "1",
+          "10082804": "1"
+        },
+        "closed_at": 2145938400,
+        "order_no": 1,
+        "is_restricted": false,
+        "stamina_consume_type": 1,
+        "supporter_type": 1,
+        "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/1305201/1305201_epilogue.png",
+        "bgm": "bgm_12_087",
+        "stamina_list": [
+          20
+        ],
+        "ability_category_bonus_map": {},
+        "unlocked_series_ids": [],
+        "id": 1305201,
+        "world_id": 13052,
+        "button_style": "EXTRA",
+        "name": "Dark Odin Record",
+        "total_stamina": 20,
+        "ss_gauge_type": 0,
+        "has_battle": true,
+        "type": 1,
+        "epilogue": "イベント",
+        "progress_map_level": 0,
+        "platform_style": 10006,
+        "is_clear": false,
+        "is_new": true,
+        "prologue": "イベント",
+        "buddy_additional_status_bonus_level": 0,
+        "challenge_level": 0,
+        "prizes": {
+          "1": [
+            {
+              "type_name": "COMMON",
+              "num": 500000,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            },
+            {
+              "type_name": "BEAST_FOOD",
+              "num": 10,
+              "image_path": "/dff/static/lang/ww/compile/en/image/beast_food/190000005/190000005_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Arcana",
+              "id": 190000005
+            }
+          ],
+          "2": [
+            {
+              "type_name": "EQUIPMENT",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/equipment/23080544/23080544_06_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Black-Armored Echoes",
+              "id": 23080544
+            },
+            {
+              "type_name": "BEAST_FOOD",
+              "num": 50,
+              "image_path": "/dff/static/lang/ww/compile/en/image/beast_food/190000005/190000005_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Major Arcana",
+              "id": 190000005
+            },
+            {
+              "type_name": "COMMON",
+              "num": 1,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/91000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Mythril",
+              "id": 91000000
+            }
+          ],
+          "3": [
+            {
+              "type_name": "EQUIPMENT",
+              "num": 10,
+              "image_path": "/dff/static/lang/ww/compile/en/image/equipment/21002467/21002467_06_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Upgrade Blade",
+              "id": 21002467
+            },
+            {
+              "type_name": "COMMON",
+              "num": 10000000,
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "name": "Gil",
+              "id": 92000000
+            }
+          ],
+          "8": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Power Crystal",
+              "disp_order": 2,
+              "grade_bonus_description": "Defeat Fire (Water Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000066
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Fire Crystal",
+              "disp_order": 1,
+              "grade_bonus_description": "Defeat Fire (Water Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000072/40000072_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000072
+            }
+          ],
+          "9": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Summoning Crystal",
+              "disp_order": 4,
+              "grade_bonus_description": "Defeat Ice (Fire Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000070/40000070_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000070
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Ice Crystal",
+              "disp_order": 3,
+              "grade_bonus_description": "Defeat Ice (Fire Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000073/40000073_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000073
+            }
+          ],
+          "10": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Wind Crystal",
+              "disp_order": 5,
+              "grade_bonus_description": "Defeat Wind (Ice Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000076/40000076_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000076
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Earth Crystal",
+              "disp_order": 6,
+              "grade_bonus_description": "Defeat Wind (Ice Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000075/40000075_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000075
+            }
+          ],
+          "11": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Fire Crystal",
+              "disp_order": 8,
+              "grade_bonus_description": "Defeat Earth (Wind Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000072/40000072_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000072
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Earth Crystal",
+              "disp_order": 7,
+              "grade_bonus_description": "Defeat Earth (Wind Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000075/40000075_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000075
+            }
+          ],
+          "12": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Lightning Crystal",
+              "disp_order": 9,
+              "grade_bonus_description": "Defeat Lightning (Earth Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000074/40000074_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000074
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Wind Crystal",
+              "disp_order": 10,
+              "grade_bonus_description": "Defeat Lightning (Earth Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000076/40000076_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000076
+            }
+          ],
+          "13": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Power Crystal",
+              "disp_order": 11,
+              "grade_bonus_description": "Defeat Water (Lightning Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000066
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Ice Crystal",
+              "disp_order": 12,
+              "grade_bonus_description": "Defeat Water (Lightning Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000073/40000073_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000073
+            }
+          ],
+          "14": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Holy Crystal",
+              "disp_order": 13,
+              "grade_bonus_description": "Defeat Holy (Dark Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000077/40000077_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000077
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "White Crystal",
+              "disp_order": 14,
+              "grade_bonus_description": "Defeat Holy (Dark Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000067/40000067_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000067
+            }
+          ],
+          "15": [
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Non-Elemental Crystal",
+              "disp_order": 16,
+              "grade_bonus_description": "Defeat Dark (Holy Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000071/40000071_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000071
+            },
+            {
+              "type_name": "ABILITY_MATERIAL",
+              "num": 50,
+              "name": "Dark Crystal",
+              "disp_order": 15,
+              "grade_bonus_description": "Defeat Dark (Holy Vulnerable)",
+              "image_path": "/dff/static/lang/ww/compile/en/image/ability_material/40000078/40000078_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 40000078
+            }
+          ],
+          "16": [
+            {
+              "type_name": "SPHERE_MATERIAL",
+              "num": 100,
+              "name": "Wisdom Mote (5★)",
+              "disp_order": 18,
+              "grade_bonus_description": "Defeat 1 element",
+              "image_path": "/dff/static/lang/image/sphere_material/130400300/130400300_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 130400300
+            },
+            {
+              "type_name": "COMMON",
+              "num": 1,
+              "name": "Artifact Stones",
+              "disp_order": 17,
+              "grade_bonus_description": "Defeat 1 element",
+              "image_path": "/dff/static/lang/ww/compile/en/image/common_item/98000000.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 98000000
+            },
+            {
+              "type_name": "SPHERE_MATERIAL",
+              "num": 50,
+              "name": "Bravery Mote (5★)",
+              "disp_order": 19,
+              "grade_bonus_description": "Defeat 1 element",
+              "image_path": "/dff/static/lang/image/sphere_material/130500300/130500300_112.png",
+              "is_got_grade_bonus_prize": 0,
+              "id": 130500300
+            }
+          ],
+          "28": []
+        },
+        "battle_ticket_id_2_num": {},
+        "battle_drop_items": [],
+        "is_master": false,
+        "series_id": 1,
+        "required_max_stamina": 0,
+        "opened_at": 1560819600,
+        "continue_allowable_type": 1,
+        "is_unlocked": true,
+        "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/1305201/1305201_prologue.png",
+        "rank": 0,
+        "captures": [
+          {
+            "enemy_id": "2710128",
+            "sp_scores": [
+              {
+                "battle_id": 130520101,
+                "title": "Attack with an elemental weakness while the enemy is in its Elements Unbound phase."
+              }
+            ],
+            "image_path": "/dff/static/lang/image/enemy/2710128.png",
+            "tip_battle": {
+              "group_id": 100305201,
+              "html_content": "<div class=\"s-tip-battle-title mb-b4\">Dark Odin (Before Elements Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-none img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Dark Odin (Fire Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Dark Odin (Ice Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Dark Odin (Wind Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Dark Odin (Earth Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Dark Odin (Lightning Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Dark Odin (Water Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Dark Odin (Holy Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Dark Odin (Dark Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Dark Odin (Poison Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Dark Odin (All Elements Unbound)</div>\n<div class=\"p-text-element-resistance-and-boost img-rep mb-b\">属性耐性・属性攻撃力</div>\n<div class=\"s-element-resistance-and-boost-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n        <div class=\"p-icon-sword img-rep mt-b\">剣</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n            <div class=\"s-element-icon-list__children\">\n                <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n                <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n                <div class=\"p-icon-up-06 img-rep mlr-a mt-b2\"></div>\n            </div>\n\n            <div class=\"s-element-icon-list__children\">\n                <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n                <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n                <div class=\"p-icon-up-06 img-rep mlr-a mt-b2\"></div>\n            </div>\n\n            <div class=\"s-element-icon-list__children\">\n                <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n                <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n                <div class=\"p-icon-up-06 img-rep mlr-a mt-b2\"></div>\n            </div>\n\n            <div class=\"s-element-icon-list__children\">\n                <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n                <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n                <div class=\"p-icon-up-06 img-rep mlr-a mt-b2\"></div>\n            </div>\n\n            <div class=\"s-element-icon-list__children\">\n                <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n                <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n                <div class=\"p-icon-up-06 img-rep mlr-a mt-b2\"></div>\n            </div>\n\n            <div class=\"s-element-icon-list__children\">\n                <div class=\"p-icon-water img-rep mlr-a m\"></div>\n                <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n                <div class=\"p-icon-up-06 img-rep mlr-a mt-b2\"></div>\n            </div>\n\n            <div class=\"s-element-icon-list__children\">\n                <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n                <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n                <div class=\"p-icon-up-06 img-rep mlr-a mt-b2\"></div>\n            </div>\n\n            <div class=\"s-element-icon-list__children\">\n                <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n                <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n                <div class=\"p-icon-up-06 img-rep mlr-a mt-b2\"></div>\n            </div>\n\n            <div class=\"s-element-icon-list__children\">\n                <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n                <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n                <div class=\"p-icon-up-06 img-rep mlr-a mt-b2\"></div>\n            </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Shared</div>\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Interrupt </span>\n</div>\n",
+              "id": 100305201,
+              "title": "Dark Odin",
+              "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\">The <span class=\"red\">element of the first attack</span> you use becomes effective against Dark Odin, but this awakens <span class=\"red\">elemental power</span> in him, too. To find a path to victory, think back on your previous battles with other creatures. Note that if you don't use an elemental attack, you'll be denied the chance to fight, and sent to <span class=\"red\">the far reaches of the dimension</span>. The final blow that Dark Odin unleashes can rend the very fabric of this Battle Record. Your chance of victory is slim if all his powers are awakened, so end the battle as quickly as you can</span>. May <span class=\"red\">fate</span> be on your side...</ul>"
+            }
+          }
+        ],
+        "background_image_path": "/dff/static/lang/ww/compile/en/image/event/3052_bg.png"
+      }
+    ],
+    "func_tutorial_key_to_show": "",
+    "user": {
+      "stamina_piece": 1165,
+      "soul_piece": 483,
+      "residual_stamina_piece": 0,
+      "start_time_of_today": 1561122000,
+      "stamina_recovery_time": 180,
+      "max_followee_num": 100,
+      "dungeon_id": 0,
+      "id": 5679473043701760,
+      "release_id": 0,
+      "stamina_info": {
+        "additional_stamina": 0,
+        "current_max_stamina": 233,
+        "prev_max_stamina": 233,
+        "got_stamina_piece": 0
+      },
+      "func_tutorial_flags": {
+        "SS_EXP": false,
+        "NIGHTMARE_DUNGEON": true,
+        "EXTREME_CLOSE2": false,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR": true,
+        "ABILITY_MATERIAL_CONVERT": true,
+        "SORTIE_LIMITATION": false,
+        "EXTREME": false,
+        "DUNGEON_LIST": true,
+        "GENERATE_RAINBOW_CRYSTAL": true,
+        "BUDDY_EVOLUTION": true,
+        "FIRST_ENTER_RECORD_DUNGEON": true,
+        "BOOK_ROOM2": true,
+        "SECOND_ANNIVERSARY": false,
+        "GROWEGG": true,
+        "LEGEND_MATERIA": true,
+        "RECORD_DIVE": true,
+        "FELLOW_LIST": true,
+        "OLD_ABILITY_GENERATION": false,
+        "FIRST_ENTER_BEAST_WORLD_LIST_2": true,
+        "DRESS_RECORD": true,
+        "SERIES": true,
+        "STAMINA_RECOVERY_AGENT": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_1": true,
+        "MAGIA_CRYSTAL_BATTLE_RESULT": true,
+        "FELLOW": true,
+        "EQUIPMENT_HYPER_EVOLVE": true,
+        "PROGRESS_MAP": true,
+        "ABILITY_CHANGE": false,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_AFTER_UPDATE": true,
+        "OLD_HOME": true,
+        "RECORD_DUNGEON_FRAME_ART_BREAK": true,
+        "BEAST_DUNGEON_RARITY3_NUM3_CLEAR": true,
+        "PARTY_TOP": true,
+        "BATTLE_OPERATION": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_1": true,
+        "SS_MULTI": false,
+        "WDAY_DUNGEON_EXCHANGE_SHOP": true,
+        "SS_LIMITATION": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_3": true,
+        "EXTREME_MOVIE": true,
+        "COUNTDOWN_2016_DEFEAT_CNT_RESULT": false,
+        "FIRST_ANNIVERSARY": false,
+        "MO_INTRODUCTION_MOVIE": false,
+        "PARTY_MEMORY": true,
+        "RECORD_DUNGEON_PARTY_EDIT": true,
+        "BEAST_DUNGEON_RARITY4_ALL_CLEAR_1": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_2": true,
+        "OLD_QUEST": false,
+        "PROFILE": true,
+        "EXTREME_OPENING": true,
+        "ENHANCEMENT": true,
+        "LEGEND_SPHERE": true,
+        "ABILITY_DECOMPOSE": true,
+        "OLD_UI_REBORN": true,
+        "ABILITY_UPGRADE": true,
+        "SECOND_ENTER_BEAST_WORLD_LIST": true,
+        "BATTLE_LIST_2": true,
+        "SECOND_ENTER_BEAST_DUNGEON_LIST": true,
+        "LEAD_TO_SECOND_DUNGEON": true,
+        "MO_FORMAL": false,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_1": true,
+        "BUDDY_ADDITIONAL_STATUS_BONUS": true,
+        "EXTREME_CLOSING_MOVIE": true,
+        "OLD_ACHIEVEMENT_ROOM": true,
+        "OLD_BUFF_DEBUFF_TRAINING_FOR_BEGINNER": true,
+        "COUNTDOWN_2016_MOVIE": false,
+        "OLD_INVENTORY": false,
+        "ENHANCEMENT_TOP": true,
+        "BEAST_DUNGEON_RARITY5_ALL_CLEAR_1": true,
+        "FIRST_ENTER_BEAST_WORLD_LIST_1": true,
+        "FELLOW_PLUS": true,
+        "ABILITY_GENERATION": true,
+        "TEN_MILLION_DOWNLOAD_MOVIE": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_2": true,
+        "SACRED_CASTLE": true,
+        "NEW_YEAR_2017": false,
+        "HAMMERING": true,
+        "RECORD_DUNGEON_BATTLE_LIST": true,
+        "MEMORY_LABO": true,
+        "MASTER_LEGEND_MATERIA": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_2": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_2": true,
+        "EQUIPMENT_CHANGE": true,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR_AFTER_UPDATE": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_1": true,
+        "BATTLE_LIST": true,
+        "MAGIA_CRYSTAL_FIRST_ENTER": true,
+        "PARTY_EDIT": true,
+        "FORCE_DUNGEON": true,
+        "ANYTIME_MUSIC_ROOM": true,
+        "EXTREME_CLOSE1": false,
+        "BEAST_WORLD_OPENING_MOVIE": true,
+        "BRAVE_SERIES_BONUS": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_2": true,
+        "SACRED_CASTLE_ATTRIBUTE_FLOOR": true,
+        "INVENTORY": true,
+        "EQUIPMENT_REFERENCE": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR": false,
+        "BOOK_ROOM": true,
+        "OLD_ENHANCEMENT": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_1": true,
+        "MO_PARTY": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_BEAST_TOP": true,
+        "BEAST_INHERITANCE": true,
+        "EVOLUTION": true,
+        "SUPPRESS": true,
+        "SS_MULTI_AND_EXP": true,
+        "RECORD_TEAR": true,
+        "OLD_MISSION": true
+      },
+      "is_in_dungeon": false,
+      "name": "Yehosua",
+      "has_all_clear_ver_to_show": false,
+      "stamina": 91,
+      "can_review": true,
+      "tutorial_step": 255,
+      "followee_num": 70,
+      "sacred_lithograph": 8,
+      "stamina_recovery_remaining_time": 25548,
+      "gil": 216633949,
+      "is_update_last_logined_at": false,
+      "last_logined_at": 1561122094,
+      "is_tutorial_finish": true,
+      "max_follower_num": 100,
+      "max_stamina": 233
+    },
+    "SERVER_TIME": 1561165593,
+    "clear_dungeon_ids": [
+      "10082101",
+      "10082102",
+      "10082103",
+      "10082104",
+      "10082201",
+      "10082202",
+      "10082203",
+      "10082204",
+      "10082301",
+      "10082302",
+      "10082303",
+      "10082304",
+      "10082401",
+      "10082402",
+      "10082403",
+      "10082404",
+      "10082501",
+      "10082502",
+      "10082503",
+      "10082504",
+      "10082601",
+      "10082602",
+      "10082603",
+      "10082604",
+      "10082701",
+      "10082702",
+      "10082703",
+      "10082704",
+      "10082801",
+      "10082802",
+      "10082803",
+      "10082804"
+    ]
+  }
+}
