@@ -38,6 +38,10 @@ export enum RewardType {
   Hp70 = '15',
   Hp60 = '16',
   Hp50 = '17',
+  Hp40 = '18',
+  Hp30 = '19',
+  Hp20 = '20',
+  Hp10 = '21',
 
   // Alternate one-time bonuses for Odin.
   ElementalFire = '8',
