@@ -33,17 +33,14 @@ export class Page extends React.Component<Props> {
 
   render() {
     const { className, contentClassName, title, children, footer } = this.props;
+    let headTitle: string | undefined;
+    if (title) {
+      headTitle = 'RK Squared' + (title === Page.AppTitle ? '' : ' - ' + title);
+    }
     return (
       <div className={classNames('container-fluid', styles.component, className)} ref={this.ref}>
         {title && <h2 className="row">{title}</h2>}
-        {title && (
-          <Helmet>
-            <title>
-              RK Squared
-              {title === Page.AppTitle ? '' : ' - ' + title}
-            </title>
-          </Helmet>
-        )}
+        {headTitle && <Helmet title={headTitle} />}
         <div className={classNames(styles.content, contentClassName)}>
           <MessagesList />
           {children}
