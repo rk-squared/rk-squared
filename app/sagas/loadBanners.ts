@@ -4,6 +4,7 @@ import { getType } from 'typesafe-actions';
 
 import * as _ from 'lodash';
 
+import { showDanger } from '../actions/messages';
 import { setProgress } from '../actions/progress';
 import {
   loadBanners,
@@ -22,15 +23,19 @@ import {
 } from '../proxy/relicDraws';
 import { IState } from '../reducers';
 import { RelicDrawState } from '../reducers/relicDraws';
+import { hasSessionState } from '../reducers/session';
 import { logger } from '../utils/logger';
-import { callApi } from './util';
+import { callApi, sessionErrorText } from './util';
 
 export const progressKey = 'banners';
 
 export function* doLoadBanners(action: ReturnType<typeof loadBanners>) {
   const allBannerIds = action.payload.bannerIds;
   const session = yield select((state: IState) => state.session);
-  // FIXME: Throw an error if any of session is missing
+  if (!hasSessionState(session)) {
+    yield put(showDanger(sessionErrorText));
+    return;
+  }
   const lang = getLang(session);
 
   yield put(setProgress(progressKey, { current: 0, max: allBannerIds.length }));
@@ -45,7 +50,7 @@ export function* doLoadBanners(action: ReturnType<typeof loadBanners>) {
     );
     return [setRelicDrawBanners(banners), setRelicDrawGroups(_.values(groups))];
   });
-  if (showResult != null) {
+  if (Array.isArray(showResult)) {
     yield all(showResult.map((i: any) => put(i)));
   }
 

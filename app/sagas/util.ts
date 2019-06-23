@@ -7,6 +7,10 @@ import { showDanger } from '../actions/messages';
 import { Session } from '../actions/session';
 import { logger } from '../utils/logger';
 
+export const sessionErrorText =
+  'Your game session is not currently available; unable to continue. ' +
+  'Please restart FFRK and try again.';
+
 export function sessionConfig(session: Session): AxiosRequestConfig {
   return {
     headers: {

@@ -18,7 +18,7 @@ export function session(state: Session = {}, action: SessionAction): Session {
     case getType(updateSession):
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       };
 
     /* istanbul ignore next */
