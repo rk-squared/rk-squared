@@ -300,7 +300,7 @@ Array [
     "character": "Ashe",
     "description": "(lgt dmg ⤇ 25% for m9.09/3 l+n, ally heal 1.5k HP)",
     "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Lightning/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Lightning attack",
-    "name": "Self Chosen Future",
+    "name": "Chosen Future",
   },
   Object {
     "character": "Auron",
@@ -3726,13 +3726,13 @@ Array [
     "character": "Rubicante",
     "description": "1.1x fire dmg",
     "effect": "Increases Fire damage dealt by 10%",
-    "name": "Leader of the Four Heavenly Kings",
+    "name": "Chief Archfiend",
   },
   Object {
     "character": "Rubicante",
     "description": "35% dualcast fire",
     "effect": "35% chance to dualcast abilities that deal Fire damage",
-    "name": "Respect for Bravery",
+    "name": "Grudging Respect",
   },
   Object {
     "character": "Rubicante",
@@ -3958,8 +3958,8 @@ Array [
   },
   Object {
     "character": "Selphie",
-    "description": "+?% MND (max +?%) per Dancer abil.",
-    "effect": "MND +?% for each Dancer ability used, up to +?%",
+    "description": "+1% MND (max +25%) per Dancer abil.",
+    "effect": "MND +1% for each Dancer ability used, up to +25%",
     "name": "Will of Trabia",
   },
   Object {
