@@ -27,7 +27,7 @@ export class SoulBreaksNav extends React.PureComponent<Props> {
     }
   };
 
-  handleSearchKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  handleSearchInput = (e: React.FormEvent<HTMLInputElement>) => {
     if (this.props.onSetSearchFilter) {
       this.props.onSetSearchFilter((e.target as HTMLInputElement).value);
     }
@@ -106,7 +106,9 @@ export class SoulBreaksNav extends React.PureComponent<Props> {
             <input
               className="form-control w-100"
               placeholder="Search"
-              onKeyUp={this.handleSearchKeyUp}
+              onInput={this.handleSearchInput}
+              autoFocus
+              type="search"
             />
           </div>
         )}

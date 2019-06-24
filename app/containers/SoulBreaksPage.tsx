@@ -30,7 +30,7 @@ export class SoulBreaksPage extends React.Component<{}, State> {
   // tslint:disable-next-line member-ordering
   handleSetSearchFilter = _.debounce((search: string) => {
     this.setState({ searchFilter: search });
-  }, 500);
+  }, 400);
 
   render() {
     const isAnonymous = !process.env.IS_ELECTRON;
