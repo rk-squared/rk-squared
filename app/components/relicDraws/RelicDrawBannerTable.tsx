@@ -22,7 +22,7 @@ import {
   getBurstColumns,
   getSynchroColumns,
   legendMateriaAliases,
-  soulBreakAliases,
+  soulBreakAbbrevAliases,
   styles as soulBreakStyles,
   tierClass,
 } from '../shared/SoulBreakShared';
@@ -90,7 +90,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
 
   renderAlias(sb?: EnlirSoulBreak, lm?: EnlirLegendMateria) {
     if (sb) {
-      return soulBreakAliases[sb.id];
+      return soulBreakAbbrevAliases[sb.id];
     } else if (lm) {
       return (
         <span className={soulBreakStyles.legendMateriaTier}>{legendMateriaAliases[lm.id]}</span>

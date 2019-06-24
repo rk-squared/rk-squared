@@ -35,7 +35,7 @@ export const tierClass: { [tier in EnlirSoulBreakTier]: string | undefined } = {
   Shared: styles.unique,
 };
 
-export const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
+export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   Default: '-',
   SB: '-',
   SSB: 'S',
@@ -51,7 +51,7 @@ export const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   RW: '-',
   Shared: '-',
 });
-
+export const soulBreakFullAliases = makeSoulBreakAliases(enlir.soulBreaks);
 export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
 function getSchoolName(command: MrPSoulBreak): string {

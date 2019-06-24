@@ -1,13 +1,11 @@
 import * as React from 'react';
 
-import { enlir, EnlirRelic, makeSoulBreakAliases } from '../../data/enlir';
+import { enlir, EnlirRelic } from '../../data/enlir';
 import { numberWithCommas } from '../../data/mrP/util';
 import { RelicTypeIcon } from '../shared/RelicTypeIcon';
-import { legendMateriaAliases } from '../shared/SoulBreakShared';
+import { legendMateriaAliases, soulBreakFullAliases } from '../shared/SoulBreakShared';
 
 const styles = require('./UnmasteredItem.scss');
-
-const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks);
 
 interface Props {
   id: number;
@@ -52,7 +50,7 @@ class UnmasteredItem extends React.Component<Props> {
 }
 
 export const UnmasteredSoulBreak = (props: { id: number; exp: number; className?: string }) => (
-  <UnmasteredItem {...props} enlirItems={enlir.soulBreaks} aliases={soulBreakAliases} />
+  <UnmasteredItem {...props} enlirItems={enlir.soulBreaks} aliases={soulBreakFullAliases} />
 );
 export const UnmasteredLegendMateria = (props: { id: number; exp: number; className?: string }) => (
   <UnmasteredItem {...props} enlirItems={enlir.legendMateria} aliases={legendMateriaAliases} />
