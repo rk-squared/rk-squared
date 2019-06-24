@@ -9782,7 +9782,7 @@
     "nameJp": "乱れ毒牙",
     "id": 20980009,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -10550,7 +10550,7 @@
     "nameJp": "零距離かえんりゅう",
     "id": 22870004,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -23718,7 +23718,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single ranged attacks (0.52 each), grants Attach Ice stacking and Attach Ice to the user",
+    "effects": "Six single ranged attacks (0.52 each), grants Attach Ice Stacking and Attach Ice to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 250,
