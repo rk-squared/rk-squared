@@ -1,3 +1,8 @@
+# v2.3.0
+
+- Soul Breaks
+  - Search feature, inspired by /u/TheDeathAgent's excellent work on [FFRKLookup.com](https://www.ffrklookup.com/)
+
 # v2.2.0
 
 - Dungeons
