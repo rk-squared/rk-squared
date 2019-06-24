@@ -2,7 +2,6 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames';
 
 import { ShowSoulBreaksType, updatePrefs } from '../../actions/prefs';
 import { IState } from '../../reducers';
@@ -31,9 +30,9 @@ export const SoulBreaksNavPrefsMenu = ({
   <NavMenuDropdown
     id="soulBreakPrefsDropdown"
     label="preferences"
-    className={classNames('ml-auto', className)}
+    className={className}
     linkClassName="caret-off"
-    display={<FontAwesomeIcon icon="cog" />}
+    display={<FontAwesomeIcon icon="cog" aria-label="Settings" />}
     right={true}
   >
     <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.All)}>

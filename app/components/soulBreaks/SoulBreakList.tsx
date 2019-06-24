@@ -23,6 +23,7 @@ interface Props {
   showSoulBreaks?: ShowSoulBreaksType;
 
   isAnonymous?: boolean;
+  searchFilter?: string;
 }
 
 export class SoulBreakList extends React.Component<Props> {

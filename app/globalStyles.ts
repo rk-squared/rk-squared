@@ -14,6 +14,7 @@ import { faExternalLink } from '@fortawesome/pro-solid-svg-icons/faExternalLink'
 import { faLock } from '@fortawesome/pro-solid-svg-icons/faLock';
 import { faLockOpen } from '@fortawesome/pro-solid-svg-icons/faLockOpen';
 import { faQuestion } from '@fortawesome/pro-solid-svg-icons/faQuestion';
+import { faSearch } from '@fortawesome/pro-solid-svg-icons/faSearch';
 import { faStar } from '@fortawesome/pro-solid-svg-icons/faStar';
 import { faUnlock } from '@fortawesome/pro-solid-svg-icons/faUnlock';
 
@@ -44,6 +45,7 @@ library.add(
   faLock,
   faLockOpen,
   faQuestion,
+  faSearch,
   faStar,
   faUnlock,
 );
