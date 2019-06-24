@@ -5,6 +5,7 @@ import * as _ from 'lodash';
 import { getOffBannerRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
 import { enlir, tierOrder } from '../../data/enlir';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
+import { isAllSame } from '../../utils/typeUtils';
 import RelicDrawBannerTable from './RelicDrawBannerTable';
 
 interface Props {
@@ -70,15 +71,18 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
     if ((banner.bannerRelics && banner.bannerRelics.length) || !probabilities) {
       return null;
     }
+    const relics = _.keys(probabilities.byRelic).map(i => +i);
     const hasSelections = banner.selections != null && banner.selections.length !== 0;
+    const groupBySeries = !isAllSame(relics, i => enlir.relics[i].realm);
     return (
       <RelicDrawBannerTable
         title={'All Relics'}
-        relics={sortRelics(_.keys(probabilities.byRelic).map(i => +i))}
+        relics={sortRelics(relics)}
         probabilities={probabilities}
         isAnonymous={isAnonymous}
         allowCollapse={hasSelections}
         allowSelect={true}
+        groupBySeries={groupBySeries}
       />
     );
   }

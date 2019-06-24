@@ -6,18 +6,19 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 
 ## To Do
 
-1. Export to ffrktoolkit.com
-2. Update Enlir data outside of releases
-3. Check for updates
-4. Support for multiple profiles
-5. Extend probability analysis for G2 on JP
-6. FFRK Toolkit Helper interop? (see Reddit messages)
-7. Switch languages for JP
-8. Show Dungeons expirations (see Reddit messages)
-9. Soul break list - formatting, show random hits
-10. Stateless components
-11. Error reporting (Sentry?)
-12. Rubies / ruby tracker
+1. Add an explanation of probability calculator
+2. Export to ffrktoolkit.com
+3. Update Enlir data outside of releases
+4. Check for updates
+5. Support for multiple profiles
+6. Extend probability analysis for G2 on JP
+7. FFRK Toolkit Helper interop? (see Reddit messages)
+8. Switch languages for JP
+9. Show Dungeons expirations (see Reddit messages)
+10. Soul break list - formatting, show random hits
+11. Stateless components
+12. Error reporting (Sentry?)
+13. Rubies / ruby tracker
 
 ## Troubleshooting
 
