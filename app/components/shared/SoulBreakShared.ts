@@ -4,6 +4,8 @@
  * confused with support for shared soul breaks.)
  */
 
+const TrieSearch = require('trie-search');
+
 import {
   enlir,
   EnlirSoulBreakTier,
@@ -99,4 +101,72 @@ export function getSynchroColumns(
         formatMrP(cmd),
       ] as [string, string],
   );
+}
+
+let cachedSoulBreakSearch: any; // TrieSearch | undefined;
+let cachedLegendMateriaSearch: any; // TrieSearch | undefined;
+function getSearches() {
+  if (!cachedSoulBreakSearch) {
+    cachedSoulBreakSearch = new TrieSearch(
+      ['character', 'characterText', 'name', 'fullTier', 'abbrevTier'],
+      {
+        indexField: 'id',
+        idFieldOrFunction: 'id',
+      },
+    );
+    cachedSoulBreakSearch.addAll(
+      Object.values(enlir.soulBreaks)
+        .filter(i => i.character != null)
+        .map(i => ({
+          id: i.id,
+          character: i.character,
+          characterText: i.character!.replace(/[^a-zA-Z]/g, ''),
+          name: i.name,
+          nameJp: i.nameJp,
+          fullTier: soulBreakFullAliases[i.id],
+          abbrevTier: soulBreakAbbrevAliases[i.id],
+        })),
+    );
+  }
+  if (!cachedLegendMateriaSearch) {
+    cachedLegendMateriaSearch = new TrieSearch(['character', 'characterText', 'name', 'tier'], {
+      indexField: 'id',
+      idFieldOrFunction: 'id',
+    });
+    cachedLegendMateriaSearch.addAll(
+      Object.values(enlir.legendMateria).map(i => ({
+        id: i.id,
+        character: i.character,
+        characterText: i.character!.replace(/[^a-zA-Z]/g, ''),
+        name: i.name,
+        nameJp: i.nameJp,
+        tier: legendMateriaAliases[i.id],
+      })),
+    );
+  }
+  return [cachedSoulBreakSearch, cachedLegendMateriaSearch];
+}
+
+export interface SearchResults {
+  characters: Set<string>;
+  soulBreakIds: Set<number>;
+  legendMateriaIds: Set<number>;
+}
+
+export function searchSoulBreaksAndLegendMateria(searchFilter: string): SearchResults {
+  const [soulBreakSearch, legendMateriaSearch] = getSearches();
+  const searchResults: SearchResults = {
+    characters: new Set<string>(),
+    soulBreakIds: new Set<number>(),
+    legendMateriaIds: new Set<number>(),
+  };
+  for (const i of soulBreakSearch.get(searchFilter, TrieSearch.UNION_REDUCER)) {
+    searchResults.characters.add(i.character);
+    searchResults.soulBreakIds.add(i.id);
+  }
+  for (const i of legendMateriaSearch.get(searchFilter, TrieSearch.UNION_REDUCER)) {
+    searchResults.characters.add(i.character);
+    searchResults.legendMateriaIds.add(i.id);
+  }
+  return searchResults;
 }
