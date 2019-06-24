@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { all, put, select, takeEvery } from 'redux-saga/effects';
+import { put, select, takeEvery } from 'redux-saga/effects';
 import { getType } from 'typesafe-actions';
 
 import * as _ from 'lodash';
@@ -9,8 +9,7 @@ import { setProgress } from '../actions/progress';
 import {
   loadBanners,
   setExchangeShopSelections,
-  setRelicDrawBanners,
-  setRelicDrawGroups,
+  setRelicDrawBannersAndGroups,
   setRelicDrawProbabilities,
 } from '../actions/relicDraws';
 import { getLang } from '../actions/session';
@@ -48,10 +47,10 @@ export function* doLoadBanners(action: ReturnType<typeof loadBanners>) {
       lang,
       response.data as gachaSchemas.GachaShow,
     );
-    return [setRelicDrawBanners(banners), setRelicDrawGroups(_.values(groups))];
+    return setRelicDrawBannersAndGroups(banners, _.values(groups));
   });
-  if (Array.isArray(showResult)) {
-    yield all(showResult.map((i: any) => put(i)));
+  if (showResult != null) {
+    yield put(showResult);
   }
 
   for (let i = 0; i < allBannerIds.length; i++) {

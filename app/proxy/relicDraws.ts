@@ -12,8 +12,7 @@ import {
   RelicDrawGroup,
   RelicDrawProbabilities,
   setExchangeShopSelections,
-  setRelicDrawBanners,
-  setRelicDrawGroups,
+  setRelicDrawBannersAndGroups,
   setRelicDrawProbabilities,
 } from '../actions/relicDraws';
 import { LangType } from '../api/apiUrls';
@@ -181,8 +180,7 @@ export function convertExchangeShopSelections(
 const gachaHandler: Handler = {
   'gacha/show'(data: gachaSchemas.GachaShow, store: Store<IState>, request: HandlerRequest) {
     const { banners, groups } = convertRelicDrawBanners(getRequestLang(request), data);
-    store.dispatch(setRelicDrawBanners(banners));
-    store.dispatch(setRelicDrawGroups(_.values(groups)));
+    store.dispatch(setRelicDrawBannersAndGroups(banners, _.values(groups)));
   },
 
   'gacha/probability'(

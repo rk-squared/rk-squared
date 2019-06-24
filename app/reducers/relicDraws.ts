@@ -11,8 +11,7 @@ import {
   RelicDrawGroup,
   RelicDrawProbabilities,
   setExchangeShopSelections,
-  setRelicDrawBanners,
-  setRelicDrawGroups,
+  setRelicDrawBannersAndGroups,
   setRelicDrawProbabilities,
   wantRelic,
 } from '../actions/relicDraws';
@@ -130,13 +129,15 @@ export function relicDraws(
 ): RelicDrawState {
   return produce(state, (draft: RelicDrawState) => {
     switch (action.type) {
-      case getType(setRelicDrawBanners): {
-        const newBanners = _.keyBy(action.payload, 'id');
+      case getType(setRelicDrawBannersAndGroups): {
+        const newBanners = _.keyBy(action.payload.banners, 'id');
 
         mergeBannersFirstMythrilCost(draft.banners, newBanners);
         updateGroupFirstMythrilCosts(newBanners, 'group7', RealmRelicDrawMythrilCost);
 
         draft.banners = newBanners;
+
+        draft.groups = _.keyBy(action.payload.groups, 'groupName');
 
         draft.probabilities = _.pickBy(
           draft.probabilities,
@@ -147,10 +148,6 @@ export function relicDraws(
         // which selections are new.
         return;
       }
-
-      case getType(setRelicDrawGroups):
-        draft.groups = _.keyBy(action.payload, 'groupName');
-        return;
 
       case getType(setRelicDrawProbabilities):
         draft.probabilities[action.payload.bannerId] = action.payload.probabilities;

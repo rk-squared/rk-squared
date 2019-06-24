@@ -5,7 +5,7 @@ import { setCurrentTime, TimeStateAction } from '../actions/timeState';
 export interface TimeState {
   /**
    * System time, as a JavaScript timestamp (milliseconds since the epoch).
-   * THis is only sporadically updated (currently once an hour) to reduce
+   * This is only sporadically updated (currently once an hour) to reduce
    * excessive React / Redux / reselect updates.
    */
   currentTime: number;

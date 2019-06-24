@@ -73,19 +73,15 @@ export function getOffBannerRelics(
     .filter(i => !bannerSet.has(i));
 }
 
-export const setRelicDrawBanners = createAction(
+export const setRelicDrawBannersAndGroups = createAction(
   'SET_RELIC_DRAW_BANNERS',
-  (banners: RelicDrawBanner[]) => ({
+  (banners: RelicDrawBanner[], groups: RelicDrawGroup[], currentTime?: number) => ({
     type: 'SET_RELIC_DRAW_BANNERS',
-    payload: banners,
-  }),
-);
-
-export const setRelicDrawGroups = createAction(
-  'SET_RELIC_DRAW_GROUPS',
-  (groups: RelicDrawGroup[]) => ({
-    type: 'SET_RELIC_DRAW_GROUPS',
-    payload: groups,
+    payload: {
+      banners,
+      groups,
+      currentTime,
+    },
   }),
 );
 
@@ -137,8 +133,7 @@ export const loadBanners = createAction('LOAD_BANNERS', (bannerIds: number[]) =>
 
 export type RelicDrawAction = ReturnType<
   | typeof loadBanners
-  | typeof setRelicDrawBanners
-  | typeof setRelicDrawGroups
+  | typeof setRelicDrawBannersAndGroups
   | typeof setRelicDrawProbabilities
   | typeof setExchangeShopSelections
   | typeof wantRelic
