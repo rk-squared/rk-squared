@@ -4,7 +4,7 @@
  * confused with support for shared soul breaks.)
  */
 
-const TrieSearch = require('trie-search');
+import * as TrieSearch from 'trie-search';
 
 import {
   enlir,
@@ -103,8 +103,26 @@ export function getSynchroColumns(
   );
 }
 
-let cachedSoulBreakSearch: any; // TrieSearch | undefined;
-let cachedLegendMateriaSearch: any; // TrieSearch | undefined;
+interface SoulBreakSearchItem {
+  id: number;
+  character: string;
+  characterText: string;
+  name: string;
+  nameJp: string;
+  fullTier: string;
+  abbrevTier: string;
+}
+interface LegendMateriaSearchItem {
+  id: number;
+  character: string;
+  characterText: string;
+  name: string;
+  nameJp: string;
+  tier: string;
+}
+
+let cachedSoulBreakSearch: TrieSearch<SoulBreakSearchItem> | undefined;
+let cachedLegendMateriaSearch: TrieSearch<LegendMateriaSearchItem> | undefined;
 function getSearches() {
   if (!cachedSoulBreakSearch) {
     cachedSoulBreakSearch = new TrieSearch(
@@ -119,7 +137,7 @@ function getSearches() {
         .filter(i => i.character != null)
         .map(i => ({
           id: i.id,
-          character: i.character,
+          character: i.character!,
           characterText: i.character!.replace(/[^a-zA-Z]/g, ''),
           name: i.name,
           nameJp: i.nameJp,
