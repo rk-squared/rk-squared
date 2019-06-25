@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 import * as classNames from 'classnames';
 
-import { Options, setOption as setOptionAction } from '../actions/options';
-import { ffrkCommunityHelp, ffrkCommunityUrl, misterPHelp, misterPUrl } from '../data/resources';
-import { IState } from '../reducers';
-import { KeysOfType } from '../utils/typeUtils';
-import { BrowserLink } from './common/BrowserLink';
-import { OptionsInput } from './options/OptionsInput';
+import { Options, setOption as setOptionAction } from '../../actions/options';
+import { ffrkCommunityHelp, ffrkCommunityUrl, misterPHelp, misterPUrl } from '../../data/resources';
+import { IState } from '../../reducers';
+import { KeysOfType } from '../../utils/typeUtils';
+import { BrowserLink } from '../common/BrowserLink';
+import { OptionsInput } from './OptionsInput';
 
 const styles = require('./OptionsForm.scss');
 
