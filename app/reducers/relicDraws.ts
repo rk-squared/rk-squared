@@ -155,12 +155,12 @@ export function relicDraws(
       }
 
       case getType(expireOldRelicDrawBanners): {
-        const maxAge =
-          action.payload.maxAge != null
-            ? action.payload.maxAge
-            : defaultOptions.maxOldRelicDrawBannerAge;
+        const maxAgeInDays =
+          action.payload.maxAgeInDays != null
+            ? action.payload.maxAgeInDays
+            : defaultOptions.maxOldRelicDrawBannerAgeInDays;
 
-        const minClosedAt = action.payload.currentTime / 1000 - maxAge;
+        const minClosedAt = action.payload.currentTime / 1000 - maxAgeInDays * 24 * 3600;
 
         draft.banners = _.omitBy(
           draft.banners,

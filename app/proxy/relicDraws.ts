@@ -187,7 +187,7 @@ const gachaHandler: Handler = {
     store.dispatch(
       expireOldRelicDrawBanners(
         state.timeState.currentTime,
-        state.options.maxOldRelicDrawBannerAge,
+        state.options.maxOldRelicDrawBannerAgeInDays,
       ),
     );
   },

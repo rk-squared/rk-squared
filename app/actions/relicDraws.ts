@@ -108,11 +108,11 @@ export const setExchangeShopSelections = createAction(
 
 export const expireOldRelicDrawBanners = createAction(
   'EXPIRE_OLD_RELIC_DRAW_BANNERS',
-  (currentTime: number, maxAge?: number) => ({
+  (currentTime: number, maxAgeInDays?: number) => ({
     type: 'EXPIRE_OLD_RELIC_DRAW_BANNERS',
     payload: {
       currentTime,
-      maxAge,
+      maxAgeInDays,
     },
   }),
 );
