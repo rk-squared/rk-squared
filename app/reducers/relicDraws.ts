@@ -3,9 +3,11 @@ import { getType } from 'typesafe-actions';
 
 import * as _ from 'lodash';
 
+import { defaultOptions } from '../actions/options';
 import {
   clearWantedRelics,
   ExchangeShopSelections,
+  expireOldRelicDrawBanners,
   RelicDrawAction,
   RelicDrawBanner,
   RelicDrawGroup,
@@ -77,10 +79,10 @@ export function mergeFirstMythrilCost(
 }
 
 export function mergeBannersFirstMythrilCost(
-  prevBanners: {
+  newBanners: {
     [bannerId: number]: RelicDrawBanner;
   },
-  newBanners: {
+  prevBanners: {
     [bannerId: number]: RelicDrawBanner;
   },
 ) {
@@ -132,20 +134,12 @@ export function relicDraws(
       case getType(setRelicDrawBannersAndGroups): {
         const newBanners = _.keyBy(action.payload.banners, 'id');
 
-        mergeBannersFirstMythrilCost(draft.banners, newBanners);
+        mergeBannersFirstMythrilCost(newBanners, state.banners);
         updateGroupFirstMythrilCosts(newBanners, 'group7', RealmRelicDrawMythrilCost);
 
-        draft.banners = newBanners;
+        Object.assign(draft.banners, newBanners);
+        Object.assign(draft.groups, _.keyBy(action.payload.groups, 'groupName'));
 
-        draft.groups = _.keyBy(action.payload.groups, 'groupName');
-
-        draft.probabilities = _.pickBy(
-          draft.probabilities,
-          (value, key) => newBanners[key] != null,
-        );
-        // This would be the logical place to also expire old exchange shop
-        // selections, but we want to keep those around so that we can show
-        // which selections are new.
         return;
       }
 
@@ -157,6 +151,35 @@ export function relicDraws(
         const { exchangeShopId, selections } = action.payload;
         draft.selections = draft.selections || {};
         draft.selections[exchangeShopId] = selections;
+        return;
+      }
+
+      case getType(expireOldRelicDrawBanners): {
+        const maxAge =
+          action.payload.maxAge != null
+            ? action.payload.maxAge
+            : defaultOptions.maxOldRelicDrawBannerAge;
+
+        const minClosedAt = action.payload.currentTime / 1000 - maxAge;
+
+        draft.banners = _.omitBy(
+          draft.banners,
+          (value: RelicDrawBanner) => value.closedAt < minClosedAt,
+        );
+
+        const usedGroups = new Set<string>(_.map(draft.banners, i => i.group).filter(
+          i => i != null,
+        ) as string[]);
+        draft.groups = _.pickBy(draft.groups, (value, key) => usedGroups.has(key));
+
+        draft.probabilities = _.pickBy(
+          draft.probabilities,
+          (value, key) => draft.banners[+key] != null,
+        );
+
+        // This would be the logical place to also expire old exchange shop
+        // selections, but we want to keep those around so that we can show
+        // which selections are new.
         return;
       }
 

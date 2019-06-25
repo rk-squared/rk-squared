@@ -9,6 +9,11 @@ export interface Options {
   enableLogging?: boolean;
   saveTrafficCaptures?: boolean;
 
+  /**
+   * Expire old relic draw banners after this value, in seconds.
+   */
+  maxOldRelicDrawBannerAge?: number;
+
   // Obsolete options
 
   /**
@@ -23,10 +28,14 @@ export interface Options {
   hideNewcomerBanners?: boolean;
 }
 
-export const defaultOptions: Options = {
+export const defaultOptions: Required<Options> = {
   alwaysShowTimer: false,
   enableLogging: false,
   saveTrafficCaptures: false,
+
+  // Show 4 days of history so that the 3-day lucky draw countdown before a
+  // festival doesn't immediately vanish.
+  maxOldRelicDrawBannerAge: 4 * 24 * 3600,
 
   // Obsolete options
   staticBattleBackground: false,

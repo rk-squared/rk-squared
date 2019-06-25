@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Options, setOption as setOptionAction } from '../actions/options';
 import { ffrkCommunityHelp, ffrkCommunityUrl, misterPHelp, misterPUrl } from '../data/resources';
 import { IState } from '../reducers';
+import { KeysOfType } from '../utils/typeUtils';
 import { BrowserLink } from './common/BrowserLink';
 
 const styles = require('./OptionsForm.scss');
@@ -21,7 +22,7 @@ const Checkbox = ({
   options,
   setOption,
 }: {
-  id: keyof Options;
+  id: KeysOfType<Required<Options>, boolean>;
   children: any;
   options: Options;
   setOption: (o: Options) => void;

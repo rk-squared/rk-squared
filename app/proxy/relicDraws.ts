@@ -8,6 +8,7 @@ import * as _ from 'lodash';
 
 import { addLegendMateria, addSoulBreak } from '../actions/characters';
 import {
+  expireOldRelicDrawBanners,
   RelicDrawBanner,
   RelicDrawGroup,
   RelicDrawProbabilities,
@@ -181,6 +182,14 @@ const gachaHandler: Handler = {
   'gacha/show'(data: gachaSchemas.GachaShow, store: Store<IState>, request: HandlerRequest) {
     const { banners, groups } = convertRelicDrawBanners(getRequestLang(request), data);
     store.dispatch(setRelicDrawBannersAndGroups(banners, _.values(groups)));
+
+    const state = store.getState();
+    store.dispatch(
+      expireOldRelicDrawBanners(
+        state.timeState.currentTime,
+        state.options.maxOldRelicDrawBannerAge,
+      ),
+    );
   },
 
   'gacha/probability'(

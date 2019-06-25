@@ -75,12 +75,11 @@ export function getOffBannerRelics(
 
 export const setRelicDrawBannersAndGroups = createAction(
   'SET_RELIC_DRAW_BANNERS',
-  (banners: RelicDrawBanner[], groups: RelicDrawGroup[], currentTime?: number) => ({
+  (banners: RelicDrawBanner[], groups: RelicDrawGroup[]) => ({
     type: 'SET_RELIC_DRAW_BANNERS',
     payload: {
       banners,
       groups,
-      currentTime,
     },
   }),
 );
@@ -103,6 +102,17 @@ export const setExchangeShopSelections = createAction(
     payload: {
       exchangeShopId,
       selections,
+    },
+  }),
+);
+
+export const expireOldRelicDrawBanners = createAction(
+  'EXPIRE_OLD_RELIC_DRAW_BANNERS',
+  (currentTime: number, maxAge?: number) => ({
+    type: 'EXPIRE_OLD_RELIC_DRAW_BANNERS',
+    payload: {
+      currentTime,
+      maxAge,
     },
   }),
 );
@@ -136,6 +146,7 @@ export type RelicDrawAction = ReturnType<
   | typeof setRelicDrawBannersAndGroups
   | typeof setRelicDrawProbabilities
   | typeof setExchangeShopSelections
+  | typeof expireOldRelicDrawBanners
   | typeof wantRelic
   | typeof clearWantedRelics
 >;
