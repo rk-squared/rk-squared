@@ -79,13 +79,20 @@ function getOneBannerDetails(
   allSelections: { [exchangeShopId: number]: ExchangeShopSelections },
   ownedSoulBreaks: Set<number> | undefined,
   ownedLegendMateria: Set<number> | undefined,
+  currentTime: number,
 ): RelicDrawBannerDetails {
   const selections =
     banner.exchangeShopId && allSelections ? allSelections[banner.exchangeShopId] : undefined;
+  const closed = isClosed(banner, currentTime);
 
+  const result = {
+    ...banner,
+    canPull: banner.canPull && !closed,
+    canSelect: banner.canSelect && !closed,
+  };
   if (banner.bannerRelics && banner.bannerRelics.length !== 0) {
     return {
-      ...banner,
+      ...result,
       selections,
       totalCount: banner.bannerRelics.length,
       dupeCount: getDupeCount(banner.bannerRelics, ownedSoulBreaks, ownedLegendMateria),
@@ -93,18 +100,18 @@ function getOneBannerDetails(
   } else if (probabilities) {
     const allRelics = _.keys(probabilities.byRelic).map(j => +j);
     return {
-      ...banner,
+      ...result,
       selections,
       totalCount: allRelics.length,
       dupeCount: getDupeCount(allRelics, ownedSoulBreaks, ownedLegendMateria),
     };
   } else if (selections) {
     return {
-      ...banner,
+      ...result,
       selections,
     };
   } else {
-    return banner;
+    return result;
   }
 }
 
@@ -113,12 +120,14 @@ export const getBannerDetails = createSelector<
   RelicDrawState,
   Set<number> | undefined,
   Set<number> | undefined,
+  number,
   { [bannerId: number]: RelicDrawBannerDetails }
 >(
   (state: IState) => state.relicDraws,
   getOwnedSoulBreaks,
   getOwnedLegendMateria,
-  ({ banners, probabilities, selections }, ownedSoulBreaks, ownedLegendMateria) => {
+  (state: IState) => state.timeState.currentTime,
+  ({ banners, probabilities, selections }, ownedSoulBreaks, ownedLegendMateria, currentTime) => {
     return _.mapValues(banners, (banner: RelicDrawBanner) =>
       getOneBannerDetails(
         banner,
@@ -126,6 +135,7 @@ export const getBannerDetails = createSelector<
         selections,
         ownedSoulBreaks,
         ownedLegendMateria,
+        currentTime,
       ),
     );
   },

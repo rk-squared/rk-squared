@@ -54,10 +54,10 @@ function formatTotalCount(details: RelicDrawBannerDetails) {
   }
 }
 
-function formatAvailableCount(details: RelicDrawBannerDetails, currentTime?: number) {
+function formatAvailableCount(details: RelicDrawBannerDetails) {
   const result = formatDupeCount(details) || formatTotalCount(details);
-  if (!details.canPull && result && (!currentTime || !isClosed(details, currentTime))) {
-    return result + ' (not available)';
+  if (result && !details.canPull) {
+    return result + ' (unavailable)';
   } else {
     return result;
   }
@@ -109,9 +109,7 @@ const RelicDrawBannerLink = ({
   isAnonymous,
   currentTime,
 }: RelicLinkProps<RelicDrawBannerDetails>) => {
-  const count = isAnonymous
-    ? formatTotalCount(details)
-    : formatAvailableCount(details, currentTime);
+  const count = isAnonymous ? formatTotalCount(details) : formatAvailableCount(details);
 
   let mythrilCost = details.cost && details.cost.mythrilCost ? details.cost.mythrilCost : null;
   if (isAnonymous && details.cost && details.cost.firstMythrilCost) {
@@ -128,7 +126,11 @@ const RelicDrawBannerLink = ({
           className={classNames(styles.count, { ['text-muted']: !isAnonymous && !details.canPull })}
         >
           {count}
-          <Mythril className={classNames(styles.mythrilCost, { ['invisible']: !mythrilCost })}>
+          <Mythril
+            className={classNames(styles.mythrilCost, {
+              ['invisible']: !mythrilCost || !details.canPull,
+            })}
+          >
             {mythrilCost}
           </Mythril>
         </span>
