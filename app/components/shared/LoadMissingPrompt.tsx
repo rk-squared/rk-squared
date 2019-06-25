@@ -7,6 +7,7 @@ import { Progress } from '../../actions/progress';
 import { IState } from '../../reducers';
 import { hasSessionState } from '../../reducers/session';
 import { pluralize } from '../../utils/textUtils';
+import { DismissButton } from '../common/DismissButton';
 import { ProgressBar } from '../common/ProgressBar';
 
 interface Props {
@@ -22,10 +23,25 @@ interface Props {
   onLoad: () => void;
 }
 
-export class LoadMissingPrompt extends React.Component<Props> {
+interface State {
+  dismissedMissingCount: number | null;
+}
+
+export class LoadMissingPrompt extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      dismissedMissingCount: null,
+    };
+  }
+
   handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     this.props.onLoad();
+  };
+
+  handleClose = () => {
+    this.setState({ dismissedMissingCount: this.props.missingCount });
   };
 
   render() {
@@ -38,19 +54,23 @@ export class LoadMissingPrompt extends React.Component<Props> {
       loadingText,
       progress,
     } = this.props;
+    const { dismissedMissingCount } = this.state;
     if (missingCount !== 0 && hasSession && !progress) {
-      const missingPrompt = sprintf(
-        missingText,
-        missingCount + ' ' + pluralize(missingCount, countText, countPluralText),
-      );
-      return (
-        <div className="alert alert-primary">
-          {missingPrompt + ' '}
-          <a href="#" role="button" onClick={this.handleClick}>
-            Load now?
-          </a>
-        </div>
-      );
+      if (dismissedMissingCount == null || dismissedMissingCount !== missingCount) {
+        const missingPrompt = sprintf(
+          missingText,
+          missingCount + ' ' + pluralize(missingCount, countText, countPluralText),
+        );
+        return (
+          <div className="alert alert-primary alert-dismissible">
+            {missingPrompt + ' '}
+            <a href="#" role="button" onClick={this.handleClick}>
+              Load now?
+            </a>
+            <DismissButton onClose={this.handleClose} />
+          </div>
+        );
+      }
     }
 
     if (progress) {
