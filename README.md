@@ -12,13 +12,14 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 4. Check for updates
 5. Support for multiple profiles
 6. Extend probability analysis for G2 on JP
-7. FFRK Toolkit Helper interop? (see Reddit messages)
-8. Switch languages for JP
-9. Show Dungeons expirations (see Reddit messages)
-10. Soul break list - formatting, show random hits
-11. Stateless components
-12. Error reporting (Sentry?)
-13. Rubies / ruby tracker
+7. BlueStacks support? https://www.reddit.com/r/FFRecordKeeper/comments/bkykc7/rk_squared_on_bluestacks/
+8. FFRK Toolkit Helper interop? (see Reddit messages)
+9. Switch languages for JP
+10. Show Dungeons expirations (see Reddit messages)
+11. Soul break list - formatting, show random hits
+12. Stateless components
+13. Error reporting (Sentry?)
+14. Rubies / ruby tracker
 
 ## Troubleshooting
 

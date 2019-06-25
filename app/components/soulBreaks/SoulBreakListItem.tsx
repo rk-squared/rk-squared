@@ -9,7 +9,7 @@ import {
   getBraveColumns,
   getBurstColumns,
   getSynchroColumns,
-  soulBreakAliases,
+  soulBreakAbbrevAliases,
   styles,
   tierClass,
 } from '../shared/SoulBreakShared';
@@ -72,7 +72,7 @@ export class SoulBreakListItem extends React.Component<Props> {
     const name = soulBreak.gl ? soulBreak.name : '“' + soulBreak.name + '”';
     const text = formatMrP(mrP);
 
-    let alias = soulBreakAliases[soulBreak.id] || soulBreak.tier;
+    let alias = soulBreakAbbrevAliases[soulBreak.id] || soulBreak.tier;
     if (alias !== '-') {
       alias = alias.replace('-', '');
     }

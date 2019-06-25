@@ -1,3 +1,8 @@
+// https://stackoverflow.com/a/35353298/25507
+input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: searchfield-cancel-button;
+}
+
 .ag-header-cell-sortable {
   cursor: pointer;
 }
