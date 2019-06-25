@@ -241,7 +241,7 @@
     "ts-node": "^4.1.0",
     "tslint": "^5.4.3",
     "tslint-config-prettier": "^1.17.0",
-    "typescript": "^3.3",
+    "typescript": "^3.5",
     "url-loader": "^0.6.1",
     "webpack": "^4.0.0",
     "webpack-bundle-analyzer": "^3.1.0",

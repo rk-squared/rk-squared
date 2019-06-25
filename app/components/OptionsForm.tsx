@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import * as classNames from 'classnames';
+
 import { Options, setOption as setOptionAction } from '../actions/options';
 import { ffrkCommunityHelp, ffrkCommunityUrl, misterPHelp, misterPUrl } from '../data/resources';
 import { IState } from '../reducers';
 import { KeysOfType } from '../utils/typeUtils';
 import { BrowserLink } from './common/BrowserLink';
+import { OptionsInput } from './options/OptionsInput';
 
 const styles = require('./OptionsForm.scss');
 
@@ -42,8 +45,8 @@ const Checkbox = ({
   </div>
 );
 
-const HelpText = ({ children }: { children: any }) => (
-  <small className="form-text text-muted">{children}</small>
+const HelpText = ({ children, className }: { children: any; className?: string }) => (
+  <small className={classNames('form-text text-muted', className)}>{children}</small>
 );
 
 export class OptionsForm extends React.Component<Props> {
@@ -66,6 +69,30 @@ export class OptionsForm extends React.Component<Props> {
               MisterP
             </BrowserLink>{' '}
             for details on buff durations.
+          </HelpText>
+        </div>
+
+        <h5>RK&sup2; Preferences</h5>
+        <p>Preferences affecting RK&sup2;'s own operations.</p>
+
+        <div className="form-group row">
+          <OptionsInput
+            id="maxOldRelicDrawBannerAgeInDays"
+            options={options}
+            labelCols={3}
+            inputCols={2}
+            appendText="days"
+            type="number"
+            min={0}
+            setOption={setOption}
+          >
+            Keep expired banners
+          </OptionsInput>
+          <HelpText className="col-sm-12">
+            <p>
+              Optionally keep banners for a while after they've closed, so you can review the last
+              few days of a fest, or save up history for JP to use as foresight for GL.
+            </p>
           </HelpText>
         </div>
 
