@@ -134,6 +134,25 @@ describe('gacha proxy handler', () => {
             inventoryType: InventoryType.Inventory,
           },
         },
+        {
+          type: 'WANT_RELIC',
+          payload: {
+            relicId: [
+              22056006,
+              21003010,
+              21002443,
+              22053013,
+              21002040,
+              22054012,
+              21006009,
+              21008116,
+              21004007,
+              21002021,
+              22053009,
+            ],
+            want: false,
+          },
+        },
       ]);
     });
   });

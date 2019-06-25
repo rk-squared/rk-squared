@@ -15,6 +15,7 @@ import {
   setExchangeShopSelections,
   setRelicDrawBannersAndGroups,
   setRelicDrawProbabilities,
+  wantRelic,
 } from '../actions/relicDraws';
 import { LangType } from '../api/apiUrls';
 import * as gachaSchemas from '../api/schemas/gacha';
@@ -236,6 +237,10 @@ const gachaHandler: Handler = {
     if (legendMateriaIds.length) {
       store.dispatch(addLegendMateria(legendMateriaIds));
     }
+
+    // If we just pulled a relic, it's safe to assume we no longer care about
+    // it.
+    store.dispatch(wantRelic(data.items.map(i => i.equipment_id), false));
   },
 };
 

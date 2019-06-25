@@ -117,13 +117,16 @@ export const expireOldRelicDrawBanners = createAction(
   }),
 );
 
-export const wantRelic = createAction('WANT_RELIC', (relicId: number, want: boolean) => ({
-  type: 'WANT_RELIC',
-  payload: {
-    relicId,
-    want,
-  },
-}));
+export const wantRelic = createAction(
+  'WANT_RELIC',
+  (relicId: number | number[], want: boolean) => ({
+    type: 'WANT_RELIC',
+    payload: {
+      relicId,
+      want,
+    },
+  }),
+);
 
 export const clearWantedRelics = createAction('CLEAR_WANTED_RELICS', (relicIds: number[]) => ({
   type: 'CLEAR_WANTED_RELICS',

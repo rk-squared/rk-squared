@@ -18,6 +18,7 @@ import {
   wantRelic,
 } from '../actions/relicDraws';
 import { RealmRelicDrawMythrilCost } from '../data/probabilities';
+import { arrayify } from '../utils/typeUtils';
 
 export interface RelicDrawState {
   banners: {
@@ -184,12 +185,16 @@ export function relicDraws(
       }
 
       case getType(wantRelic): {
-        const { relicId, want } = action.payload;
+        const relicIds = arrayify(action.payload.relicId);
         draft.want = draft.want || {};
-        if (!want) {
-          delete draft.want[relicId];
+        if (!action.payload.want) {
+          for (const id of relicIds) {
+            delete draft.want[id];
+          }
         } else {
-          draft.want[relicId] = want;
+          for (const id of relicIds) {
+            draft.want[id] = true;
+          }
         }
         return;
       }
