@@ -2,6 +2,9 @@
 
 - Soul Breaks
   - Search feature, inspired by /u/TheDeathAgent's excellent work on [FFRKLookup.com](https://www.ffrklookup.com/)
+- Relic Draws
+  - Keep recently closed relic banners. For example, you can review the last few days of a fest, or you could save up history for JP to use as foresight for GL. By default, banners are kept 4 days after closing; you can change this under the Options screen.
+  - Lucky draws (as well as the "All Relics" section of dream selects) are now grouped by realm.
 
 # v2.2.0
 

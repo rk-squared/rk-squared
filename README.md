@@ -6,20 +6,22 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 
 ## To Do
 
-1. Add an explanation of probability calculator
-2. Export to ffrktoolkit.com
-3. Update Enlir data outside of releases
-4. Check for updates
-5. Support for multiple profiles
-6. Extend probability analysis for G2 on JP
-7. BlueStacks support? https://www.reddit.com/r/FFRecordKeeper/comments/bkykc7/rk_squared_on_bluestacks/
-8. FFRK Toolkit Helper interop? (see Reddit messages)
-9. Switch languages for JP
-10. Show Dungeons expirations (see Reddit messages)
-11. Soul break list - formatting, show random hits
-12. Stateless components
-13. Error reporting (Sentry?)
-14. Rubies / ruby tracker
+1. Record dungeon chapters
+2. Search hotkeys?
+3. Add an explanation of probability calculator
+4. Export to ffrktoolkit.com
+5. Update Enlir data outside of releases
+6. Check for updates
+7. Support for multiple profiles
+8. Extend probability analysis for G2 on JP
+9. BlueStacks support? https://www.reddit.com/r/FFRecordKeeper/comments/bkykc7/rk_squared_on_bluestacks/
+10. FFRK Toolkit Helper interop? (see Reddit messages)
+11. Switch languages for JP
+12. Show Dungeons expirations (see Reddit messages)
+13. Soul break list - formatting, show random hits
+14. Stateless components
+15. Error reporting (Sentry?)
+16. Rubies / ruby tracker
 
 ## Troubleshooting
 

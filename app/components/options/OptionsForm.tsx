@@ -80,7 +80,7 @@ export class OptionsForm extends React.Component<Props> {
             id="maxOldRelicDrawBannerAgeInDays"
             options={options}
             labelCols={3}
-            inputCols={2}
+            inputCols={3}
             appendText="days"
             type="number"
             min={0}
@@ -91,7 +91,7 @@ export class OptionsForm extends React.Component<Props> {
           <HelpText className="col-sm-12">
             <p>
               Optionally keep banners for a while after they've closed, so you can review the last
-              few days of a fest, or save up history for JP to use as foresight for GL.
+              few days of a fest, or you could save up history for JP to use as foresight for GL.
             </p>
           </HelpText>
         </div>
