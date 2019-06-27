@@ -33,9 +33,9 @@ export const defaultOptions: Required<Options> = {
   enableLogging: false,
   saveTrafficCaptures: false,
 
-  // Show 4 days of history so that the 3-day lucky draw countdown before a
-  // festival doesn't immediately vanish.
-  maxOldRelicDrawBannerAgeInDays: 4,
+  // Earlier versions were effectively 0.  Pick 1 so they don't *immediately*
+  // expire.
+  maxOldRelicDrawBannerAgeInDays: 1,
 
   // Obsolete options
   staticBattleBackground: false,
