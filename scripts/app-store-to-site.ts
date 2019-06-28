@@ -17,7 +17,8 @@ const appDataPath =
   );
 const userDataPath = path.join(appDataPath, build.productName);
 
-const rawConfig = fs.readJsonSync(path.join(userDataPath, 'config.json'));
+const configPath = path.join(userDataPath, 'config.json');
+const rawConfig = fs.readJsonSync(configPath);
 let config = JSON.parse(rawConfig['persist:root']);
 config = _.mapValues(config, JSON.parse);
 
@@ -30,3 +31,4 @@ const tmpOutputPath = outputPath + '.new';
 
 fs.writeFileSync(tmpOutputPath, JSON.stringify(config, undefined, 2));
 fs.moveSync(tmpOutputPath, outputPath, { overwrite: true });
+console.log(`Exported ${configPath} to ${outputPath}`);
