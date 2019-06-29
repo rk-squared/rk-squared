@@ -170,6 +170,20 @@ export interface Dungeons {
   }>;
 }
 
+// Sample URL: http://ffrk.denagames.com/dff/event/original_scenario/11001/get_data_for_region_list
+export interface GetDataForRegionList {
+  region_list: Array<{
+    is_all_unlock_condition_cleared: number;
+    first_world_id: string;
+    name: string;
+    unlock_condition_descriptions: string[];
+    is_open: number;
+    id: string;
+    type: string;
+    formal_name: string;
+  }>;
+}
+
 // Sample URL: http://ffrk.denagames.com/dff/event/original_scenario/11002/progress_battle_list_gimmick
 export interface ProgressBattleListGimmick {
   user: User;

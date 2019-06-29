@@ -155,6 +155,14 @@ export const setWorldIcon = createAction(
   }),
 );
 
+export const setRecordWorldChapters = createAction(
+  'SET_RECORD_WORLD_CHAPTERS',
+  (chapters: Array<{ firstWorldId: number; name: string }>) => ({
+    type: 'SET_RECORD_WORLD_CHAPTERS',
+    payload: chapters,
+  }),
+);
+
 export type WorldAction = ReturnType<
-  typeof updateWorlds | typeof unlockWorld | typeof setWorldIcon
+  typeof updateWorlds | typeof unlockWorld | typeof setWorldIcon | typeof setRecordWorldChapters
 >;

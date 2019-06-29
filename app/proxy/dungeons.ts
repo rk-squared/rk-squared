@@ -15,7 +15,14 @@ import {
   openDungeonChest,
   updateDungeon,
 } from '../actions/dungeons';
-import { setWorldIcon, unlockWorld, updateWorlds, World, WorldCategory } from '../actions/worlds';
+import {
+  setRecordWorldChapters,
+  setWorldIcon,
+  unlockWorld,
+  updateWorlds,
+  World,
+  WorldCategory,
+} from '../actions/worlds';
 import { LangType } from '../api/apiUrls';
 import * as schemas from '../api/schemas';
 import * as dungeonsSchemas from '../api/schemas/dungeons';
@@ -607,6 +614,17 @@ const dungeonsHandler: Handler = {
   win_battle: handleWinBattle,
   battle_win: handleWinBattle,
   'battle/win': handleWinBattle,
+
+  get_data_for_region_list(data: dungeonsSchemas.GetDataForRegionList, store: Store<IState>) {
+    store.dispatch(
+      setRecordWorldChapters(
+        data.region_list.map(({ first_world_id, formal_name }) => ({
+          firstWorldId: +first_world_id,
+          name: formal_name,
+        })),
+      ),
+    );
+  },
 
   progress_battle_list_gimmick(
     data: dungeonsSchemas.ProgressBattleListGimmick,

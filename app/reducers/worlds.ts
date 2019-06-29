@@ -1,7 +1,15 @@
 import { produce } from 'immer';
 import { getType } from 'typesafe-actions';
 
-import { setWorldIcon, unlockWorld, updateWorlds, World, WorldAction } from '../actions/worlds';
+import {
+  setRecordWorldChapters,
+  setWorldIcon,
+  unlockWorld,
+  updateWorlds,
+  World,
+  WorldAction,
+  WorldCategory,
+} from '../actions/worlds';
 
 export interface WorldState {
   worlds?: {
@@ -27,6 +35,26 @@ export function worlds(state: WorldState = {}, action: WorldAction): WorldState 
           draft.worlds[action.payload.worldId].iconUrl = action.payload.icon.iconUrl;
           draft.worlds[action.payload.worldId].localIcon = action.payload.icon.localIcon;
         }
+        return;
+
+      case getType(setRecordWorldChapters):
+        if (!draft.worlds) {
+          return;
+        }
+        const draftWorlds = Object.values(draft.worlds);
+        action.payload.forEach(({ firstWorldId, name }, i) => {
+          const lastWorldId =
+            i + 1 < action.payload.length ? action.payload[i + 1].firstWorldId : Infinity;
+          draftWorlds
+            .filter(
+              w =>
+                w.category === WorldCategory.Record && w.id >= firstWorldId && w.id < lastWorldId,
+            )
+            .forEach(w => {
+              w.subcategory = name;
+              w.subcategorySortOrder = i;
+            });
+        });
         return;
     }
   });

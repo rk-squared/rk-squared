@@ -1,5 +1,7 @@
 # v2.3.0
 
+- Dungeons
+  - Group Record Dungeons by chapter
 - Soul Breaks
   - Search feature, inspired by /u/TheDeathAgent's excellent work on [FFRKLookup.com](https://www.ffrklookup.com/)
 - Relic Draws
