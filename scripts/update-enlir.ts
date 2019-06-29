@@ -84,6 +84,79 @@ async function getSheetId(
   return sheet.properties.sheetId;
 }
 
+async function releaseInGl(sheets: sheets_v4.Sheets, sheet: string, tab: string, items: string[]) {
+  const spreadsheetId = enlirSpreadsheetIds[sheet];
+  const sheetName = _.startCase(tab);
+
+  const sheetId = await getSheetId(sheets, spreadsheetId, sheetName);
+
+  const valuesRes = await sheets.spreadsheets.values.get({
+    spreadsheetId,
+    range: sheetName,
+  });
+  const values = valuesRes.data as SheetData;
+  const cols = getColumns(values);
+  const rowLookup = makeRowLookup(values, cols);
+
+  for (const item of items) {
+    logger.info(`Marking as released in GL: ${item}`);
+    const row = rowLookup[item];
+    if (!row) {
+      logger.warn(`Failed to find ${item}; skipping`);
+      continue;
+    }
+
+    const glRange = sheetName + '!' + rowColToCellId(row, cols['GL']);
+    const glResponse = await sheets.spreadsheets.values.update({
+      spreadsheetId,
+      range: glRange,
+      valueInputOption: 'USER_ENTERED',
+      requestBody: {
+        values: [['✓']],
+      },
+    });
+    if (!glResponse.data || glResponse.data.updatedCells !== 1) {
+      logger.error('Update failed');
+    }
+
+    const colorEndColumn = Math.max(cols['Name'], cols['Realm']) + 1;
+    await sheets.spreadsheets.batchUpdate(
+      {
+        spreadsheetId,
+        requestBody: {
+          requests: [
+            {
+              updateCells: {
+                fields: 'userEnteredFormat/backgroundColor',
+                range: {
+                  sheetId,
+                  startRowIndex: row,
+                  startColumnIndex: 0,
+                  endRowIndex: row + 1,
+                  endColumnIndex: colorEndColumn,
+                },
+                rows: [
+                  {
+                    values: _.times(
+                      colorEndColumn,
+                      _.constant({
+                        userEnteredFormat: {
+                          backgroundColor: releasedColor,
+                        },
+                      }),
+                    ),
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
+      {},
+    );
+  }
+}
+
 async function main() {
   const enlirCredentials = await loadEnlirCredentials();
   if (!enlirCredentials) {
@@ -103,7 +176,7 @@ async function main() {
       type: 'string',
     })
     .command(
-      'releaseInGl <tab> [item..]',
+      'releaseInGl <tab> [items..]',
       'mark entities as released in GL',
       y =>
         y
@@ -111,84 +184,13 @@ async function main() {
             describe: 'sheet tab name',
             type: 'string',
           })
-          .positional('item', {
+          .positional('items', {
             describe: 'entity ID or name',
             type: 'string',
           })
-          .array('item')
-          .required('item'),
-      async argv => {
-        const spreadsheetId = enlirSpreadsheetIds[argv.sheet];
-        const sheetName = _.startCase(argv.tab);
-
-        const sheetId = await getSheetId(sheets, spreadsheetId, sheetName);
-
-        const valuesRes = await sheets.spreadsheets.values.get({
-          spreadsheetId,
-          range: sheetName,
-        });
-        const values = valuesRes.data as SheetData;
-        const cols = getColumns(values);
-        const rowLookup = makeRowLookup(values, cols);
-
-        for (const item of argv.item) {
-          logger.info(`Marking as released in GL: ${item}`);
-          const row = rowLookup[item];
-          if (!row) {
-            logger.warn(`Failed to find ${item}; skipping`);
-            continue;
-          }
-
-          const glRange = sheetName + '!' + rowColToCellId(row, cols['GL']);
-          const glResponse = await sheets.spreadsheets.values.update({
-            spreadsheetId,
-            range: glRange,
-            valueInputOption: 'USER_ENTERED',
-            requestBody: {
-              values: [['✓']],
-            },
-          });
-          if (!glResponse.data || glResponse.data.updatedCells !== 1) {
-            logger.error('Update failed');
-          }
-
-          const colorEndColumn = Math.max(cols['Name'], cols['Realm']) + 1;
-          await sheets.spreadsheets.batchUpdate(
-            {
-              spreadsheetId,
-              requestBody: {
-                requests: [
-                  {
-                    updateCells: {
-                      fields: 'userEnteredFormat/backgroundColor',
-                      range: {
-                        sheetId,
-                        startRowIndex: row,
-                        startColumnIndex: 0,
-                        endRowIndex: row + 1,
-                        endColumnIndex: colorEndColumn,
-                      },
-                      rows: [
-                        {
-                          values: _.times(
-                            colorEndColumn,
-                            _.constant({
-                              userEnteredFormat: {
-                                backgroundColor: releasedColor,
-                              },
-                            }),
-                          ),
-                        },
-                      ],
-                    },
-                  },
-                ],
-              },
-            },
-            {},
-          );
-        }
-      },
+          .array('items')
+          .required('items'),
+      async argv => releaseInGl(sheets, argv.sheet, argv.tab, argv.items),
     ).argv;
 }
 
