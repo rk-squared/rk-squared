@@ -309,7 +309,7 @@ export interface EnlirStatus {
   mndModifier: number | null;
   mndModifierIsOpposed: boolean;
   exclusiveStatus: string[] | null;
-  codedName: string;
+  codedName: string | null;
   notes: string | null;
 }
 
@@ -661,7 +661,7 @@ function patchEnlir() {
   // for threshold attacks, but we'll make it work.
   applyPatch(
     enlir.otherSkillsByName,
-    'Runic Awakening',
+    'Awoken Runic Blade',
     runicAwakening =>
       runicAwakening.effects ===
       'Grants Magical Blink 2 to the user, five single attacks (0.52 each) if user has Magical Blink 1/2',

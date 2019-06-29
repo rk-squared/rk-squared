@@ -146,7 +146,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="name"
           >
-            “Instant Dragon Dive”
+            “Dragon's Descent”
           </td>
           <td>
             instant no air time 15s, instacast 1
@@ -282,7 +282,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="name"
           >
-            “Dragoon's Self-Control”
+            “Dragoon Resolute”
           </td>
           <td>
             25% dualcast Dragoon
@@ -524,7 +524,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="name"
           >
-            “Instant Dragon Dive”
+            “Dragon's Descent”
           </td>
           <td>
             instant no air time 15s, instacast 1
@@ -660,7 +660,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="name"
           >
-            “Dragoon's Self-Control”
+            “Dragoon Resolute”
           </td>
           <td>
             25% dualcast Dragoon

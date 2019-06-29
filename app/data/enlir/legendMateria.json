@@ -1898,10 +1898,10 @@
   {
     "realm": "IV",
     "character": "Kain",
-    "name": "Dragoon's Self-Control",
+    "name": "Dragoon Resolute",
     "effect": "25% chance to dualcast Dragoon abilities",
     "master": "ATK +10",
-    "relic": "Luminous Seeker's Cap (IV)",
+    "relic": "Lightseeker Cap (IV)",
     "nameJp": "克己の竜騎士",
     "id": 201040304,
     "anima": null,
@@ -1970,14 +1970,14 @@
   {
     "realm": "IV",
     "character": "Rydia",
-    "name": "Pure Honesty",
+    "name": "Reluctant Fighter",
     "effect": "SUM attacks deal 25% more damage when equipping a whip",
     "master": "MAG +10",
     "relic": "Platinum Bangle (IV)",
     "nameJp": "気負いなき素直さ",
     "id": 201040405,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -2026,6 +2026,18 @@
     "id": 201040603,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Rosa",
+    "name": "Affectionate Blessing",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "master": "MND +10",
+    "relic": "Rosa's Hairpiece (IV)",
+    "nameJp": "慈愛の恵み",
+    "id": null,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -2242,6 +2254,18 @@
     "id": 201041103,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Tellah",
+    "name": "Distinguished Sage",
+    "effect": "25% chance to dualcast abilities that deal Earth damage",
+    "master": "MAG +10",
+    "relic": "Face Rod (IV)",
+    "nameJp": "名高き老魔道士",
+    "id": null,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -3974,14 +3998,14 @@
   {
     "realm": "VII",
     "character": "Cloud",
-    "name": "Self-Forgiveness",
+    "name": "Self Forgiveness",
     "effect": "PHY attacks deal 20% more damage when equipping a sword",
     "master": "ATK +10",
     "relic": "Flametongue (VII)",
     "nameJp": "己を許す決意",
     "id": 201070107,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -4561,6 +4585,18 @@
   },
   {
     "realm": "VII",
+    "character": "Shelke",
+    "name": "Event Rewriter",
+    "effect": "25% chance to dualcast Celerity abilities",
+    "master": "ATK +10",
+    "relic": "Rubber Suit (VII)",
+    "nameJp": "事象を書き換える者",
+    "id": null,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Angeal",
     "name": "1st Class Mediator",
     "effect": "PHY attacks deal 10% more damage",
@@ -4718,10 +4754,10 @@
   {
     "realm": "VIII",
     "character": "Squall",
-    "name": "Rush to the Battlefield",
+    "name": "Lion of Battle",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Squall's Hyperion (VIII)",
+    "relic": "Hyperion S (VIII)",
     "nameJp": "戦場を駆ける獅子",
     "id": 201080104,
     "anima": null,
@@ -5981,7 +6017,7 @@
     "name": "Unfaltering Devotion",
     "effect": "Grants Attach Holy at the beginning of the battle",
     "master": "MND +10",
-    "relic": "Magic Gun (X)",
+    "relic": "Spellslinger (X)",
     "nameJp": "変わらぬ献身",
     "id": 201100204,
     "anima": null,
@@ -6482,14 +6518,14 @@
   {
     "realm": "XI",
     "character": "Shantotto",
-    "name": "Strongest Black Mage",
+    "name": "Mischievous Mage",
     "effect": "MAG +1% for each hit dealt with BLK attacks, up to 20%",
     "master": "MAG +10",
     "relic": "Black Cloak (XI)",
     "nameJp": "最凶の黒魔道士",
     "id": 201110104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -7501,6 +7537,18 @@
   },
   {
     "realm": "XIII",
+    "character": "Vanille",
+    "name": "Time of Waking",
+    "effect": "35%? chance to grant Quick Cast 1 to the user after using a Support ability",
+    "master": "MND +10",
+    "relic": "Witch's Bracelet (XIII)",
+    "nameJp": "目覚めの時",
+    "id": null,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
     "character": "Sazh",
     "name": "Happy Pappy",
     "effect": "Support abilities deal 15% more damage",
@@ -8301,7 +8349,7 @@
     "nameJp": "夜明けをもたらす者",
     "id": 201150103,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -8521,6 +8569,18 @@
   },
   {
     "realm": "XV",
+    "character": "Aranea",
+    "name": "Magitek Spear User",
+    "effect": "25?% chance to dualcast Dragoon abilities",
+    "master": "ATK +10",
+    "relic": "Women's Snowsuit (XV)",
+    "nameJp": "魔導槍の使い手",
+    "id": 201150603,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
     "character": "Cor",
     "name": "Loyal Subject of the King",
     "effect": "Samurai abilities deal 15% more damage",
@@ -8602,6 +8662,18 @@
     "id": 201500103,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "FFT",
+    "character": "Ramza",
+    "name": "Noble Blood",
+    "effect": "Grants Attach Holy at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Broadsword (FFT)",
+    "nameJp": "誉れ高き武門の系譜",
+    "id": null,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "FFT",
@@ -8953,6 +9025,18 @@
   },
   {
     "realm": "FFT",
+    "character": "Marach",
+    "name": "Kin of Galthena",
+    "effect": "20% chance to cause Minor Imperil Lightning to the target after using a Lightning ability on an enemy",
+    "master": "MAG +10",
+    "relic": "Magepower Glove (FFT)",
+    "nameJp": "ガルテナーハの末裔",
+    "id": null,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "FFT",
     "character": "Meliadoul",
     "name": "Divine Blade",
     "effect": "Knight abilities deal 15% more damage",
@@ -9109,6 +9193,18 @@
   },
   {
     "realm": "FFT",
+    "character": "Alma",
+    "name": "Dedicated Sister",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "master": "MND +10",
+    "relic": "Red Robe (FFT)",
+    "nameJp": "敬虔なるクレリック",
+    "id": null,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "FFT",
     "character": "Orran",
     "name": "Thunder God's Scion",
     "effect": "WHT abilities restore 15% more HP",
@@ -9254,14 +9350,14 @@
   {
     "realm": "Type-0",
     "character": "Deuce",
-    "name": "Humble Manner",
+    "name": "Reserved Demeanor",
     "effect": "25% chance to grant Heals +30% for 10 seconds to the user after using a Bard ability",
     "master": "MND +10",
     "relic": "Baroque Flute (Type-0)",
     "nameJp": "ひかえめな態度",
     "id": 201600203,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
