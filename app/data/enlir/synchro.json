@@ -198,5 +198,55 @@
     "id": 30546022,
     "synchroConditionId": 102,
     "gl": false
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Vast Earth",
+    "name": "True Magic: Collapse",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": "Earth",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 18.3,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.05 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Black Magic",
+    "nameJp": "真の魔法・崩塊",
+    "id": 30541247,
+    "synchroConditionId": 103,
+    "gl": false
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Vast Earth",
+    "name": "True Magic: Stone",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": "Earth",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 9.15,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (3.05 each), grants Earth +30% Boost 3 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Black Magic",
+    "nameJp": "真の魔法・響岩",
+    "id": 30541248,
+    "synchroConditionId": 103,
+    "gl": false
   }
 ]

@@ -8749,6 +8749,28 @@
     "gl": false
   },
   {
+    "school": "Summoning",
+    "name": "Dark Ixion",
+    "rarity": 6,
+    "type": "SUM",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.8,
+    "effects": "Four group attacks (? each), minimum damage 2000",
+    "counter": false,
+    "autoTarget": "All enemies",
+    "sb": 90,
+    "uses": 2,
+    "max": null,
+    "orbs": {},
+    "id": null,
+    "gl": false
+  },
+  {
     "school": "Spellblade",
     "name": "Fire Strike",
     "rarity": 2,

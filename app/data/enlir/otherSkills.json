@@ -1575,7 +1575,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Four single attacks (1.02 each), grants Minor Buff Wind to the user, 100% hit rate",
+    "effects": "Four single attacks (1.02 each), 100% hit rate, grants Minor Buff Wind to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -2702,6 +2702,27 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541358,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Angelo Shot Follow-Up",
+    "name": "Angelo Shot",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.4,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (16.40) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541246,
     "gl": false
   },
   {
@@ -3892,7 +3913,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Five single ranged attacks (0.39 each), causes Minor Imperil Lightning, 100% hit rate",
+    "effects": "Five single ranged attacks (0.39 each), 100% hit rate, causes Minor Imperil Lightning",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,

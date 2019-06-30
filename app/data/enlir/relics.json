@@ -23868,7 +23868,7 @@
     "effect": null,
     "character": "Noctis",
     "soulBreak": null,
-    "legendMateria": "Dawnbringer",
+    "legendMateria": "Bringer of Dawn",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -27090,7 +27090,7 @@
     "gl": true
   },
   {
-    "name": "Ame-no-Murakumo",
+    "name": "Ama-no-Murakumo",
     "realm": "IV",
     "type": "Katana",
     "rarity": 6,
@@ -104732,7 +104732,7 @@
     },
     "effect": "Lightning resistance (minor)",
     "character": "Garnet",
-    "soulBreak": "Concealed Bloodline",
+    "soulBreak": "Secret Bloodline",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -112968,7 +112968,7 @@
     "effect": null,
     "character": "Shantotto",
     "soulBreak": null,
-    "legendMateria": "Mischievous Mage",
+    "legendMateria": "Menacing Black Mage",
     "baseStats": {
       "rarity": 5,
       "level": 20,

@@ -4657,6 +4657,17 @@
     "notes": null
   },
   {
+    "id": 282200,
+    "name": "Earth +30% Boost 3",
+    "effects": "Earth attacks deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_EARTH_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
     "id": 282202,
     "name": "Wind +50% Boost 1",
     "effects": "Wind attacks deal 50% more damage, lasts for 1 turn",
@@ -11470,7 +11481,7 @@
   {
     "id": 50564,
     "name": "Awoken Spark",
-    "effects": "Celerity and Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Celerity and Support abilities at ability rank 1/2/3/4/5, casts Technical Rush after using a Celerity and Support ability",
+    "effects": "Celerity and Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Celerity and Support abilities at ability rank 1/2/3/4/5, casts Technical Rush after using a Celerity or Support ability",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11518,6 +11529,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_FORMULATION_DYNAMIC",
+    "notes": null
+  },
+  {
+    "id": 50569,
+    "name": "Angelo Shot Follow-Up",
+    "effects": "Casts Angelo Shot after using three Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_VARY_LAND_MOTION",
     "notes": null
   },
   {

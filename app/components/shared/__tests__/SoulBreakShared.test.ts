@@ -40,7 +40,7 @@ describe('SoulBreakShared', () => {
           "Noctis - Path of the True King",
           "Noctis - Heir to Greatness",
           "Noctis - Divine Revelation",
-          "Noctis - Dawnbringer",
+          "Noctis - Bringer of Dawn",
         ]
       `);
     });
@@ -51,10 +51,10 @@ describe('SoulBreakShared', () => {
 
     it('searches for individual soul breaks', () => {
       expect(doSimpleSearch('cloud usb1')).toMatchInlineSnapshot(`
-                Array [
-                  "Cloud - Ultra Cross Slash",
-                ]
-            `);
+                        Array [
+                          "Cloud - Ultra Cross Slash",
+                        ]
+                  `);
     });
   });
 });

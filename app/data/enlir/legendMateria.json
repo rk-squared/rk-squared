@@ -6530,7 +6530,7 @@
   {
     "realm": "XI",
     "character": "Shantotto",
-    "name": "Mischievous Mage",
+    "name": "Menacing Black Mage",
     "effect": "MAG +1% for each hit dealt with BLK attacks, up to 20%",
     "master": "MAG +10",
     "relic": "Black Cloak (XI)",
@@ -8354,7 +8354,7 @@
   {
     "realm": "XV",
     "character": "Noctis",
-    "name": "Dawnbringer",
+    "name": "Bringer of Dawn",
     "effect": "PHY attacks deal 20% more damage when equipping a sword",
     "master": "ATK +10",
     "relic": "Rune Saber (XV)",
@@ -9052,7 +9052,7 @@
     "character": "Marach",
     "name": "Kin of Galthena",
     "effect": "20% chance to cause Minor Imperil Lightning to the target after using a Lightning ability on an enemy",
-    "master": "MAG +10",
+    "master": null,
     "relic": "Magepower Glove (FFT)",
     "nameJp": "ガルテナーハの末裔",
     "id": null,
