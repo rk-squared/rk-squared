@@ -1564,6 +1564,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Wind's Intuition Follow-Up",
+    "name": "Wind's Intuition",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.08,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (1.02 each), grants Minor Buff Wind to the user, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 30547056,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Enlightened Yearning",
     "name": "Trance Wind",
     "type": "BLK",
@@ -3835,6 +3856,48 @@
     "sb": 0,
     "school": "Samurai",
     "id": 30549119,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Thunder Bullet Follow-Up",
+    "name": "Thunder Bullet 1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.95,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single ranged attacks (0.39 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 30549155,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Thunder Bullet Follow-Up",
+    "name": "Thunder Bullet 2",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.95,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single ranged attacks (0.39 each), causes Minor Imperil Lightning, 100% hit rate",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 30549156,
     "gl": false
   },
   {

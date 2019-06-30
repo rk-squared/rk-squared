@@ -252,6 +252,18 @@
     "gl": false
   },
   {
+    "realm": "Core",
+    "character": "Dr. Mog",
+    "name": "History Institute Leader's Potential",
+    "effect": "Grants (all elemental damage +25%)? when HP fall below 20%",
+    "master": "MND +10",
+    "relic": "Light Staff (Core)",
+    "nameJp": "歴史省トップの底力",
+    "id": null,
+    "anima": null,
+    "gl": false
+  },
+  {
     "realm": "I",
     "character": "Warrior of Light",
     "name": "Chosen of the Light",
@@ -4761,7 +4773,7 @@
     "nameJp": "戦場を駆ける獅子",
     "id": 201080104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -8494,6 +8506,18 @@
     "id": 201150402,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Prompto",
+    "name": "More than Friends",
+    "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Prompto's Gloves (VX)",
+    "nameJp": "生まれを超えた友情",
+    "id": null,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XV",
