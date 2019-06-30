@@ -42,8 +42,8 @@ function dashAs<TDash, TValue>(
   return (value: string) => (value === '-' ? dashValue : f(value));
 }
 const dashNull = <T>(f: (value: string) => T) => dashAs(null, f);
-function toCommaSeparatedArray<T>(f: (value: string) => T): (value: string) => T[] | null {
-  return (value: string) => (value === '' ? null : value.split(', ').map(f));
+function toCommaSeparatedArray<T>(f: (value: string | null) => T): (value: string) => T[] | null {
+  return (value: string) => (value == null || value === '' ? null : value.split(', ').map(f));
 }
 
 function toStringWithDecimals(value: string) {

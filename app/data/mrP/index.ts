@@ -8,6 +8,7 @@ import {
   EnlirElement,
   EnlirSchool,
   EnlirSkill,
+  EnlirSynchroCommand,
   isBraveCommand,
   isBraveSoulBreak,
   isBurstSoulBreak,
@@ -195,6 +196,7 @@ interface DescribeOptions {
 
   prereqStatus: string | undefined;
   burstCommands: EnlirBurstCommand[] | undefined;
+  synchroCommands: EnlirSynchroCommand[] | undefined;
 }
 
 function describeEnlirAttack(
@@ -315,6 +317,7 @@ export function describeEnlirSoulBreak(
     includeSbPoints: true,
     prereqStatus: undefined,
     burstCommands: undefined,
+    synchroCommands: undefined,
     ...options,
   };
 
@@ -340,6 +343,7 @@ export function describeEnlirSoulBreak(
   const attackOpts = {
     prereqStatus: opt.prereqStatus,
     burstCommands: opt.burstCommands,
+    synchroCommands: opt.synchroCommands,
   };
   const attack = parseEnlirAttack(sb.effects, sb, attackOpts);
   if (attack) {
@@ -451,6 +455,18 @@ export function describeEnlirSoulBreak(
   ) {
     // Hack: In practice, it's always command 1 that does the powering up.
     other.push('powers up cmd 2');
+  }
+  if (opt.synchroCommands) {
+    const powerUp = _.findIndex(
+      opt.synchroCommands,
+      i =>
+        !!i.effects.match(
+          new RegExp(' (scaling|scal\\.) with ' + _.escapeRegExp(sb.name) + ' uses'),
+        ),
+    );
+    if (powerUp !== -1) {
+      other.push(`powers up cmd ${powerUp + 1}`);
+    }
   }
 
   if (
@@ -932,7 +948,7 @@ export function describeEnlirSoulBreak(
     const synchroCommands = enlir.synchroCommandsByCharacter[sb.character][sb.name];
     result.synchroCondition = synchroCommands.map(i => i.synchroCondition);
     result.synchroCommands = synchroCommands.map(i =>
-      describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false }),
+      describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false, synchroCommands }),
     );
   }
   return result;

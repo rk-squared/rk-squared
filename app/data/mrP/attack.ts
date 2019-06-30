@@ -8,6 +8,7 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirSkillType,
+  EnlirSynchroCommand,
   isSoulBreak,
 } from '../enlir';
 import { describeEnlirStatus } from './status';
@@ -512,6 +513,7 @@ const attackRe = XRegExp(
  *   a part.  If present, this is used to process items like Squall's BSB2,
  *   where one command powers up the other, as well as cases like Josef's where
  *   one command grants a unique status that affects the other.
+ * @param synchroCommands See burstCommands
  */
 export function parseEnlirAttack(
   effects: string,
@@ -519,9 +521,11 @@ export function parseEnlirAttack(
   {
     prereqStatus,
     burstCommands,
+    synchroCommands,
   }: {
     prereqStatus?: string;
     burstCommands?: EnlirBurstCommand[];
+    synchroCommands?: EnlirSynchroCommand[];
   },
 ): ParsedEnlirAttack | null {
   const m = XRegExp.exec(effects, attackRe) as any;
@@ -661,7 +665,10 @@ export function parseEnlirAttack(
   } else if (m.statBreakCount) {
     scaleType = formatThreshold(m.statBreakCount, 'stats lowered');
   } else if (m.scaleWithSkillUses) {
-    if (burstCommands && burstCommands.filter(i => i.name === m.scaleWithSkillUses)) {
+    if (
+      (burstCommands && burstCommands.filter(i => i.name === m.scaleWithSkillUses)) ||
+      (synchroCommands && synchroCommands.filter(i => i.name === m.scaleWithSkillUses))
+    ) {
       // Do nothing on the receiving end - the other command will get text from
       // the main function.
       scaleType = undefined;

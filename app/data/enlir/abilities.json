@@ -7042,6 +7042,60 @@
     "gl": false
   },
   {
+    "school": "Celerity",
+    "name": "Stormy Chain",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.8,
+    "element": [
+      "Lightning",
+      "Wind"
+    ],
+    "time": 1.2,
+    "effects": "Two single attacks (0.90 each), grants Instant Cast 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Lightning Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Feast 2019",
+    "nameJp": "レイジングスターター",
+    "id": 30171221,
+    "gl": false
+  },
+  {
     "school": "Summoning",
     "name": "Goblin",
     "rarity": 1,
@@ -8692,6 +8746,28 @@
     "introducingEvent": "Braving the Countless Ordeals",
     "nameJp": "ブラザーズ",
     "id": 30131411,
+    "gl": false
+  },
+  {
+    "school": "Summoning",
+    "name": "Dark Ixion",
+    "rarity": 6,
+    "type": "SUM",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.8,
+    "effects": "Four group attacks (? each), minimum damage 2000",
+    "counter": false,
+    "autoTarget": "All enemies",
+    "sb": 90,
+    "uses": 2,
+    "max": null,
+    "orbs": {},
+    "id": null,
     "gl": false
   },
   {
@@ -10869,7 +10945,7 @@
     "introducingEvent": "New Year Party 2019",
     "nameJp": "インパルスダイブ",
     "id": 30181141,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Dragoon",
@@ -11806,7 +11882,7 @@
   },
   {
     "school": "Monk",
-    "name": "Ironfist Frost",
+    "name": "Ironfist Ice",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -11855,7 +11931,7 @@
     "introducingEvent": "New Year Party 2019",
     "nameJp": "剛拳・氷の型",
     "id": 30191191,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Monk",
@@ -15047,12 +15123,12 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 6.3,
     "element": [
       "Earth"
     ],
     "time": 0.83,
-    "effects": "3/5/7 single attacks (? each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "effects": "3/5/7 single attacks (0.90 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,

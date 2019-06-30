@@ -260,7 +260,7 @@
       "Holy",
       "Fire",
       "Ice",
-      "Light.",
+      "Lightning",
       "NE"
     ],
     "time": 0.01,
@@ -291,6 +291,30 @@
     "school": "White Magic",
     "id": 30542311,
     "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Royal Archives' Teachings Follow-Up",
+    "name": "Royal Archives' Teachings",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 19.5,
+    "element": [
+      "Holy",
+      "Fire",
+      "Ice",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (1.95 each), grants Minor Buff Holy, Minor Buff Fire, Minor Buff Ice and Minor Buff Lightning to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541205,
+    "gl": false
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1356,6 +1380,24 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Darkness Storm Follow-Up",
+    "name": "Darkness Storm",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants 40% Damage Reduction Barrier 1",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Special",
+    "id": 30541458,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Dance of the Flame Follow-Up",
     "name": "Dance of the Flame",
     "type": "BLK",
@@ -1430,7 +1472,7 @@
       "Holy"
     ],
     "time": 0.01,
-    "effects": "Restores HP (10/15/25/35/45) at rank 1/2/3/4/5 of the triggering ability",
+    "effects": "Restores HP (10/15/25/35/45) at rank 1/2/3/4/5 of the triggering ability, damages undead",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 0,
@@ -1518,6 +1560,27 @@
     "sb": 0,
     "school": "Knight",
     "id": 30544336,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Wind's Intuition Follow-Up",
+    "name": "Wind's Intuition",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.08,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (1.02 each), 100% hit rate, grants Minor Buff Wind to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 30547056,
     "gl": false
   },
   {
@@ -1936,8 +1999,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Runic Awakening Follow-Up",
-    "name": "Runic Awakening",
+    "source": "Awoken Runic Blade Follow-Up",
+    "name": "Awoken Runic Blade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -2370,6 +2433,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Awoken Spark",
+    "name": "Technical Rush",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.32 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Celerity",
+    "id": 30546019,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: SeeD",
     "name": "Shattering Finish",
     "type": "PHY",
@@ -2518,8 +2602,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Egotistic Blade Follow-Up",
-    "name": "Egotistic Blade",
+    "source": "Stubborn Blade Follow-Up",
+    "name": "Stubborn Blade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -2618,6 +2702,27 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541358,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Angelo Shot Follow-Up",
+    "name": "Angelo Shot",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.4,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (16.40) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541246,
     "gl": false
   },
   {
@@ -3333,6 +3438,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Savage Thunderstrike Follow-Up",
+    "name": "Savage Thunderstrike",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.4,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (16.40) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541134,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Knight of Etro",
     "name": "Divine Edge 1",
     "nameNote": "Alias name: Saint Sabre",
@@ -3504,6 +3630,24 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30541571,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Love",
+    "name": "Merciful Prayer",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (25)",
+    "counter": true,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 30542811,
     "gl": false
   },
   {
@@ -3737,6 +3881,48 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Thunder Bullet Follow-Up",
+    "name": "Thunder Bullet 1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.95,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single ranged attacks (0.39 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 30549155,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Thunder Bullet Follow-Up",
+    "name": "Thunder Bullet 2",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.95,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single ranged attacks (0.39 each), 100% hit rate, causes Minor Imperil Lightning",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 30549156,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Seeker of Truth",
     "name": "Knight's Lightblade",
     "type": "PHY",
@@ -3842,8 +4028,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Divine Ruination Follow-Up",
-    "name": "Divine Ruination",
+    "source": "Incandescent Sear Follow-Up",
+    "name": "Incandescent Sear",
     "type": "NAT",
     "target": "Single enemy",
     "formula": null,
@@ -4622,8 +4808,8 @@
   },
   {
     "sourceType": "Finisher Status",
-    "source": "Blasting Freeze",
-    "name": "Blasting Freeze",
+    "source": "Blasting Frost",
+    "name": "Blasting Frost",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4724,7 +4910,7 @@
   {
     "sourceType": "Finisher Status",
     "source": "Royal Mode",
-    "name": "Melee Shift Break",
+    "name": "Point-Blank Warp-Strike",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",

@@ -4657,6 +4657,28 @@
     "notes": null
   },
   {
+    "id": 282200,
+    "name": "Earth +30% Boost 3",
+    "effects": "Earth attacks deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_EARTH_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
+    "id": 282202,
+    "name": "Wind +50% Boost 1",
+    "effects": "Wind attacks deal 50% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_WIND_LARGE_TURN_1",
+    "notes": null
+  },
+  {
     "id": 283,
     "name": "Steiner Trance",
     "effects": "ATK and DEF +25%, increases Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark and Poison damage dealt by 25%",
@@ -9938,7 +9960,7 @@
   },
   {
     "id": 50421,
-    "name": "Awoken Lucis King",
+    "name": "Awoken Lucian King",
     "effects": "Fire, Earth and Lightning attacks don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Fire, Earth and Lightning attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9960,7 +9982,7 @@
   },
   {
     "id": 50423,
-    "name": "Awoken Sorceress Knight",
+    "name": "Awoken Sorceress's Knight",
     "effects": "Dark and Fire abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dark and Fire attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9971,7 +9993,7 @@
   },
   {
     "id": 50424,
-    "name": "Awoken Indomitable",
+    "name": "Awoken Invincible General",
     "effects": "Holy and Ice abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Holy and Ice attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -9983,7 +10005,7 @@
   {
     "id": 50425,
     "name": "Royal Mode",
-    "effects": "Cast speed x3.00, casts Melee Shift Break when removed",
+    "effects": "Cast speed x3.00, casts Point-Blank Warp-Strike when removed",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9993,8 +10015,8 @@
   },
   {
     "id": 50426,
-    "name": "Blasting Freeze",
-    "effects": "Casts Blasting Freeze when removed, removed if the user hasn't Awoken Ice",
+    "name": "Blasting Frost",
+    "effects": "Casts Blasting Frost when removed, removed if the user hasn't Awoken Ice",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10059,8 +10081,8 @@
   },
   {
     "id": 50433,
-    "name": "Egotistic Blade Follow-Up",
-    "effects": "Casts Egotistic Blade after using two Dark or Fire attacks",
+    "name": "Stubborn Blade Follow-Up",
+    "effects": "Casts Stubborn Blade after using two Dark or Fire attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10081,8 +10103,8 @@
   },
   {
     "id": 50435,
-    "name": "Divine Ruination Follow-Up",
-    "effects": "Casts Divine Ruination after using two Knight abilities",
+    "name": "Incandescent Sear Follow-Up",
+    "effects": "Casts Incandescent Sear after using two Knight abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10105,8 +10127,8 @@
   },
   {
     "id": 50437,
-    "name": "Runic Awakening Follow-Up",
-    "effects": "Casts Runic Awakening after using two ice or holy attacks",
+    "name": "Awoken Runic Blade Follow-Up",
+    "effects": "Casts Awoken Runic Blade after using two ice or holy attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11346,6 +11368,181 @@
     "notes": null
   },
   {
+    "id": 50555,
+    "name": "Royal Archives' Teachings Follow-Up",
+    "effects": "Casts Royal Archives' Teachings after using 3 Black Magic or Summoning abillities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TETRA_CATASTROPHE",
+    "notes": null
+  },
+  {
+    "id": 50556,
+    "name": "Awoken Royal Archives",
+    "effects": "Black Magic and Summoning abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, cast speed x9999999 for Black Magic and Summoning abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_MINISTRY_OF_HISTORY",
+    "notes": null
+  },
+  {
+    "id": 50557,
+    "name": "Awoken Love",
+    "effects": "White Magic and Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for White Magic abilities at ability rank 1/2/3/4/5, casts Merciful Prayer after using a White Magic or Support ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_LOVE_HEART",
+    "notes": null
+  },
+  {
+    "id": 50558,
+    "name": "Darkness Storm Follow-Up",
+    "effects": "Casts Darkness Storm after using a Wind attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DARKNESS_STORM",
+    "notes": null
+  },
+  {
+    "id": 50559,
+    "name": "Magitek Lance Expert Mode",
+    "effects": "Grants Magitek Lance Expert 1/2/3/4 after using 1/2/3/4+ Dragoon abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": null,
+    "notes": null
+  },
+  {
+    "id": 50560,
+    "name": "Magitek Lance Expert 1",
+    "effects": "Critical chance =30%, removed if the user hasn't Magitek Lance Expert 0",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Magitek Lance Expert 2",
+      "Magitek Lance Expert 3",
+      "Magitek Lance Expert 4"
+    ],
+    "codedName": "MASTERED_MAGIC_SPEAR_MODE_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 50561,
+    "name": "Magitek Lance Expert 2",
+    "effects": "Critical chance =50%, removed if the user hasn't Magitek Lance Expert 0",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Magitek Lance Expert 1",
+      "Magitek Lance Expert 2",
+      "Magitek Lance Expert 4"
+    ],
+    "codedName": "MASTERED_MAGIC_SPEAR_MODE_LEVEL_2",
+    "notes": null
+  },
+  {
+    "id": 50562,
+    "name": "Magitek Lance Expert 3",
+    "effects": "Critical chance =75%, removed if the user hasn't Magitek Lance Expert 0",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Magitek Lance Expert 1",
+      "Magitek Lance Expert 2",
+      "Magitek Lance Expert 3"
+    ],
+    "codedName": "MASTERED_MAGIC_SPEAR_MODE_LEVEL_3",
+    "notes": null
+  },
+  {
+    "id": 50563,
+    "name": "Magitek Lance Expert 4",
+    "effects": "Critical chance =100%, removed if the user hasn't Magitek Lance Expert 0",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "MASTERED_MAGIC_SPEAR_MODE_LEVEL_4",
+    "notes": null
+  },
+  {
+    "id": 50564,
+    "name": "Awoken Spark",
+    "effects": "Celerity and Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Celerity and Support abilities at ability rank 1/2/3/4/5, casts Technical Rush after using a Celerity or Support ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null
+  },
+  {
+    "id": 50565,
+    "name": "Thunder Sword Rush Follow-Up",
+    "effects": "Grants Physical High Quick Cast 1 to all allies in the front row after using a Lightning attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_THUNDER_SWORD_RUSH",
+    "notes": null
+  },
+  {
+    "id": 50566,
+    "name": "Wind's Intuition Follow-Up",
+    "effects": "Casts Wind's Intuition after using two Wind attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_WAKE_UP_OF_WIND",
+    "notes": null
+  },
+  {
+    "id": 50567,
+    "name": "Thunder Bullet Follow-Up",
+    "effects": "Casts Thunder Bullet 1/2 after using 1/2 + 2n Lightning attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "V",
+    "notes": null
+  },
+  {
+    "id": 50568,
+    "name": "Dynamic Mix Follow-Up",
+    "effects": "Grants 40% Damage Reduction Barrier 1 to all allies after using a Water attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_FORMULATION_DYNAMIC",
+    "notes": null
+  },
+  {
+    "id": 50569,
+    "name": "Angelo Shot Follow-Up",
+    "effects": "Casts Angelo Shot after using three Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_VARY_LAND_MOTION",
+    "notes": null
+  },
+  {
     "id": 50573,
     "name": "Grand Blow Follow-Up",
     "effects": "Casts Grand Blow after using four Earth attacks",
@@ -11365,6 +11562,28 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "FEAR_MODE",
+    "notes": null
+  },
+  {
+    "id": 50578,
+    "name": "Savage Thunderstrike Follow-Up",
+    "effects": "Casts Savage Thunderstrike after using three Lightning attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_PRIDE_OF_NOT_SAINT",
+    "notes": null
+  },
+  {
+    "id": 50582,
+    "name": "Instant ATB 1",
+    "effects": "Increase ATB charge speed by x9999999, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ATB_TIME_FACTOR_MAX_TURN_1",
     "notes": null
   },
   {
@@ -11434,6 +11653,28 @@
     "notes": null
   },
   {
+    "id": 50599,
+    "name": "Transparent Thunderclap Follow-Up",
+    "effects": "Grants 40% Damage Reduction Barrier 1 to all allies after using a Celerity or Support ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INFORMAL_LIGHTNING",
+    "notes": null
+  },
+  {
+    "id": 50600,
+    "name": "Magitek Lance Expert 0",
+    "effects": "Cast speed x2.00",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "MASTERED_MAGIC_SPEAR_MODE_LEVEL_0",
+    "notes": null
+  },
+  {
     "id": 50601,
     "name": "Awoken Kindness",
     "effects": "Holy and Water abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Holy and Water abilities",
@@ -11486,6 +11727,50 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "AWAKE_MODE_MAIDEN",
+    "notes": null
+  },
+  {
+    "id": 50606,
+    "name": "General Set Status",
+    "effects": "Applies a specified status",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "GENERAL_LEVELS",
+    "notes": null
+  },
+  {
+    "id": 50607,
+    "name": "General Set Status While Synchro",
+    "effects": "Applies a specified status, removed if user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SET_GENERAL_LEVEL_WHILE_SYNCHRO_MODE",
+    "notes": null
+  },
+  {
+    "id": 50608,
+    "name": "General Remove Status",
+    "effects": "Replaces a given status with this status, resulting in the original status being removed",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "UNSET_GENERAL_LEVEL",
+    "notes": null
+  },
+  {
+    "id": 50613,
+    "name": "Ability Berserk",
+    "effects": "",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ABILITY_BERSERKER",
     "notes": null
   },
   {

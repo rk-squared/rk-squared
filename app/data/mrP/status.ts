@@ -110,7 +110,9 @@ const hideDuration = new Set(['Astra', 'Stun']);
 
 const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwokenStatus = (status: string) =>
-  status.startsWith('Awoken ') && status !== 'Awoken Scholar Critical Chance';
+  status.startsWith('Awoken ') &&
+  status !== 'Awoken Scholar Critical Chance' &&
+  !status.endsWith(' Follow-Up');
 
 interface FollowUpEffect {
   /**
@@ -371,11 +373,12 @@ function isModeStatus(enlirStatus: EnlirStatus): boolean {
   if (isSoulBreakMode(enlirStatus)) {
     return false;
   } else {
+    const codedNameString = codedName || '';
     return (
-      !!codedName.match(/_MODE/) ||
+      !!codedNameString.match(/_MODE/) ||
       name.endsWith(' Mode') ||
       // Specialized counter-attacks
-      (codedName.startsWith('COUNTER_AIMING') &&
+      (codedNameString.startsWith('COUNTER_AIMING') &&
         name !== 'Retaliate' &&
         name !== 'High Retaliate') ||
       // Rage statuses
@@ -392,7 +395,7 @@ function isModeStatus(enlirStatus: EnlirStatus): boolean {
  */
 function forceEffects({ name, codedName }: EnlirStatus) {
   return (
-    codedName.startsWith('ABSORB_HP_') ||
+    (codedName && codedName.startsWith('ABSORB_HP_')) ||
     name.startsWith('Greased Lightning ') ||
     name === 'Phantom Regen'
   );
@@ -441,7 +444,7 @@ export function isTranceStatus({ name }: EnlirStatus) {
  * make describeEffects smart enough to handle them.
  */
 const isCustomStatMod = ({ name, codedName, effects }: EnlirStatus) =>
-  (codedName.startsWith('CUSTOM_PARAM_') && !effects.match(/, lasts for \d+ turn/)) ||
+  (codedName && codedName.startsWith('CUSTOM_PARAM_') && !effects.match(/, lasts for \d+ turn/)) ||
   name === 'Advance';
 
 function formatTurns(turns: string | number | null): string {
@@ -463,7 +466,7 @@ function statusAsStatMod(statusName: string, enlirStatus?: EnlirStatus) {
     return { stat: stat.split(andList), amount };
   }
 
-  if (enlirStatus && enlirStatus.codedName.startsWith('CUSTOM_')) {
+  if (enlirStatus && enlirStatus.codedName && enlirStatus.codedName.startsWith('CUSTOM_')) {
     if ((m = enlirStatus.effects.match(statModRe))) {
       const stat = m[1];
       let amount = m[2];

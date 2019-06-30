@@ -309,7 +309,7 @@ export interface EnlirStatus {
   mndModifier: number | null;
   mndModifierIsOpposed: boolean;
   exclusiveStatus: string[] | null;
-  codedName: string;
+  codedName: string | null;
   notes: string | null;
 }
 
@@ -661,7 +661,7 @@ function patchEnlir() {
   // for threshold attacks, but we'll make it work.
   applyPatch(
     enlir.otherSkillsByName,
-    'Runic Awakening',
+    'Awoken Runic Blade',
     runicAwakening =>
       runicAwakening.effects ===
       'Grants Magical Blink 2 to the user, five single attacks (0.52 each) if user has Magical Blink 1/2',
@@ -806,6 +806,42 @@ function patchEnlir() {
       stasis.effects =
         'ATK, DEF, MAG and RES -70% for 8 seconds, grants Magical Blink 1 and Instant Cast 1 to all allies';
     },
+  );
+
+  // Make synchro commands resemble Squall-type BSBs.
+  applyPatch(
+    enlir.synchroCommands,
+    '30547053',
+    command =>
+      command.effects ===
+      'Six single attacks (0.9 each), grants Wind +50% Boost 1 and Mako Enhance level 1 to the user',
+    command => (command.effects = 'Six single attacks (0.9 each), grants Wind +50% Boost 1'),
+  );
+  applyPatch(
+    enlir.synchroCommands,
+    '30547054',
+    command =>
+      command.effects ===
+      'One single attack (6.00/8.00) if user has Mako Enhance level 0/1, capped at 99999, set Mako Enhance level to 0',
+    command =>
+      (command.effects =
+        'One single attack (6.00/8.00), capped at 99999, scaling with Sonic Rush+ uses, reset'),
+  );
+  applyPatch(
+    enlir.synchroCommands,
+    '30546020',
+    command =>
+      command.effects ===
+      '5/10 single attacks (0.80 each) if user has Lightning Aura level 0/1, set Lightning Aura level to 0',
+    command =>
+      (command.effects = '5/10 single attacks (0.80 each) scaling with Lightning Howl uses, reset'),
+  );
+  applyPatch(
+    enlir.synchroCommands,
+    '30546022',
+    command =>
+      command.effects === 'Three single attacks (0.80 each), grants Lightning Aura to the user',
+    command => (command.effects = 'Three single attacks (0.80 each)'),
   );
 }
 patchEnlir();

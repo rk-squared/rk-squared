@@ -117,6 +117,12 @@ Array [
     "name": "Brother's Keeper",
   },
   Object {
+    "character": "Alma",
+    "description": "(W.Mag ⤇ 25% for party h25)",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "name": "Dedicated Sister",
+  },
+  Object {
     "character": "Alphinaud",
     "description": "1.1x SUM dmg",
     "effect": "SUM attacks deal 10% more damage",
@@ -217,6 +223,12 @@ Array [
     "description": "lgt infuse at battle start",
     "effect": "Grants Attach Lightning at the beginning of the battle",
     "name": "Soaring Valkyrie",
+  },
+  Object {
+    "character": "Aranea",
+    "description": "25?% dualcast Dragoon",
+    "effect": "25?% chance to dualcast Dragoon abilities",
+    "name": "Magitek Spear User",
   },
   Object {
     "character": "Arc",
@@ -840,7 +852,7 @@ Array [
     "character": "Cloud",
     "description": "1.2x PHY dmg if using a sword",
     "effect": "PHY attacks deal 20% more damage when equipping a sword",
-    "name": "Self-Forgiveness",
+    "name": "Self Forgiveness",
   },
   Object {
     "character": "Cloud of Darkness",
@@ -1002,7 +1014,7 @@ Array [
     "character": "Deuce",
     "description": "(Bard ⤇ 25% for +30% healing 10s)",
     "effect": "25% chance to grant Heals +30% for 10 seconds to the user after using a Bard ability",
-    "name": "Humble Manner",
+    "name": "Reserved Demeanor",
   },
   Object {
     "character": "Dorgann",
@@ -2130,7 +2142,7 @@ Array [
     "character": "Kain",
     "description": "25% dualcast Dragoon",
     "effect": "25% chance to dualcast Dragoon abilities",
-    "name": "Dragoon's Self-Control",
+    "name": "Dragoon Resolute",
   },
   Object {
     "character": "Kefka",
@@ -3006,7 +3018,7 @@ Array [
     "character": "Noctis",
     "description": "1.2x PHY dmg if using a sword",
     "effect": "PHY attacks deal 20% more damage when equipping a sword",
-    "name": "Dawnbringer",
+    "name": "Bringer of Dawn",
   },
   Object {
     "character": "Noel",
@@ -3705,6 +3717,12 @@ Array [
     "name": "Patrician Beauty",
   },
   Object {
+    "character": "Rosa",
+    "description": "(W.Mag ⤇ 25% for party h25)",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "name": "Affectionate Blessing",
+  },
+  Object {
     "character": "Roxas",
     "description": "1.1x holy dmg",
     "effect": "Increases Holy damage dealt by 10%",
@@ -3816,7 +3834,7 @@ Array [
     "character": "Rydia",
     "description": "1.25x SUM dmg if using a whip",
     "effect": "SUM attacks deal 25% more damage when equipping a whip",
-    "name": "Pure Honesty",
+    "name": "Reluctant Fighter",
   },
   Object {
     "character": "Sabin",
@@ -4140,7 +4158,7 @@ Array [
     "character": "Shantotto",
     "description": "+1% MAG (max +20%) per BLK hit",
     "effect": "MAG +1% for each hit dealt with BLK attacks, up to 20%",
-    "name": "Strongest Black Mage",
+    "name": "Menacing Black Mage",
   },
   Object {
     "character": "Shelke",
@@ -4266,7 +4284,7 @@ Array [
     "character": "Squall",
     "description": "fastcast 3 at battle start",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
-    "name": "Rush to the Battlefield",
+    "name": "Lion of Battle",
   },
   Object {
     "character": "Steiner",
@@ -4363,6 +4381,12 @@ Array [
     "description": "earth infuse at battle start",
     "effect": "Grants Attach Earth at the beginning of the battle",
     "name": "Learned Sage",
+  },
+  Object {
+    "character": "Tellah",
+    "description": "25% dualcast earth",
+    "effect": "25% chance to dualcast abilities that deal Earth damage",
+    "name": "Distinguished Sage",
   },
   Object {
     "character": "Terra",
