@@ -67,6 +67,8 @@ export const statusAlias: AliasMap = {
     'Magical Quick Cast': 'fastzap',
     'Magical High Quick Cast': 'hi fastzap',
 
+    'Instant ATB 1': 'full ATB',
+
     'Low Regen': 'Regen (lo)',
     'Medium Regen': 'Regen (med)',
     'High Regen': 'Regen (hi)',
