@@ -14,7 +14,7 @@ import * as schemas from '../api/schemas';
 import * as gachaSchemas from '../api/schemas/gacha';
 import { enlir } from '../data';
 import { dressRecordsById } from '../data/dressRecords';
-import { EnlirLegendMateria, EnlirRelic, EnlirSoulBreak } from '../data/enlir';
+import { EnlirLegendMateria, EnlirRealm, EnlirRelic, EnlirSoulBreak } from '../data/enlir';
 import { items, ItemType, ItemTypeLookup } from '../data/items';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
@@ -156,16 +156,20 @@ function handleWinBattle(data: schemas.WinBattle) {
   });
 }
 
-interface CheckedEntity<T> {
+interface EnlirEntity {
+  id: number;
+  name: string;
+  gl: boolean;
+  realm: EnlirRealm | null;
+}
+
+interface CheckedEntity<T extends EnlirEntity> {
   enlirItem: T;
   updateRelease: boolean;
   updateName: string | undefined;
 }
 
-function compareGlEntity<
-  T1 extends { id: number; name: string },
-  T2 extends { name: string; gl: boolean }
->(
+function compareGlEntity<T1 extends { id: number; name: string }, T2 extends EnlirEntity>(
   callback: (message: string) => void,
   item: T1,
   enlirItems: { [id: number]: T2 },
@@ -202,7 +206,15 @@ function compareGlEntity<
   };
 }
 
-function showUpdateCommands<T extends { id: number }>(
+function removeRealm<T extends EnlirEntity>(enlirItem: T, name: string) {
+  if (!enlirItem.realm) {
+    return name;
+  }
+  const re = new RegExp(' \\(' + _.escapeRegExp(enlirItem.realm) + '\\)$');
+  return name.replace(re, '');
+}
+
+function showUpdateCommands<T extends EnlirEntity>(
   checked: Array<CheckedEntity<T>>,
   tabName: string,
   callback: (message: string) => void,
@@ -210,6 +222,16 @@ function showUpdateCommands<T extends { id: number }>(
   const releaseIds = checked.filter(i => i.updateRelease).map(i => i.enlirItem.id);
   if (releaseIds.length) {
     callback(`update-enlir.ts releaseInGl ${tabName} ${releaseIds.join(' ')}`);
+  }
+
+  const renames = checked
+    .filter(i => i.updateName)
+    .map(
+      i =>
+        [i.enlirItem.id, '"' + removeRealm(i.enlirItem, i.updateName!) + '"'] as [number, string],
+    );
+  if (renames.length) {
+    callback(`update-enlir.ts rename ${tabName} ${_.flatten(renames).join(' ')}`);
   }
 }
 
