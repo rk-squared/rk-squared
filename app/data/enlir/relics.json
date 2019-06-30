@@ -13092,7 +13092,7 @@
       "eva": null
     },
     "id": 21002350,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Apocalypse",
@@ -21822,7 +21822,7 @@
       "eva": null
     },
     "id": 21002125,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Brotherhood",
@@ -43692,7 +43692,7 @@
       "eva": null
     },
     "id": 21007136,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Tidal Knuckles",
@@ -47157,7 +47157,7 @@
       "eva": null
     },
     "id": 21007084,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Cat's Claws",
@@ -52602,7 +52602,7 @@
       "eva": null
     },
     "id": 21008232,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Grand Mace",
@@ -57732,7 +57732,7 @@
       "eva": null
     },
     "id": 21008167,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mythril Rod",
@@ -62502,7 +62502,7 @@
       "eva": null
     },
     "id": 21009143,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Staff of the Magi",
@@ -98412,7 +98412,7 @@
       "eva": 105
     },
     "id": 22051081,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Defense Veil",
@@ -112047,7 +112047,7 @@
       "eva": 100
     },
     "id": 22053375,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Aurochs Uniform",
@@ -129417,7 +129417,7 @@
       "eva": 105
     },
     "id": 22056246,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Emerald Bracer",
@@ -142245,7 +142245,7 @@
     "gl": false
   },
   {
-    "name": "Extinction",
+    "name": "Extension",
     "realm": "IX",
     "type": "Accessory",
     "rarity": 5,
@@ -142287,7 +142287,7 @@
       "eva": null
     },
     "id": 23080463,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rosetta Ring",

@@ -40,6 +40,23 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           </td>
         </tr>
         <tr
+          className="unowned synchro jp"
+        >
+          <td
+            className="tier"
+          >
+            Sy
+          </td>
+          <td
+            className="name"
+          >
+            “Sanguined Dragoon”
+          </td>
+          <td>
+            phys ?/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s
+          </td>
+        </tr>
+        <tr
           className="awakening"
         >
           <td
@@ -150,6 +167,23 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           </td>
           <td>
             instant no air time 15s, instacast 1
+          </td>
+        </tr>
+        <tr
+          className="unowned glint jp"
+        >
+          <td
+            className="tier"
+          >
+            G
+          </td>
+          <td
+            className="name"
+          >
+            “Lightning Rise”
+          </td>
+          <td>
+            instant lgt infuse stacking 25s, lgt infuse 25s, self hi fastcast 2
           </td>
         </tr>
         <tr
@@ -418,6 +452,23 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
+          className="synchro jp"
+        >
+          <td
+            className="tier"
+          >
+            Sy
+          </td>
+          <td
+            className="name"
+          >
+            “Sanguined Dragoon”
+          </td>
+          <td>
+            phys ?/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s
+          </td>
+        </tr>
+        <tr
           className="awakening"
         >
           <td
@@ -528,6 +579,23 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
           <td>
             instant no air time 15s, instacast 1
+          </td>
+        </tr>
+        <tr
+          className="glint jp"
+        >
+          <td
+            className="tier"
+          >
+            G
+          </td>
+          <td
+            className="name"
+          >
+            “Lightning Rise”
+          </td>
+          <td>
+            instant lgt infuse stacking 25s, lgt infuse 25s, self hi fastcast 2
           </td>
         </tr>
         <tr

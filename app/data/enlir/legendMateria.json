@@ -2047,7 +2047,7 @@
     "master": "MND +10",
     "relic": "Rosa's Hairpiece (IV)",
     "nameJp": "慈愛の恵み",
-    "id": null,
+    "id": 201040604,
     "anima": null,
     "gl": false
   },
@@ -2275,7 +2275,7 @@
     "master": "MAG +10",
     "relic": "Face Rod (IV)",
     "nameJp": "名高き老魔道士",
-    "id": null,
+    "id": 201041104,
     "anima": null,
     "gl": false
   },
@@ -5469,7 +5469,7 @@
     "nameJp": "試練を越えし姫",
     "id": 201090204,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -5541,7 +5541,7 @@
     "nameJp": "潜在する魔道の力",
     "id": 201090304,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -5601,7 +5601,7 @@
     "nameJp": "身につけた判断力",
     "id": 201090404,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -5805,7 +5805,7 @@
     "nameJp": "クールな用心棒",
     "id": 201090803,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",

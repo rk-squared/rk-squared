@@ -3717,6 +3717,12 @@ Array [
     "name": "Patrician Beauty",
   },
   Object {
+    "character": "Rosa",
+    "description": "(W.Mag ⤇ 25% for party h25)",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "name": "Affectionate Blessing",
+  },
+  Object {
     "character": "Roxas",
     "description": "1.1x holy dmg",
     "effect": "Increases Holy damage dealt by 10%",
@@ -4375,6 +4381,12 @@ Array [
     "description": "earth infuse at battle start",
     "effect": "Grants Attach Earth at the beginning of the battle",
     "name": "Learned Sage",
+  },
+  Object {
+    "character": "Tellah",
+    "description": "25% dualcast earth",
+    "effect": "25% chance to dualcast abilities that deal Earth damage",
+    "name": "Distinguished Sage",
   },
   Object {
     "character": "Terra",

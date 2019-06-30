@@ -8374,6 +8374,51 @@
   },
   {
     "realm": "IV",
+    "character": "Kain",
+    "name": "Sanguined Dragoon",
+    "tier": "SASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single ranged jump attacks (? each), grants Attach Lightning 3 with Stacking, Damage Cap +10000 and Synchro Mode to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "soulbreakBonus": "Damage Up, Cast Time Down",
+    "relic": "Gae Bolg (IV)",
+    "nameJp": "ドラグーンオブブラッド",
+    "id": 20080016,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Kain",
+    "name": "Lightning Rise",
+    "tier": "Glint",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Attach Lightning Stacking, Attach Lightning and High Quick Cast 2",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 250,
+    "soulbreakBonus": "ATK +10",
+    "relic": "Hero's Shield (IV)",
+    "nameJp": "竜即雷衣",
+    "id": 20080017,
+    "gl": false
+  },
+  {
+    "realm": "IV",
     "character": "Rydia",
     "name": "Summon Eidolon I",
     "nameNote": "Alias name: Chocobo Kick",
@@ -9407,6 +9452,51 @@
   },
   {
     "realm": "IV",
+    "character": "Palom",
+    "name": "Thunderstorm Warning",
+    "tier": "AASB",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (? each), grants Attach Lightning, Awoken Lightning, Damage Cap +10000 and Rising Thunder to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "soulbreakBonus": "MAG +10",
+    "relic": "Prism Rod (IV)",
+    "nameJp": "サンダーシンドローム",
+    "id": 22210008,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Palom",
+    "name": "Thundercharge",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Attach Lightning Stacking, Attach Lightning and Instant Cast 1",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "soulbreakBonus": "MAG +10",
+    "relic": "Octagonal Rod (IV)",
+    "nameJp": "サンダークロース",
+    "id": 22210009,
+    "gl": false
+  },
+  {
+    "realm": "IV",
     "character": "Porom",
     "name": "Cry",
     "tier": "Default",
@@ -9690,6 +9780,74 @@
     "id": 20640006,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Tellah",
+    "name": "Sage's Testament",
+    "tier": "AASB",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (? each), grants Attach Earth, Awoken Earth, Damage Cap +10000 and Unleashed Earth to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "soulbreakBonus": "MAG +10",
+    "relic": "Elder Staff (IV)",
+    "nameJp": "老賢者の啓示",
+    "id": 20640007,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Tellah",
+    "name": "Sage's Scars",
+    "tier": "AOSB",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Earth"
+    ],
+    "time": 2.5,
+    "effects": "Three single attacks (? each) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 750,
+    "soulbreakBonus": "MAG +10",
+    "relic": "Dragon Rod (IV)",
+    "nameJp": "老賢者の剛痕",
+    "id": 20640008,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Tellah",
+    "name": "Reminiscing Memories",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Attach Earth Stacking, Attach Earth and Instant Cast 1",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "soulbreakBonus": "MAG +10",
+    "relic": "Wizard Rod (IV)",
+    "nameJp": "回顧する地層",
+    "id": 20640009,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -25447,7 +25605,7 @@
     "nameJp": "決意の雷鳴",
     "id": 20360011,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -25472,7 +25630,7 @@
     "nameJp": "美姫の召喚魔法",
     "id": 20360012,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -25832,7 +25990,7 @@
     "nameJp": "どたばたマジック",
     "id": 20370012,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -26146,7 +26304,7 @@
     "nameJp": "盲進スタイナー",
     "id": 20570012,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -26995,7 +27153,7 @@
     "nameJp": "爆裂秘孔拳",
     "id": 20870007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -27017,7 +27175,7 @@
     "nameJp": "アウトロースピリット",
     "id": 20870008,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -39265,6 +39423,30 @@
     "nameJp": "プライズ・ハント",
     "id": 22970007,
     "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Prompto",
+    "name": "Bullet Fan",
+    "tier": "Glint+",
+    "type": null,
+    "target": null,
+    "formula": null,
+    "multiplier": null,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (? each), causes Imperil Lightning 20% for 15 seconds",
+    "counter": false,
+    "autoTarget": null,
+    "points": 0,
+    "soulbreakBonus": "ATK +10",
+    "relic": "Battle Jacket (XV)",
+    "nameJp": "バレットファン",
+    "id": 22970008,
     "gl": false
   },
   {
