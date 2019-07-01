@@ -164,7 +164,7 @@
       "NE"
     ],
     "time": 1.2,
-    "effects": "5/10 single attacks (0.80 each) if user has Lightning Aura level 0/1, set Lightning Aura level to 0",
+    "effects": "5/10 single attacks (0.80 each) if user has Lightning Aura level 0/1, grants Instant ATB 1 to the user if user has Lightning Aura level 1, set Lightning Aura level to 0",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -202,7 +202,7 @@
   {
     "character": "Rinoa",
     "source": "Angel Wing Vast Earth",
-    "name": "True Magic: Collapse",
+    "name": "True Magic Collapse",
     "synchroAbilitySlot": 1,
     "synchroCondition": "Earth",
     "type": "BLK",
@@ -227,7 +227,7 @@
   {
     "character": "Rinoa",
     "source": "Angel Wing Vast Earth",
-    "name": "True Magic: Stone",
+    "name": "True Magic Magma",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Earth",
     "type": "BLK",

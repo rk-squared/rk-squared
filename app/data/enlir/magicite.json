@@ -3960,6 +3960,62 @@
     "gl": true
   },
   {
+    "element": "Water",
+    "name": "Leviathan",
+    "realm": "V",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite Dawn, Part 15",
+    "stats": {
+      "hp": 5371,
+      "atk": 265,
+      "def": 232,
+      "mag": 265,
+      "res": 232,
+      "mnd": 232,
+      "spd": 163
+    },
+    "passives": {
+      "Aqua Blessing": {
+        "1": 5,
+        "10": 6,
+        "25": 7,
+        "50": 8,
+        "65": 10,
+        "80": 12,
+        "81": 12,
+        "90": 13,
+        "99": 15
+      },
+      "Omni Boon": {
+        "1": 4,
+        "10": 4,
+        "25": 4,
+        "50": 6,
+        "65": 7,
+        "80": 8,
+        "81": 8,
+        "90": 8,
+        "99": 10
+      }
+    },
+    "cooldown": 10,
+    "duration": 10,
+    "magiciteUltraSkill": {
+      "name": "Ultra Tidal Wave",
+      "type": "NAT",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": null,
+      "multiplier": null,
+      "element": null,
+      "time": 0.01,
+      "effects": "One single attack that deals 99999 damage, grants Medium Buff Water to all allies",
+      "counter": false
+    },
+    "nameJp": "【契】タイダルウエイブ",
+    "id": 161000099,
+    "gl": false
+  },
+  {
     "element": "Holy",
     "name": "Cure Beast",
     "realm": "V",

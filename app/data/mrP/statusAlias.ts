@@ -101,6 +101,8 @@ export const statusAlias: AliasMap = {
     // thresholds, but that seems needlessly complicated.
     'Magical Blink': 'Magic blink',
     'Physical Blink': 'Phys blink',
+
+    'Ability Berserk': 'Abil. berserk',
   },
 
   numbered: {
@@ -222,6 +224,7 @@ for (const i of allEnlirElements) {
     'Reflect Dmg {X}% as ' + getElementShortName(i);
   statusAlias.numbered[`Overflow ${i} Radiant Shield: {X}%`] =
     'Reflect Dmg {X}% as overstrike ' + getElementShortName(i);
+  addCastSpeedAliases(statusAlias.simple, i, getElementShortName(i));
 }
 for (const i of allEnlirSchools) {
   addCastSpeedAliases(statusAlias.numbered, i, getSchoolShortName(i), ' {X}');

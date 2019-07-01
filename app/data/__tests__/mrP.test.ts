@@ -2309,6 +2309,24 @@ Object {
           'party +10% lgt dmg if ≥3 females in party 15s), ' +
           '15s: Awoken Lightning: lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      // TODO: Ideally, we'd indicate that the "once only" applies to both bonuses.
+      expect(describeSoulBreak('Barret - AASB')).toEqual({
+        damage: 'phys 9.0/15 fire+wind+non rngd',
+        other:
+          'fire infuse 25s, self dmg cap +10k 15s, ' +
+          '15s: (1/2/3/4 fire ⤇ 1.15-1.3-1.5-1.75x fire dmg), ' +
+          '(4 fire ⤇ p7.5/15 f+n rngd Machinist, once only), ' +
+          '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Ramza - AASB')).toEqual({
+        damage: 'phys 9.0/15 holy+non',
+        other:
+          'holy infuse 25s, self dmg cap +10k 15s, ' +
+          '15s: (2 Knight ⤇ self +250 SB pts, instacast 1, once only), ' +
+          '15s: Awoken Knight: Knight inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles synchro soul breaks', () => {

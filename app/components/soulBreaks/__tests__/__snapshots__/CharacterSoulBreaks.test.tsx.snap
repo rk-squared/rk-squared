@@ -153,7 +153,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           </td>
         </tr>
         <tr
-          className="unowned glint jp"
+          className="unowned glint"
         >
           <td
             className="tier"
@@ -163,7 +163,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="name"
           >
-            “Dragon's Descent”
+            Dragon's Descent
           </td>
           <td>
             instant no air time 15s, instacast 1
@@ -302,7 +302,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           </td>
         </tr>
         <tr
-          className="unowned legendMateria jp"
+          className="unowned legendMateria"
         >
           <td
             className="tier"
@@ -316,7 +316,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="name"
           >
-            “Dragoon Resolute”
+            Dragoon Resolute
           </td>
           <td>
             25% dualcast Dragoon
@@ -565,7 +565,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
-          className="glint jp"
+          className="glint"
         >
           <td
             className="tier"
@@ -575,7 +575,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="name"
           >
-            “Dragon's Descent”
+            Dragon's Descent
           </td>
           <td>
             instant no air time 15s, instacast 1
@@ -714,7 +714,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
-          className="legendMateria jp"
+          className="legendMateria"
         >
           <td
             className="tier"
@@ -728,7 +728,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="name"
           >
-            “Dragoon Resolute”
+            Dragoon Resolute
           </td>
           <td>
             25% dualcast Dragoon

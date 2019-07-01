@@ -827,12 +827,13 @@ function patchEnlir() {
       (command.effects =
         'One single attack (6.00/8.00), capped at 99999, scaling with Sonic Rush+ uses, reset'),
   );
+  // FIXME: Correctly handle conditional Instant ATB 1
   applyPatch(
     enlir.synchroCommands,
     '30546020',
     command =>
       command.effects ===
-      '5/10 single attacks (0.80 each) if user has Lightning Aura level 0/1, set Lightning Aura level to 0',
+      '5/10 single attacks (0.80 each) if user has Lightning Aura level 0/1, grants Instant ATB 1 to the user if user has Lightning Aura level 1, set Lightning Aura level to 0',
     command =>
       (command.effects = '5/10 single attacks (0.80 each) scaling with Lightning Howl uses, reset'),
   );

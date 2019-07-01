@@ -578,6 +578,15 @@ export function describeEnlirSoulBreak(
       } = thisStatus;
       // tslint:enable: prefer-const
 
+      if ('source' in sb && sb.source === statusName && removes) {
+        if (selfOther.length) {
+          selfOther.push('once only');
+        } else {
+          other.push('once only');
+        }
+        return;
+      }
+
       if (!includeStatus(statusName, { removes })) {
         return;
       }

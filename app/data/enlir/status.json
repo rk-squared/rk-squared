@@ -2562,6 +2562,17 @@
     "notes": "Not used"
   },
   {
+    "id": 2250,
+    "name": "Lightning Instant Cast",
+    "effects": "Cast speed x9999999 for Lightning attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_MAX_15000_ELEMENT_ID_LIGHTNING",
+    "notes": null
+  },
+  {
     "id": 226,
     "name": "Imp",
     "effects": "",
@@ -9479,7 +9490,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "ADD_SS_POINT_WHEN_SET_GAUGE_1",
+    "codedName": "INCREASE_SS_POINT_WHEN_SET_GAUGE_1",
     "notes": null
   },
   {
@@ -11368,6 +11379,17 @@
     "notes": null
   },
   {
+    "id": 50553,
+    "name": "Flag of Rebellion Follow-Up",
+    "effects": "Casts Flag of Rebellion after using two Knight abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "FATE_OF_FLAG_MODE",
+    "notes": null
+  },
+  {
     "id": 50555,
     "name": "Royal Archives' Teachings Follow-Up",
     "effects": "Casts Royal Archives' Teachings after using 3 Black Magic or Summoning abillities",
@@ -11543,6 +11565,28 @@
     "notes": null
   },
   {
+    "id": 50570,
+    "name": "Awoken Flash Earth",
+    "effects": "Earth abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, cast speed x9999999 for Earth abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_MOMENT_EARTH",
+    "notes": null
+  },
+  {
+    "id": 50572,
+    "name": "Planet Creator Mode",
+    "effects": "Earth attacks deal 50% more damage, casts Planet Apocalypse after using five Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RUMBLING_OF_THE_EARTH_MODE",
+    "notes": null
+  },
+  {
     "id": 50573,
     "name": "Grand Blow Follow-Up",
     "effects": "Casts Grand Blow after using four Earth attacks",
@@ -11551,6 +11595,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_SWORD_FIELD",
+    "notes": null
+  },
+  {
+    "id": 50576,
+    "name": "Anger Heat Up Mode",
+    "effects": "Fire attacks deal 15/30/50/75% more damage after using 1/2/3/4 Fire attacks, casts Flame Bomber after using four Fire attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ANGER_HEAT_UP_MODE",
     "notes": null
   },
   {
@@ -11765,11 +11820,15 @@
   {
     "id": 50613,
     "name": "Ability Berserk",
-    "effects": "",
+    "effects": "Forces a random available action, excluding Defend, affects targeting, Berserk, Confuse, Paralyze, Stop are prioritized",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All \"Retaliate\" status",
+      "Rage",
+      "Green Cherry"
+    ],
     "codedName": "ABILITY_BERSERKER",
     "notes": null
   },

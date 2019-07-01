@@ -36180,6 +36180,51 @@
     "gl": true
   },
   {
+    "name": "Gae Bolg",
+    "realm": "IV",
+    "type": "Spear",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Lightning damage +20%",
+    "character": "Kain",
+    "soulBreak": "Sanguined Dragoon",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21006160,
+    "gl": false
+  },
+  {
     "name": "Trident",
     "realm": "II",
     "type": "Spear",
@@ -51075,6 +51120,186 @@
     "gl": false
   },
   {
+    "name": "Prism Rod",
+    "realm": "IV",
+    "type": "Rod",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 81,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Lightning damage +20%",
+    "character": "Palom",
+    "soulBreak": "Thunderstorm Warning",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": 58,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": 90,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008291,
+    "gl": false
+  },
+  {
+    "name": "Octagonal Rod",
+    "realm": "IV",
+    "type": "Rod",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 174,
+      "res": 0,
+      "mnd": 81,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Palom",
+    "soulBreak": "Thundercharge",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 129,
+      "res": null,
+      "mnd": 58,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 192,
+      "res": null,
+      "mnd": 90,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008248,
+    "gl": false
+  },
+  {
+    "name": "Dragon Rod",
+    "realm": "IV",
+    "type": "Rod",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 140,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Tellah",
+    "soulBreak": "Sage's Scars",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": 96,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": 158,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008297,
+    "gl": false
+  },
+  {
+    "name": "Wizard Rod",
+    "realm": "IV",
+    "type": "Rod",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 174,
+      "res": 0,
+      "mnd": 140,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Tellah",
+    "soulBreak": "Reminiscing Memories",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 129,
+      "res": null,
+      "mnd": 96,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 192,
+      "res": null,
+      "mnd": 158,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008292,
+    "gl": false
+  },
+  {
     "name": "Stardust Rod",
     "realm": "V",
     "type": "Rod",
@@ -55078,6 +55303,51 @@
     },
     "id": 21008121,
     "gl": true
+  },
+  {
+    "name": "Rod of Faith",
+    "realm": "IV",
+    "type": "Rod",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 55,
+      "def": 0,
+      "mag": 143,
+      "res": 0,
+      "mnd": 105,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Tellah",
+    "soulBreak": null,
+    "legendMateria": "Distinguished Sage",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 35,
+      "def": null,
+      "mag": 109,
+      "res": null,
+      "mnd": 72,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 65,
+      "def": null,
+      "mag": 160,
+      "res": null,
+      "mnd": 122,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008130,
+    "gl": false
   },
   {
     "name": "Lilith Rod",
@@ -62187,6 +62457,51 @@
       "eva": null
     },
     "id": 21009169,
+    "gl": false
+  },
+  {
+    "name": "Elder Staff",
+    "realm": "IV",
+    "type": "Staff",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 140,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Tellah",
+    "soulBreak": "Sage's Testament",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": 96,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": 158,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009139,
     "gl": false
   },
   {
@@ -92025,6 +92340,51 @@
     "gl": true
   },
   {
+    "name": "Hero's Shield",
+    "realm": "IV",
+    "type": "Shield",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 17,
+      "def": 140,
+      "mag": 0,
+      "res": 93,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 112
+    },
+    "effect": null,
+    "character": "Kain",
+    "soulBreak": "Lightning Rise",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 10,
+      "def": 114,
+      "mag": null,
+      "res": 75,
+      "mnd": null,
+      "acc": null,
+      "eva": 112
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 20,
+      "def": 153,
+      "mag": null,
+      "res": 102,
+      "mnd": null,
+      "acc": null,
+      "eva": 112
+    },
+    "id": 22050052,
+    "gl": false
+  },
+  {
     "name": "Aegis Shield",
     "realm": "V",
     "type": "Shield",
@@ -96252,7 +96612,7 @@
       "eva": 105
     },
     "id": 22051156,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Hairpiece",
@@ -103722,7 +104082,7 @@
       "eva": 100
     },
     "id": 22053367,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Edge’s Guise",
@@ -138597,6 +138957,51 @@
       "eva": null
     },
     "id": 23080486,
+    "gl": false
+  },
+  {
+    "name": "Baron Key",
+    "realm": "IV",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 15,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Water resistance (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 15,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 15,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080313,
     "gl": false
   },
   {
