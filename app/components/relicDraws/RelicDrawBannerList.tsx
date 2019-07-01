@@ -111,6 +111,7 @@ const RelicDrawBannerLink = ({
 }: RelicLinkProps<RelicDrawBannerDetails>) => {
   const closed = currentTime ? isClosed(details, currentTime) : false;
   const count = isAnonymous ? formatTotalCount(details) : formatAvailableCount(details);
+  const userCannotPull = !isAnonymous && !details.canPull;
 
   let mythrilCost = details.cost && details.cost.mythrilCost ? details.cost.mythrilCost : null;
   if (isAnonymous && details.cost && details.cost.firstMythrilCost) {
@@ -118,20 +119,25 @@ const RelicDrawBannerLink = ({
   }
 
   return (
-    <div className={styles.component}>
+    <div
+      className={classNames(styles.component, {
+        [styles.showAsClosed]:
+          closed === 1 || (closed !== -1 && userCannotPull && !details.canSelect),
+      })}
+    >
       <Link to={to}>
         <img className={styles.image} src={details.imageUrl} />
       </Link>
       <div className={styles.details}>
         <span
           className={classNames(styles.count, {
-            ['text-muted']: closed || (!isAnonymous && !details.canPull),
+            ['text-muted']: closed || userCannotPull,
           })}
         >
           {count}
           <Mythril
             className={classNames(styles.mythrilCost, {
-              ['invisible']: !mythrilCost || (!isAnonymous && !details.canPull),
+              ['invisible']: !mythrilCost || userCannotPull,
             })}
           >
             {mythrilCost}

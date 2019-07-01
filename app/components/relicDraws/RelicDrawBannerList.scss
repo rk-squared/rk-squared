@@ -7,6 +7,17 @@
     width: $imgWidth;
   }
 
+  .component.showAsClosed {
+    img.image {
+      filter: grayscale(1);
+      opacity: 0.8;
+    }
+    span {
+      // Duplicated from text-muted
+      color: #6c757d;
+    }
+  }
+
   img.image {
     width: $imgWidth;
     height: $imgHeight;
