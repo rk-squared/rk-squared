@@ -83,6 +83,11 @@ enum WorldSortOrder {
   BySeriesId,
 }
 
+export interface RecordWorldChapter {
+  firstWorldId: number;
+  name: string;
+}
+
 function getSortOrder(category: WorldCategory) {
   switch (category) {
     case WorldCategory.Renewal:
@@ -157,7 +162,7 @@ export const setWorldIcon = createAction(
 
 export const setRecordWorldChapters = createAction(
   'SET_RECORD_WORLD_CHAPTERS',
-  (chapters: Array<{ firstWorldId: number; name: string }>) => ({
+  (chapters: RecordWorldChapter[]) => ({
     type: 'SET_RECORD_WORLD_CHAPTERS',
     payload: chapters,
   }),
