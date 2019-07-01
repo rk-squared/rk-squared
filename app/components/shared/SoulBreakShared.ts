@@ -49,7 +49,7 @@ export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   USB: 'U',
   CSB: 'C',
   AASB: 'AA',
-  SASB: 'Sy',
+  SASB: 'SA',
   RW: '-',
   Shared: '-',
 });

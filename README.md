@@ -6,7 +6,7 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 
 ## To Do
 
-1. Record dungeon chapters
+1. Soul Break updates - Lightning SASB, etc.
 2. Search hotkeys?
 3. Add an explanation of probability calculator
 4. Export to ffrktoolkit.com
