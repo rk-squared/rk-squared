@@ -37,6 +37,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     id: 23410001,
     anima: null,
     gl: false,
+    sortOrder: 0,
   },
   {
     realm: 'KH',
@@ -59,6 +60,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     id: 23410002,
     anima: null,
     gl: false,
+    sortOrder: 1,
   },
   {
     realm: 'KH',
@@ -82,6 +84,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     id: 23410003,
     anima: null,
     gl: false,
+    sortOrder: 2,
   },
   {
     realm: 'KH',
@@ -105,6 +108,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     id: 23410004,
     anima: null,
     gl: false,
+    sortOrder: 3,
   },
   {
     realm: 'XIII',
@@ -127,6 +131,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     id: 22410011,
     anima: null,
     gl: false,
+    sortOrder: 4,
   },
   {
     realm: 'II',
@@ -150,6 +155,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     id: 20190009,
     anima: null,
     gl: false,
+    sortOrder: 5,
   },
   {
     realm: 'VII',
@@ -173,6 +179,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     id: 20230014,
     anima: null,
     gl: false,
+    sortOrder: 6,
   },
 ];
 

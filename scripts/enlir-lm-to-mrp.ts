@@ -2,7 +2,7 @@
 
 import * as _ from 'lodash';
 
-import { enlir } from '../app/data/enlir';
+import { enlir, makeLegendMateriaAliases } from '../app/data/enlir';
 import { describeMrPLegendMateria } from '../app/data/mrP/legendMateria';
 
 // tslint:disable: no-console
@@ -11,6 +11,8 @@ let lastCharacter: string = '';
 
 let totalCount = 0;
 let handledCount = 0;
+
+const aliases = makeLegendMateriaAliases(enlir.legendMateria);
 
 for (const lm of _.sortBy(Object.values(enlir.legendMateria), ['character', 'id'])) {
   if (lm.character !== lastCharacter) {
@@ -24,7 +26,7 @@ for (const lm of _.sortBy(Object.values(enlir.legendMateria), ['character', 'id'
   } else {
     effect = '"' + lm.effect + '"';
   }
-  console.log(lm.name + ': ' + effect);
+  console.log(lm.name + ' (' + aliases[lm.id] + '): ' + effect);
 
   totalCount++;
 

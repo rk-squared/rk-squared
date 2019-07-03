@@ -3,6 +3,13 @@ import { logger } from '../utils/logger';
 
 // TODO: Try removing duplicating in unions and arrays - see https://stackoverflow.com/a/45486495/25507
 
+function addSortOrder(items: any[]): any[] {
+  for (let i = 0; i < items.length; i++) {
+    items[i].sortOrder = i;
+  }
+  return items;
+}
+
 export type EnlirRealm =
   | 'Beyond'
   | 'Core'
@@ -299,6 +306,10 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
   relic: string | null;
   nameJp: string;
   anima: number | null;
+
+  // Added to the spreadsheet to accommodate Balthier's USB1 and USB2, which
+  // aren't in ID order.
+  sortOrder: number;
 }
 
 export interface EnlirStatus {
@@ -364,7 +375,7 @@ const rawData = {
   otherSkills: require('./enlir/otherSkills.json') as EnlirOtherSkill[],
   recordMateria: require('./enlir/recordMateria.json') as EnlirRecordMateria[],
   relics: require('./enlir/relics.json') as EnlirRelic[],
-  soulBreaks: require('./enlir/soulBreaks.json') as EnlirSoulBreak[],
+  soulBreaks: addSortOrder(require('./enlir/soulBreaks.json')) as EnlirSoulBreak[],
   status: require('./enlir/status.json') as EnlirStatus[],
   synchroCommands: require('./enlir/synchro.json') as EnlirSynchroCommand[],
 };
@@ -503,7 +514,7 @@ export const enlir = {
   soulBreaks: _.keyBy(rawData.soulBreaks, 'id'),
   soulBreaksByCharacter: makeCharacterMap(rawData.soulBreaks, [
     (i: EnlirSoulBreak) => tierOrder[i.tier],
-    (i: EnlirSoulBreak) => i.id,
+    (i: EnlirSoulBreak) => i.sortOrder,
   ]),
 
   statusByName: _.keyBy(rawData.status, 'name'),
@@ -982,7 +993,7 @@ export function makeSoulBreakAliases(
   });
 
   const result: { [id: number]: string } = {};
-  _.sortBy(soulBreaks, 'id').forEach(sb => {
+  _.sortBy(soulBreaks, 'sortOrder').forEach(sb => {
     const key = makeKey(sb);
     seen[key] = seen[key] || 0;
     seen[key]++;
