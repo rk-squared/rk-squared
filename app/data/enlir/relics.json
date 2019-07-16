@@ -38742,7 +38742,7 @@
       "eva": null
     },
     "id": 21006013,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Flame Lance",
@@ -129735,7 +129735,7 @@
     "gl": true
   },
   {
-    "name": "Gauntlet",
+    "name": "Gauntlet (DoC)",
     "realm": "VII",
     "type": "Bracer",
     "rarity": 5,
@@ -139275,7 +139275,7 @@
     "gl": false
   },
   {
-    "name": "Ingus' Pendant",
+    "name": "Ingus's Pendant",
     "realm": "III",
     "type": "Accessory",
     "rarity": 5,

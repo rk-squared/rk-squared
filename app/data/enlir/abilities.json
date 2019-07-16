@@ -19145,7 +19145,7 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 7.04,
     "element": [
       "Dark"
     ],

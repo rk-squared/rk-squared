@@ -1076,7 +1076,7 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 5.28,
     "element": [
       "Lightning",
       "NE"

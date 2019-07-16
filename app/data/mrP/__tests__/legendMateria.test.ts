@@ -15,6 +15,15 @@ describe('mrP/legendMateria', () => {
           description: describeMrPLegendMateria(i),
         }),
       );
+
+      // Verify that we can at least attempt to convert each legend materia.
+      for (const i of allLegendMateria) {
+        if (i.description == null) {
+          throw new Error(`Failed to process ${i.character}: ${i.name}: ${i.effect}`);
+        }
+      }
+
+      // Verify the legend materia as a whole to catch additional errors and regressions.
       expect(allLegendMateria).toMatchSnapshot();
     });
   });

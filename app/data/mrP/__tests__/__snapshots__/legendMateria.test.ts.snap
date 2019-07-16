@@ -441,6 +441,12 @@ Array [
     "name": "Armed and Dangerous",
   },
   Object {
+    "character": "Barret",
+    "description": "25?% dualcast Machinist",
+    "effect": "25?% chance to dualcast Machinist abilities",
+    "name": "AVALANCHE's Leader",
+  },
+  Object {
     "character": "Bartz",
     "description": "1.15x Spellblade dmg",
     "effect": "Spellblade abilities deal 15% more damage",
@@ -697,6 +703,18 @@ Array [
     "description": "30% cover PHY w/ -20% dmg taken",
     "effect": "30% chance to cover PHY attacks that target allies, reducing damage taken by 20%",
     "name": "His Father's Justice",
+  },
+  Object {
+    "character": "Ceodore",
+    "description": "holy infuse at battle start",
+    "effect": "Grants Attach Holy at the beginning of the battle",
+    "name": "Innocent Prince",
+  },
+  Object {
+    "character": "Ceodore",
+    "description": "25?% dualcast holy",
+    "effect": "25?% chance to dualcast abilities that deal Holy damage",
+    "name": "Lunarian Successor",
   },
   Object {
     "character": "Cid (IV)",
@@ -1075,6 +1093,12 @@ Array [
     "description": "(B.Mag/Summon ⤇ 35% for fastcast 1)",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Black Magic or Summoning ability",
     "name": "Overflowing Magic",
+  },
+  Object {
+    "character": "Dr. Mog",
+    "description": "(<20% HP ⤇ 1.25x elem dmg? 25s)",
+    "effect": "Grants Elemental Boost? when HP fall below 20%",
+    "name": "History Institute Leader's Potential",
   },
   Object {
     "character": "Echo",
@@ -2685,6 +2709,12 @@ Array [
     "name": "Sower of Doubt",
   },
   Object {
+    "character": "Marach",
+    "description": "(lgt ⤇ 20% for +10% lgt vuln.)",
+    "effect": "20% chance to cause Minor Imperil Lightning to the target after using a Lightning ability on an enemy",
+    "name": "Descendant of Galthena",
+  },
+  Object {
     "character": "Marche",
     "description": "1.1x holy dmg",
     "effect": "Increases Holy damage dealt by 10%",
@@ -3439,6 +3469,12 @@ Array [
     "description": "25% dualcast holy",
     "effect": "25% chance to dualcast abilities that deal Holy damage",
     "name": "Ambitious Knight",
+  },
+  Object {
+    "character": "Ramza",
+    "description": "holy infuse at battle start",
+    "effect": "Grants Attach Holy at the beginning of the battle",
+    "name": "Honorable Lineage",
   },
   Object {
     "character": "Rapha",
@@ -4221,6 +4257,12 @@ Array [
     "name": "Edge of Eternity",
   },
   Object {
+    "character": "Shelke",
+    "description": "25% dualcast Celerity",
+    "effect": "25% chance to dualcast Celerity abilities",
+    "name": "Event Rewriter",
+  },
+  Object {
     "character": "Sice",
     "description": "1.1x dark dmg",
     "effect": "Increases Dark damage dealt by 10%",
@@ -4729,6 +4771,12 @@ Array [
     "description": "(WHT ⤇ 25% for +30% healing 10s)",
     "effect": "25% chance to grant Heals +30% for 10 seconds to the user after using a WHT ability",
     "name": "Constant Companion",
+  },
+  Object {
+    "character": "Vanille",
+    "description": "(Support ⤇ 35?% for fastcast 1)",
+    "effect": "35?% chance to grant Quick Cast 1 to the user after using a Support ability",
+    "name": "Time of Waking",
   },
   Object {
     "character": "Vayne",
