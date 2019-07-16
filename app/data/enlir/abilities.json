@@ -8755,19 +8755,50 @@
     "type": "SUM",
     "target": "All enemies",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 18.92,
     "element": [
       "Lightning"
     ],
     "time": 1.8,
-    "effects": "Four group attacks (? each), minimum damage 2000",
+    "effects": "Four group attacks (4.73 each), minimum damage 2000",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 90,
     "uses": 2,
-    "max": null,
-    "orbs": {},
-    "id": null,
+    "max": 6,
+    "orbs": {
+      "Summoning Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Lightning Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Pride of the Dark Dragoon",
+    "nameJp": "H･イクシオン",
+    "id": 30131421,
     "gl": false
   },
   {
@@ -10721,7 +10752,7 @@
       "NE"
     ],
     "time": 1.5,
-    "effects": "Five single ranged jump attacks (1.18 each), air time (3.50 sec.), 1.29/1.41/1.53/1.65/1.77 multiplier if 1/2/3/4/5 allies in air",
+    "effects": "Five single ranged jump attacks (1.18 each), air time (2.50 sec.), 1.29/1.41/1.53/1.65/1.77 multiplier if 1/2/3/4/5 allies in air",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 100,
@@ -11979,9 +12010,62 @@
         0
       ]
     },
-    "introducingEvent": "Black Fat Chocobo: Earth",
+    "introducingEvent": "Fat Black Chocobo Event: Earth",
     "nameJp": "軒昂の構え",
     "id": 30191201,
+    "gl": false
+  },
+  {
+    "school": "Monk",
+    "name": "Lightning Jab",
+    "rarity": 6,
+    "type": null,
+    "target": null,
+    "formula": null,
+    "multiplier": null,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Five Single Attacks (? each). Cast time 1.65?/?/? scaling with uses",
+    "counter": false,
+    "autoTarget": null,
+    "sb": null,
+    "uses": null,
+    "max": null,
+    "orbs": {
+      "Fire Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Lightning Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": null,
+    "nameJp": "瞬拳・雷の型",
+    "id": 30191211,
     "gl": false
   },
   {
@@ -12574,6 +12658,59 @@
     "nameJp": "ヒートバイト",
     "id": 30201121,
     "gl": true
+  },
+  {
+    "school": "Thief",
+    "name": "Aqua Lower",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.2,
+    "element": [
+      "Water"
+    ],
+    "time": 1.2,
+    "effects": "Four single attacks (0.80 each), causes Minor Imperil Water every other cast",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Wind Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Dark Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Pride of the Dark Dragoon",
+    "nameJp": "アクアロウアー",
+    "id": 30201131,
+    "gl": false
   },
   {
     "school": "Knight",
@@ -15164,7 +15301,7 @@
         0
       ]
     },
-    "introducingEvent": "Blazing Dawn",
+    "introducingEvent": "Battle That Burns Until Dawn",
     "nameJp": "木端微塵",
     "id": 30231185,
     "gl": false
@@ -17002,7 +17139,7 @@
         0
       ]
     },
-    "introducingEvent": "Electrifying Wishes",
+    "introducingEvent": "Fat Black Chocobo Event: Lightning",
     "nameJp": "プラズマオファ",
     "id": 30261161,
     "gl": false
@@ -18147,6 +18284,59 @@
     "gl": false
   },
   {
+    "school": "Sharpshooter",
+    "name": "Trinity Bullet",
+    "rarity": 6,
+    "type": null,
+    "target": null,
+    "formula": null,
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "Water",
+      "Ice"
+    ],
+    "time": 1.65,
+    "effects": "Four single ranged attacks (? each). Grants Sharpshooter Quick Cast 2? to the user. ? multiplier when equipping a ranged weapon",
+    "counter": false,
+    "autoTarget": null,
+    "sb": null,
+    "uses": null,
+    "max": null,
+    "orbs": {
+      "Fire Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ice Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Lightning Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "id": null,
+    "gl": false
+  },
+  {
     "school": "Witch",
     "name": "Hell Thunder",
     "rarity": 5,
@@ -18946,6 +19136,59 @@
     "introducingEvent": "Raise the Vermilion Banner",
     "nameJp": "クエイクスイング",
     "id": 30311081,
+    "gl": false
+  },
+  {
+    "school": "Heavy",
+    "name": "Darkness Swing",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "4/5/8 single attacks (1.00/1.00/0.88? each) at Heavy Charge 0/1/2, causes Imperil Dark 10% for 15 seconds at Heavy Charge 2, causes Heavy Charge =0 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Earth Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Dark Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Poems for the Planet",
+    "nameJp": "ダークネススイング",
+    "id": 30311091,
     "gl": false
   }
 ]

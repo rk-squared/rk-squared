@@ -825,8 +825,8 @@ function patchEnlir() {
     '30547053',
     command =>
       command.effects ===
-      'Six single attacks (0.9 each), grants Wind +50% Boost 1 and Mako Enhance level 1 to the user',
-    command => (command.effects = 'Six single attacks (0.9 each), grants Wind +50% Boost 1'),
+      'Six single attacks (0.90 each), grants Wind +50% Boost 1 and Mako Enhance level 1 to the user',
+    command => (command.effects = 'Six single attacks (0.90 each), grants Wind +50% Boost 1'),
   );
   applyPatch(
     enlir.synchroCommands,

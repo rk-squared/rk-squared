@@ -2118,7 +2118,7 @@ Object {
           'self dmg cap +10k 15s, 15s: Awoken Holy: holy inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
-      expect(describeSoulBreak('Cloud - AASB')).toEqual({
+      expect(describeSoulBreak('Cloud - AASB1')).toEqual({
         damage: 'phys 9.0/15 wind+non',
         other:
           'wind infuse 25s, self dmg cap +10k 15s, crit =100% 25s, hi fastcast 15s, ' +

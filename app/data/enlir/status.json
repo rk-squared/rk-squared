@@ -2573,6 +2573,17 @@
     "notes": null
   },
   {
+    "id": 2251,
+    "name": "Jump High Quick Cast 2",
+    "effects": "Cast speed x3.00 for Jump attacks, lasts for 2 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_MAX_2_FLIGHT_ATTACK",
+    "notes": null
+  },
+  {
     "id": 226,
     "name": "Imp",
     "effects": "",
@@ -4676,6 +4687,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_EARTH_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
+    "id": 282201,
+    "name": "Wind +30% Boost 3",
+    "effects": "Wind attacks deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_WIND_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -7089,7 +7111,7 @@
   {
     "id": 50143,
     "name": "EX: True Form",
-    "effects": "ATK +30%, casts Air Hazard after using a Wind attack",
+    "effects": "ATK +30%, casts Storm Hazard after using a Wind attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9927,8 +9949,8 @@
   },
   {
     "id": 50417,
-    "name": "EX: Mystic Radiance",
-    "effects": "MAG +30%, casts Divine Serpent's Blessing after using two White Magic or Summoning attacks",
+    "name": "EX: Esoteric Light",
+    "effects": "MAG +30%, casts Serpent's Blessing after using two White Magic or Summoning attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10182,8 +10204,8 @@
   },
   {
     "id": 50441,
-    "name": "Turks Bullet Follow-Up",
-    "effects": "Casts Turks Bullet after using two Fire attacks",
+    "name": "Turk Pistol Follow-Up",
+    "effects": "Casts Turk Pistol after using two Fire attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11390,6 +11412,17 @@
     "notes": null
   },
   {
+    "id": 50554,
+    "name": "Fateful Mantra",
+    "effects": "Grants 40% Damage Reduction Barrier 1 to all allies after using a Lightning attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TWO_SIDES_OF_THE_SAME",
+    "notes": null
+  },
+  {
     "id": 50555,
     "name": "Royal Archives' Teachings Follow-Up",
     "effects": "Casts Royal Archives' Teachings after using 3 Black Magic or Summoning abillities",
@@ -11598,6 +11631,17 @@
     "notes": null
   },
   {
+    "id": 50574,
+    "name": "Wind High Quick Cycle",
+    "effects": "Grants High Quick Cast 1 after using a Wind attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INFLICT_CHANGE_CAST_TIME_300_1_ALL_IF_WIND_ELEMENT",
+    "notes": null
+  },
+  {
     "id": 50576,
     "name": "Anger Heat Up Mode",
     "effects": "Fire attacks deal 15/30/50/75% more damage after using 1/2/3/4 Fire attacks, casts Flame Bomber after using four Fire attacks",
@@ -11631,6 +11675,28 @@
     "notes": null
   },
   {
+    "id": 50580,
+    "name": "Holy Valkyrie Mode",
+    "effects": "Casts Cross Break after using three Holy attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "HOLY_WAR_MAIDEN_MODE",
+    "notes": null
+  },
+  {
+    "id": 50581,
+    "name": "New Red Wings Mode",
+    "effects": "Critical chance =100%, increases Holy damage dealt by 50% and cast speed x9999999 for three turns",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "NEW_RED_WING_MODE",
+    "notes": null
+  },
+  {
     "id": 50582,
     "name": "Instant ATB 1",
     "effects": "Increase ATB charge speed by x9999999, lasts for 1 turn",
@@ -11650,6 +11716,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_IMPERIAL_HEAL_2",
+    "notes": null
+  },
+  {
+    "id": 50585,
+    "name": "Twin Rush",
+    "effects": "Grants Physical High Quick Cast 1 to all allies in the front row after using a Holy ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TWIN_RASH",
     "notes": null
   },
   {
@@ -11818,10 +11895,43 @@
     "notes": null
   },
   {
+    "id": 50609,
+    "name": "Rising Thunder",
+    "effects": "Cast speed x2.00, grants Minor Buff Lightning after using a Lightning attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "THUNDER_RISE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50610,
+    "name": "Unleashed Earth",
+    "effects": "Cast speed x2.00 for abilities that deal Earth damage, Earth attacks generate 25% more SB points",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "EARTH_RELEASE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50611,
+    "name": "Spark Spear Follow-Up",
+    "effects": "Casts Spark Spear after using three Lightning abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DRAGOON_OF_BLOOD",
+    "notes": null
+  },
+  {
     "id": 50613,
     "name": "Ability Berserk",
     "effects": "Forces a random available action, excluding Defend, affects targeting, Berserk, Confuse, Paralyze, Stop are prioritized",
-    "defaultDuration": null,
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
@@ -11830,6 +11940,39 @@
       "Green Cherry"
     ],
     "codedName": "ABILITY_BERSERKER",
+    "notes": null
+  },
+  {
+    "id": 50616,
+    "name": "Fire High Quick Cycle",
+    "effects": "Grants High Quick Cast 1 after using a Fire attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INFLICT_CHANGE_CAST_TIME_300_1_ALL_IF_FIRE_ELEMENT",
+    "notes": null
+  },
+  {
+    "id": 50617,
+    "name": "Heat Recital Follow-Up",
+    "effects": "Casts Heat Recital after using a Fire attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EPIC_OF_GENESIS",
+    "notes": null
+  },
+  {
+    "id": 50618,
+    "name": "Genesis Trance",
+    "effects": "ATK +30%, 50% chance to dualcast Fire attacks",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "JET_BLACK_DANCE_MODE",
     "notes": null
   },
   {
@@ -14859,6 +15002,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHANGE_ELEMENT_ATK_POISON_M30",
+    "notes": null
+  },
+  {
+    "id": 8070,
+    "name": "Buff Fire +40%",
+    "effects": "Increases Fire damage dealt by 40%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_ATK_FIRE_4_TIME_MEDIUM",
     "notes": null
   },
   {

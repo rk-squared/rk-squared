@@ -1788,6 +1788,110 @@
     "gl": true
   },
   {
+    "character": "Genesis",
+    "source": "Genesis's Rhapsody",
+    "name": "Null Destruction",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92), grants Instant Cast 1",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "無に帰す破壊",
+    "id": 30547065,
+    "gl": false
+  },
+  {
+    "character": "Genesis",
+    "source": "Genesis's Rhapsody",
+    "name": "Null Destruction",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92) capped at 99999, grants Minor Buff Fire",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "無に帰す破壊",
+    "id": 30547069,
+    "gl": false
+  },
+  {
+    "character": "Genesis",
+    "source": "Genesis's Rhapsody",
+    "name": "Null Destruction",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.4,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.40) capped at 99999, grants Medium Buff Fire",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "無に帰す破壊",
+    "id": 30547070,
+    "gl": false
+  },
+  {
+    "character": "Genesis",
+    "source": "Genesis's Rhapsody",
+    "name": "Null Destruction",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (10.00) capped at 99999, grants Buff Fire +40%",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Fire"
+    ],
+    "nameJp": "無に帰す破壊",
+    "id": 30547071,
+    "gl": false
+  },
+  {
     "character": "Squall",
     "source": "Double Junction",
     "name": "Dual Fang",

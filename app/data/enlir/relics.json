@@ -1800,6 +1800,51 @@
     "gl": false
   },
   {
+    "name": "Valiant Knife",
+    "realm": "IV",
+    "type": "Dagger",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 170,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 81,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": "Ceodore",
+    "soulBreak": "Gleam Thruster",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 124,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 58,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 188,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 90,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21001131,
+    "gl": false
+  },
+  {
     "name": "Chicken Knife",
     "realm": "V",
     "type": "Dagger",
@@ -3147,6 +3192,51 @@
       "eva": null
     },
     "id": 21001178,
+    "gl": false
+  },
+  {
+    "name": "Light Dagger",
+    "realm": "Core",
+    "type": "Dagger",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 136,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 101,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 153,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21001180,
     "gl": false
   },
   {
@@ -10395,6 +10485,231 @@
     "gl": false
   },
   {
+    "name": "Sun Blade",
+    "realm": "IV",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 94,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": "Ceodore",
+    "soulBreak": "Vibra Cross",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 63,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 106,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002488,
+    "gl": false
+  },
+  {
+    "name": "Avenger",
+    "realm": "IV",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 162,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 143,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Cecil (Paladin)",
+    "soulBreak": "Chain of Light",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 116,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 99,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 180,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 161,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002076,
+    "gl": false
+  },
+  {
+    "name": "Moonblade",
+    "realm": "IV",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 94,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Ceodore",
+    "soulBreak": "Cross Charge",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 63,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 106,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002489,
+    "gl": false
+  },
+  {
+    "name": "Brave Blade",
+    "realm": "IV",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 94,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Ceodore",
+    "soulBreak": "Holy Band",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 63,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 106,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002284,
+    "gl": false
+  },
+  {
+    "name": "Braveheart",
+    "realm": "IV",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 94,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": "Ceodore",
+    "soulBreak": "Twin Rush",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 63,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 106,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002544,
+    "gl": false
+  },
+  {
     "name": "Apocalypse",
     "realm": "V",
     "type": "Sword",
@@ -11385,7 +11700,7 @@
     "gl": true
   },
   {
-    "name": "Ice Brand",
+    "name": "Icebrand",
     "realm": "VI",
     "type": "Sword",
     "rarity": 6,
@@ -11427,7 +11742,7 @@
       "eva": null
     },
     "id": 21002472,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ancient Sword",
@@ -11922,7 +12237,7 @@
       "eva": null
     },
     "id": 21002406,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ragnarok (CC)",
@@ -11967,6 +12282,141 @@
       "eva": null
     },
     "id": 21002313,
+    "gl": true
+  },
+  {
+    "name": "Blood Sword (CC)",
+    "realm": "VII",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Genesis",
+    "soulBreak": "Epic of Genesis",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002545,
+    "gl": false
+  },
+  {
+    "name": "Red Rapier (CC)",
+    "realm": "VII",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Fire damage +20%",
+    "character": "Genesis",
+    "soulBreak": "Genesis's Rhapsody",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002540,
+    "gl": false
+  },
+  {
+    "name": "Mirage Sword",
+    "realm": "VII",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Cloud",
+    "soulBreak": "S Cell Movement",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002470,
     "gl": false
   },
   {
@@ -12507,7 +12957,7 @@
       "eva": null
     },
     "id": 21002417,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Inferno",
@@ -13093,6 +13543,96 @@
     },
     "id": 21002350,
     "gl": true
+  },
+  {
+    "name": "Ragnarok II",
+    "realm": "IX",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 94,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%, Chance to cause Slow",
+    "character": "Beatrix",
+    "soulBreak": "Seiken Climcross",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 63,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 106,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002491,
+    "gl": false
+  },
+  {
+    "name": "Anastasia",
+    "realm": "IX",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 94,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Beatrix",
+    "soulBreak": "Rose Catharsis",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 63,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 106,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002532,
+    "gl": false
   },
   {
     "name": "Apocalypse",
@@ -16605,6 +17145,51 @@
     "gl": false
   },
   {
+    "name": "Holy Knight's Sword",
+    "realm": "Core",
+    "type": "Sword",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 146,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 111,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 163,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002533,
+    "gl": false
+  },
+  {
     "name": "Sun Blade",
     "realm": "I",
     "type": "Sword",
@@ -18448,6 +19033,51 @@
     },
     "id": 21002387,
     "gl": true
+  },
+  {
+    "name": "Diamond Sword",
+    "realm": "IV",
+    "type": "Sword",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 147,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 68,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Ceodore",
+    "soulBreak": null,
+    "legendMateria": "Lunarian Successor",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 112,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 45,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 164,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 80,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002543,
+    "gl": false
   },
   {
     "name": "Excalipoor",
@@ -20472,6 +21102,51 @@
       "eva": null
     },
     "id": 21002314,
+    "gl": true
+  },
+  {
+    "name": "Demonsbane (CC)",
+    "realm": "VII",
+    "type": "Sword",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 147,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Genesis",
+    "soulBreak": "Epic of Destruction",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 112,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 164,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002546,
     "gl": false
   },
   {
@@ -27807,6 +28482,51 @@
       "eva": null
     },
     "id": 21003109,
+    "gl": true
+  },
+  {
+    "name": "Nameless Blade",
+    "realm": "VII",
+    "type": "Katana",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Cloud",
+    "soulBreak": "Power of Jenova Cells",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21003117,
     "gl": false
   },
   {
@@ -31767,7 +32487,7 @@
       "eva": null
     },
     "id": 21004050,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Axe of the Conqueror",
@@ -36917,7 +37637,7 @@
     },
     "effect": null,
     "character": "Shelke",
-    "soulBreak": "Electric Connect",
+    "soulBreak": "Conducting Electricity",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -38610,7 +39330,7 @@
     "gl": true
   },
   {
-    "name": "Gae Bolg",
+    "name": "Wyvern Gae Bolg",
     "realm": "IV",
     "type": "Spear",
     "rarity": 5,
@@ -39417,7 +40137,7 @@
       "eva": null
     },
     "id": 21006124,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Spear (DoC)",
@@ -43557,7 +44277,7 @@
       "eva": null
     },
     "id": 21007175,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Dragon's Claws",
@@ -46662,7 +47382,7 @@
       "eva": null
     },
     "id": 21007132,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Battle Gloves",
@@ -46707,7 +47427,7 @@
       "eva": null
     },
     "id": 21007134,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Work Glove",
@@ -50667,7 +51387,7 @@
       "eva": null
     },
     "id": 21008224,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Stardust Rod",
@@ -51255,7 +51975,7 @@
     "gl": false
   },
   {
-    "name": "Wizard Rod",
+    "name": "Wizer Rod",
     "realm": "IV",
     "type": "Rod",
     "rarity": 6,
@@ -53612,7 +54332,7 @@
     },
     "effect": null,
     "character": "Rapha",
-    "soulBreak": "Fateful Mantra",
+    "soulBreak": "Nethersky Mantra",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -53640,7 +54360,7 @@
     "gl": false
   },
   {
-    "name": "Eight-Fluted Pole",
+    "name": "Octagonal Rod",
     "realm": "FFT",
     "type": "Rod",
     "rarity": 6,
@@ -53657,7 +54377,7 @@
     },
     "effect": null,
     "character": "Marach",
-    "soulBreak": "Feral Hell's Wrath",
+    "soulBreak": "Bestial Wrath",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -53702,7 +54422,7 @@
     },
     "effect": null,
     "character": "Marach",
-    "soulBreak": "Khamja Mysteries",
+    "soulBreak": "Khamja Arts",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -54762,7 +55482,7 @@
       "eva": null
     },
     "id": 21008170,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Wizard Rod",
@@ -62505,6 +63225,51 @@
     "gl": false
   },
   {
+    "name": "Moon Rod",
+    "realm": "IV",
+    "type": "Staff",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 167,
+      "res": 0,
+      "mnd": 170,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": "Fusoya",
+    "soulBreak": "Lunarian Mysteries",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 122,
+      "res": null,
+      "mnd": 126,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 185,
+      "res": null,
+      "mnd": 188,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009154,
+    "gl": false
+  },
+  {
     "name": "Tycoon Staff",
     "realm": "V",
     "type": "Staff",
@@ -63827,7 +64592,7 @@
     },
     "effect": null,
     "character": "Alma",
-    "soulBreak": "Azurite's Gleam",
+    "soulBreak": "Azure Radiance",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -64842,7 +65607,7 @@
       "eva": null
     },
     "id": 21009159,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Chaos Mace",
@@ -64863,7 +65628,7 @@
     "effect": null,
     "character": "Cloud of Darkness",
     "soulBreak": null,
-    "legendMateria": "Dark Storms",
+    "legendMateria": "Herald of Darkness",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -64887,7 +65652,7 @@
       "eva": null
     },
     "id": 21009109,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Healing Staff",
@@ -76202,7 +76967,7 @@
     },
     "effect": null,
     "character": "Cloud of Darkness",
-    "soulBreak": "Unending Particle Beam",
+    "soulBreak": "Arcane Rampart",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -76227,7 +76992,7 @@
       "eva": null
     },
     "id": 21012044,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ice Whip",
@@ -77895,7 +78660,7 @@
     "gl": true
   },
   {
-    "name": "Owl of Forest",
+    "name": "Owl of the Forest",
     "realm": "VIII",
     "type": "Thrown",
     "rarity": 7,
@@ -77912,7 +78677,7 @@
     },
     "effect": "Earth damage +20%",
     "character": "Rinoa",
-    "soulBreak": "Angel Wing Heavensfall",
+    "soulBreak": "Angel Wing Vast Earth",
     "legendMateria": null,
     "baseStats": {
       "rarity": 7,
@@ -83877,7 +84642,7 @@
       "eva": null
     },
     "id": 21015087,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Magnum",
@@ -83922,7 +84687,7 @@
       "eva": null
     },
     "id": 21015078,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Winchester R",
@@ -85137,7 +85902,7 @@
       "eva": null
     },
     "id": 21015077,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Shortbarrel R",
@@ -91367,7 +92132,7 @@
     },
     "effect": null,
     "character": "Ramza",
-    "soulBreak": "Warcry Commander",
+    "soulBreak": "Noble Cry",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -92923,6 +93688,51 @@
     },
     "id": 22050095,
     "gl": true
+  },
+  {
+    "name": "Diamond Shield",
+    "realm": "IX",
+    "type": "Shield",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 17,
+      "def": 140,
+      "mag": 0,
+      "res": 93,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 112
+    },
+    "effect": null,
+    "character": "Beatrix",
+    "soulBreak": null,
+    "legendMateria": "Prideful Holy Knight",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 10,
+      "def": 114,
+      "mag": null,
+      "res": 75,
+      "mnd": null,
+      "acc": null,
+      "eva": 112
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 20,
+      "def": 153,
+      "mag": null,
+      "res": 102,
+      "mnd": null,
+      "acc": null,
+      "eva": 112
+    },
+    "id": 22050114,
+    "gl": false
   },
   {
     "name": "Emerald Shield",
@@ -96342,7 +97152,7 @@
       "eva": 105
     },
     "id": 22051079,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Gold Hairpin",
@@ -96615,7 +97425,7 @@
     "gl": true
   },
   {
-    "name": "Hairpiece",
+    "name": "Rosa's Hairpiece",
     "realm": "IV",
     "type": "Hat",
     "rarity": 5,
@@ -96633,7 +97443,7 @@
     "effect": null,
     "character": "Rosa",
     "soulBreak": null,
-    "legendMateria": "Blessings of Love",
+    "legendMateria": "Affectionate Blessing",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -96657,6 +97467,51 @@
       "eva": 105
     },
     "id": 22051183,
+    "gl": false
+  },
+  {
+    "name": "Glass Mask",
+    "realm": "IV",
+    "type": "Hat",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 0,
+      "def": 88,
+      "mag": 28,
+      "res": 130,
+      "mnd": 37,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Fusoya",
+    "soulBreak": null,
+    "legendMateria": "Watcher of Two Moons",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": 71,
+      "mag": 21,
+      "res": 100,
+      "mnd": 30,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": 96,
+      "mag": 31,
+      "res": 145,
+      "mnd": 40,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22051184,
     "gl": false
   },
   {
@@ -101922,7 +102777,7 @@
       "eva": 105
     },
     "id": 22052066,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Dark Helm",
@@ -103860,7 +104715,7 @@
     "gl": true
   },
   {
-    "name": "Darkness Garb",
+    "name": "Shroud of Darkness",
     "realm": "III",
     "type": "Light Armor",
     "rarity": 6,
@@ -103902,7 +104757,7 @@
       "eva": 100
     },
     "id": 22053281,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Luneth's Guise",
@@ -104802,7 +105657,7 @@
       "eva": 100
     },
     "id": 22053293,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Shelke's Guise (DoC)",
@@ -104937,6 +105792,96 @@
       "eva": 100
     },
     "id": 22053412,
+    "gl": false
+  },
+  {
+    "name": "Genesis's Guise (DoC)",
+    "realm": "VII",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 151,
+      "mag": 0,
+      "res": 151,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Fire damage +20%",
+    "character": "Genesis",
+    "soulBreak": "SOLDIER's Epic",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 110,
+      "mag": null,
+      "res": 110,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 167,
+      "mag": null,
+      "res": 167,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053456,
+    "gl": false
+  },
+  {
+    "name": "Genesis's Guise (CC)",
+    "realm": "VII",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 151,
+      "mag": 0,
+      "res": 151,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Fire damage +20%",
+    "character": "Genesis",
+    "soulBreak": "Apocalypse Genesis",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 110,
+      "mag": null,
+      "res": 110,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 167,
+      "mag": null,
+      "res": 167,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053444,
     "gl": false
   },
   {
@@ -106197,7 +107142,7 @@
       "eva": 100
     },
     "id": 22053319,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Alma's Guise",
@@ -106217,7 +107162,7 @@
     },
     "effect": null,
     "character": "Alma",
-    "soulBreak": "Holy Sign's Awakening",
+    "soulBreak": "Divine Awakening",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -110607,7 +111552,7 @@
       "eva": 100
     },
     "id": 22053311,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Elena's Suit",
@@ -110627,7 +111572,7 @@
     },
     "effect": null,
     "character": "Elena",
-    "soulBreak": "Suddent Bombardment",
+    "soulBreak": "Sudden Bombardment",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -110652,10 +111597,10 @@
       "eva": 100
     },
     "id": 22053232,
-    "gl": false
+    "gl": true
   },
   {
-    "name": "Shelke's Rubber Suit (DoC)",
+    "name": "Rubber Suit (DoC)",
     "realm": "VII",
     "type": "Light Armor",
     "rarity": 5,
@@ -110673,7 +111618,7 @@
     "effect": "Lightning resistance (minor)",
     "character": "Shelke",
     "soulBreak": null,
-    "legendMateria": "Overwriting Facts",
+    "legendMateria": "Event Rewriter",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -111777,7 +112722,7 @@
       "eva": 100
     },
     "id": 22053339,
-    "gl": false
+    "gl": true
   },
   {
     "name": "White Dress",
@@ -118887,7 +119832,7 @@
       "eva": 105
     },
     "id": 22054099,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Dark Armor",
@@ -119247,6 +120192,51 @@
       "eva": 105
     },
     "id": 22054115,
+    "gl": false
+  },
+  {
+    "name": "Ceodore's Guise",
+    "realm": "IV",
+    "type": "Heavy Armor",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 17,
+      "def": 146,
+      "mag": 0,
+      "res": 99,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Ceodore",
+    "soulBreak": null,
+    "legendMateria": "Innocent Prince",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 10,
+      "def": 116,
+      "mag": null,
+      "res": 82,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 20,
+      "def": 161,
+      "mag": null,
+      "res": 107,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22054088,
     "gl": false
   },
   {
@@ -121905,7 +122895,7 @@
     "gl": false
   },
   {
-    "name": "大地の衣",
+    "name": "Gaia Robe",
     "realm": "VIII",
     "type": "Robe",
     "rarity": 6,
@@ -126810,7 +127800,7 @@
     "gl": true
   },
   {
-    "name": "Chaos Mace",
+    "name": "Darkness Bracelet",
     "realm": "III",
     "type": "Bracer",
     "rarity": 5,
@@ -126828,7 +127818,7 @@
     "effect": null,
     "character": "Cloud of Darkness",
     "soulBreak": null,
-    "legendMateria": "Dark Storms",
+    "legendMateria": "Void Aspirer",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -128745,7 +129735,7 @@
     "gl": true
   },
   {
-    "name": "Vincent's Gauntlet",
+    "name": "Gauntlet",
     "realm": "VII",
     "type": "Bracer",
     "rarity": 5,
@@ -128763,7 +129753,7 @@
     "effect": null,
     "character": "Vincent",
     "soulBreak": null,
-    "legendMateria": "Beast Genetics",
+    "legendMateria": "Beast Aspect",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -128787,7 +129777,7 @@
       "eva": 105
     },
     "id": 22056247,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Shinra Alpha",
@@ -128877,6 +129867,51 @@
       "eva": 105
     },
     "id": 22056052,
+    "gl": false
+  },
+  {
+    "name": "Red Glove (CC)",
+    "realm": "VII",
+    "type": "Bracer",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 34,
+      "def": 99,
+      "mag": 18,
+      "res": 95,
+      "mnd": 18,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Genesis",
+    "soulBreak": null,
+    "legendMateria": "Will of Rebellion",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 26,
+      "def": 81,
+      "mag": 11,
+      "res": 71,
+      "mnd": 11,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 38,
+      "def": 107,
+      "mag": 21,
+      "res": 107,
+      "mnd": 21,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056278,
     "gl": false
   },
   {
@@ -132273,7 +133308,7 @@
     "effect": null,
     "character": "Prompto",
     "soulBreak": null,
-    "legendMateria": "Deep Friendship",
+    "legendMateria": "More than Friends",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -134862,7 +135897,7 @@
       "eva": null
     },
     "id": 23080525,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Metal Card",
@@ -135087,7 +136122,7 @@
       "eva": null
     },
     "id": 23080466,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Tintinnabulum",
@@ -135405,7 +136440,7 @@
     "gl": true
   },
   {
-    "name": "Omega's Witness",
+    "name": "Mark of Omega",
     "realm": "VIII",
     "type": "Accessory",
     "rarity": 6,
@@ -135447,7 +136482,7 @@
       "eva": null
     },
     "id": 23080543,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ultima's Heart",
@@ -137517,7 +138552,7 @@
       "eva": null
     },
     "id": 23080403,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ruby Bracelet",
@@ -137877,7 +138912,7 @@
       "eva": null
     },
     "id": 23080356,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mythril Mirror",
@@ -138957,7 +139992,7 @@
       "eva": null
     },
     "id": 23080486,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Baron Key",
@@ -139677,7 +140712,7 @@
       "eva": null
     },
     "id": 23080491,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Red Slippers",
@@ -139722,7 +140757,7 @@
       "eva": null
     },
     "id": 23080137,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Lenna's Hairpin",
@@ -140532,7 +141567,7 @@
       "eva": null
     },
     "id": 23080344,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Spectral Shroud",
@@ -140622,7 +141657,7 @@
       "eva": null
     },
     "id": 23080474,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Godo's Mask",
@@ -141342,6 +142377,51 @@
       "eva": null
     },
     "id": 23080249,
+    "gl": false
+  },
+  {
+    "name": "LOVELESS",
+    "realm": "VII",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Confuse immunity (moderate), HP +500",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080576,
     "gl": false
   },
   {
@@ -142557,7 +143637,7 @@
       "eva": null
     },
     "id": 23080430,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rank S Medal",
@@ -142602,7 +143682,7 @@
       "eva": null
     },
     "id": 23080503,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Beatrix's Eyepatch",
@@ -142647,7 +143727,7 @@
       "eva": null
     },
     "id": 23080361,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Extension",
@@ -143412,7 +144492,7 @@
       "eva": null
     },
     "id": 23080331,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Blitzball Stadium",
@@ -143727,7 +144807,7 @@
       "eva": null
     },
     "id": 23080304,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Bitter Earring",
@@ -144357,7 +145437,7 @@
       "eva": null
     },
     "id": 23080396,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ahriman Ring",
@@ -144942,7 +146022,7 @@
       "eva": null
     },
     "id": 23080519,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Nora's Necklace",
@@ -144987,7 +146067,7 @@
       "eva": null
     },
     "id": 23080534,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Amulet of Peace",
@@ -145302,7 +146382,7 @@
       "eva": null
     },
     "id": 23080325,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Crown City Smartphone",
@@ -146022,7 +147102,7 @@
       "eva": null
     },
     "id": 23080459,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Sortilège",

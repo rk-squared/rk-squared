@@ -462,7 +462,7 @@ const attackRe = XRegExp(
   (?:,?\ (?:scaling|scal\.)\ with\ (?<scaleWithSkillUses>.*?)\ uses)?
   (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
   (?:\ if\ (?:the\ )?user\ has\ (?<statusThreshold>.*)\ (?<statusThresholdCount>(?:\d+/)+\d+))?
-  (?:\ if\ the\ user's\ HP\ are\ below\ (?<lowHpThresholdValue>(?:\d+/)*\d+)%)?
+  (?:\ if\ the\ user's\ HP\ (?:is|are)\ below\ (?<lowHpThresholdValue>(?:\d+/)*\d+)%)?
   (?:\ if\ the\ user\ took\ (?<tookHitsValue>(?:\d+/)*\d+)\ (?<tookHits>.*)\ hits)?
   (?:\ at\ (?<statThresholdValue>(?:\d+/)*\d+)\ (?<statThreshold>[A-Z]{3}))?
   (?:,?\ scaling\ with\ (?<attackThresholdType>.*)\ (?:attacks|abilities)\ used\ \((?<attackThresholdCount>(?:\d+/)*\d+)\))?

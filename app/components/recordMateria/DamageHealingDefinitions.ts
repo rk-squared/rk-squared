@@ -39,7 +39,7 @@ const elementalTable: TableDefinition = {
       header: 'Fire',
       items: {
         13: [['Vivi', '3'], ['Axel', '3']],
-        12: [['Edge', '2'], ['Axel', '2']],
+        12: [['Edge', '2'], ['Axel', '2'], ['Genesis', '2']],
         11: [['Refia', '1a'], ['Rubicante', '1'], ['Lulu', '1'], ['Axel', '1']],
       },
     },
@@ -326,7 +326,7 @@ const physicalTable: TableDefinition = {
     {
       header: 'PHY Sword',
       items: {
-        '1_3': [['Cloud', '3'], ['Warrior', '3']],
+        '1_3': [['Cloud', '3'], ['Warrior', '3'], ['Genesis', '3']],
         '1_2': [['Beatrix', '2'], ['Cecil (Dark Knight)', '2'], ['Biggs', '2']],
         '1_1': [
           ['Warrior', '1'],
