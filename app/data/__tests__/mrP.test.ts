@@ -261,6 +261,16 @@ describe('mrP', () => {
       });
     });
 
+    it('converts self-damaging attacks', () => {
+      // See also "lose X% max HP" effects elsewhere
+      expect(describeSoulBreak('Genesis - Glint+')).toEqual({
+        instant: true,
+        other:
+          'fire infuse stacking 25s, fire infuse 25s, self lose 99% max HP, ' +
+          '15s: (fire ⤇ p1.92/6 f+n rngd Spellblade)',
+      });
+    });
+
     it('converts Overstrikes', () => {
       // Deviation: MrP omits "overstrike" for OSBs.  But, as overstrike
       // on non-OSBs becomes more common, it makes sense to be consistent.
@@ -2118,7 +2128,7 @@ Object {
           'self dmg cap +10k 15s, 15s: Awoken Holy: holy inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
-      expect(describeSoulBreak('Cloud - AASB')).toEqual({
+      expect(describeSoulBreak('Cloud - AASB1')).toEqual({
         damage: 'phys 9.0/15 wind+non',
         other:
           'wind infuse 25s, self dmg cap +10k 15s, crit =100% 25s, hi fastcast 15s, ' +
@@ -2333,6 +2343,14 @@ Object {
           'holy infuse 25s, self dmg cap +10k 15s, ' +
           '15s: (2 Knight ⤇ self +250 SB pts, instacast 1, once only), ' +
           '15s: Awoken Knight: Knight inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Tellah - AASB')).toEqual({
+        damage: 'magic 22.5/15 earth+non',
+        other:
+          'earth infuse 25s, self dmg cap +10k 15s, ' +
+          '15s: earth fastcast, 1.25x SB gauge from earth, ' +
+          '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
     });
 

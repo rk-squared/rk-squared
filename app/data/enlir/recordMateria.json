@@ -443,7 +443,7 @@
     "realm": "Core",
     "character": "Dragoon",
     "name": "From On High",
-    "effect": "50% chance to turn Attack into an ability (PHY: single, 2x 1.90 ranged physical, air time (3.50 sec.))",
+    "effect": "50% chance to turn Attack into an ability (PHY: single, 2x 1.90 ranged physical, air time (2.50 sec.))",
     "unlockCriteria": "Bring Dragoon to level 99",
     "nameJp": "天高き飛翔",
     "id": 111000203,
@@ -3888,6 +3888,36 @@
     "nameJp": "格闘クラスのエリート",
     "id": 111070212,
     "gl": true
+  },
+  {
+    "realm": "VII",
+    "character": "Genesis",
+    "name": "Rebel SOLDIER",
+    "effect": "ATK +5?% for each 10?% missing HP",
+    "unlockCriteria": "Use Genesis's Memory Crystal",
+    "nameJp": "反旗のソルジャー",
+    "id": 111070800,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Genesis",
+    "name": "Gift of the Goddess",
+    "effect": "Increases Fire damage dealt by 20%",
+    "unlockCriteria": "Use Genesis's Memory Crystal II, chance to obtain with Genesis in party",
+    "nameJp": "女神の贈り物",
+    "id": 111070801,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Genesis",
+    "name": "Twisted Creator",
+    "effect": "PHY attacks deal 30% more damage when equipping a sword",
+    "unlockCriteria": "Bring Genesis to level 99",
+    "nameJp": "ゆがんだ創造主",
+    "id": 111070802,
+    "gl": false
   },
   {
     "realm": "VIII",

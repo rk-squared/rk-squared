@@ -24,6 +24,7 @@ import {
   resolveEffectAlias,
   resolveNumbered,
   resolveStatusAlias,
+  sbPointsBoosterAlias,
   splitNumbered,
 } from './statusAlias';
 import {
@@ -524,8 +525,7 @@ export function describeEnlirStatus(
   }
   if ((m = status.match(/(.*) Gauge \+(\d+)% Booster(?: (\d+))?/))) {
     const [, type, percent, turns] = m;
-    const multiplier = percentToMultiplier(percent);
-    return `${multiplier}x SB gauge from ${formatSchoolOrAbilityList(type)}` + formatTurns(turns);
+    return sbPointsBoosterAlias(percent, type) + formatTurns(turns);
   }
   if ((m = status.match(/(.*) Double/))) {
     return doubleAlias(formatSchoolOrAbilityList(m[1]));

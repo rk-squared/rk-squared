@@ -738,8 +738,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "EX: Mystic Radiance",
-    "name": "Divine Serpent's Blessing",
+    "source": "EX: Esoteric Light",
+    "name": "Serpent's Blessing",
     "type": "SUM",
     "target": "Single enemy",
     "formula": "Magical",
@@ -1067,6 +1067,27 @@
     "sb": 0,
     "school": "Ninja",
     "id": 30544287,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Spark Spear Follow-Up",
+    "name": "Spark Spear",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.28,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged attack (5.28) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 30548311,
     "gl": false
   },
   {
@@ -2017,7 +2038,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547225,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2186,7 +2207,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "EX: True Form",
-    "name": "Air Hazard",
+    "name": "Storm Hazard",
     "nameNote": "Alias name: Blast Hazard / Storm Hazard",
     "type": "PHY",
     "target": "Single enemy",
@@ -2245,7 +2266,7 @@
     "sb": 0,
     "school": "Celerity",
     "id": 30546015,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2266,12 +2287,12 @@
     "sb": 0,
     "school": "Monk",
     "id": 30548320,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Turks Bullet Follow-Up",
-    "name": "Turks Bullet",
+    "source": "Turk Pistol Follow-Up",
+    "name": "Turk Pistol",
     "type": "NAT",
     "target": "Single enemy",
     "formula": null,
@@ -2284,7 +2305,7 @@
     "sb": 0,
     "school": "Special",
     "id": 30545067,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2471,6 +2492,27 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549250,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Heat Recital Follow-Up",
+    "name": "Heat Recital",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.32 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 30547031,
     "gl": false
   },
   {
@@ -2759,7 +2801,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Two single attacks (13.75 each) capped at 99999",
+    "effects": "Two single attacks (13.75 each) capped at 99999, removes Planet Creator Mode",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -2958,6 +3000,27 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543035,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Holy Valkyrie Mode",
+    "name": "Cross Break",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (6.00) capped at 99999, 50/75/100% additional critical chance if the user dealt 0/72001/240001 damage during the status, 100% hit rate, removes Holy Valkyrie Mode",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Knight",
+    "id": 30548446,
     "gl": false
   },
   {
@@ -3956,7 +4019,7 @@
     ],
     "time": 0.01,
     "effects": "Five single ranged attacks (0.39 each), 100% hit rate, causes Minor Imperil Lightning",
-    "counter": false,
+    "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Machinist",
@@ -4084,7 +4147,7 @@
     "sb": 0,
     "school": "Knight",
     "id": 30548441,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4684,7 +4747,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541047,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -5995,7 +6058,7 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 65,
     "school": "Dragoon",
-    "id": null,
+    "id": 30501072,
     "gl": true
   },
   {

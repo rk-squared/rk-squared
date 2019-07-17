@@ -25,6 +25,7 @@ const atkTable: TableDefinition = {
         '10': [
           ['Firion', '1'],
           ['Zell', '1a'],
+          ['Genesis', '1'],
           ['Bard', '2'],
           ['Gau', '2'],
           ['Lann', '2'],

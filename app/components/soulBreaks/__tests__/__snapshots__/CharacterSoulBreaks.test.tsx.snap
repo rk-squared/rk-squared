@@ -53,7 +53,37 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
             “Sanguined Dragoon”
           </td>
           <td>
-            phys ?/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s
+            phys 9.0/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 15s: (3 lgt ⤇ p5.28 l+n rngd overstrike Dragoon)
+          </td>
+        </tr>
+        <tr
+          className="unowned synchroCommand"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            [Dragoon], w/ lgt
+          </td>
+          <td
+            className="command"
+          >
+            p6.4 l+n jump overstrike
+          </td>
+        </tr>
+        <tr
+          className="unowned synchroCommand"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            [Dragoon], w/ lgt
+          </td>
+          <td
+            className="command"
+          >
+            p2.7/3 l+n rngd, self jump hi fastcast 2
           </td>
         </tr>
         <tr
@@ -465,7 +495,37 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
             “Sanguined Dragoon”
           </td>
           <td>
-            phys ?/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s
+            phys 9.0/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 15s: (3 lgt ⤇ p5.28 l+n rngd overstrike Dragoon)
+          </td>
+        </tr>
+        <tr
+          className="synchroCommand"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            [Dragoon], w/ lgt
+          </td>
+          <td
+            className="command"
+          >
+            p6.4 l+n jump overstrike
+          </td>
+        </tr>
+        <tr
+          className="synchroCommand"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            [Dragoon], w/ lgt
+          </td>
+          <td
+            className="command"
+          >
+            p2.7/3 l+n rngd, self jump hi fastcast 2
           </td>
         </tr>
         <tr

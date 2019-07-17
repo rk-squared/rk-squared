@@ -493,9 +493,10 @@ export function describeEnlirSoulBreak(
     selfOther.push(`heal ${healPercent}% of dmg`);
   }
 
-  if ((m = sb.effects.match(/damages the user for ([0-9.]+)% max\.?(?:imum)? HP/))) {
-    const [, damagePercent] = m;
-    selfOther.push(`lose ${damagePercent}% max HP`);
+  if ((m = sb.effects.match(/damages the user for ([0-9.]+)% (?:max\.?(?:imum)?|current) HP/))) {
+    const [, damagePercent, maxOrCurrent] = m;
+    const description = maxOrCurrent === 'current' ? 'curr' : 'max';
+    selfOther.push(`lose ${damagePercent}% ${description} HP`);
   }
 
   XRegExp.forEach(sb.effects, healRe, match => {

@@ -28,7 +28,9 @@ import {
   getElementAbbreviation,
   getShortName,
 } from './types';
-import { andList, percentToMultiplier, toMrPKilo } from './util';
+import { andList, handleUncertain, percentToMultiplier, toMrPKilo } from './util';
+
+const parseUncertainEnlirStatus = handleUncertain(parseEnlirStatus);
 
 const tranceTriggerText = '<20% HP';
 const dmg = (isDamageTrigger: string | null) =>
@@ -276,7 +278,7 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered self statuses
   [
-    /^(?:(\d+|\?)% chance (?:of|to grant)|[Gg]rants) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit)|(taking damage from an enemy))$/,
+    /^(?:(\d+\??|\?)% chance (?:of|to grant)|[Gg]rants) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit)|(taking damage from an enemy))$/,
     ([percent, status, duration, schoolOrElement, critical, takeDamage]) => {
       // TODO: Consolidate trigger logic with status.ts?
       const trigger = schoolOrElement
@@ -301,12 +303,12 @@ const legendMateriaHandlers: HandlerList = [
 
   // Single-target white magic bonus effects
   [
-    /^(\d+|\?)% chance to grant (.*) to the target after using a single-target White Magic ability that restores HP on an ally$/,
+    /^(\d+\??|\?)% chance to grant (.*) to the target after using a single-target White Magic ability that restores HP on an ally$/,
     ([percent, status]) =>
       formatTriggeredEffect('ally W.Mag heal', 'ally ' + describeEnlirStatus(status), percent),
   ],
   [
-    /^(\d+|\?)% chance to remove negative effects to the target after using a single-target White Magic ability that restores HP on an ally$/,
+    /^(\d+\??|\?)% chance to remove negative effects to the target after using a single-target White Magic ability that restores HP on an ally$/,
     ([percent, status]) => formatTriggeredEffect('ally W.Mag heal', 'ally Esuna'),
   ],
 
@@ -371,9 +373,9 @@ const legendMateriaHandlers: HandlerList = [
 
   // Trance effects
   [
-    /^(Restores HP for 100% of the user's maximum HP(?:, grants (\d+|\?) SB points)? and )?[Gg]rants (.*?)(?: for (\d+) seconds)? when HP fall below 20%$/,
+    /^(Restores HP for 100% of the user's maximum HP(?:, grants (\d+|\?) SB points)? and )?[Gg]rants (.*?)(?: for (\d+) seconds)? when HP falls? below 20%$/,
     ([isHeal, bonusSb, statusNames, duration]) => {
-      const status = statusNames.split(andList).map(i => parseEnlirStatus(i));
+      const status = statusNames.split(andList).map(i => parseUncertainEnlirStatus(i));
 
       // Process duration from the last status - it's more likely to be interesting.
       const lastStatus = status[status.length - 1];
@@ -384,8 +386,9 @@ const legendMateriaHandlers: HandlerList = [
       }
 
       let statusDescription =
-        status.map(i => (i.isTrance ? 'Trance: ' : '') + i.description).join(', ') +
-        (duration ? ' ' + duration : '');
+        status
+          .map(i => (i.isTrance ? 'Trance: ' : '') + i.description + (i.isUncertain ? '?' : ''))
+          .join(', ') + (duration ? ' ' + duration : '');
       if (bonusSb) {
         statusDescription = sbPointsAlias(bonusSb) + ', ' + statusDescription;
       }

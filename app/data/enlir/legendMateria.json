@@ -255,11 +255,11 @@
     "realm": "Core",
     "character": "Dr. Mog",
     "name": "History Institute Leader's Potential",
-    "effect": "Grants (all elemental damage +25%)? when HP fall below 20%",
+    "effect": "Grants Elemental Boost? when HP fall below 20%",
     "master": "MND +10",
     "relic": "Light Staff (Core)",
     "nameJp": "歴史省トップの底力",
-    "id": null,
+    "id": 201004504,
     "anima": null,
     "gl": false
   },
@@ -1389,7 +1389,7 @@
     "nameJp": null,
     "id": 201030203,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -1401,7 +1401,7 @@
     "nameJp": null,
     "id": 201030204,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -1509,7 +1509,7 @@
     "nameJp": "静かなる騎士",
     "id": 201030404,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -1658,12 +1658,24 @@
   {
     "realm": "III",
     "character": "Cloud of Darkness",
-    "name": "Dark Storms",
+    "name": "Herald of Darkness",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Chaos Mace (III)",
-    "nameJp": null,
+    "nameJp": "無を招く暗雲暗闇の雲",
     "id": 201030703,
+    "anima": null,
+    "gl": true
+  },
+  {
+    "realm": "III",
+    "character": "Cloud of Darkness",
+    "name": "Void Aspirer",
+    "effect": "25?% chance to dualcast abilities that deal Dark damage",
+    "master": "MAG +10",
+    "relic": "Darkness Bracelet (III)",
+    "nameJp": "虚無を望む者",
+    "id": 201030704,
     "anima": null,
     "gl": false
   },
@@ -2273,7 +2285,7 @@
     "name": "Distinguished Sage",
     "effect": "25% chance to dualcast abilities that deal Earth damage",
     "master": "MAG +10",
-    "relic": "Face Rod (IV)",
+    "relic": "Rod of Faith (IV)",
     "nameJp": "名高き老魔道士",
     "id": 201041104,
     "anima": null,
@@ -2350,6 +2362,18 @@
     "id": 201041301,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Fusoya",
+    "name": "Watcher of Two Moons",
+    "effect": "Grants Attach Holy at the beginning of the battle",
+    "master": "MND +10",
+    "relic": "Glass Mask (IV)",
+    "nameJp": "二星を見守る者",
+    "id": 201041302,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -2482,6 +2506,30 @@
     "id": 201041802,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Ceodore",
+    "name": "Innocent Prince",
+    "effect": "Grants Attach Holy at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Ceodore's Guise (IV)",
+    "nameJp": "純真なる貴公子",
+    "id": 201041803,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Ceodore",
+    "name": "Lunarian Successor",
+    "effect": "25?% chance to dualcast abilities that deal Holy damage",
+    "master": "ATK +10",
+    "relic": "Diamond Sword (IV)",
+    "nameJp": "聖なる血を継ぐ者",
+    "id": 201041804,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -3137,7 +3185,7 @@
     "name": "Undimmed Justice",
     "effect": "Grants Attach Earth at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Triton Dagger (V)",
+    "relic": "Triton's Dagger (V)",
     "nameJp": "衰えぬ正義の心",
     "id": 201051703,
     "anima": null,
@@ -4057,6 +4105,18 @@
   },
   {
     "realm": "VII",
+    "character": "Barret",
+    "name": "AVALANCHE's Leader",
+    "effect": "25?% chance to dualcast Machinist abilities",
+    "master": "ATK +10",
+    "relic": "Chainsaw (VII)",
+    "nameJp": "反神羅組織のリーダー",
+    "id": 201070203,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Tifa",
     "name": "Heroic Devotion",
     "effect": "Increases Earth damage dealt by 10%",
@@ -4322,14 +4382,14 @@
   {
     "realm": "VII",
     "character": "Vincent",
-    "name": "Beast Genetics",
+    "name": "Beast Aspect",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "master": "ATK +5, MAG +5",
-    "relic": "Vincent's Gauntlet (DoC) (VII)",
+    "relic": "Gauntlet (DoC) (VII)",
     "nameJp": "魔獣の因子",
     "id": 201070803,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -4377,7 +4437,7 @@
     "nameJp": "ソルジャーの夢",
     "id": 201070903,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -4601,23 +4661,23 @@
     "name": "Event Rewriter",
     "effect": "25% chance to dualcast Celerity abilities",
     "master": "ATK +10",
-    "relic": "Rubber Suit (VII)",
+    "relic": "Rubber Suit (DoC) (VII)",
     "nameJp": "事象を書き換える者",
-    "id": null,
+    "id": 201071903,
     "anima": null,
     "gl": false
   },
   {
     "realm": "VII",
     "character": "Angeal",
-    "name": "1st Class Mediator",
+    "name": "1st Uniter",
     "effect": "PHY attacks deal 10% more damage",
     "master": null,
     "relic": null,
     "nameJp": "1stのまとめ役",
     "id": 201071500,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -4629,7 +4689,7 @@
     "nameJp": "敬愛を集めし戦士",
     "id": 201071501,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -4641,12 +4701,12 @@
     "nameJp": "羽ばたく白き翼",
     "id": 201071502,
     "anima": 1,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
     "character": "Rude",
-    "name": "Humorous Nature",
+    "name": "Humorous Disposition",
     "effect": "Increases Earth damage dealt by 10%",
     "master": null,
     "relic": null,
@@ -4658,7 +4718,7 @@
   {
     "realm": "VII",
     "character": "Rude",
-    "name": "Actions Before Words",
+    "name": "Business First",
     "effect": "35% chance to dualcast abilities that deal Earth damage",
     "master": null,
     "relic": null,
@@ -4682,7 +4742,7 @@
   {
     "realm": "VII",
     "character": "Elena",
-    "name": "Careless Recruit",
+    "name": "Clumsy Recruit",
     "effect": "Increases Fire damage dealt by 10%",
     "master": null,
     "relic": null,
@@ -4694,7 +4754,7 @@
   {
     "realm": "VII",
     "character": "Elena",
-    "name": "Passion for the Job",
+    "name": "Hard Worker",
     "effect": "Grants Haste and Instant Cast 3 at the beginning of the battle",
     "master": null,
     "relic": null,
@@ -4713,6 +4773,42 @@
     "nameJp": "主任への淡き想い",
     "id": 201072102,
     "anima": 2,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Genesis",
+    "name": "LOVELESS Bookworm",
+    "effect": "Increases Fire damage dealt by 10%",
+    "master": null,
+    "relic": null,
+    "nameJp": "叙事詩の朗読者",
+    "id": 201078000,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Genesis",
+    "name": "G-Cell Host",
+    "effect": "Restores HP for 100% of the user's maximum HP and grants Genesis Trance when HP fall below 20%",
+    "master": null,
+    "relic": null,
+    "nameJp": "G細胞を宿す者",
+    "id": 201078001,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Genesis",
+    "name": "Will of Rebellion",
+    "effect": "PHY attacks deal 20% more damage when equipping a sword",
+    "master": "ATK +10",
+    "relic": "Red Glove (CC) (VII)",
+    "nameJp": "強き対抗意識",
+    "id": 201078002,
+    "anima": null,
     "gl": false
   },
   {
@@ -5857,6 +5953,18 @@
   },
   {
     "realm": "IX",
+    "character": "Beatrix",
+    "name": "Prideful Holy Knight",
+    "effect": "20?% chance to cause Minor Imperil Holy to the target after using a Knight ability on an enemy",
+    "master": "ATK +10",
+    "relic": "Diamond Shield (IX)",
+    "nameJp": "誇り高き聖騎士",
+    "id": 201090904,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "IX",
     "character": "Kuja",
     "name": "King of the Dark City",
     "effect": "Reduces damage taken by BLK attacks by 10%",
@@ -6801,7 +6909,7 @@
     "nameJp": "黒く輝く刃",
     "id": 201110702,
     "anima": 1,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -7551,11 +7659,11 @@
     "realm": "XIII",
     "character": "Vanille",
     "name": "Time of Waking",
-    "effect": "35%? chance to grant Quick Cast 1 to the user after using a Support ability",
+    "effect": "35?% chance to grant Quick Cast 1 to the user after using a Support ability",
     "master": "MND +10",
     "relic": "Witch's Bracelet (XIII)",
     "nameJp": "目覚めの時",
-    "id": null,
+    "id": 201130304,
     "anima": null,
     "gl": false
   },
@@ -8515,7 +8623,7 @@
     "master": "ATK +10",
     "relic": "Prompto's Gloves (VX)",
     "nameJp": "生まれを超えた友情",
-    "id": null,
+    "id": 201150403,
     "anima": null,
     "gl": false
   },
@@ -8690,12 +8798,12 @@
   {
     "realm": "FFT",
     "character": "Ramza",
-    "name": "Noble Blood",
+    "name": "Honorable Lineage",
     "effect": "Grants Attach Holy at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Broadsword (FFT)",
     "nameJp": "誉れ高き武門の系譜",
-    "id": null,
+    "id": 201500104,
     "anima": null,
     "gl": false
   },
@@ -9050,12 +9158,12 @@
   {
     "realm": "FFT",
     "character": "Marach",
-    "name": "Kin of Galthena",
+    "name": "Descendant of Galthena",
     "effect": "20% chance to cause Minor Imperil Lightning to the target after using a Lightning ability on an enemy",
     "master": null,
     "relic": "Magepower Glove (FFT)",
     "nameJp": "ガルテナーハの末裔",
-    "id": null,
+    "id": 201501003,
     "anima": null,
     "gl": false
   },
@@ -9218,12 +9326,12 @@
   {
     "realm": "FFT",
     "character": "Alma",
-    "name": "Dedicated Sister",
+    "name": "Revered Cleric",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "master": "MND +10",
     "relic": "Red Robe (FFT)",
     "nameJp": "敬虔なるクレリック",
-    "id": null,
+    "id": 201501403,
     "anima": null,
     "gl": false
   },

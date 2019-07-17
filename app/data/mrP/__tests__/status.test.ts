@@ -17,6 +17,7 @@ describe('mrP/status', () => {
           'Angeal Trance',
           'Zidane Trance',
           'Garnet Trance',
+          'Genesis Trance',
           'Vivi Trance',
           'Steiner Trance',
           'Freya Trance',

@@ -120,7 +120,7 @@ Array [
     "character": "Alma",
     "description": "(W.Mag ⤇ 25% for party h25)",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
-    "name": "Dedicated Sister",
+    "name": "Revered Cleric",
   },
   Object {
     "character": "Alphinaud",
@@ -168,7 +168,7 @@ Array [
     "character": "Angeal",
     "description": "1.1x PHY dmg",
     "effect": "PHY attacks deal 10% more damage",
-    "name": "1st Class Mediator",
+    "name": "1st Uniter",
   },
   Object {
     "character": "Angeal",
@@ -441,6 +441,12 @@ Array [
     "name": "Armed and Dangerous",
   },
   Object {
+    "character": "Barret",
+    "description": "25?% dualcast Machinist",
+    "effect": "25?% chance to dualcast Machinist abilities",
+    "name": "AVALANCHE's Leader",
+  },
+  Object {
     "character": "Bartz",
     "description": "1.15x Spellblade dmg",
     "effect": "Spellblade abilities deal 15% more damage",
@@ -505,6 +511,12 @@ Array [
     "description": "holy infuse at battle start",
     "effect": "Grants Attach Holy at the beginning of the battle",
     "name": "Proud General",
+  },
+  Object {
+    "character": "Beatrix",
+    "description": "(Knight ⤇ 20?% for +10% holy vuln.)",
+    "effect": "20?% chance to cause Minor Imperil Holy to the target after using a Knight ability on an enemy",
+    "name": "Prideful Holy Knight",
   },
   Object {
     "character": "Biggs",
@@ -693,6 +705,18 @@ Array [
     "name": "His Father's Justice",
   },
   Object {
+    "character": "Ceodore",
+    "description": "holy infuse at battle start",
+    "effect": "Grants Attach Holy at the beginning of the battle",
+    "name": "Innocent Prince",
+  },
+  Object {
+    "character": "Ceodore",
+    "description": "25?% dualcast holy",
+    "effect": "25?% chance to dualcast abilities that deal Holy damage",
+    "name": "Lunarian Successor",
+  },
+  Object {
     "character": "Cid (IV)",
     "description": "1.1x lgt dmg",
     "effect": "Increases Lightning damage dealt by 10%",
@@ -876,7 +900,13 @@ Array [
     "character": "Cloud of Darkness",
     "description": "Haste, instacast 1 at battle start",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
-    "name": "Dark Storms",
+    "name": "Herald of Darkness",
+  },
+  Object {
+    "character": "Cloud of Darkness",
+    "description": "25?% dualcast dark",
+    "effect": "25?% chance to dualcast abilities that deal Dark damage",
+    "name": "Void Aspirer",
   },
   Object {
     "character": "Cor",
@@ -1063,6 +1093,12 @@ Array [
     "description": "(B.Mag/Summon ⤇ 35% for fastcast 1)",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Black Magic or Summoning ability",
     "name": "Overflowing Magic",
+  },
+  Object {
+    "character": "Dr. Mog",
+    "description": "(<20% HP ⤇ 1.25x elem dmg? 25s)",
+    "effect": "Grants Elemental Boost? when HP fall below 20%",
+    "name": "History Institute Leader's Potential",
   },
   Object {
     "character": "Echo",
@@ -1260,13 +1296,13 @@ Array [
     "character": "Elena",
     "description": "1.1x fire dmg",
     "effect": "Increases Fire damage dealt by 10%",
-    "name": "Careless Recruit",
+    "name": "Clumsy Recruit",
   },
   Object {
     "character": "Elena",
     "description": "Haste, instacast 3 at battle start",
     "effect": "Grants Haste and Instant Cast 3 at the beginning of the battle",
-    "name": "Passion for the Job",
+    "name": "Hard Worker",
   },
   Object {
     "character": "Elena",
@@ -1569,6 +1605,12 @@ Array [
     "name": "Guardian of Worlds",
   },
   Object {
+    "character": "Fusoya",
+    "description": "holy infuse at battle start",
+    "effect": "Grants Attach Holy at the beginning of the battle",
+    "name": "Watcher of Two Moons",
+  },
+  Object {
     "character": "Gabranth",
     "description": "1.1x dark dmg",
     "effect": "Increases Dark damage dealt by 10%",
@@ -1729,6 +1771,24 @@ Array [
     "description": "(<20% HP ⤇ heal 100% HP, fastcast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Extended Quick Cast when HP fall below 20%",
     "name": "Untamed Energy",
+  },
+  Object {
+    "character": "Genesis",
+    "description": "1.1x fire dmg",
+    "effect": "Increases Fire damage dealt by 10%",
+    "name": "LOVELESS Bookworm",
+  },
+  Object {
+    "character": "Genesis",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +30% ATK, 50% chance to dualcast Fire attacks 25s)",
+    "effect": "Restores HP for 100% of the user's maximum HP and grants Genesis Trance when HP fall below 20%",
+    "name": "G-Cell Host",
+  },
+  Object {
+    "character": "Genesis",
+    "description": "1.2x PHY dmg if using a sword",
+    "effect": "PHY attacks deal 20% more damage when equipping a sword",
+    "name": "Will of Rebellion",
   },
   Object {
     "character": "Gilgamesh",
@@ -2649,6 +2709,12 @@ Array [
     "name": "Sower of Doubt",
   },
   Object {
+    "character": "Marach",
+    "description": "(lgt ⤇ 20% for +10% lgt vuln.)",
+    "effect": "20% chance to cause Minor Imperil Lightning to the target after using a Lightning ability on an enemy",
+    "name": "Descendant of Galthena",
+  },
+  Object {
     "character": "Marche",
     "description": "1.1x holy dmg",
     "effect": "Increases Holy damage dealt by 10%",
@@ -3285,6 +3351,12 @@ Array [
     "name": "Common Valor",
   },
   Object {
+    "character": "Prompto",
+    "description": "Haste, instacast 1 at battle start",
+    "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
+    "name": "More than Friends",
+  },
+  Object {
     "character": "Queen",
     "description": "1.1x lgt dmg",
     "effect": "Increases Lightning damage dealt by 10%",
@@ -3397,6 +3469,12 @@ Array [
     "description": "25% dualcast holy",
     "effect": "25% chance to dualcast abilities that deal Holy damage",
     "name": "Ambitious Knight",
+  },
+  Object {
+    "character": "Ramza",
+    "description": "holy infuse at battle start",
+    "effect": "Grants Attach Holy at the beginning of the battle",
+    "name": "Honorable Lineage",
   },
   Object {
     "character": "Rapha",
@@ -3762,13 +3840,13 @@ Array [
     "character": "Rude",
     "description": "1.1x earth dmg",
     "effect": "Increases Earth damage dealt by 10%",
-    "name": "Humorous Nature",
+    "name": "Humorous Disposition",
   },
   Object {
     "character": "Rude",
     "description": "35% dualcast earth",
     "effect": "35% chance to dualcast abilities that deal Earth damage",
-    "name": "Actions Before Words",
+    "name": "Business First",
   },
   Object {
     "character": "Rude",
@@ -4177,6 +4255,12 @@ Array [
     "description": "1.3x stat debuffs duration",
     "effect": "Increases the duration of stat debuffs by 30%",
     "name": "Edge of Eternity",
+  },
+  Object {
+    "character": "Shelke",
+    "description": "25% dualcast Celerity",
+    "effect": "25% chance to dualcast Celerity abilities",
+    "name": "Event Rewriter",
   },
   Object {
     "character": "Sice",
@@ -4689,6 +4773,12 @@ Array [
     "name": "Constant Companion",
   },
   Object {
+    "character": "Vanille",
+    "description": "(Support ⤇ 35?% for fastcast 1)",
+    "effect": "35?% chance to grant Quick Cast 1 to the user after using a Support ability",
+    "name": "Time of Waking",
+  },
+  Object {
     "character": "Vayne",
     "description": "1.1x dark dmg",
     "effect": "Increases Dark damage dealt by 10%",
@@ -4728,7 +4818,7 @@ Array [
     "character": "Vincent",
     "description": "fastcast 3 at battle start",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
-    "name": "Beast Genetics",
+    "name": "Beast Aspect",
   },
   Object {
     "character": "Vivi",

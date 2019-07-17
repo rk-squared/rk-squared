@@ -322,3 +322,12 @@ export function percentToMultiplier(percent: number | string): string {
   }
   return toMrPFixed(1 + percent / 100) + suffix;
 }
+
+export function handleUncertain<T>(f: (value: string) => T) {
+  return (value: string) => {
+    return {
+      ...f(value.replace(/\?$/, '')),
+      isUncertain: value.endsWith('?'),
+    };
+  };
+}
