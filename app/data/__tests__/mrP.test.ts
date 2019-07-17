@@ -261,6 +261,16 @@ describe('mrP', () => {
       });
     });
 
+    it('converts self-damaging attacks', () => {
+      // See also "lose X% max HP" effects elsewhere
+      expect(describeSoulBreak('Genesis - Glint+')).toEqual({
+        instant: true,
+        other:
+          'fire infuse stacking 25s, fire infuse 25s, self lose 99% max HP, ' +
+          '15s: (fire ⤇ p1.92/6 f+n rngd Spellblade)',
+      });
+    });
+
     it('converts Overstrikes', () => {
       // Deviation: MrP omits "overstrike" for OSBs.  But, as overstrike
       // on non-OSBs becomes more common, it makes sense to be consistent.
