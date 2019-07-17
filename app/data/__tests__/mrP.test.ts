@@ -2344,6 +2344,14 @@ Object {
           '15s: (2 Knight ⤇ self +250 SB pts, instacast 1, once only), ' +
           '15s: Awoken Knight: Knight inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeSoulBreak('Tellah - AASB')).toEqual({
+        damage: 'magic 22.5/15 earth+non',
+        other:
+          'earth infuse 25s, self dmg cap +10k 15s, ' +
+          '15s: earth fastcast, 1.25x SB gauge from earth, ' +
+          '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles synchro soul breaks', () => {

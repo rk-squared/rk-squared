@@ -1,5 +1,5 @@
 import { allEnlirElements, allEnlirSchools } from '../enlir';
-import { getElementShortName, getSchoolShortName } from './types';
+import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './types';
 import { lowerCaseFirst, percentToMultiplier, toMrPGeneral, toMrPKilo } from './util';
 
 export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
@@ -10,6 +10,9 @@ export const rankBoostAlias = (s: string) => `1.05-1.1-1.15-1.2-1.3x ${s} dmg @ 
 export const rankCastSpeedAlias = (s: string) => `2-3x ${s} cast @ rank 1-5`;
 export const doubleAlias = (s: string) => `double ${s} (uses extra hone)`;
 export const sbPointsAlias = (s: string) => `+${s} SB pts`;
+export const sbPointsBoosterAlias = (percent: string | number, s: string) =>
+  // Duplicated for effect aliases below
+  `${percentToMultiplier(percent)}x SB gauge from ${formatSchoolOrAbilityList(s)}`;
 
 export const formatRandomEther = (amount: string) => 'refill ' + amount + ' random abil. use';
 export const formatSmartEther = (amount: string, type?: string | undefined) =>
@@ -250,12 +253,13 @@ export const effectAlias: AliasMap = {
   },
 };
 
-function addCastSpeedEffectAliases(fromType: string, toType: string) {
+function addCastSpeedEffectAliases(fromType: string, toType: string, pre: boolean = true) {
+  const fromAbilities = pre ? `${fromType} abilities` : `abilities that deal ${fromType} damage`;
   effectAlias.simple[`${lowerCaseFirst(fromType)} cast speed x2.00`] = toType + ' fastcast';
-  effectAlias.simple[`cast speed x2.00 for ${fromType} abilities`] = toType + ' fastcast';
+  effectAlias.simple[`cast speed x2.00 for ${fromAbilities}`] = toType + ' fastcast';
   effectAlias.simple[`${lowerCaseFirst(fromType)} cast speed x3.00`] = toType + ' hi fastcast';
-  effectAlias.simple[`cast speed x3.00 for ${fromType} abilities`] = toType + ' hi fastcast';
-  effectAlias.simple[`cast speed x9999999 for ${fromType} abilities`] = toType + ' instacast';
+  effectAlias.simple[`cast speed x3.00 for ${fromAbilities}`] = toType + ' hi fastcast';
+  effectAlias.simple[`cast speed x9999999 for ${fromAbilities}`] = toType + ' instacast';
 }
 for (const i of allEnlirSchools) {
   addCastSpeedEffectAliases(i, getSchoolShortName(i));
@@ -265,6 +269,14 @@ for (const i of allEnlirSchools) {
   ];
 }
 addCastSpeedEffectAliases('Jump', 'jump');
+for (const i of allEnlirElements) {
+  addCastSpeedEffectAliases(i, getElementShortName(i), false);
+  // Duplicated from sbPointsBoosterAlias above
+  effectAlias.numbered[`${lowerCaseFirst(i)} attacks grant {X}% more SB points`] = [
+    `{X}x SB gauge from ${getElementShortName(i)}`,
+    multiplierConverter,
+  ];
+}
 
 export function splitNumbered(s: string): [string, string] | [null, null] {
   const m = s.match(/(-?[0-9.]+\??|\?)/);
