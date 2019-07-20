@@ -288,7 +288,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       showProbability = commonProbability == null;
     }
 
-    const colCount = 7 + +showProbability + +!!allowSelect;
+    const colCount = 5 + +showProbability + +!!allowSelect;
 
     let relicsArray = (relics.length > 0 && Array.isArray(relics[0])
       ? relics

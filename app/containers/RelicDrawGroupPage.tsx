@@ -37,7 +37,7 @@ export class RelicDrawGroupPage extends React.PureComponent<
     }
     return (
       <>
-        <img src={group.imageUrl} />
+        <img className="mw-100" src={group.imageUrl} />
         <p>
           <Link to={backLink}>Back to all banners</Link>
         </p>

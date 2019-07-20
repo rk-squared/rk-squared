@@ -1,5 +1,9 @@
 @import '../shared/relicsAndSoulBreaks';
 
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins/_breakpoints';
+
 :local {
   .component {
     table-layout: fixed;
@@ -38,28 +42,31 @@
     font-style: italic;
   }
 
-  col.characterColumn {
-    width: 6em;
-  }
-  col.relicColumn {
-    width: 10em;
-  }
-  col.tierColumn {
-    width: 3em;
-  }
-  col.soulBreakColumn {
-    width: 12em;
-  }
-  col.effectsColumn {
-    width: 100%;
-  }
-  col.probabilityColumn {
-    width: 6em;
-  }
-  col.selectedColumn {
-    width: 2em;
+  @include media-breakpoint-up(md) {
+    col.characterColumn {
+      width: 6em;
+    }
+    col.relicColumn {
+      width: 10em;
+    }
+    col.tierColumn {
+      width: 3em;
+    }
+    col.soulBreakColumn {
+      width: 12em;
+    }
+    col.effectsColumn {
+      width: 100%;
+    }
+    col.probabilityColumn {
+      width: 6em;
+    }
+    col.selectedColumn {
+      width: 2em;
+    }
   }
   col.statusColumn {
     width: 0;
+    padding: 0;
   }
 }

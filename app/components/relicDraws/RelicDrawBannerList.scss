@@ -5,6 +5,7 @@
 
   .component {
     width: $imgWidth;
+    max-width: 100%;
   }
 
   .component.showAsClosed {
@@ -20,7 +21,15 @@
 
   img.image {
     width: $imgWidth;
-    height: $imgHeight;
+    max-width: 100%;
+  }
+
+  @media (min-width: 576px) {
+    // Hack: At larger screen sizes, include a width.
+    // At smaller sizes, omit, so that we can size proportionally to max-width.
+    img.image {
+      height: $imgHeight;
+    }
   }
 
   div.details {

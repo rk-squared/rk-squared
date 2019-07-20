@@ -67,6 +67,13 @@ input[type='search']::-webkit-search-cancel-button {
   display: none;
 }
 
+// Fix an apparent Bootstrap bug: .sr-only shouldn't get padding, even if it
+// normally would as a table cell.
+table td.sr-only,
+table th.sr-only {
+  padding: 0;
+}
+
 .simple-blockquote {
   padding-left: 0.75em;
   margin-left: 0.25em;
