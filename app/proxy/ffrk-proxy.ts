@@ -314,6 +314,59 @@ function showServerError(e: any, description: string, store: Store<IState>) {
   );
 }
 
+/**
+ * Proxy (tunnel) HTTPS requests.  For more information:
+ * https://nodejs.org/api/http.html#http_event_connect
+ * https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT
+ */
+function configureHttpsProxy(server: http.Server, store: Store<IState>, httpsPort: number) {
+  server.on('connect', (req: http.IncomingMessage, clientSocket: net.Socket, head: Buffer) => {
+    logger.debug(`CONNECT ${req.url}`);
+    store.dispatch(updateLastTraffic());
+
+    let serverUrl = url.parse(`https://${req.url}`);
+    // Check for FFRK HTTPS requests in particular and proxy them internally.
+    if (serverUrl.hostname && tlsSites.indexOf(serverUrl.hostname) !== -1) {
+      serverUrl = url.parse(`https://127.0.0.1:${httpsPort}`);
+    }
+    const serverPort = +(serverUrl.port || 80);
+
+    let connected = false;
+    const serverSocket = net
+      .connect(serverPort, serverUrl.hostname, () => {
+        connected = true;
+
+        clientSocket.write(
+          'HTTP/1.1 200 Connection Established\r\n' + 'Proxy-agent: Node.js-Proxy\r\n' + '\r\n',
+        );
+        serverSocket.write(head);
+        serverSocket.pipe(clientSocket);
+        clientSocket.pipe(serverSocket);
+      })
+      .on('error', (e: Error) => {
+        logger.debug(
+          `Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}`,
+        );
+        logger.debug(e);
+        if (!connected) {
+          // Unable to connect to destination - send a clean error back to the client
+          clientSocket.end(
+            'HTTP/1.1 502 Bad Gateway\r\n' + 'Proxy-agent: Node.js-Proxy\r\n' + '\r\n' + e,
+          );
+        } else {
+          // An error occurred in mid-connection - abort the client connection so
+          // the client knows.
+          clientSocket.destroy();
+        }
+      });
+    clientSocket.on('error', (e: Error) => {
+      logger.debug(`Error communicating with ${serverUrl.hostname}`);
+      logger.debug(e);
+      serverSocket.destroy();
+    });
+  });
+}
+
 function scheduleUpdateNetwork(store: Store<IState>, port: number) {
   let ipAddress: string[];
   const updateNetwork = () => {
@@ -436,54 +489,7 @@ export function createFfrkProxy(
   server.on('error', e => showServerError(e, 'proxy server', store));
   httpsServer.on('error', e => showServerError(e, 'HTTPS proxy server', store));
 
-  // Proxy (tunnel) HTTPS requests.  For more information:
-  // https://nodejs.org/api/http.html#http_event_connect
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT
-  server.on('connect', (req: http.IncomingMessage, clientSocket: net.Socket, head: Buffer) => {
-    logger.debug(`CONNECT ${req.url}`);
-    store.dispatch(updateLastTraffic());
-
-    let serverUrl = url.parse(`https://${req.url}`);
-    // Check for FFRK HTTPS requests in particular and proxy them internally.
-    if (serverUrl.hostname && tlsSites.indexOf(serverUrl.hostname) !== -1) {
-      serverUrl = url.parse(`https://127.0.0.1:${httpsPort}`);
-    }
-    const serverPort = +(serverUrl.port || 80);
-
-    let connected = false;
-    const serverSocket = net
-      .connect(serverPort, serverUrl.hostname, () => {
-        connected = true;
-
-        clientSocket.write(
-          'HTTP/1.1 200 Connection Established\r\n' + 'Proxy-agent: Node.js-Proxy\r\n' + '\r\n',
-        );
-        serverSocket.write(head);
-        serverSocket.pipe(clientSocket);
-        clientSocket.pipe(serverSocket);
-      })
-      .on('error', (e: Error) => {
-        logger.debug(
-          `Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}`,
-        );
-        logger.debug(e);
-        if (!connected) {
-          // Unable to connect to destination - send a clean error back to the client
-          clientSocket.end(
-            'HTTP/1.1 502 Bad Gateway\r\n' + 'Proxy-agent: Node.js-Proxy\r\n' + '\r\n' + e,
-          );
-        } else {
-          // An error occurred in mid-connection - abort the client connection so
-          // the client knows.
-          clientSocket.destroy();
-        }
-      });
-    clientSocket.on('error', (e: Error) => {
-      logger.debug(`Error communicating with ${serverUrl.hostname}`);
-      logger.debug(e);
-      serverSocket.destroy();
-    });
-  });
+  configureHttpsProxy(server, store, httpsPort);
 
   scheduleUpdateNetwork(store, port);
 
