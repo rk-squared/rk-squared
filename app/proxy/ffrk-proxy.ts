@@ -101,7 +101,7 @@ function checkRequestBody(req: http.IncomingMessage) {
   proxyReq.body = proxyReq.bodyStream.getContentsAsString('utf8');
   try {
     proxyReq.body = JSON.parse(proxyReq.body);
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function recordRawCapturedData(data: any, req: http.IncomingMessage, extension: string) {
@@ -314,6 +314,28 @@ function showServerError(e: any, description: string, store: Store<IState>) {
   );
 }
 
+function scheduleUpdateNetwork(store: Store<IState>, port: number) {
+  let ipAddress: string[];
+  const updateNetwork = () => {
+    const newIpAddress = getIpAddresses();
+
+    // macOS, for example, may briefly report no IP addresses when it first
+    // wakes from sleep.  To avoid spamming bogus messages in that case, don't
+    // dispatch updates if no IP addresses are available.
+    if (!newIpAddress.length) {
+      return;
+    }
+
+    if (!_.isEqual(newIpAddress, ipAddress)) {
+      ipAddress = newIpAddress;
+      logger.info(`Listening on ${ipAddress.join(',')}, port ${port}`);
+      store.dispatch(updateProxyStatus({ ipAddress, port }));
+    }
+  };
+  updateNetwork();
+  setInterval(updateNetwork, 60 * 1000);
+}
+
 interface ProxyArgs {
   userDataPath: string;
   port?: number;
@@ -322,12 +344,13 @@ interface ProxyArgs {
 
 export function createFfrkProxy(
   store: Store<IState>,
-  { userDataPath, port, httpsPort }: ProxyArgs,
+  proxyArgs: ProxyArgs,
 ) {
+  const { userDataPath } = proxyArgs;
   setStoragePath(userDataPath);
   store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
-  port = port || defaultPort;
-  httpsPort = httpsPort || defaultHttpsPort;
+  const port = proxyArgs.port || defaultPort;
+  const httpsPort = proxyArgs.httpsPort || defaultHttpsPort;
 
   // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
@@ -462,25 +485,7 @@ export function createFfrkProxy(
     });
   });
 
-  let ipAddress: string[];
-  const updateNetwork = () => {
-    const newIpAddress = getIpAddresses();
-
-    // macOS, for example, may briefly report no IP addresses when it first
-    // wakes from sleep.  To avoid spamming bogus messages in that case, don't
-    // dispatch updates if no IP addresses are available.
-    if (!newIpAddress.length) {
-      return;
-    }
-
-    if (!_.isEqual(newIpAddress, ipAddress)) {
-      ipAddress = newIpAddress;
-      logger.info(`Listening on ${ipAddress.join(',')}, port ${port}`);
-      store.dispatch(updateProxyStatus({ ipAddress, port }));
-    }
-  };
-  updateNetwork();
-  setInterval(updateNetwork, 60 * 1000);
+  scheduleUpdateNetwork(store, port);
 
   server.listen(port);
   httpsServer.listen(httpsPort, '127.0.0.1');
