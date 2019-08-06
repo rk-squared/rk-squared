@@ -314,6 +314,10 @@ function showServerError(e: any, description: string, store: Store<IState>) {
   );
 }
 
+function handleServerErrors(anyServer: http.Server | https.Server, description: string, store: Store<IState>) {
+  anyServer.on('error', e => showServerError(e, description, store));
+}
+
 /**
  * Proxy (tunnel) HTTPS requests.  For more information:
  * https://nodejs.org/api/http.html#http_event_connect
@@ -486,8 +490,8 @@ export function createFfrkProxy(
   const server = http.createServer(app);
   const httpsServer = https.createServer(tlsCert, tlsApp);
 
-  server.on('error', e => showServerError(e, 'proxy server', store));
-  httpsServer.on('error', e => showServerError(e, 'HTTPS proxy server', store));
+  handleServerErrors(server, 'proxy server', store);
+  handleServerErrors(httpsServer, 'HTTPS proxy server', store);
 
   configureHttpsProxy(server, store, httpsPort);
 
