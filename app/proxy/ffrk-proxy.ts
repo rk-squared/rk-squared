@@ -101,7 +101,7 @@ function checkRequestBody(req: http.IncomingMessage) {
   proxyReq.body = proxyReq.bodyStream.getContentsAsString('utf8');
   try {
     proxyReq.body = JSON.parse(proxyReq.body);
-  } catch (e) { }
+  } catch (e) {}
 }
 
 function recordRawCapturedData(data: any, req: http.IncomingMessage, extension: string) {
@@ -314,7 +314,11 @@ function showServerError(e: any, description: string, store: Store<IState>) {
   );
 }
 
-function handleServerErrors(anyServer: http.Server | https.Server, description: string, store: Store<IState>) {
+function handleServerErrors(
+  anyServer: http.Server | https.Server,
+  description: string,
+  store: Store<IState>,
+) {
   anyServer.on('error', e => showServerError(e, description, store));
 }
 
@@ -393,22 +397,7 @@ function scheduleUpdateNetwork(store: Store<IState>, port: number) {
   setInterval(updateNetwork, 60 * 1000);
 }
 
-interface ProxyArgs {
-  userDataPath: string;
-  port?: number;
-  httpsPort?: number;
-}
-
-export function createFfrkProxy(
-  store: Store<IState>,
-  proxyArgs: ProxyArgs,
-) {
-  const { userDataPath } = proxyArgs;
-  setStoragePath(userDataPath);
-  store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
-  const port = proxyArgs.port || defaultPort;
-  const httpsPort = proxyArgs.httpsPort || defaultHttpsPort;
-
+function configureApp(app: connect.Server, store: Store<IState>, proxy: httpProxy) {
   // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
     if (isFfrkApiRequest(req)) {
@@ -419,14 +408,6 @@ export function createFfrkProxy(
       return data;
     }
   }
-
-  const proxy = httpProxy.createProxyServer({});
-  proxy.on('error', e => {
-    logger.debug('Error within proxy');
-    logger.debug(e);
-  });
-
-  const app = connect();
 
   app.use(transformerProxy(transformerFunction, { match: ffrkRegex }));
   // Disabled; not currently functional:
@@ -476,7 +457,9 @@ export function createFfrkProxy(
       target: reqUrl.protocol + '//' + reqUrl.host,
     });
   });
+}
 
+function createTlsApp(app: connect.Server) {
   const tlsApp = connect();
 
   tlsApp.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
@@ -486,6 +469,33 @@ export function createFfrkProxy(
     req.url = `https://${host}${reqUrl}`;
     app(req, res, next);
   });
+
+  return tlsApp;
+}
+
+interface ProxyArgs {
+  userDataPath: string;
+  port?: number;
+  httpsPort?: number;
+}
+
+export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
+  const { userDataPath } = proxyArgs;
+  setStoragePath(userDataPath);
+  store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
+  const port = proxyArgs.port || defaultPort;
+  const httpsPort = proxyArgs.httpsPort || defaultHttpsPort;
+
+  const proxy = httpProxy.createProxyServer({});
+  proxy.on('error', e => {
+    logger.debug('Error within proxy');
+    logger.debug(e);
+  });
+
+  const app = connect();
+  configureApp(app, store, proxy);
+
+  const tlsApp = createTlsApp(app);
 
   const server = http.createServer(app);
   const httpsServer = https.createServer(tlsCert, tlsApp);

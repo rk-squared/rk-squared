@@ -185,6 +185,7 @@
     "minification",
     "minified",
     "prefs",
+    "promisify",
     "reselect",
     "selectable",
     "sourcemap",
