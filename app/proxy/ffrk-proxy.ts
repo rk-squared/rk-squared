@@ -1,5 +1,6 @@
 import * as cheerio from 'cheerio';
 import * as connect from 'connect';
+import * as dns from 'dns';
 import * as fs from 'fs';
 import * as http from 'http';
 import * as httpProxy from 'http-proxy';
@@ -8,6 +9,7 @@ import * as moment from 'moment';
 import * as net from 'net';
 import * as path from 'path';
 import * as querystring from 'querystring';
+import * as stream from 'stream';
 import * as streamBuffers from 'stream-buffers';
 import * as url from 'url';
 
@@ -397,7 +399,12 @@ function scheduleUpdateNetwork(store: Store<IState>, port: number) {
   setInterval(updateNetwork, 60 * 1000);
 }
 
-function configureApp(app: connect.Server, store: Store<IState>, proxy: httpProxy) {
+function configureApp(
+  app: connect.Server,
+  store: Store<IState>,
+  proxy: httpProxy,
+  getTarget: (req: http.IncomingMessage) => string | Promise<string>,
+) {
   // FIXME: Need error handling somewhere in here
   function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
     if (isFfrkApiRequest(req)) {
@@ -446,16 +453,16 @@ function configureApp(app: connect.Server, store: Store<IState>, proxy: httpProx
       return;
     }
 
+    let buffer: stream.Writable | undefined;
     if (req.url && req.url.match(ffrkRegex) && req.method === 'POST') {
       const proxyReq = req as ProxyIncomingMessage;
       proxyReq.bodyStream = new streamBuffers.WritableStreamBuffer();
+      buffer = new stream.PassThrough();
+      req.pipe(buffer);
       req.pipe(proxyReq.bodyStream);
     }
 
-    const reqUrl = url.parse(req.url as string);
-    proxy.web(req, res, {
-      target: reqUrl.protocol + '//' + reqUrl.host,
-    });
+    Promise.resolve(getTarget(req)).then(target => proxy.web(req, res, { buffer, target }));
   });
 }
 
@@ -471,6 +478,54 @@ function createTlsApp(app: connect.Server) {
   });
 
   return tlsApp;
+}
+
+function sendServerError(res: http.ServerResponse, message: string) {
+  res.writeHead(200, {
+    'Content-Length': Buffer.byteLength(message),
+    'Content-Type': 'text/plain',
+  });
+  res.end(message);
+}
+
+function createTransparentApp(store: Store<IState>, proxy: httpProxy) {
+  const app = connect();
+  const transparentApp = connect();
+
+  transparentApp.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
+    const reqUrl = req.url as string;
+    const host = req.headers.host;
+    logger.debug(`Transparent proxy: ${reqUrl}, Host: ${host}`);
+    if (!host) {
+      sendServerError(res, 'Missing host header');
+      return;
+    }
+    req.url = `http://${host}${reqUrl}`;
+    app(req, res, next);
+  });
+
+  configureApp(app, store, proxy, req => {
+    const reqUrl = url.parse(req.url as string);
+    return 'http://52.8.144.211';
+    return new Promise((resolve, reject) => {
+      logger.debug(`DNS: resolving ${reqUrl.host} for ${req.url}`);
+      dns.resolve(reqUrl.host!, (err: Error, ipAddresses: string[]) => {
+        if (err) {
+          logger.warn(`DNS: failed: ${err}`);
+          reject(err);
+          return;
+        }
+        logger.debug(`DNS: resolved ${reqUrl.host} to ${ipAddresses.join(' ')}`);
+        if (!ipAddresses.length) {
+          reject(new Error(`Failed to resolve ${reqUrl.host}`));
+          return;
+        }
+        resolve(reqUrl.protocol + '//' + ipAddresses[0]);
+      });
+    });
+  });
+
+  return transparentApp;
 }
 
 interface ProxyArgs {
@@ -493,7 +548,10 @@ export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
   });
 
   const app = connect();
-  configureApp(app, store, proxy);
+  configureApp(app, store, proxy, req => {
+    const reqUrl = url.parse(req.url as string);
+    return reqUrl.protocol + '//' + reqUrl.host;
+  });
 
   const tlsApp = createTlsApp(app);
 
@@ -509,4 +567,11 @@ export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
 
   server.listen(port);
   httpsServer.listen(httpsPort, '127.0.0.1');
+  if (store.getState().options.enableTransparentProxy) {
+    const transparentApp = createTransparentApp(store, proxy);
+    const transparentServer = http.createServer(transparentApp);
+    handleServerErrors(transparentServer, 'transparent proxy server', store);
+    transparentServer.listen(80);
+    logger.info(`Listening on port 80`);
+  }
 }
