@@ -1,10 +1,9 @@
 import * as _ from 'lodash';
 
-import * as schemas from '../api/schemas';
-
 export enum ItemType {
   Ability = 'ability',
   Arcana = 'beast_food',
+  BattleTicket = 'battle_ticket',
   Character = 'buddy',
   Common = 'common',
   CrystalWater = 'record_tear',
@@ -31,6 +30,7 @@ export enum DropItemId {
 export const itemTypeDescription: { [t in ItemType]: string } = {
   [ItemType.Ability]: 'Abilities',
   [ItemType.Arcana]: 'Arcana',
+  [ItemType.BattleTicket]: 'Battle Tickets',
   [ItemType.Character]: 'Characters',
   [ItemType.Common]: 'Mythril, MC Nodes, etc.',
   [ItemType.CrystalWater]: 'Crystal Water',
@@ -67,7 +67,6 @@ export interface Item {
   name: string;
   type: ItemType;
   id: number;
-  internalType?: schemas.ItemTypeName;
 }
 
 /**
@@ -78,6 +77,12 @@ export enum ItemId {
 }
 
 export const items: Item[] = [
+  {
+    name: 'Rush Ticket',
+    type: ItemType.BattleTicket,
+    id: 9630871,
+  },
+
   {
     name: 'Dark Matter (1★)',
     type: ItemType.DarkMatter,
@@ -930,10 +935,7 @@ export const items: Item[] = [
 
   {
     name: 'Feast Ticket',
-    // This is actually type 'BATTLE_TICKET', but I don't want to add a
-    // a separate user-visible type for a rarely seen, time-limited item.
-    type: ItemType.Common,
-    internalType: 'BATTLE_TICKET',
+    type: ItemType.BattleTicket,
     id: 96003851,
   },
 

@@ -6,7 +6,7 @@
 import { BaseUrl, LangType } from '../api/apiUrls';
 import { dressRecordsById } from './dressRecords';
 import { enlir } from './enlir';
-import { itemsById, ItemType } from './items';
+import { ItemType } from './items';
 
 const baseUrl: BaseUrl = {
   [LangType.Jp]: 'https://dff.sp.mbga.jp/dff/static/lang/',
@@ -58,13 +58,8 @@ export function relicImage(lang: LangType, id: number, rarity: number): string {
 
 export function itemImage(lang: LangType, id: number, type: ItemType): string {
   switch (type) {
-    case ItemType.Common: {
-      const urlPath =
-        itemsById[id] && itemsById[id].internalType
-          ? itemsById[id].internalType!.toLowerCase()
-          : 'common_item';
-      return url(lang, `image/${urlPath}/${id}.png`);
-    }
+    case ItemType.Common:
+      return url(lang, `image/common_item/${id}.png`);
     case ItemType.GrowthEgg:
       return url(lang, `image/growegg/${id}/${id}_112.png`);
     case ItemType.Ability:
@@ -77,6 +72,8 @@ export function itemImage(lang: LangType, id: number, type: ItemType): string {
     case ItemType.Orb:
     case ItemType.UpgradeMaterial:
       return url(lang, `image/${type}/${id}/${id}_112.png`);
+    case ItemType.BattleTicket:
+      return url(lang, `image/${type}/${id}_112.png`);
     case ItemType.Relic: {
       const relic = enlir.relics[id];
 

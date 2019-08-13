@@ -7,7 +7,8 @@ import { IState } from '../../reducers/index';
 
 import * as _ from 'lodash';
 
-const shouldShow = (type: ItemType) => type !== ItemType.RecordMateria && type !== ItemType.DropItem;
+const shouldShow = (type: ItemType) =>
+  type !== ItemType.BattleTicket && type !== ItemType.RecordMateria && type !== ItemType.DropItem;
 
 const items = _.sortBy(
   _.toPairs(itemTypeDescription).filter(i => shouldShow(i[0] as ItemType)),
