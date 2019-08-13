@@ -1,6 +1,5 @@
 import * as cheerio from 'cheerio';
 import * as connect from 'connect';
-import * as dns from 'dns';
 import * as fs from 'fs';
 import * as http from 'http';
 import * as httpProxy from 'http-proxy';
@@ -36,6 +35,7 @@ import { issuesUrl } from '../data/resources';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
 import { escapeHtml } from '../utils/textUtils';
+import { DnsResolver } from './dnsResolver';
 import { tlsCert, tlsSites } from './tls';
 import { decodeData, encodeData, getIpAddresses, getStoragePath, setStoragePath } from './util';
 
@@ -504,24 +504,12 @@ function createTransparentApp(store: Store<IState>, proxy: httpProxy) {
     app(req, res, next);
   });
 
+  const resolver = new DnsResolver();
   configureApp(app, store, proxy, req => {
     const reqUrl = url.parse(req.url as string);
-    return new Promise((resolve, reject) => {
-      logger.debug(`DNS: resolving ${reqUrl.host} for ${req.url}`);
-      dns.resolve(reqUrl.host!, (err: Error, ipAddresses: string[]) => {
-        if (err) {
-          logger.warn(`DNS: failed: ${err}`);
-          reject(err);
-          return;
-        }
-        logger.debug(`DNS: resolved ${reqUrl.host} to ${ipAddresses.join(' ')}`);
-        if (!ipAddresses.length) {
-          reject(new Error(`Failed to resolve ${reqUrl.host}`));
-          return;
-        }
-        resolve(reqUrl.protocol + '//' + ipAddresses[0]);
-      });
-    });
+    return Promise.resolve(resolver.resolve(reqUrl.host!)).then(
+      address => reqUrl.protocol + '//' + address,
+    );
   });
 
   return transparentApp;
