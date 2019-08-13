@@ -24,6 +24,11 @@ export type SeriesId =
   | 190001 // Beyond
   | 200001 // Core
   | 900072; // ETC
+// There are additional internal series IDs here; e.g., the lightning
+// fat chocobo event is 900215, and the dark fat chocobo event is
+// 900248.
+
+export const EtcSeriesId: SeriesId = 900072;
 
 interface SeriesMaps {
   short: { [id in SeriesId]: string };

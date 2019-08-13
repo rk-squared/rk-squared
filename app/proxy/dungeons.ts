@@ -30,6 +30,7 @@ import * as mainSchemas from '../api/schemas/main';
 import { enlir } from '../data';
 import { Item, itemsByName, ItemType } from '../data/items';
 import { LocalIconType } from '../data/localData';
+import { EtcSeriesId } from '../data/series';
 import { crystalTowerFloorIcon, itemImage } from '../data/urls';
 import { IState } from '../reducers';
 import { DungeonState } from '../reducers/dungeons';
@@ -336,12 +337,27 @@ export function convertWorld(
 const elementIcon = (elementLike: string) =>
   (elementLike.toLowerCase() + 'Element') as LocalIconType;
 
+/**
+ * Is this a Fat Black Chocobo "Special Request" elemental event?  These don't
+ * seem to have clear / consistent identifiers, so we match using the name (and
+ * only support English names).
+ */
+const isFatBlackChocobo = (world: World) =>
+  (!world.seriesId || world.seriesId > EtcSeriesId) && world.name.match(/^A .* Request$/);
+
 function checkForWorldIcon(
   lang: LangType,
   world: World,
   crystalTowerIcons: { [worldId: number]: number },
 ) {
   switch (world.category) {
+    case WorldCategory.Event: {
+      if (isFatBlackChocobo(world)) {
+        world.localIcon = 'fatBlackChocobo';
+      }
+      break;
+    }
+
     case WorldCategory.Nightmare: {
       const ability = enlir.abilitiesByName[world.name.replace(' Record', '')];
       if (ability) {

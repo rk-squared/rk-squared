@@ -786,6 +786,26 @@ export const items: Item[] = [
     type: ItemType.Orb,
     id: 40000131,
   },
+  {
+    name: 'Plasma Shock Record',
+    type: ItemType.Orb,
+    id: 40000132,
+  },
+  {
+    name: 'Ripping Plasma Record',
+    type: ItemType.Orb,
+    id: 40000133,
+  },
+  {
+    name: 'Icicle Bullet Record',
+    type: ItemType.Orb,
+    id: 40000134,
+  },
+  {
+    name: 'Touched by Darkness Record',
+    type: ItemType.Orb,
+    id: 40000135,
+  },
 
   {
     name: 'Minor Growth Egg',
@@ -898,6 +918,11 @@ export const items: Item[] = [
     name: 'Record Rubies',
     type: ItemType.Common,
     id: 95001080,
+  },
+  {
+    name: 'Krakka Greens',
+    type: ItemType.Common,
+    id: 95001148,
   },
 
   // Items 95003001 through 95003009 are apparently internal virtual items used

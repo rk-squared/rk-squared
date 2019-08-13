@@ -14,7 +14,8 @@ export type LocalIconType =
   | 'animaWave2'
   | 'animaWaveUnknown'
   | 'mythril'
-  | 'odin';
+  | 'odin'
+  | 'fatBlackChocobo';
 
 export const localIcons: { [s in LocalIconType]: string | undefined } = {
   darkElement: require('../images/ffrk-icons/dark.png'),
@@ -26,11 +27,15 @@ export const localIcons: { [s in LocalIconType]: string | undefined } = {
   poisonElement: require('../images/ffrk-icons/poison.png'),
   waterElement: require('../images/ffrk-icons/water.png'),
   windElement: require('../images/ffrk-icons/wind.png'),
+
   animaWave1: require('../images/game-icons/checkered-diamond-6daf50.svg'),
   animaWave2: require('../images/game-icons/checkered-diamond-d22d2d.svg'),
   animaWaveUnknown: require('../images/game-icons/checkered-diamond-000000.svg'),
+
   mythril: require('../images/ffrk-icons/mythril.png'),
+
   odin: require('../images/game-icons/mounted-knight.svg'),
+  fatBlackChocobo: require('../images/game-icons/bird-twitter.svg'),
 };
 
 export const getAnimaWaveIcon = (anima: number) => {
