@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as classNames from 'classnames';
 
 import { Options, setOption as setOptionAction } from '../../actions/options';
@@ -24,26 +25,41 @@ const Checkbox = ({
   children,
   options,
   setOption,
+  needsRestart,
 }: {
   id: KeysOfType<Required<Options>, boolean>;
   children: any;
   options: Options;
   setOption: (o: Options) => void;
-}) => (
-  <div className="form-check">
-    <input
-      className="form-check-input"
-      id={id}
-      name={id}
-      type="checkbox"
-      checked={options[id]}
-      onChange={() => setOption({ [id]: !options[id] })}
-    />
-    <label className="form-check-label" htmlFor={id}>
-      {children}
-    </label>
-  </div>
-);
+  needsRestart?: boolean;
+}) => {
+  // Track whether a setting has changed, so we know if we need to prompt the
+  // user to restart.  This is imperfect; to do it properly, we'd track state
+  // at program start, not state at component mount.  But it's simple.
+  const [state] = React.useState(options[id]);
+
+  return (
+    <div className="form-check">
+      <input
+        className="form-check-input"
+        id={id}
+        name={id}
+        type="checkbox"
+        checked={options[id]}
+        onChange={() => setOption({ [id]: !options[id] })}
+      />
+      <label className="form-check-label" htmlFor={id}>
+        {children}
+        {needsRestart && state !== options[id] && (
+          <span className="pl-2 text-danger">
+            <FontAwesomeIcon icon="exclamation-triangle" />
+            You must restart RK&sup2; for this to take effect.
+          </span>
+        )}
+      </label>
+    </div>
+  );
+};
 
 const HelpText = ({ children, className }: { children: any; className?: string }) => (
   <small className={classNames('form-text text-muted', className)}>{children}</small>
@@ -96,6 +112,19 @@ export class OptionsForm extends React.Component<Props> {
           </HelpText>
         </div>
 
+        <div className="form-group">
+          <Checkbox id="enableTransparentProxy" {...{ options, setOption }} needsRestart={true}>
+            Enable transparent proxy
+          </Checkbox>
+          <HelpText>
+            <p>
+              Runs RK&sup2; as a transparent proxy on TCP port 80, along with its its normal port.
+              In conjunction with an appropriate network setup, this allows using RK&sup2; with
+              BlueStacks.
+            </p>
+          </HelpText>
+        </div>
+
         <h5>Troubleshooting</h5>
         <p>
           These options can be useful for testing and troubleshooting but are otherwise not needed.
@@ -120,7 +149,7 @@ export class OptionsForm extends React.Component<Props> {
         </div>
 
         <div className="form-group">
-          <Checkbox id="enableLogging" {...{ options, setOption }}>
+          <Checkbox id="enableLogging" {...{ options, setOption }} needsRestart={true}>
             Enable logging
           </Checkbox>
           <HelpText>
@@ -132,9 +161,8 @@ export class OptionsForm extends React.Component<Props> {
                   to <code>{logFilename}</code>
                 </span>
               )}
-              . Changing this setting will not take effect until you restart RK&sup2; .{' '}
-              <strong>Privacy note:</strong> These troubleshooting details include the URLs (but not
-              contents) of web sites that your mobile device visits.
+              . <strong>Privacy note:</strong> These troubleshooting details include the URLs (but
+              not contents) of web sites that your mobile device visits.
             </p>
           </HelpText>
         </div>

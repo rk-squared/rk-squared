@@ -8,6 +8,7 @@ import * as moment from 'moment';
 import * as net from 'net';
 import * as path from 'path';
 import * as querystring from 'querystring';
+import * as stream from 'stream';
 import * as streamBuffers from 'stream-buffers';
 import * as url from 'url';
 
@@ -34,6 +35,7 @@ import { issuesUrl } from '../data/resources';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
 import { escapeHtml } from '../utils/textUtils';
+import { DnsResolver } from './dnsResolver';
 import { tlsCert, tlsSites } from './tls';
 import { decodeData, encodeData, getIpAddresses, getStoragePath, setStoragePath } from './util';
 
@@ -314,108 +316,20 @@ function showServerError(e: any, description: string, store: Store<IState>) {
   );
 }
 
-interface ProxyArgs {
-  userDataPath: string;
-  port?: number;
-  httpsPort?: number;
+function handleServerErrors(
+  anyServer: http.Server | https.Server,
+  description: string,
+  store: Store<IState>,
+) {
+  anyServer.on('error', e => showServerError(e, description, store));
 }
 
-export function createFfrkProxy(
-  store: Store<IState>,
-  { userDataPath, port, httpsPort }: ProxyArgs,
-) {
-  setStoragePath(userDataPath);
-  store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
-  port = port || defaultPort;
-  httpsPort = httpsPort || defaultHttpsPort;
-
-  // FIXME: Need error handling somewhere in here
-  function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
-    if (isFfrkApiRequest(req)) {
-      return handleFfrkApiRequest(data, req, res, store);
-    } else if (isFfrkStartupRequest(req)) {
-      return handleFfrkStartupRequest(data, req, res, store);
-    } else {
-      return data;
-    }
-  }
-
-  const proxy = httpProxy.createProxyServer({});
-  proxy.on('error', e => {
-    logger.debug('Error within proxy');
-    logger.debug(e);
-  });
-
-  const app = connect();
-
-  app.use(transformerProxy(transformerFunction, { match: ffrkRegex }));
-  // Disabled; not currently functional:
-  // app.use(transformerProxy(cacheTransformerFunction, { match: /127\.0\.0\.1/ }));
-
-  app.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
-    logger.debug(req.url as string);
-    store.dispatch(updateLastTraffic());
-    // console.log(req.headers);
-    next();
-  });
-
-  app.use((req: http.IncomingMessage, res: http.ServerResponse) => {
-    req.on('error', e => {
-      logger.debug('Error within proxy req');
-      logger.debug(e);
-    });
-    res.on('error', e => {
-      logger.debug('Error within proxy res');
-      logger.debug(e);
-    });
-
-    // Disabled; not currently functional:
-    /*
-    const resourceUrl = parseFfrkCacheRequest(req);
-    if (resourceUrl != null) {
-      proxy.web(req, res, {
-        target: `http://ffrk.denagames.com/dff/${resourceUrl}`,
-        ignorePath: true
-      });
-      return;
-    }
-    */
-
-    if (handleInternalRequests(req, res, tlsCert.ca)) {
-      return;
-    }
-
-    if (req.url && req.url.match(ffrkRegex) && req.method === 'POST') {
-      const proxyReq = req as ProxyIncomingMessage;
-      proxyReq.bodyStream = new streamBuffers.WritableStreamBuffer();
-      req.pipe(proxyReq.bodyStream);
-    }
-
-    const reqUrl = url.parse(req.url as string);
-    proxy.web(req, res, {
-      target: reqUrl.protocol + '//' + reqUrl.host,
-    });
-  });
-
-  const tlsApp = connect();
-
-  tlsApp.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
-    const reqUrl = req.url as string;
-    const host = req.headers.host;
-    logger.debug(`TLS proxy: ${reqUrl}, Host: ${host}`);
-    req.url = `https://${host}${reqUrl}`;
-    app(req, res, next);
-  });
-
-  const server = http.createServer(app);
-  const httpsServer = https.createServer(tlsCert, tlsApp);
-
-  server.on('error', e => showServerError(e, 'proxy server', store));
-  httpsServer.on('error', e => showServerError(e, 'HTTPS proxy server', store));
-
-  // Proxy (tunnel) HTTPS requests.  For more information:
-  // https://nodejs.org/api/http.html#http_event_connect
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT
+/**
+ * Proxy (tunnel) HTTPS requests.  For more information:
+ * https://nodejs.org/api/http.html#http_event_connect
+ * https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT
+ */
+function configureHttpsProxy(server: http.Server, store: Store<IState>, httpsPort: number) {
   server.on('connect', (req: http.IncomingMessage, clientSocket: net.Socket, head: Buffer) => {
     logger.debug(`CONNECT ${req.url}`);
     store.dispatch(updateLastTraffic());
@@ -461,7 +375,9 @@ export function createFfrkProxy(
       serverSocket.destroy();
     });
   });
+}
 
+function scheduleUpdateNetwork(store: Store<IState>, port: number) {
   let ipAddress: string[];
   const updateNetwork = () => {
     const newIpAddress = getIpAddresses();
@@ -481,7 +397,168 @@ export function createFfrkProxy(
   };
   updateNetwork();
   setInterval(updateNetwork, 60 * 1000);
+}
+
+function configureApp(
+  app: connect.Server,
+  store: Store<IState>,
+  proxy: httpProxy,
+  getTarget: (req: http.IncomingMessage) => string | Promise<string>,
+) {
+  // FIXME: Need error handling somewhere in here
+  function transformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
+    if (isFfrkApiRequest(req)) {
+      return handleFfrkApiRequest(data, req, res, store);
+    } else if (isFfrkStartupRequest(req)) {
+      return handleFfrkStartupRequest(data, req, res, store);
+    } else {
+      return data;
+    }
+  }
+
+  app.use(transformerProxy(transformerFunction, { match: ffrkRegex }));
+  // Disabled; not currently functional:
+  // app.use(transformerProxy(cacheTransformerFunction, { match: /127\.0\.0\.1/ }));
+
+  app.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
+    logger.debug(req.url as string);
+    store.dispatch(updateLastTraffic());
+    // console.log(req.headers);
+    next();
+  });
+
+  app.use((req: http.IncomingMessage, res: http.ServerResponse) => {
+    req.on('error', e => {
+      logger.debug('Error within proxy req');
+      logger.debug(e);
+    });
+    res.on('error', e => {
+      logger.debug('Error within proxy res');
+      logger.debug(e);
+    });
+
+    // Disabled; not currently functional:
+    /*
+    const resourceUrl = parseFfrkCacheRequest(req);
+    if (resourceUrl != null) {
+      proxy.web(req, res, {
+        target: `http://ffrk.denagames.com/dff/${resourceUrl}`,
+        ignorePath: true
+      });
+      return;
+    }
+    */
+
+    if (handleInternalRequests(req, res, tlsCert.ca)) {
+      return;
+    }
+
+    let buffer: stream.Writable | undefined;
+    if (req.url && req.url.match(ffrkRegex) && req.method === 'POST') {
+      const proxyReq = req as ProxyIncomingMessage;
+      proxyReq.bodyStream = new streamBuffers.WritableStreamBuffer();
+      buffer = new stream.PassThrough();
+      req.pipe(buffer);
+      req.pipe(proxyReq.bodyStream);
+    }
+
+    Promise.resolve(getTarget(req)).then(target => proxy.web(req, res, { buffer, target }));
+  });
+}
+
+function createTlsApp(app: connect.Server) {
+  const tlsApp = connect();
+
+  tlsApp.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
+    const reqUrl = req.url as string;
+    const host = req.headers.host;
+    logger.debug(`TLS proxy: ${reqUrl}, Host: ${host}`);
+    req.url = `https://${host}${reqUrl}`;
+    app(req, res, next);
+  });
+
+  return tlsApp;
+}
+
+function sendServerError(res: http.ServerResponse, message: string) {
+  res.writeHead(200, {
+    'Content-Length': Buffer.byteLength(message),
+    'Content-Type': 'text/plain',
+  });
+  res.end(message);
+}
+
+function createTransparentApp(store: Store<IState>, proxy: httpProxy) {
+  const app = connect();
+  const transparentApp = connect();
+
+  transparentApp.use((req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => {
+    const reqUrl = req.url as string;
+    const host = req.headers.host;
+    logger.debug(`Transparent proxy: ${reqUrl}, Host: ${host}`);
+    if (!host) {
+      sendServerError(res, 'Missing host header');
+      return;
+    }
+    req.url = `http://${host}${reqUrl}`;
+    app(req, res, next);
+  });
+
+  const resolver = new DnsResolver();
+  configureApp(app, store, proxy, req => {
+    const reqUrl = url.parse(req.url as string);
+    return Promise.resolve(resolver.resolve(reqUrl.host!)).then(
+      address => reqUrl.protocol + '//' + address,
+    );
+  });
+
+  return transparentApp;
+}
+
+interface ProxyArgs {
+  userDataPath: string;
+  port?: number;
+  httpsPort?: number;
+}
+
+export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
+  const { userDataPath } = proxyArgs;
+  setStoragePath(userDataPath);
+  store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
+  const port = proxyArgs.port || defaultPort;
+  const httpsPort = proxyArgs.httpsPort || defaultHttpsPort;
+
+  const proxy = httpProxy.createProxyServer({});
+  proxy.on('error', e => {
+    logger.debug('Error within proxy');
+    logger.debug(e);
+  });
+
+  const app = connect();
+  configureApp(app, store, proxy, req => {
+    const reqUrl = url.parse(req.url as string);
+    return reqUrl.protocol + '//' + reqUrl.host;
+  });
+
+  const tlsApp = createTlsApp(app);
+
+  const server = http.createServer(app);
+  const httpsServer = https.createServer(tlsCert, tlsApp);
+
+  handleServerErrors(server, 'proxy server', store);
+  handleServerErrors(httpsServer, 'HTTPS proxy server', store);
+
+  configureHttpsProxy(server, store, httpsPort);
+
+  scheduleUpdateNetwork(store, port);
 
   server.listen(port);
   httpsServer.listen(httpsPort, '127.0.0.1');
+  if (store.getState().options.enableTransparentProxy) {
+    const transparentApp = createTransparentApp(store, proxy);
+    const transparentServer = http.createServer(transparentApp);
+    handleServerErrors(transparentServer, 'transparent proxy server', store);
+    transparentServer.listen(80);
+    logger.info(`Listening on port 80`);
+  }
 }

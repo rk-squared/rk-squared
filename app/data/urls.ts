@@ -8,9 +8,16 @@ import { dressRecordsById } from './dressRecords';
 import { enlir } from './enlir';
 import { ItemType } from './items';
 
+// Within the Electron app, use HTTP, so that our transparent proxy can serve
+// resources without also having to implement HTTPS.
+//
+// Otherwise, use HTTPS, both to promote "HTTPS everywhere" and to avoid
+// mixed content warnings for the web site version in particular.
+const protocol = process.env.IS_ELECTRON ? 'http' : 'https';
+
 const baseUrl: BaseUrl = {
-  [LangType.Jp]: 'https://dff.sp.mbga.jp/dff/static/lang/',
-  [LangType.Gl]: 'https://ffrk.denagames.com/dff/static/lang/ww/compile/en/',
+  [LangType.Jp]: protocol + '://dff.sp.mbga.jp/dff/static/lang/',
+  [LangType.Gl]: protocol + '://ffrk.denagames.com/dff/static/lang/ww/compile/en/',
 };
 
 export function url(lang: LangType, subPath: string): string {

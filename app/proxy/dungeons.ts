@@ -428,7 +428,7 @@ function convertWorlds(
     const resultWorld = convertWorld(e, world, textMaster);
 
     if (resultWorld === false) {
-      logger.debug(`Skipping world ${e.world_id} (${world.name})`);
+      logger.debug(`Skipping world ${e.world_id} (${world.name} - ${e.type_name})`);
     } else if (resultWorld == null) {
       logger.error(`Unknown: ${e.world_id} (${world.name})`);
       totalUnknown++;

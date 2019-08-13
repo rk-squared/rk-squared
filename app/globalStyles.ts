@@ -10,6 +10,7 @@ import { faChevronDown } from '@fortawesome/pro-solid-svg-icons/faChevronDown';
 import { faCoffeeTogo } from '@fortawesome/pro-solid-svg-icons/faCoffeeTogo';
 import { faCog } from '@fortawesome/pro-solid-svg-icons/faCog';
 import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons/faEllipsisH';
+import { faExclamationTriangle } from '@fortawesome/pro-solid-svg-icons/faExclamationTriangle';
 import { faExternalLink } from '@fortawesome/pro-solid-svg-icons/faExternalLink';
 import { faLock } from '@fortawesome/pro-solid-svg-icons/faLock';
 import { faLockOpen } from '@fortawesome/pro-solid-svg-icons/faLockOpen';
@@ -41,6 +42,7 @@ library.add(
   faCog,
   faDiceD20,
   faEllipsisH,
+  faExclamationTriangle,
   faExternalLink,
   faLock,
   faLockOpen,

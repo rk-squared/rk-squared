@@ -8,6 +8,7 @@ export interface Options {
   alwaysShowTimer?: boolean;
   enableLogging?: boolean;
   saveTrafficCaptures?: boolean;
+  enableTransparentProxy?: boolean;
 
   /**
    * Expire old relic draw banners after this value, in days.
@@ -32,6 +33,7 @@ export const defaultOptions: Required<Options> = {
   alwaysShowTimer: false,
   enableLogging: false,
   saveTrafficCaptures: false,
+  enableTransparentProxy: false,
 
   // Earlier versions were effectively 0.  Pick 1 so they don't *immediately*
   // expire.
