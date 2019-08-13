@@ -506,7 +506,6 @@ function createTransparentApp(store: Store<IState>, proxy: httpProxy) {
 
   configureApp(app, store, proxy, req => {
     const reqUrl = url.parse(req.url as string);
-    return 'http://52.8.144.211';
     return new Promise((resolve, reject) => {
       logger.debug(`DNS: resolving ${reqUrl.host} for ${req.url}`);
       dns.resolve(reqUrl.host!, (err: Error, ipAddresses: string[]) => {
