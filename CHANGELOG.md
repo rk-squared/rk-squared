@@ -1,7 +1,13 @@
 # v2.3.0
 
+- Experimental transparent proxy support (BlueStacks support)
+- Drop Tracker
+  - Fix display of Rush Tickets for Fat Black Chocobo dungeons
 - Dungeons
   - Group Record Dungeons by chapter
+  - Add icons for Fat Black Chocobo dungeons
+- Dungeon Scores
+  - Fix showing Dark Odin progress.
 - Soul Breaks
   - Search feature, inspired by /u/TheDeathAgent's excellent work on [FFRKLookup.com](https://www.ffrklookup.com/)
 - Relic Draws
@@ -9,7 +15,7 @@
   - RK Squared now offers the option of keeping recently closed relic banners. For example, you can review the last few days of a fest, or you could save up history for JP to use as foresight for GL. By default, banners are kept 4 days after closing; you can change this under the Options screen.
   - Lucky draws (as well as the "All Relics" section of dream selects) are now grouped by realm.
 - Miscellaneous
-  - Allow closing the unmastered soul breaks list and prompts to load missing dungeons or relic banners.
+  - Allow closing the unmastered soul breaks list and any prompts to load missing dungeons or relic banners.
 
 # v2.2.0
 

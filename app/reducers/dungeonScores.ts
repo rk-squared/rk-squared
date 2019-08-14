@@ -51,7 +51,7 @@ export function dungeonScores(
         if (
           state.elementScores &&
           state.elementScores[dungeonId][element] &&
-          isScoreBetterThan(state.elementScores[dungeonId][element], newScore)
+          !isScoreBetterThan(state.elementScores[dungeonId][element], newScore)
         ) {
           return;
         }

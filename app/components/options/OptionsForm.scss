@@ -2,4 +2,11 @@
   .component > :global(.form-group) > :global(.form-check) + :global(small.form-text) {
     margin-left: 1.25rem;
   }
+
+  // If using Bootstrap's grid system (.row and .col...) to lay out controls,
+  // then margins don't collapse.  Don't allow a <p> within help text to insert
+  // extra bottom margin.
+  .component > :global(.form-group.row) > small:global(.form-text) > :last-child {
+    margin-bottom: 0;
+  }
 }
