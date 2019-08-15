@@ -12187,7 +12187,7 @@
   {
     "id": 50628,
     "name": "Respect Counter Critical",
-    "effects": "Critical Chance =25/50/75/100% after using 1/2/3/4+ Water attacks, removed if the user hasn't Respect Counter Mode",
+    "effects": "Critical chance =25/50/75/100% after using 1/2/3/4+ Water attacks, removed if the user hasn't Respect Counter Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12285,7 +12285,7 @@
   },
   {
     "id": 50644,
-    "name": "Elegant Angel of Death",
+    "name": "Elegant Angel of Death Mode",
     "effects": "Cast speed x3.00, grants Minor Buff Dark after using 2 Dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12308,7 +12308,7 @@
   {
     "id": 50648,
     "name": "Fire Vigor Mode",
-    "effects": "Critical Chance =50/75/100% after using 1/2/3+ Fire attacks, casts Fault Check Shot (Fire) after using a Fire attack, removed if the user hasn't Vigor Mode",
+    "effects": "Critical chance =50/75/100% after using 1/2/3+ Fire attacks, casts Fault Check Shot (Fire) after using a Fire attack, removed if the user hasn't Vigor Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

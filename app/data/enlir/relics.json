@@ -1620,6 +1620,51 @@
     "gl": true
   },
   {
+    "name": "Pirate's Knife",
+    "realm": "II",
+    "type": "Dagger",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 170,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Water damage +20%",
+    "character": "Leila",
+    "soulBreak": "Pirate Cutlass",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 124,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 188,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21001160,
+    "gl": false
+  },
+  {
     "name": "Gladius",
     "realm": "III",
     "type": "Dagger",
@@ -3598,6 +3643,51 @@
     },
     "id": 21001092,
     "gl": true
+  },
+  {
+    "name": "Mage Masher",
+    "realm": "II",
+    "type": "Dagger",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 137,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Leila",
+    "soulBreak": null,
+    "legendMateria": "Paloom's Pirate",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 102,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 154,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21001093,
+    "gl": false
   },
   {
     "name": "Lust Dagger",
@@ -63450,6 +63540,51 @@
     "gl": false
   },
   {
+    "name": "Seraphim Mace",
+    "realm": "Core",
+    "type": "Staff",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 91,
+      "def": 0,
+      "mag": 168,
+      "res": 0,
+      "mnd": 165,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Dr. Mog",
+    "soulBreak": "Aqua Mode",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 62,
+      "def": null,
+      "mag": 124,
+      "res": null,
+      "mnd": 120,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 102,
+      "def": null,
+      "mag": 186,
+      "res": null,
+      "mnd": 183,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009176,
+    "gl": false
+  },
+  {
     "name": "Sage Staff",
     "realm": "I",
     "type": "Staff",
@@ -65742,6 +65877,51 @@
       "eva": null
     },
     "id": 21009166,
+    "gl": false
+  },
+  {
+    "name": "Oak Staff",
+    "realm": "Core",
+    "type": "Staff",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 89,
+      "def": 0,
+      "mag": 137,
+      "res": 0,
+      "mnd": 134,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Dr. Mog",
+    "soulBreak": "Bubble Mode",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 62,
+      "def": null,
+      "mag": 104,
+      "res": null,
+      "mnd": 100,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 102,
+      "def": null,
+      "mag": 153,
+      "res": null,
+      "mnd": 151,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009175,
     "gl": false
   },
   {
@@ -70650,6 +70830,51 @@
     "gl": false
   },
   {
+    "name": "Traitor's Bow",
+    "realm": "II",
+    "type": "Bow",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 78,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Water damage +20%",
+    "character": "Leila",
+    "soulBreak": "Splash LXIV",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 118,
+      "def": null,
+      "mag": 21,
+      "res": null,
+      "mnd": 21,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 182,
+      "def": null,
+      "mag": 40,
+      "res": null,
+      "mnd": 40,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21010088,
+    "gl": false
+  },
+  {
     "name": "Selene's Bow",
     "realm": "III",
     "type": "Bow",
@@ -71322,6 +71547,96 @@
       "eva": null
     },
     "id": 21010071,
+    "gl": false
+  },
+  {
+    "name": "Genji Bow",
+    "realm": "XIII",
+    "type": "Bow",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 78,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Water damage +20%",
+    "character": "Serah",
+    "soulBreak": "Absolute Zero",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 88,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": 55,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 126,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": 87,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21010087,
+    "gl": false
+  },
+  {
+    "name": "Rune Feather",
+    "realm": "XIII",
+    "type": "Bow",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 78,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Water damage +20%",
+    "character": "Serah",
+    "soulBreak": "Artemis Frost",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 88,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": 55,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 126,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": 87,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21010073,
     "gl": false
   },
   {
@@ -89100,6 +89415,51 @@
     "gl": false
   },
   {
+    "name": "Marine Beast Encyclopedia",
+    "realm": "Core",
+    "type": "Book",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 91,
+      "def": 0,
+      "mag": 168,
+      "res": 0,
+      "mnd": 165,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Water damage +20%",
+    "character": "Dr. Mog",
+    "soulBreak": "Marine Field",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 62,
+      "def": null,
+      "mag": 124,
+      "res": null,
+      "mnd": 120,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 102,
+      "def": null,
+      "mag": 186,
+      "res": null,
+      "mnd": 183,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21014030,
+    "gl": false
+  },
+  {
     "name": "Apocalypse Zeta",
     "realm": "XIV",
     "type": "Book",
@@ -105930,6 +106290,51 @@
     "gl": false
   },
   {
+    "name": "Dr. Mog's Swim Ring",
+    "realm": "Core",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 135,
+      "mag": 19,
+      "res": 135,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Water damage +20%",
+    "character": "Dr. Mog",
+    "soulBreak": "Surfing Moogle!",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 94,
+      "mag": 10,
+      "res": 94,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 151,
+      "mag": 22,
+      "res": 151,
+      "mnd": 22,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053454,
+    "gl": false
+  },
+  {
     "name": "Power Vest",
     "realm": "I",
     "type": "Light Armor",
@@ -106153,6 +106558,51 @@
     },
     "id": 22053389,
     "gl": true
+  },
+  {
+    "name": "Leila's Guise",
+    "realm": "II",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 152,
+      "mag": 0,
+      "res": 152,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Leila",
+    "soulBreak": "Pirate's Spirit",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 111,
+      "mag": null,
+      "res": 111,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 168,
+      "mag": null,
+      "res": 168,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053378,
+    "gl": false
   },
   {
     "name": "Onion Knight's Guise",
@@ -108447,6 +108897,51 @@
       "eva": 100
     },
     "id": 22053151,
+    "gl": false
+  },
+  {
+    "name": "N7 Armor S",
+    "realm": "XIII",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 151,
+      "mag": 19,
+      "res": 151,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Water damage +20%",
+    "character": "Serah",
+    "soulBreak": "Strike Water",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 110,
+      "mag": 10,
+      "res": 110,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 167,
+      "mag": 22,
+      "res": 167,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053278,
     "gl": false
   },
   {
@@ -117268,6 +117763,51 @@
     },
     "id": 22053384,
     "gl": true
+  },
+  {
+    "name": "Serah's One Piece",
+    "realm": "XIII",
+    "type": "Light Armor",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 0,
+      "def": 119,
+      "mag": 17,
+      "res": 119,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Serah",
+    "soulBreak": null,
+    "legendMateria": "Stern Female Instructor",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": 88,
+      "mag": 10,
+      "res": 88,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": 134,
+      "mag": 20,
+      "res": 134,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053119,
+    "gl": false
   },
   {
     "name": "Ninja Chainmail",
@@ -128790,6 +129330,51 @@
     "gl": true
   },
   {
+    "name": "Summoner's Glove",
+    "realm": "XIII",
+    "type": "Bracer",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 32,
+      "def": 125,
+      "mag": 34,
+      "res": 122,
+      "mnd": 23,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Serah",
+    "soulBreak": "Artemis Charge",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 20,
+      "def": 102,
+      "mag": 24,
+      "res": 90,
+      "mnd": 13,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 36,
+      "def": 134,
+      "mag": 38,
+      "res": 134,
+      "mnd": 27,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056262,
+    "gl": false
+  },
+  {
     "name": "A1-Class Powershield",
     "realm": "XV",
     "type": "Bracer",
@@ -134502,6 +135087,51 @@
       "eva": 105
     },
     "id": 22056228,
+    "gl": false
+  },
+  {
+    "name": "Bloodguard",
+    "realm": "XIII",
+    "type": "Bracer",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 24,
+      "def": 99,
+      "mag": 28,
+      "res": 95,
+      "mnd": 18,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Serah",
+    "soulBreak": "Artemis Field",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 16,
+      "def": 81,
+      "mag": 21,
+      "res": 71,
+      "mnd": 11,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 28,
+      "def": 107,
+      "mag": 31,
+      "res": 107,
+      "mnd": 21,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056261,
     "gl": false
   },
   {
