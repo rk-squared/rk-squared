@@ -442,8 +442,8 @@ Array [
   },
   Object {
     "character": "Barret",
-    "description": "25?% dualcast Machinist",
-    "effect": "25?% chance to dualcast Machinist abilities",
+    "description": "25% dualcast Machinist",
+    "effect": "25% chance to dualcast Machinist abilities",
     "name": "AVALANCHE's Leader",
   },
   Object {
@@ -712,8 +712,8 @@ Array [
   },
   Object {
     "character": "Ceodore",
-    "description": "25?% dualcast holy",
-    "effect": "25?% chance to dualcast abilities that deal Holy damage",
+    "description": "25% dualcast holy",
+    "effect": "25% chance to dualcast abilities that deal Holy damage",
     "name": "Lunarian Successor",
   },
   Object {
@@ -1047,6 +1047,12 @@ Array [
     "name": "Reserved Demeanor",
   },
   Object {
+    "character": "Deuce",
+    "description": "(W.Mag ⤇ 25% for party h25)",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "name": "Calming Figure",
+  },
+  Object {
     "character": "Dorgann",
     "description": "1.15x Knight dmg",
     "effect": "Knight abilities deal 15% more damage",
@@ -1096,8 +1102,8 @@ Array [
   },
   Object {
     "character": "Dr. Mog",
-    "description": "(<20% HP ⤇ 1.25x elem dmg? 25s)",
-    "effect": "Grants Elemental Boost? when HP fall below 20%",
+    "description": "(<20% HP ⤇ 1.25x elem dmg 25s)",
+    "effect": "Grants Dr. Mog Trance when HP fall below 20%",
     "name": "History Institute Leader's Potential",
   },
   Object {
@@ -1633,6 +1639,12 @@ Array [
     "description": "25% dualcast dark",
     "effect": "25% chance to dualcast abilities that deal Dark damage",
     "name": "Bound by Vengeance",
+  },
+  Object {
+    "character": "Gabranth",
+    "description": "(dark ⤇ ?% for Heavy Charge +1)",
+    "effect": "?% chance to grant Heavy Charge +1 to the user after using a Dark attack",
+    "name": "9th Bureau's General",
   },
   Object {
     "character": "Gaffgarion",
@@ -2334,7 +2346,7 @@ Array [
     "character": "Krile",
     "description": "Haste, instacast 1 at battle start",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
-    "name": "Beastial Bonds",
+    "name": "Natural Connection",
   },
   Object {
     "character": "Kuja",
@@ -2443,6 +2455,12 @@ Array [
     "description": "(water/bio ⤇ 25% for fastcast 1)",
     "effect": "25% chance to grant Quick Cast 1 to the user after using a Water or Poison attack",
     "name": "Maiden of the Sea",
+  },
+  Object {
+    "character": "Leila",
+    "description": "(water ⤇ 20% for +10% water vuln.)",
+    "effect": "20% chance to cause Minor Imperil Water to the target after using a Water attack on an enemy",
+    "name": "Paloom's Pirate",
   },
   Object {
     "character": "Lenna",
@@ -2604,7 +2622,7 @@ Array [
     "character": "Locke",
     "description": "25% dualcast fire",
     "effect": "25% chance to dualcast abilities that deal Fire damage",
-    "name": "Treasure Hunter",
+    "name": "On the Rebound",
   },
   Object {
     "character": "Lulu",
@@ -2940,7 +2958,7 @@ Array [
     "character": "Mog",
     "description": "fastcast 3 at battle start",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
-    "name": "Dancing Warrior",
+    "name": "Dancing Death",
   },
   Object {
     "character": "Montblanc",
@@ -3378,7 +3396,7 @@ Array [
     "character": "Queen",
     "description": "lgt infuse at battle start",
     "effect": "Grants Attach Lightning at the beginning of the battle",
-    "name": "Class President",
+    "name": "Mercurial Will",
   },
   Object {
     "character": "Quina",
@@ -3445,6 +3463,12 @@ Array [
     "description": "lgt infuse at battle start",
     "effect": "Grants Attach Lightning at the beginning of the battle",
     "name": "Bad Crowd",
+  },
+  Object {
+    "character": "Raijin",
+    "description": "25% dualcast Monk",
+    "effect": "25% chance to dualcast Monk abilities",
+    "name": "Seifer Squad",
   },
   Object {
     "character": "Ramza",
@@ -3711,6 +3735,12 @@ Array [
     "name": "Merry Maker",
   },
   Object {
+    "character": "Rikku",
+    "description": "25?% dualcast water",
+    "effect": "25?% chance to dualcast abilities that deal Water damage",
+    "name": "Hardworking Al Bhed Girl",
+  },
+  Object {
     "character": "Riku",
     "description": "1.1x dark dmg",
     "effect": "Increases Dark damage dealt by 10%",
@@ -3768,7 +3798,7 @@ Array [
     "character": "Rinoa",
     "description": "25% dualcast Witch",
     "effect": "25% chance to dualcast Witch abilities",
-    "name": "Unwanted Power",
+    "name": "Reluctant Successor",
   },
   Object {
     "character": "Rosa",
@@ -3960,7 +3990,7 @@ Array [
     "character": "Sarah",
     "description": "(Bard ⤇ ?% for fastcast 1)",
     "effect": "?% chance to grant Quick Cast 1 to the user after using a Bard ability",
-    "name": "Swift Melody",
+    "name": "Windsong",
   },
   Object {
     "character": "Sazh",
@@ -4050,13 +4080,13 @@ Array [
     "character": "Selphie",
     "description": "(Dancer ⤇ 25% for party h25)",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a Dancer ability",
-    "name": "Promised Stage",
+    "name": "Dream Fulfilled",
   },
   Object {
     "character": "Selphie",
     "description": "+1% MND (max +25%) per Dancer abil.",
     "effect": "MND +1% for each Dancer ability used, up to +25%",
-    "name": "Will of Trabia",
+    "name": "Spirit of Trabia",
   },
   Object {
     "character": "Sephiroth",
@@ -4117,6 +4147,12 @@ Array [
     "description": "ice infuse at battle start",
     "effect": "Grants Attach Ice at the beginning of the battle",
     "name": "Sister's Strength",
+  },
+  Object {
+    "character": "Serah",
+    "description": "water infuse at battle start",
+    "effect": "Grants Attach Water at the beginning of the battle",
+    "name": "Stern Female Instructor",
   },
   Object {
     "character": "Setzer",
@@ -4668,7 +4704,7 @@ Array [
     "character": "Ultimecia",
     "description": "25% dualcast dark",
     "effect": "25% chance to dualcast abilities that deal Dark damage",
-    "name": "Succession of Witches",
+    "name": "Power of Succession",
   },
   Object {
     "character": "Umaro",
@@ -4990,8 +5026,8 @@ Array [
   },
   Object {
     "character": "Xezat",
-    "description": "1.25?x Spellblade dmg if using a sword",
-    "effect": "Spellblade abilities deal 25?% more damage when equipping a sword",
+    "description": "1.25x Spellblade dmg if using a sword",
+    "effect": "Spellblade abilities deal 25% more damage when equipping a sword",
     "name": "Master of Castle Surgate",
   },
   Object {

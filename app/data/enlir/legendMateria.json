@@ -255,7 +255,7 @@
     "realm": "Core",
     "character": "Dr. Mog",
     "name": "History Institute Leader's Potential",
-    "effect": "Grants Elemental Boost? when HP fall below 20%",
+    "effect": "Grants Dr. Mog Trance when HP fall below 20%",
     "master": "MND +10",
     "relic": "Light Staff (Core)",
     "nameJp": "歴史省トップの底力",
@@ -434,7 +434,7 @@
   {
     "realm": "I",
     "character": "Sarah",
-    "name": "Swift Melody",
+    "name": "Windsong",
     "effect": "?% chance to grant Quick Cast 1 to the user after using a Bard ability",
     "master": "MND +10",
     "relic": "Golden Hairpin (I)",
@@ -1045,6 +1045,18 @@
   },
   {
     "realm": "II",
+    "character": "Leila",
+    "name": "Paloom's Pirate",
+    "effect": "20% chance to cause Minor Imperil Water to the target after using a Water attack on an enemy",
+    "master": "ATK +10",
+    "relic": "Mage Masher (II)",
+    "nameJp": "パルムの海賊",
+    "id": 201020703,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "II",
     "character": "Ricard",
     "name": "Daring Dragoon",
     "effect": "Dragoon abilities deal 15% more damage",
@@ -1557,7 +1569,7 @@
     "nameJp": "飄々とした風来坊",
     "id": 201030503,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -2523,7 +2535,7 @@
     "realm": "IV",
     "character": "Ceodore",
     "name": "Lunarian Successor",
-    "effect": "25?% chance to dualcast abilities that deal Holy damage",
+    "effect": "25% chance to dualcast abilities that deal Holy damage",
     "master": "ATK +10",
     "relic": "Diamond Sword (IV)",
     "nameJp": "聖なる血を継ぐ者",
@@ -3086,7 +3098,7 @@
   {
     "realm": "V",
     "character": "Krile",
-    "name": "Beastial Bonds",
+    "name": "Natural Connection",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Carmagnole (V)",
@@ -3135,7 +3147,7 @@
     "realm": "V",
     "character": "Xezat",
     "name": "Master of Castle Surgate",
-    "effect": "Spellblade abilities deal 25?% more damage when equipping a sword",
+    "effect": "Spellblade abilities deal 25% more damage when equipping a sword",
     "master": "ATK +10",
     "relic": "Xezat's Cloak (V)",
     "nameJp": "サーゲイト城の主",
@@ -3302,10 +3314,10 @@
   {
     "realm": "VI",
     "character": "Locke",
-    "name": "Treasure Hunter",
+    "name": "On the Rebound",
     "effect": "25% chance to dualcast abilities that deal Fire damage",
     "master": "ATK +10",
-    "relic": "Thief's Gloves (VI)",
+    "relic": "Brigand's Gloves (VI)",
     "nameJp": "再起するトレジャーハンタ",
     "id": 201060303,
     "anima": null,
@@ -3410,7 +3422,7 @@
   {
     "realm": "VI",
     "character": "Mog",
-    "name": "Dancing Warrior",
+    "name": "Dancing Death",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "master": "MND +10",
     "relic": "Gungnir (VI)",
@@ -4107,7 +4119,7 @@
     "realm": "VII",
     "character": "Barret",
     "name": "AVALANCHE's Leader",
-    "effect": "25?% chance to dualcast Machinist abilities",
+    "effect": "25% chance to dualcast Machinist abilities",
     "master": "ATK +10",
     "relic": "Chainsaw (VII)",
     "nameJp": "反神羅組織のリーダー",
@@ -4946,7 +4958,7 @@
   {
     "realm": "VIII",
     "character": "Rinoa",
-    "name": "Unwanted Power",
+    "name": "Reluctant Successor",
     "effect": "25% chance to dualcast Witch abilities",
     "master": "MAG +10",
     "relic": "Witch's Bracelet (VIII)",
@@ -5078,10 +5090,10 @@
   {
     "realm": "VIII",
     "character": "Selphie",
-    "name": "Promised Stage",
+    "name": "Dream Fulfilled",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a Dancer ability",
     "master": "MND +10",
-    "relic": "Triple Staff (VIII)",
+    "relic": "Three-part Staff (VIII)",
     "nameJp": "みんなと約束したステージ",
     "id": 201080503,
     "anima": null,
@@ -5090,7 +5102,7 @@
   {
     "realm": "VIII",
     "character": "Selphie",
-    "name": "Will of Trabia",
+    "name": "Spirit of Trabia",
     "effect": "MND +1% for each Dancer ability used, up to +25%",
     "master": "MND +10",
     "relic": "White Dress (VIII)",
@@ -5353,6 +5365,18 @@
   },
   {
     "realm": "VIII",
+    "character": "Raijin",
+    "name": "Seifer Squad",
+    "effect": "25% chance to dualcast Monk abilities",
+    "master": "ATK +10",
+    "relic": "Metal Gloves (VIII)",
+    "nameJp": "オレたちゃサイファー派",
+    "id": 201080604,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
     "character": "Fujin",
     "name": "Biting Winds",
     "effect": "Increases Wind damage dealt by 10%",
@@ -5441,7 +5465,7 @@
     "name": "Existence Denied",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "MAG +10",
-    "relic": "Judgment Staff (VIII)",
+    "relic": "Judicer's Staff (VIII)",
     "nameJp": "すべての存在の否定",
     "id": 201082003,
     "anima": null,
@@ -5450,7 +5474,7 @@
   {
     "realm": "VIII",
     "character": "Ultimecia",
-    "name": "Succession of Witches",
+    "name": "Power of Succession",
     "effect": "25% chance to dualcast abilities that deal Dark damage",
     "master": "MAG +10",
     "relic": "Lamia's Tiara (VIII)",
@@ -6249,7 +6273,7 @@
     "nameJp": "自責との決着",
     "id": 201100404,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -6261,7 +6285,7 @@
     "nameJp": "勝つと決めた",
     "id": 201100500,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -6273,7 +6297,7 @@
     "nameJp": "ツノ折れの誇り",
     "id": 201100501,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -6285,7 +6309,7 @@
     "nameJp": "槍に宿りし怒り",
     "id": 201100502,
     "anima": 1,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -6297,7 +6321,7 @@
     "nameJp": "義理堅き守り人",
     "id": 201100503,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -6346,6 +6370,18 @@
     "id": 201100603,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "X",
+    "character": "Rikku",
+    "name": "Hardworking Al Bhed Girl",
+    "effect": "25?% chance to dualcast abilities that deal Water damage",
+    "master": "ATK +10",
+    "relic": "Platinum Targe (X)",
+    "nameJp": "がんばり屋のアルベド娘",
+    "id": 201100604,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "X",
@@ -7345,6 +7381,18 @@
   },
   {
     "realm": "XII",
+    "character": "Gabranth",
+    "name": "9th Bureau's General",
+    "effect": "?% chance to grant Heavy Charge +1 to the user after using a Dark attack",
+    "master": "ATK +10",
+    "relic": "Giant's Helmet (XII)",
+    "nameJp": "第9局の最高責任者",
+    "id": 201120704,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XII",
     "character": "Larsa",
     "name": "Velvet Glove",
     "effect": "WHT abilities restore 15% more HP",
@@ -7870,6 +7918,18 @@
     "id": 201130703,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "XIII",
+    "character": "Serah",
+    "name": "Stern Female Instructor",
+    "effect": "Grants Attach Water at the beginning of the battle",
+    "master": "MAG +10",
+    "relic": "Serah's One Piece (XIII)",
+    "nameJp": "厳しい鬼教師",
+    "id": 201130704,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XIII",
@@ -9493,6 +9553,18 @@
   },
   {
     "realm": "Type-0",
+    "character": "Deuce",
+    "name": "Calming Figure",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "master": "MND +10",
+    "relic": "Mage's Hat (Type-0)",
+    "nameJp": "おだやかな佇まい",
+    "id": 201600204,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
     "character": "Nine",
     "name": "Winds of Destruction",
     "effect": "Increases Wind damage dealt by 10%",
@@ -9674,14 +9746,14 @@
   {
     "realm": "Type-0",
     "character": "Queen",
-    "name": "Class President",
+    "name": "Mercurial Will",
     "effect": "Grants Attach Lightning at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Blitz Armlet (Type-0)",
     "nameJp": "豹変する委員長",
     "id": 201600603,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

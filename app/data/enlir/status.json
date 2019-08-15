@@ -2584,6 +2584,28 @@
     "notes": null
   },
   {
+    "id": 2252,
+    "name": "Water Instant Cast",
+    "effects": "Cast speed x9999999 for Water attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_MAX_15000_ELEMENT_ID_WATER",
+    "notes": null
+  },
+  {
+    "id": 2253,
+    "name": "Water Quick Cast",
+    "effects": "Cast speed x2.00 for Water attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_MEDIUM_15000_ELEMENT_ID_WATER",
+    "notes": null
+  },
+  {
     "id": 226,
     "name": "Imp",
     "effects": "",
@@ -4016,6 +4038,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "DAMAGE_BOOST_MAGICAL_170_1",
+    "notes": null
+  },
+  {
+    "id": 282017,
+    "name": "Sharpshooter +30% Boost 3",
+    "effects": "Sharpshooter abilities deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SHOOTER_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -6041,7 +6074,7 @@
   {
     "id": 50046,
     "name": "EX: Ninja",
-    "effects": "ATK +30%, cast speed x1.30 plus x0.30 for each attack used for the duration of the status, up to x3.40",
+    "effects": "ATK +30%, cast speed x1.30 plus x0.30 for each ability used for the duration of the status, up to x3.40",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10281,8 +10314,8 @@
   },
   {
     "id": 50448,
-    "name": "Awoken Devotion",
-    "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilities, casts Healing Wave after using White Magic abilities",
+    "name": "Awoken Love Mode",
+    "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilities, casts Wave of Mending after using White Magic abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10390,8 +10423,8 @@
   },
   {
     "id": 50457,
-    "name": "Chain Lightning Follow-Up",
-    "effects": "Casts Chain Lightning after using two Lightning attacks",
+    "name": "Lightning Strikes Follow-Up",
+    "effects": "Casts Lightning Strikes after using two Lightning attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10401,7 +10434,7 @@
   },
   {
     "id": 50458,
-    "name": "Diamond Geyser Follow-Up",
+    "name": "Diamond Gazer Follow-Up",
     "effects": "Grants 40% Damage Reduction Barrier 1 to all allies after using an Ice attack",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10412,8 +10445,8 @@
   },
   {
     "id": 50459,
-    "name": "Wings of Doom Follow-Up",
-    "effects": "Casts Wings of Doom after using two Dark attacks",
+    "name": "Mortal Wings Follow-Up",
+    "effects": "Casts Mortal Wings after using two Dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11446,8 +11479,8 @@
   },
   {
     "id": 50557,
-    "name": "Awoken Love",
-    "effects": "White Magic and Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for White Magic abilities at ability rank 1/2/3/4/5, casts Merciful Prayer after using a White Magic or Support ability",
+    "name": "Awoken Heart",
+    "effects": "White Magic and Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for White Magic and Support abilities at ability rank 1/2/3/4/5, casts Merciful Prayer after using a White Magic or Support ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11642,6 +11675,17 @@
     "notes": null
   },
   {
+    "id": 50575,
+    "name": "50% Damage Reduction Barrier 1",
+    "effects": "Reduces damage taken by 50% for the next attack",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_RATE_REDUCTION_BARRIER_FOR_ATTACK_WITH_LARGE_1",
+    "notes": null
+  },
+  {
     "id": 50576,
     "name": "Anger Heat Up Mode",
     "effects": "Fire attacks deal 15/30/50/75% more damage after using 1/2/3/4 Fire attacks, casts Flame Bomber after using four Fire attacks",
@@ -11719,6 +11763,17 @@
     "notes": null
   },
   {
+    "id": 50584,
+    "name": "Special Bonus",
+    "effects": "Grants Minor Buff Earth to all allies after using three Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TRUE_STRIKE_2",
+    "notes": null
+  },
+  {
     "id": 50585,
     "name": "Twin Rush",
     "effects": "Grants Physical High Quick Cast 1 to all allies in the front row after using a Holy ability",
@@ -11730,14 +11785,80 @@
     "notes": null
   },
   {
-    "id": 50584,
-    "name": "Special Bonus",
-    "effects": "Grants Minor Buff Earth to all allies after using three Earth attacks",
+    "id": 50586,
+    "name": "Awoken Protection Melody",
+    "effects": "White Magic and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for White Magic and Bard abilities at ability rank 1/2/3/4/5, grants Stoneskin: 10/15/20/25/30% after using White Magic or Bard abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHASE_MODE_FOR_TRUE_STRIKE_2",
+    "codedName": "AWAKE_MODE_SOUND_HEALING_OF_PROTECTION",
+    "notes": null
+  },
+  {
+    "id": 50587,
+    "name": "Righteous Fist Mode",
+    "effects": "Critical chance =100%, cast speed x2.00, casts Ice Cluster after using three Monk abilities, removed if user hasn't any Physical Blink",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "FIST_OF_JUSTICE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50588,
+    "name": "Stoneskin: 25%",
+    "effects": "Reduces damage taken to 0, up to an amount of damage equal to 25% of the character's maximum HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BARRIER_25",
+    "notes": null
+  },
+  {
+    "id": 50591,
+    "name": "Stoneskin: 10%",
+    "effects": "Reduces damage taken to 0, up to an amount of damage equal to 10% of the character's maximum HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BARRIER_10",
+    "notes": null
+  },
+  {
+    "id": 50592,
+    "name": "Stoneskin: 15%",
+    "effects": "Reduces damage taken to 0, up to an amount of damage equal to 15% of the character's maximum HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BARRIER_15",
+    "notes": null
+  },
+  {
+    "id": 50593,
+    "name": "Stoneskin: 20%",
+    "effects": "Reduces damage taken to 0, up to an amount of damage equal to 20% of the character's maximum HP",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_BARRIER_20",
+    "notes": null
+  },
+  {
+    "id": 50594,
+    "name": "Dr. Mog Trance",
+    "effects": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark and Poison attacks deal 25% more damage",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TOP_OF_MINISTRY_OF_HISTORY_MODE",
     "notes": null
   },
   {
@@ -11973,6 +12094,226 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "JET_BLACK_DANCE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50620,
+    "name": "Marine Wave Follow-Up",
+    "effects": "Casts Marine Wave 1/2 after using 1/2 +2n Water attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_MARINE_FIELD",
+    "notes": null
+  },
+  {
+    "id": 50621,
+    "name": "Awoken Farseer",
+    "effects": "Ice and Water abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Ice and Water abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_ICE_AND_WATER",
+    "notes": null
+  },
+  {
+    "id": 50622,
+    "name": "Blue Arrow Follow-Up",
+    "effects": "Casts Blue Arrow after using three Ice or Water attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ABSOLUTE_ZERO",
+    "notes": null
+  },
+  {
+    "id": 50623,
+    "name": "Respect Counter Mode",
+    "effects": "Cast speed x2.00, grants Respect Counter Critical",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RESPECTED_POINT_ADDITION_MODE",
+    "notes": null
+  },
+  {
+    "id": 50624,
+    "name": "Awoken Legendary Player",
+    "effects": "Dark and Fire abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dark and Fire abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_LEGEND_PLAYER",
+    "notes": null
+  },
+  {
+    "id": 50625,
+    "name": "Double Sphere Mode",
+    "effects": "Grants Attach Fire after using a Fire attack, grants Attach Dark after using a Dark attack, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DOUBLE_SPHERE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50626,
+    "name": "Deblizzard Shot Follow-Up",
+    "effects": "Casts Deblizzard Shot after using 3 Ice attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TACTICAL_ATTACK",
+    "notes": null
+  },
+  {
+    "id": 50627,
+    "name": "Vigor Mode",
+    "effects": "Grants Dark Vigor Mode after using a Dark attack, grants Fire Vigor Mode after using a Fire attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "BEST_MODE",
+    "notes": null
+  },
+  {
+    "id": 50628,
+    "name": "Respect Counter Critical",
+    "effects": "Critical Chance =25/50/75/100% after using 1/2/3/4+ Water attacks, removed if the user hasn't Respect Counter Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RESPECTED_POINT_ADDITION_MODE_FOR_CRITICAL",
+    "notes": null
+  },
+  {
+    "id": 50631,
+    "name": "Ice Pursuit Follow-Up",
+    "effects": "Casts Ice Pursuit (Black Magic) after using a Black Magic ability, casts Ice Pursuit (Witch) after using a Witch ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ASTRAL_SOUL",
+    "notes": null
+  },
+  {
+    "id": 50632,
+    "name": "Thunderous Call Follow-Up",
+    "effects": "Casts Thunderous Call after using 2 Lightning attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_HEAVY_THUNDER",
+    "notes": null
+  },
+  {
+    "id": 50634,
+    "name": "Double Crystarium Mode",
+    "effects": "Grants Attach Ice after using an Ice attack, grants Attach Water after using a Water attack, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_ICE_AND_WATER",
+    "notes": null
+  },
+  {
+    "id": 50638,
+    "name": "Double Sphere Mode II",
+    "effects": "",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DOUBLE_SPHERE_MODE_II",
+    "notes": null
+  },
+  {
+    "id": 50639,
+    "name": "Knight in the Dark Follow-Up",
+    "effects": "Grants 40% Damage Reduction Barrier 1 to all allies after using a Darkness ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_KNIGHT_IN_THE_DARK",
+    "notes": null
+  },
+  {
+    "id": 50640,
+    "name": "Awoken Judge",
+    "effects": "Dark abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, casts Echoes of Sin after using a Dark attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_IMPERIAL_WARRIOR",
+    "notes": null
+  },
+  {
+    "id": 50641,
+    "name": "50% Damage Reduction Barrier 4",
+    "effects": "Reduces damage taken by 50% for the next 4 attacks",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_RATE_REDUCTION_BARRIER_FOR_ATTACK_WITH_LARGE_4",
+    "notes": null
+  },
+  {
+    "id": 50642,
+    "name": "Forbidden Curse Follow-Up",
+    "effects": "Casts Forbidden Curse after using three Dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_COLLAPSED_WORLD_REQUIEM",
+    "notes": null
+  },
+  {
+    "id": 50644,
+    "name": "Elegant Angel of Death",
+    "effects": "Cast speed x3.00, grants Minor Buff Dark after using 2 Dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "BEAUTIFUL_GRIM_REAPER_MODE",
+    "notes": null
+  },
+  {
+    "id": 50647,
+    "name": "Dark Vigor Mode",
+    "effects": "Cast speed x2.00/2.50/3.00 after using 1/2/3+ Dark attacks, casts Fault Check Shot (Dark) after using a Dark attack, removed if the user hasn't Vigor Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "BEST_MODE_ADD_EFFECT_DARK",
+    "notes": null
+  },
+  {
+    "id": 50648,
+    "name": "Fire Vigor Mode",
+    "effects": "Critical Chance =50/75/100% after using 1/2/3+ Fire attacks, casts Fault Check Shot (Fire) after using a Fire attack, removed if the user hasn't Vigor Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "BEST_MODE_ADD_EFFECT_FIRE",
     "notes": null
   },
   {
@@ -14436,7 +14777,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WATER_10",
+    "codedName": "INCREASE_ELEMENT_ATK_WATER_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14656,7 +14997,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_FIRE_M10",
+    "codedName": "INCREASE_ELEMENT_ATK_FIRE_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15224,7 +15565,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_DARK_DISADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_DARK_M1_TIME_MEDIUM",
     "notes": null
   },
   {

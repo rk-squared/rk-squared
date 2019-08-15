@@ -577,7 +577,7 @@ describe('mrP', () => {
         damage: 'phys 7.1/10 water+non',
         other: 'water infuse 25s, self Spellblade fastcast 15s, +30% ATK/DEF 25s',
       });
-      expect(describeSoulBreak('Sarah - Aria of Reunion')).toEqual({
+      expect(describeSoulBreak('Sarah - USB3')).toEqual({
         instant: true,
         other:
           'party h85, Regenga, +10% holy dmg if Warrior of Light in party 15s, ' +
@@ -1387,7 +1387,7 @@ Object {
       expect(describeSoulBreak('Onion Knight - Forbidden Power')).toEqual({
         other:
           'party Haste, crit =50%, +50% ATK 25s, ' +
-          '15s: EX: +30% ATK, cast speed 1.3x, +0.3x per atk, max 3.4x @ 7 atks',
+          '15s: EX: +30% ATK, cast speed 1.3x, +0.3x per abil., max 3.4x @ 7 abils.',
       });
     });
 
@@ -1542,7 +1542,7 @@ Object {
         chain: 'lgt chain 1.2x (max 99)',
         damage: 'phys 7.92/22 lgt jump',
       });
-      expect(describeSoulBreak('Ace - We Have Arrived')).toEqual({
+      expect(describeSoulBreak('Ace - CSB')).toEqual({
         chain: 'Type-0 chain 1.5x (max 150)',
         other: 'party Haste, +30% ATK/MAG 25s',
       });
@@ -2178,7 +2178,7 @@ Object {
         instant: true,
         other:
           'party h105, Haste, PM blink 1, Last stand, revive @ 100% HP, ' +
-          '15s: Awoken Devotion: W.Mag inf. hones, W.Mag hi fastcast, ' +
+          '15s: Awoken Love Mode: W.Mag inf. hones, W.Mag hi fastcast, ' +
           '(W.Mag ⤇ party h10/15/25/35/45 @ rank 1-5)',
       });
 

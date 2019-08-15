@@ -765,15 +765,17 @@ function describeEnlirStatusEffect(
 
   if (
     (m = effect.match(
-      /[Cc]ast speed x([0-9.]+) plus x([0-9.]+) for each attack used for the duration of the status, up to x([0-9.]+)/,
+      /[Cc]ast speed x([0-9.]+) plus x([0-9.]+) for each (attack|ability) used for the duration of the status, up to x([0-9.]+)/,
     ))
   ) {
-    const [, start, add, max] = m;
+    const [, start, add, attackOrAbility, max] = m;
     const startN = toMrPFixed(+start);
     const addN = toMrPFixed(+add);
     const maxN = toMrPFixed(+max);
     const maxCount = Math.round((+max - +start) / +add);
-    return `cast speed ${startN}x, +${addN}x per atk, max ${maxN}x @ ${maxCount} atks`;
+    const atkDesc = attackOrAbility === 'attack' ? 'atk' : 'abil.';
+    const atksDesc = attackOrAbility === 'attack' ? 'atks' : 'abils.';
+    return `cast speed ${startN}x, +${addN}x per ${atkDesc}, max ${maxN}x @ ${maxCount} ${atksDesc}`;
   }
 
   // Cast speed for ability combinations - cast speed for individual ability

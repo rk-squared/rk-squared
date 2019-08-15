@@ -11,7 +11,9 @@ if ! scripts/enlir-to-mrp.ts >& tmp/mrp-after.txt ; then
 fi
 
 if command -v bcomp >& /dev/null; then
-  bcomp tmp/mrp-before.txt tmp/mrp-after.txt &
+  if ! pgrep bcomp >& /dev/null; then
+    bcomp tmp/mrp-before.txt tmp/mrp-after.txt &
+  fi
 fi
 
 year=$(date +%Y)

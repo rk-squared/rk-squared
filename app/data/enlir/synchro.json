@@ -250,6 +250,56 @@
     "gl": false
   },
   {
+    "character": "Tidus",
+    "source": "Blitz Cry",
+    "name": "Sphere Shot",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": "Water",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.2,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "4/6/8 single ranged attacks (0.90 each) scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Sharpshooter",
+    "nameJp": "スフィアシュート",
+    "id": 30549271,
+    "synchroConditionId": 105,
+    "gl": false
+  },
+  {
+    "character": "Tidus",
+    "source": "Blitz Cry",
+    "name": "Vitality Shot",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": "Water",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.7,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Three single ranged attacks (0.90 each), grants Sharpshooter +30% Boost 3 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Sharpshooter",
+    "nameJp": "バイタリティショット",
+    "id": 30549272,
+    "synchroConditionId": 105,
+    "gl": false
+  },
+  {
     "character": "Ashe",
     "source": "Pride of Righteousness",
     "name": "Solemn Lightning",
