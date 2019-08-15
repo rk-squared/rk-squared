@@ -105,7 +105,8 @@ function parseWho(who: string): string | undefined {
 
 /**
  * Hide durations for some statuses, like Astra, because that's typically
- * removed due to enemy action.  Hide Stun because it's effectively instant.
+ * removed due to enemy action.  Hide Stun (interrupt) because it's effectively
+ * instant.
  */
 const hideDuration = new Set(['Astra', 'Stun']);
 
@@ -736,6 +737,12 @@ function describeEnlirStatusEffect(
     );
   }
 
+  // Stacking cast speed.
+  if ((m = effect.match(/Cast speed x((?:[0-9.]+\/)+[0-9.]+)/))) {
+    const castSpeed = m[1].split('/').map(i => toMrPFixed(+i));
+    return castSpeed.join('-') + 'x cast';
+  }
+
   // Handle ability boost and element boost.  The second form is only observed
   // with Noctis's non-elemental boosts; it may simply be an inconsistency.
   // Ths overlaps with the statusAlias, but duplicating it here lets us handle
@@ -864,6 +871,15 @@ function describeEnlirStatusEffect(
     return '';
   }
 
+  // Stacking effects
+  {
+    const options = getSlashOptions(effect);
+    if (options) {
+      const slashOptions = expandSlashOptions(effect, options);
+      return slashMerge(slashOptions.map(i => describeEnlirStatusEffect(i, enlirStatus, source)));
+    }
+  }
+
   // Fallback
   return effect;
 }
@@ -929,13 +945,26 @@ function extractCount(s: string): [number | string | null, string] {
   }
 }
 
-const slashOptionsRe = /(?:\w+\/)+\w+/;
+const slashOptionsRe = /(?:(?:\w|\.)+\/)+(?:\w|\.)+/;
 function getSlashOptions(s: string): string[] | null {
   const m = s.match(slashOptionsRe);
-  return m ? m[0].split('/') : null;
+  if (!m) {
+    return null;
+  }
+  let options = m[0].split('/');
+  // Make sure we consistently have a multiplier sign at the beginning or end.
+  if (options[0].startsWith('x')) {
+    options = options.map(i => i.replace(/^[^x]/, c => 'x' + c));
+  }
+  if (options[options.length - 1].endsWith('x')) {
+    options = options.map(i => i.replace(/[^x]$/, c => c + 'x'));
+  }
+  return options;
 }
-function expandSlashOptions(s: string): string[] {
-  const options = getSlashOptions(s) || [];
+function expandSlashOptions(s: string, options?: string[]): string[] {
+  if (!options) {
+    options = getSlashOptions(s) || [];
+  }
   return options.map(i => s.replace(slashOptionsRe, i));
 }
 
@@ -1029,16 +1058,18 @@ function describeFollowUpStatus(item: StatusItem): string {
 
   let result: string;
   if (!status && options) {
-    const statusOptions = options.map(i => statusName.replace(slashOptionsRe, i));
+    const statusOptions = expandSlashOptions(statusName, options);
     result = slashMerge(statusOptions.map(i => parseEnlirStatus(i).description));
   } else {
-    result = describeEnlirStatus(statusName, status);
+    result = parseEnlirStatus(statusName).description;
   }
 
   return describeFollowUpItem(item, result);
 }
 
 function describeFollowUpEffect(item: StatusItem): string {
+  // Instead of handling slash-merging here, describeEnlirStatusEffect does
+  // its own custom processing for individual cases.
   return describeFollowUpItem(item, describeEnlirStatusEffect(item.statusName));
 }
 
@@ -1176,13 +1207,15 @@ function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
   }
 }
 
+const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB points$/);
+
 /**
  * Parses a string description of an Enlir status name, returning details about
  * it and how it should be shown.
  */
 export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnlirStatus {
   const enlirStatus = getEnlirStatusByName(status);
-  if (!enlirStatus) {
+  if (!enlirStatus && !hideUnknownStatusWarning(status)) {
     logger.warn(`Unknown status: ${status}`);
   }
   let description = describeEnlirStatus(status, enlirStatus, source);

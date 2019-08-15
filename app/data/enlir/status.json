@@ -11213,7 +11213,7 @@
   {
     "id": 50533,
     "name": "Awoken Dance Tune",
-    "effects": "Dancer abilities don't consume uses, casts speed x2.00/2.25/2.50/2.75/3.00 for Dancer abilities at ability rank 1/2/3/4/5, dualcasts Dancer abilities",
+    "effects": "Dancer abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Dancer abilities at ability rank 1/2/3/4/5, dualcasts Dancer abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

@@ -2352,6 +2352,16 @@ Object {
           '15s: earth fastcast, 1.25x SB gauge from earth, ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeSoulBreak('Jecht - AASB')).toEqual({
+        damage: 'phys 9.0/15 fire+dark+non rngd',
+        other:
+          'self dmg cap +10k 15s, ' +
+          '1 turn: (fire ⤇ fire infuse), (dark ⤇ dark infuse), ' +
+          '15s: (dark ⤇ (1/2/3+ dark ⤇ 2.0-2.5-3.0x cast), (dark ⤇ p1.95/5 d+n rngd Sharpshooter)), ' +
+          '(fire ⤇ (1/2/3+ fire ⤇ crit =50%/75%/100%), (fire ⤇ p1.95/5 f+n rngd Monk)), ' +
+          '15s: Awoken Legendary Player: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles synchro soul breaks', () => {
