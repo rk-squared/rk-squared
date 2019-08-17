@@ -2275,7 +2275,7 @@ Object {
         other:
           'party h105 (NAT), Haste, PM blink 1, instacast 1, revive @ 100% HP, ' +
           '15s: Awoken Automaton Mode: W.Mag/Monk inf. hones, W.Mag/Monk fastcast, ' +
-          '(W.Mag/Monk abilities at rank 1/2/3/4/5 ⤇ Autoheal 0.5k/1k/1.5k/2k/3k)',
+          '(W.Mag/Monk ⤇ Autoheal 0.5k/1k/1.5k/2k/3k @ rank 1-5)',
         instant: true,
       });
 

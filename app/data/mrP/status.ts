@@ -140,6 +140,7 @@ interface FollowUpEffect {
   chance: number | undefined;
   trigger: string | null;
   isDamageTrigger: boolean;
+  isRankTrigger: boolean;
   customTriggerSuffix?: string;
   triggerPrereqStatus?: string;
   customSkillSuffix?: string;
@@ -165,6 +166,7 @@ const followUpRe = XRegExp(
   (?:after\ #
     (?<triggerType>using|dealing\ damage\ with|dealing|exploiting|taking\ (?<takeDamageTrigger>.*?)\ damage)\ #
     (?<trigger>.*?)
+    (?<rankTrigger>\ at\ rank\ 1/2/3/4/5)?
   |
     every\ (?<autoInterval>[0-9.]+)\ seconds
   )
@@ -195,6 +197,7 @@ function parseFollowUpEffect(
     allEffects,
     triggerType,
     takeDamageTrigger,
+    rankTrigger,
     trigger,
     autoInterval,
     triggerPrereqStatus,
@@ -240,6 +243,7 @@ function parseFollowUpEffect(
     // describeFollowUpTrigger.
     trigger: takeDamageTrigger ? takeDamageTrigger + ' dmg ' + trigger : trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
+    isRankTrigger: !!rankTrigger,
     customTriggerSuffix: checkCustomTrigger(enlirStatus),
     customSkillSuffix,
     triggerPrereqStatus: triggerPrereqStatus || undefined,
@@ -1175,15 +1179,22 @@ function describeFollowUp(followUp: FollowUpEffect, sourceStatusName: string): s
     );
   }
 
+  let fullDescription = description.join(', ');
+  if (followUp.isRankTrigger) {
+    fullDescription += ' @ rank 1-5';
+  }
+  // Append the custom trigger to the end of the description - although we
+  // say that text like "(once only)" describes the trigger, the end works
+  // better for AASBs like Gladiolus's, where "once only" only applies to
+  // the final threshold, and we show thresholds as part of the
+  // description.
+  if (followUp.customTriggerSuffix) {
+    fullDescription += ' (' + followUp.customTriggerSuffix + ')';
+  }
+
   return formatTriggeredEffect(
     triggerDescription,
-    description.join(', ') +
-      // Append the custom trigger to the end of the description - although we
-      // say that text like "(once only)" describes the trigger, the end works
-      // better for AASBs like Gladiolus's, where "once only" only applies to
-      // the final threshold, and we show thresholds as part of the
-      // description.
-      (followUp.customTriggerSuffix ? ' (' + followUp.customTriggerSuffix + ')' : ''),
+    fullDescription,
     followUp.chance,
   );
 }
