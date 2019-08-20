@@ -17903,7 +17903,7 @@
   },
   {
     "school": "Darkness",
-    "name": "Mark of Shadow",
+    "name": "Touched by Darkness",
     "rarity": 6,
     "type": "NAT",
     "target": "Single enemy",
@@ -17952,7 +17952,7 @@
     "introducingEvent": "Treasure Hunting Adventurer",
     "nameJp": "常闇の烙印",
     "id": 30271151,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Sharpshooter",
@@ -18334,7 +18334,7 @@
     "introducingEvent": "Treasure Hunting Adventurer",
     "nameJp": "アイシクルブリット",
     "id": 30281111,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Sharpshooter",

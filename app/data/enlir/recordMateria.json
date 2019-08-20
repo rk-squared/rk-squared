@@ -6484,7 +6484,7 @@
     "character": "Cor",
     "name": "Gifted Soldier",
     "effect": "Samurai abilities deal 30% more damage",
-    "unlockCriteria": "Use Cor's Memory Crystal II, chance to obtain with Aranea in party",
+    "unlockCriteria": "Use Cor's Memory Crystal II, chance to obtain with Cor in party",
     "nameJp": "才能あふれる武人",
     "id": 111150081,
     "gl": false
@@ -6497,6 +6497,36 @@
     "unlockCriteria": "Bring Cor to level 99",
     "nameJp": "若者を導く先達",
     "id": 111150082,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Lunafreya",
+    "name": "?",
+    "effect": "50% chance to restore 1 use for all White Magic or Summoning abilities at the beginning of the battle",
+    "unlockCriteria": "Use Lunafreya's Memory Crystal",
+    "nameJp": "?",
+    "id": 111150090,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Lunafreya",
+    "name": "?",
+    "effect": "100% chance to restore 1 use for all White Magic or Summoning abilities at the beginning of the battle",
+    "unlockCriteria": "Use Cor's Memory Crystal II, chance to obtain with Lunafreya in party",
+    "nameJp": "?",
+    "id": 111150091,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Lunafreya",
+    "name": "?",
+    "effect": "Acting and taking damage grants 25% more Soul Break points",
+    "unlockCriteria": "Bring Lunafreya to level 99",
+    "nameJp": "?",
+    "id": 111150092,
     "gl": false
   },
   {

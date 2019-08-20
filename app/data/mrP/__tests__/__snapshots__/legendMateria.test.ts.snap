@@ -2097,6 +2097,12 @@ Array [
     "name": "Amicitia Line",
   },
   Object {
+    "character": "Iris",
+    "description": "(W.Mag/Monk ⤇ 25?% for fastcast 1)",
+    "effect": "25?% chance to grant Quick Cast 1 to the user after using a White Magic or Monk ability",
+    "name": "Secret Crush",
+  },
+  Object {
     "character": "Irvine",
     "description": "1.1x PHY dmg if using a gun",
     "effect": "PHY attacks deal 10% more damage when equipping a gun",
@@ -2653,6 +2659,24 @@ Array [
     "description": "water infuse at battle start",
     "effect": "Grants Attach Water at the beginning of the battle",
     "name": "Harshest Judge",
+  },
+  Object {
+    "character": "Lunafreya",
+    "description": "1.1x SUM dmg",
+    "effect": "SUM attacks deal 10% more damage",
+    "name": "?",
+  },
+  Object {
+    "character": "Lunafreya",
+    "description": "35% dualcast Summon",
+    "effect": "35% chance to dualcast Summoning abilities",
+    "name": "?",
+  },
+  Object {
+    "character": "Lunafreya",
+    "description": "water infuse at battle start",
+    "effect": "Grants Attach Water at the beginning of the battle",
+    "name": "Fate of Guiding Kings",
   },
   Object {
     "character": "Luneth",

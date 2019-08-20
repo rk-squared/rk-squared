@@ -12064,6 +12064,28 @@
     "notes": null
   },
   {
+    "id": 50614,
+    "name": "Awoken Leviathan",
+    "effects": "Water abilities don't consume uses, dualcasts Water abilities, casts Oracle's Prayer after using two Water abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_GOD_OF_WATER",
+    "notes": null
+  },
+  {
+    "id": 50615,
+    "name": "Awoken Support",
+    "effects": "White Magic and Monk abilities don't consume uses, dualcasts White Magic and Monk abilities, grants 10/15/20/30/40% Damage Reduction Barrier 1 to all allies after using White Magic or Monk abilities at rank 1/2/3/4/5",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_SUPPORT",
+    "notes": null
+  },
+  {
     "id": 50616,
     "name": "Fire High Quick Cycle",
     "effects": "Grants High Quick Cast 1 after using a Fire attack",
@@ -12292,6 +12314,28 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "BEAUTIFUL_GRIM_REAPER_MODE",
+    "notes": null
+  },
+  {
+    "id": 50645,
+    "name": "Leviathan's Blessing",
+    "effects": "Grants Quick Cast 1 to all allies in the same row after using a Summoning ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_BLESSING_OF_WATER_GOD_1",
+    "notes": null
+  },
+  {
+    "id": 50646,
+    "name": "Tsunami (XV) Follow-Up",
+    "effects": "Casts Tsunami (XV) after using two Summoning abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_BLESSING_OF_WATER_GOD_2",
     "notes": null
   },
   {

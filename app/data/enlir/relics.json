@@ -2247,7 +2247,7 @@
       "eva": null
     },
     "id": 21001167,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Triton's Dagger",
@@ -40497,7 +40497,7 @@
       "eva": null
     },
     "id": 21006061,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Trident",
@@ -53457,7 +53457,7 @@
       "eva": null
     },
     "id": 21008218,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Umbrella",
@@ -55033,6 +55033,51 @@
     },
     "id": 21008219,
     "gl": true
+  },
+  {
+    "name": "Trident of the Oracle",
+    "realm": "XV",
+    "type": "Rod",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 140,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Water damage +20%",
+    "character": "Lunafreya",
+    "soulBreak": "Oracle's Love",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": 96,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": 158,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008293,
+    "gl": false
   },
   {
     "name": "Musk Pole",
@@ -80142,7 +80187,7 @@
       "eva": null
     },
     "id": 21013091,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rising Sun",
@@ -81268,6 +81313,51 @@
     },
     "id": 21013107,
     "gl": true
+  },
+  {
+    "name": "Chocobo Plushie",
+    "realm": "XV",
+    "type": "Thrown",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 34,
+      "res": 0,
+      "mnd": 177,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Iris",
+    "soulBreak": "Choco Cry",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 88,
+      "def": null,
+      "mag": 20,
+      "res": null,
+      "mnd": 133,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 126,
+      "def": null,
+      "mag": 39,
+      "res": null,
+      "mnd": 195,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21013071,
+    "gl": false
   },
   {
     "name": "Arcane Deck",
@@ -102600,6 +102690,51 @@
     "gl": true
   },
   {
+    "name": "Hairpin",
+    "realm": "XV",
+    "type": "Hat",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 0,
+      "def": 88,
+      "mag": 38,
+      "res": 130,
+      "mnd": 27,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Lunafreya",
+    "soulBreak": null,
+    "legendMateria": "Fate of Guiding Kings",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": 71,
+      "mag": 31,
+      "res": 100,
+      "mnd": 20,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": 96,
+      "mag": 41,
+      "res": 145,
+      "mnd": 30,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22051216,
+    "gl": false
+  },
+  {
     "name": "Lambent Hat",
     "realm": "FFT",
     "type": "Hat",
@@ -106200,6 +106335,51 @@
     "gl": true
   },
   {
+    "name": "Formal Gown of Oracle",
+    "realm": "XV",
+    "type": "Light Armor",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 0,
+      "def": 176,
+      "mag": 21,
+      "res": 176,
+      "mnd": 21,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Water damage +20%",
+    "character": "Lunafreya",
+    "soulBreak": "All for Our King",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": 123,
+      "mag": 10,
+      "res": 123,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": null,
+      "def": 193,
+      "mag": 24,
+      "res": 193,
+      "mnd": 24,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053446,
+    "gl": false
+  },
+  {
     "name": "Keeper's Frock Coat",
     "realm": "Core",
     "type": "Light Armor",
@@ -109122,6 +109302,186 @@
       "eva": 100
     },
     "id": 22053280,
+    "gl": false
+  },
+  {
+    "name": "Oracle's Dress",
+    "realm": "XV",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 151,
+      "mag": 19,
+      "res": 151,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Holy damage +20%",
+    "character": "Lunafreya",
+    "soulBreak": "Leviathan's Pact",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 110,
+      "mag": 10,
+      "res": 110,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 167,
+      "mag": 22,
+      "res": 167,
+      "mnd": 22,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053447,
+    "gl": false
+  },
+  {
+    "name": "Lunafreya's Guise",
+    "realm": "XV",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 152,
+      "mag": 19,
+      "res": 152,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Lunafreya",
+    "soulBreak": "Leviathan's Blessing",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 111,
+      "mag": 10,
+      "res": 111,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 168,
+      "mag": 22,
+      "res": 168,
+      "mnd": 22,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053448,
+    "gl": false
+  },
+  {
+    "name": "Black Choker",
+    "realm": "XV",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 152,
+      "mag": 0,
+      "res": 152,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Iris",
+    "soulBreak": "Trinity Support",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 111,
+      "mag": null,
+      "res": 111,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 168,
+      "mag": null,
+      "res": 168,
+      "mnd": 22,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053453,
+    "gl": false
+  },
+  {
+    "name": "Wedding Dress",
+    "realm": "XV",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 152,
+      "mag": 19,
+      "res": 152,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Lunafreya",
+    "soulBreak": "Fate of the Oracle",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 111,
+      "mag": 10,
+      "res": 111,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 168,
+      "mag": 22,
+      "res": 168,
+      "mnd": 22,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053449,
     "gl": false
   },
   {
@@ -118395,6 +118755,51 @@
     "gl": false
   },
   {
+    "name": "Iris's Guise",
+    "realm": "XV",
+    "type": "Light Armor",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": 0,
+      "def": 119,
+      "mag": 0,
+      "res": 119,
+      "mnd": 17,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Iris",
+    "soulBreak": null,
+    "legendMateria": "Secret Crush",
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": 88,
+      "mag": null,
+      "res": 88,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": 134,
+      "mag": null,
+      "res": 134,
+      "mnd": 20,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053233,
+    "gl": false
+  },
+  {
     "name": "Adamant Vest",
     "realm": "FFT",
     "type": "Light Armor",
@@ -125052,7 +125457,7 @@
       "eva": 105
     },
     "id": 22055103,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Black Robes",
@@ -129420,6 +129825,51 @@
     "gl": true
   },
   {
+    "name": "Sapphire Bracelet",
+    "realm": "XV",
+    "type": "Bracer",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 32,
+      "def": 125,
+      "mag": 24,
+      "res": 122,
+      "mnd": 33,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Iris",
+    "soulBreak": "Moogle Trouble",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 20,
+      "def": 102,
+      "mag": 14,
+      "res": 90,
+      "mnd": 23,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 36,
+      "def": 134,
+      "mag": 28,
+      "res": 134,
+      "mnd": 37,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056201,
+    "gl": false
+  },
+  {
     "name": "Silver Gloves",
     "realm": "Type-0",
     "type": "Bracer",
@@ -131307,7 +131757,7 @@
       "eva": 105
     },
     "id": 22056095,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Imperial Gloves",
@@ -142470,6 +142920,51 @@
     "gl": false
   },
   {
+    "name": "Cagnazzo's Shell",
+    "realm": "IV",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 0,
+      "def": 15,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Water resistance (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": 15,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": 15,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080578,
+    "gl": false
+  },
+  {
     "name": "Cursed Ring",
     "realm": "V",
     "type": "Accessory",
@@ -149172,6 +149667,51 @@
       "eva": null
     },
     "id": 23080376,
+    "gl": false
+  },
+  {
+    "name": "Personal Notebook",
+    "realm": "XV",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Fire resistance (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": null,
+      "mag": 15,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": null,
+      "mag": 15,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080579,
     "gl": false
   },
   {

@@ -4253,6 +4253,50 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Awoken Leviathan",
+    "name": "Oracle's Prayer",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.6,
+    "element": [
+      "Water",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single attacks (2.72/2.77/2.82/2.87/2.92 each), restores HP (10/15/25/35/45) to all allies at rank 1/2/3/4/5 of the triggering ability",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 30542912,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Tsunami (XV) Follow-Up",
+    "name": "Tsunami (XV)",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 15.4,
+    "element": [
+      "Water",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (1.54 each)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 30543260,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Seeker of Truth",
     "name": "Knight's Lightblade",
     "type": "PHY",

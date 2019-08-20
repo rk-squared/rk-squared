@@ -3321,7 +3321,7 @@
     "nameJp": "再起するトレジャーハンタ",
     "id": 201060303,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -3429,7 +3429,7 @@
     "nameJp": "華麗に舞う戦士",
     "id": 201060504,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -8725,6 +8725,18 @@
   },
   {
     "realm": "XV",
+    "character": "Iris",
+    "name": "Secret Crush",
+    "effect": "25?% chance to grant Quick Cast 1 to the user after using a White Magic or Monk ability",
+    "master": "MND +10",
+    "relic": "Iris's Guise (XV)",
+    "nameJp": "秘めた淡き想い",
+    "id": 201150503,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
     "character": "Aranea",
     "name": "Edgy Mercenary",
     "effect": "Increases Lightning damage dealt by 10%",
@@ -8804,6 +8816,42 @@
     "relic": "Niella Bracelet (XV)",
     "nameJp": "歴戦の猛者",
     "id": 201150802,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Lunafreya",
+    "name": "?",
+    "effect": "SUM attacks deal 10% more damage",
+    "master": null,
+    "relic": null,
+    "nameJp": "?",
+    "id": 201150900,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Lunafreya",
+    "name": "?",
+    "effect": "35% chance to dualcast Summoning abilities",
+    "master": null,
+    "relic": null,
+    "nameJp": "?",
+    "id": 201150901,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Lunafreya",
+    "name": "Fate of Guiding Kings",
+    "effect": "Grants Attach Water at the beginning of the battle",
+    "master": "MAG +5, MND +5",
+    "relic": "Hairpin (XV)",
+    "nameJp": "王を導く使命",
+    "id": 201150902,
     "anima": null,
     "gl": false
   },

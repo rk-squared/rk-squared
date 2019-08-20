@@ -250,6 +250,7 @@ const sbTable: TableDefinition = {
       header: '1.25x all',
       items: {
         2: [['Steiner', '2']],
+        3: [['Lunafreya', '3']],
       },
     },
     {
@@ -319,6 +320,8 @@ const abilityRefillTable: TableDefinition = {
       header: 'White Magic or Summoning',
       items: {
         40: [['Aemo', '1']],
+        50: [['Lunafreya', '1']],
+        100: [['Lunafreya', '2']],
       },
     },
     {
