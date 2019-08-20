@@ -41565,7 +41565,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants Attach Water 3 with Stacking, Synchro Mode and Damage Cap +10000",
+    "effects": "Fifteen single attacks (1.50 each), grants Attach Water 3 with Stacking, Synchro Mode and Damage Cap +10000 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -41638,7 +41638,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Ten single attacks (1.68 each), grants Attach Water, Summoning smart ether 2, Leviathan's Blessing and Tsunami (XV) Follow-Up to user",
+    "effects": "Ten single attacks (1.68 each), grants Attach Water, Summoning smart ether 2, Leviathan's Blessing and Tsunami (XV) Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

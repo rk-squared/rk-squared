@@ -12319,7 +12319,7 @@
   {
     "id": 50645,
     "name": "Leviathan's Blessing",
-    "effects": "Grants Quick Cast 1 to all allies in the same row after using a Summoning ability",
+    "effects": "Grants Quick Cast 1 to all allies in the character's row after using a Summoning ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
