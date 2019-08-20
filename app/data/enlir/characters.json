@@ -5099,7 +5099,7 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Craving for Evil Powers",
+    "introducingEventLegendSpheres": "Tempted by Darkness",
     "legendSpheres": {
       "hp": 800,
       "atk": 35,
@@ -18455,7 +18455,7 @@
       "res": 3,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Record Missions 2",
+    "introducingEventLegendSpheres": "Broken Horn, Unbroken Spirit",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -25074,6 +25074,132 @@
     "gl": false
   },
   {
+    "realm": "XV",
+    "name": "Lunafreya",
+    "introducingEventLv50": "The Guiding Oracle",
+    "lv50": {
+      "hp": null,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null,
+      "spd": null
+    },
+    "introducingEventLv65": "The Guiding Oracle",
+    "lv65": {
+      "hp": null,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null,
+      "spd": null
+    },
+    "introducingEventLv80": "The Guiding Oracle",
+    "lv80": {
+      "hp": null,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null,
+      "spd": null
+    },
+    "introducingEventLv99": "The Guiding Oracle",
+    "lv99": {
+      "hp": null,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null,
+      "spd": null
+    },
+    "introducingEventRecordSpheres": "The Guiding Oracle",
+    "recordSpheres": {
+      "hp": null,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null
+    },
+    "introducingEventLegendSpheres": "The Guiding Oracle",
+    "legendSpheres": {
+      "hp": null,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "spd": null
+    },
+    "equipment": {
+      "dagger": false,
+      "sword": false,
+      "katana": false,
+      "axe": false,
+      "hammer": false,
+      "spear": false,
+      "fist": false,
+      "rod": false,
+      "staff": false,
+      "bow": false,
+      "instrument": false,
+      "whip": false,
+      "thrown": false,
+      "gun": false,
+      "book": false,
+      "blitzball": false,
+      "hairpin": false,
+      "gunArm": false,
+      "gamblingGear": false,
+      "doll": false,
+      "keyblade": false,
+      "shield": false,
+      "hat": false,
+      "helm": false,
+      "lightArmor": false,
+      "heavyArmor": false,
+      "robe": false,
+      "bracer": false,
+      "accessory": false
+    },
+    "skills": {
+      "blackMagic": null,
+      "whiteMagic": null,
+      "combat": null,
+      "support": null,
+      "celerity": null,
+      "summoning": null,
+      "spellblade": null,
+      "dragoon": null,
+      "monk": null,
+      "thief": null,
+      "knight": null,
+      "samurai": null,
+      "ninja": null,
+      "bard": null,
+      "dancer": null,
+      "machinist": null,
+      "darkness": null,
+      "sharpshooter": null,
+      "witch": null,
+      "heavy": null
+    },
+    "id": 11500900,
+    "gl": false
+  },
+  {
     "realm": "FFT",
     "name": "Ramza",
     "introducingEventLv50": "By Stone Revealed",
@@ -27570,7 +27696,7 @@
     },
     "skills": {
       "blackMagic": 3,
-      "whiteMagic": 3,
+      "whiteMagic": 4,
       "combat": 4,
       "support": null,
       "celerity": 5,
@@ -29738,7 +29864,7 @@
   {
     "realm": "Beyond",
     "name": "Tama",
-    "introducingEventLv50": "World of Valgallan",
+    "introducingEventLv50": "WoFF Relic Draw",
     "lv50": {
       "hp": 2763,
       "atk": 50,
@@ -29750,7 +29876,7 @@
       "eva": 22,
       "spd": 122
     },
-    "introducingEventLv65": "World of Valgallan",
+    "introducingEventLv65": "WoFF Relic Draw",
     "lv65": {
       "hp": 3559,
       "atk": 64,
@@ -29762,7 +29888,7 @@
       "eva": 23,
       "spd": 132
     },
-    "introducingEventLv80": "World of Valgallan",
+    "introducingEventLv80": "WoFF Relic Draw",
     "lv80": {
       "hp": 4354,
       "atk": 77,
@@ -29774,7 +29900,7 @@
       "eva": 24,
       "spd": 142
     },
-    "introducingEventLv99": "World of Valgallan",
+    "introducingEventLv99": "WoFF Relic Draw",
     "lv99": {
       "hp": 5362,
       "atk": 95,
@@ -29786,7 +29912,7 @@
       "eva": 25,
       "spd": 155
     },
-    "introducingEventRecordSpheres": "World of Valgallan",
+    "introducingEventRecordSpheres": "WoFF Relic Draw",
     "recordSpheres": {
       "hp": 375,
       "atk": 0,
@@ -29795,7 +29921,7 @@
       "res": 12,
       "mnd": 29
     },
-    "introducingEventLegendSpheres": "World of Valgallan",
+    "introducingEventLegendSpheres": "WoFF Relic Draw",
     "legendSpheres": {
       "hp": 500,
       "atk": 0,
@@ -29864,7 +29990,7 @@
   {
     "realm": "Beyond",
     "name": "Enna Kros",
-    "introducingEventLv50": "World of Valgallan",
+    "introducingEventLv50": "WoFF Relic Draw",
     "lv50": {
       "hp": 2989,
       "atk": 62,
@@ -29876,7 +30002,7 @@
       "eva": 22,
       "spd": 107
     },
-    "introducingEventLv65": "World of Valgallan",
+    "introducingEventLv65": "WoFF Relic Draw",
     "lv65": {
       "hp": 3849,
       "atk": 78,
@@ -29888,7 +30014,7 @@
       "eva": 23,
       "spd": 116
     },
-    "introducingEventLv80": "World of Valgallan",
+    "introducingEventLv80": "WoFF Relic Draw",
     "lv80": {
       "hp": 4709,
       "atk": 95,
@@ -29900,7 +30026,7 @@
       "eva": 24,
       "spd": 124
     },
-    "introducingEventLv99": "World of Valgallan",
+    "introducingEventLv99": "WoFF Relic Draw",
     "lv99": {
       "hp": 5800,
       "atk": 117,
@@ -29912,7 +30038,7 @@
       "eva": 25,
       "spd": 136
     },
-    "introducingEventRecordSpheres": "World of Valgallan",
+    "introducingEventRecordSpheres": "WoFF Relic Draw",
     "recordSpheres": {
       "hp": 360,
       "atk": 0,
@@ -29921,7 +30047,7 @@
       "res": 11,
       "mnd": 10
     },
-    "introducingEventLegendSpheres": "World of Valgallan",
+    "introducingEventLegendSpheres": "WoFF Relic Draw",
     "legendSpheres": {
       "hp": 500,
       "atk": 0,

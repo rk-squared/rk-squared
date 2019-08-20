@@ -145,6 +145,7 @@ export const statusAlias: AliasMap = {
     '{X}% Damage Reduction Barrier 1': '{X}% Dmg barrier 1',
     '{X}% Damage Reduction Barrier 2': '{X}% Dmg barrier 2',
     '{X}% Damage Reduction Barrier 3': '{X}% Dmg barrier 3',
+    '{X}% Damage Reduction Barrier 4': '{X}% Dmg barrier 4',
 
     'Doom: {X}': 'Doom {X}s',
 

@@ -10,6 +10,8 @@
   - Fix showing Dark Odin progress.
 - Soul Breaks
   - Search feature, inspired by /u/TheDeathAgent's excellent work on [FFRKLookup.com](https://www.ffrklookup.com/)
+- Record Materia
+  - Add Lunafreya
 - Relic Draws
   - Pulling a relic now automatically unselects it as "wanted" for the probability calculator.
   - RK Squared now offers the option of keeping recently closed relic banners. For example, you can review the last few days of a fest, or you could save up history for JP to use as foresight for GL. By default, banners are kept 4 days after closing; you can change this under the Options screen.

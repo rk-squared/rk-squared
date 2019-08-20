@@ -577,7 +577,7 @@ describe('mrP', () => {
         damage: 'phys 7.1/10 water+non',
         other: 'water infuse 25s, self Spellblade fastcast 15s, +30% ATK/DEF 25s',
       });
-      expect(describeSoulBreak('Sarah - Aria of Reunion')).toEqual({
+      expect(describeSoulBreak('Sarah - USB3')).toEqual({
         instant: true,
         other:
           'party h85, Regenga, +10% holy dmg if Warrior of Light in party 15s, ' +
@@ -1387,7 +1387,7 @@ Object {
       expect(describeSoulBreak('Onion Knight - Forbidden Power')).toEqual({
         other:
           'party Haste, crit =50%, +50% ATK 25s, ' +
-          '15s: EX: +30% ATK, cast speed 1.3x, +0.3x per atk, max 3.4x @ 7 atks',
+          '15s: EX: +30% ATK, cast speed 1.3x, +0.3x per abil., max 3.4x @ 7 abils.',
       });
     });
 
@@ -1542,7 +1542,7 @@ Object {
         chain: 'lgt chain 1.2x (max 99)',
         damage: 'phys 7.92/22 lgt jump',
       });
-      expect(describeSoulBreak('Ace - We Have Arrived')).toEqual({
+      expect(describeSoulBreak('Ace - CSB')).toEqual({
         chain: 'Type-0 chain 1.5x (max 150)',
         other: 'party Haste, +30% ATK/MAG 25s',
       });
@@ -2178,7 +2178,7 @@ Object {
         instant: true,
         other:
           'party h105, Haste, PM blink 1, Last stand, revive @ 100% HP, ' +
-          '15s: Awoken Devotion: W.Mag inf. hones, W.Mag hi fastcast, ' +
+          '15s: Awoken Love Mode: W.Mag inf. hones, W.Mag hi fastcast, ' +
           '(W.Mag ⤇ party h10/15/25/35/45 @ rank 1-5)',
       });
 
@@ -2275,7 +2275,7 @@ Object {
         other:
           'party h105 (NAT), Haste, PM blink 1, instacast 1, revive @ 100% HP, ' +
           '15s: Awoken Automaton Mode: W.Mag/Monk inf. hones, W.Mag/Monk fastcast, ' +
-          '(W.Mag/Monk abilities at rank 1/2/3/4/5 ⤇ Autoheal 0.5k/1k/1.5k/2k/3k)',
+          '(W.Mag/Monk ⤇ Autoheal 0.5k/1k/1.5k/2k/3k @ rank 1-5)',
         instant: true,
       });
 
@@ -2351,6 +2351,42 @@ Object {
           'earth infuse 25s, self dmg cap +10k 15s, ' +
           '15s: earth fastcast, 1.25x SB gauge from earth, ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Eight - AASB')).toEqual({
+        damage: 'phys 9.0/15 ice+non',
+        other:
+          'ice infuse 25s, self dmg cap +10k 15s, Phys blink 3, ' +
+          'until Phys blink lost: crit =100%, fastcast, ' +
+          '(3 Monk ⤇ p6.12/6 i+n Monk, Phys blink 3), ' +
+          '15s: Awoken Monk: Monk inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Jecht - AASB')).toEqual({
+        damage: 'phys 9.0/15 fire+dark+non rngd',
+        other:
+          'self dmg cap +10k 15s, ' +
+          '1 turn: (fire ⤇ fire infuse), (dark ⤇ dark infuse), ' +
+          '15s: (dark ⤇ (1/2/3+ dark ⤇ 2.0-2.5-3.0x cast), (dark ⤇ p1.95/5 d+n rngd Sharpshooter)), ' +
+          '(fire ⤇ (1/2/3+ fire ⤇ crit =50%/75%/100%), (fire ⤇ p1.95/5 f+n rngd Monk)), ' +
+          '15s: Awoken Legendary Player: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Paine - AASB')).toEqual({
+        damage: 'phys 9.0/15 water+non',
+        other:
+          'water infuse 25s, self dmg cap +10k 15s, 15s: fastcast, ' +
+          '(1/2/3/4+ water ⤇ crit =25%/50%/75%/100%), ' +
+          '15s: Awoken Water: water inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Dr. Mog - AASB2')).toEqual({
+        damage: 'magic 22.5/15 water+non',
+        other:
+          'water infuse 25s, self dmg cap +10k 15s, ' +
+          '15s: (1/2 +2n water ⤇ m6.66 – m8.16/4 wa+n B.Mag, ' +
+          '-10% fire dmg 15s – party +10% water dmg 15s), ' +
+          '15s: Awoken Water: water inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
     });
 

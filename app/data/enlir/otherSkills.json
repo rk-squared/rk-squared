@@ -318,6 +318,48 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Marine Wave Follow-Up",
+    "name": "Marine Wave 1",
+    "type": "BLK",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": 6.66,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (6.66), causes Minor Debuff Fire",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541068,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Marine Wave Follow-Up",
+    "name": "Marine Wave 2",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.16,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (2.04 each), grants Minor Buff Water to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541069,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Grip of Chaos Follow-Up",
     "name": "Grip of Chaos",
     "type": "PHY",
@@ -1483,8 +1525,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Devotion",
-    "name": "Healing Wave",
+    "source": "Awoken Love Mode",
+    "name": "Wave of Mending",
     "type": "WHT",
     "target": "All allies",
     "formula": "Magical",
@@ -2730,6 +2772,86 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Deblizzard Shot Follow-Up",
+    "name": "Deblizzard Shot",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Minor Imperil Ice",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 30549251,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Thunderous Call Follow-Up",
+    "name": "Thunderous Call",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Minor Buff Lightning",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Monk",
+    "id": 30548428,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Ice Pursuit Follow-Up",
+    "name": "Ice Pursuit (Black Magic)",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 4.02,
+    "element": [
+      "Ice",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (2.01 each), grants Magical High Quick Cast 2 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541327,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Ice Pursuit Follow-Up",
+    "name": "Ice Pursuit (Witch)",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 4.02,
+    "element": [
+      "Ice",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (2.01 each), grants Minor Buff Ice to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541328,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Awoken Dancer",
     "name": "Barrier Dance",
     "type": "NAT",
@@ -3280,6 +3402,66 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Dark Vigor Mode",
+    "name": "Fault Check Shot (Dark)",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.95,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single ranged attacks (0.39 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 30549274,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Fire Vigor Mode",
+    "name": "Fault Check Shot (Fire)",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.95,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single ranged attacks (0.39 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 30549275,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Forbidden Curse Follow-Up",
+    "name": "Forbidden Curse",
+    "type": "NAT",
+    "target": "All enemies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Minor Imperil Dark, removes positive effects",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 30549860,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Abyssal Bite Follow-Up",
     "name": "Abyssal Bite",
     "type": "PHY",
@@ -3564,6 +3746,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Awoken Judge",
+    "name": "Echoes of Sin",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.32 each), 100% hit rate, grants Heavy Charge +1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Heavy",
+    "id": 30549768,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Knight of Etro",
     "name": "Divine Edge 1",
     "nameNote": "Alias name: Saint Sabre",
@@ -3696,8 +3899,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Chain Lightning Follow-Up",
-    "name": "Chain Lightning",
+    "source": "Lightning Strikes Follow-Up",
+    "name": "Lightning Strikes",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -3713,12 +3916,12 @@
     "sb": 0,
     "school": "Celerity",
     "id": 30546016,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Wings of Doom Follow-Up",
-    "name": "Wings of Doom",
+    "source": "Mortal Wings Follow-Up",
+    "name": "Mortal Wings",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -3735,11 +3938,11 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30541571,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Love",
+    "source": "Awoken Heart",
     "name": "Merciful Prayer",
     "type": "WHT",
     "target": "All allies",
@@ -3753,6 +3956,28 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542811,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Blue Arrow Follow-Up",
+    "name": "Blue Arrow",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.1,
+    "element": [
+      "Ice",
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.01 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541325,
     "gl": false
   },
   {
@@ -4024,6 +4249,50 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549156,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Leviathan",
+    "name": "Oracle's Prayer",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.6,
+    "element": [
+      "Water",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single attacks (2.72/2.77/2.82/2.87/2.92 each), restores HP (10/15/25/35/45) to all allies at rank 1/2/3/4/5 of the triggering ability",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 30542912,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Tsunami (XV) Follow-Up",
+    "name": "Tsunami (XV)",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 15.4,
+    "element": [
+      "Water",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (1.54 each)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 30543260,
     "gl": false
   },
   {
@@ -4473,6 +4742,27 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547042,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Righteous Fist Mode",
+    "name": "Ice Cluster",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.12,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (1.02 each), 100% hit rate, grants Physical Blink 3",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 30548427,
     "gl": false
   },
   {
@@ -7870,7 +8160,7 @@
   },
   {
     "sourceType": "Record Materia",
-    "source": "Smile of God",
+    "source": "Divine Smile",
     "name": "Attack",
     "type": "BLK",
     "target": "Single enemy",
@@ -7886,7 +8176,7 @@
     "sb": 50,
     "school": "Black Magic",
     "id": null,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -8268,8 +8558,8 @@
   },
   {
     "sourceType": "Legend Materia",
-    "source": "Promised Stage",
-    "name": "Promised Stage",
+    "source": "Dream Fulfilled",
+    "name": "Dream Fulfilled",
     "type": "WHT",
     "target": "All allies",
     "formula": "Magical",
@@ -8343,7 +8633,7 @@
     "sb": 0,
     "school": "Special",
     "id": null,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",

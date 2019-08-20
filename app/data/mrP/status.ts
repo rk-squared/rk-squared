@@ -2,6 +2,7 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { logger } from '../../utils/logger';
+import { getAllSameValue } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirOtherSkill,
@@ -105,7 +106,8 @@ function parseWho(who: string): string | undefined {
 
 /**
  * Hide durations for some statuses, like Astra, because that's typically
- * removed due to enemy action.  Hide Stun because it's effectively instant.
+ * removed due to enemy action.  Hide Stun (interrupt) because it's effectively
+ * instant.
  */
 const hideDuration = new Set(['Astra', 'Stun']);
 
@@ -139,6 +141,7 @@ interface FollowUpEffect {
   chance: number | undefined;
   trigger: string | null;
   isDamageTrigger: boolean;
+  isRankTrigger: boolean;
   customTriggerSuffix?: string;
   triggerPrereqStatus?: string;
   customSkillSuffix?: string;
@@ -164,6 +167,7 @@ const followUpRe = XRegExp(
   (?:after\ #
     (?<triggerType>using|dealing\ damage\ with|dealing|exploiting|taking\ (?<takeDamageTrigger>.*?)\ damage)\ #
     (?<trigger>.*?)
+    (?<rankTrigger>\ at\ rank\ 1/2/3/4/5)?
   |
     every\ (?<autoInterval>[0-9.]+)\ seconds
   )
@@ -194,6 +198,7 @@ function parseFollowUpEffect(
     allEffects,
     triggerType,
     takeDamageTrigger,
+    rankTrigger,
     trigger,
     autoInterval,
     triggerPrereqStatus,
@@ -239,6 +244,7 @@ function parseFollowUpEffect(
     // describeFollowUpTrigger.
     trigger: takeDamageTrigger ? takeDamageTrigger + ' dmg ' + trigger : trigger,
     isDamageTrigger: triggerType === 'dealing damage with',
+    isRankTrigger: !!rankTrigger,
     customTriggerSuffix: checkCustomTrigger(enlirStatus),
     customSkillSuffix,
     triggerPrereqStatus: triggerPrereqStatus || undefined,
@@ -736,6 +742,12 @@ function describeEnlirStatusEffect(
     );
   }
 
+  // Stacking cast speed.
+  if ((m = effect.match(/Cast speed x((?:[0-9.]+\/)+[0-9.]+)/))) {
+    const castSpeed = m[1].split('/').map(i => toMrPFixed(+i));
+    return castSpeed.join('-') + 'x cast';
+  }
+
   // Handle ability boost and element boost.  The second form is only observed
   // with Noctis's non-elemental boosts; it may simply be an inconsistency.
   // Ths overlaps with the statusAlias, but duplicating it here lets us handle
@@ -765,15 +777,17 @@ function describeEnlirStatusEffect(
 
   if (
     (m = effect.match(
-      /[Cc]ast speed x([0-9.]+) plus x([0-9.]+) for each attack used for the duration of the status, up to x([0-9.]+)/,
+      /[Cc]ast speed x([0-9.]+) plus x([0-9.]+) for each (attack|ability) used for the duration of the status, up to x([0-9.]+)/,
     ))
   ) {
-    const [, start, add, max] = m;
+    const [, start, add, attackOrAbility, max] = m;
     const startN = toMrPFixed(+start);
     const addN = toMrPFixed(+add);
     const maxN = toMrPFixed(+max);
     const maxCount = Math.round((+max - +start) / +add);
-    return `cast speed ${startN}x, +${addN}x per atk, max ${maxN}x @ ${maxCount} atks`;
+    const atkDesc = attackOrAbility === 'attack' ? 'atk' : 'abil.';
+    const atksDesc = attackOrAbility === 'attack' ? 'atks' : 'abils.';
+    return `cast speed ${startN}x, +${addN}x per ${atkDesc}, max ${maxN}x @ ${maxCount} ${atksDesc}`;
   }
 
   // Cast speed for ability combinations - cast speed for individual ability
@@ -862,6 +876,15 @@ function describeEnlirStatusEffect(
     return '';
   }
 
+  // Stacking effects
+  {
+    const options = getSlashOptions(effect);
+    if (options) {
+      const slashOptions = expandSlashOptions(effect, options);
+      return slashMerge(slashOptions.map(i => describeEnlirStatusEffect(i, enlirStatus, source)));
+    }
+  }
+
   // Fallback
   return effect;
 }
@@ -927,13 +950,26 @@ function extractCount(s: string): [number | string | null, string] {
   }
 }
 
-const slashOptionsRe = /(?:\w+\/)+\w+/;
+const slashOptionsRe = /(?:(?:\w|\.)+\/)+(?:\w|\.)+/;
 function getSlashOptions(s: string): string[] | null {
   const m = s.match(slashOptionsRe);
-  return m ? m[0].split('/') : null;
+  if (!m) {
+    return null;
+  }
+  let options = m[0].split('/');
+  // Make sure we consistently have a multiplier sign at the beginning or end.
+  if (options[0].startsWith('x')) {
+    options = options.map(i => i.replace(/^[^x]/, c => 'x' + c));
+  }
+  if (options[options.length - 1].endsWith('x')) {
+    options = options.map(i => i.replace(/[^x]$/, c => c + 'x'));
+  }
+  return options;
 }
-function expandSlashOptions(s: string): string[] {
-  const options = getSlashOptions(s) || [];
+function expandSlashOptions(s: string, options?: string[]): string[] {
+  if (!options) {
+    options = getSlashOptions(s) || [];
+  }
   return options.map(i => s.replace(slashOptionsRe, i));
 }
 
@@ -1027,16 +1063,18 @@ function describeFollowUpStatus(item: StatusItem): string {
 
   let result: string;
   if (!status && options) {
-    const statusOptions = options.map(i => statusName.replace(slashOptionsRe, i));
+    const statusOptions = expandSlashOptions(statusName, options);
     result = slashMerge(statusOptions.map(i => parseEnlirStatus(i).description));
   } else {
-    result = describeEnlirStatus(statusName, status);
+    result = parseEnlirStatus(statusName).description;
   }
 
   return describeFollowUpItem(item, result);
 }
 
 function describeFollowUpEffect(item: StatusItem): string {
+  // Instead of handling slash-merging here, describeEnlirStatusEffect does
+  // its own custom processing for individual cases.
   return describeFollowUpItem(item, describeEnlirStatusEffect(item.statusName));
 }
 
@@ -1067,12 +1105,24 @@ function describeFollowUpSkill(
 
   const options = getSlashOptions(skillName);
   if (options) {
-    const skillOptions = options.map(i => skillName.replace(slashOptionsRe, i));
-    return slashMerge(
-      skillOptions.map((i: string) =>
-        describeFollowUpSkill(i, triggerPrereqStatus, sourceStatusName),
-      ),
-    );
+    // Slash-merging skills is really a hack:
+    // - For abilities like Exdeath's Balance of Power or Relm's
+    //   Friendly Sketch that have significantly varying effects, the code does
+    //   a good job of separating the clauses.
+    // - For abilities like Dr. Mog's AASB that have the same number of
+    //   effects, some effects can be similar enough to force another one to
+    //   merged piecemeal.  Merge effects individually in that case.
+    // There really ought to be a better way of handling this...
+    const skillOptions = options
+      .map(i => skillName.replace(slashOptionsRe, i))
+      .map((i: string) => describeFollowUpSkill(i, triggerPrereqStatus, sourceStatusName));
+    const skillOptionParts = skillOptions.map(i => i.split(', '));
+    const length = getAllSameValue(skillOptionParts.map(i => i.length));
+    if (length) {
+      return _.times(length, i => slashMerge(skillOptionParts.map(parts => parts[i]))).join(', ');
+    } else {
+      return slashMerge(skillOptions);
+    }
   }
 
   return skillName;
@@ -1142,17 +1192,20 @@ function describeFollowUp(followUp: FollowUpEffect, sourceStatusName: string): s
     );
   }
 
-  return formatTriggeredEffect(
-    triggerDescription,
-    description.join(', ') +
-      // Append the custom trigger to the end of the description - although we
-      // say that text like "(once only)" describes the trigger, the end works
-      // better for AASBs like Gladiolus's, where "once only" only applies to
-      // the final threshold, and we show thresholds as part of the
-      // description.
-      (followUp.customTriggerSuffix ? ' (' + followUp.customTriggerSuffix + ')' : ''),
-    followUp.chance,
-  );
+  let fullDescription = description.join(', ');
+  if (followUp.isRankTrigger) {
+    fullDescription += ' @ rank 1-5';
+  }
+  // Append the custom trigger to the end of the description - although we
+  // say that text like "(once only)" describes the trigger, the end works
+  // better for AASBs like Gladiolus's, where "once only" only applies to
+  // the final threshold, and we show thresholds as part of the
+  // description.
+  if (followUp.customTriggerSuffix) {
+    fullDescription += ' (' + followUp.customTriggerSuffix + ')';
+  }
+
+  return formatTriggeredEffect(triggerDescription, fullDescription, followUp.chance);
 }
 
 function isFinisherOnly({ effects }: EnlirStatus): boolean {
@@ -1167,6 +1220,14 @@ function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
     return 'until Neg. Dmg. lost';
   } else if (effects.match(/(?:, |^)[Rr]emoved upon taking damage/)) {
     return 'until damaged';
+  } else if (
+    effects.match(/(?:, |^)[Rr]emoved if (?:the )?user (?:hasn't|doesn't have) any Physical Blink/)
+  ) {
+    return 'until Phys blink lost';
+  } else if (
+    effects.match(/(?:, |^)[Rr]emoved if (?:the )?user (?:hasn't|doesn't have) any Magical Blink/)
+  ) {
+    return 'until Magic blink lost';
   } else if ((m = effects.match(/, lasts (\d+) turns?(?:$|,)/))) {
     return formatDuration(+m[1], 'turn');
   } else {
@@ -1174,13 +1235,15 @@ function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
   }
 }
 
+const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB points$/);
+
 /**
  * Parses a string description of an Enlir status name, returning details about
  * it and how it should be shown.
  */
 export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnlirStatus {
   const enlirStatus = getEnlirStatusByName(status);
-  if (!enlirStatus) {
+  if (!enlirStatus && !hideUnknownStatusWarning(status)) {
     logger.warn(`Unknown status: ${status}`);
   }
   let description = describeEnlirStatus(status, enlirStatus, source);
