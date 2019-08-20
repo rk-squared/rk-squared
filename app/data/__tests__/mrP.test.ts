@@ -2353,6 +2353,15 @@ Object {
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
+      expect(describeSoulBreak('Eight - AASB')).toEqual({
+        damage: 'phys 9.0/15 ice+non',
+        other:
+          'ice infuse 25s, self dmg cap +10k 15s, Phys blink 3, ' +
+          'until Phys blink lost: crit =100%, fastcast, ' +
+          '(3 Monk ⤇ p6.12/6 i+n Monk, Phys blink 3), ' +
+          '15s: Awoken Monk: Monk inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
+
       expect(describeSoulBreak('Jecht - AASB')).toEqual({
         damage: 'phys 9.0/15 fire+dark+non rngd',
         other:

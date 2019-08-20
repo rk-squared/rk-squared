@@ -1192,11 +1192,7 @@ function describeFollowUp(followUp: FollowUpEffect, sourceStatusName: string): s
     fullDescription += ' (' + followUp.customTriggerSuffix + ')';
   }
 
-  return formatTriggeredEffect(
-    triggerDescription,
-    fullDescription,
-    followUp.chance,
-  );
+  return formatTriggeredEffect(triggerDescription, fullDescription, followUp.chance);
 }
 
 function isFinisherOnly({ effects }: EnlirStatus): boolean {
@@ -1211,6 +1207,14 @@ function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
     return 'until Neg. Dmg. lost';
   } else if (effects.match(/(?:, |^)[Rr]emoved upon taking damage/)) {
     return 'until damaged';
+  } else if (
+    effects.match(/(?:, |^)[Rr]emoved if (?:the )?user (?:hasn't|doesn't have) any Physical Blink/)
+  ) {
+    return 'until Phys blink lost';
+  } else if (
+    effects.match(/(?:, |^)[Rr]emoved if (?:the )?user (?:hasn't|doesn't have) any Magical Blink/)
+  ) {
+    return 'until Magic blink lost';
   } else if ((m = effects.match(/, lasts (\d+) turns?(?:$|,)/))) {
     return formatDuration(+m[1], 'turn');
   } else {
