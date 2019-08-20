@@ -2362,6 +2362,14 @@ Object {
           '(fire ⤇ (1/2/3+ fire ⤇ crit =50%/75%/100%), (fire ⤇ p1.95/5 f+n rngd Monk)), ' +
           '15s: Awoken Legendary Player: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeSoulBreak('Paine - AASB')).toEqual({
+        damage: 'phys 9.0/15 water+non',
+        other:
+          'water infuse 25s, self dmg cap +10k 15s, 15s: fastcast, ' +
+          '(1/2/3/4+ water ⤇ crit =25%/50%/75%/100%), ' +
+          '15s: Awoken Water: water inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles synchro soul breaks', () => {
