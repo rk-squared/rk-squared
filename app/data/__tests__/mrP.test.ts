@@ -2379,6 +2379,15 @@ Object {
           '(1/2/3/4+ water ⤇ crit =25%/50%/75%/100%), ' +
           '15s: Awoken Water: water inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeSoulBreak('Dr. Mog - AASB2')).toEqual({
+        damage: 'magic 22.5/15 water+non',
+        other:
+          'water infuse 25s, self dmg cap +10k 15s, ' +
+          '15s: (1/2 +2n water ⤇ m6.66 – m8.16/4 wa+n B.Mag, ' +
+          '-10% fire dmg 15s – party +10% water dmg 15s), ' +
+          '15s: Awoken Water: water inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles synchro soul breaks', () => {

@@ -2,6 +2,7 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { logger } from '../../utils/logger';
+import { getAllSameValue } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirOtherSkill,
@@ -1104,12 +1105,24 @@ function describeFollowUpSkill(
 
   const options = getSlashOptions(skillName);
   if (options) {
-    const skillOptions = options.map(i => skillName.replace(slashOptionsRe, i));
-    return slashMerge(
-      skillOptions.map((i: string) =>
-        describeFollowUpSkill(i, triggerPrereqStatus, sourceStatusName),
-      ),
-    );
+    // Slash-merging skills is really a hack:
+    // - For abilities like Exdeath's Balance of Power or Relm's
+    //   Friendly Sketch that have significantly varying effects, the code does
+    //   a good job of separating the clauses.
+    // - For abilities like Dr. Mog's AASB that have the same number of
+    //   effects, some effects can be similar enough to force another one to
+    //   merged piecemeal.  Merge effects individually in that case.
+    // There really ought to be a better way of handling this...
+    const skillOptions = options
+      .map(i => skillName.replace(slashOptionsRe, i))
+      .map((i: string) => describeFollowUpSkill(i, triggerPrereqStatus, sourceStatusName));
+    const skillOptionParts = skillOptions.map(i => i.split(', '));
+    const length = getAllSameValue(skillOptionParts.map(i => i.length));
+    if (length) {
+      return _.times(length, i => slashMerge(skillOptionParts.map(parts => parts[i]))).join(', ');
+    } else {
+      return slashMerge(skillOptions);
+    }
   }
 
   return skillName;
