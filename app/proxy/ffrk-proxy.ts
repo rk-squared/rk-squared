@@ -71,12 +71,19 @@ function isFfrkApiRequest(req: http.IncomingMessage) {
   );
 }
 
-function isFfrkStartupRequest(req: http.IncomingMessage) {
+// Sample startup URLs:
+//
+// https://ffrk.denagames.com/dff/
+// http://dff.sp.mbga.jp/dff/
+// http://ffrk.denagames.com/dff/?timestamp=1566384964
+//
+// iOS uses HTTPS. Android uses HTTP.  The timestamp parameter is used for
+// reloading the main page after battles.
+const startupUrlRe = /^https?:\/\/(?:ffrk\.denagames\.com|dff\.sp\.mbga\.jp)\/dff\/(?:\?timestamp=\d+)?$/;
+export function isFfrkStartupRequest(req: http.IncomingMessage) {
   return (
-    (req.url === 'http://ffrk.denagames.com/dff/' ||
-      req.url === 'https://ffrk.denagames.com/dff/' ||
-      req.url === 'http://dff.sp.mbga.jp/dff/' ||
-      req.url === 'https://dff.sp.mbga.jp/dff/') &&
+    req.url &&
+    startupUrlRe.test(req.url) &&
     req.headers['accept'] &&
     req.headers['accept']!.indexOf('text/html') !== -1
   );
