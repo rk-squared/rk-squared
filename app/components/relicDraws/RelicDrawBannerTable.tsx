@@ -62,6 +62,16 @@ function getRelicGroupRealmId(relics: number[]): number | undefined {
   }
 }
 
+function getRelicRealmId(relic: number): number | undefined {
+  if (enlir.relics[relic]) {
+    const realm = enlir.relics[relic].realm;
+    if (realm) {
+      return enlirRealmToSeriesId[realm];
+    }
+  }
+  return undefined;
+}
+
 /**
  * A table of relics for a relic draw banner.
  */
@@ -284,7 +294,9 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       ? relics
       : [relics]) as number[][];
     if (probabilities && showProbability) {
-      relicsArray = relicsArray.map(i => _.sortBy(i, j => -probabilities.byRelic[j]));
+      relicsArray = relicsArray.map(i =>
+        _.sortBy(i, getRelicRealmId, j => -probabilities.byRelic[j]),
+      );
     } else if (groupBySeries && relicsArray.length > 1) {
       relicsArray = _.sortBy(relicsArray, getRelicGroupRealmId);
     }
