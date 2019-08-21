@@ -5,10 +5,13 @@
 - Drop Tracker
   - Fix display of Rush Tickets for Fat Black Chocobo dungeons
 - Dungeons
+  - Sort Torment dungeons by realm instead of by date released, to match recent FFRK updates
   - Group Record Dungeons by chapter
   - Add icons for Fat Black Chocobo dungeons
 - Dungeon Scores
+  - Sort Torment dungeons by realm instead of by date released, to match recent FFRK updates
   - Fix showing Dark Odin progress
+  - Fix a bug with tracking of near-miss wins (e.g., a win of exactly 30.00 seconds)
 - Soul Breaks
   - Search feature, inspired by /u/TheDeathAgent's excellent work on [FFRKLookup.com](https://www.ffrklookup.com/)
 - Record Materia

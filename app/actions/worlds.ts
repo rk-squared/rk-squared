@@ -97,9 +97,10 @@ function getSortOrder(category: WorldCategory) {
     case WorldCategory.Raid:
       return WorldSortOrder.ByTime;
     case WorldCategory.Torment:
-      // Old torments were sorted by series, but Neo Torments are listed by
-      // time.
-      return WorldSortOrder.ByTime;
+      // Old torments were sorted by series.  Neo Torments were listed by
+      // time when first released, but now that they've all been out for a
+      // bit, the game lists them by series.
+      return WorldSortOrder.BySeriesId;
     case WorldCategory.CrystalTower:
     case WorldCategory.Realm:
     case WorldCategory.Record:

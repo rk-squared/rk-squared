@@ -338,11 +338,11 @@ describe('actions/dungeonScores', () => {
       };
       const betterComplete = {
         ...estimatedComplete,
-        time: estimatedComplete.time - 5,
+        time: estimatedComplete.time - 100,
       };
       const worseComplete = {
         ...estimatedComplete,
-        time: estimatedComplete.time + 5,
+        time: estimatedComplete.time + 100,
       };
 
       expect(shouldUseEstimatedScore(betterIncomplete, estimatedIncomplete)).toEqual(false);
@@ -353,6 +353,26 @@ describe('actions/dungeonScores', () => {
 
       expect(shouldUseEstimatedScore(betterComplete, estimatedIncomplete)).toEqual(false);
       expect(shouldUseEstimatedScore(betterIncomplete, estimatedComplete)).toEqual(true);
+    });
+
+    it('handles close Torment scores', () => {
+      // A completion time of 30.003 rounds to 30.00, which is enough to get
+      // the 30 second rewards.
+      const barelySub30 = {
+        type: DungeonScoreType.PercentHpOrClearTime,
+        maxHp: 2000000,
+        totalDamage: 2000000,
+        time: 30003,
+        won: true,
+      };
+      const estimated = {
+        type: DungeonScoreType.PercentHpOrClearTime,
+        maxHp: 2000000,
+        totalDamage: 2000000,
+        time: 30000,
+        won: true,
+      };
+      expect(shouldUseEstimatedScore(barelySub30, estimated)).toEqual(false);
     });
   });
 });

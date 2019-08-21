@@ -182,12 +182,22 @@ export function compareScore(scoreA: DungeonScore, scoreB: DungeonScore): number
 
   // Returns 1, 0, or -1, if f indicates that a is better, equal to, or worse than b.
   type Op<T> = (a: T, b: T) => boolean;
-  const compare = (f: Op<number>, a: number | undefined, b: number | undefined): number => {
+  const compare = (
+    f: Op<number>,
+    a: number | undefined,
+    b: number | undefined,
+    precision?: number,
+  ): number => {
     if (b == null) {
       return 1;
     } else if (a == null) {
       return -1;
-    } else if (a === b) {
+    }
+    if (precision) {
+      a -= a % precision;
+      b -= b % precision;
+    }
+    if (a === b) {
       return 0;
     } else {
       return f(a, b) ? 1 : -1;
@@ -203,7 +213,7 @@ export function compareScore(scoreA: DungeonScore, scoreB: DungeonScore): number
       if (scoreA.won && !scoreB.won) {
         return 1;
       } else if (scoreA.won) {
-        return compare(_.lt, scoreA.time, scoreB.time);
+        return compare(_.lt, scoreA.time, scoreB.time, 10);
       } else {
         return compare(_.gt, scoreA.totalDamage, scoreB.totalDamage);
       }
