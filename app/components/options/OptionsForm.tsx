@@ -61,7 +61,7 @@ const Checkbox = ({
             })}
           >
             <FontAwesomeIcon icon="exclamation-triangle" />
-            {needsAppRestart && 'You must restart RK&sup2; for this to take effect.'}
+            {needsAppRestart && 'You must restart RK² for this to take effect.'}
             {needsGameRestart && 'This take effect after you restart FFRK.'}
           </span>
         )}
