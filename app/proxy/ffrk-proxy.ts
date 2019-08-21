@@ -36,6 +36,7 @@ import { IState } from '../reducers';
 import { logger } from '../utils/logger';
 import { escapeHtml } from '../utils/textUtils';
 import { DnsResolver } from './dnsResolver';
+import { getStyleOverrides } from './styles';
 import { tlsCert, tlsSites } from './tls';
 import { decodeData, encodeData, getIpAddresses, getStoragePath, setStoragePath } from './util';
 
@@ -262,6 +263,12 @@ function handleFfrkStartupRequest(
     sessionHandler(decoded, req, res, store);
 
     checkHandlers(startupData, req, res, store, [StartupHandler]);
+
+    const styleOverrides = getStyleOverrides(store);
+    if (styleOverrides) {
+      $('head').append(`<style type="text/css">${styleOverrides}</style>`);
+      return encodeData($.html(), res);
+    }
   } catch (error) {
     logger.error(error);
   }

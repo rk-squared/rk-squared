@@ -11,6 +11,11 @@ export interface Options {
   enableTransparentProxy?: boolean;
 
   /**
+   * Hide accolades from the roaming warrior (RW) list?
+   */
+  hideAccolades?: boolean;
+
+  /**
    * Expire old relic draw banners after this value, in days.
    */
   maxOldRelicDrawBannerAgeInDays?: number;
@@ -34,6 +39,7 @@ export const defaultOptions: Required<Options> = {
   enableLogging: false,
   saveTrafficCaptures: false,
   enableTransparentProxy: false,
+  hideAccolades: false,
 
   // Earlier versions were effectively 0.  Pick 1 so they don't *immediately*
   // expire.

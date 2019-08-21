@@ -25,19 +25,22 @@ const Checkbox = ({
   children,
   options,
   setOption,
-  needsRestart,
+  needsAppRestart,
+  needsGameRestart,
 }: {
   id: KeysOfType<Required<Options>, boolean>;
   children: any;
   options: Options;
   setOption: (o: Options) => void;
-  needsRestart?: boolean;
+  needsAppRestart?: boolean;
+  needsGameRestart?: boolean;
 }) => {
   // Track whether a setting has changed, so we know if we need to prompt the
   // user to restart.  This is imperfect; to do it properly, we'd track state
   // at program start, not state at component mount.  But it's simple.
   const [state] = React.useState(options[id]);
 
+  const showRestart = (needsAppRestart || needsGameRestart) && state !== options[id];
   return (
     <div className="form-check">
       <input
@@ -45,15 +48,21 @@ const Checkbox = ({
         id={id}
         name={id}
         type="checkbox"
-        checked={options[id]}
+        checked={!!options[id]}
         onChange={() => setOption({ [id]: !options[id] })}
       />
       <label className="form-check-label" htmlFor={id}>
         {children}
-        {needsRestart && state !== options[id] && (
-          <span className="pl-2 text-danger">
+        {showRestart && (
+          <span
+            className={classNames('pl-2', {
+              ['text-info']: needsAppRestart,
+              ['text-success']: needsGameRestart,
+            })}
+          >
             <FontAwesomeIcon icon="exclamation-triangle" />
-            You must restart RK&sup2; for this to take effect.
+            {needsAppRestart && 'You must restart RK&sup2; for this to take effect.'}
+            {needsGameRestart && 'This take effect after you restart FFRK.'}
           </span>
         )}
       </label>
@@ -88,6 +97,15 @@ export class OptionsForm extends React.Component<Props> {
           </HelpText>
         </div>
 
+        <div className="form-group">
+          <Checkbox id="hideAccolades" {...{ options, setOption }} needsGameRestart={true}>
+            Hide accolades
+          </Checkbox>
+          <HelpText>
+            Hide accolades from the roaming warrior (RW) list to save screen space.
+          </HelpText>
+        </div>
+
         <h5>RK&sup2; Preferences</h5>
         <p>Preferences affecting RK&sup2;'s own operations.</p>
 
@@ -113,7 +131,7 @@ export class OptionsForm extends React.Component<Props> {
         </div>
 
         <div className="form-group">
-          <Checkbox id="enableTransparentProxy" {...{ options, setOption }} needsRestart={true}>
+          <Checkbox id="enableTransparentProxy" {...{ options, setOption }} needsAppRestart={true}>
             Enable transparent proxy
           </Checkbox>
           <HelpText>
@@ -149,7 +167,7 @@ export class OptionsForm extends React.Component<Props> {
         </div>
 
         <div className="form-group">
-          <Checkbox id="enableLogging" {...{ options, setOption }} needsRestart={true}>
+          <Checkbox id="enableLogging" {...{ options, setOption }} needsAppRestart={true}>
             Enable logging
           </Checkbox>
           <HelpText>

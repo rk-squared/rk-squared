@@ -1,13 +1,14 @@
 # v2.3.0
 
 - Experimental transparent proxy support (BlueStacks support)
+- Add the option to hide accolades from the roaming warrior list (to save screen space)
 - Drop Tracker
   - Fix display of Rush Tickets for Fat Black Chocobo dungeons
 - Dungeons
   - Group Record Dungeons by chapter
   - Add icons for Fat Black Chocobo dungeons
 - Dungeon Scores
-  - Fix showing Dark Odin progress.
+  - Fix showing Dark Odin progress
 - Soul Breaks
   - Search feature, inspired by /u/TheDeathAgent's excellent work on [FFRKLookup.com](https://www.ffrklookup.com/)
 - Record Materia
