@@ -8,15 +8,15 @@ export default class DropTrackerPage extends React.Component {
     return (
       <Page title="Drop Tracker">
         <p>
-          Whenever you're in a battle, the current item drops (if any) that you'll get if
-          you win are displayed here.
+          Whenever you're in a battle, the current item drops (if any) that you'll get if you win
+          are displayed here.
         </p>
         <p>
-          Item drops are determined when the battle starts and are saved on FFRK's servers.
-          For battles that only deduct stamina if you win, you can take advantage of this to
-          flee the battle and restart it until you get the item drop you want.
+          Item drops are determined when the battle starts and are saved on FFRK's servers. For
+          battles that only deduct stamina if you win, you can take advantage of this to flee the
+          battle and restart it until you get the item drop you want.
         </p>
-        <DropItemAlert/>
+        <DropItemAlert />
       </Page>
     );
   }

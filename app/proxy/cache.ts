@@ -80,7 +80,11 @@ export function parseFfrkCacheRequest(req: http.IncomingMessage) {
 // tslint:enable max-line-length
 
 // noinspection JSUnusedGlobalSymbols
-export function cacheTransformerFunction(data: Buffer, req: http.IncomingMessage, res: http.ServerResponse) {
+export function cacheTransformerFunction(
+  data: Buffer,
+  req: http.IncomingMessage,
+  res: http.ServerResponse,
+) {
   const resourceUrl = parseFfrkCacheRequest(req);
   if (resourceUrl != null) {
     const decoded = decodeData(data, res);

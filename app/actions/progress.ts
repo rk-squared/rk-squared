@@ -9,8 +9,8 @@ export const setProgress = createAction('SET_PROGRESS', (key: string, progress?:
   type: 'SET_PROGRESS',
   payload: {
     key,
-    progress
-  }
+    progress,
+  },
 }));
 
 export type ProgressAction = ReturnType<typeof setProgress>;

@@ -14,7 +14,7 @@ export function options(state: Options = defaultOptions, action: OptionsAction):
     case getType(setOption):
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       };
 
     /* istanbul ignore next */

@@ -16,15 +16,17 @@ export class MessagesList extends React.Component<Props> {
     const messageIds = Object.keys(messages).sort();
     return (
       <>
-        {messageIds.map(i => <MessageBox key={i} message={messages[+i]} onClose={() => hideMessage(+i)}/>)}
+        {messageIds.map(i => (
+          <MessageBox key={i} message={messages[+i]} onClose={() => hideMessage(+i)} />
+        ))}
       </>
     );
   }
 }
 
 export default connect(
-  (state: IState) => ({ messages: state.messages.messages}),
+  (state: IState) => ({ messages: state.messages.messages }),
   {
-    hideMessage: hideMessageAction
-  }
+    hideMessage: hideMessageAction,
+  },
 )(MessagesList);

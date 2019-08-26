@@ -17,11 +17,11 @@ export function progress(state: ProgressState = {}, action: ProgressAction): Pro
       if (action.payload.progress) {
         return {
           ...state,
-          [action.payload.key]: action.payload.progress
+          [action.payload.key]: action.payload.progress,
         };
       } else {
         const result = {
-          ...state
+          ...state,
         };
         delete result[action.payload.key];
         return result;

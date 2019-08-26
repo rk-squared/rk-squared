@@ -41,10 +41,10 @@ function getRelicChanceDetails(
   const rareChancePerRelic = (probabilities.byRarity[5] || 0) + (probabilities.byRarity[6] || 0);
   let desiredCountAndChance: [number, number];
   if (want) {
-    desiredCountAndChance = _.map(
-      probabilities.byRelic,
-      (chance: number, id: string): [number, number] => (want[+id] ? [1, chance] : [0, 0]),
-    ).reduce(([a, b], [c, d]) => [a + c, b + d], [0, 0]);
+    desiredCountAndChance = _.map(probabilities.byRelic, (chance: number, id: string): [
+      number,
+      number,
+    ] => (want[+id] ? [1, chance] : [0, 0])).reduce(([a, b], [c, d]) => [a + c, b + d], [0, 0]);
   } else {
     desiredCountAndChance = [0, 0];
   }

@@ -271,7 +271,12 @@ describe('dungeons proxy handler', () => {
       const prizes = convertPrizeItems(
         data.dungeons[1].prizes[dungeonsSchemas.RewardType.FirstTime],
       );
-      expect(prizes[0]).toEqual({ amount: 1, id: 96003851, name: 'Feast Ticket', type: ItemType.Common });
+      expect(prizes[0]).toEqual({
+        amount: 1,
+        id: 96003851,
+        name: 'Feast Ticket',
+        type: ItemType.Common,
+      });
       expect(prizes).toMatchSnapshot();
     });
   });

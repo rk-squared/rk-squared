@@ -10,7 +10,11 @@ export class BrTextToP extends React.Component<Props & React.HTMLAttributes<HTML
     const lines = text.split('<br>');
     return (
       <>
-        {lines.map((line, i) => <p key={i} {...props}>{line}</p>)}
+        {lines.map((line, i) => (
+          <p key={i} {...props}>
+            {line}
+          </p>
+        ))}
       </>
     );
   }

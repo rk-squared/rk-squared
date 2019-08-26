@@ -14,7 +14,7 @@ export function proxy(state: ProxyStatus = {}, action: ProxyAction): ProxyStatus
     case getType(updateProxyStatus):
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       };
 
     /* istanbul ignore next */

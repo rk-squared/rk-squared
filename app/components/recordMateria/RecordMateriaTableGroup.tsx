@@ -25,7 +25,11 @@ export class RecordMateriaTableGroup extends React.Component<Props> {
             isAnonymous={isAnonymous}
           />
         ))}
-        <RecordMateriaTooltip id={tooltipId} recordMateria={recordMateria} isAnonymous={isAnonymous} />
+        <RecordMateriaTooltip
+          id={tooltipId}
+          recordMateria={recordMateria}
+          isAnonymous={isAnonymous}
+        />
       </>
     );
   }

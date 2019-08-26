@@ -11,7 +11,11 @@ export class ModalHeader extends React.Component<Props> {
     return (
       <div className="modal-header">
         {children}
-        {onClose && <button onClick={onClose} className="close"><span aria-hidden="true">&times;</span></button>}
+        {onClose && (
+          <button onClick={onClose} className="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        )}
       </div>
     );
   }

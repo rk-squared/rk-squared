@@ -19,21 +19,22 @@ export class DropItemAlert extends React.Component<Props> {
     return (
       <div className={`alert alert-primary ${styles.component}`} role="alert">
         <h4>Drops for current battle</h4>
-        {dropItems.length === 0
-          ? <p>None</p>
-          : <ul>
-              {dropItems.map(({ name, imageUrl }, i) =>
-                <li key={i}><img src={imageUrl} width={64} height={64}/> {name}</li>
-              )}
-            </ul>
-        }
+        {dropItems.length === 0 ? (
+          <p>None</p>
+        ) : (
+          <ul>
+            {dropItems.map(({ name, imageUrl }, i) => (
+              <li key={i}>
+                <img src={imageUrl} width={64} height={64} /> {name}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     );
   }
 }
 
-export default connect(
-  (state: IState) => ({
-    dropItems: state.battle.dropItems
-  })
-)(DropItemAlert);
+export default connect((state: IState) => ({
+  dropItems: state.battle.dropItems,
+}))(DropItemAlert);

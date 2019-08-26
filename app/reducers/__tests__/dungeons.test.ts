@@ -1,6 +1,11 @@
 import { dungeons, DungeonState } from '../dungeons';
 
-import { Dungeon, finishWorldDungeons, forgetWorldDungeons, openDungeonChest } from '../../actions/dungeons';
+import {
+  Dungeon,
+  finishWorldDungeons,
+  forgetWorldDungeons,
+  openDungeonChest,
+} from '../../actions/dungeons';
 
 function makeDungeon(id: number, name: string, dungeonChests = 0): Dungeon {
   return {
@@ -42,7 +47,7 @@ function makeDungeonState(): DungeonState {
       100: [1, 2],
       200: [3, 4],
       300: [5],
-    }
+    },
   };
 }
 
@@ -65,7 +70,10 @@ describe('dungeons reducer', () => {
     it('updates completed and mastered', () => {
       const state = makeDungeonState();
 
-      const newState = dungeons(state, finishWorldDungeons(100, { isComplete: true, isMaster: true }));
+      const newState = dungeons(
+        state,
+        finishWorldDungeons(100, { isComplete: true, isMaster: true }),
+      );
 
       expect(newState.dungeons[1].isComplete).toEqual(true);
       expect(newState.dungeons[2].isComplete).toEqual(true);

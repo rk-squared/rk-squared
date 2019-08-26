@@ -11,11 +11,7 @@ export class MaybeWrap extends React.Component<Props & any> {
     const { test, component: Component, children, ...props } = this.props;
     const child = React.Children.only(children);
     if (test) {
-      return (
-        <Component {...props}>
-          {child}
-        </Component>
-      );
+      return <Component {...props}>{child}</Component>;
     } else {
       return child;
     }

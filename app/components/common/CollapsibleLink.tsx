@@ -14,11 +14,14 @@ export class CollapsibleLink extends React.Component<Props> {
     return (
       <div className={styles.component}>
         <button
-          type="button" className="btn btn-link collapsed"
-          data-toggle="collapse" data-target={'#' + id}
-          aria-expanded="false" aria-controls={id}
+          type="button"
+          className="btn btn-link collapsed"
+          data-toggle="collapse"
+          data-target={'#' + id}
+          aria-expanded="false"
+          aria-controls={id}
         >
-          {typeof(title) === 'string' ? title : title()}
+          {typeof title === 'string' ? title : title()}
         </button>
         <div className="collapse" id={id}>
           {children}

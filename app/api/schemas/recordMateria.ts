@@ -35,12 +35,12 @@ export enum RecordMateriaEffectType {
 export interface RecordMateria {
   buddy_role_type: number;
   effect_type: RecordMateriaEffectType;
-  step: number;               // 1-4, giving number of the record materia for that character
-  record_materia_id: number;  // identical to ID
+  step: number; // 1-4, giving number of the record materia for that character
+  record_materia_id: number; // identical to ID
   cond_description: string;
   id: number;
   buddy_image_path: RelativeUrlPath;
-  disp_type: number;          // unknown meaning
+  disp_type: number; // unknown meaning
   command_icon_path: RelativeUrlPath;
   buddy_id: number;
   buddy_series_id: number;
@@ -48,7 +48,7 @@ export interface RecordMateria {
   buddy_name: string;
   description: string;
   image_path: RelativeUrlPath;
-  disp_name: string;          // name, with {n} for newline
+  disp_name: string; // name, with {n} for newline
 }
 
 export interface OwnedRecordMateria extends RecordMateria {
@@ -65,14 +65,14 @@ export interface ReleasedRecordMateriaList {
     [id: string]: number;
   };
   item_achievement_infos: Array<{
-    priority: number;    // always 7
+    priority: number; // always 7
     cond: string;
-    closed_at: number;   // always 0
+    closed_at: number; // always 0
     release_id: number;
     item_id: number;
-    opened_at: number;   // always 0
-    is_locked: boolean;  // always false
-    type: number;        // always 7
+    opened_at: number; // always 0
+    is_locked: boolean; // always false
+    type: number; // always 7
   }>;
 }
 

@@ -7,7 +7,7 @@ export interface BattleState {
 }
 
 const initialState = {
-  dropItems: null
+  dropItems: null,
 };
 
 export function battle(state: BattleState = initialState, action: BattleAction): BattleState {
@@ -15,13 +15,13 @@ export function battle(state: BattleState = initialState, action: BattleAction):
     case getType(setDropItems):
       return {
         ...state,
-        dropItems: action.payload.dropItems
+        dropItems: action.payload.dropItems,
       };
 
     case getType(clearDropItems):
       return {
         ...state,
-        dropItems: null
+        dropItems: null,
       };
 
     /* istanbul ignore next */
