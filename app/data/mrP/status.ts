@@ -1379,6 +1379,8 @@ const statusItemRe = XRegExp(
   (?:\ if\ (?<characterInParty>.*?)\ (?:is|are)\ in\ the\ party)?
   (?:\ if\ (?<characterAlive>.*?)\ (?:is|are)\ alive)?
   (?<weakness>\ if\ exploiting\ elemental\ weakness)?
+  (?:\ at\ (?<status>[A-Z].*))?
+  (?<everyTwo>\ every\ two\ uses)?
   ()
   $
   `,
@@ -1428,6 +1430,8 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     characterInParty,
     characterAlive,
     females,
+    status,
+    everyTwo,
   } = (m as unknown) as XRegExpNamedGroups;
   // tslint:enable prefer-const
 
@@ -1477,6 +1481,10 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     condition = 'if ' + characterAlive + ' alive';
   } else if (females) {
     condition = 'if ≥' + females + ' females in party';
+  } else if (status) {
+    condition = 'at ' + describeEnlirStatus(status);
+  } else if (everyTwo) {
+    condition = 'per 2 uses';
   }
 
   return {

@@ -147,10 +147,11 @@ const healRe = XRegExp(
   String.raw`
   [Rr]estores\ #
   (?:HP\ \((?<healFactor>(?:(?:\d+|\?)\/)*(?:\d+|\?))\)
-  |(?<fixedHp>\d+)\ HP)
+  |(?<fixedHp>[0-9/]+)\ HP)
   (?<who>\ to\ the\ user|\ to\ all\ allies|\ to\ the\ lowest\ HP%\ ally)?
   (?<rank>\ at\ rank\ 1\/2\/3\/4\/5\ of\ the\ triggering\ ability)?
   (?:\ if\ (?<ifAllyAlive>.*?)\ is\ alive)?
+  (?:\ at\ (?<scaleUses>[0-9/]+)\ uses)?
   `,
   'x',
 );
@@ -493,10 +494,15 @@ export function describeEnlirSoulBreak(
     selfOther.push(`heal ${healPercent}% of dmg`);
   }
 
-  if ((m = sb.effects.match(/damages the user for ([0-9.]+)% (?:max\.?(?:imum)?|current) HP/))) {
-    const [, damagePercent, maxOrCurrent] = m;
+  if (
+    (m = sb.effects.match(
+      /damages the user for ([0-9.\/]+)% (max\.?(?:imum)?|current) HP(?: scaling with ([0-9\/]+) uses)?/,
+    ))
+  ) {
+    const [, damagePercent, maxOrCurrent, scalingUses] = m;
     const description = maxOrCurrent === 'current' ? 'curr' : 'max';
-    selfOther.push(`lose ${damagePercent}% ${description} HP`);
+    const scaling = scalingUses ? ` @ ${scalingUses} uses` : '';
+    selfOther.push(`lose ${damagePercent}% ${description} HP${scaling}`);
   }
 
   XRegExp.forEach(sb.effects, healRe, match => {
@@ -505,14 +511,28 @@ export function describeEnlirSoulBreak(
       fixedHp,
       who,
       rank,
+      scaleUses,
       ifAllyAlive,
     } = (match as unknown) as XRegExpNamedGroups;
-    let heal = healFactor ? 'h' + healFactor : `heal ${toMrPKilo(+fixedHp)}`;
+    let heal;
+    if (healFactor) {
+      heal = 'h' + healFactor;
+    } else {
+      heal =
+        'heal ' +
+        fixedHp
+          .split('/')
+          .map(i => toMrPKilo(i, true))
+          .join('/');
+    }
     if (healFactor && sb.type === 'NAT') {
       heal += ' (NAT)';
     }
     if (rank) {
       heal += ' @ rank 1-5'; // rank-based healing chase - used by Lenna's AASB
+    }
+    if (scaleUses) {
+      heal += ` @ ${scaleUses} uses`;
     }
     if (ifAllyAlive) {
       heal += ' if ' + ifAllyAlive + ' alive';
@@ -643,11 +663,11 @@ export function describeEnlirSoulBreak(
       if (isTrance) {
         description = 'Trance: ' + description;
       }
-      if (scalesWithUses) {
-        description += ' ' + formatUseCount(optionCount);
-      }
       if (stacking) {
         description = 'stacking ' + description;
+      }
+      if (scalesWithUses) {
+        description += ' ' + formatUseCount(optionCount);
       }
       if (rank) {
         description += ' @ rank 1-5';

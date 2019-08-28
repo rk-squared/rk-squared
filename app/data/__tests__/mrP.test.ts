@@ -266,7 +266,7 @@ describe('mrP', () => {
       expect(describeSoulBreak('Genesis - Glint+')).toEqual({
         instant: true,
         other:
-          'fire infuse stacking 25s, fire infuse 25s, self lose 99% max HP, ' +
+          'fire infuse stacking 25s, fire infuse 25s, self lose 99% curr HP, ' +
           '15s: (fire ⤇ p1.92/6 f+n rngd Spellblade)',
       });
     });

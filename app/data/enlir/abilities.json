@@ -12724,7 +12724,7 @@
       "Water"
     ],
     "time": 1.2,
-    "effects": "Four single attacks (0.80 each), causes Minor Imperil Water every other cast",
+    "effects": "Four single attacks (0.80 each), causes Minor Imperil Water every two uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -17761,7 +17761,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Three single hybrid attacks (0.64/2.64 each), 25% chance to cause Imperil Dark 10% for 15 seconds",
+    "effects": "Three single hybrid attacks (0.64 or 2.64 each), 25% chance to cause Imperil Dark 10% for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -17913,7 +17913,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Three single hybrid attacks (0.90/3.44 each), causes Imperil Dark 10% for 15 seconds every two uses",
+    "effects": "Three single hybrid attacks (0.90 or 3.44 each), causes Imperil Dark 10% for 15 seconds every two uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -18350,7 +18350,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Four single ranged attacks (0.80 each), grants Sharpshooter Quick Cast 2 to the user, 0.90 multiplier when equipping a ranged weapon",
+    "effects": "Four single ranged attacks (0.80 each), 0.90 multiplier when equipping a ranged weapon, grants Sharpshooter Quick Cast 2 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

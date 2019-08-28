@@ -199,6 +199,7 @@ export interface EnlirSoulBreakOrLegendMateria {
 }
 
 export interface EnlirAbility extends EnlirGenericSkill {
+  school: EnlirSchool;
   rarity: number;
   sb: number;
   uses: number;

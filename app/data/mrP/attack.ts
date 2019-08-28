@@ -259,6 +259,8 @@ function describeOrCondition(orCondition: string, burstCommands?: EnlirBurstComm
     return 'if ' + statusDescription;
   } else if ((m = orCondition.match(/(.*) is alive/))) {
     return 'if ' + m[1] + ' alive';
+  } else if (orCondition === 'equipping a ranged weapon') {
+    return 'if using a rngd wpn';
   } else {
     return 'if ' + orCondition;
   }
@@ -271,22 +273,28 @@ function describeOr(
   burstCommands?: EnlirBurstCommand[],
 ): [string | undefined, string | undefined] {
   const m = effects.match(
-    /(?:([0-9\.]+) (?:multiplier|mult\.)|([a-z\-]+) attacks) (?:if (.*?)|(with .*?))(?=, grants|, causes|, restores HP |, damages the user |, heals the user |, [A-Z]{3}|$)/,
+    /(?:([\/0-9\.]+) (?:multiplier|mult\.)|([a-z\-]+) attacks) (?:if (.*?)|(with .*?)|when (.*?))(?=, grants|, causes|, restores HP |, damages the user |, heals the user |, [A-Z]{3}|$)/,
   );
   if (!m) {
     return [undefined, undefined];
   }
 
-  const [, orMultiplier, orNumAttacksString, orCondition, withCondition] = m;
+  const [, orMultiplier, orNumAttacksString, orCondition, withCondition, whenCondition] = m;
   const orNumAttacks = orNumAttacksString && parseNumberString(orNumAttacksString);
   let orDamage: string | undefined;
   if (orMultiplier && numAttacks) {
-    orDamage = describeDamage(parseFloat(orMultiplier), numAttacks);
+    orDamage = orMultiplier
+      .split('/')
+      .map(i => describeDamage(parseFloat(i), numAttacks))
+      .join(thresholdJoin);
   } else if (orNumAttacks) {
     orDamage = describeDamage(attackMultiplier, orNumAttacks);
   }
 
-  return [orDamage, describeOrCondition(orCondition || withCondition, burstCommands)];
+  return [
+    orDamage,
+    describeOrCondition(orCondition || withCondition || whenCondition, burstCommands),
+  ];
 }
 
 function describeScaleType(scaleType: string): string {
@@ -716,6 +724,11 @@ export function parseEnlirAttack(
       // Omit number of attacks - it's always the same as the main attack.
       scaleToDamage = describeDamage(scaleToAttackMultiplier, numAttacks, false);
     }
+  }
+
+  if (effects.match(/damage scales with both ATK and DEF/)) {
+    scaleType = scaleType ? scaleType + ' ' : '';
+    scaleType = '(based on ATK & DEF)';
   }
 
   const defaultDamage =
