@@ -31,6 +31,7 @@ import {
   shareStatusDurations,
   slashMergeElementStatuses,
   sortStatus,
+  StatusItem,
 } from './status';
 import {
   formatRandomEther,
@@ -137,6 +138,14 @@ function checkBurstAndBraveMode(selfOther: string[]): string[] {
   return selfOther.indexOf('Burst Mode') !== -1
     ? _.filter(selfOther, i => i !== 'Burst Mode' && i !== 'Haste')
     : selfOther;
+}
+
+function shouldIncludeStatusItem(item: StatusItem): boolean {
+  if (item.statusName === 'Instant KO' && item.condition === 'if undead' && item.chance === 100) {
+    // Raise effects cause instant KO to undead, but that's fairly niche; omit.
+    return false;
+  }
+  return true;
 }
 
 function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): string {
@@ -580,6 +589,7 @@ export function describeEnlirSoulBreak(
     const wholeClause = match[0];
     const status = splitSkillStatuses(statusString)
       .map(i => parseStatusItem(i, wholeClause))
+      .filter(shouldIncludeStatusItem)
       .reduce(checkForAndStatuses, [])
       .reduce(shareStatusDurations, [])
       .reduce(slashMergeElementStatuses, [])
@@ -837,6 +847,10 @@ export function describeEnlirSoulBreak(
     }
 
     other.push(description);
+  }
+
+  if (sb.effects.match(/[Tt]ransfers the user's (SB|Soul Break) points to the target/)) {
+    other.push('donate SB pts to target');
   }
 
   if (

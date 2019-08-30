@@ -261,6 +261,8 @@ function describeOrCondition(orCondition: string, burstCommands?: EnlirBurstComm
     return 'if ' + m[1] + ' alive';
   } else if (orCondition === 'equipping a ranged weapon') {
     return 'if using a rngd wpn';
+  } else if ((m = orCondition.match(/equipping (an? .*)/))) {
+    return 'if using ' + m[1];
   } else {
     return 'if ' + orCondition;
   }

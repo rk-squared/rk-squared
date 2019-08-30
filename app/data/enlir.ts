@@ -879,6 +879,18 @@ function patchEnlir() {
       command.effects === 'Three single attacks (0.80 each), grants Lightning Aura to the user',
     command => (command.effects = 'Three single attacks (0.80 each)'),
   );
+
+  // Make the Odin 4* ability resemble a more standard status ailment.
+  applyPatch(
+    enlir.abilitiesByName,
+    'Odin',
+    ability =>
+      ability.effects ===
+      'If not resisted, causes Instant KO (100%), otherwise, two group attacks (6.00 each), Different DEF and RES -20% for 25 seconds',
+    ability =>
+      (ability.effects =
+        'Two group attacks (6.00 each), causes Instant KO (100%) and Different DEF and RES -20% for 25 seconds'),
+  );
 }
 patchEnlir();
 
