@@ -387,6 +387,13 @@ export function describeEnlirSoulBreak(
     damage = m[1] + ' ⋅ (max HP - curr HP) dmg';
   }
 
+  // Gravity attacks
+  if (
+    (m = sb.effects.match(/Damages for (\d+)% of the target's current HP, resisted via Instant KO/))
+  ) {
+    damage = m[1] + '% curr HP dmg';
+  }
+
   // Random effects.  In practice, these are always pure damage, so list as
   // damage.
   if ((m = sb.effects.match(/Randomly casts (.*)/))) {

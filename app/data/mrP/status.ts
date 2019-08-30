@@ -1376,6 +1376,7 @@ const statusItemRe = XRegExp(
   )?
   (?:\ for\ (?<duration2>\d+\??|\?)\ (?<durationUnits2>second|turn)s?)?
   (?<scalesWithUses2>\ scaling\ with\ (?<scaleWithUsesSkill2>[A-Za-z ]+\ )?uses)?
+  (?<ifSuccessful>\ if\ successful)?
   (?:\ if\ the\ user\ has\ (?<prereq>.*))?
   (?:\ if\ (?<females>.*?)\ or\ more\ females\ are\ in\ the\ party)?
   (?:\ if\ (?<characterInParty>.*?)\ (?:is|are)\ in\ the\ party)?
@@ -1436,6 +1437,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     status,
     everyTwo,
     ifUndead,
+    ifSuccessful,
   } = (m as unknown) as XRegExpNamedGroups;
   // tslint:enable prefer-const
 
@@ -1491,6 +1493,8 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     condition = 'per 2 uses';
   } else if (ifUndead) {
     condition = 'if undead';
+  } else if (ifSuccessful) {
+    condition = 'on success';
   }
 
   return {
