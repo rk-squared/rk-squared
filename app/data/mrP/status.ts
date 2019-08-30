@@ -613,6 +613,8 @@ function shouldSkipEffect(effect: string) {
     effect.startsWith("removed if the user hasn't") ||
     effect.startsWith("Removed if the user doesn't have any") ||
     effect === 'reset upon refreshing Burst Mode' ||
+    // Warrior's Hymn, Mage's Hymn, Goddess's Paean, Ode to Victory
+    effect.startsWith('Used to determine the effect of ') ||
     // Custom triggers
     effect.startsWith('removed after triggering') ||
     // Burst toggles - we communicate this via a separate flag

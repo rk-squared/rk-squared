@@ -89,9 +89,13 @@ export const statusAlias: AliasMap = {
     'No Air Time': 'no air time',
     'Heavy Charge Booster': '+1 to all Heavy Charge gains',
 
+    'Draw Fire': 'taunt PHY, +100% DEF',
+    'Magic Lure': 'taunt BLK, +100% RES',
     Sentinel: 'taunt PHY/BLK, +200% DEF',
+    'High Sentinel': 'taunt PHY/BLK, +200% DEF/RES',
     Runic: 'taunt & absorb BLK',
     'High Runic': 'taunt & absorb BLK/WHT',
+
     'Unyielding Fist': 'immune atks/status/heal',
     'Haurchefant Cover': 'if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
 

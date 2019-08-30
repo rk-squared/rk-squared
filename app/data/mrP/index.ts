@@ -167,13 +167,13 @@ const healRe = XRegExp(
 
 const statusEffectRe = XRegExp(
   String.raw`
-  (?<verb>[Gg]rants|[Cc]auses|[Rr]emoves)\ #
+  (?<verb>[Gg]rants|[Cc]auses|[Rr]emoves|[Dd]oesn't\ remove)\ #
 
   (?<statusString>(?:.*?(?:,?\ and\ |,\ ))*?(?:.*?))
 
   # Anchor the regex to end at anything that looks like the beginning of a new effect.
   (?=
-    ,\ grants|,\ causes|,\ removes|,\ restores\ HP\ |
+    ,\ grants|,\ causes|,\ removes|,\ doesn't\ remove|,\ restores\ HP\ |
     ,\ damages\ the\ user\ |
     ,\ heals\ the\ user\ |
     ,\ casts\ the\ last\ ability\ used\ by\ an\ ally\b|
@@ -381,6 +381,12 @@ export function describeEnlirSoulBreak(
     damage = m[1] + ' fixed dmg';
   }
 
+  // A single attack that does HP-based damage - hard and weird, so we
+  // special-case it.
+  if ((m = sb.effects.match(/Damages for (\d+) \* \(user's maximum HP - user's current HP\)/))) {
+    damage = m[1] + ' ⋅ (max HP - curr HP) dmg';
+  }
+
   // Random effects.  In practice, these are always pure damage, so list as
   // damage.
   if ((m = sb.effects.match(/Randomly casts (.*)/))) {
@@ -585,6 +591,12 @@ export function describeEnlirSoulBreak(
 
   XRegExp.forEach(sb.effects, statusEffectRe, match => {
     const { verb, statusString } = (match as unknown) as XRegExpNamedGroups;
+
+    // Confuse Shell doesn't remove Confuse - this is a special case, skip.
+    if (verb.toLowerCase() === "doesn't remove") {
+      return;
+    }
+
     const removes = verb.toLowerCase() === 'removes';
     const wholeClause = match[0];
     const status = splitSkillStatuses(statusString)
