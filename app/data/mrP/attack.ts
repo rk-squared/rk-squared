@@ -138,13 +138,17 @@ function describeConvergentDamage(
   );
 }
 
+function addNumAttacks(numAttacks: number) {
+  return numAttacks !== 1 ? '/' + numAttacks : '';
+}
+
 export function describeDamage(
   attackMultiplier: number,
   numAttacks: number,
   includeNumAttacks: boolean = true,
 ) {
   const multiplier = attackMultiplier * numAttacks;
-  return toMrPFixed(multiplier) + (includeNumAttacks && numAttacks !== 1 ? '/' + numAttacks : '');
+  return toMrPFixed(multiplier) + (includeNumAttacks ? addNumAttacks(numAttacks) : '');
 }
 
 function describeRandomDamage(
@@ -566,8 +570,9 @@ export function parseEnlirAttack(
       randomAttacks,
     );
     damage += ' fixed dmg';
-    // Note: There are no attacks that use fixed damage with an explicit but
-    // non-random number of attacks, so we ignore that case.
+  } else if (numAttacks && m.fixedDamage) {
+    const fixedDamage = +m.fixedDamage * numAttacks;
+    damage = fixedDamage + addNumAttacks(numAttacks) + ' fixed dmg';
   } else if (randomAttacks) {
     [randomChances, damage] = describeRandomDamage(
       n => describeDamage(attackMultiplier, n),

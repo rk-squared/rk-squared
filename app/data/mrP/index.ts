@@ -774,11 +774,15 @@ export function describeEnlirSoulBreak(
     },
   );
 
-  if ((m = sb.effects.match(/[Rr]emoves KO \((\d+)% HP\)( to all allies)?/))) {
+  if (
+    (m = sb.effects.match(/[Rr]emoves KO \((\d+)% HP\)( to all allies| to a random ally with KO)?/))
+  ) {
     const [, percent, who] = m;
     const revive = `revive @ ${percent}% HP`;
     if (!who && sb.target.startsWith('Single')) {
       other.push(revive);
+    } else if (who === ' to a random ally with KO') {
+      other.push('ally ' + revive);
     } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
       partyOther.push(revive);
     } else {
