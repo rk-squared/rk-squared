@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route, RouteComponentProps } from 'react-router';
+import { Redirect, Route, RouteComponentProps } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 import * as _ from 'lodash';
@@ -11,7 +11,13 @@ import { Page } from './Page';
 
 const styles = require('./AbilitiesPage.scss');
 
+function AbilitiesTab({ match }: RouteComponentProps<{ rarity: string }>) {
+  return <AbilitiesList rarity={+match.params.rarity} />;
+}
+
 export class AbilitiesPage extends React.PureComponent<RouteComponentProps> {
+  redirect = () => <Redirect to={joinUrl(this.props.match.url, MAX_ABILITY_RARITY.toString())} />;
+
   render() {
     const { match } = this.props;
 
@@ -33,11 +39,8 @@ export class AbilitiesPage extends React.PureComponent<RouteComponentProps> {
           ))}
         </ul>
 
-        {rarities.map(i => (
-          <Route exact key={i} path={joinUrl(match.url, i.toString())}>
-            <AbilitiesList rarity={i} />
-          </Route>
-        ))}
+        <Route exact path={match.path} render={this.redirect} />
+        <Route exact path={joinUrl(match.path, ':rarity(\\d+)')} render={AbilitiesTab} />
       </Page>
     );
   }
