@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { EnlirAbility, EnlirSchool } from '../../data/enlir';
+import { schoolIcons } from '../../data/localData';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
 import { getOrbCosts } from '../../data/orbDetails';
 import { OrbCostsDisplay } from './OrbCostsDisplay';
@@ -52,7 +53,10 @@ export class AbilitiesTable extends React.PureComponent<Props> {
             .map((school, i) => (
               <React.Fragment key={i}>
                 <tr>
-                  <th>{school}</th>
+                  <th colSpan={3}>
+                    <img src={schoolIcons[school]} alt="" className={styles.schoolIcon} />
+                    {school}
+                  </th>
                 </tr>
                 {abilities[school]!.map((ability, j) => this.renderRow(ability, j))}
               </React.Fragment>
