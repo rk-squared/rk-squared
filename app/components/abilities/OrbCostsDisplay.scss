@@ -1,0 +1,34 @@
+@import '../shared/elements';
+
+$orb: '●';
+$orb-outline: '○';
+$crystal: '♦';
+$crystal-outline: '♢';
+
+:local {
+  @each $name, $color in $element-colors {
+    .component:global(.#{$name})::after {
+      color: $color;
+      content: $orb;
+    }
+  }
+
+  .component:global(.ne)::after {
+    content: $orb-outline;
+  }
+  .component:global(.power)::after {
+    color: #777;
+    content: $crystal;
+  }
+  .component:global(.white)::after {
+    content: $crystal-outline;
+  }
+  .component:global(.black)::after {
+    color: #5f42d7;
+    content: $crystal;
+  }
+  .component:global(.summon)::after {
+    color: #f3c523;
+    content: $crystal;
+  }
+}

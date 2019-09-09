@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 
 import { enlir } from '../app/data/enlir';
 import { describeEnlirSoulBreak, formatMrP } from '../app/data/mrP';
+import { getOrbCosts } from '../app/data/orbDetails';
 
 // tslint:disable: no-console
 
@@ -18,8 +19,15 @@ for (const ability of _.sortBy(Object.values(enlir.abilities), [
     continue;
   }
 
-  const mrP = describeEnlirSoulBreak(ability);
+  try {
+    const mrP = describeEnlirSoulBreak(ability);
 
-  const text = formatMrP(mrP);
-  console.log(ability.name + ` (${ability.rarity}* ${ability.school}): ` + text);
+    const text = formatMrP(mrP);
+    const costs = getOrbCosts(ability);
+    const costText = '(' + costs.map(i => i.cost + ' ' + i.orbType).join(', ') + ')';
+    console.log(ability.name + ` (${ability.rarity}* ${ability.school}): ` + text + ' ' + costText);
+  } catch (e) {
+    console.error(`Failed to process ${ability.name}`);
+    console.error(e);
+  }
 }

@@ -5,6 +5,8 @@ import * as _ from 'lodash';
 
 import { EnlirAbility, EnlirSchool } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
+import { getOrbCosts } from '../../data/orbDetails';
+import { OrbCostsDisplay } from './OrbCostsDisplay';
 
 const styles = require('./AbilitiesTable.scss');
 
@@ -18,11 +20,11 @@ interface Props {
 
 export class AbilitiesTable extends React.PureComponent<Props> {
   renderRow(ability: EnlirAbility, key: number) {
-    const { id, name } = ability;
+    const { id, name, rarity } = ability;
 
     if (!mrPAbilities[id]) {
       mrPAbilities[id] = describeEnlirSoulBreak(ability, {
-        abbreviate: true,
+        abbreviateDamageType: true,
         includeSchool: false,
       });
     }
@@ -32,6 +34,9 @@ export class AbilitiesTable extends React.PureComponent<Props> {
       <tr key={key}>
         <td>{name}</td>
         <td>{formatMrP(mrP)}</td>
+        <td>
+          <OrbCostsDisplay costs={getOrbCosts(ability)} baseRarity={rarity} />
+        </td>
       </tr>
     );
   }

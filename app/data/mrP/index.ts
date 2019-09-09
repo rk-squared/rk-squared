@@ -200,6 +200,7 @@ const statModRe = XRegExp(
 
 interface DescribeOptions {
   abbreviate: boolean;
+  abbreviateDamageType: boolean;
   showNoMiss: boolean;
   includeSchool: boolean;
   includeSbPoints: boolean;
@@ -217,7 +218,7 @@ function describeEnlirAttack(
   let damage = '';
   const statusInfliction: StatusInfliction[] = [];
 
-  const abbreviate = opt.abbreviate || !!attack.hybridDamageType;
+  const abbreviate = opt.abbreviate || opt.abbreviateDamageType || !!attack.hybridDamageType;
   damage += attack.isAoE ? 'AoE ' : '';
   damage += attack.randomChances ? attack.randomChances + ' ' : '';
   damage += !attack.isFixedDamage ? formatDamageType(attack.damageType, abbreviate) : '';
@@ -322,6 +323,7 @@ export function describeEnlirSoulBreak(
 ): MrPSoulBreak {
   const opt: DescribeOptions = {
     abbreviate: false,
+    abbreviateDamageType: false,
     showNoMiss: true,
     includeSchool: true,
     includeSbPoints: true,

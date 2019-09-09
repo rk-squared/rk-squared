@@ -55,7 +55,9 @@ export function parseOrb(orbName: string): [OrbType, number] {
   const [, level, typeName, orbOrCrystal] = m;
 
   const rarity =
-    levelToRarity[(orbOrCrystal || '').trim()] || levelToRarity[level.trim()] || defaultRarity;
+    levelToRarity[(orbOrCrystal || '').trim()] ||
+    levelToRarity[(level || '').trim()] ||
+    defaultRarity;
   const orbType =
     typeName === 'Non-Elemental'
       ? 'NE'
@@ -65,7 +67,13 @@ export function parseOrb(orbName: string): [OrbType, number] {
   return [orbType, rarity];
 }
 
-export function getOrbCosts(ability: EnlirAbility) {
+export interface OrbCost {
+  orbType: OrbType;
+  rarity: number;
+  cost: CostType;
+}
+
+export function getOrbCosts(ability: EnlirAbility): OrbCost[] {
   return _.toPairs(ability.orbs)
     .filter(([i]) => i !== 'Ability Record')
     .sort(([orbName, costs]) => -costs[0])
