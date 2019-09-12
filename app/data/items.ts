@@ -78,9 +78,16 @@ export enum ItemId {
 
 export const items: Item[] = [
   {
+    // "A Shocking Request"
     name: 'Rush Ticket',
     type: ItemType.BattleTicket,
     id: 9630871,
+  },
+  {
+    // "A Chilling Request"
+    name: 'Rush Ticket',
+    type: ItemType.BattleTicket,
+    id: 9631221,
   },
 
   {
@@ -811,6 +818,16 @@ export const items: Item[] = [
     type: ItemType.Orb,
     id: 40000135,
   },
+  {
+    name: 'Azure Unending Record',
+    type: ItemType.Orb,
+    id: 40000136,
+  },
+  {
+    name: 'Gaia Force Record',
+    type: ItemType.Orb,
+    id: 40000137,
+  },
 
   {
     name: 'Minor Growth Egg',
@@ -925,9 +942,16 @@ export const items: Item[] = [
     id: 95001080,
   },
   {
+    // "A Shocking Request"
     name: 'Krakka Greens',
     type: ItemType.Common,
     id: 95001148,
+  },
+  {
+    // "A Chilling Request"
+    name: 'Krakka Greens',
+    type: ItemType.Common,
+    id: 95001151,
   },
 
   // Items 95003001 through 95003009 are apparently internal virtual items used
