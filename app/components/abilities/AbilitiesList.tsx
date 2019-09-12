@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 
 import { enlir, EnlirAbility, EnlirSchool } from '../../data/enlir';
 import { AbilitiesTable } from './AbilitiesTable';
+import { AbilityTooltip } from './AbilityTooltip';
 
 const sortedSchools: EnlirSchool[][] = [
   [
@@ -42,15 +43,25 @@ export class AbilitiesList extends React.PureComponent<Props> {
   render() {
     const { rarity } = this.props;
     const abilities = getAbilitiesBySchool(rarity);
+    const tooltipId = `abilities-${rarity}-tooltips`;
     return (
       <div className="container">
         <div className="row">
           <div className="col-sm-6">
-            <AbilitiesTable abilities={abilities} schools={sortedSchools[0]} />
+            <AbilitiesTable
+              abilities={abilities}
+              schools={sortedSchools[0]}
+              tooltipId={tooltipId}
+            />
           </div>
           <div className="col-sm-6">
-            <AbilitiesTable abilities={abilities} schools={sortedSchools[1]} />
+            <AbilitiesTable
+              abilities={abilities}
+              schools={sortedSchools[1]}
+              tooltipId={tooltipId}
+            />
           </div>
+          <AbilityTooltip id={tooltipId} />
         </div>
       </div>
     );
