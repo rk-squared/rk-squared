@@ -364,7 +364,7 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered status ailments (imperils)
   [
-    /^(\d+\??|\?)% chance to cause (.*) to the target after (using|dealing damage with) a (.*) (?:ability|attack) on an enemy(?: when equipping (.*))?$/,
+    /^(\d+\??|\?)% chance to cause (.*) to the target after (using|dealing damage with) an? (.*) (?:ability|attack) on an enemy(?: when equipping (.*))?$/,
     ([percent, status, isDamageTrigger, schoolOrAbility, when]) => {
       const trigger = getShortName(schoolOrAbility) + dmg(isDamageTrigger) + whenDescription(when);
       return formatTriggeredEffect(trigger, describeEnlirStatus(status), percent);
