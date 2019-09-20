@@ -1242,6 +1242,9 @@ const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB point
  * it and how it should be shown.
  */
 export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnlirStatus {
+  const isUnconfirmed = status.endsWith('?');
+  status = status.replace(/\?$/, '');
+
   const enlirStatus = getEnlirStatusByName(status);
   if (!enlirStatus && !hideUnknownStatusWarning(status)) {
     logger.warn(`Unknown status: ${status}`);
@@ -1284,6 +1287,10 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     if (specialDuration) {
       specialDuration = specialDuration.replace(/^until /, 'when ');
     }
+  }
+
+  if (isUnconfirmed) {
+    description += '?';
   }
 
   return {

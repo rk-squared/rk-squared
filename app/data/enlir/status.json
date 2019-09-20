@@ -10915,8 +10915,8 @@
   },
   {
     "id": 50493,
-    "name": "Lion Slash Follow-up",
-    "effects": "Casts Lion's Slash after dealing a critical hit",
+    "name": "Lion Flash Follow-up",
+    "effects": "Casts Lion Flash after dealing a critical hit",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
