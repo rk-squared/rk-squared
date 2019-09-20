@@ -14,7 +14,7 @@ export class SharedSoulBreaksPage extends React.Component {
         <nav className="navbar navbar-expand sticky-top navbar-light">
           <div className="collapse navbar-collapse" role="navigation">
             <ul className="navbar-nav w-100">
-              <SoulBreaksNavPrefsMenu isAnonymous={isAnonymous} className="dropup" />
+              <SoulBreaksNavPrefsMenu isAnonymous={isAnonymous} className="dropup ml-auto" />
             </ul>
           </div>
         </nav>
