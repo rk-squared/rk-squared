@@ -165,6 +165,12 @@ Array [
     "name": "Stolid Bodyguard",
   },
   Object {
+    "character": "Amarant",
+    "description": "fire infuse at battle start",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "name": "Blazing Redhead",
+  },
+  Object {
     "character": "Angeal",
     "description": "1.1x PHY dmg",
     "effect": "PHY attacks deal 10% more damage",
@@ -226,8 +232,8 @@ Array [
   },
   Object {
     "character": "Aranea",
-    "description": "25?% dualcast Dragoon",
-    "effect": "25?% chance to dualcast Dragoon abilities",
+    "description": "25% dualcast Dragoon",
+    "effect": "25% chance to dualcast Dragoon abilities",
     "name": "Magitek Spear User",
   },
   Object {
@@ -762,7 +768,7 @@ Array [
     "character": "Cid (VII)",
     "description": "Haste, instacast 1 at battle start",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
-    "name": "Journey to Space",
+    "name": "Spacefarer",
   },
   Object {
     "character": "Cid (XIV)",
@@ -924,7 +930,7 @@ Array [
     "character": "Cor",
     "description": "fire infuse at battle start",
     "effect": "Grants Attach Fire at the beginning of the battle",
-    "name": "Veteran Warrior",
+    "name": "Stern Veteran",
   },
   Object {
     "character": "Curilla",
@@ -1073,7 +1079,7 @@ Array [
   Object {
     "character": "Dorgann",
     "description": "(earth ⤇ 20?% for +10% earth vuln.)",
-    "effect": "20?% chance to cause Minor Imperil Earth to the target after using a Earth attack on an enemy",
+    "effect": "20?% chance to cause Minor Imperil Earth to the target after using an Earth attack on an enemy",
     "name": "Warrior of Regole",
   },
   Object {
@@ -1206,7 +1212,7 @@ Array [
     "character": "Edge",
     "description": "(Ninja ⤇ 25% for p1.26/3 or m^1201.5/3 wa+f+l+n)",
     "effect": "25% chance to cast Brash Prince after using a Ninja ability",
-    "name": "Brash Prince",
+    "name": "Unequaled Master",
   },
   Object {
     "character": "Edward",
@@ -1344,7 +1350,7 @@ Array [
     "character": "Emperor",
     "description": "25% dualcast B.Mag/Darkness",
     "effect": "25% chance to dualcast Black Magic or Darkness abilities",
-    "name": "Blood-stained History",
+    "name": "Bloody Past",
   },
   Object {
     "character": "Emperor",
@@ -1536,13 +1542,13 @@ Array [
     "character": "Fran",
     "description": "ice infuse at battle start",
     "effect": "Grants Attach Ice at the beginning of the battle",
-    "name": "Cool Copilot",
+    "name": "Steady Copilot",
   },
   Object {
     "character": "Fran",
     "description": "25% dualcast Sharpshooter/Machinist",
     "effect": "25% chance to dualcast Sharpshooter or Machinist abilities",
-    "name": "Master of Weapons",
+    "name": "Dead Shot",
   },
   Object {
     "character": "Freya",
@@ -1944,7 +1950,7 @@ Array [
     "character": "Gordon",
     "description": "Haste, instacast 1 at battle start",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
-    "name": "Budding Confidence",
+    "name": "Ascendant Prince",
   },
   Object {
     "character": "Guy",
@@ -2046,7 +2052,7 @@ Array [
     "character": "Ignis",
     "description": "fire infuse at battle start",
     "effect": "Grants Attach Fire at the beginning of the battle",
-    "name": "Continuous Self Improvement",
+    "name": "Overcoming Adversity",
   },
   Object {
     "character": "Ingus",
@@ -2128,7 +2134,7 @@ Array [
   },
   Object {
     "character": "Jack",
-    "description": "(<20% HP ⤇ Retaliate, crit =75% 25s)",
+    "description": "(<20% HP ⤇ Retaliate, crit =75% 15s)",
     "effect": "Grants Retaliate and 75% Critical when HP fall below 20%",
     "name": "Stoic Soul",
   },
@@ -2190,7 +2196,7 @@ Array [
     "character": "Josef",
     "description": "25% dualcast Monk",
     "effect": "25% chance to dualcast Monk abilities",
-    "name": "Daughter's Love",
+    "name": "A Father's Love",
   },
   Object {
     "character": "Kain",
@@ -2442,7 +2448,7 @@ Array [
     "character": "Larsa",
     "description": "(W.Mag ⤇ 25% for party h25)",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25), damages undeads) after using a White Magic ability",
-    "name": "Prodigious Wisdom",
+    "name": "Precocious Wisdom",
   },
   Object {
     "character": "Leila",
@@ -2728,8 +2734,8 @@ Array [
   },
   Object {
     "character": "Machina",
-    "description": "25?% dualcast Spellblade",
-    "effect": "25?% chance to dualcast Spellblade abilities",
+    "description": "25% dualcast Spellblade",
+    "effect": "25% chance to dualcast Spellblade abilities",
     "name": "Destiny's Namer",
   },
   Object {
@@ -2814,7 +2820,7 @@ Array [
     "character": "Maria",
     "description": "25% dualcast earth",
     "effect": "25% chance to dualcast abilities that deal Earth damage",
-    "name": "Search for Brother",
+    "name": "Searching Sister",
   },
   Object {
     "character": "Master",
@@ -3156,7 +3162,7 @@ Array [
     "character": "Noel",
     "description": "ice infuse at battle start",
     "effect": "Grants Attach Ice at the beginning of the battle",
-    "name": "Youthful Vitality",
+    "name": "Vitality Overflowing",
   },
   Object {
     "character": "Onion Knight",
@@ -3645,6 +3651,12 @@ Array [
     "name": "Ancient Blood",
   },
   Object {
+    "character": "Relm",
+    "description": "(W.Mag ⤇ 25?% for party h25?)",
+    "effect": "25?% chance to cast an ability (WHT: group, restores HP (25?)) after using a White Magic ability",
+    "name": "Passionate Painter",
+  },
+  Object {
     "character": "Rem",
     "description": "1.1x holy dmg",
     "effect": "Increases Holy damage dealt by 10%",
@@ -3760,8 +3772,8 @@ Array [
   },
   Object {
     "character": "Rikku",
-    "description": "25?% dualcast water",
-    "effect": "25?% chance to dualcast abilities that deal Water damage",
+    "description": "25% dualcast water",
+    "effect": "25% chance to dualcast abilities that deal Water damage",
     "name": "Hardworking Al Bhed Girl",
   },
   Object {
@@ -3891,6 +3903,12 @@ Array [
     "name": "Red-cloaked Terror",
   },
   Object {
+    "character": "Rubicante",
+    "description": "(fire ⤇ 20?% for +10% fire vuln.)",
+    "effect": "20?% chance to cause Minor Imperil Fire to the target after using a Fire attack on an enemy",
+    "name": "Strongest of Four Fiends",
+  },
+  Object {
     "character": "Rude",
     "description": "1.1x earth dmg",
     "effect": "Increases Earth damage dealt by 10%",
@@ -3930,7 +3948,7 @@ Array [
     "character": "Rufus",
     "description": "25% dualcast dark",
     "effect": "25% chance to dualcast Dark abilities",
-    "name": "President's Plot",
+    "name": "Presidental Prerogative",
   },
   Object {
     "character": "Rydia",
@@ -4650,7 +4668,7 @@ Array [
     "character": "Tifa",
     "description": "25% dualcast Monk",
     "effect": "25% chance to dualcast Monk abilities",
-    "name": "Tomboy Brawler",
+    "name": "First-Class Fighter",
   },
   Object {
     "character": "Trey",
@@ -4834,8 +4852,8 @@ Array [
   },
   Object {
     "character": "Vanille",
-    "description": "(Support ⤇ 35?% for fastcast 1)",
-    "effect": "35?% chance to grant Quick Cast 1 to the user after using a Support ability",
+    "description": "(Support ⤇ 35% for fastcast 1)",
+    "effect": "35% chance to grant Quick Cast 1 to the user after using a Support ability",
     "name": "Time of Waking",
   },
   Object {
@@ -4932,7 +4950,7 @@ Array [
     "character": "Wakka",
     "description": "25?% dualcast Sharpshooter",
     "effect": "25?% chance to dualcast Sharpshooter abilities",
-    "name": "Championship Victory",
+    "name": "Victory Awaits",
   },
   Object {
     "character": "Warrior of Light",
@@ -5229,6 +5247,12 @@ Array [
     "name": "Blade of Darkness",
   },
   Object {
+    "character": "Zeid",
+    "description": "25% dualcast dark",
+    "effect": "25% chance to dualcast Dark abilities",
+    "name": "Wandering Dark Knight",
+  },
+  Object {
     "character": "Zell",
     "description": "1.1x PHY dmg if using a fist weapon",
     "effect": "PHY attacks deal 10% more damage when equipping a fist weapon",
@@ -5251,6 +5275,12 @@ Array [
     "description": "25% dualcast Monk",
     "effect": "25% chance to dualcast Monk abilities",
     "name": "Prize Fighter",
+  },
+  Object {
+    "character": "Zell",
+    "description": "fire infuse at battle start",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "name": "Reckless Personality",
   },
   Object {
     "character": "Zidane",

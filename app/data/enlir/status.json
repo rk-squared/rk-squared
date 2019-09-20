@@ -306,6 +306,17 @@
     "notes": null
   },
   {
+    "id": 2027,
+    "name": "Physical High Quick Cast 2",
+    "effects": "Cast speed x3.00 for PHY attacks, lasts for 2 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_300_2_PHYSICAL_DAMAGE_ABILITIES",
+    "notes": null
+  },
+  {
     "id": 203,
     "name": "Confuse",
     "effects": "Forces default action, affects targeting, resets ATB when set or removed, removed upon taking damage by PHY attack",
@@ -2606,6 +2617,17 @@
     "notes": null
   },
   {
+    "id": 2254,
+    "name": "Physical Quick Cast",
+    "effects": "Cast speed x2.00 for PHY attacks, lasts for 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_200_15000_MSEC_PHYSICAL_DAMAGE_ABILITIES",
+    "notes": null
+  },
+  {
     "id": 226,
     "name": "Imp",
     "effects": "",
@@ -3953,17 +3975,6 @@
     "notes": null
   },
   {
-    "id": 282016,
-    "name": "Monk +30% Boost 3",
-    "effects": "Monk abilities deal 30% more damage, lasts for 3 turns",
-    "defaultDuration": null,
-    "mndModifier": null,
-    "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_MONK_130_3",
-    "notes": null
-  },
-  {
     "id": 28201,
     "name": "Ice Radiant Shield: 75%",
     "effects": "Returns 75% of the damage taken to the attacker as Ice damage",
@@ -4041,6 +4052,17 @@
     "notes": null
   },
   {
+    "id": 282016,
+    "name": "Monk +30% Boost 3",
+    "effects": "Monk abilities deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_MONK_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
     "id": 282017,
     "name": "Sharpshooter +30% Boost 3",
     "effects": "Sharpshooter abilities deal 30% more damage, lasts for 3 turns",
@@ -4049,6 +4071,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_SHOOTER_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
+    "id": 282018,
+    "name": "Fire +30% Boost 1",
+    "effects": "Fire attacks deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_FIRE_MEDIUM_TURN_1",
     "notes": null
   },
   {
@@ -4745,6 +4778,17 @@
     "notes": null
   },
   {
+    "id": 282203,
+    "name": "Dark +30% Boost",
+    "effects": "Dark attacks deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_DARK_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
     "id": 283,
     "name": "Steiner Trance",
     "effects": "ATK and DEF +25%, increases Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark and Poison damage dealt by 25%",
@@ -4876,6 +4920,50 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "RADIANT_SHIELD_FIRE_75",
+    "notes": null
+  },
+  {
+    "id": 28611,
+    "name": "Overflow Fire Radiant Shield: 75%",
+    "effects": "Returns 75% of the damage taken to the attacker as Fire damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_FIRE_75_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28612,
+    "name": "Overflow Fire Radiant Shield: 125%",
+    "effects": "Returns 125% of the damage taken to the attacker as Fire damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_FIRE_125_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28613,
+    "name": "Overflow Fire Radiant Shield: 200%",
+    "effects": "Returns 200% of the damage taken to the attacker as Fire damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_FIRE_200_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28614,
+    "name": "Overflow Fire Radiant Shield: 300%",
+    "effects": "Returns 300% of the damage taken to the attacker as Fire damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_FIRE_300_ENABLE_OVERFLOW",
     "notes": null
   },
   {
@@ -9303,7 +9391,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "ADD_SS_POINT_WHEN_SET_GAUGE_2",
+    "codedName": "INCREASE_SS_POINT_WHEN_SET_GAUGE_2",
     "notes": null
   },
   {
@@ -10541,8 +10629,8 @@
   },
   {
     "id": 50467,
-    "name": "Freeze Apocalypse Follow-up",
-    "effects": "Casts Freeze Apocalypse after using three Ice attacks",
+    "name": "Icy Apocalypse Follow-up",
+    "effects": "Casts Icy Apocalypse after using three Ice attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10728,7 +10816,7 @@
   },
   {
     "id": 50484,
-    "name": "Awoken Imperial",
+    "name": "Awoken Imperial Mode",
     "effects": "Earth, Wind and Dark abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Earth, Wind and Dark abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11570,10 +11658,12 @@
     "id": 50564,
     "name": "Awoken Spark",
     "effects": "Celerity and Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Celerity and Support abilities at ability rank 1/2/3/4/5, casts Technical Rush after using a Celerity or Support ability",
-    "defaultDuration": null,
+    "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_THUNDERLIGHT",
+    "notes": null
   },
   {
     "id": 50565,
@@ -12218,6 +12308,28 @@
     "notes": null
   },
   {
+    "id": 50629,
+    "name": "Speed Professional",
+    "effects": "Grants Physical High Quick Cast 1 to all allies in the front row after using a Water attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_KOUZEN_FOR_WIND_1",
+    "notes": null
+  },
+  {
+    "id": 50630,
+    "name": "Surfeit",
+    "effects": "Grants Minor Buff Water to all allies after using three Water attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_KOUZEN_FOR_WIND_2",
+    "notes": null
+  },
+  {
     "id": 50631,
     "name": "Ice Pursuit Follow-Up",
     "effects": "Casts Ice Pursuit (Black Magic) after using a Black Magic ability, casts Ice Pursuit (Witch) after using a Witch ability",
@@ -12251,9 +12363,42 @@
     "notes": null
   },
   {
+    "id": 50635,
+    "name": "Accomplice Follow-Up",
+    "effects": "Casts Accomplice after using three Water attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EVISCERATION",
+    "notes": null
+  },
+  {
+    "id": 50636,
+    "name": "Absorb Mode",
+    "effects": "Grants 250 SB points after using three Dark attacks, casts Abyssal Sword when removed",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ABZO_MODE",
+    "notes": null
+  },
+  {
+    "id": 50637,
+    "name": "Vorpal Blade Follow-Up",
+    "effects": "Grants 40% Damage Reduction Barrier 1 to all allies after using a Knight ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_VORPAL_BLADE",
+    "notes": null
+  },
+  {
     "id": 50638,
     "name": "Double Sphere Mode II",
-    "effects": "",
+    "effects": "Grants Attach Dark/Fire with Stacking after using a Dark/Fire attack, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12358,6 +12503,147 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "BEST_MODE_ADD_EFFECT_FIRE",
+    "notes": null
+  },
+  {
+    "id": 50649,
+    "name": "General Value v2",
+    "effects": "Tracks an arbitrary value for given effects",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "GENERAL_VALUE_V2",
+    "notes": null
+  },
+  {
+    "id": 50650,
+    "name": "Awoken Machinery Cultivator",
+    "effects": "Machinist abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Machinist abilities at ability rank 1/2/3/4/5, dualcasts Machinist abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_FLAGSHIPER_OF_MECHANICAL_CIVILIZATION",
+    "notes": null
+  },
+  {
+    "id": 50651,
+    "name": "Change Machinery",
+    "effects": "Grants Attach Poison/Fire/Lightning after using a Poison/Fire/Lightning attack, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_MACHINERY_MODE_AWAKE_EDGER",
+    "notes": null
+  },
+  {
+    "id": 50652,
+    "name": "Technical Bravo! Follow-Up",
+    "effects": "Causes Minor Imperil Poison/Fire/Lightning after using two Poison/Fire/Lightning attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_AWAKE_EDGER"
+  },
+  {
+    "id": 50563,
+    "name": "Allegiance",
+    "effects": "Increases damage dealt by Samurai abilities by 15/30/50% after using 0/1/2 Samurai abilities. Casts Inferno Slash after using 4 Samurai abilities, removes Allegiance",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "LOYALTY_MODE",
+    "notes": null
+  },
+  {
+    "id": 50672,
+    "name": "Crimson Flurry Follow-Up",
+    "effects": "Casts Crimson Flurry after using two Fire attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_JAIL_FLAME_DRAGON",
+    "notes": null
+  },
+  {
+    "id": 50673,
+    "name": "Burning Heat Beat Mode",
+    "effects": "Cast speed x9999999, Monk attacks grant 25% more SB points, lasts 3 turns",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DUEL_RAVE_MODE"
+  },
+  {
+    "id": 50674,
+    "name": "Rising Flame Follow-Up",
+    "effects": "Casts Rising Flame after using two Fire attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_TWO_GENERATIONS_SUMMON_FIRE",
+    "notes": null
+  },
+  {
+    "id": 50677,
+    "name": "Assault Spellblade Mode",
+    "effects": "Grants Attach Fire/Lightning/Ice with Stacking after using a Fire/Lightning/Ice attack, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ASSAULT_SPELLBLADE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50678,
+    "name": "Charging!",
+    "effects": "Grants Attach Fire/Lightning/Ice after using two Fire/Lightning/Ice attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_W_CRIME_HAZARD",
+    "notes": null
+  },
+  {
+    "id": 50679,
+    "name": "Awoken Frog Catcher",
+    "effects": "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, restores 1000 HP to the user after using Support abilities",
+    "defaultDuration": 51,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_CAPTURE_THE_FROG",
+    "notes": null
+  },
+  {
+    "id": 50680,
+    "name": "Golden Frog Follow-Up",
+    "effects": "Grants 100% Critical 1 and Critical Damage +50% 1 to all allies and casts Frog Stamp after using three Support abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DISCOVER_THE_TASTE",
+    "notes": null
+  },
+  {
+    "id": 50681,
+    "name": "Makarov Counter Mode",
+    "effects": "Grants Overflow Fire Radiant Shield: 125/200/300% after using 1/2/3+ Fire attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "MAKAROV_COUNTER_MODE",
     "notes": null
   },
   {
@@ -13724,6 +14010,17 @@
     "notes": null
   },
   {
+    "id": 6033,
+    "name": "75% Critical",
+    "effects": "Critical chance =75%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_PARAM_MULTI_CRITICAL_75_15000",
+    "notes": null
+  },
+  {
     "id": 6034,
     "name": "100% Critical 1",
     "effects": "Critical chance =100%, lasts for 1 turn",
@@ -13732,6 +14029,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_PARAM_MULTI_CRITICAL_100_1",
+    "notes": null
+  },
+  {
+    "id": 6035,
+    "name": "ATK and MND +50%",
+    "effects": "ATK and MND +50%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_PARAM_MULTI_ATK_50_MND_50_WITH_DURATION_LARGE",
     "notes": null
   },
   {
@@ -14766,7 +15074,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_FIRE_10",
+    "codedName": "INCREASE_ELEMENT_ATK_FIRE_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14777,7 +15085,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_ICE_10",
+    "codedName": "INCREASE_ELEMENT_ATK_ICE_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14788,7 +15096,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_LIGHTNING_10",
+    "codedName": "INCREASE_ELEMENT_ATK_LIGHTNING_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14799,7 +15107,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_EARTH_10",
+    "codedName": "INCREASE_ELEMENT_ATK_EARTH_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14810,7 +15118,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WIND_10",
+    "codedName": "INCREASE_ELEMENT_ATK_WIND_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14832,7 +15140,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_HOLY_10",
+    "codedName": "INCREASE_ELEMENT_ATK_HOLY_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14843,7 +15151,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_DARK_10",
+    "codedName": "INCREASE_ELEMENT_ATK_DARK_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14854,7 +15162,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_FIRE_M20",
+    "codedName": "INCREASE_ELEMENT_ATK_FIRE_M2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14876,7 +15184,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_ICE_M20",
+    "codedName": "INCREASE_ELEMENT_ATK_ICE_M2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14887,7 +15195,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_LIGHTNING_M20",
+    "codedName": "INCREASE_ELEMENT_ATK_LIGHTNING_M2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14898,7 +15206,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_EARTH_M20",
+    "codedName": "INCREASE_ELEMENT_ATK_EARTH_M2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14909,7 +15217,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WIND_M20",
+    "codedName": "INCREASE_ELEMENT_ATK_WIND_M2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14920,7 +15228,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WATER_M20",
+    "codedName": "INCREASE_ELEMENT_ATK_WATER_M2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14931,7 +15239,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_HOLY_M20",
+    "codedName": "INCREASE_ELEMENT_ATK_HOLY_M2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14942,7 +15250,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_DARK_M20",
+    "codedName": "INCREASE_ELEMENT_ATK_DARK_M2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14953,7 +15261,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_FIRE_20",
+    "codedName": "INCREASE_ELEMENT_ATK_FIRE_2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14964,7 +15272,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_ICE_20",
+    "codedName": "INCREASE_ELEMENT_ATK_ICE_2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14975,7 +15283,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_LIGHTNING_20",
+    "codedName": "INCREASE_ELEMENT_ATK_LIGHTNING_2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14986,7 +15294,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_EARTH_20",
+    "codedName": "INCREASE_ELEMENT_ATK_EARTH_2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -14997,7 +15305,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WIND_20",
+    "codedName": "INCREASE_ELEMENT_ATK_WIND_2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15008,7 +15316,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WATER_20",
+    "codedName": "INCREASE_ELEMENT_ATK_WATER_2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15019,7 +15327,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_HOLY_20",
+    "codedName": "INCREASE_ELEMENT_ATK_HOLY_2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15030,7 +15338,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_DARK_20",
+    "codedName": "INCREASE_ELEMENT_ATK_DARK_2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15052,7 +15360,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_ICE_M10",
+    "codedName": "INCREASE_ELEMENT_ATK_ICE_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15063,7 +15371,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_LIGHTNING_M10",
+    "codedName": "INCREASE_ELEMENT_ATK_LIGHTNING_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15074,7 +15382,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_EARTH_M10",
+    "codedName": "INCREASE_ELEMENT_ATK_EARTH_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15085,7 +15393,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WIND_M10",
+    "codedName": "INCREASE_ELEMENT_ATK_WIND_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15096,7 +15404,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WATER_M10",
+    "codedName": "INCREASE_ELEMENT_ATK_WATER_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15107,7 +15415,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_HOLY_M10",
+    "codedName": "INCREASE_ELEMENT_ATK_HOLY_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15118,7 +15426,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_DARK_M10",
+    "codedName": "INCREASE_ELEMENT_ATK_DARK_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15129,7 +15437,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_POISON_10",
+    "codedName": "INCREASE_ELEMENT_ATK_POISON_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15140,7 +15448,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_POISON_20",
+    "codedName": "INCREASE_ELEMENT_ATK_POISON_2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15151,7 +15459,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_POISON_M10",
+    "codedName": "INCREASE_ELEMENT_ATK_POISON_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15162,7 +15470,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_POISON_M20",
+    "codedName": "INCREASE_ELEMENT_ATK_POISON_M2_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15199,7 +15507,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_FIRE_30",
+    "codedName": "INCREASE_ELEMENT_ATK_FIRE_3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15210,7 +15518,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_ICE_30",
+    "codedName": "INCREASE_ELEMENT_ATK_ICE_3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15221,7 +15529,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_LIGHTNING_30",
+    "codedName": "INCREASE_ELEMENT_ATK_LIGHTNING_3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15232,7 +15540,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_EARTH_30",
+    "codedName": "INCREASE_ELEMENT_ATK_EARTH_3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15243,7 +15551,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WIND_30",
+    "codedName": "INCREASE_ELEMENT_ATK_WIND_3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15254,7 +15562,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WATER_30",
+    "codedName": "INCREASE_ELEMENT_ATK_WATER_3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15265,7 +15573,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_HOLY_30",
+    "codedName": "INCREASE_ELEMENT_ATK_HOLY_3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15276,7 +15584,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_DARK_30",
+    "codedName": "INCREASE_ELEMENT_ATK_DARK_3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15287,7 +15595,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_POISON_30",
+    "codedName": "INCREASE_ELEMENT_ATK_POISON_3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15298,7 +15606,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_FIRE_M30",
+    "codedName": "INCREASE_ELEMENT_ATK_FIRE_M3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15309,7 +15617,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_ICE_M30",
+    "codedName": "INCREASE_ELEMENT_ATK_ICE_M3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15320,7 +15628,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_LIGHTNING_M30",
+    "codedName": "INCREASE_ELEMENT_ATK_LIGHTNING_M3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15331,7 +15639,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_EARTH_M30",
+    "codedName": "INCREASE_ELEMENT_ATK_EARTH_M3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15342,7 +15650,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WIND_M30",
+    "codedName": "INCREASE_ELEMENT_ATK_WIND_M3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15353,7 +15661,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_WATER_M30",
+    "codedName": "INCREASE_ELEMENT_ATK_WATER_M3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15364,7 +15672,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_HOLY_M30",
+    "codedName": "INCREASE_ELEMENT_ATK_HOLY_M3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15375,7 +15683,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_DARK_M30",
+    "codedName": "INCREASE_ELEMENT_ATK_DARK_M3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15386,7 +15694,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_ATK_POISON_M30",
+    "codedName": "INCREASE_ELEMENT_ATK_POISON_M3_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15499,7 +15807,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_FIRE",
+    "codedName": "INCREASE_ELEMENT_DEF_FIRE_0_TIME_0",
     "notes": null
   },
   {
@@ -15510,7 +15818,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_ICE",
+    "codedName": "INCREASE_ELEMENT_DEF_ICE_0_TIME_0",
     "notes": null
   },
   {
@@ -15521,7 +15829,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_LIGHTNING",
+    "codedName": "INCREASE_ELEMENT_DEF_LIGHTNING_0_TIME_0",
     "notes": null
   },
   {
@@ -15532,7 +15840,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_EARTH",
+    "codedName": "INCREASE_ELEMENT_DEF_EARTH_0_TIME_0",
     "notes": null
   },
   {
@@ -15543,7 +15851,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WIND",
+    "codedName": "INCREASE_ELEMENT_DEF_WIND_0_TIME_0",
     "notes": null
   },
   {
@@ -15554,7 +15862,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WATER",
+    "codedName": "INCREASE_ELEMENT_DEF_WATER_0_TIME_0",
     "notes": null
   },
   {
@@ -15565,7 +15873,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_HOLY",
+    "codedName": "INCREASE_ELEMENT_DEF_HOLY_0_TIME_0",
     "notes": null
   },
   {
@@ -15576,7 +15884,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_DARK",
+    "codedName": "INCREASE_ELEMENT_DEF_DARK_0_TIME_0",
     "notes": null
   },
   {
@@ -15587,7 +15895,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_POISON",
+    "codedName": "INCREASE_ELEMENT_DEF_POISON_0_TIME_0",
     "notes": null
   },
   {
@@ -15598,7 +15906,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_HOLY_DISADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_HOLY_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15620,7 +15928,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_FIRE_DISADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_FIRE_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15631,7 +15939,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WIND_DISADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_WIND_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -15642,7 +15950,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_LIGHTNING_DISADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_LIGHTNING_M1_TIME_MEDIUM",
     "notes": null
   },
   {

@@ -333,7 +333,7 @@
     "nameJp": "時の鎖を断つ刃",
     "id": 201010105,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -441,7 +441,7 @@
     "nameJp": "はやての調べ",
     "id": 201010303,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -806,14 +806,14 @@
   {
     "realm": "II",
     "character": "Maria",
-    "name": "Search for Brother",
+    "name": "Searching Sister",
     "effect": "25% chance to dualcast abilities that deal Earth damage",
     "master": "MAG +10",
     "relic": "Minerva Bustier (II)",
     "nameJp": "兄の行方を追う少女",
     "id": 201020203,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -998,14 +998,14 @@
   {
     "realm": "II",
     "character": "Gordon",
-    "name": "Budding Confidence",
+    "name": "Ascendant Prince",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Heavy Lance (II)",
     "nameJp": "芽生えし王族の自信",
     "id": 201020603,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -1142,14 +1142,14 @@
   {
     "realm": "II",
     "character": "Josef",
-    "name": "Daughter's Love",
+    "name": "A Father's Love",
     "effect": "25% chance to dualcast Monk abilities",
     "master": "ATK +10",
     "relic": "Twist Headband (II)",
     "nameJp": "娘への深き愛",
     "id": 201020903,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -1202,14 +1202,14 @@
   {
     "realm": "II",
     "character": "Emperor",
-    "name": "Blood-stained History",
+    "name": "Bloody Past",
     "effect": "25% chance to dualcast Black Magic or Darkness abilities",
     "master": "MAG +10",
     "relic": "Royal Crown (II)",
     "nameJp": "血塗られた戦いの歴史",
     "id": 201021004,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -1221,7 +1221,7 @@
     "nameJp": "地獄より蘇りし暴君",
     "id": 201021005,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -2342,7 +2342,7 @@
   {
     "realm": "IV",
     "character": "Edge",
-    "name": "Brash Prince",
+    "name": "Unequaled Master",
     "effect": "25% chance to cast Brash Prince after using a Ninja ability",
     "master": "ATK +10",
     "relic": "Shuriken (IV)",
@@ -2626,6 +2626,18 @@
     "id": 201042002,
     "anima": 2,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Rubicante",
+    "name": "Strongest of Four Fiends",
+    "effect": "20?% chance to cause Minor Imperil Fire to the target after using a Fire attack on an enemy",
+    "master": "MAG +10",
+    "relic": "Fire Rod (IV)",
+    "nameJp": "四天王最強の魔物",
+    "id": 201042003,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -2991,7 +3003,7 @@
     "realm": "V",
     "character": "Dorgann",
     "name": "Warrior of Regole",
-    "effect": "20?% chance to cause Minor Imperil Earth to the target after using a Earth attack on an enemy",
+    "effect": "20?% chance to cause Minor Imperil Earth to the target after using an Earth attack on an enemy",
     "master": "ATK +10",
     "relic": "Crystal Shield (V)",
     "nameJp": "ルゴルの戦士",
@@ -3805,6 +3817,18 @@
   },
   {
     "realm": "VI",
+    "character": "Relm",
+    "name": "Passionate Painter",
+    "effect": "25?% chance to cast an ability (WHT: group, restores HP (25?)) after using a White Magic ability",
+    "master": "MND +10",
+    "relic": "Beastmaster's Robe (VI)",
+    "nameJp": "絵画への情熱",
+    "id": 201061305,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VI",
     "character": "Gogo (VI)",
     "name": "Mimic's Craft",
     "effect": "Mimic attacks deal 15% more damage",
@@ -4178,7 +4202,7 @@
   {
     "realm": "VII",
     "character": "Tifa",
-    "name": "Tomboy Brawler",
+    "name": "First-Class Fighter",
     "effect": "25% chance to dualcast Monk abilities",
     "master": "ATK +10",
     "relic": "Work Glove (VII)",
@@ -4538,10 +4562,10 @@
   {
     "realm": "VII",
     "character": "Cid (VII)",
-    "name": "Journey to Space",
+    "name": "Spacefarer",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Grow Lance (VII)",
+    "relic": "Radiant Lance (VII)",
     "nameJp": "宇宙へ旅立った男",
     "id": 201071103,
     "anima": null,
@@ -4622,7 +4646,7 @@
   {
     "realm": "VII",
     "character": "Rufus",
-    "name": "President's Plot",
+    "name": "Presidental Prerogative",
     "effect": "25% chance to dualcast Dark abilities",
     "master": "ATK +10",
     "relic": "Shinra Alpha (VII)",
@@ -5053,6 +5077,18 @@
   },
   {
     "realm": "VIII",
+    "character": "Zell",
+    "name": "Reckless Personality",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Power Wrist (VIII)",
+    "nameJp": "無鉄砲な人格",
+    "id": 201080404,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
     "character": "Selphie",
     "name": "Certain Smile",
     "effect": "WHT abilities restore 15% more HP",
@@ -5097,7 +5133,7 @@
     "nameJp": "みんなと約束したステージ",
     "id": 201080503,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -5109,7 +5145,7 @@
     "nameJp": "トラビアを想う意志",
     "id": 201080504,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -5481,7 +5517,7 @@
     "nameJp": "連鎖する魔女の力",
     "id": 201082004,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -5929,6 +5965,18 @@
   },
   {
     "realm": "IX",
+    "character": "Amarant",
+    "name": "Blazing Redhead",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Twist Headband (IX)",
+    "nameJp": "燃えさかる焔髪",
+    "id": 201090804,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "IX",
     "character": "Beatrix",
     "name": "First Paladin",
     "effect": "Increases Holy damage dealt by 10%",
@@ -6206,7 +6254,7 @@
   {
     "realm": "X",
     "character": "Wakka",
-    "name": "Championship Victory",
+    "name": "Victory Awaits",
     "effect": "25?% chance to dualcast Sharpshooter abilities",
     "master": "ATK +10",
     "relic": "Medical Armguard (X)",
@@ -6375,7 +6423,7 @@
     "realm": "X",
     "character": "Rikku",
     "name": "Hardworking Al Bhed Girl",
-    "effect": "25?% chance to dualcast abilities that deal Water damage",
+    "effect": "25% chance to dualcast abilities that deal Water damage",
     "master": "ATK +10",
     "relic": "Platinum Targe (X)",
     "nameJp": "がんばり屋のアルベド娘",
@@ -6949,6 +6997,18 @@
   },
   {
     "realm": "XI",
+    "character": "Zeid",
+    "name": "Wandering Dark Knight",
+    "effect": "25% chance to dualcast Dark abilities",
+    "master": "ATK +10",
+    "relic": "Coral Finger Gauntlets (XI)",
+    "nameJp": "放浪の暗黒騎士",
+    "id": 201110703,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XI",
     "character": "Lilisette",
     "name": "Best of Both Worlds",
     "effect": "PHY attacks deal 10% more damage",
@@ -7190,7 +7250,7 @@
   {
     "realm": "XII",
     "character": "Fran",
-    "name": "Cool Copilot",
+    "name": "Steady Copilot",
     "effect": "Grants Attach Ice at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Jade Gown (XII)",
@@ -7202,7 +7262,7 @@
   {
     "realm": "XII",
     "character": "Fran",
-    "name": "Master of Weapons",
+    "name": "Dead Shot",
     "effect": "25% chance to dualcast Sharpshooter or Machinist abilities",
     "master": "ATK +10",
     "relic": "Burning Bow (XII)",
@@ -7442,7 +7502,7 @@
   {
     "realm": "XII",
     "character": "Larsa",
-    "name": "Prodigious Wisdom",
+    "name": "Precocious Wisdom",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25), damages undeads) after using a White Magic ability",
     "master": "MND +10",
     "relic": "Light Woven Shirt (XII)",
@@ -7707,7 +7767,7 @@
     "realm": "XIII",
     "character": "Vanille",
     "name": "Time of Waking",
-    "effect": "35?% chance to grant Quick Cast 1 to the user after using a Support ability",
+    "effect": "35% chance to grant Quick Cast 1 to the user after using a Support ability",
     "master": "MND +10",
     "relic": "Witch's Bracelet (XIII)",
     "nameJp": "目覚めの時",
@@ -8030,14 +8090,14 @@
   {
     "realm": "XIII",
     "character": "Noel",
-    "name": "Youthful Vitality",
+    "name": "Vitality Overflowing",
     "effect": "Grants Attach Ice at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Grimoire Hat (XIII)",
     "nameJp": "溢れるバイタリティー",
     "id": 201131104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -8630,14 +8690,14 @@
   {
     "realm": "XV",
     "character": "Ignis",
-    "name": "Continuous Self Improvement",
+    "name": "Overcoming Adversity",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Gold Bangle (XV)",
     "nameJp": "絶え間なき自己研鑽",
     "id": 201150303,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -8775,7 +8835,7 @@
     "realm": "XV",
     "character": "Aranea",
     "name": "Magitek Spear User",
-    "effect": "25?% chance to dualcast Dragoon abilities",
+    "effect": "25% chance to dualcast Dragoon abilities",
     "master": "ATK +10",
     "relic": "Women's Snowsuit (XV)",
     "nameJp": "魔導槍の使い手",
@@ -8793,7 +8853,7 @@
     "nameJp": "ルシス王の忠臣",
     "id": 201150800,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -8805,19 +8865,19 @@
     "nameJp": "不死将軍と謳われる男",
     "id": 201150801,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
     "character": "Cor",
-    "name": "Veteran Warrior",
+    "name": "Stern Veteran",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Niella Bracelet (XV)",
+    "relic": "Niello Bracelet (XV)",
     "nameJp": "歴戦の猛者",
     "id": 201150802,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -9687,7 +9747,7 @@
     "realm": "Type-0",
     "character": "Machina",
     "name": "Destiny's Namer",
-    "effect": "25?% chance to dualcast Spellblade abilities",
+    "effect": "25% chance to dualcast Spellblade abilities",
     "master": "ATK +10",
     "relic": "Metal Gloves (Type-0)",
     "nameJp": "チチリの名付け親",
