@@ -153,7 +153,11 @@ interface FollowUpEffect {
 }
 
 function checkCustomTrigger(enlirStatus?: EnlirStatus | null): string | undefined {
-  if (enlirStatus && enlirStatus.effects.endsWith('removed after triggering')) {
+  if (
+    enlirStatus &&
+    (enlirStatus.effects.endsWith('removed after triggering') ||
+      enlirStatus.effects.endsWith('removes ' + enlirStatus.name))
+  ) {
     return 'once only';
   } else {
     return undefined;
@@ -603,7 +607,7 @@ function describeFinisherStatus(statusName: string): string {
  * otherwise be skipped.
  * @param effect
  */
-function shouldSkipEffect(effect: string) {
+function shouldSkipEffect(effect: string, enlirStatus?: EnlirStatus | null) {
   return (
     // "removed after using" is just for Ace's Top Card.
     // "removed if the user hasn't" describes USB effects that are paired
@@ -619,7 +623,9 @@ function shouldSkipEffect(effect: string) {
     effect.match(/[Aa]ffects certain Burst Commands/) ||
     // Status details
     effect === 'affects targeting' ||
-    effect === 'resets ATB when removed'
+    effect === 'resets ATB when removed' ||
+    // Alternate phrasing of "removed after triggering"
+    (enlirStatus && effect === 'removes ' + enlirStatus.name)
   );
 }
 
@@ -872,7 +878,7 @@ function describeEnlirStatusEffect(
     }
   }
 
-  if (shouldSkipEffect(effect)) {
+  if (shouldSkipEffect(effect, enlirStatus)) {
     return '';
   }
 

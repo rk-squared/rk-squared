@@ -2388,6 +2388,16 @@ Object {
           '-10% fire dmg 15s – party +10% water dmg 15s), ' +
           '15s: Awoken Water: water inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeSoulBreak('Cyan - AASB')).toEqual({
+        damage: 'phys 9.0/15 fire+non',
+        other:
+          'fire infuse 25s, self dmg cap +10k 15s, ' +
+          '15s: (0/1/2 Samurai ⤇ 1.15-1.3-1.5x Samurai dmg (once only)), ' +
+          '(4 Samurai ⤇ p6.9 - 6.9 - 7.0/2 f+n overstrike Samurai @ +0 - 50 - 100% crit ' +
+          '@ 0-500-1000 SB pts (once only)), ' +
+          '15s: Awoken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+      });
     });
 
     it('handles synchro soul breaks', () => {
