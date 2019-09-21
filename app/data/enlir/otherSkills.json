@@ -524,7 +524,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541147,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1130,6 +1130,27 @@
     "sb": 0,
     "school": "Dragoon",
     "id": 30548311,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Crimson Flurry Follow-Up",
+    "name": "Crimson Flurry",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 15.2,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (3.80 each), causes Minor Imperil Fire, grants Magical Blink 2 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541814,
     "gl": false
   },
   {
@@ -2248,6 +2269,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Allegiance",
+    "name": "Inferno Slash",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "1/1/2 single attacks (6.90/6.90/3.50 each) capped at 99999, 0/50/100% additional critical chance if the user has 0/500/1000 Soul Break points, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 30549131,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: True Form",
     "name": "Storm Hazard",
     "nameNote": "Alias name: Blast Hazard / Storm Hazard",
@@ -2725,12 +2767,12 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30549669,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Freeze Apocalypse Follow-up",
-    "name": "Freeze Apocalypse",
+    "source": "Icy Apocalypse Follow-up",
+    "name": "Icy Apocalypse",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2746,7 +2788,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541321,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2755,14 +2797,14 @@
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": 16.51,
+    "multiplier": 16.15,
     "element": [
       "Wind",
       "Dark",
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (16.51) capped at 99999",
+    "effects": "One single attack (16.15) capped at 99999",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -3147,6 +3189,29 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Golden Frog Follow-Up",
+    "name": "Frog Stamp",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 4.44,
+    "element": [
+      "Water",
+      "Earth",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged attack (4.44) capped at 99999",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 0,
+    "school": "Support",
+    "id": 30545114,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Ace",
     "name": "Run & Shoot",
     "type": "PHY",
@@ -3462,6 +3527,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Rising Flame Follow-Up",
+    "name": "Rising Flame",
+    "type": "SUM",
+    "target": "Single target",
+    "formula": "Magical",
+    "multiplier": 16.62,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (2.77 each), grants Minor Buff Fire to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 30543011,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Abyssal Bite Follow-Up",
     "name": "Abyssal Bite",
     "type": "PHY",
@@ -3497,6 +3583,45 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542165,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Accomplice Follow-Up",
+    "name": "Accomplice ",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Minor Imperil Water, grants Minor Buff Water to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Thief",
+    "id": 30108001,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Absorb Mode",
+    "name": "Abyssal Sword",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.6,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (4.60) capped at 99999, multiplier increased by 0.0016 for every SB point, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 30179010,
     "gl": false
   },
   {
@@ -4123,7 +4248,7 @@
     "sb": 0,
     "school": "Knight",
     "id": 30548442,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4144,7 +4269,7 @@
     "sb": 0,
     "school": "Knight",
     "id": 30548443,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4165,7 +4290,7 @@
     "sb": 0,
     "school": "Knight",
     "id": 30548444,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4186,12 +4311,12 @@
     "sb": 0,
     "school": "Knight",
     "id": 30548445,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Lion Slash Follow-up",
-    "name": "Lion's Slash",
+    "source": "Lion Flash Follow-up",
+    "name": "Lion Flash",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4207,7 +4332,7 @@
     "sb": 0,
     "school": "Samurai",
     "id": 30549119,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",

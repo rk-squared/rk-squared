@@ -50,6 +50,56 @@
     "gl": false
   },
   {
+    "character": "Terra",
+    "source": "Inferno Cross",
+    "name": "Burning Combo",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": "Fire",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 15.25,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (3.05 each), grants Minor Buff Fire and Fire +30% Boost 1",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Black Magic",
+    "nameJp": "バーニングコンボ",
+    "id": 30541553,
+    "synchroConditionId": 100,
+    "gl": false
+  },
+  {
+    "character": "Terra",
+    "source": "Inferno Cross",
+    "name": "Fiery Esper Strike",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": "Fire",
+    "type": "SUM",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": 13.8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One group attack (13.80) capped at 99999",
+    "counter": false,
+    "autoTarget": "All enemies",
+    "sb": 90,
+    "school": "Summoning",
+    "nameJp": "幻獣の炎撃",
+    "id": 30543070,
+    "synchroConditionId": 100,
+    "gl": false
+  },
+  {
     "character": "Cloud",
     "source": "Extreme Cross Slash",
     "name": "Sonic Rush+",

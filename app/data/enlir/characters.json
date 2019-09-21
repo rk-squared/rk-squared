@@ -24950,7 +24950,7 @@
   {
     "realm": "XV",
     "name": "Cor",
-    "introducingEventLv50": "Next Generation Shield of the King",
+    "introducingEventLv50": "Shield of the Past",
     "lv50": {
       "hp": 3654,
       "atk": 113,
@@ -24962,7 +24962,7 @@
       "eva": null,
       "spd": 142
     },
-    "introducingEventLv65": "Next Generation Shield of the King",
+    "introducingEventLv65": "Shield of the Past",
     "lv65": {
       "hp": null,
       "atk": 144,
@@ -24974,7 +24974,7 @@
       "eva": null,
       "spd": 151
     },
-    "introducingEventLv80": "Next Generation Shield of the King",
+    "introducingEventLv80": "Shield of the Past",
     "lv80": {
       "hp": 5400,
       "atk": 175,
@@ -24986,7 +24986,7 @@
       "eva": null,
       "spd": 160
     },
-    "introducingEventLv99": "Next Generation Shield of the King",
+    "introducingEventLv99": "Shield of the Past",
     "lv99": {
       "hp": 6454,
       "atk": 215,
@@ -24998,7 +24998,7 @@
       "eva": 25,
       "spd": 172
     },
-    "introducingEventRecordSpheres": "Next Generation Shield of the King",
+    "introducingEventRecordSpheres": "Shield of the Past",
     "recordSpheres": {
       "hp": 1070,
       "atk": 48,
@@ -25007,7 +25007,7 @@
       "res": 1,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Next Generation Shield of the King",
+    "introducingEventLegendSpheres": "Shield of the Past",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -25071,7 +25071,7 @@
       "heavy": null
     },
     "id": 11500800,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -25126,22 +25126,22 @@
     },
     "introducingEventRecordSpheres": "The Guiding Oracle",
     "recordSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null
+      "hp": 505,
+      "atk": 0,
+      "def": 0,
+      "mag": 25,
+      "res": 5,
+      "mnd": 22
     },
     "introducingEventLegendSpheres": "The Guiding Oracle",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 500,
+      "atk": 0,
+      "def": 20,
+      "mag": 40,
+      "res": 30,
+      "mnd": 20,
+      "spd": 0
     },
     "equipment": {
       "dagger": false,

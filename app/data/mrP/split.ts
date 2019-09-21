@@ -37,7 +37,7 @@ export function splitStatusEffects(effects: string): string[] {
   // Process the list in reverse order, because we look for the "or" or "and"
   // at the end of an embedded list then work backwards to add strings that we
   // think should be included.
-  const parts = effects.split(/, /).reverse();
+  const parts = effects.split(/[,.] /).reverse();
 
   for (let i = 0; i < parts.length; i++) {
     let thisPart = parts[i];

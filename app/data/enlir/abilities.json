@@ -2693,6 +2693,58 @@
     "gl": true
   },
   {
+    "school": "Black Magic",
+    "name": "Grand Onion Magic (Onion Knight Only)",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Wind",
+      "Water",
+      "Fire",
+      "Earth"
+    ],
+    "time": null,
+    "effects": "Five single attacks (? each)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Onion Knight's Record Board": [
+        1
+      ]
+    },
+    "introducingEvent": "5th Anniversary",
+    "nameJp": "たまねぎ大魔法",
+    "id": 30111371,
+    "gl": false
+  },
+  {
     "school": "White Magic",
     "name": "Cure",
     "rarity": 1,
@@ -7096,6 +7148,59 @@
     "gl": false
   },
   {
+    "school": "Celerity",
+    "name": "Shift Flame (Noctis Only)",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Fire"
+    ],
+    "time": null,
+    "effects": "Three single attacks (? each), grants Instant Cast 1 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Noctis's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "5th Anniversary",
+    "nameJp": "シフトフレイム",
+    "id": 30171231,
+    "gl": false
+  },
+  {
     "school": "Summoning",
     "name": "Goblin",
     "rarity": 1,
@@ -8827,7 +8932,7 @@
         50,
         100
       ],
-      "Non-Elemenal Crystal": [
+      "Non-Elemental Crystal": [
         6,
         12,
         18,
@@ -8852,6 +8957,58 @@
     "introducingEvent": "Fat Black Chocobo Event: Dark",
     "nameJp": "アニマ",
     "id": 30131431,
+    "gl": false
+  },
+  {
+    "school": "Summoning",
+    "name": "Summoners' Band (Rydia Only)",
+    "rarity": 6,
+    "type": "SUM",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Water",
+      "Earth",
+      "Holy"
+    ],
+    "time": null,
+    "effects": "Four group attacks (? each), minimum damage ?",
+    "counter": false,
+    "autoTarget": "All enemies",
+    "sb": null,
+    "uses": 2,
+    "max": 6,
+    "orbs": {
+      "Summoning Crystal": [
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        5,
+        10,
+        25,
+        35
+      ],
+      "Rydia's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "5th Anniversary",
+    "nameJp": "サモナーズバンド",
+    "id": 30131441,
     "gl": false
   },
   {
@@ -10391,6 +10548,59 @@
     "gl": true
   },
   {
+    "school": "Spellblade",
+    "name": "Frozen Assault",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.5,
+    "element": [
+      "Ice"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (0.90 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Black Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": null,
+    "nameJp": "至高魔法剣・凍爪",
+    "id": 30141211,
+    "gl": false
+  },
+  {
     "school": "Dragoon",
     "name": "Jump",
     "rarity": 2,
@@ -11090,7 +11300,7 @@
       "Wind"
     ],
     "time": 1.5,
-    "effects": "Four single ranged attacks (0.80 each), grants No Air Time 3 to the user",
+    "effects": "Four single ranged jump attacks (0.80 each), grants No Air Time 3 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -12724,7 +12934,7 @@
       "Water"
     ],
     "time": 1.2,
-    "effects": "Four single attacks (0.80 each), causes Minor Imperil Water every other cast",
+    "effects": "Four single attacks (0.80 each), causes Minor Imperil Water every two uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -12763,6 +12973,158 @@
     "introducingEvent": "Pride of the Dark Dragoon",
     "nameJp": "アクアロウアー",
     "id": 30201131,
+    "gl": false
+  },
+  {
+    "school": "Thief",
+    "name": "Splash Bite",
+    "rarity": 5,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.4,
+    "element": [
+      "Water"
+    ],
+    "time": 1.2,
+    "effects": "Four single attacks (0.85 each), 0.95 multiplier when equipping a dagger",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 65,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Major Ice": [
+        6,
+        12,
+        24,
+        36,
+        60
+      ],
+      "Major Wind": [
+        10,
+        20,
+        40,
+        60,
+        100
+      ],
+      "Major Dark": [
+        6,
+        12,
+        24,
+        36,
+        60
+      ]
+    },
+    "introducingEvent": "Awakening Lion",
+    "nameJp": "スプラッシュバイト",
+    "id": 30201141,
+    "gl": false
+  },
+  {
+    "school": "Thief",
+    "name": "Mirage Raid (Locke Only)",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Fire"
+    ],
+    "time": null,
+    "effects": "Four single attacks (? each), ATK and DEF -50%, grants ATK and DEF +50% to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Fire Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Locke's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "5th Anniversary",
+    "nameJp": "ミラージュレイド",
+    "id": 30201151,
+    "gl": false
+  },
+  {
+    "school": "Thief",
+    "name": "Al Bhed Steal (Rikku Only)",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Water"
+    ],
+    "time": null,
+    "effects": "Four single attacks (? each), ATK and DEF -50%, grants ATK and DEF +50% to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Rikku's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "5th Anniversary",
+    "nameJp": "アルベド・スティール",
+    "id": 30201161,
     "gl": false
   },
   {
@@ -14443,6 +14805,60 @@
     "nameJp": "抜刀ノ弐・冷閃",
     "id": 30221181,
     "gl": true
+  },
+  {
+    "school": "Samurai",
+    "name": "Iceflame Blade",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.4,
+    "element": [
+      "Fire",
+      "Ice"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (0.74 - 0.88 each scaling with targets)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Fire Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": null,
+    "nameJp": "なで斬り・氷炎",
+    "id": 30221191,
+    "gl": false
   },
   {
     "school": "Ninja",
@@ -17761,7 +18177,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Three single hybrid attacks (0.64/2.64 each), 25% chance to cause Imperil Dark 10% for 15 seconds",
+    "effects": "Three single hybrid attacks (0.64 or 2.64 each), 25% chance to cause Imperil Dark 10% for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -17913,7 +18329,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Three single hybrid attacks (0.90/3.44 each), causes Imperil Dark 10% for 15 seconds every two uses",
+    "effects": "Three single hybrid attacks (0.90 or 3.44 each), causes Imperil Dark 10% for 15 seconds every two uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -17949,10 +18365,63 @@
         0
       ]
     },
-    "introducingEvent": "Treasure Hunting Adventurer",
+    "introducingEvent": "Hidden Treasure Hunter",
     "nameJp": "常闇の烙印",
     "id": 30271151,
     "gl": true
+  },
+  {
+    "school": "Darkness",
+    "name": "Taboo Raid",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.6,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Seven single attacks (0.80 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Awakening Lion",
+    "nameJp": "タブーレイド",
+    "id": 30271161,
+    "gl": false
   },
   {
     "school": "Sharpshooter",
@@ -18331,7 +18800,7 @@
         0
       ]
     },
-    "introducingEvent": "Treasure Hunting Adventurer",
+    "introducingEvent": "Hidden Treasure Hunter",
     "nameJp": "アイシクルブリット",
     "id": 30281111,
     "gl": true
@@ -18350,7 +18819,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Four single ranged attacks (0.80 each), grants Sharpshooter Quick Cast 2 to the user, 0.90 multiplier when equipping a ranged weapon",
+    "effects": "Four single ranged attacks (0.80 each), 0.90 multiplier when equipping a ranged weapon, grants Sharpshooter Quick Cast 2 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -19159,14 +19628,14 @@
     "uses": 2,
     "max": 10,
     "orbs": {
-      "Power Crystal": [
+      "Fire Crystal": [
         6,
         12,
         18,
         30,
         60
       ],
-      "Fire Crystal": [
+      "Power Crystal": [
         10,
         20,
         30,

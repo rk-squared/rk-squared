@@ -153,7 +153,11 @@ interface FollowUpEffect {
 }
 
 function checkCustomTrigger(enlirStatus?: EnlirStatus | null): string | undefined {
-  if (enlirStatus && enlirStatus.effects.endsWith('removed after triggering')) {
+  if (
+    enlirStatus &&
+    (enlirStatus.effects.endsWith('removed after triggering') ||
+      enlirStatus.effects.endsWith('removes ' + enlirStatus.name))
+  ) {
     return 'once only';
   } else {
     return undefined;
@@ -216,7 +220,7 @@ function parseFollowUpEffect(
     randomSkills = m[1] != null;
     skills = m[2].split(' / ');
   }
-  if ((m = allEffects.match(/[Gg]rants (.*?)(?:(?:,| and) (?:randomly )?casts|$)/))) {
+  if ((m = allEffects.match(/(?:[Gg]rants|[Cc]auses) (.*?)(?:(?:,| and) (?:randomly )?casts|$)/))) {
     statuses = m[1].split(andList).map(i => parseStatusItem(i, allEffects));
   }
   if (!skills && !statuses) {
@@ -603,7 +607,7 @@ function describeFinisherStatus(statusName: string): string {
  * otherwise be skipped.
  * @param effect
  */
-function shouldSkipEffect(effect: string) {
+function shouldSkipEffect(effect: string, enlirStatus?: EnlirStatus | null) {
   return (
     // "removed after using" is just for Ace's Top Card.
     // "removed if the user hasn't" describes USB effects that are paired
@@ -619,7 +623,9 @@ function shouldSkipEffect(effect: string) {
     effect.match(/[Aa]ffects certain Burst Commands/) ||
     // Status details
     effect === 'affects targeting' ||
-    effect === 'resets ATB when removed'
+    effect === 'resets ATB when removed' ||
+    // Alternate phrasing of "removed after triggering"
+    (enlirStatus && effect === 'removes ' + enlirStatus.name)
   );
 }
 
@@ -872,7 +878,7 @@ function describeEnlirStatusEffect(
     }
   }
 
-  if (shouldSkipEffect(effect)) {
+  if (shouldSkipEffect(effect, enlirStatus)) {
     return '';
   }
 
@@ -1242,6 +1248,9 @@ const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB point
  * it and how it should be shown.
  */
 export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnlirStatus {
+  const isUnconfirmed = status.endsWith('?');
+  status = status.replace(/\?$/, '');
+
   const enlirStatus = getEnlirStatusByName(status);
   if (!enlirStatus && !hideUnknownStatusWarning(status)) {
     logger.warn(`Unknown status: ${status}`);
@@ -1284,6 +1293,10 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     if (specialDuration) {
       specialDuration = specialDuration.replace(/^until /, 'when ');
     }
+  }
+
+  if (isUnconfirmed) {
+    description += '?';
   }
 
   return {

@@ -6,13 +6,16 @@ export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1
 export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
 export const enlirRankCastSpeedRe = /cast speed (?:x2\.00-x3\.00|x2\.00\/2\.25\/2\.50\/2\.75\/3\.00) for (.*) (abilities|attacks) at ability rank 1\/2\/3\/4\/5/;
 
+const rawSbPointsBoosterAlias = (multiplierString: string, s: string) =>
+  // Duplicated for effect aliases below
+  `${multiplierString}x SB gauge from ${formatSchoolOrAbilityList(s)}`;
+
 export const rankBoostAlias = (s: string) => `1.05-1.1-1.15-1.2-1.3x ${s} dmg @ rank 1-5`;
 export const rankCastSpeedAlias = (s: string) => `2-3x ${s} cast @ rank 1-5`;
 export const doubleAlias = (s: string) => `double ${s} (uses extra hone)`;
 export const sbPointsAlias = (s: string) => `+${s} SB pts`;
 export const sbPointsBoosterAlias = (percent: string | number, s: string) =>
-  // Duplicated for effect aliases below
-  `${percentToMultiplier(percent)}x SB gauge from ${formatSchoolOrAbilityList(s)}`;
+  rawSbPointsBoosterAlias(percentToMultiplier(percent), s);
 
 export const formatRandomEther = (amount: string) => 'refill ' + amount + ' random abil. use';
 export const formatSmartEther = (amount: string, type?: string | undefined) =>
@@ -67,6 +70,7 @@ export const statusAlias: AliasMap = {
     'Extended Quick Cast': 'fastcast',
     'High Quick Cast': 'hi fastcast',
     'Instant Cast': 'instacast',
+    'Physical Quick Cast': 'phys fastcast',
     'Magical Quick Cast': 'fastzap',
     'Magical High Quick Cast': 'hi fastzap',
 
@@ -190,6 +194,7 @@ function addCastSpeedAliases<T>(
 for (const i of allEnlirElements) {
   statusAlias.simple[`Attach ${i}`] = `${getElementShortName(i)} infuse`;
   statusAlias.simple[`Attach ${i} Stacking`] = `${getElementShortName(i)} infuse stacking`;
+  statusAlias.simple[`Attach ${i} with Stacking`] = `${getElementShortName(i)} infuse w/ stacking`;
   statusAlias.numbered[`Attach ${i} {X} with Stacking`] =
     getElementShortName(i) + ' infuse {X} w/ stacking';
 
@@ -268,13 +273,20 @@ for (const i of allEnlirSchools) {
     `{X}x ${getSchoolShortName(i)} dmg`,
     multiplierConverter,
   ];
+  effectAlias.numbered[`${lowerCaseFirst(i)} attacks grant {X}% more SB points`] = [
+    rawSbPointsBoosterAlias('{X}', i),
+    multiplierConverter,
+  ];
+  effectAlias.numbered[`${lowerCaseFirst(i)} abilities grant {X}% more SB points`] = [
+    rawSbPointsBoosterAlias('{X}', i),
+    multiplierConverter,
+  ];
 }
 addCastSpeedEffectAliases('Jump', 'jump');
 for (const i of allEnlirElements) {
   addCastSpeedEffectAliases(i, getElementShortName(i), false);
-  // Duplicated from sbPointsBoosterAlias above
   effectAlias.numbered[`${lowerCaseFirst(i)} attacks grant {X}% more SB points`] = [
-    `{X}x SB gauge from ${getElementShortName(i)}`,
+    rawSbPointsBoosterAlias('{X}', i),
     multiplierConverter,
   ];
 }
