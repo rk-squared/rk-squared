@@ -2,6 +2,8 @@
 
 - Dungeons
   - Dream dungeons are properly grouped with regular events
+- Soul Breaks
+  - Fix a layout glitch in Shared Soul Breaks page
 
 # v2.3.0
 
