@@ -47,20 +47,11 @@ export class AbilitiesList extends React.PureComponent<Props> {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-6">
-            <AbilitiesTable
-              abilities={abilities}
-              schools={sortedSchools[0]}
-              tooltipId={tooltipId}
-            />
-          </div>
-          <div className="col-sm-6">
-            <AbilitiesTable
-              abilities={abilities}
-              schools={sortedSchools[1]}
-              tooltipId={tooltipId}
-            />
-          </div>
+          <AbilitiesTable
+            abilities={abilities}
+            schools={_.flatten(sortedSchools)}
+            tooltipId={tooltipId}
+          />
           <AbilityTooltip id={tooltipId} />
         </div>
       </div>

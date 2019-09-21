@@ -38,7 +38,8 @@ export class AbilitiesTable extends React.PureComponent<Props> {
         <td data-tip={id} data-for={tooltipId}>
           {name}
         </td>
-        <td data-tip={id} data-for={tooltipId}>
+        <td>
+          {/* Omit tooltip here - it's too big of an area to have a big distracting text box */}
           {formatMrP(mrP)}
         </td>
         <td>
@@ -53,6 +54,11 @@ export class AbilitiesTable extends React.PureComponent<Props> {
 
     return (
       <table className={classNames('table table-sm table-bordered', styles.component, className)}>
+        <colgroup>
+          <col className={styles.name} />
+          <col className={styles.effects} />
+          <col className={styles.orbCosts} />
+        </colgroup>
         <tbody>
           {schools
             .filter(school => abilities[school] != null)

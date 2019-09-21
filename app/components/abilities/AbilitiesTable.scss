@@ -1,3 +1,8 @@
+// This is just long enough for a spellblade Quadstrike.
+$name-width: 11em;
+// This is just long enough for our orb costs display.
+$orbCosts-width: 8.25em;
+
 :local {
   .component {
     font-size: 0.9rem;
@@ -7,5 +12,17 @@
     width: 2em;
     height: 2em;
     margin-right: 0.5em;
+  }
+
+  .name {
+    width: $name-width;
+  }
+
+  .orbCosts {
+    width: $orbCosts-width;
+  }
+
+  .effects {
+    width: calc(100% - $name-width - $orbCosts-width);
   }
 }
