@@ -380,6 +380,7 @@ function describeAdditionalCritType(
     additionalCritScaleWithUses,
     additionalCritFinisherAttackCount,
     additionalCritFinisherAttackType,
+    additionalCritSB,
   }: XRegExpNamedGroups,
   additionalCrit: number[] | undefined,
 ): string {
@@ -399,6 +400,8 @@ function describeAdditionalCritType(
       additionalCritFinisherAttackCount,
       formatSchoolOrAbilityList(additionalCritFinisherAttackType),
     );
+  } else if (additionalCritSB) {
+    return formatThreshold(additionalCritSB, 'SB pts');
   } else {
     return additionalCritType;
   }
@@ -481,6 +484,7 @@ const attackRe = XRegExp(
       \ if\ the\ user\ has\ (?<additionalCritStatus>[A-Za-z ]+)|
       \ if\ the\ user\ used\ (?<additionalCritFinisherAttackCount>(?:\d+/)*\d+)\ (?<additionalCritFinisherAttackType>.*?)?\ (?:attacks|abilities)\ during\ the\ status|
       \ if\ (?<additionalCritCharacter>.*?)\ is\ alive|
+      \ if\ the\ user\ has\ (?<additionalCritSB>(?:\d+/)+\d+)|
       (?<additionalCritScaleWithUses>\ scaling\ with\ uses)
     )?
   )?

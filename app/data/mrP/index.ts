@@ -821,7 +821,7 @@ export function describeEnlirSoulBreak(
 
   if (
     (m = sb.effects.match(
-      /(\d+) (?:SB|Soul Break) points( to the user| to all allies)?( if successful)?/,
+      /(\d+) (?:SB|Soul Break) points( to the user| to all allies|$)( if successful)?/,
     ))
   ) {
     const [, points, who, ifSuccessful] = m;

@@ -12551,7 +12551,7 @@
   {
     "id": 50563,
     "name": "Allegiance",
-    "effects": "Increases damage dealt by Samurai abilities by 15/30/50% after using 0/1/2 Samurai abilities. Casts Inferno Slash after using 4 Samurai abilities, removes Allegiance",
+    "effects": "Samurai abilities deal 15/30/50% more damage after using 0/1/2 Samurai abilities. Casts Inferno Slash after using 4 Samurai abilities, removes Allegiance",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
