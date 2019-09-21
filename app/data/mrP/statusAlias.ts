@@ -70,6 +70,7 @@ export const statusAlias: AliasMap = {
     'Extended Quick Cast': 'fastcast',
     'High Quick Cast': 'hi fastcast',
     'Instant Cast': 'instacast',
+    'Physical Quick Cast': 'phys fastcast',
     'Magical Quick Cast': 'fastzap',
     'Magical High Quick Cast': 'hi fastzap',
 
@@ -193,6 +194,7 @@ function addCastSpeedAliases<T>(
 for (const i of allEnlirElements) {
   statusAlias.simple[`Attach ${i}`] = `${getElementShortName(i)} infuse`;
   statusAlias.simple[`Attach ${i} Stacking`] = `${getElementShortName(i)} infuse stacking`;
+  statusAlias.simple[`Attach ${i} with Stacking`] = `${getElementShortName(i)} infuse w/ stacking`;
   statusAlias.numbered[`Attach ${i} {X} with Stacking`] =
     getElementShortName(i) + ' infuse {X} w/ stacking';
 
