@@ -16,16 +16,19 @@ describe('orbDetails', () => {
           orbType: 'Black',
           cost: '10-',
           rarity: 6,
+          id: 40000068,
         },
         {
           orbType: 'NE',
           cost: '6',
           rarity: 6,
+          id: 40000071,
         },
         {
           orbType: 'Fire',
           cost: '6',
           rarity: 6,
+          id: 40000072,
         },
       ]);
     });

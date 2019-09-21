@@ -17,12 +17,13 @@ interface Props {
   abilities: { [s in EnlirSchool]?: EnlirAbility[] };
   schools: EnlirSchool[];
   className?: string;
-  tooltipId?: string;
+  abilitiesTooltipId?: string;
+  orbCostsTooltipId?: string;
 }
 
 export class AbilitiesTable extends React.PureComponent<Props> {
   renderRow(ability: EnlirAbility, key: number) {
-    const { tooltipId } = this.props;
+    const { abilitiesTooltipId, orbCostsTooltipId } = this.props;
     const { id, name, rarity } = ability;
 
     if (!mrPAbilities[id]) {
@@ -35,14 +36,14 @@ export class AbilitiesTable extends React.PureComponent<Props> {
 
     return (
       <tr key={key}>
-        <td data-tip={id} data-for={tooltipId}>
+        <td data-tip={id} data-for={abilitiesTooltipId}>
           {name}
         </td>
         <td>
           {/* Omit tooltip here - it's too big of an area to have a big distracting text box */}
           {formatMrP(mrP)}
         </td>
-        <td>
+        <td data-tip={id} data-for={orbCostsTooltipId}>
           <OrbCostsDisplay costs={getOrbCosts(ability)} baseRarity={rarity} />
         </td>
       </tr>

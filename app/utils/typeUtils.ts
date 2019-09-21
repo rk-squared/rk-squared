@@ -73,3 +73,13 @@ export function partitionArray<T>(items: T[], parts: number): T[][] {
 export function simpleFilter<T>(items: Array<T | null | undefined | false>): T[] {
   return _.filter(items) as T[];
 }
+
+export function runningTotal(items: number[], start: number = 0): number[] {
+  const result = [];
+  let total = start;
+  for (const i of items) {
+    total += i;
+    result.push(total);
+  }
+  return result;
+}

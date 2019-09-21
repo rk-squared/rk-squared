@@ -4,6 +4,7 @@ import { logger } from '../utils/logger';
 // TODO: Try removing duplicating in unions and arrays - see https://stackoverflow.com/a/45486495/25507
 
 export const MAX_ABILITY_RARITY = 6;
+export const MAX_ABILITY_RANK = 5;
 
 function addSortOrder(items: any[]): any[] {
   for (let i = 0; i < items.length; i++) {

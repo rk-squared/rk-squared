@@ -1,6 +1,8 @@
 import * as _ from 'lodash';
 
+import { logger } from '../utils/logger';
 import { EnlirAbility } from './enlir';
+import { itemsByName } from './items';
 
 export type OrbType =
   | 'Fire'
@@ -71,6 +73,7 @@ export interface OrbCost {
   orbType: OrbType;
   rarity: number;
   cost: CostType;
+  id?: number;
 }
 
 export function getOrbCosts(ability: EnlirAbility): OrbCost[] {
@@ -80,10 +83,17 @@ export function getOrbCosts(ability: EnlirAbility): OrbCost[] {
     .map(([orbName, costs]) => {
       const [orbType, rarity] = parseOrb(orbName);
       const cost = orbCostLookup[_.sum(costs)] as CostType;
+
+      const item = itemsByName[orbName] || itemsByName[orbName + ' Orb'];
+      if (!item) {
+        logger.warn(`Unknown orb "${orbName}" for ${ability.name}`);
+      }
+
       return {
         orbType,
         rarity,
         cost,
+        id: item ? item.id : undefined,
       };
     });
 }
