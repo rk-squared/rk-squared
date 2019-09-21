@@ -1,3 +1,8 @@
+# v2.4.0
+
+- Dungeons
+  - Dream dungeons are properly grouped with regular events
+
 # v2.3.0
 
 - Experimental transparent proxy support (BlueStacks support)

@@ -6,23 +6,22 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 
 ## To Do
 
-1. Dream dungeons
-2. Automatically handle new Rush Tickets
-3. Soul Break updates - Lightning SASB, etc.
-4. Search hotkeys?
-5. Add an explanation of probability calculator
-6. Export to ffrktoolkit.com
-7. Update Enlir data outside of releases
-8. Check for updates
-9. Support for multiple profiles
-10. Extend probability analysis for G2 on JP
-11. FFRK Toolkit Helper interop? (see Reddit messages)
-12. Switch languages for JP
-13. Show Dungeons expirations (see Reddit messages)
-14. Soul break list - formatting, show random hits
-15. Stateless components
-16. Error reporting (Sentry?)
-17. Rubies / ruby tracker
+1. Automatically handle new Rush Tickets
+2. Soul Break updates - Lightning SASB, etc.
+3. Search hotkeys?
+4. Add an explanation of probability calculator
+5. Export to ffrktoolkit.com
+6. Update Enlir data outside of releases
+7. Check for updates
+8. Support for multiple profiles
+9. Extend probability analysis for G2 on JP
+10. FFRK Toolkit Helper interop? (see Reddit messages)
+11. Switch languages for JP
+12. Show Dungeons expirations (see Reddit messages)
+13. Soul break list - formatting, show random hits
+14. Stateless components
+15. Error reporting (Sentry?)
+16. Rubies / ruby tracker
 
 ### JP support
 

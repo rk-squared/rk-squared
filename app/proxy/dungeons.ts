@@ -310,7 +310,10 @@ export function convertWorld(
     subcategorySortOrder = -world.series_id;
   } else if (event.type_name === 'challenge' || event.type_name === 'special') {
     // 'special' was observed with A Heretic Awaits
-    if (event.tag !== '') {
+    if (event.tag === 'genmu_dungeon') {
+      // Non-beta Dreams dungeon - treat these as regular events.
+      category = WorldCategory.Event;
+    } else if (event.tag !== '') {
       // Fall back / generic - e.g., third_anniversary
       category = WorldCategory.SpecialEvent;
       subcategory = _.startCase(event.tag);
