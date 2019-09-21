@@ -2398,6 +2398,15 @@ Object {
           '@ 0-500-1000 SB pts (once only)), ' +
           '15s: Awoken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
+
+      expect(describeSoulBreak('Edgar - AASB')).toEqual({
+        damage: 'phys 9.0/15 bio+fire+lgt+non rngd',
+        other:
+          'self dmg cap +10k 15s, 1 turn: (b/f/l ⤇ bio/fire/lgt infuse), ' +
+          '15s: (2 b/f/l ⤇ +10% bio/fire/lgt vuln.), ' +
+          '15s: Awoken Machinery Cultivator: Machinist inf. hones, ' +
+          '2-3x Machinist cast @ rank 1-5, 100% dualcast',
+      });
     });
 
     it('handles synchro soul breaks', () => {

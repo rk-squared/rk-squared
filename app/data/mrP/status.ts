@@ -220,7 +220,7 @@ function parseFollowUpEffect(
     randomSkills = m[1] != null;
     skills = m[2].split(' / ');
   }
-  if ((m = allEffects.match(/[Gg]rants (.*?)(?:(?:,| and) (?:randomly )?casts|$)/))) {
+  if ((m = allEffects.match(/(?:[Gg]rants|[Cc]auses) (.*?)(?:(?:,| and) (?:randomly )?casts|$)/))) {
     statuses = m[1].split(andList).map(i => parseStatusItem(i, allEffects));
   }
   if (!skills && !statuses) {
