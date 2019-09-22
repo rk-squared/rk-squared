@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import classNames from 'classnames';
+import * as classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { EnlirAbility, EnlirSchool } from '../../data/enlir';
@@ -21,8 +21,65 @@ interface Props {
   orbCostsTooltipId?: string;
 }
 
+interface GroupedEnlirAbility extends EnlirAbility {
+  groupWithNext: boolean;
+}
+
+const forcedGroups: Array<Set<string>> = [
+  new Set<string>(["Goddess's Paean", "Mage's Hymn", "Warrior's Hymn"]),
+  new Set<string>(['Ancestral Reflection', 'Shadow Embodied']),
+  new Set<string>(['Shifting Sands', 'Desert Mirage']),
+  new Set<string>(['Reflecting Pool', 'Raging Waters']),
+];
+
+export function groupAbilities(abilities: EnlirAbility[]): GroupedEnlirAbility[] {
+  const result: GroupedEnlirAbility[] = [];
+  const handled = new Set<string>();
+
+  function addGroup(startAt: number, predicate: (ability: EnlirAbility) => boolean) {
+    result.push({
+      ...abilities[startAt],
+      groupWithNext: true,
+    });
+    for (let i = startAt + 1; i < abilities.length; i++) {
+      if (!handled.has(abilities[i].name) && predicate(abilities[i])) {
+        handled.add(abilities[i].name);
+        result.push({
+          ...abilities[i],
+          groupWithNext: true,
+        });
+      }
+    }
+    result[result.length - 1].groupWithNext = false;
+  }
+
+  for (let i = 0; i < abilities.length; i++) {
+    const ability = abilities[i];
+    if (handled.has(ability.name)) {
+      continue;
+    }
+
+    const found = forcedGroups.find(group => group.has(ability.name));
+    if (found) {
+      addGroup(i, ab => found.has(ab.name));
+      continue;
+    }
+
+    if (ability.multiplier) {
+      addGroup(i, ab => ab.multiplier === ability.multiplier);
+      continue;
+    }
+
+    result.push({
+      ...ability,
+      groupWithNext: false,
+    });
+  }
+  return result;
+}
+
 export class AbilitiesTable extends React.PureComponent<Props> {
-  renderRow(ability: EnlirAbility, key: number) {
+  renderRow(ability: GroupedEnlirAbility, key: number) {
     const { abilitiesTooltipId, orbCostsTooltipId } = this.props;
     const { id, name, rarity } = ability;
 
@@ -35,7 +92,7 @@ export class AbilitiesTable extends React.PureComponent<Props> {
     const mrP = mrPAbilities[id];
 
     return (
-      <tr key={key}>
+      <tr key={key} className={classNames({ [styles.grouped]: ability.groupWithNext })}>
         <td data-tip={id} data-for={abilitiesTooltipId}>
           {name}
         </td>
@@ -71,7 +128,7 @@ export class AbilitiesTable extends React.PureComponent<Props> {
                     {school}
                   </th>
                 </tr>
-                {abilities[school]!.map((ability, j) => this.renderRow(ability, j))}
+                {groupAbilities(abilities[school]!).map((ability, j) => this.renderRow(ability, j))}
               </React.Fragment>
             ))}
         </tbody>

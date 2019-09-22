@@ -25,4 +25,13 @@ $orbCosts-width: 8.25em;
   .effects {
     width: calc(100% - $name-width - $orbCosts-width);
   }
+
+  tr.grouped,
+  tr.grouped > td {
+    border-bottom: none;
+  }
+  tr.grouped + tr,
+  tr.grouped + tr > td {
+    border-top: none;
+  }
 }
