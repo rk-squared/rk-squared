@@ -78,7 +78,7 @@ export class OrbCostsTooltip extends React.Component<Props> {
       <ReactTooltip
         id={id}
         className={styles.component}
-        place="bottom"
+        place="left"
         getContent={this.getContent}
       />
     );

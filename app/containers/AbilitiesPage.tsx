@@ -12,7 +12,8 @@ import { Page } from './Page';
 const styles = require('./AbilitiesPage.scss');
 
 function AbilitiesTab({ match }: RouteComponentProps<{ rarity: string }>) {
-  return <AbilitiesList rarity={+match.params.rarity} />;
+  const rarity = +match.params.rarity;
+  return <AbilitiesList rarity={rarity} key={rarity} />;
 }
 
 export class AbilitiesPage extends React.PureComponent<RouteComponentProps> {
