@@ -27,9 +27,6 @@ interface GroupedEnlirAbility extends EnlirAbility {
 
 const forcedGroups: Array<Set<string>> = [
   new Set<string>(["Goddess's Paean", "Mage's Hymn", "Warrior's Hymn"]),
-  new Set<string>(['Ancestral Reflection', 'Shadow Embodied']),
-  new Set<string>(['Shifting Sands', 'Desert Mirage']),
-  new Set<string>(['Reflecting Pool', 'Raging Waters']),
 ];
 
 export function groupAbilities(abilities: EnlirAbility[]): GroupedEnlirAbility[] {

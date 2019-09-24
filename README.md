@@ -21,6 +21,7 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 13. Stateless components
 14. Error reporting (Sentry?)
 15. Rubies / ruby tracker
+16. Touch-friendly tooltips?
 
 ### JP support
 

@@ -55,12 +55,12 @@ export class OrbCostsTooltip extends React.Component<Props> {
                 )}
                 {id && itemsById[id].name}
               </td>
-              {orbCosts[cost].map((n, j) => (
+              {(orbCosts[cost] || []).map((n, j) => (
                 <td key={j} className={styles.rankCost}>
                   {n}
                 </td>
               ))}
-              {runningTotal(orbCosts[cost]).map((n, j) => (
+              {runningTotal(orbCosts[cost] || []).map((n, j) => (
                 <td key={j} className={styles.totalCost}>
                   {n}
                 </td>
