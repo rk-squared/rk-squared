@@ -31,6 +31,7 @@ import {
   shareStatusDurations,
   slashMergeElementStatuses,
   sortStatus,
+  StatusItem,
 } from './status';
 import {
   formatRandomEther,
@@ -139,6 +140,14 @@ function checkBurstAndBraveMode(selfOther: string[]): string[] {
     : selfOther;
 }
 
+function shouldIncludeStatusItem(item: StatusItem): boolean {
+  if (item.statusName === 'Instant KO' && item.condition === 'if undead' && item.chance === 100) {
+    // Raise effects cause instant KO to undead, but that's fairly niche; omit.
+    return false;
+  }
+  return true;
+}
+
 function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): string {
   return abbreviate ? damageTypeAbbreviation(damageType) : damageType + ' ';
 }
@@ -147,23 +156,24 @@ const healRe = XRegExp(
   String.raw`
   [Rr]estores\ #
   (?:HP\ \((?<healFactor>(?:(?:\d+|\?)\/)*(?:\d+|\?))\)
-  |(?<fixedHp>\d+)\ HP)
+  |(?<fixedHp>[0-9/]+)\ HP)
   (?<who>\ to\ the\ user|\ to\ all\ allies|\ to\ the\ lowest\ HP%\ ally)?
   (?<rank>\ at\ rank\ 1\/2\/3\/4\/5\ of\ the\ triggering\ ability)?
   (?:\ if\ (?<ifAllyAlive>.*?)\ is\ alive)?
+  (?:\ at\ (?<scaleUses>[0-9/]+)\ uses)?
   `,
   'x',
 );
 
 const statusEffectRe = XRegExp(
   String.raw`
-  (?<verb>[Gg]rants|[Cc]auses|[Rr]emoves)\ #
+  (?<verb>[Gg]rants|[Cc]auses|[Rr]emoves|[Dd]oesn't\ remove)\ #
 
   (?<statusString>(?:.*?(?:,?\ and\ |,\ ))*?(?:.*?))
 
   # Anchor the regex to end at anything that looks like the beginning of a new effect.
   (?=
-    ,\ grants|,\ causes|,\ removes|,\ restores\ HP\ |
+    ,\ grants|,\ causes|,\ removes|,\ doesn't\ remove|,\ restores\ HP\ |
     ,\ damages\ the\ user\ |
     ,\ heals\ the\ user\ |
     ,\ casts\ the\ last\ ability\ used\ by\ an\ ally\b|
@@ -190,6 +200,7 @@ const statModRe = XRegExp(
 
 interface DescribeOptions {
   abbreviate: boolean;
+  abbreviateDamageType: boolean;
   showNoMiss: boolean;
   includeSchool: boolean;
   includeSbPoints: boolean;
@@ -207,7 +218,7 @@ function describeEnlirAttack(
   let damage = '';
   const statusInfliction: StatusInfliction[] = [];
 
-  const abbreviate = opt.abbreviate || !!attack.hybridDamageType;
+  const abbreviate = opt.abbreviate || opt.abbreviateDamageType || !!attack.hybridDamageType;
   damage += attack.isAoE ? 'AoE ' : '';
   damage += attack.randomChances ? attack.randomChances + ' ' : '';
   damage += !attack.isFixedDamage ? formatDamageType(attack.damageType, abbreviate) : '';
@@ -312,6 +323,7 @@ export function describeEnlirSoulBreak(
 ): MrPSoulBreak {
   const opt: DescribeOptions = {
     abbreviate: false,
+    abbreviateDamageType: false,
     showNoMiss: true,
     includeSchool: true,
     includeSbPoints: true,
@@ -369,6 +381,19 @@ export function describeEnlirSoulBreak(
   // fit into parseEnlirAttack.
   if ((m = sb.effects.match(/Randomly deals ((?:\d+, )*\d+,? or \d+) damage/))) {
     damage = m[1] + ' fixed dmg';
+  }
+
+  // A single attack that does HP-based damage - hard and weird, so we
+  // special-case it.
+  if ((m = sb.effects.match(/Damages for (\d+) \* \(user's maximum HP - user's current HP\)/))) {
+    damage = m[1] + ' ⋅ (max HP - curr HP) dmg';
+  }
+
+  // Gravity attacks
+  if (
+    (m = sb.effects.match(/Damages for (\d+)% of the target's current HP, resisted via Instant KO/))
+  ) {
+    damage = m[1] + '% curr HP dmg';
   }
 
   // Random effects.  In practice, these are always pure damage, so list as
@@ -493,10 +518,15 @@ export function describeEnlirSoulBreak(
     selfOther.push(`heal ${healPercent}% of dmg`);
   }
 
-  if ((m = sb.effects.match(/damages the user for ([0-9.]+)% (?:max\.?(?:imum)?|current) HP/))) {
-    const [, damagePercent, maxOrCurrent] = m;
+  if (
+    (m = sb.effects.match(
+      /damages the user for ([0-9.\/]+)% (max\.?(?:imum)?|current) HP(?: scaling with ([0-9\/]+) uses)?/,
+    ))
+  ) {
+    const [, damagePercent, maxOrCurrent, scalingUses] = m;
     const description = maxOrCurrent === 'current' ? 'curr' : 'max';
-    selfOther.push(`lose ${damagePercent}% ${description} HP`);
+    const scaling = scalingUses ? ` @ ${scalingUses} uses` : '';
+    selfOther.push(`lose ${damagePercent}% ${description} HP${scaling}`);
   }
 
   XRegExp.forEach(sb.effects, healRe, match => {
@@ -505,14 +535,28 @@ export function describeEnlirSoulBreak(
       fixedHp,
       who,
       rank,
+      scaleUses,
       ifAllyAlive,
     } = (match as unknown) as XRegExpNamedGroups;
-    let heal = healFactor ? 'h' + healFactor : `heal ${toMrPKilo(+fixedHp)}`;
+    let heal;
+    if (healFactor) {
+      heal = 'h' + healFactor;
+    } else {
+      heal =
+        'heal ' +
+        fixedHp
+          .split('/')
+          .map(i => toMrPKilo(i, true))
+          .join('/');
+    }
     if (healFactor && sb.type === 'NAT') {
       heal += ' (NAT)';
     }
     if (rank) {
       heal += ' @ rank 1-5'; // rank-based healing chase - used by Lenna's AASB
+    }
+    if (scaleUses) {
+      heal += ` @ ${scaleUses} uses`;
     }
     if (ifAllyAlive) {
       heal += ' if ' + ifAllyAlive + ' alive';
@@ -556,10 +600,17 @@ export function describeEnlirSoulBreak(
 
   XRegExp.forEach(sb.effects, statusEffectRe, match => {
     const { verb, statusString } = (match as unknown) as XRegExpNamedGroups;
+
+    // Confuse Shell doesn't remove Confuse - this is a special case, skip.
+    if (verb.toLowerCase() === "doesn't remove") {
+      return;
+    }
+
     const removes = verb.toLowerCase() === 'removes';
     const wholeClause = match[0];
     const status = splitSkillStatuses(statusString)
       .map(i => parseStatusItem(i, wholeClause))
+      .filter(shouldIncludeStatusItem)
       .reduce(checkForAndStatuses, [])
       .reduce(shareStatusDurations, [])
       .reduce(slashMergeElementStatuses, [])
@@ -643,11 +694,11 @@ export function describeEnlirSoulBreak(
       if (isTrance) {
         description = 'Trance: ' + description;
       }
-      if (scalesWithUses) {
-        description += ' ' + formatUseCount(optionCount);
-      }
       if (stacking) {
         description = 'stacking ' + description;
+      }
+      if (scalesWithUses) {
+        description += ' ' + formatUseCount(optionCount);
       }
       if (rank) {
         description += ' @ rank 1-5';
@@ -732,11 +783,15 @@ export function describeEnlirSoulBreak(
     },
   );
 
-  if ((m = sb.effects.match(/[Rr]emoves KO \((\d+)% HP\)( to all allies)?/))) {
+  if (
+    (m = sb.effects.match(/[Rr]emoves KO \((\d+)% HP\)( to all allies| to a random ally with KO)?/))
+  ) {
     const [, percent, who] = m;
     const revive = `revive @ ${percent}% HP`;
     if (!who && sb.target.startsWith('Single')) {
       other.push(revive);
+    } else if (who === ' to a random ally with KO') {
+      other.push('ally ' + revive);
     } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
       partyOther.push(revive);
     } else {
@@ -817,6 +872,10 @@ export function describeEnlirSoulBreak(
     }
 
     other.push(description);
+  }
+
+  if (sb.effects.match(/[Tt]ransfers the user's (SB|Soul Break) points to the target/)) {
+    other.push('donate SB pts to target');
   }
 
   if (

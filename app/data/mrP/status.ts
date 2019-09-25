@@ -617,6 +617,8 @@ function shouldSkipEffect(effect: string, enlirStatus?: EnlirStatus | null) {
     effect.startsWith("removed if the user hasn't") ||
     effect.startsWith("Removed if the user doesn't have any") ||
     effect === 'reset upon refreshing Burst Mode' ||
+    // Warrior's Hymn, Mage's Hymn, Goddess's Paean, Ode to Victory
+    effect.startsWith('Used to determine the effect of ') ||
     // Custom triggers
     effect.startsWith('removed after triggering') ||
     // Burst toggles - we communicate this via a separate flag
@@ -1387,11 +1389,15 @@ const statusItemRe = XRegExp(
   )?
   (?:\ for\ (?<duration2>\d+\??|\?)\ (?<durationUnits2>second|turn)s?)?
   (?<scalesWithUses2>\ scaling\ with\ (?<scaleWithUsesSkill2>[A-Za-z ]+\ )?uses)?
+  (?<ifSuccessful>\ if\ successful)?
   (?:\ if\ the\ user\ has\ (?<prereq>.*))?
   (?:\ if\ (?<females>.*?)\ or\ more\ females\ are\ in\ the\ party)?
   (?:\ if\ (?<characterInParty>.*?)\ (?:is|are)\ in\ the\ party)?
   (?:\ if\ (?<characterAlive>.*?)\ (?:is|are)\ alive)?
   (?<weakness>\ if\ exploiting\ elemental\ weakness)?
+  (?:\ at\ (?<status>[A-Z].*))?
+  (?<everyTwo>\ every\ two\ uses)?
+  (?<ifUndead>\ to\ undeads)?
   ()
   $
   `,
@@ -1441,6 +1447,10 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     characterInParty,
     characterAlive,
     females,
+    status,
+    everyTwo,
+    ifUndead,
+    ifSuccessful,
   } = (m as unknown) as XRegExpNamedGroups;
   // tslint:enable prefer-const
 
@@ -1490,6 +1500,14 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     condition = 'if ' + characterAlive + ' alive';
   } else if (females) {
     condition = 'if ≥' + females + ' females in party';
+  } else if (status) {
+    condition = 'at ' + describeEnlirStatus(status);
+  } else if (everyTwo) {
+    condition = 'per 2 uses';
+  } else if (ifUndead) {
+    condition = 'if undead';
+  } else if (ifSuccessful) {
+    condition = 'on success';
   }
 
   return {

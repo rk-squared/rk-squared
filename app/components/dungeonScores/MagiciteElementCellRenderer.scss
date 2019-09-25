@@ -1,43 +1,13 @@
+@import '../shared/elements';
+
 :local {
   .component::before {
-    content: "⬢ ";
+    content: '⬢ ';
   }
 
-  // Most of these colors are from the center of the Empower X magicite skill icon.
-  // https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/beast_passive_skill/element_atk_boost_lightning/element_atk_boost_lightning_112.png
-
-  .component:global(.fire)::before {
-    color: #FA2A0D;
-  }
-
-  .component:global(.ice)::before {
-    color: #3EC8F2;
-  }
-
-  .component:global(.wind)::before {
-    color: #A0FD02;
-  }
-
-  .component:global(.earth)::before {
-    color: #D88125;
-  }
-
-  .component:global(.lightning)::before {
-    // The color inside the lightning icon is practically white.
-    // This is instead the color from the border.
-    color: #CBC535;
-  }
-
-  .component:global(.water)::before {
-    color: #688DEB;
-  }
-
-  .component:global(.holy)::before {
-    // Border color, like lightning.
-    color: #ACEEE4;
-  }
-
-  .component:global(.dark)::before {
-    color: #F17BFF;
+  @each $name, $color in $element-colors {
+    .component:global(.#{$name})::before {
+      color: $color;
+    }
   }
 }

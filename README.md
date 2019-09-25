@@ -22,6 +22,8 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 14. Stateless components
 15. Error reporting (Sentry?)
 16. Rubies / ruby tracker
+17. Touch-friendly tooltips?
+18. Sorting/filtering for soul breaks and relic draw lists - e.g., sort by element
 
 ### JP support
 

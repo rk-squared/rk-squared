@@ -1,3 +1,4 @@
+import AbilitiesPage from '../containers/AbilitiesPage';
 import DesktopHomePage from '../containers/DesktopHomePage';
 import DropTrackerPage from '../containers/DropTrackerPage';
 import DungeonScoresPage from '../containers/DungeonScoresPage';
@@ -24,6 +25,11 @@ const routes: RouteItem[] = [
     component: DungeonScoresPage,
     description: 'Scores',
     path: '/dungeonScores',
+  },
+  {
+    component: AbilitiesPage,
+    description: 'Abilities',
+    path: '/abilities',
   },
   {
     component: RecordMateriaPage,

@@ -113,7 +113,15 @@ export function toMrPFixed(n: number): string {
   return result;
 }
 
-export function toMrPKilo(n: number | string): string {
+/**
+ * Formats as kilo (k), following MrP's example
+ *
+ * @param n          Numeric value
+ * @param favorSmall Allow small values to show as ones instead of fractional
+ *                   values.  Very subjective - it happens to work the way we
+ *                   use it.
+ */
+export function toMrPKilo(n: number | string, favorSmall: boolean = false): string {
   if (n === '?') {
     return '?';
   }
@@ -125,7 +133,11 @@ export function toMrPKilo(n: number | string): string {
     n = parseFloat(n);
   }
 
-  return +n / 1000 + 'k' + suffix;
+  if (favorSmall && n < 1000) {
+    return n + suffix;
+  } else {
+    return +n / 1000 + 'k' + suffix;
+  }
 }
 
 /**

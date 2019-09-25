@@ -3,6 +3,9 @@ import { logger } from '../utils/logger';
 
 // TODO: Try removing duplicating in unions and arrays - see https://stackoverflow.com/a/45486495/25507
 
+export const MAX_ABILITY_RARITY = 6;
+export const MAX_ABILITY_RANK = 5;
+
 function addSortOrder(items: any[]): any[] {
   for (let i = 0; i < items.length; i++) {
     items[i].sortOrder = i;
@@ -199,6 +202,7 @@ export interface EnlirSoulBreakOrLegendMateria {
 }
 
 export interface EnlirAbility extends EnlirGenericSkill {
+  school: EnlirSchool;
   rarity: number;
   sb: number;
   uses: number;
@@ -877,6 +881,25 @@ function patchEnlir() {
     command =>
       command.effects === 'Three single attacks (0.80 each), grants Lightning Aura to the user',
     command => (command.effects = 'Three single attacks (0.80 each)'),
+  );
+
+  // Make the Odin 4* ability resemble a more standard status ailment.
+  applyPatch(
+    enlir.abilitiesByName,
+    'Odin',
+    ability =>
+      ability.effects ===
+      'If not resisted, causes Instant KO (100%), otherwise, two group attacks (6.00 each), Different DEF and RES -20% for 25 seconds',
+    ability =>
+      (ability.effects =
+        'Two group attacks (6.00 each), causes Instant KO (100%) and Different DEF and RES -20% for 25 seconds'),
+  );
+  // Make Steal Time match a more common word order.
+  applyPatch(
+    enlir.abilitiesByName,
+    'Steal Time',
+    ability => ability.effects === 'Causes Slow (50%), if successful grants Haste to the user',
+    ability => (ability.effects = 'Causes Slow (50%), grants Haste to the user if successful'),
   );
 }
 patchEnlir();

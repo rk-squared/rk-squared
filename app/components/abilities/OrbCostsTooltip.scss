@@ -1,0 +1,34 @@
+@import '../../variables';
+
+:local {
+  .component {
+    margin-bottom: 0;
+  }
+
+  .orbIcon {
+    width: 2em;
+    height: 2em;
+    padding-right: 0.2em;
+    // Don't let the icon cause the line height to expand.
+    margin: -1em 0;
+  }
+
+  td.rankCost,
+  td.totalCost {
+    text-align: right;
+    border-left: solid 1px $table-dark-border-color;
+    border-right: none;
+    width: 2em;
+  }
+
+  td.rankCost + td.rankCost,
+  td.totalCost + td.totalCost {
+    border-left: none;
+  }
+
+  th.rankCost,
+  th.totalCost {
+    text-align: center;
+    border-left: solid 1px $table-dark-border-color;
+  }
+}

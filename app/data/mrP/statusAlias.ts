@@ -93,9 +93,13 @@ export const statusAlias: AliasMap = {
     'No Air Time': 'no air time',
     'Heavy Charge Booster': '+1 to all Heavy Charge gains',
 
+    'Draw Fire': 'taunt PHY, +100% DEF',
+    'Magic Lure': 'taunt BLK, +100% RES',
     Sentinel: 'taunt PHY/BLK, +200% DEF',
+    'High Sentinel': 'taunt PHY/BLK, +200% DEF/RES',
     Runic: 'taunt & absorb BLK',
     'High Runic': 'taunt & absorb BLK/WHT',
+
     'Unyielding Fist': 'immune atks/status/heal',
     'Haurchefant Cover': 'if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
 
@@ -152,6 +156,7 @@ export const statusAlias: AliasMap = {
     '{X}% Damage Reduction Barrier 4': '{X}% Dmg barrier 4',
 
     'Doom: {X}': 'Doom {X}s',
+    'Doom Timer {X}': '{X}s Doom',
 
     'Ingredients +{X}': '+{X} ingredients',
     'Ingredients {X}': '{X} ingredients',

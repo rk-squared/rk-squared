@@ -1,3 +1,4 @@
+import AbilitiesPage from '../containers/AbilitiesPage';
 import { AppMoreInfoPage } from '../containers/AppMoreInfoPage';
 import DungeonsPage from '../containers/DungeonsPage';
 import RecordMateriaPage from '../containers/RecordMateriaPage';
@@ -17,6 +18,11 @@ const routes: RouteItem[] = [
     component: RecordMateriaPage,
     description: 'Record Materia',
     path: '/recordMateria',
+  },
+  {
+    component: AbilitiesPage,
+    description: 'Abilities',
+    path: '/abilities',
   },
   {
     component: SoulBreaksPage,

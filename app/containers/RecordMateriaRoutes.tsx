@@ -51,7 +51,7 @@ export class RecordMateriaRoutes extends React.Component<RecordMateriaProps & Ro
         </ul>
 
         {items.map(([text, subUrl, render], index) => (
-          <Route exact key={index} path={joinUrl(match.url, subUrl)} render={render} />
+          <Route exact key={index} path={joinUrl(match.path, subUrl)} render={render} />
         ))}
       </div>
     );

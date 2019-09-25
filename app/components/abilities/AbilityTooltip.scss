@@ -2,7 +2,7 @@
 
 :local {
   .component {
-    max-width: 50em;
+    width: 30em;
     display: flex;
 
     .iconsBlock {
@@ -16,30 +16,18 @@
     }
 
     .textBlock {
+      width: 100%;
+
       > :last-child {
         margin-bottom: 0;
       }
     }
 
-    .statusBlock {
-      display: flex;
-      align-items: center;
-
-      > svg {
-        margin-right: 0.5em;
-      }
-
-      > p {
-        margin-bottom: 0;
-      }
-    }
-
-    .gameDescription {
-    }
-
-    .enlirDescription,
-    .unlockCondition {
+    .detail {
       font-style: italic;
+      display: inline-block;
+      width: 50%;
+      margin-bottom: 0.5rem;
     }
   }
 }

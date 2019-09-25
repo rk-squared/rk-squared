@@ -34,6 +34,13 @@ export function asset(lang: LangType, assetPath?: string): string | undefined {
     : url(lang, assetPath.replace(/^\/Content\/lang\/(ww\/compile\/[a-z]+\/)?/, ''));
 }
 
+export function abilityImage(lang: LangType, id: number): string {
+  // _128 is the ability icon.
+  // _112 is the crafting image - with the rarity border and stars and school
+  // overlays.
+  return url(lang, `image/ability/${id}/${id}_128.png`);
+}
+
 export function characterImage(lang: LangType, id: number): string {
   return url(lang, `image/buddy/${id}/${id}.png`);
 }

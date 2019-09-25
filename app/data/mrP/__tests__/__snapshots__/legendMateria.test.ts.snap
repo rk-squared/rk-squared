@@ -4366,7 +4366,7 @@ Array [
   },
   Object {
     "character": "Snow",
-    "description": "High Sentinel at battle start",
+    "description": "taunt PHY/BLK, +200% DEF/RES at battle start",
     "effect": "Grants High Sentinel at the beginning of the battle",
     "name": "Heartening Hero",
   },

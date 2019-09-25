@@ -1,0 +1,41 @@
+// This is just long enough for a spellblade Quadstrike.
+$name-width: 11em;
+// This is just long enough for our orb costs display.
+$orbCosts-width: 8.25em;
+
+:local {
+  .component {
+    font-size: 0.9rem;
+  }
+
+  .schoolIcon {
+    width: 2em;
+    height: 2em;
+    margin-right: 0.5em;
+  }
+
+  col.name {
+    width: $name-width;
+  }
+
+  col.orbCosts {
+    width: $orbCosts-width;
+  }
+
+  col.effects {
+    width: calc(100% - $name-width - $orbCosts-width);
+  }
+
+  tr.grouped,
+  tr.grouped > td {
+    border-bottom: none;
+  }
+  tr.grouped + tr,
+  tr.grouped + tr > td {
+    border-top: none;
+  }
+
+  tr.jp > td.name {
+    font-style: italic;
+  }
+}

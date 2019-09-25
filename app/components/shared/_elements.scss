@@ -1,0 +1,15 @@
+// Most of these colors are from the center of the Empower X magicite skill icon.
+// https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/beast_passive_skill/element_atk_boost_lightning/element_atk_boost_lightning_112.png
+//
+// For lightning and holy, the color inside the icon is practically white, so
+// we instead use the color from the border.
+$element-colors: (
+  'fire': #fa2a0d,
+  'ice': #3ec8f2,
+  'wind': #a0fd02,
+  'earth': #d88125,
+  'lightning': #cbc535,
+  'water': #688deb,
+  'holy': #aceee4,
+  'dark': #f17bff,
+);

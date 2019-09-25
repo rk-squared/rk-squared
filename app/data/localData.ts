@@ -1,4 +1,4 @@
-import { EnlirRelicType } from '../data/enlir';
+import { EnlirRelicType, EnlirSchool } from '../data/enlir';
 
 export type LocalIconType =
   | 'darkElement'
@@ -75,4 +75,30 @@ export const equipmentIcons: { [s in EnlirRelicType]: string | undefined } = {
   Sword: require('../images/ffrk-icons/sword.png'),
   Thrown: require('../images/ffrk-icons/thrown.png'),
   Whip: require('../images/ffrk-icons/whip.png'),
+};
+
+export const schoolIcons: { [s in EnlirSchool]: string | undefined } = {
+  '?': undefined,
+  Special: undefined,
+
+  Bard: require('../images/ffrk-icons/bard.png'),
+  'Black Magic': require('../images/ffrk-icons/black_magic.png'),
+  Celerity: require('../images/ffrk-icons/celerity.png'),
+  Combat: require('../images/ffrk-icons/combat.png'),
+  Dancer: require('../images/ffrk-icons/dancer.png'),
+  Darkness: require('../images/ffrk-icons/darkness.png'),
+  Dragoon: require('../images/ffrk-icons/dragoon.png'),
+  Heavy: require('../images/ffrk-icons/heavy_armor.png'),
+  Knight: require('../images/ffrk-icons/knight.png'),
+  Machinist: require('../images/ffrk-icons/machinist.png'),
+  Monk: require('../images/ffrk-icons/monk.png'),
+  Ninja: require('../images/ffrk-icons/ninja.png'),
+  Samurai: require('../images/ffrk-icons/samurai.png'),
+  Sharpshooter: require('../images/ffrk-icons/sharpshooter.png'),
+  Spellblade: require('../images/ffrk-icons/spellblade.png'),
+  Summoning: require('../images/ffrk-icons/summoning.png'),
+  Support: require('../images/ffrk-icons/support.png'),
+  Thief: require('../images/ffrk-icons/thief.png'),
+  'White Magic': require('../images/ffrk-icons/white_magic.png'),
+  Witch: require('../images/ffrk-icons/witch.png'),
 };
