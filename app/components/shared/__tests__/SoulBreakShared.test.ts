@@ -31,12 +31,14 @@ describe('SoulBreakShared', () => {
           "Noctis - Kings of Old",
           "Noctis - Royal Guardian",
           "Noctis - Warp Factor",
+          "Noctis - Burst Attack",
           "Noctis - Armiger",
           "Noctis - Critical Link",
           "Noctis - Rush Link",
           "Noctis - Armiger Wakes",
           "Noctis - Airstride",
           "Noctis - Regal Flair",
+          "Noctis - True Link Attack I",
           "Noctis - Path of the True King",
           "Noctis - Heir to Greatness",
           "Noctis - Divine Revelation",
@@ -51,10 +53,10 @@ describe('SoulBreakShared', () => {
 
     it('searches for individual soul breaks', () => {
       expect(doSimpleSearch('cloud usb1')).toMatchInlineSnapshot(`
-                        Array [
-                          "Cloud - Ultra Cross Slash",
-                        ]
-                  `);
+                                Array [
+                                  "Cloud - Ultra Cross Slash",
+                                ]
+                        `);
     });
   });
 });

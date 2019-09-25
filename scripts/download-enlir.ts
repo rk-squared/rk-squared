@@ -484,12 +484,13 @@ function convertRelics(rows: any[]): any[] {
 /**
  * Convert "skills" - this includes soul breaks, burst commands, brave
  * commands, synchro commands, and "other" skills.  Abilities are more
- * complicated due to orb costs, so they're processed separarely.
+ * complicated due to orb costs, so they're processed separately.
  */
 function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean = true): any[] {
   const skills: any[] = [];
 
   const idColumn = rows[0].indexOf('ID');
+  const tierColumn = rows[0].indexOf('Tier');
 
   for (let i = 1; i < rows.length; i++) {
     if (!rows[i].length) {
@@ -503,6 +504,10 @@ function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean =
       logger.warn(`Skipping row ${i + 1}: Missing ID number`);
       logger.warn(rows[i].join(', '));
       continue;
+    }
+    if (tierColumn !== -1 && !rows[i][tierColumn]) {
+      logger.warn(`Skipping row ${i + 1}: Missing tier`);
+      logger.warn(rows[i].join(', '));
     }
 
     for (let j = 0; j < rows[0].length; j++) {

@@ -50,7 +50,7 @@
   {
     "realm": "Core",
     "character": "Tyro",
-    "name": "Admiration of Heroes",
+    "name": "Heroic Aspiration",
     "effect": "ATK, DEF, MAG, RES and MND +30% when equipping a book",
     "master": "ATK +10",
     "relic": "Light Tome (Core)",
@@ -650,7 +650,7 @@
   {
     "realm": "I",
     "character": "Meia",
-    "name": "Liberation from Hatred",
+    "name": "Free from Hatred",
     "effect": "25% chance to dualcast abilities that deal Water damage",
     "master": "MAG +10",
     "relic": "Glam Vamp (I)",
@@ -758,7 +758,7 @@
   {
     "realm": "II",
     "character": "Firion",
-    "name": "Rebel's Just Cause",
+    "name": "Defying Oppression",
     "effect": "PHY attacks deal 20% more damage when equipping a sword",
     "master": "ATK +10",
     "relic": "Mythril Spear (II)",
@@ -1346,7 +1346,7 @@
   {
     "realm": "III",
     "character": "Luneth",
-    "name": "Child of Ur",
+    "name": "Rascal of Ur",
     "effect": "?% chance to dualcast abilities that deal Wind damage",
     "master": "ATK +10",
     "relic": "Dual Haken (III)",
@@ -1633,6 +1633,18 @@
   },
   {
     "realm": "III",
+    "character": "Onion Knight",
+    "name": "Dramatic Growth",
+    "effect": "Grants Attach Water at the beginning of the battle",
+    "master": "MAG +10",
+    "relic": "Ninja Cowl (III)",
+    "nameJp": "飛躍的な成長",
+    "id": 201030604,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "III",
     "character": "Cloud of Darkness",
     "name": "Eldritch Destroyer",
     "effect": "Increases Dark damage dealt by 10%",
@@ -1862,7 +1874,7 @@
   {
     "realm": "IV",
     "character": "Cecil (Paladin)",
-    "name": "Blossoming of Sacred Power",
+    "name": "Holy Dawn",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
     "master": "MND +10",
     "relic": "Crystal Gloves (IV)",
@@ -1874,7 +1886,7 @@
   {
     "realm": "IV",
     "character": "Cecil (Paladin)",
-    "name": "Possibility of Sacred Power",
+    "name": "Holy Promise",
     "effect": "25% chance to dualcast White Magic abilities",
     "master": "MND +10",
     "relic": "Platinum Armor (IV)",
@@ -8101,6 +8113,18 @@
   },
   {
     "realm": "XIII",
+    "character": "Noel",
+    "name": "Nomadic Family",
+    "effect": "Grants Attach Water at the beginning of the battle",
+    "master": "ATK +10",
+    "relic": "Black Mage Noel's Guise (XIII)",
+    "nameJp": "放浪の民の一族",
+    "id": 201131105,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
     "character": "Nabaat",
     "name": "Chilling Instincts",
     "effect": "Increases Dark damage dealt by 10%",
@@ -8846,7 +8870,7 @@
   {
     "realm": "XV",
     "character": "Cor",
-    "name": "Loyal Subject of the King",
+    "name": "Loyal Retainer",
     "effect": "Samurai abilities deal 15% more damage",
     "master": null,
     "relic": null,
@@ -8882,11 +8906,11 @@
   {
     "realm": "XV",
     "character": "Lunafreya",
-    "name": "?",
+    "name": "Voice of the Gods",
     "effect": "SUM attacks deal 10% more damage",
     "master": null,
     "relic": null,
-    "nameJp": "?",
+    "nameJp": "神々の声を伝える者",
     "id": 201150900,
     "anima": null,
     "gl": false
@@ -8894,11 +8918,11 @@
   {
     "realm": "XV",
     "character": "Lunafreya",
-    "name": "?",
+    "name": "Devotion to the Future King",
     "effect": "35% chance to dualcast Summoning abilities",
     "master": null,
     "relic": null,
-    "nameJp": "?",
+    "nameJp": "未来の王への献身",
     "id": 201150901,
     "anima": null,
     "gl": false

@@ -660,13 +660,13 @@ Array [
     "character": "Cecil (Paladin)",
     "description": "+1% MND (max +25%) per W.Mag hit",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
-    "name": "Blossoming of Sacred Power",
+    "name": "Holy Dawn",
   },
   Object {
     "character": "Cecil (Paladin)",
     "description": "25% dualcast W.Mag",
     "effect": "25% chance to dualcast White Magic abilities",
-    "name": "Possibility of Sacred Power",
+    "name": "Holy Promise",
   },
   Object {
     "character": "Celes",
@@ -918,7 +918,7 @@ Array [
     "character": "Cor",
     "description": "1.15x Samurai dmg",
     "effect": "Samurai abilities deal 15% more damage",
-    "name": "Loyal Subject of the King",
+    "name": "Loyal Retainer",
   },
   Object {
     "character": "Cor",
@@ -1512,7 +1512,7 @@ Array [
     "character": "Firion",
     "description": "1.2x PHY dmg if using a sword",
     "effect": "PHY attacks deal 20% more damage when equipping a sword",
-    "name": "Rebel's Just Cause",
+    "name": "Defying Oppression",
   },
   Object {
     "character": "Fran",
@@ -2670,13 +2670,13 @@ Array [
     "character": "Lunafreya",
     "description": "1.1x SUM dmg",
     "effect": "SUM attacks deal 10% more damage",
-    "name": "?",
+    "name": "Voice of the Gods",
   },
   Object {
     "character": "Lunafreya",
     "description": "35% dualcast Summon",
     "effect": "35% chance to dualcast Summoning abilities",
-    "name": "?",
+    "name": "Devotion to the Future King",
   },
   Object {
     "character": "Lunafreya",
@@ -2712,7 +2712,7 @@ Array [
     "character": "Luneth",
     "description": "?% dualcast wind",
     "effect": "?% chance to dualcast abilities that deal Wind damage",
-    "name": "Child of Ur",
+    "name": "Rascal of Ur",
   },
   Object {
     "character": "Machina",
@@ -2886,7 +2886,7 @@ Array [
     "character": "Meia",
     "description": "25% dualcast water",
     "effect": "25% chance to dualcast abilities that deal Water damage",
-    "name": "Liberation from Hatred",
+    "name": "Free from Hatred",
   },
   Object {
     "character": "Meliadoul",
@@ -3165,6 +3165,12 @@ Array [
     "name": "Vitality Overflowing",
   },
   Object {
+    "character": "Noel",
+    "description": "water infuse at battle start",
+    "effect": "Grants Attach Water at the beginning of the battle",
+    "name": "Nomadic Family",
+  },
+  Object {
     "character": "Onion Knight",
     "description": "35% dualcast Celerity",
     "effect": "35% chance to dualcast Celerity abilities",
@@ -3187,6 +3193,12 @@ Array [
     "description": "1.25x B.Mag dmg if using a rod",
     "effect": "Black Magic abilities deal 25% more damage when equipping a rod",
     "name": "Power Overflowing",
+  },
+  Object {
+    "character": "Onion Knight",
+    "description": "water infuse at battle start",
+    "effect": "Grants Attach Water at the beginning of the battle",
+    "name": "Dramatic Growth",
   },
   Object {
     "character": "Orlandeau",
@@ -4716,7 +4728,7 @@ Array [
     "character": "Tyro",
     "description": "+30% A/D/M/R/MND if using a book",
     "effect": "ATK, DEF, MAG, RES and MND +30% when equipping a book",
-    "name": "Admiration of Heroes",
+    "name": "Heroic Aspiration",
   },
   Object {
     "character": "Ultimecia",

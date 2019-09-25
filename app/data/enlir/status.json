@@ -3594,6 +3594,17 @@
     "notes": null
   },
   {
+    "id": 26703,
+    "name": "Critical Damage +50% 2",
+    "effects": "Critical hits deal 50% more damage (additive with the base critical coefficient), lasts for 2 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_CRITICAL_DAMAGE_50_TURN_2",
+    "notes": null
+  },
+  {
     "id": 268,
     "name": "Thunder God's Might",
     "effects": "Cast speed x3.00",
@@ -4786,6 +4797,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_DARK_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 282204,
+    "name": "Water +30% Boost 3",
+    "effects": "Water attacks deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_WATER_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -11877,7 +11899,7 @@
   {
     "id": 50586,
     "name": "Awoken Protection Melody",
-    "effects": "White Magic and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for White Magic and Bard abilities at ability rank 1/2/3/4/5, grants Stoneskin: 10/15/20/25/30% after using White Magic or Bard abilities at rank 1/2/3/4/5",
+    "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities at ability rank 1/2/3/4/5, grants Stoneskin: 10/15/20/25/30% after using White Magic or Bard abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12064,7 +12086,7 @@
   {
     "id": 50605,
     "name": "Awoken Priestess",
-    "effects": "White Magic and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for White Magic and Bard abilities at ability rank 1/2/3/4/5, grants HP Stock (500/1000/1500/2000/3000) to all allies after using White Magic or Bard abilities at rank 1/2/3/4/5",
+    "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities at ability rank 1/2/3/4/5, grants HP Stock (500/1000/1500/2000/3000) to all allies after using White Magic or Bard abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12549,7 +12571,7 @@
     "codedName": "CHASE_MODE_FOR_AWAKE_EDGER"
   },
   {
-    "id": 50563,
+    "id": 50653,
     "name": "Allegiance",
     "effects": "Samurai abilities deal 15/30/50% more damage after using 0/1/2 Samurai abilities. Casts Inferno Slash after using 4 Samurai abilities, removes Allegiance",
     "defaultDuration": 15,
@@ -12557,6 +12579,160 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "LOYALTY_MODE",
+    "notes": null
+  },
+  {
+    "id": 50658,
+    "name": "Disaster Blade Mode",
+    "effects": "Casts Disaster Blade after using a Fire attack, removed after using three Fire attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "BAD_BLADE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50659,
+    "name": "Scorching Bullet Follow-Up",
+    "effects": "Casts Scorching Bullet after using two Fire attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TORCH_UNTOUCHABLE",
+    "notes": null
+  },
+  {
+    "id": 50660,
+    "name": "Unsoku Mode",
+    "effects": "Critical chance =100% and cast speed x2.00, casts Afterimage Fist after using three Fire attacks, removed if user hasn't any Physical Blink",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "FOOT_WORK_MODE",
+    "notes": null
+  },
+  {
+    "id": 50661,
+    "name": "Top of the World Follow-Up",
+    "effects": "Casts Top of the World after using three Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SUBLIMATION_VIVID",
+    "notes": null
+  },
+  {
+    "id": 50662,
+    "name": "Awoken Life",
+    "effects": "Ice and Lightning abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Ice and Lightning abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_BLACK_MAGE",
+    "notes": null
+  },
+  {
+    "id": 50663,
+    "name": "Twin Jewel Mode",
+    "effects": "Grants Attach Ice after using a Ice attack, grants Attach Lightning after using a Lightning attack, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_JEWEL_MODE",
+    "notes": null
+  },
+  {
+    "id": 50664,
+    "name": "Awoken Flash Water",
+    "effects": "Water abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, cast speed x9999999 for Water abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_MOMENT_WATER",
+    "notes": null
+  },
+  {
+    "id": 50665,
+    "name": "Sunleth Strike Follow-Up",
+    "effects": "Casts Sunleth Strike (Sharpshooter/Thief)/Sunleth Strike (Dragoon) after using a Sharpshooter/Thief or Dragoon ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SUNLESS_STRIKE",
+    "notes": null
+  },
+  {
+    "id": 50666,
+    "name": "Awoken Instructor",
+    "effects": "Water and Poison abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Water and Poison abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_INSTRUCTOR",
+    "notes": null
+  },
+  {
+    "id": 50667,
+    "name": "Water/Poison Switch Draw",
+    "effects": "Grants Attach Water after using a Water attack, grants Attach Poison after using a Poison attack, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SWITCH_DRAW_WATER_OR_POISON",
+    "notes": null
+  },
+  {
+    "id": 50668,
+    "name": "Coach Time",
+    "effects": "Grants 40% Damage Reduction Barrier 1 to all allies after using a Water or Poison attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SWITCH_DRAW_TEACH_OF_TIME",
+    "notes": null
+  },
+  {
+    "id": 50669,
+    "name": "Chain Materia Mode II",
+    "effects": "Grants Attach Water/Earth with Stacking after using a Water/Earth attack, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DOUBLE_MATERIA_MODE_II",
+    "notes": null
+  },
+  {
+    "id": 50670,
+    "name": "Twin Jewel Mode II",
+    "effects": "Grants Attach Ice/Lightning with Stacking after using a Ice/Lightning attack, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_JEWEL_MODE_II",
+    "notes": null
+  },
+  {
+    "id": 50671,
+    "name": "Awoken Fake Cry",
+    "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilities, grants HP Stock (500/1000/1500/2000/3000) after using White Magic abilities at rank 1/2/3/4/5",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_FAKE_CRY",
     "notes": null
   },
   {
@@ -12589,6 +12765,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_TWO_GENERATIONS_SUMMON_FIRE",
+    "notes": null
+  },
+  {
+    "id": 50675,
+    "name": "Double Crystarium Mode II",
+    "effects": "Grants Attach Ice/Water with Stacking after using a Ice/Water attack, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "W_CRYSTARIUM_MODE_II",
     "notes": null
   },
   {
@@ -12647,6 +12834,39 @@
     "notes": null
   },
   {
+    "id": 50693,
+    "name": "Status Level in Synchro Mode",
+    "effects": "Sets a general status value to a certain value when entering Synchro Mode, removed if user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_SYNCHRO_MODE",
+    "notes": null
+  },
+  {
+    "id": 50694,
+    "name": "Increase Status Level",
+    "effects": "Increases status level depending on coded effects",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_STATE_LEVEL_BY_GENERAL_VALUE",
+    "notes": null
+  },
+  {
+    "id": 50695,
+    "name": "Decrease Status Level",
+    "effects": "Decreases status level depending on coded effects",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DECREASE_STATE_LEVEL_BY_GENERAL_VALUE",
+    "notes": null
+  },
+  {
     "id": 506,
     "name": "Defend",
     "effects": "Reduces all damage taken by 50%, removed upon taking any action",
@@ -12667,6 +12887,39 @@
     "exclusiveStatus": null,
     "codedName": "DISABLE",
     "notes": "???"
+  },
+  {
+    "id": 50726,
+    "name": "",
+    "effects": "",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TRUE_LINK_ATTACK_I",
+    "notes": null
+  },
+  {
+    "id": 50727,
+    "name": "",
+    "effects": "",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ABILITY_DONE_COUNT_BY_GENERAL_VALUE_WHILE_SYNCHRO_MODE_FOR_HUNTER_EDGE",
+    "notes": null
+  },
+  {
+    "id": 50730,
+    "name": "",
+    "effects": "",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ABILITY_USE_COUNT_TIDAL_WAVE",
+    "notes": null
   },
   {
     "id": 508,
@@ -14043,6 +14296,28 @@
     "notes": null
   },
   {
+    "id": 6036,
+    "name": "Short Critical Damage +50%",
+    "effects": "Critical hits deal 50% more damage (additive with the base critical coefficient)",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_PARAM_MULTI_CRITICAL_50_15000",
+    "notes": null
+  },
+  {
+    "id": 6037,
+    "name": "Short 100% Critical",
+    "effects": "Critical chance =100%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_PARAM_MULTI_CRITICAL_100_15000",
+    "notes": null
+  },
+  {
     "id": 604,
     "name": "DEF +X%",
     "effects": "DEF +X%",
@@ -14084,6 +14359,28 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_MDEF",
+    "notes": null
+  },
+  {
+    "id": 607122,
+    "name": "RES -30%",
+    "effects": "RES -30%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_MDEF_M30_WITH_DURATION_MEDIUM_15000",
+    "notes": null
+  },
+  {
+    "id": 607132,
+    "name": "RES -50%",
+    "effects": "RES -50%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_MDEF_M50_WITH_DURATION_MEDIUM_15000",
     "notes": null
   },
   {
@@ -14568,6 +14865,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_DEF_MDEF_MND",
+    "notes": null
+  },
+  {
+    "id": 646141,
+    "name": "DEF, RES and MND -70%",
+    "effects": "DEF, RES and MND -70%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_DEF_MDEF_MND_M70_WITH_DURATION_SMALL_8000",
     "notes": null
   },
   {
@@ -16060,7 +16368,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WATER_DISADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_WATER_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16071,7 +16379,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_FIRE_ADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_FIRE_2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16082,7 +16390,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_ICE_ADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_ICE_2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16093,7 +16401,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_LIGHTNING_ADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_LIGHTNING_2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16104,7 +16412,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_EARTH_ADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_EARTH_2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16115,7 +16423,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WIND_ADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_WIND_2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16126,7 +16434,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WATER_ADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_WATER_2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16137,7 +16445,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_HOLY_ADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_HOLY_2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16148,7 +16456,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_DARK_ADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_DARK_2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16159,7 +16467,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_POISON_ADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_POISON_2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16170,7 +16478,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_ICE_DISADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_ICE_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16181,7 +16489,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_FIRE_ADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_FIRE_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16192,7 +16500,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_ICE_ADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_ICE_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16203,7 +16511,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_LIGHTNING_ADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_LIGHTNING_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16214,7 +16522,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_EARTH_ADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_EARTH_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16225,7 +16533,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WIND_ADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_WIND_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16236,7 +16544,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WATER_ADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_WATER_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16247,7 +16555,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_HOLY_ADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_HOLY_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16258,7 +16566,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_DARK_ADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_DARK_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16269,7 +16577,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_POISON_ADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_POISON_1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16280,7 +16588,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_EARTH_DISADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_EARTH_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16291,7 +16599,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_FIRE_ADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_FIRE_3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16302,7 +16610,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_ICE_ADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_ICE_3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16313,7 +16621,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_LIGHTNING_ADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_LIGHTNING_3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16324,7 +16632,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_EARTH_ADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_EARTH_3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16335,7 +16643,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WIND_ADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_WIND_3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16346,7 +16654,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WATER_ADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_WATER_3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16357,7 +16665,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_HOLY_ADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_HOLY_3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16368,7 +16676,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_DARK_ADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_DARK_3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16379,7 +16687,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_POISON_ADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_POISON_3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16390,7 +16698,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_POISON_DISADVANTAGE_1",
+    "codedName": "INCREASE_ELEMENT_DEF_POISON_M1_TIME_MEDIUM",
     "notes": null
   },
   {
@@ -16401,7 +16709,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_LIGHTNING_DISADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_LIGHTNING_M2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16412,7 +16720,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_HOLY_DISADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_HOLY_M2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16423,7 +16731,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_DARK_DISADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_DARK_M2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16434,7 +16742,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_FIRE_DISADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_FIRE_M2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16445,7 +16753,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WIND_DISADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_WIND_M2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16456,7 +16764,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WATER_DISADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_WATER_M2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16467,7 +16775,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_ICE_DISADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_ICE_M2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16478,7 +16786,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_EARTH_DISADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_EARTH_M2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16489,7 +16797,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_POISON_DISADVANTAGE_2",
+    "codedName": "INCREASE_ELEMENT_DEF_POISON_M2_TIME_LARGE",
     "notes": null
   },
   {
@@ -16500,7 +16808,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_LIGHTNING_DISADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_LIGHTNING_M3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16511,7 +16819,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_HOLY_DISADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_HOLY_M3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16522,7 +16830,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_DARK_DISADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_DARK_M3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16533,7 +16841,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_FIRE_DISADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_FIRE_M3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16544,7 +16852,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WIND_DISADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_WIND_M3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16555,7 +16863,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_WATER_DISADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_WATER_M3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16566,7 +16874,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_ICE_DISADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_ICE_M3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16577,7 +16885,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_EARTH_DISADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_EARTH_M3_TIME_LARGE",
     "notes": null
   },
   {
@@ -16588,7 +16896,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHANGE_ELEMENT_DEF_ATTRIBUTE_POISON_DISADVANTAGE_3",
+    "codedName": "INCREASE_ELEMENT_DEF_POISON_M3_TIME_LARGE",
     "notes": null
   },
   {

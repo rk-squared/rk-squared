@@ -28502,7 +28502,7 @@
     },
     "effect": "Wind damage +20%",
     "character": "Luneth",
-    "soulBreak": "Revelation of the Wind",
+    "soulBreak": "Wind Chosen",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -34038,7 +34038,7 @@
     "effect": null,
     "character": "Luneth",
     "soulBreak": null,
-    "legendMateria": "Child of Ur",
+    "legendMateria": "Rascal of Ur",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -40239,7 +40239,7 @@
       "level": 20,
       "atk": 147,
       "def": 0,
-      "mag": 68,
+      "mag": 0,
       "res": 0,
       "mnd": 0,
       "acc": 95,
@@ -40248,7 +40248,7 @@
     "effect": null,
     "character": "Firion",
     "soulBreak": null,
-    "legendMateria": "Rebel's Just Cause",
+    "legendMateria": "Defying Oppression",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -52577,7 +52577,7 @@
     },
     "effect": "Water damage +20%",
     "character": "Meia",
-    "soulBreak": "Megiddo Flood",
+    "soulBreak": "Megido Flood",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -52667,7 +52667,7 @@
     },
     "effect": "Earth damage +20%",
     "character": "Emperor",
-    "soulBreak": "Repentance Thorns",
+    "soulBreak": "Repentence Thorns",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -55187,7 +55187,7 @@
     },
     "effect": "Fire damage +20%",
     "character": "Vivi",
-    "soulBreak": "Fire for the Future",
+    "soulBreak": "Balefire Pyre",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -55682,7 +55682,7 @@
     },
     "effect": null,
     "character": "Penelo",
-    "soulBreak": "Dance of Love",
+    "soulBreak": "Dancing Heart",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -65852,7 +65852,7 @@
     },
     "effect": "Chance to cause Silence",
     "character": "Yuna",
-    "soulBreak": "Will to Surpass Fate",
+    "soulBreak": "Boundless Heart",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -72467,7 +72467,7 @@
     },
     "effect": null,
     "character": "Fran",
-    "soulBreak": "Chain of Ice",
+    "soulBreak": "Chain of Blizzard",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -76005,7 +76005,7 @@
     "gl": true
   },
   {
-    "name": "Siren's Flute",
+    "name": "Siren Flute",
     "realm": "VI",
     "type": "Instrument",
     "rarity": 6,
@@ -76022,7 +76022,7 @@
     },
     "effect": "Dark damage +20%",
     "character": "Kefka",
-    "soulBreak": "Wings of Destruction",
+    "soulBreak": "Stroke of Destruction",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -82322,7 +82322,7 @@
     },
     "effect": null,
     "character": "Hope",
-    "soulBreak": "Enchant Boomerang",
+    "soulBreak": "Enchanted Boomerang",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -90963,7 +90963,7 @@
     "effect": null,
     "character": "Tyro",
     "soulBreak": null,
-    "legendMateria": "Admiration of Heroes",
+    "legendMateria": "Heroic Aspiration",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -98657,7 +98657,7 @@
     },
     "effect": "Water damage +20%",
     "character": "Gogo (V)",
-    "soulBreak": "Essence of Mimicry",
+    "soulBreak": "Secret Revelation?",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -112068,7 +112068,7 @@
     "effect": "Fire resistance (minor)",
     "character": "Meia",
     "soulBreak": null,
-    "legendMateria": "Liberation from Hatred",
+    "legendMateria": "Free from Hatred",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -124308,7 +124308,7 @@
     "effect": null,
     "character": "Cecil (Paladin)",
     "soulBreak": null,
-    "legendMateria": "Possibility of Sacred Power",
+    "legendMateria": "Holy Promise",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -127232,7 +127232,7 @@
     },
     "effect": null,
     "character": "Penelo",
-    "soulBreak": "Concern for Friends",
+    "soulBreak": "Childhood Bond",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -132768,7 +132768,7 @@
     "effect": null,
     "character": "Cecil (Paladin)",
     "soulBreak": null,
-    "legendMateria": "Blossoming of Sacred Power",
+    "legendMateria": "Holy Dawn",
     "baseStats": {
       "rarity": 5,
       "level": 20,

@@ -1396,7 +1396,9 @@ Object {
         damage: 'phys 7.1/10 rngd',
         other:
           '-30% A/D/M/R/MND 25s, 15s: (Support dmg ⤇ hi fastcast 1, p0.5/2 rngd Support, ' +
-          '-40% ATK/-50% DEF/-40% MAG/-50% RES 15s (random))',
+          // TODO: Verify this
+          // '-40% ATK/-50% DEF/-40% MAG/-50% RES 15s (random))',
+          '-40% ATK/-40% DEF/-50% MAG/-50% RES 15s (random))',
       });
       expect(describeSoulBreak('Ramza - Seeker of Truth')).toEqual({
         damage: 'phys 7.1/10 holy+non',
@@ -2238,7 +2240,7 @@ Object {
           '15s: Awoken Scholar: Support inf. hones, 2-3x Support cast @ rank 1-5',
       });
 
-      expect(describeSoulBreak('Vivi - AASB')).toEqual({
+      expect(describeSoulBreak('Vivi - AASB1')).toEqual({
         damage: 'magic 22.5/15 fire+non',
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +

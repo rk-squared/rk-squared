@@ -11342,6 +11342,59 @@
     "gl": false
   },
   {
+    "school": "Dragoon",
+    "name": "Serpent Dive",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.04,
+    "element": [
+      "Water"
+    ],
+    "time": 0.82,
+    "effects": "6 single ranged jump attacks (0.84 each), air time (1.65/0.82/0.55) if the user used 0/1/2 damaging actions",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Lightning Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "5th Anniversary",
+    "nameJp": "サーペントダイブ",
+    "id": 30181171,
+    "gl": false
+  },
+  {
     "school": "Monk",
     "name": "Death Strike",
     "rarity": 2,
@@ -15671,7 +15724,7 @@
   },
   {
     "school": "Ninja",
-    "name": "Azure Horizon",
+    "name": "Azure Unending",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -18858,6 +18911,59 @@
     "introducingEvent": "Trailing Spira's Dream",
     "nameJp": "トリニティブリット",
     "id": 30281112,
+    "gl": false
+  },
+  {
+    "school": "Sharpshooter",
+    "name": "Ruby Bullet",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.75,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Five single ranged attacks (0.95 each), 1.05 multiplier when equipping a ranged weapon",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Fire Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Lightning Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "5th Anniversary",
+    "nameJp": "ルビーブリット",
+    "id": 30281131,
     "gl": false
   },
   {
