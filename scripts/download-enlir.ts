@@ -508,6 +508,7 @@ function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean =
     if (tierColumn !== -1 && !rows[i][tierColumn]) {
       logger.warn(`Skipping row ${i + 1}: Missing tier`);
       logger.warn(rows[i].join(', '));
+      continue;
     }
 
     for (let j = 0; j < rows[0].length; j++) {
