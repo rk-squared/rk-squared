@@ -2715,21 +2715,21 @@
     "max": 10,
     "orbs": {
       "Black Crystal": [
-        null,
+        0,
         10,
         15,
         50,
         75
       ],
       "Fire Crystal": [
-        null,
+        0,
         5,
         10,
         25,
         35
       ],
       "Ice Crystal": [
-        null,
+        0,
         5,
         10,
         25,
@@ -7167,21 +7167,21 @@
     "max": 10,
     "orbs": {
       "Power Crystal": [
-        null,
+        0,
         10,
         15,
         50,
         75
       ],
       "Non-Elemental Crystal": [
-        null,
+        0,
         5,
         10,
         25,
         35
       ],
       "Fire Crystal": [
-        null,
+        0,
         5,
         10,
         25,
@@ -13094,21 +13094,21 @@
     "max": 10,
     "orbs": {
       "Fire Crystal": [
-        null,
+        0,
         10,
         15,
         50,
         75
       ],
       "Wind Crystal": [
-        null,
+        0,
         5,
         10,
         25,
         35
       ],
       "Dark Crystal": [
-        null,
+        0,
         5,
         10,
         25,
@@ -13147,21 +13147,21 @@
     "max": 10,
     "orbs": {
       "Ice Crystal": [
-        null,
+        0,
         10,
         15,
         50,
         75
       ],
       "Wind Crystal": [
-        null,
+        0,
         5,
         10,
         25,
         35
       ],
       "Dark Crystal": [
-        null,
+        0,
         5,
         10,
         25,

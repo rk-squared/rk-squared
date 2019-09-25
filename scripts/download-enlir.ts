@@ -149,6 +149,10 @@ function convertAbilities(rows: any[]): any[] {
         if (rows[i][j]) {
           if (orb == null || orb === '') {
             throw new Error(`Got orb count with no orb at row ${i} column ${j}`);
+          } else if (!item.orbs[orb].length && (rows[i][j] === '?' || rows[i][j] === '')) {
+            // Record Board rank 1 has no orb costs, but the spreadsheet may
+            // represent that inconsistently.
+            item.orbs[orb].push(0);
           } else {
             item.orbs[orb].push(toInt(rows[i][j]));
           }
