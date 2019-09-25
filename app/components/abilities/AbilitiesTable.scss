@@ -14,15 +14,15 @@ $orbCosts-width: 8.25em;
     margin-right: 0.5em;
   }
 
-  .name {
+  col.name {
     width: $name-width;
   }
 
-  .orbCosts {
+  col.orbCosts {
     width: $orbCosts-width;
   }
 
-  .effects {
+  col.effects {
     width: calc(100% - $name-width - $orbCosts-width);
   }
 
@@ -33,5 +33,9 @@ $orbCosts-width: 8.25em;
   tr.grouped + tr,
   tr.grouped + tr > td {
     border-top: none;
+  }
+
+  tr.jp > td.name {
+    font-style: italic;
   }
 }

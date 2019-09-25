@@ -89,15 +89,21 @@ export class AbilitiesTable extends React.PureComponent<Props> {
     const mrP = mrPAbilities[id];
 
     return (
-      <tr key={key} className={classNames({ [styles.grouped]: ability.groupWithNext })}>
-        <td data-tip={id} data-for={abilitiesTooltipId}>
+      <tr
+        key={key}
+        className={classNames({
+          [styles.grouped]: ability.groupWithNext,
+          [styles.jp]: !ability.gl,
+        })}
+      >
+        <td data-tip={id} data-for={abilitiesTooltipId} className={styles.name}>
           {name}
         </td>
-        <td>
+        <td className={styles.effects}>
           {/* Omit tooltip here - it's too big of an area to have a big distracting text box */}
           {formatMrP(mrP)}
         </td>
-        <td data-tip={id} data-for={orbCostsTooltipId}>
+        <td data-tip={id} data-for={orbCostsTooltipId} className={styles.orbCosts}>
           <OrbCostsDisplay costs={getOrbCosts(ability)} baseRarity={rarity} />
         </td>
       </tr>

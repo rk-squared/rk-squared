@@ -22,6 +22,7 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 14. Error reporting (Sentry?)
 15. Rubies / ruby tracker
 16. Touch-friendly tooltips?
+17. Sorting/filtering for soul breaks and relic draw lists - e.g., sort by element
 
 ### JP support
 
