@@ -38,9 +38,10 @@ export const orbCosts = {
   '15': [15, 30, 45, 75, 150],
 
   // Bahamut (VI) - because this was a one-time reward, it has no cost for
-  // rank 1.
-  '06+': [0, 12, 24, 36, 60],
-  '010': [0, 20, 40, 60, 100],
+  // rank 1.  However, it's simpler and clearer for the user to patch Enlir
+  // to include a rank 1 cost.
+  // '06+': [0, 12, 24, 36, 60],
+  // '010': [0, 20, 40, 60, 100],
 
   // Record Board abilities have no cost for rank 1.
   R10: [0, 10, 15, 50, 75],

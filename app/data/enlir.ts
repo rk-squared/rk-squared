@@ -901,6 +901,20 @@ function patchEnlir() {
     ability => ability.effects === 'Causes Slow (50%), if successful grants Haste to the user',
     ability => (ability.effects = 'Causes Slow (50%), grants Haste to the user if successful'),
   );
+
+  // Patch Bahamut (VI) to have an orb cost for rank 1.
+  const bahamutOrbs = ['Major Summon', 'Major Non-Elemental', 'Major Dark'];
+  applyPatch(
+    enlir.abilitiesByName,
+    'Bahamut (VI)',
+    ability => _.every(bahamutOrbs, i => ability.orbs[i] && ability.orbs[i][0] === 0),
+    ability => {
+      const bahamutV = enlir.abilitiesByName['Bahamut (V)'];
+      for (const orb of bahamutOrbs) {
+        ability.orbs[orb][0] = bahamutV.orbs[orb][0];
+      }
+    },
+  );
 }
 patchEnlir();
 
