@@ -19,6 +19,28 @@ interface Props {
   id: string;
 }
 
+function CostCells({
+  costs,
+  startingRank,
+  className,
+}: {
+  costs: number[];
+  startingRank: number;
+  className: string;
+}) {
+  return (
+    <>
+      {costs.map((n, j) =>
+        j + 1 < startingRank ? null : (
+          <td key={j} className={className}>
+            {n}
+          </td>
+        ),
+      )}
+    </>
+  );
+}
+
 export class OrbCostsTooltip extends React.Component<Props> {
   // noinspection JSUnusedGlobalSymbols
   static contextType = LangContext;
@@ -68,20 +90,16 @@ export class OrbCostsTooltip extends React.Component<Props> {
                 )}
                 {id && itemsById[id].name}
               </td>
-              {(orbCosts[cost] || []).map((n, j) =>
-                j + 1 < startingRank ? null : (
-                  <td key={j} className={styles.rankCost}>
-                    {n}
-                  </td>
-                ),
-              )}
-              {runningTotal(orbCosts[cost] || []).map((n, j) =>
-                j + 1 < startingRank ? null : (
-                  <td key={j} className={styles.totalCost}>
-                    {n}
-                  </td>
-                ),
-              )}
+              <CostCells
+                costs={orbCosts[cost] || []}
+                startingRank={startingRank}
+                className={styles.rankCost}
+              />
+              <CostCells
+                costs={runningTotal(orbCosts[cost] || [])}
+                startingRank={startingRank}
+                className={styles.totalCost}
+              />
             </tr>
           ))}
         </tbody>
