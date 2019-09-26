@@ -3,10 +3,13 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 import * as _ from 'lodash';
 
-import { EnlirAbility, EnlirSchool } from '../../data/enlir';
+import { LangType } from '../../api/apiUrls';
+import { LangContext } from '../../contexts/LangContext';
+import { enlir, EnlirAbility, EnlirSchool } from '../../data/enlir';
 import { schoolIcons } from '../../data/localData';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
 import { getOrbCosts } from '../../data/orbDetails';
+import * as urls from '../../data/urls';
 import { OrbCostsDisplay } from './OrbCostsDisplay';
 
 const styles = require('./AbilitiesTable.scss');
@@ -16,6 +19,7 @@ const mrPAbilities: { [id: number]: MrPSoulBreak } = {};
 interface Props {
   abilities: { [s in EnlirSchool]?: EnlirAbility[] };
   schools: EnlirSchool[];
+  showRecordBoard?: boolean;
   className?: string;
   abilitiesTooltipId?: string;
   orbCostsTooltipId?: string;
@@ -75,7 +79,21 @@ export function groupAbilities(abilities: EnlirAbility[]): GroupedEnlirAbility[]
   return result;
 }
 
+function RecordBoardCharacterIcon({ character, lang }: { character: string; lang: LangType }) {
+  if (!enlir.charactersByName[character]) {
+    return null;
+  }
+  const id = enlir.charactersByName[character].id;
+  return (
+    <img src={urls.characterImage(lang, id)} className={styles.characterIcon} alt={character} />
+  );
+}
+
 export class AbilitiesTable extends React.PureComponent<Props> {
+  // noinspection JSUnusedGlobalSymbols
+  static contextType = LangContext;
+  context!: React.ContextType<typeof LangContext>;
+
   renderRow(ability: GroupedEnlirAbility, key: number) {
     const { abilitiesTooltipId, orbCostsTooltipId } = this.props;
     const { id, name, rarity } = ability;
@@ -87,6 +105,7 @@ export class AbilitiesTable extends React.PureComponent<Props> {
       });
     }
     const mrP = mrPAbilities[id];
+    const lang = ability.gl ? (this.context as LangType) : LangType.Jp;
 
     return (
       <tr
@@ -97,6 +116,9 @@ export class AbilitiesTable extends React.PureComponent<Props> {
         })}
       >
         <td data-tip={id} data-for={abilitiesTooltipId} className={styles.name}>
+          {ability.recordBoardCharacter && (
+            <RecordBoardCharacterIcon character={ability.recordBoardCharacter} lang={lang} />
+          )}
           {name}
         </td>
         <td className={styles.effects}>
@@ -111,10 +133,14 @@ export class AbilitiesTable extends React.PureComponent<Props> {
   }
 
   render() {
-    const { abilities, schools, className } = this.props;
+    const { abilities, schools, className, showRecordBoard } = this.props;
+
+    const allClassNames = classNames('table table-sm table-bordered', styles.component, className, {
+      [styles.recordBoard]: showRecordBoard,
+    });
 
     return (
-      <table className={classNames('table table-sm table-bordered', styles.component, className)}>
+      <table className={allClassNames}>
         <colgroup>
           <col className={styles.name} />
           <col className={styles.effects} />

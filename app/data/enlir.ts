@@ -210,6 +210,7 @@ export interface EnlirAbility extends EnlirGenericSkill {
   orbs: { [orbName: string]: number[] };
   introducingEvent: string | string;
   nameJp: string;
+  recordBoardCharacter?: string;
 }
 
 export interface EnlirBraveCommand extends EnlirGenericSkill {

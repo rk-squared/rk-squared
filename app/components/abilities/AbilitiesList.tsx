@@ -27,12 +27,14 @@ const sortedSchools: EnlirSchool[][] = [
 
 interface Props {
   rarity: number;
+  showRecordBoard?: boolean;
 }
 
-export function getAbilitiesBySchool(rarity: number) {
+export function getAbilitiesBySchool(rarity: number, showRecordBoard?: boolean) {
   const bySchool: { [s in EnlirSchool]?: EnlirAbility[] } = {};
+  showRecordBoard = !!showRecordBoard;
   _.forEach(enlir.abilities, i => {
-    if (i.rarity === rarity) {
+    if (i.rarity === rarity && !!i.recordBoardCharacter === showRecordBoard) {
       bySchool[i.school] = bySchool[i.school] || [];
       bySchool[i.school]!.push(i);
     }
@@ -42,8 +44,8 @@ export function getAbilitiesBySchool(rarity: number) {
 
 export class AbilitiesList extends React.PureComponent<Props> {
   render() {
-    const { rarity } = this.props;
-    const abilities = getAbilitiesBySchool(rarity);
+    const { rarity, showRecordBoard } = this.props;
+    const abilities = getAbilitiesBySchool(rarity, showRecordBoard);
     const abilitiesTooltipId = `abilities-${rarity}-tooltips`;
     const orbCostsTooltipId = `orbCosts-${rarity}-tooltips`;
     return (
@@ -52,6 +54,7 @@ export class AbilitiesList extends React.PureComponent<Props> {
           <AbilitiesTable
             abilities={abilities}
             schools={_.flatten(sortedSchools)}
+            showRecordBoard={showRecordBoard}
             abilitiesTooltipId={abilitiesTooltipId}
             orbCostsTooltipId={orbCostsTooltipId}
           />

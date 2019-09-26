@@ -14,6 +14,11 @@ $orbCosts-width: 8.25em;
     margin-right: 0.5em;
   }
 
+  .characterIcon {
+    width: 3em;
+    height: 3em;
+  }
+
   col.name {
     width: $name-width;
   }
@@ -24,6 +29,16 @@ $orbCosts-width: 8.25em;
 
   col.effects {
     width: calc(100% - #{$name-width} - #{$orbCosts-width});
+  }
+
+  // Record Board cells are taller due to showing character icons, so
+  // vertically align their contents.  (Normally, cells would only be taller if
+  // they word wrap; vertical alignment seems less good there.
+  .recordBoard td {
+    vertical-align: middle;
+  }
+  .recordBoard td.name {
+    white-space: nowrap;
   }
 
   tr.grouped,

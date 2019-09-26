@@ -168,6 +168,26 @@ function convertAbilities(rows: any[]): any[] {
   return abilities;
 }
 
+/**
+ * Post-process abilities to remove "(Character Only)" from record boards and
+ * replace it with a new character name field.  This is implemented as a
+ * post-processor so that it can access the characters list if necessary,
+ * although it doesn't currently need it.
+ */
+function postProcessAbilities(abilities: any[]) {
+  const recordBoardCharacterRegex = / \((.*) Only\)$/;
+  _.forEach(abilities, ability => {
+    const orbs = Object.keys(ability.orbs);
+    const m = ability.name.match(recordBoardCharacterRegex);
+    if (!m || !orbs[orbs.length - 1].match(/Record Board$/)) {
+      return;
+    }
+
+    ability.recordBoardCharacter = m[1];
+    ability.name = ability.name.replace(recordBoardCharacterRegex, '');
+  });
+}
+
 function convertCharacters(rows: any[]): any[] {
   const characters = [];
 
@@ -622,6 +642,7 @@ const dataTypes: DataType[] = [
     localName: 'abilities',
     includeNotes: true,
     converter: convertAbilities,
+    postProcessor: postProcessAbilities,
   },
   {
     sheet: 'Brave',

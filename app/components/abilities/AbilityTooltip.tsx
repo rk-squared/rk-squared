@@ -24,9 +24,13 @@ export class AbilityTooltip extends React.Component<Props> {
     }
     const ability = enlir.abilities[abilityId];
     const lang = ability.gl ? (this.context as LangType) : LangType.Jp;
+    const character = ability.recordBoardCharacter
+      ? enlir.charactersByName[ability.recordBoardCharacter]
+      : undefined;
     return (
       <>
         <div className={styles.iconsBlock}>
+          {character && <img src={urls.characterImage(lang, character.id)} />}
           <img src={urls.abilityImage(lang, +abilityId)} />
         </div>
 

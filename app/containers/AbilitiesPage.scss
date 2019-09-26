@@ -2,4 +2,12 @@
   .component :global(.nav) {
     margin-bottom: 1em;
   }
+
+  .abilities {
+    display: none;
+  }
+
+  :global(.active) .abilities {
+    display: inline;
+  }
 }

@@ -16,6 +16,19 @@ function AbilitiesTab({ match }: RouteComponentProps<{ rarity: string }>) {
   return <AbilitiesList rarity={rarity} key={rarity} />;
 }
 
+function RecordBoardAbilitiesTab() {
+  return (
+    <div>
+      <p>
+        The Record Board is a new feature added for 5th Anniversary (September 2019 for JP, March
+        2020 for GL). It allows you to unlock various character-specific bonuses, including new
+        character-specific abilities.
+      </p>
+      <AbilitiesList rarity={6} showRecordBoard={true} key={'6RB'} />
+    </div>
+  );
+}
+
 export class AbilitiesPage extends React.PureComponent<RouteComponentProps> {
   redirect = () => <Redirect to={joinUrl(this.props.match.url, MAX_ABILITY_RARITY.toString())} />;
 
@@ -26,6 +39,16 @@ export class AbilitiesPage extends React.PureComponent<RouteComponentProps> {
     return (
       <Page title="Abilities" className={styles.component}>
         <ul className="nav nav-tabs">
+          <li className="nav-item">
+            <NavLink
+              exact
+              className="nav-link"
+              activeClassName="active"
+              to={joinUrl(match.url, 'recordBoard')}
+            >
+              Record Board
+            </NavLink>
+          </li>
           {rarities.map(i => (
             <li className="nav-item" key={i}>
               <NavLink
@@ -34,13 +57,14 @@ export class AbilitiesPage extends React.PureComponent<RouteComponentProps> {
                 activeClassName="active"
                 to={joinUrl(match.url, i.toString())}
               >
-                {i}⭑ Abilities
+                {i}⭑<span className={styles.abilities}> Abilities</span>
               </NavLink>
             </li>
           ))}
         </ul>
 
         <Route exact path={match.path} render={this.redirect} />
+        <Route exact path={joinUrl(match.path, 'recordBoard')} render={RecordBoardAbilitiesTab} />
         <Route exact path={joinUrl(match.path, ':rarity(\\d+)')} render={AbilitiesTab} />
       </Page>
     );

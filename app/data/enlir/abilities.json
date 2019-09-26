@@ -2694,7 +2694,7 @@
   },
   {
     "school": "Black Magic",
-    "name": "Grand Onion Magic (Onion Knight Only)",
+    "name": "Grand Onion Magic",
     "rarity": 6,
     "type": "BLK",
     "target": "Single",
@@ -2742,7 +2742,8 @@
     "introducingEvent": "5th Anniversary",
     "nameJp": "たまねぎ大魔法",
     "id": 30111371,
-    "gl": false
+    "gl": false,
+    "recordBoardCharacter": "Onion Knight"
   },
   {
     "school": "White Magic",
@@ -7149,7 +7150,7 @@
   },
   {
     "school": "Celerity",
-    "name": "Shift Flame (Noctis Only)",
+    "name": "Shift Flame",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -7198,7 +7199,8 @@
     "introducingEvent": "5th Anniversary",
     "nameJp": "シフトフレイム",
     "id": 30171231,
-    "gl": false
+    "gl": false,
+    "recordBoardCharacter": "Noctis"
   },
   {
     "school": "Summoning",
@@ -8961,7 +8963,7 @@
   },
   {
     "school": "Summoning",
-    "name": "Summoners' Band (Rydia Only)",
+    "name": "Summoners' Band",
     "rarity": 6,
     "type": "SUM",
     "target": "All enemies",
@@ -9009,7 +9011,8 @@
     "introducingEvent": "5th Anniversary",
     "nameJp": "サモナーズバンド",
     "id": 30131441,
-    "gl": false
+    "gl": false,
+    "recordBoardCharacter": "Rydia"
   },
   {
     "school": "Spellblade",
@@ -13076,7 +13079,7 @@
   },
   {
     "school": "Thief",
-    "name": "Mirage Raid (Locke Only)",
+    "name": "Mirage Raid",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13125,11 +13128,12 @@
     "introducingEvent": "5th Anniversary",
     "nameJp": "ミラージュレイド",
     "id": 30201151,
-    "gl": false
+    "gl": false,
+    "recordBoardCharacter": "Locke"
   },
   {
     "school": "Thief",
-    "name": "Al Bhed Steal (Rikku Only)",
+    "name": "Al Bhed Steal",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13178,7 +13182,8 @@
     "introducingEvent": "5th Anniversary",
     "nameJp": "アルベド・スティール",
     "id": 30201161,
-    "gl": false
+    "gl": false,
+    "recordBoardCharacter": "Rikku"
   },
   {
     "school": "Knight",
