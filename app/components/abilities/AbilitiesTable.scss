@@ -23,7 +23,7 @@ $orbCosts-width: 8.25em;
   }
 
   col.effects {
-    width: calc(100% - $name-width - $orbCosts-width);
+    width: calc(100% - #{$name-width} - #{$orbCosts-width});
   }
 
   tr.grouped,
