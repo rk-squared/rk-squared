@@ -2237,7 +2237,7 @@ Object {
           'party Haste, crit =50% 25s, +30% ATK/DEF 25s, ' +
           '15s: (1-5 Support ⤇ crit =60%/70%/80%/90%/100%), ' +
           '15s: (3 Support ⤇ party +50% crit dmg 1 turn), ' +
-          '15s: Awoken Scholar: Support inf. hones, 2-3x Support cast @ rank 1-5',
+          '15s: Awoken Keeper Mode: Support inf. hones, 2-3x Support cast @ rank 1-5',
       });
 
       expect(describeSoulBreak('Vivi - AASB1')).toEqual({

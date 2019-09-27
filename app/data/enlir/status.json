@@ -11003,7 +11003,7 @@
   },
   {
     "id": 50499,
-    "name": "Saint Dual Follow-Up",
+    "name": "Saintly Duel Follow-Up",
     "effects": "Casts Saint Dual after using a Holy attack",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11036,8 +11036,8 @@
   },
   {
     "id": 50501,
-    "name": "Awoken Scholar",
-    "effects": "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, grants Awoken Scholar Critical Chance to all allies",
+    "name": "Awoken Keeper Mode",
+    "effects": "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, grants Awoken Keeper Mode Critical Chance to all allies",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11146,7 +11146,7 @@
   },
   {
     "id": 50517,
-    "name": "Awoken Scholar Critical Chance",
+    "name": "Awoken Keeper Mode Critical Chance",
     "effects": "Grants Critical Chance 60/70/80/90/100% after using 1/2/3/4/5 Support abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12890,9 +12890,9 @@
   },
   {
     "id": 50726,
-    "name": "",
-    "effects": "",
-    "defaultDuration": 15,
+    "name": "Phantom Flame Mode",
+    "effects": "Increases Phantom Flame level by 1 when using Tricky Flame, decreases Phantom Flame level by 1 when using Glide Flame, removed if user hasn't Synchro Mode",
+    "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
@@ -12901,9 +12901,9 @@
   },
   {
     "id": 50727,
-    "name": "",
-    "effects": "",
-    "defaultDuration": 15,
+    "name": "Hunter's Edge Counter",
+    "effects": "Keeps track of the number of uses of  Hunter's Edge, removed if user hasn't Synchro Mode",
+    "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
@@ -14458,6 +14458,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_ATK_DEF",
+    "notes": null
+  },
+  {
+    "id": 611131,
+    "name": "ATK and DEF -50%",
+    "effects": "ATK and DEF -50%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_M50_WITH_DURATION_SMALL_8000",
     "notes": null
   },
   {

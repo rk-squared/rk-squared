@@ -371,7 +371,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Scholar and Unraveled History Follow-Up to the user",
+    "effects": "Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode and Unraveled History Follow-Up to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -8393,7 +8393,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Ten single hybrid attacks (0.71 or 1.80 each), grants 50% Damage Reduction Barrier 2 to all allies, grants Attach Holy Stacking, Attach Holy and Saint Dual Follow-Up to the user",
+    "effects": "Ten single hybrid attacks (0.71 or 1.80 each), grants 50% Damage Reduction Barrier 2 to all allies, grants Attach Holy Stacking, Attach Holy and Saintly Duel Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -12092,7 +12092,7 @@
     "nameJp": "命と魂の護り手",
     "id": 20200014,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -12114,7 +12114,7 @@
     "nameJp": "タイクーンガード",
     "id": 20200015,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -12414,7 +12414,7 @@
     "nameJp": "知己朋友",
     "id": 20650013,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -14590,7 +14590,7 @@
     "nameJp": "しんあいなるものたち",
     "id": 20940017,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -15784,7 +15784,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Fire 3 with Stacking, Synchro Mode and Damage Cap +10000 to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Fire 3 with Stacking, Synchro Mode, Damage Cap +10000 and Hunter's Edge Counter to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -15792,6 +15792,7 @@
     "relic": "Danjuro (VI)",
     "nameJp": "フェニックスヒート",
     "id": 20240019,
+    "anima": null,
     "gl": false
   },
   {
@@ -16849,6 +16850,53 @@
     "id": 20550010,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "VI",
+    "character": "Sabin",
+    "name": "Fiery Draconic Fist",
+    "tier": "AASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Fire, Awoken Fire, Damage Cap +10000, Physical Blink 3 and Unsoku Mode to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "soulbreakBonus": "ATK +10",
+    "relic": "Battle Freak (VI)",
+    "nameJp": "猛火竜吼撃",
+    "id": 20550012,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Sabin",
+    "name": "Flaring Fist",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Attach Fire Stacking, Attach Fire and Instant Cast 1",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "soulbreakBonus": "ATK +10",
+    "relic": "Kenpogi (VI)",
+    "nameJp": "燃え盛る拳",
+    "id": 20550013,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "VI",
@@ -21883,6 +21931,7 @@
     "relic": "Dragonslayer (VII)",
     "nameJp": "焔摩天",
     "id": 20250018,
+    "anima": null,
     "gl": false
   },
   {
@@ -21907,6 +21956,7 @@
     "relic": "Entenmaru (VII)",
     "nameJp": "煉獄",
     "id": 20250019,
+    "anima": null,
     "gl": false
   },
   {
@@ -21917,13 +21967,13 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 7.1,
     "element": [
       "Fire",
       "NE"
     ],
     "time": 2.5,
-    "effects": "Ten single attacks (? each), grants Attach Fire Stacking, Attach Fire, Critical Damage +50% and Instant Cast 1 to the user",
+    "effects": "Ten single attacks (0.71 each), grants Attach Fire with Stacking, Critical Damage +50% and Instant Cast 1 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -21931,6 +21981,7 @@
     "relic": "Ashura (VII)",
     "nameJp": "紅蓮",
     "id": 20250020,
+    "anima": null,
     "gl": false
   },
   {
@@ -21952,6 +22003,7 @@
     "relic": "Ama no Murakumo-shinuchi (VII)",
     "nameJp": "瞬息",
     "id": 20250021,
+    "anima": null,
     "gl": false
   },
   {
@@ -26096,7 +26148,7 @@
   {
     "realm": "VIII",
     "character": "Edea",
-    "name": "Ice Sorceress",
+    "name": "Ice Cloak",
     "tier": "Glint+",
     "type": "NAT",
     "target": null,
@@ -27967,6 +28019,7 @@
     "relic": "Frostspark Staff (IX)",
     "nameJp": "未来への転機",
     "id": 20370014,
+    "anima": null,
     "gl": false
   },
   {
@@ -27991,6 +28044,7 @@
     "relic": "Vivi's Robe (IX)",
     "nameJp": "凍える雷槌",
     "id": 20370015,
+    "anima": null,
     "gl": false
   },
   {
@@ -28012,6 +28066,7 @@
     "relic": "Robe of Lords (IX)",
     "nameJp": "クイックマジック",
     "id": 20370016,
+    "anima": null,
     "gl": false
   },
   {
@@ -35564,7 +35619,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Fire, Awoken Fire, Damage Cap +10000, Quick Cast and Scorching Bullet Follow-Up to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants Attach Fire, Awoken Fire, Damage Cap +10000, High Quick Cast and Scorching Bullet Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -35572,6 +35627,7 @@
     "relic": "Valiant (XII)",
     "nameJp": "業火のアンタッチャブル",
     "id": 20440014,
+    "anima": null,
     "gl": false
   },
   {
@@ -35593,6 +35649,7 @@
     "relic": "Barrel Coat (XII)",
     "nameJp": "焼夷トラップ",
     "id": 20440015,
+    "anima": null,
     "gl": false
   },
   {
@@ -42320,11 +42377,11 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attack (0.60 each), grants High Quick Cast 1, Attach Fire 3 with Stacking, Synchro Mode and Damage Cap +10000 to the user",
+    "effects": "Fifteen single attack (0.60 each), grants Attach Fire 3 with Stacking, Synchro Mode, Damage Cap +10000, High Quick Cast 1 and Phantom Flame Mode to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
-    "soulbreakBonus": "ATK +10",
+    "soulbreakBonus": "Damage Up, Cast Time Down",
     "relic": "Shield of the Just (XV)",
     "nameJp": "真リンクアタック・I",
     "id": 22740012,
@@ -42338,20 +42395,22 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 3,
     "element": [
       "Fire",
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (?) capped at 99999, multiplier increased by ? for every SB point, grants Attach Fire Stacking and Attach Fire to the user",
+    "effects": "One single attack (3.00) capped at 99999, multiplier increased by 0.0018 for every SB point, grants Attach Fire with Stacking to the user",
+    "effectsNote": "If used as a RW, this SB will be considered as if having 500 SB points, so with a 3.9x multiplier.",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 0,
-    "soulbreakBonus": "Damage Up, Cast Time Down",
+    "soulbreakBonus": "ATK +10",
     "relic": "Soul Saber (XV)",
     "nameJp": "バーストアタック",
     "id": 22740013,
+    "anima": null,
     "gl": false
   },
   {
@@ -47480,7 +47539,7 @@
     "nameJp": "裏拳",
     "id": 23360001,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -47622,7 +47681,7 @@
     "nameJp": "チャージショット",
     "id": 23370001,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -52750,7 +52809,7 @@
     "nameJp": null,
     "id": 23060039,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -52773,7 +52832,7 @@
     "nameJp": null,
     "id": 23060040,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",

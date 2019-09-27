@@ -53817,7 +53817,7 @@
       "eva": null
     },
     "id": 21008234,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rod of the Depths",
@@ -60207,7 +60207,7 @@
       "eva": null
     },
     "id": 21008200,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Oak Staff",
@@ -65337,7 +65337,7 @@
       "eva": null
     },
     "id": 21009153,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Staff of the Magi",
@@ -67182,7 +67182,7 @@
       "eva": null
     },
     "id": 21009073,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Healing Staff",
@@ -79017,7 +79017,7 @@
       "eva": null
     },
     "id": 21012042,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Malboro Tentacle",
@@ -101787,7 +101787,7 @@
       "eva": 105
     },
     "id": 22051116,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Estharian Helmet",
@@ -108717,7 +108717,7 @@
       "eva": 100
     },
     "id": 22053365,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Freelancer Faris's Guise",
@@ -112857,7 +112857,7 @@
       "eva": 100
     },
     "id": 22053245,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Black Belt Gi",
@@ -114072,7 +114072,7 @@
       "eva": 100
     },
     "id": 22053386,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Xezat's Cloak",
@@ -140535,6 +140535,96 @@
     "gl": true
   },
   {
+    "name": "Shadowsmith's Glasses",
+    "realm": "Core",
+    "type": "Accessory",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 15,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison resistance (minor)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": null,
+      "mag": 15,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": null,
+      "mag": 15,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080583,
+    "gl": false
+  },
+  {
+    "name": "5th Anniversary Certificate",
+    "realm": "Core",
+    "type": "Accessory",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 15,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "HP +700",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 15,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 15,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080584,
+    "gl": false
+  },
+  {
     "name": "Metal Card",
     "realm": "III",
     "type": "Accessory",
@@ -143907,7 +143997,7 @@
       "eva": null
     },
     "id": 23080259,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ingus's Pendant",
@@ -148587,6 +148677,51 @@
       "eva": null
     },
     "id": 23080080,
+    "gl": false
+  },
+  {
+    "name": "Steiner's Boots",
+    "realm": "IX",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Ice resistance (moderate), Poison immunity (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080524,
     "gl": false
   },
   {

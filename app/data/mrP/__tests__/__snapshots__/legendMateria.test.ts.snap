@@ -3135,6 +3135,12 @@ Array [
     "name": "Bringer of Dawn",
   },
   Object {
+    "character": "Noctis",
+    "description": "fire infuse at battle start",
+    "effect": "Grants Attach Fire at the beginning of the battle",
+    "name": "True Friendship",
+  },
+  Object {
     "character": "Noel",
     "description": "1.1x PHY dmg",
     "effect": "PHY attacks deal 10% more damage",
@@ -4165,6 +4171,12 @@ Array [
     "description": "25% dualcast Darkness",
     "effect": "25% chance to dualcast Darkness abilities",
     "name": "Apocalyptic Hero",
+  },
+  Object {
+    "character": "Sephiroth",
+    "description": "25% dualcast Samurai",
+    "effect": "25% chance to dualcast Samurai abilities",
+    "name": "Severe Blade",
   },
   Object {
     "character": "Serafie",

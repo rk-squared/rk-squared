@@ -114,7 +114,7 @@ const hideDuration = new Set(['Astra', 'Stun']);
 const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwokenStatus = (status: string) =>
   status.startsWith('Awoken ') &&
-  status !== 'Awoken Scholar Critical Chance' &&
+  status !== 'Awoken Keeper Mode Critical Chance' &&
   !status.endsWith(' Follow-Up');
 
 interface FollowUpEffect {

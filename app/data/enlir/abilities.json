@@ -7155,34 +7155,34 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 3,
     "element": [
       "Fire"
     ],
-    "time": null,
-    "effects": "Three single attacks (? each), grants Instant Cast 1 to the user",
-    "counter": false,
+    "time": 1.2,
+    "effects": "Three single attacks (1.00 each), grants Instant Cast 1 to the user",
+    "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 80,
     "uses": 2,
     "max": 10,
     "orbs": {
       "Power Crystal": [
-        0,
+        null,
         10,
         15,
         50,
         75
       ],
       "Non-Elemental Crystal": [
-        0,
+        null,
         5,
         10,
         25,
         35
       ],
       "Fire Crystal": [
-        0,
+        null,
         5,
         10,
         25,
