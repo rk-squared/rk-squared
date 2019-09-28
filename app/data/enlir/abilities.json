@@ -14877,7 +14877,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.74 - 0.88 each scaling with targets)",
+    "effects": "Five single attacks (0.74~0.88 each scaling with targets)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

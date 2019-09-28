@@ -293,6 +293,9 @@ function describeEnlirAttack(
     damage += ' @ +' + attack.additionalCrit.join(' - ') + '% crit';
     damage += ' ' + attack.additionalCritType;
   }
+  if (attack.airTime) {
+    damage += ', air time ' + attack.airTime + 's';
+  }
   // Omit ' (SUM)' for Summoning school; it seems redundant.
   damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
   damage += attack.isNat && !attack.isFixedDamage ? ' (NAT)' : '';

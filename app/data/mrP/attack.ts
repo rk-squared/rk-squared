@@ -97,6 +97,7 @@ export interface ParsedEnlirAttack {
   isNat: boolean;
   isNoMiss: boolean;
   isPiercing: boolean;
+  airTime?: string;
 }
 
 // Source for convergent mechanics:
@@ -475,6 +476,8 @@ const attackRe = XRegExp(
   # Hack: Simplified regex from describeFollowedBy.  We should merge it into here.
   (?<followedBy>,\ followed\ by\ (?:[A-Za-z\-]+)\ (?:(?:group|random|single)\ )?(?:rang\.?(?:ed)?\ )?(?:jump\ )?attacks?\ \((?:[0-9\.]+(?:\ each)?)\)(?:\ capped\ at\ 99999)?,?)?
 
+  (?:,\ air\ time\ \((?<airTime>[0-9./]+)(?:\ sec\.?)?\))?
+
   (?<scaleWithUses>,?\ scaling\ with\ uses)?
   (?:,?\ (?:scaling|scal\.)\ with\ (?<scaleWithSkillUses>.*?)\ uses)?
   (?<rank>\ at\ rank\ 1/2/3/4/5\ of\ the\ triggering\ ability)?
@@ -788,6 +791,8 @@ export function parseEnlirAttack(
 
     element: skill.element,
     school: 'school' in skill ? skill.school : undefined,
+
+    airTime: m.airTime || undefined,
 
     status: m.status || undefined,
     statusChance: m.statusChance ? (m.statusChance as string).split('/').map(i => +i) : undefined,
