@@ -61,6 +61,22 @@ export const allEnlirElements: EnlirElement[] = [
 export const isEnlirElement = (s: string): s is EnlirElement =>
   allEnlirElements.indexOf(s as EnlirElement) !== -1;
 
+export type EnlirEventType =
+  | '?'
+  | 'Challenge Event'
+  | 'Collection Event'
+  | 'Crystal Tower'
+  | 'Dungeons Update'
+  | 'Endless Battle'
+  | 'Festival'
+  | 'Magicite Dungeon'
+  | 'Mote Dungeon'
+  | 'Nightmare Dungeon'
+  | 'Record Dungeon'
+  | 'Record Missions'
+  | 'Survival Event'
+  | 'Torment Dungeon';
+
 export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
 export type EnlirRelicType =
@@ -254,6 +270,20 @@ export interface EnlirCharacter {
   gl: boolean;
 }
 
+export interface EnlirEvent {
+  eventName: string;
+  realm: string | null;
+  glDate: string | null;
+  jpDate: string | null;
+  type: EnlirEventType;
+  heroRecords: string[] | null;
+  memoryCrystals1: string[] | null;
+  memoryCrystals2: string[] | null;
+  memoryCrystals3: string[] | null;
+  wardrobeRecords: string[] | null;
+  abilitiesAwarded: string[] | null;
+}
+
 export interface EnlirLegendMateria {
   realm: EnlirRealm;
   character: string;
@@ -375,6 +405,7 @@ const rawData = {
   braveCommands: require('./enlir/brave.json') as EnlirBraveCommand[],
   burstCommands: require('./enlir/burst.json') as EnlirBurstCommand[],
   characters: require('./enlir/characters.json') as EnlirCharacter[],
+  events: require('./enlir/events.json') as EnlirEvent[],
   legendMateria: require('./enlir/legendMateria.json') as EnlirLegendMateria[],
   magicite: require('./enlir/magicite.json'),
   otherSkills: require('./enlir/otherSkills.json') as EnlirOtherSkill[],
@@ -496,6 +527,8 @@ export const enlir = {
 
   characters: _.keyBy(rawData.characters, 'id'),
   charactersByName: _.keyBy(rawData.characters, 'name'),
+
+  events: _.keyBy(rawData.events, 'eventName'),
 
   legendMateria: _.keyBy(rawData.legendMateria, 'id'),
   legendMateriaByCharacter: makeCharacterMap(rawData.legendMateria, [

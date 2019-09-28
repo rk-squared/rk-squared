@@ -9,6 +9,7 @@
 import * as fs from 'fs-extra';
 import { google } from 'googleapis';
 import * as path from 'path';
+import { sprintf } from 'sprintf-js';
 import * as yargs from 'yargs';
 
 import * as _ from 'lodash';
@@ -34,6 +35,16 @@ const toFloat = (value: string) =>
   value === '' ? null : Number.parseFloat(value.replace(',', '.'));
 const toString = (value: string) => (value === '' ? null : value);
 const checkToBool = (value: string) => value === '✓';
+const toDate = (value: string) => {
+  if (!value) {
+    return null;
+  }
+  const m = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!m) {
+    throw new Error(`Failed to parse date ${value}`);
+  }
+  return sprintf('%04i-%02i-%02i', +m[3], +m[1], +m[2]);
+};
 
 function dashAs<TDash, TValue>(
   dashValue: TDash,
@@ -282,6 +293,54 @@ function postProcessCharacters(characters: any[], allData: { [localName: string]
   for (const c of characters) {
     c.gl = isCharacterInGl[c.name] || false;
   }
+}
+
+function convertEvents(rows: any[]): any[] {
+  const fieldAliases: _.Dictionary<string> = {
+    memoryCrystals: 'memoryCrystals1',
+    memoryCrystalsIi: 'memoryCrystals2',
+    memoryCrystalsIii: 'memoryCrystals3',
+  };
+  const arrayFields = new Set<string>([
+    'heroRecords',
+    'memoryCrystals1',
+    'memoryCrystals2',
+    'memoryCrystals3',
+    'wardrobeRecords',
+    'abilitiesAwarded',
+  ]);
+  const toCommaSeparatedStringArray = toCommaSeparatedArray(toString);
+
+  const events: any[] = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+      if (shouldAlwaysSkip(col)) {
+        continue;
+      }
+
+      try {
+        let field = _.camelCase(col);
+        field = fieldAliases[field] || field;
+        if (arrayFields.has(field)) {
+          item[field] = toCommaSeparatedStringArray(rows[i][j]);
+        } else if (field === 'glDate' || field === 'jpDate') {
+          item[field] = dashNull(toDate)(rows[i][j]);
+        } else {
+          item[field] = toCommon(field, rows[i][j]);
+        }
+      } catch (e) {
+        logError(e, i, j, col, rows[i]);
+        throw e;
+      }
+    }
+
+    events.push(item);
+  }
+
+  return events;
 }
 
 function convertLegendMateria(rows: any[]): any[] {
@@ -661,6 +720,11 @@ const dataTypes: DataType[] = [
     localName: 'characters',
     converter: convertCharacters,
     postProcessor: postProcessCharacters,
+  },
+  {
+    sheet: 'Events',
+    localName: 'events',
+    converter: convertEvents,
   },
   {
     sheet: 'Legend Materia',
