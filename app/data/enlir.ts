@@ -1163,3 +1163,39 @@ export function getEstimatedRequiredSoulBreakExp(id: number) {
   }
 }
 export const getRequiredLegendMateriaExp = _.constant(30000);
+
+export enum EnlirAbilityUnlockType {
+  Nightmare,
+  JobMote,
+  TormentRuby,
+  RecordBoard,
+}
+
+const nightmareAbilities = new Set<string>([
+  'Ultima',
+  'Crushdown',
+  'Reraise',
+  'Neo Bahamut',
+  'Quadruple Foul',
+  'Northern Cross',
+  'Meltdown',
+  'Curada',
+  'Affliction Break',
+  'Dervish',
+  'Valigarmanda',
+  'Omega Drive',
+]);
+
+export function getAbilityUnlockType(ability: EnlirAbility): EnlirAbilityUnlockType | null {
+  if (ability.rarity < 6) {
+    return null;
+  } else if (nightmareAbilities.has(ability.name)) {
+    return EnlirAbilityUnlockType.Nightmare;
+  } else if (ability.recordBoardCharacter) {
+    return EnlirAbilityUnlockType.RecordBoard;
+  } else if (ability.orbs['Ability Record']) {
+    return EnlirAbilityUnlockType.TormentRuby;
+  } else {
+    return EnlirAbilityUnlockType.JobMote;
+  }
+}

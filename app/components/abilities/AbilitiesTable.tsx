@@ -16,6 +16,17 @@ const styles = require('./AbilitiesTable.scss');
 
 const mrPAbilities: { [id: number]: MrPSoulBreak } = {};
 
+export function getMrPAbility(ability: EnlirAbility) {
+  const { id } = ability;
+  if (!mrPAbilities[id]) {
+    mrPAbilities[id] = describeEnlirSoulBreak(ability, {
+      abbreviateDamageType: true,
+      includeSchool: false,
+    });
+  }
+  return mrPAbilities[id];
+}
+
 interface Props {
   abilities: { [s in EnlirSchool]?: EnlirAbility[] };
   schools: EnlirSchool[];
@@ -98,13 +109,7 @@ export class AbilitiesTable extends React.PureComponent<Props> {
     const { abilitiesTooltipId, orbCostsTooltipId } = this.props;
     const { id, name, rarity } = ability;
 
-    if (!mrPAbilities[id]) {
-      mrPAbilities[id] = describeEnlirSoulBreak(ability, {
-        abbreviateDamageType: true,
-        includeSchool: false,
-      });
-    }
-    const mrP = mrPAbilities[id];
+    const mrP = getMrPAbility(ability);
     const lang = ability.gl ? (this.context as LangType) : LangType.Jp;
 
     return (

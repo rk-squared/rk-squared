@@ -49,19 +49,17 @@ export class AbilitiesList extends React.PureComponent<Props> {
     const abilitiesTooltipId = `abilities-${rarity}-tooltips`;
     const orbCostsTooltipId = `orbCosts-${rarity}-tooltips`;
     return (
-      <div className="container">
-        <div className="row">
-          <AbilitiesTable
-            abilities={abilities}
-            schools={_.flatten(sortedSchools)}
-            showRecordBoard={showRecordBoard}
-            abilitiesTooltipId={abilitiesTooltipId}
-            orbCostsTooltipId={orbCostsTooltipId}
-          />
-          <AbilityTooltip id={abilitiesTooltipId} />
-          <OrbCostsTooltip id={orbCostsTooltipId} />
-        </div>
-      </div>
+      <>
+        <AbilitiesTable
+          abilities={abilities}
+          schools={_.flatten(sortedSchools)}
+          showRecordBoard={showRecordBoard}
+          abilitiesTooltipId={abilitiesTooltipId}
+          orbCostsTooltipId={orbCostsTooltipId}
+        />
+        <AbilityTooltip id={abilitiesTooltipId} />
+        <OrbCostsTooltip id={orbCostsTooltipId} />
+      </>
     );
   }
 }

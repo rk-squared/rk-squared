@@ -3,6 +3,7 @@ import DesktopHomePage from '../containers/DesktopHomePage';
 import DropTrackerPage from '../containers/DropTrackerPage';
 import DungeonScoresPage from '../containers/DungeonScoresPage';
 import DungeonsPage from '../containers/DungeonsPage';
+import FutureAbilitiesPage from '../containers/FutureAbilitiesPage';
 import OptionsPage from '../containers/OptionsPage';
 import RecordMateriaPage from '../containers/RecordMateriaPage';
 import RelicDrawsPage from '../containers/RelicDrawsPage';
@@ -30,6 +31,13 @@ const routes: RouteItem[] = [
     component: AbilitiesPage,
     description: 'Abilities',
     path: '/abilities',
+    children: [
+      {
+        component: FutureAbilitiesPage,
+        description: 'Future',
+        path: '/abilities/future',
+      },
+    ],
   },
   {
     component: RecordMateriaPage,

@@ -1,7 +1,4 @@
-// This is just long enough for a spellblade Quadstrike.
-$name-width: 11em;
-// This is just long enough for our orb costs display.
-$orbCosts-width: 8.25em;
+@import '../shared/abilities';
 
 :local {
   .component {
@@ -20,7 +17,7 @@ $orbCosts-width: 8.25em;
   }
 
   col.name {
-    width: $name-width;
+    width: $ability-name-width;
   }
 
   col.orbCosts {
@@ -28,7 +25,7 @@ $orbCosts-width: 8.25em;
   }
 
   col.effects {
-    width: calc(100% - #{$name-width} - #{$orbCosts-width});
+    width: calc(100% - #{$ability-name-width} - #{$orbCosts-width});
   }
 
   // Record Board cells are taller due to showing character icons, so

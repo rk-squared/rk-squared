@@ -11,7 +11,7 @@ interface Props {
   className?: string;
   contentClassName?: string;
   title?: string;
-  children: any;
+  children?: any;
   footer?: () => any;
 }
 
