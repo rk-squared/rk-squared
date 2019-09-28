@@ -8,7 +8,10 @@
 
 import * as _ from 'lodash';
 
+import { andJoin } from '../../utils/textUtils';
 import { isAllSame } from '../../utils/typeUtils';
+
+export { andJoin };
 
 export const andList = /,? and |, /;
 export const orList = /,? or |, /;
@@ -315,13 +318,6 @@ export function describeChances(
     // probably not worth further development right now.
     return [percentChances.join('-') + '%', options.join(join)];
   }
-}
-
-export function andJoin(s: string[], oxfordComma: boolean): string {
-  if (s.length === 1) {
-    return s[0];
-  }
-  return s.slice(0, s.length - 1).join(', ') + (oxfordComma ? ',' : '') + ' and ' + s[s.length - 1];
 }
 
 export function percentToMultiplier(percent: number | string): string {

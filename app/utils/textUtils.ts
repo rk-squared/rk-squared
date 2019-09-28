@@ -32,3 +32,10 @@ export function escapeHtml(unsafe: string) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
+
+export function andJoin(s: string[], oxfordComma: boolean): string {
+  if (s.length === 1) {
+    return s[0];
+  }
+  return s.slice(0, s.length - 1).join(', ') + (oxfordComma ? ',' : '') + ' and ' + s[s.length - 1];
+}

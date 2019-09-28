@@ -3,9 +3,7 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 import * as _ from 'lodash';
 import * as moment from 'moment';
-import * as ReactTooltip from 'react-tooltip';
 
-import { LangContext } from '../../contexts/LangContext';
 import {
   enlir,
   EnlirAbility,
@@ -14,10 +12,10 @@ import {
 } from '../../data/enlir';
 import { schoolIcons } from '../../data/localData';
 import { formatMrP } from '../../data/mrP';
-import { andJoin } from '../../data/mrP/util';
 import { getOrbCosts } from '../../data/orbDetails';
 import { formatIsoDate } from '../../utils/timeUtils';
 import { getMrPAbility } from './AbilitiesTable';
+import { EventTooltip } from './EventTooltip';
 import { OrbCostsDisplay } from './OrbCostsDisplay';
 
 const styles = require('./FutureAbilitiesTable.scss');
@@ -75,34 +73,6 @@ function getReleaseDate(ability: EnlirAbility): string {
 
 export class FutureAbilitiesTable extends React.PureComponent<Props> {
   static releaseDateTooltipId = 'future-abilities-release-date';
-
-  // noinspection JSUnusedGlobalSymbols
-  static contextType = LangContext;
-  context!: React.ContextType<typeof LangContext>;
-
-  getReleaseDateContent = (abilityId: string) => {
-    if (!abilityId) {
-      return null;
-    }
-    const ability = enlir.abilities[abilityId];
-    const event = enlir.events[ability.introducingEvent];
-    if (!event) {
-      return null;
-    }
-    let result = 'Released in ';
-    if (event.type === 'Festival') {
-      result += "JP's " + event.eventName;
-    } else {
-      result += event.eventName;
-    }
-    if (event.realm) {
-      result += ` (${event.realm})`;
-    }
-    if (event.heroRecords) {
-      result += ', with ' + andJoin(event.heroRecords, true);
-    }
-    return <div className={styles.releaseDateTooltip}>{result}</div>;
-  };
 
   renderRarity(rarity: number) {
     const { abilitiesTooltipId, orbCostsTooltipId } = this.props;
@@ -170,12 +140,7 @@ export class FutureAbilitiesTable extends React.PureComponent<Props> {
           </tbody>
         </table>
 
-        <ReactTooltip
-          id={FutureAbilitiesTable.releaseDateTooltipId}
-          className={styles.component}
-          place="left"
-          getContent={this.getReleaseDateContent}
-        />
+        <EventTooltip id={FutureAbilitiesTable.releaseDateTooltipId} />
       </>
     );
   }
