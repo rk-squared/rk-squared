@@ -9,6 +9,8 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirSynchroCommand,
+  getNormalSBPoints,
+  isAbility,
   isBraveCommand,
   isBraveSoulBreak,
   isBurstSoulBreak,
@@ -915,6 +917,13 @@ export function describeEnlirSoulBreak(
       // We set a flat rate of 150 (to get Lifesiphon and Wrath) instead of
       // trying to track what's normal at each rarity level.
       other.push(sbPointsAlias(sb.sb.toString()));
+    } else if (isAbility(sb) && sb.sb < getNormalSBPoints(sb)) {
+      // Special case: Exclude abilities like Lightning Jab that have a normal
+      // default cast time but "fast" tier SB generation because they
+      // manipulate cast time.
+      if (!sb.effects.match(/ cast time /)) {
+        other.push('low SB pts');
+      }
     }
   }
 

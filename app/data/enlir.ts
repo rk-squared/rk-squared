@@ -1042,6 +1042,10 @@ export function getEnlirOtherSkill(otherSkillName: string, sourceName?: string):
   return enlir.otherSkillsByName[otherSkillName];
 }
 
+export function isAbility(skill: EnlirSkill): skill is EnlirAbility {
+  return 'rarity' in skill;
+}
+
 export function isSoulBreak(skill: EnlirSkill): skill is EnlirSoulBreak {
   return 'tier' in skill;
 }
@@ -1198,4 +1202,21 @@ export function getAbilityUnlockType(ability: EnlirAbility): EnlirAbilityUnlockT
   } else {
     return EnlirAbilityUnlockType.JobMote;
   }
+}
+
+export const normalSBPoints = {
+  nonElemental: [0, 60, 60, 65, 75, 85, 100],
+  elemental: [0, 55, 55, 60, 70, 75, 90],
+  fast: {
+    nonElemental: [0, 0, 0, 0, 0, 75, 90],
+    elemental: [0, 0, 0, 0, 0, 65, 80],
+  },
+};
+
+export function getNormalSBPoints(ability: EnlirAbility): number {
+  const isFast = ability.time && ability.time <= 1.2;
+  const isElemental = ability.element && ability.element.length;
+  const checkSpeed = isFast ? normalSBPoints.fast : normalSBPoints;
+  const checkElemental = isElemental ? checkSpeed.elemental : checkSpeed.nonElemental;
+  return checkElemental[ability.rarity];
 }
