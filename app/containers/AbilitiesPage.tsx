@@ -18,14 +18,14 @@ function AbilitiesTab({ match }: RouteComponentProps<{ rarity: string }>) {
 
 function RecordBoardAbilitiesTab() {
   return (
-    <div>
-      <p>
+    <>
+      <div className="alert alert-secondary">
         The Record Board is a new feature added for 5th Anniversary (September 2019 for JP, March
         2020 for GL). It allows you to unlock various character-specific bonuses, including new
         character-specific abilities.
-      </p>
+      </div>
       <AbilitiesList rarity={6} showRecordBoard={true} key={'6RB'} />
-    </div>
+    </>
   );
 }
 
