@@ -272,9 +272,9 @@ export interface EnlirCharacter {
 
 export interface EnlirEvent {
   eventName: string;
-  realm: string | null;
-  glDate: string | null;
-  jpDate: string | null;
+  realm: EnlirRealm | null;
+  glDate: string | null; // ISO-style YYYY-MM-DD string
+  jpDate: string | null; // ISO-style YYYY-MM-DD string
   type: EnlirEventType;
   heroRecords: string[] | null;
   memoryCrystals1: string[] | null;
@@ -306,7 +306,7 @@ export interface EnlirOtherSkill extends EnlirGenericSkill {
 }
 
 export interface EnlirRecordMateria {
-  realm: string;
+  realm: EnlirRealm;
   character: string;
   name: string;
   effect: string;

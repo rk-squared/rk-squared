@@ -1,0 +1,22 @@
+/* Size of images like
+ * http://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/event_intro/common/pict/icon_series_10.png
+ */
+$series-icon-width: 460px;
+$series-icon-height: 112px;
+
+/* X offset to position the icon against the left edge. */
+@function series-icon-left($scaled-series-icon-size, $left-offset: 0) {
+  @return $scaled-series-icon-size * (0.5 - ($series-icon-width / 2 / $series-icon-height)) +
+    $left-offset;
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin seriesIconBackground($scaled-series-icon-size, $left-offset: 0) {
+  background: no-repeat series-icon-left($scaled-series-icon-size, $left-offset);
+  background-size: auto $scaled-series-icon-size;
+}

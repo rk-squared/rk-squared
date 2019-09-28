@@ -1,5 +1,22 @@
+@import '../shared/tooltips';
+
 :local {
   .component {
-    max-width: 25em;
+    max-width: 30em;
+    display: flex;
+  }
+
+  .iconsBlock {
+    margin-right: 1em;
+    max-width: $tooltip-icon-width;
+
+    > img {
+      width: $tooltip-icon-width;
+      height: $tooltip-icon-height;
+    }
+  }
+
+  .textBlock {
+    width: 100%;
   }
 }

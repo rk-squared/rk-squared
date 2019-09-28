@@ -5,7 +5,7 @@ import WorldBadge from './WorldBadge';
 
 const styles = require('./DungeonCategoryTitle.scss');
 
-const categoryImages: { [category: string]: string } = {
+export const categoryImages: { [category: string]: string } = {
   [WorldCategory.CrystalTower]: require('../../images/game-icons/white-tower.svg'),
   [WorldCategory.Event]: require('../../images/game-icons/book-cover.svg'),
   [WorldCategory.JumpStart]: require('../../images/game-icons/lob-arrow.svg'),

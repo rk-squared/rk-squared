@@ -57,9 +57,12 @@ function getUnreleasedAbilities(abilities: EnlirAbility[], rarity: number): Enli
 }
 
 function getReleaseDate(ability: EnlirAbility): string {
+  if (!ability.introducingEvent) {
+    return '';
+  }
   const event = enlir.events[ability.introducingEvent];
   if (!event) {
-    return '';
+    return ability.introducingEvent;
   } else if (event.glDate) {
     return formatIsoDate(event.glDate);
   } else if (event.jpDate) {
@@ -99,7 +102,7 @@ export class FutureAbilitiesTable extends React.PureComponent<Props> {
             </td>
             <td
               className={styles.releaseDate}
-              data-tip={ability.id}
+              data-tip={ability.introducingEvent}
               data-for={FutureAbilitiesTable.releaseDateTooltipId}
             >
               {getReleaseDate(ability)}
@@ -140,7 +143,7 @@ export class FutureAbilitiesTable extends React.PureComponent<Props> {
           </tbody>
         </table>
 
-        <EventTooltip id={FutureAbilitiesTable.releaseDateTooltipId} />
+        <EventTooltip id={FutureAbilitiesTable.releaseDateTooltipId} description="Released in" />
       </>
     );
   }
