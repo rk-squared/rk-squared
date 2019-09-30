@@ -53,11 +53,11 @@
     "name": "Heroic Aspiration",
     "effect": "ATK, DEF, MAG, RES and MND +30% when equipping a book",
     "master": "ATK +10",
-    "relic": "Light Tome (Core)",
+    "relic": "Book of Light (Core)",
     "nameJp": "英雄への憧れ",
     "id": 201000204,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1398,7 +1398,7 @@
     "effect": "Grants Attach Water at the beginning of the battle",
     "master": "MND +10",
     "relic": "Golden Staff (III)",
-    "nameJp": null,
+    "nameJp": "博識な少年",
     "id": 201030203,
     "anima": null,
     "gl": true
@@ -1410,7 +1410,7 @@
     "effect": "25% chance to dualcast Summoning abilities",
     "master": "MND +10",
     "relic": "Royal Crown (III)",
-    "nameJp": null,
+    "nameJp": "芯強き少年",
     "id": 201030204,
     "anima": null,
     "gl": true
@@ -2254,6 +2254,18 @@
     "id": 201041002,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Porom",
+    "name": "Older Sister",
+    "effect": "?",
+    "master": "?",
+    "relic": "Faerie Tail (IV)",
+    "nameJp": "大人びた姉",
+    "id": 201041003,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -7877,11 +7889,11 @@
     "name": "Academy Prodigy",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "master": "MAG +10",
-    "relic": "Academy Gloves (XIII)",
+    "relic": "Academy Glove (XIII)",
     "nameJp": "アカデミーの俊才",
     "id": 201130503,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -8633,7 +8645,7 @@
     "name": "True Friendship",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Armguard (XV)",
+    "relic": "Noctis's Armguard (XV)",
     "nameJp": "変わらぬ友情",
     "id": 201150104,
     "anima": null,
@@ -10314,7 +10326,7 @@
     "effect": "Increases Holy damage dealt by 10%",
     "master": null,
     "relic": null,
-    "nameJp": null,
+    "nameJp": "機関員No.XIII",
     "id": 201700400,
     "anima": null,
     "gl": true
@@ -10326,7 +10338,7 @@
     "effect": "35% chance to dualcast Knight abilities",
     "master": null,
     "relic": null,
-    "nameJp": null,
+    "nameJp": "めぐりあう鍵",
     "id": 201700401,
     "anima": null,
     "gl": true
@@ -10338,7 +10350,7 @@
     "effect": "Grants Attach Holy at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Ominous Blight (KH)",
-    "nameJp": null,
+    "nameJp": "鍵をあやつる謎の少年",
     "id": 201700402,
     "anima": null,
     "gl": true
@@ -10350,7 +10362,7 @@
     "effect": "Increases Fire damage dealt by 10%",
     "master": null,
     "relic": null,
-    "nameJp": null,
+    "nameJp": "機関員No.VIII",
     "id": 201700500,
     "anima": null,
     "gl": true
@@ -10362,7 +10374,7 @@
     "effect": "35% chance to dualcast abilities that deal Fire damage",
     "master": null,
     "relic": null,
-    "nameJp": null,
+    "nameJp": "おどる火の風",
     "id": 201700501,
     "anima": null,
     "gl": true
@@ -10374,7 +10386,7 @@
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +5, MAG +5",
     "relic": "Blaze of Glory (KH)",
-    "nameJp": null,
+    "nameJp": "機関の切れ者",
     "id": 201700502,
     "anima": null,
     "gl": true

@@ -8930,7 +8930,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Corridor of Trials - Trials of Ice",
+    "eventName": "Corridor of Trials - Trials of Ice (2)",
     "realm": null,
     "glDate": "2019-04-09",
     "jpDate": "2018-09-11",
@@ -9625,17 +9625,20 @@
     "heroRecords": [
       "Lenna",
       "Krile",
-      "Bartz Gilgamesh"
+      "Bartz",
+      "Gilgamesh"
     ],
     "memoryCrystals1": [
       "Lenna",
       "Krile",
-      "Bartz Gilgamesh"
+      "Bartz",
+      "Gilgamesh"
     ],
     "memoryCrystals2": [
       "Lenna",
       "Krile",
-      "Bartz Gilgamesh"
+      "Bartz",
+      "Gilgamesh"
     ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
@@ -9932,15 +9935,15 @@
     "type": "Challenge Event",
     "heroRecords": [
       "Cor",
-      "Gladio"
+      "Gladiolus"
     ],
     "memoryCrystals1": [
       "Cor",
-      "Gladio"
+      "Gladiolus"
     ],
     "memoryCrystals2": [
       "Cor",
-      "Gladio"
+      "Gladiolus"
     ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
@@ -9954,24 +9957,54 @@
     "type": "?",
     "heroRecords": null,
     "memoryCrystals1": [
-      "?"
+      "???"
     ],
     "memoryCrystals2": [
-      "?"
+      "???"
     ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Spring Festival 2019",
+    "eventName": "Fantasy Festival 2019",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-09-26",
     "jpDate": "2019-03-24",
     "type": "Festival",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Aria",
+      "Kain",
+      "Bartz",
+      "Shadow",
+      "Tifa",
+      "Laguna",
+      "Zidane",
+      "Lightning",
+      "Jack"
+    ],
+    "memoryCrystals1": [
+      "Aria",
+      "Kain",
+      "Bartz",
+      "Shadow",
+      "Tifa",
+      "Laguna",
+      "Zidane",
+      "Lightning",
+      "Jack"
+    ],
+    "memoryCrystals2": [
+      "Aria",
+      "Kain",
+      "Bartz",
+      "Shadow",
+      "Tifa",
+      "Laguna",
+      "Zidane",
+      "Lightning",
+      "Jack"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -10457,7 +10490,7 @@
     "eventName": "Dungeon Update #64",
     "realm": null,
     "glDate": null,
-    "jpDate": "2019-10-07",
+    "jpDate": "2019-07-10",
     "type": "Dungeons Update",
     "heroRecords": null,
     "memoryCrystals1": null,
@@ -10470,7 +10503,7 @@
     "eventName": "Poems for the Planet",
     "realm": "VII",
     "glDate": null,
-    "jpDate": "2019-12-07",
+    "jpDate": "2019-07-12",
     "type": "Challenge Event",
     "heroRecords": [
       "Cloud",
@@ -10543,14 +10576,45 @@
     "abilitiesAwarded": null
   },
   {
+    "eventName": "Dungeon Update #65 (IV:TAY, T)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-08-07",
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
     "eventName": "The Guiding Oracle",
     "realm": "XV",
     "glDate": null,
     "jpDate": "2019-08-16",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Lunafreya",
+      "Noctis",
+      "Iris",
+      "Gladiolus",
+      "Cor"
+    ],
+    "memoryCrystals1": [
+      "Lunafreya",
+      "Noctis",
+      "Iris",
+      "Gladiolus",
+      "Cor"
+    ],
+    "memoryCrystals2": [
+      "Lunafreya",
+      "Noctis",
+      "Iris",
+      "Gladiolus",
+      "Cor"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -10561,9 +10625,27 @@
     "glDate": null,
     "jpDate": "2019-08-23",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Lion",
+      "Zeid",
+      "Curilla",
+      "Prishe",
+      "Shantotto"
+    ],
+    "memoryCrystals1": [
+      "Lion",
+      "Zeid",
+      "Curilla",
+      "Prishe",
+      "Shantotto"
+    ],
+    "memoryCrystals2": [
+      "Lion",
+      "Zeid",
+      "Curilla",
+      "Prishe",
+      "Shantotto"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -10574,9 +10656,30 @@
     "glDate": null,
     "jpDate": "2019-08-30",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Terra",
+      "Edgar",
+      "Relm",
+      "Cyan",
+      "Locke",
+      "Leo"
+    ],
+    "memoryCrystals1": [
+      "Terra",
+      "Edgar",
+      "Relm",
+      "Cyan",
+      "Locke",
+      "Leo"
+    ],
+    "memoryCrystals2": [
+      "Terra",
+      "Edgar",
+      "Relm",
+      "Cyan",
+      "Locke",
+      "Leo"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -10600,9 +10703,27 @@
     "glDate": null,
     "jpDate": "2019-09-13",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Steiner",
+      "Amarant",
+      "Quina",
+      "Freya",
+      "Garnet"
+    ],
+    "memoryCrystals1": [
+      "Steiner",
+      "Amarant",
+      "Quina",
+      "Freya",
+      "Garnet"
+    ],
+    "memoryCrystals2": [
+      "Steiner",
+      "Amarant",
+      "Quina",
+      "Freya",
+      "Garnet"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -10613,6 +10734,19 @@
     "glDate": null,
     "jpDate": "2019-09-18",
     "type": "Magicite Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "5th Anniversary Festival",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-09-25",
+    "type": "Festival",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,

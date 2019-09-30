@@ -10860,8 +10860,8 @@
   },
   {
     "id": 50486,
-    "name": "Awoken Bond",
-    "effects": "Summoning abilities don't consume uses, dualcasts Summoning abilities, casts Crystal Bond after using a Summoning ability",
+    "name": "Awoken Kindred Mode",
+    "effects": "Summoning abilities don't consume uses, dualcasts Summoning abilities, casts Friendship Crystal after using a Summoning ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

@@ -376,11 +376,11 @@
     "autoTarget": "All allies",
     "points": 500,
     "soulbreakBonus": "ATK +10",
-    "relic": "First Fantasy Grimoire (Core)",
+    "relic": "Fantasy Grimoire Vol. 1 (Core)",
     "nameJp": "幻想のグリモア 巻ノ壱",
     "id": 20140018,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1247,11 +1247,11 @@
     "autoTarget": "All allies",
     "points": 500,
     "soulbreakBonus": "MND +10",
-    "relic": "Magika Poenics (Core)",
+    "relic": "Magika Phoenix (Core)",
     "nameJp": "マギカ・ポエニクス",
     "id": 23210006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1269,11 +1269,11 @@
     "autoTarget": "All allies",
     "points": 0,
     "soulbreakBonus": "MND +10",
-    "relic": "Feathered Cap (Core)",
+    "relic": "Plumed Hat (Core)",
     "nameJp": "マギカ・アムレートゥム",
     "id": 23210007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -2608,7 +2608,7 @@
   {
     "realm": "I",
     "character": "Sarah",
-    "name": "Crystal's Glean",
+    "name": "Crystal's Gleam",
     "tier": "USB",
     "type": "WHT",
     "target": "All allies",
@@ -5513,7 +5513,7 @@
     "nameJp": "しんりゃく32",
     "id": 22640010,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -7265,7 +7265,7 @@
   {
     "realm": "III",
     "character": "Onion Knight",
-    "name": "True Magic Potential",
+    "name": "Arcane Potential",
     "tier": "AASB",
     "type": "BLK",
     "target": "Single enemy",
@@ -7304,7 +7304,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants High Quick Cast 1, Attach Water 3 with Stacking, Synchro Mode, Damage Cap +10000 and Aquatic Potential to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants High Quick Cast 1, Attach Water 3 with Stacking, Synchro Mode, Damage Cap +10000 and Water High Quick Cycle to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -10099,6 +10099,7 @@
     "relic": "Judicer's Staff (IV)",
     "nameJp": "ミシディアガード",
     "id": 22220009,
+    "anima": null,
     "gl": false
   },
   {
@@ -11253,7 +11254,7 @@
       "Holy"
     ],
     "time": 2.5,
-    "effects": "Twenty single attacks (0.55 each), followed by one single ranged attack (8.00) capped at 99999",
+    "effects": "Twenty single attacks (0.55 each), followed by one single attack (8.00) capped at 99999",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 750,
@@ -11261,6 +11262,7 @@
     "relic": "Valiant Knife (IV)",
     "nameJp": "グリームスラスター",
     "id": 22720006,
+    "anima": null,
     "gl": false
   },
   {
@@ -26143,6 +26145,7 @@
     "relic": "Cocytus Edge (VIII)",
     "nameJp": "氷の魔女",
     "id": 22200011,
+    "anima": null,
     "gl": false
   },
   {
@@ -27994,7 +27997,7 @@
     "nameJp": "未来への篝火",
     "id": 20370013,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -29128,7 +29131,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Fifteen single attacks (1.32 each), restores HP (85) to all allies, grants Attach Wind, Awoken Bond and Damage Cap +10000 to the user",
+    "effects": "Fifteen single attacks (1.32 each), restores HP (85) to all allies, grants Attach Wind, Awoken Kindred Mode and Damage Cap +10000 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -29458,7 +29461,7 @@
     "autoTarget": "Self",
     "points": 0,
     "soulbreakBonus": "ATK +10",
-    "relic": "Adaman Knuckles (IX)",
+    "relic": "Adamant Knuckles (IX)",
     "nameJp": "アウトローソウル",
     "id": 20870011,
     "gl": false
@@ -30914,7 +30917,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Fifteen single attacks (1.32 each), restores HP (85) to all allies, grants Regenga to all allies, grants Awoken Bond and Damage Cap +10000 to the user",
+    "effects": "Fifteen single attacks (1.32 each), restores HP (85) to all allies, grants Regenga to all allies, grants Awoken Kindred Mode and Damage Cap +10000 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -30923,7 +30926,7 @@
     "nameJp": "すべてはナギ節のために",
     "id": 20520017,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -30945,7 +30948,7 @@
     "nameJp": "宿命を超える心",
     "id": 20520018,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -32402,7 +32405,7 @@
   {
     "realm": "X",
     "character": "Auron",
-    "name": "Igniting Flame",
+    "name": "Nog Fire",
     "tier": "CSB",
     "type": "NAT",
     "target": "All allies",
@@ -32419,7 +32422,7 @@
     "nameJp": "酒炎",
     "id": 20690017,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -39059,7 +39062,7 @@
     "nameJp": "エンチャントブーメラン",
     "id": 20770012,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -41545,6 +41548,7 @@
     "relic": "Shire Philosopher's Coat (XIV)",
     "nameJp": "「暁」の少年",
     "id": 22530009,
+    "anima": null,
     "gl": false
   },
   {
@@ -42385,6 +42389,7 @@
     "relic": "Shield of the Just (XV)",
     "nameJp": "真リンクアタック・I",
     "id": 22740012,
+    "anima": null,
     "gl": false
   },
   {
@@ -42895,23 +42900,24 @@
     "character": "Prompto",
     "name": "Bullet Fan",
     "tier": "Glint+",
-    "type": "?",
-    "target": null,
-    "formula": null,
-    "multiplier": null,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.12,
     "element": [
       "Lightning",
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (? each), causes Imperil Lightning 20% for 15 seconds",
+    "effects": "Six single ranged attacks (0.52 each), causes Imperil Lightning 20% for 15 seconds",
     "counter": false,
-    "autoTarget": "?",
+    "autoTarget": "Lowest HP% enemy",
     "points": 0,
     "soulbreakBonus": "ATK +10",
     "relic": "Battle Jacket (XV)",
     "nameJp": "バレットファン",
     "id": 22970008,
+    "anima": null,
     "gl": false
   },
   {

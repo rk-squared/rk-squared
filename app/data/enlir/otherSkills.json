@@ -157,7 +157,7 @@
     "sb": 0,
     "school": "Support",
     "id": 30545071,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -175,7 +175,7 @@
     "sb": 0,
     "school": "Support",
     "id": 30545082,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -195,7 +195,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542614,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -503,7 +503,7 @@
     "sb": 0,
     "school": "Monk",
     "id": 30548321,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -543,7 +543,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541201,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -562,7 +562,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541202,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -581,7 +581,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541203,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -797,7 +797,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543067,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -843,7 +843,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541353,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -946,7 +946,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549151,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -988,7 +988,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542414,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1009,7 +1009,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30544203,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1082,7 +1082,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543160,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1151,6 +1151,24 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541814,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Darkness Storm Follow-Up",
+    "name": "Darkness Storm",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants 40% Damage Reduction Barrier 1",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Special",
+    "id": 30541458,
     "gl": false
   },
   {
@@ -1414,7 +1432,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30541471,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1437,7 +1455,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30541471,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1460,25 +1478,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30541471,
-    "gl": false
-  },
-  {
-    "sourceType": "Follow-Up Status",
-    "source": "Darkness Storm Follow-Up",
-    "name": "Darkness Storm",
-    "type": "NAT",
-    "target": "All allies",
-    "formula": null,
-    "multiplier": null,
-    "element": null,
-    "time": 0.01,
-    "effects": "Grants 40% Damage Reduction Barrier 1",
-    "counter": false,
-    "autoTarget": "All allies",
-    "sb": 0,
-    "school": "Special",
-    "id": 30541458,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1520,7 +1520,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541141,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1562,7 +1562,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542511,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2122,7 +2122,7 @@
     "sb": 0,
     "school": "Thief",
     "id": 30548339,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2576,7 +2576,7 @@
     "sb": 0,
     "school": "Celerity",
     "id": 30546019,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2870,7 +2870,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541351,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2968,7 +2968,7 @@
     "sb": 0,
     "school": "Dancer",
     "id": 30549045,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3096,7 +3096,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541227,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3119,7 +3119,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547115,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3139,7 +3139,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30543110,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3203,7 +3203,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543032,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3460,7 +3460,7 @@
     "sb": 0,
     "school": "Samurai",
     "id": 30549215,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3482,12 +3482,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541323,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Bond",
-    "name": "Crystal Bond",
+    "source": "Awoken Kindred Mode",
+    "name": "Friendship Crystal",
     "type": "WHT",
     "target": "All allies",
     "formula": "Magical",
@@ -3502,7 +3502,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542718,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3625,7 +3625,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30549066,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3827,7 +3827,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542020,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3848,7 +3848,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541039,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4289,7 +4289,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543058,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4604,7 +4604,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547081,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4787,7 +4787,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542410,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -5426,7 +5426,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541106,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -5447,7 +5447,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30549267,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -5486,7 +5486,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547027,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -5548,7 +5548,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541228,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -5589,7 +5589,7 @@
     "sb": 0,
     "school": "Combat",
     "id": 30544103,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -5610,7 +5610,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543087,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -8545,8 +8545,8 @@
   },
   {
     "sourceType": "Legend Materia",
-    "source": "Silent Knight",
-    "name": "Silent Knight",
+    "source": "Stoic Knight",
+    "name": "Stoic Knight",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -8562,7 +8562,7 @@
     "sb": 0,
     "school": "Knight",
     "id": null,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -8822,7 +8822,7 @@
     "sb": 0,
     "school": "Special",
     "id": null,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -8885,8 +8885,8 @@
   },
   {
     "sourceType": "Legend Materia",
-    "source": "Dancing Princess",
-    "name": "Dancing Princess",
+    "source": "Renowned Grace",
+    "name": "Renowned Grace",
     "type": "WHT",
     "target": "All allies",
     "formula": "Magical",
@@ -8901,7 +8901,7 @@
     "sb": 0,
     "school": "Special",
     "id": null,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
