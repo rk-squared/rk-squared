@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import * as _ from 'lodash';
 import * as ReactTooltip from 'react-tooltip';
 
-import { clearWantedRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
-import { enlir } from '../../data/enlir';
 import {
-  chanceOfDesiredDrawProp5,
-  StandardDrawCount,
-  StandardMythrilCost,
-} from '../../data/probabilities';
+  clearWantedRelics,
+  getBannerDrawCount,
+  RelicDrawProbabilities,
+} from '../../actions/relicDraws';
+import { enlir } from '../../data/enlir';
+import { chanceOfDesiredDrawProp5, StandardMythrilCost } from '../../data/probabilities';
 import { IState } from '../../reducers';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
@@ -56,8 +56,7 @@ function getRelicChanceDetails(
 
   const sixStarCount = relicIds.map(i => enlir.relics[i]).filter(i => !!i && i.rarity >= 6).length;
 
-  const drawCount =
-    banner.cost && banner.cost.drawCount ? banner.cost.drawCount : StandardDrawCount;
+  const drawCount = getBannerDrawCount(banner);
 
   const totalDetails = chanceOfDesiredDrawProp5(
     drawCount,

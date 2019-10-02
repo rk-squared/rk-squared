@@ -4,12 +4,28 @@
  * Calculations of relic draw banner probabilities.
  *
  * See https://www.reddit.com/r/FFRecordKeeper/comments/83l3jd/analysis_of_fuitads_gacha_data/
+ *
+ * As described there:
+ *
+ * - Proposal 1: 1 guaranteed 5* / 6*, then 10 random relics with a 14.04% rate
+ * - Proposal 2: 1 guaranteed 5* / 6*, then 10 random relics with a
+ *   11.6667% (7/60) rate
+ * - Proposal 3: 10 random relics with a 14.04% rate, then a guaranteed 5* / 6*
+ *   if none already rolled, otherwise an 11th relic at the same rate
+ * - Proposal 4: 10 random relics with a 18.7738% rate, then a guaranteed
+ *   5* / 6* if none already rolled, otherwise an 11th relic at the same rate
+ * - Proposal 5: 11 random relics with a 14.04% rate, all of which are
+ *   simultaneously re-rolled until at least one is 5* / 6*
+ * - Proposal 6: 11 random relics with a 17.2398% rate, all of which are
+ *   simultaneously re-rolled until at least one is 5* / 6*
  */
 
 export const StandardDrawCount = 11;
 
 export const StandardMythrilCost = 50;
 export const RealmRelicDrawMythrilCost = 15;
+
+export const StandardGuaranteedRarity = 5;
 
 interface RelicDrawBannerChances {
   expectedValue: number;
@@ -100,4 +116,42 @@ export function monteCarloProp5(
     expectedValue: totalCount / iterations,
     desiredChance: atLeast1Count / iterations,
   };
+}
+
+export interface RelicProbability {
+  relicId: number;
+  rarity: number;
+  probability: number;
+}
+
+export function simulateDrawProp5(
+  probabilities: RelicProbability[],
+  drawCount: number,
+  guaranteedRarity: number,
+  guaranteedCount: number,
+): number[] {
+  const maxTries = 10000;
+  let drawn: number[] = [];
+  for (let tryCount = 0; tryCount < maxTries; tryCount++) {
+    drawn = [];
+    let thisRareCount = 0;
+    for (let n = 0; n < drawCount; n++) {
+      let probabilitySum = 0;
+      const result = Math.random() * 100;
+      for (const relic of probabilities) {
+        probabilitySum += relic.probability;
+        if (result < probabilitySum) {
+          drawn.push(relic.relicId);
+          if (relic.rarity >= guaranteedRarity) {
+            thisRareCount++;
+          }
+          break;
+        }
+      }
+    }
+    if (thisRareCount >= guaranteedCount) {
+      break;
+    }
+  }
+  return drawn;
 }

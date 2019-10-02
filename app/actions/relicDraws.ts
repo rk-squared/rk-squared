@@ -2,6 +2,7 @@ import { createAction } from 'typesafe-actions';
 
 import * as _ from 'lodash';
 
+import { StandardDrawCount } from '../data/probabilities';
 import { TimeT } from '../utils/timeUtils';
 
 /**
@@ -71,6 +72,10 @@ export function getOffBannerRelics(
   return _.keys(probabilities.byRelic)
     .map(i => +i)
     .filter(i => !bannerSet.has(i));
+}
+
+export function getBannerDrawCount(banner: RelicDrawBanner) {
+  return banner.cost && banner.cost.drawCount ? banner.cost.drawCount : StandardDrawCount;
 }
 
 export const setRelicDrawBannersAndGroups = createAction(

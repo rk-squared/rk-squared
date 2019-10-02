@@ -9,6 +9,7 @@ import {
   RelicDrawProbabilities,
 } from '../actions/relicDraws';
 import { enlir } from '../data/enlir';
+import { RelicProbability } from '../data/probabilities';
 import { IState } from '../reducers';
 import { RelicDrawState } from '../reducers/relicDraws';
 import { difference } from '../utils/setUtils';
@@ -238,5 +239,21 @@ export const getNewExchangeShopSelections = createSelector<
     const openSelections = getSelections(true);
 
     return difference(openSelections, closedSelections);
+  },
+);
+
+export const getRelicProbabilities = createSelector<
+  IState,
+  { bannerId: number },
+  RelicDrawProbabilities,
+  RelicProbability[]
+>(
+  (state: IState, props: { bannerId: number }) => state.relicDraws.probabilities[props.bannerId],
+  (probabilities: RelicDrawProbabilities) => {
+    return _.toPairs(probabilities.byRelic).map(([relicId, probability]) => ({
+      relicId: +relicId,
+      probability,
+      rarity: enlir.relics[relicId].rarity,
+    }));
   },
 );

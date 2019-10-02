@@ -7,6 +7,7 @@ import { RelicDrawProbabilities } from '../actions/relicDraws';
 import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
 import RelicChances from '../components/relicDraws/RelicChances';
 import { RelicDrawBannerContents } from '../components/relicDraws/RelicDrawBannerContents';
+import { RelicDrawModal } from '../components/relicDraws/RelicDrawModal';
 import { IState } from '../reducers';
 import { getBannerDetails, RelicDrawBannerDetails } from '../selectors/relicDraws';
 
@@ -30,8 +31,9 @@ export class RelicDrawBannerPage extends React.PureComponent<
 > {
   render() {
     const { banners, probabilities, isAnonymous, match, backLink } = this.props;
-    const banner = banners[+match.params.banner];
-    const probability = probabilities[+match.params.banner];
+    const bannerId = +match.params.banner;
+    const banner = banners[bannerId];
+    const probability = probabilities[bannerId];
     if (!banner) {
       return <BadRelicDrawMessage />;
     }
@@ -42,6 +44,7 @@ export class RelicDrawBannerPage extends React.PureComponent<
         <p>
           <Link to={backLink}>back to list of banners</Link>
         </p>
+        <RelicDrawModal bannerId={bannerId} />
         <RelicDrawBannerContents
           banner={banner}
           probabilities={probability}
