@@ -9942,7 +9942,7 @@
       "eva": null
     },
     "id": 21002442,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ragnarok",
@@ -66822,7 +66822,7 @@
       "eva": null
     },
     "id": 21009156,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Reticent Staff",
@@ -77037,7 +77037,7 @@
       "eva": null
     },
     "id": 21011043,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Battle Trumpet",
@@ -91890,7 +91890,7 @@
     "gl": true
   },
   {
-    "name": "Fantasy Grimoire Vol. 1",
+    "name": "Fantasy Grimoire Vol. I",
     "realm": "Core",
     "type": "Book",
     "rarity": 6,
@@ -91907,7 +91907,7 @@
     },
     "effect": null,
     "character": "Tyro",
-    "soulBreak": "Fantasy Grimoire Vol. 1",
+    "soulBreak": "Fantasy Grimoire Vol. I",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -126357,7 +126357,7 @@
       "eva": 105
     },
     "id": 22054115,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ceodore's Guise",
@@ -135090,7 +135090,7 @@
     "gl": true
   },
   {
-    "name": "Crystal Gloves",
+    "name": "Crystal Armlet",
     "realm": "IV",
     "type": "Bracer",
     "rarity": 5,
@@ -135132,7 +135132,7 @@
       "eva": 105
     },
     "id": 22056251,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Faris's Bracers",

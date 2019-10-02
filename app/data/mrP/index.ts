@@ -269,7 +269,7 @@ function describeEnlirAttack(
   if (attack.scaleToDamage && attack.scaleType) {
     // Damage scaling
     damage +=
-      ', up to ' +
+      (attack.scaleDown ? ', down to ' : ', up to ') +
       damageTypeAbbreviation(attack.damageType) +
       attack.scaleToDamage +
       ' ' +

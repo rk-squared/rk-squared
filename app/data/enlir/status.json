@@ -9936,7 +9936,7 @@
   {
     "id": 50404,
     "name": "Switch Draw Mode",
-    "effects": "Grants Attach Fire after using a Fire attack, grants Attach Dark after using a Dark attack, lasts 1 turn",
+    "effects": "Grants Attach Fire after using a Fire ability, grants Attach Dark after using a Dark ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10674,7 +10674,7 @@
   {
     "id": 50469,
     "name": "Apocalypse Switch Draw Mode",
-    "effects": "Grants Attach Wind after using a Wind attack, grants Attach Dark after using a Dark attack, lasts 1 turn",
+    "effects": "Grants Attach Wind after using a Wind ability, grants Attach Dark after using a Dark ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11025,8 +11025,8 @@
   },
   {
     "id": 50500,
-    "name": "Jester's Scorn Follow-Up",
-    "effects": "Casts Jester's Scorn after using two Darkness abilities",
+    "name": "Clown's Scorn Follow-Up",
+    "effects": "Casts Clown's Scorn after using two Darkness abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11235,7 +11235,7 @@
   {
     "id": 50525,
     "name": "Twin Element Mode",
-    "effects": "Grants Attach Fire after using a Fire attack, grants Attach Wind after using a Wind attack, lasts 1 turn",
+    "effects": "Grants Attach Fire after using a Fire ability, grants Attach Wind after using a Wind ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12053,7 +12053,7 @@
   {
     "id": 50602,
     "name": "Twin Element Mode (Arc)",
-    "effects": "Grants Attach Holy after using a Holy attack, grants Attach Water after using a Water attack, lasts 1 turn",
+    "effects": "Grants Attach Holy after using a Holy ability, grants Attach Water after using a Water ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12288,7 +12288,7 @@
   {
     "id": 50625,
     "name": "Double Sphere Mode",
-    "effects": "Grants Attach Fire after using a Fire attack, grants Attach Dark after using a Dark attack, lasts 1 turn",
+    "effects": "Grants Attach Fire after using a Fire ability, grants Attach Dark after using a Dark ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12376,7 +12376,7 @@
   {
     "id": 50634,
     "name": "Double Crystarium Mode",
-    "effects": "Grants Attach Ice after using an Ice attack, grants Attach Water after using a Water attack, lasts 1 turn",
+    "effects": "Grants Attach Ice after using an Ice ability, grants Attach Water after using a Water ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12420,7 +12420,7 @@
   {
     "id": 50638,
     "name": "Double Sphere Mode II",
-    "effects": "Grants Attach Dark/Fire with Stacking after using a Dark/Fire attack, lasts 1 turn",
+    "effects": "Grants Attach Dark/Fire with Stacking after using a Dark/Fire ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12552,7 +12552,7 @@
   {
     "id": 50651,
     "name": "Change Machinery",
-    "effects": "Grants Attach Poison/Fire/Lightning after using a Poison/Fire/Lightning attack, lasts 1 turn",
+    "effects": "Grants Attach Poison/Fire/Lightning after using a Poison/Fire/Lightning ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12606,7 +12606,7 @@
   {
     "id": 50660,
     "name": "Unsoku Mode",
-    "effects": "Critical chance =100% and cast speed x2.00, casts Afterimage Fist after using three Fire attacks, removed if user hasn't any Physical Blink",
+    "effects": "Critical chance =100%, cast speed x2.00, casts Afterimage Fist after using three Fire attacks, removed if user hasn't any Physical Blink",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12639,7 +12639,7 @@
   {
     "id": 50663,
     "name": "Twin Jewel Mode",
-    "effects": "Grants Attach Ice after using a Ice attack, grants Attach Lightning after using a Lightning attack, lasts 1 turn",
+    "effects": "Grants Attach Ice after using a Ice ability, grants Attach Lightning after using a Lightning ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12661,7 +12661,7 @@
   {
     "id": 50665,
     "name": "Sunleth Strike Follow-Up",
-    "effects": "Casts Sunleth Strike (Sharpshooter/Thief)/Sunleth Strike (Dragoon) after using a Sharpshooter/Thief or Dragoon ability",
+    "effects": "Casts Sunleth Strike (Sharpshooter/Thief) after using a Sharpshooter or Thief ability, casts Sunleth Strike (Dragoon) after using a Dragoon ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12683,7 +12683,7 @@
   {
     "id": 50667,
     "name": "Water/Poison Switch Draw",
-    "effects": "Grants Attach Water after using a Water attack, grants Attach Poison after using a Poison attack, lasts 1 turn",
+    "effects": "Grants Attach Water after using a Water ability, grants Attach Poison after using a Poison ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12705,7 +12705,7 @@
   {
     "id": 50669,
     "name": "Chain Materia Mode II",
-    "effects": "Grants Attach Water/Earth with Stacking after using a Water/Earth attack, lasts 1 turn",
+    "effects": "Grants Attach Water/Earth with Stacking after using a Water/Earth ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12716,7 +12716,7 @@
   {
     "id": 50670,
     "name": "Twin Jewel Mode II",
-    "effects": "Grants Attach Ice/Lightning with Stacking after using a Ice/Lightning attack, lasts 1 turn",
+    "effects": "Grants Attach Ice/Lightning with Stacking after using a Ice/Lightning ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12770,7 +12770,7 @@
   {
     "id": 50675,
     "name": "Double Crystarium Mode II",
-    "effects": "Grants Attach Ice/Water with Stacking after using a Ice/Water attack, lasts 1 turn",
+    "effects": "Grants Attach Ice/Water with Stacking after using a Ice/Water ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12781,7 +12781,7 @@
   {
     "id": 50677,
     "name": "Assault Spellblade Mode",
-    "effects": "Grants Attach Fire/Lightning/Ice with Stacking after using a Fire/Lightning/Ice attack, lasts 1 turn",
+    "effects": "Grants Attach Fire/Lightning/Ice with Stacking after using a Fire/Lightning/Ice ability, lasts 1 turn",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12792,7 +12792,7 @@
   {
     "id": 50678,
     "name": "Charging!",
-    "effects": "Grants Attach Fire/Lightning/Ice after using two Fire/Lightning/Ice attacks",
+    "effects": "Grants Attach Fire/Lightning/Ice after using two Fire/Lightning/Ice abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

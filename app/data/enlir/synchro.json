@@ -536,7 +536,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.2,
-    "effects": "Grants Minor Buff Water, grants Short Critical Damage +50% on first use, grants Short Critical 100% on second use, removes all Items",
+    "effects": "Grants Minor Buff Water, grants Short Critical Damage +50% on first use, grants Short 100% Critical on 2+ uses, removes all Items",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 90,
@@ -718,7 +718,7 @@
   {
     "character": "Alphinaud",
     "source": "Youth of Seventh Dawn",
-    "name": "Aid Tactics (2 Aetherflow)",
+    "name": "Aid Tactics (3 Aetherflow)",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Wind",
     "type": "WHT",
@@ -740,7 +740,7 @@
   {
     "character": "Alphinaud",
     "source": "Youth of Seventh Dawn",
-    "name": "Aid Tactics (1 Aetherflow)",
+    "name": "Aid Tactics (1/2 Aetherflow)",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Wind",
     "type": "WHT",

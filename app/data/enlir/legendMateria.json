@@ -1877,11 +1877,11 @@
     "name": "Holy Dawn",
     "effect": "MND +1% for each hit dealt with White Magic abilities, up to +25%",
     "master": "MND +10",
-    "relic": "Crystal Gloves (IV)",
+    "relic": "Crystal Armlet (IV)",
     "nameJp": "聖なる力の開花",
     "id": 201040205,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -1893,7 +1893,7 @@
     "nameJp": "聖なる力の可能性",
     "id": 201040206,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",

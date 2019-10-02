@@ -63,6 +63,7 @@ export interface ParsedEnlirAttack {
 
   scaleToDamage?: string;
   scaleType?: string;
+  scaleDown?: boolean;
 
   /**
    * For hybrid attacks, this gives the magical damage string, and the damage
@@ -513,7 +514,7 @@ const attackRe = XRegExp(
   (?:,\ (?<statusChance>[0-9/]+)%\ chance\ to\ cause\ (?<status>.*?)(?:\ scaling\ with\ .*\ uses|\ for\ (?<statusDuration>\d+)\ seconds))?
 
   (?<noMiss>,\ 100%\ hit\ rate)?
-  (?:,\ multiplier\ increased\ by\ (?<sbMultiplierIncrease>[0-9.]+)\ for\ every\ SB\ point)?
+  (?:,\ multiplier\ (?<sbMultiplierIncreaseDecrease>increased|decreased)\ by\ (?<sbMultiplierChange>[0-9.]+)\ for\ every\ SB\ point)?
   (?:\ for\ (?<finisherPercentDamage>[0-9.]+)%\ of\ the\ damage\ dealt\ with\ (?<finisherPercentCriteria>.*)\ during\ the\ status)?
   (?:,\ minimum\ damage\ (?<minDamage>\d+))?
   (?<piercing>,\ ignores\ (?:DEF|RES))?
@@ -634,15 +635,17 @@ export function parseEnlirAttack(
 
   let scaleType: string | undefined;
   let scaleToDamage: string | undefined;
-  if (m.sbMultiplierIncrease) {
-    const sbMultiplierIncrease = parseFloat(m.sbMultiplierIncrease);
-    const maxSbMultiplier = attackMultiplier + sbMultiplierIncrease * 6 * SB_BAR_SIZE;
+  let scaleDown: boolean | undefined;
+  if (m.sbMultiplierIncreaseDecrease) {
+    scaleDown = m.sbMultiplierIncreaseDecrease === 'decreased';
+    const sbMultiplierChange = parseFloat(m.sbMultiplierChange) * (scaleDown ? -1 : 1);
+    const maxSbMultiplier = attackMultiplier + sbMultiplierChange * 6 * SB_BAR_SIZE;
     scaleType = '@ 6 SB bars';
     if (numAttacks) {
       scaleToDamage = numAttacks ? describeDamage(maxSbMultiplier, numAttacks, false) : undefined;
       if ('points' in skill) {
         // Re-adjust the displayed number to reflect actual SB.
-        damage = describeDamage(attackMultiplier + skill.points * sbMultiplierIncrease, numAttacks);
+        damage = describeDamage(attackMultiplier + skill.points * sbMultiplierChange, numAttacks);
       }
     }
   } else if (m.rank) {
@@ -774,6 +777,7 @@ export function parseEnlirAttack(
 
     scaleToDamage,
     scaleType,
+    scaleDown,
 
     hybridDamage,
     hybridDamageType: describeHybridDamageType(skill),
