@@ -5,6 +5,8 @@ import classNames from 'classnames';
 
 import { ModalHeader } from './ModalHeader';
 
+require('./ModalDialog.scss');
+
 interface Props {
   isOpen: boolean;
   title?: string | (() => any);

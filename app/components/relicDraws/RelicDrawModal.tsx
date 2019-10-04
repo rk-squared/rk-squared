@@ -39,7 +39,7 @@ export class RelicDrawModal extends React.PureComponent<Props, State> {
           <ModalDialog
             isOpen={this.state.isOpen}
             onClose={this.handleClose}
-            className="modal-lg"
+            className="modal-lg app-modal-full-height"
             title={'Relic Draw Simulator'}
           >
             <RelicDrawSimulator bannerId={bannerId} />

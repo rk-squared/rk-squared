@@ -1,0 +1,18 @@
+@import '../../variables';
+
+:local {
+  // ".app-" classes are application-specific additions to Bootstrap classes.
+  :global(.app-modal-full-height) {
+    height: calc(100vh - 2 * #{$modal-dialog-margin});
+  }
+
+  @include media-breakpoint-up(sm) {
+    :global(.app-modal-full-height) {
+      height: calc(100vh - 2 * #{$modal-dialog-margin-y-sm-up});
+    }
+  }
+
+  :global(.app-modal-full-height) > :global(.modal-content) {
+    height: 100%;
+  }
+}

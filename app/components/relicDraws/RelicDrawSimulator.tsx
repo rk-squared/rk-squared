@@ -1,10 +1,13 @@
 import * as React from 'react';
 
+import * as classNames from 'classnames';
 import { connect } from 'react-redux';
 
 import { IState } from '../../reducers';
 
 import { getBannerDrawCount, RelicDrawBanner } from '../../actions/relicDraws';
+import { LangType } from '../../api/apiUrls';
+import { LangContext } from '../../contexts/LangContext';
 import { enlir } from '../../data/enlir';
 import {
   RelicProbability,
@@ -15,6 +18,9 @@ import {
 import { getRelicProbabilities } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
 import { DrawButton } from './DrawButton';
+import { SimulatedRelic } from './SimulatedRelic';
+
+const styles = require('./RelicDrawSimulator.scss');
 
 interface StateProps {
   banner: RelicDrawBanner;
@@ -32,6 +38,10 @@ interface State {
 }
 
 export class RelicDrawSimulator extends React.PureComponent<StateProps & OwnProps, State> {
+  // noinspection JSUnusedGlobalSymbols
+  static contextType = LangContext;
+  context!: React.ContextType<typeof LangContext>;
+
   constructor(props: StateProps & OwnProps) {
     super(props);
     this.state = {
@@ -61,17 +71,21 @@ export class RelicDrawSimulator extends React.PureComponent<StateProps & OwnProp
   render() {
     const { className } = this.props;
     const { pullCount, relicIds } = this.state;
+    const lang = this.context as LangType;
     return (
-      <div className={className}>
+      <div className={classNames(styles.component, className)}>
         <p>
           You have pulled <strong>{pullCount}</strong> {pluralize(pullCount, 'time')}.
         </p>
         {this.getDrawCountList().map((n, i) => (
           <DrawButton drawCount={n} onClick={this.handleDraw} key={i} />
         ))}
-        <ul>
+        {pullCount > 0 && relicIds.length === 0 && <p>No rare relics drawn.</p>}
+        <ul key={pullCount}>
           {relicIds.map((id, i) => (
-            <li key={i}>{enlir.relics[id].name}</li>
+            <li key={i}>
+              <SimulatedRelic relic={enlir.relics[id]} lang={lang} />
+            </li>
           ))}
         </ul>
       </div>

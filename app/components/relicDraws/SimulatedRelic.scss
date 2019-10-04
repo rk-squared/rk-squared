@@ -1,0 +1,16 @@
+@import '../shared/relicsAndSoulBreaks';
+
+:local {
+  .component > img {
+    height: 64px;
+    width: 64px;
+    margin-right: 1em;
+  }
+
+  @each $name, $color in $soulBreak-colors {
+    span.#{$name} {
+      font-weight: bold;
+      color: $color;
+    }
+  }
+}
