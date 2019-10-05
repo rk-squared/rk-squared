@@ -70,7 +70,7 @@ export class RelicDrawSimulator extends React.PureComponent<StateProps & OwnProp
         {pullCount > 0 && relicIds.length === 0 && <p>No rare relics drawn.</p>}
         <ul key={pullCount}>
           {relicIds.map((id, i) => (
-            <li key={i}>
+            <li key={i} style={{ animationDelay: `${i * 0.1}s` }}>
               <SimulatedRelic relic={enlir.relics[id]} lang={lang} />
             </li>
           ))}
