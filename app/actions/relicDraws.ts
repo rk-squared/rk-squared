@@ -2,7 +2,8 @@ import { createAction } from 'typesafe-actions';
 
 import * as _ from 'lodash';
 
-import { StandardDrawCount } from '../data/probabilities';
+import { RelicDrawPullParams, StandardDrawCount } from '../data/probabilities';
+import { logger } from '../utils/logger';
 import { TimeT } from '../utils/timeUtils';
 
 /**
@@ -76,6 +77,47 @@ export function getOffBannerRelics(
 
 export function getBannerDrawCount(banner: RelicDrawBanner) {
   return banner.cost && banner.cost.drawCount ? banner.cost.drawCount : StandardDrawCount;
+}
+
+export function getBannerPullParams(banner: RelicDrawBanner): RelicDrawPullParams[] {
+  const drawCount = getBannerDrawCount(banner);
+  if (drawCount === StandardDrawCount) {
+    return [
+      {
+        drawCount: 1,
+        guaranteedRarity: 0,
+        guaranteedCount: 0,
+      },
+      {
+        drawCount: 3,
+        guaranteedRarity: 0,
+        guaranteedCount: 0,
+      },
+      {
+        drawCount,
+        guaranteedRarity: 5,
+        guaranteedCount: 1,
+      },
+    ];
+  } else if (drawCount === 40) {
+    return [
+      {
+        drawCount,
+        guaranteedRarity: 6,
+        guaranteedCount: 2,
+      },
+    ];
+  } else {
+    // Unknown; return generic results.
+    logger.warn(`Unknown relic draw: ${drawCount}`);
+    return [
+      {
+        drawCount,
+        guaranteedRarity: 5,
+        guaranteedCount: 1,
+      },
+    ];
+  }
 }
 
 export const setRelicDrawBannersAndGroups = createAction(

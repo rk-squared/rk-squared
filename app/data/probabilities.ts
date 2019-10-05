@@ -118,17 +118,28 @@ export function monteCarloProp5(
   };
 }
 
+/**
+ * Specific (memoized) details of relic probabilities, as input to relic draw
+ * simulators (simulateDrawProp5)
+ */
 export interface RelicProbability {
   relicId: number;
   rarity: number;
   probability: number;
 }
 
+/**
+ * Parameters for a single pull on a relic draw banner.
+ */
+export interface RelicDrawPullParams {
+  drawCount: number;
+  guaranteedRarity: number;
+  guaranteedCount: number;
+}
+
 export function simulateDrawProp5(
   probabilities: RelicProbability[],
-  drawCount: number,
-  guaranteedRarity: number,
-  guaranteedCount: number,
+  { drawCount, guaranteedRarity, guaranteedCount }: RelicDrawPullParams,
 ): number[] {
   const maxTries = 10000;
   let drawn: number[] = [];

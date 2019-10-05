@@ -5,16 +5,11 @@ import { connect } from 'react-redux';
 
 import { IState } from '../../reducers';
 
-import { getBannerDrawCount, RelicDrawBanner } from '../../actions/relicDraws';
+import { getBannerPullParams, RelicDrawBanner } from '../../actions/relicDraws';
 import { LangType } from '../../api/apiUrls';
 import { LangContext } from '../../contexts/LangContext';
 import { enlir } from '../../data/enlir';
-import {
-  RelicProbability,
-  simulateDrawProp5,
-  StandardDrawCount,
-  StandardGuaranteedRarity,
-} from '../../data/probabilities';
+import { RelicDrawPullParams, RelicProbability, simulateDrawProp5 } from '../../data/probabilities';
 import { getRelicProbabilities } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
 import { DrawButton } from './DrawButton';
@@ -50,18 +45,8 @@ export class RelicDrawSimulator extends React.PureComponent<StateProps & OwnProp
     };
   }
 
-  getDrawCountList() {
-    const drawCount = getBannerDrawCount(this.props.banner);
-    return drawCount === StandardDrawCount ? [1, 3, 11] : [drawCount];
-  }
-
-  handleDraw = (drawCount: number) => {
-    const relicIds = simulateDrawProp5(
-      this.props.probabilities,
-      drawCount,
-      StandardGuaranteedRarity,
-      1,
-    );
+  handleDraw = (pull: RelicDrawPullParams) => {
+    const relicIds = simulateDrawProp5(this.props.probabilities, pull);
     this.setState({
       pullCount: this.state.pullCount + 1,
       relicIds,
@@ -69,7 +54,7 @@ export class RelicDrawSimulator extends React.PureComponent<StateProps & OwnProp
   };
 
   render() {
-    const { className } = this.props;
+    const { className, banner } = this.props;
     const { pullCount, relicIds } = this.state;
     const lang = this.context as LangType;
     return (
@@ -77,9 +62,11 @@ export class RelicDrawSimulator extends React.PureComponent<StateProps & OwnProp
         <p>
           You have pulled <strong>{pullCount}</strong> {pluralize(pullCount, 'time')}.
         </p>
-        {this.getDrawCountList().map((n, i) => (
-          <DrawButton drawCount={n} onClick={this.handleDraw} key={i} />
-        ))}
+        <div className="mb-4">
+          {getBannerPullParams(banner).map((pull, i) => (
+            <DrawButton pull={pull} onClick={this.handleDraw} key={i} />
+          ))}
+        </div>
         {pullCount > 0 && relicIds.length === 0 && <p>No rare relics drawn.</p>}
         <ul key={pullCount}>
           {relicIds.map((id, i) => (
