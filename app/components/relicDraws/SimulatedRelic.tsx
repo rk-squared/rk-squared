@@ -23,6 +23,8 @@ export const SimulatedRelic = ({ relic, lang }: Props) => {
   const sb = enlir.relicSoulBreaks[id];
   const lm = enlir.relicLegendMateria[id];
   const textClass = sb ? tierClass[sb.tier] : styles.legendMateria;
+  // FIXME: Tooltips
+  // FIXME: Indicate dupes and want status
   return (
     <div className={styles.component}>
       <img src={relicImage(lang, relic.id, relic.rarity)} alt={relic.name} />

@@ -38,6 +38,8 @@ export class RelicDrawBannerPage extends React.PureComponent<
       return <BadRelicDrawMessage />;
     }
     // FIXME: Duplication/overlap with RelicDrawGroupPage
+    // FIXME: Proper RelicDrawModal links
+    // FIXME: Hide RelicDrawModel if probabilities are missing
     return (
       <>
         <img src={banner.imageUrl} />
