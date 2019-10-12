@@ -321,7 +321,7 @@ function showServerError(e: any, description: string, store: Store<IState>) {
           '</p>' +
           "<p>Please check that you aren't running other network software that may interfere with RK&sup2;.</p>" +
           '<p class="mb-0">If you continue to have trouble, please file an issue at the ' +
-          `<a href="${issuesUrl}" class="alert-link" target="_blank">RK² issues page</a>.` +
+          `<a href="${issuesUrl}" class="alert-link" target="_blank" rel="noopener">RK² issues page</a>.` +
           '</p>',
       },
       id: description,

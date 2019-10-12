@@ -35,7 +35,7 @@ export class SiteHome extends React.PureComponent {
           game progress:
         </p>
         <AppFeatures />
-        <a href={downloadUrl} className="btn btn-primary" target="_blank">
+        <a href={downloadUrl} className="btn btn-primary" target="_blank" rel="noopener">
           Download Now
         </a>
         <Link to={'/appMoreInfo'} className="btn btn-default">
