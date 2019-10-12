@@ -1576,8 +1576,8 @@ Array [
   },
   Object {
     "character": "Freya",
-    "description": "(Dance ⤇ no air time 1 turn)",
-    "effect": "Grants No Air Time 1 to the user after using a Dance ability",
+    "description": "(Dancer ⤇ no air time 1 turn)",
+    "effect": "Grants No Air Time 1 to the user after using a Dancer ability",
     "name": "Marvelous Leap",
   },
   Object {
@@ -2134,7 +2134,7 @@ Array [
   },
   Object {
     "character": "Jack",
-    "description": "(<20% HP ⤇ Retaliate, crit =75% 15s)",
+    "description": "(<20% HP ⤇ Retaliate, crit =75% 25s)",
     "effect": "Grants Retaliate and 75% Critical when HP fall below 20%",
     "name": "Stoic Soul",
   },
@@ -2323,6 +2323,24 @@ Array [
     "description": "lgt infuse at battle start",
     "effect": "Grants Attach Lightning at the beginning of the battle",
     "name": "Depths Within",
+  },
+  Object {
+    "character": "Kiros",
+    "description": "1.1x PHY dmg",
+    "effect": "PHY attacks deal 10% more damage",
+    "name": "Katar Wielder",
+  },
+  Object {
+    "character": "Kiros",
+    "description": "35% dualcast dark/ice",
+    "effect": "35% chance to dualcast abilities that deal Dark or Ice damage",
+    "name": "Lightweight Helper",
+  },
+  Object {
+    "character": "Kiros",
+    "description": "(Ninja/Sharpshooter ⤇ 20% for +10% dark vuln.)",
+    "effect": "20% chance to cause Minor Imperil Dark to the target after using a Ninja or Sharpshooter ability on an enemy",
+    "name": "Exotic Boy",
   },
   Object {
     "character": "Krile",
@@ -2865,6 +2883,12 @@ Array [
     "name": "Cave Keeper",
   },
   Object {
+    "character": "Matoya",
+    "description": "(Witch ⤇ 25?% for fastcast 1)",
+    "effect": "25?% chance to grant Quick Cast 1 to the user after using a Witch ability",
+    "name": "Professional Pharmacist",
+  },
+  Object {
     "character": "Meia",
     "description": "1.1x water dmg",
     "effect": "Increases Water damage dealt by 10%",
@@ -3315,12 +3339,6 @@ Array [
     "name": "Mischief Lover",
   },
   Object {
-    "character": "Palom",
-    "description": "1.25x BLK dmg if using a rod",
-    "effect": "BLK attacks deal 25% more damage when equipping a rod",
-    "name": "Eager Prodigy",
-  },
-  Object {
     "character": "Papalymo",
     "description": "1.1x fire dmg",
     "effect": "Increases Fire damage dealt by 10%",
@@ -3373,6 +3391,12 @@ Array [
     "description": "(ally W.Mag heal ⤇ 35% for ally fastcast 1)",
     "effect": "35% chance to grant Quick Cast 1 to the target after using a single-target White Magic ability that restores HP on an ally",
     "name": "Busybody",
+  },
+  Object {
+    "character": "Porom",
+    "description": "",
+    "effect": "?",
+    "name": "Older Sister",
   },
   Object {
     "character": "Prishe",
@@ -3922,9 +3946,9 @@ Array [
   },
   Object {
     "character": "Rubicante",
-    "description": "(fire ⤇ 20?% for +10% fire vuln.)",
-    "effect": "20?% chance to cause Minor Imperil Fire to the target after using a Fire attack on an enemy",
-    "name": "Strongest of Four Fiends",
+    "description": "(B.Mag ⤇ 20% for +10% fire vuln.)",
+    "effect": "20% chance to cause Minor Imperil Fire to the target after using a Black Magic ability on an enemy",
+    "name": "Strongest of the Four Fiends",
   },
   Object {
     "character": "Rude",
@@ -4641,6 +4665,12 @@ Array [
     "name": "Thief's Prestige",
   },
   Object {
+    "character": "Thief (I)",
+    "description": "(wind/bio ⤇ 25?% for fastcast 1)",
+    "effect": "25?% chance to grant Quick Cast 1 to the user after using a Wind or Poison attack",
+    "name": "Outlaw's Flow",
+  },
+  Object {
     "character": "Tidus",
     "description": "1.1x water dmg",
     "effect": "Increases Water damage dealt by 10%",
@@ -4846,8 +4876,8 @@ Array [
   },
   Object {
     "character": "Vaan",
-    "description": "(Thief ⤇ 35% for fastcast 1)",
-    "effect": "35% chance to grant Quick Cast 1 to the user after using a Thief ability",
+    "description": "(Thief ⤇ 35?% for fastcast 1)",
+    "effect": "35?% chance to grant Quick Cast 1 to the user after using a Thief ability",
     "name": "Brother's Trust",
   },
   Object {
@@ -4975,6 +5005,24 @@ Array [
     "description": "25?% dualcast Sharpshooter",
     "effect": "25?% chance to dualcast Sharpshooter abilities",
     "name": "Victory Awaits",
+  },
+  Object {
+    "character": "Ward",
+    "description": "1.1x PHY dmg",
+    "effect": "PHY attacks deal 10% more damage",
+    "name": "Harpoon Wielder",
+  },
+  Object {
+    "character": "Ward",
+    "description": "(water/ice/earth dmg ⤇ 35% for p2.16/4 wa+i+e+n rngd)",
+    "effect": "35% chance to cast That's Us! +1 after dealing damage with a Water, Ice or Earth attack",
+    "name": "Heavyweight Helper",
+  },
+  Object {
+    "character": "Ward",
+    "description": "1.2x PHY dmg if using a hat",
+    "effect": "PHY attacks deal 20% more damage when equipping a hat",
+    "name": "Jovial Scarface",
   },
   Object {
     "character": "Warrior of Light",

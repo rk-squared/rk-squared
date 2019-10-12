@@ -613,6 +613,18 @@
   },
   {
     "realm": "I",
+    "character": "Matoya",
+    "name": "Professional Pharmacist",
+    "effect": "25?% chance to grant Quick Cast 1 to the user after using a Witch ability",
+    "master": "MAG +10",
+    "relic": "Mage's Staff (I)",
+    "nameJp": "優れた薬師",
+    "id": 201010703,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "I",
     "character": "Meia",
     "name": "Bewitching Heretic",
     "effect": "Increases Water damage dealt by 10%",
@@ -657,7 +669,7 @@
     "nameJp": "憎悪からの解放",
     "id": 201010803,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -694,6 +706,18 @@
     "id": 201010901,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "I",
+    "character": "Thief (I)",
+    "name": "Outlaw's Flow",
+    "effect": "25?% chance to grant Quick Cast 1 to the user after using a Wind or Poison attack",
+    "master": "ATK +10",
+    "relic": "Thief's Glove (I)",
+    "nameJp": "義賊の流儀",
+    "id": 201010903,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "II",
@@ -765,7 +789,7 @@
     "nameJp": "支配への義憤",
     "id": 201020106,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -1353,7 +1377,7 @@
     "nameJp": "ウルのわんぱく小僧",
     "id": 201030104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -2654,8 +2678,8 @@
   {
     "realm": "IV",
     "character": "Rubicante",
-    "name": "Strongest of Four Fiends",
-    "effect": "20?% chance to cause Minor Imperil Fire to the target after using a Fire attack on an enemy",
+    "name": "Strongest of the Four Fiends",
+    "effect": "20% chance to cause Minor Imperil Fire to the target after using a Black Magic ability on an enemy",
     "master": "MAG +10",
     "relic": "Fire Rod (IV)",
     "nameJp": "四天王最強の魔物",
@@ -4233,7 +4257,7 @@
     "nameJp": "男まさりな格闘娘",
     "id": 201070304,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -4605,7 +4629,7 @@
     "nameJp": "宇宙へ旅立った男",
     "id": 201071103,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -4689,7 +4713,7 @@
     "nameJp": "新社長の思惑",
     "id": 201071803,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -5556,6 +5580,78 @@
     "gl": true
   },
   {
+    "realm": "VIII",
+    "character": "Kiros",
+    "name": "Katar Wielder",
+    "effect": "PHY attacks deal 10% more damage",
+    "master": null,
+    "relic": null,
+    "nameJp": "カタールの使い手",
+    "id": 201081500,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
+    "character": "Kiros",
+    "name": "Lightweight Helper",
+    "effect": "35% chance to dualcast abilities that deal Dark or Ice damage",
+    "master": null,
+    "relic": null,
+    "nameJp": "スリムな補佐官",
+    "id": 201081501,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
+    "character": "Kiros",
+    "name": "Exotic Boy",
+    "effect": "20% chance to cause Minor Imperil Dark to the target after using a Ninja or Sharpshooter ability on an enemy",
+    "master": "ATK +10",
+    "relic": "Kiros's Glove (VIII)",
+    "nameJp": "エキゾチックな最年少",
+    "id": 201081502,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
+    "character": "Ward",
+    "name": "Harpoon Wielder",
+    "effect": "PHY attacks deal 10% more damage",
+    "master": null,
+    "relic": null,
+    "nameJp": "ハープーンの使い手",
+    "id": 201081600,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
+    "character": "Ward",
+    "name": "Heavyweight Helper",
+    "effect": "35% chance to cast That's Us! +1 after dealing damage with a Water, Ice or Earth attack",
+    "master": null,
+    "relic": null,
+    "nameJp": "重量級の補佐官",
+    "id": 201081601,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
+    "character": "Ward",
+    "name": "Jovial Scarface",
+    "effect": "PHY attacks deal 20% more damage when equipping a hat",
+    "master": "ATK +10",
+    "relic": "Pirate Cap (VIII)",
+    "nameJp": "気さくなスカーフェイス",
+    "id": 201081602,
+    "anima": null,
+    "gl": false
+  },
+  {
     "realm": "IX",
     "character": "Zidane",
     "name": "Mercurial Thief",
@@ -5847,7 +5943,7 @@
     "realm": "IX",
     "character": "Freya",
     "name": "Marvelous Leap",
-    "effect": "Grants No Air Time 1 to the user after using a Dance ability",
+    "effect": "Grants No Air Time 1 to the user after using a Dancer ability",
     "master": "ATK +10",
     "relic": "Ice Lance (IX)",
     "nameJp": "驚異的な跳躍",
@@ -7179,13 +7275,13 @@
     "realm": "XII",
     "character": "Vaan",
     "name": "Brother's Trust",
-    "effect": "35% chance to grant Quick Cast 1 to the user after using a Thief ability",
+    "effect": "35?% chance to grant Quick Cast 1 to the user after using a Thief ability",
     "master": "ATK +10",
     "relic": "Adamant Vest (XII)",
     "nameJp": "亡き兄への信頼",
     "id": 201120105,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -7293,7 +7389,7 @@
     "nameJp": "クールな副操縦士 ",
     "id": 201120304,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -7305,7 +7401,7 @@
     "nameJp": "優れし射撃の腕",
     "id": 201120305,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -7545,7 +7641,7 @@
     "nameJp": "天才児の英知",
     "id": 201120804,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",

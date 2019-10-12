@@ -2619,12 +2619,23 @@
   {
     "id": 2254,
     "name": "Physical Quick Cast",
-    "effects": "Cast speed x2.00 for PHY attacks, lasts for 1 turn",
+    "effects": "Cast speed x2.00 for PHY attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHANGE_CAST_TIME_200_15000_MSEC_PHYSICAL_DAMAGE_ABILITIES",
+    "notes": null
+  },
+  {
+    "id": 2255,
+    "name": "Spellblade High Quick Cast 1",
+    "effects": "Cast speed x3.00 for Spellblade abilities, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_300_1_ABILITY_CATEGORY_ID_SPELLBLADE",
     "notes": null
   },
   {
@@ -4096,6 +4107,17 @@
     "notes": null
   },
   {
+    "id": 282019,
+    "name": "Spellblade +30% Boost 1",
+    "effects": "Spellblade abilities deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SPELLBLADE_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
     "id": 282101,
     "name": "Darkness +30% Boost",
     "effects": "Darkness abilities deal 30% more damage",
@@ -4791,7 +4813,7 @@
   {
     "id": 282203,
     "name": "Dark +30% Boost",
-    "effects": "Dark attacks deal 30% more damage, lasts for 1 turn",
+    "effects": "Dark attacks deal 30% more damage",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -4808,6 +4830,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_WATER_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
+    "id": 282205,
+    "name": "Ice +30% Boost 3",
+    "effects": "Ice attacks deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_ICE_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -10882,7 +10915,7 @@
   },
   {
     "id": 50488,
-    "name": "Awoken Loyal Retainer",
+    "name": "Awoken Retainer",
     "effects": "Knight and Samurai abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Knight and Samurai abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10904,7 +10937,7 @@
   },
   {
     "id": 50490,
-    "name": "Trinity Rush Follow-Up",
+    "name": "Trinity Rush Finisher",
     "effects": "Casts Trinity Rush when removed",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11069,8 +11102,8 @@
   },
   {
     "id": 50504,
-    "name": "Unpredictable Speed Follow-Up",
-    "effects": "Casts Unpredictable Speed after using two Ninja abilities",
+    "name": "Fleeting Instant Follow-Up",
+    "effects": "Casts Fleeting Instant after using two Ninja abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11080,7 +11113,7 @@
   },
   {
     "id": 50505,
-    "name": "Awoken Planet Prayer",
+    "name": "Awoken Savior",
     "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilities, casts Holy Wave after using White Magic abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11091,8 +11124,8 @@
   },
   {
     "id": 50506,
-    "name": "Dive to Ground Follow-Up",
-    "effects": "Casts Dive to Ground after using two dark attacks",
+    "name": "Ground Dive Follow-Up",
+    "effects": "Casts Ground Dive after using two dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11899,7 +11932,7 @@
   {
     "id": 50586,
     "name": "Awoken Protection Melody",
-    "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities at ability rank 1/2/3/4/5, grants Stoneskin: 10/15/20/25/30% after using White Magic or Bard abilities at rank 1/2/3/4/5",
+    "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities, grants Stoneskin: 10/15/20/25/30% after using White Magic or Bard abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12086,7 +12119,7 @@
   {
     "id": 50605,
     "name": "Awoken Priestess",
-    "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities at ability rank 1/2/3/4/5, grants HP Stock (500/1000/1500/2000/3000) to all allies after using White Magic or Bard abilities at rank 1/2/3/4/5",
+    "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities, grants HP Stock (500/1000/1500/2000/3000) to all allies after using White Magic or Bard abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12750,7 +12783,7 @@
     "id": 50673,
     "name": "Burning Heat Beat Mode",
     "effects": "Cast speed x9999999, Monk attacks grant 25% more SB points, lasts 3 turns",
-    "defaultDuration": 15,
+    "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
@@ -12792,7 +12825,7 @@
   {
     "id": 50678,
     "name": "Charging!",
-    "effects": "Grants Attach Fire/Lightning/Ice after using two Fire/Lightning/Ice abilities",
+    "effects": "Grants Attach Fire/Lightning/Ice after using two Fire/Lightning/Ice Spellblade abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12834,6 +12867,127 @@
     "notes": null
   },
   {
+    "id": 50682,
+    "name": "Chase Blade Follow-Up",
+    "effects": "Casts Chase Blade 1 after using Renzokuken Freezeslash twice, casts Chase Blade 2 after using Renzokuken Freezewave twice",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_CROSS_OF_HEART",
+    "notes": null
+  },
+  {
+    "id": 50683,
+    "name": "Ice Edge Follow-Up",
+    "effects": "Casts Ice Edge after using three Ice attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_VARY_CROSS",
+    "notes": null
+  },
+  {
+    "id": 50684,
+    "name": "Max Pain Follow-Up",
+    "effects": "Casts Max Pain after using two Dark or Ice attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_BLOOD_PAIN_REPEAT",
+    "notes": null
+  },
+  {
+    "id": 50685,
+    "name": "Dark/Ice Switch Draw Mode",
+    "effects": "Grants Attach Dark after using a Dark ability, grants Attach Ice after using an Ice ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SWITCH_DRAW_MODE_FOR_BLOOD_PAIN_REPEAT",
+    "notes": null
+  },
+  {
+    "id": 50686,
+    "name": "Awoken Laguna Mania",
+    "effects": "Dark and Ice abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dark and Ice abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_RAGNA_MANIA",
+    "notes": null
+  },
+  {
+    "id": 50687,
+    "name": "Awoken Laguna Freak",
+    "effects": "Water, Ice and Earth abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Water, Ice and Earth abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_RAGNA_FREAK",
+    "notes": null
+  },
+  {
+    "id": 50688,
+    "name": "Carrier Change Mode",
+    "effects": "Grants Attach Water after using a Water ability, grants Attach Ice after using an Ice ability, grants Attach Earth after using an Earth ability lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CAREER_CHANGE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50689,
+    "name": "Maximum Anchor Follow-Up",
+    "effects": "Casts Maximum Anchor after using three Water, Ice or Earth attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ANCHOR_CRASH",
+    "notes": null
+  },
+  {
+    "id": 50690,
+    "name": "Dark/Ice Switch Draw Mode II",
+    "effects": "Grants Attach Dark/Ice with Stacking after using a Dark/Ice ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SWITCH_DRAW_MODE_II_FOR_KATARS_DANCE",
+    "notes": null
+  },
+  {
+    "id": 50691,
+    "name": "Katar Flurry",
+    "effects": "Grants Quick Cast 1 to all allies in the character's row after using a Dark or Ice attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_KATARS_DANCE",
+    "notes": null
+  },
+  {
+    "id": 50692,
+    "name": "Carrier Change Mode II",
+    "effects": "Grants Attach Water/Ice/Earth with Stacking after using a Water/Ice/Earth ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "OVER_POWER_MODE",
+    "notes": null
+  },
+  {
     "id": 50693,
     "name": "Status Level in Synchro Mode",
     "effects": "Sets a general status value to a certain value when entering Synchro Mode, removed if user hasn't Synchro Mode",
@@ -12867,6 +13021,28 @@
     "notes": null
   },
   {
+    "id": 50698,
+    "name": "Awoken Princess Cornelia",
+    "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities, casts Healing Voice after using White Magic and Bard abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_QUEEN_CORNELIA",
+    "notes": null
+  },
+  {
+    "id": 50699,
+    "name": "Quartz Eye Mode II",
+    "effects": "Grants Attach Fire/Ice/Lightning with Stacking after using a Fire/Ice/Lightning ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "QUARTZ_EYE_MODE_II",
+    "notes": null
+  },
+  {
     "id": 506,
     "name": "Defend",
     "effects": "Reduces all damage taken by 50%, removed upon taking any action",
@@ -12887,6 +13063,105 @@
     "exclusiveStatus": null,
     "codedName": "DISABLE",
     "notes": "???"
+  },
+  {
+    "id": 50700,
+    "name": "Quartz Eye Follow-Up",
+    "effects": "Grants Attach Fire/Ice/Lightning after using two Fire/Ice/Lightning Witch abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_QUARTZ_EYE",
+    "notes": null
+  },
+  {
+    "id": 50701,
+    "name": "Class Change Mode",
+    "effects": "Grants Attach Wind after using a Wind ability, grants Attach Poison after using an Poison ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CLASS_CHANGE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50702,
+    "name": "Awoken Rogue",
+    "effects": "Thief and Celerity abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Thief and Celerity abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_ROGUE",
+    "notes": null
+  },
+  {
+    "id": 50703,
+    "name": "Sneak Follow-Up",
+    "effects": "Casts Sneak after using two Thief or Celerity abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_STEALTHILY",
+    "notes": null
+  },
+  {
+    "id": 50704,
+    "name": "Soul Charge Mode",
+    "effects": "Grants Attach Earth after using a Earth ability, grants Attach Fire after using an Fire ability, grants Attach Lightning after using an Lightning ability lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "FIGHTING_SPIRIT_RUSH_MODE",
+    "notes": null
+  },
+  {
+    "id": 50705,
+    "name": "Soul Rush Mode",
+    "effects": "ATK +50%, DEF and RES -30%, 50% chance to dualcast Monk abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "FIGHTING_SPIRIT_CHARGE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50706,
+    "name": "Quartz Eye Mode",
+    "effects": "Grants Attach Fire after using a Fire ability, grants Attach Ice after using an Ice ability, grants Attach Lightning after using an Lightning ability lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "QUARTZ_EYE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50710,
+    "name": "Gear Storm Follow-Up",
+    "effects": "Casts Gear Storm after using a Wind or Poison attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_WIND_TRICK",
+    "notes": null
+  },
+  {
+    "id": 50711,
+    "name": "Soul Charge Mode II",
+    "effects": "Grants Attach Earth/Fire/Lightning with Stacking after using a Earth/Fire/Lightning ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "FIGHTING_SPIRIT_RUSH_MODE_II",
+    "notes": null
   },
   {
     "id": 50726,
@@ -14264,7 +14539,7 @@
   },
   {
     "id": 6033,
-    "name": "75% Critical",
+    "name": "Short 75% Critical",
     "effects": "Critical chance =75%",
     "defaultDuration": 15,
     "mndModifier": null,

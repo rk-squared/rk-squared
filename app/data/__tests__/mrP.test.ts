@@ -1365,7 +1365,7 @@ Object {
         instant: true,
         other:
           'party h85, Regenga, self dmg cap +10k 15s, ' +
-          '15s: Awoken Bond: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10/15/25/35/45 @ rank 1-5)',
+          '15s: Awoken Kindred Mode: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10/15/25/35/45 @ rank 1-5)',
       });
       expect(describeSoulBreak("Y'shtola - Pulse of Life")).toEqual({
         damage: undefined,

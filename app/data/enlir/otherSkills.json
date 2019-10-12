@@ -464,6 +464,68 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Gear Storm Follow-Up",
+    "name": "Gear Storm",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.28,
+    "element": [
+      "Wind",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.32/0.35/0.38 each) scaling with Storm Raider level",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Thief",
+    "id": 30548437,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Sneak Follow-Up",
+    "name": "Sneak",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Wind",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Eight single attacks (0.50 each) if the user has Haste (100% hit rate if triggered), grants Quick Cast 2 to all allies in the character's row",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Thief",
+    "id": 30548436,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Princess Cornelia",
+    "name": "Healing Voice",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (10/15/25/35/45) at rank 1/2/3/4/5 of the triggering ability",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 30542267,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Anguished Rose Follow-Up",
     "name": "Anguished Rose",
     "type": "BLK",
@@ -2431,12 +2493,12 @@
     "sb": 0,
     "school": "Support",
     "id": 30545069,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Dive to Ground Follow-Up",
-    "name": "Dive to Ground",
+    "source": "Ground Dive Follow-Up",
+    "name": "Ground Dive",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -2452,11 +2514,11 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 30549174,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Planet Prayer",
+    "source": "Awoken Savior",
     "name": "Holy Wave",
     "type": "WHT",
     "target": "All allies",
@@ -2470,12 +2532,12 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542030,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Unpredictable Speed Follow-Up",
-    "name": "Unpredictable Speed",
+    "source": "Fleeting Instant Follow-Up",
+    "name": "Fleeting Instant",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -2492,7 +2554,7 @@
     "sb": 0,
     "school": "Ninja",
     "id": 30549224,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2513,7 +2575,7 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 30549175,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3031,6 +3093,114 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541340,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Chase Blade Follow-Up",
+    "name": "Chase Blade 1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.52,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (3.52) capped at 99999, grants Spellblade High Quick Cast 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 30547321,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Chase Blade Follow-Up",
+    "name": "Chase Blade 2",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 3.2,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four group attacks (0.80 each), grants Spellblade High Quick Cast 1 to the user",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 30547322,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Ice Edge Follow-Up",
+    "name": "Ice Edge",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.4,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (16.40) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541423,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Max Pain Follow-Up",
+    "name": "Max Pain",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.96,
+    "element": [
+      "Dark",
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.66), 100% additional critical chance if Laguna or Ward are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Ninja",
+    "id": 30549321,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Maximum Anchor Follow-Up",
+    "name": "Maximum Anchor",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.12,
+    "element": [
+      "Water",
+      "Ice",
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged attack (5.12) capped at 99999, 50% additional critical damage if Laguna or Kiros are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 30548316,
     "gl": false
   },
   {
@@ -3866,7 +4036,7 @@
     "sb": 0,
     "school": "Thief",
     "id": 30548430,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3888,7 +4058,7 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 30549177,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3906,7 +4076,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542717,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4199,7 +4369,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Two single ranged attacks (0.40 each), 100% hit rate, grants Minor Buff Water",
+    "effects": "Two single ranged attacks (0.40 each), 100% hit rate, grants Minor Buff Water to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -4220,7 +4390,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Two single ranged attacks (0.40 each), 100% hit rate, grants No Air Time 1 and Dragoon +30% Boost 1",
+    "effects": "Two single ranged attacks (0.40 each), 100% hit rate, grants No Air Time 1 and Dragoon +30% Boost 1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -8823,6 +8993,29 @@
     "school": "Special",
     "id": null,
     "gl": true
+  },
+  {
+    "sourceType": "Legend Materia",
+    "source": "Heavyweight Helper",
+    "name": "That's Us! +1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.16,
+    "element": [
+      "Water",
+      "Ice",
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single ranged attacks (0.54 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 30528014,
+    "gl": false
   },
   {
     "sourceType": "Legend Materia",

@@ -350,6 +350,56 @@
     "gl": false
   },
   {
+    "character": "Squall",
+    "source": "Cross of Heart",
+    "name": "Renzokuken Freezeslash",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": "Ice",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.4,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.90 each), grants Spellblade +30% Boost 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Spellblade",
+    "nameJp": "連続剣・氷斬",
+    "id": 30547229,
+    "synchroConditionId": 101,
+    "gl": false
+  },
+  {
+    "character": "Squall",
+    "source": "Cross of Heart",
+    "name": "Renzokuken Freezewave",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": "Ice",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 2.28,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Three group attacks (0.76 each), grants Spellblade +30% Boost 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Spellblade",
+    "nameJp": "連続剣・氷波",
+    "id": 30547320,
+    "synchroConditionId": 101,
+    "gl": false
+  },
+  {
     "character": "Rinoa",
     "source": "Angel Wing Vast Earth",
     "name": "True Magic Collapse",
@@ -397,6 +447,56 @@
     "nameJp": "真の魔法・響岩",
     "id": 30541248,
     "synchroConditionId": 103,
+    "gl": false
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Cross",
+    "name": "Truespell Frigid",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": "Ice",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 18.3,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.05 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Witch",
+    "nameJp": "真の魔法・氷凛",
+    "id": 30541421,
+    "synchroConditionId": 101,
+    "gl": false
+  },
+  {
+    "character": "Rinoa",
+    "source": "Angel Wing Cross",
+    "name": "Truespell Chill",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": "Ice",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 9.15,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (3.05 each), grants Ice +30% Boost 3 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Witch",
+    "nameJp": "真の魔法・氷威",
+    "id": 30541422,
+    "synchroConditionId": 101,
     "gl": false
   },
   {

@@ -10010,9 +10010,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Setting Things Right",
+    "eventName": "For Former Glory",
     "realm": "VII",
-    "glDate": null,
+    "glDate": "2019-10-06",
     "jpDate": "2019-03-31",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10069,7 +10069,7 @@
   {
     "eventName": "Dungeon Update #61 (XV, CC:VII)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-10-08",
     "jpDate": "2019-04-10",
     "type": "Dungeons Update",
     "heroRecords": null,
@@ -10082,7 +10082,7 @@
   {
     "eventName": "Of Woods and Sky",
     "realm": "XII",
-    "glDate": null,
+    "glDate": "2019-10-10",
     "jpDate": "2019-04-12",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10747,6 +10747,47 @@
     "glDate": null,
     "jpDate": "2019-09-25",
     "type": "Festival",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Whispers in the Wind",
+    "realm": "VIII",
+    "glDate": null,
+    "jpDate": "2019-09-30",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Squall",
+      "Rinoa",
+      "Kiros",
+      "Ward"
+    ],
+    "memoryCrystals1": [
+      "Squall",
+      "Rinoa",
+      "Kiros",
+      "Ward"
+    ],
+    "memoryCrystals2": [
+      "Squall",
+      "Rinoa",
+      "Kiros",
+      "Ward"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "For Lasting Peace",
+    "realm": "I",
+    "glDate": null,
+    "jpDate": "2019-10-04",
+    "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
