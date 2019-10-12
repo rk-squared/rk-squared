@@ -914,6 +914,28 @@ export function describeEnlirSoulBreak(
     }
   }
 
+  if ('sb' in sb && sb.sb != null) {
+    const sbOther = selfOther.length ? selfOther : other;
+    if (opt.includeSbPoints && sb.sb === 0) {
+      // If we weren't asked to suppress SB points (which we are for follow-ups
+      // and finishers, since those don't generate gauge), then call out
+      // anything that doesn't generate gauge.
+      sbOther.push('no SB pts');
+    } else if (sb.sb >= 150) {
+      // If this skill grants an abnormally high number of SB points, show it.
+      // We set a flat rate of 150 (to get Lifesiphon and Wrath) instead of
+      // trying to track what's normal at each rarity level.
+      sbOther.push(sbPointsAlias(sb.sb.toString()));
+    } else if (isAbility(sb) && sb.sb < getNormalSBPoints(sb)) {
+      // Special case: Exclude abilities like Lightning Jab that have a normal
+      // default cast time but "fast" tier SB generation because they
+      // manipulate cast time.
+      if (!sb.effects.match(/ cast time /)) {
+        sbOther.push('low SB pts');
+      }
+    }
+  }
+
   if ((m = sb.effects.match(/cast time ([-+]?[0-9.]+) for each previous use/))) {
     const [, castTime] = m;
     other.push('cast time ' + castTime + 's per use');
@@ -946,27 +968,6 @@ export function describeEnlirSoulBreak(
     appendGroup(other, partyOther, 'party');
     appendGroup(other, checkBurstAndBraveMode(selfOther), 'self');
     appendGroup(other, detailOther);
-  }
-
-  if ('sb' in sb && sb.sb != null) {
-    if (opt.includeSbPoints && sb.sb === 0) {
-      // If we weren't asked to suppress SB points (which we are for follow-ups
-      // and finishers, since those don't generate gauge), then call out
-      // anything that doesn't generate gauge.
-      other.push('no SB pts');
-    } else if (sb.sb >= 150) {
-      // If this skill grants an abnormally high number of SB points, show it.
-      // We set a flat rate of 150 (to get Lifesiphon and Wrath) instead of
-      // trying to track what's normal at each rarity level.
-      other.push(sbPointsAlias(sb.sb.toString()));
-    } else if (isAbility(sb) && sb.sb < getNormalSBPoints(sb)) {
-      // Special case: Exclude abilities like Lightning Jab that have a normal
-      // default cast time but "fast" tier SB generation because they
-      // manipulate cast time.
-      if (!sb.effects.match(/ cast time /)) {
-        other.push('low SB pts');
-      }
-    }
   }
 
   if (sb.effects.endsWith(', reset')) {
