@@ -12935,7 +12935,7 @@
   {
     "id": 50688,
     "name": "Carrier Change Mode",
-    "effects": "Grants Attach Water after using a Water ability, grants Attach Ice after using an Ice ability, grants Attach Earth after using an Earth ability lasts 1 turn",
+    "effects": "Grants Attach Water after using a Water ability, grants Attach Ice after using an Ice ability, grants Attach Earth after using an Earth ability, lasts 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13023,7 +13023,7 @@
   {
     "id": 50698,
     "name": "Awoken Princess Cornelia",
-    "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities, casts Healing Voice after using White Magic and Bard abilities",
+    "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities, casts Healing Voice after using a White Magic or Bard ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13111,7 +13111,7 @@
   {
     "id": 50704,
     "name": "Soul Charge Mode",
-    "effects": "Grants Attach Earth after using a Earth ability, grants Attach Fire after using an Fire ability, grants Attach Lightning after using an Lightning ability lasts 1 turn",
+    "effects": "Grants Attach Earth after using a Earth ability, grants Attach Fire after using an Fire ability, grants Attach Lightning after using an Lightning ability, lasts 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13133,7 +13133,7 @@
   {
     "id": 50706,
     "name": "Quartz Eye Mode",
-    "effects": "Grants Attach Fire after using a Fire ability, grants Attach Ice after using an Ice ability, grants Attach Lightning after using an Lightning ability lasts 1 turn",
+    "effects": "Grants Attach Fire after using a Fire ability, grants Attach Ice after using an Ice ability, grants Attach Lightning after using an Lightning ability, lasts 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

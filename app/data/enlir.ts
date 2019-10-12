@@ -675,8 +675,8 @@ function patchEnlir() {
     },
   );
 
-  // Sarah's USB3 and Xezat's AASB are pure madness.  I have no shame in
-  // whatever hacks it takes to process them.
+  // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are pure
+  // madness.  I have no shame in whatever hacks it takes to process them.
   applyPatch(
     enlir.soulBreaks,
     '22300009',
@@ -691,6 +691,23 @@ function patchEnlir() {
         'grants Minor Buff Holy if Warrior of Light is in the party, ' +
         'grants Minor Buff Dark if Garland is in the party, ' +
         'grants Medium Buff Holy/Dark if Warrior of Light & Garland are in the party';
+    },
+  );
+  applyPatch(
+    enlir.soulBreaks,
+    '22300011',
+    song =>
+      song.effects ===
+      'Restores HP (105), removes KO (100% HP), grants Last Stand, Haste, High Quick Cast 2, ' +
+        'grants Minor Buff Holy/Dark and HP Stock (2000) if Warrior of Light/Garland is in the party, ' +
+        'grants Medium Buff Holy/Dark and HP Stock (2000) if both are in the party, ' +
+        'grants Awoken Princess Cornelia to the user',
+    song => {
+      song.effects =
+        'Restores HP (105), removes KO (100% HP), grants Last Stand, Haste, High Quick Cast 2, ' +
+        'grants Minor Buff Holy/Dark and HP Stock (2000) if Warrior of Light/Garland is in the party, ' +
+        'grants Medium Buff Holy/Dark and HP Stock (2000) if Warrior of Light & Garland are in the party, ' +
+        'grants Awoken Princess Cornelia to the user';
     },
   );
   applyPatch(
