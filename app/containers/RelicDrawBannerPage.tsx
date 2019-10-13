@@ -7,9 +7,11 @@ import { RelicDrawProbabilities } from '../actions/relicDraws';
 import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
 import RelicChances from '../components/relicDraws/RelicChances';
 import { RelicDrawBannerContents } from '../components/relicDraws/RelicDrawBannerContents';
-import { RelicDrawModal } from '../components/relicDraws/RelicDrawModal';
+import { RelicDrawModalLink } from '../components/relicDraws/RelicDrawModalLink';
 import { IState } from '../reducers';
 import { getBannerDetails, RelicDrawBannerDetails } from '../selectors/relicDraws';
+
+const styles = require('./RelicDrawBannerPage.scss');
 
 interface RouteParams {
   banner: string;
@@ -37,16 +39,18 @@ export class RelicDrawBannerPage extends React.PureComponent<
     if (!banner) {
       return <BadRelicDrawMessage />;
     }
-    // FIXME: Duplication/overlap with RelicDrawGroupPage
-    // FIXME: Proper RelicDrawModal links
     // FIXME: Hide RelicDrawModel if probabilities are missing
     return (
       <>
         <img src={banner.imageUrl} />
-        <p>
-          <Link to={backLink}>back to list of banners</Link>
-        </p>
-        <RelicDrawModal bannerId={bannerId} />
+        <div className={styles.links}>
+          <span className="d-inline-block w-50">
+            <Link to={backLink}>Back to list of banners</Link>
+          </span>
+          <span className="d-inline-block w-50 text-right">
+            <RelicDrawModalLink bannerId={bannerId}>Relic Draw Simulator</RelicDrawModalLink>
+          </span>
+        </div>
         <RelicDrawBannerContents
           banner={banner}
           probabilities={probability}

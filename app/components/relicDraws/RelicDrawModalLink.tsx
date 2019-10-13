@@ -5,13 +5,15 @@ import RelicDrawSimulator from './RelicDrawSimulator';
 
 interface Props {
   bannerId: number;
+  children: any;
+  className?: string;
 }
 
 interface State {
   isOpen: boolean;
 }
 
-export class RelicDrawModal extends React.PureComponent<Props, State> {
+export class RelicDrawModalLink extends React.PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -19,7 +21,8 @@ export class RelicDrawModal extends React.PureComponent<Props, State> {
     };
   }
 
-  handleOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
+  handleOpen = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     this.setState({ isOpen: true });
   };
 
@@ -28,13 +31,13 @@ export class RelicDrawModal extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { bannerId } = this.props;
+    const { bannerId, children, className } = this.props;
     const { isOpen } = this.state;
     return (
       <>
-        <button type="button" className="btn btn-link" onClick={this.handleOpen}>
-          Relic Draw Simulator
-        </button>
+        <a href="#" className={className} onClick={this.handleOpen}>
+          {children}
+        </a>
         {isOpen && (
           <ModalDialog
             isOpen={this.state.isOpen}
