@@ -1524,6 +1524,100 @@
     "gl": true
   },
   {
+    "character": "Gogo (VI)",
+    "source": "Mimicking All",
+    "name": "Mimicking Everything",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.45,
+    "element": [
+      "NE"
+    ],
+    "time": 0.82,
+    "effects": "One single attack (7.45)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 100,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "なんでもものまね",
+    "id": 30545116,
+    "gl": false
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Mimicking All",
+    "name": "Mimicking Everything",
+    "brave": 1,
+    "type": "NAT",
+    "target": "-",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.82,
+    "effects": "Casts the last ability used by an ally, default ability (PHY: single, 1.50 physical, 100% critical chance)",
+    "counter": false,
+    "autoTarget": "-",
+    "sb": 100,
+    "school": "Special",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "なんでもものまね",
+    "id": 30545117,
+    "gl": false
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Mimicking All",
+    "name": "Mimicking Everything",
+    "brave": 2,
+    "type": "NAT",
+    "target": "-",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.82,
+    "effects": "Casts the last ability used by an ally twice, default ability (PHY: single, 1.50 physical, 100% critical chance)",
+    "counter": false,
+    "autoTarget": "-",
+    "sb": 100,
+    "school": "Special",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "なんでもものまね",
+    "id": 30545118,
+    "gl": false
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Mimicking All",
+    "name": "Mimicking Everything",
+    "brave": 3,
+    "type": "NAT",
+    "target": "-",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.82,
+    "effects": "Casts the last ability used by an ally three times, default ability (PHY: single, 1.50 physical, 100% critical chance)",
+    "counter": false,
+    "autoTarget": "-",
+    "sb": 100,
+    "school": "Special",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "なんでもものまね",
+    "id": 30545119,
+    "gl": false
+  },
+  {
     "character": "Vincent",
     "source": "Dirge of Cerberus",
     "name": "Beast Shot",

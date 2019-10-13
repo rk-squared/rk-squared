@@ -3757,6 +3757,18 @@
   },
   {
     "realm": "VI",
+    "character": "Setzer",
+    "name": "Inherited Dream",
+    "effect": "25% chance to dualcast abilities that deal Dark damage",
+    "master": "ATK +10",
+    "relic": "Setzer's Armguard (VI)",
+    "nameJp": "相棒との夢のつづき",
+    "id": 201061106,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VI",
     "character": "Strago",
     "name": "Curious Naturalist",
     "effect": "Increases Water damage dealt by 10%",
@@ -5631,7 +5643,7 @@
     "realm": "VIII",
     "character": "Ward",
     "name": "Heavyweight Helper",
-    "effect": "35% chance to cast That's Us! +1 after dealing damage with a Water, Ice or Earth attack",
+    "effect": "35% chance to cast That's Us! +1 after using an ability that deals Water, Ice or Earth damage",
     "master": null,
     "relic": null,
     "nameJp": "重量級の補佐官",

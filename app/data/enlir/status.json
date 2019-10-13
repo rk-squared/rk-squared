@@ -4118,6 +4118,17 @@
     "notes": null
   },
   {
+    "id": 282020,
+    "name": "Spellblade +30% Boost 3",
+    "effects": "Spellblade abilities deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SPELLBLADE_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
     "id": 282101,
     "name": "Darkness +30% Boost",
     "effects": "Darkness abilities deal 30% more damage",
@@ -10052,7 +10063,7 @@
   {
     "id": 50411,
     "name": "Chaotic Magic 3",
-    "effects": "MAG +38%, grants Chaotic Magic 4 after using a Black Magic ability, removed if the user hasn't EX: Black Mage ",
+    "effects": "MAG +38%, grants Chaotic Magic 4 after using a Black Magic ability, removed if the user hasn't EX: Black Mage",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11499,7 +11510,7 @@
   {
     "id": 50546,
     "name": "Awoken Automaton Mode",
-    "effects": "White Magic and Monk abilities don't consume uses, cast speed x2.00 for White Magic and Monk abilities, grants HP Stock (500/1000/1500/2000/3000) after using White Magic or Monk abilities at rank 1/2/3/4/5",
+    "effects": "White Magic and Monk abilities don't consume uses, cast speed x3.00 for White Magic and Monk abilities, grants HP Stock (500/1000/1500/2000/3000) after using White Magic or Monk abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12836,7 +12847,7 @@
   {
     "id": 50679,
     "name": "Awoken Frog Catcher",
-    "effects": "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, restores 1000 HP to the user after using Support abilities",
+    "effects": "Support abilities don't consume uses, cast speed x3.00 for Support abilities, restores 1000 HP to the user after using Support abilities",
     "defaultDuration": 51,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13111,7 +13122,7 @@
   {
     "id": 50704,
     "name": "Soul Charge Mode",
-    "effects": "Grants Attach Earth after using a Earth ability, grants Attach Fire after using an Fire ability, grants Attach Lightning after using an Lightning ability, lasts 1 turn",
+    "effects": "Grants Attach Earth after using a Earth ability, grants Attach Fire after using a Fire ability, grants Attach Lightning after using a Lightning ability, lasts 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13164,6 +13175,72 @@
     "notes": null
   },
   {
+    "id": 50714,
+    "name": "Love Barrier Follow-Up",
+    "effects": "Casts Love Barrier after using three of Alabaster Blade and/or Azure Blade",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_CRYSTAL_OF_SNOW",
+    "notes": null
+  },
+  {
+    "id": 50715,
+    "name": "Rage Outbreak Mode",
+    "effects": "Cast speed x2.00, increases Ice Damage dealt by 30%, casts Beat Down after using five Ice attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ANGER_EXPLOSION_MODE",
+    "notes": null
+  },
+  {
+    "id": 50716,
+    "name": "Transform Mode",
+    "effects": "Grants Attach Fire after using a Fire ability, grants Attach Ice after using an Ice ability, grants Attach Wind after using a Wind ability, grants Attach Earth after using an Earth ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHAMELEON_MODE",
+    "notes": null
+  },
+  {
+    "id": 50717,
+    "name": "Random Bet Follow-Up",
+    "effects": "Casts Random Bet after using two Support or Sharpshooter abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_FAKE_CHOCOBO",
+    "notes": null
+  },
+  {
+    "id": 50718,
+    "name": "Transform Mode II",
+    "effects": "Grants Attach Fire/Ice/Wind/Earth with Stacking after using a Fire/Ice/Wind/Earth ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHAMELEON_MODE_II",
+    "notes": null
+  },
+  {
+    "id": 50719,
+    "name": "Awoken Gambler",
+    "effects": "Sharpshooter and Support abilities don't consume uses, cast speed x3.00 for Sharpshooter and Support abilities, casts Doubling Down after using a Sharpshooter or Support ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_GAMBLER",
+    "notes": null
+  },
+  {
     "id": 50726,
     "name": "Phantom Flame Mode",
     "effects": "Increases Phantom Flame level by 1 when using Tricky Flame, decreases Phantom Flame level by 1 when using Glide Flame, removed if user hasn't Synchro Mode",
@@ -13177,7 +13254,7 @@
   {
     "id": 50727,
     "name": "Hunter's Edge Counter",
-    "effects": "Keeps track of the number of uses of  Hunter's Edge, removed if user hasn't Synchro Mode",
+    "effects": "Keeps track of the number of uses of Hunter's Edge, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13187,9 +13264,9 @@
   },
   {
     "id": 50730,
-    "name": "",
-    "effects": "",
-    "defaultDuration": 15,
+    "name": "Items +1",
+    "effects": "Increases Items level by 1 after using Potato Masher, removed if user hasn't Synchro Mode",
+    "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
@@ -14590,6 +14667,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_PARAM_MULTI_CRITICAL_100_15000",
+    "notes": null
+  },
+  {
+    "id": 6038,
+    "name": "ATK, MAG and MND +30%",
+    "effects": "ATK, MAG and MND +30%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_PARAM_MULTI_ATK_30_MATK_30_MND_30",
     "notes": null
   },
   {
