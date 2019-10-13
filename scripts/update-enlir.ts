@@ -77,7 +77,7 @@ interface SheetRenameReference {
   refs: SheetRenameDetails[];
 }
 
-// FIXME: Invert the match - e.g., if we're asked to rename a relic, then
+// TODO: Invert the match - e.g., if we're asked to rename a relic, then
 // looking for a soul break with the matching relic name from the Relics tab
 // will fail if the relic name was inconsistently updated, but looking for a
 // soul break with the matching soul break name should work.

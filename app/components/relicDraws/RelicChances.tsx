@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import * as _ from 'lodash';
 import * as ReactTooltip from 'react-tooltip';
 
@@ -14,8 +15,9 @@ import { chanceOfDesiredDrawProp5, StandardMythrilCost } from '../../data/probab
 import { IState } from '../../reducers';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
-import { MinableCard } from '../common/MinableCard';
+import { MinableCard, MinableCardIcon } from '../common/MinableCard';
 import { Mythril } from '../shared/Mythril';
+import { RelicDrawModalLink } from './RelicDrawModalLink';
 
 const styles = require('./RelicChances.scss');
 
@@ -92,6 +94,15 @@ export class RelicChances extends React.PureComponent<Props> {
     if (onClear) {
       onClear(_.keys(probabilities.byRelic).map(i => +i));
     }
+  };
+
+  renderIcon = (icon: IconProp) => {
+    const { banner } = this.props;
+    return (
+      <RelicDrawModalLink className={styles.simulatorLink} bannerId={banner.id}>
+        <MinableCardIcon icon={icon} />
+      </RelicDrawModalLink>
+    );
   };
 
   renderWantRelics(featuredCount: number | null, count: number) {
@@ -212,6 +223,7 @@ export class RelicChances extends React.PureComponent<Props> {
         className={styles.component + ' ' + className}
         iconClassName="bg-success text-white"
         bodyClassName="row"
+        renderIcon={this.renderIcon}
       >
         <div className="col-sm-6">
           <p className="card-text">

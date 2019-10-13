@@ -602,7 +602,7 @@ const dungeonsHandler: Handler = {
 
     checkForUpdatedRealmDungeons(worlds, store.getState().dungeons, store.dispatch);
     checkForUpdatedRecordDungeons(worlds, newWorlds, store.getState().dungeons, store.dispatch);
-    // FIXME: Track half-price dungeons
+    // TODO: Track half-price dungeons
   },
 
   dungeons(data: dungeonsSchemas.Dungeons, store: Store<IState>, { query }: HandlerRequest) {

@@ -12,11 +12,17 @@ interface Props {
   className?: string;
   iconClassName?: string;
   bodyClassName?: string;
+
+  renderIcon?: (icon: IconProp) => JSX.Element;
 }
 
 interface State {
   collapsed: boolean;
 }
+
+export const MinableCardIcon = ({ icon }: { icon: IconProp }) => (
+  <FontAwesomeIcon icon={icon} size="2x" />
+);
 
 /**
  * A Bootstrap card that can be minified - collapsed to a single icon, like
@@ -38,7 +44,7 @@ export class MinableCard extends React.Component<Props, State> {
   };
 
   render() {
-    const { icon, className, iconClassName, bodyClassName, children } = this.props;
+    const { icon, className, iconClassName, bodyClassName, children, renderIcon } = this.props;
     const { collapsed } = this.state;
     if (collapsed) {
       return (
@@ -53,7 +59,7 @@ export class MinableCard extends React.Component<Props, State> {
           role="button"
         >
           <div className={classNames('card-img-top', iconClassName)}>
-            <FontAwesomeIcon icon={icon} size="2x" />
+            <MinableCardIcon icon={icon} />
           </div>
         </div>
       );
@@ -61,7 +67,7 @@ export class MinableCard extends React.Component<Props, State> {
       return (
         <div className={classNames('card card-horizontal', className, styles.component)}>
           <div className={classNames('card-img-top', iconClassName)}>
-            <FontAwesomeIcon icon={icon} size="2x" />
+            {renderIcon ? renderIcon(icon) : <MinableCardIcon icon={icon} />}
           </div>
           <div className={classNames('card-body', bodyClassName)}>
             {children}
