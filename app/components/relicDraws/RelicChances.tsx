@@ -38,6 +38,9 @@ function getRelicChanceDetails(
     return null;
   }
 
+  const desiredFeaturedCount =
+    banner.bannerRelics && want ? _.sum(banner.bannerRelics.map(i => (want[i] ? 1 : 0))) : null;
+
   const rareChancePerRelic = (probabilities.byRarity[5] || 0) + (probabilities.byRarity[6] || 0);
   let desiredCountAndChance: [number, number];
   if (want) {
@@ -73,6 +76,7 @@ function getRelicChanceDetails(
     rareChancePerRelic,
     desiredCount: desiredCountAndChance[0],
     desiredChancePerRelic: desiredCountAndChance[1],
+    desiredFeaturedCount,
     sixStarCount,
     expectedValue: totalDetails.expectedValue,
     desiredChance: desiredDetails.desiredChance,
@@ -90,7 +94,33 @@ export class RelicChances extends React.PureComponent<Props> {
     }
   };
 
-  renderWant(banner: RelicDrawBannerDetails, count: number, chance: number) {
+  renderWantRelics(featuredCount: number | null, count: number) {
+    if (featuredCount && featuredCount !== count) {
+      const title = `${featuredCount} featured ${pluralize(featuredCount, 'relic')} and ${count -
+        featuredCount} off-banner relics are selected.`;
+      if (featuredCount === 1) {
+        return <abbr title={title}>1 selected relic</abbr>;
+      } else {
+        return (
+          <>
+            ≥1 of <abbr title={title}>{`${featuredCount}+${count - featuredCount}`}</abbr>
+            {' selected relics '}
+          </>
+        );
+      }
+    } else if (count === 1) {
+      return '1 selected relic ';
+    } else {
+      return `≥1 of ${count} selected relics `;
+    }
+  }
+
+  renderWant(
+    banner: RelicDrawBannerDetails,
+    featuredCount: number | null,
+    count: number,
+    chance: number,
+  ) {
     if (!count) {
       return (
         <p className="card-text">
@@ -124,7 +154,7 @@ export class RelicChances extends React.PureComponent<Props> {
     return (
       <div>
         <p className="card-text">
-          Odds of {count === 1 ? '1 selected relic ' : `≥1 of ${count} selected relics `}
+          Odds of {this.renderWantRelics(featuredCount, count)}
           after&hellip; (
           <a href="#" onClick={this.handleClear}>
             clear
@@ -202,7 +232,12 @@ export class RelicChances extends React.PureComponent<Props> {
           )}
         </div>
         <div className="col-sm-6">
-          {this.renderWant(banner, details.desiredCount, details.desiredChance)}
+          {this.renderWant(
+            banner,
+            details.desiredFeaturedCount,
+            details.desiredCount,
+            details.desiredChance,
+          )}
         </div>
       </MinableCard>
     );
