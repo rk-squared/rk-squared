@@ -10725,7 +10725,7 @@
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Five group attacks  (?~? scaling with targets)",
+    "effects": "Five group attacks (?~? scaling with targets)",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": null,

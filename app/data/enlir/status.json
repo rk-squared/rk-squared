@@ -13188,7 +13188,7 @@
   {
     "id": 50715,
     "name": "Rage Outbreak Mode",
-    "effects": "Cast speed x2.00, increases Ice Damage dealt by 30%, casts Beat Down after using five Ice attacks",
+    "effects": "Cast speed x2.00, increases Ice damage dealt by 30%, casts Beat Down after using five Ice attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

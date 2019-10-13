@@ -4269,6 +4269,12 @@ Array [
     "name": "Sky Dreams",
   },
   Object {
+    "character": "Setzer",
+    "description": "25% dualcast dark",
+    "effect": "25% chance to dualcast abilities that deal Dark damage",
+    "name": "Inherited Dream",
+  },
+  Object {
     "character": "Seven",
     "description": "1.1x ice dmg",
     "effect": "Increases Ice damage dealt by 10%",
@@ -5015,7 +5021,7 @@ Array [
   Object {
     "character": "Ward",
     "description": "(water/ice/earth dmg ⤇ 35% for p2.16/4 wa+i+e+n rngd)",
-    "effect": "35% chance to cast That's Us! +1 after dealing damage with a Water, Ice or Earth attack",
+    "effect": "35% chance to cast That's Us! +1 after using an ability that deals Water, Ice or Earth damage",
     "name": "Heavyweight Helper",
   },
   Object {

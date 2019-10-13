@@ -466,7 +466,7 @@ const attackRe = XRegExp(
     (?<attackMultiplier>[0-9.]+|\?)
     (?<altAttackMultiplier>(?:/[0-9.]+)*)?
     (?:\ or\ (?<hybridAttackMultiplier>[0-9.]+|\?))?
-    (?:~(?<scaleToAttackMultiplier>[0-9.]+))?
+    (?:~(?<scaleToAttackMultiplier>[0-9.]+|\?))?
     (?:\ each)?
     (?<scaleType>\ scaling\ with[^)]+?)?
     (?:,\ (?<defaultMultiplier>[0-9.]+)\ default)?
