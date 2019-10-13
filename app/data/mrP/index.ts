@@ -846,9 +846,13 @@ export function describeEnlirSoulBreak(
 
     // Process type (e.g., "smart summoning ether").  FFRK Community is
     // inconsistent - sometimes "Summoning smart ether," sometimes
-    // "smart summoning ether."
-    // TODO: Fix that inconsistency
-    let type = type1 && type1 !== 'and ' ? type1 : type2;
+    // "smart summoning ether."  Some smart ethers are listed as "grants
+    // smart ether" - make sure that "grants" isn't interpreted as a type.
+    // TODO: Fix those inconsistencies?
+    let type: string | undefined = type1 && type1 !== 'and ' ? type1 : type2;
+    if (type && type.match(/grants */i)) {
+      type = undefined;
+    }
     if (type) {
       type = getShortName(_.upperFirst(type.trim()));
     }
