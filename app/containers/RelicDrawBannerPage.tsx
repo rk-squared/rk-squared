@@ -39,7 +39,6 @@ export class RelicDrawBannerPage extends React.PureComponent<
     if (!banner) {
       return <BadRelicDrawMessage />;
     }
-    // FIXME: Hide RelicDrawModel if probabilities are missing
     return (
       <>
         <img src={banner.imageUrl} />
@@ -47,9 +46,11 @@ export class RelicDrawBannerPage extends React.PureComponent<
           <span className="d-inline-block w-50">
             <Link to={backLink}>Back to list of banners</Link>
           </span>
-          <span className="d-inline-block w-50 text-right">
-            <RelicDrawModalLink bannerId={bannerId}>Relic Draw Simulator</RelicDrawModalLink>
-          </span>
+          {probability && (
+            <span className="d-inline-block w-50 text-right">
+              <RelicDrawModalLink bannerId={bannerId}>Relic draw simulator</RelicDrawModalLink>
+            </span>
+          )}
         </div>
         <RelicDrawBannerContents
           banner={banner}
