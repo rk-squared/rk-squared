@@ -948,6 +948,11 @@ export const items: Item[] = [
     id: 95001148,
   },
   {
+    name: 'BP',
+    type: ItemType.Common,
+    id: 95001149,
+  },
+  {
     // "A Chilling Request"
     name: 'Krakka Greens',
     type: ItemType.Common,

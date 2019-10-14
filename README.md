@@ -24,6 +24,7 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 16. Rubies / ruby tracker
 17. Touch-friendly tooltips?
 18. Sorting/filtering for soul breaks and relic draw lists - e.g., sort by element
+19. Update options - update dungeons without re-entering dungeons, update record materia, etc.
 
 ### JP support
 
