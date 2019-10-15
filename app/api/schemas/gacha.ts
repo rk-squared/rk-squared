@@ -53,7 +53,15 @@ export interface GachaSeriesList {
   priority: number; // 0 means free daily draw and no-longer-active promos (like the "first relic draw", ID 1000)
   user_exchange_shop_exchanged_num: number;
   closed_at: Timestamp;
+
+  // Sample fragments of rise messages:
+  // - "Guaranteed 5★ or Higher Relic in Rare Relic Draw x11<br>\nOne 5★ or higher relic is guaranteed to drop in each Rare Relic Draw x11.<br>"
+  // - "Rare Relic Draw x40 Guaranteed Two 6★ Drops<br>\nThis relic draw has <span class=\"brown\">two guaranteed 6★ relics</span>.<br>"
+  // - "Guaranteed 5★ or Higher Relic in Rare Relic Draw x3<br>\nOne 5★ or higher relic is guaranteed to drop in each Rare Relic Draw x3.<br>" (Luck of the Realms)
+  // - "Guaranteed 5★ or Higher Relics in Rare Relic Draw x11<br>\nTwo 5★ or higher relics are guaranteed to drop in each Rare Relic Draw x11.<br>"
+  // - "Rare Relic Draw x8 Guaranteed 6★ and 5★ Drops<br>\nThis Rare Relic Draw x8 has <span class=\"brown\">1 guaranteed 6★ Arcane Overstrike relic and 7 guaranteed 5★ relics"
   rise_message: string;
+
   is_book_gacha: boolean;
   banner_list: BannerList[];
   line_up_image_path: RelativeUrlPath;
