@@ -958,6 +958,12 @@ export const items: Item[] = [
     type: ItemType.Common,
     id: 95001151,
   },
+  {
+    // "A Soggy Request"
+    name: 'Krakka Greens',
+    type: ItemType.Common,
+    id: 95001157,
+  },
 
   // Items 95003001 through 95003009 are apparently internal virtual items used
   // to track whether Acolyte Archive relic draws are available.

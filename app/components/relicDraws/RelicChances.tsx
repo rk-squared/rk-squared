@@ -63,6 +63,7 @@ function getRelicChanceDetails(
 
   const drawCount = getBannerDrawCount(banner);
 
+  // FIXME: Update for 2G5
   const totalDetails = chanceOfDesiredDrawProp5(
     drawCount,
     rareChancePerRelic / 100,
