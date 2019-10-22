@@ -4,6 +4,10 @@
   - Dream dungeons are properly grouped with regular events
 - Soul Breaks
   - Fix a layout glitch in Shared Soul Breaks page
+- Relic Draws
+  - Add Relic Draw Simulator
+  - Add support for calculating probabilities for 2xG5 banners
+  - Known issue: 2xG5 banners are only properly detected for English language games.
 
 # v2.3.0
 

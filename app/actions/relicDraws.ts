@@ -134,6 +134,14 @@ export function getBannerPullParams(banner: RelicDrawBanner): RelicDrawPullParam
   }
 }
 
+/**
+ * Gets the "normal" banner pull parameters.  For example, a 11 pull also
+ * offers x1 and x3 pulls, but those are rarely useful.
+ */
+export function getNormalBannerPullParams(banner: RelicDrawBanner): RelicDrawPullParams {
+  return _.last(getBannerPullParams(banner))!;
+}
+
 export const setRelicDrawBannersAndGroups = createAction(
   'SET_RELIC_DRAW_BANNERS',
   (banners: RelicDrawBanner[], groups: RelicDrawGroup[]) => ({

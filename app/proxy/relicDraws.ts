@@ -36,6 +36,7 @@ interface RelicDrawBannerResults {
 
 function parseRiseMessage(riseMessage: string) {
   riseMessage = striptags(riseMessage);
+  // FIXME: Parse non-English rise messages
   const m =
     riseMessage.match(
       /([A-Z]\w+) (\d+)★ or higher (?:relic is|relics are) guaranteed to drop in each Rare Relic Draw/,

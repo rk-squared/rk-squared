@@ -27,22 +27,60 @@ export const RealmRelicDrawMythrilCost = 15;
 
 export const StandardGuaranteedRarity = 5;
 
+/**
+ * Parameters for a single pull on a relic draw banner.
+ *
+ * Note that this structure is somewhat simplified.  We don't attempt to
+ * handle cases like the Acolyte Archives (only 1 rare) or the 8 relic gift
+ * draw from the spring 2019 festival (one 6 star and 7 5 stars).
+ */
+export interface RelicDrawPullParams {
+  /** Number of items pulled with each draw (usually 11) */
+  drawCount: number;
+  /** Guaranteed rarity (usually 5 or 6) */
+  guaranteedRarity: number;
+  /** Guaranteed count (e.g., at least 1 5*) */
+  guaranteedCount: number;
+}
+
 interface RelicDrawBannerChances {
   expectedValue: number;
   desiredChance: number;
 }
 
 /**
+ * Combinations formula - "n choose k" is n! / (k! * (n - k)!).
+ */
+export function combinations(n: number, k: number): number {
+  const smaller = Math.min(k, n - k);
+  const larger = Math.max(k, n - k);
+  let result = 1;
+  for (let i = n; i > larger; i--) {
+    result *= i;
+  }
+  for (let i = 1; i <= smaller; i++) {
+    result /= i;
+  }
+  return result;
+}
+
+/**
  * Analysis of probabilities, following proposal 5 on Reddit.
  *
- * @param drawCount              Number of items in this banner (usually 11)
- * @param rareChancePerRelic     Total chance of getting a 5* or 6* (e.g., 0.1404)
- * @param desiredChancePerRelic  Total chance of getting something desirable (e.g., 0.05)
+ * @param drawCount - Number of items in this banner (usually 11)
+ * @param rareChancePerRelic - Total chance of getting a relic of guaranteed
+ *    rarity (e.g., 0.1404)
+ * @param desiredChancePerRelic - Total chance of getting something desirable
+ *    out of the rare relics (e.g., 0.05)
+ * @param desiredNonRareChancePerRelic - Total chance of getting something
+ *    desirable out of the non-rare relics.  Usually zero; this is only
+ *    relevant for draws like the x40 gift that guarantees 2 6 star relics.
  */
 export function chanceOfDesiredDrawProp5(
-  drawCount: number,
+  { drawCount, guaranteedCount }: RelicDrawPullParams,
   rareChancePerRelic: number,
   desiredChancePerRelic: number,
+  desiredNonRareChancePerRelic: number = 0,
 ): RelicDrawBannerChances {
   // If x is the percentage of getting a 5* or better
   // and y is the percentage of getting what you care about,
@@ -55,26 +93,31 @@ export function chanceOfDesiredDrawProp5(
   const n = drawCount;
   const x = rareChancePerRelic;
   const y = desiredChancePerRelic;
+  const z = desiredNonRareChancePerRelic;
 
   let totalEv = 0;
   let totalDesiredChance = 0;
-  for (let i = 0; i < n; i++) {
-    // Chance of not getting a rare for the preceding i draws then getting a
-    // rare on this draw.
-    const chanceOfThisOutcome = (1 - x) ** i * x;
+  let chanceOfReroll = 0;
+  for (let i = 0; i <= n; i++) {
+    // Number of ways we could get i rares and n - i non-rares.
+    const combinationsForThisOutcome = combinations(n, i);
+    // Chance of getting i rares and n - i non-rares
+    const chanceForThisOutcome = (1 - x) ** (n - i) * x ** i * combinationsForThisOutcome;
 
-    // Expected value for this arrangement of not getting a rare for the
-    // preceding i draws then getting a rare on this draw.
-    const evForThisOutcome = y / x + y * (n - 1 - i);
+    if (i < guaranteedCount) {
+      chanceOfReroll += chanceForThisOutcome;
+    } else {
+      // Expected value for this arrangement of getting i rares.
+      const evForThisOutcome = (y / x) * i + (z / (1 - x)) * (n - i);
 
-    const undesiredChanceForThisOutcome = ((x - y) / x) * (1 - y) ** (n - 1 - i);
+      const undesiredChanceForThisOutcome = ((x - y) / x) ** i * ((1 - x - z) / (1 - x)) ** (n - i);
 
-    totalEv += chanceOfThisOutcome * evForThisOutcome;
-    totalDesiredChance += chanceOfThisOutcome * (1 - undesiredChanceForThisOutcome);
+      totalEv += chanceForThisOutcome * evForThisOutcome;
+      totalDesiredChance += chanceForThisOutcome * (1 - undesiredChanceForThisOutcome);
+    }
   }
 
-  const chanceOfNone = (1 - x) ** n;
-  const r = chanceOfNone;
+  const r = chanceOfReroll;
 
   // Sum of an infinite geometric series is a / (1 - r).
   return {
@@ -88,9 +131,10 @@ export function chanceOfDesiredDrawProp5(
  * assumptions.  See chanceOfDesiredDrawProp5.
  */
 export function monteCarloProp5(
-  drawCount: number,
-  rareChance: number,
-  desiredChance: number,
+  { drawCount, guaranteedCount }: RelicDrawPullParams,
+  rareChancePerRelic: number,
+  desiredChancePerRelic: number,
+  desiredNonRareChancePerRelic: number,
   iterations: number,
 ): RelicDrawBannerChances {
   let totalCount = 0;
@@ -98,14 +142,20 @@ export function monteCarloProp5(
   for (let i = 0; i < iterations; i++) {
     let thisRareCount = 0;
     let thisDesiredCount = 0;
-    while (thisRareCount === 0) {
+    while (thisRareCount < guaranteedCount) {
       for (let j = 0; j < drawCount; j++) {
         const result = Math.random();
-        if (result < desiredChance) {
+        if (result < desiredChancePerRelic) {
           thisDesiredCount++;
         }
-        if (result < rareChance) {
+        if (result < rareChancePerRelic) {
           thisRareCount++;
+        }
+        if (
+          result >= rareChancePerRelic &&
+          result < rareChancePerRelic + desiredNonRareChancePerRelic
+        ) {
+          thisDesiredCount++;
         }
       }
     }
@@ -126,15 +176,6 @@ export interface RelicProbability {
   relicId: number;
   rarity: number;
   probability: number;
-}
-
-/**
- * Parameters for a single pull on a relic draw banner.
- */
-export interface RelicDrawPullParams {
-  drawCount: number;
-  guaranteedRarity: number;
-  guaranteedCount: number;
 }
 
 export function simulateDrawProp5(

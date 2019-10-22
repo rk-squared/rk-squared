@@ -7,7 +7,7 @@ import * as ReactTooltip from 'react-tooltip';
 
 import {
   clearWantedRelics,
-  getBannerDrawCount,
+  getNormalBannerPullParams,
   RelicDrawProbabilities,
 } from '../../actions/relicDraws';
 import { enlir } from '../../data/enlir';
@@ -40,18 +40,36 @@ function getRelicChanceDetails(
     return null;
   }
 
+  const params = getNormalBannerPullParams(banner);
+
   const desiredFeaturedCount =
     banner.bannerRelics && want ? _.sum(banner.bannerRelics.map(i => (want[i] ? 1 : 0))) : null;
 
-  const rareChancePerRelic = (probabilities.byRarity[5] || 0) + (probabilities.byRarity[6] || 0);
-  let desiredCountAndChance: [number, number];
+  let fiveStarChancePerRelic = 0;
+  let rareChancePerRelic = 0;
+  _.forEach(probabilities.byRarity, (chance, rarity) => {
+    if (+rarity >= 5) {
+      fiveStarChancePerRelic += chance;
+    }
+    if (+rarity >= params.guaranteedRarity) {
+      rareChancePerRelic += chance;
+    }
+  });
+
+  let desiredCount = 0;
+  let desiredChancePerRelic = 0;
+  let desiredNonRareChancePerRelic = 0;
   if (want) {
-    desiredCountAndChance = _.map(probabilities.byRelic, (chance: number, id: string): [
-      number,
-      number,
-    ] => (want[+id] ? [1, chance] : [0, 0])).reduce(([a, b], [c, d]) => [a + c, b + d], [0, 0]);
-  } else {
-    desiredCountAndChance = [0, 0];
+    _.forEach(probabilities.byRelic, (chance, id) => {
+      if (want[+id]) {
+        desiredCount++;
+        if (enlir.relics[+id].rarity >= params.guaranteedRarity) {
+          desiredChancePerRelic += chance;
+        } else {
+          desiredNonRareChancePerRelic += chance;
+        }
+      }
+    });
   }
 
   const relicIds =
@@ -61,24 +79,21 @@ function getRelicChanceDetails(
 
   const sixStarCount = relicIds.map(i => enlir.relics[i]).filter(i => !!i && i.rarity >= 6).length;
 
-  const drawCount = getBannerDrawCount(banner);
-
-  // FIXME: Update for 2G5
   const totalDetails = chanceOfDesiredDrawProp5(
-    drawCount,
+    params,
     rareChancePerRelic / 100,
     rareChancePerRelic / 100,
   );
   const desiredDetails = chanceOfDesiredDrawProp5(
-    drawCount,
+    params,
     rareChancePerRelic / 100,
-    desiredCountAndChance[1] / 100,
+    desiredChancePerRelic / 100,
+    desiredNonRareChancePerRelic / 100,
   );
 
   return {
-    rareChancePerRelic,
-    desiredCount: desiredCountAndChance[0],
-    desiredChancePerRelic: desiredCountAndChance[1],
+    fiveStarChancePerRelic,
+    desiredCount,
     desiredFeaturedCount,
     sixStarCount,
     expectedValue: totalDetails.expectedValue,
@@ -228,7 +243,7 @@ export class RelicChances extends React.PureComponent<Props> {
       >
         <div className="col-sm-6">
           <p className="card-text">
-            {details.rareChancePerRelic.toFixed(2)}% chance of 5★ or better
+            {details.fiveStarChancePerRelic.toFixed(2)}% chance of 5★ or better
           </p>
           <p className="card-text">
             (ave. {details.expectedValue.toFixed(2)} 5★ or better per 11× pull)
