@@ -35,32 +35,53 @@ export class IosInstructions extends React.Component<Props> {
           <li>Tap &ldquo;Save.&rdquo;</li>
         </ol>
 
-        <h6>Install the RK&sup2; certificate</h6>
+        <h6>Install and enable the RK&sup2; certificate</h6>
         <ol>
           <li>
-            Open Safari on your phone or tablet and navigate to <code>rk-squared.com/cert</code>.
-            (This <code>cert</code> page isn't a &ldquo;real&rdquo; web page; it's handled within
-            RK&sup2; and is only accessible if you've configured your proxy.)
-          </li>
-          <li>
-            You should see a message similar to the following:
-            {/* Hack: ul/li is bad semantics, but it looks nice enough with the other <ul>s. */}
+            Download the certificate.
             <ul>
               <li>
-                This website is trying to open Settings to show you a configuration profile. Do you
-                want to allow this?
+                Open Safari on your phone or tablet and navigate to <code>rk-squared.com/cert</code>
+                . (This <code>cert</code> page isn't a &ldquo;real&rdquo; web page; it's handled
+                within RK&sup2; and is only accessible if you've configured your proxy.)
+              </li>
+              <li>
+                You should see a message similar to the following:
+                <blockquote className="simple-blockquote mb-0">
+                  This website is trying to download a configuration profile. Do you want to allow
+                  this?
+                </blockquote>
+                Tap &ldquo;Allow.&rdquo;
+              </li>
+              <li>
+                You should see a message: &ldquo;Profile Downloaded. Review the profile in Settings
+                app if you want to install it.&rdquo; Tap &ldquo;Close.&rdquo;
               </li>
             </ul>
-            Tap &ldquo;Allow.&rdquo;
           </li>
           <li>
-            An &ldquo;Install Profile&rdquo; screen should pop up. Follow the on-screen prompts to
-            install the profile.
+            Install the certificate.
+            <ul>
+              <li>Go under Settings, under General, under Profiles.</li>
+              <li>Tap &rdquo;RK Squared&rdquo;</li>
+              <li>Tap &rdquo;Install&rdquo; at the top right corner of the screen.</li>
+              <li>
+                Follow the on-screen instructions and enter your passcode when prompted to finish
+                installing the profile.
+              </li>
+            </ul>
           </li>
-          <li>Go under Settings, under General, under About, under Certificate Trust Settings.</li>
           <li>
-            Under &ldquo;Enable Full Trust for Root Certificates,&rdquo; make sure that &ldquo;RK
-            Squared&rdquo; is selected.
+            Configure your device to trust the certificate.
+            <ul>
+              <li>
+                Go under Settings, under General, under About, under Certificate Trust Settings.
+              </li>
+              <li>
+                Under &ldquo;Enable Full Trust for Root Certificates,&rdquo; make sure that
+                &ldquo;RK Squared&rdquo; is selected.
+              </li>
+            </ul>
           </li>
           <li>
             The key for this certificate is stored locally on this computer. If you ever run
