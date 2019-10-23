@@ -33,6 +33,8 @@ const argv = yargs
     description: 'Listen on this port for HTTPS proxy traffic (for iOS)',
   }).argv;
 
+const validNumber = (n: number) => (n && !isNaN(n) ? n : undefined);
+
 /**
  * Hyperlinks that open in new windows instead open in a web browser.
  * See https://github.com/electron/electron/issues/1344#issuecomment-171516261
@@ -288,15 +290,14 @@ app.on('ready', () =>
       logToFile(logFilename);
     }
 
-    createOrLoadCertificate(userDataPath, (error: string) => store.dispatch(showDanger(error)));
+    const tlsCert = createOrLoadCertificate(userDataPath, (error: string) =>
+      store.dispatch(showDanger(error)),
+    );
     createFfrkProxy(store, {
       userDataPath,
-      port:
-        argv['rk-proxy-port'] && !isNaN(argv['rk-proxy-port']) ? argv['rk-proxy-port'] : undefined,
-      httpsPort:
-        argv['rk-https-proxy-port'] && !isNaN(argv['rk-https-proxy-port'])
-          ? argv['rk-https-proxy-port']
-          : undefined,
+      port: validNumber(argv['rk-proxy-port']),
+      httpsPort: validNumber(argv['rk-https-proxy-port']),
+      tlsCert,
     });
   }),
 );

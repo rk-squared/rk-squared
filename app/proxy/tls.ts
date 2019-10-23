@@ -7,11 +7,11 @@ import { logger } from '../utils/logger';
 
 export const tlsSites = ['ffrk.denagames.com', 'dff.sp.mbga.jp'];
 
-export const tlsCert = {
-  key: '',
-  cert: '',
-  ca: '',
-};
+export interface TlsCert {
+  key: string;
+  cert: string;
+  ca: string;
+}
 
 function setCommon(cert: pki.Certificate, commonName: string, issuer?: pki.Certificate) {
   // NOTE: serialNumber is the hex encoded value of an ASN.1 INTEGER.
@@ -50,7 +50,13 @@ function setCommon(cert: pki.Certificate, commonName: string, issuer?: pki.Certi
 export function createOrLoadCertificate(
   userDataPath: string,
   errorCallback?: (error: string) => void,
-) {
+): TlsCert {
+  const tlsCert = {
+    key: '',
+    cert: '',
+    ca: '',
+  };
+
   const caFilename = path.join(userDataPath, 'ffrk-ca.pem');
   const certFilename = path.join(userDataPath, 'ffrk-cert.pem');
   const keyFilename = path.join(userDataPath, 'ffrk-key.pem');
@@ -62,7 +68,7 @@ export function createOrLoadCertificate(
       tlsCert.ca = fs.readFileSync(caFilename).toString();
       tlsCert.cert = fs.readFileSync(certFilename).toString();
       tlsCert.key = fs.readFileSync(keyFilename).toString();
-      return;
+      return tlsCert;
     } catch (e) {
       logger.error('Failed to load certificates');
       logger.error(e);
@@ -88,6 +94,7 @@ export function createOrLoadCertificate(
     logger.error(e);
     errorCallback && errorCallback('Failed to save certificates: ' + e.message);
   }
+  return tlsCert;
 }
 
 /**

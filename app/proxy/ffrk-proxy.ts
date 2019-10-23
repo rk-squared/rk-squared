@@ -37,7 +37,7 @@ import { logger } from '../utils/logger';
 import { escapeHtml } from '../utils/textUtils';
 import { DnsResolver } from './dnsResolver';
 import { getStyleOverrides } from './styles';
-import { tlsCert, tlsSites } from './tls';
+import { TlsCert, tlsSites } from './tls';
 import { decodeData, encodeData, getIpAddresses, getStoragePath, setStoragePath } from './util';
 
 interface ProxyIncomingMessage extends http.IncomingMessage {
@@ -417,6 +417,7 @@ function configureApp(
   app: connect.Server,
   store: Store<IState>,
   proxy: httpProxy,
+  tlsCert: TlsCert,
   getTarget: (req: http.IncomingMessage) => string | Promise<string>,
 ) {
   // FIXME: Need error handling somewhere in here
@@ -502,7 +503,7 @@ function sendServerError(res: http.ServerResponse, message: string) {
   res.end(message);
 }
 
-function createTransparentApp(store: Store<IState>, proxy: httpProxy) {
+function createTransparentApp(store: Store<IState>, proxy: httpProxy, tlsCert: TlsCert) {
   const app = connect();
   const transparentApp = connect();
 
@@ -519,7 +520,7 @@ function createTransparentApp(store: Store<IState>, proxy: httpProxy) {
   });
 
   const resolver = new DnsResolver();
-  configureApp(app, store, proxy, req => {
+  configureApp(app, store, proxy, tlsCert, req => {
     const reqUrl = url.parse(req.url as string);
     return Promise.resolve(resolver.resolve(reqUrl.host!)).then(
       address => reqUrl.protocol + '//' + address,
@@ -533,10 +534,11 @@ interface ProxyArgs {
   userDataPath: string;
   port?: number;
   httpsPort?: number;
+  tlsCert: TlsCert;
 }
 
 export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
-  const { userDataPath } = proxyArgs;
+  const { userDataPath, tlsCert } = proxyArgs;
   setStoragePath(userDataPath);
   store.dispatch(updateProxyStatus({ capturePath: userDataPath }));
   const port = proxyArgs.port || defaultPort;
@@ -549,7 +551,7 @@ export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
   });
 
   const app = connect();
-  configureApp(app, store, proxy, req => {
+  configureApp(app, store, proxy, tlsCert, req => {
     const reqUrl = url.parse(req.url as string);
     return reqUrl.protocol + '//' + reqUrl.host;
   });
@@ -569,7 +571,7 @@ export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
   server.listen(port);
   httpsServer.listen(httpsPort, '127.0.0.1');
   if (store.getState().options.enableTransparentProxy) {
-    const transparentApp = createTransparentApp(store, proxy);
+    const transparentApp = createTransparentApp(store, proxy, tlsCert);
     const transparentServer = http.createServer(transparentApp);
     handleServerErrors(transparentServer, 'transparent proxy server', store);
     transparentServer.listen(80);
