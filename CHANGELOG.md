@@ -7,6 +7,7 @@
 - Relic Draws
   - Add Relic Draw Simulator
   - Add support for calculating probabilities for 2xG5 banners
+  - Relic draw probabilities now display the number of wanted featured relics separately from the number of wanted off-banner relics.
   - Known issue: 2xG5 banners are only properly detected for English language games.
 
 # v2.3.0
