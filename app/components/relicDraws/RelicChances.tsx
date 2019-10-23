@@ -1,21 +1,23 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import * as _ from 'lodash';
 import * as ReactTooltip from 'react-tooltip';
 
-import { clearWantedRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
-import { enlir } from '../../data/enlir';
 import {
-  chanceOfDesiredDrawProp5,
-  StandardDrawCount,
-  StandardMythrilCost,
-} from '../../data/probabilities';
+  clearWantedRelics,
+  getNormalBannerPullParams,
+  RelicDrawProbabilities,
+} from '../../actions/relicDraws';
+import { enlir } from '../../data/enlir';
+import { chanceOfDesiredDrawProp5, StandardMythrilCost } from '../../data/probabilities';
 import { IState } from '../../reducers';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
-import { MinableCard } from '../common/MinableCard';
+import { MinableCard, MinableCardIcon } from '../common/MinableCard';
 import { Mythril } from '../shared/Mythril';
+import { RelicDrawModalLink } from './RelicDrawModalLink';
 
 const styles = require('./RelicChances.scss');
 
@@ -38,15 +40,36 @@ function getRelicChanceDetails(
     return null;
   }
 
-  const rareChancePerRelic = (probabilities.byRarity[5] || 0) + (probabilities.byRarity[6] || 0);
-  let desiredCountAndChance: [number, number];
+  const params = getNormalBannerPullParams(banner);
+
+  const desiredFeaturedCount =
+    banner.bannerRelics && want ? _.sum(banner.bannerRelics.map(i => (want[i] ? 1 : 0))) : null;
+
+  let fiveStarChancePerRelic = 0;
+  let rareChancePerRelic = 0;
+  _.forEach(probabilities.byRarity, (chance, rarity) => {
+    if (+rarity >= 5) {
+      fiveStarChancePerRelic += chance;
+    }
+    if (+rarity >= params.guaranteedRarity) {
+      rareChancePerRelic += chance;
+    }
+  });
+
+  let desiredCount = 0;
+  let desiredChancePerRelic = 0;
+  let desiredNonRareChancePerRelic = 0;
   if (want) {
-    desiredCountAndChance = _.map(probabilities.byRelic, (chance: number, id: string): [
-      number,
-      number,
-    ] => (want[+id] ? [1, chance] : [0, 0])).reduce(([a, b], [c, d]) => [a + c, b + d], [0, 0]);
-  } else {
-    desiredCountAndChance = [0, 0];
+    _.forEach(probabilities.byRelic, (chance, id) => {
+      if (want[+id]) {
+        desiredCount++;
+        if (enlir.relics[+id].rarity >= params.guaranteedRarity) {
+          desiredChancePerRelic += chance;
+        } else {
+          desiredNonRareChancePerRelic += chance;
+        }
+      }
+    });
   }
 
   const relicIds =
@@ -56,24 +79,22 @@ function getRelicChanceDetails(
 
   const sixStarCount = relicIds.map(i => enlir.relics[i]).filter(i => !!i && i.rarity >= 6).length;
 
-  const drawCount =
-    banner.cost && banner.cost.drawCount ? banner.cost.drawCount : StandardDrawCount;
-
   const totalDetails = chanceOfDesiredDrawProp5(
-    drawCount,
+    params,
     rareChancePerRelic / 100,
     rareChancePerRelic / 100,
   );
   const desiredDetails = chanceOfDesiredDrawProp5(
-    drawCount,
+    params,
     rareChancePerRelic / 100,
-    desiredCountAndChance[1] / 100,
+    desiredChancePerRelic / 100,
+    desiredNonRareChancePerRelic / 100,
   );
 
   return {
-    rareChancePerRelic,
-    desiredCount: desiredCountAndChance[0],
-    desiredChancePerRelic: desiredCountAndChance[1],
+    fiveStarChancePerRelic,
+    desiredCount,
+    desiredFeaturedCount,
     sixStarCount,
     expectedValue: totalDetails.expectedValue,
     desiredChance: desiredDetails.desiredChance,
@@ -91,7 +112,42 @@ export class RelicChances extends React.PureComponent<Props> {
     }
   };
 
-  renderWant(banner: RelicDrawBannerDetails, count: number, chance: number) {
+  renderIcon = (icon: IconProp) => {
+    const { banner } = this.props;
+    return (
+      <RelicDrawModalLink className={styles.simulatorLink} bannerId={banner.id}>
+        <MinableCardIcon icon={icon} />
+      </RelicDrawModalLink>
+    );
+  };
+
+  renderWantRelics(featuredCount: number | null, count: number) {
+    if (featuredCount && featuredCount !== count) {
+      const title = `${featuredCount} featured ${pluralize(featuredCount, 'relic')} and ${count -
+        featuredCount} off-banner relics are selected.`;
+      if (featuredCount === 1) {
+        return <abbr title={title}>1 selected relic</abbr>;
+      } else {
+        return (
+          <>
+            ≥1 of <abbr title={title}>{`${featuredCount}+${count - featuredCount}`}</abbr>
+            {' selected relics '}
+          </>
+        );
+      }
+    } else if (count === 1) {
+      return '1 selected relic ';
+    } else {
+      return `≥1 of ${count} selected relics `;
+    }
+  }
+
+  renderWant(
+    banner: RelicDrawBannerDetails,
+    featuredCount: number | null,
+    count: number,
+    chance: number,
+  ) {
     if (!count) {
       return (
         <p className="card-text">
@@ -125,7 +181,7 @@ export class RelicChances extends React.PureComponent<Props> {
     return (
       <div>
         <p className="card-text">
-          Odds of {count === 1 ? '1 selected relic ' : `≥1 of ${count} selected relics `}
+          Odds of {this.renderWantRelics(featuredCount, count)}
           after&hellip; (
           <a href="#" onClick={this.handleClear}>
             clear
@@ -183,10 +239,11 @@ export class RelicChances extends React.PureComponent<Props> {
         className={styles.component + ' ' + className}
         iconClassName="bg-success text-white"
         bodyClassName="row"
+        renderIcon={this.renderIcon}
       >
         <div className="col-sm-6">
           <p className="card-text">
-            {details.rareChancePerRelic.toFixed(2)}% chance of 5★ or better
+            {details.fiveStarChancePerRelic.toFixed(2)}% chance of 5★ or better
           </p>
           <p className="card-text">
             (ave. {details.expectedValue.toFixed(2)} 5★ or better per 11× pull)
@@ -203,7 +260,12 @@ export class RelicChances extends React.PureComponent<Props> {
           )}
         </div>
         <div className="col-sm-6">
-          {this.renderWant(banner, details.desiredCount, details.desiredChance)}
+          {this.renderWant(
+            banner,
+            details.desiredFeaturedCount,
+            details.desiredCount,
+            details.desiredChance,
+          )}
         </div>
       </MinableCard>
     );

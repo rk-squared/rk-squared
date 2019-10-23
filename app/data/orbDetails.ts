@@ -19,6 +19,7 @@ export type OrbType =
   | 'Summon';
 
 export const orbCosts = {
+  // These costs' notations are based off of MrP.
   '1': [1, 2, 3, 4, 5],
   '2': [2, 3, 6, 12, 18],
   '2+': [2, 5, 10, 20, 30],
@@ -29,14 +30,22 @@ export const orbCosts = {
   '3+': [3, 8, 15, 30, 45],
   '5': [5, 10, 20, 30, 50],
   '6+': [6, 12, 24, 36, 60],
-  '06+': [0, 12, 24, 36, 60],
   '6': [6, 12, 18, 30, 60],
   '6-': [6, 10, 20, 40, 60],
   '8': [8, 15, 30, 45, 75],
-  '010': [0, 20, 40, 60, 100],
   '10': [10, 20, 40, 60, 100],
   '10-': [10, 20, 30, 50, 100],
   '15': [15, 30, 45, 75, 150],
+
+  // Bahamut (VI) - because this was a one-time reward, it has no cost for
+  // rank 1.  However, it's simpler and clearer for the user to patch Enlir
+  // to include a rank 1 cost.
+  // '06+': [0, 12, 24, 36, 60],
+  // '010': [0, 20, 40, 60, 100],
+
+  // Record Board abilities have no cost for rank 1.
+  R10: [0, 10, 15, 50, 75],
+  R5: [0, 5, 10, 25, 35],
 };
 export type CostType = keyof typeof orbCosts;
 
@@ -80,7 +89,7 @@ export interface OrbCost {
 
 export function getOrbCosts(ability: EnlirAbility): OrbCost[] {
   return _.toPairs(ability.orbs)
-    .filter(([i]) => i !== 'Ability Record')
+    .filter(([i]) => i !== 'Ability Record' && !i.match(/Record Board/))
     .sort(([orbName, costs]) => -costs[0])
     .map(([orbName, costs]) => {
       const [orbType, rarity] = parseOrb(orbName);

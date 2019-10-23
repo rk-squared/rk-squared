@@ -1365,7 +1365,7 @@ Object {
         instant: true,
         other:
           'party h85, Regenga, self dmg cap +10k 15s, ' +
-          '15s: Awoken Bond: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10/15/25/35/45 @ rank 1-5)',
+          '15s: Awoken Kindred Mode: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10/15/25/35/45 @ rank 1-5)',
       });
       expect(describeSoulBreak("Y'shtola - Pulse of Life")).toEqual({
         damage: undefined,
@@ -1396,7 +1396,9 @@ Object {
         damage: 'phys 7.1/10 rngd',
         other:
           '-30% A/D/M/R/MND 25s, 15s: (Support dmg ⤇ hi fastcast 1, p0.5/2 rngd Support, ' +
-          '-40% ATK/-50% DEF/-40% MAG/-50% RES 15s (random))',
+          // TODO: Verify this
+          // '-40% ATK/-50% DEF/-40% MAG/-50% RES 15s (random))',
+          '-40% ATK/-40% DEF/-50% MAG/-50% RES 15s (random))',
       });
       expect(describeSoulBreak('Ramza - Seeker of Truth')).toEqual({
         damage: 'phys 7.1/10 holy+non',
@@ -2235,10 +2237,10 @@ Object {
           'party Haste, crit =50% 25s, +30% ATK/DEF 25s, ' +
           '15s: (1-5 Support ⤇ crit =60%/70%/80%/90%/100%), ' +
           '15s: (3 Support ⤇ party +50% crit dmg 1 turn), ' +
-          '15s: Awoken Scholar: Support inf. hones, 2-3x Support cast @ rank 1-5',
+          '15s: Awoken Keeper Mode: Support inf. hones, 2-3x Support cast @ rank 1-5',
       });
 
-      expect(describeSoulBreak('Vivi - AASB')).toEqual({
+      expect(describeSoulBreak('Vivi - AASB1')).toEqual({
         damage: 'magic 22.5/15 fire+non',
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +
@@ -2274,7 +2276,7 @@ Object {
       expect(describeSoulBreak('Aphmau - AASB')).toEqual({
         other:
           'party h105 (NAT), Haste, PM blink 1, instacast 1, revive @ 100% HP, ' +
-          '15s: Awoken Automaton Mode: W.Mag/Monk inf. hones, W.Mag/Monk fastcast, ' +
+          '15s: Awoken Automaton Mode: W.Mag/Monk inf. hones, W.Mag/Monk hi fastcast, ' +
           '(W.Mag/Monk ⤇ Autoheal 0.5k/1k/1.5k/2k/3k @ rank 1-5)',
         instant: true,
       });

@@ -1,3 +1,5 @@
+@import './relicsAndSoulBreaks';
+
 :local {
   td.tier {
     width: 5%;
@@ -25,60 +27,18 @@
   }
 
   tr.unique > td.tier,
-  tr.unique > td.name {
-    font-weight: normal;
-  }
-
+  tr.unique > td.name,
   tr.super > td.tier,
   tr.super > td.name {
     font-weight: normal;
   }
 
-  tr.burst > td.tier,
-  tr.burst > td.name {
-    font-weight: bold;
-  }
-
-  tr.overstrike > td.tier,
-  tr.overstrike > td.name {
-    font-weight: bold;
-    color: #c00000;
-  }
-
-  tr.ultra > td.tier,
-  tr.ultra > td.name {
-    font-weight: bold;
-    color: #538135;
-  }
-
-  tr.chain > td.tier,
-  tr.chain > td.name {
-    font-weight: bold;
-    color: #ed7d31;
-  }
-
-  tr.awakening > td.tier,
-  tr.awakening > td.name {
-    font-weight: bold;
-    color: #5b9bd5;
-  }
-
-  tr.synchro > td.tier,
-  tr.synchro > td.name {
-    font-weight: bold;
-    color: #5b60d5;
-  }
-
-  tr.glint > td.tier,
-  tr.glint > td.name {
-    font-weight: bold;
-    color: #bf8f01;
-  }
-
-  tr.legendMateria > td.tier,
-  tr.legendMateria > td.name {
-    font-weight: bold;
-    color: #7030a0;
+  @each $name, $color in $soulBreak-colors {
+    tr.#{$name} > td.tier,
+    tr.#{$name} > td.name {
+      font-weight: bold;
+      color: $color;
+    }
   }
 
   // Legend materia's names are longer than our MrP-inspired soul break

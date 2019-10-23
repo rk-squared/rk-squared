@@ -1,0 +1,28 @@
+// Assume a maximum of 40 relics drawn at once.
+$simulator-height: 64px * 40;
+
+:local {
+  .component > ul {
+    list-style: none;
+    padding-left: 0;
+    overflow: hidden; // Support animation by clipping offscreen relics.
+
+    > li {
+      animation-duration: 0.5s;
+      animation-timing-function: ease-out;
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-name: slideRelicsFromTop;
+      animation-fill-mode: backwards;
+    }
+  }
+
+  @keyframes slideRelicsFromTop {
+    0% {
+      transform: translateY(-$simulator-height);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}

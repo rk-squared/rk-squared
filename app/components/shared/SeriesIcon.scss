@@ -1,0 +1,15 @@
+@import './seriesIcons';
+@import './tooltips';
+
+:local {
+  .component {
+    width: $tooltip-icon-width;
+    height: $tooltip-icon-height;
+
+    > div {
+      width: $tooltip-icon-width;
+      height: $tooltip-icon-height;
+      @include seriesIconBackground($tooltip-icon-width);
+    }
+  }
+}

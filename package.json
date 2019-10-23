@@ -306,6 +306,7 @@
     "source-map-support": "^0.5.0",
     "sprintf-js": "^1.1.2",
     "stream-buffers": "^3.0.2",
+    "striptags": "^3.1.1",
     "timeago-react": "^2.0.0",
     "transformer-proxy": "^0.3.4",
     "trie-search": "^1.2.9",

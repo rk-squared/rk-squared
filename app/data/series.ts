@@ -108,9 +108,9 @@ export const series: SeriesMaps = {
   },
 };
 
-export const enlirRealmToSeriesId = _.invert(series.enlirRealm) as Partial<
-  { [r in EnlirRealm]: SeriesId }
->;
+export const enlirRealmToSeriesId = _.fromPairs(
+  _.toPairs(series.enlirRealm).map(([seriesId, realm]) => [realm, +seriesId]),
+) as Partial<{ [r in EnlirRealm]: SeriesId }>;
 
 function enlirRealmTo<T>(mapping: { [s in SeriesId]: T }, realm: EnlirRealm): T | null {
   const seriesId = enlirRealmToSeriesId[realm];

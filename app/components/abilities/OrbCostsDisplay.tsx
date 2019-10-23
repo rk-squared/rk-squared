@@ -12,6 +12,16 @@ interface Props {
 }
 
 export class OrbCostsDisplay extends React.Component<Props> {
+  getDisplayCost(cost: OrbCost) {
+    if (!orbCosts[cost.cost]) {
+      return cost.cost;
+    } else {
+      // Most abilities have a cost for rank 1.  Record Board abilities have
+      // costs starting at rank 2.
+      return orbCosts[cost.cost][0] || orbCosts[cost.cost][1];
+    }
+  }
+
   render() {
     const { costs } = this.props;
     return (
@@ -19,7 +29,7 @@ export class OrbCostsDisplay extends React.Component<Props> {
         {costs.map((cost, i) => (
           <React.Fragment key={i}>
             <span className={classNames(styles.component, cost.orbType.toLowerCase())}>
-              {orbCosts[cost.cost] ? orbCosts[cost.cost][0] : cost.cost}
+              {this.getDisplayCost(cost)}
             </span>
             {i + 1 < costs.length ? ', ' : ''}
           </React.Fragment>

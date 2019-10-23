@@ -6472,7 +6472,7 @@
   {
     "realm": "XV",
     "character": "Cor",
-    "name": "Skilled Marshal",
+    "name": "Master Martial",
     "effect": "Samurai abilities deal 15% more damage",
     "unlockCriteria": "Use Cor's Memory Crystal",
     "nameJp": "手練れの将軍",
@@ -6482,7 +6482,7 @@
   {
     "realm": "XV",
     "character": "Cor",
-    "name": "Gifted Soldier",
+    "name": "Unfailing Warrior",
     "effect": "Samurai abilities deal 30% more damage",
     "unlockCriteria": "Use Cor's Memory Crystal II, chance to obtain with Cor in party",
     "nameJp": "才能あふれる武人",
@@ -6492,7 +6492,7 @@
   {
     "realm": "XV",
     "character": "Cor",
-    "name": "Mentor",
+    "name": "Venerable Leader",
     "effect": "Grant Last Stand at the beginning of the battle",
     "unlockCriteria": "Bring Cor to level 99",
     "nameJp": "若者を導く先達",
@@ -6502,7 +6502,7 @@
   {
     "realm": "XV",
     "character": "Lunafreya",
-    "name": "The youngest shrine in history",
+    "name": "Youngest Maiden",
     "effect": "40% chance to restore 1 use for all White Magic or Summoning abilities at the beginning of the battle",
     "unlockCriteria": "Use Lunafreya's Memory Crystal",
     "nameJp": "史上最年少の神凪",
@@ -6512,7 +6512,7 @@
   {
     "realm": "XV",
     "character": "Lunafreya",
-    "name": "Journey of relief",
+    "name": "Journey of Salvation",
     "effect": "100% chance to restore 1 use for all White Magic or Summoning abilities at the beginning of the battle",
     "unlockCriteria": "Use Lunafreya's Memory Crystal II, chance to obtain with Lunafreya in party",
     "nameJp": "救済の旅路",
@@ -6522,7 +6522,7 @@
   {
     "realm": "XV",
     "character": "Lunafreya",
-    "name": "Miko beloved by the people",
+    "name": "Beloved Maiden",
     "effect": "Acting and taking damage grants 25% more Soul Break points",
     "unlockCriteria": "Bring Lunafreya to level 99",
     "nameJp": "民に敬愛されし巫女",

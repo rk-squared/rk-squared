@@ -1,6 +1,7 @@
 import AbilitiesPage from '../containers/AbilitiesPage';
 import { AppMoreInfoPage } from '../containers/AppMoreInfoPage';
 import DungeonsPage from '../containers/DungeonsPage';
+import FutureAbilitiesPage from '../containers/FutureAbilitiesPage';
 import RecordMateriaPage from '../containers/RecordMateriaPage';
 import RelicDrawsPage from '../containers/RelicDrawsPage';
 import SharedSoulBreaksPage from '../containers/SharedSoulBreaksPage';
@@ -23,6 +24,13 @@ const routes: RouteItem[] = [
     component: AbilitiesPage,
     description: 'Abilities',
     path: '/abilities',
+    children: [
+      {
+        component: FutureAbilitiesPage,
+        description: 'Future',
+        path: '/abilities/future',
+      },
+    ],
   },
   {
     component: SoulBreaksPage,

@@ -61,6 +61,22 @@ export const allEnlirElements: EnlirElement[] = [
 export const isEnlirElement = (s: string): s is EnlirElement =>
   allEnlirElements.indexOf(s as EnlirElement) !== -1;
 
+export type EnlirEventType =
+  | '?'
+  | 'Challenge Event'
+  | 'Collection Event'
+  | 'Crystal Tower'
+  | 'Dungeons Update'
+  | 'Endless Battle'
+  | 'Festival'
+  | 'Magicite Dungeon'
+  | 'Mote Dungeon'
+  | 'Nightmare Dungeon'
+  | 'Record Dungeon'
+  | 'Record Missions'
+  | 'Survival Event'
+  | 'Torment Dungeon';
+
 export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
 export type EnlirRelicType =
@@ -210,6 +226,7 @@ export interface EnlirAbility extends EnlirGenericSkill {
   orbs: { [orbName: string]: number[] };
   introducingEvent: string | string;
   nameJp: string;
+  recordBoardCharacter?: string;
 }
 
 export interface EnlirBraveCommand extends EnlirGenericSkill {
@@ -253,6 +270,20 @@ export interface EnlirCharacter {
   gl: boolean;
 }
 
+export interface EnlirEvent {
+  eventName: string;
+  realm: EnlirRealm | null;
+  glDate: string | null; // ISO-style YYYY-MM-DD string
+  jpDate: string | null; // ISO-style YYYY-MM-DD string
+  type: EnlirEventType;
+  heroRecords: string[] | null;
+  memoryCrystals1: string[] | null;
+  memoryCrystals2: string[] | null;
+  memoryCrystals3: string[] | null;
+  wardrobeRecords: string[] | null;
+  abilitiesAwarded: string[] | null;
+}
+
 export interface EnlirLegendMateria {
   realm: EnlirRealm;
   character: string;
@@ -275,7 +306,7 @@ export interface EnlirOtherSkill extends EnlirGenericSkill {
 }
 
 export interface EnlirRecordMateria {
-  realm: string;
+  realm: EnlirRealm;
   character: string;
   name: string;
   effect: string;
@@ -374,6 +405,7 @@ const rawData = {
   braveCommands: require('./enlir/brave.json') as EnlirBraveCommand[],
   burstCommands: require('./enlir/burst.json') as EnlirBurstCommand[],
   characters: require('./enlir/characters.json') as EnlirCharacter[],
+  events: require('./enlir/events.json') as EnlirEvent[],
   legendMateria: require('./enlir/legendMateria.json') as EnlirLegendMateria[],
   magicite: require('./enlir/magicite.json'),
   otherSkills: require('./enlir/otherSkills.json') as EnlirOtherSkill[],
@@ -495,6 +527,8 @@ export const enlir = {
 
   characters: _.keyBy(rawData.characters, 'id'),
   charactersByName: _.keyBy(rawData.characters, 'name'),
+
+  events: _.keyBy(rawData.events, 'eventName'),
 
   legendMateria: _.keyBy(rawData.legendMateria, 'id'),
   legendMateriaByCharacter: makeCharacterMap(rawData.legendMateria, [
@@ -641,8 +675,8 @@ function patchEnlir() {
     },
   );
 
-  // Sarah's USB3 and Xezat's AASB are pure madness.  I have no shame in
-  // whatever hacks it takes to process them.
+  // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are pure
+  // madness.  I have no shame in whatever hacks it takes to process them.
   applyPatch(
     enlir.soulBreaks,
     '22300009',
@@ -650,13 +684,30 @@ function patchEnlir() {
       aria.effects ===
       'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
         'grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, ' +
-        'grants Medium Buff Holy and Medium Buff Dark if both are in the party',
+        'grants Medium Buff Holy/Dark if both are in the party',
     aria => {
       aria.effects =
         'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
         'grants Minor Buff Holy if Warrior of Light is in the party, ' +
         'grants Minor Buff Dark if Garland is in the party, ' +
         'grants Medium Buff Holy/Dark if Warrior of Light & Garland are in the party';
+    },
+  );
+  applyPatch(
+    enlir.soulBreaks,
+    '22300011',
+    song =>
+      song.effects ===
+      'Restores HP (105), removes KO (100% HP), grants Last Stand, Haste, High Quick Cast 2, ' +
+        'grants Minor Buff Holy/Dark and HP Stock (2000) if Warrior of Light/Garland is in the party, ' +
+        'grants Medium Buff Holy/Dark and HP Stock (2000) if both are in the party, ' +
+        'grants Awoken Princess Cornelia to the user',
+    song => {
+      song.effects =
+        'Restores HP (105), removes KO (100% HP), grants Last Stand, Haste, High Quick Cast 2, ' +
+        'grants Minor Buff Holy/Dark and HP Stock (2000) if Warrior of Light/Garland is in the party, ' +
+        'grants Medium Buff Holy/Dark and HP Stock (2000) if Warrior of Light & Garland are in the party, ' +
+        'grants Awoken Princess Cornelia to the user';
     },
   );
   applyPatch(
@@ -785,18 +836,18 @@ function patchEnlir() {
     '20140018',
     tyroAasb =>
       tyroAasb.effects ===
-      'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Scholar and Unraveled History Follow-Up to the user',
+      'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode and Unraveled History Follow-Up to the user',
     tyroAasb => {
       tyroAasb.effects =
-        'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Scholar, Awoken Scholar Critical Chance, and Unraveled History Follow-Up to the user';
+        'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode, Awoken Keeper Mode Critical Chance, and Unraveled History Follow-Up to the user';
     },
   );
   applyPatch(
     enlir.statusByName,
-    'Awoken Scholar',
+    'Awoken Keeper Mode',
     scholar =>
       scholar.effects ===
-      "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, grants Awoken Scholar Critical Chance to all allies",
+      "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, grants Awoken Keeper Mode Critical Chance to all allies",
     scholar => {
       scholar.effects =
         "Support abilities don't consume uses, cast speed x2.00-x3.00 for Support abilities at ability rank 1/2/3/4/5";
@@ -901,6 +952,20 @@ function patchEnlir() {
     ability => ability.effects === 'Causes Slow (50%), if successful grants Haste to the user',
     ability => (ability.effects = 'Causes Slow (50%), grants Haste to the user if successful'),
   );
+
+  // Patch Bahamut (VI) to have an orb cost for rank 1.
+  const bahamutOrbs = ['Major Summon', 'Major Non-Elemental', 'Major Dark'];
+  applyPatch(
+    enlir.abilitiesByName,
+    'Bahamut (VI)',
+    ability => _.every(bahamutOrbs, i => ability.orbs[i] && ability.orbs[i][0] === 0),
+    ability => {
+      const bahamutV = enlir.abilitiesByName['Bahamut (V)'];
+      for (const orb of bahamutOrbs) {
+        ability.orbs[orb][0] = bahamutV.orbs[orb][0];
+      }
+    },
+  );
 }
 patchEnlir();
 
@@ -992,6 +1057,10 @@ export function getEnlirOtherSkill(otherSkillName: string, sourceName?: string):
     // accommodate, allow falling back to looking up by name.
   }
   return enlir.otherSkillsByName[otherSkillName];
+}
+
+export function isAbility(skill: EnlirSkill): skill is EnlirAbility {
+  return 'rarity' in skill;
 }
 
 export function isSoulBreak(skill: EnlirSkill): skill is EnlirSoulBreak {
@@ -1115,3 +1184,56 @@ export function getEstimatedRequiredSoulBreakExp(id: number) {
   }
 }
 export const getRequiredLegendMateriaExp = _.constant(30000);
+
+export enum EnlirAbilityUnlockType {
+  Nightmare,
+  JobMote,
+  TormentRuby,
+  RecordBoard,
+}
+
+const nightmareAbilities = new Set<string>([
+  'Ultima',
+  'Crushdown',
+  'Reraise',
+  'Neo Bahamut',
+  'Quadruple Foul',
+  'Northern Cross',
+  'Meltdown',
+  'Curada',
+  'Affliction Break',
+  'Dervish',
+  'Valigarmanda',
+  'Omega Drive',
+]);
+
+export function getAbilityUnlockType(ability: EnlirAbility): EnlirAbilityUnlockType | null {
+  if (ability.rarity < 6) {
+    return null;
+  } else if (nightmareAbilities.has(ability.name)) {
+    return EnlirAbilityUnlockType.Nightmare;
+  } else if (ability.recordBoardCharacter) {
+    return EnlirAbilityUnlockType.RecordBoard;
+  } else if (ability.orbs['Ability Record']) {
+    return EnlirAbilityUnlockType.TormentRuby;
+  } else {
+    return EnlirAbilityUnlockType.JobMote;
+  }
+}
+
+export const normalSBPoints = {
+  nonElemental: [0, 60, 60, 65, 75, 85, 100],
+  elemental: [0, 55, 55, 60, 70, 75, 90],
+  fast: {
+    nonElemental: [0, 0, 0, 0, 0, 75, 90],
+    elemental: [0, 0, 0, 0, 0, 65, 80],
+  },
+};
+
+export function getNormalSBPoints(ability: EnlirAbility): number {
+  const isFast = ability.time && ability.time <= 1.2;
+  const isElemental = ability.element && ability.element.length;
+  const checkSpeed = isFast ? normalSBPoints.fast : normalSBPoints;
+  const checkElemental = isElemental ? checkSpeed.elemental : checkSpeed.nonElemental;
+  return checkElemental[ability.rarity];
+}

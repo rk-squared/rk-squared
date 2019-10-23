@@ -18,24 +18,30 @@ import { getSchoolShortName, getShortName } from '../../data/mrP/types';
 
 export const styles = require('./SoulBreakShared.scss');
 
-export const tierClass: { [tier in EnlirSoulBreakTier]: string | undefined } = {
-  SB: styles.unique,
-  SSB: styles.super,
-  BSB: styles.burst,
-  OSB: styles.overstrike,
-  AOSB: styles.overstrike,
-  USB: styles.ultra,
-  CSB: styles.chain,
-  AASB: styles.awakening,
-  SASB: styles.synchro,
-  Glint: styles.glint,
-  'Glint+': styles.glint,
+export function makeTierStyleMap(
+  cssStyles: any,
+): { [tier in EnlirSoulBreakTier]: string | undefined } {
+  return {
+    SB: cssStyles.unique,
+    SSB: cssStyles.super,
+    BSB: cssStyles.burst,
+    OSB: cssStyles.overstrike,
+    AOSB: cssStyles.overstrike,
+    USB: cssStyles.ultra,
+    CSB: cssStyles.chain,
+    AASB: cssStyles.awakening,
+    SASB: cssStyles.synchro,
+    Glint: cssStyles.glint,
+    'Glint+': cssStyles.glint,
 
-  // Unused - placeholders
-  Default: styles.unique,
-  RW: styles.unique,
-  Shared: styles.unique,
-};
+    // Unused - placeholders
+    Default: cssStyles.unique,
+    RW: cssStyles.unique,
+    Shared: cssStyles.unique,
+  };
+}
+
+export const tierClass = makeTierStyleMap(styles);
 
 export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   Default: '-',

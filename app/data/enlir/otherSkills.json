@@ -157,11 +157,11 @@
     "sb": 0,
     "school": "Support",
     "id": 30545071,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Scholar",
+    "source": "Awoken Keeper Mode",
     "name": "Unraveled History",
     "type": "NAT",
     "target": "All allies",
@@ -169,13 +169,13 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Awoken Scholar Critical Chance",
+    "effects": "Grants Awoken Keeper Mode Critical Chance",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 0,
     "school": "Support",
     "id": 30545082,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -195,7 +195,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542614,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -464,6 +464,68 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Gear Storm Follow-Up",
+    "name": "Gear Storm",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.28,
+    "element": [
+      "Wind",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.32/0.35/0.38 each) scaling with Storm Raider level",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Thief",
+    "id": 30548437,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Sneak Follow-Up",
+    "name": "Sneak",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Wind",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Eight single attacks (0.50 each) if the user has Haste (100% hit rate if triggered), grants Quick Cast 2 to all allies in the character's row",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Thief",
+    "id": 30548436,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Princess Cornelia",
+    "name": "Healing Voice",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (10/15/25/35/45) at rank 1/2/3/4/5 of the triggering ability",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 30542267,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Anguished Rose Follow-Up",
     "name": "Anguished Rose",
     "type": "BLK",
@@ -503,7 +565,7 @@
     "sb": 0,
     "school": "Monk",
     "id": 30548321,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -543,7 +605,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541201,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -562,7 +624,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541202,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -581,7 +643,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541203,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -797,7 +859,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543067,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -843,7 +905,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541353,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -946,7 +1008,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549151,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -988,7 +1050,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542414,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1009,7 +1071,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30544203,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1034,7 +1096,7 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Saint Dual Follow-Up",
+    "source": "Saintly Duel Follow-Up",
     "name": "Saint Dual",
     "type": "NAT",
     "typeDetails": [
@@ -1082,7 +1144,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543160,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1151,6 +1213,24 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541814,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Darkness Storm Follow-Up",
+    "name": "Darkness Storm",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants 40% Damage Reduction Barrier 1",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Special",
+    "id": 30541458,
     "gl": false
   },
   {
@@ -1414,7 +1494,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30541471,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1437,7 +1517,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30541471,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1460,25 +1540,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30541471,
-    "gl": false
-  },
-  {
-    "sourceType": "Follow-Up Status",
-    "source": "Darkness Storm Follow-Up",
-    "name": "Darkness Storm",
-    "type": "NAT",
-    "target": "All allies",
-    "formula": null,
-    "multiplier": null,
-    "element": null,
-    "time": 0.01,
-    "effects": "Grants 40% Damage Reduction Barrier 1",
-    "counter": false,
-    "autoTarget": "All allies",
-    "sb": 0,
-    "school": "Special",
-    "id": 30541458,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1520,7 +1582,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541141,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1562,7 +1624,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542511,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1887,7 +1949,7 @@
     "multiplier": 0.5,
     "element": [],
     "time": 0.01,
-    "effects": "Two single ranged attacks (0.25 each), DEF -50% for 15 seconds",
+    "effects": "Two single ranged attacks (0.25 each), DEF -40% for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -1905,7 +1967,7 @@
     "multiplier": 0.5,
     "element": [],
     "time": 0.01,
-    "effects": "Two single ranged attacks (0.25 each), MAG -40% for 15 seconds",
+    "effects": "Two single ranged attacks (0.25 each), MAG -50% for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -2122,7 +2184,7 @@
     "sb": 0,
     "school": "Thief",
     "id": 30548339,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2147,8 +2209,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Jester's Scorn Follow-Up",
-    "name": "Jester's Scorn",
+    "source": "Clown's Scorn Follow-Up",
+    "name": "Clown's Scorn",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2290,6 +2352,108 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Unsoku Mode",
+    "name": "Afterimage Fist",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.12,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (1.02 each), 100% hit rate, grants Physical Blink 3",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 30548523,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Rage Outbreak Mode",
+    "name": "Beat Down",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 7.4,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (7.40) capped at 99999, 100% hit rate, removes Rage Outbreak Mode",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 0,
+    "school": "Monk",
+    "id": 30548524,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Love Barrier Follow-Up",
+    "name": "Love Barrier",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Magical Blink 2 and High Quick Cast 1, grants Magical Blink 1 to all allies",
+    "counter": true,
+    "autoTarget": "Self",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 30547325,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Random Bet Follow-Up",
+    "name": "Random Bet",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Randomly deals one (50%) or fifteen (50%) single ranged attacks (0.33 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Shooter",
+    "id": 30549370,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Gambler",
+    "name": "Doubling Down",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.32 each), 100% hit rate, causes Minor Imperil Dark every second use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 30549279,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: True Form",
     "name": "Storm Hazard",
     "nameNote": "Alias name: Blast Hazard / Storm Hazard",
@@ -2410,12 +2574,12 @@
     "sb": 0,
     "school": "Support",
     "id": 30545069,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Dive to Ground Follow-Up",
-    "name": "Dive to Ground",
+    "source": "Ground Dive Follow-Up",
+    "name": "Ground Dive",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -2431,11 +2595,11 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 30549174,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Planet Prayer",
+    "source": "Awoken Savior",
     "name": "Holy Wave",
     "type": "WHT",
     "target": "All allies",
@@ -2449,12 +2613,12 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542030,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Unpredictable Speed Follow-Up",
-    "name": "Unpredictable Speed",
+    "source": "Fleeting Instant Follow-Up",
+    "name": "Fleeting Instant",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -2471,7 +2635,7 @@
     "sb": 0,
     "school": "Ninja",
     "id": 30549224,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2492,7 +2656,7 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 30549175,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2555,7 +2719,7 @@
     "sb": 0,
     "school": "Celerity",
     "id": 30546019,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2597,6 +2761,45 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547031,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Top of the World Follow-Up",
+    "name": "Top of the World",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Minor Imperil Earth, grants Minor Buff Earth to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Ninja",
+    "id": 30549320,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Disaster Blade Mode",
+    "name": "Disaster Blade",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.5,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (4.50) capped at 99999, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 30549216,
     "gl": false
   },
   {
@@ -2810,7 +3013,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541351,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2908,7 +3111,7 @@
     "sb": 0,
     "school": "Dancer",
     "id": 30549045,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2975,6 +3178,114 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Chase Blade Follow-Up",
+    "name": "Chase Blade 1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.52,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (3.52) capped at 99999, grants Spellblade High Quick Cast 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 30547321,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Chase Blade Follow-Up",
+    "name": "Chase Blade 2",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 3.2,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four group attacks (0.80 each), grants Spellblade High Quick Cast 1 to the user",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 30547322,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Ice Edge Follow-Up",
+    "name": "Ice Edge",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.4,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (16.40) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541423,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Max Pain Follow-Up",
+    "name": "Max Pain",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.96,
+    "element": [
+      "Dark",
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.66), 100% additional critical chance if Laguna or Ward are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Ninja",
+    "id": 30549321,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Maximum Anchor Follow-Up",
+    "name": "Maximum Anchor",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.12,
+    "element": [
+      "Water",
+      "Ice",
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged attack (5.12) capped at 99999, 50% additional critical damage if Laguna or Kiros are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 30548316,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Master Thief",
     "name": "Steel Storm",
     "type": "PHY",
@@ -3036,7 +3347,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541227,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3059,7 +3370,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547115,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3079,7 +3390,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30543110,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3143,7 +3454,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543032,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3400,7 +3711,7 @@
     "sb": 0,
     "school": "Samurai",
     "id": 30549215,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3422,12 +3733,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541323,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Bond",
-    "name": "Crystal Bond",
+    "source": "Awoken Kindred Mode",
+    "name": "Friendship Crystal",
     "type": "WHT",
     "target": "All allies",
     "formula": "Magical",
@@ -3442,7 +3753,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542718,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3565,7 +3876,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30549066,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3767,7 +4078,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542020,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3788,7 +4099,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541039,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3806,7 +4117,7 @@
     "sb": 0,
     "school": "Thief",
     "id": 30548430,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3828,7 +4139,7 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 30549177,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3846,7 +4157,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542717,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3888,6 +4199,27 @@
     "sb": 0,
     "school": "Heavy",
     "id": 30549768,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Scorching Bullet Follow-Up",
+    "name": "Scorching Bullet",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.02,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.67 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 30549252,
     "gl": false
   },
   {
@@ -4107,6 +4439,48 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Sunleth Strike Follow-Up",
+    "name": "Sunleth Strike (Sharpshooter/Thief)",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 0.8,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single ranged attacks (0.40 each), 100% hit rate, grants Minor Buff Water to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 30548314,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Sunleth Strike Follow-Up",
+    "name": "Sunleth Strike (Dragoon)",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 0.8,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single ranged attacks (0.40 each), 100% hit rate, grants No Air Time 1 and Dragoon +30% Boost 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 30548315,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Intensifying Firaga Follow-Up",
     "name": "Intensifying Firaga",
     "type": "BLK",
@@ -4166,7 +4540,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543058,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4481,7 +4855,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547081,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4664,7 +5038,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542410,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -5303,7 +5677,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541106,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -5324,7 +5698,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30549267,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -5363,7 +5737,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547027,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -5425,7 +5799,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541228,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -5466,7 +5840,7 @@
     "sb": 0,
     "school": "Combat",
     "id": 30544103,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -5487,7 +5861,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543087,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -8422,8 +8796,8 @@
   },
   {
     "sourceType": "Legend Materia",
-    "source": "Silent Knight",
-    "name": "Silent Knight",
+    "source": "Stoic Knight",
+    "name": "Stoic Knight",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -8439,7 +8813,7 @@
     "sb": 0,
     "school": "Knight",
     "id": null,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -8699,6 +9073,29 @@
     "sb": 0,
     "school": "Special",
     "id": null,
+    "gl": true
+  },
+  {
+    "sourceType": "Legend Materia",
+    "source": "Heavyweight Helper",
+    "name": "That's Us! +1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.16,
+    "element": [
+      "Water",
+      "Ice",
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single ranged attacks (0.54 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 30528014,
     "gl": false
   },
   {
@@ -8762,8 +9159,8 @@
   },
   {
     "sourceType": "Legend Materia",
-    "source": "Dancing Princess",
-    "name": "Dancing Princess",
+    "source": "Renowned Grace",
+    "name": "Renowned Grace",
     "type": "WHT",
     "target": "All allies",
     "formula": "Magical",
@@ -8778,7 +9175,7 @@
     "sb": 0,
     "school": "Special",
     "id": null,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",

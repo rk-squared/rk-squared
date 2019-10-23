@@ -1,0 +1,46 @@
+@import '../shared/abilities';
+
+$school-width: 2em;
+$date-width: 8em;
+
+:local {
+  .component {
+    font-size: 0.9rem;
+  }
+
+  col.name {
+    width: $ability-name-width;
+  }
+
+  col.school {
+    width: 2em;
+  }
+
+  col.orbCosts {
+    width: $orbCosts-width;
+  }
+
+  col.releaseDate {
+    width: $date-width;
+  }
+
+  col.effects {
+    width: calc(
+      100% - #{$ability-name-width} - #{$orbCosts-width} - #{$date-width} - #{$school-width}
+    );
+  }
+
+  tr.jp > td.name {
+    font-style: italic;
+  }
+
+  td.school {
+    text-align: center;
+
+    > img {
+      width: 1.5em;
+      height: 1.5em;
+      margin: 0 auto;
+    }
+  }
+}

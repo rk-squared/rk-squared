@@ -3,3 +3,17 @@
 $dupe-background-color: #f0f0f7;
 
 $unowned-background-color: #f0f0f0;
+
+// Not included: super, unique
+$soulBreak-colors: (
+  'burst': inherit,
+  'overstrike': #c00000,
+  'ultra': #538135,
+  'chain': #ed7d31,
+  'awakening': #5b9bd5,
+  'synchro': #5b60d5,
+  'glint': #bf8f01,
+  'legendMateria': #7030a0,
+);
+
+$relic-icon-size: 64px;

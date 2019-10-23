@@ -5,6 +5,7 @@
 import { Store } from 'redux';
 
 import * as _ from 'lodash';
+import * as striptags from 'striptags';
 
 import { addLegendMateria, addSoulBreak } from '../actions/characters';
 import {
@@ -20,6 +21,7 @@ import {
 import { LangType } from '../api/apiUrls';
 import * as gachaSchemas from '../api/schemas/gacha';
 import { ItemId } from '../data/items';
+import { parseNumberString } from '../data/mrP/util';
 import { relativeUrl } from '../data/urls';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
@@ -32,12 +34,33 @@ interface RelicDrawBannerResults {
   };
 }
 
+function parseRiseMessage(riseMessage: string) {
+  riseMessage = striptags(riseMessage);
+  // FIXME: Parse non-English rise messages
+  const m =
+    riseMessage.match(
+      /([A-Z]\w+) (\d+)★ or higher (?:relic is|relics are) guaranteed to drop in each Rare Relic Draw/,
+    ) || riseMessage.match(/This relic draw has (\w+) guaranteed (\d+)★ relics?/);
+  if (m) {
+    const guaranteedCount = parseNumberString(m[1]) || undefined;
+    return {
+      guaranteedCount,
+      guaranteedRarity: +m[2],
+    };
+  }
+  return {
+    guaranteedCount: undefined,
+    guaranteedRarity: undefined,
+  };
+}
+
 export function convertBanner(
   lang: LangType,
   gacha: gachaSchemas.GachaSeriesList,
   group?: string,
 ): RelicDrawBanner {
   const entryPoints = _.flatten(gacha.box_list.map(i => i.entry_point_list));
+  const { guaranteedRarity, guaranteedCount } = parseRiseMessage(gacha.rise_message);
   return {
     id: gacha.series_id,
     openedAt: gacha.opened_at,
@@ -74,6 +97,8 @@ export function convertBanner(
       mythrilCost: _.max(
         _.filter(entryPoints, i => i.pay_id === ItemId.Mythril).map(i => i.pay_cost),
       ),
+      guaranteedCount,
+      guaranteedRarity,
     },
   };
 }

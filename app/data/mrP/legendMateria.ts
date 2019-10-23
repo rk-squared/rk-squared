@@ -33,8 +33,10 @@ import { andList, handleUncertain, percentToMultiplier, toMrPKilo } from './util
 const parseUncertainEnlirStatus = handleUncertain(parseEnlirStatus);
 
 const tranceTriggerText = '<20% HP';
-const dmg = (isDamageTrigger: string | null) =>
-  isDamageTrigger && isDamageTrigger.match('dealing damage with') ? ' dmg' : '';
+const dmg = (isDamageTrigger: string | null | boolean) =>
+  isDamageTrigger === true || (isDamageTrigger && isDamageTrigger.match('dealing damage with'))
+    ? ' dmg'
+    : '';
 const whenDescription = (when: string | null) => (when ? ` if using ${when}` : '');
 
 function describeBattleStart(statuses: string) {
@@ -314,8 +316,8 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered simple skills and triggered named skills
   [
-    /^(\d+\??|\?)% chance to cast (?:an ability \((.*)\)|(.*)) after (?:(using|dealing damage with) a (.*) (?:ability|attack)|(taking damage from an enemy))$/,
-    ([percent, effect, skillName, isDamageTrigger, schoolOrAbility, takeDamage]) => {
+    /^(\d+\??|\?)% chance to cast (?:an ability \((.*)\)|(.*)) after (?:(using|dealing damage with) a (.*) (?:ability|attack)|(taking damage from an enemy)|using an ability that deals (.*) damage)$/,
+    ([percent, effect, skillName, isDamageTrigger, schoolOrAbility, takeDamage, damageAbility]) => {
       let description: string | null = null;
       if (effect) {
         description = resolveWithHandlers(simpleSkillHandlers, effect);
@@ -345,6 +347,8 @@ const legendMateriaHandlers: HandlerList = [
       }
       const trigger = schoolOrAbility
         ? formatSchoolOrAbilityList(schoolOrAbility) + dmg(isDamageTrigger)
+        : damageAbility
+        ? formatSchoolOrAbilityList(damageAbility) + dmg(true)
         : 'take dmg';
       return formatTriggeredEffect(trigger, description, percent);
     },
@@ -366,7 +370,8 @@ const legendMateriaHandlers: HandlerList = [
   [
     /^(\d+\??|\?)% chance to cause (.*) to the target after (using|dealing damage with) an? (.*) (?:ability|attack) on an enemy(?: when equipping (.*))?$/,
     ([percent, status, isDamageTrigger, schoolOrAbility, when]) => {
-      const trigger = getShortName(schoolOrAbility) + dmg(isDamageTrigger) + whenDescription(when);
+      const trigger =
+        formatSchoolOrAbilityList(schoolOrAbility) + dmg(isDamageTrigger) + whenDescription(when);
       return formatTriggeredEffect(trigger, describeEnlirStatus(status), percent);
     },
   ],
@@ -465,6 +470,9 @@ const legendMateriaHandlers: HandlerList = [
     /^Increases base ([A-Z]{3}) by (\d+|\?)% base ([A-Z]{3})$/,
     ([statDest, percent, statSource]) => `add ${percent}% of ${statSource} to ${statDest}`,
   ],
+
+  // Blank or unknown
+  [/^$/, () => ''],
 ];
 
 export function describeMrPLegendMateria({
@@ -474,7 +482,7 @@ export function describeMrPLegendMateria({
 }: EnlirLegendMateria): string | null {
   const isUncertain = effect.endsWith('?');
   const result = resolveWithHandlers(legendMateriaHandlers, effect.replace(/\?$/, ''));
-  if (!result) {
+  if (!result && effect !== '?') {
     logger.warn(`Failed to process legend materia: ${character} ${name}: ${effect}`);
   }
   if (result && isUncertain) {

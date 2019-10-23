@@ -63,6 +63,7 @@ export interface ParsedEnlirAttack {
 
   scaleToDamage?: string;
   scaleType?: string;
+  scaleDown?: boolean;
 
   /**
    * For hybrid attacks, this gives the magical damage string, and the damage
@@ -97,6 +98,7 @@ export interface ParsedEnlirAttack {
   isNat: boolean;
   isNoMiss: boolean;
   isPiercing: boolean;
+  airTime?: string;
 }
 
 // Source for convergent mechanics:
@@ -464,7 +466,7 @@ const attackRe = XRegExp(
     (?<attackMultiplier>[0-9.]+|\?)
     (?<altAttackMultiplier>(?:/[0-9.]+)*)?
     (?:\ or\ (?<hybridAttackMultiplier>[0-9.]+|\?))?
-    (?:~(?<scaleToAttackMultiplier>[0-9.]+))?
+    (?:~(?<scaleToAttackMultiplier>[0-9.]+|\?))?
     (?:\ each)?
     (?<scaleType>\ scaling\ with[^)]+?)?
     (?:,\ (?<defaultMultiplier>[0-9.]+)\ default)?
@@ -474,6 +476,8 @@ const attackRe = XRegExp(
 
   # Hack: Simplified regex from describeFollowedBy.  We should merge it into here.
   (?<followedBy>,\ followed\ by\ (?:[A-Za-z\-]+)\ (?:(?:group|random|single)\ )?(?:rang\.?(?:ed)?\ )?(?:jump\ )?attacks?\ \((?:[0-9\.]+(?:\ each)?)\)(?:\ capped\ at\ 99999)?,?)?
+
+  (?:,\ air\ time\ \((?<airTime>[0-9./]+)(?:\ sec\.?)?\))?
 
   (?<scaleWithUses>,?\ scaling\ with\ uses)?
   (?:,?\ (?:scaling|scal\.)\ with\ (?<scaleWithSkillUses>.*?)\ uses)?
@@ -510,7 +514,7 @@ const attackRe = XRegExp(
   (?:,\ (?<statusChance>[0-9/]+)%\ chance\ to\ cause\ (?<status>.*?)(?:\ scaling\ with\ .*\ uses|\ for\ (?<statusDuration>\d+)\ seconds))?
 
   (?<noMiss>,\ 100%\ hit\ rate)?
-  (?:,\ multiplier\ increased\ by\ (?<sbMultiplierIncrease>[0-9.]+)\ for\ every\ SB\ point)?
+  (?:,\ multiplier\ (?<sbMultiplierIncreaseDecrease>increased|decreased)\ by\ (?<sbMultiplierChange>[0-9.]+)\ for\ every\ SB\ point)?
   (?:\ for\ (?<finisherPercentDamage>[0-9.]+)%\ of\ the\ damage\ dealt\ with\ (?<finisherPercentCriteria>.*)\ during\ the\ status)?
   (?:,\ minimum\ damage\ (?<minDamage>\d+))?
   (?<piercing>,\ ignores\ (?:DEF|RES))?
@@ -631,15 +635,17 @@ export function parseEnlirAttack(
 
   let scaleType: string | undefined;
   let scaleToDamage: string | undefined;
-  if (m.sbMultiplierIncrease) {
-    const sbMultiplierIncrease = parseFloat(m.sbMultiplierIncrease);
-    const maxSbMultiplier = attackMultiplier + sbMultiplierIncrease * 6 * SB_BAR_SIZE;
+  let scaleDown: boolean | undefined;
+  if (m.sbMultiplierIncreaseDecrease) {
+    scaleDown = m.sbMultiplierIncreaseDecrease === 'decreased';
+    const sbMultiplierChange = parseFloat(m.sbMultiplierChange) * (scaleDown ? -1 : 1);
+    const maxSbMultiplier = attackMultiplier + sbMultiplierChange * 6 * SB_BAR_SIZE;
     scaleType = '@ 6 SB bars';
     if (numAttacks) {
       scaleToDamage = numAttacks ? describeDamage(maxSbMultiplier, numAttacks, false) : undefined;
       if ('points' in skill) {
         // Re-adjust the displayed number to reflect actual SB.
-        damage = describeDamage(attackMultiplier + skill.points * sbMultiplierIncrease, numAttacks);
+        damage = describeDamage(attackMultiplier + skill.points * sbMultiplierChange, numAttacks);
       }
     }
   } else if (m.rank) {
@@ -771,6 +777,7 @@ export function parseEnlirAttack(
 
     scaleToDamage,
     scaleType,
+    scaleDown,
 
     hybridDamage,
     hybridDamageType: describeHybridDamageType(skill),
@@ -788,6 +795,8 @@ export function parseEnlirAttack(
 
     element: skill.element,
     school: 'school' in skill ? skill.school : undefined,
+
+    airTime: m.airTime || undefined,
 
     status: m.status || undefined,
     statusChance: m.statusChance ? (m.statusChance as string).split('/').map(i => +i) : undefined,

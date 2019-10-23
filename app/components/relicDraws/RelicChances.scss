@@ -41,4 +41,22 @@
   .discountTooltip > p:last-child {
     margin-bottom: 0;
   }
+
+  .simulatorLink {
+    color: $white !important;
+  }
+
+  .simulatorLink:hover > svg {
+    animation: rollingDice 3s linear infinite;
+  }
+
+  @keyframes rollingDice {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }

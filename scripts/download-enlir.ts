@@ -9,6 +9,7 @@
 import * as fs from 'fs-extra';
 import { google } from 'googleapis';
 import * as path from 'path';
+import { sprintf } from 'sprintf-js';
 import * as yargs from 'yargs';
 
 import * as _ from 'lodash';
@@ -34,6 +35,16 @@ const toFloat = (value: string) =>
   value === '' ? null : Number.parseFloat(value.replace(',', '.'));
 const toString = (value: string) => (value === '' ? null : value);
 const checkToBool = (value: string) => value === '✓';
+const toDate = (value: string) => {
+  if (!value) {
+    return null;
+  }
+  const m = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!m) {
+    throw new Error(`Failed to parse date ${value}`);
+  }
+  return sprintf('%04i-%02i-%02i', +m[3], +m[1], +m[2]);
+};
 
 function dashAs<TDash, TValue>(
   dashValue: TDash,
@@ -149,6 +160,10 @@ function convertAbilities(rows: any[]): any[] {
         if (rows[i][j]) {
           if (orb == null || orb === '') {
             throw new Error(`Got orb count with no orb at row ${i} column ${j}`);
+          } else if (!item.orbs[orb].length && (rows[i][j] === '?' || rows[i][j] === '')) {
+            // Record Board rank 1 has no orb costs, but the spreadsheet may
+            // represent that inconsistently.
+            item.orbs[orb].push(0);
           } else {
             item.orbs[orb].push(toInt(rows[i][j]));
           }
@@ -162,6 +177,26 @@ function convertAbilities(rows: any[]): any[] {
   }
 
   return abilities;
+}
+
+/**
+ * Post-process abilities to remove "(Character Only)" from record boards and
+ * replace it with a new character name field.  This is implemented as a
+ * post-processor so that it can access the characters list if necessary,
+ * although it doesn't currently need it.
+ */
+function postProcessAbilities(abilities: any[]) {
+  const recordBoardCharacterRegex = / \((.*) Only\)$/;
+  _.forEach(abilities, ability => {
+    const orbs = Object.keys(ability.orbs);
+    const m = ability.name.match(recordBoardCharacterRegex);
+    if (!m || !orbs[orbs.length - 1].match(/Record Board$/)) {
+      return;
+    }
+
+    ability.recordBoardCharacter = m[1];
+    ability.name = ability.name.replace(recordBoardCharacterRegex, '');
+  });
 }
 
 function convertCharacters(rows: any[]): any[] {
@@ -258,6 +293,54 @@ function postProcessCharacters(characters: any[], allData: { [localName: string]
   for (const c of characters) {
     c.gl = isCharacterInGl[c.name] || false;
   }
+}
+
+function convertEvents(rows: any[]): any[] {
+  const fieldAliases: _.Dictionary<string> = {
+    memoryCrystals: 'memoryCrystals1',
+    memoryCrystalsIi: 'memoryCrystals2',
+    memoryCrystalsIii: 'memoryCrystals3',
+  };
+  const arrayFields = new Set<string>([
+    'heroRecords',
+    'memoryCrystals1',
+    'memoryCrystals2',
+    'memoryCrystals3',
+    'wardrobeRecords',
+    'abilitiesAwarded',
+  ]);
+  const toCommaSeparatedStringArray = toCommaSeparatedArray(toString);
+
+  const events: any[] = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const item: any = {};
+    for (let j = 0; j < rows[0].length; j++) {
+      const col = rows[0][j];
+      if (shouldAlwaysSkip(col)) {
+        continue;
+      }
+
+      try {
+        let field = _.camelCase(col);
+        field = fieldAliases[field] || field;
+        if (arrayFields.has(field)) {
+          item[field] = toCommaSeparatedStringArray(rows[i][j]);
+        } else if (field === 'glDate' || field === 'jpDate') {
+          item[field] = dashNull(toDate)(rows[i][j]);
+        } else {
+          item[field] = toCommon(field, rows[i][j]);
+        }
+      } catch (e) {
+        logError(e, i, j, col, rows[i]);
+        throw e;
+      }
+    }
+
+    events.push(item);
+  }
+
+  return events;
 }
 
 function convertLegendMateria(rows: any[]): any[] {
@@ -484,12 +567,13 @@ function convertRelics(rows: any[]): any[] {
 /**
  * Convert "skills" - this includes soul breaks, burst commands, brave
  * commands, synchro commands, and "other" skills.  Abilities are more
- * complicated due to orb costs, so they're processed separarely.
+ * complicated due to orb costs, so they're processed separately.
  */
 function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean = true): any[] {
   const skills: any[] = [];
 
   const idColumn = rows[0].indexOf('ID');
+  const tierColumn = rows[0].indexOf('Tier');
 
   for (let i = 1; i < rows.length; i++) {
     if (!rows[i].length) {
@@ -501,6 +585,11 @@ function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean =
 
     if (requireId && !rows[i][idColumn]) {
       logger.warn(`Skipping row ${i + 1}: Missing ID number`);
+      logger.warn(rows[i].join(', '));
+      continue;
+    }
+    if (tierColumn !== -1 && !rows[i][tierColumn]) {
+      logger.warn(`Skipping row ${i + 1}: Missing tier`);
       logger.warn(rows[i].join(', '));
       continue;
     }
@@ -612,6 +701,7 @@ const dataTypes: DataType[] = [
     localName: 'abilities',
     includeNotes: true,
     converter: convertAbilities,
+    postProcessor: postProcessAbilities,
   },
   {
     sheet: 'Brave',
@@ -630,6 +720,11 @@ const dataTypes: DataType[] = [
     localName: 'characters',
     converter: convertCharacters,
     postProcessor: postProcessCharacters,
+  },
+  {
+    sheet: 'Events',
+    localName: 'events',
+    converter: convertEvents,
   },
   {
     sheet: 'Legend Materia',

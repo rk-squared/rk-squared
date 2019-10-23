@@ -9,6 +9,8 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirSynchroCommand,
+  getNormalSBPoints,
+  isAbility,
   isBraveCommand,
   isBraveSoulBreak,
   isBurstSoulBreak,
@@ -267,7 +269,7 @@ function describeEnlirAttack(
   if (attack.scaleToDamage && attack.scaleType) {
     // Damage scaling
     damage +=
-      ', up to ' +
+      (attack.scaleDown ? ', down to ' : ', up to ') +
       damageTypeAbbreviation(attack.damageType) +
       attack.scaleToDamage +
       ' ' +
@@ -292,6 +294,9 @@ function describeEnlirAttack(
   if (attack.additionalCrit && attack.additionalCritType) {
     damage += ' @ +' + attack.additionalCrit.join(' - ') + '% crit';
     damage += ' ' + attack.additionalCritType;
+  }
+  if (attack.airTime) {
+    damage += ', air time ' + attack.airTime + 's';
   }
   // Omit ' (SUM)' for Summoning school; it seems redundant.
   damage += attack.isSummon && attack.school !== 'Summoning' ? ' (SUM)' : '';
@@ -810,7 +815,14 @@ export function describeEnlirSoulBreak(
     other.push(resolveStatusAlias(`Attach ${element} ${level} with Stacking`) + ' 25s');
   }
 
-  if ((m = sb.effects.match(/Attach (\w+)(?: |,|$)(?! Stacking|\d with Stacking)/))) {
+  if ((m = sb.effects.match(/Attach (\w+) with Stacking/))) {
+    const [, element] = m;
+    other.push(resolveStatusAlias(`Attach ${element} with Stacking`) + ' 25s');
+  }
+
+  if (
+    (m = sb.effects.match(/Attach (\w+)(?: |,|$)(?! Stacking|\d+ with Stacking|with Stacking)/))
+  ) {
     const [, element] = m;
     other.push(resolveStatusAlias(`Attach ${element}`) + ' 25s');
   }
@@ -834,9 +846,13 @@ export function describeEnlirSoulBreak(
 
     // Process type (e.g., "smart summoning ether").  FFRK Community is
     // inconsistent - sometimes "Summoning smart ether," sometimes
-    // "smart summoning ether."
-    // TODO: Fix that inconsistency
-    let type = type1 && type1 !== 'and ' ? type1 : type2;
+    // "smart summoning ether."  Some smart ethers are listed as "grants
+    // smart ether" - make sure that "grants" isn't interpreted as a type.
+    // TODO: Fix those inconsistencies?
+    let type: string | undefined = type1 && type1 !== 'and ' ? type1 : type2;
+    if (type && type.match(/grants */i)) {
+      type = undefined;
+    }
     if (type) {
       type = getShortName(_.upperFirst(type.trim()));
     }
@@ -901,17 +917,26 @@ export function describeEnlirSoulBreak(
       other.push(description);
     }
   }
+
   if ('sb' in sb && sb.sb != null) {
+    const sbOther = selfOther.length ? selfOther : other;
     if (opt.includeSbPoints && sb.sb === 0) {
       // If we weren't asked to suppress SB points (which we are for follow-ups
       // and finishers, since those don't generate gauge), then call out
       // anything that doesn't generate gauge.
-      other.push('no SB pts');
+      sbOther.push('no SB pts');
     } else if (sb.sb >= 150) {
       // If this skill grants an abnormally high number of SB points, show it.
       // We set a flat rate of 150 (to get Lifesiphon and Wrath) instead of
       // trying to track what's normal at each rarity level.
-      other.push(sbPointsAlias(sb.sb.toString()));
+      sbOther.push(sbPointsAlias(sb.sb.toString()));
+    } else if (isAbility(sb) && sb.sb < getNormalSBPoints(sb)) {
+      // Special case: Exclude abilities like Lightning Jab that have a normal
+      // default cast time but "fast" tier SB generation because they
+      // manipulate cast time.
+      if (!sb.effects.match(/ cast time /)) {
+        sbOther.push('low SB pts');
+      }
     }
   }
 

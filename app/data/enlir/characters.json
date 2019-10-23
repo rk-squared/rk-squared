@@ -16187,15 +16187,15 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": null,
+    "introducingEventLegendSpheres": "Whispers in the Wind",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 800,
+      "atk": 35,
+      "def": 35,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -16211,7 +16211,7 @@
       "instrument": false,
       "whip": false,
       "thrown": false,
-      "gun": false,
+      "gun": true,
       "book": false,
       "blitzball": false,
       "hairpin": false,
@@ -16237,7 +16237,7 @@
       "summoning": null,
       "spellblade": null,
       "dragoon": null,
-      "monk": null,
+      "monk": 5,
       "thief": null,
       "knight": null,
       "samurai": null,
@@ -16246,7 +16246,7 @@
       "dancer": null,
       "machinist": null,
       "darkness": null,
-      "sharpshooter": null,
+      "sharpshooter": 6,
       "witch": null,
       "heavy": null
     },
@@ -16313,15 +16313,15 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": null,
+    "introducingEventLegendSpheres": "Whispers in the Wind",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
     },
     "equipment": {
       "dagger": true,
@@ -16337,7 +16337,7 @@
       "instrument": false,
       "whip": false,
       "thrown": true,
-      "gun": false,
+      "gun": true,
       "book": false,
       "blitzball": false,
       "hairpin": false,
@@ -16372,7 +16372,7 @@
       "dancer": null,
       "machinist": null,
       "darkness": null,
-      "sharpshooter": null,
+      "sharpshooter": 6,
       "witch": null,
       "heavy": 5
     },
@@ -25175,12 +25175,12 @@
       "accessory": false
     },
     "skills": {
-      "blackMagic": null,
-      "whiteMagic": null,
+      "blackMagic": 4,
+      "whiteMagic": 5,
       "combat": null,
-      "support": null,
+      "support": 4,
       "celerity": null,
-      "summoning": null,
+      "summoning": 5,
       "spellblade": null,
       "dragoon": null,
       "monk": null,

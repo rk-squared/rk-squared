@@ -68,7 +68,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="command"
           >
-            p6.4 l+n jump overstrike
+            p6.4 l+n jump overstrike, air time 2.50s
           </td>
         </tr>
         <tr
@@ -510,7 +510,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="command"
           >
-            p6.4 l+n jump overstrike
+            p6.4 l+n jump overstrike, air time 2.50s
           </td>
         </tr>
         <tr

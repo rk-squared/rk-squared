@@ -44,6 +44,7 @@ import {
   enDashJoin,
   lowerCaseFirst,
   orList,
+  parseNumberOccurrence,
   parseNumberString,
   percentToMultiplier,
   slashMerge,
@@ -114,7 +115,7 @@ const hideDuration = new Set(['Astra', 'Stun']);
 const isExStatus = (status: string) => status.startsWith('EX: ');
 const isAwokenStatus = (status: string) =>
   status.startsWith('Awoken ') &&
-  status !== 'Awoken Scholar Critical Chance' &&
+  status !== 'Awoken Keeper Mode Critical Chance' &&
   !status.endsWith(' Follow-Up');
 
 interface FollowUpEffect {
@@ -934,14 +935,10 @@ function describeEffects(enlirStatus: EnlirStatus, source?: EnlirSkill): string 
     .join(', ');
 }
 
-/**
- * Check for a leading count on a string.  Handle both number strings, like
- * "Twenty-two," and threshold-type values, like "1/2/3".
- */
-function extractCount(s: string): [number | string | null, string] {
+function extractLeadingCount(s: string): [number | string, string] | null {
   const m = s.match(/^(\S+) (.*)/);
   if (!m) {
-    return [null, s];
+    return null;
   }
 
   let count: number | string | null = null;
@@ -954,8 +951,31 @@ function extractCount(s: string): [number | string | null, string] {
   if (count != null) {
     return [count, m[2]];
   } else {
-    return [null, s];
+    return null;
   }
+}
+
+function extractTrailingCount(s: string): [number | string, string] | null {
+  const m = s.match(/^(.*) (\S+)$/);
+  if (!m) {
+    return null;
+  }
+
+  const count = parseNumberOccurrence(m[2]);
+  if (count != null) {
+    return [count, m[1]];
+  } else {
+    return null;
+  }
+}
+
+/**
+ * Check for a count on a string.  Handle both leading number strings, like
+ * "Twenty-two," and threshold-type values, like "1/2/3".  Also handle trailing
+ * counts like "... twice."
+ */
+export function extractCount(s: string): [number | string | null, string] {
+  return extractLeadingCount(s) || extractTrailingCount(s) || [null, s];
 }
 
 const slashOptionsRe = /(?:(?:\w|\.)+\/)+(?:\w|\.)+/;

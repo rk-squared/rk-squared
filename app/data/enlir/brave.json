@@ -1,7 +1,7 @@
 [
   {
     "character": "Sarah",
-    "source": "Crystal's Glean",
+    "source": "Crystal's Gleam",
     "name": "Heal Melody",
     "brave": 0,
     "type": "WHT",
@@ -27,7 +27,7 @@
   },
   {
     "character": "Sarah",
-    "source": "Crystal's Glean",
+    "source": "Crystal's Gleam",
     "name": "Heal Melody",
     "brave": 1,
     "type": "WHT",
@@ -53,7 +53,7 @@
   },
   {
     "character": "Sarah",
-    "source": "Crystal's Glean",
+    "source": "Crystal's Gleam",
     "name": "Heal Melody",
     "brave": 2,
     "type": "WHT",
@@ -77,7 +77,7 @@
   },
   {
     "character": "Sarah",
-    "source": "Crystal's Glean",
+    "source": "Crystal's Gleam",
     "name": "Heal Melody",
     "brave": 3,
     "type": "WHT",
@@ -834,7 +834,7 @@
     ],
     "nameJp": "焔剣の舞",
     "id": 30549211,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gilgamesh",
@@ -859,7 +859,7 @@
     ],
     "nameJp": "焔剣の舞",
     "id": 30549212,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gilgamesh",
@@ -884,7 +884,7 @@
     ],
     "nameJp": "焔剣の舞",
     "id": 30549213,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gilgamesh",
@@ -909,7 +909,7 @@
     ],
     "nameJp": "焔剣の舞",
     "id": 30549214,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Faris",
@@ -1522,6 +1522,100 @@
     "nameJp": "ものまね【VI】",
     "id": 30545049,
     "gl": true
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Mimicking All",
+    "name": "Mimicking Everything",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.45,
+    "element": [
+      "NE"
+    ],
+    "time": 0.82,
+    "effects": "One single attack (7.45)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 100,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "なんでもものまね",
+    "id": 30545116,
+    "gl": false
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Mimicking All",
+    "name": "Mimicking Everything",
+    "brave": 1,
+    "type": "NAT",
+    "target": "-",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.82,
+    "effects": "Casts the last ability used by an ally, default ability (PHY: single, 1.50 physical, 100% critical chance)",
+    "counter": false,
+    "autoTarget": "-",
+    "sb": 100,
+    "school": "Special",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "なんでもものまね",
+    "id": 30545117,
+    "gl": false
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Mimicking All",
+    "name": "Mimicking Everything",
+    "brave": 2,
+    "type": "NAT",
+    "target": "-",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.82,
+    "effects": "Casts the last ability used by an ally twice, default ability (PHY: single, 1.50 physical, 100% critical chance)",
+    "counter": false,
+    "autoTarget": "-",
+    "sb": 100,
+    "school": "Special",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "なんでもものまね",
+    "id": 30545118,
+    "gl": false
+  },
+  {
+    "character": "Gogo (VI)",
+    "source": "Mimicking All",
+    "name": "Mimicking Everything",
+    "brave": 3,
+    "type": "NAT",
+    "target": "-",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.82,
+    "effects": "Casts the last ability used by an ally three times, default ability (PHY: single, 1.50 physical, 100% critical chance)",
+    "counter": false,
+    "autoTarget": "-",
+    "sb": 100,
+    "school": "Special",
+    "braveCondition": [
+      "Black Magic"
+    ],
+    "nameJp": "なんでもものまね",
+    "id": 30545119,
+    "gl": false
   },
   {
     "character": "Vincent",
@@ -2194,6 +2288,118 @@
     "nameJp": "真の魔法・崩氷",
     "id": 30541129,
     "gl": true
+  },
+  {
+    "character": "Quistis",
+    "source": "Mix Breath",
+    "name": "Toxic Breath",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 6.08,
+    "element": [
+      "Water",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (6.08)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Water",
+      "Poison"
+    ],
+    "nameJp": "毒水の息吹",
+    "id": 30541169,
+    "gl": false
+  },
+  {
+    "character": "Quistis",
+    "source": "Mix Breath",
+    "name": "Toxic Breath",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.58,
+    "element": [
+      "Water",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (1.43 each), causes RES -30%",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Water",
+      "Poison"
+    ],
+    "nameJp": "毒水の息吹",
+    "id": 30541260,
+    "gl": false
+  },
+  {
+    "character": "Quistis",
+    "source": "Mix Breath",
+    "name": "Toxic Breath",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.88,
+    "element": [
+      "Water",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (2.48 each), causes RES -50%",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Water",
+      "Poison"
+    ],
+    "nameJp": "毒水の息吹",
+    "id": 30541261,
+    "gl": false
+  },
+  {
+    "character": "Quistis",
+    "source": "Mix Breath",
+    "name": "Toxic Breath",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 24.96,
+    "element": [
+      "Water",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (4.16 each), causes DEF, RES and MND -70%",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Water",
+      "Poison"
+    ],
+    "nameJp": "毒水の息吹",
+    "id": 30541262,
+    "gl": false
   },
   {
     "character": "Ultimecia",
@@ -3740,7 +3946,7 @@
     ],
     "nameJp": "イービルブレード",
     "id": 30549469,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gaffgarion",
@@ -3765,7 +3971,7 @@
     ],
     "nameJp": "イービルブレード",
     "id": 30549560,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gaffgarion",
@@ -3790,7 +3996,7 @@
     ],
     "nameJp": "イービルブレード",
     "id": 30549561,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gaffgarion",
@@ -3815,7 +4021,7 @@
     ],
     "nameJp": "イービルブレード",
     "id": 30549562,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Serafie",

@@ -6,13 +6,19 @@ interface Props {
 }
 
 export class ModalHeader extends React.Component<Props> {
+  handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.props.onClose!();
+  };
+
   render() {
     const { onClose, children } = this.props;
     return (
       <div className="modal-header">
         {children}
         {onClose && (
-          <button onClick={onClose} className="close">
+          <button onClick={this.handleClick} className="close">
             <span aria-hidden="true">&times;</span>
           </button>
         )}

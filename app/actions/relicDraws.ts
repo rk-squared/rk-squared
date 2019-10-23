@@ -2,6 +2,8 @@ import { createAction } from 'typesafe-actions';
 
 import * as _ from 'lodash';
 
+import { RelicDrawPullParams, StandardDrawCount } from '../data/probabilities';
+import { logger } from '../utils/logger';
 import { TimeT } from '../utils/timeUtils';
 
 /**
@@ -21,6 +23,17 @@ export interface RelicDrawBannerCost {
    * price ourselves), so it should always differ from mythrilCost.
    */
   firstMythrilCost?: number;
+
+  /**
+   * Guaranteed rarity and count.  FFRK only communicates these via its
+   * rise_message string field.  To redice the amount of string processing
+   * that we have to do, we ,ay instead hard-code it via special cases from
+   * looking at other fields (like drawCount); see getBannerPullParams.  As a
+   * result, these fields are normally blank.
+   */
+  guaranteedRarity?: number;
+  /** See guaranteedRarity */
+  guaranteedCount?: number;
 }
 
 export interface RelicDrawBanner {
@@ -71,6 +84,62 @@ export function getOffBannerRelics(
   return _.keys(probabilities.byRelic)
     .map(i => +i)
     .filter(i => !bannerSet.has(i));
+}
+
+export function getBannerDrawCount(banner: RelicDrawBanner) {
+  return banner.cost && banner.cost.drawCount ? banner.cost.drawCount : StandardDrawCount;
+}
+
+function makeSimplePullParam(banner: RelicDrawBanner, drawCount: number) {
+  return {
+    drawCount,
+    guaranteedRarity:
+      banner.cost && banner.cost.guaranteedRarity ? banner.cost.guaranteedRarity : 5,
+    guaranteedCount: banner.cost && banner.cost.guaranteedCount ? banner.cost.guaranteedCount : 1,
+  };
+}
+
+export function getBannerPullParams(banner: RelicDrawBanner): RelicDrawPullParams[] {
+  const drawCount = getBannerDrawCount(banner);
+  if (drawCount === StandardDrawCount) {
+    return [
+      {
+        drawCount: 1,
+        guaranteedRarity: 0,
+        guaranteedCount: 0,
+      },
+      {
+        drawCount: 3,
+        guaranteedRarity: 0,
+        guaranteedCount: 0,
+      },
+      makeSimplePullParam(banner, drawCount),
+    ];
+  } else if (drawCount === 3) {
+    // Realms on Parade / Luck of the Realms
+    return [makeSimplePullParam(banner, drawCount)];
+  } else if (drawCount === 40) {
+    // 40x presents for festivals
+    return [
+      {
+        drawCount,
+        guaranteedRarity: 6,
+        guaranteedCount: 2,
+      },
+    ];
+  } else {
+    // Unknown; return generic results.
+    logger.warn(`Unknown relic draw: ${drawCount}`);
+    return [makeSimplePullParam(banner, drawCount)];
+  }
+}
+
+/**
+ * Gets the "normal" banner pull parameters.  For example, a 11 pull also
+ * offers x1 and x3 pulls, but those are rarely useful.
+ */
+export function getNormalBannerPullParams(banner: RelicDrawBanner): RelicDrawPullParams {
+  return _.last(getBannerPullParams(banner))!;
 }
 
 export const setRelicDrawBannersAndGroups = createAction(

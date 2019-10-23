@@ -2694,7 +2694,7 @@
   },
   {
     "school": "Black Magic",
-    "name": "Grand Onion Magic (Onion Knight Only)",
+    "name": "Grand Onion Magic",
     "rarity": 6,
     "type": "BLK",
     "target": "Single",
@@ -2742,7 +2742,8 @@
     "introducingEvent": "5th Anniversary",
     "nameJp": "たまねぎ大魔法",
     "id": 30111371,
-    "gl": false
+    "gl": false,
+    "recordBoardCharacter": "Onion Knight"
   },
   {
     "school": "White Magic",
@@ -7149,20 +7150,20 @@
   },
   {
     "school": "Celerity",
-    "name": "Shift Flame (Noctis Only)",
+    "name": "Shift Flame",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 3,
     "element": [
       "Fire"
     ],
-    "time": null,
-    "effects": "Three single attacks (? each), grants Instant Cast 1 to the user",
-    "counter": false,
+    "time": 1.2,
+    "effects": "Three single attacks (1.00 each), grants Instant Cast 1 to the user",
+    "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 80,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -7198,6 +7199,60 @@
     "introducingEvent": "5th Anniversary",
     "nameJp": "シフトフレイム",
     "id": 30171231,
+    "gl": false,
+    "recordBoardCharacter": "Noctis"
+  },
+  {
+    "school": "Celerity",
+    "name": "Icebound",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Ice"
+    ],
+    "time": 1.2,
+    "effects": "Five single attacks (0.80 each), removes Haste",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Non-Elemental Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Whispers in the Wind",
+    "nameJp": "アイスバウンド",
+    "id": 30171241,
     "gl": false
   },
   {
@@ -8961,7 +9016,7 @@
   },
   {
     "school": "Summoning",
-    "name": "Summoners' Band (Rydia Only)",
+    "name": "Summoners' Band",
     "rarity": 6,
     "type": "SUM",
     "target": "All enemies",
@@ -8981,18 +9036,21 @@
     "max": 6,
     "orbs": {
       "Summoning Crystal": [
+        null,
         10,
         15,
         50,
         75
       ],
       "Ice Crystal": [
+        null,
         5,
         10,
         25,
         35
       ],
       "Holy Crystal": [
+        null,
         5,
         10,
         25,
@@ -9009,6 +9067,60 @@
     "introducingEvent": "5th Anniversary",
     "nameJp": "サモナーズバンド",
     "id": 30131441,
+    "gl": false,
+    "recordBoardCharacter": "Rydia"
+  },
+  {
+    "school": "Summoning",
+    "name": "Dark Shiva",
+    "rarity": 6,
+    "type": "SUM",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": 18.92,
+    "element": [
+      "Ice"
+    ],
+    "time": 1.8,
+    "effects": "Four group attacks (4.73 each), minimum damage 2000",
+    "counter": false,
+    "autoTarget": "All enemies",
+    "sb": 90,
+    "uses": 2,
+    "max": 6,
+    "orbs": {
+      "Summoning Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Whispers in the Wind",
+    "nameJp": "H・シヴァ",
+    "id": 30131451,
     "gl": false
   },
   {
@@ -10595,10 +10707,65 @@
         0
       ]
     },
-    "introducingEvent": null,
+    "introducingEvent": "?",
     "nameJp": "至高魔法剣・凍爪",
     "id": 30141211,
     "gl": false
+  },
+  {
+    "school": "Spellblade",
+    "name": "Renzokuken",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Ice",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Five group attacks (?~? scaling with targets)",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Squall's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Whispers in the Wind",
+    "nameJp": "連続剣(スコール専用)",
+    "id": 30141251,
+    "gl": false,
+    "recordBoardCharacter": "Squall"
   },
   {
     "school": "Dragoon",
@@ -11339,6 +11506,59 @@
     "introducingEvent": "Fat Black Chocobo Event: Wind",
     "nameJp": "ハリケーンボルト",
     "id": 30181161,
+    "gl": false
+  },
+  {
+    "school": "Dragoon",
+    "name": "Serpent Dive",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.04,
+    "element": [
+      "Water"
+    ],
+    "time": 0.82,
+    "effects": "6 single ranged jump attacks (0.84 each), air time (1.65/0.82/0.55) if the user used 0/1/2 damaging actions",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Lightning Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "5th Anniversary",
+    "nameJp": "サーペントダイブ",
+    "id": 30181171,
     "gl": false
   },
   {
@@ -13023,7 +13243,7 @@
   },
   {
     "school": "Thief",
-    "name": "Mirage Raid (Locke Only)",
+    "name": "Mirage Raid",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13072,11 +13292,12 @@
     "introducingEvent": "5th Anniversary",
     "nameJp": "ミラージュレイド",
     "id": 30201151,
-    "gl": false
+    "gl": false,
+    "recordBoardCharacter": "Locke"
   },
   {
     "school": "Thief",
-    "name": "Al Bhed Steal (Rikku Only)",
+    "name": "Al Bhed Steal",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13086,7 +13307,7 @@
       "Water"
     ],
     "time": null,
-    "effects": "Four single attacks (? each), ATK and DEF -50%, grants ATK and DEF +50% to the user",
+    "effects": "Four single attacks (? each), ATK and DEF -50% for ? seconds, grants ATK and DEF +50% for ? seconds to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": null,
@@ -13125,7 +13346,8 @@
     "introducingEvent": "5th Anniversary",
     "nameJp": "アルベド・スティール",
     "id": 30201161,
-    "gl": false
+    "gl": false,
+    "recordBoardCharacter": "Rikku"
   },
   {
     "school": "Knight",
@@ -13927,7 +14149,7 @@
   },
   {
     "school": "Knight",
-    "name": "Gaia Strike",
+    "name": "Gaia Force",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13973,10 +14195,10 @@
         0
       ]
     },
-    "introducingEvent": "Setting Things Right",
+    "introducingEvent": "For Former Glory",
     "nameJp": "ガイアストライク",
     "id": 30211171,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Samurai",
@@ -14819,7 +15041,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.74 - 0.88 each scaling with targets)",
+    "effects": "Five single attacks (0.74~0.88 each scaling with targets)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -15671,7 +15893,7 @@
   },
   {
     "school": "Ninja",
-    "name": "Azure Horizon",
+    "name": "Azure Unending",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -15717,10 +15939,10 @@
         0
       ]
     },
-    "introducingEvent": "Setting Things Right",
+    "introducingEvent": "For Former Glory",
     "nameJp": "水天一碧",
     "id": 30231181,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Ninja",
@@ -18861,6 +19083,59 @@
     "gl": false
   },
   {
+    "school": "Sharpshooter",
+    "name": "Ruby Bullet",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.75,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Five single ranged attacks (0.95 each), 1.05 multiplier when equipping a ranged weapon",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Fire Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Lightning Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "5th Anniversary",
+    "nameJp": "ルビーブリット",
+    "id": 30281131,
+    "gl": false
+  },
+  {
     "school": "Witch",
     "name": "Hell Thunder",
     "rarity": 5,
@@ -19241,6 +19516,61 @@
     "nameJp": "ファストブリザラ",
     "id": 30301071,
     "gl": true
+  },
+  {
+    "school": "Witch",
+    "name": "Angel Wing",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Ice",
+      "Earth"
+    ],
+    "time": null,
+    "effects": "Six single attacks (? each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Rinoa's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Whispers in the Wind",
+    "nameJp": "ヴァリー(リノア専用)",
+    "id": 30301081,
+    "gl": false,
+    "recordBoardCharacter": "Rinoa"
   },
   {
     "school": "Heavy",

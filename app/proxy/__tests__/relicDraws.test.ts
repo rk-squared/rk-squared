@@ -25,8 +25,12 @@ describe('gacha proxy handler', () => {
 
       const ff5Banner = _.find(banners, i => i.id === 788)!;
       expect(ff5Banner.pullLimit).toBeUndefined();
-      expect(ff5Banner.cost!.drawCount).toEqual(11);
-      expect(ff5Banner.cost!.mythrilCost).toEqual(50);
+      expect(ff5Banner.cost).toEqual({
+        drawCount: 11,
+        mythrilCost: 50,
+        guaranteedRarity: 5,
+        guaranteedCount: 1,
+      });
       const ff5BannerRelics = ff5Banner.bannerRelics!;
       expect(ff5BannerRelics.length).toEqual(14);
       expect(ff5BannerRelics).toEqual([
@@ -94,6 +98,33 @@ describe('gacha proxy handler', () => {
       expect(filteredIds(luckOfTheRealms, i => i.canPull)).toEqual([821]);
       // None of these banners have selections.
       expect(filteredIds(luckOfTheRealms, i => i.canSelect)).toEqual([]);
+    });
+
+    it('understands 2xG5 and festival 40x pulls', () => {
+      const { data } = require('./data/gacha_show_2g5.json');
+      const banners = _.keyBy(convertRelicDrawBanners(LangType.Gl, data).banners, 'id');
+
+      const fortyPullId = 4099;
+      const ff7Banner1 = 4137;
+      const ff7Banner2 = 4138;
+
+      expect(banners[fortyPullId].cost).toEqual({
+        drawCount: 40,
+        guaranteedCount: 2,
+        guaranteedRarity: 6,
+      });
+      expect(banners[ff7Banner1].cost).toEqual({
+        drawCount: 11,
+        guaranteedCount: 1,
+        guaranteedRarity: 5,
+        mythrilCost: 50,
+      });
+      expect(banners[ff7Banner2].cost).toEqual({
+        drawCount: 11,
+        guaranteedCount: 2,
+        guaranteedRarity: 5,
+        mythrilCost: 50,
+      });
     });
   });
 
