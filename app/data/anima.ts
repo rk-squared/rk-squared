@@ -8,11 +8,13 @@ interface AnimaWave {
 export const animaWaves: { [wave: number]: AnimaWave } = {
   1: {
     color: '#6daf50',
+    released: true,
     estimatedMonth: 6,
     estimatedYear: 2019,
   },
   2: {
     color: '#d22d2d',
+    released: true,
     estimatedMonth: 10,
     estimatedYear: 2019,
   },

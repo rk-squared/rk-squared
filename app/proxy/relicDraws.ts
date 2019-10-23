@@ -40,7 +40,9 @@ function parseRiseMessage(riseMessage: string) {
   const m =
     riseMessage.match(
       /([A-Z]\w+) (\d+)★ or higher (?:relic is|relics are) guaranteed to drop in each Rare Relic Draw/,
-    ) || riseMessage.match(/This relic draw has (\w+) guaranteed (\d+)★ relics?/);
+    ) ||
+    riseMessage.match(/This relic draw has (\w+) guaranteed (\d+)★ relics?/) ||
+    riseMessage.match(/Guaranteed (\w+) (\d+)★ or Higher Relics in Rare Relic Draw x11/i);
   if (m) {
     const guaranteedCount = parseNumberString(m[1]) || undefined;
     return {

@@ -89,6 +89,12 @@ export const items: Item[] = [
     type: ItemType.BattleTicket,
     id: 9631221,
   },
+  {
+    // "A Soggy Request" 9631351
+    name: 'Rush Ticket',
+    type: ItemType.BattleTicket,
+    id: 9631351,
+  },
 
   {
     name: 'Dark Matter (1★)',
@@ -827,6 +833,26 @@ export const items: Item[] = [
     name: 'Gaia Force Record',
     type: ItemType.Orb,
     id: 40000137,
+  },
+  {
+    name: 'Quake Swing Record',
+    type: ItemType.Orb,
+    id: 40000138,
+  },
+  {
+    name: 'Hurricane Bolt Record',
+    type: ItemType.Orb,
+    id: 40000139,
+  },
+  {
+    name: 'Brothers Record',
+    type: ItemType.Orb,
+    id: 40000140,
+  },
+  {
+    name: 'Passionate Salsa Record',
+    type: ItemType.Orb,
+    id: 40000141,
   },
 
   {
