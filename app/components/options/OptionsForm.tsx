@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as classNames from 'classnames';
+import { remote } from 'electron';
 
+import { showDanger } from '../../actions/messages';
 import { Options, setOption as setOptionAction } from '../../actions/options';
 import { ffrkCommunityHelp, ffrkCommunityUrl, misterPHelp, misterPUrl } from '../../data/resources';
+import { deleteCertificate } from '../../proxy/tls';
 import { IState } from '../../reducers';
 import { KeysOfType } from '../../utils/typeUtils';
 import { BrowserLink } from '../common/BrowserLink';
@@ -18,6 +21,11 @@ interface Props {
   capturePath?: string;
   logFilename?: string;
   setOption: (newOptions: Options) => any;
+  deleteCertificate: () => void;
+}
+
+interface State {
+  recreatedCertificate: boolean;
 }
 
 const Checkbox = ({
@@ -74,9 +82,30 @@ const HelpText = ({ children, className }: { children: any; className?: string }
   <small className={classNames('form-text text-muted', className)}>{children}</small>
 );
 
-export class OptionsForm extends React.Component<Props> {
+export class OptionsForm extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      recreatedCertificate: false,
+    };
+  }
+
+  handleRecreateCertificate = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    if (
+      !confirm(
+        "After doing this, you'll have to restart RK² and reinstall your certificate on your iOS device. Continue?",
+      )
+    ) {
+      return;
+    }
+    this.props.deleteCertificate();
+    this.setState({ recreatedCertificate: true });
+  };
+
   render() {
     const { options, capturePath, logFilename, setOption } = this.props;
+    const { recreatedCertificate } = this.state;
     return (
       <div className={styles.component}>
         <div className="form-group">
@@ -184,6 +213,29 @@ export class OptionsForm extends React.Component<Props> {
             </p>
           </HelpText>
         </div>
+
+        <div className="form-group">
+          <button
+            type="button"
+            className="btn btn-danger btn-sm"
+            disabled={recreatedCertificate}
+            onClick={this.handleRecreateCertificate}
+          >
+            Recreate Certificate
+          </button>
+          <HelpText className="col-sm-12">
+            {!recreatedCertificate && (
+              <p>
+                If your iOS device is having problems connecting to FFRK, you can try recreating
+                your certificate. You'll have to restart RK&sup2; and reinstall the certificate to
+                your iOS device after doing this.
+              </p>
+            )}
+            {recreatedCertificate && (
+              <p>Please restart RK&sup2; to finish creating and loading the new certificate.</p>
+            )}
+          </HelpText>
+        </div>
       </div>
     );
   }
@@ -197,5 +249,9 @@ export default connect(
   }),
   dispatch => ({
     setOption: (newOptions: Options) => dispatch(setOptionAction(newOptions)),
+    deleteCertificate: () =>
+      deleteCertificate(remote.app.getPath('userData'), (error: string) =>
+        dispatch(showDanger(error)),
+      ),
   }),
 )(OptionsForm);

@@ -6,6 +6,7 @@ export interface ProxyStatus {
   lastTraffic?: number;
   capturePath?: string;
   logFilename?: string;
+  certWarnings?: string[];
 }
 
 export const updateProxyStatus = createAction(

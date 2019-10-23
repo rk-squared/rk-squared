@@ -1,5 +1,6 @@
 # v2.4.0
 
+- Fix compatibility with iOS 13
 - Dungeons
   - Dream dungeons are properly grouped with regular events
 - Soul Breaks

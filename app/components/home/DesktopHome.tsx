@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import AndroidInstructions from './AndroidInstructions';
+import CertWarningsDisplay from './CertWarningsDisplay';
 import IosInstructions from './IosInstructions';
 import ProxyStatusDisplay from './ProxyStatusDisplay';
 
@@ -21,6 +22,7 @@ export class DesktopHome extends React.PureComponent {
         <p>Once this is done, it can automatically track and help you manage your game progress.</p>
 
         <ProxyStatusDisplay />
+        <CertWarningsDisplay />
         <AndroidInstructions />
         <IosInstructions />
       </div>

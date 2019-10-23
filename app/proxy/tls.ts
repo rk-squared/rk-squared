@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+import * as _ from 'lodash';
+import * as moment from 'moment';
 import { md, pki } from 'node-forge';
 
 import { logger } from '../utils/logger';
@@ -47,28 +49,30 @@ function setCommon(cert: pki.Certificate, commonName: string, issuer?: pki.Certi
   }
 }
 
+function certFilenames(userDataPath: string) {
+  return {
+    ca: path.join(userDataPath, 'ffrk-ca.pem'),
+    cert: path.join(userDataPath, 'ffrk-cert.pem'),
+    key: path.join(userDataPath, 'ffrk-key.pem'),
+  };
+}
+
 export function createOrLoadCertificate(
   userDataPath: string,
   errorCallback?: (error: string) => void,
 ): TlsCert {
-  const tlsCert = {
-    key: '',
-    cert: '',
-    ca: '',
-  };
-
-  const caFilename = path.join(userDataPath, 'ffrk-ca.pem');
-  const certFilename = path.join(userDataPath, 'ffrk-cert.pem');
-  const keyFilename = path.join(userDataPath, 'ffrk-key.pem');
+  const filenames = certFilenames(userDataPath);
 
   const filesExist =
-    +fs.existsSync(caFilename) + +fs.existsSync(certFilename) + +fs.existsSync(keyFilename);
+    +fs.existsSync(filenames.ca) + +fs.existsSync(filenames.cert) + +fs.existsSync(filenames.key);
   if (filesExist === 3) {
     try {
-      tlsCert.ca = fs.readFileSync(caFilename).toString();
-      tlsCert.cert = fs.readFileSync(certFilename).toString();
-      tlsCert.key = fs.readFileSync(keyFilename).toString();
-      return tlsCert;
+      const loadCert = {
+        ca: fs.readFileSync(filenames.ca).toString(),
+        cert: fs.readFileSync(filenames.cert).toString(),
+        key: fs.readFileSync(filenames.key).toString(),
+      };
+      return loadCert;
     } catch (e) {
       logger.error('Failed to load certificates');
       logger.error(e);
@@ -81,14 +85,16 @@ export function createOrLoadCertificate(
 
   const [caCert, caKey] = createCaCertificate('RK Squared');
   const [siteCert, siteKey] = createSiteCertificate(caCert, caKey, tlsSites);
-  tlsCert.ca = pki.certificateToPem(caCert);
-  tlsCert.cert = pki.certificateToPem(siteCert);
-  tlsCert.key = pki.privateKeyToPem(siteKey.privateKey);
+  const tlsCert = {
+    ca: pki.certificateToPem(caCert),
+    cert: pki.certificateToPem(siteCert),
+    key: pki.privateKeyToPem(siteKey.privateKey),
+  };
 
   try {
-    fs.writeFileSync(caFilename, tlsCert.ca);
-    fs.writeFileSync(certFilename, tlsCert.cert);
-    fs.writeFileSync(keyFilename, tlsCert.key);
+    fs.writeFileSync(filenames.ca, tlsCert.ca);
+    fs.writeFileSync(filenames.cert, tlsCert.cert);
+    fs.writeFileSync(filenames.key, tlsCert.key);
   } catch (e) {
     logger.error('Failed to save certificates');
     logger.error(e);
@@ -214,4 +220,47 @@ function createSiteCertificate(
   cert.sign(caKey.privateKey, md.sha256.create());
 
   return [cert, keys];
+}
+
+export function checkCertificate(cert: string | TlsCert): string[] {
+  // https://support.apple.com/en-gb/HT210176
+  const iosMaxValidDays = 825;
+  const iosDateRestrictions = new Date(2019, 6, 1); // July 1, 2019
+
+  if (typeof cert !== 'string') {
+    return _.uniq([...checkCertificate(cert.ca), ...checkCertificate(cert.cert)]);
+  }
+
+  let pkiCert: pki.Certificate;
+  try {
+    pkiCert = pki.certificateFromPem(cert);
+  } catch (e) {
+    return [`Unable to process certificate: ${e.message}`];
+  }
+
+  const problems: string[] = [];
+
+  const { notBefore, notAfter } = pkiCert.validity;
+  const daysBetween = moment(notAfter).diff(notBefore, 'days');
+  if (daysBetween > iosMaxValidDays && notBefore > iosDateRestrictions) {
+    problems.push(`RK²'s certificate is not valid on iOS 13.`);
+  }
+  if (notAfter < new Date()) {
+    problems.push(`RK²'s certificate has expired.`);
+  }
+
+  return problems;
+}
+
+export function deleteCertificate(userDataPath: string, errorCallback?: (error: string) => void) {
+  const filenames = certFilenames(userDataPath);
+  try {
+    fs.unlinkSync(filenames.ca);
+    fs.unlinkSync(filenames.cert);
+    fs.unlinkSync(filenames.key);
+  } catch (e) {
+    logger.error('Failed to delete certificate');
+    logger.error(e);
+    errorCallback && errorCallback('Failed to delete certificate: ' + e.message);
+  }
 }

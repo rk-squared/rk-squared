@@ -1,5 +1,7 @@
 import { createAction } from 'typesafe-actions';
 
+type MessageText = string | { __html: string };
+
 export type MessageColor =
   | 'primary'
   | 'secondary'
@@ -12,7 +14,7 @@ export type MessageColor =
 
 export interface Message {
   id?: string;
-  text: string | { __html: string };
+  text: MessageText;
   color: MessageColor;
 }
 
@@ -32,6 +34,6 @@ export const hideMessage = createAction('HIDE_MESSAGE', (messageIdOrIndex: numbe
   payload: messageIdOrIndex,
 }));
 
-export const showDanger = (text: string) => showMessage({ text, color: 'danger' });
+export const showDanger = (text: MessageText) => showMessage({ text, color: 'danger' });
 
 export type MessagesAction = ReturnType<typeof showMessage | typeof hideMessage>;

@@ -9,7 +9,7 @@ import { showDanger } from './actions/messages';
 import { updateProxyStatus } from './actions/proxy';
 import { rkSquaredUrl } from './data/resources';
 import { createFfrkProxy, defaultHttpsPort, defaultPort } from './proxy/ffrk-proxy';
-import { createOrLoadCertificate } from './proxy/tls';
+import { checkCertificate, createOrLoadCertificate } from './proxy/tls';
 import {
   exportLegendMateriaToCsv,
   exportSoulBreaksToCsv,
@@ -293,6 +293,12 @@ app.on('ready', () =>
     const tlsCert = createOrLoadCertificate(userDataPath, (error: string) =>
       store.dispatch(showDanger(error)),
     );
+
+    const certWarnings = checkCertificate(tlsCert);
+    if (certWarnings.length) {
+      store.dispatch(updateProxyStatus({ certWarnings }));
+    }
+
     createFfrkProxy(store, {
       userDataPath,
       port: validNumber(argv['rk-proxy-port']),

@@ -64,6 +64,7 @@ const routes: RouteItem[] = [
   {
     component: OptionsPage,
     description: 'Options',
+    // NOTE: Duplicated in CertWarningsDisplay
     path: '/options',
   },
   {
