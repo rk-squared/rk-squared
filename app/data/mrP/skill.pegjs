@@ -13,14 +13,21 @@ SkillEffect
 Attack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ "(" attackMultiplier:DecimalNumber _ "each"? ")"
+    _ overstrike:("capped" _ "at" _ "99999")?
     extras:AttackExtras {
     const result = {
       numAttacks,
       attackMultiplier,
       ...extras
     };
+    if (overstrike) {
+      result.isOverstrike = true;
+    }
     if (attackType === 'group') {
       result.isAoE = true;
+    }
+    if (attackType === 'ranged') {
+      result.isRanged = true;
     }
     if (modifiers.jump) {
       result.isJump = true;
@@ -47,7 +54,7 @@ AttackModifiers
   }
 
 AttackExtras
-  = extras:("," _ (MinDamage / Piercing / NoMiss))* {
+  = extras:("," _ (MinDamage / Piercing / NoMiss / AirTime / FollowedByAttack))* {
     return extras.reduce((result, element) => Object.assign(result, element[2]), {});
   }
 
@@ -66,9 +73,19 @@ NoMiss
     return { isNoMiss: true };
   }
 
+AirTime
+  = "air" _ "time" _ "(" airTime:DecimalNumber _ "sec.)" {
+    return { airTime };
+  }
+
+FollowedByAttack
+  = "followed" _ "by" _ followedBy:Attack {
+    return { followedBy };
+  }
+
 
 NumberString
-  = [a-zA-Z\-]+ { 
+  = [a-zA-Z\-]+ {
     const result = parseNumberString(text());
     if (result == null) {
       expected('numeric string');
