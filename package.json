@@ -32,7 +32,8 @@
     "build-site": "node scripts/build-site.js",
     "postbuild-site": "react-snap",
     "test-site": "node scripts/test-site.js",
-    "postget-enlir": "yarn copy-json"
+    "postget-enlir": "yarn copy-json",
+    "peg": "pegjs --plugin ./node_modules/ts-pegjs/src/tspegjs.js -o app/data/mrp/skill.ts --cache app/data/mrp/skill.pegjs"
   },
   "jest": {
     "testURL": "http://localhost/",
@@ -240,6 +241,7 @@
     "ts-jest": "^24.0",
     "ts-loader": "^4.0.0",
     "ts-node": "^4.1.0",
+    "ts-pegjs": "^0.2.6",
     "tslint": "^5.4.3",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.5",
@@ -286,6 +288,7 @@
     "logform": "^1.9.1",
     "moment": "^2.22.0",
     "node-forge": "^0.7.6",
+    "pegjs": "^0.10.0",
     "popper.js": "^1.14.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",

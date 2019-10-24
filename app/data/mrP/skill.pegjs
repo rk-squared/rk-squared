@@ -11,10 +11,61 @@ SkillEffect
   = Attack
 
 Attack
-  = numAttacks:NumAttacks _ attackType:AttackType _ "attack" "s"? _ "(" multiplier:DecimalNumber _ "each"? ")"
+  = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
+    _ "(" attackMultiplier:DecimalNumber _ "each"? ")"
+    extras:AttackExtras {
+    const result = {
+      numAttacks,
+      attackMultiplier,
+      ...extras
+    };
+    if (attackType === 'group') {
+      result.isAoE = true;
+    }
+    if (modifiers.jump) {
+      result.isJump = true;
+    }
+    if (modifiers.ranged) {
+      result.isRanged = true;
+    }
+    return result;
+  }
 
 NumAttacks
   = NumberString
+
+AttackType
+  = "group" / "random" / "single"
+
+AttackModifiers
+  = modifiers:(_ ("hybrid" / "rang." / "ranged" / "jump"))* {
+    return {
+      hybrid: modifiers.indexOf('hybrid') !== -1,
+      ranged: modifiers.indexOf('ranged') !== -1 || modifiers.indexOf('rang.') !== -1,
+      jump: modifiers.indexOf('hybrid') !== -1,
+    };
+  }
+
+AttackExtras
+  = extras:("," _ (MinDamage / Piercing / NoMiss))* {
+    return extras.reduce((result, element) => Object.assign(result, element[2]), {});
+  }
+
+MinDamage
+  = "minimum" _ "damage" _ minDamage:Integer {
+    return { minDamage };
+  }
+
+Piercing
+  = "ignores" _ ("DEF" / "RES") {
+    return { isPiercing: true };
+  }
+
+NoMiss
+  = "100%" _ "hit" _ "rate" {
+    return { isNoMiss: true };
+  }
+
 
 NumberString
   = [a-zA-Z\-]+ { 
@@ -25,14 +76,11 @@ NumberString
     return result;
   }
 
-DecimalNumber
+DecimalNumber "decimal number"
   = [0-9.]+ { return parseFloat(text()) }
 
-AttackType
-  = "group" / "random" / "single"
-
-Ranged
-  = "rang." / "ranged"
+Integer "integer"
+  = [0-9]+ { return parseInt(text(), 10); }
 
 _ "whitespace"
   = [ \t\n\r]*
