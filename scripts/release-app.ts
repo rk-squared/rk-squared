@@ -7,6 +7,7 @@ import * as process from 'process';
 import * as querystring from 'querystring';
 
 import * as dotenv from 'dotenv';
+import * as _ from 'lodash';
 import * as github from 'octonode';
 import * as open from 'open';
 
@@ -36,12 +37,13 @@ function commitChanges(version: string) {
 
 function tagReleaseIfNeeded(tag: string): boolean {
   try {
-    child_process.execSync(`git rev-parse ${tag}`);
+    child_process.execSync(`git rev-parse ${tag} >& /dev/null`);
     console.log('Git tag already exists. Skipping.');
     return false;
   } catch (e) {}
 
   child_process.execSync(`git tag ${tag}`);
+  child_process.execSync(`git push --tags`);
 }
 
 function readReleaseNotes(version: string): string {
@@ -107,15 +109,25 @@ async function main() {
   const repoName = 'rk-squared/rk-squared';
   const client = github.client(process.env.GITHUB_TOKEN);
   const ghRepo = client.repo(repoName);
-  console.log('Drafting GitHub release...');
-  const release = await ghRepo.releaseAsync({
-    name: 'Version ' + version,
-    tag_name: tag,
-    draft: true,
-    body: releaseNotes,
-  });
-  const releaseId = release[0].id;
-  console.log(`New draft is ${releaseId}`);
+  let release: any;
+  console.log('Checking for previous GitHub release drafts...');
+  const releases = await ghRepo.releasesAsync();
+  release = _.find(releases[0], r => r.tag_name === tag);
+  if (release) {
+    console.log(`Found previous draft:`);
+    console.log(release.html_url);
+  } else {
+    console.log('Drafting new GitHub release...');
+    release = await ghRepo.releaseAsync({
+      name: 'Version ' + version,
+      tag_name: tag,
+      draft: true,
+      body: releaseNotes,
+    });
+    release = release[0];
+  }
+  const releaseId = release.id;
+  console.log(`Release draft is ${releaseId}`);
   const ghRelease = client.release(repoName, releaseId);
 
   console.log('Uploading Windows release...');
