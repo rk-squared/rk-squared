@@ -15,6 +15,7 @@
     "package": "yarn build && build --publish never",
     "package:all": "yarn build && build -mw",
     "package:linux": "yarn build && build --linux",
+    "package:mac": "yarn build && build --mac",
     "package:win": "yarn build && build --win --x64",
     "lint": "tslint --project .",
     "lint:watch": "onchange 'scripts/*.ts' 'app/**/*.ts' 'app/**/*.tsx' -- yarn lint",

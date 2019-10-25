@@ -56,14 +56,21 @@ function readReleaseNotes(version: string): string {
   return m[1].trim();
 }
 
-function uploadReleaseAsset(ghRelease: any, filename: string) {
+async function uploadReleaseAsset(ghRelease: any, filename: string) {
   const releaseDir = 'release';
-  const asset = fs.readFileSync(path.join(releaseDir, filename));
-  return ghRelease.uploadAssetsAsync(asset, {
+  const assetPath = path.join(releaseDir, filename);
+  if (!fs.existsSync(assetPath)) {
+    console.log(`${assetPath} does not exist; skipping`);
+    return 0;
+  }
+
+  const asset = await fs.readFile(assetPath);
+  await ghRelease.uploadAssetsAsync(asset, {
     name: filename,
     contentType: 'application/zip',
     uploadHost: 'uploads.github.com',
   });
+  return 1;
 }
 
 function showRedditDraft(version: string, releaseNotes: string) {
@@ -101,21 +108,24 @@ async function main() {
   }
 
   tagReleaseIfNeeded(tag);
+  console.log();
 
   const releaseNotes = readReleaseNotes(version);
   console.log('Release notes:');
   console.log(releaseNotes);
+  console.log();
 
   const repoName = 'rk-squared/rk-squared';
   const client = github.client(process.env.GITHUB_TOKEN);
   const ghRepo = client.repo(repoName);
-  let release: any;
   console.log('Checking for previous GitHub release drafts...');
   const releases = await ghRepo.releasesAsync();
-  release = _.find(releases[0], r => r.tag_name === tag);
+  let release = _.find(releases[0], r => r.tag_name === tag);
+  let assetsUploaded = 0;
   if (release) {
     console.log(`Found previous draft:`);
     console.log(release.html_url);
+    assetsUploaded = release.assets.length;
   } else {
     console.log('Drafting new GitHub release...');
     release = await ghRepo.releaseAsync({
@@ -129,15 +139,25 @@ async function main() {
   const releaseId = release.id;
   console.log(`Release draft is ${releaseId}`);
   const ghRelease = client.release(repoName, releaseId);
+  console.log();
 
-  console.log('Uploading Windows release...');
-  await uploadReleaseAsset(ghRelease, `RK Squared Setup ${version}.exe`);
-  console.log('Uploading Mac release...');
-  await uploadReleaseAsset(ghRelease, `RK Squared-${version}.dmg`);
+  const allAssets = [
+    ['Windows', `RK Squared Setup ${version}.exe`],
+    ['Mac', `RK Squared-${version}.dmg`],
+  ];
+  for (const [osName, assetFile] of allAssets) {
+    console.log(`Uploading ${osName} release...`);
+    assetsUploaded += await uploadReleaseAsset(ghRelease, assetFile);
+  }
+  if (assetsUploaded < allAssets.length) {
+    console.log('Missing one or more assets. Aborting.');
+    return;
+  }
 
   showRedditDraft(version, releaseNotes);
 
-  open(`https://github.com/rk-squared/rk-squared/releases/edit/${tag}`);
+  const draftTag = path.basename(release.html_url);
+  open(`https://github.com/rk-squared/rk-squared/releases/edit/${draftTag}`);
   const postTitle = `RK Squared ${version} - track soul breaks, LMs, relic banners, etc.`;
   open(
     'https://www.reddit.com/r/FFRecordKeeper/submit?selftext=true&title=' +
