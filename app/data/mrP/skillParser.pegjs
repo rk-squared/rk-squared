@@ -11,7 +11,18 @@
 }
 
 SkillEffect
-  = Attack
+  = head:EffectClause tail:(',' _ EffectClause)* {
+    return tail.reduce((result: any, element: any) => {
+      result.push(element[2]);
+      return result;
+    }, [head]);
+  }
+
+EffectClause = Attack / StatMod
+
+
+//---------------------------------------------------------------------------
+// Attacks
 
 Attack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
@@ -87,20 +98,61 @@ FollowedByAttack
   }
 
 
-NumberString
-  = [a-zA-Z\-]+ {
-    const result = util.parseNumberString(text());
-    if (result == null) {
-      expected('numeric string');
+//---------------------------------------------------------------------------
+// Stat mods
+
+StatMod
+  = stats:StatList _ percent:SignedInteger '%' duration:(_ Duration)? {
+    const result = {
+      stats,
+      percent,
+    };
+    if (duration) {
+      result.duration = duration[1];
     }
     return result;
   }
+
+StatList
+  = head:Stat tail:(AndList Stat)* {
+    return tail.reduce((result: any, element: any) => {
+      result.push(element[2]);
+      return result;
+    }, [head]);
+  }
+
+
+//---------------------------------------------------------------------------
+// Lower-level game types
+
+Duration
+  = "for" _ duration:Integer _ "second" "s"? {
+    return duration;
+  }
+
+Stat
+  = "ATK" / "DEF" / "MAG" / "RES" / "MND" / "SPD" / "ACC" / "EVA"
+
+
+//---------------------------------------------------------------------------
+// Primitive types
+
+AndList
+  = (',' _) / (','? _ 'and' _)
+
+NumberString
+  = [a-zA-Z\-]+
+  & { return util.parseNumberString(text()) != null; }
+  { return util.parseNumberString(text()); }
 
 DecimalNumber "decimal number"
   = [0-9.]+ { return parseFloat(text()) }
 
 Integer "integer"
   = [0-9]+ { return parseInt(text(), 10); }
+
+SignedInteger "signed integer"
+  = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
 
 _ "whitespace"
   = [ \t\n\r]*
