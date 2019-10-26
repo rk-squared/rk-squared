@@ -4,8 +4,11 @@
 // Accepts expressions like "2 * (3 + 4)" and computes their value.
 
 {
+  let parserNumberString: number | null = null;
+
   // Hack: Suppress warnings about unused functions.
   location;
+  expected;
   error;
   peg$anyExpectation;
 }
@@ -103,7 +106,7 @@ FollowedByAttack
 
 StatMod
   = stats:StatList _ percent:SignedInteger '%' duration:(_ Duration)? {
-    const result = {
+    const result: any = {
       stats,
       percent,
     };
@@ -140,10 +143,10 @@ Stat
 AndList
   = (',' _) / (','? _ 'and' _)
 
-NumberString
-  = [a-zA-Z\-]+
-  & { return util.parseNumberString(text()) != null; }
-  { return util.parseNumberString(text()); }
+NumberString "numeric text"
+  = numberString:[a-zA-Z\-]+
+  & { parsedNumberString = util.parseNumberString(numberString.join('')); return parsedNumberString != null; }
+  { return parsedNumberString; }
 
 DecimalNumber "decimal number"
   = [0-9.]+ { return parseFloat(text()) }

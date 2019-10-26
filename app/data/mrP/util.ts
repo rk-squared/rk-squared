@@ -59,6 +59,9 @@ export function lowerCaseFirst(s: string): string {
  * Parses a numeric string like "one" or "twenty-two"
  */
 export function parseNumberString(s: string): number | null {
+  if (!s) {
+    return null;
+  }
   if (isNumeric(s)) {
     return +s;
   }
