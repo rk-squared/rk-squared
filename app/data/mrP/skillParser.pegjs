@@ -4,7 +4,10 @@
 // Accepts expressions like "2 * (3 + 4)" and computes their value.
 
 {
-  const { parseNumberString } = require('./util');
+  // Hack: Suppress warnings about unused functions.
+  location;
+  error;
+  peg$anyExpectation;
 }
 
 SkillEffect
@@ -55,7 +58,7 @@ AttackModifiers
 
 AttackExtras
   = extras:("," _ (MinDamage / Piercing / NoMiss / AirTime / FollowedByAttack))* {
-    return extras.reduce((result, element) => Object.assign(result, element[2]), {});
+    return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
 MinDamage
@@ -86,7 +89,7 @@ FollowedByAttack
 
 NumberString
   = [a-zA-Z\-]+ {
-    const result = parseNumberString(text());
+    const result = util.parseNumberString(text());
     if (result == null) {
       expected('numeric string');
     }

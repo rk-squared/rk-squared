@@ -61,4 +61,4 @@ app/data/enlir/*.json.bak
 .env
 
 # Compiled PEG.js files
-app/data/mrp/skill.ts
+app/data/mrp/*Parser.ts

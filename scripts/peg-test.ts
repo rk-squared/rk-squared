@@ -3,7 +3,7 @@
 import * as _ from 'lodash';
 
 import { enlir, tierOrder } from '../app/data/enlir';
-const { parse } = require('../app/data/mrp/skill');
+import { parse } from '../app/data/mrp/skillParser';
 
 // tslint:disable: no-console
 
