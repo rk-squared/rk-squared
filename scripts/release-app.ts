@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env -S npx ts-node
 
 import * as child_process from 'child_process';
 import * as fs from 'fs-extra';
@@ -37,7 +37,7 @@ function commitChanges(version: string) {
 
 function tagReleaseIfNeeded(tag: string): boolean {
   try {
-    child_process.execSync(`git rev-parse ${tag} >& /dev/null`);
+    child_process.execSync(`git rev-parse --verify --quiet ${tag}`);
     console.log('Git tag already exists. Skipping.');
     return false;
   } catch (e) {}
@@ -116,6 +116,10 @@ async function main() {
   console.log();
 
   const repoName = 'rk-squared/rk-squared';
+  if (!process.env.GITHUB_TOKEN) {
+    console.error('No GITHUB_TOKEN in the environment. Unable to continue.');
+    process.exit(1);
+  }
   const client = github.client(process.env.GITHUB_TOKEN);
   const ghRepo = client.repo(repoName);
   console.log('Checking for previous GitHub release drafts...');

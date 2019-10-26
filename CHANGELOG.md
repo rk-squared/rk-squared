@@ -1,6 +1,7 @@
 # v2.4.0
 
 - Fix compatibility with iOS 13
+- New pages: Abilities and Future Abilities. These are also visible on [rk-squared.com](https://www.rk-squared.com/abilities). A later version will add tracking of owned abilities, honing ranks, and orb inventory.
 - Dungeons
   - Dream dungeons are properly grouped with regular events
 - Soul Breaks

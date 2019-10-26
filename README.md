@@ -7,24 +7,29 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 ## To Do
 
 1. Automatically handle new Rush Tickets
-2. Soul Break updates - Lightning SASB, etc.
-3. Search hotkeys?
-4. Add an explanation of probability calculator
-5. Export to ffrktoolkit.com
-6. Update Enlir data outside of releases
-7. Check for updates
-8. Support for multiple profiles
-9. Extend probability analysis for G2 on JP
-10. FFRK Toolkit Helper interop? (see Reddit messages)
-11. Switch languages for JP
-12. Show Dungeons expirations (see Reddit messages)
-13. Soul break list - formatting, show random hits
-14. Stateless components
-15. Error reporting (Sentry?)
-16. Rubies / ruby tracker
-17. Touch-friendly tooltips?
-18. Sorting/filtering for soul breaks and relic draw lists - e.g., sort by element
-19. Update options - update dungeons without re-entering dungeons, update record materia, etc.
+2. Improve JP support
+   - More frequent soul break updates
+   - Don't break relic draw page on unknown inventory
+   - Fix handling of auto-mastered soul breaks
+3. Soul Break updates - Lightning SASB, etc.
+4. AndApp support; document BlueStacks support
+5. Search hotkeys?
+6. Add an explanation of probability calculator
+7. Export to ffrktoolkit.com
+8. Update Enlir data outside of releases
+9. Check for updates
+10. Support for multiple profiles
+11. Extend probability analysis for G2 on JP
+12. FFRK Toolkit Helper interop? (see Reddit messages)
+13. Switch languages for JP
+14. Show Dungeons expirations (see Reddit messages)
+15. Soul break list - formatting, show random hits
+16. Stateless components
+17. Error reporting (Sentry?)
+18. Rubies / ruby tracker
+19. Touch-friendly tooltips?
+20. Sorting/filtering for soul breaks and relic draw lists - e.g., sort by element
+21. Update options - update dungeons without re-entering dungeons, update record materia, etc.
 
 ### JP support
 
