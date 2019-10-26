@@ -7,32 +7,49 @@ import { parse } from '../app/data/mrp/skillParser';
 
 // tslint:disable: no-console
 
-for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
-  i => i.character || '-',
-  i => tierOrder[i.tier],
-  'id',
-])) {
-  if (sb.tier === 'RW') {
-    continue;
+function processEffects<T extends { effects: string }>(
+  what: string,
+  items: T[],
+  getName: (item: T) => string,
+) {
+  let successCount = 0;
+  let totalCount = 0;
+  for (const i of items) {
+    console.log(getName(i));
+    console.log(i.effects);
+    totalCount++;
+    try {
+      console.log(parse(i.effects));
+      successCount++;
+    } catch (e) {
+      console.log(e.message);
+    }
+    console.log();
   }
-
-  console.log((sb.character || '-') + ': ' + sb.tier + ': ' + sb.name);
-  console.log(sb.effects);
-  try {
-    console.log(parse(sb.effects));
-  } catch (e) {
-    console.log(e.message);
-  }
-  console.log();
+  return [what, successCount, totalCount];
 }
 
-for (const ability of _.sortBy(Object.values(enlir.abilities), 'name')) {
-  console.log(ability.name);
-  console.log(ability.effects);
-  try {
-    console.log(parse(ability.effects));
-  } catch (e) {
-    console.log(e.message);
-  }
-  console.log();
+function processSoulBreaks() {
+  return processEffects(
+    'soul breaks',
+    _.sortBy(Object.values(enlir.soulBreaks), [
+      i => i.character || '-',
+      i => tierOrder[i.tier],
+      'id',
+    ]).filter(sb => sb.tier !== 'RW'),
+    sb => (sb.character || '-') + ': ' + sb.tier + ': ' + sb.name,
+  );
+}
+
+function processAbilities() {
+  return processEffects(
+    'abilities',
+    _.sortBy(Object.values(enlir.abilities), 'name'),
+    ability => ability.name,
+  );
+}
+
+const result = [processSoulBreaks(), processAbilities()];
+for (const [what, successCount, totalCount] of result) {
+  console.log(`Processed ${successCount} of ${totalCount} ${what}`);
 }
