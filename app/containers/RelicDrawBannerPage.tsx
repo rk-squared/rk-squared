@@ -41,7 +41,7 @@ export class RelicDrawBannerPage extends React.PureComponent<
     }
     return (
       <>
-        <img src={banner.imageUrl} />
+        <img className="w-100" src={banner.imageUrl} />
         <div className={styles.links}>
           <span className="d-inline-block w-50">
             <Link to={backLink}>Back to list of banners</Link>
