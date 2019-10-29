@@ -39,3 +39,13 @@ export function andJoin(s: string[], oxfordComma: boolean): string {
   }
   return s.slice(0, s.length - 1).join(', ') + (oxfordComma ? ',' : '') + ' and ' + s[s.length - 1];
 }
+
+/**
+ * Allow breaking up a slash-separated number by inserting zero-width spaces
+ * after each slash.
+ *
+ * See https://stackoverflow.com/a/35741496/25507
+ */
+export function breakSlashes(s: string) {
+  return s.replace(/(\d\/)(\d)/g, (match, p1, p2) => p1 + '\u200b' + p2);
+}

@@ -5,6 +5,7 @@ import * as _ from 'lodash';
 
 import { EnlirSoulBreak } from '../../data/enlir';
 import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
+import { breakSlashes } from '../../utils/textUtils';
 import {
   getBraveColumns,
   getBurstColumns,
@@ -21,26 +22,29 @@ interface Props {
 
 const mrPSoulBreaks: { [id: number]: MrPSoulBreak } = {};
 
-export class SoulBreakListItem extends React.Component<Props> {
+export class SoulBreakListItem extends React.PureComponent<Props> {
   renderBraveCommands(mrP: MrPSoulBreak, braveCommands: MrPSoulBreak[]) {
     const columns = getBraveColumns(mrP, braveCommands);
     return (
       <tr className={classNames(this.props.className, styles.braveCommand)}>
         <td />
         <td>{columns[0]}</td>
-        <td>{columns[1]}</td>
+        <td className={styles.command}>{columns[1]}</td>
       </tr>
     );
   }
 
   renderBurstCommands(burstCommands: MrPSoulBreak[]) {
+    // As of October 2019, Ward's BSB is the only command with a long enough
+    // string of slash-separated values that it causes obvious problems for
+    // mobile, so we only use breakSlashes here.
     return (
       <>
         {getBurstColumns(burstCommands).map((columns, i) => (
           <tr className={classNames(this.props.className, styles.burstCommand)} key={i}>
             <td />
             <td className={styles.school}>{columns[0]}</td>
-            <td className={styles.command}>{columns[1]}</td>
+            <td className={styles.command}>{breakSlashes(columns[1])}</td>
           </tr>
         ))}
       </>
@@ -85,7 +89,7 @@ export class SoulBreakListItem extends React.Component<Props> {
         <tr className={fullClassName}>
           <td className={styles.tier}>{alias}</td>
           <td className={styles.name}>{name}</td>
-          <td>{text || '???'}</td>
+          <td className={styles.effects}>{text || '???'}</td>
         </tr>
         {mrP.braveCommands && this.renderBraveCommands(mrP, mrP.braveCommands)}
         {mrP.burstCommands && this.renderBurstCommands(mrP.burstCommands)}

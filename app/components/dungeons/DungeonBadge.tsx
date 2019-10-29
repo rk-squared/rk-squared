@@ -14,6 +14,16 @@ interface Props {
 const getClasses = (isActive: boolean) =>
   `badge ${styles.component} ` + (isActive ? 'badge-primary' : 'badge-secondary');
 
+const StaminaDisplay = ({ stamina }: { stamina: number }) => (
+  <>
+    {stamina}{' '}
+    <span className="d-md-none" aria-hidden={true}>
+      stam.
+    </span>
+    <span className="d-none d-md-inline">stamina</span>
+  </>
+);
+
 /**
  * Shows dungeon status as a Bootstrap badge
  */
@@ -30,7 +40,7 @@ export const DungeonBadge = ({ dungeons, isAnonymous }: Props) => {
       <span className={getClasses(true)}>
         {total}
         <br />
-        {stamina} stamina
+        <StaminaDisplay stamina={stamina} />
       </span>
     );
   }
@@ -56,7 +66,7 @@ export const DungeonBadge = ({ dungeons, isAnonymous }: Props) => {
       <span className={classes}>
         {mastered} / {completed} / {total}
         <br />
-        {stamina} stamina
+        <StaminaDisplay stamina={stamina} />
       </span>
     );
   }

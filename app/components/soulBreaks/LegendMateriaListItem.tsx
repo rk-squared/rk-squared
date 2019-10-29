@@ -35,7 +35,7 @@ export class LegendMateriaListItem extends React.PureComponent<Props> {
           <span className={styles.legendMateriaTier}>{alias}</span>
         </td>
         <td className={styles.name}>{name}</td>
-        <td>{mrP || '???'}</td>
+        <td className={styles.effects}>{mrP || '???'}</td>
       </tr>
     );
   }

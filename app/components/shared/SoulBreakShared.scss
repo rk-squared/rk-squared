@@ -9,6 +9,11 @@
     width: 25%;
   }
 
+  td.command,
+  td.effects {
+    width: 70%;
+  }
+
   tr.burstCommand > td,
   tr.braveCommand > td,
   tr.synchroCommand > td {
