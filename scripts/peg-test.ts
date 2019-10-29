@@ -19,7 +19,7 @@ function processEffects<T extends { effects: string }>(
     console.log(i.effects);
     totalCount++;
     try {
-      console.log(parse(i.effects));
+      console.dir(parse(i.effects), { depth: null });
       successCount++;
     } catch (e) {
       console.log(e.message);

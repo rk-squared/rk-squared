@@ -4,7 +4,7 @@
 // Accepts expressions like "2 * (3 + 4)" and computes their value.
 
 {
-  let parserNumberString: number | null = null;
+  let parsedNumberString: number | null = null;
 
   // Hack: Suppress warnings about unused functions.
   location;
@@ -21,7 +21,7 @@ SkillEffect
     }, [head]);
   }
 
-EffectClause = Attack / StatMod
+EffectClause = Attack / StatMod / StatusEffect
 
 
 //---------------------------------------------------------------------------
@@ -102,6 +102,43 @@ FollowedByAttack
 
 
 //---------------------------------------------------------------------------
+// Status effects
+
+StatusEffect
+  = verb:StatusVerb _ statuses:StatusList {
+    return { verb, statuses };
+  }
+
+StatusVerb
+  = "grants"i / "causes"i / "removes"i / "doesn't"i _ "remove"
+
+StatusList
+  = head:StatusWithPercent tail:(!NextClause AndList StatusWithPercent)* {
+    return util.pegAndList(head, tail);
+  }
+
+StatusWithPercent
+  = status:Status chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )? {
+    return chance ? { status, chance: +chance } : { status };
+  }
+
+Status
+  = ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
+  / (
+    StatusWord (_
+    (
+      StatusWord
+      / 'in'
+      / SignedInteger '%'?
+      / Integer '%'?
+      / '(' [A-Za-z-0-9]+ ')'
+    ))*
+  ) {
+    return text();
+  }
+StatusWord = ([A-Z] [a-zA-Z-']* (':' / '...' / '!')?)
+
+//---------------------------------------------------------------------------
 // Stat mods
 
 StatMod
@@ -118,15 +155,12 @@ StatMod
 
 StatList
   = head:Stat tail:(AndList Stat)* {
-    return tail.reduce((result: any, element: any) => {
-      result.push(element[2]);
-      return result;
-    }, [head]);
+    return util.pegAndList(head, tail);
   }
 
 
 //---------------------------------------------------------------------------
-// Lower-level game types
+// Lower-level game rules
 
 Duration
   = "for" _ duration:Integer _ "second" "s"? {
@@ -135,6 +169,15 @@ Duration
 
 Stat
   = "ATK" / "DEF" / "MAG" / "RES" / "MND" / "SPD" / "ACC" / "EVA"
+
+NextClause
+  = "," _ ("grants" / "causes" / "removes" / "doesn't" _ "remove"
+      / "restores" _ "HP"
+      / "damages" _ "the" _ "user"
+      / "heals" _ "the" _ "user"
+      / "casts" _ "the" _ "last" _ "ability" _ "used" _ "by" _ "an" _ "ally"
+      / "reset"
+  )
 
 
 //---------------------------------------------------------------------------

@@ -342,3 +342,13 @@ export function handleUncertain<T>(f: (value: string) => T) {
     };
   };
 }
+
+export function pegAndList(head: any, tail: any): any[] {
+  return tail.reduce(
+    (result: any, element: any) => {
+      result.push(element[2]);
+      return result;
+    },
+    [head],
+  );
+}
