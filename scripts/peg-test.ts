@@ -10,10 +10,12 @@ import { parse } from '../app/data/mrp/skillParser';
 
 const argv = yargs
   .strict()
+
   .option('filter', {
     description: 'Filter for name',
     type: 'string',
   })
+
   .option('hideSuccesses', {
     description: 'Hide successful parses',
     default: false,
@@ -23,13 +25,44 @@ const argv = yargs
     description: 'Hide failed parses',
     default: false,
     boolean: true,
+  })
+
+  .option('soulBreaks', {
+    description: 'Show soul breaks',
+    default: false,
+    boolean: true,
+  })
+  .option('abilities', {
+    description: 'Show abilities',
+    default: false,
+    boolean: true,
+  })
+  .option('burst', {
+    description: 'Show synchro commands',
+    default: false,
+    boolean: true,
+  })
+  .option('brave', {
+    description: 'Show brave commands',
+    default: false,
+    boolean: true,
+  })
+  .option('synchro', {
+    description: 'Show synchro commands',
+    default: false,
+    boolean: true,
+  })
+  .option('other', {
+    description: "Show 'other' skills",
+    default: false,
+    boolean: true,
   }).argv;
 
 function processEffects<T extends { name: string; effects: string }>(
-  what: string,
+  what: keyof typeof argv,
   items: T[],
   getName: (item: T) => string,
-) {
+): [keyof typeof argv, number, number] {
   let successCount = 0;
   let totalCount = 0;
   for (const i of items) {
@@ -46,7 +79,10 @@ function processEffects<T extends { name: string; effects: string }>(
       parseError = e.message;
     }
 
-    if ((parseResults && !argv.hideSuccesses) || (parseError && !argv.hideFailures)) {
+    if (
+      argv[what] &&
+      ((parseResults && !argv.hideSuccesses) || (parseError && !argv.hideFailures))
+    ) {
       console.log(getName(i));
       console.log(i.effects);
       if (parseResults) {
@@ -63,7 +99,7 @@ function processEffects<T extends { name: string; effects: string }>(
 
 function processSoulBreaks() {
   return processEffects(
-    'soul breaks',
+    'soulBreaks',
     _.sortBy(Object.values(enlir.soulBreaks), [
       i => i.character || '-',
       i => tierOrder[i.tier],
@@ -81,7 +117,57 @@ function processAbilities() {
   );
 }
 
-const result = [processSoulBreaks(), processAbilities()];
+const getCommandName = <T extends { character: string; source: string; name: string }>({
+  character,
+  source,
+  name,
+}: T) => `${character} - ${source} - ${name}`;
+
+function processBurst() {
+  return processEffects(
+    'burst',
+    _.sortBy(Object.values(enlir.burstCommands), ['character', 'id']),
+    getCommandName,
+  );
+}
+
+function processBrave() {
+  return processEffects(
+    'brave',
+    _.sortBy(Object.values(enlir.braveCommands), ['character', 'id']),
+    getCommandName,
+  );
+}
+
+function processSynchro() {
+  return processEffects(
+    'synchro',
+    _.sortBy(Object.values(enlir.synchroCommands), ['character', 'id']),
+    getCommandName,
+  );
+}
+
+function processOther() {
+  return processEffects(
+    'other',
+    _.sortBy(Object.values(enlir.otherSkills), 'name'),
+    other => other.name,
+  );
+}
+
+const result = [
+  processSoulBreaks(),
+  processBurst(),
+  processBrave(),
+  processSynchro(),
+  processOther(),
+  processAbilities(),
+];
+let grandTotalSuccessCount = 0;
+let grandTotalCount = 0;
 for (const [what, successCount, totalCount] of result) {
   console.log(`Processed ${successCount} of ${totalCount} ${what}`);
+  grandTotalSuccessCount += successCount;
+  grandTotalCount += totalCount;
 }
+console.log(`Final counts: Processed ${grandTotalSuccessCount} of ${grandTotalCount}`);
