@@ -80,23 +80,8 @@ AttackModifiers
   }
 
 AttackExtras
-  = extras:("," _ (MinDamage / Piercing / NoMiss / AirTime / FollowedByAttack / OrMultiplier))* {
+  = extras:("," _ (AirTime / FollowedByAttack / MinDamage / NoMiss / OrMultiplier / Piercing))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
-  }
-
-MinDamage
-  = "minimum" _ "damage" _ minDamage:Integer {
-    return { minDamage };
-  }
-
-Piercing
-  = "ignores" _ ("DEF" / "RES") {
-    return { isPiercing: true };
-  }
-
-NoMiss
-  = "100%" _ "hit" _ "rate" {
-    return { isNoMiss: true };
   }
 
 AirTime
@@ -109,9 +94,24 @@ FollowedByAttack
     return { followedBy };
   }
 
+MinDamage
+  = "minimum" _ "damage" _ minDamage:Integer {
+    return { minDamage };
+  }
+
+NoMiss
+  = "100%" _ "hit" _ "rate" {
+    return { isNoMiss: true };
+  }
+
 OrMultiplier
   = orMultiplier:DecimalNumber _ ("multiplier" / "mult.") _ orMultiplierCondition:Condition {
     return { orMultiplier, orMultiplierCondition };
+  }
+
+Piercing
+  = "ignores" _ ("DEF" / "RES") {
+    return { isPiercing: true };
   }
 
 
