@@ -185,6 +185,7 @@ StatusClause
   = _ clause:(
     "for" _ duration:Integer _ durationUnits:DurationUnits { return { duration, durationUnits }; }
     / "every" _ "two" _ "uses" { return { perUses: 2 }; }
+    / who:Who { return { who }; }
   ) {
     return clause;
   }
@@ -238,6 +239,16 @@ NextClause
       / "casts" _ "the" _ "last" _ "ability" _ "used" _ "by" _ "an" _ "ally"
       / "reset"
   )
+
+Who
+  = "to" _ "the" _ "user" { return 'self'; }
+  / "to" _ "the" _ "target" { return 'target'; }
+  / "to" _ "all" _ "allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'frontRow'; })? {
+    return row || 'party';
+  }
+  / "to" _ "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
+  / "to" _ "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
+  / "to" _ "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
 
 
 //---------------------------------------------------------------------------
