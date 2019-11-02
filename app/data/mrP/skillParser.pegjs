@@ -80,8 +80,13 @@ AttackModifiers
   }
 
 AttackExtras
-  = extras:("," _ (AirTime / FollowedByAttack / MinDamage / NoMiss / OrMultiplier / Piercing))* {
+  = extras:("," _ (AdditionalCrit / AirTime / FollowedByAttack / MinDamage / NoMiss / OrMultiplier / Piercing))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
+  }
+
+AdditionalCrit
+  = additionalCrit:Integer '%' _ ('additional' / 'add.') _ 'critical' _ 'chance' {
+    return { additionalCrit };
   }
 
 AirTime
