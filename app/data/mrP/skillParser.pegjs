@@ -21,7 +21,7 @@ SkillEffect
     }, [head]);
   }
 
-EffectClause = Attack / Heal / DamagesUndead / DispelOrEsuna / StatMod / StatusEffect
+EffectClause = Attack / DrainHp / RecoilHp / Heal / DamagesUndead / DispelOrEsuna / StatMod / StatusEffect
 
 
 //---------------------------------------------------------------------------
@@ -38,6 +38,7 @@ Attack
     _ overstrike:("capped" _ "at" _ "99999")?
     extras:AttackExtras {
     const result = {
+      type: 'attack',
       numAttacks,
       attackMultiplier,
       ...extras
@@ -110,11 +111,35 @@ FollowedByAttack
 
 
 //---------------------------------------------------------------------------
+// Drain HP, recoil HP
+
+DrainHp
+  = ("heals" / "restores" _ "HP" _ "to") _ "the" _ "user" _ "for" _ healPercent:Integer "%" _ "of" _ "the" _ "damage" _ "dealt" {
+    return {
+      type: 'drainHp',
+      healPercent
+    }
+  }
+
+RecoilHp
+  = "damages" _ "the" _ "user" _ "for" _ damagePercent:Integer "%"
+  _ maxOrCurrent:("max" "."? "imum"? / "current" { return text().startsWith('max') ? 'max' : 'curr'; })
+  _ "HP" {
+    return {
+      type: 'recoilHp',
+      damagePercent,
+      maxOrCurrent,
+    }
+  }
+
+
+//---------------------------------------------------------------------------
 // Healing
 
 Heal
   = "restores"i _ "HP" _ "(" healFactor:Integer ")" {
     return {
+      type: 'heal',
       healFactor
     };
   }
@@ -135,7 +160,7 @@ DispelOrEsuna
 
 StatusEffect
   = verb:StatusVerb _ statuses:StatusList {
-    return { verb, statuses };
+    return { type: 'status', verb, statuses };
   }
 
 StatusVerb
@@ -199,12 +224,14 @@ DurationUnits
     return result;
   }
 
+
 //---------------------------------------------------------------------------
 // Stat mods
 
 StatMod
   = stats:StatList _ percent:SignedInteger '%' duration:(_ Duration)? {
     const result: any = {
+      type: 'statMod',
       stats,
       percent,
     };
