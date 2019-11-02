@@ -80,7 +80,7 @@ AttackModifiers
   }
 
 AttackExtras
-  = extras:("," _ (MinDamage / Piercing / NoMiss / AirTime / FollowedByAttack))* {
+  = extras:("," _ (MinDamage / Piercing / NoMiss / AirTime / FollowedByAttack / OrMultiplier))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -107,6 +107,11 @@ AirTime
 FollowedByAttack
   = "followed" _ "by" _ followedBy:Attack {
     return { followedBy };
+  }
+
+OrMultiplier
+  = orMultiplier:DecimalNumber _ ("multiplier" / "mult.") _ orMultiplierCondition:Condition {
+    return { orMultiplier, orMultiplierCondition };
   }
 
 
@@ -211,6 +216,7 @@ StatusClause
     "for" _ duration:Integer _ durationUnits:DurationUnits { return { duration, durationUnits }; }
     / "every" _ "two" _ "uses" { return { perUses: 2 }; }
     / who:Who { return { who }; }
+    / "if" _ "successful" { return { ifSuccessful: true }; }
   ) {
     return clause;
   }
@@ -229,12 +235,15 @@ DurationUnits
 // Stat mods
 
 StatMod
-  = stats:StatList _ percent:SignedInteger '%' duration:(_ Duration)? {
+  = stats:StatList _ percent:SignedInteger '%' who:(_ Who)? duration:(_ Duration)? {
     const result: any = {
       type: 'statMod',
       stats,
       percent,
     };
+    if (who) {
+      result.who = who[1];
+    }
     if (duration) {
       result.duration = duration[1];
     }
@@ -276,6 +285,9 @@ Who
   / "to" _ "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
   / "to" _ "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
   / "to" _ "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
+
+Condition
+  = "when" _ "equipping" _ "a" "n"? _ equipped:[a-z- ]+ { return equipped.join(''); }
 
 
 //---------------------------------------------------------------------------
