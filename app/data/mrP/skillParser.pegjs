@@ -21,7 +21,7 @@ SkillEffect
     }, [head]);
   }
 
-EffectClause = Attack / StatMod / StatusEffect
+EffectClause = Attack / Heal / DamagesUndead / DispelOrEsuna / StatMod / StatusEffect
 
 
 //---------------------------------------------------------------------------
@@ -102,6 +102,27 @@ FollowedByAttack
 
 
 //---------------------------------------------------------------------------
+// Healing
+
+Heal
+  = "restores"i _ "HP" _ "(" healFactor:Integer ")" {
+    return {
+      healFactor
+    };
+  }
+
+DamagesUndead
+  = 'damages' _ 'undeads' {
+    return {};
+  }
+
+DispelOrEsuna
+  = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' {
+    return { dispelOrEsuna };
+  }
+
+
+//---------------------------------------------------------------------------
 // Status effects
 
 StatusEffect
@@ -119,10 +140,10 @@ StatusList
 
 StatusWithPercent
   = status:Status chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )? {
-    return chance ? { status, chance: +chance } : { status };
+    return chance ? { status, chance } : { status };
   }
 
-Status
+Status "status effect"
   = ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
   / (
     StatusWord (_
@@ -137,6 +158,7 @@ Status
     return text();
   }
 StatusWord = ([A-Z] [a-zA-Z-']* (':' / '...' / '!')?)
+
 
 //---------------------------------------------------------------------------
 // Stat mods
@@ -192,10 +214,10 @@ NumberString "numeric text"
   { return parsedNumberString; }
 
 DecimalNumber "decimal number"
-  = [0-9.]+ / '?' { return parseFloat(text()) }
+  = ([0-9.]+ / '?') { return parseFloat(text()) }
 
 Integer "integer"
-  = [0-9]+ / '?' { return parseInt(text(), 10); }
+  = ([0-9]+ / '?') { return parseInt(text(), 10); }
 
 SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
