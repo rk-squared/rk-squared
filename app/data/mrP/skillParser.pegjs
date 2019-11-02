@@ -29,7 +29,12 @@ EffectClause = Attack / Heal / DamagesUndead / DispelOrEsuna / StatMod / StatusE
 
 Attack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
-    _ "(" attackMultiplier:DecimalNumber _ "each"? ")"
+    _
+    "("
+      attackMultiplier:DecimalNumber
+      hybridDamageMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
+      _ "each"?
+    ")"
     _ overstrike:("capped" _ "at" _ "99999")?
     extras:AttackExtras {
     const result = {
@@ -37,6 +42,9 @@ Attack
       attackMultiplier,
       ...extras
     };
+    if (hybridDamageMultiplier) {
+      result.hybridDamageMultiplier = hybridDamageMultiplier;
+    }
     if (overstrike) {
       result.isOverstrike = true;
     }
@@ -139,19 +147,33 @@ StatusList
   }
 
 StatusWithPercent
-  = status:Status chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )? {
-    return chance ? { status, chance } : { status };
+  = status:StatusName
+    chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )?
+    statusClauses:StatusClause*
+  {
+    const result: any = {
+      status
+    };
+    if (chance) {
+      result.chance = chance;
+    }
+    for (const i of statusClauses) {
+      Object.assign(result, i);
+    }
+    return result;
   }
 
-Status "status effect"
-  = ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
-  / (
+StatusName "status effect"
+  = // Stat mods in particular have a distinctive format.
+    ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
+  / // Generic status names - somewhat complex expression to match those
+  (
     StatusWord (_
     (
       StatusWord
       / 'in'
       / SignedInteger '%'?
-      / Integer '%'?
+      / '='? Integer '%'?
       / '(' [A-Za-z-0-9]+ ')'
     ))*
   ) {
@@ -159,6 +181,22 @@ Status "status effect"
   }
 StatusWord = ([A-Z] [a-zA-Z-']* (':' / '...' / '!')?)
 
+StatusClause
+  = _ clause:(
+    "for" _ duration:Integer _ durationUnits:DurationUnits { return { duration, durationUnits }; }
+    / "every" _ "two" _ "uses" { return { perUses: 2 }; }
+  ) {
+    return clause;
+  }
+
+DurationUnits
+  = ("second" / "turn") "s"? {
+    let result = text();
+    if (!result.endsWith('s')) {
+      result += 's';
+    }
+    return result;
+  }
 
 //---------------------------------------------------------------------------
 // Stat mods

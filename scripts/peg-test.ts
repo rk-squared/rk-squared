@@ -80,7 +80,7 @@ function processEffects<T extends { name: string; effects: string }>(
     }
 
     if (
-      argv[what] &&
+      (argv[what] || argv.filter) &&
       ((parseResults && !argv.hideSuccesses) || (parseError && !argv.hideFailures))
     ) {
       console.log(getName(i));
