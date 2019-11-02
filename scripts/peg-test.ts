@@ -1,13 +1,31 @@
 #!/usr/bin/env -S npx ts-node
 
 import * as _ from 'lodash';
+import * as yargs from 'yargs';
 
 import { enlir, tierOrder } from '../app/data/enlir';
 import { parse } from '../app/data/mrp/skillParser';
 
 // tslint:disable: no-console
 
-function processEffects<T extends { effects: string }>(
+const argv = yargs
+  .strict()
+  .option('filter', {
+    description: 'Filter for name',
+    type: 'string',
+  })
+  .option('hideSuccesses', {
+    description: 'Hide successful parses',
+    default: false,
+    boolean: true,
+  })
+  .option('hideFailures', {
+    description: 'Hide failed parses',
+    default: false,
+    boolean: true,
+  }).argv;
+
+function processEffects<T extends { name: string; effects: string }>(
   what: string,
   items: T[],
   getName: (item: T) => string,
@@ -15,16 +33,30 @@ function processEffects<T extends { effects: string }>(
   let successCount = 0;
   let totalCount = 0;
   for (const i of items) {
-    console.log(getName(i));
-    console.log(i.effects);
+    if (argv.filter && !i.name.match(argv.filter)) {
+      continue;
+    }
+    let parseResults: any;
+    let parseError: string = '';
     totalCount++;
     try {
-      console.dir(parse(i.effects), { depth: null });
+      parseResults = parse(i.effects);
       successCount++;
     } catch (e) {
-      console.log(e.message);
+      parseError = e.message;
     }
-    console.log();
+
+    if ((parseResults && !argv.hideSuccesses) || (parseError && !argv.hideFailures)) {
+      console.log(getName(i));
+      console.log(i.effects);
+      if (parseResults) {
+        console.dir(parseResults, { depth: null });
+      }
+      if (parseError) {
+        console.log(parseError);
+      }
+      console.log();
+    }
   }
   return [what, successCount, totalCount];
 }

@@ -192,10 +192,10 @@ NumberString "numeric text"
   { return parsedNumberString; }
 
 DecimalNumber "decimal number"
-  = [0-9.]+ { return parseFloat(text()) }
+  = [0-9.]+ / '?' { return parseFloat(text()) }
 
 Integer "integer"
-  = [0-9]+ { return parseInt(text(), 10); }
+  = [0-9]+ / '?' { return parseInt(text(), 10); }
 
 SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
