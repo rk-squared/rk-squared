@@ -89,7 +89,7 @@ AttackScaleType
 
 
 AttackExtras
-  = extras:("," _ (AdditionalCrit / AirTime / FollowedByAttack / MinDamage / NoMiss / OrMultiplier / Piercing))* {
+  = extras:("," _ (AdditionalCrit / AirTime / AttackStatusChance / FollowedByAttack / MinDamage / NoMiss / OrMultiplier / Piercing))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -100,6 +100,12 @@ AdditionalCrit
 
 AirTime
   = "air" _ "time" _ "(" airTime:DecimalNumber _ "sec.)" { return { airTime }; }
+
+AttackStatusChance
+  // NOTE: This assumes that each skill only inflicts one status via its attack
+  = chance:Integer '%' _ "chance" _ "to" _ "cause" _ status:StatusName _ duration:Duration {
+    return { status: { status, chance, duration } };
+  }
 
 FollowedByAttack
   = "followed" _ "by" _ followedBy:Attack { return { followedBy }; }
@@ -217,22 +223,13 @@ StatusWord = ([A-Z] [a-zA-Z-']* (':' / '...' / '!')?)
 
 StatusClause
   = _ clause:(
-    "for" _ duration:Integer _ durationUnits:DurationUnits { return { duration, durationUnits }; }
+    Duration
     / "every" _ "two" _ "uses" { return { perUses: 2 }; }
     / who:Who { return { who }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
     / condition:Condition { return { condition }; }
   ) {
     return clause;
-  }
-
-DurationUnits
-  = ("second" / "turn") "s"? {
-    let result = text();
-    if (!result.endsWith('s')) {
-      result += 's';
-    }
-    return result;
   }
 
 
@@ -265,8 +262,17 @@ StatList
 // Lower-level game rules
 
 Duration
-  = "for" _ duration:Integer _ "second" "s"? {
-    return duration;
+  = "for" _ value:Integer _ units:DurationUnits {
+    return { value, units };
+  }
+
+DurationUnits
+  = ("second" / "turn") "s"? {
+    let result = text();
+    if (!result.endsWith('s')) {
+      result += 's';
+    }
+    return result;
   }
 
 Stat "stat"
