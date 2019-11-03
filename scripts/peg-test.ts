@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import * as yargs from 'yargs';
 
 import { enlir, tierOrder } from '../app/data/enlir';
-import { parse } from '../app/data/mrp/skillParser';
+import { parse, SyntaxError } from '../app/data/mrp/skillParser';
 
 // tslint:disable: no-console
 
@@ -70,13 +70,13 @@ function processEffects<T extends { name: string; effects: string }>(
       continue;
     }
     let parseResults: any;
-    let parseError: string = '';
+    let parseError: SyntaxError | undefined;
     totalCount++;
     try {
       parseResults = parse(i.effects);
       successCount++;
     } catch (e) {
-      parseError = e.message;
+      parseError = e;
     }
 
     if (
@@ -89,7 +89,8 @@ function processEffects<T extends { name: string; effects: string }>(
         console.dir(parseResults, { depth: null });
       }
       if (parseError) {
-        console.log(parseError);
+        console.log(' '.repeat(parseError.location.start.offset) + '^');
+        console.log(parseError.message);
       }
       console.log();
     }

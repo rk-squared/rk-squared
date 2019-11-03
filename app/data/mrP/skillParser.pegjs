@@ -85,8 +85,8 @@ AttackExtras
   }
 
 AdditionalCrit
-  = additionalCrit:Integer '%' _ ('additional' / 'add.') _ 'critical' _ 'chance' {
-    return { additionalCrit };
+  = additionalCrit:Integer '%' _ ('additional' / 'add.') _ 'critical' _ 'chance' condition:(_ Condition)? {
+    return util.addCondition({ additionalCrit }, condition);
   }
 
 AirTime
@@ -206,7 +206,7 @@ StatusName "status effect"
     StatusWord (_
     (
       StatusWord
-      / 'in'
+      / 'in' / 'or'
       / SignedInteger '%'?
       / '='? Integer '%'?
       / '(' [A-Za-z-0-9]+ ')'
@@ -292,7 +292,8 @@ Who
   / "to" _ "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
 
 Condition
-  = "when" _ "equipping" _ "a" "n"? _ equipped:[a-z- ]+ { return equipped.join(''); }
+  = "when" _ "equipping" _ "a" "n"? _ equipped:[a-z- ]+ { return { type: 'equipped', equipped: equipped.join('') }; }
+  / "if" _ "the" _ who:("user" / "target") _ "has" _ any:"any"? _ status:StatusName { return { type: 'status', status, who: who === 'user' ? 'self' : 'target', any: !!any }; }
 
 
 //---------------------------------------------------------------------------

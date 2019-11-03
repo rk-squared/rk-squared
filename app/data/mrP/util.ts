@@ -352,3 +352,34 @@ export function pegAndList(head: any, tail: any): any[] {
     [head],
   );
 }
+
+// type ConditionType = 'equipped' | 'status';
+type Who = 'self' | 'target';
+type Condition =
+  | {
+      type: 'equipped';
+      equipped: string;
+    }
+  | {
+      type: 'status';
+      status: string;
+      who: Who;
+      any: boolean;
+    };
+
+export function addCondition<T>(value: T, maybeCondition: any[] | Condition | null | undefined) {
+  if (Array.isArray(maybeCondition)) {
+    // maybeCondition is assumed to be whitespace plus Condition
+    return {
+      ...value,
+      condition: maybeCondition[1] as Condition,
+    };
+  } else if (maybeCondition) {
+    return {
+      ...value,
+      condition: maybeCondition as Condition,
+    };
+  } else {
+    return value;
+  }
+}
