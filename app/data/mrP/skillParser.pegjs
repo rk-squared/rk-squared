@@ -21,7 +21,7 @@ SkillEffect
     }, [head]);
   }
 
-EffectClause = Attack / DrainHp / RecoilHp / Heal / DamagesUndead / DispelOrEsuna / StatMod / StatusEffect
+EffectClause = Attack / DrainHp / RecoilHp / Revive / Heal / DamagesUndead / DispelOrEsuna / StatMod / StatusEffect
 
 
 //---------------------------------------------------------------------------
@@ -46,10 +46,10 @@ Attack
       attackMultiplier,
       ...extras
     };
-    if (hybridDamageMultiplier) {
+    if (hybridDamageMultiplier != null) {
       result.hybridDamageMultiplier = hybridDamageMultiplier;
     }
-    if (scaleToMultiplier) {
+    if (scaleToMultiplier != null) {
       result.scaleToMultiplier = scaleToMultiplier;
     }
     if (multiplierScaleType) {
@@ -97,6 +97,7 @@ AttackScaleType
 
 MultiplierScaleType
   = "scaling" _ "with" _ "HP%" { return 'percentHp'; }
+  / "scaling" _ "with" _ "targets" { return 'convergent'; }
 
 
 AttackExtras
@@ -161,6 +162,14 @@ RecoilHp
 
 //---------------------------------------------------------------------------
 // Healing
+
+Revive
+  = "removes"i _ "KO" _ "(" percentHp:Integer "%" _ "HP)" {
+    return {
+      type: 'revive',
+      percentHp,
+    }
+  }
 
 Heal
   = "restores"i _ "HP" _ "(" healFactor:Integer ")" {
@@ -238,6 +247,7 @@ StatusClause
     / "every" _ "two" _ "uses" { return { perUses: 2 }; }
     / who:Who { return { who }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
+    / "to" _ "undeads" { return { ifUndead: true }; }
     / condition:Condition { return { condition }; }
   ) {
     return clause;
