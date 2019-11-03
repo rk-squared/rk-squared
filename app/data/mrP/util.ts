@@ -343,7 +343,7 @@ export function handleUncertain<T>(f: (value: string) => T) {
   };
 }
 
-export function pegAndList(head: any, tail: any): any[] {
+export function pegList(head: any, tail: any, index: number): any[] {
   return tail.reduce(
     (result: any, element: any) => {
       result.push(element[2]);
@@ -351,6 +351,10 @@ export function pegAndList(head: any, tail: any): any[] {
     },
     [head],
   );
+}
+
+export function pegAndList(head: any, tail: any, index: number): any[] {
+  return pegList(head, tail, 2);
 }
 
 // type ConditionType = 'equipped' | 'status';

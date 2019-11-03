@@ -207,8 +207,8 @@ StatusName "status effect"
     (
       StatusWord
       / 'in' / 'or'
-      / SignedInteger '%'?
-      / '='? Integer '%'?
+      / SignedIntegerSlashList '%'?
+      / '='? IntegerSlashList '%'?
       / '(' [A-Za-z-0-9]+ ')'
     ))*
   ) {
@@ -222,6 +222,7 @@ StatusClause
     / "every" _ "two" _ "uses" { return { perUses: 2 }; }
     / who:Who { return { who }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
+    / condition:Condition { return { condition }; }
   ) {
     return clause;
   }
@@ -269,7 +270,7 @@ Duration
     return duration;
   }
 
-Stat
+Stat "stat"
   = "ATK" / "DEF" / "MAG" / "RES" / "MND" / "SPD" / "ACC" / "EVA"
 
 NextClause
@@ -315,6 +316,14 @@ Integer "integer"
 
 SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
+
+IntegerSlashList "slash-separated integers"
+  = head:Integer tail:('/' Integer)* {
+    return util.pegList(head, tail, 1);
+  }
+
+SignedIntegerSlashList "slash-separated signed integer"
+  = sign:[+-] _ values:IntegerSlashList { return values.map(i => sign === '-' ? -i : i); }
 
 _ "whitespace"
   = [ \t\n\r]*
