@@ -33,7 +33,9 @@ Attack
     "("
       attackMultiplier:DecimalNumberSlashList
       hybridDamageMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
+      scaleToMultiplier:('~' n:DecimalNumber { return n; })?
       _ "each"?
+      _ multiplierScaleType:MultiplierScaleType?
     ")"
     _ overstrike:("capped" _ "at" _ "99999")?
     _ scaleType:AttackScaleType?
@@ -46,6 +48,12 @@ Attack
     };
     if (hybridDamageMultiplier) {
       result.hybridDamageMultiplier = hybridDamageMultiplier;
+    }
+    if (scaleToMultiplier) {
+      result.scaleToMultiplier = scaleToMultiplier;
+    }
+    if (multiplierScaleType) {
+      result.multiplierScaleType = multiplierScaleType;
     }
     if (overstrike) {
       result.isOverstrike = true;
@@ -86,6 +94,9 @@ AttackModifiers
 
 AttackScaleType
   = Condition
+
+MultiplierScaleType
+  = "scaling" _ "with" _ "HP%" { return 'percentHp'; }
 
 
 AttackExtras
@@ -165,8 +176,8 @@ DamagesUndead
   }
 
 DispelOrEsuna
-  = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' {
-    return { dispelOrEsuna };
+  = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? {
+    return { dispelOrEsuna, who };
   }
 
 
