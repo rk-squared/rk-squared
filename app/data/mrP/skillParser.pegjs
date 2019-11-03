@@ -96,8 +96,9 @@ AttackScaleType
   = Condition
 
 MultiplierScaleType
-  = "scaling" _ "with" _ "HP%" { return 'percentHp'; }
-  / "scaling" _ "with" _ "targets" { return 'convergent'; }
+  = "scaling" _ "with" _ "HP%" { return { type: 'percentHp' }; }
+  / "scaling" _ "with" _ "targets" { return { type: 'convergent' }; }
+  / "scaling" _ "with" _ stat:Stat { return { type: 'stat', stat }; }
 
 
 AttackExtras
@@ -324,10 +325,11 @@ Condition
 
   // Beginning of attack-specific conditions
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
+  / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ "damaging" _ "actions" { return { type: 'damagingActions', count }; }
 
   // Alternate status phrasing.  For example, Stone Press,
   // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
-  // / "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
+  / "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
 
   // Stat thresolds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }

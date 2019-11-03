@@ -77,6 +77,8 @@ function processEffects<T extends { name: string; effects: string }>(
       successCount++;
     } catch (e) {
       if (e.name !== 'SyntaxError') {
+        console.log(getName(i));
+        console.log(i.effects);
         throw e;
       }
       parseError = e;
@@ -174,4 +176,7 @@ for (const [what, successCount, totalCount] of result) {
   grandTotalSuccessCount += successCount;
   grandTotalCount += totalCount;
 }
-console.log(`Final counts: Processed ${grandTotalSuccessCount} of ${grandTotalCount}`);
+const grandTotalFailedCount = grandTotalCount - grandTotalSuccessCount;
+console.log(
+  `Final counts: Processed ${grandTotalSuccessCount} of ${grandTotalCount}, failed to process ${grandTotalFailedCount}`,
+);
