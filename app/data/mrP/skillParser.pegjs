@@ -21,7 +21,7 @@ SkillEffect
     }, [head]);
   }
 
-EffectClause = Attack / DrainHp / RecoilHp / Revive / Heal / DamagesUndead / DispelOrEsuna / StatMod / StatusEffect
+EffectClause = Attack / DrainHp / RecoilHp / Revive / Heal / DamagesUndead / DispelOrEsuna / ResetIfKO / StatMod / StatusEffect
 
 
 //---------------------------------------------------------------------------
@@ -112,7 +112,7 @@ AdditionalCrit
   }
 
 AirTime
-  = "air" _ "time" _ "(" airTime:DecimalNumber _ "sec.)" { return { airTime }; }
+  = "air" _ "time" _ "(" airTime:DecimalNumberSlashList _ "sec."? ")" _ condition:Condition? { return util.addCondition({ airTime }, condition, 'airTimeCondition'); }
 
 AttackStatusChance
   // NOTE: This assumes that each skill only inflicts one status via its attack
@@ -165,19 +165,27 @@ RecoilHp
 // Healing
 
 Revive
-  = "removes"i _ "KO" _ "(" percentHp:Integer "%" _ "HP)" {
-    return {
+  = "removes"i _ "KO" _ "(" percentHp:Integer "%" _ "HP)" _ who:Who? {
+    const result = {
       type: 'revive',
       percentHp,
+    };
+    if (who) {
+      result.who = who;
     }
+    return result;
   }
 
 Heal
-  = "restores"i _ "HP" _ "(" healFactor:Integer ")" {
-    return {
+  = "restores"i _ healAmount:(
+      "HP" _ "(" healFactor:Integer ")" { return { healFactor }; }
+      / fixedHp:IntegerSlashList _ "HP" { return { fixedHp }; }
+    ) _ who:Who? _ condition:Condition? {
+    return util.addCondition({
       type: 'heal',
-      healFactor
-    };
+      ...healAmount,
+      who
+    }, condition);
   }
 
 DamagesUndead
@@ -281,6 +289,13 @@ StatList
 
 
 //---------------------------------------------------------------------------
+// Miscellaneous
+
+ResetIfKO
+  = "resets if KO'd" { return { type: 'resetIfKO' }; }
+
+
+//---------------------------------------------------------------------------
 // Lower-level game rules
 
 Duration
@@ -318,16 +333,22 @@ Who
   / "to" _ "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
   / "to" _ "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
   / "to" _ "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
+  / "to" _ "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
 
 Condition
   = "when" _ "equipping" _ "a" "n"? _ equipped:[a-z- ]+ { return { type: 'equipped', equipped: equipped.join('') }; }
   / "if" _ "the" _ who:("user" / "target") _ "has" _ any:"any"? _ status:StatusName { return { type: 'status', status, who: who === 'user' ? 'self' : 'target', any: !!any }; }
 
+  // Attacks and skills (like Passionate Salsa)
+  / "at" _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
+
   // Beginning of attack-specific conditions
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ "damaging" _ "actions" { return { type: 'damagingActions', count }; }
+  / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
+  / "if" _ "the" _ "user's" _ "Doom" _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
 
-  // Alternate status phrasing.  For example, Stone Press,
+  // Alternate status phrasing.  For example, Stone Press:
   // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
   / "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
 

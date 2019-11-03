@@ -381,17 +381,21 @@ type Condition =
       any: boolean;
     };
 
-export function addCondition<T>(value: T, maybeCondition: any[] | Condition | null | undefined) {
+export function addCondition<T>(
+  value: T,
+  maybeCondition: any[] | Condition | null | undefined,
+  conditionProp: string = 'condition',
+) {
   if (Array.isArray(maybeCondition)) {
     // maybeCondition is assumed to be whitespace plus Condition
     return {
       ...value,
-      condition: maybeCondition[1] as Condition,
+      [conditionProp]: maybeCondition[1] as Condition,
     };
   } else if (maybeCondition) {
     return {
       ...value,
-      condition: maybeCondition as Condition,
+      [conditionProp]: maybeCondition as Condition,
     };
   } else {
     return value;
