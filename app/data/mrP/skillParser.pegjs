@@ -85,7 +85,7 @@ AttackModifiers
 
 
 AttackScaleType
-  = "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
+  = Condition
 
 
 AttackExtras
@@ -111,7 +111,7 @@ NoMiss
   = "100%" _ "hit" _ "rate" { return { isNoMiss: true }; }
 
 OrMultiplier
-  = orMultiplier:DecimalNumber _ ("multiplier" / "mult.") _ orMultiplierCondition:Condition {
+  = orMultiplier:DecimalNumberSlashList _ ("multiplier" / "mult.") _ orMultiplierCondition:Condition {
     return { orMultiplier, orMultiplierCondition };
   }
 
@@ -294,6 +294,16 @@ Who
 Condition
   = "when" _ "equipping" _ "a" "n"? _ equipped:[a-z- ]+ { return { type: 'equipped', equipped: equipped.join('') }; }
   / "if" _ "the" _ who:("user" / "target") _ "has" _ any:"any"? _ status:StatusName { return { type: 'status', status, who: who === 'user' ? 'self' : 'target', any: !!any }; }
+
+  // Beginning of attack-specific conditions
+  / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
+
+  // Alternate status phrasing.  For example, Stone Press,
+  // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
+  // / "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
+
+  // Stat thresolds (e.g., Tiamat, Guardbringer)
+  / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
 
 //---------------------------------------------------------------------------

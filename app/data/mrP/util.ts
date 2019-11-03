@@ -361,13 +361,19 @@ export function pegSlashList(head: any, tail: any): any[] {
   return tail.length ? pegList(head, tail, 1) : head;
 }
 
-// type ConditionType = 'equipped' | 'status';
+type Stat = 'HP' | 'ATK' | 'DEF' | 'MAG' | 'RES' | 'MND' | 'ACC' | 'EVA' | 'SPD';
 type Who = 'self' | 'target';
+// type ConditionType = 'alliesJump' | 'equipped' | 'statThreshold' | 'status';
 type Condition =
+  | {
+      type: 'alliesJump';
+      count: number;
+    }
   | {
       type: 'equipped';
       equipped: string;
     }
+  | { type: 'statThreshold'; stat: Stat; value: number | number[] }
   | {
       type: 'status';
       status: string;
