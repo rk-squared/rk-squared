@@ -76,6 +76,9 @@ function processEffects<T extends { name: string; effects: string }>(
       parseResults = parse(i.effects);
       successCount++;
     } catch (e) {
+      if (e.name !== 'SyntaxError') {
+        throw e;
+      }
       parseError = e;
     }
 

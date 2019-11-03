@@ -31,11 +31,12 @@ Attack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _
     "("
-      attackMultiplier:DecimalNumber
+      attackMultiplier:DecimalNumberSlashList
       hybridDamageMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
       _ "each"?
     ")"
     _ overstrike:("capped" _ "at" _ "99999")?
+    _ scaleType:AttackScaleType?
     extras:AttackExtras {
     const result = {
       type: 'attack',
@@ -48,6 +49,9 @@ Attack
     }
     if (overstrike) {
       result.isOverstrike = true;
+    }
+    if (scaleType) {
+      result.scaleType = scaleType;
     }
     if (attackType === 'group') {
       result.isAoE = true;
@@ -65,7 +69,7 @@ Attack
   }
 
 NumAttacks
-  = NumberString
+  = NumberString / IntegerSlashList
 
 AttackType
   = "group" / "random" / "single"
@@ -79,6 +83,11 @@ AttackModifiers
     };
   }
 
+
+AttackScaleType
+  = "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
+
+
 AttackExtras
   = extras:("," _ (AdditionalCrit / AirTime / FollowedByAttack / MinDamage / NoMiss / OrMultiplier / Piercing))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
@@ -90,24 +99,16 @@ AdditionalCrit
   }
 
 AirTime
-  = "air" _ "time" _ "(" airTime:DecimalNumber _ "sec.)" {
-    return { airTime };
-  }
+  = "air" _ "time" _ "(" airTime:DecimalNumber _ "sec.)" { return { airTime }; }
 
 FollowedByAttack
-  = "followed" _ "by" _ followedBy:Attack {
-    return { followedBy };
-  }
+  = "followed" _ "by" _ followedBy:Attack { return { followedBy }; }
 
 MinDamage
-  = "minimum" _ "damage" _ minDamage:Integer {
-    return { minDamage };
-  }
+  = "minimum" _ "damage" _ minDamage:Integer { return { minDamage }; }
 
 NoMiss
-  = "100%" _ "hit" _ "rate" {
-    return { isNoMiss: true };
-  }
+  = "100%" _ "hit" _ "rate" { return { isNoMiss: true }; }
 
 OrMultiplier
   = orMultiplier:DecimalNumber _ ("multiplier" / "mult.") _ orMultiplierCondition:Condition {
@@ -115,9 +116,7 @@ OrMultiplier
   }
 
 Piercing
-  = "ignores" _ ("DEF" / "RES") {
-    return { isPiercing: true };
-  }
+  = "ignores" _ ("DEF" / "RES") { return { isPiercing: true }; }
 
 
 //---------------------------------------------------------------------------
@@ -308,6 +307,7 @@ NumberString "numeric text"
   & { parsedNumberString = util.parseNumberString(numberString.join('')); return parsedNumberString != null; }
   { return parsedNumberString; }
 
+
 DecimalNumber "decimal number"
   = ([0-9.]+ / '?') { return parseFloat(text()) }
 
@@ -317,13 +317,23 @@ Integer "integer"
 SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
 
+
 IntegerSlashList "slash-separated integers"
-  = head:Integer tail:('/' Integer)* {
-    return util.pegList(head, tail, 1);
+  = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }
+
+SignedIntegerSlashList "slash-separated signed integers"
+  = sign:[+-] _ values:IntegerSlashList {
+    const applySign = (i: number) => sign === '-' ? -i : i;
+    if (Array.isArray(values)) {
+      return values.map(applySign);
+    } else {
+      return applySign(values);
+    }
   }
 
-SignedIntegerSlashList "slash-separated signed integer"
-  = sign:[+-] _ values:IntegerSlashList { return values.map(i => sign === '-' ? -i : i); }
+DecimalNumberSlashList "slash-separated decimal numbers"
+  = head:DecimalNumber tail:('/' DecimalNumber)* { return util.pegSlashList(head, tail); }
+
 
 _ "whitespace"
   = [ \t\n\r]*
