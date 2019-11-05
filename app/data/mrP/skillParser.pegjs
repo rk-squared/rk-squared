@@ -26,7 +26,7 @@ EffectClause = Attack / FixedAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCast / Chain
   / StatMod / StatusEffect / ImperilStatusEffect
-  / Entrust / ResetIfKO / ResistViaKO
+  / Entrust / GainSB / ResetIfKO / ResistViaKO
 
 //---------------------------------------------------------------------------
 // Attacks
@@ -121,6 +121,8 @@ MultiplierScaleType
   / "scaling" _ "with" _ "targets" { return { type: 'convergent' }; }
   / "scaling" _ "with" _ stat:Stat { return { type: 'stat', stat }; }
   / "scaling" _ "with" _ "hits" _ "taken" { return { type: 'hitsTaken' }; }
+  / "scaling" _ "with" _ school:School _ "abilities" _ "used" { return { type: 'abilitiesUsed', school }; }
+  / "scaling" _ "with" _ element:Element _ "attacks" _ "used" { return { type: 'attacksUsed', element }; }
 
 
 AttackExtras
@@ -129,7 +131,7 @@ AttackExtras
   }
 
 AdditionalCrit
-  = additionalCrit:Integer '%' _ ('additional' / 'add.') _ 'critical' _ 'chance' condition:(_ Condition)? {
+  = additionalCrit:Integer '%' _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'chance'? condition:(_ Condition)? {
     return util.addCondition({ additionalCrit }, condition, 'additionalCritCondition');
   }
 
@@ -417,6 +419,9 @@ StatModClause
 Entrust
   = "transfers"i _ "the" _ "user's" _ ("Soul" _ "Break" / "SB") _ "points" _ "to" _ "the" _ "target" { return { type: 'entrust' }; }
 
+GainSB
+  = "grants"i _ points:Integer _ "SB" _ "points" _ who:Who? { return { type: 'gainSB', points, who }; }
+
 ResetIfKO
   = "resets" _ "if" _ "KO'd" { return { type: 'resetIfKO' }; }
 
@@ -503,6 +508,41 @@ Condition
 
   // Stat thresolds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
+
+Element
+  = "Fire"
+  / "Ice"
+  / "Lightning"
+  / "Earth"
+  / "Wind"
+  / "Water"
+  / "Holy"
+  / "Dark"
+  / "Poison"
+  / "NE"
+
+School
+  = "Bard"
+  / "Black Magic"
+  / "Celerity"
+  / "Combat"
+  / "Dancer"
+  / "Darkness"
+  / "Dragoon"
+  / "Heavy"
+  / "Knight"
+  / "Machinist"
+  / "Monk"
+  / "Ninja"
+  / "Samurai"
+  / "Sharpshooter"
+  / "Special"
+  / "Spellblade"
+  / "Summoning"
+  / "Support"
+  / "Thief"
+  / "White Magic"
+  / "Witch"
 
 
 //---------------------------------------------------------------------------
