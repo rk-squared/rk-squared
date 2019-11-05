@@ -332,7 +332,7 @@ StatusName "status effect"
   ) {
     return text();
   }
-StatusWord = ([A-Z] [a-zA-Z-']* (':' / '...' / '!')?)
+StatusWord = ([A-Z] [a-zA-Z-'/]* (':' / '...' / '!')?)
 
 StatusClause
   = _ clause:(
@@ -371,8 +371,16 @@ StatMod
   }
 
 StatList
-  = head:Stat tail:(AndList Stat)* {
+  = head:StatSet tail:(AndList StatSet)* {
     return util.pegAndList(head, tail);
+  }
+
+StatSet
+  = HybridStatSet / Stat
+
+HybridStatSet
+  = stat1:Stat stat2:('/' Stat)* _ "or" _ stat3:Stat stat4:('/' Stat)* {
+    return [util.pegList(stat1, stat2, 1), util.pegList(stat3, stat4, 1)];
   }
 
 StatModClause
@@ -448,9 +456,11 @@ Condition
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
 
   // Beginning of attack-specific conditions
+  / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ "damaging" _ "actions" { return { type: 'damagingActions', count }; }
   / "if" _ "the" _ "user's" _ "Doom" _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
+  / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ count:IntegerSlashList _ "of" _ "the" _ "target's" _ "stats" _ "are" _ "lowered" { return { type: 'targetStatBreaks', count }; }
   / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
   / "if" _ "exploiting" _ "elemental" _ "weakness" { return { type: 'vsWeak' }; }
