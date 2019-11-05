@@ -23,8 +23,8 @@ SkillEffect
 
 EffectClause = Attack / FixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
-  / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / Ether
-  / StatMod / StatusEffect / ImperilStatusEffect
+  / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
+  / Chain / StatMod / StatusEffect / ImperilStatusEffect
   / Entrust / ResetIfKO / ResistViaKO
 
 //---------------------------------------------------------------------------
@@ -119,6 +119,7 @@ MultiplierScaleType
   = "scaling" _ "with" _ "HP%" { return { type: 'percentHp' }; }
   / "scaling" _ "with" _ "targets" { return { type: 'convergent' }; }
   / "scaling" _ "with" _ stat:Stat { return { type: 'stat', stat }; }
+  / "scaling" _ "with" _ "hits" _ "taken" { return { type: 'hitsTaken' }; }
 
 
 AttackExtras
@@ -248,7 +249,31 @@ DamagesUndead
 
 DispelOrEsuna
   = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? {
-    return { dispelOrEsuna, who };
+    return { type: 'dispelOrEsuna', dispelOrEsuna, who };
+  }
+
+RandomEther
+  = "restores"i _ amount:Integer _ "consumed" _ "ability" _ "use" _ who:Who? {
+    return { type: 'randomEther', amount, who };
+  }
+
+SmartEther
+  = "smart"i _ "ether" _ amount:Integer _ who:Who? {
+    return { type: 'smartEther', amount, who };
+  }
+
+
+//---------------------------------------------------------------------------
+// Chains
+
+Chain
+  = "activates"i _ chainType:[a-zA-Z0-9-]+ _ "Chain" _ "(max" _ max:Integer "," _ "field" _ fieldBonus:SignedInteger "%)" {
+    return {
+      type: 'chain',
+      chainType: chainType.join(''),
+      max,
+      fieldBonus,
+    }
   }
 
 
@@ -297,7 +322,7 @@ StatusName "status effect"
       (_
         (
           StatusWord
-          / 'in' / 'or' / 'of' / 'the'
+          / 'in' / 'or' / 'of' / 'the' / 'with' / '&'
           / SignedIntegerSlashList '%'?
           / '='? IntegerSlashList '%'?
           / '(' [A-Za-z-0-9]+ ')'
@@ -416,7 +441,7 @@ Condition
   = "when" _ "equipping" _ "a" "n"? _ equipped:[a-z- ]+ { return { type: 'equipped', equipped: equipped.join('') }; }
   / "if" _ "the" _ who:("user" / "target") _ "has" _ any:"any"? _ status:StatusName { return { type: 'status', status, who: who === 'user' ? 'self' : 'target', any: !!any }; }
 
-  // Attacks and skills (like Passionate Salsa)
+  // Beginning of attacks and skills (like Passionate Salsa)
 
   // Scaling with uses - both specific counts and generically
   / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
@@ -425,8 +450,10 @@ Condition
   // Beginning of attack-specific conditions
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ "damaging" _ "actions" { return { type: 'damagingActions', count }; }
-  / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
   / "if" _ "the" _ "user's" _ "Doom" _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
+  / "if" _ count:IntegerSlashList _ "of" _ "the" _ "target's" _ "stats" _ "are" _ "lowered" { return { type: 'targetStatBreaks', count }; }
+  / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
+  / "if" _ "exploiting" _ "elemental" _ "weakness" { return { type: 'vsWeak' }; }
 
   // Alternate status phrasing.  For example, Stone Press:
   // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
@@ -440,7 +467,7 @@ Condition
 // Primitive types
 
 AndList
-  = (',' _) / (','? _ 'and' _)
+  = (',' _ 'and'? _) / (_ 'and' _)
 
 NumberString "numeric text"
   = numberString:[a-zA-Z\-]+

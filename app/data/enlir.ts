@@ -839,7 +839,7 @@ function patchEnlir() {
       'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode and Unraveled History Follow-Up to the user',
     tyroAasb => {
       tyroAasb.effects =
-        'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode, Awoken Keeper Mode Critical Chance, and Unraveled History Follow-Up to the user';
+        'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode, Awoken Keeper Mode Critical Chance and Unraveled History Follow-Up to the user';
     },
   );
   applyPatch(
