@@ -21,7 +21,7 @@ SkillEffect
     }, [head]);
   }
 
-EffectClause = Attack / DrainHp / RecoilHp / Revive / Heal / DamagesUndead / DispelOrEsuna / ResetIfKO / StatMod / StatusEffect
+EffectClause = Attack / DrainHp / RecoilHp / HpAttack / Revive / Heal / DamagesUndead / DispelOrEsuna / ResetIfKO / StatMod / StatusEffect
 
 
 //---------------------------------------------------------------------------
@@ -102,13 +102,13 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:("," _ (AdditionalCrit / AirTime / AttackStatusChance / FollowedByAttack / MinDamage / NoMiss / OrMultiplier / Piercing))* {
+  = extras:("," _ (AdditionalCrit / AirTime / AttackStatusChance / CastTime / FollowedByAttack / MinDamage / NoMiss / OrMultiplier / Piercing / ScaleWithAtkAndDef))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
 AdditionalCrit
   = additionalCrit:Integer '%' _ ('additional' / 'add.') _ 'critical' _ 'chance' condition:(_ Condition)? {
-    return util.addCondition({ additionalCrit }, condition);
+    return util.addCondition({ additionalCrit }, condition, 'additionalCritCondition');
   }
 
 AirTime
@@ -119,6 +119,9 @@ AttackStatusChance
   = chance:Integer '%' _ "chance" _ "to" _ "cause" _ status:StatusName _ duration:Duration {
     return { status: { status, chance, duration } };
   }
+
+CastTime
+  = "cast" _ "time" _ castTime:DecimalNumberSlashList _ condition:Condition { return { castTime, castTimeCondition: condition }; }
 
 FollowedByAttack
   = "followed" _ "by" _ followedBy:Attack { return { followedBy }; }
@@ -137,9 +140,12 @@ OrMultiplier
 Piercing
   = "ignores" _ ("DEF" / "RES") { return { isPiercing: true }; }
 
+ScaleWithAtkAndDef
+  = "damage" _ "scales" _ "with" _ "both" _ "ATK" _ "and" _ "DEF" { return { scalesWithAtkAndDef: true }; }
+
 
 //---------------------------------------------------------------------------
-// Drain HP, recoil HP
+// Drain HP, recoil HP, HP-based attacks
 
 DrainHp
   = ("heals" / "restores" _ "HP" _ "to") _ "the" _ "user" _ "for" _ healPercent:Integer "%" _ "of" _ "the" _ "damage" _ "dealt" {
@@ -157,6 +163,15 @@ RecoilHp
       type: 'recoilHp',
       damagePercent,
       maxOrCurrent,
+    }
+  }
+
+// Minus Strike
+HpAttack
+  = "damages"i _ "for" _ multiplier:Integer _ "*" _ "(user's" _ "maximum" _ "HP" _ "-" _ "user's" _ "current" _ "HP)" {
+    return {
+      type: 'hpAttack',
+      multiplier
     }
   }
 
@@ -340,7 +355,10 @@ Condition
   / "if" _ "the" _ who:("user" / "target") _ "has" _ any:"any"? _ status:StatusName { return { type: 'status', status, who: who === 'user' ? 'self' : 'target', any: !!any }; }
 
   // Attacks and skills (like Passionate Salsa)
+
+  // Scaling with uses - both specific counts and generically
   / "at" _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
+  / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
 
   // Beginning of attack-specific conditions
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
