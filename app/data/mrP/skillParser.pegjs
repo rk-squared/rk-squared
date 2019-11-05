@@ -21,9 +21,9 @@ SkillEffect
     }, [head]);
   }
 
-EffectClause = Attack
+EffectClause = Attack / FixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
-  / Revive / Heal / DamagesUndead / DispelOrEsuna
+  / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna
   / StatMod / StatusEffect
   / Entrust / ResetIfKO / ResistViaKO
 
@@ -79,6 +79,23 @@ Attack
     return result;
   }
 
+FixedAttack
+  = numAttacks:NumAttacks _ attackType:AttackType _ "attack" "s"?
+    _ "that" _ "deal" "s"? _ fixedDamage:Integer _ "damage" _ "each"? {
+    const result = {
+      type: 'fixedAttack',
+      fixedDamage,
+      numAttacks,
+    };
+    if (attackType === 'group') {
+      result.isAoE = true;
+    }
+    if (attackType === 'ranged') {
+      result.isRanged = true;
+    }
+    return result;
+  }
+
 NumAttacks
   = NumberString / IntegerSlashList
 
@@ -105,7 +122,7 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:("," _ (AdditionalCrit / AirTime / AttackStatusChance / CastTime / FollowedByAttack / MinDamage / NoMiss / OrMultiplier / Piercing / ScaleWithAtkAndDef))* {
+  = extras:("," _ (AdditionalCrit / AirTime / AlwaysCrits / AttackStatusChance / CastTime / FollowedByAttack / HitRate / MinDamage / OrMultiplier / Piercing / ScaleWithAtkAndDef))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -116,6 +133,9 @@ AdditionalCrit
 
 AirTime
   = "air" _ "time" _ "(" airTime:DecimalNumberSlashList _ "sec."? ")" _ condition:Condition? { return util.addCondition({ airTime }, condition, 'airTimeCondition'); }
+
+AlwaysCrits
+  = "always" _ "deals" _ "a" _ "critical" _ "hit" { return { alwaysCrits: true }; }
 
 AttackStatusChance
   // NOTE: This assumes that each skill only inflicts one status via its attack
@@ -129,11 +149,11 @@ CastTime
 FollowedByAttack
   = "followed" _ "by" _ followedBy:Attack { return { followedBy }; }
 
+HitRate
+  = hitRate:Integer "%" _ "hit" _ "rate" { return { hitRate }; }
+
 MinDamage
   = "minimum" _ "damage" _ minDamage:Integer { return { minDamage }; }
-
-NoMiss
-  = "100%" _ "hit" _ "rate" { return { isNoMiss: true }; }
 
 OrMultiplier
   = orMultiplier:DecimalNumberSlashList _ ("multiplier" / "mult.") _ orMultiplierCondition:Condition {
@@ -159,7 +179,7 @@ DrainHp
   }
 
 RecoilHp
-  = "damages" _ "the" _ "user" _ "for" _ damagePercent:IntegerSlashList "%"
+  = "damages" _ "the" _ "user" _ "for" _ damagePercent:DecimalNumberSlashList "%"
   _ maxOrCurrent:(("max" "."? "imum"? / "current") { return text().startsWith('max') ? 'max' : 'curr'; })
   _ "HP"
   _ condition:Condition? {
@@ -208,8 +228,17 @@ Heal
     return util.addCondition({
       type: 'heal',
       ...healAmount,
-      who
+      who,
     }, condition);
+  }
+
+HealPercent
+  = "restores"i _ "HP" _ who:Who? _ "for" _ healPercent:Integer "%" _ "of" _ ("the" _ "user's" / "the" _ "target's" / "their") _ "maximum" _ "HP" {
+    return {
+      type: 'healPercent',
+      healPercent,
+      who,
+    }
   }
 
 DamagesUndead
