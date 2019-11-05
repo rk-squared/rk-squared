@@ -290,14 +290,16 @@ StatusName "status effect"
     ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
   / // Generic status names - somewhat complex expression to match those
   (
-    StatusWord (_
-    (
-      StatusWord
-      / 'in' / 'or'
-      / SignedIntegerSlashList '%'?
-      / '='? IntegerSlashList '%'?
-      / '(' [A-Za-z-0-9]+ ')'
-    ))*
+    (StatusWord / Integer '%')
+    (_
+      (
+        StatusWord
+        / 'in' / 'or' / 'of' / 'the'
+        / SignedIntegerSlashList '%'?
+        / '='? IntegerSlashList '%'?
+        / '(' [A-Za-z-0-9]+ ')'
+      )
+    )*
   ) {
     return text();
   }

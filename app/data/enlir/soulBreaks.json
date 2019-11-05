@@ -25208,7 +25208,7 @@
     "multiplier": 3.3,
     "element": [],
     "time": 2.5,
-    "effects": "One group attack (3.30), ATK +30% to all allies for 25 seconds, ranged attack",
+    "effects": "One group ranged attack (3.30), ATK +30% to all allies for 25 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "points": 500,
