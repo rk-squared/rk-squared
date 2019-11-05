@@ -21,8 +21,11 @@ SkillEffect
     }, [head]);
   }
 
-EffectClause = Attack / DrainHp / RecoilHp / HpAttack / Revive / Heal / DamagesUndead / DispelOrEsuna / ResetIfKO / StatMod / StatusEffect
-
+EffectClause = Attack
+  / DrainHp / RecoilHp / HpAttack / GravityAttack
+  / Revive / Heal / DamagesUndead / DispelOrEsuna
+  / StatMod / StatusEffect
+  / Entrust / ResetIfKO / ResistViaKO
 
 //---------------------------------------------------------------------------
 // Attacks
@@ -156,14 +159,20 @@ DrainHp
   }
 
 RecoilHp
-  = "damages" _ "the" _ "user" _ "for" _ damagePercent:Integer "%"
-  _ maxOrCurrent:("max" "."? "imum"? / "current" { return text().startsWith('max') ? 'max' : 'curr'; })
-  _ "HP" {
-    return {
+  = "damages" _ "the" _ "user" _ "for" _ damagePercent:IntegerSlashList "%"
+  _ maxOrCurrent:(("max" "."? "imum"? / "current") { return text().startsWith('max') ? 'max' : 'curr'; })
+  _ "HP"
+  _ condition:Condition? {
+    return util.addCondition({
       type: 'recoilHp',
       damagePercent,
       maxOrCurrent,
-    }
+    }, condition)
+  }
+
+GravityAttack
+  = "damages"i _ "for"_ damagePercent:Integer "%" _ "of" _ "the" _ "target's" _ "current" _ "HP" {
+    return { type: 'gravityAttack', damagePercent };
   }
 
 // Minus Strike
@@ -306,8 +315,14 @@ StatList
 //---------------------------------------------------------------------------
 // Miscellaneous
 
+Entrust
+  = "transfers"i _ "the" _ "user's" _ ("Soul" _ "Break" / "SB") _ "points" _ "to" _ "the" _ "target" { return { type: 'entrust' }; }
+
 ResetIfKO
-  = "resets if KO'd" { return { type: 'resetIfKO' }; }
+  = "resets" _ "if" _ "KO'd" { return { type: 'resetIfKO' }; }
+
+ResistViaKO
+  = "resisted" _ "via" _ "Instant" _ "KO" { return { type: 'resistViaKO' }; }
 
 
 //---------------------------------------------------------------------------
@@ -357,7 +372,7 @@ Condition
   // Attacks and skills (like Passionate Salsa)
 
   // Scaling with uses - both specific counts and generically
-  / "at" _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
+  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
 
   // Beginning of attack-specific conditions
