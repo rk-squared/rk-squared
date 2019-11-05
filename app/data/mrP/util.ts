@@ -353,10 +353,6 @@ export function pegList(head: any, tail: any, index: number): any[] {
   );
 }
 
-export function pegAndList(head: any, tail: any): any[] {
-  return pegList(head, tail, 2);
-}
-
 export function pegSlashList(head: any, tail: any): any[] {
   return tail.length ? pegList(head, tail, 1) : head;
 }

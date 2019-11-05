@@ -24,7 +24,8 @@ SkillEffect
 EffectClause = Attack / FixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
-  / Chain / StatMod / StatusEffect / ImperilStatusEffect
+  / RandomCast / Chain
+  / StatMod / StatusEffect / ImperilStatusEffect
   / Entrust / ResetIfKO / ResistViaKO
 
 //---------------------------------------------------------------------------
@@ -264,6 +265,24 @@ SmartEther
 
 
 //---------------------------------------------------------------------------
+// "Randomly casts"
+
+RandomCast
+  = "randomly"i _ "casts" _ abilities:RandomAbilityList { return { type: 'randomAbility', abilities }; }
+
+RandomAbilityList
+  = head:RandomAbility tail:(OrList RandomAbility)* { return util.pegList(head, tail, 1); }
+
+RandomAbility
+  = ability:([A-Z] [A-Za-z]+ { return text(); }) _ chance:("(" Integer "%)")? {
+    return {
+      ability,
+      chance: chance ? chance[1] : undefined
+    };
+  }
+
+
+//---------------------------------------------------------------------------
 // Chains
 
 Chain
@@ -292,7 +311,7 @@ StatusVerb
 
 StatusList
   = head:StatusWithPercent tail:(!NextClause AndList StatusWithPercent)* {
-    return util.pegAndList(head, tail);
+    return util.pegList(head, tail, 2);
   }
 
 StatusWithPercent
@@ -372,7 +391,7 @@ StatMod
 
 StatList
   = head:StatSet tail:(AndList StatSet)* {
-    return util.pegAndList(head, tail);
+    return util.pegList(head, tail, 1);
   }
 
 StatSet
@@ -478,6 +497,9 @@ Condition
 
 AndList
   = (',' _ 'and'? _) / (_ 'and' _)
+
+OrList
+  = (',' _ 'or'? _) / (_ 'or' _)
 
 NumberString "numeric text"
   = numberString:[a-zA-Z\-]+
