@@ -126,7 +126,7 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:("," _ (AdditionalCrit / AirTime / AlwaysCrits / AttackStatusChance / CastTime / FollowedByAttack / HitRate / MinDamage / OrMultiplier / Piercing / ScaleWithAtkAndDef))* {
+  = extras:("," _ (AdditionalCrit / AirTime / AlwaysCrits / AttackStatusChance / CastTime / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -157,11 +157,16 @@ HitRate
   = hitRate:Integer "%" _ "hit" _ "rate" { return { hitRate }; }
 
 MinDamage
-  = "minimum" _ "damage" _ minDamage:Integer { return { minDamage }; }
+  = ("minimum" _ "damage" / "min.") _ minDamage:Integer { return { minDamage }; }
 
 OrMultiplier
   = orMultiplier:DecimalNumberSlashList _ ("multiplier" / "mult.") _ orMultiplierCondition:Condition {
     return { orMultiplier, orMultiplierCondition };
+  }
+
+OrNumAttacks
+  = orNumAttacks:NumAttacks _ ("attacks") _ orNumAttacksCondition:Condition {
+    return { orNumAttacks, orNumAttacksCondition };
   }
 
 Piercing
@@ -261,8 +266,12 @@ RandomEther
   }
 
 SmartEther
-  = "smart"i _ "ether" _ amount:Integer _ who:Who? {
-    return { type: 'smartEther', amount, who };
+  = school:School? _ "smart"i _ "ether" _ amount:Integer _ who:Who? {
+    const result = { type: 'smartEther', amount, who };
+    if (school) {
+      result.school = school;
+    }
+    return result;
   }
 
 
@@ -343,7 +352,10 @@ StatusName "status effect"
       (_
         (
           StatusWord
-          / 'in' / 'or' / 'of' / 'the' / 'with' / '&'
+
+          // Articles, etc., are okay, but use &' ' to make sure they're at a word bounary.
+          / (('in' / 'or' / 'of' / 'the' / 'with' / '&' /'a') & ' ')
+
           / SignedIntegerSlashList '%'?
           / '='? IntegerSlashList '%'?
           / '(' [A-Za-z-0-9]+ ')'
@@ -449,8 +461,11 @@ Duration
   }
 
 DurationUnits
-  = ("second" / "turn") "s"? {
+  = (("second" / "turn") "s"?) / "sec." {
     let result = text();
+    if (result === 'sec.') {
+      return 'seconds';
+    }
     if (!result.endsWith('s')) {
       result += 's';
     }
