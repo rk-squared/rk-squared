@@ -274,7 +274,7 @@ RandomAbilityList
   = head:RandomAbility tail:(OrList RandomAbility)* { return util.pegList(head, tail, 1); }
 
 RandomAbility
-  = ability:([A-Z] [A-Za-z]+ { return text(); }) _ chance:("(" Integer "%)")? {
+  = ability:AbilityName _ chance:("(" Integer "%)")? {
     return {
       ability,
       chance: chance ? chance[1] : undefined
@@ -427,6 +427,17 @@ ResistViaKO
 //---------------------------------------------------------------------------
 // Lower-level game rules
 
+// These probably don't cover all abilities and characters, but it works for now.
+AbilityName
+  = UppercaseWord (_ UppercaseWord)* { return text(); }
+CharacterName
+  = UppercaseWord (_ (UppercaseWord / "of"))* (_ "(" [A-Z] [A-Za-z0-9-]+ ")")? { return text(); }
+
+// Character names, for "if X are in the party."  Return these as text so that
+// higher-level code can process them.
+CharacterNameList
+  = CharacterName ((_ "&" _ / "/") CharacterName)* { return text(); }
+
 Duration
   = "for" _ value:Integer _ units:DurationUnits {
     return { value, units };
@@ -477,6 +488,8 @@ Condition
   // Beginning of attack-specific conditions
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
+  / "if" _ character:CharacterName _ "is" _ "alive" { return { type: 'characterAlive', character }; }
+  / "if" _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ "damaging" _ "actions" { return { type: 'damagingActions', count }; }
   / "if" _ "the" _ "user's" _ "Doom" _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
   / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
@@ -533,6 +546,9 @@ SignedIntegerSlashList "slash-separated signed integers"
 DecimalNumberSlashList "slash-separated decimal numbers"
   = head:DecimalNumber tail:('/' DecimalNumber)* { return util.pegSlashList(head, tail); }
 
+
+UppercaseWord
+  = [A-Z] [A-Za-z]+ { return text(); }
 
 _ "whitespace"
   = [ \t\n\r]*
