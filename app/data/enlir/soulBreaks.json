@@ -31430,7 +31430,7 @@
     "multiplier": 14.4,
     "element": [],
     "time": 3,
-    "effects": "Five group attacks (2.88 each), RES +50% for 25 seconds to all allies, minimum damage 400",
+    "effects": "Five group attacks (2.88 each), minimum damage 400, RES +50% for 25 seconds to all allies",
     "counter": false,
     "autoTarget": "All enemies",
     "points": 500,

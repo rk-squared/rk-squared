@@ -23,8 +23,8 @@ SkillEffect
 
 EffectClause = Attack / FixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
-  / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna
-  / StatMod / StatusEffect
+  / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / Ether
+  / StatMod / StatusEffect / ImperilStatusEffect
   / Entrust / ResetIfKO / ResistViaKO
 
 //---------------------------------------------------------------------------
@@ -261,7 +261,9 @@ StatusEffect
   }
 
 StatusVerb
-  = "grants"i / "causes"i / "removes"i / "doesn't"i _ "remove"
+  = ("grants"i / "causes"i / "removes"i / "doesn't"i _ "remove") {
+    return text().toLowerCase().replace(/\s+/g, ' ');
+  }
 
 StatusList
   = head:StatusWithPercent tail:(!NextClause AndList StatusWithPercent)* {
@@ -286,20 +288,22 @@ StatusWithPercent
   }
 
 StatusName "status effect"
-  = // Stat mods in particular have a distinctive format.
+  = (
+    // Stat mods in particular have a distinctive format.
     ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
   / // Generic status names - somewhat complex expression to match those
-  (
-    (StatusWord / Integer '%')
-    (_
-      (
-        StatusWord
-        / 'in' / 'or' / 'of' / 'the'
-        / SignedIntegerSlashList '%'?
-        / '='? IntegerSlashList '%'?
-        / '(' [A-Za-z-0-9]+ ')'
-      )
-    )*
+    (
+      (StatusWord / Integer '%')
+      (_
+        (
+          StatusWord
+          / 'in' / 'or' / 'of' / 'the'
+          / SignedIntegerSlashList '%'?
+          / '='? IntegerSlashList '%'?
+          / '(' [A-Za-z-0-9]+ ')'
+        )
+      )*
+    )
   ) {
     return text();
   }
@@ -307,9 +311,9 @@ StatusWord = ([A-Z] [a-zA-Z-']* (':' / '...' / '!')?)
 
 StatusClause
   = _ clause:(
-    Duration
-    / "every" _ "two" _ "uses" { return { perUses: 2 }; }
+    duration:Duration { return { duration }; }
     / who:Who { return { who }; }
+    / "every" _ "two" _ "uses" { return { perUses: 2 }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
     / "to" _ "undeads" { return { ifUndead: true }; }
     / condition:Condition { return { condition }; }
@@ -317,22 +321,26 @@ StatusClause
     return clause;
   }
 
+// Special case: Some Imperil soul breaks omit "causes".  See Climhazzard Xeno,
+// Ragnarok Buster, Whirling Lance
+ImperilStatusEffect
+  = & "Imperil" statuses:StatusList {
+    return { type: 'status', verb: 'causes', statuses };
+  }
+
 
 //---------------------------------------------------------------------------
 // Stat mods
 
 StatMod
-  = stats:StatList _ percent:SignedInteger '%' who:(_ Who)? duration:(_ Duration)? {
+  = stats:StatList _ percent:SignedInteger '%' statModClauses:StatModClause* {
     const result: any = {
       type: 'statMod',
       stats,
       percent,
     };
-    if (who) {
-      result.who = who[1];
-    }
-    if (duration) {
-      result.duration = duration[1];
+    for (const i of statModClauses) {
+      Object.assign(result, i);
     }
     return result;
   }
@@ -340,6 +348,14 @@ StatMod
 StatList
   = head:Stat tail:(AndList Stat)* {
     return util.pegAndList(head, tail);
+  }
+
+StatModClause
+  = _ clause:(
+    duration:Duration { return { duration }; }
+    / who:Who { return { who }; }
+  ) {
+    return clause;
   }
 
 

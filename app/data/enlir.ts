@@ -768,9 +768,9 @@ function patchEnlir() {
         'Four single attacks (0.56 each), grants Desperate Madness and Radiant Shield 100/125/150/175/200/225/250/275/300% to the user scaling with uses';
     },
   );
-  applyCausesImperilPatch(enlir.soulBreaks, '20660006'); // Zack - Climhazzard Xeno
-  applyCausesImperilPatch(enlir.soulBreaks, '22100007'); // Laguna - Ragnarok Buster.  TODO - also missing stat buff duration
-  applyCausesImperilPatch(enlir.soulBreaks, '22810004'); // Nine - Whirling Lance
+  // applyCausesImperilPatch(enlir.soulBreaks, '20660006'); // Zack - Climhazzard Xeno
+  // applyCausesImperilPatch(enlir.soulBreaks, '22100007'); // Laguna - Ragnarok Buster.  TODO - also missing stat buff duration
+  // applyCausesImperilPatch(enlir.soulBreaks, '22810004'); // Nine - Whirling Lance
 
   // Status cleanups.  These too should be fixed up.
   applyPatch(
