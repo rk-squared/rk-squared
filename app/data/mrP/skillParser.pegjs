@@ -21,7 +21,7 @@ SkillEffect
     }, [head]);
   }
 
-EffectClause = Attack / FixedAttack
+EffectClause = Attack / FixedAttack / RandomFixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCast / Chain
@@ -41,7 +41,7 @@ Attack
       _ "each"?
       _ multiplierScaleType:MultiplierScaleType?
     ")"
-    _ overstrike:("capped" _ "at" _ "99999")?
+    _ overstrike:(","? _ "capped" _ "at" _ "99999")?
     _ scaleType:AttackScaleType?
     extras:AttackExtras {
     const result = {
@@ -97,6 +97,14 @@ FixedAttack
     return result;
   }
 
+RandomFixedAttack
+  = "Randomly"i _ "deals" _ head:Integer tail:(OrList Integer)* _ "damage" {
+    return {
+      type: 'randomFixedAttack',
+      fixedDamage: util.pegList(head, tail, 1),
+    };
+  }
+
 NumAttacks
   = NumberString / IntegerSlashList
 
@@ -126,8 +134,14 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:("," _ (AdditionalCrit / AirTime / AlwaysCrits / AttackStatusChance / CastTime / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef))* {
+  = extras:("," _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
+  }
+
+// Note: This goes before AdditionalCrit so that it can be greedy with matching "damage"
+AdditionalCritDamage
+  = additionalCritDamage:Integer '%' _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'damage' condition:(_ Condition)? {
+    return util.addCondition({ additionalCritDamage }, condition, 'additionalCritDamageCondition');
   }
 
 AdditionalCrit
@@ -140,6 +154,9 @@ AirTime
 
 AlwaysCrits
   = "always" _ "deals" _ "a" _ "critical" _ "hit" { return { alwaysCrits: true }; }
+
+AtkUpWithLowHP
+  = "ATK" _ "increases" _ "as" _ "HP" _ "decrease" "s"? { return { atkUpWithLowHP: true }; }
 
 AttackStatusChance
   // NOTE: This assumes that each skill only inflicts one status via its attack
@@ -175,6 +192,12 @@ Piercing
 ScaleWithAtkAndDef
   = "damage" _ "scales" _ "with" _ "both" _ "ATK" _ "and" _ "DEF" { return { scalesWithAtkAndDef: true }; }
 
+SBMultiplier
+  = "multiplier" _ verb:("increased" / "decreased") _ "by" _ value:DecimalNumber _ "for" _ "every" _ "SB" _ "point" {
+    return { sbMultiplierChange: value * (verb === 'increased' ? 1 : -1) };
+  }
+
+// (?:,\ multiplier\ (?<sbMultiplierIncreaseDecrease>increased|decreased)\ by\ (?<sbMultiplierChange>[0-9.]+)\ for\ every\ SB\ point)?
 
 //---------------------------------------------------------------------------
 // Drain HP, recoil HP, HP-based attacks
@@ -461,7 +484,7 @@ Duration
   }
 
 DurationUnits
-  = (("second" / "turn") "s"?) / "sec." {
+  = (("second" / "turn") "s"? / "sec.") {
     let result = text();
     if (result === 'sec.') {
       return 'seconds';
@@ -487,6 +510,7 @@ NextClause
 Who
   = "to" _ "the" _ "user" { return 'self'; }
   / "to" _ "the" _ "target" { return 'target'; }
+  / "to" _ "all" _ "enemies" { return 'enemies'; }
   / "to" _ "all" _ "allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'frontRow'; })? {
     return row || 'party';
   }
@@ -497,6 +521,10 @@ Who
 
 Condition
   = "when" _ "equipping" _ "a" "n"? _ equipped:[a-z- ]+ { return { type: 'equipped', equipped: equipped.join('') }; }
+
+  // If Doomed - overlaps with the general status support below
+  / ("if" _ "the" _ "user" _ "has" _ "any" _ "Doom" / "with" _ "any" _ "Doom") { return { type: 'ifDoomed' }; }
+
   / "if" _ "the" _ who:("user" / "target") _ "has" _ any:"any"? _ status:StatusName { return { type: 'status', status, who: who === 'user' ? 'self' : 'target', any: !!any }; }
 
   // Beginning of attacks and skills (like Passionate Salsa)
