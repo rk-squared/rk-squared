@@ -35,6 +35,7 @@ Attack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _
     "("
+      randomAttackMultiplier:("randomly" _)?
       attackMultiplier:DecimalNumberSlashList
       hybridDamageMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
       scaleToMultiplier:('~' n:DecimalNumber { return n; })?
@@ -50,6 +51,9 @@ Attack
       attackMultiplier,
       ...extras
     };
+    if (randomAttackMultiplier) {
+      result.isRandomAttackMultiplier = true;
+    }
     if (hybridDamageMultiplier != null) {
       result.hybridDamageMultiplier = hybridDamageMultiplier;
     }
@@ -554,7 +558,14 @@ Condition
   // If Doomed - overlaps with the general status support below
   / ("if" _ "the" _ "user" _ "has" _ "any" _ "Doom" / "with" _ "any" _ "Doom") { return { type: 'ifDoomed' }; }
 
-  / "if" _ "the" _ who:("user" / "target") _ "has" _ any:"any"? _ status:StatusName { return { type: 'status', status, who: who === 'user' ? 'self' : 'target', any: !!any }; }
+  / "if" _ "the" _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusName (OrList StatusName)* { return text(); }) {
+    return {
+      type: 'status',
+      status,  // In string form - callers must separate by comma, "or", etc.
+      who: who === 'user' ? 'self' : 'target',
+      any: !!any
+    };
+  }
 
   // Beginning of attacks and skills (like Passionate Salsa)
 
@@ -565,7 +576,8 @@ Condition
   // Beginning of attack-specific conditions
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
-  / "if" _ character:CharacterName _ "is" _ "alive" { return { type: 'characterAlive', character }; }
+  / "if" _ character:CharacterNameList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
+  / "if" _ count:IntegerSlashList _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ "damaging" _ "actions" { return { type: 'damagingActions', count }; }
   / "if" _ "the" _ "user's" _ "Doom" _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
