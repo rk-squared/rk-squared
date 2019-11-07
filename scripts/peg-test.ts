@@ -27,6 +27,11 @@ const argv = yargs
     boolean: true,
   })
 
+  .option('all', {
+    description: 'Show all categories',
+    default: false,
+    boolean: true,
+  })
   .option('soulBreaks', {
     description: 'Show soul breaks',
     default: false,
@@ -85,7 +90,7 @@ function processEffects<T extends { name: string; effects: string }>(
     }
 
     if (
-      (argv[what] || argv.filter) &&
+      (argv[what] || argv.filter || argv.all) &&
       ((parseResults && !argv.hideSuccesses) || (parseError && !argv.hideFailures))
     ) {
       console.log(getName(i));

@@ -19,7 +19,7 @@ SkillEffect
   }
   / "" { return []; }
 
-EffectClause = Attack / FixedAttack / RandomFixedAttack
+EffectClause = FixedAttack / Attack / RandomFixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCast / Chain / Mimic

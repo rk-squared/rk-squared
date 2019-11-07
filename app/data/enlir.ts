@@ -647,7 +647,18 @@ function patchEnlir() {
     strike => {
       strike.effects =
         '3/5/5 single attacks (0.52 each) if 0/72001/240001 damage was dealt during the status. ' +
-        'Additional ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999, if 240001 damage was dealt during the status.';
+        'Additional ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999 if 240001 damage was dealt during the status';
+    },
+  );
+  applyPatch(
+    enlir.otherSkillsByName,
+    'Orbital Edge',
+    edge =>
+      edge.effects ===
+      'Ten single attacks (0.50 each) and one single attack (5.00) capped at 99999, 100% hit rate',
+    edge => {
+      edge.effects =
+        'Ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999, 100% hit rate';
     },
   );
 
