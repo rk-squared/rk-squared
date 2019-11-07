@@ -20,13 +20,14 @@ SkillEffect
       return result;
     }, [head]);
   }
+  / "" { return []; }
 
 EffectClause = Attack / FixedAttack / RandomFixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCast / Chain / Mimic
   / StatMod / StatusEffect / ImperilStatusEffect
-  / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO
+  / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
 
 //---------------------------------------------------------------------------
 // Attacks
@@ -410,7 +411,7 @@ StatusName "status effect"
           / (('in' / 'or' / 'of' / 'the' / 'with' / '&' /'a') & ' ')
 
           / SignedIntegerSlashList '%'?
-          / '='? IntegerSlashList '%'?
+          / [=*]? IntegerSlashList '%'?
           / '(' [A-Za-z-0-9]+ ')'
         )
       )*
@@ -444,7 +445,7 @@ ImperilStatusEffect
 // Stat mods
 
 StatMod
-  = stats:StatList _ percent:SignedInteger '%' statModClauses:StatModClause* {
+  = stats:StatList _ percent:SignedIntegerSlashList '%' statModClauses:StatModClause* {
     const result: any = {
       type: 'statMod',
       stats,
@@ -473,6 +474,7 @@ StatModClause
   = _ clause:(
     duration:Duration { return { duration }; }
     / who:Who { return { who }; }
+    / condition:Condition { return { condition }; }
   ) {
     return clause;
   }
@@ -482,13 +484,13 @@ StatModClause
 // Miscellaneous
 
 Entrust
-  = "transfers"i _ "the" _ "user's" _ ("Soul" _ "Break" / "SB") _ "points" _ "to" _ "the" _ "target" { return { type: 'entrust' }; }
+  = "transfers"i _ "the" _ "user's" _ SB _ "points" _ "to" _ "the" _ "target" { return { type: 'entrust' }; }
 
 GainSB
-  = "grants"i _ points:Integer _ "SB" _ "points" _ who:Who? { return { type: 'gainSB', points, who }; }
+  = "grants"i _ points:Integer _ SB _ "points" _ who:Who? { return { type: 'gainSB', points, who }; }
 
 GainSBOnSuccess
-  = "grants"i _ points:Integer _ "SB" _ "points" _ who:Who? _ "if" _ "successful" "?"? { return { type: 'gainSBOnSuccess', points, who }; }
+  = "grants"i _ points:Integer _ SB _ "points" _ who:Who? _ "if" _ "successful" "?"? { return { type: 'gainSBOnSuccess', points, who }; }
 
 ResetIfKO
   = "resets" _ "if" _ "KO'd" { return { type: 'resetIfKO' }; }
@@ -496,6 +498,8 @@ ResetIfKO
 ResistViaKO
   = "resisted" _ "via" _ "Instant" _ "KO" { return { type: 'resistViaKO' }; }
 
+Reset
+  = "reset" { return { type: 'reset' }; }
 
 //---------------------------------------------------------------------------
 // Lower-level game rules
@@ -585,9 +589,10 @@ Condition
   / "if" _ count:IntegerSlashList _ "of" _ "the" _ "target's" _ "stats" _ "are" _ "lowered" { return { type: 'targetStatBreaks', count }; }
   / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
   / "if" _ "exploiting" _ "elemental" _ "weakness" { return { type: 'vsWeak' }; }
-  / "if" _ "the" _ "user" _ "is" _ "in" _ "the" _ "front" _ "row" { return { type: 'inFrontRow' }; }
+  / "if" _ "the"? _ "user" _ "is" _ "in" _ "the"? _ "front" _ "row" { return { type: 'inFrontRow' }; }
   / "if" _ "the" _ "user" _ "took" _ count:IntegerSlashList _ damageType:DamageTypeList _ "hits" { return { type: 'tookHits', count, damageType }; }
   / "with" _ count:IntegerSlashList _ "other" _ school:School _ "users" { return { type: 'otherAbilityUsers', count, school }; }
+  / "at" _ count:IntegerSlashList _ "different" _ school:School _ "abilities" _ "used" { return { type: 'differentAbilityUses', count, school }; }
   / "if" _ "the" _ "user's" _ "HP" _ "is" _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
 
   // Alternate status phrasing.  For example, Stone Press:
@@ -645,6 +650,8 @@ School "ability school"
   / "Thief"
   / "White Magic"
   / "Witch"
+
+SB = ("Soul" _ "Break" / "SB")
 
 
 //---------------------------------------------------------------------------
