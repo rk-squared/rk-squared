@@ -8807,7 +8807,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Three single attacks, restores 1500 HP to the lowest HP% ally",
+    "effects": "Three single attacks (0.42 each), restores 1500 HP to the lowest HP% ally",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,

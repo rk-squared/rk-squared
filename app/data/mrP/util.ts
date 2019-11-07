@@ -343,7 +343,10 @@ export function handleUncertain<T>(f: (value: string) => T) {
   };
 }
 
-export function pegList(head: any, tail: any, index: number): any[] {
+export function pegList(head: any, tail: any, index: number, forceSingle: boolean = false): any[] {
+  if (forceSingle && !tail.length) {
+    return head;
+  }
   return tail.reduce(
     (result: any, element: any) => {
       result.push(element[index]);
@@ -354,7 +357,7 @@ export function pegList(head: any, tail: any, index: number): any[] {
 }
 
 export function pegSlashList(head: any, tail: any): any[] {
-  return tail.length ? pegList(head, tail, 1) : head;
+  return pegList(head, tail, 1, true);
 }
 
 type Stat = 'HP' | 'ATK' | 'DEF' | 'MAG' | 'RES' | 'MND' | 'ACC' | 'EVA' | 'SPD';
