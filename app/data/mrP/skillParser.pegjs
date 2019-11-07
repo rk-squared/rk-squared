@@ -68,9 +68,6 @@ Attack
     if (attackType === 'group') {
       result.isAoE = true;
     }
-    if (attackType === 'ranged') {
-      result.isRanged = true;
-    }
     if (modifiers.jump) {
       result.isJump = true;
     }
@@ -81,7 +78,7 @@ Attack
   }
 
 FixedAttack
-  = numAttacks:NumAttacks _ attackType:AttackType _ "attack" "s"?
+  = numAttacks:NumAttacks _ attackType:AttackType? _ "attack" "s"?
     _ "that" _ "deal" "s"? _ fixedDamage:Integer _ "damage" _ "each"? {
     const result = {
       type: 'fixedAttack',
@@ -90,9 +87,6 @@ FixedAttack
     };
     if (attackType === 'group') {
       result.isAoE = true;
-    }
-    if (attackType === 'ranged') {
-      result.isRanged = true;
     }
     return result;
   }
@@ -107,6 +101,18 @@ RandomFixedAttack
 
 NumAttacks
   = NumberString / IntegerSlashList
+  / value:RandomNumAttacks { return { type: 'randomNumAttacks', value }; }
+
+RandomNumAttacks
+  = "Randomly"i _ "deals" _ head:RandomOneAttack tail:(OrList RandomOneAttack)* {
+    // Returns Array<number | [number, number]>, giving either numbers of attacks
+    // with identical chances, or tuples of number of attacks with percent chance.
+    return util.pegList(head, tail, 1);
+  }
+
+RandomOneAttack
+  = value:NumberString _ chance:("(" c:Integer "%)" { return c; }) { return [value, chance]; }
+  / NumberString
 
 AttackType
   = "group" / "random" / "single"
