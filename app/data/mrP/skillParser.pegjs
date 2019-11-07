@@ -14,7 +14,7 @@
 }
 
 SkillEffect
-  = head:EffectClause tail:(',' _ EffectClause)* {
+  = head:EffectClause tail:((',' / '.' _ 'Also') _ EffectClause)* {
     return tail.reduce((result: any, element: any) => {
       result.push(element[2]);
       return result;
@@ -24,9 +24,9 @@ SkillEffect
 EffectClause = Attack / FixedAttack / RandomFixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
-  / RandomCast / Chain
+  / RandomCast / Chain / Mimic
   / StatMod / StatusEffect / ImperilStatusEffect
-  / Entrust / GainSB / ResetIfKO / ResistViaKO
+  / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO
 
 //---------------------------------------------------------------------------
 // Attacks
@@ -330,7 +330,7 @@ RandomAbility
 
 
 //---------------------------------------------------------------------------
-// Chains
+// Specialty: chains, mimics
 
 Chain
   = "activates"i _ chainType:[a-zA-Z0-9-]+ _ "Chain" _ "(max" _ max:Integer "," _ "field" _ fieldBonus:SignedInteger "%)" {
@@ -340,6 +340,19 @@ Chain
       max,
       fieldBonus,
     }
+  }
+
+Mimic
+  = chance:(c:Integer "%" _ "chance" _ "to" _ { return c; })? "cast"i "s"? _ "the" _ "last" _ "ability" _ "used" _ "by" _ "an" _ "ally" _ occurrence:Occurrence?
+  "," _ "default" _ "ability" _ "(PHY:" _ "single," _ "1.50" _ "physical)" {
+    const result = {
+      type: 'mimic',
+      count: occurrence
+    };
+    if (chance) {
+      result.chance = chance;
+    }
+    return result;
   }
 
 
@@ -469,6 +482,9 @@ Entrust
 
 GainSB
   = "grants"i _ points:Integer _ "SB" _ "points" _ who:Who? { return { type: 'gainSB', points, who }; }
+
+GainSBOnSuccess
+  = "grants"i _ points:Integer _ "SB" _ "points" _ who:Who? _ "if" _ "successful" "?"? { return { type: 'gainSBOnSuccess', points, who }; }
 
 ResetIfKO
   = "resets" _ "if" _ "KO'd" { return { type: 'resetIfKO' }; }
@@ -665,6 +681,12 @@ SignedIntegerSlashList "slash-separated signed integers"
 
 IntegerWithNegativesSlashList "slash-separated integers (optionally negative)"
   = head:IntegerWithNegatives tail:('/' IntegerWithNegatives)* { return util.pegSlashList(head, tail); }
+
+
+Occurrence
+  = "once" { return 1; }
+  / "twice" { return 2; }
+  / count:NumberString _ "time" "s"? { return count; }
 
 
 UppercaseWord
