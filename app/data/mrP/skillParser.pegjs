@@ -146,18 +146,18 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:("," _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / DamageModifier / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / DamageModifier / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
 // Note: This goes before AdditionalCrit so that it can be greedy with matching "damage"
 AdditionalCritDamage
-  = additionalCritDamage:Integer '%' _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'damage' condition:(_ Condition)? {
+  = additionalCritDamage:IntegerSlashList '%' _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'damage' condition:(_ Condition)? {
     return util.addCondition({ additionalCritDamage }, condition, 'additionalCritDamageCondition');
   }
 
 AdditionalCrit
-  = additionalCrit:Integer '%' _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'chance'? condition:(_ Condition)? {
+  = additionalCrit:IntegerSlashList '%' _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'chance'? condition:(_ Condition)? {
     return util.addCondition({ additionalCrit }, condition, 'additionalCritCondition');
   }
 
@@ -172,8 +172,8 @@ AtkUpWithLowHP
 
 AttackStatusChance
   // NOTE: This assumes that each skill only inflicts one status via its attack
-  = chance:Integer '%' _ "chance" _ "to" _ "cause" _ status:StatusName _ duration:Duration {
-    return { status: { status, chance, duration } };
+  = chance:IntegerSlashList '%' _ "chance" _ "to" _ "cause" _ status:StatusName _ duration:Duration? _ condition:Condition? {
+    return { status: util.addCondition({ status, chance, duration }, condition) };
   }
 
 CastTime
@@ -187,6 +187,8 @@ FollowedByAttack
 
 HitRate
   = hitRate:Integer "%" _ "hit" _ "rate" { return { hitRate }; }
+  // This variant is used for conditionally triggered follow-up attacks like Thief (I)'s AASB's Sneak
+  / "(" hitRate:Integer "%" _ "hit" _ "rate" _ "if" _ "triggered)" { return { hitRate }; }
 
 MinDamage
   = ("minimum" _ "damage" / "min.") _ minDamage:Integer { return { minDamage }; }
@@ -218,7 +220,7 @@ SBMultiplier
 // Drain HP, recoil HP, HP-based attacks
 
 DrainHp
-  = ("heals" / "restores" _ "HP" _ "to") _ "the" _ "user" _ "for" _ healPercent:Integer "%" _ "of" _ "the" _ "damage" _ "dealt" {
+  = ("heals" _ "to"? / "restores" _ "HP" _ "to") _ "the" _ "user" _ "for" _ healPercent:Integer "%" _ "of" _ "the" _ "damage" _ "dealt" {
     return {
       type: 'drainHp',
       healPercent
@@ -227,7 +229,7 @@ DrainHp
 
 RecoilHp
   = "damages" _ "the" _ "user" _ "for" _ damagePercent:DecimalNumberSlashList "%"
-  _ maxOrCurrent:(("max" "."? "imum"? / "current") { return text().startsWith('max') ? 'max' : 'curr'; })
+  _ maxOrCurrent:((Maximum / "current") { return text().startsWith('max') ? 'max' : 'curr'; })
   _ "HP"
   _ condition:Condition? {
     return util.addCondition({
@@ -244,7 +246,7 @@ GravityAttack
 
 // Minus Strike
 HpAttack
-  = "damages"i _ "for" _ multiplier:Integer _ "*" _ "(user's" _ "maximum" _ "HP" _ "-" _ "user's" _ "current" _ "HP)" {
+  = "damages"i _ "for" _ multiplier:Integer _ "*" _ "(user's" _ Maximum _ "HP" _ "-" _ "user's" _ "current" _ "HP)" {
     return {
       type: 'hpAttack',
       multiplier
@@ -269,7 +271,7 @@ Revive
 
 Heal
   = "restores"i _ healAmount:(
-      "HP" _ "(" healFactor:Integer ")" { return { healFactor }; }
+      "HP" _ "(" healFactor:IntegerSlashList ")" { return { healFactor }; }
       / fixedHp:IntegerSlashList _ "HP" { return { fixedHp }; }
     ) _ who:Who? _ condition:Condition? {
     return util.addCondition({
@@ -280,7 +282,7 @@ Heal
   }
 
 HealPercent
-  = "restores"i _ "HP" _ who:Who? _ "for" _ healPercent:Integer "%" _ "of" _ ("the" _ "user's" / "the" _ "target's" / "their") _ "maximum" _ "HP" {
+  = "restores"i _ "HP" _ who:Who? _ "for" _ healPercent:Integer "%" _ "of" _ ("the" _ "user's" / "the" _ "target's" / "their") _ Maximum _ "HP" {
     return {
       type: 'healPercent',
       healPercent,
@@ -289,7 +291,8 @@ HealPercent
   }
 
 DamagesUndead
-  = 'damages' _ 'undeads' {
+  // Flexibility: Support both "undead" and "undeads"
+  = 'damages' _ 'undead' 's'? {
     return {};
   }
 
@@ -349,7 +352,7 @@ Chain
 
 Mimic
   = chance:(c:Integer "%" _ "chance" _ "to" _ { return c; })? "cast"i "s"? _ "the" _ "last" _ "ability" _ "used" _ "by" _ "an" _ "ally" _ occurrence:Occurrence?
-  "," _ "default" _ "ability" _ "(PHY:" _ "single," _ "1.50" _ "physical)" {
+  "," _ "default" _ "ability" _ "(PHY:" _ "single," _ "1.50" _ "physical" ("," _ Integer _ "%" _ "critical" _ "chance")? ")" {
     const result = {
       type: 'mimic',
       count: occurrence
@@ -400,32 +403,17 @@ StatusName "status effect"
   = (
     // Stat mods in particular have a distinctive format.
     ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
-  / // Generic status names - somewhat complex expression to match those
-    (
-      (StatusWord / Integer '%')
-      (_
-        (
-          StatusWord
-
-          // Articles, etc., are okay, but use &' ' to make sure they're at a word bounary.
-          / (('in' / 'or' / 'of' / 'the' / 'with' / '&' /'a') & ' ')
-
-          / SignedIntegerSlashList '%'?
-          / [=*]? IntegerSlashList '%'?
-          / '(' [A-Za-z-0-9]+ ')'
-        )
-      )*
-    )
+  / GenericName
   ) {
     return text();
   }
-StatusWord = ([A-Z] [a-zA-Z-'/]* (':' / '...' / '!')?)
 
 StatusClause
   = _ clause:(
     duration:Duration { return { duration }; }
     / who:Who { return { who }; }
-    / "every" _ "two" _ "uses" { return { perUses: 2 }; }
+    // Flexibility: Support both "two uses" and "second use"
+    / "every" _ ("two" _ "uses" / "second" _ "use") { return { perUses: 2 }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
     / "to" _ "undeads" { return { ifUndead: true }; }
     / condition:Condition { return { condition }; }
@@ -513,7 +501,34 @@ CharacterName
 // Character names, for "if X are in the party."  Return these as text so that
 // higher-level code can process them.
 CharacterNameList
-  = CharacterName ((_ "&" _ / "/") CharacterName)* { return text(); }
+  = CharacterName ((_ "&" _ / "/" / _ "or" _) CharacterName)* { return text(); }
+
+// Any skill - burst commands, etc.
+AnySkillName
+  = GenericName
+
+// Generic names. Developed for statuses, so the rules may need revision for
+// other uses.
+// Generic status names - somewhat complex expression to match those
+GenericName
+  = (
+    (GenericNameWord / Integer '%' !(_ "hit" _ "rate"))
+    (_
+      (
+        GenericNameWord
+
+        // Articles, etc., are okay, but use &' ' to make sure they're at a word bounary.
+        / (('in' / 'or' / 'of' / 'the' / 'with' / '&' /'a') & ' ')
+
+        / SignedIntegerSlashList '%'?
+        / [=*]? IntegerSlashList '%'?
+        / '(' [A-Za-z-0-9]+ ')'
+      )
+    )*
+  ) {
+    return text();
+  }
+GenericNameWord = ([A-Z] [a-zA-Z-'/]* (':' / '...' / '!')?)
 
 Duration
   = "for" _ value:Integer _ units:DurationUnits {
@@ -562,7 +577,7 @@ Condition
   // If Doomed - overlaps with the general status support below
   / ("if" _ "the" _ "user" _ "has" _ "any" _ "Doom" / "with" _ "any" _ "Doom") { return { type: 'ifDoomed' }; }
 
-  / "if" _ "the" _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusName (OrList StatusName)* { return text(); }) {
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusName (OrList StatusName)* { return text(); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
@@ -576,6 +591,7 @@ Condition
   // Scaling with uses - both specific counts and generically
   / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
+  / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
   // Beginning of attack-specific conditions
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
@@ -590,10 +606,12 @@ Condition
   / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
   / "if" _ "exploiting" _ "elemental" _ "weakness" { return { type: 'vsWeak' }; }
   / "if" _ "the"? _ "user" _ "is" _ "in" _ "the"? _ "front" _ "row" { return { type: 'inFrontRow' }; }
-  / "if" _ "the" _ "user" _ "took" _ count:IntegerSlashList _ damageType:DamageTypeList _ "hits" { return { type: 'tookHits', count, damageType }; }
+  / "if" _ "the" _ "user" _ ("took" / "has" _ "taken") _ count:IntegerSlashList _ damageType:DamageTypeList _ "hits" { return { type: 'hitsTaken', count, damageType }; }
+  / "if" _ "the" _ "user" _ ("took" / "has" _ "taken") _ count:IntegerSlashList _ "attacks" { return { type: 'tookAttacks', count }; }
   / "with" _ count:IntegerSlashList _ "other" _ school:School _ "users" { return { type: 'otherAbilityUsers', count, school }; }
   / "at" _ count:IntegerSlashList _ "different" _ school:School _ "abilities" _ "used" { return { type: 'differentAbilityUses', count, school }; }
-  / "if" _ "the" _ "user's" _ "HP" _ "is" _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
+  / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
+  / "at" _ "rank" _ "1/2/3/4/5" _ "of" _ "the" _ "triggering" _ "ability" { return { type: 'rankBased' }; }
 
   // Alternate status phrasing.  For example, Stone Press:
   // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
@@ -651,8 +669,8 @@ School "ability school"
   / "White Magic"
   / "Witch"
 
-SB = ("Soul" _ "Break" / "SB")
-
+SB = "Soul" _ "Break" / "SB"
+Maximum = "maximum" / "max" "."?
 
 //---------------------------------------------------------------------------
 // Primitive types
