@@ -3448,7 +3448,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single attacks (1.56 each), smart summoning ether 1 to the user",
+    "effects": "Ten single attacks (1.56 each), Summoning smart ether 1 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,

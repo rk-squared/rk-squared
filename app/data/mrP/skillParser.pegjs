@@ -299,8 +299,11 @@ RandomEther
   }
 
 SmartEther
-  = school:School? _ "smart"i _ "ether" _ amount:Integer _ who:Who? {
-    const result = { type: 'smartEther', amount, who };
+  = status:SmartEtherStatus _ who:Who? { return { ...status, who }; }
+
+SmartEtherStatus
+  = school:School? _ "smart"i _ "ether" _ amount:Integer {
+    const result = { type: 'smartEther', amount };
     if (school) {
       result.school = school;
     }
@@ -359,7 +362,7 @@ StatusList
   }
 
 StatusWithPercent
-  = status:StatusName
+  = status:(SmartEtherStatus / StatusName)
     chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )?
     statusClauses:StatusClause*
   {
