@@ -131,10 +131,11 @@ MultiplierScaleType
   / "scaling" _ "with" _ "hits" _ "taken" { return { type: 'hitsTaken' }; }
   / "scaling" _ "with" _ school:School _ "abilities" _ "used" { return { type: 'abilitiesUsed', school }; }
   / "scaling" _ "with" _ element:Element _ "attacks" _ "used" { return { type: 'attacksUsed', element }; }
+  / "scaling" _ "with" _ "Doom" _ "timer," _ defaultMultiplier:DecimalNumber _ "default" { return { type: 'doomTimer', defaultMultiplier }; }
 
 
 AttackExtras
-  = extras:("," _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:("," _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / DamageModifier / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -166,6 +167,9 @@ AttackStatusChance
 
 CastTime
   = "cast" _ "time" _ castTime:DecimalNumberSlashList _ condition:Condition { return { castTime, castTimeCondition: condition }; }
+
+DamageModifier
+  = damageModifier:IntegerWithNegativesSlashList "%" _ "more" _ "damage" _ condition:Condition { return { damageModifier, damageModifierCondition: condition }; }
 
 FollowedByAttack
   = "followed" _ "by" _ followedBy:Attack { return { followedBy }; }
@@ -544,6 +548,10 @@ Condition
   / "if" _ count:IntegerSlashList _ "of" _ "the" _ "target's" _ "stats" _ "are" _ "lowered" { return { type: 'targetStatBreaks', count }; }
   / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
   / "if" _ "exploiting" _ "elemental" _ "weakness" { return { type: 'vsWeak' }; }
+  / "if" _ "the" _ "user" _ "is" _ "in" _ "the" _ "front" _ "row" { return { type: 'inFrontRow' }; }
+  / "if" _ "the" _ "user" _ "took" _ count:IntegerSlashList _ damageType:DamageTypeList _ "hits" { return { type: 'tookHits', count, damageType }; }
+  / "with" _ count:IntegerSlashList _ "other" _ school:School _ "users" { return { type: 'otherAbilityUsers', count, school }; }
+  / "if" _ "the" _ "user's" _ "HP" _ "is" _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
 
   // Alternate status phrasing.  For example, Stone Press:
   // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
@@ -552,7 +560,21 @@ Condition
   // Stat thresolds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
-Element
+DamageType "damage type"
+  = "PHY"
+  / "WHT"
+  / "BLK"
+  / "BLU"
+  / "SUM"
+  / "NAT"
+  / "NIN"
+
+DamageTypeList "damage type list"
+  = head:DamageType tail:(OrList DamageType)* {
+    return util.pegList(head, tail, 1);
+  }
+
+Element "element"
   = "Fire"
   / "Ice"
   / "Lightning"
@@ -564,7 +586,7 @@ Element
   / "Poison"
   / "NE"
 
-School
+School "ability school"
   = "Bard"
   / "Black Magic"
   / "Celerity"
@@ -612,6 +634,12 @@ Integer "integer"
 SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
 
+IntegerWithNegatives "integer (optionally negative)"
+  = sign:'-'? value:[0-9]+ { return parseInt(text(), 10); }
+
+
+DecimalNumberSlashList "slash-separated decimal numbers"
+  = head:DecimalNumber tail:('/' DecimalNumber)* { return util.pegSlashList(head, tail); }
 
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }
@@ -626,8 +654,8 @@ SignedIntegerSlashList "slash-separated signed integers"
     }
   }
 
-DecimalNumberSlashList "slash-separated decimal numbers"
-  = head:DecimalNumber tail:('/' DecimalNumber)* { return util.pegSlashList(head, tail); }
+IntegerWithNegativesSlashList "slash-separated integers (optionally negative)"
+  = head:IntegerWithNegatives tail:('/' IntegerWithNegatives)* { return util.pegSlashList(head, tail); }
 
 
 UppercaseWord

@@ -34697,7 +34697,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attachs (0.60 each), grants Attach Ice, Critical Damage +50%, Awoken Samurai, Damage Cap +10000, Samurai High Quick Cast and High Retaliate to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Ice, Critical Damage +50%, Awoken Samurai, Damage Cap +10000, Samurai High Quick Cast and High Retaliate to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
