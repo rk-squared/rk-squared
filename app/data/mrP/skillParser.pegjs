@@ -31,36 +31,16 @@ EffectClause = Attack / FixedAttack / RandomFixedAttack
 
 Attack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
-    _
-    "("
-      randomAttackMultiplier:("randomly" _)?
-      attackMultiplier:DecimalNumberSlashList
-      hybridDamageMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
-      scaleToMultiplier:('~' n:DecimalNumber { return n; })?
-      _ "each"?
-      _ multiplierScaleType:MultiplierScaleType?
-    ")"
+    _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
     _ overstrike:(","? _ "capped" _ "at" _ "99999")?
     _ scaleType:AttackScaleType?
     extras:AttackExtras {
     const result = {
       type: 'attack',
       numAttacks,
-      attackMultiplier,
+      ...(attackMultiplierGroup || {}),
       ...extras
     };
-    if (randomAttackMultiplier) {
-      result.isRandomAttackMultiplier = true;
-    }
-    if (hybridDamageMultiplier != null) {
-      result.hybridDamageMultiplier = hybridDamageMultiplier;
-    }
-    if (scaleToMultiplier != null) {
-      result.scaleToMultiplier = scaleToMultiplier;
-    }
-    if (multiplierScaleType) {
-      result.multiplierScaleType = multiplierScaleType;
-    }
     if (overstrike) {
       result.isOverstrike = true;
     }
@@ -116,6 +96,31 @@ RandomOneAttack
   = value:NumberString _ chance:("(" c:Integer "%)" { return c; }) { return [value, chance]; }
   / NumberString
 
+AttackMultiplierGroup
+  = randomAttackMultiplier:("randomly" _)?
+    attackMultiplier:DecimalNumberSlashList
+    hybridDamageMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
+    scaleToMultiplier:('~' n:DecimalNumber { return n; })?
+    _ "each"?
+    _ multiplierScaleType:MultiplierScaleType? {
+    const result = {
+      attackMultiplier,
+    };
+    if (randomAttackMultiplier) {
+      result.isRandomAttackMultiplier = true;
+    }
+    if (hybridDamageMultiplier != null) {
+      result.hybridDamageMultiplier = hybridDamageMultiplier;
+    }
+    if (scaleToMultiplier != null) {
+      result.scaleToMultiplier = scaleToMultiplier;
+    }
+    if (multiplierScaleType) {
+      result.multiplierScaleType = multiplierScaleType;
+    }
+    return result;
+  }
+
 AttackType
   = "group" / "random" / "single"
 
@@ -143,7 +148,7 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / DamageModifier / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -178,6 +183,11 @@ CastTime
 
 DamageModifier
   = damageModifier:IntegerWithNegativesSlashList "%" _ "more" _ "damage" _ condition:Condition { return { damageModifier, damageModifierCondition: condition }; }
+
+FinisherPercent
+  = "for" _ value:DecimalNumber "%" _ "of" _ "the" _ "damage" _ "dealt" _ "with" _ criteria:(DamageType / Element / School) _ ("attacks" / "abilities") _ "during" _ "the" _ "status" {
+    return { finisherPercentDamage: value, finisherPercentCriteria: criteria };
+  }
 
 FollowedByAttack
   = "followed" _ "by" _ followedBy:Attack { return { followedBy }; }
@@ -625,6 +635,9 @@ Condition
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ school:SchoolList _ "abilities" { return { type: 'abilitiesUsed', count, school }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ element:ElementList _ "attacks" _ "during" _ "the" _ "status" { return { type: 'attacksDuringStatus', count, element }; }
   / "if" _ value:IntegerSlashList _ "damage" _ "was" _ "dealt" _ "during" _ "the" _ "status" { return { type: 'damageDuringStatus', value }; }
+  / "if" _ "the" _ "user" _ "dealt" _ value:IntegerSlashList _ "damage" _ "during" _ "the" _ "status" { return { type: 'damageDuringStatus', value }; }
+  // Alternate phrasing - this appears to be an error, so we smooth it out. TODO: Fix upstream.
+  / "scaling" _ "with" _ school:School _ "attacks" _ "used" _ "(" _ count:IntegerSlashList _ ")" { return { type: 'abilitiesUsed', count, school }; }
 
   / "at" _ "rank" _ "1/2/3/4/5" _ "of" _ "the" _ "triggering" _ "ability" { return { type: 'rankBased' }; }
 
