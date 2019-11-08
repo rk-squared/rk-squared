@@ -22,7 +22,7 @@ SkillEffect
 EffectClause = FixedAttack / Attack / RandomFixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
-  / RandomCast / Chain / Mimic
+  / RandomCastAbility / RandomCastOther / Chain / Mimic
   / StatMod / StatusEffect / ImperilStatusEffect / SetStatusLevel
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset / StandaloneHitRate
 
@@ -334,8 +334,8 @@ SmartEtherStatus
 //---------------------------------------------------------------------------
 // "Randomly casts"
 
-RandomCast
-  = "randomly"i _ "casts" _ abilities:RandomAbilityList { return { type: 'randomAbility', abilities }; }
+RandomCastAbility
+  = "randomly"i _ "casts" _ abilities:RandomAbilityList { return { type: 'randomCastAbility', abilities }; }
 
 RandomAbilityList
   = head:RandomAbility tail:(OrList RandomAbility)* { return util.pegList(head, tail, 1); }
@@ -347,6 +347,9 @@ RandomAbility
       chance: chance ? chance[1] : undefined
     };
   }
+
+RandomCastOther
+  = "Casts"i _ "a" _ "random" _ other:AnySkillName _ "attack" { return { type: 'randomCastOther', other }; }
 
 
 //---------------------------------------------------------------------------
