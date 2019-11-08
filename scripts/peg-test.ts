@@ -3,8 +3,10 @@
 import * as _ from 'lodash';
 import * as yargs from 'yargs';
 
-import { enlir, tierOrder } from '../app/data/enlir';
+import { enlir, EnlirSkill, tierOrder } from '../app/data/enlir';
+import { describeEnlirSkill, formatMrP } from '../app/data/mrp/skill';
 import { parse, SyntaxError } from '../app/data/mrp/skillParser';
+import { SkillEffect } from '../app/data/mrP/types';
 
 // tslint:disable: no-console
 
@@ -63,7 +65,7 @@ const argv = yargs
     boolean: true,
   }).argv;
 
-function processEffects<T extends { name: string; effects: string }>(
+function processEffects<T extends EnlirSkill>(
   what: keyof typeof argv,
   items: T[],
   getName: (item: T) => string,
@@ -74,7 +76,7 @@ function processEffects<T extends { name: string; effects: string }>(
     if (argv.filter && !i.name.match(argv.filter)) {
       continue;
     }
-    let parseResults: any;
+    let parseResults: SkillEffect | undefined;
     let parseError: SyntaxError | undefined;
     totalCount++;
     try {
@@ -97,6 +99,9 @@ function processEffects<T extends { name: string; effects: string }>(
       console.log(i.effects);
       if (parseResults) {
         console.dir(parseResults, { depth: null });
+        const mrP = describeEnlirSkill(i);
+        const text = formatMrP(mrP);
+        console.log(text);
       }
       if (parseError) {
         console.log(' '.repeat(parseError.location.start.offset) + '^');

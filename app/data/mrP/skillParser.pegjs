@@ -1,8 +1,3 @@
-// Simple Arithmetics Grammar
-// ==========================
-//
-// Accepts expressions like "2 * (3 + 4)" and computes their value.
-
 {
   let parsedNumberString: number | null = null;
 
@@ -27,7 +22,7 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
   / CastTimePerUse / StandaloneHitRate
 
-//---------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // Attacks
 
 Attack
@@ -100,7 +95,7 @@ RandomOneAttack
 AttackMultiplierGroup
   = randomAttackMultiplier:("randomly" _)?
     attackMultiplier:DecimalNumberSlashList
-    hybridDamageMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
+    hybridMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
     scaleToMultiplier:('~' n:DecimalNumber { return n; })?
     _ "each"?
     _ multiplierScaleType:MultiplierScaleType?
@@ -111,8 +106,8 @@ AttackMultiplierGroup
     if (randomAttackMultiplier) {
       result.isRandomAttackMultiplier = true;
     }
-    if (hybridDamageMultiplier != null) {
-      result.hybridDamageMultiplier = hybridDamageMultiplier;
+    if (hybridMultiplier != null) {
+      result.hybridMultiplier = hybridMultiplier;
     }
     if (scaleToMultiplier != null) {
       result.scaleToMultiplier = scaleToMultiplier;
@@ -121,9 +116,9 @@ AttackMultiplierGroup
       result.multiplierScaleType = multiplierScaleType;
     }
     if (damageType) {
-      // Damage types are only overridden for Dirty Trick.  That's very niche.
+      // Skill types are only overridden for Dirty Trick.  That's very niche.
       // Assume PHY and BLK.
-      result.overrideDamageType = damageType === 'physical' ? 'PHY' : 'BLK';
+      result.overrideSkillType = damageType === 'physical' ? 'PHY' : 'BLK';
     }
     return result;
   }
@@ -155,7 +150,7 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHp / AttackStatusChance / CastTime / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -181,8 +176,8 @@ AlternateOverstrike
 AlwaysCrits
   = "always" _ "deals" _ "a" _ "critical" _ "hit" { return { alwaysCrits: true }; }
 
-AtkUpWithLowHP
-  = "ATK" _ "increases" _ "as" _ "HP" _ "decrease" "s"? { return { atkUpWithLowHP: true }; }
+AtkUpWithLowHp
+  = "ATK" _ "increases" _ "as" _ "HP" _ "decrease" "s"? { return { atkUpWithLowHp: true }; }
 
 AttackStatusChance
   // NOTE: This assumes that each skill only inflicts one status via its attack
@@ -197,7 +192,7 @@ DamageModifier
   = damageModifier:IntegerWithNegativesSlashList "%" _ "more" _ "damage" _ condition:Condition { return { damageModifier, damageModifierCondition: condition }; }
 
 FinisherPercent
-  = "for" _ value:DecimalNumber "%" _ "of" _ "the" _ "damage" _ "dealt" _ "with" _ criteria:(DamageType / Element / School) _ ("attacks" / "abilities") _ "during" _ "the" _ "status" {
+  = "for" _ value:DecimalNumber "%" _ "of" _ "the" _ "damage" _ "dealt" _ "with" _ criteria:(SkillType / Element / School) _ ("attacks" / "abilities") _ "during" _ "the" _ "status" {
     return { finisherPercentDamage: value, finisherPercentCriteria: criteria };
   }
 
@@ -238,9 +233,8 @@ SBMultiplier
     return { sbMultiplierChange: value * (verb === 'increased' ? 1 : -1) };
   }
 
-// (?:,\ multiplier\ (?<sbMultiplierIncreaseDecrease>increased|decreased)\ by\ (?<sbMultiplierChange>[0-9.]+)\ for\ every\ SB\ point)?
 
-//---------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // Drain HP, recoil HP, HP-based attacks
 
 DrainHp
@@ -278,7 +272,7 @@ HpAttack
   }
 
 
-//---------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // Healing
 
 Revive
@@ -294,13 +288,13 @@ Revive
   }
 
 Heal
-  = "restores"i _ healAmount:(
+  = "restores"i _ amount:(
       "HP" _ "(" healFactor:IntegerSlashList ")" { return { healFactor }; }
       / fixedHp:IntegerSlashList _ "HP" { return { fixedHp }; }
     ) _ who:Who? _ condition:Condition? {
     return util.addCondition({
       type: 'heal',
-      ...healAmount,
+      amount,
       who,
     }, condition);
   }
@@ -317,7 +311,7 @@ HealPercent
 DamagesUndead
   // Flexibility: Support both "undead" and "undeads"
   = 'damages' _ 'undead' 's'? {
-    return {};
+    return { type: 'damagesUndead' };
   }
 
 DispelOrEsuna
@@ -343,7 +337,7 @@ SmartEtherStatus
   }
 
 
-//---------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // "Randomly casts"
 
 RandomCastAbility
@@ -364,7 +358,7 @@ RandomCastOther
   = "Casts"i _ "a" _ "random" _ other:AnySkillName _ "attack" { return { type: 'randomCastOther', other }; }
 
 
-//---------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // Specialty: chains, mimics
 
 Chain
@@ -379,19 +373,23 @@ Chain
 
 Mimic
   = chance:(c:Integer "%" _ "chance" _ "to" _ { return c; })? "cast"i "s"? _ "the" _ "last" _ "ability" _ "used" _ "by" _ "an" _ "ally" _ occurrence:Occurrence?
-  "," _ "default" _ "ability" _ "(PHY:" _ "single," _ "1.50" _ "physical" ("," _ Integer _ "%" _ "critical" _ "chance")? ")" {
+  "," _ "default" _ "ability" _ "(PHY:" _ "single," _ defaultPower:DecimalNumber _ "physical" defaultCritChance:("," _ c:Integer _ "%" _ "critical" _ "chance" { return c; })? ")" {
     const result = {
       type: 'mimic',
-      count: occurrence
+      count: occurrence,
+      defaultPower
     };
     if (chance) {
       result.chance = chance;
+    }
+    if (defaultCritChance) {
+      result.defaultCritChance = defaultCritChance;
     }
     return result;
   }
 
 
-//---------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // Status effects
 
 StatusEffect
@@ -470,7 +468,7 @@ SetStatusLevel
   }
 
 
-//---------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // Stat mods
 
 StatMod
@@ -509,7 +507,7 @@ StatModClause
   }
 
 
-//---------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // Miscellaneous
 
 Entrust
@@ -538,7 +536,7 @@ StandaloneHitRate
   = hitRate:HitRate { return { type: 'hitRate', ...hitRate }; }
 
 
-//---------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // Lower-level game rules
 
 // These probably don't cover all abilities and characters, but it works for now.
@@ -597,7 +595,9 @@ DurationUnits
   }
 
 Stat "stat"
-  = "ATK" / "DEF" / "MAG" / "RES" / "MND" / "SPD" / "ACC" / "EVA"
+  = ("ATK" / "DEF" / "MAG" / "RES" / "MND" / "SPD" / "ACC" / "EVA") {
+    return text().toLowerCase();
+  }
 
 NextClause
   = "," _ ("grants" / "causes" / "removes" / "doesn't" _ "remove"
@@ -612,7 +612,7 @@ Who
   = "to" _ "the"? _ "user" { return 'self'; }
   / "to" _ "the" _ "target" { return 'target'; }
   / "to" _ "all" _ "enemies" { return 'enemies'; }
-  / "to" _ "all" _ "allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'frontRow'; })? {
+  / "to" _ "all" _ "allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
     return row || 'party';
   }
   / "to" _ "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
@@ -672,7 +672,7 @@ Condition
   / "if" _ "exploiting" _ "elemental" _ "weakness" { return { type: 'vsWeak' }; }
   / "if" _ "the"? _ "user" _ "is" _ "in" _ "the"? _ "front" _ "row" { return { type: 'inFrontRow' }; }
 
-  / "if" _ "the" _ "user" _ ("took" / "has" _ "taken") _ count:IntegerSlashList _ damageType:DamageTypeList _ "hits" { return { type: 'hitsTaken', count, damageType }; }
+  / "if" _ "the" _ "user" _ ("took" / "has" _ "taken") _ count:IntegerSlashList _ skillType:SkillTypeList _ "hits" { return { type: 'hitsTaken', count, skillType }; }
   / "if" _ "the" _ "user" _ ("took" / "has" _ "taken") _ count:IntegerSlashList _ "attacks" { return { type: 'attacksTaken', count }; }
 
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ "damaging" _ "actions" { return { type: 'damagingActions', count }; }
@@ -695,7 +695,7 @@ Condition
   // Stat thresolds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
-DamageType "damage type"
+SkillType "skill type"
   = "PHY"
   / "WHT"
   / "BLK"
@@ -704,8 +704,8 @@ DamageType "damage type"
   / "NAT"
   / "NIN"
 
-DamageTypeList "damage type list"
-  = head:DamageType tail:(OrList DamageType)* { return util.pegList(head, tail, 1, true); }
+SkillTypeList "skill type list"
+  = head:SkillType tail:(OrList SkillType)* { return util.pegList(head, tail, 1, true); }
 
 Element "element"
   = "Fire"
@@ -754,7 +754,7 @@ Maximum = "maximum" / "max" "."?
 // "x + yn"
 UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return { x, y }; }
 
-//---------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // Primitive types
 
 AndList
