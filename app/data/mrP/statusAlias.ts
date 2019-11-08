@@ -1,5 +1,5 @@
 import { allEnlirElements, allEnlirSchools } from '../enlir';
-import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './types';
+import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import { lowerCaseFirst, percentToMultiplier, toMrPGeneral, toMrPKilo } from './util';
 
 export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';

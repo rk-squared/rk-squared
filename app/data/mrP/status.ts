@@ -34,7 +34,7 @@ import {
   getShortName,
   getShortNameWithSpaces,
   XRegExpNamedGroups,
-} from './types';
+} from './typeHelpers';
 import {
   andJoin,
   andList,

@@ -14,7 +14,7 @@ import {
 } from '../../data/enlir';
 import { formatMrP, MrPSoulBreak } from '../../data/mrP';
 import { formatBraveCommands } from '../../data/mrP/brave';
-import { getSchoolShortName, getShortName } from '../../data/mrP/types';
+import { getSchoolShortName, getShortName } from '../../data/mrP/typeHelpers';
 
 export const styles = require('./SoulBreakShared.scss');
 

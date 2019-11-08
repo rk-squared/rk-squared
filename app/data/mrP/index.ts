@@ -50,7 +50,7 @@ import {
   getShortName,
   MrPDamageType,
   XRegExpNamedGroups,
-} from './types';
+} from './typeHelpers';
 import {
   countMatches,
   describeChances,

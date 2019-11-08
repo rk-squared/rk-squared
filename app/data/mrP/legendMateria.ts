@@ -27,7 +27,7 @@ import {
   formatSchoolOrAbilityList,
   getElementAbbreviation,
   getShortName,
-} from './types';
+} from './typeHelpers';
 import { andList, handleUncertain, percentToMultiplier, toMrPKilo } from './util';
 
 const parseUncertainEnlirStatus = handleUncertain(parseEnlirStatus);

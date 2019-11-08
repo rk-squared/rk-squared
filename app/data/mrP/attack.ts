@@ -20,7 +20,7 @@ import {
   MrPDamageType,
   SB_BAR_SIZE,
   XRegExpNamedGroups,
-} from './types';
+} from './typeHelpers';
 import {
   countMatches,
   describeChances,
