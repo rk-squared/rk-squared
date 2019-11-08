@@ -584,25 +584,6 @@ function applyPatch<T>(
 }
 
 /**
- * Inserts 'causes' for soul breaks that cause imperils.  With 'causes' in the
- * original text, it's too big to fit on one line.  Ideally, we'd make our
- * parser smart enough to handle this, but too much code keys off of it.
- */
-function applyCausesImperilPatch<T extends { effects: string }>(
-  lookup: { [s: string]: T },
-  name: string,
-) {
-  applyPatch(
-    lookup,
-    name,
-    item => item.effects.match(/\d+ each\), Imperil /) != null,
-    item => {
-      item.effects = item.effects.replace(/(\d+ each\)), Imperil /, m => m + ', causes Imperil ');
-    },
-  );
-}
-
-/**
  * HACK: Patch Enlir data to make it easier for our text processing.
  */
 function patchEnlir() {
@@ -779,9 +760,6 @@ function patchEnlir() {
         'Four single attacks (0.56 each), grants Desperate Madness and Radiant Shield 100/125/150/175/200/225/250/275/300% to the user scaling with uses';
     },
   );
-  // applyCausesImperilPatch(enlir.soulBreaks, '20660006'); // Zack - Climhazzard Xeno
-  // applyCausesImperilPatch(enlir.soulBreaks, '22100007'); // Laguna - Ragnarok Buster.  TODO - also missing stat buff duration
-  // applyCausesImperilPatch(enlir.soulBreaks, '22810004'); // Nine - Whirling Lance
 
   // Status cleanups.  These too should be fixed up.
   applyPatch(
@@ -906,43 +884,6 @@ function patchEnlir() {
       stasis.effects =
         'ATK, DEF, MAG and RES -70% for 8 seconds, grants Magical Blink 1 and Instant Cast 1 to all allies';
     },
-  );
-
-  // Make synchro commands resemble Squall-type BSBs.
-  applyPatch(
-    enlir.synchroCommands,
-    '30547053',
-    command =>
-      command.effects ===
-      'Six single attacks (0.90 each), grants Wind +50% Boost 1 and Mako Enhance level 1 to the user',
-    command => (command.effects = 'Six single attacks (0.90 each), grants Wind +50% Boost 1'),
-  );
-  applyPatch(
-    enlir.synchroCommands,
-    '30547054',
-    command =>
-      command.effects ===
-      'One single attack (6.00/8.00) if user has Mako Enhance level 0/1, capped at 99999, set Mako Enhance level to 0',
-    command =>
-      (command.effects =
-        'One single attack (6.00/8.00), capped at 99999, scaling with Sonic Rush+ uses, reset'),
-  );
-  // FIXME: Correctly handle conditional Instant ATB 1
-  applyPatch(
-    enlir.synchroCommands,
-    '30546020',
-    command =>
-      command.effects ===
-      '5/10 single attacks (0.80 each) if user has Lightning Aura level 0/1, grants Instant ATB 1 to the user if user has Lightning Aura level 1, set Lightning Aura level to 0',
-    command =>
-      (command.effects = '5/10 single attacks (0.80 each) scaling with Lightning Howl uses, reset'),
-  );
-  applyPatch(
-    enlir.synchroCommands,
-    '30546022',
-    command =>
-      command.effects === 'Three single attacks (0.80 each), grants Lightning Aura to the user',
-    command => (command.effects = 'Three single attacks (0.80 each)'),
   );
 
   // Make the Odin 4* ability resemble a more standard status ailment.

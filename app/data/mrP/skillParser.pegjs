@@ -23,7 +23,7 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCast / Chain / Mimic
-  / StatMod / StatusEffect / ImperilStatusEffect
+  / StatMod / StatusEffect / ImperilStatusEffect / SetStatusLevel
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset / StandaloneHitRate
 
 //---------------------------------------------------------------------------
@@ -148,7 +148,7 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -165,6 +165,11 @@ AdditionalCrit
 
 AirTime
   = "air" _ "time" _ "(" airTime:DecimalNumberSlashList _ "sec."? ")" _ condition:Condition? { return util.addCondition({ airTime }, condition, 'airTimeCondition'); }
+
+// Alternate overstrike - appears within extras instead of immediately after
+// attacks.  Seen in Cloud's SASB.
+AlternateOverstrike
+  = "capped" _ "at" _ "99999" { return { isOverstrike: true }; }
 
 AlwaysCrits
   = "always" _ "deals" _ "a" _ "critical" _ "hit" { return { alwaysCrits: true }; }
@@ -375,8 +380,12 @@ Mimic
 // Status effects
 
 StatusEffect
-  = verb:StatusVerb _ statuses:StatusList {
-    return { type: 'status', verb, statuses };
+  = verb:StatusVerb _ all:"all"? _ statuses:StatusList {
+    const result = { type: 'status', verb, statuses };
+    if (all) {
+      result.all = true;
+    }
+    return result;
   }
 
 StatusVerb
@@ -390,7 +399,7 @@ StatusList
   }
 
 StatusWithPercent
-  = status:(SmartEtherStatus / StatusName)
+  = status:(SmartEtherStatus / StatusLevel / StatusName)
     chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )?
     statusClauses:StatusClause*
   {
@@ -415,6 +424,11 @@ StatusName "status effect"
     return text();
   }
 
+StatusLevel "status with level"
+  = status:StatusName _ "level" _ value:Integer {
+    return { type:'statusLevel', status, value };
+  }
+
 StatusClause
   = _ clause:(
     duration:Duration { return { duration }; }
@@ -433,6 +447,11 @@ StatusClause
 ImperilStatusEffect
   = & "Imperil" statuses:StatusList {
     return { type: 'status', verb: 'causes', statuses };
+  }
+
+SetStatusLevel
+  = "set"i _ status:StatusName _ "level" _ "to" _ value:Integer {
+    return { type: 'setStatusLevel', status, value };
   }
 
 
@@ -540,7 +559,7 @@ GenericName
   ) {
     return text();
   }
-GenericNameWord = ([A-Z] [a-zA-Z-'/]* (':' / '...' / '!')?)
+GenericNameWord = ([A-Z] [a-zA-Z-'/]* (':' / '...' / '!' / '+')?)
 
 Duration
   = "for" _ value:Integer _ units:DurationUnits {
@@ -585,6 +604,13 @@ Who
 
 Condition
   = "when" _ "equipping" _ "a" "n"? _ equipped:[a-z- ]+ { return { type: 'equipped', equipped: equipped.join('') }; }
+
+  // "Level-like" or "counter-like" statuses, as seen on newer moves like
+  // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
+  // to go before general statuses.
+  / "scaling" _ "with" _ status:StatusName _ "level" { return { type: 'scaleWithStatusLevel', status }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusName _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
+  / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
 
   // If Doomed - overlaps with the general status support below
   / ("if" _ "the" _ "user" _ "has" _ "any" _ "Doom" / "with" _ "any" _ "Doom") { return { type: 'ifDoomed' }; }
