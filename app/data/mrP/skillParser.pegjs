@@ -24,7 +24,8 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCastAbility / RandomCastOther / Chain / Mimic
   / StatMod / StatusEffect / ImperilStatusEffect / SetStatusLevel
-  / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset / StandaloneHitRate
+  / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
+  / CastTimePerUse / StandaloneHitRate
 
 //---------------------------------------------------------------------------
 // Attacks
@@ -102,7 +103,8 @@ AttackMultiplierGroup
     hybridDamageMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
     scaleToMultiplier:('~' n:DecimalNumber { return n; })?
     _ "each"?
-    _ multiplierScaleType:MultiplierScaleType? {
+    _ multiplierScaleType:MultiplierScaleType?
+    _ damageType:("physical" / "magical")? {
     const result = {
       attackMultiplier,
     };
@@ -117,6 +119,11 @@ AttackMultiplierGroup
     }
     if (multiplierScaleType) {
       result.multiplierScaleType = multiplierScaleType;
+    }
+    if (damageType) {
+      // Damage types are only overridden for Dirty Trick.  That's very niche.
+      // Assume PHY and BLK.
+      result.overrideDamageType = damageType === 'physical' ? 'PHY' : 'BLK';
     }
     return result;
   }
@@ -148,7 +155,7 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHP / AttackStatusChance / CastTime / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -213,6 +220,11 @@ OrMultiplier
 OrNumAttacks
   = orNumAttacks:NumAttacks _ ("attacks") _ orNumAttacksCondition:Condition {
     return { orNumAttacks, orNumAttacksCondition };
+  }
+
+OverrideElement
+  = "that" _ "deals" _ overrideElement:Element _ "damage" {
+    return { overrideElement };
   }
 
 Piercing
@@ -518,6 +530,9 @@ ResistViaKO
 Reset
   = "reset" { return { type: 'reset' }; }
 
+CastTimePerUse
+  = "cast" _ "time" _ "-" castTime:DecimalNumber _ "for" _ "each" _ "previous" _ "use" { return { type: 'castTimePerUse', castTimePerUse: -castTime }; }
+
 // Hit rate not associated with an attack
 StandaloneHitRate
   = hitRate:HitRate { return { type: 'hitRate', ...hitRate }; }
@@ -554,8 +569,8 @@ GenericName
         // Articles, etc., are okay, but use &' ' to make sure they're at a word bounary.
         / (('in' / 'or' / 'of' / 'the' / 'with' / '&' /'a') & ' ')
 
-        / SignedIntegerSlashList '%'?
-        / [=*]? IntegerSlashList '%'?
+        / SignedIntegerSlashList [%+]?
+        / [=*]? IntegerSlashList [%+]?
         / '(' [A-Za-z-0-9/]+ ')'
       )
     )*
@@ -618,6 +633,7 @@ Condition
   // If Doomed - overlaps with the general status support below
   / ("if" _ "the" _ "user" _ "has" _ "any" _ "Doom" / "with" _ "any" _ "Doom") { return { type: 'ifDoomed' }; }
 
+  // General status
   / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusName (OrList StatusName)* { return text(); }) {
     return {
       type: 'status',
@@ -633,6 +649,8 @@ Condition
   / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
+
+  / "after" _ useCount:UseCount _ skill:AnySkillName _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
 
   // Beginning of attack-specific conditions
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
@@ -732,6 +750,9 @@ SchoolList "element list"
 
 SB = "Soul" _ "Break" / "SB"
 Maximum = "maximum" / "max" "."?
+
+// "x + yn"
+UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return { x, y }; }
 
 //---------------------------------------------------------------------------
 // Primitive types
