@@ -25,7 +25,7 @@ import {
   SB_BAR_SIZE,
 } from './typeHelpers';
 import * as types from './types';
-import { describeChances, toMrPFixed } from './util';
+import { describeChances, joinOr, toMrPFixed } from './util';
 
 // Source for convergent mechanics:
 // https://www.reddit.com/r/FFRecordKeeper/comments/6eldg4/change_to_convergent_attacks_mechanics/
@@ -245,6 +245,9 @@ function getAttackCount({
 /**
  * Describes the "attack" portion of an Enlir skill.
  *
+ * FIXME: Refactor with describeAttack
+ * FIXME: Reimplement use of prereqStatus
+ *
  * @param skill The containing Enlir skill JSON
  * @param attack The parsed attack
  * @param prereqStatus A status that must be present for this skill to
@@ -443,7 +446,7 @@ export function describeAttack(
     attack.overrideElement ? [attack.overrideElement] : skill.element,
     opt.abbreviate ? getElementAbbreviation : getElementShortName,
   );
-  damage += attack.isRanged ? ' rngd' : '';
+  damage += attack.isRanged && !attack.isJump ? ' rngd' : '';
   damage += attack.isJump ? ' jump' : '';
   damage += attack.isOverstrike ? ' overstrike' : '';
   damage += opt.includeSchool && school ? ' ' + getSchoolShortName(school) : '';
@@ -508,4 +511,39 @@ export function describeAttack(
   damage += isNat(skill) ? ' (NAT)' : '';
 
   return damage;
+}
+
+export function describeFixedAttack(attack: types.FixedAttack): string {
+  const { numAttacks } = attack;
+
+  let randomChances: string | undefined;
+  let fixedDamage: string;
+  if (isRandomNumAttacks(numAttacks)) {
+    [randomChances, fixedDamage] = describeRandomDamage(
+      n => (n === 1 ? attack.fixedDamage.toString() : attack.fixedDamage * n + '/' + n),
+      numAttacks,
+    );
+  } else {
+    const n = forceScalar(numAttacks, 'describeFixedAttack numAttacks');
+    fixedDamage = attack.fixedDamage * n + addNumAttacks(n);
+  }
+
+  let damage = '';
+  damage += attack.isAoE ? 'AoE ' : '';
+  damage += randomChances ? randomChances + ' ' : '';
+  damage += fixedDamage + ' fixed dmg';
+
+  return damage;
+}
+
+export function describeRandomFixedAttack(attack: types.RandomFixedAttack): string {
+  return joinOr(attack.fixedDamage) + ' fixed dmg';
+}
+
+export function describeGravityAttack({ damagePercent }: types.GravityAttack): string {
+  return damagePercent + '% curr HP dmg';
+}
+
+export function describeHpAttack({ multiplier }: types.HpAttack): string {
+  return multiplier + ' ⋅ (max HP - curr HP) dmg';
 }

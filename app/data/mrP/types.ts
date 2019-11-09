@@ -149,6 +149,7 @@ export interface RecoilHp {
   type: 'recoilHp';
   damagePercent: number | number[];
   maxOrCurrent: 'max' | 'curr';
+  condition?: Condition;
 }
 
 export interface GravityAttack {
@@ -338,7 +339,7 @@ export interface Reset {
 
 export interface CastTime {
   type: 'castTime';
-  castTime: number;
+  castTime: number | number[];
   condition: Condition;
 }
 

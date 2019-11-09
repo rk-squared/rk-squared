@@ -168,6 +168,14 @@ export function numberWithCommas(x: number): string {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
+export function joinOr<T>(items: T[]): string {
+  if (items.length === 1) {
+    return '' + items[0];
+  } else {
+    return items.slice(0, -1).join(', ') + ' or ' + items[items.length - 1];
+  }
+}
+
 export const enDashJoin = ' – ';
 
 interface SlashMergeOptions {

@@ -130,11 +130,11 @@ AttackType
   = "group" / "random" / "single"
 
 AttackModifiers
-  = modifiers:(_ ("hybrid" / "rang." / "ranged" / "jump"))* {
+  = modifiers:(_ modifier:("hybrid" / "rang." / "ranged" / "jump") { return modifier; })* {
     return {
       hybrid: modifiers.indexOf('hybrid') !== -1,
       ranged: modifiers.indexOf('ranged') !== -1 || modifiers.indexOf('rang.') !== -1,
-      jump: modifiers.indexOf('hybrid') !== -1,
+      jump: modifiers.indexOf('jump') !== -1,
     };
   }
 
@@ -153,7 +153,7 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHp / AttackStatusChance / CastTime / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHp / AttackStatusChance / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -340,6 +340,7 @@ SmartEtherStatus
 // --------------------------------------------------------------------------
 // "Randomly casts"
 
+// Cast a random spell / skill from a short list
 RandomCastAbility
   = "randomly"i _ "casts" _ abilities:RandomAbilityList { return { type: 'randomCastAbility', abilities }; }
 
@@ -354,8 +355,9 @@ RandomAbility
     };
   }
 
+// Gau's Rage - use a random Other skill
 RandomCastOther
-  = "Casts"i _ "a" _ "random" _ other:AnySkillName _ "attack" { return { type: 'randomCastOther', other }; }
+  = "casts"i _ "a" _ "random" _ other:AnySkillName _ "attack" { return { type: 'randomCastOther', other }; }
 
 
 // --------------------------------------------------------------------------
