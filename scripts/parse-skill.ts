@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import * as yargs from 'yargs';
 
 import { enlir, EnlirSkill, tierOrder } from '../app/data/enlir';
-import { describeEnlirSkill, formatMrP } from '../app/data/mrp/skill';
+import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrp/skill';
 import { parse, SyntaxError } from '../app/data/mrp/skillParser';
 import { SkillEffect } from '../app/data/mrP/types';
 
@@ -99,8 +99,8 @@ function processEffects<T extends EnlirSkill>(
       console.log(i.effects);
       if (parseResults) {
         console.dir(parseResults, { depth: null });
-        const mrP = describeEnlirSkill(i);
-        const text = formatMrP(mrP);
+        const mrP = convertEnlirSkillToMrP(i);
+        const text = formatMrPSkill(mrP);
         console.log(text);
       }
       if (parseError) {
