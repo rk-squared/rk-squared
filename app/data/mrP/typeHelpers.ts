@@ -1,6 +1,39 @@
 import { arrayify } from '../../utils/typeUtils';
-import { EnlirElement, EnlirSchool, isEnlirElement, isEnlirSchool } from '../enlir';
+import {
+  EnlirBurstCommand,
+  EnlirElement,
+  EnlirSchool,
+  EnlirSynchroCommand,
+  isEnlirElement,
+  isEnlirSchool,
+} from '../enlir';
 import { andOrList } from './util';
+
+export interface DescribeOptions {
+  abbreviate: boolean;
+  abbreviateDamageType: boolean;
+  showNoMiss: boolean;
+  includeSchool: boolean;
+  includeSbPoints: boolean;
+
+  prereqStatus: string | undefined;
+  burstCommands: EnlirBurstCommand[] | undefined;
+  synchroCommands: EnlirSynchroCommand[] | undefined;
+}
+
+export function getDescribeOptionsWithDefaults(options: Partial<DescribeOptions>): DescribeOptions {
+  return {
+    abbreviate: false,
+    abbreviateDamageType: false,
+    showNoMiss: true,
+    includeSchool: true,
+    includeSbPoints: true,
+    prereqStatus: undefined,
+    burstCommands: undefined,
+    synchroCommands: undefined,
+    ...options,
+  };
+}
 
 export interface XRegExpNamedGroups {
   [groupName: string]: string;
@@ -77,10 +110,12 @@ export function appendElement(
   return element && element.length ? ' ' + f(element) : '';
 }
 
-export function formatSchoolOrAbilityList(list: string): string {
+export function formatSchoolOrAbilityList(list: string | string[]): string {
+  if (!Array.isArray(list)) {
+    list = list.split(andOrList);
+  }
   return (
     list
-      .split(andOrList)
       .map(getShortName)
       .join('/')
       // Hack: Special-case the list of all elements, as observed in Ovelia's
@@ -108,4 +143,10 @@ export function getShortNameWithSpaces(s: string): string {
     }
   }
   return result;
+}
+
+export function hyphenJoin(numberList: number | number[]): string {
+  return arrayify(numberList)
+    .map(n => (isNaN(n) ? '?' : n.toString()))
+    .join(' - ');
 }

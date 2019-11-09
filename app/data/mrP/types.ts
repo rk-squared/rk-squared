@@ -35,18 +35,20 @@ export type EffectClause =
   | ResetIfKO
   | ResistViaKO
   | Reset
+  | CastTime
   | CastTimePerUse
   | StandaloneHitRate;
 
 // --------------------------------------------------------------------------
 // Attacks
 
-export interface Attack extends AttackMultiplierGroup, AttackExtras {
+export interface Attack extends Partial<AttackMultiplierGroup>, AttackExtras {
   type: 'attack';
   numAttacks: NumAttacks;
   isOverstrike?: boolean;
   scaleType?: AttackScaleType;
   isAoE?: boolean;
+  isHybrid?: boolean;
   isJump?: boolean;
   isRanged?: boolean;
 }
@@ -110,9 +112,6 @@ export interface AttackExtras {
     duration: Duration;
     condition?: Condition;
   };
-
-  castTime?: number | number[];
-  castTimeCondition?: Condition;
 
   damageModifier?: number | number[];
   damageModifierCondition?: Condition;
@@ -337,6 +336,12 @@ export interface Reset {
   type: 'reset';
 }
 
+export interface CastTime {
+  type: 'castTime';
+  castTime: number;
+  condition: Condition;
+}
+
 export interface CastTimePerUse {
   type: 'castTimePerUse';
   castTimePerUse: number;
@@ -372,19 +377,18 @@ export type Who =
   | 'allyWithKO';
 
 export type Condition =
-  | { type: 'equipped'; equipped: string }
+  | { type: 'equipped'; article: string; equipped: string }
   | { type: 'scaleWithStatusLevel'; status: StatusName }
   | { type: 'statusLevel'; status: StatusName; value: number | number[] }
   | { type: 'ifDoomed' }
-  | { type: 'status'; status: StatusName; who: Who; any: boolean }
+  | { type: 'status'; status: StatusName; who: 'self' | 'target'; any: boolean }
   | { type: 'scaleUseCount'; useCount: number | number[] }
   | { type: 'scaleWithUses' }
   | { type: 'scaleWithSkillUses'; skill: string }
   | { type: 'afterUseCount'; skill: string; useCount: number[] }
   | { type: 'alliesAlive' }
-  | { type: 'characterAlive'; character: string }
-  | { type: 'characterAlive'; character: string; count: number | number[] }
-  | { type: 'characterInParty'; character: string }
+  | { type: 'characterAlive'; character: string; count?: number | number[] }
+  | { type: 'characterInParty'; character: string; count?: number | number[] }
   | { type: 'females'; count: number | number[] }
   | { type: 'alliesJump'; count: number | number[] }
   | { type: 'doomTimer'; value: number | number[] }

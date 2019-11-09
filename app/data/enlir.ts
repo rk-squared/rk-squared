@@ -1189,3 +1189,7 @@ export function getNormalSBPoints(ability: EnlirAbility): number {
   const checkElemental = isElemental ? checkSpeed.elemental : checkSpeed.nonElemental;
   return checkElemental[ability.rarity];
 }
+
+export function isNat(skill: EnlirSkill): boolean {
+  return skill.type === 'NAT' && skill.formula !== 'Hybrid';
+}

@@ -20,7 +20,7 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / RandomCastAbility / RandomCastOther / Chain / Mimic
   / StatMod / StatusEffect / ImperilStatusEffect / SetStatusLevel
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
-  / CastTimePerUse / StandaloneHitRate
+  / CastTime / CastTimePerUse / StandaloneHitRate
 
 // --------------------------------------------------------------------------
 // Attacks
@@ -45,6 +45,9 @@ Attack
     }
     if (attackType === 'group') {
       result.isAoE = true;
+    }
+    if (modifiers.hybrid) {
+      result.isHybrid = true;
     }
     if (modifiers.jump) {
       result.isJump = true;
@@ -184,9 +187,6 @@ AttackStatusChance
   = chance:IntegerSlashList '%' _ "chance" _ "to" _ "cause" _ status:StatusName _ duration:Duration? _ condition:Condition? {
     return { status: util.addCondition({ status, chance, duration }, condition) };
   }
-
-CastTime
-  = "cast" _ "time" _ castTime:DecimalNumberSlashList _ condition:Condition { return { castTime, castTimeCondition: condition }; }
 
 DamageModifier
   = damageModifier:IntegerWithNegativesSlashList "%" _ "more" _ "damage" _ condition:Condition { return { damageModifier, damageModifierCondition: condition }; }
@@ -528,6 +528,9 @@ ResistViaKO
 Reset
   = "reset" { return { type: 'reset' }; }
 
+CastTime
+  = "cast" _ "time" _ castTime:DecimalNumberSlashList _ condition:Condition { return { type: 'castTime', castTime, condition }; }
+
 CastTimePerUse
   = "cast" _ "time" _ "-" castTime:DecimalNumber _ "for" _ "each" _ "previous" _ "use" { return { type: 'castTimePerUse', castTimePerUse: -castTime }; }
 
@@ -621,7 +624,7 @@ Who
   / "to" _ "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
 
 Condition
-  = "when" _ "equipping" _ "a" "n"? _ equipped:[a-z- ]+ { return { type: 'equipped', equipped: equipped.join('') }; }
+  = "when" _ "equipping" _ article:("a" "n"? { return text(); }) _ equipped:[a-z- ]+ { return { type: 'equipped', article, equipped: equipped.join('') }; }
 
   // "Level-like" or "counter-like" statuses, as seen on newer moves like
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
@@ -656,7 +659,7 @@ Condition
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
   / "if" _ character:CharacterNameList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
   / "if" _ count:IntegerSlashList _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
-  / "if" _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character }; }
+  / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
 
@@ -753,6 +756,7 @@ Maximum = "maximum" / "max" "."?
 
 // "x + yn"
 UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return { x, y }; }
+
 
 // --------------------------------------------------------------------------
 // Primitive types

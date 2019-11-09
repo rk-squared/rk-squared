@@ -1,15 +1,12 @@
 import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
-import {
-  EnlirBurstCommand,
-  EnlirElement,
-  EnlirSchool,
-  EnlirSkill,
-  EnlirSynchroCommand,
-} from '../enlir';
+import { assertNever } from '../../utils/typeUtils';
+import { EnlirElement, EnlirSchool, EnlirSkill } from '../enlir';
+import { describeAttack } from './attack';
 import * as skillParser from './skillParser';
-import { SkillEffect } from './types';
+import { DescribeOptions, getDescribeOptionsWithDefaults } from './typeHelpers';
+import * as types from './types';
 
 export interface MrPSkill {
   // Time markers.  We could simply pass the time value itself, but this lets
@@ -37,37 +34,16 @@ export interface MrPSkill {
   synchroCondition?: Array<EnlirElement | EnlirSchool>;
 }
 
-interface DescribeOptions {
-  abbreviate: boolean;
-  abbreviateDamageType: boolean;
-  showNoMiss: boolean;
-  includeSchool: boolean;
-  includeSbPoints: boolean;
-
-  prereqStatus: string | undefined;
-  burstCommands: EnlirBurstCommand[] | undefined;
-  synchroCommands: EnlirSynchroCommand[] | undefined;
-}
-
 export function describeEnlirSkill(
   skill: EnlirSkill,
   options: Partial<DescribeOptions> = {},
 ): MrPSkill {
-  const opt: DescribeOptions = {
-    abbreviate: false,
-    abbreviateDamageType: false,
-    showNoMiss: true,
-    includeSchool: true,
-    includeSbPoints: true,
-    prereqStatus: undefined,
-    burstCommands: undefined,
-    synchroCommands: undefined,
-    ...options,
-  };
+  const opt = getDescribeOptionsWithDefaults(options);
 
   const result: MrPSkill = {};
+  const damage: string[] = [];
 
-  let skillEffects: SkillEffect;
+  let skillEffects: types.SkillEffect;
   try {
     skillEffects = skillParser.parse(skill.effects);
   } catch (e) {
@@ -83,6 +59,7 @@ export function describeEnlirSkill(
       case 'fixedAttack':
         break;
       case 'attack':
+        damage.push(describeAttack(skill, effect, {}));
         break;
       case 'randomFixedAttack':
         break;
@@ -134,15 +111,17 @@ export function describeEnlirSkill(
         break;
       case 'reset':
         break;
+      case 'castTime':
       case 'castTimePerUse':
         break;
       case 'hitRate':
         break;
       default:
-        const check: never = effect;
-        return check;
+        return assertNever(effect);
     }
   }
+
+  result.damage = damage.join(', then');
 
   return result;
 }
