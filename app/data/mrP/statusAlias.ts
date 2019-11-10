@@ -13,11 +13,12 @@ const rawSbPointsBoosterAlias = (multiplierString: string, s: string) =>
 export const rankBoostAlias = (s: string) => `1.05-1.1-1.15-1.2-1.3x ${s} dmg @ rank 1-5`;
 export const rankCastSpeedAlias = (s: string) => `2-3x ${s} cast @ rank 1-5`;
 export const doubleAlias = (s: string) => `double ${s} (uses extra hone)`;
-export const sbPointsAlias = (s: string) => `+${s} SB pts`;
+export const sbPointsAlias = (s: string | number) => `+${s} SB pts`;
 export const sbPointsBoosterAlias = (percent: string | number, s: string) =>
   rawSbPointsBoosterAlias(percentToMultiplier(percent), s);
 
-export const formatRandomEther = (amount: string) => 'refill ' + amount + ' random abil. use';
+export const formatRandomEther = (amount: string | number) =>
+  'refill ' + amount + ' random abil. use';
 export const formatSmartEther = (amount: string, type?: string | undefined) =>
   'refill ' + amount + ' ' + (type ? type + ' ' : '') + 'abil. use';
 

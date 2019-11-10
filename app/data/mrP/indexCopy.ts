@@ -339,6 +339,7 @@ export function describeEnlirSoulBreak(
   };
 
   let m: RegExpMatchArray | null;
+  let chain: string | undefined;
   let damage = '';
 
   const statusInfliction: StatusInfliction[] = [];
@@ -355,6 +356,50 @@ export function describeEnlirSoulBreak(
   const sameRowOther: string[] = [];
   const partyOther: string[] = [];
   const detailOther: string[] = [];
+
+  const attackOpts = {
+    prereqStatus: opt.prereqStatus,
+    burstCommands: opt.burstCommands,
+    synchroCommands: opt.synchroCommands,
+  };
+  const attack = parseEnlirAttack(sb.effects, sb, attackOpts);
+  if (attack) {
+    const [thisDamage, thisStatusInfliction] = describeEnlirAttack(sb, attack, opt);
+    damage = thisDamage;
+    statusInfliction.push(...thisStatusInfliction);
+  }
+
+  // Check for additional / separate attacks.
+  if ((m = sb.effects.match(/\. +Additional (.*)/))) {
+    const attack2 = parseEnlirAttack(m[1], sb, attackOpts);
+    if (attack2) {
+      const [thisDamage, thisStatusInfliction] = describeEnlirAttack(sb, attack2, opt);
+      if (damage) {
+        damage += ', then ';
+      }
+      damage += thisDamage;
+      statusInfliction.push(...thisStatusInfliction);
+    }
+  }
+
+  // A single attack with random fixed damage - this is too hard and weird to
+  // fit into parseEnlirAttack.
+  if ((m = sb.effects.match(/Randomly deals ((?:\d+, )*\d+,? or \d+) damage/))) {
+    damage = m[1] + ' fixed dmg';
+  }
+
+  // A single attack that does HP-based damage - hard and weird, so we
+  // special-case it.
+  if ((m = sb.effects.match(/Damages for (\d+) \* \(user's maximum HP - user's current HP\)/))) {
+    damage = m[1] + ' ⋅ (max HP - curr HP) dmg';
+  }
+
+  // Gravity attacks
+  if (
+    (m = sb.effects.match(/Damages for (\d+)% of the target's current HP, resisted via Instant KO/))
+  ) {
+    damage = m[1] + '% curr HP dmg';
+  }
 
   // Random effects.  In practice, these are always pure damage, so list as
   // damage.
@@ -423,6 +468,15 @@ export function describeEnlirSoulBreak(
     }
   }
 
+  if ((m = sb.effects.match(/Activates (.*?) Chain \(max (\d+), field \+(\d+)%\)/))) {
+    const [, type, max, fieldBonus] = m;
+
+    // Realm names should remain uppercase, but elements should not.
+    chain = (isEnlirElement(type) ? getElementShortName(type) : type) + ' chain';
+    chain += ' ' + toMrPFixed(1 + +fieldBonus / 100) + 'x';
+    chain += ` (max ${max})`;
+  }
+
   if (
     opt.burstCommands &&
     _.some(opt.burstCommands, i =>
@@ -442,6 +496,110 @@ export function describeEnlirSoulBreak(
     );
     if (powerUp !== -1) {
       other.push(`powers up cmd ${powerUp + 1}`);
+    }
+  }
+
+  if (
+    (m = sb.effects.match(
+      /[Rr]estores HP( to all allies| to the user| to the lowest HP% ally)? for (\d+)% of (?:their|the target's|the user's) max\.?(:?imum)? HP/i,
+    ))
+  ) {
+    const [, who, healPercent] = m;
+    const heal = `heal ${healPercent}% HP`;
+    if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(heal);
+    } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
+      selfOther.push(heal);
+    } else if (who === ' to the lowest HP% ally') {
+      other.push('ally ' + heal);
+    } else {
+      // Fallback
+      other.push(heal);
+    }
+  }
+
+  if ((m = sb.effects.match(/(?:heals|restores HP to) the user for (\d+)% of the damage dealt/))) {
+    const [, healPercent] = m;
+    selfOther.push(`heal ${healPercent}% of dmg`);
+  }
+
+  if (
+    (m = sb.effects.match(
+      /damages the user for ([0-9.\/]+)% (max\.?(?:imum)?|current) HP(?: scaling with ([0-9\/]+) uses)?/,
+    ))
+  ) {
+    const [, damagePercent, maxOrCurrent, scalingUses] = m;
+    const description = maxOrCurrent === 'current' ? 'curr' : 'max';
+    const scaling = scalingUses ? ` @ ${scalingUses} uses` : '';
+    selfOther.push(`lose ${damagePercent}% ${description} HP${scaling}`);
+  }
+
+  XRegExp.forEach(sb.effects, healRe, match => {
+    const {
+      healFactor,
+      fixedHp,
+      who,
+      rank,
+      scaleUses,
+      ifAllyAlive,
+    } = (match as unknown) as XRegExpNamedGroups;
+    let heal;
+    if (healFactor) {
+      heal = 'h' + healFactor;
+    } else {
+      heal =
+        'heal ' +
+        fixedHp
+          .split('/')
+          .map(i => toMrPKilo(i, true))
+          .join('/');
+    }
+    if (healFactor && sb.type === 'NAT') {
+      heal += ' (NAT)';
+    }
+    if (rank) {
+      heal += ' @ rank 1-5'; // rank-based healing chase - used by Lenna's AASB
+    }
+    if (scaleUses) {
+      heal += ` @ ${scaleUses} uses`;
+    }
+    if (ifAllyAlive) {
+      heal += ' if ' + ifAllyAlive + ' alive';
+    }
+    if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(heal);
+    } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
+      selfOther.push(heal);
+    } else if (who === ' to the lowest HP% ally') {
+      other.push('ally ' + heal);
+    } else if (isSoulBreak(sb) && sb.target.startsWith('Single')) {
+      // Because medica soul breaks are so common, we'll call out when a SB
+      // only heals one person.
+      other.push('ally ' + heal);
+    } else {
+      // Fallback
+      other.push(heal);
+    }
+  });
+
+  const dispelEsunaRe = /[Rr]emoves (positive|negative) (?:status )?effects( to all allies| to a random ally with negative(?: status)? effects)?/g;
+  while ((m = dispelEsunaRe.exec(sb.effects))) {
+    const [, dispelOrEsuna, who] = m;
+    const effect = dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna';
+    if (!who && attack) {
+      // No need to list an explicit target - it's the same as the attack
+      other.push(effect);
+    } else if (!who && sb.target === 'All enemies') {
+      aoeOther.push(effect);
+    } else if (!who && sb.target.startsWith('Single')) {
+      other.push(effect);
+    } else if (who && who.startsWith(' to a random ally')) {
+      other.push('ally ' + effect);
+    } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(effect);
+    } else {
+      // Fallback
+      other.push(effect);
     }
   }
 
@@ -630,8 +788,194 @@ export function describeEnlirSoulBreak(
     },
   );
 
+  if (
+    (m = sb.effects.match(/[Rr]emoves KO \((\d+)% HP\)( to all allies| to a random ally with KO)?/))
+  ) {
+    const [, percent, who] = m;
+    const revive = `revive @ ${percent}% HP`;
+    if (!who && sb.target.startsWith('Single')) {
+      other.push(revive);
+    } else if (who === ' to a random ally with KO') {
+      other.push('ally ' + revive);
+    } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(revive);
+    } else {
+      // Fallback
+      other.push(revive);
+    }
+  }
+
+  if ((m = sb.effects.match(/Attach (\w+) Stacking/))) {
+    const [, element] = m;
+    other.push(resolveStatusAlias(`Attach ${element} Stacking`) + ' 25s');
+  }
+
+  if ((m = sb.effects.match(/Attach (\w+) (\d+) with Stacking/))) {
+    const [, element, level] = m;
+    other.push(resolveStatusAlias(`Attach ${element} ${level} with Stacking`) + ' 25s');
+  }
+
+  if ((m = sb.effects.match(/Attach (\w+) with Stacking/))) {
+    const [, element] = m;
+    other.push(resolveStatusAlias(`Attach ${element} with Stacking`) + ' 25s');
+  }
+
+  if (
+    (m = sb.effects.match(/Attach (\w+)(?: |,|$)(?! Stacking|\d+ with Stacking|with Stacking)/))
+  ) {
+    const [, element] = m;
+    other.push(resolveStatusAlias(`Attach ${element}`) + ' 25s');
+  }
+
+  if (
+    (m = sb.effects.match(/[Rr]estores (\d+) consumed ability use( to the user| to all allies)?/))
+  ) {
+    const [, amount, who] = m;
+    const ether = formatRandomEther(amount);
+    if (who === ' to the user' || (!who && sb.target === 'Self')) {
+      selfOther.push(ether);
+    } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(ether);
+    } else {
+      // Fallback
+      other.push(ether);
+    }
+  }
+  if ((m = sb.effects.match(/(\w+ )?[Ss]mart (\w+ )?ether (\S+)( to the user| to all allies)?/))) {
+    const [, type1, type2, amount, who] = m;
+
+    // Process type (e.g., "smart summoning ether").  FFRK Community is
+    // inconsistent - sometimes "Summoning smart ether," sometimes
+    // "smart summoning ether."  Some smart ethers are listed as "grants
+    // smart ether" - make sure that "grants" isn't interpreted as a type.
+    // TODO: Fix those inconsistencies?
+    let type: string | undefined = type1 && type1 !== 'and ' ? type1 : type2;
+    if (type && type.match(/grants */i)) {
+      type = undefined;
+    }
+    if (type) {
+      type = getShortName(_.upperFirst(type.trim()));
+    }
+
+    const ether = formatSmartEther(amount, type);
+    if (who === ' to the user' || (!who && sb.target === 'Self')) {
+      selfOther.push(ether);
+    } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(ether);
+    } else {
+      // Fallback
+      other.push(ether);
+    }
+  }
+
+  if (
+    (m = sb.effects.match(
+      /(?:(\d+)% chance to )?[Cc]asts? the last ability used by an ally(.*)?, default ability \(PHY: single, 1.50 physical\)/,
+    ))
+  ) {
+    const [, percentChance, times] = m;
+    let description = 'Mimic';
+    const timesNumber = (times && parseNumberOccurrence(times.trim())) || 1;
+
+    // For brave commands in particular, we'll want to compare with other
+    // numbers, so always include the count.
+    if (timesNumber !== 1 || isBraveCommand(sb)) {
+      description += ` ${timesNumber}x`;
+    }
+
+    if (percentChance) {
+      description = `${percentChance}% chance of ` + description;
+    }
+
+    other.push(description);
+  }
+
+  if (sb.effects.match(/[Tt]ransfers the user's (SB|Soul Break) points to the target/)) {
+    other.push('donate SB pts to target');
+  }
+
+  if (
+    (m = sb.effects.match(
+      /(\d+) (?:SB|Soul Break) points( to the user| to all allies|$)( if successful)?/,
+    ))
+  ) {
+    const [, points, who, ifSuccessful] = m;
+    let description = sbPointsAlias(points);
+    if (ifSuccessful) {
+      description += ' on success';
+    }
+    if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
+      partyOther.push(description);
+    } else if (who === ' to the user' || (!who && sb.target === 'Self')) {
+      // Unlike most effects, use other, not selfOther, here - SB points may
+      // be assumed to be self, so listing self seems redundant.
+      other.push(description);
+    } else if (sb.target.startsWith('Single')) {
+      other.push('ally ' + description);
+    } else {
+      // Fallback
+      other.push(description);
+    }
+  }
+
+  if ('sb' in sb && sb.sb != null) {
+    const sbOther = selfOther.length ? selfOther : other;
+    if (opt.includeSbPoints && sb.sb === 0) {
+      // If we weren't asked to suppress SB points (which we are for follow-ups
+      // and finishers, since those don't generate gauge), then call out
+      // anything that doesn't generate gauge.
+      sbOther.push('no SB pts');
+    } else if (sb.sb >= 150) {
+      // If this skill grants an abnormally high number of SB points, show it.
+      // We set a flat rate of 150 (to get Lifesiphon and Wrath) instead of
+      // trying to track what's normal at each rarity level.
+      sbOther.push(sbPointsAlias(sb.sb.toString()));
+    } else if (isAbility(sb) && sb.sb < getNormalSBPoints(sb)) {
+      // Special case: Exclude abilities like Lightning Jab that have a normal
+      // default cast time but "fast" tier SB generation because they
+      // manipulate cast time.
+      if (!sb.effects.match(/ cast time /)) {
+        sbOther.push('low SB pts');
+      }
+    }
+  }
+
+  if ((m = sb.effects.match(/cast time ([-+]?[0-9.]+) for each previous use/))) {
+    const [, castTime] = m;
+    other.push('cast time ' + castTime + 's per use');
+  }
+  if ((m = sb.effects.match(/cast time ((:?[0-9.]+\/)+[0-9.]+) scaling with uses/))) {
+    const [, castTime] = m;
+    other.push('cast time ' + castTime + ' ' + formatUseCount(castTime.split(/\//).length));
+  }
+
   if (statusInfliction.length) {
     other.splice(0, 0, formatStatusInfliction(statusInfliction));
+  }
+
+  if (
+    isSoulBreak(sb) &&
+    isGlint(sb) &&
+    !damage &&
+    !other.length &&
+    !aoeOther.length &&
+    !partyOther.length &&
+    !detailOther.length
+  ) {
+    // If it's a glint with only self effects, then "self" is redundant.
+    other.push(...checkBurstAndBraveMode(selfOther));
+  } else {
+    appendGroup(other, aoeOther, 'AoE');
+    // Hack: Same row is currently only used for Desch AASB, where it fits
+    // naturally before partyOther.
+    appendGroup(other, sameRowOther, 'same row');
+    appendGroup(other, partyOther, 'party');
+    appendGroup(other, checkBurstAndBraveMode(selfOther), 'self');
+    appendGroup(other, detailOther);
+  }
+
+  if (sb.effects.endsWith(', reset')) {
+    other.push('reset count');
   }
 
   const result: MrPSoulBreak = {
@@ -639,8 +983,102 @@ export function describeEnlirSoulBreak(
     other: other.length ? other.join(', ') : undefined,
   };
 
+  if (sb.time != null) {
+    const time = sb.time;
+    if (time <= 0.01) {
+      result.instant = true;
+    } else if (time < 1.2 || (isSoulBreak(sb) && time <= 1.25)) {
+      result.fast = true;
+    } else if (time >= 3.75 || (!isSoulBreak(sb) && time > 2)) {
+      result.slow = true;
+    }
+  }
+
+  if (chain) {
+    result.chain = chain;
+  }
+  if ('school' in sb) {
+    result.school = sb.school;
+  }
+  if ('schoolDetails' in sb) {
+    result.schoolDetails = sb.schoolDetails;
+  }
+  if (burstToggle != null) {
+    result.burstToggle = burstToggle;
+  }
+
+  if (
+    isSoulBreak(sb) &&
+    isBurstSoulBreak(sb) &&
+    sb.character &&
+    enlir.burstCommandsByCharacter[sb.character] &&
+    enlir.burstCommandsByCharacter[sb.character][sb.name]
+  ) {
+    const burstCommands = enlir.burstCommandsByCharacter[sb.character][sb.name];
+    result.burstCommands = burstCommands.map(i =>
+      describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false, burstCommands }),
+    );
+  }
+  if (
+    isSoulBreak(sb) &&
+    isBraveSoulBreak(sb) &&
+    sb.character &&
+    enlir.braveCommandsByCharacter[sb.character] &&
+    enlir.braveCommandsByCharacter[sb.character][sb.name]
+  ) {
+    const braveCommands = enlir.braveCommandsByCharacter[sb.character][sb.name];
+    result.braveCondition = braveCommands[0].braveCondition;
+    result.braveCommands = braveCommands.map(i =>
+      describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false }),
+    );
+  }
+  if (
+    isSoulBreak(sb) &&
+    isSynchroSoulBreak(sb) &&
+    sb.character &&
+    enlir.synchroCommandsByCharacter[sb.character] &&
+    enlir.synchroCommandsByCharacter[sb.character][sb.name]
+  ) {
+    const synchroCommands = enlir.synchroCommandsByCharacter[sb.character][sb.name];
+    result.synchroCondition = synchroCommands.map(i => i.synchroCondition);
+    result.synchroCommands = synchroCommands.map(i =>
+      describeEnlirSoulBreak(i, { abbreviate: true, includeSchool: false, synchroCommands }),
+    );
+  }
   return result;
 }
 
+interface FormatOptions {
+  showTime: boolean;
+}
+
+function describeMrPTime({ instant, fast, slow }: MrPSoulBreak): string | null {
+  if (instant) {
+    return 'instant';
+  } else if (fast) {
+    return 'fast';
+  } else if (slow) {
+    return 'slow';
+  } else {
+    return null;
+  }
+}
+
+export function formatMrP(mrP: MrPSoulBreak, options: Partial<FormatOptions> = {}): string {
+  const opt: FormatOptions = {
+    showTime: true,
+    ...options,
+  };
+
+  const burstToggleText = mrP.burstToggle == null ? '' : mrP.burstToggle ? 'ON' : 'OFF';
+  let text = _.filter([burstToggleText, mrP.chain, mrP.damage, mrP.other]).join(', ');
+  if (text && opt.showTime) {
+    const time = describeMrPTime(mrP);
+    text = (time ? time + ' ' : '') + text;
+  }
+  return text;
+}
+
+// TODO: Hide school for percent-based finishers?
 // TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
 // TODO: Use × for times; make Unicode selectable?

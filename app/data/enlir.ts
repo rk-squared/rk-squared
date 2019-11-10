@@ -183,6 +183,21 @@ export type EnlirSoulBreakTier =
 export type EnlirStat = 'atk' | 'def' | 'mag' | 'res' | 'mnd' | 'acc' | 'eva';
 export const allEnlirStats: EnlirStat[] = ['atk', 'def', 'mag', 'res', 'mnd', 'acc', 'eva'];
 
+export type EnlirTarget =
+  | 'All allies'
+  | 'All enemies'
+  | 'Ally with status'
+  | 'Another ally'
+  | 'Lowest HP% ally'
+  | 'Random ally'
+  | 'Random enemies'
+  | 'Random enemy'
+  | 'Self'
+  | 'Single ally'
+  | 'Single enemy'
+  | 'Single target'
+  | 'Single';
+
 interface EnlirRelicStats {
   rarity: number;
   level: number;
@@ -199,7 +214,7 @@ export interface EnlirGenericSkill {
   name: string;
   type: EnlirSkillType | null;
   typeDetails?: EnlirSkillType[];
-  target: string;
+  target: EnlirTarget | null;
   formula: EnlirFormula | null;
   multiplier: number | null;
   element: EnlirElement[] | null;

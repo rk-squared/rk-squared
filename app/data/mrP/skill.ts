@@ -1,18 +1,20 @@
 import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
-import { assertNever } from '../../utils/typeUtils';
+import { arrayify, assertNever } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirElement,
   EnlirSchool,
   EnlirSkill,
+  EnlirTarget,
   getNormalSBPoints,
   isAbility,
   isBraveCommand,
   isBraveSoulBreak,
   isBurstSoulBreak,
   isEnlirElement,
+  isGlint,
   isSoulBreak,
   isSynchroSoulBreak,
 } from '../enlir';
@@ -25,14 +27,14 @@ import {
 } from './attack';
 import { appendCondition, describeCondition } from './condition';
 import * as skillParser from './skillParser';
-import { sbPointsAlias } from './statusAlias';
+import { formatRandomEther, formatSmartEther, sbPointsAlias } from './statusAlias';
 import {
   DescribeOptions,
   getDescribeOptionsWithDefaults,
   getElementShortName,
 } from './typeHelpers';
 import * as types from './types';
-import { toMrPFixed } from './util';
+import { toMrPFixed, toMrPKilo } from './util';
 
 function describeChain({ chainType, fieldBonus, max }: types.Chain): string {
   let chain = (isEnlirElement(chainType) ? getElementShortName(chainType) : chainType) + ' chain';
@@ -43,6 +45,23 @@ function describeChain({ chainType, fieldBonus, max }: types.Chain): string {
 
 function describeDrainHp({ healPercent }: types.DrainHp): string {
   return `heal ${healPercent}% of dmg`;
+}
+
+function describeHeal(skill: EnlirSkill, { amount }: types.Heal): string {
+  let heal: string;
+  if ('healFactor' in amount) {
+    heal = 'h' + arrayify(amount.healFactor).join('/');
+  } else {
+    heal =
+      'heal ' +
+      arrayify(amount.fixedHp)
+        .map(i => toMrPKilo(i, true))
+        .join('/');
+  }
+  if ('healFactor' in amount && skill.type === 'NAT') {
+    heal += ' (NAT)';
+  }
+  return heal;
 }
 
 function describeMimic(skill: EnlirSkill, { chance, count }: types.Mimic): string {
@@ -150,6 +169,127 @@ function checkSynchroCommands(skill: EnlirSkill, result: MrPSkill) {
   }
 }
 
+/**
+ * The components of MrPSoulBreak.other, as lists.  We break them up like
+ * this so that we can sort general items (e.g., elemental infuse), then
+ * self statuses, then party statuses, then "details" (e.g., EX modes).
+ */
+class OtherDetail {
+  normal: string[] = [];
+  aoe: string[] = [];
+  self: string[] = [];
+  sameRow: string[] = [];
+  frontRow: string[] = [];
+  backRow: string[] = [];
+  party: string[] = [];
+  ally: string[] = [];
+  misc: string[] = [];
+  detail: string[] = [];
+
+  push(skill: EnlirSkill, who: types.Who | undefined, description: string) {
+    this.getPart(skill, who).push(description);
+  }
+
+  combine(implicitlyTargetsEnemies: boolean, allowImplicitSelf: boolean): string | undefined {
+    let result: string[];
+    if (
+      allowImplicitSelf &&
+      !this.normal.length &&
+      !this.aoe.length &&
+      !this.sameRow.length &&
+      !this.frontRow.length &&
+      !this.backRow.length &&
+      !this.party.length &&
+      !this.ally.length &&
+      !this.detail.length
+    ) {
+      // If, for example, it's a glint with only self effects, then "self" is
+      // redundant.
+      result = [...this.self, ...this.misc];
+    } else {
+      result = [
+        ...this.normal,
+        ...this.makeGroup(this.aoe, implicitlyTargetsEnemies ? undefined : 'AoE'),
+
+        // Hack: Same row is currently only used for Desch AASB, where it fits
+        // naturally before partyOther.
+        ...this.makeGroup(this.sameRow, 'same row'),
+
+        // Front and back row are currently unused.
+        ...this.makeGroup(this.frontRow, 'front row'),
+        ...this.makeGroup(this.backRow, 'back row'),
+
+        ...this.makeGroup(this.ally, 'ally'),
+        ...this.makeGroup(this.party, 'party'),
+        ...this.makeGroup(this.self, 'self'),
+        ...this.misc,
+        ...this.makeGroup(this.detail),
+      ];
+    }
+    return result.length ? result.join(', ') : undefined;
+  }
+
+  private getPart(skill: EnlirSkill, who: types.Who | undefined): string[] {
+    return who ? this.getWhoPart(who) : this.getTargetPart(skill.target);
+  }
+
+  private getTargetPart(target: EnlirTarget | null): string[] {
+    switch (target) {
+      case 'All enemies':
+      case 'Random enemies':
+      case 'Random enemy':
+      case null:
+        return this.normal;
+      case 'Self':
+        return this.self;
+      case 'All allies':
+        return this.party;
+      case 'Single ally':
+      case 'Single enemy':
+      case 'Single target':
+      case 'Single':
+        return this.normal;
+      case 'Ally with status':
+      case 'Another ally':
+      case 'Lowest HP% ally':
+      case 'Random ally':
+        return this.ally;
+    }
+  }
+
+  private getWhoPart(who: types.Who): string[] {
+    switch (who) {
+      case 'self':
+        return this.self;
+      case 'target':
+        return this.normal;
+      case 'enemies':
+        return this.aoe;
+      case 'sameRow':
+        return this.sameRow;
+      case 'frontRow':
+        return this.frontRow;
+      case 'backRow':
+        return this.backRow;
+      case 'party':
+        return this.party;
+      case 'lowestHpAlly':
+      case 'allyWithoutStatus':
+      case 'allyWithNegativeStatus':
+      case 'allyWithKO':
+        return this.ally;
+    }
+  }
+
+  private makeGroup(inGroup: string[], description?: string) {
+    if (inGroup.length) {
+      return [(description ? description + ' ' : '') + inGroup.join(', ')];
+    } else {
+      return [];
+    }
+  }
+}
+
 export interface MrPSkill {
   // Time markers.  We could simply pass the time value itself, but this lets
   // us pull out how it's displayed.
@@ -193,13 +333,7 @@ export function convertEnlirSkillToMrP(
   // self statuses, then party statuses, then "details" (e.g., EX modes).
   //
   // We may start returning these as is so callers can deal with them.
-  const other: string[] = [];
-  const aoeOther: string[] = [];
-  const selfOther: string[] = [];
-  const sameRowOther: string[] = [];
-  const partyOther: string[] = [];
-  const miscOther: string[] = [];
-  const detailOther: string[] = [];
+  const other = new OtherDetail();
 
   let skillEffects: types.SkillEffect;
   try {
@@ -224,10 +358,10 @@ export function convertEnlirSkillToMrP(
         damage.push(describeRandomFixedAttack(effect));
         break;
       case 'drainHp':
-        selfOther.push(describeDrainHp(effect));
+        other.self.push(describeDrainHp(effect));
         break;
       case 'recoilHp':
-        selfOther.push(describeRecoilHp(effect));
+        other.self.push(describeRecoilHp(effect));
         break;
       case 'gravityAttack':
         damage.push(describeGravityAttack(effect));
@@ -236,25 +370,34 @@ export function convertEnlirSkillToMrP(
         damage.push(describeHpAttack(effect));
         break;
       case 'revive':
-        // FIXME: Implement
+        other.push(skill, effect.who, `revive @ ${effect.percentHp}% HP`);
         break;
       case 'heal':
-        // FIXME: Implement
+        // FIXME: Reimplement this logic:
+        // Because medica soul breaks are so common, we'll call out when a SB
+        // only heals one person.
+        other.push(skill, effect.who, describeHeal(skill, effect));
         break;
       case 'healPercent':
-        // FIXME: Implement
+        other.push(skill, effect.who, `heal ${effect.healPercent}% HP`);
         break;
       case 'damagesUndead':
         // Omit - too detailed to include in this output
         break;
       case 'dispelOrEsuna':
-        // FIXME: Implement
+        other.push(skill, effect.who, effect.dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna');
         break;
       case 'randomEther':
         // FIXME: Implement
+        other.push(skill, effect.who, formatRandomEther(effect.amount));
         break;
       case 'smartEther':
-        // FIXME: Implement
+        // FIXME: Turn smart ether statuses into top-level smartEther
+        other.push(
+          skill,
+          effect.who,
+          formatSmartEther(arrayify(effect.amount).join('/'), effect.school),
+        );
         break;
       case 'randomCastAbility':
         // FIXME: Implement
@@ -266,7 +409,7 @@ export function convertEnlirSkillToMrP(
         chain = describeChain(effect);
         break;
       case 'mimic':
-        other.push(describeMimic(skill, effect));
+        other.normal.push(describeMimic(skill, effect));
         break;
       case 'status':
         // FIXME: Implement
@@ -278,23 +421,23 @@ export function convertEnlirSkillToMrP(
         // FIXME: Implement
         break;
       case 'entrust':
-        other.push('donate SB pts to target');
+        other.normal.push('donate SB pts to target');
         break;
       case 'gainSB':
-        // FIXME: Implement
+        other.push(skill, effect.who, sbPointsAlias(effect.points));
         break;
       case 'gainSBOnSuccess':
-        // FIXME: Implement
+        other.push(skill, effect.who, sbPointsAlias(effect.points) + ' on success');
         break;
       case 'resetIfKO':
       case 'resistViaKO':
         // Omit - too detailed to include in this output
         break;
       case 'reset':
-        miscOther.push('reset count');
+        other.misc.push('reset count');
         break;
       case 'castTime':
-        miscOther.push(
+        other.misc.push(
           'cast time ' +
             effect.castTime +
             's ' +
@@ -302,7 +445,7 @@ export function convertEnlirSkillToMrP(
         );
         break;
       case 'castTimePerUse':
-        miscOther.push('cast time ' + effect.castTimePerUse + 's per use');
+        other.misc.push('cast time ' + effect.castTimePerUse + 's per use');
         break;
       case 'hitRate':
         // FIXME: Implement
@@ -315,11 +458,18 @@ export function convertEnlirSkillToMrP(
   {
     const sbEffect = checkSb(skill, skillEffects, opt);
     if (sbEffect) {
-      miscOther.push(sbEffect);
+      other.misc.push(sbEffect);
     }
   }
 
   result.damage = damage.join(', then');
+
+  {
+    const implicitlyTargetsEnemies = damage.length !== 0;
+    const allowImplicitSelf = isSoulBreak(skill) && isGlint(skill) && !damage.length;
+    result.other = other.combine(implicitlyTargetsEnemies, allowImplicitSelf);
+  }
+
   if (chain) {
     result.chain = chain;
   }
