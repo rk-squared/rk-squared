@@ -142,7 +142,7 @@ const getCommandName = <T extends { character: string; source: string; name: str
 function processBurst() {
   return processEffects(
     'burst',
-    _.sortBy(Object.values(enlir.burstCommands), ['character', 'id']),
+    _.sortBy(_.flatten(Object.values(enlir.burstCommands)), ['character', 'id']),
     getCommandName,
   );
 }
@@ -150,7 +150,7 @@ function processBurst() {
 function processBrave() {
   return processEffects(
     'brave',
-    _.sortBy(Object.values(enlir.braveCommands), ['character', 'id']),
+    _.sortBy(_.flatten(Object.values(enlir.braveCommands)), ['character', 'id']),
     getCommandName,
   );
 }
@@ -158,7 +158,7 @@ function processBrave() {
 function processSynchro() {
   return processEffects(
     'synchro',
-    _.sortBy(Object.values(enlir.synchroCommands), ['character', 'id']),
+    _.sortBy(_.flatten(Object.values(enlir.synchroCommands)), ['character', 'id']),
     getCommandName,
   );
 }

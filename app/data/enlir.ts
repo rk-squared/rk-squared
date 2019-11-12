@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';
+import { arrayify } from '../utils/typeUtils';
 
 // TODO: Try removing duplicating in unions and arrays - see https://stackoverflow.com/a/45486495/25507
 
@@ -433,6 +434,10 @@ const rawData = {
 
 // FIXME: Properly update rawData outside of app
 
+interface IdMultimap<T> {
+  [id: string]: T[];
+}
+
 interface CharacterMap<T> {
   [character: string]: T[];
 }
@@ -446,6 +451,19 @@ interface CommandsMap<T> {
   [character: string]: {
     [soulBreak: string]: T[];
   };
+}
+
+/**
+ * As _.keyBy(items, 'id'), but store arrays, to handle non-unique IDs.  Enlir
+ * data may use non-unique IDs for effects like Ignis BSB and Rikku SASB.
+ */
+function makeIdMultimap<T extends { id: number }>(items: T[]): IdMultimap<T> {
+  const result: IdMultimap<T> = {};
+  for (const i of items) {
+    result[i.id] = result[i.id] || [];
+    result[i.id].push(i);
+  }
+  return result;
 }
 
 function makeCharacterMap<T extends { character: string | null }>(
@@ -534,10 +552,10 @@ export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
   abilitiesByName: _.keyBy(rawData.abilities, 'name'),
 
-  braveCommands: _.keyBy(rawData.braveCommands, 'id'),
+  braveCommands: makeIdMultimap(rawData.braveCommands),
   braveCommandsByCharacter: makeCommandsMap(rawData.braveCommands),
 
-  burstCommands: _.keyBy(rawData.burstCommands, 'id'),
+  burstCommands: makeIdMultimap(rawData.burstCommands),
   burstCommandsByCharacter: makeCommandsMap(rawData.burstCommands),
 
   characters: _.keyBy(rawData.characters, 'id'),
@@ -572,7 +590,7 @@ export const enlir = {
 
   statusByName: _.keyBy(rawData.status, 'name'),
 
-  synchroCommands: _.keyBy(rawData.synchroCommands, 'id'),
+  synchroCommands: makeIdMultimap(rawData.synchroCommands),
   synchroCommandsByCharacter: makeCommandsMap(rawData.synchroCommands),
 
   relicSoulBreaks: makeRelicMap(rawData.relics, 'soulBreak', rawData.soulBreaks),
@@ -581,7 +599,7 @@ export const enlir = {
 };
 
 function applyPatch<T>(
-  lookup: { [s: string]: T },
+  lookup: { [s: string]: T | T[] },
   name: string,
   check: (item: T) => boolean,
   apply: (item: T) => void,
@@ -590,16 +608,18 @@ function applyPatch<T>(
     logger.warn(`Failed to patch ${name}: could not find item`);
     return;
   }
-  const item = lookup[name];
-  if (!check(item)) {
-    logger.warn(`Failed to patch ${name}: item does not match expected contents`);
-    return;
+  for (const item of arrayify(lookup[name])) {
+    if (!check(item)) {
+      logger.warn(`Failed to patch ${name}: item does not match expected contents`);
+    } else {
+      apply(item);
+    }
   }
-  apply(item);
 }
 
 /**
  * HACK: Patch Enlir data to make it easier for our text processing.
+ * FIXME: See how many of these can be removed now that we have a real parser
  */
 function patchEnlir() {
   // Pluto Knight Triblade is a very difficult effect to parse.  By revising its
