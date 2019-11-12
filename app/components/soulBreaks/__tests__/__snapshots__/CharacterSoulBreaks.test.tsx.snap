@@ -35,7 +35,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Impulse Drive
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             lgt chain 1.2x (max 99), phys 7.92/22 lgt jump
           </td>
         </tr>
@@ -52,7 +54,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             “Sanguined Dragoon”
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 9.0/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 15s: (3 lgt ⤇ p5.28 l+n rngd overstrike Dragoon)
           </td>
         </tr>
@@ -99,7 +103,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Lance of the Dragon
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap +20k 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
           </td>
         </tr>
@@ -116,7 +122,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Dragon's Wrath
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 7.2/10 lgt jump, lgt infuse 25s, self no air time 2 turns
           </td>
         </tr>
@@ -127,7 +135,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td>
             [Dragoon], +1 on Dragoon
           </td>
-          <td>
+          <td
+            className="command"
+          >
             p1.92 – 3.25 – 6.5 – 10.15 l jump, overstrike at brv.1+
           </td>
         </tr>
@@ -144,7 +154,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Luminous Dragon
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 7.1/10 lgt+non jump, lgt infuse 25s, self jump instacast 15s, +30% ATK/DEF 25s
           </td>
         </tr>
@@ -161,7 +173,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Dragoon Dive
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 24.0/3 lgt jump overstrike
           </td>
         </tr>
@@ -178,7 +192,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Kain's Lance
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 10.5 lgt+non jump overstrike, up to p14.5 w/ Dragoon used
           </td>
         </tr>
@@ -195,7 +211,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Dragon's Descent
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             instant no air time 15s, instacast 1
           </td>
         </tr>
@@ -212,7 +230,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             “Lightning Rise”
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             instant lgt infuse stacking 25s, lgt infuse 25s, self hi fastcast 2
           </td>
         </tr>
@@ -229,7 +249,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Dragoon's Pride
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             AoE phys 5.0/4 lgt+non jump, lgt infuse 25s
           </td>
         </tr>
@@ -245,7 +267,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="command"
           >
-            [p2.06/2 l rngd, self no air time 2 turns]
+            [p2.06/​2 l rngd, self no air time 2 turns]
           </td>
         </tr>
         <tr
@@ -260,7 +282,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="command"
           >
-            [p2.06/2 l rngd, self refill 1 abil. use]
+            [p2.06/​2 l rngd, self refill 1 abil. use]
           </td>
         </tr>
         <tr
@@ -276,7 +298,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Rising Drive
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 7.8/4 jump, self no air time 3 turns
           </td>
         </tr>
@@ -293,7 +317,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             “Unmatched Triple Assault”
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 5.16/3, 100% Paralyze
           </td>
         </tr>
@@ -310,7 +336,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Gungnir
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 5.0 jump, -50% DEF/RES 25s
           </td>
         </tr>
@@ -327,7 +355,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Lancet
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 4.0, self heal 50% of dmg
           </td>
         </tr>
@@ -348,7 +378,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Dragoon Resolute
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             25% dualcast Dragoon
           </td>
         </tr>
@@ -369,7 +401,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Weak No More
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             lgt infuse at battle start
           </td>
         </tr>
@@ -390,7 +424,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Dragoon's Essence
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             1.25x Dragoon dmg if using a spear
           </td>
         </tr>
@@ -411,7 +447,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Soaring Dragoon
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             +2% ATK (max +50%) per jump hit
           </td>
         </tr>
@@ -432,7 +470,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           >
             Echoing Roar
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             1.1x lgt dmg
           </td>
         </tr>
@@ -477,7 +517,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Impulse Drive
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             lgt chain 1.2x (max 99), phys 7.92/22 lgt jump
           </td>
         </tr>
@@ -494,7 +536,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             “Sanguined Dragoon”
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 9.0/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 15s: (3 lgt ⤇ p5.28 l+n rngd overstrike Dragoon)
           </td>
         </tr>
@@ -541,7 +585,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Lance of the Dragon
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap +20k 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
           </td>
         </tr>
@@ -558,7 +604,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Dragon's Wrath
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 7.2/10 lgt jump, lgt infuse 25s, self no air time 2 turns
           </td>
         </tr>
@@ -569,7 +617,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td>
             [Dragoon], +1 on Dragoon
           </td>
-          <td>
+          <td
+            className="command"
+          >
             p1.92 – 3.25 – 6.5 – 10.15 l jump, overstrike at brv.1+
           </td>
         </tr>
@@ -586,7 +636,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Luminous Dragon
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 7.1/10 lgt+non jump, lgt infuse 25s, self jump instacast 15s, +30% ATK/DEF 25s
           </td>
         </tr>
@@ -603,7 +655,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Dragoon Dive
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 24.0/3 lgt jump overstrike
           </td>
         </tr>
@@ -620,7 +674,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Kain's Lance
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 10.5 lgt+non jump overstrike, up to p14.5 w/ Dragoon used
           </td>
         </tr>
@@ -637,7 +693,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Dragon's Descent
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             instant no air time 15s, instacast 1
           </td>
         </tr>
@@ -654,7 +712,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             “Lightning Rise”
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             instant lgt infuse stacking 25s, lgt infuse 25s, self hi fastcast 2
           </td>
         </tr>
@@ -671,7 +731,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Dragoon's Pride
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             AoE phys 5.0/4 lgt+non jump, lgt infuse 25s
           </td>
         </tr>
@@ -687,7 +749,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="command"
           >
-            [p2.06/2 l rngd, self no air time 2 turns]
+            [p2.06/​2 l rngd, self no air time 2 turns]
           </td>
         </tr>
         <tr
@@ -702,7 +764,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="command"
           >
-            [p2.06/2 l rngd, self refill 1 abil. use]
+            [p2.06/​2 l rngd, self refill 1 abil. use]
           </td>
         </tr>
         <tr
@@ -718,7 +780,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Rising Drive
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 7.8/4 jump, self no air time 3 turns
           </td>
         </tr>
@@ -735,7 +799,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             “Unmatched Triple Assault”
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 5.16/3, 100% Paralyze
           </td>
         </tr>
@@ -752,7 +818,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Gungnir
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 5.0 jump, -50% DEF/RES 25s
           </td>
         </tr>
@@ -769,7 +837,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Lancet
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             phys 4.0, self heal 50% of dmg
           </td>
         </tr>
@@ -790,7 +860,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Dragoon Resolute
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             25% dualcast Dragoon
           </td>
         </tr>
@@ -811,7 +883,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Weak No More
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             lgt infuse at battle start
           </td>
         </tr>
@@ -832,7 +906,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Dragoon's Essence
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             1.25x Dragoon dmg if using a spear
           </td>
         </tr>
@@ -853,7 +929,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Soaring Dragoon
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             +2% ATK (max +50%) per jump hit
           </td>
         </tr>
@@ -874,7 +952,9 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           >
             Echoing Roar
           </td>
-          <td>
+          <td
+            className="effects"
+          >
             1.1x lgt dmg
           </td>
         </tr>

@@ -29,7 +29,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
         className="thead-dark"
       >
         <th
-          colSpan={7}
+          colSpan={5}
         >
           Featured Relics
           <span
@@ -565,7 +565,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         className="thead-dark"
       >
         <th
-          colSpan={8}
+          colSpan={6}
         >
           Featured Relics
           <span
@@ -1161,7 +1161,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
         className="thead-dark"
       >
         <th
-          colSpan={7}
+          colSpan={5}
         >
           Featured Relics
         </th>
