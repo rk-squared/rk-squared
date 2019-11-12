@@ -462,8 +462,6 @@ function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
 
 /**
  * Maps from relic IDs (equipment IDs) to soul breaks or legend materia.
- *
- * NOTE: Does not include shared soul breaks.
  */
 function makeRelicMap<T extends { character: string | null; name: string; relic: string | null }>(
   relics: EnlirRelic[],
@@ -471,10 +469,10 @@ function makeRelicMap<T extends { character: string | null; name: string; relic:
   items: T[],
 ): { [relicId: number]: T } {
   const result: { [relicId: number]: T } = {};
-  const indexedItems = _.keyBy(items, i => (i.character || '') + ':' + i.name);
+  const indexedItems = _.keyBy(items, i => (i.character || '-') + ':' + i.name);
   for (const i of relics) {
-    if (i[prop] && i.character) {
-      const found = indexedItems[i.character + ':' + i[prop]];
+    if (i[prop]) {
+      const found = indexedItems[(i.character || '-') + ':' + i[prop]];
       if (found) {
         result[i.id] = found;
         // TODO: Enable validation - but there are too many problems right now
