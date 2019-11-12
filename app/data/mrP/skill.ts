@@ -27,6 +27,7 @@ import {
 } from './attack';
 import { appendCondition, describeCondition } from './condition';
 import * as skillParser from './skillParser';
+import { describeStats } from './status';
 import { formatRandomEther, formatSmartEther, sbPointsAlias } from './statusAlias';
 import {
   DescribeOptions,
@@ -34,7 +35,29 @@ import {
   getElementShortName,
 } from './typeHelpers';
 import * as types from './types';
-import { toMrPFixed, toMrPKilo } from './util';
+import { formatSignedIntegerSlashList, toMrPFixed, toMrPKilo } from './util';
+
+/**
+ * Stat modifications default to 25 seconds.
+ */
+const defaultStatModDuration: types.Duration = {
+  value: 25,
+  units: 'seconds',
+};
+
+function isHybridStatSet(statSet: types.StatSet): statSet is types.HybridStatSet {
+  return statSet.length === 2 && Array.isArray(statSet[0]);
+}
+
+function describeDuration({ value, units }: types.Duration): string {
+  if (units === 'seconds') {
+    return value + 's';
+  } else if (value === 1) {
+    return '1 turn';
+  } else {
+    return value + ` turns`;
+  }
+}
 
 function describeChain({ chainType, fieldBonus, max }: types.Chain): string {
   let chain = (isEnlirElement(chainType) ? getElementShortName(chainType) : chainType) + ' chain';
@@ -82,6 +105,20 @@ function describeMimic(skill: EnlirSkill, { chance, count }: types.Mimic): strin
 
 function describeRecoilHp({ damagePercent, maxOrCurrent, condition }: types.RecoilHp): string {
   return `lose ${damagePercent}% ${maxOrCurrent} HP` + appendCondition(condition);
+}
+
+function describeStatMod({ stats, percent, duration, condition }: types.StatMod): string {
+  duration = duration || defaultStatModDuration;
+
+  const combinedStats = isHybridStatSet(stats)
+    ? describeStats(stats[0]) + ' or ' + describeStats(stats[1])
+    : describeStats(stats);
+  let statMod = formatSignedIntegerSlashList(percent) + '% ';
+  statMod += combinedStats;
+  statMod += ` ` + describeDuration(duration);
+  statMod += appendCondition(condition, percent);
+
+  return statMod;
 }
 
 function checkSb(skill: EnlirSkill, effects: types.SkillEffect, opt: DescribeOptions) {
@@ -388,7 +425,6 @@ export function convertEnlirSkillToMrP(
         other.push(skill, effect.who, effect.dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna');
         break;
       case 'randomEther':
-        // FIXME: Implement
         other.push(skill, effect.who, formatRandomEther(effect.amount));
         break;
       case 'smartEther':
@@ -418,7 +454,7 @@ export function convertEnlirSkillToMrP(
         // FIXME: Implement
         break;
       case 'statMod':
-        // FIXME: Implement
+        other.push(skill, effect.who, describeStatMod(effect));
         break;
       case 'entrust':
         other.normal.push('donate SB pts to target');
@@ -520,3 +556,6 @@ export function formatMrPSkill(mrP: MrPSkill, options: Partial<FormatOptions> = 
   }
   return text;
 }
+
+// TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
+// TODO: Use × for times; make Unicode selectable?

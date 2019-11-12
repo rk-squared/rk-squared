@@ -9,7 +9,8 @@
 import * as _ from 'lodash';
 
 import { andJoin } from '../../utils/textUtils';
-import { isAllSame } from '../../utils/typeUtils';
+import { arrayify, isAllSame } from '../../utils/typeUtils';
+import * as types from './types';
 
 export { andJoin };
 
@@ -53,6 +54,11 @@ export function isNumeric(s: string): boolean {
 
 export function lowerCaseFirst(s: string): string {
   return s.replace(/^([A-Z])/, c => c.toLowerCase());
+}
+
+export function formatSignedIntegerSlashList(n: number | number[]): string {
+  n = arrayify(n);
+  return (n[0] < 0 ? '-' : '+') + n.map(i => Math.abs(i)).join('/');
 }
 
 /**
@@ -301,9 +307,11 @@ export function cleanUpSlashedNumbers(s: string): string {
   }
 }
 
-export function formatUseCount(count: number | undefined): string {
+export function formatUseCount(count: number | undefined | types.UseCount): string {
   if (!count) {
     return 'w/ uses';
+  } else if (typeof count === 'object') {
+    return `${count.x} + ${count.y}n`;
   } else if (count > 4) {
     return 'w/ 1…' + count + ' uses';
   } else {

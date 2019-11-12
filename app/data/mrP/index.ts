@@ -383,13 +383,6 @@ export function describeEnlirSoulBreak(
     damage = _.filter(describeChances(skills, skillsAndChances[1], ' / ')).join(' ');
   }
 
-  if (damage && sb.effects.match(/ATK increases as HP decreases/)) {
-    // MrP and random comments on Reddit suggest that Cecil gets up to +1500
-    // and Locke gets +11-40%.  Without confirmation in Enlir, I'll omit for
-    // now.
-    damage += ', uses +ATK as HP falls';
-  }
-
   // Hack / special case: Rage skills whose rage effects match the main effect.
   let isPureRage = false;
   let rageTurns: number | undefined;
@@ -594,42 +587,6 @@ export function describeEnlirSoulBreak(
     });
   });
 
-  // Process stat mods.  Stop at the first "Grants" or "Causes" text; any stat
-  // mods there are handled along with status effects above.
-  XRegExp.forEach(
-    sb.effects.replace(/([Gg]rants|[Cc]auses|[Rr]emoves) .*/, ''),
-    statModRe,
-    ({ stats, percent, who, duration, scalesWithUses, atStatus, atStatusCount }: any) => {
-      // Stat mods have a default duration of 25 seconds.
-      duration = duration || 25;
-
-      const combinedStats = describeStats(stats.match(/[A-Z]{3}/g)!);
-      let statMod = percent.replace(' ', '') + '% ';
-      statMod += combinedStats;
-      if (scalesWithUses) {
-        statMod += ' ' + formatUseCount(countMatches(percent, /\//g) + 1);
-      }
-      statMod += ` ${duration}s`;
-      if (atStatus) {
-        statMod += ' at ' + atStatus + ' ' + atStatusCount;
-      }
-
-      if (who === ' to the user' || (!who && sb.target === 'Self')) {
-        selfOther.push(statMod);
-      } else if (who === ' to all allies' || (!who && sb.target === 'All allies')) {
-        partyOther.push(statMod);
-      } else if (!who && attack) {
-        // No need to list an explicit target - it's the same as the attack
-        other.push(statMod);
-      } else if (sb.target === 'All enemies') {
-        aoeOther.push(statMod);
-      } else {
-        // Fallback - may not always be correct
-        other.push(statMod);
-      }
-    },
-  );
-
   if (statusInfliction.length) {
     other.splice(0, 0, formatStatusInfliction(statusInfliction));
   }
@@ -641,6 +598,3 @@ export function describeEnlirSoulBreak(
 
   return result;
 }
-
-// TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
-// TODO: Use × for times; make Unicode selectable?

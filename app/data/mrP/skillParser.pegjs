@@ -487,12 +487,10 @@ StatMod
   }
 
 StatList
-  = head:StatSet tail:(AndList StatSet)* {
+  = HybridStatSet
+  / head:Stat tail:(AndList Stat)* {
     return util.pegList(head, tail, 1);
   }
-
-StatSet
-  = HybridStatSet / Stat
 
 HybridStatSet
   = stat1:Stat stat2:('/' Stat)* _ "or" _ stat3:Stat stat4:('/' Stat)* {

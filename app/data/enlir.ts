@@ -178,8 +178,8 @@ export type EnlirSoulBreakTier =
   | 'RW'
   | 'Shared';
 
-// FIXME: Interfaces for remaining Enlir types
-
+// Note: Lowercase so that we can use it as an array for EnlirRelicStats.  This
+// does, however, complicate interacting with user-visible text.
 export type EnlirStat = 'atk' | 'def' | 'mag' | 'res' | 'mnd' | 'acc' | 'eva';
 export const allEnlirStats: EnlirStat[] = ['atk', 'def', 'mag', 'res', 'mnd', 'acc', 'eva'];
 

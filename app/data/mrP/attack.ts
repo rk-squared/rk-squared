@@ -381,6 +381,13 @@ function describeAttackDamage(
     scaleType = scaleType ? scaleType + ' ' : '';
     scaleType = '(based on ATK & DEF)';
   }
+  if (attack.atkUpWithLowHp) {
+    // MrP and random comments on Reddit suggest that Cecil gets up to +1500
+    // and Locke gets +11-40%.  Without confirmation in Enlir, I'll omit for
+    // now.
+    scaleType = scaleType ? scaleType + ', ' : '';
+    scaleType += 'uses +ATK as HP falls';
+  }
 
   const defaultDamage =
     attack.multiplierScaleType &&

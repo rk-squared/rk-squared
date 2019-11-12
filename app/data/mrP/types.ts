@@ -292,11 +292,11 @@ export interface SetStatusLevel {
 
 export interface StatMod extends StatModClause {
   type: 'statMod';
-  stats: StatSet[];
+  stats: StatSet;
   percent: number | number[];
 }
 
-export type StatSet = HybridStatSet | EnlirStat;
+export type StatSet = HybridStatSet | EnlirStat[];
 
 export type HybridStatSet = [EnlirStat[], EnlirStat[]];
 
@@ -386,7 +386,7 @@ export type Condition =
   | { type: 'scaleUseCount'; useCount: number | number[] }
   | { type: 'scaleWithUses' }
   | { type: 'scaleWithSkillUses'; skill: string }
-  | { type: 'afterUseCount'; skill: string; useCount: number[] }
+  | { type: 'afterUseCount'; skill: string; useCount: UseCount }
   | { type: 'alliesAlive' }
   | { type: 'characterAlive'; character: string; count?: number | number[] }
   | { type: 'characterInParty'; character: string; count?: number | number[] }

@@ -79,7 +79,7 @@ export function describeCondition(condition: types.Condition, count?: number | n
     case 'scaleWithSkillUses':
       return 'w/ ' + condition.skill + ' uses';
     case 'afterUseCount':
-      return `@ ${condition.useCount.join('/')} ${condition.skill}`;
+      return `@ ${formatUseCount(condition.useCount)} ${condition.skill}`;
     case 'alliesAlive':
       return 'if no allies KO';
     case 'characterAlive':

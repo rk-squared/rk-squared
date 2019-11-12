@@ -88,7 +88,10 @@ export function includeStatus(status: string, { removes } = { removes: false }):
 }
 
 export function describeStats(stats: string[]): string {
-  return stats.join('/').replace(/^ATK\/DEF\/MAG\/RES/, 'A/D/M/R');
+  return stats
+    .map(i => i.toUpperCase())
+    .join('/')
+    .replace(/^ATK\/DEF\/MAG\/RES/, 'A/D/M/R');
 }
 
 function parseWho(who: string): string | undefined {
