@@ -272,10 +272,10 @@ function describeAttackDamage(
     synchroCommands?: EnlirSynchroCommand[];
   },
 ) {
-  const { numAttacks, finisherPercent, finisherPercentCriteria } = attack;
+  const { numAttacks, finisherPercentDamage, finisherPercentCriteria } = attack;
   let { attackMultiplier } = attack;
 
-  if (!(finisherPercent && finisherPercentCriteria) && !attackMultiplier) {
+  if (!(finisherPercentDamage != null && finisherPercentCriteria) && attackMultiplier == null) {
     logger.error(`Skill ${skill.name}: Missing both multiplier and finisher damage`);
     return null;
   }
@@ -296,12 +296,12 @@ function describeAttackDamage(
     );
   } else if (attack.isRandomAttackMultiplier && Array.isArray(attack.attackMultiplier)) {
     damage = attack.attackMultiplier.map(i => describeDamage(i, numAttacks)).join(' or ');
-  } else if (finisherPercent && finisherPercentCriteria) {
+  } else if (finisherPercentDamage && finisherPercentCriteria) {
     const criteria = formatSchoolOrAbilityList(finisherPercentCriteria);
     if (typeof numAttacks === 'number' && numAttacks !== 1) {
-      damage = finisherPercent * numAttacks + '% ' + criteria + '/' + numAttacks;
+      damage = finisherPercentDamage * numAttacks + '% ' + criteria + '/' + numAttacks;
     } else {
-      damage = finisherPercent + '% ' + criteria;
+      damage = finisherPercentDamage + '% ' + criteria;
     }
   } else if (
     attack.isHybrid &&

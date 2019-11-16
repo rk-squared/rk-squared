@@ -116,7 +116,7 @@ export interface AttackExtras {
   damageModifier?: number | number[];
   damageModifierCondition?: Condition;
 
-  finisherPercent?: number;
+  finisherPercentDamage?: number;
   finisherPercentCriteria?: EnlirSkillType | EnlirElement | EnlirSchool;
 
   followedBy?: Attack;

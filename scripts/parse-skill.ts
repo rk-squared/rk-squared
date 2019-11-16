@@ -1,6 +1,7 @@
 #!/usr/bin/env -S npx ts-node
 
 import * as _ from 'lodash';
+import * as process from 'process';
 import * as yargs from 'yargs';
 
 import { enlir, EnlirSkill, tierOrder } from '../app/data/enlir';
@@ -12,6 +13,12 @@ import { SkillEffect } from '../app/data/mrP/types';
 
 const argv = yargs
   .strict()
+
+  .option('json', {
+    description: 'Output as JSON',
+    default: false,
+    boolean: true,
+  })
 
   .option('filter', {
     description: 'Filter for name',
@@ -65,11 +72,55 @@ const argv = yargs
     boolean: true,
   }).argv;
 
+const jsonOutput: any = {};
+
 function processEffects<T extends EnlirSkill>(
   what: keyof typeof argv,
   items: T[],
   getName: (item: T) => string,
 ): [keyof typeof argv, number, number] {
+  function shouldShow(parseResults: SkillEffect | undefined, parseError: SyntaxError | undefined) {
+    return (
+      (argv[what] || argv.filter || argv.all) &&
+      ((parseResults && !argv.hideSuccesses) || (parseError && !argv.hideFailures))
+    );
+  }
+
+  function showText(
+    item: T,
+    parseResults: SkillEffect | undefined,
+    parseError: SyntaxError | undefined,
+  ) {
+    console.log(getName(item));
+    console.log(item.effects);
+    if (parseResults) {
+      console.dir(parseResults, { depth: null });
+      const mrP = convertEnlirSkillToMrP(item);
+      const text = formatMrPSkill(mrP);
+      console.log(text);
+    }
+    if (parseError) {
+      console.log(' '.repeat(parseError.location.start.offset) + '^');
+      console.log(parseError.message);
+    }
+    console.log();
+  }
+
+  function showJson(
+    item: T,
+    parseResults: SkillEffect | undefined,
+    parseError: SyntaxError | undefined,
+  ) {
+    jsonOutput[what] = jsonOutput[what] || [];
+    const mrPText = parseResults ? formatMrPSkill(convertEnlirSkillToMrP(item)) : undefined;
+    jsonOutput[what].push({
+      ...item,
+      detail: parseResults,
+      detailError: parseError,
+      mrP: mrPText,
+    });
+  }
+
   let successCount = 0;
   let totalCount = 0;
   for (const i of items) {
@@ -91,23 +142,8 @@ function processEffects<T extends EnlirSkill>(
       parseError = e;
     }
 
-    if (
-      (argv[what] || argv.filter || argv.all) &&
-      ((parseResults && !argv.hideSuccesses) || (parseError && !argv.hideFailures))
-    ) {
-      console.log(getName(i));
-      console.log(i.effects);
-      if (parseResults) {
-        console.dir(parseResults, { depth: null });
-        const mrP = convertEnlirSkillToMrP(i);
-        const text = formatMrPSkill(mrP);
-        console.log(text);
-      }
-      if (parseError) {
-        console.log(' '.repeat(parseError.location.start.offset) + '^');
-        console.log(parseError.message);
-      }
-      console.log();
+    if (shouldShow(parseResults, parseError)) {
+      (argv.json ? showJson : showText)(i, parseResults, parseError);
     }
   }
   return [what, successCount, totalCount];
@@ -179,14 +215,17 @@ const result = [
   processOther(),
   processAbilities(),
 ];
+if (argv.json) {
+  console.log(JSON.stringify(jsonOutput, null, 2));
+}
 let grandTotalSuccessCount = 0;
 let grandTotalCount = 0;
 for (const [what, successCount, totalCount] of result) {
-  console.log(`Processed ${successCount} of ${totalCount} ${what}`);
+  process.stderr.write(`Processed ${successCount} of ${totalCount} ${what}\n`);
   grandTotalSuccessCount += successCount;
   grandTotalCount += totalCount;
 }
 const grandTotalFailedCount = grandTotalCount - grandTotalSuccessCount;
-console.log(
-  `Final counts: Processed ${grandTotalSuccessCount} of ${grandTotalCount}, failed to process ${grandTotalFailedCount}`,
+process.stderr.write(
+  `Final counts: Processed ${grandTotalSuccessCount} of ${grandTotalCount}, failed to process ${grandTotalFailedCount}\n`,
 );
