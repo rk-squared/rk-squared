@@ -470,7 +470,7 @@ export function describeAttack(
 
   if (!attackDamage.scaleToDamage && attackDamage.scaleType) {
     // Rank chase / threshold / etc.
-    damage += ' ' + attack.scaleType;
+    damage += ' ' + attackDamage.scaleType;
   }
   if (attackDamage.orDamage && attackDamage.orCondition) {
     damage +=

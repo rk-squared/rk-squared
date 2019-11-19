@@ -141,7 +141,7 @@ export function describeCondition(condition: types.Condition, count?: number | n
     case 'rankBased':
       return '@ rank 1-5';
     case 'statThreshold':
-      return formatThreshold(condition.value, condition.stat);
+      return formatThreshold(condition.value, condition.stat.toUpperCase());
   }
 }
 
