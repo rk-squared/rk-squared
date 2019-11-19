@@ -36,8 +36,7 @@ export type EffectClause =
   | ResistViaKO
   | Reset
   | CastTime
-  | CastTimePerUse
-  | StandaloneHitRate;
+  | CastTimePerUse;
 
 // --------------------------------------------------------------------------
 // Attacks

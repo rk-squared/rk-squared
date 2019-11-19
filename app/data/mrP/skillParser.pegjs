@@ -10,7 +10,7 @@
 
 SkillEffect
   = head:EffectClause tail:((',' / '.' _ ('Also' / 'Additional')) _ EffectClause)* {
-    return util.pegList(head, tail, 2);
+    return util.mergeHitRates(util.pegList(head, tail, 2));
   }
   / "" { return []; }
 

@@ -483,9 +483,6 @@ export function convertEnlirSkillToMrP(
       case 'castTimePerUse':
         other.misc.push('cast time ' + effect.castTimePerUse + 's per use');
         break;
-      case 'hitRate':
-        // FIXME: Implement
-        break;
       default:
         return assertNever(effect);
     }
