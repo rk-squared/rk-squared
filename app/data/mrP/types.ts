@@ -250,7 +250,7 @@ export interface Mimic {
 // --------------------------------------------------------------------------
 // Status effects
 
-interface StatusEffect {
+export interface StatusEffect {
   type: 'status';
   verb: StatusVerb;
   statuses: StatusWithPercent[];

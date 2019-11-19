@@ -27,7 +27,14 @@ import {
 } from './attack';
 import { appendCondition, describeCondition } from './condition';
 import * as skillParser from './skillParser';
-import { describeStats } from './status';
+import {
+  describeStats,
+  parseEnlirStatusWithSlashes,
+  shareStatusDurations,
+  shareStatusWho,
+  slashMergeElementStatuses,
+  sortStatus,
+} from './status';
 import { formatRandomEther, formatSmartEther, sbPointsAlias } from './statusAlias';
 import {
   DescribeOptions,
@@ -204,6 +211,132 @@ function checkSynchroCommands(skill: EnlirSkill, result: MrPSkill) {
       convertEnlirSkillToMrP(i, { abbreviate: true, includeSchool: false, synchroCommands }),
     );
   }
+}
+
+function shouldIncludeStatus({ status, chance, ifUndead }: types.StatusWithPercent): boolean {
+  if (typeof status === 'string' && status === 'Instant KO' && ifUndead && chance === 100) {
+    // Raise effects cause instant KO to undead, but that's fairly niche; omit.
+    return false;
+  }
+  return true;
+}
+
+function processStatus(skill: EnlirSkill, effect: types.StatusEffect, other: OtherDetail) {
+  // Confuse Shell doesn't remove Confuse - this is a special case, skip.
+  if (effect.verb === "doesn't remove") {
+    return;
+  }
+
+  const removes = effect.verb === 'removes';
+  const statuses = effect.statuses
+    .filter(shouldIncludeStatus)
+    .reduce(shareStatusDurations, [])
+    .reduce(shareStatusWho, [])
+    .reduce(slashMergeElementStatuses, [])
+    .sort(sortStatus);
+  statuses.forEach((thisStatus, thisStatusIndex) => {
+    // tslint:disable: prefer-const
+    let { status, duration, who, chance, condition } = thisStatus;
+    // tslint:enable: prefer-const
+
+    // FIXME: Implement smart ether, status levels
+    if (typeof status !== 'string') {
+      return;
+    }
+
+    if ('source' in skill && skill.source === status && removes) {
+      if (other.self.length) {
+        other.self.push('once only');
+      } else {
+        other.normal.push('once only');
+      }
+      return;
+    }
+
+    const parsed = parseEnlirStatusWithSlashes(status, skill);
+    // tslint:disable: prefer-const
+    let {
+      description,
+      isExLike,
+      isDetail,
+      isBurstToggle,
+      isTrance,
+      defaultDuration,
+      isVariableDuration,
+      specialDuration,
+      optionCount,
+    } = parsed;
+    // tslint:enable: prefer-const
+
+    /*
+    FIXME: Reimplement
+    if (isBurstToggle) {
+      burstToggle = verb.toLowerCase() !== 'removes';
+      if (description === '') {
+        return;
+      }
+      // Special case: A burst toggle with an effect of its own.  If we're
+      // switching it ON, show it with a custom duration.  If switching OFF,
+      // show nothing.
+      if (burstToggle) {
+        specialDuration = 'until OFF';
+      } else {
+        return;
+      }
+    }
+    */
+
+    if (description === '') {
+      return;
+    }
+
+    // Status removal.  In practice, only a few White Magic abilities hit
+    // this; the rest are special cased (Esuna, burst toggles, etc.).
+    //
+    // Hack: Text like "removes negative effects, +100% DEF" is actually
+    // a removes then grants.  There are no occurrences of "removes A, B" in
+    // the spreadsheet, so we can key off of the status index to handle that.
+    if (removes && thisStatusIndex === 0) {
+      description = 'remove ' + description;
+    }
+
+    if (isTrance) {
+      description = 'Trance: ' + description;
+    }
+    /* FIXME: Reimplement
+    if (stacking) {
+      description = 'stacking ' + description;
+    }
+    */
+    description += appendCondition(condition);
+
+    if (!duration && defaultDuration) {
+      duration = { value: defaultDuration, units: 'seconds' };
+    }
+
+    const chanceDescription = chance ? chance : ''; // FIXME: formatChance(chance, attack) : '';
+
+    if ((duration || specialDuration) && !isVariableDuration) {
+      const durationText = specialDuration || describeDuration(duration!);
+      if (isExLike) {
+        description = durationText + ': ' + description;
+      } else {
+        description = description + ' ' + durationText;
+      }
+    }
+
+    /* FIXME: Reimplement
+    if (chance) {
+      statusInfliction.push({ description, chanceDescription, chance });
+    } else
+    */
+    if (isDetail) {
+      // (Always?) has implied 'self'
+      other.detail.push(description);
+    } else {
+      other.push(skill, who, description);
+    }
+  });
 }
 
 /**
@@ -428,7 +561,6 @@ export function convertEnlirSkillToMrP(
         other.push(skill, effect.who, formatRandomEther(effect.amount));
         break;
       case 'smartEther':
-        // FIXME: Turn smart ether statuses into top-level smartEther
         other.push(
           skill,
           effect.who,
@@ -448,7 +580,7 @@ export function convertEnlirSkillToMrP(
         other.normal.push(describeMimic(skill, effect));
         break;
       case 'status':
-        // FIXME: Implement
+        processStatus(skill, effect, other);
         break;
       case 'setStatusLevel':
         // FIXME: Implement

@@ -81,26 +81,3 @@ export function splitStatusEffects(effects: string): string[] {
   }
   return result.reverse();
 }
-
-/**
- * Splits the status effects section of a skill's effects string
- */
-export function splitSkillStatuses(effects: string): string[] {
-  const parts = effects.split(andList).reverse();
-  const result: string[] = [];
-
-  for (let i = 0; i < parts.length; i++) {
-    let thisPart = parts[i];
-
-    let join = ' and ';
-    while (i + 1 < parts.length && isStat(parts[i + 1])) {
-      thisPart = parts[i + 1] + join + thisPart;
-      i++;
-      join = ', ';
-    }
-
-    result.push(thisPart);
-  }
-
-  return result.reverse();
-}
