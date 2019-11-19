@@ -33,7 +33,7 @@
     "postbuild-site": "react-snap",
     "test-site": "node scripts/test-site.js",
     "postget-enlir": "yarn copy-json",
-    "peg": "pegjs --plugin ./node_modules/ts-pegjs/src/tspegjs.js -o app/data/mrp/skillParser.ts --cache --dependency util:./util app/data/mrp/skillParser.pegjs"
+    "peg": "pegjs --plugin ./node_modules/ts-pegjs/src/tspegjs.js -o app/data/mrp/skillParser.ts --cache --dependency util:./parserHelpers app/data/mrp/skillParser.pegjs"
   },
   "jest": {
     "testURL": "http://localhost/",
