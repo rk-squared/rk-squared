@@ -213,12 +213,25 @@ function checkSynchroCommands(skill: EnlirSkill, result: MrPSkill) {
   }
 }
 
-function shouldIncludeStatus({ status, chance, ifUndead }: types.StatusWithPercent): boolean {
-  if (typeof status === 'string' && status === 'Instant KO' && ifUndead && chance === 100) {
-    // Raise effects cause instant KO to undead, but that's fairly niche; omit.
-    return false;
-  }
-  return true;
+function shouldIncludeStatus(skill: EnlirSkill) {
+  const isBurst = isSoulBreak(skill) && isBurstSoulBreak(skill);
+  return ({ status, chance, who, ifUndead }: types.StatusWithPercent): boolean => {
+    // Enlir lists Burst Mode and Haste for all BSBs and lists Brave Mode for all
+    // all Brave Ultra Soul Breaks, but MrP's format doesn't.
+    if (status === 'Brave Mode' || status === 'Burst Mode' || status === 'Synchro Mode') {
+      return false;
+    }
+    if (isBurst && status === 'Haste' && (who === 'self' || (!who && skill.target === 'Self'))) {
+      // All burst soul breaks provide Haste, so listing it is redundant.
+      return false;
+    }
+
+    if (status === 'Instant KO' && ifUndead && chance === 100) {
+      // Raise effects cause instant KO to undead, but that's fairly niche; omit.
+      return false;
+    }
+    return true;
+  };
 }
 
 function processStatus(skill: EnlirSkill, effect: types.StatusEffect, other: OtherDetail) {
@@ -229,9 +242,9 @@ function processStatus(skill: EnlirSkill, effect: types.StatusEffect, other: Oth
 
   const removes = effect.verb === 'removes';
   const statuses = effect.statuses
-    .filter(shouldIncludeStatus)
-    .reduce(shareStatusDurations, [])
     .reduce(shareStatusWho, [])
+    .filter(shouldIncludeStatus(skill))
+    .reduce(shareStatusDurations, [])
     .reduce(slashMergeElementStatuses, [])
     .sort(sortStatus);
   statuses.forEach((thisStatus, thisStatusIndex) => {

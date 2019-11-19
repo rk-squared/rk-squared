@@ -131,17 +131,6 @@ function formatChance(chance: number, attack?: ParsedEnlirAttack | null): string
   return fallback;
 }
 
-/**
- * Enlir lists Burst Mode and Haste for all BSBs and lists Brave Mode for all
- * Brave Ultra Soul Breaks, but MrP's format doesn't.
- */
-function checkBurstAndBraveMode(selfOther: string[]): string[] {
-  selfOther = _.filter(selfOther, i => !i.match(/^(Brave|Synchro) Mode(?: \d+s)?$/));
-  return selfOther.indexOf('Burst Mode') !== -1
-    ? _.filter(selfOther, i => i !== 'Burst Mode' && i !== 'Haste')
-    : selfOther;
-}
-
 function shouldIncludeStatusItem(item: StatusItem): boolean {
   if (item.statusName === 'Instant KO' && item.condition === 'if undead' && item.chance === 100) {
     // Raise effects cause instant KO to undead, but that's fairly niche; omit.
