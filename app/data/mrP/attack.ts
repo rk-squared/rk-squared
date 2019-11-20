@@ -445,7 +445,9 @@ function describeAttackDamage(
       : undefined;
 
   return {
-    damageType: describeDamageType(skill),
+    damageType: attack.overrideSkillType
+      ? describeDamageType(null, attack.overrideSkillType)
+      : describeDamageType(skill),
 
     numAttacks,
     attackMultiplier,

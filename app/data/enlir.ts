@@ -1226,5 +1226,5 @@ export function getNormalSBPoints(ability: EnlirAbility): number {
 }
 
 export function isNat(skill: EnlirSkill): boolean {
-  return skill.type === 'NAT' && skill.formula !== 'Hybrid';
+  return skill.type === 'NAT' && skill.formula !== null && skill.formula !== 'Hybrid';
 }
