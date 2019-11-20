@@ -243,6 +243,54 @@ function getAttackCount({
 }
 
 /**
+ * Is this a simple followed by attack?  If so, we can combine its damage with
+ * the main attack.
+ *
+ * We don't have to be fully generic.  In practice, FFRK uses "followed by"
+ * for two types of attacks: 20+1 AOSBs, and one weird "other" skill
+ * ("Dirty Trick") that does one magic fire attack then one physical attack.
+ */
+function isSimpleFollowedBy(attack: types.Attack) {
+  return (
+    attack.followedBy &&
+    !attack.overrideElement &&
+    !attack.overrideSkillType &&
+    !attack.followedBy.overrideElement &&
+    !attack.followedBy.overrideSkillType
+  );
+}
+
+function describeSimpleFollowedBy(skill: EnlirSkill, attack: types.Attack) {
+  const attackDamage = describeAttackDamage(skill, attack, {});
+  if (!attackDamage) {
+    return '???';
+  }
+
+  let damage = '';
+
+  const hybridDamageType = describeHybridDamageType(skill);
+  // Skip AoE - assumed to be the same as the parent.
+  damage += attack.isAoE ? 'AoE ' : '';
+  damage += attackDamage.randomChances ? attackDamage.randomChances + ' ' : '';
+  // Normally skip damage type - assumed to be the same as the parent.
+  damage += hybridDamageType ? formatDamageType(attackDamage.damageType, true) : '';
+  damage += attack.isPiercing ? '^' : '';
+  damage += attackDamage.damage;
+
+  if (hybridDamageType) {
+    damage += ' or ';
+    damage += formatDamageType(hybridDamageType, true);
+    damage += isHybridPiercing(skill) ? '^' : '';
+    damage += attackDamage.hybridDamage;
+  }
+
+  // Skip element, isRanged, isJump, school, no miss - these are assumed to be
+  // the same as the parent.
+  damage += attack.isOverstrike ? ' overstrike' : '';
+  return damage;
+}
+
+/**
  * Describes the "attack" portion of an Enlir skill.
  *
  * FIXME: Refactor with describeAttack
@@ -413,8 +461,6 @@ function describeAttackDamage(
     scaleDown,
 
     hybridDamage,
-    hybridDamageType: describeHybridDamageType(skill),
-    hybridIsPiercing: isHybridPiercing(skill),
   };
 }
 
@@ -436,17 +482,22 @@ export function describeAttack(
 
   const hybridDamageType = describeHybridDamageType(skill);
   const abbreviate = opt.abbreviate || opt.abbreviateDamageType || !!hybridDamageType;
+  const simpleFollowedBy = attack.followedBy && isSimpleFollowedBy(attack);
   damage += attack.isAoE ? 'AoE ' : '';
   damage += attackDamage.randomChances ? attackDamage.randomChances + ' ' : '';
   damage += formatDamageType(attackDamage.damageType, abbreviate);
   damage += attack.isPiercing ? '^' : '';
   damage += attackDamage.damage;
 
-  if (attackDamage.hybridDamageType) {
+  if (hybridDamageType) {
     damage += ' or ';
-    damage += formatDamageType(attackDamage.hybridDamageType, abbreviate);
-    damage += attackDamage.hybridIsPiercing ? '^' : '';
+    damage += formatDamageType(hybridDamageType, abbreviate);
+    damage += isHybridPiercing(skill) ? '^' : '';
     damage += attackDamage.hybridDamage;
+  }
+
+  if (attack.followedBy && simpleFollowedBy) {
+    damage += ', then ' + describeSimpleFollowedBy(skill, attack.followedBy) + ',';
   }
 
   damage += appendElement(
@@ -516,6 +567,10 @@ export function describeAttack(
   // Omit ' (SUM)' for Summoning school; it seems redundant.
   damage += skill.type === 'SUM' && school !== 'Summoning' ? ' (SUM)' : '';
   damage += isNat(skill) ? ' (NAT)' : '';
+
+  if (attack.followedBy && !simpleFollowedBy) {
+    damage += ', then ' + describeAttack(skill, attack.followedBy, opt);
+  }
 
   return damage;
 }

@@ -705,7 +705,7 @@ export function convertEnlirSkillToMrP(
     }
   }
 
-  result.damage = damage.join(', then');
+  result.damage = damage.join(', then ');
 
   {
     const implicitlyTargetsEnemies = damage.length !== 0;
