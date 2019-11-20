@@ -554,3 +554,23 @@ export function describeGravityAttack({ damagePercent }: types.GravityAttack): s
 export function describeHpAttack({ multiplier }: types.HpAttack): string {
   return multiplier + ' ⋅ (max HP - curr HP) dmg';
 }
+
+export function formatAttackStatusChance(chance: number, attack?: types.Attack): string {
+  const fallback = `${chance}%`;
+  if (chance === 100 || !attack) {
+    return fallback;
+  }
+
+  if (attack && attack.numAttacks) {
+    if (attack.numAttacks === 1) {
+      return fallback;
+    } else if (typeof attack.numAttacks === 'number' && !attack.orNumAttacks) {
+      const totalChanceFraction = 1 - (1 - chance / 100) ** attack.numAttacks;
+      const totalChance = Math.round(totalChanceFraction * 100);
+      return `${totalChance}% (${chance}% × ${attack.numAttacks})`;
+    }
+  }
+
+  // Must be a variable number of hits
+  return `${chance}%/hit`;
+}

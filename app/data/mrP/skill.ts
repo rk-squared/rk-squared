@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
-import { arrayify, assertNever } from '../../utils/typeUtils';
+import { arrayify, assertNever, isAllSame } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirElement,
@@ -24,6 +24,7 @@ import {
   describeGravityAttack,
   describeHpAttack,
   describeRandomFixedAttack,
+  formatAttackStatusChance,
 } from './attack';
 import { appendCondition, describeCondition } from './condition';
 import * as skillParser from './skillParser';
@@ -43,6 +44,18 @@ import {
 } from './typeHelpers';
 import * as types from './types';
 import { formatSignedIntegerSlashList, toMrPFixed, toMrPKilo } from './util';
+
+function findFirstEffect<T extends types.EffectClause>(
+  skillEffects: types.SkillEffect,
+  type: T['type'],
+): T | undefined {
+  for (const i of skillEffects) {
+    if (i.type === type) {
+      return i as T;
+    }
+  }
+  return undefined;
+}
 
 /**
  * Stat modifications default to 25 seconds.
@@ -234,7 +247,12 @@ function shouldIncludeStatus(skill: EnlirSkill) {
   };
 }
 
-function processStatus(skill: EnlirSkill, effect: types.StatusEffect, other: OtherDetail) {
+function processStatus(
+  skill: EnlirSkill,
+  skillEffects: types.SkillEffect,
+  effect: types.StatusEffect,
+  other: OtherDetail,
+) {
   // Confuse Shell doesn't remove Confuse - this is a special case, skip.
   if (effect.verb === "doesn't remove") {
     return;
@@ -327,8 +345,6 @@ function processStatus(skill: EnlirSkill, effect: types.StatusEffect, other: Oth
       duration = { value: defaultDuration, units: 'seconds' };
     }
 
-    const chanceDescription = chance ? chance : ''; // FIXME: formatChance(chance, attack) : '';
-
     if ((duration || specialDuration) && !isVariableDuration) {
       const durationText = specialDuration || describeDuration(duration!);
       if (isExLike) {
@@ -338,18 +354,25 @@ function processStatus(skill: EnlirSkill, effect: types.StatusEffect, other: Oth
       }
     }
 
-    /* FIXME: Reimplement
     if (chance) {
-      statusInfliction.push({ description, chanceDescription, chance });
-    } else
-    */
-    if (isDetail) {
+      const chanceDescription = formatAttackStatusChance(
+        chance,
+        findFirstEffect<types.Attack>(skillEffects, 'attack'),
+      );
+      other.statusInfliction.push({ description, chance, chanceDescription });
+    } else if (isDetail) {
       // (Always?) has implied 'self'
       other.detail.push(description);
     } else {
       other.push(skill, who, description);
     }
   });
+}
+
+interface StatusInfliction {
+  description: string;
+  chance: number;
+  chanceDescription: string;
 }
 
 /**
@@ -359,6 +382,7 @@ function processStatus(skill: EnlirSkill, effect: types.StatusEffect, other: Oth
  */
 class OtherDetail {
   normal: string[] = [];
+  statusInfliction: StatusInfliction[] = [];
   aoe: string[] = [];
   self: string[] = [];
   sameRow: string[] = [];
@@ -378,6 +402,7 @@ class OtherDetail {
     if (
       allowImplicitSelf &&
       !this.normal.length &&
+      !this.statusInfliction.length &&
       !this.aoe.length &&
       !this.sameRow.length &&
       !this.frontRow.length &&
@@ -391,6 +416,7 @@ class OtherDetail {
       result = [...this.self, ...this.misc];
     } else {
       result = [
+        ...this.formatStatusInfliction(),
         ...this.normal,
         ...this.makeGroup(this.aoe, implicitlyTargetsEnemies ? undefined : 'AoE'),
 
@@ -469,6 +495,20 @@ class OtherDetail {
       return [(description ? description + ' ' : '') + inGroup.join(', ')];
     } else {
       return [];
+    }
+  }
+
+  private formatStatusInfliction(): string[] {
+    if (!this.statusInfliction.length) {
+      return [];
+    } else if (isAllSame(this.statusInfliction, i => i.chance)) {
+      return [
+        this.statusInfliction[0].chanceDescription +
+          ' ' +
+          this.statusInfliction.map(i => i.description).join('/'),
+      ];
+    } else {
+      return this.statusInfliction.map(i => i.chanceDescription + ' ' + i.description);
     }
   }
 }
@@ -593,7 +633,7 @@ export function convertEnlirSkillToMrP(
         other.normal.push(describeMimic(skill, effect));
         break;
       case 'status':
-        processStatus(skill, effect, other);
+        processStatus(skill, skillEffects, effect, other);
         break;
       case 'setStatusLevel':
         // FIXME: Implement
