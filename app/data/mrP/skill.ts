@@ -375,6 +375,16 @@ interface StatusInfliction {
   chanceDescription: string;
 }
 
+interface OtherDetailOptions {
+  /**
+   * If true, then normal/default single targets are shown as "ally".  This is
+   * useful for, e.g., healing effects: they're rarely targeted at enemies, and
+   * party healing soul breaks are so common that it's worth spelling out when
+   * they only target one ally.
+   */
+  defaultToAlly?: boolean;
+}
+
 /**
  * The components of MrPSoulBreak.other, as lists.  We break them up like
  * this so that we can sort general items (e.g., elemental infuse), then
@@ -393,8 +403,13 @@ class OtherDetail {
   misc: string[] = [];
   detail: string[] = [];
 
-  push(skill: EnlirSkill, who: types.Who | undefined, description: string) {
-    this.getPart(skill, who).push(description);
+  push(
+    skill: EnlirSkill,
+    who: types.Who | undefined,
+    description: string,
+    options: OtherDetailOptions = {},
+  ) {
+    this.getPart(skill, who, options).push(description);
   }
 
   combine(implicitlyTargetsEnemies: boolean, allowImplicitSelf: boolean): string | undefined {
@@ -438,13 +453,18 @@ class OtherDetail {
     return result.length ? result.join(', ') : undefined;
   }
 
-  private getPart(skill: EnlirSkill, who: types.Who | undefined): string[] {
-    return who ? this.getWhoPart(who) : this.getTargetPart(skill.target);
+  private getPart(
+    skill: EnlirSkill,
+    who: types.Who | undefined,
+    options: OtherDetailOptions,
+  ): string[] {
+    return who ? this.getWhoPart(who) : this.getTargetPart(skill.target, options);
   }
 
-  private getTargetPart(target: EnlirTarget | null): string[] {
+  private getTargetPart(target: EnlirTarget | null, options: OtherDetailOptions): string[] {
     switch (target) {
       case 'All enemies':
+        return this.aoe;
       case 'Random enemies':
       case 'Random enemy':
       case null:
@@ -453,11 +473,12 @@ class OtherDetail {
         return this.self;
       case 'All allies':
         return this.party;
-      case 'Single ally':
       case 'Single enemy':
+        return this.normal;
+      case 'Single ally':
       case 'Single target':
       case 'Single':
-        return this.normal;
+        return options.defaultToAlly ? this.ally : this.normal;
       case 'Ally with status':
       case 'Another ally':
       case 'Lowest HP% ally':
@@ -596,13 +617,17 @@ export function convertEnlirSkillToMrP(
         other.push(skill, effect.who, `revive @ ${effect.percentHp}% HP`);
         break;
       case 'heal':
-        // FIXME: Reimplement this logic:
-        // Because medica soul breaks are so common, we'll call out when a SB
-        // only heals one person.
-        other.push(skill, effect.who, describeHeal(skill, effect));
+        other.push(skill, effect.who, describeHeal(skill, effect), {
+          // Because medica soul breaks are so common, we'll call out when a SB
+          // only heals one person.
+          defaultToAlly: isSoulBreak(skill),
+        });
         break;
       case 'healPercent':
-        other.push(skill, effect.who, `heal ${effect.healPercent}% HP`);
+        other.push(skill, effect.who, `heal ${effect.healPercent}% HP`, {
+          // See comments under 'heal'
+          defaultToAlly: isSoulBreak(skill),
+        });
         break;
       case 'damagesUndead':
         // Omit - too detailed to include in this output

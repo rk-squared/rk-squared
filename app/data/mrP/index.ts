@@ -93,73 +93,9 @@ function appendGroup(outGroup: string[], inGroup: string[], description?: string
   }
 }
 
-interface StatusInfliction {
-  description: string;
-  chance: number | number[];
-  chanceDescription: string;
-}
-
-function formatStatusInfliction(status: StatusInfliction[]): string {
-  if (isAllSame(status, i => i.chance)) {
-    return status[0].chanceDescription + ' ' + status.map(i => i.description).join('/');
-  } else {
-    return status.map(i => i.chanceDescription + ' ' + i.description).join(', ');
-  }
-}
-
-function formatChance(chance: number, attack?: ParsedEnlirAttack | null): string {
-  const fallback = `${chance}%`;
-  if (chance === 100 || !attack) {
-    return fallback;
-  }
-
-  if (attack.numAttacks) {
-    if (attack.numAttacks === 1) {
-      return fallback;
-    } else {
-      const totalChanceFraction = 1 - (1 - chance / 100) ** attack.numAttacks;
-      const totalChance = Math.round(totalChanceFraction * 100);
-      return `${totalChance}% (${chance}% × ${attack.numAttacks})`;
-    }
-  }
-
-  if (countMatches(attack.damage, /\//g)) {
-    // Looks like variable number of hits
-    return `${chance}%/hit`;
-  }
-
-  return fallback;
-}
-
-function shouldIncludeStatusItem(item: StatusItem): boolean {
-  if (item.statusName === 'Instant KO' && item.condition === 'if undead' && item.chance === 100) {
-    // Raise effects cause instant KO to undead, but that's fairly niche; omit.
-    return false;
-  }
-  return true;
-}
-
 function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): string {
   return abbreviate ? damageTypeAbbreviation(damageType) : damageType + ' ';
 }
-
-const statusEffectRe = XRegExp(
-  String.raw`
-  (?<verb>[Gg]rants|[Cc]auses|[Rr]emoves|[Dd]oesn't\ remove)\ #
-
-  (?<statusString>(?:.*?(?:,?\ and\ |,\ ))*?(?:.*?))
-
-  # Anchor the regex to end at anything that looks like the beginning of a new effect.
-  (?=
-    ,\ grants|,\ causes|,\ removes|,\ doesn't\ remove|,\ restores\ HP\ |
-    ,\ damages\ the\ user\ |
-    ,\ heals\ the\ user\ |
-    ,\ casts\ the\ last\ ability\ used\ by\ an\ ally\b|
-    ,\ reset|
-  $)
-  `,
-  'x',
-);
 
 interface DescribeOptions {
   abbreviate: boolean;
