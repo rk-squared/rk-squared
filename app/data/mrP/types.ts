@@ -374,7 +374,10 @@ export type Who =
   | 'lowestHpAlly'
   | 'allyWithoutStatus'
   | 'allyWithNegativeStatus'
-  | 'allyWithKO';
+  | 'allyWithKO'
+  // Note: As of November 2019, 'ally' is used only for compatibility with
+  // EnlirTarget.  The parser doesn't output it directly.
+  | 'ally';
 
 export type Condition =
   | { type: 'equipped'; article: string; equipped: string }

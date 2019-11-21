@@ -57,6 +57,34 @@ function findFirstEffect<T extends types.EffectClause>(
   return undefined;
 }
 
+function convertTargetToWho(target: EnlirTarget): types.Who {
+  switch (target) {
+    case 'All allies':
+      return 'party';
+    case 'All enemies':
+      return 'enemies';
+    case 'Ally with status':
+      return 'allyWithNegativeStatus'; // Is this necessarily correct?
+    case 'Another ally':
+      return 'ally';
+    case 'Lowest HP% ally':
+      return 'lowestHpAlly';
+    case 'Random ally':
+      return 'ally';
+    case 'Random enemies':
+    case 'Random enemy':
+      return 'target';
+    case 'Self':
+      return 'self';
+    case 'Single ally':
+      return 'ally';
+    case 'Single enemy':
+    case 'Single target':
+    case 'Single':
+      return 'target';
+  }
+}
+
 /**
  * Stat modifications default to 25 seconds.
  */
@@ -503,6 +531,7 @@ class OtherDetail {
         return this.backRow;
       case 'party':
         return this.party;
+      case 'ally':
       case 'lowestHpAlly':
       case 'allyWithoutStatus':
       case 'allyWithNegativeStatus':
@@ -590,6 +619,14 @@ export function convertEnlirSkillToMrP(
     }
     throw e;
   }
+
+  // Hack: Skills like Fusoya's Lunarian Might that consist only of party and
+  // enemy status effects may be ambiguous for our shareStatusWho logic.  Copy
+  // the skill's target to help with that.
+  if (skillEffects.length && skillEffects[0].type === 'status' && skill.target) {
+    skillEffects[0].statuses[0].who = convertTargetToWho(skill.target);
+  }
+
   for (const effect of skillEffects) {
     switch (effect.type) {
       case 'fixedAttack':
