@@ -57,6 +57,30 @@ function findFirstEffect<T extends types.EffectClause>(
   return undefined;
 }
 
+function sortSkillEffects(skillEffects: types.SkillEffect): types.SkillEffect {
+  const result: types.SkillEffect = [];
+  for (let i = 0; i < skillEffects.length; i++) {
+    if (skillEffects[i].type === 'statMod') {
+      const firstStatMod = i;
+      const lastStatMod = _.findIndex(skillEffects, e => e.type !== 'statMod', firstStatMod) - 1;
+      const firstStatus =
+        lastStatMod < 0 ? -1 : _.findIndex(skillEffects, e => e.type === 'status', lastStatMod + 1);
+      const lastStatus =
+        firstStatus < 0 ? -1 : _.findIndex(skillEffects, e => e.type !== 'status', firstStatus) - 1;
+      if (lastStatMod >= 0 && firstStatus >= 0 && lastStatMod + 1 === firstStatus) {
+        result.push(
+          ...skillEffects.slice(firstStatus, lastStatus < 0 ? undefined : lastStatus + 1),
+        );
+        result.push(...skillEffects.slice(firstStatMod, lastStatMod + 1));
+        i = lastStatus < 0 ? result.length : lastStatus;
+        continue;
+      }
+    }
+    result.push(skillEffects[i]);
+  }
+  return result;
+}
+
 function convertTargetToWho(target: EnlirTarget): types.Who {
   switch (target) {
     case 'All allies':
@@ -388,6 +412,10 @@ function processStatus(
         findFirstEffect<types.Attack>(skillEffects, 'attack'),
       );
       other.statusInfliction.push({ description, chance, chanceDescription });
+    } else if (description.match(/^\w+ infuse/)) {
+      // Following MrP's original example, any en-element effects are listed
+      // first.
+      other.normal.push(description);
     } else if (isDetail) {
       // (Always?) has implied 'self'
       other.detail.push(description);
@@ -626,6 +654,8 @@ export function convertEnlirSkillToMrP(
   if (skillEffects.length && skillEffects[0].type === 'status' && skill.target) {
     skillEffects[0].statuses[0].who = convertTargetToWho(skill.target);
   }
+
+  skillEffects = sortSkillEffects(skillEffects);
 
   for (const effect of skillEffects) {
     switch (effect.type) {
