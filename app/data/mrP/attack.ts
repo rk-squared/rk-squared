@@ -173,12 +173,16 @@ export function describeDamageType(
   if (typeof skillOrFormula === 'object' && skillOrFormula != null) {
     formula = skillOrFormula.formula;
     type = skillOrFormula.type;
+    // For hybrid, report the main damage as the first hybrid type (usually
+    // physical), and use separate fields for the magical alternative.
+    if (formula === 'Hybrid' && skillOrFormula.typeDetails) {
+      type = skillOrFormula.typeDetails[0];
+    }
   } else {
     formula = skillOrFormula;
   }
-  if (formula === 'Hybrid') {
-    // For hybrid, report the main damage as physical, and use separate fields
-    // for the magical alternative.
+  if (formula === 'Hybrid' && type === 'NAT') {
+    // For hybrid with no further type details, assume physical.
     return 'phys';
   }
 
