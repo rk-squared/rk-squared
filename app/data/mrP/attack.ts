@@ -433,13 +433,6 @@ function describeAttackDamage(
     scaleType = scaleType ? scaleType + ' ' : '';
     scaleType = '(based on ATK & DEF)';
   }
-  if (attack.atkUpWithLowHp) {
-    // MrP and random comments on Reddit suggest that Cecil gets up to +1500
-    // and Locke gets +11-40%.  Without confirmation in Enlir, I'll omit for
-    // now.
-    scaleType = scaleType ? scaleType + ', ' : '';
-    scaleType += 'uses +ATK as HP falls';
-  }
 
   const defaultDamage =
     attack.multiplierScaleType &&
@@ -537,7 +530,7 @@ export function describeAttack(
       ' ' +
       attackDamage.orCondition;
   }
-  if (attackDamage.scaleToDamage && attack.scaleType) {
+  if (attackDamage.scaleToDamage && attackDamage.scaleType) {
     // Damage scaling
     damage +=
       (attackDamage.scaleDown ? ', down to ' : ', up to ') +
@@ -576,6 +569,13 @@ export function describeAttack(
 
   if (attack.followedBy && !simpleFollowedBy) {
     damage += ', then ' + describeAttack(skill, attack.followedBy, opt);
+  }
+
+  if (attack.atkUpWithLowHp) {
+    // MrP and random comments on Reddit suggest that Cecil gets up to +1500
+    // and Locke gets +11-40%.  Without confirmation in Enlir, I'll omit for
+    // now.
+    damage += ', uses +ATK as HP falls';
   }
 
   return damage;
