@@ -30,6 +30,7 @@ import { appendCondition, describeCondition } from './condition';
 import * as skillParser from './skillParser';
 import {
   describeStats,
+  parseEnlirStatus,
   parseEnlirStatusWithSlashes,
   shareStatusDurations,
   shareStatusWho,
@@ -142,20 +143,24 @@ function describeDrainHp({ healPercent }: types.DrainHp): string {
   return `heal ${healPercent}% of dmg`;
 }
 
-function describeHeal(skill: EnlirSkill, { amount }: types.Heal): string {
+function describeHeal(skill: EnlirSkill, { amount, condition }: types.Heal): string {
   let heal: string;
+  let count: number | number[] | undefined;
   if ('healFactor' in amount) {
     heal = 'h' + arrayify(amount.healFactor).join('/');
+    count = amount.healFactor;
   } else {
     heal =
       'heal ' +
       arrayify(amount.fixedHp)
         .map(i => toMrPKilo(i, true))
         .join('/');
+    count = amount.fixedHp;
   }
   if ('healFactor' in amount && skill.type === 'NAT') {
     heal += ' (NAT)';
   }
+  heal += appendCondition(condition, count);
   return heal;
 }
 
@@ -164,8 +169,9 @@ function describeMimic(skill: EnlirSkill, { chance, count }: types.Mimic): strin
 
   // For brave commands in particular, we'll want to compare with other
   // numbers, so always include the count.
-  if (count && (count !== 1 || isBraveCommand(skill))) {
-    description += ` ${count}x`;
+  count = count || 1;
+  if (count > 1 || isBraveCommand(skill)) {
+    description += ` ${count || 1}x`;
   }
 
   if (chance) {
@@ -216,6 +222,23 @@ function checkSb(skill: EnlirSkill, effects: types.SkillEffect, opt: DescribeOpt
   }
 
   return null;
+}
+
+function checkAttackStatus(skill: EnlirSkill, { status }: types.Attack, other: OtherDetail) {
+  if (!status) {
+    return;
+  }
+  const { description, defaultDuration } = parseEnlirStatus(status.status, skill);
+  const duration =
+    status.duration || (defaultDuration ? { value: defaultDuration, units: 'seconds' } : undefined);
+  // Semi-hack: Attack statuses are usually or always imperils, and text
+  // like '35% +10% fire vuln.' looks weird.  Like MrP, we insert a 'for'
+  // to make it a bit clearer.
+  other.statusInfliction.push({
+    description: 'for ' + description + (duration ? ' ' + describeDuration(duration) : ''),
+    chance: status.chance,
+    chanceDescription: status.chance + '%',
+  });
 }
 
 function checkTime(skill: EnlirSkill, result: MrPSkill) {
@@ -675,6 +698,7 @@ export function convertEnlirSkillToMrP(
         break;
       case 'attack':
         damage.push(describeAttack(skill, effect, opt));
+        checkAttackStatus(skill, effect, other);
         break;
       case 'randomFixedAttack':
         damage.push(describeRandomFixedAttack(effect));
@@ -763,7 +787,7 @@ export function convertEnlirSkillToMrP(
       case 'castTime':
         other.misc.push(
           'cast time ' +
-            effect.castTime +
+            arrayify(effect.castTime).join('/') +
             's ' +
             describeCondition(effect.condition, effect.castTime),
         );

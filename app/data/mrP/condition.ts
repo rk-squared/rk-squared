@@ -86,7 +86,7 @@ export function describeCondition(condition: types.Condition, count?: number | n
     case 'characterInParty':
       const what = condition.type === 'characterAlive' ? ' alive' : ' in party';
       if (condition.count) {
-        return 'if ' + arrayify(condition.count).join('/') + ' ' + condition.character + what;
+        return 'if ' + arrayify(condition.count).join('/') + ' of ' + condition.character + what;
       } else {
         return 'if ' + condition.character + what;
       }
