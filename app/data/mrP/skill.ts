@@ -101,7 +101,7 @@ function convertTargetToWho(target: EnlirTarget): types.Who {
     case 'Self':
       return 'self';
     case 'Single ally':
-      return 'ally';
+    // 'Single ally' defaults to the same as other targets.  See OtherDetail.
     case 'Single enemy':
     case 'Single target':
     case 'Single':
@@ -322,8 +322,12 @@ function processStatus(
     let { status, duration, who, chance, condition } = thisStatus;
     // tslint:enable: prefer-const
 
-    // FIXME: Implement smart ether, status levels
     if (typeof status !== 'string') {
+      if (status.type === 'smartEther') {
+        other.push(skill, who, formatSmartEther(status.amount, status.school));
+      } else {
+        // FIXME: Implement status levels
+      }
       return;
     }
 
@@ -532,6 +536,9 @@ class OtherDetail {
       case 'Single enemy':
         return this.normal;
       case 'Single ally':
+        // As 'Single' and 'Single target', but for the particular case where
+        // we already have ally entries, combine them.
+        return options.defaultToAlly || this.ally.length ? this.ally : this.normal;
       case 'Single target':
       case 'Single':
         return options.defaultToAlly ? this.ally : this.normal;
@@ -706,11 +713,7 @@ export function convertEnlirSkillToMrP(
         other.push(skill, effect.who, formatRandomEther(effect.amount));
         break;
       case 'smartEther':
-        other.push(
-          skill,
-          effect.who,
-          formatSmartEther(arrayify(effect.amount).join('/'), effect.school),
-        );
+        other.push(skill, effect.who, formatSmartEther(effect.amount, effect.school));
         break;
       case 'randomCastAbility':
         // FIXME: Implement

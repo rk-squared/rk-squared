@@ -1,5 +1,11 @@
+import { arrayify } from '../../utils/typeUtils';
 import { allEnlirElements, allEnlirSchools } from '../enlir';
-import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
+import {
+  formatSchoolOrAbilityList,
+  getElementShortName,
+  getSchoolShortName,
+  getShortName,
+} from './typeHelpers';
 import { lowerCaseFirst, percentToMultiplier, toMrPGeneral, toMrPKilo } from './util';
 
 export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
@@ -19,8 +25,12 @@ export const sbPointsBoosterAlias = (percent: string | number, s: string) =>
 
 export const formatRandomEther = (amount: string | number) =>
   'refill ' + amount + ' random abil. use';
-export const formatSmartEther = (amount: string, type?: string | undefined) =>
-  'refill ' + amount + ' ' + (type ? type + ' ' : '') + 'abil. use';
+export const formatSmartEther = (amount: string | number | number[], type?: string | undefined) => {
+  if (typeof amount !== 'string') {
+    amount = arrayify(amount).join('/');
+  }
+  return 'refill ' + amount + ' ' + (type ? getShortName(type) + ' ' : '') + 'abil. use';
+};
 
 /**
  * Mappings from Enlir status names or status effect names to MrP names.
