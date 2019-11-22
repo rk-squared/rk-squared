@@ -299,16 +299,21 @@ function shouldIncludeStatus(skill: EnlirSkill) {
   };
 }
 
+/**
+ * Process a status, and return whether this is a burst toggle.
+ */
 function processStatus(
   skill: EnlirSkill,
   skillEffects: types.SkillEffect,
   effect: types.StatusEffect,
   other: OtherDetail,
-) {
+): boolean | undefined {
   // Confuse Shell doesn't remove Confuse - this is a special case, skip.
   if (effect.verb === "doesn't remove") {
     return;
   }
+
+  let burstToggle: boolean | undefined;
 
   const removes = effect.verb === 'removes';
   const statuses = effect.statuses
@@ -355,10 +360,8 @@ function processStatus(
     } = parsed;
     // tslint:enable: prefer-const
 
-    /*
-    FIXME: Reimplement
     if (isBurstToggle) {
-      burstToggle = verb.toLowerCase() !== 'removes';
+      burstToggle = effect.verb !== 'removes';
       if (description === '') {
         return;
       }
@@ -371,7 +374,6 @@ function processStatus(
         return;
       }
     }
-    */
 
     if (description === '') {
       return;
@@ -427,6 +429,8 @@ function processStatus(
       other.push(skill, who, description);
     }
   });
+
+  return burstToggle;
 }
 
 interface StatusInfliction {
@@ -727,9 +731,13 @@ export function convertEnlirSkillToMrP(
       case 'mimic':
         other.normal.push(describeMimic(skill, effect));
         break;
-      case 'status':
-        processStatus(skill, skillEffects, effect, other);
+      case 'status': {
+        const thisBurstToggle = processStatus(skill, skillEffects, effect, other);
+        if (thisBurstToggle != null) {
+          burstToggle = thisBurstToggle;
+        }
         break;
+      }
       case 'setStatusLevel':
         // FIXME: Implement
         break;
