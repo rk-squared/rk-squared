@@ -474,10 +474,33 @@ function statusAsStatMod(statusName: string, enlirStatus?: EnlirStatus) {
   return null;
 }
 
-export function getRageSkills(source: EnlirSkill): EnlirOtherSkill[] {
+export function getRageSkills(source: EnlirSkill | string): EnlirOtherSkill[] {
+  const name = typeof source === 'string' ? source : source.name;
   return enlir.otherSkills.filter(
-    i => i.sourceType === 'Rage Status' && i.source.startsWith(source.name + ' ('),
+    i => i.sourceType === 'Rage Status' && i.source.startsWith(name + ' ('),
   );
+}
+
+export function describeRageEffects(source: EnlirSkill | string) {
+  const rageSkills = getRageSkills(source);
+  const format = (skill: EnlirSkill) =>
+    formatMrPSkill(
+      convertEnlirSkillToMrP(skill, {
+        abbreviate: true,
+        showNoMiss: false,
+      }),
+    );
+  if (rageSkills.length === 0) {
+    // Does not appear to actually be used.
+    return 'auto repeat';
+  } else if (rageSkills.length === 1) {
+    return 'auto ' + format(rageSkills[0]);
+  } else {
+    // Fall back to 0% chance just to avoid special cases...
+    const chances = rageSkills.map(i => i.source.match(/\((\d+)%\)$/)).map(i => (i ? +i[1] : 0));
+    const result = describeChances(rageSkills.map(format), chances, enDashJoin);
+    return 'auto ' + _.filter(result).join(' ');
+  }
 }
 
 /**
@@ -837,25 +860,7 @@ function describeEnlirStatusEffect(
   // Rage status.  This involves looking up the Other Skills associated with
   // the Rage status's source and filling in their effects.
   if (effect.match(/[Ff]orces a specified action/) && source) {
-    const rageSkills = getRageSkills(source);
-    const format = (skill: EnlirSkill) =>
-      formatMrPSkill(
-        convertEnlirSkillToMrP(skill, {
-          abbreviate: true,
-          showNoMiss: false,
-        }),
-      );
-    if (rageSkills.length === 0) {
-      // Does not appear to actually be used.
-      return 'auto repeat';
-    } else if (rageSkills.length === 1) {
-      return 'auto ' + format(rageSkills[0]);
-    } else {
-      // Fall back to 0% chance just to avoid special cases...
-      const chances = rageSkills.map(i => i.source.match(/\((\d+)%\)$/)).map(i => (i ? +i[1] : 0));
-      const result = describeChances(rageSkills.map(format), chances, enDashJoin);
-      return 'auto ' + _.filter(result).join(' ');
-    }
+    return describeRageEffects(source);
   }
 
   if (shouldSkipEffect(effect, enlirStatus)) {

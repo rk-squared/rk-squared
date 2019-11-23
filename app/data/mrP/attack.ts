@@ -14,6 +14,7 @@ import {
 } from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
+import { describeRageEffects } from './status';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -660,3 +661,5 @@ export function formatRandomCastAbility({ abilities }: types.RandomCastAbility) 
   }
   return _.filter(describeChances(skills, abilities.map(i => i.chance || 1), ' / ')).join(' ');
 }
+
+export const formatRandomCastOther = describeRageEffects;
