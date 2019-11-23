@@ -134,39 +134,6 @@ export function describeEnlirSoulBreak(
   const partyOther: string[] = [];
   const detailOther: string[] = [];
 
-  // Hack / special case: Rage skills whose rage effects match the main effect.
-  let isPureRage = false;
-  let rageTurns: number | undefined;
-  if (
-    (m = sb.effects.match(/^Casts a random (.*) attack, grants Rage to the user for (\d+) turns?/))
-  ) {
-    const [, rageSkill, turns] = m;
-    if (rageSkill === sb.name) {
-      isPureRage = true;
-      rageTurns = +turns;
-    }
-  } else if ((m = sb.effects.match(/^(.*), grants Rage to the user for (\d+) turns?/))) {
-    const [, effects, turns] = m;
-    const rageSkills = getRageSkills(sb);
-    if (rageSkills.length === 1 && rageSkills[0].effects === effects) {
-      isPureRage = true;
-      rageTurns = +turns;
-    }
-  }
-  if (isPureRage && rageTurns) {
-    const rageStatus = parseEnlirStatus('Rage', sb);
-    const description = formatDuration(rageTurns + 1, 'turn') + ': ' + rageStatus.description;
-
-    // Hack: We're taking advantage of our knowledge of which rage skills exist
-    // here - only Gau's BSB's cmd2 is non-damaging.
-    const isNonDamage = 'school' in sb && sb.school === 'Special';
-    if (isNonDamage) {
-      other.push(description);
-    } else {
-      damage = description;
-    }
-  }
-
   if (
     opt.burstCommands &&
     _.some(opt.burstCommands, i =>

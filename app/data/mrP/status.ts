@@ -3,14 +3,8 @@ import * as XRegExp from 'xregexp';
 
 import { logger } from '../../utils/logger';
 import { getAllSameValue } from '../../utils/typeUtils';
-import {
-  enlir,
-  EnlirOtherSkill,
-  EnlirSkill,
-  EnlirStatus,
-  getEnlirOtherSkill,
-  getEnlirStatusByName,
-} from '../enlir';
+import { enlir, EnlirSkill, EnlirStatus, getEnlirOtherSkill, getEnlirStatusByName } from '../enlir';
+import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
 import { splitStatusEffects } from './split';
 import {
@@ -41,8 +35,6 @@ import {
   andList,
   andOrList,
   cleanUpSlashedNumbers,
-  describeChances,
-  enDashJoin,
   lowerCaseFirst,
   orList,
   parseNumberOccurrence,
@@ -472,35 +464,6 @@ function statusAsStatMod(statusName: string, enlirStatus?: EnlirStatus) {
   }
 
   return null;
-}
-
-export function getRageSkills(source: EnlirSkill | string): EnlirOtherSkill[] {
-  const name = typeof source === 'string' ? source : source.name;
-  return enlir.otherSkills.filter(
-    i => i.sourceType === 'Rage Status' && i.source.startsWith(name + ' ('),
-  );
-}
-
-export function describeRageEffects(source: EnlirSkill | string) {
-  const rageSkills = getRageSkills(source);
-  const format = (skill: EnlirSkill) =>
-    formatMrPSkill(
-      convertEnlirSkillToMrP(skill, {
-        abbreviate: true,
-        showNoMiss: false,
-      }),
-    );
-  if (rageSkills.length === 0) {
-    // Does not appear to actually be used.
-    return 'auto repeat';
-  } else if (rageSkills.length === 1) {
-    return 'auto ' + format(rageSkills[0]);
-  } else {
-    // Fall back to 0% chance just to avoid special cases...
-    const chances = rageSkills.map(i => i.source.match(/\((\d+)%\)$/)).map(i => (i ? +i[1] : 0));
-    const result = describeChances(rageSkills.map(format), chances, enDashJoin);
-    return 'auto ' + _.filter(result).join(' ');
-  }
 }
 
 /**

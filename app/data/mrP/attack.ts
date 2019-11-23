@@ -13,8 +13,8 @@ import {
   isSoulBreak,
 } from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
+import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
-import { describeRageEffects } from './status';
 import {
   appendElement,
   damageTypeAbbreviation,
