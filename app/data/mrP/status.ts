@@ -968,6 +968,8 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
     return 'ally heal';
   }
 
+  // FIXME: Handle cases like Celes SASB where specific commands are referenced
+
   // Special case: Steiner
   const m = trigger.match(/(.*) dmg from a (.*) attack used by another ally/);
   if (m) {

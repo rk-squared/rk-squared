@@ -19,7 +19,7 @@ export function describeMultiplierScaleType(scaleType: types.MultiplierScaleType
     case 'convergent':
       return 'scaling w/ targets';
     case 'stat':
-      return `scaling w/ ${scaleType.stat}`;
+      return `scaling w/ ${scaleType.stat.toUpperCase()}`;
     case 'hitsTaken':
       return 'w/ hits taken';
     case 'abilitiesUsed':
@@ -59,6 +59,10 @@ export function describeCondition(condition: types.Condition, count?: number | n
         // Special case: We don't show "High Retaliate" to the user.
         if (condition.status === 'Retaliate or High Retaliate') {
           return 'if Retaliate';
+        }
+        const m = condition.status.match(/^(.*) ((?:\d+\/)+\d+)/);
+        if (m) {
+          return '@ ' + m[2] + ' ' + describeEnlirStatus(m[1]);
         }
         // FIXME: Reimplement this logic:
         // if (commandRelatingToStatus !== -1) {

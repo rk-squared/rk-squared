@@ -107,7 +107,7 @@ export interface AttackExtras {
 
   status?: {
     status: StatusName;
-    chance: number;
+    chance: number | number[];
     duration?: Duration;
     condition?: Condition;
   };

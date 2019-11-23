@@ -205,7 +205,7 @@ function describeStatMod({ stats, percent, duration, condition }: types.StatMod)
 function checkSb(skill: EnlirSkill, effects: types.SkillEffect, opt: DescribeOptions) {
   if ('sb' in skill && skill.sb != null) {
     if (opt.includeSbPoints && skill.sb === 0) {
-      // If we weren't asked to suppress SB points (which we are for follow-ups
+      // If we weren't asked to suppress SB points (which we do for follow-ups
       // and finishers, since those don't generate gauge), then call out
       // anything that doesn't generate gauge.
       return 'no SB pts';
@@ -240,7 +240,7 @@ function checkAttackStatus(skill: EnlirSkill, { status }: types.Attack, other: O
   other.statusInfliction.push({
     description: 'for ' + description + (duration ? ' ' + describeDuration(duration) : ''),
     chance: status.chance,
-    chanceDescription: status.chance + '%',
+    chanceDescription: arrayify(status.chance).join('/') + '%',
   });
 }
 
@@ -382,7 +382,7 @@ function processStatus(
       defaultDuration,
       isVariableDuration,
       specialDuration,
-      optionCount, // FIXME: Use optionCount
+      optionCount,
     } = parsed;
     // tslint:enable: prefer-const
 
@@ -423,7 +423,8 @@ function processStatus(
       description = 'stacking ' + description;
     }
     */
-    description += appendCondition(condition);
+    const options = optionCount ? _.times(optionCount, i => i + 1) : undefined;
+    description += appendCondition(condition, options);
 
     if (!duration && defaultDuration) {
       duration = { value: defaultDuration, units: 'seconds' };
@@ -459,7 +460,7 @@ function processStatus(
 
 interface StatusInfliction {
   description: string;
-  chance: number;
+  chance: number | number[];
   chanceDescription: string;
 }
 
