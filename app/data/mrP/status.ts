@@ -1631,7 +1631,7 @@ export function shareStatusWho(
   accumulator: types.StatusWithPercent[],
   currentItem: types.StatusWithPercent,
 ) {
-  if (currentItem.who) {
+  if (currentItem.who && currentItem.whoAllowsLookahead) {
     for (let i = accumulator.length - 1; i >= 0; i--) {
       if (accumulator[i].who) {
         break;

@@ -274,6 +274,7 @@ export interface StatusLevel {
 export interface StatusClause {
   duration?: Duration;
   who?: Who;
+  whoAllowsLookahead?: boolean;
   perUses?: number;
   ifSuccessful?: boolean;
   ifUndead?: boolean;

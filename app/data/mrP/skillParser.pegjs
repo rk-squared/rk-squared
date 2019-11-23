@@ -447,6 +447,11 @@ StatusLevel "status with level"
 StatusClause
   = _ clause:(
     duration:Duration { return { duration }; }
+    // As a special case, if who isn't followed by a duration, it may
+    // apparently apply to previous statuses (so previous statuses can look
+    // ahead to this one), while a who that is followed by a duration cannot.
+    // See, e.g., Desch SSB or Sarah BSB.
+    / who:Who ! (_ Duration) { return { who, whoAllowsLookahead: true }; }
     / who:Who { return { who }; }
     // Flexibility: Support both "two uses" and "second use"
     / "every" _ ("two" _ "uses" / "second" _ "use") { return { perUses: 2 }; }
