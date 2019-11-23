@@ -445,9 +445,7 @@ function processStatus(
       );
       other.statusInfliction.push({ description, chance, chanceDescription });
     } else if (description.match(/^\w+ infuse/)) {
-      // Following MrP's original example, any en-element effects are listed
-      // first.
-      other.normal.push(description);
+      other.infuse.push(description);
     } else if (isDetail) {
       // (Always?) has implied 'self'
       other.detail.push(description);
@@ -484,6 +482,7 @@ class OtherDetail {
   normal: string[] = [];
   statusInfliction: StatusInfliction[] = [];
   aoe: string[] = [];
+  infuse: string[] = []; // Following MrP, self en-element is listed separately.
   self: string[] = [];
   sameRow: string[] = [];
   frontRow: string[] = [];
@@ -518,12 +517,21 @@ class OtherDetail {
     ) {
       // If, for example, it's a glint with only self effects, then "self" is
       // redundant.
-      result = [...this.self, ...this.misc];
+      //
+      // But - as an additional hack / special case, infuses still get "self".
+      // FIXME: Clean that up once the new MrP code is stable.
+      if (this.infuse.length) {
+        result = [...this.infuse, ...this.makeGroup(this.self, 'self'), ...this.misc];
+      } else {
+        result = [...this.infuse, ...this.self, ...this.misc];
+      }
     } else {
       result = [
         ...this.formatStatusInfliction(),
         ...this.normal,
         ...this.makeGroup(this.aoe, implicitlyTargetsEnemies ? undefined : 'AoE'),
+
+        ...this.infuse,
 
         // Hack: Same row is currently only used for Desch AASB, where it fits
         // naturally before partyOther.
