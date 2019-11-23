@@ -25,6 +25,7 @@ import {
   describeHpAttack,
   describeRandomFixedAttack,
   formatAttackStatusChance,
+  formatRandomCastAbility,
 } from './attack';
 import { appendCondition, describeCondition } from './condition';
 import * as skillParser from './skillParser';
@@ -379,7 +380,7 @@ function processStatus(
       defaultDuration,
       isVariableDuration,
       specialDuration,
-      optionCount,
+      optionCount, // FIXME: Use optionCount
     } = parsed;
     // tslint:enable: prefer-const
 
@@ -744,7 +745,7 @@ export function convertEnlirSkillToMrP(
         other.push(skill, effect.who, formatSmartEther(effect.amount, effect.school));
         break;
       case 'randomCastAbility':
-        // FIXME: Implement
+        damage.push(formatRandomCastAbility(effect));
         break;
       case 'randomCastOther':
         // FIXME: Implement

@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import { logger } from '../../utils/logger';
 import { arrayify, arrayifyLength } from '../../utils/typeUtils';
 import {
+  enlir,
   EnlirBurstCommand,
   EnlirFormula,
   EnlirSkill,
@@ -12,6 +13,7 @@ import {
   isSoulBreak,
 } from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
+import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -634,4 +636,27 @@ export function formatAttackStatusChance(chance: number, attack?: types.Attack):
 
   // Must be a variable number of hits
   return `${chance}%/hit`;
+}
+
+/**
+ * Cast a random ability.  In practice, these are always pure damage, so
+ * callers may treat them accordingly.
+ */
+export function formatRandomCastAbility({ abilities }: types.RandomCastAbility) {
+  let skills: string[];
+  if (abilities.length <= 3) {
+    // Resolve skill effects, if it looks like it won't be too verbose.
+    const skillOpt = { abbreviate: true, includeSchool: false };
+    skills = abilities.map(i => {
+      const thisSkill = enlir.abilitiesByName[i.ability];
+      if (thisSkill) {
+        return i.ability + ' (' + formatMrPSkill(convertEnlirSkillToMrP(thisSkill, skillOpt)) + ')';
+      } else {
+        return i.ability;
+      }
+    });
+  } else {
+    skills = abilities.map(i => i.ability);
+  }
+  return _.filter(describeChances(skills, abilities.map(i => i.chance || 1), ' / ')).join(' ');
 }

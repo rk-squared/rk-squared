@@ -87,16 +87,6 @@ export interface MrPSoulBreak {
   synchroCondition?: Array<EnlirElement | EnlirSchool>;
 }
 
-function appendGroup(outGroup: string[], inGroup: string[], description?: string) {
-  if (inGroup.length) {
-    outGroup.push((description ? description + ' ' : '') + inGroup.join(', '));
-  }
-}
-
-function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): string {
-  return abbreviate ? damageTypeAbbreviation(damageType) : damageType + ' ';
-}
-
 interface DescribeOptions {
   abbreviate: boolean;
   abbreviateDamageType: boolean;
@@ -107,33 +97,6 @@ interface DescribeOptions {
   prereqStatus: string | undefined;
   burstCommands: EnlirBurstCommand[] | undefined;
   synchroCommands: EnlirSynchroCommand[] | undefined;
-}
-
-function describeEnlirAttack(
-  skill: EnlirSkill,
-  attack: ParsedEnlirAttack,
-  opt: DescribeOptions,
-): [string, StatusInfliction[]] {
-  let damage = '';
-  const statusInfliction: StatusInfliction[] = [];
-
-  if (attack.status && attack.statusChance) {
-    const { description, defaultDuration } = parseEnlirStatus(attack.status, skill);
-    const duration = attack.statusDuration || defaultDuration;
-    // Semi-hack: Attack statuses are usually or always imperils, and text
-    // like '35% +10% fire vuln.' looks weird.  Like MrP, we insert a 'for'
-    // to make it a bit clearer.
-    statusInfliction.push({
-      description: 'for ' + description + (duration ? ` ${duration}s` : ''),
-      chance: attack.statusChance,
-      chanceDescription: attack.statusChance.join('/') + '%',
-    });
-  }
-
-  // Hack: In case a "followed by" attack left a trailing comma that we ended
-  // up not needing.
-  damage = damage.replace(/,$/, '');
-  return [damage, statusInfliction];
 }
 
 // FIXME: Rename to indicate broader usage (not just soul breaks now) and move out of index?
@@ -170,33 +133,6 @@ export function describeEnlirSoulBreak(
   const sameRowOther: string[] = [];
   const partyOther: string[] = [];
   const detailOther: string[] = [];
-
-  // Random effects.  In practice, these are always pure damage, so list as
-  // damage.
-  if ((m = sb.effects.match(/Randomly casts (.*)/))) {
-    const skillsAndChances = _.unzip(
-      m[1]
-        .split(orList)
-        .map(i => i.match(/^(.*?)(?: \((\d+)%\))?$/))
-        .map((i: RegExpMatchArray) => [i[1], i[2] ? +i[2] : 1]),
-    ) as [string[], number[]];
-
-    let skills = skillsAndChances[0];
-
-    // Resolve skill effects, if it looks like it won't be too verbose.
-    if (skills.length <= 3) {
-      const skillOpt = { abbreviate: true, includeSchool: false };
-      skills = skillsAndChances[0].map(i => {
-        const thisSkill = enlir.abilitiesByName[i];
-        if (thisSkill) {
-          return i + ' (' + formatMrP(describeEnlirSoulBreak(thisSkill, skillOpt)) + ')';
-        } else {
-          return i;
-        }
-      });
-    }
-    damage = _.filter(describeChances(skills, skillsAndChances[1], ' / ')).join(' ');
-  }
 
   // Hack / special case: Rage skills whose rage effects match the main effect.
   let isPureRage = false;
