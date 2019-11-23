@@ -26,22 +26,25 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
 // Attacks
 
 Attack
+  = attack:SimpleAttack
+    extras:AttackExtras {
+    return {
+      ...attack,
+      ...extras,
+    };
+  }
+
+SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
-    _ overstrike:(","? _ "capped" _ "at" _ "99999")?
-    _ scaleType:AttackScaleType?
-    extras:AttackExtras {
+    _ overstrike:(","? _ "capped" _ "at" _ "99999")? {
     const result = {
       type: 'attack',
       numAttacks,
       ...(attackMultiplierGroup || {}),
-      ...extras
     };
     if (overstrike) {
       result.isOverstrike = true;
-    }
-    if (scaleType) {
-      result.scaleType = scaleType;
     }
     if (attackType === 'group') {
       result.isAoE = true;
@@ -139,9 +142,6 @@ AttackModifiers
   }
 
 
-AttackScaleType
-  = Condition
-
 MultiplierScaleType
   = "scaling" _ "with" _ "HP%" { return { type: 'percentHp' }; }
   / "scaling" _ "with" _ "targets" { return { type: 'convergent' }; }
@@ -153,7 +153,7 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHp / AttackStatusChance / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHp / AttackScaleType / AttackStatusChance / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
     return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
   }
 
@@ -182,6 +182,9 @@ AlwaysCrits
 AtkUpWithLowHp
   = "ATK" _ "increases" _ "as" _ "HP" _ "decrease" "s"? { return { atkUpWithLowHp: true }; }
 
+AttackScaleType
+  = scaleType:Condition { return { scaleType } };
+
 AttackStatusChance
   // NOTE: This assumes that each skill only inflicts one status via its attack
   = chance:IntegerSlashList '%' _ "chance" _ "to" _ "cause" _ status:StatusName _ duration:Duration? _ condition:Condition? {
@@ -197,7 +200,7 @@ FinisherPercent
   }
 
 FollowedByAttack
-  = "followed" _ "by" _ followedBy:Attack { return { followedBy }; }
+  = "followed" _ "by" _ followedBy:SimpleAttack { return { followedBy }; }
 
 HitRate
   = hitRate:Integer "%" _ "hit" _ "rate" { return { hitRate }; }

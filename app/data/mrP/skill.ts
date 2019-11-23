@@ -754,10 +754,12 @@ export function convertEnlirSkillToMrP(
         other.normal.push('donate SB pts to target');
         break;
       case 'gainSB':
-        other.push(skill, effect.who, sbPointsAlias(effect.points));
+        other.push(skill, effect.who, sbPointsAlias(effect.points), { defaultToAlly: true });
         break;
       case 'gainSBOnSuccess':
-        other.push(skill, effect.who, sbPointsAlias(effect.points) + ' on success');
+        other.push(skill, effect.who, sbPointsAlias(effect.points) + ' on success', {
+          defaultToAlly: true,
+        });
         break;
       case 'resetIfKO':
       case 'resistViaKO':
