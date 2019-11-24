@@ -28,7 +28,7 @@ import {
   formatRandomCastAbility,
   formatRandomCastOther,
 } from './attack';
-import { appendCondition, describeCondition } from './condition';
+import { appendCondition, describeCondition, excludeCondition, findCondition } from './condition';
 import { checkPureRage } from './rage';
 import * as skillParser from './skillParser';
 import {
@@ -48,6 +48,19 @@ import {
 } from './typeHelpers';
 import * as types from './types';
 import { formatSignedIntegerSlashList, toMrPFixed, toMrPKilo } from './util';
+
+export function safeParseSkill(skill: EnlirSkill): types.SkillEffect | null {
+  try {
+    return skillParser.parse(skill.effects);
+  } catch (e) {
+    logger.error(`Failed to parse ${skill.name}:`);
+    logger.error(e);
+    if (e.name === 'SyntaxError') {
+      return null;
+    }
+    throw e;
+  }
+}
 
 function findFirstEffect<T extends types.EffectClause>(
   skillEffects: types.SkillEffect,
@@ -174,7 +187,55 @@ function describeStatMod({ stats, percent, duration, condition }: types.StatMod)
   return statMod;
 }
 
-function checkSb(skill: EnlirSkill, effects: types.SkillEffect, opt: DescribeOptions) {
+function findOtherSkill(skill: EnlirSkill, otherSkills: EnlirSkill[] | undefined) {
+  if (!otherSkills) {
+    return null;
+  }
+  const index = _.findIndex(otherSkills, i => i !== skill);
+  if (index !== -1) {
+    return {
+      skill: otherSkills[index],
+      index,
+    };
+  }
+  return null;
+}
+
+function scalesWithSkill(skill: EnlirSkill): (condition: types.Condition) => boolean {
+  return (condition: types.Condition) =>
+    condition.type === 'scaleWithSkillUses' && condition.skill === skill.name;
+}
+
+function checkPowersUp(skill: EnlirSkill, opt: DescribeOptions): string | null {
+  const other =
+    findOtherSkill(skill, opt.burstCommands) || findOtherSkill(skill, opt.synchroCommands);
+  if (!other) {
+    return null;
+  }
+
+  const otherEffects = safeParseSkill(other.skill);
+  if (!otherEffects) {
+    return null;
+  }
+
+  if (findCondition(otherEffects, scalesWithSkill(skill))) {
+    return `powers up cmd ${other.index + 1}`;
+  } else {
+    return null;
+  }
+}
+
+function checkPoweredUpBy(skill: EnlirSkill, effects: types.SkillEffect, opt: DescribeOptions) {
+  const other =
+    findOtherSkill(skill, opt.burstCommands) || findOtherSkill(skill, opt.synchroCommands);
+  if (!other) {
+    return;
+  }
+
+  excludeCondition(effects, scalesWithSkill(other.skill));
+}
+
+function checkSbPoints(skill: EnlirSkill, effects: types.SkillEffect, opt: DescribeOptions) {
   if ('sb' in skill && skill.sb != null) {
     if (opt.includeSbPoints && skill.sb === 0) {
       // If we weren't asked to suppress SB points (which we do for follow-ups
@@ -654,22 +715,16 @@ export function convertEnlirSkillToMrP(
   // We may start returning these as is so callers can deal with them.
   const other = new OtherDetail();
 
-  let skillEffects: types.SkillEffect;
-  try {
-    skillEffects = skillParser.parse(skill.effects);
-  } catch (e) {
-    logger.error(`Failed to parse ${skill.name}:`);
-    logger.error(e);
-    if (e.name === 'SyntaxError') {
-      return result;
-    }
-    throw e;
+  let skillEffects = safeParseSkill(skill);
+  if (!skillEffects) {
+    return result;
   }
 
   const rageDurationAndEffects = checkPureRage(skill, skillEffects);
   if (rageDurationAndEffects) {
     skillEffects = rageDurationAndEffects[1];
   }
+  checkPoweredUpBy(skill, skillEffects, opt);
 
   skillEffects = sortSkillEffects(skillEffects);
 
@@ -785,9 +840,15 @@ export function convertEnlirSkillToMrP(
   }
 
   {
-    const sbEffect = checkSb(skill, skillEffects, opt);
-    if (sbEffect) {
-      other.misc.push(sbEffect);
+    const powersUpEffect = checkPowersUp(skill, opt);
+    if (powersUpEffect) {
+      other.misc.push(powersUpEffect);
+    }
+  }
+  {
+    const sbPointsEffect = checkSbPoints(skill, skillEffects, opt);
+    if (sbPointsEffect) {
+      other.misc.push(sbPointsEffect);
     }
   }
 

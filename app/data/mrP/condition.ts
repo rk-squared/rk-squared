@@ -1,4 +1,4 @@
-import { arrayify, arrayifyLength } from '../../utils/typeUtils';
+import { arrayify, arrayifyLength, KeysOfType } from '../../utils/typeUtils';
 import { describeEnlirStatus } from './status';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import * as types from './types';
@@ -154,4 +154,81 @@ export function appendCondition(
   count?: number | number[],
 ): string {
   return condition ? ' ' + describeCondition(condition, count) : '';
+}
+
+/**
+ * Given a condition, return a new Condition? value (or null to not touch
+ * what's there), and return whether it should continue visitation.
+ */
+type ConditionVisitor = (
+  condition: types.Condition,
+) => [types.Condition | undefined | null, boolean];
+
+function visitEffectCondition<T>(
+  f: ConditionVisitor,
+  effect: T,
+  props: Array<KeysOfType<T, types.Condition | undefined>>,
+): boolean {
+  for (const i of props) {
+    if (!effect[i]) {
+      continue;
+    }
+    const [newCondition, shouldContinue] = f((effect[i] as unknown) as types.Condition);
+    if (newCondition !== null) {
+      effect[i] = newCondition as any;
+    }
+    if (shouldContinue) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function visitCondition(f: ConditionVisitor, effects: types.SkillEffect): void {
+  // TODO: Implement remaining visitors.  Only those types we need are implemented so far.
+  for (const i of effects) {
+    switch (i.type) {
+      case 'attack':
+        if (
+          !visitEffectCondition(f, i, [
+            'scaleType',
+            'additionalCritDamageCondition',
+            'additionalCritCondition',
+            'airTimeCondition',
+            'damageModifierCondition',
+            'orMultiplierCondition',
+            'orNumAttacksCondition',
+          ])
+        ) {
+          return;
+        }
+        if (i.status && !visitEffectCondition(f, i.status, ['condition'])) {
+          return;
+        }
+    }
+  }
+}
+
+export function findCondition(
+  effects: types.SkillEffect,
+  filter: (condition: types.Condition) => boolean,
+): boolean {
+  let result: boolean = false;
+  visitCondition((condition: types.Condition) => {
+    if (filter(condition)) {
+      result = true;
+      return [null, false];
+    }
+    return [null, true];
+  }, effects);
+  return result;
+}
+
+export function excludeCondition(
+  effects: types.SkillEffect,
+  filter: (condition: types.Condition) => boolean,
+) {
+  visitCondition((condition: types.Condition) => {
+    return [filter(condition) ? undefined : null, true];
+  }, effects);
 }

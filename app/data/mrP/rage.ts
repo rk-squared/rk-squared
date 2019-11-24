@@ -9,8 +9,7 @@ import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
 import { enlir, EnlirOtherSkill, EnlirSkill } from '../enlir';
-import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
-import * as skillParser from './skillParser';
+import { convertEnlirSkillToMrP, formatMrPSkill, safeParseSkill } from './skill';
 import * as types from './types';
 import { describeChances, enDashJoin } from './util';
 
@@ -56,16 +55,9 @@ function isPureRage(skill: EnlirSkill, skillEffectsWithoutRage: types.SkillEffec
 
   const rageSkills = getRageSkills(skill);
   if (rageSkills.length === 1) {
-    let rageEffects: types.SkillEffect;
-    try {
-      rageEffects = skillParser.parse(rageSkills[0].effects);
-    } catch (e) {
-      logger.error(`Failed to parse ${skill.name}:`);
-      logger.error(e);
-      if (e.name === 'SyntaxError') {
-        return false;
-      }
-      throw e;
+    const rageEffects = safeParseSkill(rageSkills[0]);
+    if (!rageEffects) {
+      return false;
     }
 
     if (_.isEqual(skillEffectsWithoutRage, rageEffects)) {
