@@ -2,16 +2,7 @@ import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
 import { arrayify, arrayifyLength } from '../../utils/typeUtils';
-import {
-  enlir,
-  EnlirBurstCommand,
-  EnlirFormula,
-  EnlirSkill,
-  EnlirSkillType,
-  EnlirSynchroCommand,
-  isNat,
-  isSoulBreak,
-} from '../enlir';
+import { enlir, EnlirFormula, EnlirSkill, EnlirSkillType, isNat, isSoulBreak } from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
@@ -319,12 +310,8 @@ function describeAttackDamage(
   attack: types.Attack,
   {
     prereqStatus,
-    burstCommands,
-    synchroCommands,
   }: {
     prereqStatus?: string;
-    burstCommands?: EnlirBurstCommand[];
-    synchroCommands?: EnlirSynchroCommand[];
   },
 ) {
   const { numAttacks, finisherPercentDamage, finisherPercentCriteria } = attack;
@@ -395,17 +382,7 @@ function describeAttackDamage(
       }
     }
   } else if (attack.scaleType && attack.scaleType.type === 'scaleWithSkillUses') {
-    const scaleSkill = attack.scaleType.skill;
-    if (
-      (burstCommands && burstCommands.filter(i => i.name === scaleSkill)) ||
-      (synchroCommands && synchroCommands.filter(i => i.name === scaleSkill))
-    ) {
-      // Do nothing on the receiving end - the other command will get text from
-      // the main function.
-      scaleType = undefined;
-    } else {
-      scaleType = describeCondition(attack.scaleType);
-    }
+    scaleType = describeCondition(attack.scaleType);
   } else if (
     attack.attackMultiplier &&
     attack.scaleToMultiplier &&
