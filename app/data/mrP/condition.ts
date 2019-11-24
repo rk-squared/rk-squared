@@ -51,7 +51,7 @@ export function describeCondition(condition: types.Condition, count?: number | n
       // FIXME: Reimplement isOwnStatusThreshold, statusThresholdCount, commandRelatingToStatus
       return 'if ' + condition.status;
     case 'statusLevel':
-      return formatThreshold(condition.value, 'lvl');
+      return formatThreshold(condition.value, 'status lvl');
     case 'ifDoomed':
       return 'if Doomed';
     case 'status':
@@ -95,7 +95,11 @@ export function describeCondition(condition: types.Condition, count?: number | n
         return 'if ' + condition.character + what;
       }
     case 'females':
-      return 'if ' + arrayify(condition.count).join('/') + ' females in party';
+      if (typeof condition.count === 'number') {
+        return 'if ≥' + condition.count + ' females in party';
+      } else {
+        return 'if ' + arrayify(condition.count).join('/') + ' females in party';
+      }
     case 'alliesJump':
       return 'if ' + arrayify(condition.count).join('/') + ' allies in air';
     case 'doomTimer':

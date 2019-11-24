@@ -187,6 +187,14 @@ function describeStatMod({ stats, percent, duration, condition }: types.StatMod)
   return statMod;
 }
 
+function formatStatusLevel(value: number) {
+  if (value === 0) {
+    return 'reset status lvl';
+  } else {
+    return `status lvl =${value}`;
+  }
+}
+
 function findOtherSkill(skill: EnlirSkill, otherSkills: EnlirSkill[] | undefined) {
   if (!otherSkills) {
     return null;
@@ -390,7 +398,7 @@ function processStatus(
       if (status.type === 'smartEther') {
         other.push(skill, who, formatSmartEther(status.amount, status.school));
       } else {
-        // FIXME: Implement status levels
+        other.push(skill, who, formatStatusLevel(status.value));
       }
       return;
     }
@@ -800,7 +808,7 @@ export function convertEnlirSkillToMrP(
         break;
       }
       case 'setStatusLevel':
-        // FIXME: Implement
+        other.self.push(formatStatusLevel(effect.value));
         break;
       case 'statMod':
         other.push(skill, effect.who, describeStatMod(effect));
