@@ -11,6 +11,7 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
   - Don't break relic draw page on unknown inventory
 - Export option
 - Soul Break updates - Lightning SASB, etc.
+- Minor bugs: old RMs show as missing
 - AndApp support; document BlueStacks support
 - Search hotkeys?
 - Add an explanation of probability calculator

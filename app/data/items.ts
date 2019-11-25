@@ -860,6 +860,31 @@ export const items: Item[] = [
     type: ItemType.Orb,
     id: 40000141,
   },
+  {
+    name: 'Dark Ixion Record',
+    type: ItemType.Orb,
+    id: 40000142,
+  },
+  {
+    name: 'Spirited Dispatch Record',
+    type: ItemType.Orb,
+    id: 40000143,
+  },
+  {
+    name: 'Running Start Record',
+    type: ItemType.Orb,
+    id: 40000144,
+  },
+  {
+    name: 'Grind to Dust Record',
+    type: ItemType.Orb,
+    id: 40000145,
+  },
+  {
+    name: 'Aquatic Weakness Record',
+    type: ItemType.Orb,
+    id: 40000146,
+  },
 
   {
     name: 'Minor Growth Egg',
