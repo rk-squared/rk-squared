@@ -289,21 +289,50 @@ function describeSimpleFollowedBy(skill: EnlirSkill, attack: types.Attack) {
 }
 
 /**
- * Describes the "attack" portion of an Enlir skill.
- *
- * FIXME: Refactor with describeAttack
- * FIXME: Reimplement use of prereqStatus
- *
- * @param skill The containing Enlir skill JSON
- * @param attack The parsed attack
- * @param prereqStatus A status that must be present for this skill to
- *   trigger - e.g., for Edge's Lurking Shadow.  parseEnlirAttack can use this
- *   to clean up attack formatting
- * @param burstCommands Optional list of burst commands for which this skill is
- *   a part.  If present, this is used to process items like Squall's BSB2,
- *   where one command powers up the other, as well as cases like Josef's where
- *   one command grants a unique status that affects the other.
- * @param synchroCommands See burstCommands
+ * Modify an attack to reflect prerequisite statuses.
+ */
+function checkAttackPrereqStatus(
+  skill: EnlirSkill,
+  attack: types.Attack,
+  prereqStatus: string | undefined,
+): types.Attack {
+  // If an attack scales with its own prerequisite status, then we can filter
+  // level 0 from this attack.
+  if (prereqStatus && attack.scaleType && attack.scaleType.type === 'status') {
+    const m = attack.scaleType.status.match(/^(.*) 0\/(?:(\d+\/)+\d+)$/);
+    if (m && m[1] === prereqStatus) {
+      const removeFirst = <T>(n: number[] | T) => (Array.isArray(n) ? n.slice(1) : n);
+      return {
+        ...attack,
+        numAttacks: isRandomNumAttacks(attack.numAttacks)
+          ? attack.numAttacks
+          : removeFirst(attack.numAttacks),
+        attackMultiplier: removeFirst(attack.attackMultiplier),
+        scaleType: {
+          ...attack.scaleType,
+          status: attack.scaleType.status.replace(' 0/', ' '),
+        },
+      };
+    }
+  }
+  return attack;
+  /*
+    // If the status threshold is the same as the prereq status, or if this is
+    // an EnlirOtherSkill that is granted by the status threshold, then we can
+    // filter out "0" from the possible actions.
+    const isOwnStatusThreshold =
+      'source' in skill && skill.source.replace(/ [0-9\/]+$/, '') === m.statusThreshold;
+    if (prereqStatus === m.statusThreshold || isOwnStatusThreshold) {
+      statusThresholdCount = m.statusThresholdCount.replace(/^0\//, '');
+      if (statusThresholdCount !== m.statThreshold) {
+        damage = damage.replace(new RegExp('^.*?' + thresholdJoin), '');
+      }
+    }
+*/
+}
+
+/**
+ * Helper function for describeAttack
  */
 function describeAttackDamage(
   skill: EnlirSkill,
@@ -314,6 +343,8 @@ function describeAttackDamage(
     prereqStatus?: string;
   },
 ) {
+  attack = checkAttackPrereqStatus(skill, attack, prereqStatus);
+
   const { numAttacks, finisherPercentDamage, finisherPercentCriteria } = attack;
   let { attackMultiplier } = attack;
 
@@ -443,6 +474,15 @@ function describeAttackDamage(
   };
 }
 
+/**
+ * Describes the "attack" portion of an Enlir skill.
+ *
+ * @param skill The containing Enlir skill JSON
+ * @param attack The parsed attack
+ * @param opt prereqStatus gives what must be present for this skill to trigger
+ *   - e.g., for Edge's Lurking Shadow.  This code can use this to clean up
+ *   attack formatting
+ */
 export function describeAttack(
   skill: EnlirSkill,
   attack: types.Attack,
@@ -452,7 +492,7 @@ export function describeAttack(
     'school' in skill && skill.school !== '?' && skill.school !== 'Special'
       ? skill.school
       : undefined;
-  const attackDamage = describeAttackDamage(skill, attack, {});
+  const attackDamage = describeAttackDamage(skill, attack, { prereqStatus: opt.prereqStatus });
   if (!attackDamage) {
     return '???';
   }
@@ -557,6 +597,10 @@ export function describeAttack(
     // now.
     damage += ', uses +ATK as HP falls';
   }
+
+  // Hack: In case a "followed by" attack left a trailing comma that we ended
+  // up not needing.
+  damage = damage.replace(/,$/, '');
 
   return damage;
 }

@@ -856,7 +856,7 @@ export function convertEnlirSkillToMrP(
   {
     const sbPointsEffect = checkSbPoints(skill, skillEffects, opt);
     if (sbPointsEffect) {
-      other.misc.push(sbPointsEffect);
+      other.misc.splice(0, 0, sbPointsEffect);
     }
   }
 
