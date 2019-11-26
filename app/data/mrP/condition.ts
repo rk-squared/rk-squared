@@ -64,10 +64,6 @@ export function describeCondition(condition: types.Condition, count?: number | n
         if (m) {
           return '@ ' + m[2] + ' ' + describeEnlirStatus(m[1]);
         }
-        // FIXME: Reimplement this logic:
-        // if (commandRelatingToStatus !== -1) {
-        //   statusDescription = 'cmd' + (commandRelatingToStatus + 1) + ' status';
-        // }
         return 'if ' + describeEnlirStatus(condition.status);
       } else {
         // If we have one status, show it.  Otherwise, in practice, this is always
@@ -188,7 +184,7 @@ function visitEffectCondition<T>(
   return true;
 }
 
-function visitCondition(f: ConditionVisitor, effects: types.SkillEffect): void {
+export function visitCondition(f: ConditionVisitor, effects: types.SkillEffect): void {
   // TODO: Implement remaining visitors.  Only those types we need are implemented so far.
   for (const i of effects) {
     switch (i.type) {

@@ -28,7 +28,13 @@ import {
   formatRandomCastAbility,
   formatRandomCastOther,
 } from './attack';
-import { appendCondition, describeCondition, excludeCondition, findCondition } from './condition';
+import {
+  appendCondition,
+  describeCondition,
+  excludeCondition,
+  findCondition,
+  visitCondition,
+} from './condition';
 import { checkPureRage } from './rage';
 import * as skillParser from './skillParser';
 import {
@@ -214,33 +220,84 @@ function scalesWithSkill(skill: EnlirSkill): (condition: types.Condition) => boo
     condition.type === 'scaleWithSkillUses' && condition.skill === skill.name;
 }
 
+/**
+ * Checks if this skill powers up its paired skill (cmd 1/2 if this is cmd 2/1
+ * of a burst soul break or synchro soul break).  We represent that a bit
+ * differently - instead of saying that cmd 2 scales with cmd 1, we say that
+ * cmd 1 powers up cmd 2.  (We do this partly because that's what MrP did and
+ * partly because cmd 1 tends to be shorter.)
+ */
 function checkPowersUp(skill: EnlirSkill, opt: DescribeOptions): string | null {
-  const other =
+  const paired =
     findOtherSkill(skill, opt.burstCommands) || findOtherSkill(skill, opt.synchroCommands);
-  if (!other) {
+  if (!paired) {
     return null;
   }
 
-  const otherEffects = safeParseSkill(other.skill);
-  if (!otherEffects) {
+  const pairedEffects = safeParseSkill(paired.skill);
+  if (!pairedEffects) {
     return null;
   }
 
-  if (findCondition(otherEffects, scalesWithSkill(skill))) {
-    return `powers up cmd ${other.index + 1}`;
+  if (findCondition(pairedEffects, scalesWithSkill(skill))) {
+    return `powers up cmd ${paired.index + 1}`;
   } else {
     return null;
   }
 }
 
+/**
+ * See checkPowersUp.  This also handles the case where one command is affected
+ * by a non-standard status from the other command. (The "Unbound Fury" status
+ * used by some monk characters' bursts is the main or only example.)
+ */
 function checkPoweredUpBy(skill: EnlirSkill, effects: types.SkillEffect, opt: DescribeOptions) {
-  const other =
+  // Find the paired command
+  const paired =
     findOtherSkill(skill, opt.burstCommands) || findOtherSkill(skill, opt.synchroCommands);
-  if (!other) {
+  if (!paired) {
     return;
   }
 
-  excludeCondition(effects, scalesWithSkill(other.skill));
+  // Remove all references to this skill scaling with the paired command; let
+  // checkPowersUp handle that instead.
+  excludeCondition(effects, scalesWithSkill(paired.skill));
+
+  const pairedEffects = safeParseSkill(paired.skill);
+  if (!pairedEffects) {
+    return;
+  }
+
+  // Check if this skill scales with a nonstandard status granted by the paired
+  // command.
+  let pairedStatus: string | undefined;
+  for (const i of pairedEffects) {
+    if (i.type === 'status') {
+      for (const j of i.statuses) {
+        if (j.who === 'self' && typeof j.status === 'string') {
+          pairedStatus = j.status;
+          break;
+        }
+      }
+      if (pairedStatus) {
+        break;
+      }
+    }
+  }
+  if (!pairedStatus) {
+    return;
+  }
+  visitCondition((condition: types.Condition) => {
+    if (
+      condition.type === 'status' &&
+      condition.status === pairedStatus &&
+      condition.who === 'self'
+    ) {
+      return [{ ...condition, status: `cmd ${paired.index + 1} status` }, false];
+    } else {
+      return [null, true];
+    }
+  }, effects);
 }
 
 function checkSbPoints(skill: EnlirSkill, effects: types.SkillEffect, opt: DescribeOptions) {
