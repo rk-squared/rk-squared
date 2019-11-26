@@ -389,7 +389,7 @@ export type Condition =
   | { type: 'scaleUseCount'; useCount: number | number[] }
   | { type: 'scaleWithUses' }
   | { type: 'scaleWithSkillUses'; skill: string }
-  | { type: 'afterUseCount'; skill: string; useCount: UseCount }
+  | { type: 'afterUseCount'; skill?: string; useCount: UseCount }
   | { type: 'alliesAlive' }
   | { type: 'characterAlive'; character: string; count?: number | number[] }
   | { type: 'characterInParty'; character: string; count?: number | number[] }
@@ -422,7 +422,18 @@ export type Condition =
   | { type: 'rankBased' }
   | { type: 'statThreshold'; stat: EnlirStat; value: number | number[] };
 
-export interface UseCount {
-  x: number | number[];
-  y: number;
-}
+export type UseCount =
+  | {
+      x: number | number[];
+      y: number;
+    }
+  | {
+      from: number;
+    }
+  | {
+      to: number;
+    }
+  | {
+      from: number;
+      to: number;
+    };

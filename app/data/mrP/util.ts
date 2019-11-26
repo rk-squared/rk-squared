@@ -307,15 +307,27 @@ export function cleanUpSlashedNumbers(s: string): string {
   }
 }
 
-export function formatUseCount(count: number | undefined | types.UseCount): string {
+export function formatUseNumber(count: number | undefined): string {
   if (!count) {
     return 'w/ uses';
-  } else if (typeof count === 'object') {
-    return `${count.x} + ${count.y}n`;
   } else if (count > 4) {
     return 'w/ 1…' + count + ' uses';
   } else {
     return 'w/ ' + _.times(count).join('-') + ' uses';
+  }
+}
+
+export function formatUseCount(count: types.UseCount): string {
+  if ('x' in count) {
+    return `${count.x} + ${count.y}n`;
+  } else if (!('from' in count)) {
+    return `≤${count.to}`;
+  } else if (!('to' in count)) {
+    return `≥${count.from}`;
+  } else if (count.from === count.to) {
+    return '' + count.from;
+  } else {
+    return `${count.from}-${count.to}`;
   }
 }
 

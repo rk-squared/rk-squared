@@ -708,7 +708,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.2,
-    "effects": "Critical Damage +50% 2 to all allies, removes all Items",
+    "effects": "Grants Critical Damage +50% 2 to all allies, removes all Items",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 90,

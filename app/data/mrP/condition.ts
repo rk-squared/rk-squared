@@ -2,7 +2,7 @@ import { arrayify, arrayifyLength, KeysOfType } from '../../utils/typeUtils';
 import { describeEnlirStatus } from './status';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import * as types from './types';
-import { formatUseCount, orList } from './util';
+import { formatUseCount, formatUseNumber, orList } from './util';
 
 export function formatThreshold(
   thresholdValues: number | number[],
@@ -75,11 +75,11 @@ export function describeCondition(condition: types.Condition, count?: number | n
     case 'scaleUseCount':
       return 'w/ ' + arrayify(condition.useCount).join('-') + ' uses';
     case 'scaleWithUses':
-      return formatUseCount(count ? arrayifyLength(count) : undefined);
+      return formatUseNumber(count ? arrayifyLength(count) : undefined);
     case 'scaleWithSkillUses':
       return 'w/ ' + condition.skill + ' uses';
     case 'afterUseCount':
-      return `@ ${formatUseCount(condition.useCount)} ${condition.skill}`;
+      return `@ ${formatUseCount(condition.useCount)} ${condition.skill || 'uses'}`;
     case 'alliesAlive':
       return 'if no allies KO';
     case 'characterAlive':
