@@ -177,7 +177,7 @@ function visitEffectCondition<T>(
     if (newCondition !== null) {
       effect[i] = newCondition as any;
     }
-    if (shouldContinue) {
+    if (!shouldContinue) {
       return false;
     }
   }
@@ -211,6 +211,11 @@ export function visitCondition(f: ConditionVisitor, effects: types.SkillEffect):
           if (!visitEffectCondition(f, status, ['condition'])) {
             return;
           }
+        }
+        break;
+      case 'statMod':
+        if (!visitEffectCondition(f, i, ['condition'])) {
+          return;
         }
         break;
     }

@@ -268,6 +268,22 @@ function checkPoweredUpBy(skill: EnlirSkill, effects: types.SkillEffect, opt: De
     return;
   }
 
+  // Check if this skill scales with itself and if we can reasonably omit the
+  // skill name.
+  visitCondition((condition: types.Condition) => {
+    if (condition.type === 'afterUseCount' && condition.skill === skill.name) {
+      return [
+        {
+          ...condition,
+          skill: undefined,
+        },
+        true,
+      ];
+    } else {
+      return [null, true];
+    }
+  }, effects);
+
   // Check if this skill scales with a nonstandard status granted by the paired
   // command.
   let pairedStatus: string | undefined;
