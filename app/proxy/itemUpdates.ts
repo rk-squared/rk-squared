@@ -308,6 +308,9 @@ const itemUpdatesHandler: Handler = {
           checkItem(prize);
         }
       });
+      for (const dropItem of d.battle_drop_items) {
+        checkItem(dropItem);
+      }
     }
   },
 

@@ -79,6 +79,14 @@ export interface DungeonPrizeItem {
   clear_battle_time?: number; // Clear time, in milliseconds
 }
 
+export interface DungeonDropItem {
+  type_name: ItemTypeName;
+  num: number;
+  image_path: RelativeUrlPath;
+  name: string;
+  id: number;
+}
+
 export interface Dungeon {
   id: number;
   world_id?: number;
@@ -129,12 +137,12 @@ export interface Dungeon {
   unlocked_series_ids: number[];
   ability_category_bonus_map: {};
   battle_ticket_id_2_num: {};
-  battle_drop_items: [];
+  battle_drop_items: DungeonDropItem[];
 
   memory_labo_group_id?: number;
-  // Not implemented: memory_labo_recommendation_infos
+  // Not tracked/processed: memory_labo_recommendation_infos
 
-  // Not yet tracked: captures (medal conditions)
+  // Not yet tracked/processed: captures (medal conditions)
 }
 
 // A node in a record dungeon's graph
