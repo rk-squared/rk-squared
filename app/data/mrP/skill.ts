@@ -424,6 +424,33 @@ function shouldIncludeStatus(skill: EnlirSkill) {
 }
 
 /**
+ * Checks for stacking statuses, like "Warlord Mode 1/2/3/3 if the user has
+ * Warlord Mode 0/1/2/3"
+ */
+function checkStacking(
+  status: types.StatusWithPercent,
+): [types.StatusWithPercent['status'], boolean] {
+  if (
+    typeof status.status !== 'string' ||
+    !status.condition ||
+    status.condition.type !== 'status'
+  ) {
+    return [status.status, false];
+  }
+
+  let statusName = status.status;
+  const prereq = status.condition.status;
+  if (statusName.replace(/[0-9\/]+/, 'X') === prereq.replace(/[0-9\/]+/, 'X')) {
+    // Enlir lists, e.g., 'Warlord Mode 1/2/3/3' to show that it doesn't stack
+    // further.  Remove the redundancy.
+    statusName = statusName.replace(/(\d)\/\1/, '$1');
+    return [statusName, true];
+  }
+
+  return [statusName, false];
+}
+
+/**
  * Process a status, and return whether this is a burst toggle.
  */
 function processStatus(
@@ -448,8 +475,9 @@ function processStatus(
     .sort(sortStatus);
   statuses.forEach((thisStatus, thisStatusIndex) => {
     // tslint:disable: prefer-const
-    let { status, duration, who, chance, condition, perUses } = thisStatus;
+    let { duration, who, chance, condition, perUses } = thisStatus;
     // tslint:enable: prefer-const
+    const [status, stacking] = checkStacking(thisStatus);
 
     if (typeof status !== 'string') {
       if (status.type === 'smartEther') {
@@ -516,13 +544,13 @@ function processStatus(
     if (isTrance) {
       description = 'Trance: ' + description;
     }
-    /* FIXME: Reimplement
     if (stacking) {
       description = 'stacking ' + description;
     }
-    */
     const options = optionCount ? _.times(optionCount, i => i + 1) : undefined;
-    description += appendCondition(condition, options);
+    if (condition && !stacking) {
+      description += appendCondition(condition, options);
+    }
 
     if (!duration && defaultDuration) {
       duration = { value: defaultDuration, units: 'seconds' };
