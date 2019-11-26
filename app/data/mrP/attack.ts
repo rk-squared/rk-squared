@@ -296,39 +296,45 @@ function checkAttackPrereqStatus(
   attack: types.Attack,
   prereqStatus: string | undefined,
 ): types.Attack {
+  if (!attack.scaleType || attack.scaleType.type !== 'status') {
+    return attack;
+  }
+
   // If an attack scales with its own prerequisite status, then we can filter
   // level 0 from this attack.
-  if (prereqStatus && attack.scaleType && attack.scaleType.type === 'status') {
-    const m = attack.scaleType.status.match(/^(.*) 0\/(?:(\d+\/)+\d+)$/);
-    if (m && m[1] === prereqStatus) {
-      const removeFirst = <T>(n: number[] | T) => (Array.isArray(n) ? n.slice(1) : n);
-      return {
-        ...attack,
-        numAttacks: isRandomNumAttacks(attack.numAttacks)
-          ? attack.numAttacks
-          : removeFirst(attack.numAttacks),
-        attackMultiplier: removeFirst(attack.attackMultiplier),
-        scaleType: {
-          ...attack.scaleType,
-          status: attack.scaleType.status.replace(' 0/', ' '),
-        },
-      };
-    }
+  const m = attack.scaleType.status.match(/^(.*) (0\/(?:(\d+\/)+\d+))$/);
+  if (!m) {
+    return attack;
   }
-  return attack;
-  /*
-    // If the status threshold is the same as the prereq status, or if this is
-    // an EnlirOtherSkill that is granted by the status threshold, then we can
-    // filter out "0" from the possible actions.
-    const isOwnStatusThreshold =
-      'source' in skill && skill.source.replace(/ [0-9\/]+$/, '') === m.statusThreshold;
-    if (prereqStatus === m.statusThreshold || isOwnStatusThreshold) {
-      statusThresholdCount = m.statusThresholdCount.replace(/^0\//, '');
-      if (statusThresholdCount !== m.statThreshold) {
-        damage = damage.replace(new RegExp('^.*?' + thresholdJoin), '');
-      }
+  const scaleStatus = m[1];
+  let scaleCount = m[2];
+
+  const isOwnStatusThreshold = 'source' in skill && skill.source.replace(/ [0-9\/]+$/, '') === m[1];
+  if (isOwnStatusThreshold || scaleStatus === prereqStatus) {
+    const removeFirst = <T>(n: number[] | T) => (Array.isArray(n) ? n.slice(1) : n);
+    scaleCount = scaleCount.replace(/^0\//, '');
+
+    let newStatusName: string;
+    if (isOwnStatusThreshold) {
+      newStatusName = scaleCount + ' stacks';
+    } else {
+      newStatusName = scaleStatus + ' ' + scaleCount;
     }
-*/
+
+    return {
+      ...attack,
+      numAttacks: isRandomNumAttacks(attack.numAttacks)
+        ? attack.numAttacks
+        : removeFirst(attack.numAttacks),
+      attackMultiplier: removeFirst(attack.attackMultiplier),
+      scaleType: {
+        ...attack.scaleType,
+        status: newStatusName,
+      },
+    };
+  }
+
+  return attack;
 }
 
 /**
