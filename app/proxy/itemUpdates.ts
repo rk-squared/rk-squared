@@ -20,8 +20,22 @@ import { IState } from '../reducers';
 import { logger } from '../utils/logger';
 import { getRequestLang, Handler, HandlerRequest } from './common';
 
+/**
+ * Locally updated items.  These are mainly tracked so that we can avoid
+ * displaying item updates more than once.  As a hack, the drop item tracker
+ * also checks this so that it can handle items like Rush Tickets from the Fat
+ * Black Chocobo events; those are added too frequently for our manual items.ts
+ * updates to necessarily keep up.
+ *
+ * Note that these are kept in memory only; persisting it would add
+ * complications for knowing when to expire entries, when to use it versus the
+ * authoritative items.ts data, etc.
+ *
+ * To limit the hack, this should only be accessed from the proxy back-end, not
+ * from the Electron front-end.
+ */
 let localItems = _.clone(items);
-const localItemsById = _.zipObject(items.map(i => i.id), localItems);
+export const localItemsById = _.zipObject(items.map(i => i.id), localItems);
 
 interface PrizeItem {
   type_name: schemas.ItemTypeName;
@@ -35,8 +49,7 @@ function showUnknownItem(item: PrizeItem) {
 }
 
 function addLocalItem({ name, type_name, id }: PrizeItem) {
-  const type = ItemTypeLookup[type_name] || type_name;
-  const newItem = { name, type, id };
+  const newItem = { name, type: type_name.toLowerCase() as ItemType, id };
   localItems.push(newItem);
   localItems = _.sortBy(localItems, 'id');
   localItemsById[id] = newItem;

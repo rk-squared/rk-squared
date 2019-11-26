@@ -1,3 +1,12 @@
+# v2.5.0
+
+- Drop Tracker
+  - Properly fix display of Rush Tickets for Fat Black Chocobo dungeons
+  - Fix clearing drop items if you restart FFRK and choose to quit the battle
+- Relic Draws
+  - Add handling for shared soul breaks, such as the recent Valkyrie Anatomia event
+  - Fix some display glitches and improve display at smaller screen sizes
+
 # v2.4.0
 
 - Fix compatibility with iOS 13

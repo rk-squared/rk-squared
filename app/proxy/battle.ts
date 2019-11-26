@@ -10,12 +10,13 @@ import * as _ from 'lodash';
 import { LangType } from '../api/apiUrls';
 import * as schemas from '../api/schemas';
 import { enlir } from '../data';
-import { formatRelicName, itemsById, ItemType } from '../data/items';
+import { formatRelicName, Item, itemsById, ItemType } from '../data/items';
 import * as urls from '../data/urls';
 import { getRequestLang, Handler, HandlerRequest } from './common';
 
 import { clearDropItems, DropItem, setDropItems } from '../actions/battle';
 import { IState } from '../reducers';
+import { localItemsById } from './itemUpdates';
 
 enum DropItemType {
   Gil = 11,
@@ -90,6 +91,13 @@ function nameWithAmount(name: string, amount?: number) {
   }
 }
 
+function getTreasureItemDetails(lang: LangType, realItem: Item) {
+  return {
+    name: realItem.name,
+    imageUrl: urls.itemImage(lang, realItem.id, realItem.type),
+  };
+}
+
 function getTreasureDetails(lang: LangType, id: number, item: NormalizedItem) {
   if (enlir.magicites[id]) {
     return {
@@ -102,11 +110,9 @@ function getTreasureDetails(lang: LangType, id: number, item: NormalizedItem) {
       imageUrl: urls.relicImage(lang, id, item.rarity),
     };
   } else if (itemsById[id]) {
-    const realItem = itemsById[id];
-    return {
-      name: realItem.name,
-      imageUrl: urls.itemImage(lang, realItem.id, realItem.type),
-    };
+    return getTreasureItemDetails(lang, itemsById[id]);
+  } else if (localItemsById[id]) {
+    return getTreasureItemDetails(lang, localItemsById[id]);
   } else {
     return {
       name: generateItemName(item),
@@ -137,7 +143,9 @@ function convertDropItemList(
       case DropItemType.Currency: {
         let name: string | undefined;
         if (item.item_id != null) {
-          name = _.get(itemsById, [item.item_id, 'name']);
+          name =
+            _.get(itemsById, [item.item_id, 'name']) ||
+            _.get(localItemsById, [item.item_id, 'name']);
         }
         name = name || generateItemName(item);
         dropItems.push({
@@ -163,7 +171,7 @@ function convertDropItemList(
         });
         break;
       case DropItemType.Treasure: {
-        const id = item.item_id as number;
+        const id = item.item_id!;
         const details = getTreasureDetails(lang, id, item);
         dropItems.push({
           amount: item.amount,
@@ -259,6 +267,10 @@ const battleHandler: Handler = {
   lose_battle(data: schemas.GetBattleInit, store: Store<IState>) {
     store.dispatch(clearDropItems());
   },
+
+  quit_battle(data: {}, store: Store<IState>) {
+    store.dispatch(clearDropItems());
+  }
 
   win_battle: handleWinBattle,
   battle_win: handleWinBattle,
