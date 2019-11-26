@@ -391,7 +391,7 @@ function processStatus(
     .sort(sortStatus);
   statuses.forEach((thisStatus, thisStatusIndex) => {
     // tslint:disable: prefer-const
-    let { status, duration, who, chance, condition } = thisStatus;
+    let { status, duration, who, chance, condition, perUses } = thisStatus;
     // tslint:enable: prefer-const
 
     if (typeof status !== 'string') {
@@ -478,6 +478,10 @@ function processStatus(
       } else {
         description = description + ' ' + durationText;
       }
+    }
+
+    if (perUses) {
+      description += ` per ${perUses} uses`;
     }
 
     if (chance) {
