@@ -6,7 +6,13 @@ import {
   getSchoolShortName,
   getShortName,
 } from './typeHelpers';
-import { lowerCaseFirst, percentToMultiplier, toMrPGeneral, toMrPKilo } from './util';
+import {
+  formatNumberSlashList,
+  lowerCaseFirst,
+  percentToMultiplier,
+  toMrPGeneral,
+  toMrPKilo,
+} from './util';
 
 export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
 export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
@@ -27,7 +33,7 @@ export const formatRandomEther = (amount: string | number) =>
   'refill ' + amount + ' random abil. use';
 export const formatSmartEther = (amount: string | number | number[], type?: string | undefined) => {
   if (typeof amount !== 'string') {
-    amount = arrayify(amount).join('/');
+    amount = formatNumberSlashList(amount);
   }
   return 'refill ' + amount + ' ' + (type ? getShortName(type) + ' ' : '') + 'abil. use';
 };
@@ -97,12 +103,13 @@ export const statusAlias: AliasMap = {
     'Radiant Shield: 100%': 'Reflect Dmg',
 
     'High Retaliate': 'Retaliate @p1.2',
-    'Heavy Charge =0': 'reset Heavy Charge',
+    'Heavy Charge': 'Hvy Charge',
+    'Heavy Charge =0': 'reset Hvy Charge',
 
     'Instant KO': 'KO',
 
     'No Air Time': 'no air time',
-    'Heavy Charge Booster': '+1 to all Heavy Charge gains',
+    'Heavy Charge Booster': '+1 to all Hvy Charge gains',
 
     'Draw Fire': 'taunt PHY, +100% DEF',
     'Magic Lure': 'taunt BLK, +100% RES',
@@ -168,6 +175,8 @@ export const statusAlias: AliasMap = {
 
     'Doom: {X}': 'Doom {X}s',
     'Doom Timer {X}': '{X}s Doom',
+
+    'Heavy Charge {X}': 'Hvy Charge {X}',
 
     'Ingredients +{X}': '+{X} ingredients',
     'Ingredients {X}': '{X} ingredients',

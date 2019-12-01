@@ -1,15 +1,15 @@
-import { arrayify, arrayifyLength, KeysOfType } from '../../utils/typeUtils';
+import { arrayifyLength, KeysOfType } from '../../utils/typeUtils';
 import { describeEnlirStatus } from './status';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import * as types from './types';
-import { formatUseCount, formatUseNumber, orList } from './util';
+import { formatNumberSlashList, formatUseCount, formatUseNumber, orList } from './util';
 
 export function formatThreshold(
   thresholdValues: number | number[],
   thresholdName: string,
   units: string = '',
 ): string {
-  return '@ ' + arrayify(thresholdValues).join('-') + units + ' ' + thresholdName;
+  return '@ ' + formatNumberSlashList(thresholdValues) + units + ' ' + thresholdName;
 }
 
 export function describeMultiplierScaleType(scaleType: types.MultiplierScaleType): string {
@@ -73,7 +73,7 @@ export function describeCondition(condition: types.Condition, count?: number | n
         return status.length === 1 ? 'vs. ' + status[0] : 'vs. status';
       }
     case 'scaleUseCount':
-      return 'w/ ' + arrayify(condition.useCount).join('-') + ' uses';
+      return 'w/ ' + formatNumberSlashList(condition.useCount) + ' uses';
     case 'scaleWithUses':
       return formatUseNumber(count ? arrayifyLength(count) : undefined);
     case 'scaleWithSkillUses':
@@ -86,7 +86,7 @@ export function describeCondition(condition: types.Condition, count?: number | n
     case 'characterInParty':
       const what = condition.type === 'characterAlive' ? ' alive' : ' in party';
       if (condition.count) {
-        return 'if ' + arrayify(condition.count).join('/') + ' of ' + condition.character + what;
+        return 'if ' + formatNumberSlashList(condition.count) + ' of ' + condition.character + what;
       } else {
         return 'if ' + condition.character + what;
       }
@@ -94,10 +94,10 @@ export function describeCondition(condition: types.Condition, count?: number | n
       if (typeof condition.count === 'number') {
         return 'if ≥' + condition.count + ' females in party';
       } else {
-        return 'if ' + arrayify(condition.count).join('/') + ' females in party';
+        return 'if ' + formatNumberSlashList(condition.count) + ' females in party';
       }
     case 'alliesJump':
-      return 'if ' + arrayify(condition.count).join('/') + ' allies in air';
+      return 'if ' + formatNumberSlashList(condition.count) + ' allies in air';
     case 'doomTimer':
       return formatThreshold(condition.value, 'sec Doom');
     case 'hpBelowPercent':

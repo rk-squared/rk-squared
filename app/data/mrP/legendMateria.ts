@@ -29,7 +29,13 @@ import {
   getElementAbbreviation,
   getShortName,
 } from './typeHelpers';
-import { andList, handleUncertain, percentToMultiplier, toMrPKilo } from './util';
+import {
+  andList,
+  handleUncertain,
+  parseThresholdValues,
+  percentToMultiplier,
+  toMrPKilo,
+} from './util';
 
 const parseUncertainEnlirStatus = handleUncertain(parseEnlirStatus);
 
@@ -261,7 +267,7 @@ const legendMateriaHandlers: HandlerList = [
       const bonusDescription = bonus.split('/').join('-');
       return (
         `+${bonusDescription}% dmg` +
-        formatThreshold(statBreakCount.split('/').map(i => +i), 'stats lowered')
+        formatThreshold(parseThresholdValues(statBreakCount), 'stats lowered')
       );
     },
   ],

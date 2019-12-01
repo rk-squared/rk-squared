@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
-import { arrayify, assertNever, isAllSame } from '../../utils/typeUtils';
+import { assertNever, isAllSame } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirElement,
@@ -53,7 +53,13 @@ import {
   getElementShortName,
 } from './typeHelpers';
 import * as types from './types';
-import { formatSignedIntegerSlashList, toMrPFixed, toMrPKilo } from './util';
+import {
+  fixedNumberOrUnknown,
+  formatNumberSlashList,
+  formatSignedIntegerSlashList,
+  toMrPFixed,
+  toMrPKilo,
+} from './util';
 
 export function safeParseSkill(skill: EnlirSkill): types.SkillEffect | null {
   try {
@@ -141,14 +147,10 @@ function describeHeal(skill: EnlirSkill, { amount, condition }: types.Heal): str
   let heal: string;
   let count: number | number[] | undefined;
   if ('healFactor' in amount) {
-    heal = 'h' + arrayify(amount.healFactor).join('/');
+    heal = 'h' + formatNumberSlashList(amount.healFactor);
     count = amount.healFactor;
   } else {
-    heal =
-      'heal ' +
-      arrayify(amount.fixedHp)
-        .map(i => toMrPKilo(i, true))
-        .join('/');
+    heal = 'heal ' + formatNumberSlashList(amount.fixedHp, i => toMrPKilo(i, true));
     count = amount.fixedHp;
   }
   if ('healFactor' in amount && skill.type === 'NAT') {
@@ -176,7 +178,9 @@ function describeMimic(skill: EnlirSkill, { chance, count }: types.Mimic): strin
 }
 
 function describeRecoilHp({ damagePercent, maxOrCurrent, condition }: types.RecoilHp): string {
-  return `lose ${damagePercent}% ${maxOrCurrent} HP` + appendCondition(condition);
+  return (
+    `lose ${formatNumberSlashList(damagePercent)}% ${maxOrCurrent} HP` + appendCondition(condition)
+  );
 }
 
 function describeStatMod({ stats, percent, duration, condition }: types.StatMod): string {
@@ -354,7 +358,7 @@ function checkAttackStatus(skill: EnlirSkill, { status }: types.Attack, other: O
   other.statusInfliction.push({
     description: 'for ' + description + (duration ? ' ' + describeDuration(duration) : ''),
     chance: status.chance,
-    chanceDescription: arrayify(status.chance).join('/') + '%',
+    chanceDescription: formatNumberSlashList(status.chance) + '%',
   });
 }
 
@@ -939,7 +943,7 @@ export function convertEnlirSkillToMrP(
       case 'castTime':
         other.misc.push(
           'cast time ' +
-            arrayify(effect.castTime).join('/') +
+            formatNumberSlashList(effect.castTime, i => fixedNumberOrUnknown(i, 3)) +
             's ' +
             describeCondition(effect.condition, effect.castTime),
         );

@@ -14,12 +14,17 @@ import {
   getElementAbbreviation,
   getElementShortName,
   getSchoolShortName,
-  hyphenJoin,
   MrPDamageType,
   SB_BAR_SIZE,
 } from './typeHelpers';
 import * as types from './types';
-import { describeChances, joinOr, toMrPFixed } from './util';
+import {
+  describeChances,
+  fixedNumberOrUnknown,
+  formatNumberSlashList,
+  joinOr,
+  toMrPFixed,
+} from './util';
 
 // Source for convergent mechanics:
 // https://www.reddit.com/r/FFRecordKeeper/comments/6eldg4/change_to_convergent_attacks_mechanics/
@@ -421,8 +426,8 @@ function describeAttackDamage(
   } else if (attack.scaleType && attack.scaleType.type === 'scaleWithSkillUses') {
     scaleType = describeCondition(attack.scaleType);
   } else if (
-    attack.attackMultiplier &&
-    attack.scaleToMultiplier &&
+    attack.attackMultiplier != null &&
+    attack.scaleToMultiplier != null &&
     !isRandomNumAttacks(numAttacks) &&
     isConvergent(attack)
   ) {
@@ -538,10 +543,10 @@ export function describeAttack(
   // If critical hits might depend on the entire attack's scaling, process
   // them now.
   if (attack.additionalCrit && !attack.additionalCritCondition) {
-    damage += ' @ +' + hyphenJoin(attack.additionalCrit) + '% crit';
+    damage += ' @ +' + formatNumberSlashList(attack.additionalCrit) + '% crit';
   }
   if (attack.additionalCritDamage && !attack.additionalCritDamageCondition) {
-    damage += ` @ +` + hyphenJoin(attack.additionalCritDamage) + '% crit dmg';
+    damage += ` @ +` + formatNumberSlashList(attack.additionalCritDamage) + '% crit dmg';
   }
 
   if (!attackDamage.scaleToDamage && attackDamage.scaleType) {
@@ -578,15 +583,16 @@ export function describeAttack(
     damage += appendCondition(attack.damageModifierCondition, attack.damageModifier);
   }
   if (attack.additionalCrit && attack.additionalCritCondition) {
-    damage += ' @ +' + hyphenJoin(attack.additionalCrit) + '% crit';
+    damage += ' @ +' + formatNumberSlashList(attack.additionalCrit) + '% crit';
     damage += appendCondition(attack.additionalCritCondition, attack.additionalCrit);
   }
   if (attack.additionalCritDamage && attack.additionalCritDamageCondition) {
-    damage += ' @ +' + hyphenJoin(attack.additionalCritDamage) + '% crit dmg';
+    damage += ' @ +' + formatNumberSlashList(attack.additionalCritDamage) + '% crit dmg';
     damage += appendCondition(attack.additionalCritDamageCondition, attack.additionalCritDamage);
   }
   if (attack.airTime) {
-    damage += ', air time ' + attack.airTime + 's';
+    damage +=
+      ', air time ' + formatNumberSlashList(attack.airTime, i => fixedNumberOrUnknown(i, 2)) + 's';
     damage += appendCondition(attack.airTimeCondition, attack.airTime);
   }
   // Omit ' (SUM)' for Summoning school; it seems redundant.

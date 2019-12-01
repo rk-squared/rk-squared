@@ -144,9 +144,3 @@ export function getShortNameWithSpaces(s: string): string {
   }
   return result;
 }
-
-export function hyphenJoin(numberList: number | number[]): string {
-  return arrayify(numberList)
-    .map(n => (isNaN(n) ? '?' : n.toString()))
-    .join(' - ');
-}

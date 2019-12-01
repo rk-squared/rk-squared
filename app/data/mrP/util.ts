@@ -56,9 +56,27 @@ export function lowerCaseFirst(s: string): string {
   return s.replace(/^([A-Z])/, c => c.toLowerCase());
 }
 
+export const numberOrUnknown = (n: number) => (isNaN(n) ? '?' : '' + n);
+export const fixedNumberOrUnknown = (n: number, fractionDigits: number) =>
+  isNaN(n) ? '?' : n.toFixed(fractionDigits);
+
+/**
+ * Formats one of the SlashLists from our Enlir grammar.  Following MrP, we use
+ * hyphens to separate these.  (We also use hyphens to separate options for
+ * attack damage, because attack damage values contain slashes themselves, so
+ * using hyphens for conditions and supporting values has the advantage of
+ * matching.)
+ */
+export function formatNumberSlashList(
+  n: number | number[],
+  converter: (n: number) => string = numberOrUnknown,
+): string {
+  return typeof n === 'number' ? converter(n) : n.map(converter).join('-');
+}
+
 export function formatSignedIntegerSlashList(n: number | number[]): string {
   n = arrayify(n);
-  return (n[0] < 0 ? '-' : '+') + n.map(i => Math.abs(i)).join('/');
+  return (n[0] < 0 ? '-' : '+') + n.map(i => Math.abs(i)).join('-');
 }
 
 /**
@@ -313,7 +331,7 @@ export function formatUseNumber(count: number | undefined): string {
   } else if (count > 4) {
     return 'w/ 1…' + count + ' uses';
   } else {
-    return 'w/ ' + _.times(count).join('-') + ' uses';
+    return 'w/ ' + formatNumberSlashList(_.times(count)) + ' uses';
   }
 }
 
