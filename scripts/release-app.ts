@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env -S npx ts-node
 
 import * as child_process from 'child_process';
 import * as fs from 'fs-extra';

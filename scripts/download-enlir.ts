@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env -S npx ts-node
 /**
  * @file
  * Download data from the Enlir spreadsheet and convert to JSON.
