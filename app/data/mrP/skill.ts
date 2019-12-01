@@ -39,6 +39,7 @@ import { checkPureRage } from './rage';
 import * as skillParser from './skillParser';
 import {
   describeStats,
+  formatDuration,
   parseEnlirStatus,
   parseEnlirStatusWithSlashes,
   shareStatusDurations,
@@ -122,16 +123,6 @@ function isHybridStatSet(statSet: types.StatSet): statSet is types.HybridStatSet
   return statSet.length === 2 && Array.isArray(statSet[0]);
 }
 
-function describeDuration({ value, units }: types.Duration): string {
-  if (units === 'seconds') {
-    return value + 's';
-  } else if (value === 1) {
-    return '1 turn';
-  } else {
-    return value + ` turns`;
-  }
-}
-
 function describeChain({ chainType, fieldBonus, max }: types.Chain): string {
   let chain = (isEnlirElement(chainType) ? getElementShortName(chainType) : chainType) + ' chain';
   chain += ' ' + toMrPFixed(1 + +fieldBonus / 100) + 'x';
@@ -191,7 +182,7 @@ function describeStatMod({ stats, percent, duration, condition }: types.StatMod)
     : describeStats(stats);
   let statMod = formatSignedIntegerSlashList(percent) + '% ';
   statMod += combinedStats;
-  statMod += ` ` + describeDuration(duration);
+  statMod += ` ` + formatDuration(duration);
   statMod += appendCondition(condition, percent);
 
   return statMod;
@@ -356,7 +347,7 @@ function checkAttackStatus(skill: EnlirSkill, { status }: types.Attack, other: O
   // like '35% +10% fire vuln.' looks weird.  Like MrP, we insert a 'for'
   // to make it a bit clearer.
   other.statusInfliction.push({
-    description: 'for ' + description + (duration ? ' ' + describeDuration(duration) : ''),
+    description: 'for ' + description + (duration ? ' ' + formatDuration(duration) : ''),
     chance: status.chance,
     chanceDescription: formatNumberSlashList(status.chance) + '%',
   });
@@ -495,7 +486,7 @@ function processStatus(
     .sort(sortStatus);
   statuses.forEach((thisStatus, thisStatusIndex) => {
     // tslint:disable: prefer-const
-    let { duration, who, chance, condition, perUses } = thisStatus;
+    let { duration, who, chance, condition, perUses, ifSuccessful } = thisStatus;
     // tslint:enable: prefer-const
     const [status, stacking] = checkStacking(thisStatus);
 
@@ -577,7 +568,7 @@ function processStatus(
     }
 
     if ((duration || specialDuration) && !isVariableDuration) {
-      const durationText = specialDuration || describeDuration(duration!);
+      const durationText = specialDuration || formatDuration(duration!);
       if (isExLike) {
         description = durationText + ': ' + description;
       } else {
@@ -587,6 +578,9 @@ function processStatus(
 
     if (perUses) {
       description += ` per ${perUses} uses`;
+    }
+    if (ifSuccessful) {
+      description += ' on success';
     }
 
     if (chance) {
@@ -848,7 +842,7 @@ export function convertEnlirSkillToMrP(
   for (const effect of skillEffects) {
     switch (effect.type) {
       case 'fixedAttack':
-        damage.push(describeFixedAttack(effect));
+        damage.push(describeFixedAttack(skill, effect, opt));
         break;
       case 'attack':
         damage.push(describeAttack(skill, effect, opt));

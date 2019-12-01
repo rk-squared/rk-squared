@@ -2,7 +2,15 @@ import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
 import { arrayify, arrayifyLength } from '../../utils/typeUtils';
-import { enlir, EnlirFormula, EnlirSkill, EnlirSkillType, isNat, isSoulBreak } from '../enlir';
+import {
+  enlir,
+  EnlirFormula,
+  EnlirSchool,
+  EnlirSkill,
+  EnlirSkillType,
+  isNat,
+  isSoulBreak,
+} from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
@@ -22,6 +30,7 @@ import {
   describeChances,
   fixedNumberOrUnknown,
   formatNumberSlashList,
+  hyphenJoin,
   joinOr,
   toMrPFixed,
 } from './util';
@@ -75,6 +84,12 @@ function describeConvergentDamage(
       ),
     ).join(thresholdJoin) + '…'
   );
+}
+
+function getSchool(skill: EnlirSkill): EnlirSchool | undefined {
+  return 'school' in skill && skill.school !== '?' && skill.school !== 'Special'
+    ? skill.school
+    : undefined;
 }
 
 function addNumAttacks(numAttacks: number) {
@@ -499,10 +514,7 @@ export function describeAttack(
   attack: types.Attack,
   opt: DescribeOptions,
 ): string {
-  const school =
-    'school' in skill && skill.school !== '?' && skill.school !== 'Special'
-      ? skill.school
-      : undefined;
+  const school = getSchool(skill);
   const attackDamage = describeAttackDamage(skill, attack, { prereqStatus: opt.prereqStatus });
   if (!attackDamage) {
     return '???';
@@ -543,10 +555,10 @@ export function describeAttack(
   // If critical hits might depend on the entire attack's scaling, process
   // them now.
   if (attack.additionalCrit && !attack.additionalCritCondition) {
-    damage += ' @ +' + formatNumberSlashList(attack.additionalCrit) + '% crit';
+    damage += ' @ +' + hyphenJoin(attack.additionalCrit) + '% crit';
   }
   if (attack.additionalCritDamage && !attack.additionalCritDamageCondition) {
-    damage += ` @ +` + formatNumberSlashList(attack.additionalCritDamage) + '% crit dmg';
+    damage += ` @ +` + hyphenJoin(attack.additionalCritDamage) + '% crit dmg';
   }
 
   if (!attackDamage.scaleToDamage && attackDamage.scaleType) {
@@ -583,11 +595,11 @@ export function describeAttack(
     damage += appendCondition(attack.damageModifierCondition, attack.damageModifier);
   }
   if (attack.additionalCrit && attack.additionalCritCondition) {
-    damage += ' @ +' + formatNumberSlashList(attack.additionalCrit) + '% crit';
+    damage += ' @ +' + hyphenJoin(attack.additionalCrit) + '% crit';
     damage += appendCondition(attack.additionalCritCondition, attack.additionalCrit);
   }
   if (attack.additionalCritDamage && attack.additionalCritDamageCondition) {
-    damage += ' @ +' + formatNumberSlashList(attack.additionalCritDamage) + '% crit dmg';
+    damage += ' @ +' + hyphenJoin(attack.additionalCritDamage) + '% crit dmg';
     damage += appendCondition(attack.additionalCritDamageCondition, attack.additionalCritDamage);
   }
   if (attack.airTime) {
@@ -617,7 +629,12 @@ export function describeAttack(
   return damage;
 }
 
-export function describeFixedAttack(attack: types.FixedAttack): string {
+export function describeFixedAttack(
+  skill: EnlirSkill,
+  attack: types.FixedAttack,
+  opt: DescribeOptions,
+): string {
+  const school = getSchool(skill);
   const { numAttacks } = attack;
 
   let randomChances: string | undefined;
@@ -636,6 +653,7 @@ export function describeFixedAttack(attack: types.FixedAttack): string {
   damage += attack.isAoE ? 'AoE ' : '';
   damage += randomChances ? randomChances + ' ' : '';
   damage += fixedDamage + ' fixed dmg';
+  damage += opt.includeSchool && school ? ' ' + getSchoolShortName(school) : '';
 
   return damage;
 }

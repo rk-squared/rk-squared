@@ -36,6 +36,7 @@ import {
   andOrList,
   cleanUpSlashedNumbers,
   lowerCaseFirst,
+  numberOrUnknown,
   orList,
   parseNumberOccurrence,
   parseNumberString,
@@ -560,7 +561,7 @@ function describeFinisherStatus(statusName: string): string {
   // Hack: Partially duplicated from convertEnlirSkillToMrP.  We currently
   // only support default durations.
   if (status && status.defaultDuration) {
-    result += ' ' + formatDuration(status.defaultDuration, 'second');
+    result += ' ' + formatDuration({ value: status.defaultDuration, units: 'seconds' });
   }
 
   return finisherText + result;
@@ -1025,7 +1026,7 @@ function describeFollowUpItem(
   }
 
   if (duration && durationUnits) {
-    description += ' ' + formatDuration(duration, durationUnits);
+    description += ' ' + formatDuration({ value: duration, units: durationUnits });
   }
 
   return description;
@@ -1204,7 +1205,7 @@ function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
   ) {
     return 'until Magic blink lost';
   } else if ((m = effects.match(/, lasts (\d+) turns?(?:$|,)/))) {
-    return formatDuration(+m[1], 'turn');
+    return formatDuration({ value: +m[1], units: 'turns' });
   } else {
     return undefined;
   }
@@ -1334,7 +1335,7 @@ export interface StatusItem {
   chance?: number;
   who?: string;
   duration?: number;
-  durationUnits?: string; // "second" or "turn"
+  durationUnits?: types.DurationUnits;
   scalesWithUses?: boolean;
   rank?: boolean; // Are this item's effects rank-based?
   stacking?: boolean;
@@ -1484,7 +1485,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     chance: chance ? +chance : undefined,
     who: who || lookaheadWho,
     duration: duration ? +duration : undefined,
-    durationUnits: durationUnits || undefined,
+    durationUnits: durationUnits ? ((durationUnits + 's') as types.DurationUnits) : undefined,
     scalesWithUses,
     rank: rank != null,
     stacking,
@@ -1492,13 +1493,13 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
   };
 }
 
-export function formatDuration(duration: number, durationUnits: string) {
-  if (durationUnits === 'second') {
-    return duration + 's';
-  } else if (duration === 1) {
+export function formatDuration({ value, units }: types.Duration) {
+  if (units === 'seconds') {
+    return numberOrUnknown(value) + 's';
+  } else if (value === 1) {
     return '1 turn';
   } else {
-    return duration + ' turns';
+    return numberOrUnknown(value) + ' turns';
   }
 }
 

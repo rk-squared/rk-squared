@@ -56,7 +56,7 @@ export function lowerCaseFirst(s: string): string {
   return s.replace(/^([A-Z])/, c => c.toLowerCase());
 }
 
-export const numberOrUnknown = (n: number) => (isNaN(n) ? '?' : '' + n);
+export const numberOrUnknown = (n: number) => (isNaN(n) ? '?' : n.toString());
 export const fixedNumberOrUnknown = (n: number, fractionDigits: number) =>
   isNaN(n) ? '?' : n.toFixed(fractionDigits);
 
@@ -77,6 +77,16 @@ export function formatNumberSlashList(
 export function formatSignedIntegerSlashList(n: number | number[]): string {
   n = arrayify(n);
   return (n[0] < 0 ? '-' : '+') + n.map(i => Math.abs(i)).join('-');
+}
+
+/**
+ * As formatNumberSlashList, but include spaces when joining, to directly match
+ * how we handle attack damage values.
+ */
+export function hyphenJoin(numberList: number | number[]): string {
+  return arrayify(numberList)
+    .map(n => (isNaN(n) ? '?' : n.toString()))
+    .join(' - ');
 }
 
 /**
