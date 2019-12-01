@@ -1,5 +1,5 @@
 {
-  let parsedNumberString: number | null = null;
+  let parsedNumberString = null;
 
   // Hack: Suppress warnings about unused functions.
   location;
@@ -28,21 +28,17 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
 Attack
   = attack:SimpleAttack
     extras:AttackExtras {
-    return {
-      ...attack,
-      ...extras,
-    };
+    return Object.assign({}, attack, extras);
   }
 
 SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
     _ overstrike:(","? _ "capped" _ "at" _ "99999")? {
-    const result = {
+    const result = Object.assign({
       type: 'attack',
       numAttacks,
-      ...(attackMultiplierGroup || {}),
-    };
+    }, attackMultiplierGroup || {});
     if (overstrike) {
       result.isOverstrike = true;
     }
@@ -154,7 +150,7 @@ MultiplierScaleType
 
 AttackExtras
   = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHp / AttackScaleType / AttackStatusChance / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
-    return extras.reduce((result: any, element: any) => Object.assign(result, element[2]), {});
+    return extras.reduce((result, element) => Object.assign(result, element[2]), {});
   }
 
 // Note: This goes before AdditionalCrit so that it can be greedy with matching "damage"
@@ -328,7 +324,7 @@ RandomEther
   }
 
 SmartEther
-  = status:SmartEtherStatus _ who:Who? { return { ...status, who }; }
+  = status:SmartEtherStatus _ who:Who? { return Object.assign({}, status, { who }); }
 
 SmartEtherStatus
   = school:School? _ "smart"i _ "ether" _ amount:IntegerSlashList {
@@ -421,7 +417,7 @@ StatusWithPercent
     chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )?
     statusClauses:StatusClause*
   {
-    const result: any = {
+    const result = {
       status
     };
     if (chance) {
@@ -483,7 +479,7 @@ SetStatusLevel
 
 StatMod
   = stats:StatList _ percent:SignedIntegerSlashList '%' statModClauses:StatModClause* {
-    const result: any = {
+    const result = {
       type: 'statMod',
       stats,
       percent,
@@ -544,7 +540,7 @@ CastTimePerUse
 
 // Hit rate not associated with an attack
 StandaloneHitRate
-  = hitRate:HitRate { return { type: 'hitRate', ...hitRate }; }
+  = hitRate:HitRate { return Object.assign({ type: 'hitRate' }, hitRate); }
 
 
 // --------------------------------------------------------------------------
@@ -804,7 +800,7 @@ IntegerSlashList "slash-separated integers"
 
 SignedIntegerSlashList "slash-separated signed integers"
   = sign:[+-] _ values:IntegerSlashList {
-    const applySign = (i: number) => sign === '-' ? -i : i;
+    const applySign = (i) => sign === '-' ? -i : i;
     if (Array.isArray(values)) {
       return values.map(applySign);
     } else {

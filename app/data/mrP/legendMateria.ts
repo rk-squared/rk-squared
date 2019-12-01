@@ -395,9 +395,9 @@ const legendMateriaHandlers: HandlerList = [
       // Process duration from the last status - it's more likely to be interesting.
       const lastStatus = status[status.length - 1];
       if (duration) {
-        duration = formatDuration(+duration, 'second');
+        duration = formatDuration({ value: +duration, units: 'seconds' });
       } else if (lastStatus.defaultDuration && !lastStatus.isVariableDuration) {
-        duration = formatDuration(lastStatus.defaultDuration, 'second');
+        duration = formatDuration({ value: lastStatus.defaultDuration, units: 'seconds' });
       }
 
       let statusDescription =

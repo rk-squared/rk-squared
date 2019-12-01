@@ -33,7 +33,8 @@
     "postbuild-site": "react-snap",
     "test-site": "node scripts/test-site.js",
     "postget-enlir": "yarn copy-json",
-    "peg": "pegjs --plugin ./node_modules/ts-pegjs/src/tspegjs.js -o app/data/mrp/skillParser.ts --cache --dependency util:./parserHelpers app/data/mrp/skillParser.pegjs"
+    "peg": "pegjs -o app/data/mrp/skillParser.js --cache --dependency util:./parserHelpers app/data/mrp/skillParser.pegjs",
+    "postpeg": "copyfiles --flat \"./app/data/mrP/*.js\" ./dist/app/data/mrP"
   },
   "jest": {
     "testURL": "http://localhost/",
@@ -241,7 +242,6 @@
     "ts-jest": "^24.0",
     "ts-loader": "^4.0.0",
     "ts-node": "^4.1.0",
-    "ts-pegjs": "^0.2.6",
     "tslint": "^5.4.3",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.5",

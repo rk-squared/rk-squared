@@ -1,4 +1,3 @@
-import { arrayify } from '../../utils/typeUtils';
 import { allEnlirElements, allEnlirSchools } from '../enlir';
 import {
   formatSchoolOrAbilityList,
