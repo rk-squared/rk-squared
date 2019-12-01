@@ -270,7 +270,7 @@ const battleHandler: Handler = {
 
   quit_battle(data: {}, store: Store<IState>) {
     store.dispatch(clearDropItems());
-  }
+  },
 
   win_battle: handleWinBattle,
   battle_win: handleWinBattle,
