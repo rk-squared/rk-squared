@@ -11,7 +11,7 @@ import {
   getAbilityUnlockType,
 } from '../../data/enlir';
 import { schoolIcons } from '../../data/localData';
-import { formatMrP } from '../../data/mrP';
+import { formatMrPSkill } from '../../data/mrP/skill';
 import { getOrbCosts } from '../../data/orbDetails';
 import { formatIsoDate } from '../../utils/timeUtils';
 import { getMrPAbility } from './AbilitiesTable';
@@ -96,7 +96,7 @@ export class FutureAbilitiesTable extends React.PureComponent<Props> {
             <td className={styles.school}>
               <img src={schoolIcons[ability.school]} title={ability.school} />
             </td>
-            <td className={styles.effects}>{formatMrP(getMrPAbility(ability))}</td>
+            <td className={styles.effects}>{formatMrPSkill(getMrPAbility(ability))}</td>
             <td data-tip={ability.id} data-for={orbCostsTooltipId} className={styles.orbCosts}>
               <OrbCostsDisplay costs={getOrbCosts(ability)} baseRarity={rarity} />
             </td>

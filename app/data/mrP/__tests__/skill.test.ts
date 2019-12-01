@@ -1,9 +1,9 @@
 import * as _ from 'lodash';
 
-import { describeEnlirSoulBreak, formatMrP } from '../mrP';
-import { formatBraveCommands } from '../mrP/brave';
+import { convertEnlirSkillToMrP, formatMrPSkill } from '../skill';
 
-import { enlir, EnlirSoulBreak, makeSoulBreakAliases } from '../enlir';
+import { enlir, EnlirSoulBreak, makeSoulBreakAliases } from '../../enlir';
+import { formatBraveCommands } from '../brave';
 
 // Allow looking up soul breaks both by name and type.  This keeps tests from
 // breaking just because a soul break is renamed from JP to GL.
@@ -44,7 +44,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     character: 'Axel',
     name: 'Burst Inferno',
     type: 'NAT',
-    target: '?',
+    target: null,
     formula: 'Hybrid',
     multiplier: null,
     element: ['Fire', 'Wind'],
@@ -67,7 +67,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     character: 'Axel',
     name: 'Dance Flurry',
     type: 'NAT',
-    target: '?',
+    target: null,
     formula: 'Hybrid',
     multiplier: null,
     element: [],
@@ -188,11 +188,11 @@ function describeSoulBreak(nameOrAlias: string) {
   if (!sb) {
     throw new Error('Unknown soul break: ' + nameOrAlias);
   }
-  return describeEnlirSoulBreak(sb);
+  return convertEnlirSkillToMrP(sb);
 }
 
 describe('mrP', () => {
-  describe('describeEnlirSoulBreak', () => {
+  describe('convertEnlirSkillToMrP', () => {
     it('converts piercing attacks', () => {
       expect(describeSoulBreak('Sephiroth - Reunion')).toEqual({
         damage: 'AoE phys 6.16/4',
@@ -658,7 +658,7 @@ describe('mrP', () => {
     it('converts cast speed changes', () => {
       const flashingBladeId = 30221031;
       expect(
-        describeEnlirSoulBreak(enlir.abilities[flashingBladeId], { includeSchool: false }),
+        convertEnlirSkillToMrP(enlir.abilities[flashingBladeId], { includeSchool: false }),
       ).toEqual({
         damage: 'AoE phys 2.66/2 no miss',
         other: 'cast time 1.650/1.485/1.155/0.825/0.495 w/ 1…5 uses',
@@ -715,7 +715,7 @@ describe('mrP', () => {
           },
         ],
       });
-      expect(damage.burstCommands!.map(i => formatMrP(i))).toEqual([
+      expect(damage.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
         'ON, self fastcast 3',
         'OFF, p3.42/6 h+wi @ +50% crit dmg',
         'p2.28/4 h+wi',
@@ -741,7 +741,7 @@ describe('mrP', () => {
           { damage: 'w10.28/2 l+n', other: 'party h25', school: 'White Magic' },
         ],
       });
-      expect(heal.burstCommands!.map(i => formatMrP(i))).toEqual([
+      expect(heal.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
         'ON, h60',
         'OFF, w10.48/4 l+n, ally h60',
         'party h25',
@@ -764,7 +764,7 @@ describe('mrP', () => {
         damage: 'AoE magic 11.94/6 fire+non',
         other: 'fire infuse 25s',
       });
-      expect(counter.burstCommands!.map(i => formatMrP(i))).toEqual([
+      expect(counter.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
         "ON, self Magic blink 1, until OFF: (foe's PHY atk (50%) ⤇ AoE m4.85 f+n B.Mag)",
         'OFF, m8.84/4 f+n',
         'AoE m5.9/2 f+n',
@@ -968,7 +968,7 @@ Object {
 
       const warringFlameId = 30221101;
       expect(
-        describeEnlirSoulBreak(enlir.abilities[warringFlameId], { includeSchool: false }),
+        convertEnlirSkillToMrP(enlir.abilities[warringFlameId], { includeSchool: false }),
       ).toEqual({
         damage: 'phys 3.0/4 fire @ +50% crit if Retaliate',
         school: 'Samurai',
@@ -1507,7 +1507,7 @@ Object {
     it('converts fixed heals', () => {
       const healingSmiteId = 30211161;
       expect(
-        describeEnlirSoulBreak(enlir.abilities[healingSmiteId], { includeSchool: false }),
+        convertEnlirSkillToMrP(enlir.abilities[healingSmiteId], { includeSchool: false }),
       ).toEqual({
         damage: 'phys 4.0/5 holy',
         other: 'ally heal 2k',
@@ -2666,21 +2666,21 @@ Object {
     // We don't make a thorough and consistent effort to handle all unknowns,
     // but we should at least do the basics.
     it('handles unknown abilities', () => {
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[0])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[0])).toEqual({
         damage: 'p?/15 or m?/15 fire+wind+non rngd',
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +
           '15s: (3 fire ⤇ p4.24 or m15.35 f+wi+n rngd overstrike), ' +
           '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[1])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[1])).toEqual({
         damage: 'p?/3 or m?/3 fire+wind overstrike',
       });
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[2])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[2])).toEqual({
         damage: 'p?/10 or m?/10 rngd',
         other: 'fire infuse 25s, self fastcast 1, 15s: (fire ⤇ p1.68/4 or m7.4/4 f+wi+n rngd)',
       });
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[3])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[3])).toEqual({
         instant: true,
         damage: 'p?/6 or m?/6 fire+wind+non rngd',
         other: 'fire infuse stacking 25s, fire infuse 25s',
@@ -2688,13 +2688,13 @@ Object {
       // Cid Raines' Darkness Shift.  This loses the fact that the Soul Break
       // itself specifies a duration of '?' and instead lists the default
       // status duration, but I think that's okay.
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[4])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[4])).toEqual({
         instant: true,
         other: 'Darkness hi fastcast 15s',
       });
       // Test handling of numbered status aliases with question marks in place
       // of the number.
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[5])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[5])).toEqual({
         damage: '? ?/10 ice+non',
         other:
           '+?% ice vuln. 25s, ice infuse 25s, party Reflect Dmg 75% as ice 30s, self fastcast 3',
@@ -2702,7 +2702,7 @@ Object {
       // Test handling of numbered status aliases with a question mark after
       // the number.  As with Darkness Shift, this discards the 15? second
       // duration, but I think that's okay.
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[6])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[6])).toEqual({
         instant: true,
         damage: '? ?/6 earth+non',
         other: '+10?% earth vuln. 25s, self +10% earth dmg 15s',
@@ -2717,7 +2717,7 @@ Object {
       // Exclude roaming warriors - event soul breaks like Haunted or Zoma's
       // are too weird and specialized to worry about.
       const allSoulBreaks = _.mapValues(_.pickBy(soulBreaks, i => i.tier !== 'RW'), i =>
-        describeEnlirSoulBreak(i),
+        convertEnlirSkillToMrP(i),
       );
       expect(allSoulBreaks).toMatchSnapshot();
     });

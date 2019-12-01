@@ -6,7 +6,7 @@ import { LangType } from '../../api/apiUrls';
 import { LangContext } from '../../contexts/LangContext';
 import { enlir } from '../../data';
 import { EnlirRecordMateria } from '../../data/enlir';
-import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
+import { convertEnlirSkillToMrP, formatMrPSkill } from '../../data/mrP/skill';
 import * as urls from '../../data/urls';
 import { BrTextToP } from '../common/BrTextToP';
 import { StatusIcon } from './StatusIcon';
@@ -27,7 +27,7 @@ function getEnlirRecordMateriaEffect(rm: EnlirRecordMateria): string {
   if (m) {
     const ability = enlir.abilitiesByName[m[1]];
     if (ability) {
-      return rm.effect + ' (' + formatMrP(describeEnlirSoulBreak(ability)) + ')';
+      return rm.effect + ' (' + formatMrPSkill(convertEnlirSkillToMrP(ability)) + ')';
     }
   }
   return rm.effect;

@@ -8,7 +8,7 @@ import { AgGridReact } from 'ag-grid-react';
 
 import { filterSoulBreaks, ShowSoulBreaksType } from '../../actions/prefs';
 import { enlir, EnlirSoulBreak, SharedSoulBreak } from '../../data/enlir';
-import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
+import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import { IState } from '../../reducers';
 import { getOwnedSoulBreaks } from '../../selectors/characters';
 import { GridContainer } from '../common/GridContainer';
@@ -23,13 +23,13 @@ interface Props {
 }
 
 const sortedSoulBreaks = _.sortBy(enlir.sharedSoulBreaks, i => i.soulBreak.name);
-const sharedMrPSoulBreaks: { [id: number]: MrPSoulBreak } = {};
+const sharedMrPSoulBreaks: { [id: number]: MrPSkill } = {};
 
 function getSharedSoulBreakDescription(soulBreak: EnlirSoulBreak): string {
   if (!sharedMrPSoulBreaks[soulBreak.id]) {
-    sharedMrPSoulBreaks[soulBreak.id] = describeEnlirSoulBreak(soulBreak);
+    sharedMrPSoulBreaks[soulBreak.id] = convertEnlirSkillToMrP(soulBreak);
   }
-  return formatMrP(sharedMrPSoulBreaks[soulBreak.id]);
+  return formatMrPSkill(sharedMrPSoulBreaks[soulBreak.id]);
 }
 
 export class SharedSoulBreakList extends React.PureComponent<Props> {

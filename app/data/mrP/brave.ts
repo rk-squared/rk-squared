@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 
-import { MrPSoulBreak } from '.';
 import { logger } from '../../utils/logger';
+import { MrPSkill } from './skill';
 import { enDashJoin, slashMerge } from './util';
 
 export const MAX_BRAVE_LEVEL = 3;
@@ -44,7 +44,7 @@ function filterBraveLevels(allParts: string[]) {
   };
 }
 
-function getBraveDamage(mrP: MrPSoulBreak[]): string {
+function getBraveDamage(mrP: MrPSkill[]): string {
   // tslint:disable-next-line prefer-const
   let { parts, firstLevel, lastLevel } = filterBraveLevels(mrP.map(i => i.damage || ''));
   const overstrike = parts.map(i => i.match('overstrike') != null);
@@ -69,7 +69,7 @@ function getBraveDamage(mrP: MrPSoulBreak[]): string {
   return damage;
 }
 
-function getBraveHeals(mrP: MrPSoulBreak[]): string {
+function getBraveHeals(mrP: MrPSkill[]): string {
   const heals = mrP.map(i => i.other && i.other.split(/, /).find(isHeal));
   const healCount = _.filter(heals).length;
   if (healCount === 0) {
@@ -84,7 +84,7 @@ function getBraveHeals(mrP: MrPSoulBreak[]): string {
   }
 }
 
-function getBraveEffects(mrP: MrPSoulBreak[]): string {
+function getBraveEffects(mrP: MrPSkill[]): string {
   // Array of arrays, indexed by brave level then effect number
   const effects = mrP.map(i => (i.other ? i.other.split(/, /).filter(s => !isHeal(s)) : []));
 
@@ -122,7 +122,7 @@ function getBraveEffects(mrP: MrPSoulBreak[]): string {
   return _.filter(mergedEffects).join(', ');
 }
 
-export function formatBraveCommands(mrP: MrPSoulBreak[]): string {
+export function formatBraveCommands(mrP: MrPSkill[]): string {
   const damage = getBraveDamage(mrP);
   const heal = getBraveHeals(mrP);
   const effects = getBraveEffects(mrP);

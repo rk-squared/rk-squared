@@ -348,7 +348,8 @@ export interface CastTimePerUse {
   castTimePerUse: number;
 }
 
-// FIXME: Merge into Attack
+// Special case: This exists during parsing but is merged by mergeHitRates, so
+// higher-level code never sees it as part of EffectClause
 export interface StandaloneHitRate {
   type: 'hitRate';
   hitRate: number;

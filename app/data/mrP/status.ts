@@ -557,7 +557,7 @@ function describeFinisherStatus(statusName: string): string {
   const status = getEnlirStatusByName(statusName);
   let result = describeEnlirStatus(statusName);
 
-  // Hack: Partially duplicated from describeEnlirSoulBreak.  We currently
+  // Hack: Partially duplicated from convertEnlirSkillToMrP.  We currently
   // only support default durations.
   if (status && status.defaultDuration) {
     result += ' ' + formatDuration(status.defaultDuration, 'second');

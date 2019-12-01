@@ -621,7 +621,7 @@ interface OtherDetailOptions {
 }
 
 /**
- * The components of MrPSoulBreak.other, as lists.  We break them up like
+ * The components of MrPSkill.other, as lists.  We break them up like
  * this so that we can sort general items (e.g., elemental infuse), then
  * self statuses, then party statuses, then "details" (e.g., EX modes).
  */
@@ -666,7 +666,7 @@ class OtherDetail {
       // redundant.
       //
       // But - as an additional hack / special case, infuses still get "self".
-      // FIXME: Clean that up once the new MrP code is stable.
+      // TODO: Clean this up? I'm not sure it makes sense to have these special cases just because MrP did.
       if (this.infuse.length) {
         result = [...this.infuse, ...this.makeGroup(this.self, 'self'), ...this.misc];
       } else {
@@ -821,7 +821,7 @@ export function convertEnlirSkillToMrP(
 
   let burstToggle: boolean | undefined;
 
-  // The components of MrPSoulBreak.other, as lists.  We break them up like
+  // The components of MrPSkill.other, as lists.  We break them up like
   // this so that we can sort general items (e.g., elemental infuse), then
   // self statuses, then party statuses, then "details" (e.g., EX modes).
   //

@@ -3,15 +3,6 @@
  * Text processing logic for splitting up Enlir strings into lists
  */
 
-import { andList } from './util';
-
-/**
- *
- * Stats are 3-letter uppercase.  We also handle cases like
- * "Different DEF and RES +X%".
- */
-const isStat = (effect: string) => !!effect.match(/^(?:Different )?[A-Z]{3}$/);
-
 const isStatMod = (effect: string) => !!effect.match(/\b[A-Z]{3} [+-]?\d+%/);
 
 function isSameEffect(prev: string, next: string) {

@@ -3,8 +3,8 @@ import * as _ from 'lodash';
 const createCsvStringifier = require('csv-writer').createObjectCsvStringifier;
 
 import { enlir, makeLegendMateriaAliases, makeSoulBreakAliases } from '../data/enlir';
-import { describeEnlirSoulBreak, formatMrP } from '../data/mrP';
 import { describeMrPLegendMateria } from '../data/mrP/legendMateria';
+import { convertEnlirSkillToMrP, formatMrPSkill } from '../data/mrP/skill';
 import { blacklist, IState } from '../reducers';
 
 // Although these act as selectors, do not use reselect.  The expected use case
@@ -51,7 +51,7 @@ export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: ISt
           name: sb.name,
           id: sb.id,
           alias: aliases[sb.id],
-          effects: formatMrP(describeEnlirSoulBreak(sb)),
+          effects: formatMrPSkill(convertEnlirSkillToMrP(sb)),
         },
       ]);
     }

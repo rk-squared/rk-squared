@@ -2,7 +2,6 @@ import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
 
-import { describeEnlirSoulBreak, formatMrP } from '.';
 import { arrayify } from '../../utils/typeUtils';
 import {
   EnlirElement,
@@ -11,7 +10,9 @@ import {
   EnlirSkillType,
   getEnlirOtherSkill,
 } from '../enlir';
-import { describeDamage, describeDamageType, formatThreshold } from './attack';
+import { describeDamage, describeDamageType } from './attack';
+import { formatThreshold } from './condition';
+import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
 import {
   describeEnlirStatus,
   describeStats,
@@ -258,7 +259,10 @@ const legendMateriaHandlers: HandlerList = [
     /^Increases damage dealt by ((?:\d+\/)+\d+)% if ((?:\d+\/)+\d+) of the target's stats are lowered$/,
     ([bonus, statBreakCount]) => {
       const bonusDescription = bonus.split('/').join('-');
-      return `+${bonusDescription}% dmg` + formatThreshold(statBreakCount, 'stats lowered');
+      return (
+        `+${bonusDescription}% dmg` +
+        formatThreshold(statBreakCount.split('/').map(i => +i), 'stats lowered')
+      );
     },
   ],
 
@@ -327,8 +331,8 @@ const legendMateriaHandlers: HandlerList = [
       } else {
         const otherSkill = getEnlirOtherSkill(skillName, 'Legend Materia');
         if (otherSkill) {
-          description = formatMrP(
-            describeEnlirSoulBreak(otherSkill, {
+          description = formatMrPSkill(
+            convertEnlirSkillToMrP(otherSkill, {
               abbreviate: true,
               showNoMiss: false,
               includeSbPoints: false,

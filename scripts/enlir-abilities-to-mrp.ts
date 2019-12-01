@@ -3,7 +3,7 @@
 import * as _ from 'lodash';
 
 import { enlir } from '../app/data/enlir';
-import { describeEnlirSoulBreak, formatMrP } from '../app/data/mrP';
+import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrP/skill';
 import { getOrbCosts } from '../app/data/orbDetails';
 
 // tslint:disable: no-console
@@ -20,9 +20,9 @@ for (const ability of _.sortBy(Object.values(enlir.abilities), [
   }
 
   try {
-    const mrP = describeEnlirSoulBreak(ability);
+    const mrP = convertEnlirSkillToMrP(ability);
 
-    const text = formatMrP(mrP);
+    const text = formatMrPSkill(mrP);
     const costs = getOrbCosts(ability);
     const costText = '(' + costs.map(i => i.cost + ' ' + i.orbType).join(', ') + ')';
     console.log(ability.name + ` (${ability.rarity}* ${ability.school}): ` + text + ' ' + costText);

@@ -7,7 +7,6 @@
 
 import * as _ from 'lodash';
 
-import { logger } from '../../utils/logger';
 import { enlir, EnlirOtherSkill, EnlirSkill } from '../enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, safeParseSkill } from './skill';
 import * as types from './types';
@@ -43,14 +42,13 @@ export function describeRageEffects(source: EnlirSkill | string) {
 }
 
 function isPureRage(skill: EnlirSkill, skillEffectsWithoutRage: types.SkillEffect): boolean {
-  if (
-    skillEffectsWithoutRage.length === 1 &&
-    skillEffectsWithoutRage[0].type === 'randomCastOther' &&
-    skillEffectsWithoutRage[0].other === skill.name
-  ) {
-    // This skill's only effect is to randomly cast an ability.  The Rage
-    // status's effect would be to randomly cast that same ability.
-    return true;
+  if (skillEffectsWithoutRage.length === 1) {
+    const effect = skillEffectsWithoutRage[0];
+    if (effect.type === 'randomCastOther' && effect.other === skill.name) {
+      // This skill's only effect is to randomly cast an ability.  The Rage
+      // status's effect would be to randomly cast that same ability.
+      return true;
+    }
   }
 
   const rageSkills = getRageSkills(skill);
