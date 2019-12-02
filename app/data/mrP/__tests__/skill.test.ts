@@ -13,6 +13,16 @@ const soulBreaksByAlias = _.keyBy(
   _.values(enlir.soulBreaks),
   i => i.character + ' - ' + soulBreakAliases[i.id],
 );
+// Add additional aliases from "SB" to "SB1" so that references like "SB" won't
+// break if a second soul break is released.
+_.forEach(enlir.soulBreaks, (i: EnlirSoulBreak) => {
+  if (soulBreakAliases[i.id] && soulBreakAliases[i.id].endsWith('1')) {
+    const oldAlias = i.character + ' - ' + soulBreakAliases[i.id].replace(/1$/, '');
+    if (!soulBreaksByAlias[oldAlias]) {
+      soulBreaksByAlias[oldAlias] = i;
+    }
+  }
+});
 
 const unknownSoulBreaks: EnlirSoulBreak[] = [
   {
@@ -1104,7 +1114,8 @@ Object {
       });
 
       expect(describeSoulBreak('Vaan - Blood-Red Spiral')).toEqual({
-        damage: 'phys 11.0 - 11.5 - 12.0 - 12.5 - 13.0 - 14.0 overstrike @ 1-2-3-4-5 stats lowered',
+        damage:
+          'phys 11.0 - 11.5 - 12.0 - 12.5 - 13.0 - 14.0 rngd overstrike @ 1-2-3-4-5 stats lowered',
       });
 
       expect(describeSoulBreak('Ricard - Highwind Secrets')).toEqual({
@@ -2166,7 +2177,7 @@ Object {
         instant: true,
         other:
           'party h105, revive @ 100% HP, Haste, PM blink 1, Last stand, ' +
-          '15s: Awoken Love Mode: W.Mag inf. hones, W.Mag hi fastcast, ' +
+          '15s: Awoken Love: W.Mag inf. hones, W.Mag hi fastcast, ' +
           '(W.Mag ⤇ party h10-15-25-35-45 @ rank 1-5)',
       });
 
@@ -2223,7 +2234,7 @@ Object {
           'party Haste, crit =50% 25s, +30% ATK/DEF 25s, ' +
           '15s: (1-5 Support ⤇ crit =60%/70%/80%/90%/100%), ' +
           '15s: (3 Support ⤇ party +50% crit dmg 1 turn), ' +
-          '15s: Awoken Keeper Mode: Support inf. hones, 2-3x Support cast @ rank 1-5',
+          '15s: Awoken Keeper: Support inf. hones, 2-3x Support cast @ rank 1-5',
       });
 
       expect(describeSoulBreak('Vivi - AASB1')).toEqual({
@@ -2262,7 +2273,7 @@ Object {
       expect(describeSoulBreak('Aphmau - AASB')).toEqual({
         other:
           'party h105 (NAT), revive @ 100% HP, Haste, PM blink 1, instacast 1, ' +
-          '15s: Awoken Automaton Mode: W.Mag/Monk inf. hones, W.Mag/Monk hi fastcast, ' +
+          '15s: Awoken Automaton: W.Mag/Monk inf. hones, W.Mag/Monk hi fastcast, ' +
           '(W.Mag/Monk ⤇ Autoheal 0.5k/1k/1.5k/2k/3k @ rank 1-5)',
         instant: true,
       });
@@ -2401,7 +2412,7 @@ Object {
         instant: true,
         other:
           'party h85, Regenga, self dmg cap +10k 15s, ' +
-          '15s: Awoken Kindred Mode: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10-15-25-35-45 @ rank 1-5)',
+          '15s: Awoken Kindred: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10-15-25-35-45 @ rank 1-5)',
       });
       expect(describeSoulBreak("Y'shtola - Pulse of Life")).toEqual({
         damage: undefined,

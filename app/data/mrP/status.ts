@@ -1248,7 +1248,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
       description = 'EX: ' + description;
     }
     if (isAwoken) {
-      description = status + ': ' + description;
+      description = status.replace(/ Mode$/, '') + ': ' + description;
     }
   }
 

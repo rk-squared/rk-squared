@@ -131,7 +131,8 @@ export interface AttackExtras {
 
   overrideElement?: EnlirElement;
 
-  isPiercing?: boolean;
+  isPiercingDef?: boolean;
+  isPiercingRes?: boolean;
   scalesWithAtkAndDef?: boolean;
   sbMultiplierChange?: number;
 }

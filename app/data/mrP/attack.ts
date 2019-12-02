@@ -230,13 +230,39 @@ function describeHybridDamageType(skill: EnlirSkill): MrPDamageType | undefined 
   }
 }
 
-function isHybridPiercing(skill: EnlirSkill): boolean {
-  return (
+function isPiercingByType(attack: types.Attack, type: EnlirSkillType): boolean {
+  if (type === 'PHY') {
+    return !!attack.isPiercingDef;
+  } else if (type !== '?') {
+    return !!attack.isPiercingRes;
+  } else {
+    return false;
+  }
+}
+
+function isPiercing(skill: EnlirSkill, attack: types.Attack): boolean {
+  const type = skill.typeDetails ? skill.typeDetails[0] : skill.type;
+  if (!type) {
+    return false;
+  } else {
+    return isPiercingByType(attack, type);
+  }
+}
+
+function isHybridPiercing(skill: EnlirSkill, attack: types.Attack): boolean {
+  // Hard-coded check, useful for older or less consistent data.
+  const manualCheck =
     skill.formula === 'Hybrid' &&
     skill.typeDetails != null &&
     skill.typeDetails.length === 2 &&
-    skill.typeDetails[1] === 'NIN'
-  );
+    skill.typeDetails[1] === 'NIN';
+  const type =
+    skill.typeDetails != null && skill.typeDetails.length === 2 ? skill.typeDetails[1] : null;
+  const autoCheck = type ? isPiercingByType(attack, type) : false;
+  if (manualCheck !== autoCheck) {
+    logger.warn(`Inconsistent hybrid piercing logic for ${skill.name}`);
+  }
+  return autoCheck;
 }
 
 function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): string {
@@ -292,13 +318,13 @@ function describeSimpleFollowedBy(skill: EnlirSkill, attack: types.Attack) {
   damage += attackDamage.randomChances ? attackDamage.randomChances + ' ' : '';
   // Normally skip damage type - assumed to be the same as the parent.
   damage += hybridDamageType ? formatDamageType(attackDamage.damageType, true) : '';
-  damage += attack.isPiercing ? '^' : '';
+  damage += isPiercing(skill, attack) ? '^' : '';
   damage += attackDamage.damage;
 
   if (hybridDamageType) {
     damage += ' or ';
     damage += formatDamageType(hybridDamageType, true);
-    damage += isHybridPiercing(skill) ? '^' : '';
+    damage += isHybridPiercing(skill, attack) ? '^' : '';
     damage += attackDamage.hybridDamage;
   }
 
@@ -540,13 +566,13 @@ export function describeAttack(
   damage += attack.isAoE ? 'AoE ' : '';
   damage += attackDamage.randomChances ? attackDamage.randomChances + ' ' : '';
   damage += formatDamageType(attackDamage.damageType, abbreviate);
-  damage += attack.isPiercing ? '^' : '';
+  damage += isPiercing(skill, attack) ? '^' : '';
   damage += attackDamage.damage;
 
   if (hybridDamageType) {
     damage += ' or ';
     damage += formatDamageType(hybridDamageType, abbreviate);
-    damage += isHybridPiercing(skill) ? '^' : '';
+    damage += isHybridPiercing(skill, attack) ? '^' : '';
     damage += attackDamage.hybridDamage;
   }
 

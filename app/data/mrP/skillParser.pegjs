@@ -149,7 +149,7 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHp / AttackScaleType / AttackStatusChance / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHp / AttackScaleType / AttackStatusChance / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / PiercingDef / PiercingRes / ScaleWithAtkAndDef / SBMultiplier))* {
     return extras.reduce((result, element) => Object.assign(result, element[2]), {});
   }
 
@@ -221,8 +221,11 @@ OverrideElement
     return { overrideElement };
   }
 
-Piercing
-  = "ignores" _ ("DEF" / "RES") { return { isPiercing: true }; }
+PiercingDef
+  = "ignores" _ "DEF" { return { isPiercingDef: true }; }
+
+PiercingRes
+  = "ignores" _ "RES" { return { isPiercingRes: true }; }
 
 ScaleWithAtkAndDef
   = "damage" _ "scales" _ "with" _ "both" _ "ATK" _ "and" _ "DEF" { return { scalesWithAtkAndDef: true }; }
