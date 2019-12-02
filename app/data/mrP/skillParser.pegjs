@@ -577,18 +577,21 @@ CharacterNameList
 AnySkillName
   = GenericName
 
-// Generic names. Developed for statuses, so the rules may need revision for
-// other uses.
-// Generic status names - somewhat complex expression to match those
+// Generic names.  Somewhat complex expression to match these.  Developed for
+// statuses, so the rules may need revision for other uses.
 GenericName
   = (
-    (GenericNameWord / IntegerSlashList '%' !(_ "hit" _ "rate"))
+    (GenericNameWord / IntegerSlashList '%' !(_ "hit" _ "rate") / SignedIntegerSlashList [%+]?)
     (_
       (
         GenericNameWord
 
-        // Articles, etc., are okay, but use &' ' to make sure they're at a word bounary.
-        / (('in' / 'or' / 'of' / 'the' / 'with' / '&' /'a') & ' ')
+        // Articles, etc., are okay, but use &' ' to make sure they're at a
+        // word bounary.
+        / (('in' / 'or' / 'of' / 'the' / 'with' / '&' / 'a') & ' ')
+        // "for" in particular needs extra logic to ensure that it's part of
+        // status words instead of part of the duration.
+        / "for" _ GenericNameWord
 
         / SignedIntegerSlashList [%+]?
         / [=*]? IntegerSlashList [%+]?

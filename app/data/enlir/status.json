@@ -13562,7 +13562,7 @@
   {
     "id": 50737,
     "name": "Awoken Dignified Lineage",
-    "effects": "Holy abilities don't consume uses, dualcasts Holy abilities, grants Damage Reduction Barrier 10/15/20/30/40% 1 to all allies after casting a Holy ability at ability rank 1/2/3/4/5",
+    "effects": "Holy abilities don't consume uses, dualcasts Holy abilities, grants 10/15/20/30/40% Damage Reduction Barrier 1 to all allies after using a Holy ability at ability rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

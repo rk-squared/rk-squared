@@ -5687,7 +5687,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Causes Minor Imperil Ice and DEF, RES and MND -70% and removes positive effects",
+    "effects": "Causes Minor Imperil Ice and DEF, RES and MND -70%, removes positive effects",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,

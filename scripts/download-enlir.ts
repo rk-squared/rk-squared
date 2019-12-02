@@ -773,6 +773,7 @@ const dataTypes: DataType[] = [
   {
     sheet: 'Synchro',
     localName: 'synchro',
+    includeNotes: true,
     converter: convertAbilities,
   },
   {

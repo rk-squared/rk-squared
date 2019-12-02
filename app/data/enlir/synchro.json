@@ -240,6 +240,7 @@
     ],
     "time": 1.65,
     "effects": "Three single attacks (0.90 each), damages the user for 100% max HP, grants Quick Cast 1 to the user",
+    "effectsNote": "The multiplier for this attack is given by the following formula, where X is the current %HP of the user:\n\nmin(exp(-1 * (X - 1) * 600 / 10000) * 300 + 400, 700)\n\nThe minimum multiplier is 4.00, and never goes higher than 7.00.",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -256,6 +257,10 @@
     "synchroAbilitySlot": 1,
     "synchroCondition": "Holy",
     "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "WHT"
+    ],
     "target": "Single enemy",
     "formula": "Hybrid",
     "multiplier": null,
