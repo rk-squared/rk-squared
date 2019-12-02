@@ -38,6 +38,7 @@ import {
 import { checkPureRage } from './rage';
 import * as skillParser from './skillParser';
 import {
+  checkForAndStatuses,
   describeStats,
   formatDuration,
   parseEnlirStatus,
@@ -481,6 +482,7 @@ function processStatus(
   const statuses = effect.statuses
     .reduce(shareStatusWho, [])
     .filter(shouldIncludeStatus(skill))
+    .reduce(checkForAndStatuses, [])
     .reduce(shareStatusDurations, [])
     .reduce(slashMergeElementStatuses, [])
     .sort(sortStatus);

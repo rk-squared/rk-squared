@@ -20786,7 +20786,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Dark, 100% Critical, Awoken Heavy and Damage Cap +20000 to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Dark, 100% Critical, Awoken Heavy Physical and Damage Cap +20000 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

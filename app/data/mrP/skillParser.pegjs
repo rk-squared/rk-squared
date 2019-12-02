@@ -35,7 +35,8 @@ SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
     _ overstrike:(","? _ "capped" _ "at" _ "99999")?
-    _ isPiercingDef:(_ "that" _ "ignores" _ "DEF")? {
+    _ isPiercingDef:(_ "that" _ "ignores" _ "DEF")?
+    _ isPiercingRes:(_ "that" _ "ignores" _ "RES")? {
     const result = Object.assign({
       type: 'attack',
       numAttacks,
@@ -43,9 +44,16 @@ SimpleAttack
     if (overstrike) {
       result.isOverstrike = true;
     }
+
+    // Alternate isPiercingDef / isPiercingRes format that's only used for
+    // "followed by" attacks.  These are normally handled within AttackExtras.
     if (isPiercingDef) {
       result.isPiercingDef = true;
     }
+    if (isPiercingRes) {
+      result.isPiercingRes = true;
+    }
+
     if (attackType === 'group') {
       result.isAoE = true;
     }
@@ -441,6 +449,7 @@ StatusName "status effect"
     // Stat mods in particular have a distinctive format.
     ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
   / GenericName
+  / "?"
   ) {
     return text();
   }
