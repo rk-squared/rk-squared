@@ -679,19 +679,19 @@ function patchEnlir() {
   // Update Enna to resemble Gladiolus and Squall.  TODO: More consistency
   applyPatch(
     enlir.statusByName,
-    'God of Creation Mode',
-    mode => mode.effects === 'Casts Whimsical Crash after using 3 Earth attacks',
+    'Creator Mode',
+    mode => mode.effects === 'Casts Fickle Crush after using 3 Earth attacks',
     mode => {
       mode.effects = mode.effects + ', removed after triggering';
     },
   );
   applyPatch(
     enlir.otherSkillsByName,
-    'Whimsical Crash',
+    'Fickle Crush',
     crash =>
       crash.effects ===
       '3/5/15 single attacks (1.20 each) if the user dealt 0/72001/240001 damage ' +
-        'with Earth attacks during the status, removes God of Creation Mode. ' +
+        'with Earth attacks during the status, removes Creator Mode. ' +
         'Additional one single attack (17.30) capped at 99999 if the final damage threshold was met',
     crash => {
       crash.effects =

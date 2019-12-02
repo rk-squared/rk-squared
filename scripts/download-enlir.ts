@@ -267,6 +267,12 @@ function convertCharacters(rows: any[]): any[] {
       // character.
       continue;
     }
+    if (item['realm'] === 'DB Only') {
+      // Skip "DB Only" (I'm not sure what that means) characters like
+      // Shadowsmith and Shared.
+      logger.debug('Skipping ' + item['name'] + ' (DB Only)');
+      continue;
+    }
 
     characters.push(item);
   }
