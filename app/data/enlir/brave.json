@@ -1535,7 +1535,7 @@
     "element": [
       "NE"
     ],
-    "time": 0.82,
+    "time": 0.83,
     "effects": "One single attack (7.45)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
@@ -1558,7 +1558,7 @@
     "formula": null,
     "multiplier": null,
     "element": null,
-    "time": 0.82,
+    "time": 0.83,
     "effects": "Casts the last ability used by an ally, default ability (PHY: single, 1.50 physical, 100% critical chance)",
     "counter": false,
     "autoTarget": "-",
@@ -1581,7 +1581,7 @@
     "formula": null,
     "multiplier": null,
     "element": null,
-    "time": 0.82,
+    "time": 0.83,
     "effects": "Casts the last ability used by an ally twice, default ability (PHY: single, 1.50 physical, 100% critical chance)",
     "counter": false,
     "autoTarget": "-",
@@ -1604,7 +1604,7 @@
     "formula": null,
     "multiplier": null,
     "element": null,
-    "time": 0.82,
+    "time": 0.83,
     "effects": "Casts the last ability used by an ally three times, default ability (PHY: single, 1.50 physical, 100% critical chance)",
     "counter": false,
     "autoTarget": "-",
@@ -4024,6 +4024,110 @@
     "gl": true
   },
   {
+    "character": "Sice",
+    "source": "Dark Nemesis",
+    "name": "Commandment",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92), grants 100% Critical 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "刈命",
+    "id": 30549963,
+    "gl": false
+  },
+  {
+    "character": "Sice",
+    "source": "Dark Nemesis",
+    "name": "Commandment",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.2,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (3.20) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "刈命",
+    "id": 30549964,
+    "gl": false
+  },
+  {
+    "character": "Sice",
+    "source": "Dark Nemesis",
+    "name": "Commandment",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.4,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.40) capped at 99999, grants Minor Buff Dark to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "刈命",
+    "id": 30549965,
+    "gl": false
+  },
+  {
+    "character": "Sice",
+    "source": "Dark Nemesis",
+    "name": "Commandment",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (10.00) capped at 99999, grants Minor Buff Dark to all allies, grants High Quick Cast 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Darkness",
+    "braveCondition": [
+      "Darkness"
+    ],
+    "nameJp": "刈命",
+    "id": 30549966,
+    "gl": false
+  },
+  {
     "character": "Serafie",
     "source": "Wind Rhapsody",
     "name": "Triumphant March",
@@ -4046,7 +4150,7 @@
     ],
     "nameJp": "凱旋マーチ",
     "id": 30541453,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Serafie",
@@ -4071,7 +4175,7 @@
     ],
     "nameJp": "凱旋マーチ",
     "id": 30541454,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Serafie",
@@ -4096,7 +4200,7 @@
     ],
     "nameJp": "凱旋マーチ",
     "id": 30541455,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Serafie",
@@ -4121,6 +4225,6 @@
     ],
     "nameJp": "凱旋マーチ",
     "id": 30541456,
-    "gl": false
+    "gl": true
   }
 ]

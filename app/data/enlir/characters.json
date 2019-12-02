@@ -69,6 +69,7 @@
       "mnd": 30,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -115,12 +116,12 @@
       "samurai": 5,
       "ninja": 5,
       "bard": 5,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": 5,
       "darkness": 6,
       "sharpshooter": 6,
       "witch": 6,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10000200,
     "gl": true
@@ -195,6 +196,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -321,6 +323,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -447,6 +450,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -573,6 +577,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -699,6 +704,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -825,6 +831,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -951,6 +958,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -1077,6 +1085,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -1203,6 +1212,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -1329,6 +1339,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -1455,6 +1466,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -1581,6 +1593,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -1707,6 +1720,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -1833,6 +1847,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -1884,7 +1899,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10002400,
     "gl": true
@@ -1959,6 +1974,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2010,7 +2026,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10002500,
     "gl": true
@@ -2085,6 +2101,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2211,6 +2228,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2337,6 +2355,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2463,6 +2482,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2589,6 +2609,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -2715,6 +2736,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2761,7 +2783,7 @@
       "samurai": null,
       "ninja": null,
       "bard": 5,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -2841,6 +2863,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -2892,7 +2915,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10004300,
     "gl": true
@@ -2967,6 +2990,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3093,6 +3117,7 @@
       "mnd": 15,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -3219,6 +3244,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3345,6 +3371,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3396,7 +3423,7 @@
       "darkness": 6,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10100200,
     "gl": true
@@ -3471,6 +3498,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": "For Lasting Peace",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -3597,6 +3625,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3648,7 +3677,7 @@
       "darkness": null,
       "sharpshooter": 6,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10100400,
     "gl": true
@@ -3723,6 +3752,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -3769,7 +3799,7 @@
       "samurai": null,
       "ninja": null,
       "bard": null,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -3849,6 +3879,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "For Lasting Peace",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -3975,6 +4006,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": "For Lasting Peace",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4101,6 +4133,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4227,6 +4260,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": "For Lasting Peace",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4353,6 +4387,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4479,6 +4514,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4605,6 +4641,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4656,7 +4693,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10200300,
     "gl": true
@@ -4731,6 +4768,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4857,6 +4895,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4983,6 +5022,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5109,6 +5149,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5235,6 +5276,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5361,6 +5403,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5487,6 +5530,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Dark Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5613,6 +5657,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5659,7 +5704,7 @@
       "samurai": null,
       "ninja": null,
       "bard": 5,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -5739,6 +5784,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5865,6 +5911,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5991,6 +6038,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6117,6 +6165,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6243,6 +6292,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6369,6 +6419,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6495,6 +6546,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6621,6 +6673,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6747,6 +6800,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6873,6 +6927,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Dark Lunarian Legacy",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6924,7 +6979,7 @@
       "darkness": 6,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10400100,
     "gl": true
@@ -6999,6 +7054,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -7125,6 +7181,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -7251,6 +7308,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7377,6 +7435,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7503,6 +7562,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7629,6 +7689,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7755,6 +7816,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7881,6 +7943,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8007,6 +8070,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8133,6 +8197,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8259,6 +8324,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Dark Lunarian Legacy",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8385,6 +8451,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Dark Lunarian Legacy",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -8511,6 +8578,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8637,6 +8705,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -8763,6 +8832,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8889,6 +8959,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9015,6 +9086,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9141,6 +9213,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9267,6 +9340,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9318,7 +9392,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10500500,
     "gl": true
@@ -9393,6 +9467,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9519,6 +9594,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -9645,6 +9721,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -9771,6 +9848,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -9897,6 +9975,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10023,6 +10102,7 @@
       "mnd": 30,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10149,6 +10229,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -10275,6 +10356,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10401,6 +10483,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10527,6 +10610,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10653,6 +10737,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10779,6 +10864,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Where True Love Lies",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10905,6 +10991,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -10938,7 +11025,7 @@
     },
     "skills": {
       "blackMagic": 3,
-      "whiteMagic": 4,
+      "whiteMagic": 5,
       "combat": null,
       "support": null,
       "celerity": null,
@@ -10951,7 +11038,7 @@
       "samurai": null,
       "ninja": null,
       "bard": null,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -11031,6 +11118,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -11157,6 +11245,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11283,6 +11372,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Dark Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11409,6 +11499,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11535,6 +11626,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11661,6 +11753,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Where True Love Lies",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -11787,6 +11880,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11913,6 +12007,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12039,6 +12134,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Where True Love Lies",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -12165,6 +12261,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Where True Love Lies",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12291,6 +12388,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12417,6 +12515,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -12468,7 +12567,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10601700,
     "gl": true
@@ -12543,6 +12642,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -12594,7 +12694,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10700100,
     "gl": true
@@ -12669,6 +12769,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12795,6 +12896,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12921,6 +13023,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13047,6 +13150,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13173,6 +13277,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13299,6 +13404,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Prideful Sword",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13345,7 +13451,7 @@
       "samurai": null,
       "ninja": null,
       "bard": 5,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -13425,6 +13531,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13551,6 +13658,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": "Prideful Sword",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -13677,6 +13785,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13803,6 +13912,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Prideful Sword",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13929,6 +14039,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14055,6 +14166,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Prideful Sword",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -14106,7 +14218,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10701500,
     "gl": true
@@ -14181,6 +14293,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14307,6 +14420,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -14433,6 +14547,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14559,6 +14674,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14620,39 +14736,39 @@
     "name": "Genesis",
     "introducingEventLv50": "Poems for the Planet",
     "lv50": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 3836,
+      "atk": 110,
+      "def": 85,
+      "mag": 79,
+      "res": 83,
+      "mnd": 71,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 123
     },
     "introducingEventLv65": "Poems for the Planet",
     "lv65": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 4769,
+      "atk": 140,
+      "def": 105,
+      "mag": 104,
+      "res": 105,
+      "mnd": 93,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 131
     },
     "introducingEventLv80": "Poems for the Planet",
     "lv80": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 5670,
+      "atk": 170,
+      "def": 124,
+      "mag": 129,
+      "res": 128,
+      "mnd": 116,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 139
     },
     "introducingEventLv99": "Poems for the Planet",
     "lv99": {
@@ -14685,6 +14801,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -14811,6 +14928,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Whispers in the Wind",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -14937,6 +15055,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Whispers in the Wind",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15063,6 +15182,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15189,6 +15309,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15315,6 +15436,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15361,7 +15483,7 @@
       "samurai": null,
       "ninja": null,
       "bard": null,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -15441,6 +15563,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15567,6 +15690,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -15693,6 +15817,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -15819,6 +15944,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15945,6 +16071,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16071,6 +16198,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16197,6 +16325,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Whispers in the Wind",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -16211,7 +16340,7 @@
       "instrument": false,
       "whip": false,
       "thrown": false,
-      "gun": true,
+      "gun": false,
       "book": false,
       "blitzball": false,
       "hairpin": false,
@@ -16237,7 +16366,7 @@
       "summoning": null,
       "spellblade": null,
       "dragoon": null,
-      "monk": 5,
+      "monk": null,
       "thief": null,
       "knight": null,
       "samurai": null,
@@ -16246,7 +16375,7 @@
       "dancer": null,
       "machinist": null,
       "darkness": null,
-      "sharpshooter": 6,
+      "sharpshooter": null,
       "witch": null,
       "heavy": null
     },
@@ -16323,6 +16452,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Whispers in the Wind",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16337,7 +16467,7 @@
       "instrument": false,
       "whip": false,
       "thrown": true,
-      "gun": true,
+      "gun": false,
       "book": false,
       "blitzball": false,
       "hairpin": false,
@@ -16372,9 +16502,9 @@
       "dancer": null,
       "machinist": null,
       "darkness": null,
-      "sharpshooter": 6,
+      "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 10801600,
     "gl": true
@@ -16449,6 +16579,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16575,6 +16706,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -16701,6 +16833,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16827,6 +16960,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16953,6 +17087,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -17079,6 +17214,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17125,7 +17261,7 @@
       "samurai": null,
       "ninja": null,
       "bard": null,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -17205,6 +17341,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17331,6 +17468,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17457,6 +17595,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17583,6 +17722,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -17709,6 +17849,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17835,6 +17976,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -17961,6 +18103,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -18087,6 +18230,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18213,6 +18357,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18339,6 +18484,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18465,6 +18611,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18591,6 +18738,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18637,7 +18785,7 @@
       "samurai": null,
       "ninja": null,
       "bard": 4,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": 5,
       "darkness": null,
       "sharpshooter": 6,
@@ -18717,6 +18865,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -18843,6 +18992,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -18969,6 +19119,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -19095,6 +19246,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19221,6 +19373,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -19347,6 +19500,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -19473,6 +19627,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19599,6 +19754,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19725,6 +19881,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19851,6 +20008,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -19977,6 +20135,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -20103,6 +20262,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20154,7 +20314,7 @@
       "darkness": 6,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 11100700,
     "gl": true
@@ -20229,6 +20389,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20275,7 +20436,7 @@
       "samurai": null,
       "ninja": null,
       "bard": null,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -20290,39 +20451,39 @@
     "name": "Naja",
     "introducingEventLv50": "Braving the Countless Ordeals",
     "lv50": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 4026,
+      "atk": 120,
+      "def": 91,
+      "mag": 55,
+      "res": 59,
+      "mnd": 60,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 98
     },
     "introducingEventLv65": "Braving the Countless Ordeals",
     "lv65": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 5004,
+      "atk": 148,
+      "def": 113,
+      "mag": 73,
+      "res": 78,
+      "mnd": 79,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 105
     },
     "introducingEventLv80": "Braving the Countless Ordeals",
     "lv80": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 5950,
+      "atk": 175,
+      "def": 133,
+      "mag": 90,
+      "res": 97,
+      "mnd": 98,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 112
     },
     "introducingEventLv99": "Braving the Countless Ordeals",
     "lv99": {
@@ -20355,6 +20516,7 @@
       "mnd": null,
       "spd": null
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -20481,6 +20643,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20607,6 +20770,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20733,6 +20897,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -20780,7 +20945,7 @@
       "ninja": null,
       "bard": null,
       "dancer": null,
-      "machinist": null,
+      "machinist": 5,
       "darkness": null,
       "sharpshooter": 6,
       "witch": null,
@@ -20859,6 +21024,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20985,6 +21151,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21111,6 +21278,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -21157,7 +21325,7 @@
       "samurai": null,
       "ninja": null,
       "bard": null,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -21237,6 +21405,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21288,7 +21457,7 @@
       "darkness": 6,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 11200700,
     "gl": true
@@ -21363,6 +21532,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21489,6 +21659,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21615,6 +21786,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21741,6 +21913,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21867,6 +22040,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -21993,6 +22167,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22119,6 +22294,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "A Father's Blues",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22245,6 +22421,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": "A Father's Blues",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22371,6 +22548,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22497,6 +22675,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22623,6 +22802,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22749,6 +22929,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22875,6 +23056,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "A Father's Blues",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23001,6 +23183,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -23127,6 +23310,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23253,6 +23437,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23379,6 +23564,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -23505,6 +23691,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -23631,6 +23818,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23757,6 +23945,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23883,6 +24072,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24009,6 +24199,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24135,6 +24326,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24261,6 +24453,7 @@
       "mnd": 0,
       "spd": 20
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24312,7 +24505,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 11500100,
     "gl": true
@@ -24387,6 +24580,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24438,7 +24632,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 11500200,
     "gl": true
@@ -24513,6 +24707,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -24639,6 +24834,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -24765,6 +24961,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -24891,6 +25088,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24964,7 +25162,7 @@
     },
     "introducingEventLv65": "Shield of the Past",
     "lv65": {
-      "hp": null,
+      "hp": 4542,
       "atk": 144,
       "def": 101,
       "mag": 86,
@@ -25017,6 +25215,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25078,51 +25277,51 @@
     "name": "Lunafreya",
     "introducingEventLv50": "The Guiding Oracle",
     "lv50": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 3014,
+      "atk": 49,
+      "def": 59,
+      "mag": 123,
+      "res": 103,
+      "mnd": 115,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 118
     },
     "introducingEventLv65": "The Guiding Oracle",
     "lv65": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 3882,
+      "atk": 65,
+      "def": 75,
+      "mag": 152,
+      "res": 127,
+      "mnd": 142,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 127
     },
     "introducingEventLv80": "The Guiding Oracle",
     "lv80": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 4750,
+      "atk": 80,
+      "def": 91,
+      "mag": 179,
+      "res": 150,
+      "mnd": 168,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 136
     },
     "introducingEventLv99": "The Guiding Oracle",
     "lv99": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "acc": null,
-      "eva": null,
-      "spd": null
+      "hp": 5849,
+      "atk": 101,
+      "def": 112,
+      "mag": 214,
+      "res": 179,
+      "mnd": 201,
+      "acc": 25,
+      "eva": 25,
+      "spd": 149
     },
     "introducingEventRecordSpheres": "The Guiding Oracle",
     "recordSpheres": {
@@ -25143,16 +25342,17 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
-      "dagger": false,
+      "dagger": true,
       "sword": false,
       "katana": false,
       "axe": false,
       "hammer": false,
       "spear": false,
       "fist": false,
-      "rod": false,
-      "staff": false,
+      "rod": true,
+      "staff": true,
       "bow": false,
       "instrument": false,
       "whip": false,
@@ -25166,13 +25366,13 @@
       "doll": false,
       "keyblade": false,
       "shield": false,
-      "hat": false,
+      "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
-      "robe": false,
-      "bracer": false,
-      "accessory": false
+      "robe": true,
+      "bracer": true,
+      "accessory": true
     },
     "skills": {
       "blackMagic": 4,
@@ -25269,6 +25469,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25395,6 +25596,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25521,6 +25723,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25647,6 +25850,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -25773,6 +25977,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25899,6 +26104,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26025,6 +26231,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26151,6 +26358,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -26277,6 +26485,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -26403,6 +26612,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26454,7 +26664,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 15001100,
     "gl": true
@@ -26529,6 +26739,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26655,6 +26866,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -26701,7 +26913,7 @@
       "samurai": null,
       "ninja": null,
       "bard": null,
-      "dancer": 5,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -26781,6 +26993,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -26907,6 +27120,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27033,6 +27247,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27159,6 +27374,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27285,6 +27501,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -27411,6 +27628,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -27537,6 +27755,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Record Boards Launch",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27663,6 +27882,7 @@
       "mnd": 0,
       "spd": 10
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -27789,6 +28009,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Fate Defying Innocence",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27915,6 +28136,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Fate Defying Innocence",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27966,7 +28188,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 16000800,
     "gl": true
@@ -28041,6 +28263,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Fate Defying Innocence",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28167,6 +28390,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Dark Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28293,6 +28517,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28419,6 +28644,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -28545,6 +28771,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": "Fate Defying Innocence",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -28604,43 +28831,43 @@
   {
     "realm": "Type-0",
     "name": "Trey",
-    "introducingEventLv50": "Raise the Vermilion Banner",
+    "introducingEventLv50": "Crimson Flag Rising",
     "lv50": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 3464,
+      "atk": 105,
+      "def": 72,
+      "mag": 73,
+      "res": 68,
+      "mnd": 72,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 130
     },
-    "introducingEventLv65": "Raise the Vermilion Banner",
+    "introducingEventLv65": "Crimson Flag Rising",
     "lv65": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 4306,
+      "atk": 135,
+      "def": 89,
+      "mag": 96,
+      "res": 86,
+      "mnd": 95,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 138
     },
-    "introducingEventLv80": "Raise the Vermilion Banner",
+    "introducingEventLv80": "Crimson Flag Rising",
     "lv80": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 5120,
+      "atk": 163,
+      "def": 105,
+      "mag": 120,
+      "res": 105,
+      "mnd": 118,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 146
     },
-    "introducingEventLv99": "Raise the Vermilion Banner",
+    "introducingEventLv99": "Crimson Flag Rising",
     "lv99": {
       "hp": 6119,
       "atk": 200,
@@ -28652,7 +28879,7 @@
       "eva": 25,
       "spd": 157
     },
-    "introducingEventRecordSpheres": "Raise the Vermilion Banner",
+    "introducingEventRecordSpheres": "Crimson Flag Rising",
     "recordSpheres": {
       "hp": 640,
       "atk": 37,
@@ -28661,7 +28888,7 @@
       "res": 3,
       "mnd": 1
     },
-    "introducingEventLegendSpheres": "Raise the Vermilion Banner",
+    "introducingEventLegendSpheres": "Crimson Flag Rising",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -28671,6 +28898,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -28725,7 +28953,7 @@
       "heavy": null
     },
     "id": 16001400,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
@@ -28797,6 +29025,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28923,6 +29152,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -29049,6 +29279,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -29175,6 +29406,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29301,6 +29533,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29427,6 +29660,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -29553,6 +29787,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -29679,6 +29914,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29805,6 +30041,7 @@
       "mnd": 0,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -29856,7 +30093,7 @@
       "darkness": null,
       "sharpshooter": null,
       "witch": null,
-      "heavy": 5
+      "heavy": 6
     },
     "id": 19001300,
     "gl": true
@@ -29931,6 +30168,7 @@
       "mnd": 40,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30057,6 +30295,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30116,43 +30355,43 @@
   {
     "realm": "Beyond",
     "name": "Serafie",
-    "introducingEventLv50": "Fairy of Grymoire",
+    "introducingEventLv50": "Pixie of Grymoire",
     "lv50": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 2847,
+      "atk": 52,
+      "def": 53,
+      "mag": 125,
+      "res": 91,
+      "mnd": 101,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 125
     },
-    "introducingEventLv65": "Fairy of Grymoire",
+    "introducingEventLv65": "Pixie of Grymoire",
     "lv65": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 3667,
+      "atk": 66,
+      "def": 69,
+      "mag": 154,
+      "res": 115,
+      "mnd": 129,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 135
     },
-    "introducingEventLv80": "Fairy of Grymoire",
+    "introducingEventLv80": "Pixie of Grymoire",
     "lv80": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
+      "hp": 4486,
+      "atk": 80,
+      "def": 86,
+      "mag": 182,
+      "res": 140,
+      "mnd": 156,
       "acc": null,
       "eva": null,
-      "spd": null
+      "spd": 145
     },
-    "introducingEventLv99": "Fairy of Grymoire",
+    "introducingEventLv99": "Pixie of Grymoire",
     "lv99": {
       "hp": 5524,
       "atk": 99,
@@ -30164,7 +30403,7 @@
       "eva": 25,
       "spd": 159
     },
-    "introducingEventRecordSpheres": "Fairy of Grymoire",
+    "introducingEventRecordSpheres": "Pixie of Grymoire",
     "recordSpheres": {
       "hp": 450,
       "atk": 0,
@@ -30173,7 +30412,7 @@
       "res": 14,
       "mnd": 6
     },
-    "introducingEventLegendSpheres": "Fairy of Grymoire",
+    "introducingEventLegendSpheres": "Pixie of Grymoire",
     "legendSpheres": {
       "hp": 500,
       "atk": 0,
@@ -30183,6 +30422,7 @@
       "mnd": 20,
       "spd": 0
     },
+    "introducingEventRecordBoards": null,
     "equipment": {
       "dagger": true,
       "sword": false,

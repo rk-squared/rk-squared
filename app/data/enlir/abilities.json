@@ -2699,18 +2699,18 @@
     "type": "BLK",
     "target": "Single",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 17.5,
     "element": [
       "Wind",
       "Water",
       "Fire",
       "Earth"
     ],
-    "time": null,
-    "effects": "Five single attacks (? each)",
-    "counter": false,
+    "time": 1.8,
+    "effects": "Five single attacks (3.50 each)",
+    "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 90,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -2736,7 +2736,11 @@
         35
       ],
       "Onion Knight's Record Board": [
-        1
+        1,
+        0,
+        0,
+        0,
+        0
       ]
     },
     "introducingEvent": "5th Anniversary",
@@ -4464,6 +4468,112 @@
     "nameJp": "リフレク",
     "id": 30991002,
     "gl": true
+  },
+  {
+    "school": "White Magic",
+    "name": "De'Diaja",
+    "rarity": 6,
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 10.5,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (3.50 each), causes Minor Imperil Holy every second use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Non-Elemental Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Holy Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Seeker of the Void",
+    "nameJp": "デディアジャ",
+    "id": 30121331,
+    "gl": false
+  },
+  {
+    "school": "White Magic",
+    "name": "Holy VIII",
+    "rarity": 6,
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 21.3,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.55 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Minwu's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: A Glittering Forgery",
+    "nameJp": "ホーリー8(ミンウ専用)",
+    "id": 30121341,
+    "gl": false
   },
   {
     "school": "Combat",
@@ -7256,6 +7366,59 @@
     "gl": false
   },
   {
+    "school": "Celerity",
+    "name": "Ripping Storm",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.4,
+    "element": [
+      "Wind"
+    ],
+    "time": 1.2,
+    "effects": "4/5/6 single attacks (0.85 each) if the user used 3/5 damaging actions",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Prideful Sword",
+    "nameJp": "リッパーストーム",
+    "id": 30171251,
+    "gl": false
+  },
+  {
     "school": "Summoning",
     "name": "Goblin",
     "rarity": 1,
@@ -9021,17 +9184,17 @@
     "type": "SUM",
     "target": "All enemies",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 19.8,
     "element": [
       "Water",
       "Earth",
       "Holy"
     ],
-    "time": null,
-    "effects": "Four group attacks (? each), minimum damage ?",
+    "time": 1.8,
+    "effects": "Four group attacks (4.95 each), minimum damage 2000",
     "counter": false,
     "autoTarget": "All enemies",
-    "sb": null,
+    "sb": 90,
     "uses": 2,
     "max": 6,
     "orbs": {
@@ -10707,7 +10870,7 @@
         0
       ]
     },
-    "introducingEvent": "?",
+    "introducingEvent": "Awakening from Ignorance",
     "nameJp": "至高魔法剣・凍爪",
     "id": 30141211,
     "gl": false
@@ -10719,16 +10882,16 @@
     "type": "PHY",
     "target": "All enemies",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 5.5,
     "element": [
-      "Ice",
-      "Fire"
+      "Fire",
+      "Ice"
     ],
     "time": 1.65,
-    "effects": "Five group attacks (?~? scaling with targets)",
+    "effects": "Five group attacks (0.92~1.10 scaling with targets)",
     "counter": true,
     "autoTarget": "All enemies",
-    "sb": null,
+    "sb": 90,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -10766,6 +10929,61 @@
     "id": 30141251,
     "gl": false,
     "recordBoardCharacter": "Squall"
+  },
+  {
+    "school": "Spellblade",
+    "name": "Spinning Edge",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Ice",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Five group ranged attacks (0.92~1.10 scaling with targets)",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Celes's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Where True Love Lies",
+    "nameJp": "スピニングエッジ(セリス専用)",
+    "id": 30141261,
+    "gl": false,
+    "recordBoardCharacter": "Celes"
   },
   {
     "school": "Dragoon",
@@ -11506,7 +11724,7 @@
     "introducingEvent": "Fat Black Chocobo Event: Wind",
     "nameJp": "ハリケーンボルト",
     "id": 30181161,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Dragoon",
@@ -13302,15 +13520,15 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 4,
     "element": [
       "Water"
     ],
-    "time": null,
-    "effects": "Four single attacks (? each), ATK and DEF -50% for ? seconds, grants ATK and DEF +50% for ? seconds to the user",
-    "counter": false,
+    "time": 1.2,
+    "effects": "Four single attacks (1.00 each), ATK and DEF -50% for 8 seconds, grants ATK and DEF +50% for 8 seconds to the user",
+    "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 80,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -14201,6 +14419,60 @@
     "gl": true
   },
   {
+    "school": "Knight",
+    "name": "Paladin Force",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Five single hybrid attacks (1.10 or 3.55 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Cecil (Paladin)'s Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: A Glittering Forgery",
+    "nameJp": "パラディンフォース(セシル(パラディン)専用)",
+    "id": 30211181,
+    "gl": false,
+    "recordBoardCharacter": "Cecil (Paladin)"
+  },
+  {
     "school": "Samurai",
     "name": "Retaliate",
     "rarity": 2,
@@ -15077,7 +15349,7 @@
         0
       ]
     },
-    "introducingEvent": null,
+    "introducingEvent": "Walking with Espers",
     "nameJp": "なで斬り・氷炎",
     "id": 30221191,
     "gl": false
@@ -15998,6 +16270,113 @@
     "gl": false
   },
   {
+    "school": "Ninja",
+    "name": "Shadow Fang",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10.16,
+    "element": [
+      "Dark"
+    ],
+    "time": 0.83,
+    "effects": "Four single ranged attacks (1.10 each) followed by one single ranged attack (5.76) that ignores DEF, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Shadow's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: A Dark Forgery",
+    "nameJp": null,
+    "id": 30231191,
+    "gl": false,
+    "recordBoardCharacter": "Shadow"
+  },
+  {
+    "school": "Ninja",
+    "name": "Umbra Essence",
+    "rarity": 6,
+    "type": "?",
+    "target": "?",
+    "formula": "?",
+    "multiplier": 6.3,
+    "element": [
+      "Dark"
+    ],
+    "time": 0.83,
+    "effects": "3/5/7 single attacks (0.90 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: A Dark Forgery",
+    "nameJp": null,
+    "id": 30231201,
+    "gl": false
+  },
+  {
     "school": "Bard",
     "name": "Requiem",
     "rarity": 2,
@@ -16510,6 +16889,60 @@
     "nameJp": "武神の凱歌",
     "id": 30241111,
     "gl": true
+  },
+  {
+    "school": "Bard",
+    "name": "Divine Requiem",
+    "rarity": 6,
+    "type": "?",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": null,
+    "effects": "Three single attacks (? each), grants ? every two uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Earth Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Holy Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: A Glittering Forgery",
+    "nameJp": "神威の鎮魂歌",
+    "id": 30241121,
+    "gl": false
   },
   {
     "school": "Dancer",
@@ -17085,10 +17518,10 @@
         0
       ]
     },
-    "introducingEvent": "Windswept Hunting Festival",
+    "introducingEvent": "Howling Tempest: The Grand Hunt",
     "nameJp": "パッションサルサ",
     "id": 30251101,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Machinist",
@@ -18646,6 +19079,276 @@
     "gl": false
   },
   {
+    "school": "Darkness",
+    "name": "Shadow Dragon",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 21,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Golbez's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Dark Lunarian Legacy",
+    "nameJp": "あんこく(セシル(暗黒騎士)専用)",
+    "id": 30271171,
+    "gl": false,
+    "recordBoardCharacter": "Golbez"
+  },
+  {
+    "school": "Darkness",
+    "name": "Darkness",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 5.94,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Six group ranged attacks (0.99~1.18 scaling with targets), damages the user for 10% max HP",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Cecil (Dark Knight)'s Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Dark Lunarian Legacy",
+    "nameJp": "こくりゅう(ゴルベーザ専用)",
+    "id": 30271181,
+    "gl": false,
+    "recordBoardCharacter": "Cecil (Dark Knight)"
+  },
+  {
+    "school": "Darkness",
+    "name": "Forbidden Cross",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 18.15,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (3.63 each), damages the user for 25/15/5% max HP scaling with 0/1/2 uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Non-Elemental Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Dark Lunarian Legacy",
+    "nameJp": "フォビドゥンクロス",
+    "id": 30271191,
+    "gl": false
+  },
+  {
+    "school": "Darkness",
+    "name": "Sacrifice Gear",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (? each), grants HP Stock (3000) to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Nabaat's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "A Father's Blues",
+    "nameJp": "サクリファイス＝ギア(ナバート専用)",
+    "id": 30271201,
+    "gl": false,
+    "recordBoardCharacter": "Nabaat"
+  },
+  {
+    "school": "Darkness",
+    "name": "Double Hole",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Dark",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Five hybrid attacks (3.50 or 3.55 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Exdeath's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Seeker of the Void",
+    "nameJp": "ダブルホール(エクスデス専用)",
+    "id": 30271211,
+    "gl": false,
+    "recordBoardCharacter": "Exdeath"
+  },
+  {
     "school": "Sharpshooter",
     "name": "Sapphire Shot",
     "rarity": 5,
@@ -19136,6 +19839,105 @@
     "gl": false
   },
   {
+    "school": "Sharpshooter",
+    "name": "Midnight Shot",
+    "rarity": 5,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.9,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Four single ranged attacks (0.85 each), 0.95 multiplier when equipping a ranged weapon",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 70,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Major Black": [
+        6,
+        12,
+        24,
+        36,
+        60
+      ],
+      "Major Lightning": [
+        6,
+        12,
+        24,
+        36,
+        60
+      ],
+      "Major Dark": [
+        10,
+        20,
+        40,
+        60,
+        100
+      ]
+    },
+    "introducingEvent": "Where True Love Lies",
+    "nameJp": "ミッドナイトスロー",
+    "id": 30281151,
+    "gl": false
+  },
+  {
+    "school": "Sharpshooter",
+    "name": "Obsidian Bullet",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.25,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Five single ranged attacks (0.95 each), 1.05 multiplier when equipping a ranged weapon",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Lightning Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Where True Love Lies",
+    "nameJp": "ミッドナイトブリット",
+    "id": 30281141,
+    "gl": false
+  },
+  {
     "school": "Witch",
     "name": "Hell Thunder",
     "rarity": 5,
@@ -19519,21 +20321,21 @@
   },
   {
     "school": "Witch",
-    "name": "Angel Wing",
+    "name": "Valkyrie",
     "rarity": 6,
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 17.1,
     "element": [
       "Ice",
       "Earth"
     ],
-    "time": null,
-    "effects": "Six single attacks (? each)",
+    "time": 2.6,
+    "effects": "Six single attacks (2.85 each)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 90,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -19571,6 +20373,59 @@
     "id": 30301081,
     "gl": false,
     "recordBoardCharacter": "Rinoa"
+  },
+  {
+    "school": "Witch",
+    "name": "Screamfire",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 15.6,
+    "element": [
+      "Fire"
+    ],
+    "time": 2.6,
+    "effects": "Six single attacks (2.60 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Fire Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "For Lasting Peace",
+    "nameJp": "スクリームファイア",
+    "id": 30301091,
+    "gl": false
   },
   {
     "school": "Heavy",
@@ -19987,10 +20842,10 @@
         0
       ]
     },
-    "introducingEvent": "Raise the Vermilion Banner",
+    "introducingEvent": "Crimson Flag Rising",
     "nameJp": "クエイクスイング",
     "id": 30311081,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Heavy",
@@ -20044,5 +20899,59 @@
     "nameJp": "ダークネススイング",
     "id": 30311091,
     "gl": false
+  },
+  {
+    "school": "Heavy",
+    "name": "Full Swing",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Earth"
+    ],
+    "time": 3.3,
+    "effects": "Six single attacks (1.10 each), grants Heavy Charge +1 to the user, cast time 3.30/2.475/1.65 scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Cinque's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fate Defying Innocence",
+    "nameJp": "フルスイング(シンク専用)",
+    "id": 30311101,
+    "gl": false,
+    "recordBoardCharacter": "Cinque"
   }
 ]
