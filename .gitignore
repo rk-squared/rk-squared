@@ -59,3 +59,6 @@ tmp/
 scripts/tmp/
 app/data/enlir/*.json.bak
 .env
+
+# Compiled PEG.js files
+app/data/mrp/*Parser.js

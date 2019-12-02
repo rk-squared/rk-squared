@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
-import { formatSchoolOrAbilityList, XRegExpNamedGroups } from './types';
+import { formatSchoolOrAbilityList, XRegExpNamedGroups } from './typeHelpers';
 import { andList } from './util';
 
 const level: { [s: string]: number } = {

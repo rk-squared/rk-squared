@@ -9,7 +9,8 @@
 import * as _ from 'lodash';
 
 import { andJoin } from '../../utils/textUtils';
-import { isAllSame } from '../../utils/typeUtils';
+import { arrayify, isAllSame } from '../../utils/typeUtils';
+import * as types from './types';
 
 export { andJoin };
 
@@ -55,10 +56,48 @@ export function lowerCaseFirst(s: string): string {
   return s.replace(/^([A-Z])/, c => c.toLowerCase());
 }
 
+export const numberOrUnknown = (n: number) => (isNaN(n) ? '?' : n.toString());
+export const fixedNumberOrUnknown = (n: number, fractionDigits: number) =>
+  isNaN(n) ? '?' : n.toFixed(fractionDigits);
+
+/**
+ * Formats one of the SlashLists from our Enlir grammar.  Following MrP, we use
+ * hyphens to separate these.  (We also use hyphens to separate options for
+ * attack damage, because attack damage values contain slashes themselves, so
+ * using hyphens for conditions and supporting values has the advantage of
+ * matching.)
+ */
+export function formatNumberSlashList(
+  n: number | number[],
+  converter: (n: number) => string = numberOrUnknown,
+): string {
+  return typeof n === 'number' ? converter(n) : n.map(converter).join('-');
+}
+
+export function formatSignedIntegerSlashList(n: number | number[]): string {
+  n = arrayify(n);
+  // Explicitly join with slashes - using hyphens to join negative numbers
+  // looks weird.
+  return (n[0] < 0 ? '-' : '+') + n.map(i => (isNaN(i) ? '?' : Math.abs(i))).join('/');
+}
+
+/**
+ * As formatNumberSlashList, but include spaces when joining, to directly match
+ * how we handle attack damage values.
+ */
+export function hyphenJoin(numberList: number | number[]): string {
+  return arrayify(numberList)
+    .map(n => (isNaN(n) ? '?' : n.toString()))
+    .join(' - ');
+}
+
 /**
  * Parses a numeric string like "one" or "twenty-two"
  */
 export function parseNumberString(s: string): number | null {
+  if (!s) {
+    return null;
+  }
   if (isNumeric(s)) {
     return +s;
   }
@@ -163,6 +202,14 @@ export function toMrPGeneral(s: string): string {
 // https://stackoverflow.com/a/2901298/25507
 export function numberWithCommas(x: number): string {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+export function joinOr<T>(items: T[]): string {
+  if (items.length === 1) {
+    return '' + items[0];
+  } else {
+    return items.slice(0, -1).join(', ') + ' or ' + items[items.length - 1];
+  }
 }
 
 export const enDashJoin = ' – ';
@@ -290,13 +337,27 @@ export function cleanUpSlashedNumbers(s: string): string {
   }
 }
 
-export function formatUseCount(count: number | undefined): string {
+export function formatUseNumber(count: number | undefined): string {
   if (!count) {
     return 'w/ uses';
   } else if (count > 4) {
     return 'w/ 1…' + count + ' uses';
   } else {
-    return 'w/ ' + _.times(count).join('-') + ' uses';
+    return 'w/ ' + formatNumberSlashList(_.times(count)) + ' uses';
+  }
+}
+
+export function formatUseCount(count: types.UseCount): string {
+  if ('x' in count) {
+    return `${count.x} + ${count.y}n`;
+  } else if (!('from' in count)) {
+    return `≤${count.to}`;
+  } else if (!('to' in count)) {
+    return `≥${count.from}`;
+  } else if (count.from === count.to) {
+    return '' + count.from;
+  } else {
+    return `${count.from}-${count.to}`;
   }
 }
 

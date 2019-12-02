@@ -7,9 +7,9 @@ import * as _ from 'lodash';
 
 import { RelicDrawProbabilities, wantRelic } from '../../actions/relicDraws';
 import { enlir, EnlirLegendMateria, EnlirRealm, EnlirSoulBreak, SbOrLm } from '../../data/enlir';
-import { describeEnlirSoulBreak, formatMrP } from '../../data/mrP';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 import { describeRelicEffect } from '../../data/mrP/relics';
+import { convertEnlirSkillToMrP, formatMrPSkill } from '../../data/mrP/skill';
 import { enlirRealmLongName, enlirRealmToSeriesId } from '../../data/series';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
@@ -133,7 +133,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
         ? getStatusAndCss(lm.id, SbOrLm.LegendMateria)
         : ['', '']
       : ['', ''];
-    const mrP = sb ? describeEnlirSoulBreak(sb) : null;
+    const mrP = sb ? convertEnlirSkillToMrP(sb) : null;
 
     const commandColumns: Array<[string, string]> = [];
     if (mrP && mrP.braveCommands) {
@@ -183,7 +183,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
             {this.renderAlias(sb, lm)}
           </td>
           <td className={soulBreakStyles.name}>{sb ? sb.name : lm ? lm.name : undefined}</td>
-          <td>{mrP ? formatMrP(mrP) : lm ? describeMrPLegendMateria(lm) : undefined}</td>
+          <td>{mrP ? formatMrPSkill(mrP) : lm ? describeMrPLegendMateria(lm) : undefined}</td>
           {showProbability && <td rowSpan={rowSpan}>{probabilities!.byRelic[relicId]}%</td>}
           {allowSelect && (
             <td rowSpan={rowSpan}>

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { EnlirSoulBreak } from '../../data/enlir';
-import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
+import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import { breakSlashes } from '../../utils/textUtils';
 import {
   getBraveColumns,
@@ -20,10 +20,10 @@ interface Props {
   className?: string;
 }
 
-const mrPSoulBreaks: { [id: number]: MrPSoulBreak } = {};
+const mrPSoulBreaks: { [id: number]: MrPSkill } = {};
 
 export class SoulBreakListItem extends React.PureComponent<Props> {
-  renderBraveCommands(mrP: MrPSoulBreak, braveCommands: MrPSoulBreak[]) {
+  renderBraveCommands(mrP: MrPSkill, braveCommands: MrPSkill[]) {
     const columns = getBraveColumns(mrP, braveCommands);
     return (
       <tr className={classNames(this.props.className, styles.braveCommand)}>
@@ -34,7 +34,7 @@ export class SoulBreakListItem extends React.PureComponent<Props> {
     );
   }
 
-  renderBurstCommands(burstCommands: MrPSoulBreak[]) {
+  renderBurstCommands(burstCommands: MrPSkill[]) {
     // As of October 2019, Ward's BSB is the only command with a long enough
     // string of slash-separated values that it causes obvious problems for
     // mobile, so we only use breakSlashes here.
@@ -51,7 +51,7 @@ export class SoulBreakListItem extends React.PureComponent<Props> {
     );
   }
 
-  renderSynchroCommands(mrP: MrPSoulBreak, synchroCommands: MrPSoulBreak[]) {
+  renderSynchroCommands(mrP: MrPSkill, synchroCommands: MrPSkill[]) {
     return (
       <>
         {getSynchroColumns(mrP, synchroCommands).map((columns, i) => (
@@ -69,12 +69,12 @@ export class SoulBreakListItem extends React.PureComponent<Props> {
     const { soulBreak, className } = this.props;
 
     if (!mrPSoulBreaks[soulBreak.id]) {
-      mrPSoulBreaks[soulBreak.id] = describeEnlirSoulBreak(soulBreak);
+      mrPSoulBreaks[soulBreak.id] = convertEnlirSkillToMrP(soulBreak);
     }
     const mrP = mrPSoulBreaks[soulBreak.id];
 
     const name = soulBreak.gl ? soulBreak.name : '“' + soulBreak.name + '”';
-    const text = formatMrP(mrP);
+    const text = formatMrPSkill(mrP);
 
     let alias = soulBreakAbbrevAliases[soulBreak.id] || soulBreak.tier;
     if (alias !== '-') {

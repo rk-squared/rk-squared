@@ -1,9 +1,9 @@
 import * as _ from 'lodash';
 
-import { describeEnlirSoulBreak, formatMrP } from '../mrP';
-import { formatBraveCommands } from '../mrP/brave';
+import { convertEnlirSkillToMrP, formatMrPSkill } from '../skill';
 
-import { enlir, EnlirSoulBreak, makeSoulBreakAliases } from '../enlir';
+import { enlir, EnlirSoulBreak, makeSoulBreakAliases } from '../../enlir';
+import { formatBraveCommands } from '../brave';
 
 // Allow looking up soul breaks both by name and type.  This keeps tests from
 // breaking just because a soul break is renamed from JP to GL.
@@ -44,12 +44,13 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     character: 'Axel',
     name: 'Burst Inferno',
     type: 'NAT',
-    target: '?',
+    typeDetails: ['PHY', 'BLK'],
+    target: null,
     formula: 'Hybrid',
     multiplier: null,
     element: ['Fire', 'Wind'],
     time: null,
-    effects: 'Three single attacks (? each) capped at 99999',
+    effects: 'Three single hybrid attacks (? each) capped at 99999',
     counter: false,
     autoTarget: '?',
     points: 750,
@@ -67,7 +68,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     character: 'Axel',
     name: 'Dance Flurry',
     type: 'NAT',
-    target: '?',
+    target: null,
     formula: 'Hybrid',
     multiplier: null,
     element: [],
@@ -188,11 +189,11 @@ function describeSoulBreak(nameOrAlias: string) {
   if (!sb) {
     throw new Error('Unknown soul break: ' + nameOrAlias);
   }
-  return describeEnlirSoulBreak(sb);
+  return convertEnlirSkillToMrP(sb);
 }
 
 describe('mrP', () => {
-  describe('describeEnlirSoulBreak', () => {
+  describe('convertEnlirSkillToMrP', () => {
     it('converts piercing attacks', () => {
       expect(describeSoulBreak('Sephiroth - Reunion')).toEqual({
         damage: 'AoE phys 6.16/4',
@@ -222,7 +223,7 @@ describe('mrP', () => {
       });
 
       expect(describeSoulBreak('Setzer - Mostly Megaflare')).toEqual({
-        damage: '80-20% phys 6.65/7-13.3/14',
+        damage: '80-20% phys 6.65/7-13.3/14 rngd',
         other: '-40% ATK/MAG 25s',
         burstCommands: [
           { damage: 'p2.1 rngd', other: '-20% ATK/DEF 15s', school: 'Support' },
@@ -405,12 +406,12 @@ describe('mrP', () => {
         burstCommands: [
           {
             damage: 'm9.2/4 f+l',
-            other: 'self instazap 1 if hits weak',
+            other: 'self instazap 1 vs. weak',
             school: 'Black Magic',
           },
           {
             damage: 'm9.2/4 i+l',
-            other: 'self instazap 1 if hits weak',
+            other: 'self instazap 1 vs. weak',
             school: 'Black Magic',
           },
         ],
@@ -431,7 +432,7 @@ describe('mrP', () => {
         burstCommands: [
           {
             damage: 'p2.4/2 wi+n rngd',
-            other: 'powers up cmd 2, -10%/-20%/-30%/-30% ATK, self +10%/20%/30%/30% ATK',
+            other: '-10%/-20%/-30%/-30% ATK, self +10%/20%/30%/30% ATK, powers up cmd 2',
             school: 'Thief',
           },
           {
@@ -447,7 +448,7 @@ describe('mrP', () => {
           { damage: 'p2.06 e+n rngd', other: 'powers up cmd 2', school: 'Machinist' },
           {
             damage: 'p2.12/4 e+n rngd',
-            other: '0/10/30/100% for +10% earth vuln. 25s, reset count',
+            other: '0-10-30-100% for +10% earth vuln. 25s, reset count',
             school: 'Machinist',
           },
         ],
@@ -648,7 +649,7 @@ describe('mrP', () => {
     it('converts non-standard stat mods', () => {
       expect(describeSoulBreak('Wol - Overkill')).toEqual({
         damage: 'phys 7.68/8 rngd',
-        other: 'Dispel, -70% DEF/RES 8s',
+        other: '-70% DEF/RES 8s, Dispel',
       });
       expect(describeSoulBreak('Zidane - Wall of Light')).toEqual({
         other: 'party Regen (hi), +25% DEF/RES 25s',
@@ -658,10 +659,10 @@ describe('mrP', () => {
     it('converts cast speed changes', () => {
       const flashingBladeId = 30221031;
       expect(
-        describeEnlirSoulBreak(enlir.abilities[flashingBladeId], { includeSchool: false }),
+        convertEnlirSkillToMrP(enlir.abilities[flashingBladeId], { includeSchool: false }),
       ).toEqual({
         damage: 'AoE phys 2.66/2 no miss',
-        other: 'cast time 1.650/1.485/1.155/0.825/0.495 w/ 1…5 uses',
+        other: 'cast time 1.650-1.485-1.155-0.825-0.495s w/ 1…5 uses',
         school: 'Samurai',
       });
 
@@ -671,7 +672,7 @@ describe('mrP', () => {
         burstCommands: [
           {
             damage: 'AoE p1.3/2 e+wi jump',
-            other: 'cast time 1.650/1.485/1.155/0.825/0.495/0.165 w/ 1…6 uses',
+            other: 'cast time 1.650-1.485-1.155-0.825-0.495-0.165s w/ 1…6 uses',
             school: 'Dragoon',
           },
           {
@@ -715,7 +716,7 @@ describe('mrP', () => {
           },
         ],
       });
-      expect(damage.burstCommands!.map(i => formatMrP(i))).toEqual([
+      expect(damage.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
         'ON, self fastcast 3',
         'OFF, p3.42/6 h+wi @ +50% crit dmg',
         'p2.28/4 h+wi',
@@ -741,7 +742,7 @@ describe('mrP', () => {
           { damage: 'w10.28/2 l+n', other: 'party h25', school: 'White Magic' },
         ],
       });
-      expect(heal.burstCommands!.map(i => formatMrP(i))).toEqual([
+      expect(heal.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
         'ON, h60',
         'OFF, w10.48/4 l+n, ally h60',
         'party h25',
@@ -764,7 +765,7 @@ describe('mrP', () => {
         damage: 'AoE magic 11.94/6 fire+non',
         other: 'fire infuse 25s',
       });
-      expect(counter.burstCommands!.map(i => formatMrP(i))).toEqual([
+      expect(counter.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
         "ON, self Magic blink 1, until OFF: (foe's PHY atk (50%) ⤇ AoE m4.85 f+n B.Mag)",
         'OFF, m8.84/4 f+n',
         'AoE m5.9/2 f+n',
@@ -808,7 +809,7 @@ describe('mrP', () => {
         burstCommands: [
           {
             damage: 'm4.4/2 d+b',
-            other: 'powers up cmd 2, -10%/-20%/-30%/-30% MAG w/ 0-1-2-3 uses 25s',
+            other: '-10%/-20%/-30%/-30% MAG w/ 0-1-2-3 uses 25s, powers up cmd 2',
             school: 'Black Magic',
           },
           {
@@ -887,7 +888,7 @@ Object {
 
       expect(describeSoulBreak('Josef - Undaunted Hero')).toEqual({
         burstCommands: [
-          { damage: 'p1.41/3 i+n, or p2.82/6 if cmd2 status', school: 'Monk' },
+          { damage: 'p1.41/3 i+n, or p2.82/6 if cmd 2 status', school: 'Monk' },
           { damage: 'p1.88/4 i+n', other: '25s: -40% DEF/RES, fastcast', school: 'Monk' },
         ],
         damage: undefined,
@@ -916,7 +917,7 @@ Object {
       expect(describeSoulBreak('Refia - Bridled Love')).toEqual({
         instant: true,
         other:
-          'self hi fastcast 2, 15s: stacking (fire ⤇ p1.6/4 - 2.0/5 - 2.4/6 f+n Monk @ 1-2-3 stacks)',
+          'self hi fastcast 2, 15s: stacking (fire ⤇ p1.6/4 - 2.0/5 - 2.4/6 f+n Monk if 1/2/3 stacks)',
       });
       expect(describeSoulBreak('Tifa - Zangan Awakening')).toEqual({
         instant: true,
@@ -929,7 +930,7 @@ Object {
         burstCommands: [
           {
             damage: 'p1.6/4 f+n',
-            other: 'self +10/20/30/40/50/60/70/80% ATK/DEF w/ 1…8 uses 25s',
+            other: 'self +10/20/30/40/50/60/70/80% ATK/DEF 25s w/ 1…8 uses',
             school: 'Monk',
           },
           { damage: 'AoE p1.5/2 f+n', other: undefined, school: 'Monk' },
@@ -968,7 +969,7 @@ Object {
 
       const warringFlameId = 30221101;
       expect(
-        describeEnlirSoulBreak(enlir.abilities[warringFlameId], { includeSchool: false }),
+        convertEnlirSkillToMrP(enlir.abilities[warringFlameId], { includeSchool: false }),
       ).toEqual({
         damage: 'phys 3.0/4 fire @ +50% crit if Retaliate',
         school: 'Samurai',
@@ -1093,7 +1094,7 @@ Object {
         damage: 'phys 7.1/10 water+lgt',
         other:
           '15s: (water ⤇ hi fastcast 1), ' +
-          '(Ninja ⤇ p2.16 - 4.32/2 wa+l+n Ninja @ 1-2 Phys blink)',
+          '(Ninja ⤇ p2.16 - 4.32/2 wa+l+n Ninja @ 1/2 Phys blink)',
       });
 
       // This also tests the interrupt / stun status.
@@ -1212,7 +1213,7 @@ Object {
         other:
           'fire infuse 25s, self 1.3x B.Mag dmg 15s, ' +
           '15s: (1/2/3 B.Mag ⤇ m4.08/2 f+n B.Mag, self hi fastcast 2 ' +
-          '– m4.08/2 f+n B.Mag, party heal 1.5k ' +
+          '– m4.08/2 f+n B.Mag, same row heal 1.5k ' +
           '– m16.32/8 f+n B.Mag)',
       });
     });
@@ -1342,7 +1343,7 @@ Object {
         other:
           'party Reflect Dmg 75% as holy 30s, ' +
           '15s: Finisher: magic 11.8 - 20.5 - 34.6 holy+non overstrike Summon @ 3-6 holy used, ' +
-          'refill 0/1/2 abil. use, ' +
+          'self refill 0-1-2 abil. use, ' +
           '(holy ⤇ 2-2.5-3x zap)',
       });
       expect(describeSoulBreak('Vivi - Clamorous Magic')).toEqual({
@@ -1359,21 +1360,6 @@ Object {
           'fire infuse 25s, self dmg cap +10k 15s, ' +
           '15s: (Monk ⤇ 1.1-1.2-1.3x Monk dmg, 2-3-4x cast), ' +
           '15s: Awoken Monk: Monk inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
-      });
-      expect(describeSoulBreak('Yuna - For the Calm')).toEqual({
-        damage: 'magic 19.8/15 holy+wind+non (SUM)',
-        instant: true,
-        other:
-          'party h85, Regenga, self dmg cap +10k 15s, ' +
-          '15s: Awoken Kindred Mode: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10/15/25/35/45 @ rank 1-5)',
-      });
-      expect(describeSoulBreak("Y'shtola - Pulse of Life")).toEqual({
-        damage: undefined,
-        instant: true,
-        other:
-          'party h105, Negate dmg 30%, Last stand, self hi fastcast 15s, ' +
-          '15s: Awoken Guardian: W.Mag inf. hones, ' +
-          '(ally heal ⤇ ally Negate dmg 30%/40%/50%/60%/70% @ rank 1-5), 100% dualcast',
       });
     });
 
@@ -1468,12 +1454,12 @@ Object {
           {
             burstToggle: true,
             damage: undefined,
-            other: 'heal 40% HP',
+            other: 'ally heal 40% HP',
             school: 'Summoning',
           },
           {
             burstToggle: false,
-            damage: 'AoE m5.4/2 l+n',
+            damage: 'AoE m5.4/2 l+n, min dmg 1100',
             other: 'party heal 30% HP',
             school: 'Summoning',
           },
@@ -1507,7 +1493,7 @@ Object {
     it('converts fixed heals', () => {
       const healingSmiteId = 30211161;
       expect(
-        describeEnlirSoulBreak(enlir.abilities[healingSmiteId], { includeSchool: false }),
+        convertEnlirSkillToMrP(enlir.abilities[healingSmiteId], { includeSchool: false }),
       ).toEqual({
         damage: 'phys 4.0/5 holy',
         other: 'ally heal 2k',
@@ -1528,7 +1514,7 @@ Object {
 
       expect(describeSoulBreak("Iris - Amicitia's Cheer")).toEqual({
         instant: true,
-        other: 'party h85, Haste, revive @ 40% HP, self hi fastcast 15s',
+        other: 'party h85, revive @ 40% HP, Haste, self hi fastcast 15s',
       });
     });
 
@@ -1576,7 +1562,7 @@ Object {
       });
       expect(describeSoulBreak('Larsa - Glint')).toEqual({
         instant: true,
-        other: 'party Esuna, Status blink 1',
+        other: 'party Status blink 1, Esuna',
       });
       expect(describeSoulBreak('Ceodore - Holy Cross')).toEqual({
         burstCommands: [
@@ -1637,7 +1623,7 @@ Object {
       expect(describeSoulBreak('Cloud - Cloud Cycle')).toEqual({
         burstCommands: [
           {
-            damage: 'p0.56/4 wi+n, up to p2.6 scaling with ATK',
+            damage: 'p0.56/4 wi+n, up to p2.6 scaling w/ ATK',
             school: 'Combat',
           },
           {
@@ -1652,7 +1638,7 @@ Object {
       expect(describeSoulBreak('Guy - Gigantbreak')).toEqual({
         burstCommands: [
           {
-            damage: 'p0.56/4 e+n, up to p2.6 scaling with ATK',
+            damage: 'p0.56/4 e+n, up to p2.6 scaling w/ ATK',
             other: undefined,
             school: 'Combat',
           },
@@ -1703,7 +1689,7 @@ Object {
         ],
       });
       expect(describeSoulBreak('Zidane - Meo Twister')).toEqual({
-        damage: 'phys 11.8 wind+non overstrike, or p12.8 if 4 females in party',
+        damage: 'phys 11.8 wind+non overstrike, or p12.8 if ≥4 females in party',
       });
       expect(describeSoulBreak('Steiner - Imbued Blade')).toEqual({
         damage: 'phys 10.5 fire+lgt+ice overstrike, or p13.0 vs. weak',
@@ -2165,7 +2151,7 @@ Object {
         damage: 'phys 9.0/15 ice+holy+non',
         other:
           'party Magic blink 1, self +30% ice/holy dmg 15s, dmg cap +10k 15s, ' +
-          '15s: (2 ice/holy ⤇ p2.6/5 i+h+n Spellblade @ 1-2 Magic blink, self Magic blink 2), ' +
+          '15s: (2 ice/holy ⤇ p2.6/5 i+h+n Spellblade @ 1/2 Magic blink, self Magic blink 2), ' +
           '15s: Awoken Invincible General: holy/ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2179,15 +2165,15 @@ Object {
       expect(describeSoulBreak('Lenna - AASB')).toEqual({
         instant: true,
         other:
-          'party h105, Haste, PM blink 1, Last stand, revive @ 100% HP, ' +
+          'party h105, revive @ 100% HP, Haste, PM blink 1, Last stand, ' +
           '15s: Awoken Love Mode: W.Mag inf. hones, W.Mag hi fastcast, ' +
-          '(W.Mag ⤇ party h10/15/25/35/45 @ rank 1-5)',
+          '(W.Mag ⤇ party h10-15-25-35-45 @ rank 1-5)',
       });
 
       expect(describeSoulBreak('Selphie - AASB')).toEqual({
         instant: true,
         other:
-          'party h105, Haste, Magic blink 2, revive @ 100% HP, ' +
+          'party h105, revive @ 100% HP, Haste, Magic blink 2, ' +
           '15s: Awoken Dancer: Dancer inf. hones, Dancer hi fastcast, ' +
           '(Dancer ⤇ party 10%/15%/20%/30%/40% Dmg barrier 1 @ rank 1-5)',
       });
@@ -2218,7 +2204,7 @@ Object {
         damage: 'phys 9.0/15 ice+non',
         other:
           'ice infuse 25s, self dmg cap +10k 15s, fastcast 15s, ' +
-          'Finisher: phys 9.6/10 ice+non Spellblade @ +10 - 30 - 50% crit @ 0-5-9 ice, then phys 6.4 ice+non overstrike Spellblade @ 9 ice used, ' +
+          'Finisher: phys 9.6/10 ice+non Spellblade @ +10 - 30 - 50% crit @ 0-5-9 ice used, then phys 6.4 ice+non overstrike Spellblade @ 9 ice used, ' +
           '15s: Awoken Ice: ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2275,7 +2261,7 @@ Object {
 
       expect(describeSoulBreak('Aphmau - AASB')).toEqual({
         other:
-          'party h105 (NAT), Haste, PM blink 1, instacast 1, revive @ 100% HP, ' +
+          'party h105 (NAT), revive @ 100% HP, Haste, PM blink 1, instacast 1, ' +
           '15s: Awoken Automaton Mode: W.Mag/Monk inf. hones, W.Mag/Monk hi fastcast, ' +
           '(W.Mag/Monk ⤇ Autoheal 0.5k/1k/1.5k/2k/3k @ rank 1-5)',
         instant: true,
@@ -2313,7 +2299,7 @@ Object {
         damage: 'phys 9.0/15 ice+earth+lgt+non',
         other:
           'party crit =50% 25s, ' +
-          'hi fastcast 1/2/2 if 1/2/3 of Kelger/Galuf/Dorgann alive, ' +
+          'hi fastcast 1/2/2 if 1-2-3 of Kelger/Galuf/Dorgann alive, ' +
           'crit =100% 25s, +50% crit dmg if Kelger & Galuf & Dorgann alive 25s, ' +
           'self +30% ice/earth/lgt dmg 15s, dmg cap +10k 15s, ' +
           '15s: Awoken Spellblade: Spellblade inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
@@ -2323,7 +2309,7 @@ Object {
         damage: 'magic 22.5/15 lgt+non',
         other:
           'lgt infuse 25s, self dmg cap +10k 15s, ' +
-          '15s: (lgt ⤇ m5.28/4 - 5.28/4 - 5.28/4 - 7.92/6 l+n B.Mag @ 1-2-3-4 females in party, ' +
+          '15s: (lgt ⤇ m5.28/4 - 5.28/4 - 5.28/4 - 7.92/6 l+n B.Mag if 1-2-3-4 females in party, ' +
           'same row fastcast 1 if ≥2 females in party, ' +
           'party +10% lgt dmg if ≥3 females in party 15s), ' +
           '15s: Awoken Lightning: lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
@@ -2408,6 +2394,22 @@ Object {
           '15s: (2 b/f/l ⤇ +10% bio/fire/lgt vuln.), ' +
           '15s: Awoken Machinery Cultivator: Machinist inf. hones, ' +
           '2-3x Machinist cast @ rank 1-5, 100% dualcast',
+      });
+
+      expect(describeSoulBreak('Yuna - For the Calm')).toEqual({
+        damage: 'magic 19.8/15 holy+wind+non (SUM)',
+        instant: true,
+        other:
+          'party h85, Regenga, self dmg cap +10k 15s, ' +
+          '15s: Awoken Kindred Mode: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10-15-25-35-45 @ rank 1-5)',
+      });
+      expect(describeSoulBreak("Y'shtola - Pulse of Life")).toEqual({
+        damage: undefined,
+        instant: true,
+        other:
+          'party h105, Negate dmg 30%, Last stand, self hi fastcast 15s, ' +
+          '15s: Awoken Guardian: W.Mag inf. hones, ' +
+          '(ally heal ⤇ ally Negate dmg 30%/40%/50%/60%/70% @ rank 1-5), 100% dualcast',
       });
     });
 
@@ -2562,20 +2564,20 @@ Object {
       expect(describeSoulBreak('Cloud - Darkpetal Bloom')).toEqual({
         damage: 'phys 7.1/10 dark+non',
         other:
-          'dark infuse 25s, self +1 to all Heavy Charge gains 15s, ' +
+          'dark infuse 25s, self +1 to all Hvy Charge gains 15s, ' +
           '15s: (dark ⤇ p1.6/4 d+n overstrike Heavy)',
       });
       expect(describeSoulBreak('Gladiolus - Double Charging...')).toEqual({
         instant: true,
-        other: '1.05-1.1-1.15-1.2-1.3x Heavy dmg @ rank 1-5 15s, Heavy Charge +2',
+        other: '1.05-1.1-1.15-1.2-1.3x Heavy dmg @ rank 1-5 15s, Hvy Charge +2',
       });
       expect(describeSoulBreak('Wol - Howl of Hell')).toEqual({
         other: 'party Haste, +50% ATK 25s',
         burstCommands: [
-          { damage: 'p1.95/3 e+h', other: 'self Heavy Charge +1', school: 'Heavy' },
+          { damage: 'p1.95/3 e+h', other: 'self Hvy Charge +1', school: 'Heavy' },
           {
             damage: 'p2.32/4 e+h',
-            other: '-20/30/50% ATK/MAG 15s at Heavy Charge 0/1/2, self reset Heavy Charge',
+            other: '-20/30/50% ATK/MAG 15s @ 0/1/2 Hvy Charge, self reset Hvy Charge',
             school: 'Heavy',
           },
         ],
@@ -2588,7 +2590,7 @@ Object {
       // and the others like "auto 3 turns", but I prefer "auto" before the
       // attack, and we prefix with "3 turns:" to match EX modes.
       expect(describeSoulBreak('Gau - Rage I')).toEqual({
-        damage: '3 turns: auto p1.5 Combat (NAT)',
+        damage: '3 turns: phys 1.5 (NAT)',
       });
       // Discrepancy: MrP doesn't show "slow" here, and for witch abilities,
       // shows it as ", slightly slow cast."  But this format seems useful.
@@ -2611,7 +2613,8 @@ Object {
             school: 'Combat',
           },
           {
-            other: '3 turns: auto 30-30-40% party heal 30% HP – heal 70% HP – heal 30% HP',
+            other:
+              '3 turns: auto 30-30-40% party heal 30% HP – ally heal 70% HP – ally heal 30% HP',
             school: 'Special',
           },
         ],
@@ -2626,11 +2629,11 @@ Object {
 
     it('handles mimics', () => {
       expect(describeSoulBreak('Gogo (V) - Art of Mimicry')).toEqual({
-        other: '50% chance of Mimic, +270 SB pts on success',
+        other: '50% chance of Mimic, self +270 SB pts on success',
       });
       expect(describeSoulBreak('Gogo (V) - Sunken Rhapsody')).toEqual({
         instant: true,
-        other: 'water infuse 25s, Mimic 2x, party Haste, Last stand',
+        other: 'Mimic 2x, water infuse 25s, party Haste, Last stand',
       });
       expect(describeSoulBreak('Gogo (V) - Deep Aqua Breath')).toEqual({
         damage: 'AoE magic 11.94/6 water+non',
@@ -2642,7 +2645,7 @@ Object {
       });
       expect(describeSoulBreak('Gogo (V) - Deep Imitation')).toEqual({
         instant: true,
-        other: 'water infuse stacking 25s, water infuse 25s, Mimic',
+        other: 'Mimic, water infuse stacking 25s, water infuse 25s',
       });
       expect(describeSoulBreak('Gogo (VI) - Punishing Meteor')).toEqual({
         damage: 'p7.6/8 or m17.04/8',
@@ -2666,46 +2669,44 @@ Object {
     // We don't make a thorough and consistent effort to handle all unknowns,
     // but we should at least do the basics.
     it('handles unknown abilities', () => {
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[0])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[0])).toEqual({
         damage: 'p?/15 or m?/15 fire+wind+non rngd',
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +
           '15s: (3 fire ⤇ p4.24 or m15.35 f+wi+n rngd overstrike), ' +
           '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[1])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[1])).toEqual({
         damage: 'p?/3 or m?/3 fire+wind overstrike',
       });
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[2])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[2])).toEqual({
         damage: 'p?/10 or m?/10 rngd',
         other: 'fire infuse 25s, self fastcast 1, 15s: (fire ⤇ p1.68/4 or m7.4/4 f+wi+n rngd)',
       });
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[3])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[3])).toEqual({
         instant: true,
         damage: 'p?/6 or m?/6 fire+wind+non rngd',
         other: 'fire infuse stacking 25s, fire infuse 25s',
       });
-      // Cid Raines' Darkness Shift.  This loses the fact that the Soul Break
-      // itself specifies a duration of '?' and instead lists the default
-      // status duration, but I think that's okay.
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[4])).toEqual({
+      // Cid Raines' Darkness Shift, including unknown stat mods and unknown
+      // status durations
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[4])).toEqual({
         instant: true,
-        other: 'Darkness hi fastcast 15s',
+        other: 'Darkness hi fastcast ?s, +?% MAG/RES ?s',
       });
       // Test handling of numbered status aliases with question marks in place
       // of the number.
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[5])).toEqual({
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[5])).toEqual({
         damage: '? ?/10 ice+non',
         other:
           '+?% ice vuln. 25s, ice infuse 25s, party Reflect Dmg 75% as ice 30s, self fastcast 3',
       });
       // Test handling of numbered status aliases with a question mark after
-      // the number.  As with Darkness Shift, this discards the 15? second
-      // duration, but I think that's okay.
-      expect(describeEnlirSoulBreak(unknownSoulBreaks[6])).toEqual({
+      // the number.
+      expect(convertEnlirSkillToMrP(unknownSoulBreaks[6])).toEqual({
         instant: true,
         damage: '? ?/6 earth+non',
-        other: '+10?% earth vuln. 25s, self +10% earth dmg 15s',
+        other: '+10?% earth vuln. 15?s, self +10% earth dmg 15s',
       });
     });
 
@@ -2717,7 +2718,7 @@ Object {
       // Exclude roaming warriors - event soul breaks like Haunted or Zoma's
       // are too weird and specialized to worry about.
       const allSoulBreaks = _.mapValues(_.pickBy(soulBreaks, i => i.tier !== 'RW'), i =>
-        describeEnlirSoulBreak(i),
+        convertEnlirSkillToMrP(i),
       );
       expect(allSoulBreaks).toMatchSnapshot();
     });

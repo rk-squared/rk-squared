@@ -264,7 +264,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.87/0.93 each) if user has 0/1+ Magical Blink",
+    "effects": "Six single attacks (0.87/0.93 each) if user has Magical Blink 0/1+",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -708,7 +708,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.2,
-    "effects": "Critical Damage +50% 2 to all allies, removes all Items",
+    "effects": "Grants Critical Damage +50% 2 to all allies, removes all Items",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 90,

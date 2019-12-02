@@ -7,19 +7,19 @@ import { LangType } from '../../api/apiUrls';
 import { LangContext } from '../../contexts/LangContext';
 import { enlir, EnlirAbility, EnlirSchool } from '../../data/enlir';
 import { schoolIcons } from '../../data/localData';
-import { describeEnlirSoulBreak, formatMrP, MrPSoulBreak } from '../../data/mrP';
+import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import { getOrbCosts } from '../../data/orbDetails';
 import * as urls from '../../data/urls';
 import { OrbCostsDisplay } from './OrbCostsDisplay';
 
 const styles = require('./AbilitiesTable.scss');
 
-const mrPAbilities: { [id: number]: MrPSoulBreak } = {};
+const mrPAbilities: { [id: number]: MrPSkill } = {};
 
 export function getMrPAbility(ability: EnlirAbility) {
   const { id } = ability;
   if (!mrPAbilities[id]) {
-    mrPAbilities[id] = describeEnlirSoulBreak(ability, {
+    mrPAbilities[id] = convertEnlirSkillToMrP(ability, {
       abbreviateDamageType: true,
       includeSchool: false,
     });
@@ -128,7 +128,7 @@ export class AbilitiesTable extends React.PureComponent<Props> {
         </td>
         <td className={styles.effects}>
           {/* Omit tooltip here - it's too big of an area to have a big distracting text box */}
-          {formatMrP(mrP)}
+          {formatMrPSkill(mrP)}
         </td>
         <td data-tip={id} data-for={orbCostsTooltipId} className={styles.orbCosts}>
           <OrbCostsDisplay costs={getOrbCosts(ability)} baseRarity={rarity} />

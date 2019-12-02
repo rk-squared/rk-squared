@@ -3,15 +3,9 @@ import * as XRegExp from 'xregexp';
 
 import { logger } from '../../utils/logger';
 import { getAllSameValue } from '../../utils/typeUtils';
-import {
-  enlir,
-  EnlirOtherSkill,
-  EnlirSkill,
-  EnlirStatus,
-  getEnlirOtherSkill,
-  getEnlirStatusByName,
-} from '../enlir';
-import { describeEnlirSoulBreak, formatMrP } from './index';
+import { enlir, EnlirSkill, EnlirStatus, getEnlirOtherSkill, getEnlirStatusByName } from '../enlir';
+import { describeRageEffects } from './rage';
+import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
 import { splitStatusEffects } from './split';
 import {
   doubleAlias,
@@ -34,15 +28,15 @@ import {
   getShortName,
   getShortNameWithSpaces,
   XRegExpNamedGroups,
-} from './types';
+} from './typeHelpers';
+import * as types from './types';
 import {
   andJoin,
   andList,
   andOrList,
   cleanUpSlashedNumbers,
-  describeChances,
-  enDashJoin,
   lowerCaseFirst,
+  numberOrUnknown,
   orList,
   parseNumberOccurrence,
   parseNumberString,
@@ -60,35 +54,11 @@ export const formatTriggeredEffect = (
   percent?: string | number,
 ) => '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
 
-/**
- * Status effects which should be omitted from the regular status list
- */
-export function includeStatus(status: string, { removes } = { removes: false }): boolean {
-  return (
-    // En-Element is listed separately by our functions, following MrP's
-    // example.
-    !status.startsWith('Attach ') &&
-    // Smart Ether and "reset" aren't real statuses.
-    !status.match(/\b[Ss]mart\b.*\bether\b/) &&
-    status !== 'reset' &&
-    // Esuna and Dispel are handled separately - although the current, more
-    // powerful status code could perhaps consolidate them.
-    status !== 'positive effects' &&
-    status !== 'negative effects' &&
-    status !== 'positive status effects' &&
-    status !== 'negative status effects' &&
-    // "SB points" are not a real status, so we handle them separately.
-    !status.match(/^\d+ (?:SB|Soul Break) points/) &&
-    // This is an informational note rather than a real status.
-    status !== 'damages undeads' &&
-    // Revival is handled separately, in part so we can special-case the HP%.
-    // Again, the current status code could perhaps consolidate.
-    !(status.startsWith('KO ') && removes)
-  );
-}
-
 export function describeStats(stats: string[]): string {
-  return stats.join('/').replace(/^ATK\/DEF\/MAG\/RES/, 'A/D/M/R');
+  return stats
+    .map(i => i.toUpperCase())
+    .join('/')
+    .replace(/^ATK\/DEF\/MAG\/RES/, 'A/D/M/R');
 }
 
 function parseWho(who: string): string | undefined {
@@ -497,12 +467,6 @@ function statusAsStatMod(statusName: string, enlirStatus?: EnlirStatus) {
   return null;
 }
 
-export function getRageSkills(source: EnlirSkill): EnlirOtherSkill[] {
-  return enlir.otherSkills.filter(
-    i => i.sourceType === 'Rage Status' && i.source.startsWith(source.name + ' ('),
-  );
-}
-
 /**
  * Describes a "well-known" or common Enlir status name.
  *
@@ -585,19 +549,19 @@ function describeFinisherSkill(skillName: string, sourceStatusName: string) {
     return skillName;
   }
 
-  const mrP = describeEnlirSoulBreak(skill, { showNoMiss: false, includeSbPoints: false });
+  const mrP = convertEnlirSkillToMrP(skill, { showNoMiss: false, includeSbPoints: false });
 
-  return finisherText + formatMrP(mrP, { showTime: false });
+  return finisherText + formatMrPSkill(mrP, { showTime: false });
 }
 
 function describeFinisherStatus(statusName: string): string {
   const status = getEnlirStatusByName(statusName);
   let result = describeEnlirStatus(statusName);
 
-  // Hack: Partially duplicated from describeEnlirSoulBreak.  We currently
+  // Hack: Partially duplicated from convertEnlirSkillToMrP.  We currently
   // only support default durations.
   if (status && status.defaultDuration) {
-    result += ' ' + formatDuration(status.defaultDuration, 'second');
+    result += ' ' + formatDuration({ value: status.defaultDuration, units: 'seconds' });
   }
 
   return finisherText + result;
@@ -860,25 +824,7 @@ function describeEnlirStatusEffect(
   // Rage status.  This involves looking up the Other Skills associated with
   // the Rage status's source and filling in their effects.
   if (effect.match(/[Ff]orces a specified action/) && source) {
-    const rageSkills = getRageSkills(source);
-    const format = (skill: EnlirSkill) =>
-      formatMrP(
-        describeEnlirSoulBreak(skill, {
-          abbreviate: true,
-          showNoMiss: false,
-        }),
-      );
-    if (rageSkills.length === 0) {
-      // Does not appear to actually be used.
-      return 'auto repeat';
-    } else if (rageSkills.length === 1) {
-      return 'auto ' + format(rageSkills[0]);
-    } else {
-      // Fall back to 0% chance just to avoid special cases...
-      const chances = rageSkills.map(i => i.source.match(/\((\d+)%\)$/)).map(i => (i ? +i[1] : 0));
-      const result = describeChances(rageSkills.map(format), chances, enDashJoin);
-      return 'auto ' + _.filter(result).join(' ');
-    }
+    return describeRageEffects(source);
   }
 
   if (shouldSkipEffect(effect, enlirStatus)) {
@@ -1023,6 +969,8 @@ function describeFollowUpTrigger(trigger: string, isDamageTrigger: boolean): str
     return 'ally heal';
   }
 
+  // FIXME: Handle cases like Celes SASB where specific commands are referenced
+
   // Special case: Steiner
   const m = trigger.match(/(.*) dmg from a (.*) attack used by another ally/);
   if (m) {
@@ -1078,7 +1026,7 @@ function describeFollowUpItem(
   }
 
   if (duration && durationUnits) {
-    description += ' ' + formatDuration(duration, durationUnits);
+    description += ' ' + formatDuration({ value: duration, units: durationUnits });
   }
 
   return description;
@@ -1118,8 +1066,8 @@ function describeFollowUpSkill(
     ? getEnlirOtherSkill(skillName, sourceStatusName)
     : enlir.otherSkillsByName[skillName];
   if (skill) {
-    return formatMrP(
-      describeEnlirSoulBreak(skill, {
+    return formatMrPSkill(
+      convertEnlirSkillToMrP(skill, {
         abbreviate: true,
         showNoMiss: false,
         includeSbPoints: false,
@@ -1257,7 +1205,7 @@ function getSpecialDuration({ effects }: EnlirStatus): string | undefined {
   ) {
     return 'until Magic blink lost';
   } else if ((m = effects.match(/, lasts (\d+) turns?(?:$|,)/))) {
-    return formatDuration(+m[1], 'turn');
+    return formatDuration({ value: +m[1], units: 'turns' });
   } else {
     return undefined;
   }
@@ -1379,13 +1327,15 @@ export function parseEnlirStatusWithSlashes(
 /**
  * A single status item within a list of skill effects - includes the status
  * name itself and possible additional parameters
+ *
+ * FIXME: Finish replacing this with new PEG.js code
  */
 export interface StatusItem {
   statusName: string;
   chance?: number;
   who?: string;
   duration?: number;
-  durationUnits?: string; // "second" or "turn"
+  durationUnits?: types.DurationUnits;
   scalesWithUses?: boolean;
   rank?: boolean; // Are this item's effects rank-based?
   stacking?: boolean;
@@ -1535,7 +1485,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     chance: chance ? +chance : undefined,
     who: who || lookaheadWho,
     duration: duration ? +duration : undefined,
-    durationUnits: durationUnits || undefined,
+    durationUnits: durationUnits ? ((durationUnits + 's') as types.DurationUnits) : undefined,
     scalesWithUses,
     rank: rank != null,
     stacking,
@@ -1543,13 +1493,12 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
   };
 }
 
-export function formatDuration(duration: number, durationUnits: string) {
-  if (durationUnits === 'second') {
-    return duration + 's';
-  } else if (duration === 1) {
-    return '1 turn';
+export function formatDuration({ value, valueIsUncertain, units }: types.Duration) {
+  const formattedValue = numberOrUnknown(value) + (valueIsUncertain ? '?' : '');
+  if (units === 'seconds') {
+    return formattedValue + 's';
   } else {
-    return duration + ' turns';
+    return formattedValue + (value === 1 ? ' turn' : ' turns');
   }
 }
 
@@ -1563,49 +1512,35 @@ const statusSortOrder: { [status: string]: number } = {
   'Last Stand': 1,
 };
 
-const getSortOrder = (status: string) => {
-  if (isExStatus(status) || isAwokenStatus(status)) {
+const getSortOrder = (status: types.StatusWithPercent['status']) => {
+  if (typeof status !== 'string') {
+    return 0;
+  } else if (isExStatus(status) || isAwokenStatus(status)) {
     return 999;
   } else {
     return statusSortOrder[status] || 0;
   }
 };
 
-export function sortStatus(a: StatusItem, b: StatusItem): number {
-  return getSortOrder(a.statusName) - getSortOrder(b.statusName);
+export function sortStatus(a: types.StatusWithPercent, b: types.StatusWithPercent): number {
+  return getSortOrder(a.status) - getSortOrder(b.status);
 }
 
 function reduceStatuses(
-  combiner: (a: StatusItem, b: StatusItem) => string | null,
-  accumulator: StatusItem[],
-  currentValue: StatusItem,
+  combiner: (a: types.StatusWithPercent, b: types.StatusWithPercent) => string | null,
+  accumulator: types.StatusWithPercent[],
+  currentValue: types.StatusWithPercent,
 ) {
   if (accumulator.length) {
     const combined = combiner(accumulator[accumulator.length - 1], currentValue);
     if (combined) {
-      accumulator[accumulator.length - 1].statusName = combined;
+      accumulator[accumulator.length - 1].status = combined;
       return accumulator;
     }
   }
 
   accumulator.push(currentValue);
   return accumulator;
-}
-
-/**
- * Reducer function for handling statuses like "Beast and Father."  If a status
- * like that is split into two items, this function handles recognizing it as
- * one status and re-merging it.
- */
-export function checkForAndStatuses(accumulator: StatusItem[], currentValue: StatusItem) {
-  return reduceStatuses(
-    (a: StatusItem, b: StatusItem) => {
-      const thisAndThat = a.statusName + ' and ' + b.statusName;
-      return enlir.statusByName[thisAndThat] ? thisAndThat : null;
-    },
-    accumulator,
-    currentValue,
-  );
 }
 
 const elementStatuses = [
@@ -1616,14 +1551,19 @@ const elementStatuses = [
   new RegExp('^Imperil ([a-zA-Z/]+) 20%$'),
 ];
 
-export function slashMergeElementStatuses(accumulator: StatusItem[], currentValue: StatusItem) {
+export function slashMergeElementStatuses(
+  accumulator: types.StatusWithPercent[],
+  currentValue: types.StatusWithPercent,
+) {
   return reduceStatuses(
-    (a: StatusItem, b: StatusItem) => {
+    (a: types.StatusWithPercent, b: types.StatusWithPercent) => {
       for (const i of elementStatuses) {
-        const ma = a.statusName.match(i);
-        const mb = b.statusName.match(i);
-        if (ma && mb) {
-          return ma && mb ? a.statusName.replace(ma[1], ma[1] + '/' + mb[1]) : null;
+        if (typeof a.status === 'string' && typeof b.status === 'string') {
+          const ma = a.status.match(i);
+          const mb = b.status.match(i);
+          if (ma && mb) {
+            return ma && mb ? a.status.replace(ma[1], ma[1] + '/' + mb[1]) : null;
+          }
         }
       }
       return null;
@@ -1642,39 +1582,63 @@ function forceOwnDuration(status: EnlirStatus) {
   return status.name.match(/Radiant Shield/);
 }
 
-export function shareStatusDurations(accumulator: StatusItem[], currentItem: StatusItem) {
+export function shareStatusDurations(
+  accumulator: types.StatusWithPercent[],
+  currentItem: types.StatusWithPercent,
+) {
   if (accumulator.length) {
     const prevItem = accumulator[accumulator.length - 1];
-    const prevStatus = getEnlirStatusByName(prevItem.statusName);
-    const thisStatus = getEnlirStatusByName(currentItem.statusName);
-    // If the previous status can have a duration (as implied by the
-    // defaultDuration field) and doesn't have an explicit duration, and the
-    // current status has an explicit duration, then assume that the current
-    // status's duration also applies to the previous.  E.g.:
-    //
-    // - "causes Imperil Fire 10% and DEF -50% for 15 seconds"
-    // - "Causes Imperil Wind 10% and Imperil Fire 10% for 15 seconds"
-    //
-    // As an exception, if both have an explicit target, then that's intended
-    // to separate the two statues.  E.g.:
-    //
-    // - "grants Unyielding Fist to the user, ATK +50% to the user for 25
-    //   seconds"
-    //
-    // And we still need a special case for Reks' SB.  Sigh.
-    if (
-      prevStatus &&
-      thisStatus &&
-      !prevItem.duration &&
-      currentItem.duration &&
-      prevStatus.defaultDuration &&
-      !prevItem.who &&
-      !forceOwnDuration(prevStatus)
-    ) {
-      accumulator[accumulator.length - 1] = {
-        ...prevItem,
-        duration: currentItem.duration,
-        durationUnits: currentItem.durationUnits,
+    if (typeof prevItem.status === 'string' && typeof currentItem.status === 'string') {
+      const prevStatus = getEnlirStatusByName(prevItem.status);
+      const thisStatus = getEnlirStatusByName(currentItem.status);
+      // If the previous status can have a duration (as implied by the
+      // defaultDuration field) and doesn't have an explicit duration, and the
+      // current status has an explicit duration, then assume that the current
+      // status's duration also applies to the previous.  E.g.:
+      //
+      // - "causes Imperil Fire 10% and DEF -50% for 15 seconds"
+      // - "Causes Imperil Wind 10% and Imperil Fire 10% for 15 seconds"
+      //
+      // As an exception, if both have an explicit target, then that's intended
+      // to separate the two statues.  E.g.:
+      //
+      // - "grants Unyielding Fist to the user, ATK +50% to the user for 25
+      //   seconds"
+      //
+      // And we still need a special case for Reks' SB.  Sigh.
+      if (
+        prevStatus &&
+        thisStatus &&
+        !prevItem.duration &&
+        currentItem.duration &&
+        prevStatus.defaultDuration &&
+        !prevItem.who &&
+        !forceOwnDuration(prevStatus)
+      ) {
+        accumulator[accumulator.length - 1] = {
+          ...prevItem,
+          duration: currentItem.duration,
+        };
+      }
+    }
+  }
+
+  accumulator.push(currentItem);
+  return accumulator;
+}
+
+export function shareStatusWho(
+  accumulator: types.StatusWithPercent[],
+  currentItem: types.StatusWithPercent,
+) {
+  if (currentItem.who && currentItem.whoAllowsLookahead) {
+    for (let i = accumulator.length - 1; i >= 0; i--) {
+      if (accumulator[i].who) {
+        break;
+      }
+      accumulator[i] = {
+        ...accumulator[i],
+        who: currentItem.who,
       };
     }
   }

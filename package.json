@@ -33,7 +33,9 @@
     "build-site": "node scripts/build-site.js",
     "postbuild-site": "react-snap",
     "test-site": "node scripts/test-site.js",
-    "postget-enlir": "yarn copy-json"
+    "postget-enlir": "yarn copy-json",
+    "peg": "pegjs -o app/data/mrp/skillParser.js --cache --dependency util:./parserHelpers app/data/mrp/skillParser.pegjs",
+    "postpeg": "copyfiles --flat \"./app/data/mrP/*.js\" ./dist/app/data/mrP"
   },
   "jest": {
     "testURL": "http://localhost/",
@@ -287,6 +289,7 @@
     "logform": "^1.9.1",
     "moment": "^2.22.0",
     "node-forge": "^0.7.6",
+    "pegjs": "^0.10.0",
     "popper.js": "^1.14.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",

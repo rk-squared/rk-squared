@@ -12,9 +12,9 @@ import {
   makeLegendMateriaAliases,
   makeSoulBreakAliases,
 } from '../../data/enlir';
-import { formatMrP, MrPSoulBreak } from '../../data/mrP';
 import { formatBraveCommands } from '../../data/mrP/brave';
-import { getSchoolShortName, getShortName } from '../../data/mrP/types';
+import { formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
+import { getSchoolShortName, getShortName } from '../../data/mrP/typeHelpers';
 
 export const styles = require('./SoulBreakShared.scss');
 
@@ -62,7 +62,7 @@ export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
 export const soulBreakFullAliases = makeSoulBreakAliases(enlir.soulBreaks);
 export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
-function getSchoolName(command: MrPSoulBreak): string {
+function getSchoolName(command: MrPSkill): string {
   if (command.schoolDetails) {
     return command.schoolDetails.map(getSchoolShortName).join('/');
   } else if (command.school) {
@@ -72,10 +72,7 @@ function getSchoolName(command: MrPSoulBreak): string {
   }
 }
 
-export function getBraveColumns(
-  mrP: MrPSoulBreak,
-  braveCommands: MrPSoulBreak[],
-): [string, string] {
+export function getBraveColumns(mrP: MrPSkill, braveCommands: MrPSkill[]): [string, string] {
   return [
     '[' +
       getSchoolName(braveCommands[0]) +
@@ -85,15 +82,15 @@ export function getBraveColumns(
   ];
 }
 
-export function getBurstColumns(burstCommands: MrPSoulBreak[]): Array<[string, string]> {
+export function getBurstColumns(burstCommands: MrPSkill[]): Array<[string, string]> {
   return burstCommands.map(
-    cmd => ['[' + getSchoolName(cmd) + ']', '[' + formatMrP(cmd) + ']'] as [string, string],
+    cmd => ['[' + getSchoolName(cmd) + ']', '[' + formatMrPSkill(cmd) + ']'] as [string, string],
   );
 }
 
 export function getSynchroColumns(
-  mrP: MrPSoulBreak,
-  synchroCommands: MrPSoulBreak[],
+  mrP: MrPSkill,
+  synchroCommands: MrPSkill[],
 ): Array<[string, string]> {
   return synchroCommands.map(
     (cmd, i) =>
@@ -104,7 +101,7 @@ export function getSynchroColumns(
           (mrP.synchroCondition && mrP.synchroCondition[i]
             ? ', w/ ' + getShortName(mrP.synchroCondition[i])
             : ''),
-        formatMrP(cmd),
+        formatMrPSkill(cmd),
       ] as [string, string],
   );
 }

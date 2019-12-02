@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
 import { logger } from '../utils/logger';
+import { arrayify } from '../utils/typeUtils';
 
 // TODO: Try removing duplicating in unions and arrays - see https://stackoverflow.com/a/45486495/25507
 
@@ -178,10 +179,25 @@ export type EnlirSoulBreakTier =
   | 'RW'
   | 'Shared';
 
-// FIXME: Interfaces for remaining Enlir types
-
+// Note: Lowercase so that we can use it as an array for EnlirRelicStats.  This
+// does, however, complicate interacting with user-visible text.
 export type EnlirStat = 'atk' | 'def' | 'mag' | 'res' | 'mnd' | 'acc' | 'eva';
 export const allEnlirStats: EnlirStat[] = ['atk', 'def', 'mag', 'res', 'mnd', 'acc', 'eva'];
+
+export type EnlirTarget =
+  | 'All allies'
+  | 'All enemies'
+  | 'Ally with status'
+  | 'Another ally'
+  | 'Lowest HP% ally'
+  | 'Random ally'
+  | 'Random enemies'
+  | 'Random enemy'
+  | 'Self'
+  | 'Single ally'
+  | 'Single enemy'
+  | 'Single target'
+  | 'Single';
 
 interface EnlirRelicStats {
   rarity: number;
@@ -199,7 +215,7 @@ export interface EnlirGenericSkill {
   name: string;
   type: EnlirSkillType | null;
   typeDetails?: EnlirSkillType[];
-  target: string;
+  target: EnlirTarget | null;
   formula: EnlirFormula | null;
   multiplier: number | null;
   element: EnlirElement[] | null;
@@ -418,6 +434,10 @@ const rawData = {
 
 // FIXME: Properly update rawData outside of app
 
+interface IdMultimap<T> {
+  [id: string]: T[];
+}
+
 interface CharacterMap<T> {
   [character: string]: T[];
 }
@@ -431,6 +451,19 @@ interface CommandsMap<T> {
   [character: string]: {
     [soulBreak: string]: T[];
   };
+}
+
+/**
+ * As _.keyBy(items, 'id'), but store arrays, to handle non-unique IDs.  Enlir
+ * data may use non-unique IDs for effects like Ignis BSB and Rikku SASB.
+ */
+function makeIdMultimap<T extends { id: number }>(items: T[]): IdMultimap<T> {
+  const result: IdMultimap<T> = {};
+  for (const i of items) {
+    result[i.id] = result[i.id] || [];
+    result[i.id].push(i);
+  }
+  return result;
 }
 
 function makeCharacterMap<T extends { character: string | null }>(
@@ -517,10 +550,10 @@ export const enlir = {
   abilities: _.keyBy(rawData.abilities, 'id'),
   abilitiesByName: _.keyBy(rawData.abilities, 'name'),
 
-  braveCommands: _.keyBy(rawData.braveCommands, 'id'),
+  braveCommands: makeIdMultimap(rawData.braveCommands),
   braveCommandsByCharacter: makeCommandsMap(rawData.braveCommands),
 
-  burstCommands: _.keyBy(rawData.burstCommands, 'id'),
+  burstCommands: makeIdMultimap(rawData.burstCommands),
   burstCommandsByCharacter: makeCommandsMap(rawData.burstCommands),
 
   characters: _.keyBy(rawData.characters, 'id'),
@@ -555,7 +588,7 @@ export const enlir = {
 
   statusByName: _.keyBy(rawData.status, 'name'),
 
-  synchroCommands: _.keyBy(rawData.synchroCommands, 'id'),
+  synchroCommands: makeIdMultimap(rawData.synchroCommands),
   synchroCommandsByCharacter: makeCommandsMap(rawData.synchroCommands),
 
   relicSoulBreaks: makeRelicMap(rawData.relics, 'soulBreak', rawData.soulBreaks),
@@ -564,7 +597,7 @@ export const enlir = {
 };
 
 function applyPatch<T>(
-  lookup: { [s: string]: T },
+  lookup: { [s: string]: T | T[] },
   name: string,
   check: (item: T) => boolean,
   apply: (item: T) => void,
@@ -573,35 +606,18 @@ function applyPatch<T>(
     logger.warn(`Failed to patch ${name}: could not find item`);
     return;
   }
-  const item = lookup[name];
-  if (!check(item)) {
-    logger.warn(`Failed to patch ${name}: item does not match expected contents`);
-    return;
+  for (const item of arrayify(lookup[name])) {
+    if (!check(item)) {
+      logger.warn(`Failed to patch ${name}: item does not match expected contents`);
+    } else {
+      apply(item);
+    }
   }
-  apply(item);
-}
-
-/**
- * Inserts 'causes' for soul breaks that cause imperils.  With 'causes' in the
- * original text, it's too big to fit on one line.  Ideally, we'd make our
- * parser smart enough to handle this, but too much code keys off of it.
- */
-function applyCausesImperilPatch<T extends { effects: string }>(
-  lookup: { [s: string]: T },
-  name: string,
-) {
-  applyPatch(
-    lookup,
-    name,
-    item => item.effects.match(/\d+ each\), Imperil /) != null,
-    item => {
-      item.effects = item.effects.replace(/(\d+ each\)), Imperil /, m => m + ', causes Imperil ');
-    },
-  );
 }
 
 /**
  * HACK: Patch Enlir data to make it easier for our text processing.
+ * FIXME: See how many of these can be removed now that we have a real parser
  */
 function patchEnlir() {
   // Pluto Knight Triblade is a very difficult effect to parse.  By revising its
@@ -645,7 +661,18 @@ function patchEnlir() {
     strike => {
       strike.effects =
         '3/5/5 single attacks (0.52 each) if 0/72001/240001 damage was dealt during the status. ' +
-        'Additional ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999, if 240001 damage was dealt during the status.';
+        'Additional ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999 if 240001 damage was dealt during the status';
+    },
+  );
+  applyPatch(
+    enlir.otherSkillsByName,
+    'Orbital Edge',
+    edge =>
+      edge.effects ===
+      'Ten single attacks (0.50 each) and one single attack (5.00) capped at 99999, 100% hit rate',
+    edge => {
+      edge.effects =
+        'Ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999, 100% hit rate';
     },
   );
 
@@ -766,9 +793,6 @@ function patchEnlir() {
         'Four single attacks (0.56 each), grants Desperate Madness and Radiant Shield 100/125/150/175/200/225/250/275/300% to the user scaling with uses';
     },
   );
-  applyCausesImperilPatch(enlir.soulBreaks, '20660006'); // Zack - Climhazzard Xeno
-  applyCausesImperilPatch(enlir.soulBreaks, '22100007'); // Laguna - Ragnarok Buster.  TODO - also missing stat buff duration
-  applyCausesImperilPatch(enlir.soulBreaks, '22810004'); // Nine - Whirling Lance
 
   // Status cleanups.  These too should be fixed up.
   applyPatch(
@@ -837,7 +861,7 @@ function patchEnlir() {
       'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode and Unraveled History Follow-Up to the user',
     tyroAasb => {
       tyroAasb.effects =
-        'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode, Awoken Keeper Mode Critical Chance, and Unraveled History Follow-Up to the user';
+        'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode, Awoken Keeper Mode Critical Chance and Unraveled History Follow-Up to the user';
     },
   );
   applyPatch(
@@ -893,43 +917,6 @@ function patchEnlir() {
       stasis.effects =
         'ATK, DEF, MAG and RES -70% for 8 seconds, grants Magical Blink 1 and Instant Cast 1 to all allies';
     },
-  );
-
-  // Make synchro commands resemble Squall-type BSBs.
-  applyPatch(
-    enlir.synchroCommands,
-    '30547053',
-    command =>
-      command.effects ===
-      'Six single attacks (0.90 each), grants Wind +50% Boost 1 and Mako Enhance level 1 to the user',
-    command => (command.effects = 'Six single attacks (0.90 each), grants Wind +50% Boost 1'),
-  );
-  applyPatch(
-    enlir.synchroCommands,
-    '30547054',
-    command =>
-      command.effects ===
-      'One single attack (6.00/8.00) if user has Mako Enhance level 0/1, capped at 99999, set Mako Enhance level to 0',
-    command =>
-      (command.effects =
-        'One single attack (6.00/8.00), capped at 99999, scaling with Sonic Rush+ uses, reset'),
-  );
-  // FIXME: Correctly handle conditional Instant ATB 1
-  applyPatch(
-    enlir.synchroCommands,
-    '30546020',
-    command =>
-      command.effects ===
-      '5/10 single attacks (0.80 each) if user has Lightning Aura level 0/1, grants Instant ATB 1 to the user if user has Lightning Aura level 1, set Lightning Aura level to 0',
-    command =>
-      (command.effects = '5/10 single attacks (0.80 each) scaling with Lightning Howl uses, reset'),
-  );
-  applyPatch(
-    enlir.synchroCommands,
-    '30546022',
-    command =>
-      command.effects === 'Three single attacks (0.80 each), grants Lightning Aura to the user',
-    command => (command.effects = 'Three single attacks (0.80 each)'),
   );
 
   // Make the Odin 4* ability resemble a more standard status ailment.
@@ -1234,4 +1221,8 @@ export function getNormalSBPoints(ability: EnlirAbility): number {
   const checkSpeed = isFast ? normalSBPoints.fast : normalSBPoints;
   const checkElemental = isElemental ? checkSpeed.elemental : checkSpeed.nonElemental;
   return checkElemental[ability.rarity];
+}
+
+export function isNat(skill: EnlirSkill): boolean {
+  return skill.type === 'NAT' && skill.formula !== null && skill.formula !== 'Hybrid';
 }

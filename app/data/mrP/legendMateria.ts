@@ -2,7 +2,6 @@ import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
 
-import { describeEnlirSoulBreak, formatMrP } from '.';
 import { arrayify } from '../../utils/typeUtils';
 import {
   EnlirElement,
@@ -11,7 +10,9 @@ import {
   EnlirSkillType,
   getEnlirOtherSkill,
 } from '../enlir';
-import { describeDamage, describeDamageType, formatThreshold } from './attack';
+import { describeDamage, describeDamageType } from './attack';
+import { formatThreshold } from './condition';
+import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
 import {
   describeEnlirStatus,
   describeStats,
@@ -27,8 +28,14 @@ import {
   formatSchoolOrAbilityList,
   getElementAbbreviation,
   getShortName,
-} from './types';
-import { andList, handleUncertain, percentToMultiplier, toMrPKilo } from './util';
+} from './typeHelpers';
+import {
+  andList,
+  handleUncertain,
+  parseThresholdValues,
+  percentToMultiplier,
+  toMrPKilo,
+} from './util';
 
 const parseUncertainEnlirStatus = handleUncertain(parseEnlirStatus);
 
@@ -258,7 +265,10 @@ const legendMateriaHandlers: HandlerList = [
     /^Increases damage dealt by ((?:\d+\/)+\d+)% if ((?:\d+\/)+\d+) of the target's stats are lowered$/,
     ([bonus, statBreakCount]) => {
       const bonusDescription = bonus.split('/').join('-');
-      return `+${bonusDescription}% dmg` + formatThreshold(statBreakCount, 'stats lowered');
+      return (
+        `+${bonusDescription}% dmg` +
+        formatThreshold(parseThresholdValues(statBreakCount), 'stats lowered')
+      );
     },
   ],
 
@@ -327,8 +337,8 @@ const legendMateriaHandlers: HandlerList = [
       } else {
         const otherSkill = getEnlirOtherSkill(skillName, 'Legend Materia');
         if (otherSkill) {
-          description = formatMrP(
-            describeEnlirSoulBreak(otherSkill, {
+          description = formatMrPSkill(
+            convertEnlirSkillToMrP(otherSkill, {
               abbreviate: true,
               showNoMiss: false,
               includeSbPoints: false,
@@ -385,9 +395,9 @@ const legendMateriaHandlers: HandlerList = [
       // Process duration from the last status - it's more likely to be interesting.
       const lastStatus = status[status.length - 1];
       if (duration) {
-        duration = formatDuration(+duration, 'second');
+        duration = formatDuration({ value: +duration, units: 'seconds' });
       } else if (lastStatus.defaultDuration && !lastStatus.isVariableDuration) {
-        duration = formatDuration(lastStatus.defaultDuration, 'second');
+        duration = formatDuration({ value: lastStatus.defaultDuration, units: 'seconds' });
       }
 
       let statusDescription =

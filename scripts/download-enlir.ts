@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env -S npx ts-node
 /**
  * @file
  * Download data from the Enlir spreadsheet and convert to JSON.
@@ -98,7 +98,7 @@ const elementAbbreviations: _.Dictionary<string> = {
  */
 const skillFields: { [col: string]: (value: string) => any } = {
   Type: toString,
-  Target: toString,
+  Target: dashNull(toString),
   Formula: toString,
   Multiplier: toFloat,
   Element: dashAs([], toCommaSeparatedArray(toStringWithLookup(elementAbbreviations))),
