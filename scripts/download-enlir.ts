@@ -120,7 +120,26 @@ const shouldAlwaysSkip = (col: string) => col === '✓' || col === 'Img';
 // "Anima?" for legend materia and "Anima" for soul breaks.
 const isAnima = (col: string) => col === 'Anima' || col === 'Anima?';
 
-function convertAbilities(rows: any[]): any[] {
+function checkSkillNotes(
+  notes: NotesRowData[] | undefined,
+  field: string,
+  i: number,
+  j: number,
+  item: any,
+) {
+  const cellNote = _.get(notes, [i, 'values', j, 'note']);
+  if (cellNote) {
+    if (field === 'school') {
+      item['schoolDetails'] = cellNote.split(' / ');
+    } else if (field === 'type') {
+      item['typeDetails'] = cellNote.split('/');
+    } else {
+      item[field + 'Note'] = cellNote;
+    }
+  }
+}
+
+function convertAbilities(rows: any[], notes?: NotesRowData[]): any[] {
   const abilities = [];
 
   for (let i = 1; i < rows.length; i++) {
@@ -171,6 +190,8 @@ function convertAbilities(rows: any[]): any[] {
       } else {
         item[field] = toCommon(field, rows[i][j]);
       }
+
+      checkSkillNotes(notes, field, i, j, item);
     }
 
     abilities.push(item);
@@ -618,16 +639,7 @@ function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean =
         throw e;
       }
 
-      const cellNote = _.get(notes, [i, 'values', j, 'note']);
-      if (cellNote) {
-        if (field === 'school') {
-          item['schoolDetails'] = cellNote.split(' / ');
-        } else if (field === 'type') {
-          item['typeDetails'] = cellNote.split('/');
-        } else {
-          item[field + 'Note'] = cellNote;
-        }
-      }
+      checkSkillNotes(notes, field, i, j, item);
     }
 
     skills.push(item);

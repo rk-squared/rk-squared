@@ -78,6 +78,8 @@ export type EnlirEventType =
   | 'Survival Event'
   | 'Torment Dungeon';
 
+// Note: Hybrid BLK/WHT or SUM/WHT skills may use Magical instead of Hybrid.
+// See, e.g., Exdeath's Double Hole record board ability.
 export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
 export type EnlirRelicType =
@@ -1068,8 +1070,18 @@ export function isSynchroSoulBreak(sb: EnlirSoulBreak): boolean {
   return sb.tier === 'SASB';
 }
 
+export function isBurstCommand(skill: EnlirSkill): skill is EnlirBurstCommand {
+  return (
+    'character' in skill && 'source' in skill && !isBraveCommand(skill) && !isSynchroCommand(skill)
+  );
+}
+
 export function isBraveCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
   return 'brave' in skill;
+}
+
+export function isSynchroCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
+  return 'synchroAbilitySlot' in skill;
 }
 
 export function isSharedSoulBreak(sb: EnlirSoulBreak): boolean {
@@ -1224,5 +1236,7 @@ export function getNormalSBPoints(ability: EnlirAbility): number {
 }
 
 export function isNat(skill: EnlirSkill): boolean {
+  // NOTE: This does not detect the case where a hybrid WHT/BLK or WHT/SUM
+  // skill lists its formula as Magical; see comments on EnlirFormula.
   return skill.type === 'NAT' && skill.formula !== null && skill.formula !== 'Hybrid';
 }

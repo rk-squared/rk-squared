@@ -10,11 +10,7 @@ import { getOrbCosts } from '../app/data/orbDetails';
 
 const onlyAbilities = process.argv.slice(2);
 
-for (const ability of _.sortBy(Object.values(enlir.abilities), [
-  i => -i.rarity,
-  'school',
-  'name',
-])) {
+for (const ability of _.sortBy(_.values(enlir.abilities), [i => -i.rarity, 'school', 'name'])) {
   if (onlyAbilities.length && onlyAbilities.indexOf(ability.name) === -1) {
     continue;
   }
@@ -25,7 +21,14 @@ for (const ability of _.sortBy(Object.values(enlir.abilities), [
     const text = formatMrPSkill(mrP);
     const costs = getOrbCosts(ability);
     const costText = '(' + costs.map(i => i.cost + ' ' + i.orbType).join(', ') + ')';
-    console.log(ability.name + ` (${ability.rarity}* ${ability.school}): ` + text + ' ' + costText);
+    const character = ability.recordBoardCharacter ? ' - ' + ability.recordBoardCharacter : '';
+    console.log(
+      ability.name +
+        ` (${ability.rarity}* ${ability.school}${character}): ` +
+        text +
+        ' ' +
+        costText,
+    );
   } catch (e) {
     console.error(`Failed to process ${ability.name}`);
     console.error(e);
