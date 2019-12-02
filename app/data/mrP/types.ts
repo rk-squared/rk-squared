@@ -360,6 +360,7 @@ export interface StandaloneHitRate {
 
 export interface Duration {
   value: number;
+  valueIsUncertain?: number;
   units: DurationUnits;
 }
 

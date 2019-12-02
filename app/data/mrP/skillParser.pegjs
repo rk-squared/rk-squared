@@ -585,8 +585,12 @@ GenericName
 GenericNameWord = ([A-Z] [a-zA-Z-'/]* (':' / '...' / '!' / '+')?)
 
 Duration
-  = "for" _ value:Integer _ units:DurationUnits {
-    return { value, units };
+  = "for" _ value:Integer _ valueIsUncertain:("?")? _ units:DurationUnits {
+    const result = { value, units };
+    if (valueIsUncertain) {
+      result.valueIsUncertain = true;
+    }
+    return result;
   }
 
 DurationUnits

@@ -894,9 +894,18 @@ export function convertEnlirSkillToMrP(
       case 'randomCastAbility':
         damage.push(formatRandomCastAbility(effect));
         break;
-      case 'randomCastOther':
-        other.normal.push(formatRandomCastOther(effect.other));
+      case 'randomCastOther': {
+        const formattedEffect = formatRandomCastOther(effect.other);
+        // Hack: We're taking advantage of our knowledge of which rage skills exist
+        // here - only Gau's BSB's cmd2 is non-damaging.
+        const isNonDamage = 'school' in skill && skill.school === 'Special';
+        if (isNonDamage) {
+          other.normal.push(formattedEffect);
+        } else {
+          damage.push(formattedEffect);
+        }
         break;
+      }
       case 'chain':
         chain = describeChain(effect);
         break;
@@ -963,7 +972,7 @@ export function convertEnlirSkillToMrP(
     }
   }
 
-  result.damage = damage.join(', then ');
+  result.damage = damage.join(', then ') || undefined;
 
   {
     const implicitlyTargetsEnemies = damage.length !== 0;
@@ -1033,3 +1042,5 @@ export function formatMrPSkill(mrP: MrPSkill, options: Partial<FormatOptions> = 
 
 // TODO: Handle element '?' - it's not a valid EnlirElement and so is rejected by our schemas, even thought it can appear in the data
 // TODO: Use × for times; make Unicode selectable?
+// TODO: Fix remaining inconsistencies between slash and hyphen - most current code favors hyphen, but slashMerge and some status code still uses slashes
+// Maybe the ideal would be to pick hyphen vs. slash based on what it's describing?

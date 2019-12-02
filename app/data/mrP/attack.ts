@@ -336,6 +336,9 @@ function checkAttackPrereqStatus(
 
     let newStatusName: string;
     if (isOwnStatusThreshold) {
+      // Using formatNumberSlashList would be more consistent in general, but
+      // status-related code in particular often still uses slashes. :-(
+      // newStatusName = formatNumberSlashList(parseThresholdValues(scaleCount)) + ' stacks';
       newStatusName = scaleCount + ' stacks';
     } else {
       newStatusName = scaleStatus + ' ' + scaleCount;
@@ -372,7 +375,7 @@ function describeAttackDamage(
   attack = checkAttackPrereqStatus(skill, attack, prereqStatus);
 
   const { numAttacks, finisherPercentDamage, finisherPercentCriteria } = attack;
-  let { attackMultiplier } = attack;
+  let { attackMultiplier, hybridMultiplier } = attack;
 
   if (!(finisherPercentDamage != null && finisherPercentCriteria) && attackMultiplier == null) {
     logger.error(`Skill ${skill.name}: Missing both multiplier and finisher damage`);
@@ -383,6 +386,15 @@ function describeAttackDamage(
 
   if (!!attack.isHybrid !== (skill.formula === 'Hybrid')) {
     logger.warn(`Skill ${skill.name} hybrid attack does not match formula`);
+  }
+
+  if (
+    hybridMultiplier == null &&
+    typeof attack.attackMultiplier === 'number' &&
+    isNaN(attack.attackMultiplier)
+  ) {
+    // Handle the case where no attack multiplier is known, so Enlir doesn't repeat "? or ? each".
+    hybridMultiplier = attack.attackMultiplier;
   }
 
   let randomChances: string | undefined;
@@ -404,17 +416,17 @@ function describeAttackDamage(
     }
   } else if (
     attack.isHybrid &&
-    attack.hybridMultiplier &&
+    hybridMultiplier != null &&
     Array.isArray(numAttacks) &&
     numAttacks.length === 2
   ) {
     damage = describeDamage(attackMultiplier, numAttacks[0]);
-    hybridDamage = describeDamage(attack.hybridMultiplier, numAttacks[1]);
+    hybridDamage = describeDamage(hybridMultiplier, numAttacks[1]);
   } else if (Array.isArray(numAttacks) || Array.isArray(attackMultiplier)) {
     damage = describeThresholdDamage(numAttacks, attackMultiplier);
-  } else if (attack.isHybrid && attack.hybridMultiplier) {
+  } else if (attack.isHybrid && hybridMultiplier != null) {
     damage = describeDamage(attackMultiplier, numAttacks);
-    hybridDamage = describeDamage(attack.hybridMultiplier, numAttacks);
+    hybridDamage = describeDamage(hybridMultiplier, numAttacks);
   } else {
     damage = describeDamage(attackMultiplier, numAttacks!);
   }

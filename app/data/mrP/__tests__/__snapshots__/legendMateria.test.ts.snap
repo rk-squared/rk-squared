@@ -820,7 +820,7 @@ Array [
   },
   Object {
     "character": "Cinque",
-    "description": "(Heavy ⤇ 50% for Heavy Charge +1)",
+    "description": "(Heavy ⤇ 50% for Hvy Charge +1)",
     "effect": "50% chance to grant Heavy Charge +1 to the user after using a Heavy ability",
     "name": "Burgeoning Strength",
   },
@@ -1648,7 +1648,7 @@ Array [
   },
   Object {
     "character": "Gabranth",
-    "description": "(dark ⤇ ?% for Heavy Charge +1)",
+    "description": "(dark ⤇ ?% for Hvy Charge +1)",
     "effect": "?% chance to grant Heavy Charge +1 to the user after using a Dark attack",
     "name": "9th Bureau's General",
   },

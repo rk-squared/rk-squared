@@ -175,6 +175,7 @@ export const statusAlias: AliasMap = {
     'Doom: {X}': 'Doom {X}s',
     'Doom Timer {X}': '{X}s Doom',
 
+    'Heavy Charge +{X}': 'Hvy Charge +{X}',
     'Heavy Charge {X}': 'Hvy Charge {X}',
 
     'Ingredients +{X}': '+{X} ingredients',

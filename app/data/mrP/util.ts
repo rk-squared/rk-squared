@@ -76,7 +76,9 @@ export function formatNumberSlashList(
 
 export function formatSignedIntegerSlashList(n: number | number[]): string {
   n = arrayify(n);
-  return (n[0] < 0 ? '-' : '+') + n.map(i => Math.abs(i)).join('-');
+  // Explicitly join with slashes - using hyphens to join negative numbers
+  // looks weird.
+  return (n[0] < 0 ? '-' : '+') + n.map(i => (isNaN(i) ? '?' : Math.abs(i))).join('/');
 }
 
 /**

@@ -1493,13 +1493,12 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
   };
 }
 
-export function formatDuration({ value, units }: types.Duration) {
+export function formatDuration({ value, valueIsUncertain, units }: types.Duration) {
+  const formattedValue = numberOrUnknown(value) + (valueIsUncertain ? '?' : '');
   if (units === 'seconds') {
-    return numberOrUnknown(value) + 's';
-  } else if (value === 1) {
-    return '1 turn';
+    return formattedValue + 's';
   } else {
-    return numberOrUnknown(value) + ' turns';
+    return formattedValue + (value === 1 ? ' turn' : ' turns');
   }
 }
 
