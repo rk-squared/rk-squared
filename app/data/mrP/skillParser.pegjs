@@ -34,13 +34,17 @@ Attack
 SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
-    _ overstrike:(","? _ "capped" _ "at" _ "99999")? {
+    _ overstrike:(","? _ "capped" _ "at" _ "99999")?
+    _ isPiercingDef:(_ "that" _ "ignores" _ "DEF")? {
     const result = Object.assign({
       type: 'attack',
       numAttacks,
     }, attackMultiplierGroup || {});
     if (overstrike) {
       result.isOverstrike = true;
+    }
+    if (isPiercingDef) {
+      result.isPiercingDef = true;
     }
     if (attackType === 'group') {
       result.isAoE = true;
