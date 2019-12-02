@@ -41,11 +41,14 @@ export function andJoin(s: string[], oxfordComma: boolean): string {
 }
 
 /**
- * Allow breaking up a slash-separated number by inserting zero-width spaces
- * after each slash.
+ * Allow breaking up a hyphen- or slash-separated number by inserting
+ * zero-width spaces after each hyphen or slash.
+ *
+ * After the PEG.js redesign, whether effects uses slashes or hyphens is in a
+ * bit of flux, so we check for both.
  *
  * See https://stackoverflow.com/a/35741496/25507
  */
-export function breakSlashes(s: string) {
-  return s.replace(/(\d\/)(\d)/g, (match, p1, p2) => p1 + '\u200b' + p2);
+export function breakHyphensAndSlashes(s: string) {
+  return s.replace(/(\d[-/])(\d)/g, (match, p1, p2) => p1 + '\u200b' + p2);
 }

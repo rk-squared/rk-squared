@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 
 import { EnlirSoulBreak } from '../../data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
-import { breakSlashes } from '../../utils/textUtils';
+import { breakHyphensAndSlashes } from '../../utils/textUtils';
 import {
   getBraveColumns,
   getBurstColumns,
@@ -35,16 +35,16 @@ export class SoulBreakListItem extends React.PureComponent<Props> {
   }
 
   renderBurstCommands(burstCommands: MrPSkill[]) {
-    // As of October 2019, Ward's BSB is the only command with a long enough
-    // string of slash-separated values that it causes obvious problems for
-    // mobile, so we only use breakSlashes here.
+    // As of December 2019, Ward's BSB is the only command with a long enough
+    // string of hyphen-separated values that it causes obvious problems for
+    // mobile, so we only use breakHyphensAndSlashes here.
     return (
       <>
         {getBurstColumns(burstCommands).map((columns, i) => (
           <tr className={classNames(this.props.className, styles.burstCommand)} key={i}>
             <td />
             <td className={styles.school}>{columns[0]}</td>
-            <td className={styles.command}>{breakSlashes(columns[1])}</td>
+            <td className={styles.command}>{breakHyphensAndSlashes(columns[1])}</td>
           </tr>
         ))}
       </>
