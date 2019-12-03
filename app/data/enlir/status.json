@@ -13672,7 +13672,7 @@
   {
     "id": 50749,
     "name": "Awoken Dad",
-    "effects": "Machinist and Support abilities don't consume uses, cast speed x3.00 for Machinist and Support abilities, grants 40% Damage Reduction Barrier 1 after using Machinist and Support abilities",
+    "effects": "Machinist and Support abilities don't consume uses, cast speed x3.00 for Machinist and Support abilities, grants 40% Damage Reduction Barrier 1 after using a Machinist or Support ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
