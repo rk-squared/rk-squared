@@ -2286,7 +2286,7 @@ Object {
         other:
           'earth infuse 25s, self dmg cap +10k 15s, fastcast 15s, ' +
           '15s: (3 earth ⤇ m3.6/3 - 6.0/5 - 18.0/15 e+h+n B.Mag @ 0-72001-240001 dmg dealt, ' +
-          'then m17.3 e+h+n overstrike B.Mag @ 240001 dmg dealt (once only)), ' +
+          'then m17.3 e+h+n overstrike B.Mag @ 240001 dmg dealt, once only), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
