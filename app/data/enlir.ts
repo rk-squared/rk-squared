@@ -954,7 +954,9 @@ function patchEnlir() {
     },
   );
 
-  // Some Synchro skills are unique.
+  // Some Synchro skills are weird and hard to parse:
+  // Dk.Cecil's SASB chase is apparently trying to say that it's -1 Gehenna
+  // only if it's at Gehenna levels 1 and 2, but it's simpler to avoid that.
   applyPatch(
     enlir.otherSkillsByName,
     'Shadow Chaser',
@@ -968,6 +970,20 @@ function patchEnlir() {
         'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
         'heals the user for 20% of the damage dealt at Gehenna levels 1 and 2,' +
         'causes -1 Gehenna to the user, 100% hit rate';
+    },
+  );
+  // Shadow's command is very unique and flavorful, but it becomes much simpler
+  // if we omit the special effects at 0 blinks; those have little in-game
+  // effect.
+  applyPatch(
+    enlir.synchroCommands,
+    '30549323',
+    ability =>
+      ability.effects ===
+      '1 ranged or 4/8 single attacks (0.80 each) and grants Physical Blink 1/1/0 if the user has Physical Blink 0/1/2, 100% hit rate at Physical Blink 0',
+    ability => {
+      ability.effects =
+        '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 to the user';
     },
   );
 }
