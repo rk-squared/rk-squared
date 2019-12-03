@@ -10,7 +10,7 @@
 
 SkillEffect
   = head:EffectClause tail:((',' / '.' _ ('Also' / 'Additional')) _ EffectClause)* {
-    return util.mergeHitRates(util.pegList(head, tail, 2));
+    return util.mergeAttackExtras(util.pegList(head, tail, 2));
   }
   / "" { return []; }
 
@@ -20,7 +20,7 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / RandomCastAbility / RandomCastOther / Chain / Mimic
   / StatMod / StatusEffect / ImperilStatusEffect / SetStatusLevel
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
-  / CastTime / CastTimePerUse / StandaloneHitRate
+  / CastTime / CastTimePerUse / StandaloneAttackExtra
 
 // --------------------------------------------------------------------------
 // Attacks
@@ -161,9 +161,31 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHp / AttackScaleType / AttackStatusChance / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / PiercingDef / PiercingRes / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:(","? _ AttackExtra)* {
     return extras.reduce((result, element) => Object.assign(result, element[2]), {});
   }
+
+AttackExtra
+  = AdditionalCritDamage
+  / AdditionalCrit
+  / AirTime
+  / AlternateOverstrike
+  / AlwaysCrits
+  / AtkUpWithLowHp
+  / AttackScaleType
+  / AttackStatusChance
+  / DamageModifier
+  / FinisherPercent
+  / FollowedByAttack
+  / HitRate
+  / MinDamage
+  / OrMultiplier
+  / OrNumAttacks
+  / OverrideElement
+  / PiercingDef
+  / PiercingRes
+  / ScaleWithAtkAndDef
+  / SBMultiplier
 
 // Note: This goes before AdditionalCrit so that it can be greedy with matching "damage"
 AdditionalCritDamage
@@ -555,8 +577,8 @@ CastTimePerUse
   = "cast" _ "time" _ "-" castTime:DecimalNumber _ "for" _ "each" _ "previous" _ "use" { return { type: 'castTimePerUse', castTimePerUse: -castTime }; }
 
 // Hit rate not associated with an attack
-StandaloneHitRate
-  = hitRate:HitRate { return Object.assign({ type: 'hitRate' }, hitRate); }
+StandaloneAttackExtra
+  = extra:AttackExtra { return { type: 'attackExtra', extra }; }
 
 
 // --------------------------------------------------------------------------
@@ -581,7 +603,12 @@ AnySkillName
 // statuses, so the rules may need revision for other uses.
 GenericName
   = (
-    (GenericNameWord / IntegerSlashList '%' !(_ "hit" _ "rate") / SignedIntegerSlashList [%+]?)
+    (GenericNameWord
+      // Names can start with numbers, but require a word after that, so that
+      // "100%" doesn't get parsed as a status name by itself.
+      / IntegerSlashList '%' !(_ "hit" _ "rate") _ GenericNameWord
+      / SignedIntegerSlashList [%+]? _ GenericNameWord
+    )
     (_
       (
         GenericNameWord

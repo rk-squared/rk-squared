@@ -105,7 +105,11 @@ export function describeDamage(
   attackMultiplier = forceScalar(attackMultiplier, 'describeDamage attackMultiplier');
   numAttacks = forceScalar(numAttacks, 'describeDamage numAttacks');
   const multiplier = attackMultiplier * numAttacks;
-  return toMrPFixed(multiplier) + (includeNumAttacks ? addNumAttacks(numAttacks) : '');
+  if (multiplier === 0.0) {
+    return toMrPFixed(multiplier);
+  } else {
+    return toMrPFixed(multiplier) + (includeNumAttacks ? addNumAttacks(numAttacks) : '');
+  }
 }
 
 function isRandomNumAttacks(numAttacks: types.NumAttacks): numAttacks is types.RandomNumAttacks {
