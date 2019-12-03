@@ -264,7 +264,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
         <td
           className="tier"
         >
-          AO
+          AO1
         </td>
         <td
           className="name"
@@ -915,7 +915,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         <td
           className="tier"
         >
-          AO
+          AO1
         </td>
         <td
           className="name"
@@ -1389,7 +1389,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
         <td
           className="tier"
         >
-          AO
+          AO1
         </td>
         <td
           className="name"

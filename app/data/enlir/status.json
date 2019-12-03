@@ -2639,6 +2639,17 @@
     "notes": null
   },
   {
+    "id": 2257,
+    "name": "Machinist Instant Cast",
+    "effects": "Cast speed x9999999 for Machinist abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_MAX_15000_MSEC_MACHINIST",
+    "notes": null
+  },
+  {
     "id": 226,
     "name": "Imp",
     "effects": "",
@@ -4048,7 +4059,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DRAGOON_130_1",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_DRAGOON_MEDIUM_TURN_1",
     "notes": null
   },
   {
@@ -4059,18 +4070,18 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_BLACK_MAGIC_150_2",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BLACK_MAGIC_LARGE_TURN_2",
     "notes": null
   },
   {
     "id": 282015,
     "name": "Magical +70% Boost 1",
-    "effects": "Magical abilities deal 70% more damage, lasts for 1 turn",
+    "effects": "Magical attacks deal 70% more damage, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_MAGICAL_170_1",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_MAGIC_EXTRA_LARGE_TURN_1",
     "notes": null
   },
   {
@@ -4098,7 +4109,7 @@
   {
     "id": 282018,
     "name": "Fire +30% Boost 1",
-    "effects": "Fire attacks deal 30% more damage, lasts for 1 turn",
+    "effects": "Fire abilities deal 30% more damage, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -4126,6 +4137,28 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_SPELLBLADE_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
+    "id": 282021,
+    "name": "Darkness +30% Boost 1",
+    "effects": "Darkness abilities deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_DARKNESS_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282022,
+    "name": "Ninja +30% Boost 3",
+    "effects": "Ninjka abilities deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_NINJA_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -4752,7 +4785,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_PHYSICAL_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_PHYSICAL_ATTACK_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4763,7 +4796,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_PHYSICAL_150_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_PHYSICAL_ATTACK_LARGE_TIME_15000",
     "notes": null
   },
   {
@@ -4774,7 +4807,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_PHYSICAL_170_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_PHYSICAL_ATTACK_EXTRA_LARGE_TIME_15000",
     "notes": null
   },
   {
@@ -4785,13 +4818,24 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_JUMP_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_FLIGHT_ATTACK_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 282161,
+    "name": "Magical +30% Boost",
+    "effects": "Magical attacks deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_MAGIC_ATTAK_MEDIUM_TIME_15000",
     "notes": null
   },
   {
     "id": 282200,
     "name": "Earth +30% Boost 3",
-    "effects": "Earth attacks deal 30% more damage, lasts for 3 turns",
+    "effects": "Earth abilities deal 30% more damage, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -4802,7 +4846,7 @@
   {
     "id": 282201,
     "name": "Wind +30% Boost 3",
-    "effects": "Wind attacks deal 30% more damage, lasts for 3 turns",
+    "effects": "Wind abilities deal 30% more damage, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -4813,7 +4857,7 @@
   {
     "id": 282202,
     "name": "Wind +50% Boost 1",
-    "effects": "Wind attacks deal 50% more damage, lasts for 1 turn",
+    "effects": "Wind abilities deal 50% more damage, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -4824,7 +4868,7 @@
   {
     "id": 282203,
     "name": "Dark +30% Boost",
-    "effects": "Dark attacks deal 30% more damage",
+    "effects": "Dark abilities deal 30% more damage",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -4835,7 +4879,7 @@
   {
     "id": 282204,
     "name": "Water +30% Boost 3",
-    "effects": "Water attacks deal 30% more damage, lasts for 3 turns",
+    "effects": "Water abilities deal 30% more damage, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -4846,12 +4890,45 @@
   {
     "id": 282205,
     "name": "Ice +30% Boost 3",
-    "effects": "Ice attacks deal 30% more damage, lasts for 3 turns",
+    "effects": "Ice abilities deal 30% more damage, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_ICE_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
+    "id": 282206,
+    "name": "Earth +50% Boost 1",
+    "effects": "Earth abilities deal 50% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_EARTH_LARGE_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282208,
+    "name": "Holy +30% Boost 1",
+    "effects": "Holy abilities deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_HOLY_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282209,
+    "name": "Holy +30% Boost 3",
+    "effects": "Holy abilities deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_HOLY_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -4874,6 +4951,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "RADIANT_SHIELD_EARTH_75",
+    "notes": null
+  },
+  {
+    "id": 283058,
+    "name": "Dark +30% Boost 1",
+    "effects": "Dark abilities deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_MEDIUM_TURN_1",
     "notes": null
   },
   {
@@ -5052,6 +5140,50 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "RADIANT_SHIELD_HOLY_75",
+    "notes": null
+  },
+  {
+    "id": 28711,
+    "name": "Overflow Holy Radiant Shield: 75%",
+    "effects": "Returns 75% of the damage taken to the attacker as Holy damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_HOLY_75_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28712,
+    "name": "Overflow Holy Radiant Shield: 125%",
+    "effects": "Returns 125% of the damage taken to the attacker as Holy damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_HOLY_125_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28713,
+    "name": "Overflow Holy Radiant Shield: 200%",
+    "effects": "Returns 200% of the damage taken to the attacker as Holy damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_HOLY_200_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28714,
+    "name": "Overflow Holy Radiant Shield: 300%",
+    "effects": "Returns 300% of the damage taken to the attacker as Holy damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_HOLY_300_ENABLE_OVERFLOW",
     "notes": null
   },
   {
@@ -10501,7 +10633,7 @@
   },
   {
     "id": 50451,
-    "name": "Merciless Oracle Mode",
+    "name": "No Quarter Mode",
     "effects": "Cast speed x2.00",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -10512,65 +10644,65 @@
   },
   {
     "id": 50452,
-    "name": "Merciless Oracle 0",
-    "effects": "Grants Merciless Oracle 1 after using a Lightning attack, removed if the user hasn't Merciless Oracle Mode",
+    "name": "No Quarter 0",
+    "effects": "Grants No Quarter 1 after using a Lightning attack, removed if the user hasn't No Quarter Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Merciless Oracle X\" status"
+      "All other \"No Quarter X\" status"
     ],
     "codedName": "JANUS_MODE_GRADE_0",
     "notes": null
   },
   {
     "id": 50453,
-    "name": "Merciless Oracle 1",
-    "effects": "Critical chance =30%, grants Merciless Oracle 2 after using a Lightning attack, removed if the user hasn't Merciless Oracle Mode",
+    "name": "No Quarter 1",
+    "effects": "Critical chance =30%, grants No Quarter 2 after using a Lightning attack, removed if the user hasn't No Quarter Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Merciless Oracle X\" status"
+      "All other \"No Quarter X\" status"
     ],
     "codedName": "JANUS_MODE_GRADE_1",
     "notes": null
   },
   {
     "id": 50454,
-    "name": "Merciless Oracle 2",
-    "effects": "Critical chance =50%, grants Merciless Oracle 3 after using a Lightning attack, removed if the user hasn't Merciless Oracle Mode",
+    "name": "No Quarter 2",
+    "effects": "Critical chance =50%, grants No Quarter 3 after using a Lightning attack, removed if the user hasn't No Quarter Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Merciless Oracle X\" status"
+      "All other \"No Quarter X\" status"
     ],
     "codedName": "JANUS_MODE_GRADE_2",
     "notes": null
   },
   {
     "id": 50455,
-    "name": "Merciless Oracle 3",
-    "effects": "Critical chance =70%, grants Merciless Oracle 4 after using a Lightning attack, removed if the user hasn't Merciless Oracle Mode",
+    "name": "No Quarter 3",
+    "effects": "Critical chance =70%, grants No Quarter 4 after using a Lightning attack, removed if the user hasn't No Quarter Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Merciless Oracle X\" status"
+      "All other \"No Quarter X\" status"
     ],
     "codedName": "JANUS_MODE_GRADE_3",
     "notes": null
   },
   {
     "id": 50456,
-    "name": "Merciless Oracle 4",
-    "effects": "Critical chance =100%, grants Merciless Oracle 4 after using a Lightning attack, removed if the user hasn't Merciless Oracle Mode",
+    "name": "No Quarter 4",
+    "effects": "Critical chance =100%, grants No Quarter 4 after using a Lightning attack, removed if the user hasn't No Quarter Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Merciless Oracle X\" status"
+      "All other \"No Quarter X\" status"
     ],
     "codedName": "JANUS_MODE_GRADE_4",
     "notes": null
@@ -10904,7 +11036,7 @@
   },
   {
     "id": 50486,
-    "name": "Awoken Kindred Mode",
+    "name": "Awoken Kindred",
     "effects": "Summoning abilities don't consume uses, dualcasts Summoning abilities, casts Friendship Crystal after using a Summoning ability",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11157,8 +11289,8 @@
   },
   {
     "id": 50513,
-    "name": "Eblan Way Follow-Up",
-    "effects": "Casts Eblan Way after using a Ninja ability",
+    "name": "Eblan Tactics Follow-Up",
+    "effects": "Casts Eblan Tactics after using a Ninja ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11168,8 +11300,8 @@
   },
   {
     "id": 50514,
-    "name": "Techcopied Volley Shot Follow-Up",
-    "effects": "Casts Techcopied Volley Shot after using two Sharpshooter abilities",
+    "name": "Direct Volley Follow-Up",
+    "effects": "Casts Direct Volley after using two Sharpshooter abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11223,7 +11355,7 @@
   },
   {
     "id": 50520,
-    "name": "Awoken Heavy",
+    "name": "Awoken Heavy Physical",
     "effects": "Heavy abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, grants Heavy Charge +1 after using a Heavy ability",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11245,7 +11377,7 @@
   },
   {
     "id": 50522,
-    "name": "EX: Hawkeye Mode",
+    "name": "EX: Snipe Mode",
     "effects": "Grants ATK +30%, casts Raining Arrows when removed",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11366,7 +11498,7 @@
   },
   {
     "id": 50533,
-    "name": "Awoken Dance Tune",
+    "name": "Awoken Rhapsody",
     "effects": "Dancer abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Dancer abilities at ability rank 1/2/3/4/5, dualcasts Dancer abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11388,8 +11520,8 @@
   },
   {
     "id": 50535,
-    "name": "Rhapsody of Wind Follow-Up",
-    "effects": "Casts Rhapsody of Wind after using three Dancer abilities",
+    "name": "Fevered Rhapsody Follow-Up",
+    "effects": "Casts Fevered Rhapsody after using three Dancer abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11410,8 +11542,8 @@
   },
   {
     "id": 50537,
-    "name": "God of Creation Mode",
-    "effects": "Casts Whimsical Crash after using 3 Earth attacks",
+    "name": "Creator Mode",
+    "effects": "Casts Fickle Crush after using 3 Earth attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11432,7 +11564,7 @@
   },
   {
     "id": 50539,
-    "name": "Gleed Stack Mode",
+    "name": "Gleed Surge Mode",
     "effects": "Critical chance =100%, casts Crimson Straight after using 3 Fire attacks, removed if the user doesn't have any Stoneskin",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11553,8 +11685,8 @@
   },
   {
     "id": 50550,
-    "name": "Awoken Enchant",
-    "effects": "Summoning and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Summoning and Bard abilities at ability rank 1/2/3/4/5, casts Storm Encore after using two Summoning or Bard abilities",
+    "name": "Awoken Chant",
+    "effects": "Summoning and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Summoning and Bard abilities at ability rank 1/2/3/4/5, casts Thunder Encore after using two Summoning or Bard abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13241,6 +13373,72 @@
     "notes": null
   },
   {
+    "id": 50720,
+    "name": "Awoken Fortune Teller",
+    "effects": "Dancer and Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Dancer and Bard abilities at ability rank 1/2/3/4/5, casts Lucky Moogle Dance after using a Dancer or Bard ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_FORTUNE_MACHINE",
+    "notes": null
+  },
+  {
+    "id": 50721,
+    "name": "Awoken Pride",
+    "effects": "Wind and Holy abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Wind and Holy abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_PRIDE",
+    "notes": null
+  },
+  {
+    "id": 50722,
+    "name": "Link Materia Mode",
+    "effects": "Grants Attach Wind after using a Wind ability, grants Attach Holy after using an Holy ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "LINK_MATERIA_MODE",
+    "notes": null
+  },
+  {
+    "id": 50723,
+    "name": "Dreams and Dignity",
+    "effects": "Grants 40% Damage Reduction Barrier 1 to all allies after using a Wind or Holy ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DREAM_AND_PRIDE",
+    "notes": null
+  },
+  {
+    "id": 50724,
+    "name": "Dream of Space",
+    "effects": "Grants Dragoon +30% Boost 1 to all allies in the character's row after using a Dragoon ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DREAM_TO_SPACE_1",
+    "notes": null
+  },
+  {
+    "id": 50725,
+    "name": "Flight Romantic Mode",
+    "effects": "Casts Rocket Dive after using four Wind attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DREAM_TO_SPACE_1",
+    "notes": null
+  },
+  {
     "id": 50726,
     "name": "Phantom Flame Mode",
     "effects": "Increases Phantom Flame level by 1 when using Tricky Flame, decreases Phantom Flame level by 1 when using Glide Flame, removed if user hasn't Synchro Mode",
@@ -13263,6 +13461,28 @@
     "notes": null
   },
   {
+    "id": 50728,
+    "name": "Rage Mirage Follow-Up",
+    "effects": "Grants Physical High Quick Cast 1 to all allies in the front row after using a Wind attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_LAZY_MIRAGE_1",
+    "notes": null
+  },
+  {
+    "id": 50729,
+    "name": "Raging Storm Follow-Up",
+    "effects": "Casts Raging Storm after using a Wind attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_LAZY_MIRAGE_2",
+    "notes": null
+  },
+  {
     "id": 50730,
     "name": "Items +1",
     "effects": "Increases Items level by 1 after using Potato Masher, removed if user hasn't Synchro Mode",
@@ -13271,6 +13491,468 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_ABILITY_USE_COUNT_TIDAL_WAVE",
+    "notes": null
+  },
+  {
+    "id": 50731,
+    "name": "Cool Whip Follow-Up",
+    "effects": "Casts Cool Whip after using two Ice attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_BONDAGE_WHIP",
+    "notes": null
+  },
+  {
+    "id": 50732,
+    "name": "Unlock Trigger Mode",
+    "effects": "Casts Critical Bullet after using three Lightning attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "UNLOCK_TRIGGER_MODE",
+    "notes": null
+  },
+  {
+    "id": 50733,
+    "name": "Awoken Machinist",
+    "effects": "Machinist abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Machinist abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_MACHINIST",
+    "notes": null
+  },
+  {
+    "id": 50734,
+    "name": "Tri-Element Mode",
+    "effects": "Grants Attach Fire after using a Fire ability, grants Attach Ice after using an Ice ability, grants Attach Lightning after using a Lightning ability, lasts 1 turn",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "THREE_COLOR_ATTRIBUTE_CONVERSION_MODE",
+    "notes": null
+  },
+  {
+    "id": 50735,
+    "name": "Ebony Armor Mode",
+    "effects": "Cast speed x2.00, Dark attacks grant 25% more SB points, casts Phantom Soul after using three Dark attacks, removed if user hasn't any Stoneskin",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "BLACK_ARMOR_MODE",
+    "notes": null
+  },
+  {
+    "id": 50736,
+    "name": "Dark Meteor Follow-Up",
+    "effects": "Casts Dark Meteor after using two Dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DARK_METEO",
+    "notes": null
+  },
+  {
+    "id": 50737,
+    "name": "Awoken Dignified Lineage",
+    "effects": "Holy abilities don't consume uses, dualcasts Holy abilities, grants 10/15/20/30/40% Damage Reduction Barrier 1 to all allies after using a Holy ability at ability rank 1/2/3/4/5",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_DESCENT_MAGNIFICENT",
+    "notes": null
+  },
+  {
+    "id": 50740,
+    "name": "Link Materia Mode II",
+    "effects": "Grants Attach Wind/Holy with Stacking after using a Wind/Holy ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "LINK_MATERIA_MODE_II",
+    "notes": null
+  },
+  {
+    "id": 50741,
+    "name": "Shadow Hound Mode",
+    "effects": "Casts Shadow Hound when any Damage Reduction Barrier is removed, removed when Shadow Hound is triggered 5 times",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SHADOW_DOG_MODE",
+    "notes": null
+  },
+  {
+    "id": 50742,
+    "name": "Assassinate Follow-Up",
+    "effects": "Casts Assassinate after using two Dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ROAD_OF_ASSASSIN",
+    "notes": null
+  },
+  {
+    "id": 50743,
+    "name": "Insidious Invasion Follow-Up",
+    "effects": "Casts Insidious Invasion 1/2 after using 1/2 + 2n Dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_LOATHSOME_INVASION",
+    "notes": null
+  },
+  {
+    "id": 50744,
+    "name": "Awoken Flash Dark",
+    "effects": "Dark abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, cast speed x9999999 for Dark abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_DARK_MOMENT",
+    "notes": null
+  },
+  {
+    "id": 50745,
+    "name": "Tyrant Mode",
+    "effects": "Grants Attach Earth/Wind/Dark with Stacking after using a Earth/Wind/Dark ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TYRANT_MODE",
+    "notes": null
+  },
+  {
+    "id": 50746,
+    "name": "Punishment Time! Follow-Up",
+    "effects": "Casts Punishment Time! after using two Dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_CRYPTO_GEAR",
+    "notes": null
+  },
+  {
+    "id": 50747,
+    "name": "Judgment Mode",
+    "effects": "Grants Overflow Holy Radiant Shield: 125/200/300% after using 1/2/3+ Holy attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "JUDGEMENT_MODE",
+    "notes": null
+  },
+  {
+    "id": 50748,
+    "name": "Stroke of Talent Follow-Up",
+    "effects": "Casts Stroke of Talen after using two Dark attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SADISTIC_H",
+    "notes": null
+  },
+  {
+    "id": 50749,
+    "name": "Awoken Dad",
+    "effects": "Machinist and Support abilities don't consume uses, cast speed x3.00 for Machinist and Support abilities, grants 40% Damage Reduction Barrier 1 after using a Machinist or Support ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_DAD",
+    "notes": null
+  },
+  {
+    "id": 50750,
+    "name": "Struggle Mode",
+    "effects": "Dualcasts Machinist abilities, casts Unforgiveness after using three Machinist or Support abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STRUGGLE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50751,
+    "name": "Goodbye! Follow-Up",
+    "effects": "Casts Goodbye! after using a Machinist attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DO_IT_FLASHY",
+    "notes": null
+  },
+  {
+    "id": 50752,
+    "name": "Unbending Judgment Follow-Up",
+    "effects": "Casts Unbending Judgment after using four Holy attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_HEAVENLY_JUDGEMENT",
+    "notes": null
+  },
+  {
+    "id": 50755,
+    "name": "Twin Element Mode III (Exdeath)",
+    "effects": "Grants Attach Dark/Holy 2 with Stacking after using a Dark/Holy ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_III_EXDEATH",
+    "notes": null
+  },
+  {
+    "id": 50756,
+    "name": "Desire for Void Mode",
+    "effects": "Casts Desire for Void after using three Dark or Holy attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CRAVING_EMPTINESS_MODE",
+    "notes": null
+  },
+  {
+    "id": 50758,
+    "name": "Awoken Root of Evil",
+    "effects": "Dark and Holy abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dark and Holy abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_MOORE_EVIL_TREE",
+    "notes": null
+  },
+  {
+    "id": 50759,
+    "name": "Twin Element Mode (Exdeath)",
+    "effects": "Grants Attach Dark after using a Dark ability, grants Attach Holy after using an Holy ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_EXDEATH_AWAKE",
+    "notes": null
+  },
+  {
+    "id": 50760,
+    "name": "Emptiness Break",
+    "effects": "Grants 40% Damage Reduction Barrier 1 to all allies after using a Dark or Holy ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EMPTYNESS_BREAK",
+    "notes": null
+  },
+  {
+    "id": 50761,
+    "name": "Waiting for Friends Mode",
+    "effects": "Casts Waiting for Friends after using three Fire abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "WAIT_FOR_FRIENDS_MODE",
+    "notes": null
+  },
+  {
+    "id": 50762,
+    "name": "Awoken Dawn Successor",
+    "effects": "Fire and Earth abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Fire and Earth abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_ACUPUNCTURE_SUCCESSOR",
+    "notes": null
+  },
+  {
+    "id": 50763,
+    "name": "Twin Element Mode (Krile)",
+    "effects": "Grants Attach Fire after using a Fire ability, grants Attach Earth after using an Earth ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_DEVIL_MOVE",
+    "notes": null
+  },
+  {
+    "id": 50764,
+    "name": "Beast Parade",
+    "effects": "Grants 40% Damage Reduction Barrier 1 to all allies after using a Fire or Earth ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DEVIL_MOVE",
+    "notes": null
+  },
+  {
+    "id": 50765,
+    "name": "Twin Element Mode II (Exdeath)",
+    "effects": "Grants Attach Dark/Holy with Stacking after using a Dark/Holy ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_II_FOR_UNKNOWN_ORBIT",
+    "notes": null
+  },
+  {
+    "id": 50766,
+    "name": "Twin Element Mode II (Krile)",
+    "effects": "Grants Attach Fire/Earth with Stacking after using a Fire/Earth ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_II_FOR_HEART_LOVING_GRANDFATHER",
+    "notes": null
+  },
+  {
+    "id": 50767,
+    "name": "Sacred Edge Follow-Up",
+    "effects": "Casts ? after using Mighty Force, casts ? after using Healing Force",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SHINE_BRAVER",
+    "notes": null
+  },
+  {
+    "id": 50768,
+    "name": "Holy XCIX Follow-Up",
+    "effects": "Grants Medium Buff Holy to the user after using two Holy attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_HOLY99",
+    "notes": null
+  },
+  {
+    "id": 50769,
+    "name": "Awoken Bard",
+    "effects": "Bard abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Bard abilities at ability rank 1/2/3/4/5, dualcasts Bard abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_BARD",
+    "notes": null
+  },
+  {
+    "id": 50770,
+    "name": "Quick ATB 1",
+    "effects": "Increase ATB charge speed by 2.00, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ATB_TIME_FACTOR_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 50771,
+    "name": "Twin Element Mode (Holy/Fire)",
+    "effects": "Grants Attach Holy after using a Holy ability, grants Attach Fire after using an Fire ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_HOLY_AND_FIRE",
+    "notes": null
+  },
+  {
+    "id": 50772,
+    "name": "Awoken Dalmascan General",
+    "effects": "Holy and Fire abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Holy and Fire abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_DALMASCA_GENERAL",
+    "notes": null
+  },
+  {
+    "id": 50773,
+    "name": "Breaker Knight Follow-Up",
+    "effects": "Casts Breaker Knight after using two Holy or Fire attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_BRAKER_NIGHT_MODE",
+    "notes": null
+  },
+  {
+    "id": 50774,
+    "name": "Fate Mode",
+    "effects": "ATK, DEF, MAG, RES, MND, ACC and EVA +20%, 50% chance to dualcast White Magic abilities",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "FATE_MODE",
+    "notes": null
+  },
+  {
+    "id": 50775,
+    "name": "Twin Element Mode II (Holy/Fire)",
+    "effects": "Grants Attach Holy/Fire with Stacking after using a Holy/Fire ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_II_HOLY_AND_FIRE",
+    "notes": null
+  },
+  {
+    "id": 50777,
+    "name": "Shadow Chaser Follow-Up",
+    "effects": "Casts Shadow Chaser after using Shadow Drive, removed if user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ABILITY_USE_COUNT_SHADOW_BLAZER",
+    "notes": null
+  },
+  {
+    "id": 50779,
+    "name": "Awoken White Magic",
+    "effects": "White Magic abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts White Magic abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_WHITE_MAGIC",
     "notes": null
   },
   {
@@ -14649,7 +15331,7 @@
   },
   {
     "id": 6036,
-    "name": "Short Critical Damage +50%",
+    "name": "Short 50% Critical",
     "effects": "Critical hits deal 50% more damage (additive with the base critical coefficient)",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -14975,6 +15657,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_MATK_MND",
+    "notes": null
+  },
+  {
+    "id": 623032,
+    "name": "MAG and MND +50%",
+    "effects": "MAG and MND +50%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_MATK_MND_50_WITH_DURATION_LARGE",
     "notes": null
   },
   {

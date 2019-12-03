@@ -10,7 +10,7 @@
 
 SkillEffect
   = head:EffectClause tail:((',' / '.' _ ('Also' / 'Additional')) _ EffectClause)* {
-    return util.mergeHitRates(util.pegList(head, tail, 2));
+    return util.mergeAttackExtras(util.pegList(head, tail, 2));
   }
   / "" { return []; }
 
@@ -20,7 +20,7 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / RandomCastAbility / RandomCastOther / Chain / Mimic
   / StatMod / StatusEffect / ImperilStatusEffect / SetStatusLevel
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
-  / CastTime / CastTimePerUse / StandaloneHitRate
+  / CastTime / CastTimePerUse / StandaloneAttackExtra
 
 // --------------------------------------------------------------------------
 // Attacks
@@ -34,7 +34,9 @@ Attack
 SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
-    _ overstrike:(","? _ "capped" _ "at" _ "99999")? {
+    _ overstrike:(","? _ "capped" _ "at" _ "99999")?
+    _ isPiercingDef:(_ "that" _ "ignores" _ "DEF")?
+    _ isPiercingRes:(_ "that" _ "ignores" _ "RES")? {
     const result = Object.assign({
       type: 'attack',
       numAttacks,
@@ -42,6 +44,16 @@ SimpleAttack
     if (overstrike) {
       result.isOverstrike = true;
     }
+
+    // Alternate isPiercingDef / isPiercingRes format that's only used for
+    // "followed by" attacks.  These are normally handled within AttackExtras.
+    if (isPiercingDef) {
+      result.isPiercingDef = true;
+    }
+    if (isPiercingRes) {
+      result.isPiercingRes = true;
+    }
+
     if (attackType === 'group') {
       result.isAoE = true;
     }
@@ -139,7 +151,7 @@ AttackModifiers
 
 
 MultiplierScaleType
-  = "scaling" _ "with" _ "HP%" { return { type: 'percentHp' }; }
+  = "scaling" _ "with" _ "current"? _ "HP%" { return { type: 'percentHp' }; }
   / "scaling" _ "with" _ "targets" { return { type: 'convergent' }; }
   / "scaling" _ "with" _ stat:Stat { return { type: 'stat', stat }; }
   / "scaling" _ "with" _ "hits" _ "taken" { return { type: 'hitsTaken' }; }
@@ -149,9 +161,31 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:(","? _ (AdditionalCritDamage / AdditionalCrit / AirTime / AlternateOverstrike / AlwaysCrits / AtkUpWithLowHp / AttackScaleType / AttackStatusChance / DamageModifier / FinisherPercent / FollowedByAttack / HitRate / MinDamage / OrMultiplier / OrNumAttacks / OverrideElement / Piercing / ScaleWithAtkAndDef / SBMultiplier))* {
+  = extras:(","? _ AttackExtra)* {
     return extras.reduce((result, element) => Object.assign(result, element[2]), {});
   }
+
+AttackExtra
+  = AdditionalCritDamage
+  / AdditionalCrit
+  / AirTime
+  / AlternateOverstrike
+  / AlwaysCrits
+  / AtkUpWithLowHp
+  / AttackScaleType
+  / AttackStatusChance
+  / DamageModifier
+  / FinisherPercent
+  / FollowedByAttack
+  / HitRate
+  / MinDamage
+  / OrMultiplier
+  / OrNumAttacks
+  / OverrideElement
+  / PiercingDef
+  / PiercingRes
+  / ScaleWithAtkAndDef
+  / SBMultiplier
 
 // Note: This goes before AdditionalCrit so that it can be greedy with matching "damage"
 AdditionalCritDamage
@@ -221,8 +255,11 @@ OverrideElement
     return { overrideElement };
   }
 
-Piercing
-  = "ignores" _ ("DEF" / "RES") { return { isPiercing: true }; }
+PiercingDef
+  = "ignores" _ "DEF" { return { isPiercingDef: true }; }
+
+PiercingRes
+  = "ignores" _ "RES" { return { isPiercingRes: true }; }
 
 ScaleWithAtkAndDef
   = "damage" _ "scales" _ "with" _ "both" _ "ATK" _ "and" _ "DEF" { return { scalesWithAtkAndDef: true }; }
@@ -237,11 +274,11 @@ SBMultiplier
 // Drain HP, recoil HP, HP-based attacks
 
 DrainHp
-  = ("heals" _ "to"? / "restores" _ "HP" _ "to") _ "the" _ "user" _ "for" _ healPercent:Integer "%" _ "of" _ "the" _ "damage" _ "dealt" {
-    return {
+  = ("heals" _ "to"? / "restores" _ "HP" _ "to") _ "the" _ "user" _ "for" _ healPercent:Integer "%" _ "of" _ "the" _ "damage" _ "dealt" _ condition:Condition? {
+    return util.addCondition({
       type: 'drainHp',
-      healPercent
-    }
+      healPercent,
+    }, condition);
   }
 
 RecoilHp
@@ -253,7 +290,7 @@ RecoilHp
       type: 'recoilHp',
       damagePercent,
       maxOrCurrent,
-    }, condition)
+    }, condition);
   }
 
 GravityAttack
@@ -434,6 +471,7 @@ StatusName "status effect"
     // Stat mods in particular have a distinctive format.
     ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
   / GenericName
+  / "?"
   ) {
     return text();
   }
@@ -539,8 +577,8 @@ CastTimePerUse
   = "cast" _ "time" _ "-" castTime:DecimalNumber _ "for" _ "each" _ "previous" _ "use" { return { type: 'castTimePerUse', castTimePerUse: -castTime }; }
 
 // Hit rate not associated with an attack
-StandaloneHitRate
-  = hitRate:HitRate { return Object.assign({ type: 'hitRate' }, hitRate); }
+StandaloneAttackExtra
+  = extra:AttackExtra { return { type: 'attackExtra', extra }; }
 
 
 // --------------------------------------------------------------------------
@@ -561,18 +599,26 @@ CharacterNameList
 AnySkillName
   = GenericName
 
-// Generic names. Developed for statuses, so the rules may need revision for
-// other uses.
-// Generic status names - somewhat complex expression to match those
+// Generic names.  Somewhat complex expression to match these.  Developed for
+// statuses, so the rules may need revision for other uses.
 GenericName
   = (
-    (GenericNameWord / IntegerSlashList '%' !(_ "hit" _ "rate"))
+    (GenericNameWord
+      // Names can start with numbers, but require a word after that, so that
+      // "100%" doesn't get parsed as a status name by itself.
+      / IntegerSlashList '%' !(_ "hit" _ "rate") _ GenericNameWord
+      / SignedIntegerSlashList [%+]? _ GenericNameWord
+    )
     (_
       (
         GenericNameWord
 
-        // Articles, etc., are okay, but use &' ' to make sure they're at a word bounary.
-        / (('in' / 'or' / 'of' / 'the' / 'with' / '&' /'a') & ' ')
+        // Articles, etc., are okay, but use &' ' to make sure they're at a
+        // word bounary.
+        / (('in' / 'or' / 'of' / 'the' / 'with' / '&' / 'a') & ' ')
+        // "for" in particular needs extra logic to ensure that it's part of
+        // status words instead of part of the duration.
+        / "for" _ GenericNameWord
 
         / SignedIntegerSlashList [%+]?
         / [=*]? IntegerSlashList [%+]?
@@ -638,6 +684,7 @@ Condition
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
   / "scaling" _ "with" _ status:StatusName _ "level" { return { type: 'scaleWithStatusLevel', status }; }
+  / "at" _ status:StatusName _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusName _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
 
@@ -814,6 +861,10 @@ SignedIntegerSlashList "slash-separated signed integers"
 
 IntegerWithNegativesSlashList "slash-separated integers (optionally negative)"
   = head:IntegerWithNegatives tail:('/' IntegerWithNegatives)* { return util.pegSlashList(head, tail); }
+
+
+IntegerAndList "integers separated with commas and 'and'"
+  = head:Integer tail:((','? _ 'and' _ /',' _) Integer)* { return util.pegSlashList(head, tail); }
 
 
 Occurrence

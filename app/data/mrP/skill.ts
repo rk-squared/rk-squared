@@ -38,6 +38,7 @@ import {
 import { checkPureRage } from './rage';
 import * as skillParser from './skillParser';
 import {
+  checkForAndStatuses,
   describeStats,
   formatDuration,
   parseEnlirStatus,
@@ -130,8 +131,8 @@ function describeChain({ chainType, fieldBonus, max }: types.Chain): string {
   return chain;
 }
 
-function describeDrainHp({ healPercent }: types.DrainHp): string {
-  return `heal ${healPercent}% of dmg`;
+function describeDrainHp({ healPercent, condition }: types.DrainHp): string {
+  return `heal ${healPercent}% of dmg` + appendCondition(condition);
 }
 
 function describeHeal(skill: EnlirSkill, { amount, condition }: types.Heal): string {
@@ -481,6 +482,7 @@ function processStatus(
   const statuses = effect.statuses
     .reduce(shareStatusWho, [])
     .filter(shouldIncludeStatus(skill))
+    .reduce(checkForAndStatuses, [])
     .reduce(shareStatusDurations, [])
     .reduce(slashMergeElementStatuses, [])
     .sort(sortStatus);

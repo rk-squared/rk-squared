@@ -8,6 +8,7 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirSkillType,
+  isBurstCommand,
   isNat,
   isSoulBreak,
 } from '../enlir';
@@ -104,7 +105,11 @@ export function describeDamage(
   attackMultiplier = forceScalar(attackMultiplier, 'describeDamage attackMultiplier');
   numAttacks = forceScalar(numAttacks, 'describeDamage numAttacks');
   const multiplier = attackMultiplier * numAttacks;
-  return toMrPFixed(multiplier) + (includeNumAttacks ? addNumAttacks(numAttacks) : '');
+  if (multiplier === 0.0) {
+    return toMrPFixed(multiplier);
+  } else {
+    return toMrPFixed(multiplier) + (includeNumAttacks ? addNumAttacks(numAttacks) : '');
+  }
 }
 
 function isRandomNumAttacks(numAttacks: types.NumAttacks): numAttacks is types.RandomNumAttacks {
@@ -173,28 +178,21 @@ function describeOr(attack: types.Attack): [string | undefined, string | undefin
   ];
 }
 
-export function describeDamageType(skill: EnlirSkill): MrPDamageType;
+export function describeSkillDamageType(skill: EnlirSkill, attack: types.Attack): MrPDamageType {
+  let { formula, type } = skill;
+  // For hybrid, report the main damage as the first hybrid type (usually
+  // physical), and use separate fields for the magical alternative.
+  if (attack.isHybrid && skill.typeDetails) {
+    formula = 'Hybrid';
+    type = skill.typeDetails[0];
+  }
+  return describeDamageType(formula, type);
+}
+
 export function describeDamageType(
   formula: EnlirFormula | null,
   type: EnlirSkillType | null,
-): MrPDamageType;
-
-export function describeDamageType(
-  skillOrFormula: EnlirSkill | EnlirFormula | null,
-  type?: EnlirSkillType | null,
 ): MrPDamageType {
-  let formula: EnlirFormula | null;
-  if (typeof skillOrFormula === 'object' && skillOrFormula != null) {
-    formula = skillOrFormula.formula;
-    type = skillOrFormula.type;
-    // For hybrid, report the main damage as the first hybrid type (usually
-    // physical), and use separate fields for the magical alternative.
-    if (formula === 'Hybrid' && skillOrFormula.typeDetails) {
-      type = skillOrFormula.typeDetails[0];
-    }
-  } else {
-    formula = skillOrFormula;
-  }
   if (formula === 'Hybrid' && type === 'NAT') {
     // For hybrid with no further type details, assume physical.
     return 'phys';
@@ -218,25 +216,56 @@ export function describeDamageType(
   }
 }
 
-function describeHybridDamageType(skill: EnlirSkill): MrPDamageType | undefined {
-  if (skill.formula !== 'Hybrid') {
+function describeHybridDamageType(
+  skill: EnlirSkill,
+  attack: types.Attack,
+): MrPDamageType | undefined {
+  if (!attack.isHybrid) {
     return undefined;
   } else if (skill.typeDetails && skill.typeDetails.length === 2) {
     return describeDamageType('Magical', skill.typeDetails[1]);
   } else {
-    // Fall back to magical.
-    // logger.warn(`Missing type details for hybrid skill ${skill.name}`);
+    // Fall back to magical.  Hack: Don't warn for old burst commands.
+    if (!isBurstCommand(skill)) {
+      logger.warn(`Missing type details for hybrid skill ${skill.name}`);
+    }
     return 'magic';
   }
 }
 
-function isHybridPiercing(skill: EnlirSkill): boolean {
-  return (
+function isPiercingByType(attack: types.Attack, type: EnlirSkillType): boolean {
+  if (type === 'PHY') {
+    return !!attack.isPiercingDef;
+  } else if (type !== '?') {
+    return !!attack.isPiercingRes;
+  } else {
+    return false;
+  }
+}
+
+function isPiercing(skill: EnlirSkill, attack: types.Attack): boolean {
+  const type = skill.typeDetails ? skill.typeDetails[0] : skill.type;
+  if (!type) {
+    return false;
+  } else {
+    return isPiercingByType(attack, type);
+  }
+}
+
+function isHybridPiercing(skill: EnlirSkill, attack: types.Attack): boolean {
+  // Hard-coded check, useful for older or less consistent data.
+  const manualCheck =
     skill.formula === 'Hybrid' &&
     skill.typeDetails != null &&
     skill.typeDetails.length === 2 &&
-    skill.typeDetails[1] === 'NIN'
-  );
+    skill.typeDetails[1] === 'NIN';
+  const type =
+    skill.typeDetails != null && skill.typeDetails.length === 2 ? skill.typeDetails[1] : null;
+  const autoCheck = type ? isPiercingByType(attack, type) : false;
+  if (manualCheck !== autoCheck) {
+    logger.warn(`Inconsistent hybrid piercing logic for ${skill.name}`);
+  }
+  return autoCheck;
 }
 
 function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): string {
@@ -286,19 +315,19 @@ function describeSimpleFollowedBy(skill: EnlirSkill, attack: types.Attack) {
 
   let damage = '';
 
-  const hybridDamageType = describeHybridDamageType(skill);
+  const hybridDamageType = describeHybridDamageType(skill, attack);
   // Skip AoE - assumed to be the same as the parent.
   damage += attack.isAoE ? 'AoE ' : '';
   damage += attackDamage.randomChances ? attackDamage.randomChances + ' ' : '';
   // Normally skip damage type - assumed to be the same as the parent.
   damage += hybridDamageType ? formatDamageType(attackDamage.damageType, true) : '';
-  damage += attack.isPiercing ? '^' : '';
+  damage += isPiercing(skill, attack) ? '^' : '';
   damage += attackDamage.damage;
 
   if (hybridDamageType) {
     damage += ' or ';
     damage += formatDamageType(hybridDamageType, true);
-    damage += isHybridPiercing(skill) ? '^' : '';
+    damage += isHybridPiercing(skill, attack) ? '^' : '';
     damage += attackDamage.hybridDamage;
   }
 
@@ -383,10 +412,6 @@ function describeAttackDamage(
   }
   // Set something to avoid type errors.
   attackMultiplier = attackMultiplier || NaN;
-
-  if (!!attack.isHybrid !== (skill.formula === 'Hybrid')) {
-    logger.warn(`Skill ${skill.name} hybrid attack does not match formula`);
-  }
 
   if (
     hybridMultiplier == null &&
@@ -493,7 +518,7 @@ function describeAttackDamage(
   return {
     damageType: attack.overrideSkillType
       ? describeDamageType(null, attack.overrideSkillType)
-      : describeDamageType(skill),
+      : describeSkillDamageType(skill, attack),
 
     numAttacks,
     attackMultiplier,
@@ -534,19 +559,19 @@ export function describeAttack(
 
   let damage = '';
 
-  const hybridDamageType = describeHybridDamageType(skill);
+  const hybridDamageType = describeHybridDamageType(skill, attack);
   const abbreviate = opt.abbreviate || opt.abbreviateDamageType || !!hybridDamageType;
   const simpleFollowedBy = attack.followedBy && isSimpleFollowedBy(attack);
   damage += attack.isAoE ? 'AoE ' : '';
   damage += attackDamage.randomChances ? attackDamage.randomChances + ' ' : '';
   damage += formatDamageType(attackDamage.damageType, abbreviate);
-  damage += attack.isPiercing ? '^' : '';
+  damage += isPiercing(skill, attack) ? '^' : '';
   damage += attackDamage.damage;
 
   if (hybridDamageType) {
     damage += ' or ';
     damage += formatDamageType(hybridDamageType, abbreviate);
-    damage += isHybridPiercing(skill) ? '^' : '';
+    damage += isHybridPiercing(skill, attack) ? '^' : '';
     damage += attackDamage.hybridDamage;
   }
 
@@ -621,7 +646,7 @@ export function describeAttack(
   }
   // Omit ' (SUM)' for Summoning school; it seems redundant.
   damage += skill.type === 'SUM' && school !== 'Summoning' ? ' (SUM)' : '';
-  damage += isNat(skill) ? ' (NAT)' : '';
+  damage += isNat(skill) && !attack.isHybrid ? ' (NAT)' : '';
 
   if (attack.followedBy && !simpleFollowedBy) {
     damage += ', then ' + describeAttack(skill, attack.followedBy, opt);

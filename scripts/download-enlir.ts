@@ -120,7 +120,26 @@ const shouldAlwaysSkip = (col: string) => col === '✓' || col === 'Img';
 // "Anima?" for legend materia and "Anima" for soul breaks.
 const isAnima = (col: string) => col === 'Anima' || col === 'Anima?';
 
-function convertAbilities(rows: any[]): any[] {
+function checkSkillNotes(
+  notes: NotesRowData[] | undefined,
+  field: string,
+  i: number,
+  j: number,
+  item: any,
+) {
+  const cellNote = _.get(notes, [i, 'values', j, 'note']);
+  if (cellNote) {
+    if (field === 'school') {
+      item['schoolDetails'] = cellNote.split(' / ');
+    } else if (field === 'type') {
+      item['typeDetails'] = cellNote.split('/');
+    } else {
+      item[field + 'Note'] = cellNote;
+    }
+  }
+}
+
+function convertAbilities(rows: any[], notes?: NotesRowData[]): any[] {
   const abilities = [];
 
   for (let i = 1; i < rows.length; i++) {
@@ -171,6 +190,8 @@ function convertAbilities(rows: any[]): any[] {
       } else {
         item[field] = toCommon(field, rows[i][j]);
       }
+
+      checkSkillNotes(notes, field, i, j, item);
     }
 
     abilities.push(item);
@@ -265,6 +286,12 @@ function convertCharacters(rows: any[]): any[] {
     if (item['name'] == null && (item['id'] == null || Number.isNaN(item['id']))) {
       // A footer row indicating an upcoming balance change, and not an actual
       // character.
+      continue;
+    }
+    if (item['realm'] === 'DB Only' || item['realm'] === 'SB Only') {
+      // Skip "DB Only" (typo for SB Only?) characters like
+      // Shadowsmith and Shared.
+      logger.debug('Skipping ' + item['name'] + ' (SB Only)');
       continue;
     }
 
@@ -612,16 +639,7 @@ function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean =
         throw e;
       }
 
-      const cellNote = _.get(notes, [i, 'values', j, 'note']);
-      if (cellNote) {
-        if (field === 'school') {
-          item['schoolDetails'] = cellNote.split(' / ');
-        } else if (field === 'type') {
-          item['typeDetails'] = cellNote.split('/');
-        } else {
-          item[field + 'Note'] = cellNote;
-        }
-      }
+      checkSkillNotes(notes, field, i, j, item);
     }
 
     skills.push(item);
@@ -755,6 +773,7 @@ const dataTypes: DataType[] = [
   {
     sheet: 'Synchro',
     localName: 'synchro',
+    includeNotes: true,
     converter: convertAbilities,
   },
   {

@@ -90,8 +90,6 @@ export const statusAlias: AliasMap = {
     'Magical Quick Cast': 'fastzap',
     'Magical High Quick Cast': 'hi fastzap',
 
-    'Instant ATB 1': 'full ATB',
-
     'Low Regen': 'Regen (lo)',
     'Medium Regen': 'Regen (med)',
     'High Regen': 'Regen (hi)',
@@ -143,6 +141,9 @@ export const statusAlias: AliasMap = {
     'Physical Quick Cast {X}': 'phys fastcast {X}',
     'Physical High Quick Cast {X}': 'phys hi fastcast {X}',
     'Physical Instant Cast {X}': 'phys instacast {X}',
+
+    'Instant ATB {X}': 'instant ATB {X}',
+    'Quick ATB {X}': '2x ATB {X}',
 
     'Magical Blink {X}': 'Magic blink {X}',
     'Physical Blink {X}': 'Phys blink {X}',

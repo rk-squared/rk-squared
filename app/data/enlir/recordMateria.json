@@ -7342,32 +7342,32 @@
   {
     "realm": "Type-0",
     "character": "Trey",
-    "name": "Hidden Rivalry",
+    "name": "Competitive Heart",
     "effect": "PHY attacks deal 10% more damage when equipping a bow",
     "unlockCriteria": "Use Trey's Memory Crystal",
     "nameJp": "内に秘めし対抗意識",
     "id": 111600140,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Trey",
-    "name": "Class Zero's Brain",
+    "name": "Class Zero Brainiac",
     "effect": "Sharpshooter abilities deal 30% more damage",
     "unlockCriteria": "Use Trey's Memory Crystal II, chance to obtain with Trey in party",
     "nameJp": "0組の知恵袋",
     "id": 111600141,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Trey",
-    "name": "Master of Knowledge",
+    "name": "Wisdom Within",
     "effect": "13% chance to dualcast Sharpshooter abilities",
     "unlockCriteria": "Bring Trey to level 99",
     "nameJp": "知の力を司る者",
     "id": 111600142,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
@@ -7702,7 +7702,7 @@
   {
     "realm": "Beyond",
     "character": "Serafie",
-    "name": "Grymoire Fairy",
+    "name": "Pixie of Grymoire",
     "effect": "Increases Wind damage dealt by 10%",
     "unlockCriteria": "Use Serafie's Memory Crystal",
     "nameJp": "グリモワルの妖精",
@@ -7712,7 +7712,7 @@
   {
     "realm": "Beyond",
     "character": "Serafie",
-    "name": "Talkative Fairy",
+    "name": "Nonchalant Airs",
     "effect": "MAG +13% when equipping an instrument",
     "unlockCriteria": "Use Serafie's Memory Crystal II, chance to obtain with Serafie in party",
     "nameJp": "気だるげなしゃべり方",
@@ -7722,7 +7722,7 @@
   {
     "realm": "Beyond",
     "character": "Serafie",
-    "name": "Garden Gem Caretaker",
+    "name": "Prismarium Keeper",
     "effect": "40% chance to double Experience gained at the end of the battle",
     "unlockCriteria": "Bring Serafie to level 99",
     "nameJp": "ガーデンジェムの管理人",

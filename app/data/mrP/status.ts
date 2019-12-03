@@ -58,7 +58,8 @@ export function describeStats(stats: string[]): string {
   return stats
     .map(i => i.toUpperCase())
     .join('/')
-    .replace(/^ATK\/DEF\/MAG\/RES/, 'A/D/M/R');
+    .replace(/^ATK\/DEF\/MAG\/RES/, 'A/D/M/R')
+    .replace(/^ATK\/MAG\/DEF\/RES/, 'A/D/M/R');
 }
 
 function parseWho(who: string): string | undefined {
@@ -1218,8 +1219,11 @@ const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB point
  * it and how it should be shown.
  */
 export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnlirStatus {
-  const isUnconfirmed = status.endsWith('?');
-  status = status.replace(/\?$/, '');
+  let isUnconfirmed = false;
+  if (status !== '?') {
+    isUnconfirmed = status.endsWith('?');
+    status = status.replace(/\?$/, '');
+  }
 
   const enlirStatus = getEnlirStatusByName(status);
   if (!enlirStatus && !hideUnknownStatusWarning(status)) {
@@ -1248,7 +1252,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
       description = 'EX: ' + description;
     }
     if (isAwoken) {
-      description = status + ': ' + description;
+      description = status.replace(/ Mode$/, '') + ': ' + description;
     }
   }
 
@@ -1541,6 +1545,28 @@ function reduceStatuses(
 
   accumulator.push(currentValue);
   return accumulator;
+}
+
+/**
+ * Reducer function for handling statuses like "Beast and Father."  If a status
+ * like that is split into two items, this function handles recognizing it as
+ * one status and re-merging it.
+ */
+export function checkForAndStatuses(
+  accumulator: types.StatusWithPercent[],
+  currentValue: types.StatusWithPercent,
+) {
+  return reduceStatuses(
+    (a: types.StatusWithPercent, b: types.StatusWithPercent) => {
+      if (typeof a.status !== 'string' || typeof b.status !== 'string') {
+        return null;
+      }
+      const thisAndThat = a.status + ' and ' + b.status;
+      return enlir.statusByName[thisAndThat] ? thisAndThat : null;
+    },
+    accumulator,
+    currentValue,
+  );
 }
 
 const elementStatuses = [

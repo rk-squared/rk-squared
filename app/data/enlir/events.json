@@ -10043,8 +10043,8 @@
   {
     "eventName": "Monster Keeper",
     "realm": null,
-    "glDate": null,
-    "jpDate": "2019-04-01",
+    "glDate": "2019-10-30",
+    "jpDate": "2019-04-02",
     "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,
@@ -10056,7 +10056,7 @@
   {
     "eventName": "Fat Black Chocobo Event: Water",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-10-17",
     "jpDate": "2019-04-05",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -10108,31 +10108,25 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Raise the Vermilion Banner",
+    "eventName": "Crimson Flag Rising",
     "realm": "Type-0",
-    "glDate": null,
+    "glDate": "2019-10-24",
     "jpDate": "2019-04-19",
     "type": "Challenge Event",
     "heroRecords": [
       "Trey",
       "Ace",
-      "Cinque",
-      "Rem",
-      "Queen"
+      "Cinque"
     ],
     "memoryCrystals1": [
       "Trey",
       "Ace",
-      "Cinque",
-      "Rem",
-      "Queen"
+      "Cinque"
     ],
     "memoryCrystals2": [
       "Trey",
       "Ace",
-      "Cinque",
-      "Rem",
-      "Queen"
+      "Cinque"
     ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
@@ -10141,7 +10135,7 @@
   {
     "eventName": "Magicite: Titan",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-11-13",
     "jpDate": "2019-04-26",
     "type": "Magicite Dungeon",
     "heroRecords": null,
@@ -10154,7 +10148,7 @@
   {
     "eventName": "Fat Black Chocobo Event: Wind",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-11-14",
     "jpDate": "2019-04-30",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -10165,9 +10159,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Dainty Dancer",
+    "eventName": "Dancing Warrior",
     "realm": "VI",
-    "glDate": null,
+    "glDate": "2019-10-31",
     "jpDate": "2019-05-03",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10192,7 +10186,7 @@
   {
     "eventName": "Dungeon Update #62 (IV:TAY, XIII-2)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-11-11",
     "jpDate": "2019-05-08",
     "type": "Dungeons Update",
     "heroRecords": null,
@@ -10203,9 +10197,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Fairy of Grymoire",
+    "eventName": "Pixie of Grymoire ",
     "realm": "Beyond",
-    "glDate": null,
+    "glDate": "2019-11-07",
     "jpDate": "2019-05-10",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10231,9 +10225,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Windswept Hunting Festival",
+    "eventName": "Howling Tempest: The Grand Hunt",
     "realm": "IX",
-    "glDate": null,
+    "glDate": "2019-11-21",
     "jpDate": "2019-05-17",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10283,7 +10277,7 @@
   {
     "eventName": "Fat Black Chocobo Event: Earth",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-11-14",
     "jpDate": "2019-05-31",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -10296,7 +10290,7 @@
   {
     "eventName": "Magicite: Ramuh",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-12-04",
     "jpDate": "2019-05-31",
     "type": "Magicite Dungeon",
     "heroRecords": null,
@@ -10551,6 +10545,19 @@
     "abilitiesAwarded": null
   },
   {
+    "eventName": "Magicite: Ifrit",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-07-31",
+    "type": "Magicite Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
     "eventName": "Trailing Spira's Dream",
     "realm": "X",
     "glDate": null,
@@ -10651,6 +10658,19 @@
     "abilitiesAwarded": null
   },
   {
+    "eventName": "Magicite: Shiva",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-08-30",
+    "type": "Magicite Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
     "eventName": "Walking with Espers",
     "realm": "VI",
     "glDate": null,
@@ -10698,6 +10718,19 @@
     "abilitiesAwarded": null
   },
   {
+    "eventName": "Dungeon Update #66 (IV:TAY, VII:DoC)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-09-11",
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
     "eventName": "Awakening from Ignorance",
     "realm": "IX",
     "glDate": null,
@@ -10729,11 +10762,11 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Magicite: Shiva",
+    "eventName": "5th Anniversary Festival",
     "realm": null,
     "glDate": null,
-    "jpDate": "2019-09-18",
-    "type": "Magicite Dungeon",
+    "jpDate": "2019-09-25",
+    "type": "Festival",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -10742,11 +10775,11 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "5th Anniversary Festival",
+    "eventName": "Magicite: Valefor",
     "realm": null,
     "glDate": null,
-    "jpDate": "2019-09-25",
-    "type": "Festival",
+    "jpDate": "2019-09-30",
+    "type": "Magicite Dungeon",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -10787,6 +10820,163 @@
     "realm": "I",
     "glDate": null,
     "jpDate": "2019-10-04",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dungeon Update #67 (IV:TAY)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-10-09",
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Where True Love Lies",
+    "realm": "VI",
+    "glDate": null,
+    "jpDate": "2019-10-11",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Prideful Sword",
+    "realm": "VII",
+    "glDate": null,
+    "jpDate": "2019-10-18",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Fate Defying Innocence",
+    "realm": "Type-0",
+    "glDate": null,
+    "jpDate": "2019-10-25",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Cinque",
+      "Seven",
+      "King",
+      "Cater"
+    ],
+    "memoryCrystals1": [
+      "Cinque",
+      "Seven",
+      "King",
+      "Cater"
+    ],
+    "memoryCrystals2": [
+      "Cinque",
+      "Seven",
+      "King",
+      "Cater"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Magicite: Alexander",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-10-30",
+    "type": "Magicite Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dark Lunarian Legacy",
+    "realm": "IV",
+    "glDate": null,
+    "jpDate": "2019-10-31",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Fusoya",
+      "Golbez",
+      "Cecil (Dark Knight)"
+    ],
+    "memoryCrystals1": [
+      "Fusoya",
+      "Golbez",
+      "Cecil (Dark Knight)"
+    ],
+    "memoryCrystals2": [
+      "Fusoya",
+      "Golbez",
+      "Cecil (Dark Knight)"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Fat Black Chocobo: A Dark Forgery",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-11-08",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "A Father's Blues",
+    "realm": "XIII",
+    "glDate": null,
+    "jpDate": "2019-11-15",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Seeker of the Void",
+    "realm": "V",
+    "glDate": null,
+    "jpDate": "2019-11-22",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Fat Black Chocobo: A Glittering Forgery",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-11-30",
     "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,

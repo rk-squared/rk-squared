@@ -78,6 +78,8 @@ export type EnlirEventType =
   | 'Survival Event'
   | 'Torment Dungeon';
 
+// Note: Hybrid BLK/WHT or SUM/WHT skills may use Magical instead of Hybrid.
+// See, e.g., Exdeath's Double Hole record board ability.
 export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
 export type EnlirRelicType =
@@ -617,7 +619,7 @@ function applyPatch<T>(
 
 /**
  * HACK: Patch Enlir data to make it easier for our text processing.
- * FIXME: See how many of these can be removed now that we have a real parser
+ * FIXME: See if any of these can be removed as we continue to improve parsing
  */
 function patchEnlir() {
   // Pluto Knight Triblade is a very difficult effect to parse.  By revising its
@@ -678,24 +680,16 @@ function patchEnlir() {
 
   // Update Enna to resemble Gladiolus and Squall.  TODO: More consistency
   applyPatch(
-    enlir.statusByName,
-    'God of Creation Mode',
-    mode => mode.effects === 'Casts Whimsical Crash after using 3 Earth attacks',
-    mode => {
-      mode.effects = mode.effects + ', removed after triggering';
-    },
-  );
-  applyPatch(
     enlir.otherSkillsByName,
-    'Whimsical Crash',
+    'Fickle Crush',
     crash =>
       crash.effects ===
       '3/5/15 single attacks (1.20 each) if the user dealt 0/72001/240001 damage ' +
-        'with Earth attacks during the status, removes God of Creation Mode. ' +
+        'with Earth attacks during the status, removes Creator Mode. ' +
         'Additional one single attack (17.30) capped at 99999 if the final damage threshold was met',
     crash => {
       crash.effects =
-        '3/5/15 single attacks (1.20 each) if 0/72001/240001 damage was dealt during the status. ' +
+        '3/5/15 single attacks (1.20 each) if 0/72001/240001 damage was dealt during the status, removes Creator Mode. ' +
         'Additional one single attack (17.30) capped at 99999 if 240001 damage was dealt during the status';
     },
   );
@@ -744,21 +738,6 @@ function patchEnlir() {
     strike => {
       strike.effects =
         'Fifteen single attacks (0.60 each), grants Major Buff Ice, Major Buff Earth, Major Buff Lightning, Awoken Spellblade, Damage Cap +10000 to the user, grants 50% Critical to all allies, grants High Quick Cast 1/2/2 to all allies if 1/2/3 of Kelger/Galuf/Dorgann are alive, grants Extended 100% Critical and Critical Damage +50% to all allies if Kelger & Galuf & Dorgann are alive';
-    },
-  );
-
-  // A purely conditional attack - we may not even have an Enlir format for
-  // this.  The format chosen by the spreadsheet is probably actually intended
-  // for threshold attacks, but we'll make it work.
-  applyPatch(
-    enlir.otherSkillsByName,
-    'Awoken Runic Blade',
-    runicAwakening =>
-      runicAwakening.effects ===
-      'Grants Magical Blink 2 to the user, five single attacks (0.52 each) if user has Magical Blink 1/2',
-    runicAwakening => {
-      runicAwakening.effects =
-        'Five single attacks (0.52 each) if user has Magical Blink 1/2, grants Magical Blink 2 to the user';
     },
   );
 
@@ -889,36 +868,6 @@ function patchEnlir() {
     },
   );
 
-  // These may be inconsistencies in the spreadsheet - Enlir normally instead
-  // lists such things as "All enemies," with the stat mods first.
-  // TODO: Verify these against JSON and, where possible, update spreadsheet to make them unnecessary
-  applyPatch(
-    enlir.soulBreaks,
-    '23350002',
-    waltz =>
-      waltz.target === 'All allies' &&
-      waltz.effects ===
-        'Grants HP Stock (2000), ATK, DEF, MAG and RES -40% to all enemies for 25 seconds, grants Haste and Burst Mode to the user',
-    waltz => {
-      waltz.target = 'All enemies';
-      waltz.effects =
-        'ATK, DEF, MAG and RES -40% for 25 seconds, grants HP Stock (2000) to all allies, grants Haste and Burst Mode to the user';
-    },
-  );
-  applyPatch(
-    enlir.soulBreaks,
-    '23330001',
-    stasis =>
-      stasis.target === 'All allies' &&
-      stasis.effects ===
-        'Grants Magical Blink 1 and Instant Cast 1, ATK, DEF, MAG and RES -70% to all enemies for 8 seconds',
-    stasis => {
-      stasis.target = 'All enemies';
-      stasis.effects =
-        'ATK, DEF, MAG and RES -70% for 8 seconds, grants Magical Blink 1 and Instant Cast 1 to all allies';
-    },
-  );
-
   // Make the Odin 4* ability resemble a more standard status ailment.
   applyPatch(
     enlir.abilitiesByName,
@@ -949,6 +898,39 @@ function patchEnlir() {
       for (const orb of bahamutOrbs) {
         ability.orbs[orb][0] = bahamutV.orbs[orb][0];
       }
+    },
+  );
+
+  // Some Synchro skills are weird and hard to parse:
+  // Dk.Cecil's SASB chase is apparently trying to say that it's -1 Gehenna
+  // only if it's at Gehenna levels 1 and 2, but it's simpler to avoid that.
+  applyPatch(
+    enlir.otherSkillsByName,
+    'Shadow Chaser',
+    ability =>
+      ability.effects ===
+      'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
+        'heals the user for 20% of the damage dealt at Gehenna levels 1 and 2 ' +
+        'and causes -1 Gehenna to the user, 100% hit rate',
+    ability => {
+      ability.effects =
+        'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
+        'heals the user for 20% of the damage dealt at Gehenna levels 1 and 2,' +
+        'causes -1 Gehenna to the user, 100% hit rate';
+    },
+  );
+  // Shadow's command is very unique and flavorful, but it becomes much simpler
+  // if we omit the special effects at 0 blinks; those have little in-game
+  // effect.
+  applyPatch(
+    enlir.synchroCommands,
+    '30549323',
+    ability =>
+      ability.effects ===
+      '1 ranged or 4/8 single attacks (0.80 each) and grants Physical Blink 1/1/0 if the user has Physical Blink 0/1/2, 100% hit rate at Physical Blink 0',
+    ability => {
+      ability.effects =
+        '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 to the user';
     },
   );
 }
@@ -1068,8 +1050,18 @@ export function isSynchroSoulBreak(sb: EnlirSoulBreak): boolean {
   return sb.tier === 'SASB';
 }
 
+export function isBurstCommand(skill: EnlirSkill): skill is EnlirBurstCommand {
+  return (
+    'character' in skill && 'source' in skill && !isBraveCommand(skill) && !isSynchroCommand(skill)
+  );
+}
+
 export function isBraveCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
   return 'brave' in skill;
+}
+
+export function isSynchroCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
+  return 'synchroAbilitySlot' in skill;
 }
 
 export function isSharedSoulBreak(sb: EnlirSoulBreak): boolean {
@@ -1224,5 +1216,7 @@ export function getNormalSBPoints(ability: EnlirAbility): number {
 }
 
 export function isNat(skill: EnlirSkill): boolean {
+  // NOTE: This does not detect the case where a hybrid WHT/BLK or WHT/SUM
+  // skill lists its formula as Magical; see comments on EnlirFormula.
   return skill.type === 'NAT' && skill.formula !== null && skill.formula !== 'Hybrid';
 }

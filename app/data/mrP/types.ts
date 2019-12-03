@@ -131,7 +131,8 @@ export interface AttackExtras {
 
   overrideElement?: EnlirElement;
 
-  isPiercing?: boolean;
+  isPiercingDef?: boolean;
+  isPiercingRes?: boolean;
   scalesWithAtkAndDef?: boolean;
   sbMultiplierChange?: number;
 }
@@ -142,6 +143,7 @@ export interface AttackExtras {
 export interface DrainHp {
   type: 'drainHp';
   healPercent: number;
+  condition?: Condition;
 }
 
 export interface RecoilHp {
@@ -348,11 +350,11 @@ export interface CastTimePerUse {
   castTimePerUse: number;
 }
 
-// Special case: This exists during parsing but is merged by mergeHitRates, so
+// Special case: This exists during parsing but is merged by mergeAttackExtras, so
 // higher-level code never sees it as part of EffectClause
-export interface StandaloneHitRate {
-  type: 'hitRate';
-  hitRate: number;
+export interface StandaloneAttackExtra {
+  type: 'attackExtra';
+  extra: AttackExtras;
 }
 
 // --------------------------------------------------------------------------

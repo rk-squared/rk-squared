@@ -30,13 +30,13 @@ Array [
     "character": "Ace",
     "description": "25?% dualcast fire",
     "effect": "25?% chance to dualcast abilities that deal Fire damage",
-    "name": "Improv Magic",
+    "name": "Sleight of Hand",
   },
   Object {
     "character": "Ace",
     "description": "(fire dmg ⤇ 25% for m9.09/3 f+n, ally heal 1.5k HP)",
     "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Fire/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Fire attack",
-    "name": "Commander of Magic",
+    "name": "Wielder of Power",
   },
   Object {
     "character": "Aemo",
@@ -495,6 +495,12 @@ Array [
     "name": "For Dalmasca",
   },
   Object {
+    "character": "Basch",
+    "description": "25% dualcast Knight/Samurai",
+    "effect": "25% chance to dualcast Knight or Samurai abilities",
+    "name": "Captain's Honor",
+  },
+  Object {
     "character": "Beatrix",
     "description": "1.1x holy dmg",
     "effect": "Increases Holy damage dealt by 10%",
@@ -625,6 +631,12 @@ Array [
     "description": "dark infuse at battle start",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "name": "Dark Power",
+  },
+  Object {
+    "character": "Cecil (Dark Knight)",
+    "description": "25% dualcast Darkness",
+    "effect": "25% chance to dualcast Darkness abilities",
+    "name": "Darkness Elite",
   },
   Object {
     "character": "Cecil (Paladin)",
@@ -834,7 +846,7 @@ Array [
     "character": "Cinque",
     "description": "1.2x PHY dmg if using a hammer",
     "effect": "PHY attacks deal 20% more damage when equipping a hammer",
-    "name": "Massive Damage",
+    "name": "Heavy Hitter",
   },
   Object {
     "character": "Cloud",
@@ -1211,7 +1223,7 @@ Array [
   Object {
     "character": "Edge",
     "description": "(Ninja ⤇ 25% for p1.26/3 or m^1201.5/3 wa+f+l+n)",
-    "effect": "25% chance to cast Brash Prince after using a Ninja ability",
+    "effect": "25% chance to cast Unequaled Master after using a Ninja ability",
     "name": "Unequaled Master",
   },
   Object {
@@ -1359,6 +1371,12 @@ Array [
     "name": "Risen Tyrant",
   },
   Object {
+    "character": "Emperor",
+    "description": "dark infuse at battle start",
+    "effect": "Grants Attach Dark at the beginning of the battle",
+    "name": "?",
+  },
+  Object {
     "character": "Enna Kros",
     "description": "1.1x BLK dmg",
     "effect": "BLK attacks deal 10% more damage",
@@ -1413,6 +1431,12 @@ Array [
     "name": "Born of Evil",
   },
   Object {
+    "character": "Exdeath",
+    "description": "1.25x BLK and WHT dmg if using a staff",
+    "effect": "BLK and WHT attacks deal 25% more damage when equipping a staff",
+    "name": "Evil Heart",
+  },
+  Object {
     "character": "Fang",
     "description": "1.1x wind dmg",
     "effect": "Increases Wind damage dealt by 10%",
@@ -1446,7 +1470,7 @@ Array [
     "character": "Fang",
     "description": "25% dualcast Dragoon",
     "effect": "25% chance to dualcast Dragoon abilities",
-    "name": "Tough Kindness",
+    "name": "Brutal Affection",
   },
   Object {
     "character": "Faris",
@@ -1476,7 +1500,7 @@ Array [
     "character": "Faris",
     "description": "wind infuse at battle start",
     "effect": "Grants Attach Wind at the beginning of the battle",
-    "name": "Tomboy Princess",
+    "name": "Disguised Princess",
   },
   Object {
     "character": "Firion",
@@ -1578,7 +1602,7 @@ Array [
     "character": "Freya",
     "description": "(Dancer ⤇ no air time 1 turn)",
     "effect": "Grants No Air Time 1 to the user after using a Dancer ability",
-    "name": "Marvelous Leap",
+    "name": "Astounding Leap",
   },
   Object {
     "character": "Fujin",
@@ -1602,7 +1626,7 @@ Array [
     "character": "Fujin",
     "description": "25% dualcast wind",
     "effect": "25% chance to dualcast abilities that deal Wind damage",
-    "name": "Fully Agree!",
+    "name": "AFFIRMATIVE!",
   },
   Object {
     "character": "Fusoya",
@@ -1770,7 +1794,7 @@ Array [
     "character": "Garnet",
     "description": "fastcast 3 at battle start",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
-    "name": "I Want to Be Your Canary",
+    "name": "Your Canary",
   },
   Object {
     "character": "Gau",
@@ -2325,6 +2349,12 @@ Array [
     "name": "Depths Within",
   },
   Object {
+    "character": "King",
+    "description": "25?% dualcast lgt",
+    "effect": "25?% chance to dualcast abilities that deal Lightning damage",
+    "name": "Reliable Brother",
+  },
+  Object {
     "character": "Kiros",
     "description": "1.1x PHY dmg",
     "effect": "PHY attacks deal 10% more damage",
@@ -2532,7 +2562,7 @@ Array [
     "character": "Leo",
     "description": "earth infuse at battle start",
     "effect": "Grants Attach Earth at the beginning of the battle",
-    "name": "Inborn Warrior",
+    "name": "Born General",
   },
   Object {
     "character": "Leon",
@@ -3339,6 +3369,12 @@ Array [
     "name": "Mischief Lover",
   },
   Object {
+    "character": "Palom",
+    "description": "1.25x BLK dmg if using a rod",
+    "effect": "BLK attacks deal 25% more damage when equipping a rod",
+    "name": "Eager Prodigy",
+  },
+  Object {
     "character": "Papalymo",
     "description": "1.1x fire dmg",
     "effect": "Increases Fire damage dealt by 10%",
@@ -3394,8 +3430,8 @@ Array [
   },
   Object {
     "character": "Porom",
-    "description": "",
-    "effect": "?",
+    "description": "(W.Mag ⤇ 25?% for party h25)",
+    "effect": "25?% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "name": "Older Sister",
   },
   Object {
@@ -3990,7 +4026,7 @@ Array [
     "character": "Rufus",
     "description": "25% dualcast dark",
     "effect": "25% chance to dualcast Dark abilities",
-    "name": "Presidental Prerogative",
+    "name": "Presidential Prerogative",
   },
   Object {
     "character": "Rydia",
@@ -4093,6 +4129,12 @@ Array [
     "description": "Haste, instacast 1 at battle start",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
     "name": "Struggling Father",
+  },
+  Object {
+    "character": "Sazh",
+    "description": "25?% dualcast Machinist",
+    "effect": "25?% chance to dualcast Machinist abilities",
+    "name": "Exceptional Pilot",
   },
   Object {
     "character": "Scott",
@@ -4206,13 +4248,13 @@ Array [
     "character": "Serafie",
     "description": "1.1x wind dmg",
     "effect": "Increases Wind damage dealt by 10%",
-    "name": "Gossip Collector",
+    "name": "Gossip Gatherer",
   },
   Object {
     "character": "Serafie",
     "description": "(wind ⤇ 30% for +10% wind vuln.)",
     "effect": "30% chance to cause Minor Imperil Wind to the target after using a Wind attack on an enemy",
-    "name": "Worldly Mascot",
+    "name": "Mirage Mascot",
   },
   Object {
     "character": "Serah",
@@ -4291,6 +4333,12 @@ Array [
     "description": "(ice ⤇ 20% for +10% ice vuln.)",
     "effect": "20% chance to cause Minor Imperil Ice to the target after using a Ice attack on an enemy",
     "name": "Class Act",
+  },
+  Object {
+    "character": "Seven",
+    "description": "25?% dualcast ice",
+    "effect": "25?% chance to dualcast abilities that deal Ice damage",
+    "name": "Big Sis",
   },
   Object {
     "character": "Seymour",
@@ -4734,19 +4782,19 @@ Array [
     "character": "Trey",
     "description": "1.15x Sharpshooter dmg",
     "effect": "Sharpshooter abilities deal 15% more damage",
-    "name": "Pride of Knowledge",
+    "name": "Boastful Brainiac",
   },
   Object {
     "character": "Trey",
     "description": "35% dualcast Sharpshooter",
     "effect": "35% chance to dualcast Sharpshooter abilities",
-    "name": "Sharpened Mind",
+    "name": "Honed Mind",
   },
   Object {
     "character": "Trey",
     "description": "1.2?x PHY dmg if using a bow",
     "effect": "PHY attacks deal 20?% more damage when equipping a bow",
-    "name": "Knowledgeable Archer",
+    "name": "Accomplished Archer",
   },
   Object {
     "character": "Tyro",
@@ -4956,7 +5004,7 @@ Array [
     "character": "Vincent",
     "description": "fastcast 3 at battle start",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
-    "name": "Beast Aspect",
+    "name": "Beastly Aspect",
   },
   Object {
     "character": "Vivi",

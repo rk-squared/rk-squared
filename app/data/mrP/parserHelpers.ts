@@ -44,12 +44,14 @@ export function addCondition<T>(
   }
 }
 
-export function mergeHitRates(effects: Array<types.EffectClause | types.StandaloneHitRate>) {
+export function mergeAttackExtras(
+  effects: Array<types.EffectClause | types.StandaloneAttackExtra>,
+) {
   const result: types.EffectClause[] = [];
   let lastAttack: types.Attack | undefined;
   let lastAttackIndex: number | undefined;
   for (const i of effects) {
-    if (i.type !== 'hitRate') {
+    if (i.type !== 'attackExtra') {
       if (i.type === 'attack') {
         lastAttack = i;
         lastAttackIndex = result.length;
@@ -57,22 +59,20 @@ export function mergeHitRates(effects: Array<types.EffectClause | types.Standalo
       result.push(i);
     } else {
       if (lastAttack == null || lastAttackIndex == null) {
-        logger.error(`Error checking effects for hit rate: Hit rate but no attack`);
+        logger.error(`Error checking effects for attack extras: Attack extras but no attack`);
       } else {
-        let attack = _.cloneDeep(lastAttack);
-        result[lastAttackIndex] = attack;
+        lastAttack = _.cloneDeep(lastAttack);
+        result[lastAttackIndex] = lastAttack;
 
         // When displayed to the end user, the "followed by" attack's clauses
         // can look like they apply to the whole attack, so we'll put the
         // hit rate there.
+        let attack = lastAttack;
         while (attack.followedBy) {
           attack = attack.followedBy;
         }
 
-        if (attack.hitRate) {
-          logger.error(`Error checking effects for hit rate: Duplicate hit rates`);
-        }
-        attack.hitRate = i.hitRate;
+        Object.assign(attack, i.extra);
       }
     }
   }

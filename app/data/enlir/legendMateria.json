@@ -1249,6 +1249,18 @@
   },
   {
     "realm": "II",
+    "character": "Emperor",
+    "name": "?",
+    "effect": "Grants Attach Dark at the beginning of the battle",
+    "master": "MAG +10",
+    "relic": "Military Bracelet (II)",
+    "nameJp": "手段を選ばぬ独裁者",
+    "id": 201021006,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "II",
     "character": "Hilda",
     "name": "Rebel Commander",
     "effect": "WHT abilities restore 15% more HP",
@@ -1837,6 +1849,18 @@
   },
   {
     "realm": "IV",
+    "character": "Cecil (Dark Knight)",
+    "name": "Darkness Elite",
+    "effect": "25% chance to dualcast Darkness abilities",
+    "master": "ATK +10",
+    "relic": "Soul Sabre (IV)",
+    "nameJp": "暗黒の精鋭",
+    "id": 201040104,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "IV",
     "character": "Cecil (Paladin)",
     "name": "Harmonious Soul",
     "effect": "Reduces damage taken by Holy attacks by 10%",
@@ -2239,7 +2263,7 @@
     "master": "MAG +10",
     "relic": "Sage's Robe (IV)",
     "nameJp": "賢者への憧れ",
-    "id": 201041003,
+    "id": 201040903,
     "anima": null,
     "gl": true
   },
@@ -2283,11 +2307,11 @@
     "realm": "IV",
     "character": "Porom",
     "name": "Older Sister",
-    "effect": "?",
-    "master": "?",
+    "effect": "25?% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "master": "MND +10",
     "relic": "Faerie Tail (IV)",
     "nameJp": "大人びた姉",
-    "id": 201041003,
+    "id": 201041004,
     "anima": null,
     "gl": false
   },
@@ -2391,13 +2415,13 @@
     "realm": "IV",
     "character": "Edge",
     "name": "Unequaled Master",
-    "effect": "25% chance to cast Brash Prince after using a Ninja ability",
+    "effect": "25% chance to cast Unequaled Master after using a Ninja ability",
     "master": "ATK +10",
     "relic": "Shuriken (IV)",
     "nameJp": "破天荒な若様",
     "id": 201041203,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -3002,14 +3026,14 @@
   {
     "realm": "V",
     "character": "Faris",
-    "name": "Tomboy Princess",
+    "name": "Disguised Princess",
     "effect": "Grants Attach Wind at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Thief's Gloves (V)",
     "nameJp": "男装のお姫様",
     "id": 201050904,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -3094,6 +3118,18 @@
     "id": 201051102,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "V",
+    "character": "Exdeath",
+    "name": "Evil Heart",
+    "effect": "BLK and WHT attacks deal 25% more damage when equipping a staff",
+    "master": "MAG +10",
+    "relic": "Chaos Mace (V)",
+    "nameJp": "邪心宿りし大樹",
+    "id": 201051103,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "V",
@@ -4058,14 +4094,14 @@
   {
     "realm": "VI",
     "character": "Leo",
-    "name": "Inborn Warrior",
+    "name": "Born General",
     "effect": "Grants Attach Earth at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Imperial Gloves (VI)",
+    "relic": "Imperial Bracer (VI)",
     "nameJp": "根っからの武人",
     "id": 201061803,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -4478,7 +4514,7 @@
   {
     "realm": "VII",
     "character": "Vincent",
-    "name": "Beast Aspect",
+    "name": "Beastly Aspect",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "master": "ATK +5, MAG +5",
     "relic": "Gauntlet (DoC) (VII)",
@@ -4718,7 +4754,7 @@
   {
     "realm": "VII",
     "character": "Rufus",
-    "name": "Presidental Prerogative",
+    "name": "Presidential Prerogative",
     "effect": "25% chance to dualcast Dark abilities",
     "master": "ATK +10",
     "relic": "Shinra Alpha (VII)",
@@ -5522,14 +5558,14 @@
   {
     "realm": "VIII",
     "character": "Fujin",
-    "name": "Fully Agree!",
+    "name": "AFFIRMATIVE!",
     "effect": "25% chance to dualcast abilities that deal Wind damage",
     "master": "MAG +10",
     "relic": "Platinum Bangle (VIII)",
     "nameJp": "全部肯定！",
     "id": 201081303,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -5774,14 +5810,14 @@
   {
     "realm": "IX",
     "character": "Garnet",
-    "name": "I Want to Be Your Canary",
+    "name": "Your Canary",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Mythril Rod (IX)",
     "nameJp": "君の小鳥になりたい",
     "id": 201090205,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -5954,14 +5990,14 @@
   {
     "realm": "IX",
     "character": "Freya",
-    "name": "Marvelous Leap",
+    "name": "Astounding Leap",
     "effect": "Grants No Air Time 1 to the user after using a Dancer ability",
     "master": "ATK +10",
     "relic": "Ice Lance (IX)",
     "nameJp": "驚異的な跳躍",
     "id": 201090504,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -6405,7 +6441,7 @@
     "nameJp": "目標は優勝",
     "id": 201100303,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -7453,6 +7489,18 @@
   },
   {
     "realm": "XII",
+    "character": "Basch",
+    "name": "Captain's Honor",
+    "effect": "25% chance to dualcast Knight or Samurai abilities",
+    "master": "ATK +10",
+    "relic": "Basch's Gauntlet (XII)",
+    "nameJp": "将軍の武威",
+    "id": 201120403,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XII",
     "character": "Ashe",
     "name": "Regal Bearing",
     "effect": "Increases Lightning damage dealt by 10%",
@@ -7957,6 +8005,18 @@
   },
   {
     "realm": "XIII",
+    "character": "Sazh",
+    "name": "Exceptional Pilot",
+    "effect": "25?% chance to dualcast Machinist abilities",
+    "master": "ATK +10",
+    "relic": "Mythril Bangle (XIII)",
+    "nameJp": "一流の飛空艇乗り",
+    "id": 201130403,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
     "character": "Hope",
     "name": "Maternal Memory",
     "effect": "Increases Holy damage dealt by 10%",
@@ -8066,14 +8126,14 @@
   {
     "realm": "XIII",
     "character": "Fang",
-    "name": "Tough Kindness",
+    "name": "Brutal Affection",
     "effect": "25% chance to dualcast Dragoon abilities",
     "master": "ATK +10",
     "relic": "Wurtzite Bangle (XIII)",
     "nameJp": "乱暴な優しさ",
     "id": 201130605,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -9758,26 +9818,26 @@
   {
     "realm": "Type-0",
     "character": "Ace",
-    "name": "Improv Magic",
+    "name": "Sleight of Hand",
     "effect": "25?% chance to dualcast abilities that deal Fire damage",
     "master": "MAG +10",
-    "relic": "Reed Cloak (Type-0)",
+    "relic": "Armored Cloak (Type-0)",
     "nameJp": "臨機応変の奇術",
     "id": 201600104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Ace",
-    "name": "Commander of Magic",
+    "name": "Wielder of Power",
     "effect": "25% chance to cast an ability (BLK: single, 3x 3.03 magical Fire/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Fire attack",
     "master": "MAG +10",
     "relic": "Ironclad Deck (Type-0)",
     "nameJp": "受け取る力を司る者",
     "id": 201600105,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -10069,6 +10129,18 @@
   },
   {
     "realm": "Type-0",
+    "character": "King",
+    "name": "Reliable Brother",
+    "effect": "25?% chance to dualcast abilities that deal Lightning damage",
+    "master": "ATK +10",
+    "relic": "Ballistic Vest (Type-0)",
+    "nameJp": "頼れる兄貴分",
+    "id": 201600703,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
     "character": "Cinque",
     "name": "Mistress of the Mace",
     "effect": "PHY attacks deal 10% more damage when equipping a hammer",
@@ -10106,14 +10178,14 @@
   {
     "realm": "Type-0",
     "character": "Cinque",
-    "name": "Massive Damage",
+    "name": "Heavy Hitter",
     "effect": "PHY attacks deal 20% more damage when equipping a hammer",
     "master": "ATK +10",
     "relic": "Guardian Armor (Type-0)",
     "nameJp": "大ダメージを好む少女",
     "id": 201600803,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -10150,6 +10222,18 @@
     "id": 201600902,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "Type-0",
+    "character": "Seven",
+    "name": "Big Sis",
+    "effect": "25?% chance to dualcast abilities that deal Ice damage",
+    "master": "MAG +10",
+    "relic": "Frostshield Cloak (Type-0)",
+    "nameJp": "断り切れない性格",
+    "id": 201600903,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "Type-0",
@@ -10298,38 +10382,38 @@
   {
     "realm": "Type-0",
     "character": "Trey",
-    "name": "Pride of Knowledge",
+    "name": "Boastful Brainiac",
     "effect": "Sharpshooter abilities deal 15% more damage",
     "master": null,
     "relic": null,
     "nameJp": "自負する博識",
     "id": 201601400,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Trey",
-    "name": "Sharpened Mind",
+    "name": "Honed Mind",
     "effect": "35% chance to dualcast Sharpshooter abilities",
     "master": null,
     "relic": null,
     "nameJp": "研ぎ澄まされた精神",
     "id": 201601401,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Trey",
-    "name": "Knowledgeable Archer",
+    "name": "Accomplished Archer",
     "effect": "PHY attacks deal 20?% more damage when equipping a bow",
     "master": "ATK +10",
-    "relic": "Trey's Guise (Type-0)",
+    "relic": "Trey's Summer Guise (Type-0)",
     "nameJp": "博雅の名射手",
     "id": 201601402,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "KH",
@@ -10754,25 +10838,25 @@
   {
     "realm": "Beyond",
     "character": "Serafie",
-    "name": "Gossip Collector",
+    "name": "Gossip Gatherer",
     "effect": "Increases Wind damage dealt by 10%",
     "master": null,
     "relic": null,
     "nameJp": "噂話の収集",
     "id": 201903200,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Serafie",
-    "name": "Worldly Mascot",
+    "name": "Mirage Mascot",
     "effect": "30% chance to cause Minor Imperil Wind to the target after using a Wind attack on an enemy",
     "master": null,
     "relic": null,
     "nameJp": "いろんな世界のマスコット",
     "id": 201903201,
     "anima": null,
-    "gl": false
+    "gl": true
   }
 ]
