@@ -953,6 +953,23 @@ function patchEnlir() {
       }
     },
   );
+
+  // Some Synchro skills are unique.
+  applyPatch(
+    enlir.otherSkillsByName,
+    'Shadow Chaser',
+    ability =>
+      ability.effects ===
+      'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
+        'heals the user for 20% of the damage dealt at Gehenna levels 1 and 2 ' +
+        'and causes -1 Gehenna to the user, 100% hit rate',
+    ability => {
+      ability.effects =
+        'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
+        'heals the user for 20% of the damage dealt at Gehenna levels 1 and 2,' +
+        'causes -1 Gehenna to the user, 100% hit rate';
+    },
+  );
 }
 patchEnlir();
 

@@ -143,6 +143,7 @@ export interface AttackExtras {
 export interface DrainHp {
   type: 'drainHp';
   healPercent: number;
+  condition?: Condition;
 }
 
 export interface RecoilHp {

@@ -151,7 +151,7 @@ AttackModifiers
 
 
 MultiplierScaleType
-  = "scaling" _ "with" _ "HP%" { return { type: 'percentHp' }; }
+  = "scaling" _ "with" _ "current"? _ "HP%" { return { type: 'percentHp' }; }
   / "scaling" _ "with" _ "targets" { return { type: 'convergent' }; }
   / "scaling" _ "with" _ stat:Stat { return { type: 'stat', stat }; }
   / "scaling" _ "with" _ "hits" _ "taken" { return { type: 'hitsTaken' }; }
@@ -274,11 +274,11 @@ SBMultiplier
 // Drain HP, recoil HP, HP-based attacks
 
 DrainHp
-  = ("heals" _ "to"? / "restores" _ "HP" _ "to") _ "the" _ "user" _ "for" _ healPercent:Integer "%" _ "of" _ "the" _ "damage" _ "dealt" {
-    return {
+  = ("heals" _ "to"? / "restores" _ "HP" _ "to") _ "the" _ "user" _ "for" _ healPercent:Integer "%" _ "of" _ "the" _ "damage" _ "dealt" _ condition:Condition? {
+    return util.addCondition({
       type: 'drainHp',
-      healPercent
-    }
+      healPercent,
+    }, condition);
   }
 
 RecoilHp
@@ -290,7 +290,7 @@ RecoilHp
       type: 'recoilHp',
       damagePercent,
       maxOrCurrent,
-    }, condition)
+    }, condition);
   }
 
 GravityAttack
@@ -684,6 +684,7 @@ Condition
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
   / "scaling" _ "with" _ status:StatusName _ "level" { return { type: 'scaleWithStatusLevel', status }; }
+  / "at" _ status:StatusName _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusName _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
 
@@ -860,6 +861,10 @@ SignedIntegerSlashList "slash-separated signed integers"
 
 IntegerWithNegativesSlashList "slash-separated integers (optionally negative)"
   = head:IntegerWithNegatives tail:('/' IntegerWithNegatives)* { return util.pegSlashList(head, tail); }
+
+
+IntegerAndList "integers separated with commas and 'and'"
+  = head:Integer tail:((','? _ 'and' _ /',' _) Integer)* { return util.pegSlashList(head, tail); }
 
 
 Occurrence
