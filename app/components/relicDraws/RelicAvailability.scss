@@ -1,10 +1,15 @@
+$availability-size: 20px;
+
 :local {
   img.anima {
-    width: 20px;
-    height: 20px;
+    width: $availability-size;
+    height: $availability-size;
   }
 
   .newSelection {
     color: #9933cc;
+    display: inline-block;
+    height: $availability-size;
+    vertical-align: middle;
   }
 }

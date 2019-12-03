@@ -12,6 +12,7 @@ export type LocalIconType =
   | 'windElement'
   | 'animaWave1'
   | 'animaWave2'
+  | 'animaWave3'
   | 'animaWaveUnknown'
   | 'mythril'
   | 'odin'
@@ -28,8 +29,12 @@ export const localIcons: { [s in LocalIconType]: string | undefined } = {
   waterElement: require('../images/ffrk-icons/water.png'),
   windElement: require('../images/ffrk-icons/wind.png'),
 
+  // Anima lens icons are downloaded from Game-icons.net:
+  // https://game-icons.net/1x1/lorc/checkered-diamond.html
+  // No background, colored foreground, default size.
   animaWave1: require('../images/game-icons/checkered-diamond-6daf50.svg'),
   animaWave2: require('../images/game-icons/checkered-diamond-d22d2d.svg'),
+  animaWave3: require('../images/game-icons/checkered-diamond-2283c3.svg'),
   animaWaveUnknown: require('../images/game-icons/checkered-diamond-000000.svg'),
 
   mythril: require('../images/ffrk-icons/mythril.png'),
