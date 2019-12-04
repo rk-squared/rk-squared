@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 import { defaultOptions } from '../actions/options';
 import {
   clearWantedRelics,
+  closeBanners,
   ExchangeShopSelections,
   expireOldRelicDrawBanners,
   RelicDrawAction,
@@ -152,6 +153,15 @@ export function relicDraws(
         const { exchangeShopId, selections } = action.payload;
         draft.selections = draft.selections || {};
         draft.selections[exchangeShopId] = selections;
+        return;
+      }
+
+      case getType(closeBanners): {
+        // Set closed at to 1 minute before the current time.
+        const closedAt = action.payload.currentTime / 1000 - 60;
+        _.forEach(action.payload.bannerIds, id => {
+          draft.banners[id].closedAt = closedAt;
+        });
         return;
       }
 

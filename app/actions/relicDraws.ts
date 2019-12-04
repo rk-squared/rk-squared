@@ -175,6 +175,17 @@ export const setExchangeShopSelections = createAction(
   }),
 );
 
+export const closeBanners = createAction(
+  'CLOSE_BANNERS',
+  (currentTime: number, bannerIds: number[]) => ({
+    type: 'CLOSE_BANNERS',
+    payload: {
+      currentTime,
+      bannerIds,
+    },
+  }),
+);
+
 export const expireOldRelicDrawBanners = createAction(
   'EXPIRE_OLD_RELIC_DRAW_BANNERS',
   (currentTime: number, maxAgeInDays?: number) => ({
@@ -218,6 +229,7 @@ export type RelicDrawAction = ReturnType<
   | typeof setRelicDrawBannersAndGroups
   | typeof setRelicDrawProbabilities
   | typeof setExchangeShopSelections
+  | typeof closeBanners
   | typeof expireOldRelicDrawBanners
   | typeof wantRelic
   | typeof clearWantedRelics
