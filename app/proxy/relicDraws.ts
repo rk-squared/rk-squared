@@ -9,6 +9,7 @@ import * as striptags from 'striptags';
 
 import { addLegendMateria, addSoulBreak } from '../actions/characters';
 import {
+  closeBannersExcept,
   expireOldRelicDrawBanners,
   RelicDrawBanner,
   RelicDrawGroup,
@@ -212,6 +213,10 @@ const gachaHandler: Handler = {
     store.dispatch(setRelicDrawBannersAndGroups(banners, _.values(groups)));
 
     const state = store.getState();
+
+    const currentBannerIds = banners.map(i => i.id);
+    store.dispatch(closeBannersExcept(state.timeState.currentTime, currentBannerIds));
+
     store.dispatch(
       expireOldRelicDrawBanners(
         state.timeState.currentTime,
