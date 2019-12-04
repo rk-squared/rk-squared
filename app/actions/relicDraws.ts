@@ -175,13 +175,13 @@ export const setExchangeShopSelections = createAction(
   }),
 );
 
-export const closeBanners = createAction(
-  'CLOSE_BANNERS',
-  (currentTime: number, bannerIds: number[]) => ({
-    type: 'CLOSE_BANNERS',
+export const closeBannersExcept = createAction(
+  'CLOSE_BANNERS_EXCEPT',
+  (currentTime: number, exceptBannerIds: number[]) => ({
+    type: 'CLOSE_BANNERS_EXCEPT',
     payload: {
       currentTime,
-      bannerIds,
+      exceptBannerIds,
     },
   }),
 );
@@ -229,7 +229,7 @@ export type RelicDrawAction = ReturnType<
   | typeof setRelicDrawBannersAndGroups
   | typeof setRelicDrawProbabilities
   | typeof setExchangeShopSelections
-  | typeof closeBanners
+  | typeof closeBannersExcept
   | typeof expireOldRelicDrawBanners
   | typeof wantRelic
   | typeof clearWantedRelics

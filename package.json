@@ -26,6 +26,7 @@
     "test:all": "yarn test && yarn build && yarn test-e2e",
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
+    "test:coverage": "jest --coverage",
     "copy-json": "copyfiles --flat \"./app/data/enlir/*.json\" ./dist/app/data/enlir",
     "get-enlir": "ts-node scripts/download-enlir.ts -o app/data/enlir",
     "start-package:mac": "electron \"release/mac/RK Squared.app/Contents/Resources/app.asar\"",

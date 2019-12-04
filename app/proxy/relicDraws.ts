@@ -9,7 +9,7 @@ import * as striptags from 'striptags';
 
 import { addLegendMateria, addSoulBreak } from '../actions/characters';
 import {
-  closeBanners,
+  closeBannersExcept,
   expireOldRelicDrawBanners,
   RelicDrawBanner,
   RelicDrawGroup,
@@ -26,7 +26,6 @@ import { parseNumberString } from '../data/mrP/util';
 import { relativeUrl } from '../data/urls';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
-import { difference } from '../utils/setUtils';
 import { getRequestLang, Handler, HandlerRequest } from './common';
 
 interface RelicDrawBannerResults {
@@ -215,12 +214,8 @@ const gachaHandler: Handler = {
 
     const state = store.getState();
 
-    const previousBannerIds = new Set<number>(_.keys(state.relicDraws.banners).map(i => +i));
-    const newBannerIds = new Set<number>(banners.map(i => i.id));
-    const oldBanners = difference(previousBannerIds, newBannerIds);
-    if (oldBanners.size) {
-      store.dispatch(closeBanners(state.timeState.currentTime, Array.from(oldBanners)));
-    }
+    const currentBannerIds = banners.map(i => i.id);
+    store.dispatch(closeBannersExcept(state.timeState.currentTime, currentBannerIds));
 
     store.dispatch(
       expireOldRelicDrawBanners(

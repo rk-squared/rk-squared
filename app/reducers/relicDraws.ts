@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import { defaultOptions } from '../actions/options';
 import {
   clearWantedRelics,
-  closeBanners,
+  closeBannersExcept,
   ExchangeShopSelections,
   expireOldRelicDrawBanners,
   RelicDrawAction,
@@ -156,11 +156,15 @@ export function relicDraws(
         return;
       }
 
-      case getType(closeBanners): {
+      case getType(closeBannersExcept): {
         // Set closed at to 1 minute before the current time.
         const closedAt = action.payload.currentTime / 1000 - 60;
-        _.forEach(action.payload.bannerIds, id => {
-          draft.banners[id].closedAt = closedAt;
+
+        const openBannerIds = new Set<number>(action.payload.exceptBannerIds);
+        _.forEach(draft.banners, (banner, id) => {
+          if (!openBannerIds.has(+id)) {
+            banner.closedAt = Math.min(closedAt, banner.closedAt);
+          }
         });
         return;
       }
