@@ -169,6 +169,12 @@ export interface Dungeons {
     picture: AssetCollection;
   };
 
+  // Magicite dungeons
+  room_of_beast_assets?: {
+    common: AssetCollection;
+    picture: AssetCollection;
+  };
+
   dungeons: Dungeon[];
 
   // Record Dungeons nodes

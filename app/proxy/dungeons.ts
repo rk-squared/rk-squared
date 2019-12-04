@@ -213,6 +213,16 @@ export function addRecordDungeonChests(dungeons: Dungeon[], nodes: dungeonsSchem
   }
 }
 
+function addMagiciteDetails(dungeons: Dungeon[]) {
+  const dungeonsById = _.sortBy(dungeons, 'id');
+  for (let i = 1; i < dungeonsById.length; i++) {
+    if (dungeonsById[i].name === dungeonsById[i - 1].name) {
+      dungeonsById[i - 1].detail = 'phys. effective';
+      dungeonsById[i].detail = 'mag. effective';
+    }
+  }
+}
+
 export function convertWorldDungeons(
   data: dungeonsSchemas.Dungeons,
   forceUnlock?: boolean,
@@ -242,6 +252,10 @@ export function convertWorldDungeons(
 
   if (data.dungeon_list_nodes) {
     addRecordDungeonChests(dungeons, data.dungeon_list_nodes);
+  }
+
+  if (data.room_of_beast_assets) {
+    addMagiciteDetails(dungeons);
   }
 
   return dungeons;

@@ -14,6 +14,7 @@ export interface PrizeItem {
 
 export interface Dungeon {
   name: string;
+  detail?: string; // Optional hint text used to distinguish physical vs. magical 6* magicite
   id: number;
 
   openedAt: TimeT;

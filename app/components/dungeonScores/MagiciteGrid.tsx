@@ -18,6 +18,7 @@ import { compareWithUndefined } from '../../utils/typeUtils';
 import { GridContainer } from '../common/GridContainer';
 import { CheckIconCellRenderer } from './CheckIconCellRenderer';
 import { MagiciteElementCellRenderer } from './MagiciteElementCellRenderer';
+import { MagiciteNameCellRenderer } from './MagiciteNameCellRenderer';
 import { MagiciteScoreCellRenderer } from './MagiciteScoreCellRenderer';
 
 interface Props {
@@ -49,8 +50,7 @@ export class MagiciteGrid extends React.Component<Props> {
         headerName: 'Name',
         width: 200,
         field: 'name',
-        valueGetter: ({ data }: { data: MagiciteDungeonWithScore }) =>
-          data.name.replace(' Record', ''),
+        cellRendererFramework: MagiciteNameCellRenderer,
       },
       {
         headerName: 'Completed',

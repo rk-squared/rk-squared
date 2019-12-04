@@ -18,6 +18,9 @@ import { DungeonScoreState } from '../reducers/dungeonScores';
 import { WorldState } from '../reducers/worlds';
 import { compareWithUndefined } from '../utils/typeUtils';
 
+const MIN_MAGICITE_STARS = 3;
+const MAX_MAGICITE_STARS = 6;
+
 export interface DungeonWithScore extends Dungeon {
   score: DungeonScore | undefined;
   estimatedScore: DungeonScore | undefined;
@@ -59,10 +62,11 @@ const magiciteStarsByDifficulty: { [difficulty: number]: number } = {
   250: 3,
   300: 4,
   400: 5,
+  0: 6,
 };
 
 function getHighestUnlocked(dungeons: MagiciteDungeonWithScore[]): number | null {
-  for (let stars = 5; stars >= 3; stars--) {
+  for (let stars = MAX_MAGICITE_STARS; stars >= MIN_MAGICITE_STARS; stars--) {
     if (_.some(dungeons, i => i.stars && i.stars >= stars && i.isUnlocked)) {
       return stars;
     }
@@ -118,7 +122,7 @@ export const getMagiciteScores = createSelector<
     );
 
     const highestUnlocked = getHighestUnlocked(dungeons);
-    if (highestUnlocked && highestUnlocked < 5) {
+    if (highestUnlocked && highestUnlocked < MAX_MAGICITE_STARS) {
       dungeons = _.filter(dungeons, i => !i.stars || i.stars <= highestUnlocked);
     }
     dungeons = _.sortBy(dungeons, i => (i.stars ? -i.stars : undefined));

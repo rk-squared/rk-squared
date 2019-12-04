@@ -2,6 +2,7 @@ import {
   convertGradePrizeItems,
   convertPrizeItems,
   convertWorld,
+  convertWorldDungeons,
   default as dungeonsHandler,
   sortDungeons,
 } from '../dungeons';
@@ -278,6 +279,48 @@ describe('dungeons proxy handler', () => {
         type: ItemType.Common,
       });
       expect(prizes).toMatchSnapshot();
+    });
+
+    it('gets details for 6* magicites', () => {
+      const data = require('./data/magicite_titan_dungeons.json').data as dungeonsSchemas.Dungeons;
+      const dungeons = convertWorldDungeons(data);
+      const namesAndDetails = dungeons.map(
+        i => [i.id, i.name, i.detail] as [number, string, string | undefined],
+      );
+      expect(namesAndDetails).toMatchInlineSnapshot(`
+        Array [
+          Array [
+            10082401,
+            "Golem Record",
+            undefined,
+          ],
+          Array [
+            10082402,
+            "Midgardsormr Record",
+            undefined,
+          ],
+          Array [
+            10082403,
+            "Adamantoise Record",
+            undefined,
+          ],
+          Array [
+            10082404,
+            "Hecatoncheir Record",
+            undefined,
+          ],
+          Array [
+            10082405,
+            "Titan Record",
+            "phys. effective",
+          ],
+          Array [
+            10082406,
+            "Titan Record",
+            "mag. effective",
+          ],
+        ]
+      `);
     });
   });
 

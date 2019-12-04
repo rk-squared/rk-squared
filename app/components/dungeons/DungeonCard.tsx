@@ -69,6 +69,7 @@ export const DungeonListItem = ({
     <li className={classes}>
       <div data-tip={showTooltip} data-for={id}>
         {dungeon.name}
+        {dungeon.detail && <span className="text-muted"> ({dungeon.detail})</span>}
         {showDetails && <DungeonDetails dungeon={dungeon} />}
       </div>
       {showTooltip && (
