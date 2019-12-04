@@ -10,7 +10,6 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 2. Improve JP support
    - More frequent soul break updates
    - Don't break relic draw page on unknown inventory
-   - Fix handling of auto-mastered soul breaks
 3. Soul Break updates - Lightning SASB, etc.
 4. AndApp support; document BlueStacks support
 5. Search hotkeys?

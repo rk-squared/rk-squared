@@ -19,13 +19,13 @@ export const AppFeatures = () => (
     </li>
     <li>
       <strong>Soul breaks and legend materia</strong> - view all of the soul breaks and legend
-      materia that you own in a convenient two-column format. Get reminder messages if you have any
-      soul breaks or legend materia that you haven't yet mastered.
+      materia that you own in a convenient two-column format
     </li>
     <li>
       <strong>Relic draws</strong> - including currently open relic draws, unused Wondrous Draw and
       Acolyte Archive selections, percent chances, and soul break / legend materia details. Dupes
-      are tracked within each banner to help you visualize the chances of a good draw.
+      are tracked within each banner to help you visualize the chances of a good draw, and a relic
+      draw simulator lets you try your virtual luck.
     </li>
     <li>
       <strong>Game options</strong> - always show timer

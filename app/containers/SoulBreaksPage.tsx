@@ -4,7 +4,6 @@ import * as _ from 'lodash';
 
 import SoulBreakList from '../components/soulBreaks/SoulBreakList';
 import { SoulBreaksNav } from '../components/soulBreaks/SoulBreaksNav';
-import UnmasteredSoulBreakAlert from '../components/soulBreaks/UnmasteredSoulBreakAlert';
 import { Page } from './Page';
 
 const soulBreakAnchor = (letter: string) => `soulBreaks-${letter}`;
@@ -45,7 +44,6 @@ export class SoulBreaksPage extends React.Component<{}, State> {
           onSetSearchFilter={this.handleSetSearchFilter}
         />
 
-        {!isAnonymous && <UnmasteredSoulBreakAlert className="mt-2" />}
         <SoulBreakList
           letterAnchor={soulBreakAnchor}
           isAnonymous={isAnonymous}
