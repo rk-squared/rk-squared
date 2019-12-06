@@ -2428,13 +2428,13 @@ Object {
     });
 
     it('handles synchro soul breaks', () => {
-      expect(describeSoulBreak('Tifa - Infinite Zangan Style')).toEqual({
+      expect(describeSoulBreak('Tifa - SASB')).toEqual({
         damage: 'phys 9.0/15 earth+non',
         other: 'earth infuse 3 w/ stacking 25s, self dmg cap +10k 15s',
         synchroCommands: [
           {
             damage:
-              'p5.16/6 - 5.34/6 - 5.52/6 - 5.7/6 e+n w/ 0-1-2-3 uses ' +
+              'p5.16/6 - 5.34/6 - 5.52/6 - 5.7/6 e+n ' +
               '@ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses',
             other: undefined,
             school: 'Monk',

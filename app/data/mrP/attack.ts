@@ -591,10 +591,15 @@ export function describeAttack(
 
   // If critical hits might depend on the entire attack's scaling, process
   // them now.
-  if (attack.additionalCrit && !attack.additionalCritCondition) {
+  const hasAdditionalCritCondition =
+    attack.additionalCritCondition && !_.isEqual(attack.additionalCritCondition, attack.scaleType);
+  const hasAdditionalCritDamageCondition =
+    attack.additionalCritDamageCondition &&
+    !_.isEqual(attack.additionalCritDamageCondition, attack.scaleType);
+  if (attack.additionalCrit && !hasAdditionalCritCondition) {
     damage += ' @ +' + hyphenJoin(attack.additionalCrit) + '% crit';
   }
-  if (attack.additionalCritDamage && !attack.additionalCritDamageCondition) {
+  if (attack.additionalCritDamage && !hasAdditionalCritDamageCondition) {
     damage += ` @ +` + hyphenJoin(attack.additionalCritDamage) + '% crit dmg';
   }
 
@@ -631,11 +636,11 @@ export function describeAttack(
     damage += ' @ ' + (damageModifier[0] > 0 ? '+' : '') + damageModifier.join(' - ') + '% dmg';
     damage += appendCondition(attack.damageModifierCondition, attack.damageModifier);
   }
-  if (attack.additionalCrit && attack.additionalCritCondition) {
+  if (attack.additionalCrit && hasAdditionalCritCondition) {
     damage += ' @ +' + hyphenJoin(attack.additionalCrit) + '% crit';
     damage += appendCondition(attack.additionalCritCondition, attack.additionalCrit);
   }
-  if (attack.additionalCritDamage && attack.additionalCritDamageCondition) {
+  if (attack.additionalCritDamage && hasAdditionalCritDamageCondition) {
     damage += ' @ +' + hyphenJoin(attack.additionalCritDamage) + '% crit dmg';
     damage += appendCondition(attack.additionalCritDamageCondition, attack.additionalCritDamage);
   }
