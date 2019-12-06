@@ -1,40 +1,10 @@
-import { format, TransformableInfo } from 'logform';
 import * as winston from 'winston';
 
 import { simpleFilter } from './typeUtils';
 
-/**
- * Allows logging of bare Error objects.  Calling JSON.stringify on an Error
- * results in an empty object.  Calling printf results in just the message, so
- * it loses the exception name and the stack trace. This method converts the
- * error object to preserve all of its info.
- */
-const error = format((info: TransformableInfo) => {
-  if (info.message && info.name && info.stack) {
-    return {
-      ...info,
-      message: `${info.name}: ${info.message}\n${info.stack}`,
-      rawMessage: info.message,
-      name: info.name,
-      stack: info.stack,
-    };
-  } else if (info.syscall && info.code) {
-    // Errors from sockets ("Error communicating with") lack details.  Try this
-    // alternate code for handling them.
-    return {
-      ...info,
-      message: `${info.syscall} ${info.code}` + (info.stack ? `\n${info.stack}` : ''),
-      rawMessage: `${info.syscall} ${info.code}`,
-      stack: info.stack,
-    };
-  }
-  return info;
-});
-
 function makeLogFormat(colorize: boolean) {
   return winston.format.combine(
     ...simpleFilter([
-      error(),
       winston.format.timestamp(),
 
       colorize ? winston.format.colorize() : null,
@@ -56,6 +26,30 @@ export function logToFile(filename: string) {
       format: makeLogFormat(false),
     }),
   );
+}
+
+/**
+ * Log an Error object, including details.  Calling JSON.stringify on an Error
+ * results in an empty object.  Calling printf results in just the message, so
+ * it loses the exception name and the stack trace.
+ */
+export function logException(e: any) {
+  if (e.message && e.name && e.stack) {
+    logger.error(`${e.name}: ${e.message}\n${e.stack}`, {
+      ...e,
+      rawMessage: e.message,
+      name: e.name,
+      stack: e.stack,
+    });
+  } else if (e.syscall && e.code) {
+    // Errors from sockets ("Error communicating with") lack details.  Try this
+    // alternate code for handling them.
+    logger.error(`${e.syscall} ${e.code}` + (e.stack ? `\n${e.stack}` : ''), {
+      ...e,
+      rawMessage: `${e.syscall} ${e.code}`,
+      stack: e.stack,
+    });
+  }
 }
 
 export { logger };

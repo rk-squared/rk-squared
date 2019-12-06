@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-import { logger } from '../../utils/logger';
+import { logException, logger } from '../../utils/logger';
 import { assertNever, isAllSame } from '../../utils/typeUtils';
 import {
   enlir,
@@ -68,7 +68,7 @@ export function safeParseSkill(skill: EnlirSkill): types.SkillEffect | null {
     return skillParser.parse(skill.effects);
   } catch (e) {
     logger.error(`Failed to parse ${skill.name}:`);
-    logger.error(e);
+    logException(e);
     if (e.name === 'SyntaxError') {
       return null;
     }

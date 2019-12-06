@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 
 import { showDanger } from '../actions/messages';
 import { Session } from '../actions/session';
-import { logger } from '../utils/logger';
+import { logException, logger } from '../utils/logger';
 
 export const sessionErrorText =
   'Your game session is not currently available; unable to continue. ' +
@@ -41,7 +41,7 @@ export function callApi(
       .get(url, config)
       .then(callback)
       .catch(e => {
-        logger.error(e);
+        logException(e);
         return showDanger(e.message);
       }),
   );

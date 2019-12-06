@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 import * as moment from 'moment';
 import { md, pki } from 'node-forge';
 
-import { logger } from '../utils/logger';
+import { logException, logger } from '../utils/logger';
 
 export const tlsSites = ['ffrk.denagames.com', 'dff.sp.mbga.jp'];
 
@@ -75,7 +75,7 @@ export function createOrLoadCertificate(
       return loadCert;
     } catch (e) {
       logger.error('Failed to load certificates');
-      logger.error(e);
+      logException(e);
       errorCallback && errorCallback('Failed to load certificates: ' + e.message);
     }
   } else if (filesExist) {
@@ -97,7 +97,7 @@ export function createOrLoadCertificate(
     fs.writeFileSync(filenames.key, tlsCert.key);
   } catch (e) {
     logger.error('Failed to save certificates');
-    logger.error(e);
+    logException(e);
     errorCallback && errorCallback('Failed to save certificates: ' + e.message);
   }
   return tlsCert;
@@ -260,7 +260,7 @@ export function deleteCertificate(userDataPath: string, errorCallback?: (error: 
     fs.unlinkSync(filenames.key);
   } catch (e) {
     logger.error('Failed to delete certificate');
-    logger.error(e);
+    logException(e);
     errorCallback && errorCallback('Failed to delete certificate: ' + e.message);
   }
 }

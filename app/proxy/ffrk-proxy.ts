@@ -33,7 +33,7 @@ import { showMessage } from '../actions/messages';
 import { updateLastTraffic, updateProxyStatus } from '../actions/proxy';
 import { issuesUrl } from '../data/resources';
 import { IState } from '../reducers';
-import { logger } from '../utils/logger';
+import { logException, logger } from '../utils/logger';
 import { escapeHtml } from '../utils/textUtils';
 import { DnsResolver } from './dnsResolver';
 import { getStyleOverrides } from './styles';
@@ -230,8 +230,8 @@ function handleFfrkApiRequest(
     if (newData !== undefined) {
       data = encodeData(String.fromCharCode(UTF8_BOM) + JSON.stringify(newData), res);
     }
-  } catch (error) {
-    logger.error(error);
+  } catch (e) {
+    logException(e);
   }
   return data;
 }
@@ -276,8 +276,8 @@ function handleFfrkStartupRequest(
       $('head').append(`<style type="text/css">${styleOverrides}</style>`);
       return encodeData($.html(), res);
     }
-  } catch (error) {
-    logger.error(error);
+  } catch (e) {
+    logException(e);
   }
   return data;
 }
@@ -311,7 +311,7 @@ function showServerError(e: any, description: string, store: Store<IState>) {
   // errors within proxy connections seem to be routine, but I've only seen
   // server errors if something is already listening on the port.
   logger.error('Error from ' + description);
-  logger.error(e);
+  logException(e);
   store.dispatch(
     showMessage({
       text: {
