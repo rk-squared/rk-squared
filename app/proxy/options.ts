@@ -12,10 +12,10 @@ import { Handler } from './common';
 
 const optionsHandler: Handler = {
   get_battle_init_data(data: schemas.GetBattleInit, store: Store<IState>) {
-    const { alwaysShowTimer } = store.getState().options;
+    const { alwaysShowTimer2 } = store.getState().options;
     let changed = false;
 
-    if (alwaysShowTimer) {
+    if (alwaysShowTimer2 && !+data.battle.show_timer_type) {
       changed = true;
       data.battle.show_timer_type = '1';
     }

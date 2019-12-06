@@ -5,7 +5,12 @@ import { createAction } from 'typesafe-actions';
  * or of RK Squared
  */
 export interface Options {
-  alwaysShowTimer?: boolean;
+  /**
+   * We used to call this alwaysShowTimer.  It's been removed as a simple way
+   * to reset it to off to help address any potential concerns about RK Squared
+   * being flagged as cheating.
+   */
+  alwaysShowTimer2?: boolean;
   enableLogging?: boolean;
   saveTrafficCaptures?: boolean;
   enableTransparentProxy?: boolean;
@@ -35,7 +40,7 @@ export interface Options {
 }
 
 export const defaultOptions: Required<Options> = {
-  alwaysShowTimer: false,
+  alwaysShowTimer2: false,
   enableLogging: false,
   saveTrafficCaptures: false,
   enableTransparentProxy: false,

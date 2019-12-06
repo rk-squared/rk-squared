@@ -6,7 +6,6 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
 
 ## To Do
 
-- Add notices about cheating
 - Improve JP support
   - More frequent soul break updates
   - Don't break relic draw page on unknown inventory

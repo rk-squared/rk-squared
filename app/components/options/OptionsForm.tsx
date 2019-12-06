@@ -12,6 +12,7 @@ import { deleteCertificate } from '../../proxy/tls';
 import { IState } from '../../reducers';
 import { KeysOfType } from '../../utils/typeUtils';
 import { BrowserLink } from '../common/BrowserLink';
+import { CheatWarningModalLink } from './CheatWarningModalLink';
 import { OptionsInput } from './OptionsInput';
 
 const styles = require('./OptionsForm.scss');
@@ -109,20 +110,27 @@ export class OptionsForm extends React.Component<Props, State> {
     return (
       <div className={styles.component}>
         <div className="form-group">
-          <Checkbox id="alwaysShowTimer" {...{ options, setOption }}>
+          <Checkbox id="alwaysShowTimer2" {...{ options, setOption }}>
             Always show timer
           </Checkbox>
           <HelpText>
-            Besides self-imposed speedrun challenges, this can be useful for tracking when buffs and
-            debuffs might expire. Check{' '}
-            <BrowserLink href={ffrkCommunityUrl} title={ffrkCommunityHelp}>
-              FFRK Community
-            </BrowserLink>{' '}
-            or{' '}
-            <BrowserLink href={misterPUrl} title={misterPHelp}>
-              MisterP
-            </BrowserLink>{' '}
-            for details on buff durations.
+            <p>
+              Besides self-imposed speedrun challenges, this can be useful for tracking when buffs
+              and debuffs might expire. Check{' '}
+              <BrowserLink href={ffrkCommunityUrl} title={ffrkCommunityHelp}>
+                FFRK Community
+              </BrowserLink>{' '}
+              or{' '}
+              <BrowserLink href={misterPUrl} title={misterPHelp}>
+                MisterP
+              </BrowserLink>{' '}
+              for details on buff durations.
+            </p>
+            <p>
+              <CheatWarningModalLink>
+                This option modifies FFRK battle data. Use it at your own risk.
+              </CheatWarningModalLink>
+            </p>
           </HelpText>
         </div>
 
@@ -131,7 +139,12 @@ export class OptionsForm extends React.Component<Props, State> {
             Hide accolades
           </Checkbox>
           <HelpText>
-            Hide accolades from the roaming warrior (RW) list to save screen space.
+            <p>Hide accolades from the roaming warrior (RW) list to save screen space.</p>
+            <p>
+              <CheatWarningModalLink>
+                This is a cosmetic option and is believed to be safe.
+              </CheatWarningModalLink>
+            </p>
           </HelpText>
         </div>
 
