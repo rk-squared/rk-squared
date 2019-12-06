@@ -12717,7 +12717,7 @@
   },
   {
     "school": "Monk",
-    "name": "Rousing Stance",
+    "name": "Spirited Dispatch",
     "rarity": 6,
     "type": "NAT",
     "target": "Self",
@@ -12764,7 +12764,7 @@
     "introducingEvent": "Fat Black Chocobo Event: Earth",
     "nameJp": "軒昂の構え",
     "id": 30191201,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Monk",
@@ -16377,7 +16377,7 @@
       ]
     },
     "introducingEvent": "Fat Black Chocobo: A Dark Forgery",
-    "nameJp": null,
+    "nameJp": "シャドウファング(シャドウ専用)",
     "id": 30231191,
     "gl": false,
     "recordBoardCharacter": "Shadow"
@@ -16431,7 +16431,7 @@
       ]
     },
     "introducingEvent": "Fat Black Chocobo: A Dark Forgery",
-    "nameJp": null,
+    "nameJp": "暗香疎影",
     "id": 30231201,
     "gl": false
   },
@@ -16958,19 +16958,19 @@
     "school": "Bard",
     "name": "Divine Requiem",
     "rarity": 6,
-    "type": "?",
+    "type": "NAT",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 10.32,
     "element": [
       "Holy",
       "NE"
     ],
-    "time": null,
-    "effects": "Three single attacks (? each), grants ? every two uses",
+    "time": 1.65,
+    "effects": "Three single attacks (3.44 each), grants 10% Damage Reduction Barrier 1 every two uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 90,
     "uses": 2,
     "max": 10,
     "orbs": {

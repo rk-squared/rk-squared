@@ -2673,7 +2673,7 @@
     "relic": "Rune Staff (I)",
     "nameJp": "コーネリアへの慈愛",
     "id": 22300008,
-    "anima": null,
+    "anima": "3",
     "gl": true
   },
   {
@@ -4545,7 +4545,7 @@
     "relic": "Longinus (II)",
     "nameJp": "ロードオブダークネス",
     "id": 20580005,
-    "anima": "3",
+    "anima": "1",
     "gl": true
   },
   {
@@ -4593,7 +4593,7 @@
     "relic": "Leon's Guise (II)",
     "nameJp": "ダークネスウェポン",
     "id": 20580007,
-    "anima": null,
+    "anima": "3",
     "gl": true
   },
   {
@@ -8929,6 +8929,7 @@
     "relic": "Ultima Weapon (IV)",
     "nameJp": "シャインブレイバー",
     "id": 20070019,
+    "anima": null,
     "gl": false
   },
   {
@@ -8942,7 +8943,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Last Stand and Instant Cast 1",
+    "effects": "Grants Last Stand, grants Instant Cast 1 to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 0,
@@ -8950,6 +8951,7 @@
     "relic": "Master Shield (IV)",
     "nameJp": "レジストフォース",
     "id": 20070020,
+    "anima": null,
     "gl": false
   },
   {
@@ -9523,7 +9525,7 @@
     "relic": "Mythril Whipblade (IV)",
     "nameJp": "幻獣召喚・宿命の邂逅",
     "id": 20090010,
-    "anima": null,
+    "anima": "3",
     "gl": true
   },
   {
@@ -10059,7 +10061,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "ATK, MAG and MND +30% for 25 seconds, grants Haste, Quick Cast and Quick ATB 1, grants Awoken Bard to the user",
+    "effects": "ATK, MAG and MND +30%, grants Haste, Quick Cast and Quick ATB 1, grants Awoken Bard to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -10067,6 +10069,7 @@
     "relic": "Chronos Harp (IV)",
     "nameJp": "みんな！ゆうきを！",
     "id": 22350006,
+    "anima": null,
     "gl": false
   },
   {
@@ -11112,7 +11115,7 @@
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "soulbreakBonus": "ATK +10",
-    "relic": "Edge’s Guise (IV)",
+    "relic": "Edge's Guise (IV)",
     "nameJp": "三位一体",
     "id": 20980011,
     "anima": null,
@@ -11635,7 +11638,7 @@
     "relic": "Master Rod (IV)",
     "nameJp": "参れ、黒竜！",
     "id": 20630010,
-    "anima": null,
+    "anima": "3",
     "gl": true
   },
   {
@@ -21383,7 +21386,7 @@
   {
     "realm": "VII",
     "character": "Tifa",
-    "name": "Infinite Zangan Style",
+    "name": "Zangan's Infinitude",
     "tier": "SASB",
     "type": "PHY",
     "target": "Single enemy",
@@ -21399,16 +21402,16 @@
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "soulbreakBonus": "Damage Up, Cast Time Down",
-    "relic": "Rune Claw (VII)",
+    "relic": "Rune Claws (VII)",
     "nameJp": "ザンガン流無限",
     "id": 20230015,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
     "character": "Tifa",
-    "name": "Sprouting Earth",
+    "name": "Eruption Garb",
     "tier": "Glint+",
     "type": "NAT",
     "target": "Self",
@@ -21425,7 +21428,7 @@
     "nameJp": "大地噴出闘衣",
     "id": 20230016,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -21920,7 +21923,7 @@
   {
     "realm": "VII",
     "character": "Red XIII",
-    "name": "Howling Stone",
+    "name": "Lunatic Roar",
     "tier": "AASB",
     "type": "BLK",
     "target": "Single enemy",
@@ -21940,12 +21943,12 @@
     "nameJp": "ルナティックロア",
     "id": 20470012,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
     "character": "Red XIII",
-    "name": "Stardust Shower",
+    "name": "Stardust Shot",
     "tier": "AOSB",
     "type": "BLK",
     "target": "Single enemy",
@@ -21964,12 +21967,12 @@
     "nameJp": "スターダストシュート",
     "id": 20470013,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
     "character": "Red XIII",
-    "name": "Earth Expanse",
+    "name": "Expanding Earth",
     "tier": "Glint+",
     "type": "NAT",
     "target": "Self",
@@ -21982,11 +21985,11 @@
     "autoTarget": "Self",
     "points": 0,
     "soulbreakBonus": "MAG +10",
-    "relic": "Armlet (VII)",
+    "relic": "Red XIII's Armlet (VII)",
     "nameJp": "アースエクスパンド",
     "id": 20470014,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -22818,7 +22821,7 @@
     "relic": "Winchester (VII)",
     "nameJp": "禁忌の力",
     "id": 22170010,
-    "anima": null,
+    "anima": "3",
     "gl": true
   },
   {
@@ -24752,7 +24755,7 @@
     "nameJp": "チェインオブストーン",
     "id": 23010006,
     "anima": "3",
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -26795,7 +26798,7 @@
     "autoTarget": "All allies",
     "points": 500,
     "soulbreakBonus": "MND +10",
-    "relic": "Rainbow Robe (VIII)",
+    "relic": "Rainbow Robes (VIII)",
     "nameJp": "セルフィバンド",
     "id": 20510010,
     "anima": null,
@@ -28095,7 +28098,7 @@
     "relic": "Gokuu Pole (VIII)",
     "nameJp": "神技「激・雷神飛竜昇」",
     "id": 22610005,
-    "anima": null,
+    "anima": "3",
     "gl": true
   },
   {
@@ -30520,7 +30523,7 @@
   {
     "realm": "IX",
     "character": "Freya",
-    "name": "Chain of Wind",
+    "name": "Chain of Air",
     "tier": "CSB",
     "type": "NAT",
     "target": "All allies",
@@ -38138,6 +38141,7 @@
     "relic": "General's Vest (XII)",
     "nameJp": "誓いの剣光",
     "id": 22180013,
+    "anima": null,
     "gl": false
   },
   {
@@ -48757,7 +48761,7 @@
   {
     "realm": "Type-0",
     "character": "Machina",
-    "name": "Grand Blow",
+    "name": "Guardian Blades",
     "tier": "AASB",
     "type": "PHY",
     "target": "Single enemy",
@@ -48778,7 +48782,7 @@
     "nameJp": "ソードフィールド",
     "id": 23090006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -48803,12 +48807,12 @@
     "nameJp": "グランドカスケード",
     "id": 23090007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Machina",
-    "name": "Stone Crash",
+    "name": "Quake Rush",
     "tier": "Glint+",
     "type": "PHY",
     "target": "Single enemy",
@@ -48828,12 +48832,12 @@
     "nameJp": "クエイクラッシュ",
     "id": 23090008,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Machina",
-    "name": "Earth's Power",
+    "name": "Might of the l'Cie",
     "tier": "CSB",
     "type": "NAT",
     "target": "All allies",
@@ -48850,7 +48854,7 @@
     "nameJp": "ルシの力",
     "id": 23090009,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

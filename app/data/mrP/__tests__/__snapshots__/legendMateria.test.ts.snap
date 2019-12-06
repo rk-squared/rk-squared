@@ -2784,7 +2784,7 @@ Array [
     "character": "Machina",
     "description": "25% dualcast Spellblade",
     "effect": "25% chance to dualcast Spellblade abilities",
-    "name": "Destiny's Namer",
+    "name": "Chichiri's Godfather",
   },
   Object {
     "character": "Marach",
@@ -3654,7 +3654,7 @@ Array [
     "character": "Red XIII",
     "description": "(<20% HP ⤇ fastcast, +30% MAG, -30% RES 25s)",
     "effect": "Grants Quick Cast and Lingering Spirit for 25 seconds when HP fall below 20%",
-    "name": "Warrior's Amulet",
+    "name": "Warrior's Talisman",
   },
   Object {
     "character": "Refia",

@@ -18062,7 +18062,7 @@
     },
     "effect": "Earth damage +20%",
     "character": "Machina",
-    "soulBreak": "Grand Blow",
+    "soulBreak": "Guardian Blades",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -18087,7 +18087,7 @@
       "eva": null
     },
     "id": 21002428,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Platinum Rapiers",
@@ -18107,7 +18107,7 @@
     },
     "effect": null,
     "character": "Machina",
-    "soulBreak": "Earth's Power",
+    "soulBreak": "Might of the l'Cie",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -18132,7 +18132,7 @@
       "eva": null
     },
     "id": 21002383,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mecha-Rapiers",
@@ -18177,7 +18177,7 @@
       "eva": null
     },
     "id": 21002476,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ancient Blade",
@@ -46575,7 +46575,7 @@
     "gl": true
   },
   {
-    "name": "Rune Claw",
+    "name": "Rune Claws",
     "realm": "VII",
     "type": "Fist",
     "rarity": 7,
@@ -46592,7 +46592,7 @@
     },
     "effect": "Earth damage +20%",
     "character": "Tifa",
-    "soulBreak": "Infinite Zangan Style",
+    "soulBreak": "Zangan's Infinitude",
     "legendMateria": null,
     "baseStats": {
       "rarity": 7,
@@ -46617,7 +46617,7 @@
       "eva": null
     },
     "id": 21007174,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mirage Claw",
@@ -97307,7 +97307,7 @@
     },
     "effect": "Earth damage +20%",
     "character": "Red XIII",
-    "soulBreak": "Stardust Shower",
+    "soulBreak": "Stardust Shot",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -97332,7 +97332,7 @@
       "eva": null
     },
     "id": 22031014,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Diamond Barrette",
@@ -97352,7 +97352,7 @@
     },
     "effect": "Earth damage +20%",
     "character": "Red XIII",
-    "soulBreak": "Howling Stone",
+    "soulBreak": "Lunatic Roar",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -97377,7 +97377,7 @@
       "eva": null
     },
     "id": 22031015,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Diamond Pin",
@@ -104082,7 +104082,7 @@
       "eva": 105
     },
     "id": 22051210,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Witch's Tiara",
@@ -111122,7 +111122,7 @@
     },
     "effect": null,
     "character": "Freya",
-    "soulBreak": "Chain of Wind",
+    "soulBreak": "Chain of Air",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -114165,7 +114165,7 @@
     "gl": true
   },
   {
-    "name": "Edge’s Guise",
+    "name": "Edge's Guise",
     "realm": "IV",
     "type": "Light Armor",
     "rarity": 6,
@@ -115217,7 +115217,7 @@
     },
     "effect": null,
     "character": "Tifa",
-    "soulBreak": "Sprouting Earth",
+    "soulBreak": "Eruption Garb",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -115242,7 +115242,7 @@
       "eva": 100
     },
     "id": 22053058,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Barret's Vest",
@@ -133695,7 +133695,7 @@
     "gl": true
   },
   {
-    "name": "Rainbow Robe",
+    "name": "Rainbow Robes",
     "realm": "VIII",
     "type": "Robe",
     "rarity": 6,
@@ -137880,7 +137880,7 @@
     "gl": true
   },
   {
-    "name": "Armlet",
+    "name": "Red XIII's Armlet",
     "realm": "VII",
     "type": "Bracer",
     "rarity": 6,
@@ -137897,7 +137897,7 @@
     },
     "effect": "Earth damage +20%",
     "character": "Red XIII",
-    "soulBreak": "Earth Expanse",
+    "soulBreak": "Expanding Earth",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -137922,7 +137922,7 @@
       "eva": 105
     },
     "id": 22056068,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Treasure Armlet",
@@ -138752,7 +138752,7 @@
     },
     "effect": null,
     "character": "Machina",
-    "soulBreak": "Stone Crash",
+    "soulBreak": "Quake Rush",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -138777,7 +138777,7 @@
       "eva": 105
     },
     "id": 22056249,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Frost Armlet",
@@ -141768,7 +141768,7 @@
     "effect": null,
     "character": "Red XIII",
     "soulBreak": null,
-    "legendMateria": "Warrior's Amulet",
+    "legendMateria": "Warrior's Talisman",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -141792,7 +141792,7 @@
       "eva": 105
     },
     "id": 22056052,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Red Glove (CC)",
@@ -146493,7 +146493,7 @@
     "effect": null,
     "character": "Machina",
     "soulBreak": null,
-    "legendMateria": "Destiny's Namer",
+    "legendMateria": "Chichiri's Godfather",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -146517,7 +146517,7 @@
       "eva": 105
     },
     "id": 22056225,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ice Armlet",

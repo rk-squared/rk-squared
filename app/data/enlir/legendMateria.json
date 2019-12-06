@@ -4394,14 +4394,14 @@
   {
     "realm": "VII",
     "character": "Red XIII",
-    "name": "Warrior's Amulet",
-    "effect": "Grants Quick Cast and Lingering Spirit for 25 seconds when HP fall below 20%",
+    "name": "Warrior's Talisman",
+    "effect": "Grants Quick Cast, grants Lingering Spirit for 25 seconds when HP fall below 20%",
     "master": "MAG +10",
     "relic": "Aegis Armlet (VII)",
     "nameJp": "戦士の魔除け",
     "id": 201070504,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -9974,14 +9974,14 @@
   {
     "realm": "Type-0",
     "character": "Machina",
-    "name": "Destiny's Namer",
+    "name": "Chichiri's Godfather",
     "effect": "25% chance to dualcast Spellblade abilities",
     "master": "ATK +10",
     "relic": "Metal Gloves (Type-0)",
     "nameJp": "チチリの名付け親",
     "id": 201600403,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

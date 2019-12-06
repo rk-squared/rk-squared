@@ -10108,6 +10108,19 @@
     "abilitiesAwarded": null
   },
   {
+    "eventName": "Record Dungeon Canon (XIII, III)",
+    "realm": null,
+    "glDate": "2019-10-17",
+    "jpDate": null,
+    "type": "Record Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
     "eventName": "Crimson Flag Rising",
     "realm": "Type-0",
     "glDate": "2019-10-24",
@@ -10184,6 +10197,19 @@
     "abilitiesAwarded": null
   },
   {
+    "eventName": "Record Dungeon Canon (XII, IX)",
+    "realm": null,
+    "glDate": "2019-10-17",
+    "jpDate": "2019-05-08",
+    "type": "Record Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
     "eventName": "Dungeon Update #62 (IV:TAY, XIII-2)",
     "realm": null,
     "glDate": "2019-11-11",
@@ -10250,7 +10276,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Braving the Countless Ordeals",
+    "eventName": "An Arduous Journey",
     "realm": "XI",
     "glDate": null,
     "jpDate": "2019-05-24",
@@ -10277,7 +10303,7 @@
   {
     "eventName": "Fat Black Chocobo Event: Earth",
     "realm": null,
-    "glDate": "2019-11-14",
+    "glDate": "2019-12-04",
     "jpDate": "2019-05-31",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -10314,7 +10340,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Battle That Burns Until Dawn",
+    "eventName": "The Blaze of Dawn",
     "realm": "V",
     "glDate": null,
     "jpDate": "2019-06-07",
@@ -10342,7 +10368,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Duty Calls",
+    "eventName": "Ancient Mission",
     "realm": "III",
     "glDate": null,
     "jpDate": "2019-06-14",
@@ -10396,7 +10422,20 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Siblings of Fate",
+    "eventName": "Magicite: Leviathan",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-06-27",
+    "type": "Magicite Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Blood Against Destiny",
     "realm": "FFT",
     "glDate": null,
     "jpDate": "2019-06-28",
@@ -10419,19 +10458,6 @@
       "Alma",
       "Marach"
     ],
-    "memoryCrystals3": null,
-    "wardrobeRecords": null,
-    "abilitiesAwarded": null
-  },
-  {
-    "eventName": "Magicite: Leviathan",
-    "realm": null,
-    "glDate": null,
-    "jpDate": "2019-06-28",
-    "type": "Magicite Dungeon",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null

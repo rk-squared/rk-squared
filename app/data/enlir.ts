@@ -808,6 +808,19 @@ function patchEnlir() {
     },
   );
 
+  // Legend materia.  These, two, should be upstreamed if possible.
+  applyPatch(
+    enlir.legendMateria,
+    '201070504',
+    legendMateria =>
+      legendMateria.effect ===
+      'Grants Quick Cast, grants Lingering Spirit for 25 seconds when HP fall below 20%',
+    legendMateria => {
+      legendMateria.effect =
+        'Grants Quick Cast and Lingering Spirit for 25 seconds when HP fall below 20%';
+    },
+  );
+
   // Paine's AASB. It seems odd for a status to directly grant a status.
   applyPatch(
     enlir.statusByName,

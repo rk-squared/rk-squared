@@ -269,11 +269,11 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single hybrid attacks (? or ? each), grants Holy +30% Boost 1 to the user",
+    "effects": "Six single hybrid attacks (0.90 or 3.10 each), grants Holy +30% Boost 1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
-    "school": "?",
+    "sb": 90,
+    "school": "Knight",
     "nameJp": "マイティフォース",
     "id": 30548540,
     "synchroConditionId": 106,
@@ -291,11 +291,11 @@
     "multiplier": null,
     "element": null,
     "time": null,
-    "effects": "Restores HP (?)",
+    "effects": "Restores HP (25)",
     "counter": false,
     "autoTarget": "All allies",
-    "sb": null,
-    "school": "?",
+    "sb": 90,
+    "school": "White Magic",
     "nameJp": "ヒールフォース",
     "id": 30542917,
     "synchroConditionId": 106,
@@ -653,8 +653,8 @@
   },
   {
     "character": "Tifa",
-    "source": "Infinite Zangan Style",
-    "name": "Neo Falcon Dive",
+    "source": "Zangan's Infinitude",
+    "name": "Neo Falcon's Dive",
     "synchroAbilitySlot": 1,
     "synchroCondition": "Earth",
     "type": "PHY",
@@ -674,12 +674,12 @@
     "nameJp": "ネオ・ファルコンダイブ",
     "id": 30548420,
     "synchroConditionId": 103,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Tifa",
-    "source": "Infinite Zangan Style",
-    "name": "Elbow Clash",
+    "source": "Zangan's Infinitude",
+    "name": "Elbow Crush",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Monk",
     "type": "PHY",
@@ -699,7 +699,7 @@
     "nameJp": "エルボークラッシュ",
     "id": 30548425,
     "synchroConditionId": 9,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Squall",

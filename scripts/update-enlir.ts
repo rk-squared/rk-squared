@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env -S npx ts-node
 import { google, sheets_v4 } from 'googleapis';
 import * as _ from 'lodash';
 import * as yargs from 'yargs';

@@ -13562,7 +13562,7 @@
   {
     "id": 50737,
     "name": "Awoken Dignified Lineage",
-    "effects": "Holy abilities don't consume uses, dualcasts Holy abilities, grants 10/15/20/30/40% Damage Reduction Barrier 1 to all allies after using a Holy ability at ability rank 1/2/3/4/5",
+    "effects": "Holy abilities don't consume uses, dualcasts Holy abilities, grants Damage Reduction Barrier 10/15/20/30/40% 1 to all allies after using a Holy ability at ability rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13837,7 +13837,7 @@
   {
     "id": 50767,
     "name": "Sacred Edge Follow-Up",
-    "effects": "Casts ? after using Mighty Force, casts ? after using Healing Force",
+    "effects": "Casts Sacred Edge 1 after using Mighty Force, casts Sacred Edge 2 after using Healing Force",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15844,6 +15844,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_ATK_MATK_MND",
+    "notes": null
+  },
+  {
+    "id": 638023,
+    "name": "ATK, MAG and MND +30%",
+    "effects": "ATK, MAG and MND +30%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_MATK_MND_30_WITH_DURATION_LARGE",
     "notes": null
   },
   {
