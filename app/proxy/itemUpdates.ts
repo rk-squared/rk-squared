@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 
 import { LangType } from '../api/apiUrls';
 import * as schemas from '../api/schemas';
+import * as equipmentSchemas from '../api/schemas/equipment';
 import * as gachaSchemas from '../api/schemas/gacha';
 import { enlir } from '../data';
 import { dressRecordsById } from '../data/dressRecords';
@@ -186,7 +187,7 @@ function compareGlEntity<T1 extends { id: number; name: string }, T2 extends Enl
   enlirItems: { [id: number]: T2 },
   description: string,
   source: string,
-  trimRe?: RegExp,
+  trim?: (name: string) => string,
 ): CheckedEntity<T2> | null {
   const enlirItem = enlirItems[item.id];
   if (!enlirItem) {
@@ -200,7 +201,7 @@ function compareGlEntity<T1 extends { id: number; name: string }, T2 extends Enl
     updateRelease = true;
   }
 
-  const trimmedName = trimRe ? item.name.replace(trimRe, '') : item.name.trimRight();
+  const trimmedName = trim ? trim(item.name) : item.name.trimRight();
   let updateName: string | undefined;
   if (enlirItem.name !== trimmedName) {
     callback(
@@ -246,62 +247,59 @@ function showUpdateCommands<T extends EnlirEntity>(
   }
 }
 
-function checkGlRelicDrawBannerItems(
-  data: gachaSchemas.GachaShow,
-  currentTime: number,
+function checkGlRelicDrawEquipment(
+  equipmentList: equipmentSchemas.Equipment[],
   callback: (message: string) => void,
 ) {
   const checkedRelics: Array<CheckedEntity<EnlirRelic>> = [];
   const checkedSoulBreaks: Array<CheckedEntity<EnlirSoulBreak>> = [];
   const checkedLegendMateria: Array<CheckedEntity<EnlirLegendMateria>> = [];
 
-  for (const i of data.series_list) {
-    if (i.opened_at > currentTime / 1000) {
+  const trimRealm = (name: string) => {
+    return name
+      .replace(/ \(([IVX]+|Type-0|FFT|Beyond)\) *$/, '')
+      .replace(/ \([IVX]+-(.*?)\) *$/, ' ($1)');
+  };
+
+  for (const equipment of equipmentList) {
+    const { id, name, soul_strike, legend_materia } = equipment;
+    const relicName = `relic ${name} (ID ${id})`;
+
+    const compareRelic = compareGlEntity(
+      callback,
+      equipment,
+      enlir.relics,
+      'relic',
+      relicName,
+      trimRealm,
+    );
+    if (!compareRelic) {
       continue;
     }
-    for (const { equipment } of i.banner_list) {
-      if (!equipment) {
-        continue;
-      }
-      const { id, name, soul_strike, legend_materia } = equipment;
-      const relicName = `relic ${name} (ID ${id})`;
-
-      const compareRelic = compareGlEntity(
+    checkedRelics.push(compareRelic);
+    if (soul_strike) {
+      const compareSoulBreak = compareGlEntity(
         callback,
-        equipment,
-        enlir.relics,
-        'relic',
+        soul_strike,
+        enlir.soulBreaks,
+        'soul break',
         relicName,
-        / \(.*\) */,
       );
-      if (!compareRelic) {
-        continue;
+      if (compareSoulBreak) {
+        checkedSoulBreaks.push(compareSoulBreak);
       }
-      checkedRelics.push(compareRelic);
-      if (soul_strike) {
-        const compareSoulBreak = compareGlEntity(
-          callback,
-          soul_strike,
-          enlir.soulBreaks,
-          'soul break',
-          relicName,
-        );
-        if (compareSoulBreak) {
-          checkedSoulBreaks.push(compareSoulBreak);
-        }
-      }
-      if (legend_materia) {
-        const compareLegendMateria = compareGlEntity(
-          callback,
-          legend_materia,
-          enlir.legendMateria,
-          'legend materia',
-          relicName,
-          / \(.*\) */,
-        );
-        if (compareLegendMateria) {
-          checkedLegendMateria.push(compareLegendMateria);
-        }
+    }
+    if (legend_materia) {
+      const compareLegendMateria = compareGlEntity(
+        callback,
+        legend_materia,
+        enlir.legendMateria,
+        'legend materia',
+        relicName,
+        trimRealm,
+      );
+      if (compareLegendMateria) {
+        checkedLegendMateria.push(compareLegendMateria);
       }
     }
   }
@@ -309,6 +307,44 @@ function checkGlRelicDrawBannerItems(
   showUpdateCommands(checkedRelics, 'relics', callback);
   showUpdateCommands(checkedSoulBreaks, 'soulBreaks', callback);
   showUpdateCommands(checkedLegendMateria, 'legendMateria', callback);
+}
+
+function getGachaShowEquipment(data: gachaSchemas.GachaShow, currentTime: number) {
+  const equipmentList: equipmentSchemas.Equipment[] = [];
+  for (const i of data.series_list) {
+    if (i.opened_at > currentTime / 1000) {
+      continue;
+    }
+    for (const { equipment } of i.banner_list) {
+      if (equipment) {
+        equipmentList.push(equipment);
+      }
+    }
+  }
+  return equipmentList;
+}
+
+function getGachaProbabilitiesEquipment(data: gachaSchemas.GachaProbability) {
+  return _.flatten(
+    _.values(data)
+      .filter(i => i.equipments)
+      .map(i => i.equipments),
+  );
+}
+
+function handleGlRelicDrawEquipment(
+  request: HandlerRequest,
+  getEquipment: () => equipmentSchemas.Equipment[],
+) {
+  if (getRequestLang(request) !== LangType.Gl) {
+    return;
+  }
+  const results: string[] = [];
+  const callback = (message: string) => results.push(message);
+
+  checkGlRelicDrawEquipment(getEquipment(), callback);
+
+  results.sort().forEach(i => logger.info(i));
 }
 
 const itemUpdatesHandler: Handler = {
@@ -333,16 +369,17 @@ const itemUpdatesHandler: Handler = {
   'battle/win': handleWinBattle,
 
   'gacha/show'(data: gachaSchemas.GachaShow, store: Store<IState>, request: HandlerRequest) {
-    if (getRequestLang(request) === LangType.Gl) {
-      const currentTime = store.getState().timeState.currentTime;
+    handleGlRelicDrawEquipment(request, () =>
+      getGachaShowEquipment(data, store.getState().timeState.currentTime),
+    );
+  },
 
-      const results: string[] = [];
-      const callback = (message: string) => results.push(message);
-
-      checkGlRelicDrawBannerItems(data, currentTime, callback);
-
-      results.sort().forEach(i => logger.info(i));
-    }
+  'gacha/probability'(
+    data: gachaSchemas.GachaProbability,
+    store: Store<IState>,
+    request: HandlerRequest,
+  ) {
+    handleGlRelicDrawEquipment(request, () => getGachaProbabilitiesEquipment(data));
   },
 };
 
