@@ -1,11 +1,24 @@
 # v2.5.0
 
+There have been some reports of FFRK accounts getting flagged for cheating. To the best of my knowledge, this has nothing to do with RK²; however:
+
+- RK² is more careful to not make unnecessary modifications to network data.
+- If you were using the option to always show the in-game timer, it's been switched off and must be explicitly enabled again.
+- Cautionary notes have been added to any options that modify FFRK behavior.
+
 - Drop Tracker
   - Properly fix display of Rush Tickets for Fat Black Chocobo dungeons
-  - Fix clearing drop items if you restart FFRK and choose to quit the battle
+  - Fix: Drop items are properly cleared if you restart FFRK and choose to quit the battle
+- Dungeons and Dungeon Scores
+  - Add handling for 6\* magicites
+- Soul Breaks
+  - Fix: Unmastered soul breaks were being shown incorrectly after FFRK was updated to no longer require soul breaks to be mastered
+  - Updates and fixes to the summary text of numerous soul breaks
 - Relic Draws
+  - Add information for anima lens wave 3
   - Add handling for shared soul breaks, such as the recent Valkyrie Anatomia event
   - Fix some display glitches and improve display at smaller screen sizes
+  - Fix: Properly clear old Realm Relic Draws and Elemental Lucky Relic Draws
 
 # v2.4.0
 

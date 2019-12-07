@@ -1,6 +1,13 @@
 export const gameUrl = 'https://www.finalfantasyrecordkeeper.com/';
 
 export const downloadUrl = 'https://github.com/rk-squared/rk-squared/releases';
+export type PlatformType = 'mac' | 'windows';
+export function binaryDownloadUrl(version: string, platform: 'mac' | 'windows') {
+  const baseUrl = 'https://github.com/rk-squared/rk-squared/releases/download/v' + version;
+  const installer =
+    platform === 'mac' ? `RK.Squared-${version}.dmg` : `RK.Squared.Setup.${version}.exe`;
+  return baseUrl + '/' + installer;
+}
 
 export const ffrkCommunityUrl =
   'https://docs.google.com/spreadsheets/d/1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk';

@@ -261,6 +261,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.7.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.14",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/pro-light-svg-icons": "^5.8.1",
     "@fortawesome/pro-solid-svg-icons": "^5.7.1",
     "@fortawesome/react-fontawesome": "^0.1.4",

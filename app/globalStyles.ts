@@ -1,6 +1,8 @@
 import * as Modal from 'react-modal';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { faApple } from '@fortawesome/free-brands-svg-icons/faApple';
+import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows';
 import { faDiceD20 } from '@fortawesome/pro-light-svg-icons/faDiceD20';
 import { faArchive } from '@fortawesome/pro-solid-svg-icons/faArchive';
 import { faArrowDown } from '@fortawesome/pro-solid-svg-icons/faArrowDown';
@@ -33,6 +35,7 @@ import 'ag-grid/dist/styles/ag-theme-balham.css';
 import './app.global.scss';
 
 library.add(
+  faApple,
   faArchive,
   faArrowDown,
   faCertificate,
@@ -50,6 +53,7 @@ library.add(
   faSearch,
   faStar,
   faUnlock,
+  faWindows,
 );
 
 export function initializeGlobalStyles(rootNode: HTMLElement) {

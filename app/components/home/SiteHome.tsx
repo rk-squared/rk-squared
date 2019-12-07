@@ -1,15 +1,10 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import {
-  downloadUrl,
-  ffrkCommunityUrl,
-  gameUrl,
-  misterPUrl,
-  redditUrl,
-} from '../../data/resources';
+import { ffrkCommunityUrl, gameUrl, misterPUrl, redditUrl } from '../../data/resources';
 import { SiteExternalLink } from '../common/SiteExternalLink';
 import { AppFeatures } from './AppFeatures';
+import { BinaryDownloadButton } from './BinaryDownloadButton';
 
 export class SiteHome extends React.PureComponent {
   render() {
@@ -35,9 +30,8 @@ export class SiteHome extends React.PureComponent {
           game progress:
         </p>
         <AppFeatures />
-        <a href={downloadUrl} className="btn btn-primary" target="_blank" rel="noopener">
-          Download Now
-        </a>
+        <BinaryDownloadButton platform={'windows'} className="mr-2" />
+        <BinaryDownloadButton platform={'mac'} />
         <Link to={'/appMoreInfo'} className="btn btn-default">
           More Info
         </Link>
