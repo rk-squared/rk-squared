@@ -530,6 +530,35 @@ function createTransparentApp(store: Store<IState>, proxy: httpProxy, tlsCert: T
   return transparentApp;
 }
 
+/**
+ * Handler for http-proxy's proxyReq event to preserve HTTP headers' case on
+ * outgoing requests.  http-proxy has built-in functionality to preserve HTTP
+ * headers' case in incoming responses via its preserveHeaderKeyCase option.
+ *
+ * We do this to minimize the impact that RK Squared has on the data that
+ * passes through it.
+ */
+function preserveProxyReqHeaderKeyCase(proxyReq: http.ClientRequest, req: http.IncomingMessage) {
+  const rawHeaderKeyMap: _.Dictionary<string> = { connection: 'Connection' };
+  for (let i = 0; i < req.rawHeaders.length; i += 2) {
+    const key = req.rawHeaders[i];
+    rawHeaderKeyMap[key.toLowerCase()] = key;
+  }
+
+  for (const key of proxyReq.getHeaderNames()) {
+    if (rawHeaderKeyMap[key]) {
+      const header = proxyReq.getHeader(key);
+      if (header) {
+        proxyReq.setHeader(rawHeaderKeyMap[key], header);
+      }
+    }
+  }
+
+  // Remove the Proxy-Connection header; Android apparently adds it itself if
+  // a proxy is configured.  See https://stackoverflow.com/q/15460819/25507
+  proxyReq.removeHeader('Proxy-Connection');
+}
+
 interface ProxyArgs {
   userDataPath: string;
   port?: number;
@@ -544,11 +573,12 @@ export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
   const port = proxyArgs.port || defaultPort;
   const httpsPort = proxyArgs.httpsPort || defaultHttpsPort;
 
-  const proxy = httpProxy.createProxyServer({});
+  const proxy = httpProxy.createProxyServer({ preserveHeaderKeyCase: true });
   proxy.on('error', e => {
     logger.debug('Error within proxy');
     logger.debug(e);
   });
+  proxy.on('proxyReq', preserveProxyReqHeaderKeyCase);
 
   const app = connect();
   configureApp(app, store, proxy, tlsCert, req => {
