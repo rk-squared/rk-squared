@@ -121,6 +121,20 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       newExchangeShopSelections,
     } = this.props;
     const relic = enlir.relics[relicId];
+    if (!relic) {
+      return (
+        <tr>
+          <td>???</td>
+          <td>?</td>
+          <td>?</td>
+          <td>???</td>
+          <td>???</td>
+          {showProbability && <td>{probabilities!.byRelic[relicId]}%</td>}
+          {allowSelect && <td></td>}
+          {getStatusAndCss && <td className="sr-only"></td>}
+        </tr>
+      );
+    }
     const { character, name, type, effect } = relic;
     const sb = enlir.relicSoulBreaks[relicId];
     const lm = enlir.relicLegendMateria[relicId];
