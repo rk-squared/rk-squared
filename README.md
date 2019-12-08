@@ -10,6 +10,7 @@ Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/elec
   - More frequent soul break updates
   - Don't break relic draw page on unknown inventory
 - Export option
+- Relic Draw Simulator - tooltips, summarize past results
 - Soul Break updates - Lightning SASB, etc.
 - Minor bugs: old RMs show as missing
 - AndApp support; document BlueStacks support

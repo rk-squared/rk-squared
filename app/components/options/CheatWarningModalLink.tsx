@@ -66,9 +66,9 @@ export class CheatWarningModalLink extends React.PureComponent<Props, State> {
             <p>
               To the best of our knowledge, RK&sup2; is not considered a cheat tool and has not
               resulted in an account being flagged. In its default mode, RK&sup2; acts as a passive
-              HTTP proxy; as such, it should be basically undetectable, and since HTTP proxies are a
-              standardized, decades-old Internet technology, it should be completely
-              unobjectionable.
+              HTTP proxy; as such, it has little detectable effect on network traffic, and since
+              HTTP proxies are a standardized, decades-old Internet technology, it should be
+              completely unobjectionable.
             </p>
             <p>
               Any of RK&sup2;'s options that modify the behavior of FFRK itself should be used at
