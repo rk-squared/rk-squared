@@ -205,7 +205,7 @@
     "devtron": "^1.4.0",
     "dotenv": "^8.0.0",
     "electron": "1.7.10",
-    "electron-builder": "^21.2.0",
+    "electron-builder": "^22.2.0",
     "electron-builder-http": "^19.15.0",
     "electron-devtools-installer": "^2.0.1",
     "enzyme": "^3.0.0",
