@@ -74,9 +74,10 @@ async function uploadReleaseAsset(ghRelease: any, filename: string) {
 }
 
 function showRedditDraft(version: string, releaseNotes: string) {
+  console.log(`RK Squared ${version} - track soul breaks, LMs, relic banners, etc.`);
   console.log(
     `Version ${version} of RK Squared is now available. ` +
-      'You can get it from https://github.com/rk-squared/rk-squared/releases. ' +
+      'You can get it [here](https://www.rk-squared.com/). ' +
       'RK² is a record keeper for Final Fantasy Record Keeper. It can track item drops, dungeon completion status, dungeon rewards, record materia, soul breaks, legend materia, and relic banners for both the Android and iOS versions of the game.\n\n' +
       'New features and changes since the last release:\n\n' +
       releaseNotes +
