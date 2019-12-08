@@ -20,7 +20,7 @@
     "lint": "tslint --project .",
     "lint:watch": "onchange 'scripts/*.ts' 'app/**/*.ts' 'app/**/*.tsx' -- yarn lint",
     "start": "cross-env NODE_ENV=production electron ./app/main.prod.js",
-    "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron ./dist/app/main.js",
+    "start-main-dev": "cross-env HOT=1 NODE_ENV=development IS_ELECTRON=1 electron ./dist/app/main.js",
     "start-renderer-dev": "cross-env NODE_ENV=development webpack-dev-server --config configs/webpack.config.renderer.dev.js",
     "test": "jest",
     "test:all": "yarn test && yarn build && yarn test-e2e",

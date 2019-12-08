@@ -59,9 +59,7 @@ module.exports = merge.smart(baseConfig, {
      */
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
-
-      // ag-Grid depends on being able to temporarily mutate objects.
-      UPDEEP_MODE: 'dangerously_never_freeze',
+      IS_ELECTRON: true,
     }),
 
     new webpack.LoaderOptionsPlugin({
