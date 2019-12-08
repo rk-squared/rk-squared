@@ -142,7 +142,7 @@ export class OptionsForm extends React.Component<Props, State> {
             <p>Hide accolades from the roaming warrior (RW) list to save screen space.</p>
             <p>
               <CheatWarningModalLink>
-                This is a cosmetic option and is believed to be safe.
+                This is a cosmetic option and should be safe.
               </CheatWarningModalLink>
             </p>
           </HelpText>

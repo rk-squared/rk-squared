@@ -56,17 +56,21 @@ function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
       );
     }
 
-    const soulBreakExpUpdate = buddy.soul_strike_exps
-      .filter(i => +i.previous_exp !== +i.new_exp)
-      .map(i => [+i.soul_strike_id, +i.new_exp]);
-    if (soulBreakExpUpdate.length) {
-      store.dispatch(updateSoulBreakExp(_.fromPairs(soulBreakExpUpdate)));
+    if (buddy.soul_strike_exps) {
+      const soulBreakExpUpdate = buddy.soul_strike_exps
+        .filter(i => +i.previous_exp !== +i.new_exp)
+        .map(i => [+i.soul_strike_id, +i.new_exp]);
+      if (soulBreakExpUpdate.length) {
+        store.dispatch(updateSoulBreakExp(_.fromPairs(soulBreakExpUpdate)));
+      }
     }
-    const legendMateriaExpUpdate = buddy.legend_materia_exps
-      .filter(i => +i.previous_exp !== +i.new_exp)
-      .map(i => [+i.legend_materia_id, +i.new_exp]);
-    if (legendMateriaExpUpdate.length) {
-      store.dispatch(updateLegendMateriaExp(_.fromPairs(legendMateriaExpUpdate)));
+    if (buddy.legend_materia_exps) {
+      const legendMateriaExpUpdate = buddy.legend_materia_exps
+        .filter(i => +i.previous_exp !== +i.new_exp)
+        .map(i => [+i.legend_materia_id, +i.new_exp]);
+      if (legendMateriaExpUpdate.length) {
+        store.dispatch(updateLegendMateriaExp(_.fromPairs(legendMateriaExpUpdate)));
+      }
     }
   }
 }

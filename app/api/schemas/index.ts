@@ -252,7 +252,7 @@ export interface WorldBattles {
   }>;
 }
 
-// A POST of encoded data to a URL like
+// A POST of encrypted data to a URL like
 // http://ffrk.denagames.com/dff/event/wday/607/win_battle or
 // http://ffrk.denagames.com/dff/battle/win
 export interface WinBattle {
@@ -299,7 +299,25 @@ export interface WinBattle {
       };
       status_bonus_type_of: BoolAsNumber;
 
-      soul_strike_exps: Array<{
+      magia_point_info: {
+        cur_magia_exp: number;
+        magia_lv_to_magia_exp: {
+          [level: string]: number;
+        };
+        magia_lv_to_magia_point: {
+          [level: string]: number;
+        };
+        prev_magia_exp: number;
+        prev_magia_lv: number;
+        cur_unused_magia_point: number;
+        prev_unused_magia_point: number;
+        cur_magia_lv: number;
+        is_magia_lv_max: number;
+      };
+
+      // After the 12/4/2019 maintenance update that removed the requirement to
+      // master soul breaks, these properties no longer exist.
+      soul_strike_exps?: Array<{
         soul_strike_name: string;
         soul_strike_disp_name: string;
         soul_strike_description: string;
@@ -318,7 +336,7 @@ export interface WinBattle {
         assets: AssetCollection;
         param_booster: {};
       }>;
-      legend_materia_exps: Array<{
+      legend_materia_exps?: Array<{
         legend_materia_name: string;
         legend_materia_disp_name: string;
         legend_materia_description: string;
