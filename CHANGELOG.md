@@ -11,6 +11,8 @@ There have been some reports of FFRK accounts getting flagged for cheating. To t
   - Fix: Drop items are properly cleared if you restart FFRK and choose to quit the battle
 - Dungeons and Dungeon Scores
   - Add handling for 6\* magicites
+- Abilities
+  - Fix: Orb display glitch on Windows
 - Soul Breaks
   - Fix: Unmastered soul breaks were being shown incorrectly after FFRK was updated to no longer require soul breaks to be mastered
   - Updates and fixes to the summary text of numerous soul breaks
