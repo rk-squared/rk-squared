@@ -141,7 +141,10 @@ export function describeCondition(condition: types.Condition, count?: number | n
         formatThreshold(condition.count, formatSchoolOrAbilityList(condition.element)) + ' used'
       );
     case 'damageDuringStatus':
-      return formatThreshold(condition.value, 'dmg dealt');
+      return formatThreshold(
+        condition.value,
+        (condition.element ? formatSchoolOrAbilityList(condition.element) + ' ' : '') + 'dmg dealt',
+      );
     case 'rankBased':
       return '@ rank 1-5';
     case 'statThreshold':

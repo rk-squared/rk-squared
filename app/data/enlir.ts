@@ -678,22 +678,6 @@ function patchEnlir() {
     },
   );
 
-  // Update Enna to resemble Gladiolus and Squall.  TODO: More consistency
-  applyPatch(
-    enlir.otherSkillsByName,
-    'Fickle Crush',
-    crash =>
-      crash.effects ===
-      '3/5/15 single attacks (1.20 each) if the user dealt 0/72001/240001 damage ' +
-        'with Earth attacks during the status, removes Creator Mode. ' +
-        'Additional one single attack (17.30) capped at 99999 if the final damage threshold was met',
-    crash => {
-      crash.effects =
-        '3/5/15 single attacks (1.20 each) if 0/72001/240001 damage was dealt during the status, removes Creator Mode. ' +
-        'Additional one single attack (17.30) capped at 99999 if 240001 damage was dealt during the status';
-    },
-  );
-
   // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are pure
   // madness.  I have no shame in whatever hacks it takes to process them.
   applyPatch(
@@ -808,7 +792,7 @@ function patchEnlir() {
     },
   );
 
-  // Legend materia.  These, two, should be upstreamed if possible.
+  // Legend materia.  These, too, should be upstreamed if possible.
   applyPatch(
     enlir.legendMateria,
     '201070504',

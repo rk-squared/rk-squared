@@ -422,7 +422,11 @@ export type Condition =
       count: number | number[];
       element: EnlirElement | EnlirElement[];
     }
-  | { type: 'damageDuringStatus'; value: number | number[] }
+  | {
+      type: 'damageDuringStatus';
+      value: number | number[];
+      element?: EnlirElement | EnlirElement[];
+    }
   | { type: 'rankBased' }
   | { type: 'statThreshold'; stat: EnlirStat; value: number | number[] };
 

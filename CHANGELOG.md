@@ -1,3 +1,8 @@
+# Unreleased
+
+- Relic Draws
+  - Fix: Unknown relics are now shown as ??? instead of breaking the entire relic banner page
+
 # v2.5.0
 
 - Drop Tracker

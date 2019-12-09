@@ -1,10 +1,16 @@
 import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
+import { arrayify } from '../../utils/typeUtils';
 import * as types from './types';
 import { parseNumberString } from './util';
 
-export { parseNumberString };
+export { arrayify, parseNumberString };
+
+export function lastValue(value: number | number[]): number {
+  value = arrayify(value);
+  return value[value.length - 1];
+}
 
 export function pegList(head: any, tail: any, index: number, forceSingle: boolean = false): any[] {
   if (forceSingle && !tail.length) {

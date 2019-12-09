@@ -1,5 +1,7 @@
 {
   let parsedNumberString = null;
+  let lastDamageDuringStatus = NaN;
+  let lastDamageDuringStatusElement = undefined;
 
   // Hack: Suppress warnings about unused functions.
   location;
@@ -741,8 +743,22 @@ Condition
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ school:SchoolList _ "abilities" _ "during" _ "the" _ "status" { return { type: 'abilitiesUsedDuringStatus', count, school }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ school:SchoolList _ "abilities" { return { type: 'abilitiesUsed', count, school }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ element:ElementList _ "attacks" _ "during" _ "the" _ "status" { return { type: 'attacksDuringStatus', count, element }; }
-  / "if" _ value:IntegerSlashList _ "damage" _ "was" _ "dealt" _ "during" _ "the" _ "status" { return { type: 'damageDuringStatus', value }; }
-  / "if" _ "the" _ "user" _ "dealt" _ value:IntegerSlashList _ "damage" _ "during" _ "the" _ "status" { return { type: 'damageDuringStatus', value }; }
+  / "if" _ value:IntegerSlashList _ "damage" _ "was" _ "dealt" _ "during" _ "the" _ "status" {
+    lastDamageDuringStatus = util.lastValue(value);
+    lastDamageDuringStatusElement = undefined;
+    return { type: 'damageDuringStatus', value };
+  }
+  / "if" _ "the" _ "user" _ "dealt" _ value:IntegerSlashList _ "damage" _ "during" _ "the" _ "status" {
+    lastDamageDuringStatus = util.lastValue(value);
+    lastDamageDuringStatusElement = undefined;
+    return { type: 'damageDuringStatus', value };
+  }
+  / "if" _ "the" _ "user" _ "dealt" _ value:IntegerSlashList _ "damage" _ "with" _ element:ElementList _ "attacks" _ "during" _ "the" _ "status" {
+    lastDamageDuringStatus = util.lastValue(value);
+    lastDamageDuringStatusElement = element;
+    return { type: 'damageDuringStatus', value, element };
+  }
+  / "if" _ "the" _ "final" _ "damage" _ "threshold" _ "was" _ "met" { return { type: 'damageDuringStatus', value: lastDamageDuringStatus, element: lastDamageDuringStatusElement }; }
   // Alternate phrasing - this appears to be an error, so we smooth it out. TODO: Fix upstream.
   / "scaling" _ "with" _ school:School _ "attacks" _ "used" _ "(" _ count:IntegerSlashList _ ")" { return { type: 'abilitiesUsed', count, school }; }
 
