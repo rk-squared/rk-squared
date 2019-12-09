@@ -11,7 +11,7 @@ import {
   RelicDrawProbabilities,
 } from '../../actions/relicDraws';
 import { enlir } from '../../data/enlir';
-import { chanceOfDesiredDrawProp5, StandardMythrilCost } from '../../data/probabilities';
+import { chanceOfDesiredDrawProp5, MaxRarity, StandardMythrilCost } from '../../data/probabilities';
 import { IState } from '../../reducers';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
@@ -45,11 +45,12 @@ function getRelicChanceDetails(
   const desiredFeaturedCount =
     banner.bannerRelics && want ? _.sum(banner.bannerRelics.map(i => (want[i] ? 1 : 0))) : null;
 
-  let fiveStarChancePerRelic = 0;
+  const starOrBetterChancePerRelic = new Array<number>(MaxRarity).fill(0);
   let rareChancePerRelic = 0;
   _.forEach(probabilities.byRarity, (chance, rarity) => {
-    if (+rarity >= 5) {
-      fiveStarChancePerRelic += chance;
+    for (let i = +rarity; i > 0; i--) {
+      starOrBetterChancePerRelic[i] = starOrBetterChancePerRelic[i] || 0;
+      starOrBetterChancePerRelic[i] += chance;
     }
     if (+rarity >= params.guaranteedRarity) {
       rareChancePerRelic += chance;
@@ -92,7 +93,7 @@ function getRelicChanceDetails(
   );
 
   return {
-    fiveStarChancePerRelic,
+    starOrBetterChancePerRelic,
     desiredCount,
     desiredFeaturedCount,
     sixStarCount,
@@ -243,13 +244,14 @@ export class RelicChances extends React.PureComponent<Props> {
       >
         <div className="col-sm-6">
           <p className="card-text">
-            {details.fiveStarChancePerRelic.toFixed(2)}% chance of 5★ or better
+            {details.starOrBetterChancePerRelic[5].toFixed(2)}% chance of 5★ or better
           </p>
           <p className="card-text">
             (ave. {details.expectedValue.toFixed(2)} 5★ or better per 11× pull)
           </p>
           <p className="card-text">
-            {details.sixStarCount} / {banner.totalCount} 6★ relics
+            {details.starOrBetterChancePerRelic[6].toFixed(2)}% chance of 6★
+            {details.starOrBetterChancePerRelic[7] ? ' or better' : ''}
           </p>
           {!isAnonymous && banner.dupeCount != null && (
             <p className="card-text">

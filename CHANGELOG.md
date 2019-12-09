@@ -1,6 +1,7 @@
 # Unreleased
 
 - Relic Draws
+  - The chance of getting a 6\* or better is now shown, instead of showing the raw count of the number of relics that are 6\*.
   - Fix: Unknown relics are now shown as ??? instead of breaking the entire relic banner page
 
 # v2.5.0

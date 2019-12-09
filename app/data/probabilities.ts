@@ -26,6 +26,7 @@ export const StandardMythrilCost = 50;
 export const RealmRelicDrawMythrilCost = 15;
 
 export const StandardGuaranteedRarity = 5;
+export const MaxRarity = 7;
 
 /**
  * Parameters for a single pull on a relic draw banner.
