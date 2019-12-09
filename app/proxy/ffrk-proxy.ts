@@ -282,6 +282,14 @@ function handleFfrkStartupRequest(
   return data;
 }
 
+function isCertUrl(reqUrl: url.UrlWithStringQuery) {
+  return (
+    ((reqUrl.host === 'www.rk-squared.com' || reqUrl.host === 'rk-squared.com') &&
+      reqUrl.pathname === '/cert') ||
+    (reqUrl.host === 'cert.rk-squared.com' && reqUrl.pathname === '/')
+  );
+}
+
 function handleInternalRequests(
   req: http.IncomingMessage,
   res: http.ServerResponse,
@@ -291,11 +299,7 @@ function handleInternalRequests(
     return false;
   }
 
-  const reqUrl = url.parse(req.url);
-  if (
-    (reqUrl.host === 'www.rk-squared.com' || reqUrl.host === 'rk-squared.com') &&
-    reqUrl.pathname === '/cert'
-  ) {
+  if (isCertUrl(url.parse(req.url))) {
     res.setHeader('Content-Type', 'application/x-pem-file');
     res.setHeader('Content-Disposition', 'attachment; filename=RKSquared.cer');
     res.write(Buffer.from(certPem));

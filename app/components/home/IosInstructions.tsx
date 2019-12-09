@@ -41,8 +41,8 @@ export class IosInstructions extends React.Component<Props> {
             Download the certificate.
             <ul>
               <li>
-                Open Safari on your phone or tablet and navigate to <code>rk-squared.com/cert</code>
-                . (This <code>cert</code> page isn't a &ldquo;real&rdquo; web page; it's handled
+                Open Safari on your phone or tablet and navigate to <code>cert.rk-squared.com</code>
+                . (This <code>cert</code> site isn't a &ldquo;real&rdquo; web site; it's handled
                 within RK&sup2; and is only accessible if you've configured your proxy.)
               </li>
               <li>

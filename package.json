@@ -159,7 +159,7 @@
     "webpack",
     "react-hot"
   ],
-  "homepage": "https://rk-squared.com/",
+  "homepage": "https://www.rk-squared.com/",
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@types/cheerio": "^0.22.7",
