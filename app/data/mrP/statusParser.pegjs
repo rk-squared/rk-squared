@@ -17,10 +17,29 @@ StatusEffect
   / "" { return []; }
 
 EffectClause
-  = CritChance / ElementBuff / ElementDebuff / ElementBlink / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
+  = StatMod / CritChance
+  / ElementBuff / ElementDebuff / ElementBlink / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
+  / ImmuneAttackSkills / ImmuneAttacks
+
+
+// --------------------------------------------------------------------------
+// Stat mods
+
+StatMod
+  = stats:StatList _ value:SignedIntegerOrX "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
+    const result = { type: 'statMod', value };
+    if (ignoreBuffCaps) {
+      result.ignoreBuffCaps = true;
+    }
+    return result;
+  }
 
 CritChance
   = "Critical chance =" value:IntegerOrX "%" { return { type: 'critChance', value }; }
+
+
+// --------------------------------------------------------------------------
+// Element buffs and debuffs
 
 ElementBuff
   = "Increases"i _ element:Element _ "damage dealt by" _ value:Integer _ "%, cumulable" { return { type: 'elementAttack', element, value, cumulable: true }; }
@@ -52,7 +71,37 @@ LoseAnyEnElement
 
 
 // --------------------------------------------------------------------------
+// Unique statuses
+
+ImmuneAttackSkills
+  = "Can't be hit by" _ nonRanged:("non-ranged")? _ skillType:SkillTypeList _ "attacks" {
+    return {
+      type: 'immune',
+      attacks: true,
+      skillType,
+      nonRanged: !!nonRanged
+    }
+  }
+
+ImmuneAttacks
+  = "Can't be hit by any attack" {
+    return {
+      type: 'immune',
+      attacks: true,
+    }
+  }
+
+
+// --------------------------------------------------------------------------
 // Lower-level game rules
+
+Stat "stat"
+  = ("ATK" / "DEF" / "MAG" / "RES" / "MND" / "SPD" / "ACC" / "EVA") {
+    return text().toLowerCase();
+  }
+
+StatList "stat list"
+  = head:Stat tail:(AndList Stat)* { return util.pegList(head, tail, 1, true); }
 
 Element "element"
   = "Fire"
@@ -68,6 +117,18 @@ Element "element"
 
 ElementList "element list"
   = head:Element tail:(OrList Element)* { return util.pegList(head, tail, 1, true); }
+
+SkillType "skill type"
+  = "PHY"
+  / "WHT"
+  / "BLK"
+  / "BLU"
+  / "SUM"
+  / "NAT"
+  / "NIN"
+
+SkillTypeList "skill type list"
+  = head:SkillType tail:(OrList SkillType)* { return util.pegList(head, tail, 1, true); }
 
 
 // --------------------------------------------------------------------------

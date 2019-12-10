@@ -37,6 +37,17 @@ const argv = yargs
 
 const jsonOutput: any[] = [];
 
+// Skip internal, bookkeeping, or otherwise special statuses.
+const skipStatuses = new Set<string>([
+  'General Set Status',
+  'Status Level in Synchro Mode',
+  'Increase Status Level',
+  'Decrease Status Level',
+  'Attach Element',
+  'Max Attach Element Level',
+  'KO',
+]);
+
 function processStatuses(): [number, number] {
   const items = enlir.statusByName;
   function shouldShow(parseResults: SkillEffect | undefined, parseError: SyntaxError | undefined) {
@@ -48,7 +59,7 @@ function processStatuses(): [number, number] {
     parseResults: SkillEffect | undefined,
     parseError: SyntaxError | undefined,
   ) {
-    console.log(item.name);
+    console.log(item.id + ' - ' + item.name);
     console.log(item.effects);
     if (parseResults) {
       console.dir(parseResults, { depth: null });
@@ -80,7 +91,7 @@ function processStatuses(): [number, number] {
   let successCount = 0;
   let totalCount = 0;
   _.forEach(items, i => {
-    if (argv.filter && !i.name.match(argv.filter)) {
+    if (skipStatuses.has(i.name) || (argv.filter && !i.name.match(argv.filter))) {
       return;
     }
     let parseResults: SkillEffect | undefined;
