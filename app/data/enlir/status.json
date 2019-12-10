@@ -15783,7 +15783,7 @@
   {
     "id": 633130,
     "name": "ATK, DEF and MAG -70%",
-    "effects": "ATK, DEF and MAG -70% for 8 seconds",
+    "effects": "ATK, DEF and MAG -70%",
     "defaultDuration": 8,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

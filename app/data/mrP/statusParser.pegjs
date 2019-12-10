@@ -17,9 +17,12 @@ StatusEffect
   / "" { return []; }
 
 EffectClause
-  = StatMod / CritChance
+  = StatMod / CritChance / StatusChance
   / ElementBuff / ElementDebuff / ElementBlink / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
+  / AbilityDouble
   / ImmuneAttackSkills / ImmuneAttacks
+  / TurnDuration
+  / BurstToggle
 
 
 // --------------------------------------------------------------------------
@@ -36,6 +39,9 @@ StatMod
 
 CritChance
   = "Critical chance =" value:IntegerOrX "%" { return { type: 'critChance', value }; }
+
+StatusChance
+  = "Increases the chance of inflicting Status by" _ value:IntegerOrX "%" { return { type: 'statusChance', value }; }
 
 
 // --------------------------------------------------------------------------
@@ -71,6 +77,13 @@ LoseAnyEnElement
 
 
 // --------------------------------------------------------------------------
+// Abilities
+
+AbilityDouble
+  = "dualcasts" _ school:School _ "abilities consuming an extra ability use" { return { type: 'abilityDouble', school }; }
+
+
+// --------------------------------------------------------------------------
 // Unique statuses
 
 ImmuneAttackSkills
@@ -90,6 +103,20 @@ ImmuneAttacks
       attacks: true,
     }
   }
+
+
+// --------------------------------------------------------------------------
+// Special durations
+
+TurnDuration
+  = "lasts for" _ value:Integer _ "turn" "s"? { return { type: 'duration', duration: { value, units: 'turns' } }; }
+
+
+// --------------------------------------------------------------------------
+// Other
+
+BurstToggle
+  = "Affects"i _ "certain Burst Commands"
 
 
 // --------------------------------------------------------------------------
@@ -117,6 +144,32 @@ Element "element"
 
 ElementList "element list"
   = head:Element tail:(OrList Element)* { return util.pegList(head, tail, 1, true); }
+
+School "ability school"
+  = "Bard"
+  / "Black Magic"
+  / "Celerity"
+  / "Combat"
+  / "Dancer"
+  / "Darkness"
+  / "Dragoon"
+  / "Heavy"
+  / "Knight"
+  / "Machinist"
+  / "Monk"
+  / "Ninja"
+  / "Samurai"
+  / "Sharpshooter"
+  / "Special"
+  / "Spellblade"
+  / "Summoning"
+  / "Support"
+  / "Thief"
+  / "White Magic"
+  / "Witch"
+
+SchoolList "element list"
+  = head:School tail:(OrList School)* { return util.pegList(head, tail, 1, true); }
 
 SkillType "skill type"
   = "PHY"
