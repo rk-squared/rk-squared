@@ -1,4 +1,6 @@
 {
+  let parsedNumberString = null;
+
   // Hack: Suppress warnings about unused functions.
   location;
   expected;
@@ -18,11 +20,13 @@ StatusEffect
 
 EffectClause
   = StatMod / CritChance / StatusChance
+  / CastSpeed
   / ElementBuff / ElementDebuff / ElementBlink / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
   / AbilityDouble
+  / CastSkill / GrantStatus
   / ImmuneAttackSkills / ImmuneAttacks
   / TurnDuration
-  / BurstToggle
+  / BurstToggle / SkillCounter / BurstOnly / BurstReset / Ai
 
 
 // --------------------------------------------------------------------------
@@ -42,6 +46,13 @@ CritChance
 
 StatusChance
   = "Increases the chance of inflicting Status by" _ value:IntegerOrX "%" { return { type: 'statusChance', value }; }
+
+
+// --------------------------------------------------------------------------
+// Cast speed
+
+CastSpeed
+  = "Cast"i _ "speed x" value:DecimalNumber { return { type: 'castSpeed', value }; }
 
 
 // --------------------------------------------------------------------------
@@ -84,6 +95,16 @@ AbilityDouble
 
 
 // --------------------------------------------------------------------------
+// Abilities and status effects
+
+CastSkill
+  = "casts"i _ skill:AnySkillName _ trigger:Trigger? { return { type: 'castSkill', skill, trigger }; }
+
+GrantStatus
+  = "grants"i _ status:StatusName _ trigger:Trigger? { return { type: 'grantsStatus', status, trigger }; }
+
+
+// --------------------------------------------------------------------------
 // Unique statuses
 
 ImmuneAttackSkills
@@ -118,9 +139,86 @@ TurnDuration
 BurstToggle
   = "Affects"i _ "certain Burst Commands"
 
+SkillCounter
+  = "Keeps"i _ "track of the number of uses of" _ skill:AnySkillName { return { type: 'skillCounter', skill }; }
+
+BurstOnly
+  = "removed if the user hasn't Burst Mode" { return { type: 'burstOnly' }; }
+
+BurstReset
+  = "reset upon refreshing Burst Mode" { return { type: 'burstReset' }; }
+
+Ai
+  = "Affects"i _ GenericName _ "behaviour" { return { type: 'ai' }; }
+
+
+// --------------------------------------------------------------------------
+// Triggers
+
+Trigger
+  = "after using a" "n"? _ element:ElementList _ "attack" { return { type: 'elementAttack', element }; }
+  / "after using" _ count:ArticleOrNumberString _ ("ability" / "abilities") { return { type: 'anyAbility', count }; }
+  / "after using" _ count:ArticleOrNumberString _ school:SchoolList _ ("ability" / "abilities") { return { type: 'schoolAbility', school, count }; }
+
 
 // --------------------------------------------------------------------------
 // Lower-level game rules
+
+StatusName "status effect"
+  = (
+    // Stat mods in particular have a distinctive format.
+    ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
+  / GenericName
+  / "?"
+  ) {
+    return text();
+  }
+
+// These probably don't cover all abilities and characters, but it works for now.
+AbilityName
+  = UppercaseWord (_ UppercaseWord)* { return text(); }
+CharacterName
+  = UppercaseWord (_ (UppercaseWord / "of"))* (_ "(" [A-Z] [A-Za-z0-9-]+ ")")? { return text(); }
+
+// Character names, for "if X are in the party."  Return these as text so that
+// higher-level code can process them.
+CharacterNameList
+  = CharacterName ((_ "&" _ / "/" / _ "or" _) CharacterName)* { return text(); }
+
+// Any skill - burst commands, etc. ??? is referenced in one particular status.
+AnySkillName
+  = GenericName / '???'
+
+// Generic names.  Somewhat complex expression to match these.  Developed for
+// statuses, so the rules may need revision for other uses.
+GenericName
+  = (
+    (GenericNameWord
+      // Names can start with numbers, but require a word after that, so that
+      // "100%" doesn't get parsed as a status name by itself.
+      / IntegerSlashList '%' !(_ "hit" _ "rate") _ GenericNameWord
+      / SignedIntegerSlashList [%+]? _ GenericNameWord
+    )
+    (_
+      (
+        GenericNameWord
+
+        // Articles, etc., are okay, but use &' ' to make sure they're at a
+        // word bounary.
+        / (('in' / 'or' / 'of' / 'the' / 'with' / '&' / 'a') & ' ')
+        // "for" in particular needs extra logic to ensure that it's part of
+        // status words instead of part of the duration.
+        / "for" _ GenericNameWord
+
+        / SignedIntegerSlashList [%+]?
+        / [=*]? IntegerSlashList [%+]?
+        / '(' [A-Za-z-0-9/]+ ')'
+      )
+    )*
+  ) {
+    return text();
+  }
+GenericNameWord = ([A-Z] [a-zA-Z-'/]* (':' / '...' / '!' / '+')?)
 
 Stat "stat"
   = ("ATK" / "DEF" / "MAG" / "RES" / "MND" / "SPD" / "ACC" / "EVA") {
@@ -193,6 +291,19 @@ AndList
 OrList
   = (',' _ 'or'? _) / (_ 'or' _)
 
+NumberString "numeric text"
+  = numberString:[a-zA-Z\-]+
+  & { parsedNumberString = util.parseNumberString(numberString.join('')); return parsedNumberString != null; }
+  { return parsedNumberString; }
+
+ArticleOrNumberString
+  = NumberString
+  / ("a" "n"?) { return 1; }
+
+
+DecimalNumber "decimal number"
+  = ([0-9.]+ / '?') { return parseFloat(text()) }
+
 Integer "integer"
   = ([0-9]+ / '?') { return parseInt(text(), 10); }
 
@@ -210,6 +321,23 @@ SignedIntegerOrX "signed integer or X"
       return parseInt(sign + value.join(''), 10);
     }
   }
+
+IntegerSlashList "slash-separated integers"
+  = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }
+
+SignedIntegerSlashList "slash-separated signed integers"
+  = sign:[+-] _ values:IntegerSlashList {
+    const applySign = (i) => sign === '-' ? -i : i;
+    if (Array.isArray(values)) {
+      return values.map(applySign);
+    } else {
+      return applySign(values);
+    }
+  }
+
+
+UppercaseWord
+  = [A-Z] [A-Za-z]+ { return text(); }
 
 _ "whitespace"
   = [ \t\n\r]*

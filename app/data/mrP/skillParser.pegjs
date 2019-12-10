@@ -468,16 +468,6 @@ StatusWithPercent
     return result;
   }
 
-StatusName "status effect"
-  = (
-    // Stat mods in particular have a distinctive format.
-    ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
-  / GenericName
-  / "?"
-  ) {
-    return text();
-  }
-
 StatusLevel "status with level"
   = status:StatusName _ "level" _ value:Integer {
     return { type:'statusLevel', status, value };
@@ -585,6 +575,16 @@ StandaloneAttackExtra
 
 // --------------------------------------------------------------------------
 // Lower-level game rules
+
+StatusName "status effect"
+  = (
+    // Stat mods in particular have a distinctive format.
+    ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
+  / GenericName
+  / "?"
+  ) {
+    return text();
+  }
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName
