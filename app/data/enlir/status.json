@@ -16209,8 +16209,8 @@
   },
   {
     "id": 7190,
-    "name": "Deatch Element",
-    "effects": "Decrease any  attached element's level by 1",
+    "name": "Detach Element",
+    "effects": "Decrease any attached element's level by 1",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -16862,7 +16862,7 @@
   {
     "id": 804,
     "name": "Attach Fire",
-    "effects": "Replaces Attack command, increases Fire damage dealt by 50/80/120%  (abilities) or 80/100/120% (Soul Breaks), Fire resistance +20%",
+    "effects": "Replaces Attack command, increases Fire damage dealt by 50/80/120% (abilities) or 80/100/120% (Soul Breaks), Fire resistance +20%",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
