@@ -19,12 +19,13 @@ StatusEffect
   / "" { return []; }
 
 EffectClause
-  = StatMod / CritChance / StatusChance
+  = StatMod / CritChance / CritDamage / StatusChance
   / CastSpeed
-  / ElementBuff / ElementDebuff / ElementBlink / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityDouble
+  / ElementAttack / ElementBlink / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
+  / AbilityBuildup / AbilityDouble
+  / DoomTimer
   / CastSkill / GrantStatus
-  / ImmuneAttackSkills / ImmuneAttacks
+  / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage
   / TurnDuration
   / BurstToggle / SkillCounter / BurstOnly / BurstReset / Ai
 
@@ -34,7 +35,7 @@ EffectClause
 
 StatMod
   = stats:StatList _ value:SignedIntegerOrX "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
-    const result = { type: 'statMod', value };
+    const result = { type: 'statMod', stats, value };
     if (ignoreBuffCaps) {
       result.ignoreBuffCaps = true;
     }
@@ -43,6 +44,9 @@ StatMod
 
 CritChance
   = "Critical chance =" value:IntegerOrX "%" { return { type: 'critChance', value }; }
+
+CritDamage
+  = "Critical hits deal" _ value:IntegerOrX "% more damage (additive with the base critical coefficient)" { return { type: 'critDamage', value }; }
 
 StatusChance
   = "Increases the chance of inflicting Status by" _ value:IntegerOrX "%" { return { type: 'statusChance', value }; }
@@ -58,11 +62,8 @@ CastSpeed
 // --------------------------------------------------------------------------
 // Element buffs and debuffs
 
-ElementBuff
-  = "Increases"i _ element:Element _ "damage dealt by" _ value:Integer _ "%, cumulable" { return { type: 'elementAttack', element, value, cumulable: true }; }
-
-ElementDebuff
-  = "Reduces"i _ element:Element _ "damage dealt by" _ value:Integer _ "%, cumulable" { return { type: 'elementAttack', element, value: -value, cumulable: true }; }
+ElementAttack
+  = sign:IncreasesOrReduces _ element:Element _ "damage dealt by" _ value:Integer _ "%, cumulable" { return { type: 'elementAttack', element, value: value * sign, cumulable: true }; }
 
 ElementBlink
   = "Reduces"i _ "the damage of the next attack that deals" _ element:Element _ "damage to 0" { return { type: 'elementBlink', element, level: 1 }; }
@@ -90,8 +91,20 @@ LoseAnyEnElement
 // --------------------------------------------------------------------------
 // Abilities
 
+AbilityBuildup
+  = school:School _ "abilities deal" _ increment:Integer "% more damage for each" _ schoolUsed:School _ "ability used, up to +" max:Integer "%" {
+    return { type: 'abilityBuildup', school, schoolUsed, increment, max };
+  }
+
 AbilityDouble
   = "dualcasts" _ school:School _ "abilities consuming an extra ability use" { return { type: 'abilityDouble', school }; }
+
+
+// --------------------------------------------------------------------------
+// Doom
+
+DoomTimer
+  = sign:IncreasesOrReduces _ "the character's Doom timer by" _ value:Integer _ "when set" { return { type: 'doomTimer', value: value * sign }; }
 
 
 // --------------------------------------------------------------------------
@@ -105,15 +118,19 @@ GrantStatus
 
 
 // --------------------------------------------------------------------------
-// Unique statuses
+// Taunt, retaliate, immunities
+
+Taunt
+  = "Taunts"i _ "single-target" _ skillType:SkillTypeAndList _ "attacks" { return { type: 'taunt', skillType }; }
 
 ImmuneAttackSkills
-  = "Can't be hit by" _ nonRanged:("non-ranged")? _ skillType:SkillTypeList _ "attacks" {
+  = "Can't be hit by" _ ranged:("ranged")? _ nonRanged:("non-ranged")? _ skillType:SkillTypeList _ "attacks" {
     return {
       type: 'immune',
       attacks: true,
       skillType,
-      nonRanged: !!nonRanged
+      ranged: !!ranged,
+      nonRanged: !!nonRanged,
     }
   }
 
@@ -124,6 +141,9 @@ ImmuneAttacks
       attacks: true,
     }
   }
+
+ZeroDamage
+  = "Reduces"i _ what:("physical" / "magical" / "all") _ "damage received to 0" { return { type: 'zeroDamage', what }; }
 
 
 // --------------------------------------------------------------------------
@@ -336,6 +356,9 @@ SkillType "skill type"
 SkillTypeList "skill type list"
   = head:SkillType tail:(OrList SkillType)* { return util.pegList(head, tail, 1, true); }
 
+SkillTypeAndList "skill type list"
+  = head:SkillType tail:(AndList SkillType)* { return util.pegList(head, tail, 1, true); }
+
 Element "element"
   = "Fire"
   / "Ice"
@@ -386,6 +409,10 @@ UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return
 
 // --------------------------------------------------------------------------
 // Primitive types
+
+IncreasesOrReduces
+  = "increases"i { return 1; }
+  / "reduces"i { return -1; }
 
 AndList
   = (',' _ 'and'? _) / (_ 'and' _)

@@ -48,6 +48,12 @@ const skipStatuses = new Set<string>([
   'KO',
 ]);
 
+function shouldAlwaysSkip(status: Enlir.Status) {
+  // Skip Nightmare statuses; these often have unique mechanics that aren't
+  // relevant for characters.
+  return skipStatuses.has(status.name) || status.name.startsWith('Nightmare ');
+}
+
 function processStatuses(): [number, number] {
   const items = enlir.statusByName;
   function shouldShow(parseResults: SkillEffect | undefined, parseError: SyntaxError | undefined) {
@@ -91,7 +97,7 @@ function processStatuses(): [number, number] {
   let successCount = 0;
   let totalCount = 0;
   _.forEach(items, i => {
-    if (skipStatuses.has(i.name) || (argv.filter && !i.name.match(argv.filter))) {
+    if (shouldAlwaysSkip(i) || (argv.filter && !i.name.match(argv.filter))) {
       return;
     }
     let parseResults: SkillEffect | undefined;
