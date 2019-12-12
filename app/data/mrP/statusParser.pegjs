@@ -98,10 +98,10 @@ AbilityDouble
 // Abilities and status effects
 
 CastSkill
-  = "casts"i _ skill:AnySkillName _ trigger:Trigger? { return { type: 'castSkill', skill, trigger }; }
+  = "casts"i _ skill:AnySkillName _ trigger:Trigger? _ condition:Condition? { return util.addCondition({ type: 'castSkill', skill, trigger }, condition); }
 
 GrantStatus
-  = "grants"i _ status:StatusName _ trigger:Trigger? { return { type: 'grantsStatus', status, trigger }; }
+  = "grants"i _ status:StatusName _ trigger:Trigger? _ condition:Condition? { return util.addCondition({ type: 'grantsStatus', status, trigger }, condition); }
 
 
 // --------------------------------------------------------------------------
@@ -156,9 +156,105 @@ Ai
 // Triggers
 
 Trigger
-  = "after using a" "n"? _ element:ElementList _ "attack" { return { type: 'elementAttack', element }; }
+  = "after using" _ count:ArticleOrNumberString _ element:ElementList _ "attack" "s"? { return { type: 'elementAttack', element }; }
   / "after using" _ count:ArticleOrNumberString _ ("ability" / "abilities") { return { type: 'anyAbility', count }; }
   / "after using" _ count:ArticleOrNumberString _ school:SchoolList _ ("ability" / "abilities") { return { type: 'schoolAbility', school, count }; }
+
+
+// --------------------------------------------------------------------------
+// Conditions
+
+Condition
+  = "when" _ "equipping" _ article:("a" "n"? { return text(); }) _ equipped:[a-z- ]+ { return { type: 'equipped', article, equipped: equipped.join('') }; }
+
+  // "Level-like" or "counter-like" statuses, as seen on newer moves like
+  // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
+  // to go before general statuses.
+  / "scaling" _ "with" _ status:StatusName _ "level" { return { type: 'scaleWithStatusLevel', status }; }
+  / "at" _ status:StatusName _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusName _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
+  / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
+
+  // If Doomed - overlaps with the general status support below
+  / ("if" _ "the" _ "user" _ "has" _ "any" _ "Doom" / "with" _ "any" _ "Doom") { return { type: 'ifDoomed' }; }
+
+  // General status
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusName (OrList StatusName)* { return text(); }) {
+    return {
+      type: 'status',
+      status,  // In string form - callers must separate by comma, "or", etc.
+      who: who === 'user' ? 'self' : 'target',
+      any: !!any
+    };
+  }
+
+  // Beginning of attacks and skills (like Passionate Salsa)
+
+  // Scaling with uses - both specific counts and generically
+  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
+  / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
+  / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
+
+  / "after" _ useCount:UseCount _ skill:AnySkillName _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
+  / "on" _ "first" _ "use" { return { type: 'afterUseCount', useCount: { from: 1, to: 1 } }; }
+  / "on" _ first:Integer "+" _ "use" "s"? { return { type: 'afterUseCount', useCount: { from: first } }; }
+
+  // Beginning of attack-specific conditions
+  / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
+  / "if" _ character:CharacterNameList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
+  / "if" _ count:IntegerSlashList _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
+  / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
+  / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+
+  / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
+
+  / "if" _ "the" _ "user's" _ "Doom" _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
+  / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
+  / "if" _ "the" _ "user" _ "has" _ value:IntegerSlashList _ SB _ "points" { return { type: 'soulBreakPoints', value }; }
+
+  / "if" _ count:IntegerSlashList _ "of" _ "the" _ "target's" _ "stats" _ "are" _ "lowered" { return { type: 'targetStatBreaks', count }; }
+  / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
+
+  / "if" _ "exploiting" _ "elemental" _ "weakness" { return { type: 'vsWeak' }; }
+  / "if" _ "the"? _ "user" _ "is" _ "in" _ "the"? _ "front" _ "row" { return { type: 'inFrontRow' }; }
+
+  / "if" _ "the" _ "user" _ ("took" / "has" _ "taken") _ count:IntegerSlashList _ skillType:SkillTypeList _ "hits" { return { type: 'hitsTaken', count, skillType }; }
+  / "if" _ "the" _ "user" _ ("took" / "has" _ "taken") _ count:IntegerSlashList _ "attacks" { return { type: 'attacksTaken', count }; }
+
+  / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ "damaging" _ "actions" { return { type: 'damagingActions', count }; }
+  / "with" _ count:IntegerSlashList _ "other" _ school:School _ "users" { return { type: 'otherAbilityUsers', count, school }; }
+  / "at" _ count:IntegerSlashList _ "different" _ school:School _ "abilities" _ "used" { return { type: 'differentAbilityUses', count, school }; }
+  / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ school:SchoolList _ "abilities" _ "during" _ "the" _ "status" { return { type: 'abilitiesUsedDuringStatus', count, school }; }
+  / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ school:SchoolList _ "abilities" { return { type: 'abilitiesUsed', count, school }; }
+  / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ element:ElementList _ "attacks" _ "during" _ "the" _ "status" { return { type: 'attacksDuringStatus', count, element }; }
+  / "if" _ value:IntegerSlashList _ "damage" _ "was" _ "dealt" _ "during" _ "the" _ "status" {
+    lastDamageDuringStatus = util.lastValue(value);
+    lastDamageDuringStatusElement = undefined;
+    return { type: 'damageDuringStatus', value };
+  }
+  / "if" _ "the" _ "user" _ "dealt" _ value:IntegerSlashList _ "damage" _ "during" _ "the" _ "status" {
+    lastDamageDuringStatus = util.lastValue(value);
+    lastDamageDuringStatusElement = undefined;
+    return { type: 'damageDuringStatus', value };
+  }
+  / "if" _ "the" _ "user" _ "dealt" _ value:IntegerSlashList _ "damage" _ "with" _ element:ElementList _ "attacks" _ "during" _ "the" _ "status" {
+    lastDamageDuringStatus = util.lastValue(value);
+    lastDamageDuringStatusElement = element;
+    return { type: 'damageDuringStatus', value, element };
+  }
+  / "if" _ "the" _ "final" _ "damage" _ "threshold" _ "was" _ "met" { return { type: 'damageDuringStatus', value: lastDamageDuringStatus, element: lastDamageDuringStatusElement }; }
+  // Alternate phrasing - this appears to be an error, so we smooth it out. TODO: Fix upstream.
+  / "scaling" _ "with" _ school:School _ "attacks" _ "used" _ "(" _ count:IntegerSlashList _ ")" { return { type: 'abilitiesUsed', count, school }; }
+
+  / "at" _ "rank" _ "1/2/3/4/5" _ "of" _ "the" _ "triggering" _ "ability" { return { type: 'rankBased' }; }
+
+  // Alternate status phrasing.  For example, Stone Press:
+  // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
+  / "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
+
+  // Stat thresolds (e.g., Tiamat, Guardbringer)
+  / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
 
 // --------------------------------------------------------------------------
@@ -228,6 +324,18 @@ Stat "stat"
 StatList "stat list"
   = head:Stat tail:(AndList Stat)* { return util.pegList(head, tail, 1, true); }
 
+SkillType "skill type"
+  = "PHY"
+  / "WHT"
+  / "BLK"
+  / "BLU"
+  / "SUM"
+  / "NAT"
+  / "NIN"
+
+SkillTypeList "skill type list"
+  = head:SkillType tail:(OrList SkillType)* { return util.pegList(head, tail, 1, true); }
+
 Element "element"
   = "Fire"
   / "Ice"
@@ -269,17 +377,11 @@ School "ability school"
 SchoolList "element list"
   = head:School tail:(OrList School)* { return util.pegList(head, tail, 1, true); }
 
-SkillType "skill type"
-  = "PHY"
-  / "WHT"
-  / "BLK"
-  / "BLU"
-  / "SUM"
-  / "NAT"
-  / "NIN"
+SB = "Soul" _ "Break" / "SB"
+Maximum = "maximum" / "max" "."?
 
-SkillTypeList "skill type list"
-  = head:SkillType tail:(OrList SkillType)* { return util.pegList(head, tail, 1, true); }
+// "x + yn"
+UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return { x, y }; }
 
 
 // --------------------------------------------------------------------------
@@ -334,6 +436,11 @@ SignedIntegerSlashList "slash-separated signed integers"
       return applySign(values);
     }
   }
+
+
+
+IntegerAndList "integers separated with commas and 'and'"
+  = head:Integer tail:((','? _ 'and' _ /',' _) Integer)* { return util.pegSlashList(head, tail); }
 
 
 UppercaseWord
