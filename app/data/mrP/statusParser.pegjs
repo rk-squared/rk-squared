@@ -25,16 +25,17 @@ StatusEffect
 
 EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
-  / CastSpeed
+  / CastSpeed / AtbSpeed
   / PhysicalBlink / MagicBlink / ElementBlink
+  / SwitchDraw / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / AbilityDouble
+  / AbilityBuildup / AbilityDouble / AbilityDualcast
   / DoomTimer
   / CastSkill / GrantStatus
   / Counter
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / TurnDuration / RemovedUnlessStatus
-  / BurstToggle / SkillCounter / BurstOnly / BurstReset / ReplaceAttack / ReplaceAttackDefend / Ai
+  / BurstToggle / SkillCounter / BurstOnly / BurstReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai
 
 
 // --------------------------------------------------------------------------
@@ -65,6 +66,9 @@ StatusChance
 CastSpeed
   = "Cast"i _ "speed x" value:DecimalNumber { return { type: 'castSpeed', value }; }
 
+AtbSpeed
+  = "Increase"i _ "ATB charge speed by" _ value:DecimalNumber { return { type: 'atbSpeed', value }; }
+
 
 // --------------------------------------------------------------------------
 // Blinks
@@ -80,6 +84,24 @@ ElementBlink
 
 AttacksThatDeal
   = "attack" "s"? _ "that deal" "s"?
+
+
+// --------------------------------------------------------------------------
+// Switch draw - These are described as broken down within Enlir, but we treat
+// them specially because of how common they are.
+
+SwitchDraw
+  = part1:SwitchDrawPart "," _ part2:SwitchDrawPart ", lasts 1 turn" { return { type: 'switchDraw', elements: [part1, part2] }; }
+
+SwitchDrawPart
+  = "Grants"i _ "Attach" _ element1:Element _ "after using a" "n"? _ element2:Element _ "ability"
+  & { return element1 === element2; } { return element1; }
+
+SwitchDrawStacking
+  = "Grants Attach" _ element1a:Element "/" element2a:Element _ level:Integer? _ "with Stacking after using a"
+    _ element1b:Element "/" element2b:Element _ "ability, lasts 1 turn"
+    & { return element1a === element1b && element2a === element2b; }
+    { return { type: 'switchDrawStacking', elements: [element1a, element2a], level }; }
 
 
 // --------------------------------------------------------------------------
@@ -120,6 +142,9 @@ AbilityBuildup
 
 AbilityDouble
   = "dualcasts" _ school:School _ "abilities consuming an extra ability use" { return { type: 'abilityDouble', school }; }
+
+AbilityDualcast
+  = chance:Integer "% chance to dualcast" _ school:School _ "abilities" { return { type: 'abilityDualcast', school, chance }; }
 
 
 // --------------------------------------------------------------------------
@@ -171,7 +196,7 @@ Runic
   = "Absorbs"i _ skillType:SkillTypeAndList _ "attacks to restore 1 consumed ability use" { return { type: 'runic', skillType }; }
 
 ImmuneAttackSkills
-  = "Can't be hit by" _ ranged:("ranged")? _ nonRanged:("non-ranged")? _ skillType:SkillTypeList _ "attacks" {
+  = "Can't"i _ "be hit by" _ ranged:("ranged")? _ nonRanged:("non-ranged")? _ skillType:SkillTypeList _ "attacks" {
     return {
       type: 'immune',
       attacks: true,
@@ -230,6 +255,9 @@ ReplaceAttack
 
 ReplaceAttackDefend
   = "Replaces"i _ "the Attack and Defend commands" { return { type: 'replaceAttackDefend' }; }
+
+DisableAttacks
+  = "Disables"i _ skillType:(SkillTypeAndList / "Jump") _ "attacks" { return { type: 'disableAttacks', skillType }; }
 
 Ai
   = "Affects"i _ GenericName _ "behaviour" { return { type: 'ai' }; }
