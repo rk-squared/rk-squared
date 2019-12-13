@@ -25,9 +25,10 @@ EffectClause
   / AbilityBuildup / AbilityDouble
   / DoomTimer
   / CastSkill / GrantStatus
-  / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage
-  / TurnDuration
-  / BurstToggle / SkillCounter / BurstOnly / BurstReset / Ai
+  / Counter
+  / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / MultiplyDamage
+  / TurnDuration / RemovedUnlessStatus
+  / BurstToggle / SkillCounter / BurstOnly / BurstReset / ReplaceAttack / ReplaceAttackDefend / Ai
 
 
 // --------------------------------------------------------------------------
@@ -118,7 +119,29 @@ GrantStatus
 
 
 // --------------------------------------------------------------------------
-// Taunt, retaliate, immunities
+// Counter
+
+Counter
+  = when:CounterWhen _ enemy:"enemy"? _ skillType:SkillType _ "attacks with" _ counter:CounterResponse {
+    return Object.assign({ type: 'counter', skillType, enemyOnly: !!enemy, counter }, when);
+  }
+
+CounterWhen
+  = "counters" { return {}; }
+  // Statuses use "chance of countering", legend materia use "chance to counter"
+  / chance:Integer ("% chance of countering" / "% chance to counter") { return { chance }; }
+
+CounterResponse
+  = "Attack" { return undefined; }
+  / skill:AnySkillName { return { skill }; }
+  / "an ability (single," _ attackMultiplier:DecimalNumber _ damageType:("physical" / "magical") _ ")" {
+    const overrideSkillType = damageType === 'physical' ? 'PHY' : 'BLK';
+    return { attack: { type: 'attack', numAttacks: 1, attackMultiplier, overrideSkillType } };
+  }
+
+
+// --------------------------------------------------------------------------
+// Taunt, runic, immunities
 
 Taunt
   = "Taunts"i _ "single-target" _ skillType:SkillTypeAndList _ "attacks" { return { type: 'taunt', skillType }; }
@@ -145,12 +168,18 @@ ImmuneAttacks
 ZeroDamage
   = "Reduces"i _ what:("physical" / "magical" / "all") _ "damage received to 0" { return { type: 'zeroDamage', what }; }
 
+MultiplyDamage
+  = "Multiplies all damage received by" _ value:IntegerOrX { return { type: 'multipleDamage', value }; }
+
 
 // --------------------------------------------------------------------------
 // Special durations
 
 TurnDuration
   = "lasts for" _ value:Integer _ "turn" "s"? { return { type: 'duration', duration: { value, units: 'turns' } }; }
+
+RemovedUnlessStatus
+  = "removed if the user doesn't have" _ any:"any" _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
 
 
 // --------------------------------------------------------------------------
@@ -167,6 +196,12 @@ BurstOnly
 
 BurstReset
   = "reset upon refreshing Burst Mode" { return { type: 'burstReset' }; }
+
+ReplaceAttack
+  = "Replaces"i _ "the Attack command" { return { type: 'replaceAttack' }; }
+
+ReplaceAttackDefend
+  = "Replaces"i _ "the Attack and Defend commands" { return { type: 'replaceAttackDefend' }; }
 
 Ai
   = "Affects"i _ GenericName _ "behaviour" { return { type: 'ai' }; }
