@@ -25,12 +25,12 @@ StatusEffect
 
 EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
-  / CastSpeed / AtbSpeed
+  / Instacast / CastSpeed / AtbSpeed
   / PhysicalBlink / MagicBlink / ElementBlink
   / Awoken
   / SwitchDraw / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / AbilityDouble / AbilityDualcast
+  / AbilityBuildup / AbilityDouble / AbilityDualcast / AbilityDualcast100
   / DoomTimer
   / CastSkill / GrantStatus
   / Counter
@@ -64,11 +64,17 @@ StatusChance
 // --------------------------------------------------------------------------
 // Cast speed
 
+Instacast
+  = "Cast"i _ "speed x999" "9"* _ forAbilities:ForAbilities? { return Object.assign({ type: 'instacast' }, forAbilities); }
+
 CastSpeed
-  = "Cast"i _ "speed x" value:DecimalNumber { return { type: 'castSpeed', value }; }
+  = "Cast"i _ "speed x" value:DecimalNumber _ forAbilities:ForAbilities? { return Object.assign({ type: 'castSpeed', value }, forAbilities); }
 
 AtbSpeed
   = "Increase"i _ "ATB charge speed by" _ value:DecimalNumber { return { type: 'atbSpeed', value }; }
+
+ForAbilities
+  = "for" _ what:ElementOrSchoolList _ "abilities" { return what; }
 
 
 // --------------------------------------------------------------------------
@@ -167,7 +173,10 @@ AbilityBuildup
   }
 
 AbilityDouble
-  = "dualcasts" _ school:School _ "abilities consuming an extra ability use" { return { type: 'abilityDouble', school }; }
+  = "dualcasts"i _ school:School _ "abilities consuming an extra ability use" { return { type: 'abilityDouble', school }; }
+
+AbilityDualcast100
+  = "dualcasts"i _ school:School _ "abilities" { return { type: 'abilityDualcast', school, chance: 100 }; }
 
 AbilityDualcast
   = chance:Integer "% chance to dualcast" _ school:School _ "abilities" { return { type: 'abilityDualcast', school, chance }; }
@@ -258,7 +267,7 @@ TurnDuration
   = "lasts for" _ value:Integer _ "turn" "s"? { return { type: 'duration', duration: { value, units: 'turns' } }; }
 
 RemovedUnlessStatus
-  = "removed if" _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any" _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
+  = "removed if" _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
 
 
 // --------------------------------------------------------------------------
@@ -551,6 +560,10 @@ Maximum = "maximum" / "max" "."?
 
 // "x + yn"
 UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return { x, y }; }
+
+ElementOrSchoolList
+  = school:SchoolAndList { return { school }; }
+  / element:ElementAndList { return { element }; }
 
 
 // --------------------------------------------------------------------------
