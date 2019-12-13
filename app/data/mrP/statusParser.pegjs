@@ -140,12 +140,10 @@ SwitchDrawStacking
 // Element buffs and debuffs
 
 ElementAttack
-  = sign:IncreasesOrReduces _ element:Element _ "damage dealt by" _ value:Integer _ "%, cumulable" { return { type: 'elementAttack', element, value: value * sign, cumulable: true }; }
+  = sign:IncreasesOrReduces _ element:Element _ "damage dealt by" _ value:Integer _ "%" ", cumulable"? { return { type: 'elementAttack', element, value: value * sign }; }
 
 ElementResist
-  = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" cumulable:("," _ "cumulable")? {
-    return { type: 'elementResist', element, value, cumulable: !!cumulable };
-  }
+  = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" ", cumulable"? { return { type: 'elementResist', element, value }; }
 
 EnElement
   = "Replaces Attack command, increases" _ element:Element _ "damage dealt by 50/80/120% (abilities) or 80/100/120% (Soul Breaks)," _ element2:Element _ "resistance +20%" {
@@ -302,13 +300,16 @@ Ai
 // Triggers
 
 Trigger
-  = "after using" _ count:ArticleOrNumberString _ element:ElementList _ attack:AbilityOrAttack { return { type: 'elementAbility', element, count, attack }; }
-  / "after using" _ count:ArticleOrNumberString _ ("ability" / "abilities") { return { type: 'anyAbility', count }; }
-  / "after using" _ count:ArticleOrNumberString _ school:SchoolList _ attack:AbilityOrAttack { return { type: 'schoolAbility', school, count, attack }; }
+  = "after using" _ count:TriggerCount _ element:ElementList _ attack:AbilityOrAttack { return { type: 'elementAbility', element, count, attack }; }
+  / "after using" _ count:TriggerCount _ ("ability" / "abilities") { return { type: 'anyAbility', count }; }
+  / "after using" _ count:TriggerCount _ school:SchoolList _ attack:AbilityOrAttack { return { type: 'schoolAbility', school, count, attack }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
   / "attack" "s"? { return true; }
+
+TriggerCount
+  = ArticleOrNumberString / UseCount / Integer
 
 
 // --------------------------------------------------------------------------
@@ -398,6 +399,7 @@ Condition
   / "scaling" _ "with" _ school:School _ "attacks" _ "used" _ "(" _ count:IntegerSlashList _ ")" { return { type: 'abilitiesUsed', count, school }; }
 
   / "at" _ "rank" _ "1/2/3/4/5" _ "of" _ "the" _ "triggering" _ "ability" { return { type: 'rankBased' }; }
+  / "at" _ "ability" _ "rank" _ "1/2/3/4/5" { return { type: 'rankBased' }; }
 
   // Alternate status phrasing.  For example, Stone Press:
   // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
