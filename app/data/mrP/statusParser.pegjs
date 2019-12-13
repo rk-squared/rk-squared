@@ -26,7 +26,7 @@ EffectClause
   / DoomTimer
   / CastSkill / GrantStatus
   / Counter
-  / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / MultiplyDamage
+  / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / MultiplyDamage
   / TurnDuration / RemovedUnlessStatus
   / BurstToggle / SkillCounter / BurstOnly / BurstReset / ReplaceAttack / ReplaceAttackDefend / Ai
 
@@ -145,6 +145,9 @@ CounterResponse
 
 Taunt
   = "Taunts"i _ "single-target" _ skillType:SkillTypeAndList _ "attacks" { return { type: 'taunt', skillType }; }
+
+Runic
+  = "Absorbs"i _ skillType:SkillTypeAndList _ "attacks to restore 1 consumed ability use" { return { type: 'runic', skillType }; }
 
 ImmuneAttackSkills
   = "Can't be hit by" _ ranged:("ranged")? _ nonRanged:("non-ranged")? _ skillType:SkillTypeList _ "attacks" {
