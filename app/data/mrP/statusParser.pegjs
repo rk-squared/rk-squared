@@ -27,6 +27,7 @@ EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
   / CastSpeed / AtbSpeed
   / PhysicalBlink / MagicBlink / ElementBlink
+  / Awoken
   / SwitchDraw / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
   / AbilityBuildup / AbilityDouble / AbilityDualcast
@@ -84,6 +85,31 @@ ElementBlink
 
 AttacksThatDeal
   = "attack" "s"? _ "that deal" "s"?
+
+
+// --------------------------------------------------------------------------
+// Awoken modes - These are mostly broken down within Enlir, but we treat them
+// specially both because of their frequency and to handle their multiple
+// references to individual schools or elements.
+
+Awoken
+  = type:AwokenType _ "abilities don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast?
+  & { return !rankCast || util.isEqual(type, rankCast); }
+  & { return !dualcast || util.isEqual(type, dualcast); }
+  { return { type: 'awoken', type, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast }; }
+
+AwokenType
+  = element:ElementAndList { return { element }; }
+  / school:SchoolAndList { return { school }; }
+
+AwokenRankBoost
+  = "and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5"
+
+AwokenRankCast
+  = ", cast speed x2.00/2.25/2.50/2.75/3.00 for" _ type:AwokenType _ "abilities at ability rank 1/2/3/4/5" { return type; }
+
+AwokenDualcast
+  = ", dualcasts" _ type:AwokenType _ "abilities" { return type; }
 
 
 // --------------------------------------------------------------------------
@@ -469,6 +495,9 @@ ElementOrPlaceholder
 ElementList "element list"
   = head:Element tail:(OrList Element)* { return util.pegList(head, tail, 1, true); }
 
+ElementAndList "element list"
+  = head:Element tail:(AndList Element)* { return util.pegList(head, tail, 1, true); }
+
 School "ability school"
   = "Bard"
   / "Black Magic"
@@ -492,8 +521,11 @@ School "ability school"
   / "White Magic"
   / "Witch"
 
-SchoolList "element list"
+SchoolList "school list"
   = head:School tail:(OrList School)* { return util.pegList(head, tail, 1, true); }
+
+SchoolAndList "school list"
+  = head:School tail:(AndList School)* { return util.pegList(head, tail, 1, true); }
 
 SB = "Soul" _ "Break" / "SB"
 Maximum = "maximum" / "max" "."?

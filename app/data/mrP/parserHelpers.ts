@@ -5,7 +5,8 @@ import { arrayify } from '../../utils/typeUtils';
 import * as types from './types';
 import { parseNumberString } from './util';
 
-export { arrayify, parseNumberString };
+const isEqual = _.isEqual;
+export { arrayify, parseNumberString, isEqual };
 
 export function lastValue(value: number | number[]): number {
   value = arrayify(value);
