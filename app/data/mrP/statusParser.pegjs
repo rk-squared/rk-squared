@@ -309,7 +309,10 @@ AbilityOrAttack
   / "attack" "s"? { return true; }
 
 TriggerCount
-  = ArticleOrNumberString / UseCount / Integer
+  = ArticleOrNumberString
+  / UseCount
+  / values:IntegerSlashList "+" { return values; }
+  / Integer
 
 
 // --------------------------------------------------------------------------
