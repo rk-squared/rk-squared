@@ -124,10 +124,10 @@ SwitchDrawPart
   & { return element1 === element2; } { return element1; }
 
 SwitchDrawStacking
-  = "Grants Attach" _ element1a:Element "/" element2a:Element _ level:Integer? _ "with Stacking after using a"
-    _ element1b:Element "/" element2b:Element _ "ability, lasts 1 turn"
-    & { return element1a === element1b && element2a === element2b; }
-    { return { type: 'switchDrawStacking', elements: [element1a, element2a], level }; }
+  = "Grants Attach" _ elements1:ElementSlashList _ level:Integer? _ "with Stacking after using a"
+    _ elements2:ElementSlashList _ "ability, lasts 1 turn"
+    & { return util.isEqual(elements1, elements2); }
+    { return { type: 'switchDrawStacking', elements: elements1, level }; }
 
 
 // --------------------------------------------------------------------------
@@ -187,7 +187,7 @@ CastSkill
   = "casts"i _ skill:AnySkillName _ trigger:Trigger? _ condition:Condition? { return util.addCondition({ type: 'castSkill', skill, trigger }, condition); }
 
 GrantStatus
-  = "grants"i _ status:StatusName _ trigger:Trigger? _ condition:Condition? { return util.addCondition({ type: 'grantsStatus', status, trigger }, condition); }
+  = "grants"i _ status:StatusName _ who:Who? _ trigger:Trigger? _ condition:Condition? { return util.addCondition({ type: 'grantsStatus', status, trigger, who }, condition); }
 
 
 // --------------------------------------------------------------------------
@@ -258,7 +258,7 @@ TurnDuration
   = "lasts for" _ value:Integer _ "turn" "s"? { return { type: 'duration', duration: { value, units: 'turns' } }; }
 
 RemovedUnlessStatus
-  = "removed if the user doesn't have" _ any:"any" _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
+  = "removed if" _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any" _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
 
 
 // --------------------------------------------------------------------------
@@ -293,9 +293,13 @@ Ai
 // Triggers
 
 Trigger
-  = "after using" _ count:ArticleOrNumberString _ element:ElementList _ "attack" "s"? { return { type: 'elementAttack', element }; }
+  = "after using" _ count:ArticleOrNumberString _ element:ElementList _ attack:AbilityOrAttack { return { type: 'elementAbility', element, count, attack }; }
   / "after using" _ count:ArticleOrNumberString _ ("ability" / "abilities") { return { type: 'anyAbility', count }; }
-  / "after using" _ count:ArticleOrNumberString _ school:SchoolList _ ("ability" / "abilities") { return { type: 'schoolAbility', school, count }; }
+  / "after using" _ count:ArticleOrNumberString _ school:SchoolList _ attack:AbilityOrAttack { return { type: 'schoolAbility', school, count, attack }; }
+
+AbilityOrAttack
+  = ("ability" / "abilities") { return false; }
+  / "attack" "s"? { return true; }
 
 
 // --------------------------------------------------------------------------
@@ -461,6 +465,18 @@ Stat "stat"
 StatList "stat list"
   = head:Stat tail:(AndList Stat)* { return util.pegList(head, tail, 1, true); }
 
+Who
+  = "to" _ "the"? _ "user" { return 'self'; }
+  / "to" _ "the" _ "target" { return 'target'; }
+  / "to" _ "all" _ "enemies" { return 'enemies'; }
+  / "to" _ "all" _ "allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
+    return row || 'party';
+  }
+  / "to" _ "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
+  / "to" _ "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
+  / "to" _ "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
+  / "to" _ "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
+
 SkillType "skill type"
   = "PHY"
   / "WHT"
@@ -497,6 +513,9 @@ ElementList "element list"
 
 ElementAndList "element list"
   = head:Element tail:(AndList Element)* { return util.pegList(head, tail, 1, true); }
+
+ElementSlashList "element list"
+  = head:Element tail:("/" Element)* { return util.pegList(head, tail, 1, true); }
 
 School "ability school"
   = "Bard"

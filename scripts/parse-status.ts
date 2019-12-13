@@ -39,6 +39,7 @@ const jsonOutput: any[] = [];
 
 // Skip internal, bookkeeping, or otherwise special statuses.
 const skipStatuses = new Set<string>([
+  'Defend',
   'General Set Status',
   'Status Level in Synchro Mode',
   'Increase Status Level',
