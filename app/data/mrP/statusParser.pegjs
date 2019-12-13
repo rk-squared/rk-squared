@@ -10,6 +10,11 @@
   function getX() {
     return options.xValue != null ? options.xValue : NaN;
   }
+  function getElementPlaceholder() {
+    // HACK: EnlirElement requires *something*, and we don't want to complicate
+    // callers by making them deal with absence, so fall back to NE.
+    return options.element != null ? options.element : 'NE';
+  }
 }
 
 StatusEffect
@@ -21,12 +26,13 @@ StatusEffect
 EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
   / CastSpeed
-  / ElementAttack / ElementBlink / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
+  / PhysicalBlink / MagicBlink / ElementBlink
+  / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
   / AbilityBuildup / AbilityDouble
   / DoomTimer
   / CastSkill / GrantStatus
   / Counter
-  / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / MultiplyDamage
+  / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / TurnDuration / RemovedUnlessStatus
   / BurstToggle / SkillCounter / BurstOnly / BurstReset / ReplaceAttack / ReplaceAttackDefend / Ai
 
@@ -61,16 +67,31 @@ CastSpeed
 
 
 // --------------------------------------------------------------------------
+// Blinks
+
+PhysicalBlink
+  = "Evades"i _ "the next" _ level:Integer? _ "PHY" _ AttacksThatDeal _ "physical, missing HP or fixed damage or NAT" _ AttacksThatDeal _ "physical or fractional damage" { return { type: 'magicBlink', level: level || 1 }; }
+
+MagicBlink
+  = "Evades"i _ "the next" _ level:Integer? _ "non-PHY, non-NIN" _ AttacksThatDeal _ "magical, fractional or missing HP damage" { return { type: 'magicBlink', level: level || 1 }; }
+
+ElementBlink
+  = "Reduces"i _ "the damage of the next" _ AttacksThatDeal _ element:Element _ "damage to 0" { return { type: 'elementBlink', element, level: 1 }; }
+
+AttacksThatDeal
+  = "attack" "s"? _ "that deal" "s"?
+
+
+// --------------------------------------------------------------------------
 // Element buffs and debuffs
 
 ElementAttack
   = sign:IncreasesOrReduces _ element:Element _ "damage dealt by" _ value:Integer _ "%, cumulable" { return { type: 'elementAttack', element, value: value * sign, cumulable: true }; }
 
-ElementBlink
-  = "Reduces"i _ "the damage of the next attack that deals" _ element:Element _ "damage to 0" { return { type: 'elementBlink', element, level: 1 }; }
-
 ElementResist
-  = element:Element _ "Resistance" _ value:SignedIntegerOrX "%" cumulable:("," _ "cumulable")? { return { type: 'elementResist', value, cumulable: !!cumulable }; }
+  = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" cumulable:("," _ "cumulable")? {
+    return { type: 'elementResist', element, value, cumulable: !!cumulable };
+  }
 
 EnElement
   = "Replaces Attack command, increases" _ element:Element _ "damage dealt by 50/80/120% (abilities) or 80/100/120% (Soul Breaks)," _ element2:Element _ "resistance +20%" {
@@ -170,6 +191,10 @@ ImmuneAttacks
 
 ZeroDamage
   = "Reduces"i _ what:("physical" / "magical" / "all") _ "damage received to 0" { return { type: 'zeroDamage', what }; }
+
+EvadeAll
+  // Galuf's status; aka Peerless
+  = "Evades"i _ "all attacks" { return { type: 'evadeAll' }; }
 
 MultiplyDamage
   = "Multiplies all damage received by" _ value:IntegerOrX { return { type: 'multipleDamage', value }; }
@@ -408,6 +433,10 @@ Element "element"
   / "Dark"
   / "Poison"
   / "NE"
+
+ElementOrPlaceholder
+  = Element
+  / "[Element]" { return getElementPlaceholder(); }
 
 ElementList "element list"
   = head:Element tail:(OrList Element)* { return util.pegList(head, tail, 1, true); }
