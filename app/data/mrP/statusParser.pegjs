@@ -36,8 +36,8 @@ EffectClause
   / Counter
   / GainSb / SbGainUp
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
-  / TurnDuration / RemovedUnlessStatus
-  / BurstToggle / SkillCounter / BurstOnly / BurstReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai
+  / TurnDuration / RemovedUnlessStatus / OnceOnly
+  / BurstToggle / TrackUses / BurstOnly / BurstReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai
 
 
 // --------------------------------------------------------------------------
@@ -310,7 +310,10 @@ TurnDuration
   = "lasts" _ "for"? _ value:Integer _ "turn" "s"? { return { type: 'duration', duration: { value, units: 'turns' } }; }
 
 RemovedUnlessStatus
-  = "removed if" _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
+  = "Removed"i _ "if" _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
+
+OnceOnly
+  = "Removed"i _ "after triggering" { return { type: 'onceOnly' }; }
 
 
 // --------------------------------------------------------------------------
@@ -319,8 +322,8 @@ RemovedUnlessStatus
 BurstToggle
   = "Affects"i _ "certain Burst Commands"
 
-SkillCounter
-  = "Keeps"i _ "track of the number of uses of" _ skill:AnySkillName { return { type: 'skillCounter', skill }; }
+TrackUses
+  = "Keeps"i _ "track of the" _ ("number of")? _ "uses of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
 
 BurstOnly
   = "removed if the user hasn't Burst Mode" { return { type: 'burstOnly' }; }
@@ -348,6 +351,7 @@ Trigger
   = "after using" _ count:TriggerCount _ element:ElementList _ requiresAttack:AbilityOrAttack { return { type: 'elementAbility', element, count, requiresAttack }; }
   / "after using" _ count:TriggerCount _ ("ability" / "abilities") { return { type: 'anyAbility', count }; }
   / "after using" _ count:TriggerCount _ school:SchoolList _ requiresAttack:AbilityOrAttack { return { type: 'schoolAbility', school, count, requiresAttack }; }
+  / "after dealing a critical hit" { return { type: 'crit' }; }
   / "when removed" { return { type: 'whenRemoved' }; }
 
 AbilityOrAttack

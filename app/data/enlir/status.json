@@ -10480,7 +10480,7 @@
   {
     "id": 50437,
     "name": "Awoken Runic Blade Follow-Up",
-    "effects": "Casts Awoken Runic Blade after using two ice or holy attacks",
+    "effects": "Casts Awoken Runic Blade after using two Ice or Holy attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10513,7 +10513,7 @@
   {
     "id": 50440,
     "name": "Chain Grand Spark Follow-Up",
-    "effects": " Grants Stoneskin: 30% to all allies after using three Earth attacks",
+    "effects": "Grants Stoneskin: 30% to all allies after using three Earth attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10927,7 +10927,7 @@
   {
     "id": 50476,
     "name": "Heroic Spirit Follow-Up",
-    "effects": "Casts Heroic Spirit after using an ice attack",
+    "effects": "Casts Heroic Spirit after using an Ice attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11268,7 +11268,7 @@
   {
     "id": 50506,
     "name": "Ground Dive Follow-Up",
-    "effects": "Casts Ground Dive after using two dark attacks",
+    "effects": "Casts Ground Dive after using two Dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11279,7 +11279,7 @@
   {
     "id": 50507,
     "name": "Dark Ray Follow-Up",
-    "effects": "Casts Dark Ray after using two dark attacks",
+    "effects": "Casts Dark Ray after using two Dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11345,7 +11345,7 @@
   {
     "id": 50519,
     "name": "Blind Stud Follow-Up",
-    "effects": "Casts Blind Stud (BLK) after using a Black Magic ability, casts Blind Stud (SUM) after using a Summon ability",
+    "effects": "Casts Blind Stud (BLK) after using a Black Magic ability, casts Blind Stud (SUM) after using a Summoning ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

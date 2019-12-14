@@ -51,6 +51,7 @@ const skipStatuses = new Set<string>([
   'Max Attach Element Level',
   'KO',
   'Remove',
+  'Invisible',
 ]);
 
 function shouldAlwaysSkip(status: Enlir.Status) {
