@@ -28,7 +28,7 @@ EffectClause
   / Instacast / CastSpeed / AtbSpeed
   / PhysicalBlink / MagicBlink / ElementBlink
   / Awoken
-  / SwitchDraw / SwitchDrawStacking
+  / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
   / AbilityBuildup / AbilityDouble / AbilityDualcast / AbilityDualcast100
   / DoomTimer
@@ -128,6 +128,11 @@ SwitchDraw
 SwitchDrawPart
   = "Grants"i _ "Attach" _ element1:Element _ "after using a" "n"? _ element2:Element _ "ability"
   & { return element1 === element2; } { return element1; }
+
+SwitchDrawAlt
+  = "Grants"i _ "Attach" _ elements1:ElementSlashList _ "after using a" "n"? _ elements2:ElementSlashList _ "ability, lasts 1 turn"
+  & { return util.isEqual(elements1, elements2); }
+    { return { type: 'switchDraw', elements: elements1 }; }
 
 SwitchDrawStacking
   = "Grants Attach" _ elements1:ElementSlashList _ level:Integer? _ "with Stacking after using a"
