@@ -30,13 +30,14 @@ EffectClause
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / RankBoost / DamageUp / SkillTypeDamageUp / Doublecast / Dualcast / Dualcast100
+  / AbilityBuildup / RankBoost / DamageUp / SkillTypeDamageUp / Doublecast / Dualcast / Dualcast100 / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / Doom / DoomTimer / DrainHp
   / CastSkill / GrantStatus
   / Counter
   / GainSb / SbGainUp
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
+  / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / OnceOnly / RemovedAfterTrigger
   / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai
 
@@ -133,8 +134,8 @@ Awoken
   { return { type: 'awoken', type, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast }; }
 
 AwokenType
-  = element:ElementAndOrList { return { element }; }
-  / school:SchoolAndOrList { return { school }; }
+  = school:SchoolAndOrList { return { school }; }
+  / element:ElementAndOrList { return { element }; }
 
 AwokenRankBoost
   = "and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5"
@@ -223,6 +224,9 @@ Dualcast100
 
 Dualcast
   = chance:Integer "% chance to dualcast" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance }, what); }
+
+NoAirTime
+  = "Changes"i _ "the air time of Jump attacks to 0.01 seconds" { return { type: 'noAirTime' }; }
 
 
 // --------------------------------------------------------------------------
@@ -333,6 +337,20 @@ MultiplyDamage
 
 
 // --------------------------------------------------------------------------
+// Berserk and related statuses.  These are unique enough that we'll fully
+// special case them.
+
+Berserk
+  = "Forces"i _ "default action, affects targeting, resets ATB when set or removed" { return { type: 'berserk' }; }
+
+AbilityBerserk
+  = "Forces a random available action, excluding Defend, affects targeting, Berserk, Confuse, Paralyze, Stop are prioritized" { return { type: 'abilityBerserk' }; }
+
+Rage  // aka "auto" elsewhere in our code
+  = "Forces a specified action, affects targeting, resets ATB when removed" { return { type: 'rage' }; }
+
+
+// --------------------------------------------------------------------------
 // Special durations
 
 TurnDuration
@@ -388,8 +406,12 @@ Trigger
   / "after using" _ count:TriggerCount _ ("ability" / "abilities") { return { type: 'anyAbility', count }; }
   / "after using" _ count:TriggerCount _ requiresDamage:"damaging"? _ school:SchoolList _ requiresAttack:AbilityOrAttack { return { type: 'schoolAbility', school, count, requiresDamage, requiresAttack }; }
   / "after dealing a critical hit" { return { type: 'crit' }; }
+  / "after exploiting elemental weakness" { return { type: 'vsWeak' }; }
   / "when removed" { return { type: 'whenRemoved' }; }
   / "every" _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
+  // Alternate (older)? phrasing
+  / "after dealing damage with" _ count:TriggerCount _ element:ElementList _ "attack" { return { type: 'elementAbility', element, count, requiresDamage: true, requiresAttack: true }; }
+  / "after dealing damage with" _ count:TriggerCount _ school:SchoolList _ "ability" { return { type: 'schoolAbility', school, count, requiresDamage: true, requiresAttack: false }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
