@@ -30,9 +30,9 @@ EffectClause
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / DamageUp / SkillTypeDamageUp / Doublecast / Dualcast / Dualcast100
-  / BreakDamageCapAll / BreakDamageCap
-  / Doom / DoomTimer
+  / AbilityBuildup / RankBoost / DamageUp / SkillTypeDamageUp / Doublecast / Dualcast / Dualcast100
+  / BreakDamageCapAll / BreakDamageCap / DamageCap
+  / Doom / DoomTimer / DrainHp
   / CastSkill / GrantStatus
   / Counter
   / GainSb / SbGainUp
@@ -133,8 +133,8 @@ Awoken
   { return { type: 'awoken', type, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast }; }
 
 AwokenType
-  = element:ElementAndList { return { element }; }
-  / school:SchoolAndList { return { school }; }
+  = element:ElementAndOrList { return { element }; }
+  / school:SchoolAndOrList { return { school }; }
 
 AwokenRankBoost
   = "and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5"
@@ -203,8 +203,14 @@ AbilityBuildup
     return { type: 'abilityBuildup', school, schoolUsed, increment, max };
   }
 
+// A special case of DamageUp
+RankBoost
+  = what:ElementOrSchoolList _ ("attacks" / "abilities") _ "deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5" { return Object.assign({ type: 'rankBoost' }, what); }
+
 DamageUp
-  = what:ElementOrSchoolList _ ("attacks" / "abilities") _ "deal" _ value:Integer "% more damage" { return Object.assign({ type: 'damageUp', value }, what); }
+  = what:ElementOrSchoolList _ ("attacks" / "abilities") _ "deal" _ value:IntegerSlashList "% more damage" _ trigger:Trigger? {
+    return Object.assign({ type: 'damageUp', value, trigger }, what);
+  }
 
 SkillTypeDamageUp
   = "Increases"i _ skillType:SkillType _ "damage dealt by" _ value:Integer "%" { return { type: 'skillTypeDamageUp', skillType, value }; }
@@ -228,15 +234,21 @@ BreakDamageCapAll
 BreakDamageCap
   = "Sets"i _ "the damage cap for" _ skillType:SkillTypeAndList? _ what:ElementOrSchoolList? _ "attacks to 99999" { return Object.assign({ type: 'breakDamageCap', skillType }, what); }
 
+DamageCap
+  = "Increases the damage cap by" _ value:Integer { return { type: 'damageCap', value }; }
+
 
 // --------------------------------------------------------------------------
-// Doom
+// Doom, drain HP
 
 Doom
   = "Causes Doom with a" _ timer:Integer _ "seconds timer" { return { type: 'doom', timer }; }
 
 DoomTimer
   = sign:IncreasesOrReduces _ "the character's Doom timer by" _ value:Integer _ "when set" { return { type: 'doomTimer', value: value * sign }; }
+
+DrainHp
+  = "Restores"i _ "HP for" _ value:Integer _ "% of the damage dealt with" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({type: 'drainHp', value }, what); }
 
 
 // --------------------------------------------------------------------------
@@ -278,7 +290,7 @@ GainSb
   = "Grants"i _ value:Integer _ "SB points" _ "when set"? _ trigger:Trigger? { return { type: 'gainSb', value, trigger}; }
 
 SbGainUp
-  = what:ElementOrSchoolList _ "attacks grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
+  = what:ElementOrSchoolList _ ("abilities" / "attacks") _ "grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
 
 
 // --------------------------------------------------------------------------
@@ -377,6 +389,7 @@ Trigger
   / "after using" _ count:TriggerCount _ requiresDamage:"damaging"? _ school:SchoolList _ requiresAttack:AbilityOrAttack { return { type: 'schoolAbility', school, count, requiresDamage, requiresAttack }; }
   / "after dealing a critical hit" { return { type: 'crit' }; }
   / "when removed" { return { type: 'whenRemoved' }; }
+  / "every" _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
@@ -610,6 +623,9 @@ ElementList "element list"
 ElementAndList "element list"
   = head:Element tail:(AndList Element)* { return util.pegList(head, tail, 1, true); }
 
+ElementAndOrList "element list"
+  = head:Element tail:(AndOrList Element)* { return util.pegList(head, tail, 1, true); }
+
 ElementSlashList "element list"
   = head:Element tail:("/" Element)* { return util.pegList(head, tail, 1, true); }
 
@@ -642,6 +658,9 @@ SchoolList "school list"
 SchoolAndList "school list"
   = head:School tail:(AndList School)* { return util.pegList(head, tail, 1, true); }
 
+SchoolAndOrList "school list"
+  = head:School tail:(AndOrList School)* { return util.pegList(head, tail, 1, true); }
+
 SB = "Soul" _ "Break" / "SB"
 Maximum = "maximum" / "max" "."?
 
@@ -649,8 +668,8 @@ Maximum = "maximum" / "max" "."?
 UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return { x, y }; }
 
 ElementOrSchoolList
-  = school:SchoolAndList { return { school }; }
-  / element:ElementAndList { return { element }; }
+  = school:SchoolAndOrList { return { school }; }
+  / element:ElementAndOrList { return { element }; }
 
 
 // --------------------------------------------------------------------------
@@ -665,6 +684,9 @@ AndList
 
 OrList
   = (',' _ 'or'? _) / (_ 'or' _)
+
+AndOrList
+  = (',' _ ('and' / 'or')? _) / (_ ('and' / 'or') _)
 
 NumberString "numeric text"
   = numberString:[a-zA-Z\-]+
