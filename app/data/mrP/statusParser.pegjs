@@ -30,14 +30,15 @@ EffectClause
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / DamageUp / Doublecast / Dualcast / Dualcast100
-  / DoomTimer
+  / AbilityBuildup / DamageUp / SkillTypeDamageUp / Doublecast / Dualcast / Dualcast100
+  / BreakDamageCapAll / BreakDamageCap
+  / Doom / DoomTimer
   / CastSkill / GrantStatus
   / Counter
   / GainSb / SbGainUp
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
-  / TurnDuration / RemovedUnlessStatus / OnceOnly
-  / BurstToggle / TrackUses / BurstOnly / BurstReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai
+  / TurnDuration / RemovedUnlessStatus / OnceOnly / RemovedAfterTrigger
+  / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai
 
 
 // --------------------------------------------------------------------------
@@ -53,7 +54,7 @@ StatMod
   }
 
 CritChance
-  = "Critical chance =" value:IntegerOrX "%" { return { type: 'critChance', value }; }
+  = "Critical chance =" value:(IntegerSlashList / IntegerOrX)  "%" _ trigger:Trigger? { return { type: 'critChance', value, trigger }; }
 
 CritDamage
   = "Critical hits deal" _ value:IntegerOrX "% more damage (additive with the base critical coefficient)" { return { type: 'critDamage', value }; }
@@ -69,7 +70,7 @@ Instacast
   = "Cast"i _ "speed x999" "9"* _ forAbilities:ForAbilities? { return Object.assign({ type: 'instacast' }, forAbilities); }
 
 CastSpeed
-  = "Cast"i _ "speed x" value:DecimalNumber _ forAbilities:ForAbilities? { return Object.assign({ type: 'castSpeed', value }, forAbilities); }
+  = "Cast"i _ "speed x" value:DecimalNumberSlashList _ forAbilities:ForAbilities? _ trigger:Trigger? { return Object.assign({ type: 'castSpeed', value, trigger }, forAbilities,); }
 
 InstantAtb
   = "Increase"i _ "ATB charge speed by x999" "9"* { return { type: 'instantAtb' }; }
@@ -126,7 +127,7 @@ DamageBarrier
 // references to individual schools or elements.
 
 Awoken
-  = type:AwokenType _ "abilities don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast?
+  = type:AwokenType _ ("abilities" / "attacks") _ "don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast?
   & { return !rankCast || util.isEqual(type, rankCast); }
   & { return !dualcast || util.isEqual(type, dualcast); }
   { return { type: 'awoken', type, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast }; }
@@ -205,6 +206,9 @@ AbilityBuildup
 DamageUp
   = what:ElementOrSchoolList _ ("attacks" / "abilities") _ "deal" _ value:Integer "% more damage" { return Object.assign({ type: 'damageUp', value }, what); }
 
+SkillTypeDamageUp
+  = "Increases"i _ skillType:SkillType _ "damage dealt by" _ value:Integer "%" { return { type: 'skillTypeDamageUp', skillType, value }; }
+
 Doublecast
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'doublecast' }, what); }
 
@@ -216,7 +220,20 @@ Dualcast
 
 
 // --------------------------------------------------------------------------
+// Damage cap
+
+BreakDamageCapAll
+  = "Sets"i _ "damage cap to 99999 for all attacks" { return { type: 'breakDamageCap' }; }
+
+BreakDamageCap
+  = "Sets"i _ "the damage cap for" _ skillType:SkillTypeAndList? _ what:ElementOrSchoolList? _ "attacks to 99999" { return Object.assign({ type: 'breakDamageCap', skillType }, what); }
+
+
+// --------------------------------------------------------------------------
 // Doom
+
+Doom
+  = "Causes Doom with a" _ timer:Integer _ "seconds timer" { return { type: 'doom', timer }; }
 
 DoomTimer
   = sign:IncreasesOrReduces _ "the character's Doom timer by" _ value:Integer _ "when set" { return { type: 'doomTimer', value: value * sign }; }
@@ -258,7 +275,7 @@ CounterResponse
 // Soul Break points
 
 GainSb
-  = "Grants"i _ value:Integer _ "SB points" _ trigger:Trigger { return { type: 'gainSb', value, trigger}; }
+  = "Grants"i _ value:Integer _ "SB points" _ "when set"? _ trigger:Trigger? { return { type: 'gainSb', value, trigger}; }
 
 SbGainUp
   = what:ElementOrSchoolList _ "attacks grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
@@ -315,6 +332,9 @@ RemovedUnlessStatus
 OnceOnly
   = "Removed"i _ "after triggering" { return { type: 'onceOnly' }; }
 
+RemovedAfterTrigger
+  = "Removed"i _ trigger:Trigger { return { tyoe: 'removedAfterTrigger', trigger }; }
+
 
 // --------------------------------------------------------------------------
 // Other
@@ -324,12 +344,16 @@ BurstToggle
 
 TrackUses
   = "Keeps"i _ "track of the" _ ("number of")? _ "uses of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
+  / "Used to determine the effect of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
 
 BurstOnly
   = "removed if the user hasn't Burst Mode" { return { type: 'burstOnly' }; }
 
 BurstReset
   = "reset upon refreshing Burst Mode" { return { type: 'burstReset' }; }
+
+StatusReset
+  = "reset upon refreshing" _ status:StatusName { return { type: 'statusReset', status }; }
 
 ReplaceAttack
   = "Replaces"i _ "the Attack command" { return { type: 'replaceAttack' }; }
@@ -350,7 +374,7 @@ Ai
 Trigger
   = "after using" _ count:TriggerCount _ element:ElementList _ requiresAttack:AbilityOrAttack { return { type: 'elementAbility', element, count, requiresAttack }; }
   / "after using" _ count:TriggerCount _ ("ability" / "abilities") { return { type: 'anyAbility', count }; }
-  / "after using" _ count:TriggerCount _ school:SchoolList _ requiresAttack:AbilityOrAttack { return { type: 'schoolAbility', school, count, requiresAttack }; }
+  / "after using" _ count:TriggerCount _ requiresDamage:"damaging"? _ school:SchoolList _ requiresAttack:AbilityOrAttack { return { type: 'schoolAbility', school, count, requiresDamage, requiresAttack }; }
   / "after dealing a critical hit" { return { type: 'crit' }; }
   / "when removed" { return { type: 'whenRemoved' }; }
 
@@ -361,7 +385,7 @@ AbilityOrAttack
 TriggerCount
   = ArticleOrNumberString
   / UseCount
-  / values:IntegerSlashList "+" { return values; }
+  / values:IntegerSlashList "+"? { return values; }
   / Integer
   / "" { return 1; }
 
@@ -555,6 +579,8 @@ SkillType "skill type"
   / "SUM"
   / "NAT"
   / "NIN"
+  // Used for EX: Soldier
+  / "physical" { return "PHY"; }
 
 SkillTypeList "skill type list"
   = head:SkillType tail:(OrList SkillType)* { return util.pegList(head, tail, 1, true); }
@@ -670,6 +696,9 @@ SignedIntegerOrX "signed integer or X"
       return parseInt(sign + value.join(''), 10);
     }
   }
+
+DecimalNumberSlashList "slash-separated decimal numbers"
+  = head:DecimalNumber tail:('/' DecimalNumber)* { return util.pegSlashList(head, tail); }
 
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }

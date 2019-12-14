@@ -50,6 +50,7 @@ const skipStatuses = new Set<string>([
   'Attach Element',
   'Max Attach Element Level',
   'KO',
+  'Doom',
   'Remove',
   'Invisible',
 ]);
