@@ -11345,7 +11345,7 @@
   {
     "id": 50519,
     "name": "Blind Stud Follow-Up",
-    "effects": "Casts Blind Stud (BLK) after using a Black Magic, casts Blind Stud (SUM) after using a Summon ability",
+    "effects": "Casts Blind Stud (BLK) after using a Black Magic ability, casts Blind Stud (SUM) after using a Summon ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11744,7 +11744,7 @@
   {
     "id": 50555,
     "name": "Royal Archives' Teachings Follow-Up",
-    "effects": "Casts Royal Archives' Teachings after using 3 Black Magic or Summoning abillities",
+    "effects": "Casts Royal Archives' Teachings after using 3 Black Magic or Summoning abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

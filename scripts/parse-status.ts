@@ -42,6 +42,8 @@ const skipStatuses = new Set<string>([
   'Defend',
   'General Set Status',
   'General Remove Status',
+  'General Set Status While Synchro',
+  'General Value v2',
   'Status Level in Synchro Mode',
   'Increase Status Level',
   'Decrease Status Level',

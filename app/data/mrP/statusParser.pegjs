@@ -25,12 +25,12 @@ StatusEffect
 
 EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
-  / Instacast / CastSpeed / AtbSpeed
-  / PhysicalBlink / MagicBlink / ElementBlink / DamageBarrier
+  / Instacast / CastSpeed / InstantAtb / AtbSpeed
+  / PhysicalBlink / MagicBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / AbilityDouble / AbilityDualcast / AbilityDualcast100
+  / AbilityBuildup / DamageUp / Doublecast / Dualcast / Dualcast100
   / DoomTimer
   / CastSkill / GrantStatus
   / Counter
@@ -71,11 +71,15 @@ Instacast
 CastSpeed
   = "Cast"i _ "speed x" value:DecimalNumber _ forAbilities:ForAbilities? { return Object.assign({ type: 'castSpeed', value }, forAbilities); }
 
+InstantAtb
+  = "Increase"i _ "ATB charge speed by x999" "9"* { return { type: 'instantAtb' }; }
+
 AtbSpeed
   = "Increase"i _ "ATB charge speed by" _ value:DecimalNumber { return { type: 'atbSpeed', value }; }
 
 ForAbilities
   = "for" _ what:ElementOrSchoolList _ "abilities" { return what; }
+  / "for abilities that deal" _ element:ElementList _ "damage" { return { element }; }
 
 
 // --------------------------------------------------------------------------
@@ -92,6 +96,21 @@ ElementBlink
 
 AttacksThatDeal
   = "attack" "s"? _ "that deal" "s"?
+
+Stoneskin
+  = "Reduces" _ element:Element? _ "damage taken to 0, up to an amount" _ ("of damage")? _ "equal to" _ percentHp:Integer "% of the character's maximum HP" {
+    return { type: 'stoneskin', element, percentHp };
+  }
+
+MagiciteStoneskin
+  = "Reduces" _ element:Element _ "damage taken to 0, up to an amount" _ ("of damage")? _ "equal to" _ percentHp:Integer "% of the Magicite's maximum HP" {
+    return { type: 'magiciteStoneskin', element, percentHp };
+  }
+
+FixedStoneskin
+  = "Reduces damage taken from" _ skillType:SkillTypeAndList _ "attacks to 0, up to" _ damage:Integer _ "damage" {
+    return { type: 'fixedStoneskin', skillType, damage };
+  }
 
 DamageBarrier
   = "Reduces damage taken by" _ value:Integer "% for the next" _
@@ -176,21 +195,24 @@ LoseAnyEnElement
 
 
 // --------------------------------------------------------------------------
-// Abilities
+// Abilities and elements
 
 AbilityBuildup
   = school:School _ "abilities deal" _ increment:Integer "% more damage for each" _ schoolUsed:School _ "ability used, up to +" max:Integer "%" {
     return { type: 'abilityBuildup', school, schoolUsed, increment, max };
   }
 
-AbilityDouble
-  = "dualcasts"i _ school:School _ "abilities consuming an extra ability use" { return { type: 'abilityDouble', school }; }
+DamageUp
+  = what:ElementOrSchoolList _ ("attacks" / "abilities") _ "deal" _ value:Integer "% more damage" { return Object.assign({ type: 'damageUp', value }, what); }
 
-AbilityDualcast100
-  = "dualcasts"i _ school:School _ "abilities" { return { type: 'abilityDualcast', school, chance: 100 }; }
+Doublecast
+  = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'doublecast' }, what); }
 
-AbilityDualcast
-  = chance:Integer "% chance to dualcast" _ school:School _ "abilities" { return { type: 'abilityDualcast', school, chance }; }
+Dualcast100
+  = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance: 100 }, what); }
+
+Dualcast
+  = chance:Integer "% chance to dualcast" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance }, what); }
 
 
 // --------------------------------------------------------------------------
