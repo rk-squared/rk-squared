@@ -441,11 +441,6 @@ StatusEffect
     return result;
   }
 
-StatusVerb
-  = ("grants"i / "causes"i / "removes"i / "doesn't"i _ "remove") {
-    return text().toLowerCase().replace(/\s+/g, ' ');
-  }
-
 StatusList
   = head:StatusWithPercent tail:(!NextClause AndList StatusWithPercent)* {
     return util.pegList(head, tail, 2);
@@ -671,6 +666,11 @@ Condition
 
 // --------------------------------------------------------------------------
 // Lower-level game rules
+
+StatusVerb
+  = ("grants"i / "causes"i / "removes"i / "doesn't"i _ "remove") {
+    return text().toLowerCase().replace(/\s+/g, ' ');
+  }
 
 StatusName "status effect"
   = (

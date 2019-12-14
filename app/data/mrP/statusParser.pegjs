@@ -26,7 +26,7 @@ StatusEffect
 EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
   / Instacast / CastSpeed / AtbSpeed
-  / PhysicalBlink / MagicBlink / ElementBlink
+  / PhysicalBlink / MagicBlink / ElementBlink / DamageBarrier
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
@@ -34,6 +34,7 @@ EffectClause
   / DoomTimer
   / CastSkill / GrantStatus
   / Counter
+  / GainSb / SbGainUp
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / TurnDuration / RemovedUnlessStatus
   / BurstToggle / SkillCounter / BurstOnly / BurstReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai
@@ -78,7 +79,7 @@ ForAbilities
 
 
 // --------------------------------------------------------------------------
-// Blinks
+// Blinks and barriers
 
 PhysicalBlink
   = "Evades"i _ "the next" _ level:Integer? _ "PHY" _ AttacksThatDeal _ "physical, missing HP or fixed damage or NAT" _ AttacksThatDeal _ "physical or fractional damage" { return { type: 'magicBlink', level: level || 1 }; }
@@ -91,6 +92,13 @@ ElementBlink
 
 AttacksThatDeal
   = "attack" "s"? _ "that deal" "s"?
+
+DamageBarrier
+  = "Reduces damage taken by" _ value:Integer "% for the next" _
+    attackCount:(
+      count:Integer _ "attack" "s"? { return count; }
+      / "attack" { return 1; }
+    ) { return { type: 'damageBarrier', value, attackCount }; }
 
 
 // --------------------------------------------------------------------------
@@ -199,7 +207,7 @@ CastSkill
   = "casts"i _ skill:AnySkillName _ trigger:Trigger? _ condition:Condition? { return util.addCondition({ type: 'castSkill', skill, trigger }, condition); }
 
 GrantStatus
-  = "grants"i _ status:StatusName _ who:Who? _ trigger:Trigger? _ condition:Condition? { return util.addCondition({ type: 'grantsStatus', status, trigger, who }, condition); }
+  = verb:StatusVerb _ status:StatusName _ who:Who? _ trigger:Trigger? _ condition:Condition? { return util.addCondition({ type: 'grantsStatus', status, trigger, who }, condition); }
 
 
 // --------------------------------------------------------------------------
@@ -222,6 +230,16 @@ CounterResponse
     const overrideSkillType = damageType === 'physical' ? 'PHY' : 'BLK';
     return { attack: { type: 'attack', numAttacks: 1, attackMultiplier, overrideSkillType } };
   }
+
+
+// --------------------------------------------------------------------------
+// Soul Break points
+
+GainSb
+  = "Grants"i _ value:Integer _ "SB points" _ trigger:Trigger { return { type: 'gainSb', value, trigger}; }
+
+SbGainUp
+  = what:ElementOrSchoolList _ "attacks grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
 
 
 // --------------------------------------------------------------------------
@@ -267,7 +285,7 @@ MultiplyDamage
 // Special durations
 
 TurnDuration
-  = "lasts for" _ value:Integer _ "turn" "s"? { return { type: 'duration', duration: { value, units: 'turns' } }; }
+  = "lasts" _ "for"? _ value:Integer _ "turn" "s"? { return { type: 'duration', duration: { value, units: 'turns' } }; }
 
 RemovedUnlessStatus
   = "removed if" _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
@@ -305,9 +323,10 @@ Ai
 // Triggers
 
 Trigger
-  = "after using" _ count:TriggerCount _ element:ElementList _ attack:AbilityOrAttack { return { type: 'elementAbility', element, count, attack }; }
+  = "after using" _ count:TriggerCount _ element:ElementList _ requiresAttack:AbilityOrAttack { return { type: 'elementAbility', element, count, requiresAttack }; }
   / "after using" _ count:TriggerCount _ ("ability" / "abilities") { return { type: 'anyAbility', count }; }
-  / "after using" _ count:TriggerCount _ school:SchoolList _ attack:AbilityOrAttack { return { type: 'schoolAbility', school, count, attack }; }
+  / "after using" _ count:TriggerCount _ school:SchoolList _ requiresAttack:AbilityOrAttack { return { type: 'schoolAbility', school, count, requiresAttack }; }
+  / "when removed" { return { type: 'whenRemoved' }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
@@ -318,6 +337,7 @@ TriggerCount
   / UseCount
   / values:IntegerSlashList "+" { return values; }
   / Integer
+  / "" { return 1; }
 
 
 // --------------------------------------------------------------------------
@@ -406,7 +426,7 @@ Condition
   // Alternate phrasing - this appears to be an error, so we smooth it out. TODO: Fix upstream.
   / "scaling" _ "with" _ school:School _ "attacks" _ "used" _ "(" _ count:IntegerSlashList _ ")" { return { type: 'abilitiesUsed', count, school }; }
 
-  / "at" _ "rank" _ "1/2/3/4/5" _ "of" _ "the" _ "triggering" _ "ability" { return { type: 'rankBased' }; }
+  / "at" _ "rank" _ "1/2/3/4/5" (_ "of" _ "the" _ "triggering" _ "ability")? { return { type: 'rankBased' }; }
   / "at" _ "ability" _ "rank" _ "1/2/3/4/5" { return { type: 'rankBased' }; }
 
   // Alternate status phrasing.  For example, Stone Press:
@@ -419,6 +439,11 @@ Condition
 
 // --------------------------------------------------------------------------
 // Lower-level game rules
+
+StatusVerb
+  = ("grants"i / "causes"i / "removes"i / "doesn't"i _ "remove") {
+    return text().toLowerCase().replace(/\s+/g, ' ');
+  }
 
 StatusName "status effect"
   = (
@@ -468,7 +493,7 @@ GenericName
 
         / SignedIntegerSlashList [%+]?
         / [=*]? IntegerSlashList [%+]?
-        / '(' [A-Za-z-0-9/]+ ')'
+        / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) ')'
       )
     )*
   ) {

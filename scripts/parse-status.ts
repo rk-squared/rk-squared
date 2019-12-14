@@ -41,6 +41,7 @@ const jsonOutput: any[] = [];
 const skipStatuses = new Set<string>([
   'Defend',
   'General Set Status',
+  'General Remove Status',
   'Status Level in Synchro Mode',
   'Increase Status Level',
   'Decrease Status Level',
