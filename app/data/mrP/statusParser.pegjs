@@ -25,18 +25,19 @@ StatusEffect
 
 EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
-  / Instacast / CastSpeed / InstantAtb / AtbSpeed
+  / Haste / Instacast / CastSpeed / InstantAtb / AtbSpeed
   / PhysicalBlink / MagicBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
   / RadiantShield
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
-  / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
+  / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
   / AbilityBuildup / RankBoost / DamageUp / SkillTypeDamageUp / Doublecast / Dualcast / Dualcast100 / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
+  / HpStock / Pain / BarHeal
   / Doom / DoomTimer / DrainHp
-  / CastSkill / GrantStatus
   / Counter
   / GainSb / SbGainUp
+  / TriggeredEffect
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / OnceOnly / RemovedAfterTrigger
@@ -66,7 +67,10 @@ StatusChance
 
 
 // --------------------------------------------------------------------------
-// Cast speed
+// Haste, cast speed
+
+Haste
+  = "Wait speed x2.00" { return { type: 'haste' }; }
 
 Instacast
   = "Cast"i _ "speed x999" "9"* _ forAbilities:ForAbilities? { return Object.assign({ type: 'instacast' }, forAbilities); }
@@ -84,6 +88,7 @@ ForAbilities
   = "for" _ what:ElementOrSchoolList _ "abilities" { return what; }
   / "for abilities that deal" _ element:ElementList _ "damage" { return { element }; }
   / "for Jump attacks" { return { jump: true }; }
+  / "for magical damage" { return { magical: true}; }
 
 
 // --------------------------------------------------------------------------
@@ -199,6 +204,11 @@ EnElement
     return { type: 'enElement', element };
   }
 
+EnElementStacking
+  = "Allow to stack Attach" _ element:Element _ ", up to Attach" _ element2:Element _ "3" {
+    return { type: 'enElementStacking', element };
+  }
+
 EnElementWithStacking
   = "Increase Attach" _ element:Element _ "Level by" _ level:Integer _ "and increase Max Attach Element Level by 2, up to Attach" _ element2:Element _ "3" {
     return { type: 'enElementWithStacking', element, level };
@@ -258,6 +268,19 @@ DamageCap
 
 
 // --------------------------------------------------------------------------
+// Healing up and down
+
+HpStock
+  = "Automatically"i _ "restores HP, up to" _ value:IntegerOrX _ "HP" { return { type: 'hpStock', value }; }
+
+Pain
+  = "Take" _ value:Integer "% more damage" { return { type: 'pain', value }; }
+
+BarHeal
+  = "Healing restores" _ value:Integer "% less HP" { return { type: 'barHeal', value }; }
+
+
+// --------------------------------------------------------------------------
 // Doom, drain HP
 
 Doom
@@ -271,25 +294,15 @@ DrainHp
 
 
 // --------------------------------------------------------------------------
-// Abilities and status effects
-
-CastSkill
-  = "casts"i _ skill:AnySkillName _ trigger:Trigger? _ condition:Condition? { return util.addCondition({ type: 'castSkill', skill, trigger }, condition); }
-
-GrantStatus
-  = verb:StatusVerb _ status:StatusName _ who:Who? _ trigger:Trigger? _ condition:Condition? { return util.addCondition({ type: 'grantsStatus', status, trigger, who }, condition); }
-
-
-// --------------------------------------------------------------------------
 // Counter
 
 Counter
-  = when:CounterWhen _ enemy:"enemy"? _ skillType:SkillType _ "attacks with" _ counter:CounterResponse {
+  = when:CounterWhen _ enemy:"enemy"? _ skillType:SkillTypeAndList _ "attacks with" _ counter:CounterResponse {
     return Object.assign({ type: 'counter', skillType, enemyOnly: !!enemy, counter }, when);
   }
 
 CounterWhen
-  = "counters" { return {}; }
+  = "counters"i { return {}; }
   // Statuses use "chance of countering", legend materia use "chance to counter"
   / chance:Integer ("% chance of countering" / "% chance to counter") { return { chance }; }
 
@@ -306,10 +319,31 @@ CounterResponse
 // Soul Break points
 
 GainSb
-  = "Grants"i _ value:Integer _ "SB points" _ "when set"? _ trigger:Trigger? { return { type: 'gainSb', value, trigger}; }
+  = "Grants"i _ value:Integer _ "SB points" _ "when set"? { return { type: 'gainSb', value }; }
 
 SbGainUp
   = what:ElementOrSchoolList _ ("abilities" / "attacks") _ "grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
+
+
+// --------------------------------------------------------------------------
+// Abilities and status effects
+
+TriggeredEffect
+  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger? _ condition:Condition? {
+    return util.addCondition({ type: 'triggeredEffect', effects: util.pegList(head, tail, 2, true), trigger }, condition);
+  }
+
+TriggerableEffect
+  = CastSkill / GainSb / GrantStatus / Heal
+
+CastSkill
+  = "casts"i _ skill:AnySkillName  { return { type: 'castSkill', skill }; }
+
+GrantStatus
+  = verb:StatusVerb _ head:StatusName _ tail:("and" _ StatusName)* _ who:Who? { return { type: 'grantsStatus', status: util.pegList(head, tail, 2, true), who }; }
+
+Heal
+  = "restores"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'heal', fixedHp, who }; }
 
 
 // --------------------------------------------------------------------------
@@ -425,6 +459,7 @@ Trigger
   / "after exploiting elemental weakness" { return { type: 'vsWeak' }; }
   / "when removed" { return { type: 'whenRemoved' }; }
   / "every" _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
+  / "upon taking damage" { return { type: 'damaged' }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
@@ -586,9 +621,9 @@ GenericName
         // Articles, etc., are okay, but use &' ' to make sure they're at a
         // word bounary.
         / (('in' / 'or' / 'of' / 'the' / 'with' / '&' / 'a') & ' ')
-        // "for" in particular needs extra logic to ensure that it's part of
-        // status words instead of part of the duration.
-        / "for" _ GenericNameWord
+        // "for" and "to" in particular needs extra logic to ensure that
+        // they're part of status words instead of part of later clauses.
+        / ("for" / "to") _ GenericNameWord
 
         / SignedIntegerSlashList [%+]?
         / [=*]? IntegerSlashList [%+]?
@@ -648,6 +683,7 @@ Element "element"
   / "Dark" ! "ness" { return "Dark"; }
   / "Poison"
   / "NE"
+  / "Non-Elemental" { return "NE"; }
 
 ElementOrPlaceholder
   = Element
