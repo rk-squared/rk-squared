@@ -27,6 +27,7 @@ EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
   / Instacast / CastSpeed / InstantAtb / AtbSpeed
   / PhysicalBlink / MagicBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
+  / RadiantShield
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
@@ -82,6 +83,7 @@ AtbSpeed
 ForAbilities
   = "for" _ what:ElementOrSchoolList _ "abilities" { return what; }
   / "for abilities that deal" _ element:ElementList _ "damage" { return { element }; }
+  / "for Jump attacks" { return { jump: true }; }
 
 
 // --------------------------------------------------------------------------
@@ -120,6 +122,19 @@ DamageBarrier
       count:Integer _ "attack" "s"? { return count; }
       / "attack" { return 1; }
     ) { return { type: 'damageBarrier', value, attackCount }; }
+
+
+// --------------------------------------------------------------------------
+// Radiant shield
+
+RadiantShield
+  = "Returns"i _ value:RadiantShieldValue _ "the damage taken to the attacker" element:(_ "as" _ e:Element _ "damage" { return e; })? overflow:(_ "capped at 99999") ? {
+    return { type: 'radiantShield', value, element, overflow: !!overflow };
+  }
+
+RadiantShieldValue
+  = "all" _ "of"? { return 100; }
+  / value:Integer "% of" { return value; }
 
 
 // --------------------------------------------------------------------------
@@ -347,7 +362,7 @@ AbilityBerserk
   = "Forces a random available action, excluding Defend, affects targeting, Berserk, Confuse, Paralyze, Stop are prioritized" { return { type: 'abilityBerserk' }; }
 
 Rage  // aka "auto" elsewhere in our code
-  = "Forces a specified action, affects targeting, resets ATB when removed" { return { type: 'rage' }; }
+  = "Forces"i _ "a specified action, affects targeting, resets ATB when removed" { return { type: 'rage' }; }
 
 
 // --------------------------------------------------------------------------
@@ -402,16 +417,14 @@ Ai
 // Triggers
 
 Trigger
-  = "after using" _ count:TriggerCount _ element:ElementList _ requiresAttack:AbilityOrAttack { return { type: 'elementAbility', element, count, requiresAttack }; }
-  / "after using" _ count:TriggerCount _ ("ability" / "abilities") { return { type: 'anyAbility', count }; }
-  / "after using" _ count:TriggerCount _ requiresDamage:"damaging"? _ school:SchoolList _ requiresAttack:AbilityOrAttack { return { type: 'schoolAbility', school, count, requiresDamage, requiresAttack }; }
+  = "after" _ requiresDamage1:("using" / "dealing damage with") _ count:TriggerCount _ requiresDamage2:"damaging"?
+    _ element:ElementList? _ school:SchoolList? _ requiresAttack:AbilityOrAttack {
+      return { type: 'ability', element, school, count, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
+    }
   / "after dealing a critical hit" { return { type: 'crit' }; }
   / "after exploiting elemental weakness" { return { type: 'vsWeak' }; }
   / "when removed" { return { type: 'whenRemoved' }; }
   / "every" _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
-  // Alternate (older)? phrasing
-  / "after dealing damage with" _ count:TriggerCount _ element:ElementList _ "attack" { return { type: 'elementAbility', element, count, requiresDamage: true, requiresAttack: true }; }
-  / "after dealing damage with" _ count:TriggerCount _ school:SchoolList _ "ability" { return { type: 'schoolAbility', school, count, requiresDamage: true, requiresAttack: false }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
@@ -469,6 +482,7 @@ Condition
   / "if" _ count:IntegerSlashList _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
@@ -631,7 +645,7 @@ Element "element"
   / "Wind"
   / "Water"
   / "Holy"
-  / "Dark"
+  / "Dark" ! "ness" { return "Dark"; }
   / "Poison"
   / "NE"
 
@@ -692,6 +706,28 @@ UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return
 ElementOrSchoolList
   = school:SchoolAndOrList { return { school }; }
   / element:ElementAndOrList { return { element }; }
+
+Realm "realm"
+  = "Beyond"
+  / "Core"
+  / "IX"
+  / "IV"
+  / "FFT"
+  / "III"
+  / "II"
+  / "I"
+  / "VIII"
+  / "VII"
+  / "VI"
+  / "V"
+  / "XV"
+  / "XIV"
+  / "XIII"
+  / "XII"
+  / "XI"
+  / "X"
+  / "KH"
+  / "Type-0"
 
 
 // --------------------------------------------------------------------------
