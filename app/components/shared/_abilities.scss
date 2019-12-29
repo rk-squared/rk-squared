@@ -1,4 +1,5 @@
-// This is just long enough for a spellblade Quadstrike.
-$ability-name-width: 11em;
+// 11em is just long enough for a spellblade Quadstrike.
+// 12em makes it less likely that it wraps with character images added.
+$ability-name-width: 12em;
 // This is just long enough for our orb costs display.
 $orbCosts-width: 8em;

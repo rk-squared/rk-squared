@@ -17,6 +17,7 @@ import { formatIsoDate } from '../../utils/timeUtils';
 import { getMrPAbility } from './AbilitiesTable';
 import { EventTooltip } from './EventTooltip';
 import { OrbCostsDisplay } from './OrbCostsDisplay';
+import { RecordBoardCharacterIcon } from './RecordBoardCharacterIcon';
 
 const styles = require('./FutureAbilitiesTable.scss');
 
@@ -45,13 +46,17 @@ function compareByDate(a: EnlirAbility, b: EnlirAbility) {
   }
 }
 
-function getUnreleasedAbilities(abilities: EnlirAbility[], rarity: number): EnlirAbility[] {
+function getUnreleasedAbilities(
+  abilities: EnlirAbility[],
+  rarity: number,
+  showRecordBoard: boolean,
+): EnlirAbility[] {
   return abilities
     .filter(
       i =>
         i.rarity === rarity &&
         !i.gl &&
-        getAbilityUnlockType(i) !== EnlirAbilityUnlockType.RecordBoard,
+        (getAbilityUnlockType(i) === EnlirAbilityUnlockType.RecordBoard) === showRecordBoard,
     )
     .sort(compareByDate);
 }
@@ -77,20 +82,22 @@ function getReleaseDate(ability: EnlirAbility): string {
 export class FutureAbilitiesTable extends React.PureComponent<Props> {
   static releaseDateTooltipId = 'future-abilities-release-date';
 
-  renderRarity(rarity: number) {
+  renderGroup(rarity: number, showRecordBoard: boolean) {
     const { abilitiesTooltipId, orbCostsTooltipId } = this.props;
-    const abilities = getUnreleasedAbilities(_.values(enlir.abilities), rarity);
+    const abilities = getUnreleasedAbilities(_.values(enlir.abilities), rarity, showRecordBoard);
     if (!abilities.length) {
       return null;
     }
+    const description = showRecordBoard ? 'Record Board' : rarity + '★';
     return (
       <>
         <tr className="thead-dark">
-          <th colSpan={5}>{rarity}★ Abilities</th>
+          <th colSpan={5}>{description} Abilities</th>
         </tr>
         {abilities.map((ability, i) => (
           <tr className={styles.jp} key={i}>
             <td data-tip={ability.id} data-for={abilitiesTooltipId} className={styles.name}>
+              <RecordBoardCharacterIcon character={ability.recordBoardCharacter} />
               {ability.name}
             </td>
             <td className={styles.school}>
@@ -138,8 +145,9 @@ export class FutureAbilitiesTable extends React.PureComponent<Props> {
             </tr>
           </thead>
           <tbody>
-            {this.renderRarity(5)}
-            {this.renderRarity(6)}
+            {this.renderGroup(5, false)}
+            {this.renderGroup(6, false)}
+            {this.renderGroup(6, true)}
           </tbody>
         </table>
 

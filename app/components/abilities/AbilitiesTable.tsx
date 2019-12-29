@@ -3,14 +3,12 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 import * as _ from 'lodash';
 
-import { LangType } from '../../api/apiUrls';
-import { LangContext } from '../../contexts/LangContext';
-import { enlir, EnlirAbility, EnlirSchool } from '../../data/enlir';
+import { EnlirAbility, EnlirSchool } from '../../data/enlir';
 import { schoolIcons } from '../../data/localData';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import { getOrbCosts } from '../../data/orbDetails';
-import * as urls from '../../data/urls';
 import { OrbCostsDisplay } from './OrbCostsDisplay';
+import { RecordBoardCharacterIcon } from './RecordBoardCharacterIcon';
 
 const styles = require('./AbilitiesTable.scss');
 
@@ -90,27 +88,12 @@ export function groupAbilities(abilities: EnlirAbility[]): GroupedEnlirAbility[]
   return result;
 }
 
-function RecordBoardCharacterIcon({ character, lang }: { character: string; lang: LangType }) {
-  if (!enlir.charactersByName[character]) {
-    return null;
-  }
-  const id = enlir.charactersByName[character].id;
-  return (
-    <img src={urls.characterImage(lang, id)} className={styles.characterIcon} alt={character} />
-  );
-}
-
 export class AbilitiesTable extends React.PureComponent<Props> {
-  // noinspection JSUnusedGlobalSymbols
-  static contextType = LangContext;
-  context!: React.ContextType<typeof LangContext>;
-
   renderRow(ability: GroupedEnlirAbility, key: number) {
     const { abilitiesTooltipId, orbCostsTooltipId } = this.props;
     const { id, name, rarity } = ability;
 
     const mrP = getMrPAbility(ability);
-    const lang = ability.gl ? (this.context as LangType) : LangType.Jp;
 
     return (
       <tr
@@ -121,9 +104,7 @@ export class AbilitiesTable extends React.PureComponent<Props> {
         })}
       >
         <td data-tip={id} data-for={abilitiesTooltipId} className={styles.name}>
-          {ability.recordBoardCharacter && (
-            <RecordBoardCharacterIcon character={ability.recordBoardCharacter} lang={lang} />
-          )}
+          <RecordBoardCharacterIcon character={ability.recordBoardCharacter} />
           {name}
         </td>
         <td className={styles.effects}>
