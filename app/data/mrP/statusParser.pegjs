@@ -31,13 +31,13 @@ EffectClause
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / RankBoost / DamageUp / SkillTypeDamageUp / Doublecast / Dualcast / Dualcast100 / NoAirTime
+  / AbilityBuildup / RankBoost / DamageUp / SkillTypeDamageUp / ElementDamageUp / Doublecast / Dualcast / Dualcast100 / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Pain / BarHeal
   / Doom / DoomTimer / DrainHp
   / Counter
-  / GainSb / SbGainUp
   / TriggeredEffect
+  / GainSb / SbGainUp
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / OnceOnly / RemovedAfterTrigger
@@ -77,7 +77,8 @@ Instacast
   = "Cast"i _ "speed x999" "9"* _ forAbilities:ForAbilities? { return Object.assign({ type: 'instacast' }, forAbilities); }
 
 CastSpeed
-  = "Cast"i _ "speed x" value:DecimalNumberSlashList _ forAbilities:ForAbilities? _ trigger:Trigger? { return Object.assign({ type: 'castSpeed', value, trigger }, forAbilities,); }
+  = "Cast"i _ "speed x" value:DecimalNumberSlashList _ forAbilities:ForAbilities? _ trigger:Trigger? { return Object.assign({ type: 'castSpeed', value, trigger }, forAbilities); }
+  / what:ElementOrSchoolList _ "cast speed x" value:DecimalNumberSlashList { return Object.assign({ type: 'castSpeed', value }, what); }
 
 InstantAtb
   = "Increase"i _ "ATB charge speed by x999" "9"* { return { type: 'instantAtb' }; }
@@ -242,6 +243,9 @@ DamageUp
 SkillTypeDamageUp
   = "Increases"i _ skillType:SkillType _ "damage dealt by" _ value:Integer "%" { return { type: 'skillTypeDamageUp', skillType, value }; }
 
+ElementDamageUp
+  = "Increases"i _ element:ElementAndList _ "damage dealt by" _ value:Integer "%" { return { type: 'elementDamageUp', element }; }
+
 Doublecast
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'doublecast' }, what); }
 
@@ -317,16 +321,6 @@ CounterResponse
 
 
 // --------------------------------------------------------------------------
-// Soul Break points
-
-GainSb
-  = "Grants"i _ value:Integer _ "SB points" _ "when set"? { return { type: 'gainSb', value }; }
-
-SbGainUp
-  = what:ElementOrSchoolList _ ("abilities" / "attacks") _ "grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
-
-
-// --------------------------------------------------------------------------
 // Abilities and status effects
 
 TriggeredEffect
@@ -345,6 +339,16 @@ GrantStatus
 
 Heal
   = "restores"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'heal', fixedHp, who }; }
+
+
+// --------------------------------------------------------------------------
+// Soul Break points
+
+GainSb
+  = "Grants"i _ value:Integer _ "SB points" _ "when set"? { return { type: 'gainSb', value }; }
+
+SbGainUp
+  = what:ElementOrSchoolList _ ("abilities" / "attacks") _ "grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
 
 
 // --------------------------------------------------------------------------
@@ -377,6 +381,9 @@ ImmuneAttacks
 
 ZeroDamage
   = "Reduces"i _ what:("physical" / "magical" / "all") _ "damage received to 0" { return { type: 'zeroDamage', what }; }
+  / "Reduces to 0 all damage received from non-NIN attacks that deal magical damage and all damage received from BLK, WHT, BLU or SUM attacks" { return { type: 'zeroDamage', what: 'magical' }; }
+  / "Reduces to 0 all damage received from non-NIN attacks that deal physical damage and all damage received from PHY attacks" { return { type: 'zeroDamage', what: 'physical' }; }
+  / "Reduces to 0 all damage received from NIN attacks" { return { type: 'zeroDamage', what: 'NIN' }; }
 
 EvadeAll
   // Galuf's status; aka Peerless
@@ -423,8 +430,7 @@ TrackStatusLevel
   = "Keeps"i _ "track of the" _ status:StatusName _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max }; }
 
 ChangeStatusLevel
-  = which:("Increases"i / "Decreases"i) _ "the"? _ status:StatusName _ "level by" _ value:Integer _ trigger:TriggerOrWhenSet {
-    const sign = which.toLowerCase() === 'increases' ? 1 : -1;
+  = sign:IncreasesOrReduces _ "the"? _ status:StatusName _ "level by" _ value:Integer _ trigger:TriggerOrWhenSet {
     return { type: 'changeStatusLevel', status, value: value * sign, trigger };
   }
 
@@ -808,6 +814,7 @@ Realm "realm"
 IncreasesOrReduces
   = "increases"i { return 1; }
   / "reduces"i { return -1; }
+  / "decreases"i { return -1; }
 
 AndList
   = (',' _ 'and'? _) / (_ 'and' _)

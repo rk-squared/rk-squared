@@ -6485,7 +6485,7 @@
   {
     "id": 50057,
     "name": "Null Physical",
-    "effects": "Reduces to 0 all damage received from non-NIN attacks that deal physical damage and all damage received from PHY attacks ",
+    "effects": "Reduces to 0 all damage received from non-NIN attacks that deal physical damage and all damage received from PHY attacks",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -6496,7 +6496,7 @@
   {
     "id": 50058,
     "name": "Null Magical",
-    "effects": "Reduces to 0 all damage received from non-NIN attacks that deal magical damage and all damage received from BLK, WHT, BLU or SUM attacks ",
+    "effects": "Reduces to 0 all damage received from non-NIN attacks that deal magical damage and all damage received from BLK, WHT, BLU or SUM attacks",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
