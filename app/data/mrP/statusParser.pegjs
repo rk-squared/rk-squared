@@ -423,9 +423,9 @@ TrackStatusLevel
   = "Keeps"i _ "track of the" _ status:StatusName _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max }; }
 
 ChangeStatusLevel
-  = which:("Increases"i / "Decreases"i) _ "the" _ status:StatusName _ "level by" _ value:Integer _ "when set" {
+  = which:("Increases"i / "Decreases"i) _ "the"? _ status:StatusName _ "level by" _ value:Integer _ trigger:TriggerOrWhenSet {
     const sign = which.toLowerCase() === 'increases' ? 1 : -1;
-    return { type: 'changeStatusLevel', status, value: value * sign };
+    return { type: 'changeStatusLevel', status, value: value * sign, trigger };
   }
 
 SetStatusLevel
@@ -488,6 +488,10 @@ Trigger
   / "when removed" { return { type: 'whenRemoved' }; }
   / "every" _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
   / "upon taking damage" { return { type: 'damaged' }; }
+  / "when" _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
+  / ("when using" / "after using") _ skill:AnySkillName { return { type: 'skill', skill }; }
+  / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
+  / "after using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
@@ -499,6 +503,10 @@ TriggerCount
   / values:IntegerSlashList "+"? { return values; }
   / Integer
   / "" { return 1; }
+
+TriggerOrWhenSet
+  = Trigger
+  / "when set" { return undefined; }
 
 
 // --------------------------------------------------------------------------
@@ -595,7 +603,7 @@ Condition
   // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
   / "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
 
-  // Stat thresolds (e.g., Tiamat, Guardbringer)
+  // Stat thresholds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
 
