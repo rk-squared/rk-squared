@@ -53,6 +53,7 @@ const skipStatuses = new Set<string>([
   'Doom',
   'Remove',
   'Invisible',
+  'Stun',
 ]);
 
 function shouldAlwaysSkip(status: Enlir.Status) {

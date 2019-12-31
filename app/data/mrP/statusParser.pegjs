@@ -19,7 +19,7 @@
 
 StatusEffect
   = head:EffectClause tail:(',' _ EffectClause)* {
-    return util.pegList(head, tail, 2);
+    return util.pegList(head, tail, 2).filter(i => i != null);
   }
   / "" { return []; }
 
@@ -41,7 +41,8 @@ EffectClause
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / OnceOnly / RemovedAfterTrigger
-  / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai
+  / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
+  / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Prison / NoEffect
 
 
 // --------------------------------------------------------------------------
@@ -416,6 +417,27 @@ RemovedAfterTrigger
 
 
 // --------------------------------------------------------------------------
+// Status levels
+
+TrackStatusLevel
+  = "Keeps"i _ "track of the" _ status:StatusName _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max }; }
+
+ChangeStatusLevel
+  = which:("Increases"i / "Decreases"i) _ "the" _ status:StatusName _ "level by" _ value:Integer _ "when set" {
+    const sign = which.toLowerCase() === 'increases' ? 1 : -1;
+    return { type: 'changeStatusLevel', status, value: value * sign };
+  }
+
+SetStatusLevel
+  = "Sets"i _ "the" _ status:StatusName _ "level to" _ value:Integer _ "when set" { return { type: 'setStatusLevel', status, value }; }
+
+StatusLevelBooster
+  = "Increases"i _ "the" _ status:StatusName _ "level by" _ value:Integer _ "when the" _ status2:StatusName _ "level is increased"
+  & { return status === status2; }
+    { return { type: 'statusLevelBooster', status, value }; }
+
+
+// --------------------------------------------------------------------------
 // Other
 
 BurstToggle
@@ -445,6 +467,12 @@ DisableAttacks
 
 Ai
   = "Affects"i _ GenericName _ "behaviour" { return { type: 'ai' }; }
+
+Prison
+  = "Arrests ATB charge rate, can't act, resets ATB when set, counts towards Game Over" { return { type: 'prison' }; }
+
+NoEffect
+  = "No gameplay effects" { return null; }
 
 
 // --------------------------------------------------------------------------
