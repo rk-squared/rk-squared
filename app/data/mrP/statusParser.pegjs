@@ -18,7 +18,7 @@
 }
 
 StatusEffect
-  = head:EffectClause tail:(',' _ EffectClause)* {
+  = head:EffectClause tail:((',' / '.') _ EffectClause)* {
     return util.pegList(head, tail, 2).filter(i => i != null);
   }
   / "" { return []; }
@@ -341,16 +341,28 @@ TriggeredEffect
   }
 
 TriggerableEffect
-  = CastSkill / GainSb / GrantStatus / Heal / SmartEtherStatus
+  = CastSkill / GainSb / GrantStatus / Heal / HealChance / SmartEtherStatus
 
 CastSkill
   = "casts"i _ skill:AnySkillName  { return { type: 'castSkill', skill }; }
 
 GrantStatus
-  = verb:StatusVerb _ head:StatusName _ tail:("and" _ StatusName)* _ who:Who? { return { type: 'grantsStatus', status: util.pegList(head, tail, 2, true), who }; }
+  = verb:StatusVerb _ head:StatusItem _ tail:("and" _ StatusItem)* _ who:Who? { return { type: 'grantsStatus', status: util.pegList(head, tail, 2, true), who }; }
 
 Heal
   = "restores"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'heal', fixedHp, who }; }
+
+HealChance
+  = chance:Integer "% chance to restore"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'triggerChance', effect: { type: 'heal', fixedHp, who, chance } }; }
+
+StatusItem
+  = status:StatusName _ chance:("(" n:Integer "%)" { return n; })? {
+    if (!chance || chance === 100) {
+      return status;
+    } else {
+      return { status, chance };
+    }
+  }
 
 
 // --------------------------------------------------------------------------
@@ -507,7 +519,7 @@ Trigger
   / "every" _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
   / "upon taking damage" { return { type: 'damaged' }; }
   / "when" _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
-  / ("when using" / "after using") _ skill:AnySkillName { return { type: 'skill', skill }; }
+  / ("when using" / "after using") _ skill:AnySkillName _ count:Occurrence? { return { type: 'skill', skill, count }; }
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
   / "after using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
 
@@ -897,6 +909,12 @@ SignedIntegerSlashList "slash-separated signed integers"
 
 IntegerAndList "integers separated with commas and 'and'"
   = head:Integer tail:((','? _ 'and' _ /',' _) Integer)* { return util.pegSlashList(head, tail); }
+
+
+Occurrence
+  = "once" { return 1; }
+  / "twice" { return 2; }
+  / count:NumberString _ "time" "s"? { return count; }
 
 
 UppercaseWord
