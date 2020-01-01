@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import * as classNames from 'classnames';
 import * as _ from 'lodash';
-import * as moment from 'moment';
 
 import {
   enlir,
@@ -10,10 +9,10 @@ import {
   EnlirAbilityUnlockType,
   getAbilityUnlockType,
 } from '../../data/enlir';
+import { getReleaseDate } from '../../data/futureAbilities';
 import { schoolIcons } from '../../data/localData';
 import { formatMrPSkill } from '../../data/mrP/skill';
 import { getOrbCosts } from '../../data/orbDetails';
-import { formatIsoDate } from '../../utils/timeUtils';
 import { getMrPAbility } from './AbilitiesTable';
 import { EventTooltip } from './EventTooltip';
 import { OrbCostsDisplay } from './OrbCostsDisplay';
@@ -59,24 +58,6 @@ function getUnreleasedAbilities(
         (getAbilityUnlockType(i) === EnlirAbilityUnlockType.RecordBoard) === showRecordBoard,
     )
     .sort(compareByDate);
-}
-
-function getReleaseDate(ability: EnlirAbility): string {
-  if (!ability.introducingEvent) {
-    return '';
-  }
-  const event = enlir.events[ability.introducingEvent];
-  if (!event) {
-    return ability.introducingEvent;
-  } else if (event.glDate) {
-    return formatIsoDate(event.glDate);
-  } else if (event.jpDate) {
-    const date = moment(event.jpDate).add(6, 'months');
-    const when = date.date() > 15 ? 'late' : 'early';
-    return when + date.format(' MMM YYYY');
-  } else {
-    return '';
-  }
 }
 
 export class FutureAbilitiesTable extends React.PureComponent<Props> {

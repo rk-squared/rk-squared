@@ -1,6 +1,7 @@
 # Unreleased
 
 - Abilities
+  - Ability tooltips for future abilities now include information about their expected release.
   - The Future Abilities screen now includes Record Board abilities.
 - Relic Draws
   - The chance of getting a 6\* or better is now shown, instead of showing the raw count of the number of relics that are 6\*.

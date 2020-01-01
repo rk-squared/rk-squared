@@ -6,9 +6,9 @@ import * as _ from 'lodash';
 
 import { WorldCategory } from '../../actions/worlds';
 import { LangContext } from '../../contexts/LangContext';
-import { enlir, EnlirEvent } from '../../data/enlir';
+import { enlir } from '../../data/enlir';
+import { getEventText } from '../../data/futureAbilities';
 import { localIcons } from '../../data/localData';
-import { andJoin } from '../../utils/textUtils';
 import { categoryImages } from '../dungeons/DungeonCategoryTitle';
 import { SeriesIcon } from '../shared/SeriesIcon';
 
@@ -24,20 +24,9 @@ export class EventTooltip extends React.Component<Props> {
   static contextType = LangContext;
   context!: React.ContextType<typeof LangContext>;
 
-  getEventText(eventName: string, event: EnlirEvent | undefined): string {
-    let result = this.props.description ? this.props.description + ' ' : '';
-    if (event && event.type === 'Festival' && !event.glDate) {
-      result += "JP's " + eventName;
-    } else {
-      result += eventName;
-    }
-    if (event && event.realm) {
-      result += ` (${event.realm})`;
-    }
-    if (event && event.heroRecords) {
-      result += ', with ' + andJoin(event.heroRecords, true);
-    }
-    return result;
+  getEventText(eventName: string): string {
+    const prefix = this.props.description ? this.props.description + ' ' : '';
+    return prefix + getEventText(eventName);
   }
 
   getContent = (eventName: string) => {
@@ -47,7 +36,7 @@ export class EventTooltip extends React.Component<Props> {
 
     const event = enlir.events[eventName];
 
-    const text = this.getEventText(eventName, event);
+    const text = this.getEventText(eventName);
     let icon: string | null | undefined = null;
     if (eventName.startsWith('Fat Black Chocobo')) {
       icon = localIcons['fatBlackChocobo'];

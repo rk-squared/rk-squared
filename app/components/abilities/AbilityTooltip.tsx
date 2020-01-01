@@ -4,7 +4,8 @@ import * as ReactTooltip from 'react-tooltip';
 
 import { LangType } from '../../api/apiUrls';
 import { LangContext } from '../../contexts/LangContext';
-import { enlir } from '../../data/enlir';
+import { enlir, EnlirAbility } from '../../data/enlir';
+import { getEventText, getReleaseDate } from '../../data/futureAbilities';
 import * as urls from '../../data/urls';
 
 const styles = require('./AbilityTooltip.scss');
@@ -17,6 +18,18 @@ export class AbilityTooltip extends React.Component<Props> {
   // noinspection JSUnusedGlobalSymbols
   static contextType = LangContext;
   context!: React.ContextType<typeof LangContext>;
+
+  getEventDetails = (ability: EnlirAbility) => {
+    if (!ability.introducingEvent) {
+      return null;
+    }
+    const releaseDate = getReleaseDate(ability);
+    if (releaseDate === ability.introducingEvent) {
+      return 'Expected in ' + releaseDate;
+    } else {
+      return 'Expected in ' + releaseDate + ' as part of ' + getEventText(ability.introducingEvent);
+    }
+  };
 
   getContent = (abilityId: string) => {
     if (!abilityId) {
@@ -39,6 +52,7 @@ export class AbilityTooltip extends React.Component<Props> {
           <div className={styles.detail}>Cast time: {ability.time} sec</div>
           <div className={styles.detail}>{ability.sb} SB pts.</div>
           <p>{ability.effects}</p>
+          {!ability.gl && <p className={styles.eventDetail}>{this.getEventDetails(ability)}</p>}
         </div>
       </>
     );
