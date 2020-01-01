@@ -1067,7 +1067,7 @@
   {
     "id": 2109,
     "name": "Spellblade Quick Cast 3",
-    "effects": "Cast speed x2.00 for Spallblade abilities, lasts for 3 turns",
+    "effects": "Cast speed x2.00 for Spellblade abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

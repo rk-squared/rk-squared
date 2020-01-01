@@ -54,6 +54,8 @@ const skipStatuses = new Set<string>([
   'Remove',
   'Invisible',
   'Stun',
+  // Description in Enlir is "Can't act" - that may be an error, or it may be internal only
+  'Reraise',
 ]);
 
 function shouldAlwaysSkip(status: Enlir.Status) {

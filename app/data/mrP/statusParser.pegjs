@@ -18,6 +18,9 @@
   function getStatsPlaceholder() {
     return options.stat || '???';
   }
+  function getSchoolPlaceholder() {
+    return options.school;
+  }
 }
 
 StatusEffect
@@ -27,10 +30,12 @@ StatusEffect
   / "" { return []; }
 
 EffectClause
-  = StatMod / CritChance / CritDamage / StatusChance
-  / Speed / Instacast / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
+  = StatMod / CritChance / CritDamage
+  / LastStand / Reraise
+  / StatusChance / StatusStacking / PreventStatus
+  / Speed / Instacast / SchoolCastSpeed / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
   / PhysicalBlink / MagicBlink / DualBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
-  / RadiantShield
+  / RadiantShield / Reflect
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
@@ -44,7 +49,7 @@ EffectClause
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / OnceOnly / RemovedAfterTrigger
-  / StatusStacking / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
+  / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
   / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Prison / NoEffect
 
 
@@ -66,9 +71,21 @@ CritChance
 CritDamage
   = "Critical hits deal" _ value:IntegerOrX "% more damage (additive with the base critical coefficient)" { return { type: 'critDamage', value }; }
 
+
+// --------------------------------------------------------------------------
+// Status manipulation
+
 StatusChance
   = "Increases the chance of inflicting Status by" _ value:IntegerOrX "%" { return { type: 'statusChance', value }; }
   / "Increases the chance of being inflicted with" _ status:StatusName _ "by" _ value:Integer "%"? { return { type: 'statusChance', value, status }; }
+
+StatusStacking
+  = "Allows"i _ "to stack" _ status:StatusName ", up to" _ statusWithLevel:StatusName
+  & { return statusWithLevel.startsWith(status) && statusWithLevel.substring(status.length).match(/^ \d+$/); }
+    { return { type: 'statusStacking', status, level: +statusWithLevel.substring(status.length) }; }
+
+PreventStatus
+  = "Prevents" _ head:StatusName _ tail:(AndList StatusName)* _ "once" { return { type: 'preventStatus', status: util.pegList(head, tail, 1) }; }
 
 
 // --------------------------------------------------------------------------
@@ -80,6 +97,11 @@ Speed
 
 Instacast
   = "Cast"i _ "speed x999" "9"* _ forAbilities:ForAbilities? { return Object.assign({ type: 'instacast' }, forAbilities); }
+
+SchoolCastSpeed
+  = "Cast speed x" value:IntegerOrX _ "for [School] attacks, or any attack if no [School] is specified" {
+    return { type: 'castSpeed', value, school: getSchoolPlaceholder() };
+  }
 
 CastSpeed
   = "Cast"i _ "speed x" value:DecimalNumberSlashList _ forAbilities:ForAbilities? _ trigger:Trigger? { return Object.assign({ type: 'castSpeed', value, trigger }, forAbilities); }
@@ -97,7 +119,9 @@ AtbSpeed
   = "Increase"i _ "ATB charge speed by" _ value:DecimalNumber { return { type: 'atbSpeed', value }; }
 
 ForAbilities
-  = "for" _ what:ElementOrSchoolList _ "abilities" { return what; }
+  = "for" _ what:ElementOrSchoolList _ AbilityOrAttack { return what; }
+  / "for BLK, WHT, BLU, SUM or NAT attacks that deal magical damage" { return { magical: true }; }
+  / "for" _ skillType:SkillTypeList _ "attacks" { return { skillType }; }
   / "for abilities that deal" _ element:ElementList _ "damage" { return { element }; }
   / "for Jump attacks" { return { jump: true }; }
   / "for magical damage" { return { magical: true }; }
@@ -146,7 +170,7 @@ DamageBarrier
 
 
 // --------------------------------------------------------------------------
-// Radiant shield
+// Radiant shield, reflect
 
 RadiantShield
   = "Returns"i _ value:RadiantShieldValue _ "the damage taken to the attacker" element:(_ "as" _ e:Element _ "damage" { return e; })? overflow:(_ "capped at 99999") ? {
@@ -156,6 +180,9 @@ RadiantShield
 RadiantShieldValue
   = "all" _ "of"? { return 100; }
   / value:Integer "% of" { return value; }
+
+Reflect
+  = "Redirect single-target BLK and WHT attacks to a random member of the opposite group" { return { type: 'reflect' }; }
 
 
 // --------------------------------------------------------------------------
@@ -314,6 +341,16 @@ DamageTaken
 
 BarHeal
   = "Healing restores" _ value:Integer "% less HP" { return { type: 'barHeal', value }; }
+
+
+// --------------------------------------------------------------------------
+// Inflict / resist KO
+
+LastStand
+  = "Prevents KO once, restoring HP for 1% maximum HP" { return { type: 'lastStand' }; }
+
+Reraise
+  = "Automatically removes KO (" value:Integer "% HP) once" { return { type: 'reraise', value }; }
 
 
 // --------------------------------------------------------------------------
@@ -477,12 +514,7 @@ RemovedAfterTrigger
 
 
 // --------------------------------------------------------------------------
-// Status levels and stacking
-
-StatusStacking
-  = "Allows"i _ "to stack" _ status:StatusName ", up to" _ statusWithLevel:StatusName
-  & { return statusWithLevel.startsWith(status) && statusWithLevel.substring(status.length).match(/^ \d+$/); }
-    { return { type: 'statusStacking', status, level: +statusWithLevel.substring(status.length) }; }
+// Status levels
 
 TrackStatusLevel
   = "Keeps"i _ "track of the" _ status:StatusName _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max }; }
