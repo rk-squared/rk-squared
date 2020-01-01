@@ -25,7 +25,7 @@ StatusEffect
 
 EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
-  / Haste / Instacast / CastSpeed / InstantAtb / AtbSpeed
+  / Haste / Instacast / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
   / PhysicalBlink / MagicBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
   / RadiantShield
   / Awoken
@@ -65,6 +65,7 @@ CritDamage
 
 StatusChance
   = "Increases the chance of inflicting Status by" _ value:IntegerOrX "%" { return { type: 'statusChance', value }; }
+  / "Increases the chance of being inflicted with" _ status:StatusName _ "by" _ value:Integer "%"? { return { type: 'statusChance', value, status }; }
 
 
 // --------------------------------------------------------------------------
@@ -79,6 +80,11 @@ Instacast
 CastSpeed
   = "Cast"i _ "speed x" value:DecimalNumberSlashList _ forAbilities:ForAbilities? _ trigger:Trigger? { return Object.assign({ type: 'castSpeed', value, trigger }, forAbilities); }
   / what:ElementOrSchoolList _ "cast speed x" value:DecimalNumberSlashList { return Object.assign({ type: 'castSpeed', value }, what); }
+
+CastSpeedBuildup
+  = "Cast"i _ "speed x" value:DecimalNumber _ "plus x" increment:DecimalNumber _ "for each" _ requiresAttack:AbilityOrAttack _ "used for the duration of the status, up to x" max:DecimalNumber {
+    return { type: 'castSpeedBuildup', value, increment, max, requiresAttack };
+  }
 
 InstantAtb
   = "Increase"i _ "ATB charge speed by x999" "9"* { return { type: 'instantAtb' }; }
@@ -342,10 +348,13 @@ TriggeredEffect
   }
 
 TriggerableEffect
-  = CastSkill / GainSb / GrantStatus / Heal / HealChance / SmartEtherStatus
+  = CastSkill / RandomCastSkill / GainSb / GrantStatus / Heal / HealChance / SmartEtherStatus
 
 CastSkill
   = "casts"i _ skill:AnySkillOrOptions  { return { type: 'castSkill', skill }; }
+
+RandomCastSkill
+  = "randomly"i _ "casts" _ skill:AnySkillOrOptions  { return { type: 'castSkill', skill }; }
 
 GrantStatus
   = verb:StatusVerb _ head:StatusItem _ tail:("and" _ StatusItem)* _ who:Who? { return { type: 'grantsStatus', status: util.pegList(head, tail, 2, true), who }; }
@@ -524,6 +533,7 @@ Trigger
   / ("when using" / "after using") _ skill:AnySkillName _ count:Occurrence? { return { type: 'skill', skill, count }; }
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
   / "after using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
+  / "after taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'allyAttack', skillType, element }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
