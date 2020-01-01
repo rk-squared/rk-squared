@@ -26,7 +26,7 @@ StatusEffect
 EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
   / Haste / Instacast / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
-  / PhysicalBlink / MagicBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
+  / PhysicalBlink / MagicBlink / DualBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
   / RadiantShield
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
@@ -41,7 +41,7 @@ EffectClause
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / OnceOnly / RemovedAfterTrigger
-  / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
+  / StatusStacking / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
   / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Prison / NoEffect
 
 
@@ -108,6 +108,9 @@ PhysicalBlink
 
 MagicBlink
   = "Evades"i _ "the next" _ level:Integer? _ "non-PHY, non-NIN" _ AttacksThatDeal _ "magical, fractional or missing HP damage" { return { type: 'magicBlink', level: level || 1 }; }
+
+DualBlink
+  = "Evades"i _ "the next" _ level:NumberString? _ "attack" "s"? _ "that could be evaded with Physical or Magical Blink, lower priority" { return { type: 'dualBlink', level: level || 1 }; }
 
 ElementBlink
   = "Reduces"i _ "the damage of the next" _ AttacksThatDeal _ element:Element _ "damage to 0" { return { type: 'elementBlink', element, level: 1 }; }
@@ -459,7 +462,12 @@ RemovedAfterTrigger
 
 
 // --------------------------------------------------------------------------
-// Status levels
+// Status levels and stacking
+
+StatusStacking
+  = "Allows"i _ "to stack" _ status:StatusName ", up to" _ statusWithLevel:StatusName
+  & { return statusWithLevel.startsWith(status) && statusWithLevel.substring(status.length).match(/^ \d+$/); }
+    { return { type: 'statusStacking', status, level: +statusWithLevel.substring(status.length) }; }
 
 TrackStatusLevel
   = "Keeps"i _ "track of the" _ status:StatusName _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max }; }
