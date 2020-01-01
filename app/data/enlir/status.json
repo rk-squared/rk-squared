@@ -12020,7 +12020,7 @@
   {
     "id": 50581,
     "name": "New Red Wings Mode",
-    "effects": "Critical chance =100%, increases Holy damage dealt by 50% and cast speed x9999999 for three turns",
+    "effects": "Critical chance =100%, increases Holy damage dealt by 50%, cast speed x9999999, lasts for 3 turns",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

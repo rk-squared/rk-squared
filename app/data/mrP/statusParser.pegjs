@@ -30,7 +30,7 @@ StatusEffect
   / "" { return []; }
 
 EffectClause
-  = StatMod / CritChance / CritDamage
+  = StatMod / CritChance / CritDamage / HitRate
   / Ko / LastStand / Reraise
   / StatusChance / StatusStacking / PreventStatus
   / Speed / Instacast / SchoolCastSpeed / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
@@ -70,6 +70,9 @@ CritChance
 
 CritDamage
   = "Critical hits deal" _ value:IntegerOrX "% more damage (additive with the base critical coefficient)" { return { type: 'critDamage', value }; }
+
+HitRate
+  = sign:IncreasesOrReduces _ "hit rate by" _ value:Integer "%" { return { type: 'hitRate', value: sign * value }; }
 
 
 // --------------------------------------------------------------------------
@@ -330,6 +333,7 @@ Regen
 FixedHpRegen
   = "Heals"i _ "for" _ value:Integer _ "HP every" _ interval:SecondsInterval { return { type: 'fixedHpRegen', value, interval }; }
 
+// Also used for Sap, etc.
 Poison
   = "Damages for" _ fractionHp:Fraction _ "max HP every" _ interval:SecondsInterval { return { type: 'poison', fractionHp, interval }; }
 
@@ -422,7 +426,7 @@ RandomCastSkill
   = "randomly"i _ "casts" _ skill:AnySkillOrOptions  { return { type: 'castSkill', skill }; }
 
 GrantStatus
-  = verb:StatusVerb _ head:StatusItem _ tail:("and" _ StatusItem)* _ who:Who? { return { type: 'grantsStatus', status: util.pegList(head, tail, 2, true), who }; }
+  = verb:StatusVerb _ head:StatusItem _ tail:(("," / "and") _ StatusItem)* _ who:Who? { return { type: 'grantsStatus', status: util.pegList(head, tail, 2, true), who }; }
 
 Heal
   = "restores"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'heal', fixedHp, who }; }

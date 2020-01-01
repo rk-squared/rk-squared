@@ -622,20 +622,6 @@ function applyPatch<T>(
  * FIXME: See if any of these can be removed as we continue to improve parsing
  */
 function patchEnlir() {
-  // Pluto Knight Triblade is a very difficult effect to parse.  By revising its
-  // wording, we can let our slash-merge feature take care of it.
-  applyPatch(
-    enlir.statusByName,
-    'Pluto Knight Triblade Follow-Up',
-    pluto =>
-      pluto.effects ===
-      'Casts Pluto Knight Triblade and grants Minor Buff Fire, Minor Buff Lightning and Minor Buff Ice after exploiting elemental weakness',
-    pluto => {
-      pluto.effects =
-        'Casts Pluto Knight Triblade and grants Minor Buff Fire/Lightning/Ice after exploiting elemental weakness';
-    },
-  );
-
   // Two different follow-up attacks for Gladiolus's AASB is hard.  For now,
   // we'll try rewording it to resemble Squall's.
   // TODO: It's possible that Squall's and Gladiolus's are the same internally and that these should be made consistent
