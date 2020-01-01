@@ -13,7 +13,10 @@
   function getElementPlaceholder() {
     // HACK: EnlirElement requires *something*, and we don't want to complicate
     // callers by making them deal with absence, so fall back to NE.
-    return options.element != null ? options.element : 'NE';
+    return options.element || 'NE';
+  }
+  function getStatsPlaceholder() {
+    return options.stat || '???';
   }
 }
 
@@ -25,15 +28,15 @@ StatusEffect
 
 EffectClause
   = StatMod / CritChance / CritDamage / StatusChance
-  / Haste / Instacast / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
+  / Speed / Instacast / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
   / PhysicalBlink / MagicBlink / DualBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
   / RadiantShield
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / RankBoost / DamageUp / SkillTypeDamageUp / ElementDamageUp / Doublecast / Dualcast / Dualcast100 / NoAirTime
+  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / Doublecast / Dualcast / Dualcast100 / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
-  / HpStock / Regen / FixedHpRegen / Pain / BarHeal
+  / HpStock / Regen / FixedHpRegen / HealUp / Pain / DamageTaken / BarHeal
   / Doom / DoomTimer / DrainHp
   / Counter / RowCover
   / TriggeredEffect
@@ -49,7 +52,7 @@ EffectClause
 // Stat mods
 
 StatMod
-  = stats:StatList _ value:SignedIntegerOrX "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
+  = stats:StatListOrPlaceholder _ value:SignedIntegerOrX "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
     const result = { type: 'statMod', stats, value };
     if (ignoreBuffCaps) {
       result.ignoreBuffCaps = true;
@@ -71,8 +74,9 @@ StatusChance
 // --------------------------------------------------------------------------
 // Haste, cast speed
 
-Haste
-  = "Wait speed x2.00" { return { type: 'haste' }; }
+// Haste or slow
+Speed
+  = "Wait"i _ "speed x" value:DecimalNumber { return { type: 'speed', value }; }
 
 Instacast
   = "Cast"i _ "speed x999" "9"* _ forAbilities:ForAbilities? { return Object.assign({ type: 'instacast' }, forAbilities); }
@@ -243,18 +247,18 @@ AbilityBuildup
 
 // A special case of DamageUp
 RankBoost
-  = what:ElementSchoolOrSkillTypeList _ ("attacks" / "abilities") _ "deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5" { return Object.assign({ type: 'rankBoost' }, what); }
+  = what:DamageUpType _ ("attacks" / "abilities") _ "deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5" { return Object.assign({ type: 'rankBoost' }, what); }
 
 DamageUp
-  = what:ElementSchoolOrSkillTypeList _ ("attacks" / "abilities") _ "deal" _ value:IntegerSlashList "% more damage" _ trigger:Trigger? {
+  = what:DamageUpType _ ("attacks" / "abilities") _ "deal" _ value:IntegerSlashList "% more damage" _ trigger:Trigger? {
     return Object.assign({ type: 'damageUp', value, trigger }, what);
   }
 
-SkillTypeDamageUp
-  = "Increases"i _ skillType:SkillType _ "damage dealt by" _ value:Integer "%" { return { type: 'skillTypeDamageUp', skillType, value }; }
-
-ElementDamageUp
-  = "Increases"i _ element:ElementAndList _ "damage dealt by" _ value:Integer "%" { return { type: 'elementDamageUp', element }; }
+AltDamageUp
+  = "Increases"i _ skillType:SkillType _ "damage dealt by" _ value:Integer "%" { return { type: 'damageUp', skillType, value }; }
+  / "Increases"i _ element:ElementAndList _ "damage dealt by" _ value:Integer "%" { return { type: 'damageUp', element, value }; }
+  / "Increases"i _ "damage dealt by" _ value:Integer "% when exploiting elemental weaknesses" { return { type: 'damageUp', vsWeak: true, value }; }
+  / "Increases"i _ "damage dealt by" _ value:Integer "%" { return { type: 'damageUp', value }; }
 
 Doublecast
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'doublecast' }, what); }
@@ -267,6 +271,11 @@ Dualcast
 
 NoAirTime
   = "Changes"i _ "the air time of Jump attacks to 0.01 seconds" { return { type: 'noAirTime' }; }
+
+DamageUpType
+  = ElementSchoolOrSkillTypeList
+  / "magical"i { return { magical: true }; }
+  / "jump"i { return { jump: true }; }
 
 
 // --------------------------------------------------------------------------
@@ -294,8 +303,14 @@ Regen
 FixedHpRegen
   = "Heals"i _ "for" _ value:Integer _ "HP every" _ interval:DecimalNumber _ "seconds" { return { type: 'fixedHpRegen', value, interval }; }
 
+HealUp
+  = "Abilities"i _ "restore" _ value:Integer "% more HP" { return { type: 'healUp', value }; }
+
 Pain
   = "Take" _ value:Integer "% more damage" { return { type: 'pain', value }; }
+
+DamageTaken
+  = sign:IncreasesOrReduces _ "damage taken by" _ value:Integer "%" { return { type: 'damageTaken', value: sign * value }; }
 
 BarHeal
   = "Healing restores" _ value:Integer "% less HP" { return { type: 'barHeal', value }; }
@@ -537,6 +552,7 @@ Trigger
   / "when removed" { return { type: 'whenRemoved' }; }
   / "every" _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
   / "upon taking damage" { return { type: 'damaged' }; }
+  / "upon dealing damage" { return { type: 'dealDamage' }; }
   / "when" _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
   / ("when using" / "after using") _ skill:AnySkillName _ count:Occurrence? { return { type: 'skill', skill, count }; }
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
@@ -741,6 +757,9 @@ Stat "stat"
 
 StatList "stat list"
   = head:Stat tail:(AndList Stat)* { return util.pegList(head, tail, 1, true); }
+
+StatListOrPlaceholder
+  = StatList / "[Stats]" { return getStatsPlaceholder(); }
 
 Who
   = "to" _ "the"? _ "user" { return 'self'; }

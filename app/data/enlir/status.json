@@ -3677,7 +3677,7 @@
   {
     "id": 27101,
     "name": "Pre-Dispel",
-    "effects": "Prevents Haste, Protect, Shell, Reflect, Low Regen, Medium Regen, High Regen, Regenga  and Triple once",
+    "effects": "Prevents Haste, Protect, Shell, Reflect, Low Regen, Medium Regen, High Regen, Regenga and Triple once",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
