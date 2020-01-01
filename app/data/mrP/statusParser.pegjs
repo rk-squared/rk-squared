@@ -31,7 +31,7 @@ StatusEffect
 
 EffectClause
   = StatMod / CritChance / CritDamage
-  / LastStand / Reraise
+  / Ko / LastStand / Reraise
   / StatusChance / StatusStacking / PreventStatus
   / Speed / Instacast / SchoolCastSpeed / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
   / PhysicalBlink / MagicBlink / DualBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
@@ -41,7 +41,7 @@ EffectClause
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
   / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / Doublecast / Dualcast / Dualcast100 / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
-  / HpStock / Regen / FixedHpRegen / HealUp / Pain / DamageTaken / BarHeal
+  / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal
   / Doom / DoomTimer / DrainHp
   / Counter / RowCover
   / TriggeredEffect
@@ -50,7 +50,7 @@ EffectClause
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / OnceOnly / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
-  / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Prison / NoEffect
+  / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / NoEffect / Persists / GameOver
 
 
 // --------------------------------------------------------------------------
@@ -319,16 +319,19 @@ DamageCap
 
 
 // --------------------------------------------------------------------------
-// Healing up and down
+// Healing up and down; damage and healing over time
 
 HpStock
   = "Automatically"i _ "restores HP, up to" _ value:IntegerOrX _ "HP" { return { type: 'hpStock', value }; }
 
 Regen
-  = "Heals"i _ "for" _ value:Integer "% max HP every" _ interval:DecimalNumber _ "seconds" { return { type: 'regen', value, interval }; }
+  = "Heals"i _ "for" _ percentHp:Integer "% max HP every" _ interval:SecondsInterval { return { type: 'regen', percentHp, interval }; }
 
 FixedHpRegen
-  = "Heals"i _ "for" _ value:Integer _ "HP every" _ interval:DecimalNumber _ "seconds" { return { type: 'fixedHpRegen', value, interval }; }
+  = "Heals"i _ "for" _ value:Integer _ "HP every" _ interval:SecondsInterval { return { type: 'fixedHpRegen', value, interval }; }
+
+Poison
+  = "Damages for" _ fractionHp:Fraction _ "max HP every" _ interval:SecondsInterval { return { type: 'poison', fractionHp, interval }; }
 
 HealUp
   = "Abilities"i _ "restore" _ value:Integer "% more HP" { return { type: 'healUp', value }; }
@@ -342,9 +345,16 @@ DamageTaken
 BarHeal
   = "Healing restores" _ value:Integer "% less HP" { return { type: 'barHeal', value }; }
 
+SecondsInterval
+  = "second" { return 1; }
+  / interval:DecimalNumber _ "seconds" { return interval; }
+
 
 // --------------------------------------------------------------------------
 // Inflict / resist KO
+
+Ko
+  = "HP = 0 when set" { return { type: 'ko' }; }
 
 LastStand
   = "Prevents KO once, restoring HP for 1% maximum HP" { return { type: 'lastStand' }; }
@@ -487,6 +497,7 @@ MultiplyDamage
 // Berserk and related statuses.  These are unique enough that we'll fully
 // special case them.
 
+// This effect is also used for Confuse.
 Berserk
   = "Forces"i _ "default action, affects targeting, resets ATB when set or removed" { return { type: 'berserk' }; }
 
@@ -564,11 +575,18 @@ DisableAttacks
 Ai
   = "Affects"i _ GenericName _ "behaviour" { return { type: 'ai' }; }
 
-Prison
-  = "Arrests ATB charge rate, can't act, resets ATB when set, counts towards Game Over" { return { type: 'prison' }; }
+Paralyze
+  = "Arrests"i _ "ATB charge rate, can't act" ", resets ATB when set"? { return { type: 'paralyze' }; }
+  / "Can't"i _ "act, resets ATB when set or removed" { return { type: 'paralyze' }; }
 
 NoEffect
   = "No gameplay effects" { return null; }
+
+Persists
+  = "Persists"i _ "after battle" { return null; }
+
+GameOver
+  = "Counts"i _ "towards Game Over" { return null; }
 
 
 // --------------------------------------------------------------------------
@@ -583,7 +601,8 @@ Trigger
   / "after exploiting elemental weakness" { return { type: 'vsWeak' }; }
   / "when removed" { return { type: 'whenRemoved' }; }
   / "every" _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
-  / "upon taking damage" { return { type: 'damaged' }; }
+  / "upon taking damage" skillType:(_ "by" _ s:SkillType _ "attack" { return s; })? { return { type: 'damaged', skillType }; }
+  / "by" _ skillType:SkillType _ "attacks" { return { type: 'damaged', skillType }; }
   / "upon dealing damage" { return { type: 'dealDamage' }; }
   / "when" _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
   / ("when using" / "after using") _ skill:AnySkillName _ count:Occurrence? { return { type: 'skill', skill, count }; }
@@ -990,7 +1009,6 @@ SignedIntegerSlashList "slash-separated signed integers"
   }
 
 
-
 IntegerAndList "integers separated with commas and 'and'"
   = head:Integer tail:((','? _ 'and' _ /',' _) Integer)* { return util.pegSlashList(head, tail); }
 
@@ -999,6 +1017,10 @@ Occurrence
   = "once" { return 1; }
   / "twice" { return 2; }
   / count:NumberString _ "time" "s"? { return count; }
+
+
+Fraction
+  = numerator:Integer "/" denominator:Integer { return { numerator, denominator }; }
 
 
 UppercaseWord
