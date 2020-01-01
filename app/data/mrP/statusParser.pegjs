@@ -363,6 +363,7 @@ StatusItem
       return { status, chance };
     }
   }
+  / value:Integer _ "SB points"{ return { type: 'gainSB', value }; }
 
 
 // --------------------------------------------------------------------------

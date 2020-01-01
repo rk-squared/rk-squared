@@ -10412,7 +10412,7 @@
   {
     "id": 50431,
     "name": "Cloudy Wolf Mode",
-    "effects": "Grants Instant Cast 1 and 250 SB points after using three wind attacks, removed after triggering",
+    "effects": "Grants Instant Cast 1 and 250 SB points after using three Wind attacks, removed after triggering",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
