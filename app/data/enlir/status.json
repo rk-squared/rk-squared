@@ -4153,7 +4153,7 @@
   {
     "id": 282022,
     "name": "Ninja +30% Boost 3",
-    "effects": "Ninjka abilities deal 30% more damage, lasts for 3 turns",
+    "effects": "Ninja abilities deal 30% more damage, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

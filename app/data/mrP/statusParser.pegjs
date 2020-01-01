@@ -90,7 +90,8 @@ ForAbilities
   = "for" _ what:ElementOrSchoolList _ "abilities" { return what; }
   / "for abilities that deal" _ element:ElementList _ "damage" { return { element }; }
   / "for Jump attacks" { return { jump: true }; }
-  / "for magical damage" { return { magical: true}; }
+  / "for magical damage" { return { magical: true }; }
+  / "for" _ skill:AnySkillName { return { skill }; }
 
 
 // --------------------------------------------------------------------------
@@ -174,7 +175,7 @@ AwokenDualcast
 // them specially because of how common they are.
 
 SwitchDraw
-  = part1:SwitchDrawPart "," _ part2:SwitchDrawPart ", lasts 1 turn" { return { type: 'switchDraw', elements: [part1, part2] }; }
+  = head:SwitchDrawPart tail:("," _ SwitchDrawPart)+ ", lasts 1 turn" { return { type: 'switchDraw', elements: util.pegList(head, tail, 2) }; }
 
 SwitchDrawPart
   = "Grants"i _ "Attach" _ element1:Element _ "after using a" "n"? _ element2:Element _ "ability"
@@ -233,10 +234,10 @@ AbilityBuildup
 
 // A special case of DamageUp
 RankBoost
-  = what:ElementOrSchoolList _ ("attacks" / "abilities") _ "deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5" { return Object.assign({ type: 'rankBoost' }, what); }
+  = what:ElementSchoolOrSkillTypeList _ ("attacks" / "abilities") _ "deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5" { return Object.assign({ type: 'rankBoost' }, what); }
 
 DamageUp
-  = what:ElementOrSchoolList _ ("attacks" / "abilities") _ "deal" _ value:IntegerSlashList "% more damage" _ trigger:Trigger? {
+  = what:ElementSchoolOrSkillTypeList _ ("attacks" / "abilities") _ "deal" _ value:IntegerSlashList "% more damage" _ trigger:Trigger? {
     return Object.assign({ type: 'damageUp', value, trigger }, what);
   }
 
@@ -344,7 +345,7 @@ TriggerableEffect
   = CastSkill / GainSb / GrantStatus / Heal / HealChance / SmartEtherStatus
 
 CastSkill
-  = "casts"i _ skill:AnySkillName  { return { type: 'castSkill', skill }; }
+  = "casts"i _ skill:AnySkillOrOptions  { return { type: 'castSkill', skill }; }
 
 GrantStatus
   = verb:StatusVerb _ head:StatusItem _ tail:("and" _ StatusItem)* _ who:Who? { return { type: 'grantsStatus', status: util.pegList(head, tail, 2, true), who }; }
@@ -511,7 +512,7 @@ NoEffect
 
 Trigger
   = "after" _ requiresDamage1:("using" / "dealing damage with") _ count:TriggerCount _ requiresDamage2:"damaging"?
-    _ element:ElementList? _ school:SchoolList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
+    _ element:ElementListOrOptions? _ school:SchoolList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
   / "after dealing a critical hit" { return { type: 'crit' }; }
@@ -680,6 +681,10 @@ CharacterNameList
 AnySkillName
   = GenericName / '???'
 
+AnySkillOrOptions
+  = head:AnySkillName tail:(_ "/" _ AnySkillName)+ { return { options: util.pegList(head, tail, 3) }; }
+  / skill:AnySkillName ! (_ "/") { return skill; }
+
 // Generic names.  Somewhat complex expression to match these.  Developed for
 // statuses, so the rules may need revision for other uses.
 GenericName
@@ -777,6 +782,10 @@ ElementAndOrList "element list"
 ElementSlashList "element list"
   = head:Element tail:("/" Element)* { return util.pegList(head, tail, 1, true); }
 
+ElementListOrOptions "element list or slash-separated alternatives"
+  = elements:ElementList ! "/" { return elements; }
+  / elements:ElementSlashList { return { options: elements }; }
+
 School "ability school"
   = "Bard"
   / "Black Magic"
@@ -818,6 +827,11 @@ UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return
 ElementOrSchoolList
   = school:SchoolAndOrList { return { school }; }
   / element:ElementAndOrList { return { element }; }
+
+ElementSchoolOrSkillTypeList
+  = school:SchoolAndOrList { return { school }; }
+  / element:ElementAndOrList { return { element }; }
+  / skillType:SkillTypeList { return { skillType }; }
 
 Realm "realm"
   = "Beyond"
