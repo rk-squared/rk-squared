@@ -365,15 +365,6 @@ RandomEther
 SmartEther
   = status:SmartEtherStatus _ who:Who? { return Object.assign({}, status, { who }); }
 
-SmartEtherStatus
-  = school:School? _ "smart"i _ "ether" _ amount:IntegerSlashList {
-    const result = { type: 'smartEther', amount };
-    if (school) {
-      result.school = school;
-    }
-    return result;
-  }
-
 
 // --------------------------------------------------------------------------
 // "Randomly casts"
@@ -666,6 +657,15 @@ Condition
 
 // --------------------------------------------------------------------------
 // Lower-level game rules
+
+SmartEtherStatus
+  = school:School? _ "smart"i _ "ether" _ amount:IntegerSlashList {
+    const result = { type: 'smartEther', amount };
+    if (school) {
+      result.school = school;
+    }
+    return result;
+  }
 
 StatusVerb
   = ("grants"i / "causes"i / "removes"i / "doesn't"i _ "remove") {

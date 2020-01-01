@@ -33,9 +33,9 @@ EffectClause
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
   / AbilityBuildup / RankBoost / DamageUp / SkillTypeDamageUp / ElementDamageUp / Doublecast / Dualcast / Dualcast100 / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
-  / HpStock / Pain / BarHeal
+  / HpStock / Regen / FixedHpRegen / Pain / BarHeal
   / Doom / DoomTimer / DrainHp
-  / Counter
+  / Counter / RowCover
   / TriggeredEffect
   / GainSb / SbGainUp
   / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
@@ -278,6 +278,12 @@ DamageCap
 HpStock
   = "Automatically"i _ "restores HP, up to" _ value:IntegerOrX _ "HP" { return { type: 'hpStock', value }; }
 
+Regen
+  = "Heals"i _ "for" _ value:Integer "% max HP every" _ interval:DecimalNumber _ "seconds" { return { type: 'regen', value, interval }; }
+
+FixedHpRegen
+  = "Heals"i _ "for" _ value:Integer _ "HP every" _ interval:DecimalNumber _ "seconds" { return { type: 'fixedHpRegen', value, interval }; }
+
 Pain
   = "Take" _ value:Integer "% more damage" { return { type: 'pain', value }; }
 
@@ -299,7 +305,7 @@ DrainHp
 
 
 // --------------------------------------------------------------------------
-// Counter
+// Counter and cover
 
 Counter
   = when:CounterWhen _ enemy:"enemy"? _ skillType:SkillTypeAndList _ "attacks with" _ counter:CounterResponse {
@@ -319,6 +325,12 @@ CounterResponse
     return { attack: { type: 'attack', numAttacks: 1, attackMultiplier, overrideSkillType } };
   }
 
+// Haurchefant Cover
+RowCover
+  = "While front row," _ chance:Integer "% chance to cover" _ skillType:SkillTypeAndList _ "attacks that target back row allies, reducing damage taken by" _ damageReduce:Integer "%" {
+    return { type: 'rowCover', chance, skillType, damageReduce };
+  }
+
 
 // --------------------------------------------------------------------------
 // Abilities and status effects
@@ -329,7 +341,7 @@ TriggeredEffect
   }
 
 TriggerableEffect
-  = CastSkill / GainSb / GrantStatus / Heal
+  = CastSkill / GainSb / GrantStatus / Heal / SmartEtherStatus
 
 CastSkill
   = "casts"i _ skill:AnySkillName  { return { type: 'castSkill', skill }; }
@@ -486,8 +498,8 @@ NoEffect
 
 Trigger
   = "after" _ requiresDamage1:("using" / "dealing damage with") _ count:TriggerCount _ requiresDamage2:"damaging"?
-    _ element:ElementList? _ school:SchoolList? _ requiresAttack:AbilityOrAttack {
-      return { type: 'ability', element, school, count, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
+    _ element:ElementList? _ school:SchoolList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
+      return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
   / "after dealing a critical hit" { return { type: 'crit' }; }
   / "after exploiting elemental weakness" { return { type: 'vsWeak' }; }
@@ -615,6 +627,15 @@ Condition
 
 // --------------------------------------------------------------------------
 // Lower-level game rules
+
+SmartEtherStatus
+  = school:School? _ "smart"i _ "ether" _ amount:IntegerSlashList {
+    const result = { type: 'smartEther', amount };
+    if (school) {
+      result.school = school;
+    }
+    return result;
+  }
 
 StatusVerb
   = ("grants"i / "causes"i / "removes"i / "doesn't"i _ "remove") {
