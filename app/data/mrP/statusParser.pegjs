@@ -426,7 +426,9 @@ RandomCastSkill
   = "randomly"i _ "casts" _ skill:AnySkillOrOptions  { return { type: 'castSkill', skill }; }
 
 GrantStatus
-  = verb:StatusVerb _ head:StatusItem _ tail:(("," / "and") _ StatusItem)* _ who:Who? { return { type: 'grantsStatus', status: util.pegList(head, tail, 2, true), who }; }
+  = verb:StatusVerb _ head:StatusItem _ tail:(("," / "and") _ StatusItem)* _ condition:Condition? _ who:Who? _ duration:Duration? {
+    return util.addCondition({ type: 'grantsStatus', status: util.pegList(head, tail, 2, true), who, duration }, condition);
+  }
 
 Heal
   = "restores"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'heal', fixedHp, who }; }
@@ -613,6 +615,7 @@ Trigger
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
   / "after using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
   / "after taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'allyAttack', skillType, element }; }
+  / "after using a single-target heal" { return { type: 'singleHeal' }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
@@ -804,6 +807,27 @@ GenericName
     return text();
   }
 GenericNameWord = ([A-Z] [a-zA-Z-'/]* (':' / '...' / '!' / '+')?)
+
+Duration
+  = "for" _ value:Integer _ valueIsUncertain:("?")? _ units:DurationUnits {
+    const result = { value, units };
+    if (valueIsUncertain) {
+      result.valueIsUncertain = true;
+    }
+    return result;
+  }
+
+DurationUnits
+  = (("second" / "turn") "s"? / "sec.") {
+    let result = text();
+    if (result === 'sec.') {
+      return 'seconds';
+    }
+    if (!result.endsWith('s')) {
+      result += 's';
+    }
+    return result;
+  }
 
 Stat "stat"
   = ("ATK" / "DEF" / "MAG" / "RES" / "MND" / "SPD" / "ACC" / "EVA") {
