@@ -1,9 +1,18 @@
 import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
-import { logger } from '../../utils/logger';
-import { getAllSameValue } from '../../utils/typeUtils';
-import { enlir, EnlirSkill, EnlirStatus, getEnlirOtherSkill, getEnlirStatusByName } from '../enlir';
+import { logException, logger } from '../../utils/logger';
+import { arrayify, getAllSameValue } from '../../utils/typeUtils';
+import {
+  enlir,
+  EnlirSkill,
+  EnlirStatus,
+  EnlirStatusPlaceholders,
+  EnlirStatusWithPlaceholders,
+  getEnlirOtherSkill,
+  getEnlirStatusByName,
+  getEnlirStatusWithPlaceholders,
+} from '../enlir';
 import * as common from './commonTypes';
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
@@ -24,6 +33,8 @@ import {
   sbPointsBoosterAlias,
   splitNumbered,
 } from './statusAlias';
+import * as statusParser from './statusParser';
+import * as statusTypes from './statusTypes';
 import {
   formatSchoolOrAbilityList,
   getAbbreviation,
@@ -42,10 +53,52 @@ import {
   parseNumberOccurrence,
   parseNumberString,
   percentToMultiplier,
+  signedNumber,
   slashMerge,
   toMrPFixed,
   toMrPKilo,
 } from './util';
+
+const wellKnownStatuses = new Set<string>([
+  'Berserk',
+  'Blind',
+  'Confuse',
+  'Haste',
+  'Paralyze',
+  'Petrify',
+  'Poison',
+  'Protect',
+  'Reflect',
+  'Sap',
+  'Shell',
+  'Silence',
+  'Sleep',
+  'Slow',
+  'Stop',
+  'Stun',
+]);
+
+const wellKnownAliases: _.Dictionary<string> = {
+  'Low Regen': 'Regen (lo)',
+  'Medium Regen': 'Regen (med)',
+  'High Regen': 'Regen (hi)',
+};
+
+export function safeParseStatus(
+  status: EnlirStatus,
+  placeholders?: EnlirStatusPlaceholders,
+): statusTypes.StatusEffect | null {
+  try {
+    return statusParser.parse(status.effects, placeholders);
+  } catch (e) {
+    logger.error(`Failed to parse ${status.name}:`);
+    logException(e);
+    if (e.name === 'SyntaxError') {
+      return null;
+    }
+    throw e;
+  }
+}
 
 const finisherText = 'Finisher: ';
 export const hitWeaknessTriggerText = 'hit weak';
@@ -469,69 +522,138 @@ function statusAsStatMod(statusName: string, enlirStatus?: EnlirStatus) {
   return null;
 }
 
-/**
- * Describes a "well-known" or common Enlir status name.
- *
- * One-off statuses instead need to be looked up and their effects processed
- * via describeEnlirStatusEffect.
- */
+function describeStatusEffect(
+  effect: statusTypes.EffectClause,
+  enlirStatus: EnlirStatus,
+  source?: EnlirSkill,
+): string | null {
+  switch (effect.type) {
+    case 'statMod':
+      return (
+        signedNumber(effect.value) +
+        '% ' +
+        arrayify(effect.stats)
+          .map(i => i.toUpperCase())
+          .join('/')
+      );
+    case 'critChance':
+      return 'crit =' + effect.value + '%';
+    case 'critDamage':
+    case 'hitRate':
+      return null;
+    case 'ko':
+      return 'KO';
+    case 'lastStand':
+    case 'reraise':
+    case 'statusChance':
+    case 'statusStacking':
+    case 'preventStatus':
+    case 'speed':
+    case 'instacast':
+    case 'castSpeedBuildup':
+    case 'castSpeed':
+    case 'instantAtb':
+    case 'atbSpeed':
+      return null;
+    case 'physicalBlink':
+      return 'Phys blink ' + effect.level;
+    case 'magicBlink':
+      return 'Magic blink ' + effect.level;
+    case 'dualBlink':
+    case 'elementBlink':
+    case 'stoneskin':
+    case 'magiciteStoneskin':
+    case 'fixedStoneskin':
+    case 'damageBarrier':
+    case 'radiantShield':
+    case 'reflect':
+    case 'awoken':
+    case 'switchDraw':
+    case 'switchDrawStacking':
+    case 'elementAttack':
+    case 'elementResist':
+    case 'enElement':
+    case 'enElementStacking':
+    case 'enElementWithStacking':
+    case 'loseEnElement':
+    case 'abilityBuildup':
+    case 'rankBoost':
+    case 'damageUp':
+    case 'abilityDouble':
+    case 'dualcast':
+    case 'noAirTime':
+    case 'breakDamageCap':
+    case 'damageCap':
+    case 'hpStock':
+      return null;
+    case 'regen':
+    case 'fixedHpRegen':
+    case 'poison':
+    case 'healUp':
+    case 'pain':
+    case 'damageTaken':
+    case 'barHeal':
+    case 'doom':
+    case 'doomTimer':
+    case 'drainHp':
+    case 'counter':
+    case 'rowCover':
+    case 'triggeredEffect':
+    case 'gainSb':
+    case 'sbGainUp':
+      return null;
+    case 'taunt':
+      return 'taunt ' + arrayify(effect.skillType).join('/');
+    case 'runic':
+    case 'immuneAttacks':
+    case 'zeroDamage':
+    case 'evadeAll':
+    case 'multiplyDamage':
+    case 'berserk':
+    case 'rage':
+    case 'abilityBerserk':
+    case 'turnDuration':
+    case 'removedUnlessStatus':
+    case 'onceOnly':
+    case 'removedAfterTrigger':
+    case 'trackStatusLevel':
+    case 'changeStatusLevel':
+    case 'setStatusLevel':
+    case 'statusLevelBooster':
+    case 'burstToggle':
+    case 'trackUses':
+    case 'burstOnly':
+    case 'burstReset':
+    case 'statusReset':
+    case 'disableAttacks':
+    case 'paralyze':
+      return null;
+  }
+}
+
 export function describeEnlirStatus(
   status: string,
-  enlirStatus?: EnlirStatus,
+  enlirStatus?: EnlirStatusWithPlaceholders,
   source?: EnlirSkill,
 ) {
-  let m: RegExpMatchArray | null;
-
-  // Generic statuses
-  {
-    const genericStatus = resolveStatusAlias(status);
-    if (genericStatus) {
-      return genericStatus;
-    }
+  if (wellKnownStatuses.has(status)) {
+    return status;
+  } else if (wellKnownAliases[status]) {
+    return wellKnownAliases[status];
+  }
+  if (!enlirStatus) {
+    return status;
   }
 
-  // Special cases - schools, and schools + numbers
-  if ((m = status.match(/(.+?) (?:Extended )?\+(\d+)% Boost\b(?: (\d+))?/))) {
-    const [, type, percent, turns] = m;
-    const multiplier = percentToMultiplier(percent);
-    if (type === 'Weakness') {
-      return `${multiplier}x dmg vs weak` + formatTurns(turns);
-    } else {
-      return `${multiplier}x ${formatSchoolOrAbilityList(type)} dmg` + formatTurns(turns);
-    }
-  }
-  if ((m = status.match(/(.*) Gauge \+(\d+)% Booster(?: (\d+))?/))) {
-    const [, type, percent, turns] = m;
-    return sbPointsBoosterAlias(percent, type) + formatTurns(turns);
-  }
-  if ((m = status.match(/(.*) Double/))) {
-    return doubleAlias(formatSchoolOrAbilityList(m[1]));
+  const statusEffects = safeParseStatus(enlirStatus.status, enlirStatus.placeholders);
+  if (!statusEffects) {
+    return status;
   }
 
-  // Status effects: e.g., "MAG +30%" from EX: Attack Hand.  Reorganize stats
-  // into, e.g., +30% MAG to match MMP
-  const statMod = statusAsStatMod(status, enlirStatus);
-  if (statMod) {
-    let result = statMod.amount + ' ' + describeStats(statMod.stat);
-    if (status.match(/for Next Damaging Action/)) {
-      result += ' for next atk';
-    }
-    return result;
-  }
-
-  // Turn-limited versions of generic statuses.  Some turn-limited versions,
-  // like 'hi fastcast 2', are common enough that they're separately listed
-  // under enlirStatusAliasWithNumbers and omit the 'turn' text.
-  if ((m = status.match(/(.*) (\d)$/))) {
-    const [, baseStatus, turns] = m;
-    const genericStatus = resolveStatusAlias(baseStatus);
-    if (genericStatus) {
-      return genericStatus + formatTurns(turns);
-    }
-  }
-
-  // Fallback
-  return status;
+  return statusEffects
+    .map(i => describeStatusEffect(i, enlirStatus.status, source))
+    .filter(i => !!i)
+    .join(', ');
 }
 
 const getFinisherSkillName = (effect: string) => {
@@ -1226,11 +1348,12 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     status = status.replace(/\?$/, '');
   }
 
-  const enlirStatus = getEnlirStatusByName(status);
-  if (!enlirStatus && !hideUnknownStatusWarning(status)) {
+  const enlirStatusWithPlaceholders = getEnlirStatusWithPlaceholders(status);
+  if (!enlirStatusWithPlaceholders && !hideUnknownStatusWarning(status)) {
     logger.warn(`Unknown status: ${status}`);
   }
-  let description = describeEnlirStatus(status, enlirStatus, source);
+  const enlirStatus = enlirStatusWithPlaceholders ? enlirStatusWithPlaceholders.status : undefined;
+  let description = describeEnlirStatus(status, enlirStatusWithPlaceholders, source);
 
   const isEx = isExStatus(status);
   const isAwoken = isAwokenStatus(status);
@@ -1248,7 +1371,6 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     enlirStatus &&
     (isExLike || isCustomStatMod(enlirStatus) || forceEffects(enlirStatus) || burstToggle)
   ) {
-    description = describeEffects(enlirStatus, source);
     if (isEx) {
       description = 'EX: ' + description;
     }
@@ -1388,7 +1510,7 @@ const statusItemRe = XRegExp(
  * @param wholeClause  The skill's statuses clause as a whole (e.g., "grants
  *      Magical Blink 1, RES and MND +30% to the user for 25 seconds"
  */
-export function parseStatusItem(statusText: string, wholeClause: string): StatusItem {
+function parseStatusItem(statusText: string, wholeClause: string): StatusItem {
   // Determine target and duration.  This is hard, and I may not have it
   // right.  For example:
   // - "grants Haste and Burst mode to the user" - Haste is "to the user"

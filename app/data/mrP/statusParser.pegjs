@@ -135,7 +135,7 @@ ForAbilities
 // Blinks and barriers
 
 PhysicalBlink
-  = "Evades"i _ "the next" _ level:Integer? _ "PHY" _ AttacksThatDeal _ "physical, missing HP or fixed damage or NAT" _ AttacksThatDeal _ "physical or fractional damage" { return { type: 'magicBlink', level: level || 1 }; }
+  = "Evades"i _ "the next" _ level:Integer? _ "PHY" _ AttacksThatDeal _ "physical, missing HP or fixed damage or NAT" _ AttacksThatDeal _ "physical or fractional damage" { return { type: 'physicalBlink', level: level || 1 }; }
 
 MagicBlink
   = "Evades"i _ "the next" _ level:Integer? _ "non-PHY, non-NIN" _ AttacksThatDeal _ "magical, fractional or missing HP damage" { return { type: 'magicBlink', level: level || 1 }; }
@@ -195,8 +195,8 @@ Reflect
 
 Awoken
   = awoken:AwokenType _ ("abilities" / "attacks") _ "don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast?
-  & { return !rankCast || util.isEqual(type, rankCast); }
-  & { return !dualcast || util.isEqual(type, dualcast); }
+  & { return !rankCast || util.isEqual(awoken, rankCast); }
+  & { return !dualcast || util.isEqual(awoken, dualcast); }
   { return { type: 'awoken', awoken, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast }; }
 
 AwokenType
@@ -469,7 +469,7 @@ Runic
 ImmuneAttackSkills
   = "Can't"i _ "be hit by" _ ranged:("ranged")? _ nonRanged:("non-ranged")? _ skillType:SkillTypeList _ "attacks" {
     return {
-      type: 'immune',
+      type: 'immuneAttacks',
       attacks: true,
       skillType,
       ranged: !!ranged,
@@ -480,7 +480,7 @@ ImmuneAttackSkills
 ImmuneAttacks
   = "Can't be hit by any attack" {
     return {
-      type: 'immune',
+      type: 'immuneAttacks',
       attacks: true,
     }
   }
@@ -496,7 +496,7 @@ EvadeAll
   = "Evades"i _ "all attacks" { return { type: 'evadeAll' }; }
 
 MultiplyDamage
-  = "Multiplies all damage received by" _ value:IntegerOrX { return { type: 'multipleDamage', value }; }
+  = "Multiplies all damage received by" _ value:IntegerOrX { return { type: 'multiplyDamage', value }; }
 
 
 // --------------------------------------------------------------------------
@@ -518,7 +518,7 @@ Rage  // aka "auto" elsewhere in our code
 // Special durations
 
 TurnDuration
-  = "lasts" _ "for"? _ value:Integer _ "turn" "s"? { return { type: 'duration', duration: { value, units: 'turns' } }; }
+  = "lasts" _ "for"? _ value:Integer _ "turn" "s"? { return { type: 'turnDuration', duration: { value, units: 'turns' } }; }
 
 RemovedUnlessStatus
   = "Removed"i _ "if" _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }

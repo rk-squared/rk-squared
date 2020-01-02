@@ -959,37 +959,67 @@ export const enlirStatusAltName: { [status: string]: EnlirStatus } = {
   'Radiant Shield 300%': enlir.statusByName['Radiant Shield: 300%'],
 };
 
+export interface EnlirStatusPlaceholders {
+  xValue?: number;
+  element?: EnlirElement;
+  school?: EnlirSchool;
+  stat?: EnlirStat;
+}
+
+export interface EnlirStatusWithPlaceholders {
+  status: EnlirStatus;
+  placeholders: EnlirStatusPlaceholders;
+}
+
+/**
+ * Retrieves an EnlirStatus by name, including support for generic numbers and
+ * elements.
+ */
+export function getEnlirStatusWithPlaceholders(
+  status: string,
+): EnlirStatusWithPlaceholders | undefined {
+  const placeholders: EnlirStatusPlaceholders = {};
+  if (enlir.statusByName[status]) {
+    return { status: enlir.statusByName[status], placeholders };
+  }
+
+  if (enlirStatusAltName[status]) {
+    return { status: enlirStatusAltName[status], placeholders };
+  }
+
+  const checkNumbers: Array<[RegExp, string]> = [[/(\d+\??|\?)/, 'X'], [/-X/, '+X']];
+  for (const [search, replace] of checkNumbers) {
+    const m = status.match(search);
+    if (m) {
+      status = status.replace(search, replace);
+      if (enlir.statusByName[status]) {
+        placeholders.xValue = +m[0];
+        return { status: enlir.statusByName[status], placeholders };
+      }
+    }
+  }
+
+  for (const i of allEnlirElements) {
+    const newStatus = status.replace(i, '[Element]');
+    if (newStatus !== status) {
+      placeholders.element = i;
+      status = newStatus;
+    }
+  }
+  if (enlir.statusByName[status]) {
+    return { status: enlir.statusByName[status], placeholders };
+  }
+
+  return undefined;
+}
+
 /**
  * Retrieves an EnlirStatus by name, including support for generic numbers and
  * elements.
  */
 export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
-  if (enlir.statusByName[status]) {
-    return enlir.statusByName[status];
-  }
-
-  if (enlirStatusAltName[status]) {
-    return enlirStatusAltName[status];
-  }
-
-  status = status.replace(/(\d+\??|\?)/, 'X');
-  if (enlir.statusByName[status]) {
-    return enlir.statusByName[status];
-  }
-
-  status = status.replace(/-X/, '+X');
-  if (enlir.statusByName[status]) {
-    return enlir.statusByName[status];
-  }
-
-  for (const i of allEnlirElements) {
-    status = status.replace(i, '[Element]');
-  }
-  if (enlir.statusByName[status]) {
-    return enlir.statusByName[status];
-  }
-
-  return undefined;
+  const result = getEnlirStatusWithPlaceholders(status);
+  return result ? result.status : undefined;
 }
 
 /**

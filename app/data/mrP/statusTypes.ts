@@ -39,7 +39,6 @@ export type EffectClause =
   | EnElementStacking
   | EnElementWithStacking
   | LoseEnElement
-  | LoseAnyEnElement
   | AbilityBuildup
   | RankBoost
   | DamageUp
@@ -184,7 +183,7 @@ interface ForAbilities {
 // Blinks and barriers
 
 interface PhysicalBlink {
-  type: 'magicBlink';
+  type: 'physicalBlink';
   level: number;
 }
 
@@ -304,12 +303,7 @@ interface EnElementWithStacking {
 
 interface LoseEnElement {
   type: 'loseEnElement';
-  element: EnlirElement;
-  level: number;
-}
-
-interface LoseAnyEnElement {
-  type: 'loseEnElement';
+  element?: EnlirElement;
   level: number;
 }
 
@@ -571,7 +565,7 @@ interface Runic {
 }
 
 interface ImmuneAttacks {
-  type: 'immune';
+  type: 'immuneAttacks';
   attacks: boolean;
   skillType?: EnlirSkillType | EnlirSkillType[];
   ranged?: boolean;
@@ -589,7 +583,7 @@ interface EvadeAll {
 }
 
 interface MultiplyDamage {
-  type: 'multipleDamage';
+  type: 'multiplyDamage';
   value: number;
 }
 
@@ -613,7 +607,7 @@ interface Rage {
 // Special durations
 
 interface TurnDuration {
-  type: 'duration';
+  type: 'turnDuration';
   duration: common.Duration;
 }
 
