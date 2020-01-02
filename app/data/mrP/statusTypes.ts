@@ -205,7 +205,7 @@ interface ElementBlink {
 
 interface Stoneskin {
   type: 'stoneskin';
-  element: EnlirElement;
+  element?: EnlirElement;
   percentHp: number;
 }
 
@@ -457,7 +457,7 @@ interface DrainHp {
 
 interface Counter {
   type: 'counter';
-  skillType: EnlirSkillType[];
+  skillType: EnlirSkillType | EnlirSkillType[];
   enemyOnly: boolean;
   counter?: CounterResponse;
   chance?: number;

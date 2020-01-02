@@ -5,7 +5,10 @@ import { logException, logger } from '../../utils/logger';
 import { arrayify, getAllSameValue } from '../../utils/typeUtils';
 import {
   enlir,
+  EnlirElement,
+  EnlirSchool,
   EnlirSkill,
+  EnlirSkillType,
   EnlirStatus,
   EnlirStatusPlaceholders,
   EnlirStatusWithPlaceholders,
@@ -38,6 +41,7 @@ import * as statusTypes from './statusTypes';
 import {
   formatSchoolOrAbilityList,
   getAbbreviation,
+  getElementShortName,
   getShortName,
   getShortNameWithSpaces,
   XRegExpNamedGroups,
@@ -69,6 +73,7 @@ const wellKnownStatuses = new Set<string>([
   'Poison',
   'Protect',
   'Reflect',
+  'Regenga',
   'Sap',
   'Shell',
   'Silence',
@@ -522,6 +527,48 @@ function statusAsStatMod(statusName: string, enlirStatus?: EnlirStatus) {
   return null;
 }
 
+interface AnyType {
+  element?: EnlirElement | EnlirElement[];
+  school?: EnlirSchool | EnlirSchool[];
+  jump?: boolean;
+  magical?: boolean;
+  skillType?: EnlirSkillType | EnlirSkillType[];
+  skill?: string;
+}
+
+function formatAnyType<T extends AnyType>(type: T): string {
+  const result: string[] = [];
+  if (type.element) {
+    result.push(formatSchoolOrAbilityList(type.element));
+  }
+  if (type.school) {
+    result.push(formatSchoolOrAbilityList(type.school));
+  }
+  if (type.skillType === 'PHY') {
+    result.push('phys');
+  } else if (type.skillType) {
+    result.push(arrayify(type.skillType).join('/'));
+  }
+  if (type.jump) {
+    result.push('jump');
+  }
+  if (type.skill) {
+    result.push(type.skill);
+  }
+  if (type.magical) {
+    result.push('mag');
+  }
+  return result.length ? result.join(' ') + ' ' : '';
+}
+
+function formatAnyCast<T extends AnyType>(type: T, cast: string): string {
+  return formatAnyType({ ...type, magical: false }) + cast + (type.magical ? 'zap' : 'cast');
+}
+
+function shouldAbbreviateTurns(effect: statusTypes.EffectClause) {
+  return effect.type === 'instacast' || effect.type === 'castSpeed';
+}
+
 function describeStatusEffect(
   effect: statusTypes.EffectClause,
   enlirStatus: EnlirStatus,
@@ -539,95 +586,210 @@ function describeStatusEffect(
     case 'critChance':
       return 'crit =' + effect.value + '%';
     case 'critDamage':
+      return signedNumber(effect.value) + '% crit dmg';
     case 'hitRate':
-      return null;
+      return signedNumber(effect.value) + '% hit rate';
     case 'ko':
       return 'KO';
     case 'lastStand':
+      return 'Last stand';
     case 'reraise':
+      return 'Reraise ' + effect.value + '%';
     case 'statusChance':
+      return null; // TODO
     case 'statusStacking':
+      return null; // TODO
     case 'preventStatus':
+      if (enlirStatus.name === 'Astra') {
+        return 'Status blink 1';
+      } else {
+        return effect.status.join('/') + ' blink 1';
+      }
     case 'speed':
-    case 'instacast':
+      return effect.value === 2
+        ? 'Haste'
+        : effect.value === 0.5
+        ? 'Slow'
+        : effect.value + 'x speed';
+    case 'instacast': {
+      return formatAnyCast(effect, 'insta');
+    }
     case 'castSpeedBuildup':
-    case 'castSpeed':
+      return null; // TODO
+    case 'castSpeed': {
+      let cast: string;
+      if (Array.isArray(effect.value)) {
+        cast = effect.value.map(i => i.toString()).join('/');
+      } else {
+        cast =
+          effect.value === 2 ? 'fast' : effect.value === 3 ? 'hi fast' : effect.value.toString();
+      }
+      return formatAnyCast(effect, cast);
+    }
     case 'instantAtb':
+      return null; // TODO
     case 'atbSpeed':
-      return null;
+      return null; // TODO
     case 'physicalBlink':
       return 'Phys blink ' + effect.level;
     case 'magicBlink':
       return 'Magic blink ' + effect.level;
     case 'dualBlink':
+      return 'PM blink ' + effect.level;
     case 'elementBlink':
+      return null; // TODO
     case 'stoneskin':
+      return (
+        'Negate dmg ' +
+        effect.percentHp +
+        '%' +
+        (effect.element ? ' (' + getElementShortName(effect.element) + ' only)' : '')
+      );
     case 'magiciteStoneskin':
+      return null; // TODO
     case 'fixedStoneskin':
+      return null; // TODO
     case 'damageBarrier':
+      return effect.value + '% Dmg barrier ' + effect.attackCount;
     case 'radiantShield':
+      return (
+        'Reflect Dmg' +
+        (effect.value !== 100 ? ' ' + effect.value + '%' : '') +
+        (effect.element ? ' as ' + getElementShortName(effect.element) : '')
+      );
     case 'reflect':
+      return null; // TODO
     case 'awoken':
+      return null; // TODO
     case 'switchDraw':
+      return null; // TODO
     case 'switchDrawStacking':
+      return null; // TODO
     case 'elementAttack':
+      return signedNumber(effect.value) + '% ' + getElementShortName(effect.element) + ' dmg';
     case 'elementResist':
+      return signedNumber(-effect.value) + '% ' + getElementShortName(effect.element) + ' vuln.';
     case 'enElement':
+      return getElementShortName(effect.element) + ' infuse';
     case 'enElementStacking':
+      return getElementShortName(effect.element) + ' infuse stacking';
     case 'enElementWithStacking':
+      return (
+        getElementShortName(effect.element) +
+        ' infuse ' +
+        (effect.level !== 1 ? effect.level + ' ' : '') +
+        'w/ stacking'
+      );
     case 'loseEnElement':
+      return null; // TODO
     case 'abilityBuildup':
+      return null; // TODO
     case 'rankBoost':
+      return null; // TODO
     case 'damageUp':
+      return (
+        arrayify(effect.value)
+          .map(percentToMultiplier)
+          .join('/') +
+        'x ' +
+        formatAnyType(effect) +
+        'dmg'
+      );
     case 'abilityDouble':
+      return null; // TODO
     case 'dualcast':
+      return null; // TODO
     case 'noAirTime':
+      return 'no air time';
     case 'breakDamageCap':
+      return null; // TODO
     case 'damageCap':
+      return 'dmg cap +' + toMrPKilo(effect.value);
     case 'hpStock':
-      return null;
+      return 'Autoheal ' + toMrPKilo(effect.value);
     case 'regen':
+      return null; // TODO
     case 'fixedHpRegen':
+      return 'regen ' + toMrPKilo(effect.value) + ' HP per ' + effect.interval + 's';
     case 'poison':
+      return null; // TODO
     case 'healUp':
+      return null; // TODO
     case 'pain':
+      return null; // TODO
     case 'damageTaken':
+      return null; // TODO
     case 'barHeal':
+      return null; // TODO
     case 'doom':
+      return null; // TODO
     case 'doomTimer':
+      return null; // TODO
     case 'drainHp':
+      return null; // TODO
     case 'counter':
+      if (effect.skillType === 'PHY') {
+        if (!effect.chance && !effect.counter) {
+          return 'Retaliate';
+        }
+      }
+      return null; // TODO
     case 'rowCover':
+      return null; // TODO
     case 'triggeredEffect':
+      return null; // TODO
     case 'gainSb':
+      return null; // TODO
     case 'sbGainUp':
-      return null;
+      return null; // TODO
     case 'taunt':
       return 'taunt ' + arrayify(effect.skillType).join('/');
     case 'runic':
+      return null; // TODO
     case 'immuneAttacks':
+      return null; // TODO
     case 'zeroDamage':
+      return null; // TODO
     case 'evadeAll':
+      return null; // TODO
     case 'multiplyDamage':
+      return null; // TODO
     case 'berserk':
+      return null; // TODO
     case 'rage':
+      return null; // TODO
     case 'abilityBerserk':
+      return null; // TODO
     case 'turnDuration':
+      return null; // TODO
     case 'removedUnlessStatus':
+      return null; // TODO
     case 'onceOnly':
+      return null; // TODO
     case 'removedAfterTrigger':
+      return null; // TODO
     case 'trackStatusLevel':
+      return null; // TODO
     case 'changeStatusLevel':
+      return null; // TODO
     case 'setStatusLevel':
+      return null; // TODO
     case 'statusLevelBooster':
+      return null; // TODO
     case 'burstToggle':
+      return null; // TODO
     case 'trackUses':
+      return null; // TODO
     case 'burstOnly':
+      return null; // TODO
     case 'burstReset':
+      return null; // TODO
     case 'statusReset':
+      return null; // TODO
     case 'disableAttacks':
+      return null; // TODO
     case 'paralyze':
-      return null;
+      return null; // TODO
   }
 }
 
@@ -650,10 +812,30 @@ export function describeEnlirStatus(
     return status;
   }
 
-  return statusEffects
-    .map(i => describeStatusEffect(i, enlirStatus.status, source))
-    .filter(i => !!i)
-    .join(', ');
+  // Simple turn-limited statuses are represented with a numeric suffix.
+  let suffix = '';
+  if (
+    statusEffects.length === 2 &&
+    statusEffects[1].type === 'turnDuration' &&
+    statusEffects[1].duration.units === 'turns'
+  ) {
+    const turnCount = statusEffects[1].duration.value;
+    suffix = ' ' + turnCount;
+    if (statusEffects[1].duration.valueIsUncertain) {
+      suffix += '?';
+    }
+    if (!shouldAbbreviateTurns(statusEffects[0])) {
+      suffix += ' turn' + (turnCount === 1 ? '' : 's');
+    }
+    statusEffects.splice(1, 1);
+  }
+
+  return (
+    statusEffects
+      .map(i => describeStatusEffect(i, enlirStatus.status, source))
+      .filter(i => !!i)
+      .join(', ') + suffix
+  );
 }
 
 const getFinisherSkillName = (effect: string) => {

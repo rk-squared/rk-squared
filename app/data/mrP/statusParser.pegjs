@@ -1014,7 +1014,7 @@ SignedInteger "signed integer"
 SignedIntegerOrX "signed integer or X"
   = sign:[+-] _ value:([0-9]+ / "X") {
     if (value === 'X') {
-      return getX();
+      return (sign === '-' ? -1 : 1) * getX();
     } else {
       return parseInt(sign + value.join(''), 10);
     }
