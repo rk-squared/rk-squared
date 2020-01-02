@@ -3,7 +3,11 @@
  * TypeScript type definitions corresponding to skillParser's output
  */
 
-import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
+import { EnlirElement, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
+
+import * as common from './commonTypes';
+
+export { Condition, Duration, Who } from './commonTypes';
 
 export type SkillEffect = EffectClause[];
 
@@ -80,7 +84,7 @@ export interface AttackMultiplierGroup {
   overrideSkillType?: EnlirSkillType;
 }
 
-export type AttackScaleType = Condition;
+export type AttackScaleType = common.Condition;
 
 export type MultiplierScaleType =
   | { type: 'percentHp' }
@@ -93,27 +97,27 @@ export type MultiplierScaleType =
 
 export interface AttackExtras {
   additionalCritDamage?: number | number[];
-  additionalCritDamageCondition?: Condition;
+  additionalCritDamageCondition?: common.Condition;
 
   additionalCrit?: number | number[];
-  additionalCritCondition?: Condition;
+  additionalCritCondition?: common.Condition;
 
   airTime?: number | number[];
-  airTimeCondition?: Condition;
+  airTimeCondition?: common.Condition;
 
   isOverstrike?: boolean;
   alwaysCrits?: boolean;
   atkUpWithLowHp?: boolean;
 
   status?: {
-    status: StatusName;
+    status: common.StatusName;
     chance: number | number[];
-    duration?: Duration;
-    condition?: Condition;
+    duration?: common.Duration;
+    condition?: common.Condition;
   };
 
   damageModifier?: number | number[];
-  damageModifierCondition?: Condition;
+  damageModifierCondition?: common.Condition;
 
   finisherPercentDamage?: number;
   finisherPercentCriteria?: EnlirSkillType | EnlirElement | EnlirSchool;
@@ -124,10 +128,10 @@ export interface AttackExtras {
   minDamage?: number;
 
   orMultiplier?: number | number[];
-  orMultiplierCondition?: Condition;
+  orMultiplierCondition?: common.Condition;
 
   orNumAttacks?: NumAttacks;
-  orNumAttacksCondition?: Condition;
+  orNumAttacksCondition?: common.Condition;
 
   overrideElement?: EnlirElement;
 
@@ -143,14 +147,14 @@ export interface AttackExtras {
 export interface DrainHp {
   type: 'drainHp';
   healPercent: number;
-  condition?: Condition;
+  condition?: common.Condition;
 }
 
 export interface RecoilHp {
   type: 'recoilHp';
   damagePercent: number | number[];
   maxOrCurrent: 'max' | 'curr';
-  condition?: Condition;
+  condition?: common.Condition;
 }
 
 export interface GravityAttack {
@@ -169,14 +173,14 @@ export interface HpAttack {
 export interface Revive {
   type: 'revive';
   percentHp: number;
-  who?: Who;
+  who?: common.Who;
 }
 
 export interface Heal {
   type: 'heal';
   amount: HealAmount;
-  who?: Who;
-  condition?: Condition;
+  who?: common.Who;
+  condition?: common.Condition;
 }
 
 export type HealAmount = { healFactor: number | number[] } | { fixedHp: number | number[] };
@@ -184,7 +188,7 @@ export type HealAmount = { healFactor: number | number[] } | { fixedHp: number |
 export interface HealPercent {
   type: 'healPercent';
   healPercent: number;
-  who?: Who;
+  who?: common.Who;
 }
 
 export interface DamagesUndead {
@@ -194,17 +198,17 @@ export interface DamagesUndead {
 export interface DispelOrEsuna {
   type: 'dispelOrEsuna';
   dispelOrEsuna: 'negative' | 'positive';
-  who?: Who;
+  who?: common.Who;
 }
 
 export interface RandomEther {
   type: 'randomEther';
   amount: number;
-  who?: Who;
+  who?: common.Who;
 }
 
 export interface SmartEther extends SmartEtherStatus {
-  who?: Who;
+  who?: common.Who;
 }
 
 export interface SmartEtherStatus {
@@ -261,31 +265,29 @@ export interface StatusEffect {
 export type StatusVerb = 'grants' | 'causes' | 'removes' | "doesn't remove";
 
 export interface StatusWithPercent extends StatusClause {
-  status: SmartEtherStatus | StatusLevel | StatusName;
+  status: SmartEtherStatus | StatusLevel | common.StatusName;
   chance?: number;
 }
 
-export type StatusName = string;
-
 export interface StatusLevel {
   type: 'statusLevel';
-  status: StatusName;
+  status: common.StatusName;
   value: number;
 }
 
 export interface StatusClause {
-  duration?: Duration;
-  who?: Who;
+  duration?: common.Duration;
+  who?: common.Who;
   whoAllowsLookahead?: boolean;
   perUses?: number;
   ifSuccessful?: boolean;
   ifUndead?: boolean;
-  condition?: Condition;
+  condition?: common.Condition;
 }
 
 export interface SetStatusLevel {
   type: 'setStatusLevel';
-  status: StatusName;
+  status: common.StatusName;
   value: number;
 }
 
@@ -303,9 +305,9 @@ export type StatSet = HybridStatSet | EnlirStat[];
 export type HybridStatSet = [EnlirStat[], EnlirStat[]];
 
 export interface StatModClause {
-  duration?: Duration;
-  who?: Who;
-  condition?: Condition;
+  duration?: common.Duration;
+  who?: common.Who;
+  condition?: common.Condition;
 }
 
 // --------------------------------------------------------------------------
@@ -318,13 +320,13 @@ export interface Entrust {
 export interface GainSB {
   type: 'gainSB';
   points: number;
-  who?: Who;
+  who?: common.Who;
 }
 
 export interface GainSBOnSuccess {
   type: 'gainSBOnSuccess';
   points: number;
-  who?: Who;
+  who?: common.Who;
 }
 
 export interface ResetIfKO {
@@ -342,7 +344,7 @@ export interface Reset {
 export interface CastTime {
   type: 'castTime';
   castTime: number | number[];
-  condition: Condition;
+  condition: common.Condition;
 }
 
 export interface CastTimePerUse {
@@ -356,93 +358,3 @@ export interface StandaloneAttackExtra {
   type: 'attackExtra';
   extra: AttackExtras;
 }
-
-// --------------------------------------------------------------------------
-// Lower-level game rules
-
-export interface Duration {
-  value: number;
-  valueIsUncertain?: number;
-  units: DurationUnits;
-}
-
-export type DurationUnits = 'seconds' | 'turns';
-
-export type Who =
-  | 'self'
-  | 'target'
-  | 'enemies'
-  | 'sameRow'
-  | 'frontRow'
-  | 'backRow'
-  | 'party'
-  | 'lowestHpAlly'
-  | 'allyWithoutStatus'
-  | 'allyWithNegativeStatus'
-  | 'allyWithKO'
-  // Note: As of November 2019, 'ally' is used only for compatibility with
-  // EnlirTarget.  The parser doesn't output it directly.
-  | 'ally';
-
-export type Condition =
-  | { type: 'equipped'; article: string; equipped: string }
-  | { type: 'scaleWithStatusLevel'; status: StatusName }
-  | { type: 'statusLevel'; status: StatusName; value: number | number[] }
-  | { type: 'ifDoomed' }
-  | { type: 'status'; status: StatusName; who: 'self' | 'target'; any: boolean }
-  | { type: 'scaleUseCount'; useCount: number | number[] }
-  | { type: 'scaleWithUses' }
-  | { type: 'scaleWithSkillUses'; skill: string }
-  | { type: 'afterUseCount'; skill?: string; useCount: UseCount }
-  | { type: 'alliesAlive' }
-  | { type: 'characterAlive'; character: string; count?: number | number[] }
-  | { type: 'characterInParty'; character: string; count?: number | number[] }
-  | { type: 'females'; count: number | number[] }
-  | { type: 'realmCharactersInParty'; realm: EnlirRealm; count: number | number[] }
-  | { type: 'alliesJump'; count: number | number[] }
-  | { type: 'doomTimer'; value: number | number[] }
-  | { type: 'hpBelowPercent'; value: number | number[] }
-  | { type: 'soulBreakPoints'; value: number | number[] }
-  | { type: 'targetStatBreaks'; count: number | number[] }
-  | { type: 'targetStatusAilments'; count: number | number[] }
-  | { type: 'vsWeak' }
-  | { type: 'inFrontRow' }
-  | { type: 'hitsTaken'; count: number | number[]; skillType: EnlirSkillType | EnlirSkillType[] }
-  | { type: 'attacksTaken'; count: number | number[] }
-  | { type: 'damagingActions'; count: number | number[] }
-  | { type: 'otherAbilityUsers'; count: number | number[]; school: EnlirSchool }
-  | { type: 'differentAbilityUses'; count: number | number[]; school: EnlirSchool }
-  | {
-      type: 'abilitiesUsedDuringStatus';
-      count: number | number[];
-      school: EnlirSchool | EnlirSchool[];
-    }
-  | { type: 'abilitiesUsed'; count: number | number[]; school: EnlirSchool | EnlirSchool[] }
-  | {
-      type: 'attacksDuringStatus';
-      count: number | number[];
-      element: EnlirElement | EnlirElement[];
-    }
-  | {
-      type: 'damageDuringStatus';
-      value: number | number[];
-      element?: EnlirElement | EnlirElement[];
-    }
-  | { type: 'rankBased' }
-  | { type: 'statThreshold'; stat: EnlirStat; value: number | number[] };
-
-export type UseCount =
-  | {
-      x: number | number[];
-      y: number;
-    }
-  | {
-      from: number;
-    }
-  | {
-      to: number;
-    }
-  | {
-      from: number;
-      to: number;
-    };

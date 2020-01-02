@@ -10,7 +10,7 @@ import * as _ from 'lodash';
 
 import { andJoin } from '../../utils/textUtils';
 import { arrayify, isAllSame } from '../../utils/typeUtils';
-import * as types from './types';
+import * as common from './commonTypes';
 
 export { andJoin };
 
@@ -347,7 +347,7 @@ export function formatUseNumber(count: number | undefined): string {
   }
 }
 
-export function formatUseCount(count: types.UseCount): string {
+export function formatUseCount(count: common.UseCount): string {
   if ('x' in count) {
     return `${count.x} + ${count.y}n`;
   } else if (!('from' in count)) {

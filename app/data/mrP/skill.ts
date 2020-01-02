@@ -37,6 +37,7 @@ import {
 } from './condition';
 import { checkPureRage } from './rage';
 import * as skillParser from './skillParser';
+import * as skillTypes from './skillTypes';
 import {
   checkForAndStatuses,
   describeStats,
@@ -54,7 +55,6 @@ import {
   getDescribeOptionsWithDefaults,
   getElementShortName,
 } from './typeHelpers';
-import * as types from './types';
 import {
   fixedNumberOrUnknown,
   formatNumberSlashList,
@@ -63,7 +63,7 @@ import {
   toMrPKilo,
 } from './util';
 
-export function safeParseSkill(skill: EnlirSkill): types.SkillEffect | null {
+export function safeParseSkill(skill: EnlirSkill): skillTypes.SkillEffect | null {
   try {
     return skillParser.parse(skill.effects);
   } catch (e) {
@@ -76,8 +76,8 @@ export function safeParseSkill(skill: EnlirSkill): types.SkillEffect | null {
   }
 }
 
-function findFirstEffect<T extends types.EffectClause>(
-  skillEffects: types.SkillEffect,
+function findFirstEffect<T extends skillTypes.EffectClause>(
+  skillEffects: skillTypes.SkillEffect,
   type: T['type'],
 ): T | undefined {
   for (const i of skillEffects) {
@@ -88,8 +88,8 @@ function findFirstEffect<T extends types.EffectClause>(
   return undefined;
 }
 
-function sortSkillEffects(skillEffects: types.SkillEffect): types.SkillEffect {
-  const result: types.SkillEffect = [];
+function sortSkillEffects(skillEffects: skillTypes.SkillEffect): skillTypes.SkillEffect {
+  const result: skillTypes.SkillEffect = [];
   for (let i = 0; i < skillEffects.length; i++) {
     if (skillEffects[i].type === 'statMod') {
       const firstStatMod = i;
@@ -115,27 +115,27 @@ function sortSkillEffects(skillEffects: types.SkillEffect): types.SkillEffect {
 /**
  * Stat modifications default to 25 seconds.
  */
-const defaultStatModDuration: types.Duration = {
+const defaultStatModDuration: skillTypes.Duration = {
   value: 25,
   units: 'seconds',
 };
 
-function isHybridStatSet(statSet: types.StatSet): statSet is types.HybridStatSet {
+function isHybridStatSet(statSet: skillTypes.StatSet): statSet is skillTypes.HybridStatSet {
   return statSet.length === 2 && Array.isArray(statSet[0]);
 }
 
-function describeChain({ chainType, fieldBonus, max }: types.Chain): string {
+function describeChain({ chainType, fieldBonus, max }: skillTypes.Chain): string {
   let chain = (isEnlirElement(chainType) ? getElementShortName(chainType) : chainType) + ' chain';
   chain += ' ' + toMrPFixed(1 + +fieldBonus / 100) + 'x';
   chain += ` (max ${max})`;
   return chain;
 }
 
-function describeDrainHp({ healPercent, condition }: types.DrainHp): string {
+function describeDrainHp({ healPercent, condition }: skillTypes.DrainHp): string {
   return `heal ${healPercent}% of dmg` + appendCondition(condition);
 }
 
-function describeHeal(skill: EnlirSkill, { amount, condition }: types.Heal): string {
+function describeHeal(skill: EnlirSkill, { amount, condition }: skillTypes.Heal): string {
   let heal: string;
   let count: number | number[] | undefined;
   if ('healFactor' in amount) {
@@ -152,7 +152,7 @@ function describeHeal(skill: EnlirSkill, { amount, condition }: types.Heal): str
   return heal;
 }
 
-function describeMimic(skill: EnlirSkill, { chance, count }: types.Mimic): string {
+function describeMimic(skill: EnlirSkill, { chance, count }: skillTypes.Mimic): string {
   let description = 'Mimic';
 
   // For brave commands in particular, we'll want to compare with other
@@ -169,13 +169,13 @@ function describeMimic(skill: EnlirSkill, { chance, count }: types.Mimic): strin
   return description;
 }
 
-function describeRecoilHp({ damagePercent, maxOrCurrent, condition }: types.RecoilHp): string {
+function describeRecoilHp({ damagePercent, maxOrCurrent, condition }: skillTypes.RecoilHp): string {
   return (
     `lose ${formatNumberSlashList(damagePercent)}% ${maxOrCurrent} HP` + appendCondition(condition)
   );
 }
 
-function describeStatMod({ stats, percent, duration, condition }: types.StatMod): string {
+function describeStatMod({ stats, percent, duration, condition }: skillTypes.StatMod): string {
   duration = duration || defaultStatModDuration;
 
   const combinedStats = isHybridStatSet(stats)
@@ -211,8 +211,8 @@ function findOtherSkill(skill: EnlirSkill, otherSkills: EnlirSkill[] | undefined
   return null;
 }
 
-function scalesWithSkill(skill: EnlirSkill): (condition: types.Condition) => boolean {
-  return (condition: types.Condition) =>
+function scalesWithSkill(skill: EnlirSkill): (condition: skillTypes.Condition) => boolean {
+  return (condition: skillTypes.Condition) =>
     condition.type === 'scaleWithSkillUses' && condition.skill === skill.name;
 }
 
@@ -247,7 +247,11 @@ function checkPowersUp(skill: EnlirSkill, opt: DescribeOptions): string | null {
  * by a non-standard status from the other command. (The "Unbound Fury" status
  * used by some monk characters' bursts is the main or only example.)
  */
-function checkPoweredUpBy(skill: EnlirSkill, effects: types.SkillEffect, opt: DescribeOptions) {
+function checkPoweredUpBy(
+  skill: EnlirSkill,
+  effects: skillTypes.SkillEffect,
+  opt: DescribeOptions,
+) {
   // Find the paired command
   const paired =
     findOtherSkill(skill, opt.burstCommands) || findOtherSkill(skill, opt.synchroCommands);
@@ -266,7 +270,7 @@ function checkPoweredUpBy(skill: EnlirSkill, effects: types.SkillEffect, opt: De
 
   // Check if this skill scales with itself and if we can reasonably omit the
   // skill name.
-  visitCondition((condition: types.Condition) => {
+  visitCondition((condition: skillTypes.Condition) => {
     if (condition.type === 'afterUseCount' && condition.skill === skill.name) {
       return [
         {
@@ -299,7 +303,7 @@ function checkPoweredUpBy(skill: EnlirSkill, effects: types.SkillEffect, opt: De
   if (!pairedStatus) {
     return;
   }
-  visitCondition((condition: types.Condition) => {
+  visitCondition((condition: skillTypes.Condition) => {
     if (
       condition.type === 'status' &&
       condition.status === pairedStatus &&
@@ -312,7 +316,7 @@ function checkPoweredUpBy(skill: EnlirSkill, effects: types.SkillEffect, opt: De
   }, effects);
 }
 
-function checkSbPoints(skill: EnlirSkill, effects: types.SkillEffect, opt: DescribeOptions) {
+function checkSbPoints(skill: EnlirSkill, effects: skillTypes.SkillEffect, opt: DescribeOptions) {
   if ('sb' in skill && skill.sb != null) {
     if (opt.includeSbPoints && skill.sb === 0) {
       // If we weren't asked to suppress SB points (which we do for follow-ups
@@ -337,7 +341,7 @@ function checkSbPoints(skill: EnlirSkill, effects: types.SkillEffect, opt: Descr
   return null;
 }
 
-function checkAttackStatus(skill: EnlirSkill, { status }: types.Attack, other: OtherDetail) {
+function checkAttackStatus(skill: EnlirSkill, { status }: skillTypes.Attack, other: OtherDetail) {
   if (!status) {
     return;
   }
@@ -416,7 +420,7 @@ function checkSynchroCommands(skill: EnlirSkill, result: MrPSkill) {
 
 function shouldIncludeStatus(skill: EnlirSkill) {
   const isBurst = isSoulBreak(skill) && isBurstSoulBreak(skill);
-  return ({ status, chance, who, ifUndead }: types.StatusWithPercent): boolean => {
+  return ({ status, chance, who, ifUndead }: skillTypes.StatusWithPercent): boolean => {
     // Enlir lists Burst Mode and Haste for all BSBs and lists Brave Mode for all
     // all Brave Ultra Soul Breaks, but MrP's format doesn't.
     if (status === 'Brave Mode' || status === 'Burst Mode' || status === 'Synchro Mode') {
@@ -440,8 +444,8 @@ function shouldIncludeStatus(skill: EnlirSkill) {
  * Warlord Mode 0/1/2/3"
  */
 function checkStacking(
-  status: types.StatusWithPercent,
-): [types.StatusWithPercent['status'], boolean] {
+  status: skillTypes.StatusWithPercent,
+): [skillTypes.StatusWithPercent['status'], boolean] {
   if (
     typeof status.status !== 'string' ||
     !status.condition ||
@@ -467,8 +471,8 @@ function checkStacking(
  */
 function processStatus(
   skill: EnlirSkill,
-  skillEffects: types.SkillEffect,
-  effect: types.StatusEffect,
+  skillEffects: skillTypes.SkillEffect,
+  effect: skillTypes.StatusEffect,
   other: OtherDetail,
 ): boolean | undefined {
   // Confuse Shell doesn't remove Confuse - this is a special case, skip.
@@ -588,7 +592,7 @@ function processStatus(
     if (chance) {
       const chanceDescription = formatAttackStatusChance(
         chance,
-        findFirstEffect<types.Attack>(skillEffects, 'attack'),
+        findFirstEffect<skillTypes.Attack>(skillEffects, 'attack'),
       );
       other.statusInfliction.push({ description, chance, chanceDescription });
     } else if (description.match(/^\w+ infuse/)) {
@@ -641,7 +645,7 @@ class OtherDetail {
 
   push(
     skill: EnlirSkill,
-    who: types.Who | undefined,
+    who: skillTypes.Who | undefined,
     description: string,
     options: OtherDetailOptions = {},
   ) {
@@ -700,7 +704,7 @@ class OtherDetail {
 
   private getPart(
     skill: EnlirSkill,
-    who: types.Who | undefined,
+    who: skillTypes.Who | undefined,
     options: OtherDetailOptions,
   ): string[] {
     return who ? this.getWhoPart(who) : this.getTargetPart(skill.target, options);
@@ -735,7 +739,7 @@ class OtherDetail {
     }
   }
 
-  private getWhoPart(who: types.Who): string[] {
+  private getWhoPart(who: skillTypes.Who): string[] {
     switch (who) {
       case 'self':
         return this.self;

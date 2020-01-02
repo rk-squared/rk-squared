@@ -2,7 +2,8 @@ import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
 import { arrayify } from '../../utils/typeUtils';
-import * as types from './types';
+import * as common from './commonTypes';
+import * as skillTypes from './skillTypes';
 import { parseNumberString } from './util';
 
 const isEqual = _.isEqual;
@@ -32,19 +33,19 @@ export function pegSlashList(head: any, tail: any): any[] {
 
 export function addCondition<T>(
   value: T,
-  maybeCondition: any[] | types.Condition | null | undefined,
+  maybeCondition: any[] | common.Condition | null | undefined,
   conditionProp: string = 'condition',
 ) {
   if (Array.isArray(maybeCondition)) {
     // maybeCondition is assumed to be whitespace plus Condition
     return {
       ...value,
-      [conditionProp]: maybeCondition[1] as types.Condition,
+      [conditionProp]: maybeCondition[1] as common.Condition,
     };
   } else if (maybeCondition) {
     return {
       ...value,
-      [conditionProp]: maybeCondition as types.Condition,
+      [conditionProp]: maybeCondition as common.Condition,
     };
   } else {
     return value;
@@ -52,10 +53,10 @@ export function addCondition<T>(
 }
 
 export function mergeAttackExtras(
-  effects: Array<types.EffectClause | types.StandaloneAttackExtra>,
+  effects: Array<skillTypes.EffectClause | skillTypes.StandaloneAttackExtra>,
 ) {
-  const result: types.EffectClause[] = [];
-  let lastAttack: types.Attack | undefined;
+  const result: skillTypes.EffectClause[] = [];
+  let lastAttack: skillTypes.Attack | undefined;
   let lastAttackIndex: number | undefined;
   for (const i of effects) {
     if (i.type !== 'attackExtra') {

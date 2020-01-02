@@ -4,8 +4,10 @@ import * as XRegExp from 'xregexp';
 import { logger } from '../../utils/logger';
 import { getAllSameValue } from '../../utils/typeUtils';
 import { enlir, EnlirSkill, EnlirStatus, getEnlirOtherSkill, getEnlirStatusByName } from '../enlir';
+import * as common from './commonTypes';
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
+import * as skillTypes from './skillTypes';
 import { splitStatusEffects } from './split';
 import {
   doubleAlias,
@@ -29,7 +31,6 @@ import {
   getShortNameWithSpaces,
   XRegExpNamedGroups,
 } from './typeHelpers';
-import * as types from './types';
 import {
   andJoin,
   andList,
@@ -1339,7 +1340,7 @@ export interface StatusItem {
   chance?: number;
   who?: string;
   duration?: number;
-  durationUnits?: types.DurationUnits;
+  durationUnits?: common.DurationUnits;
   scalesWithUses?: boolean;
   rank?: boolean; // Are this item's effects rank-based?
   stacking?: boolean;
@@ -1489,7 +1490,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
     chance: chance ? +chance : undefined,
     who: who || lookaheadWho,
     duration: duration ? +duration : undefined,
-    durationUnits: durationUnits ? ((durationUnits + 's') as types.DurationUnits) : undefined,
+    durationUnits: durationUnits ? ((durationUnits + 's') as common.DurationUnits) : undefined,
     scalesWithUses,
     rank: rank != null,
     stacking,
@@ -1497,7 +1498,7 @@ export function parseStatusItem(statusText: string, wholeClause: string): Status
   };
 }
 
-export function formatDuration({ value, valueIsUncertain, units }: types.Duration) {
+export function formatDuration({ value, valueIsUncertain, units }: common.Duration) {
   const formattedValue = numberOrUnknown(value) + (valueIsUncertain ? '?' : '');
   if (units === 'seconds') {
     return formattedValue + 's';
@@ -1516,7 +1517,7 @@ const statusSortOrder: { [status: string]: number } = {
   'Last Stand': 1,
 };
 
-const getSortOrder = (status: types.StatusWithPercent['status']) => {
+const getSortOrder = (status: skillTypes.StatusWithPercent['status']) => {
   if (typeof status !== 'string') {
     return 0;
   } else if (isExStatus(status) || isAwokenStatus(status)) {
@@ -1526,14 +1527,17 @@ const getSortOrder = (status: types.StatusWithPercent['status']) => {
   }
 };
 
-export function sortStatus(a: types.StatusWithPercent, b: types.StatusWithPercent): number {
+export function sortStatus(
+  a: skillTypes.StatusWithPercent,
+  b: skillTypes.StatusWithPercent,
+): number {
   return getSortOrder(a.status) - getSortOrder(b.status);
 }
 
 function reduceStatuses(
-  combiner: (a: types.StatusWithPercent, b: types.StatusWithPercent) => string | null,
-  accumulator: types.StatusWithPercent[],
-  currentValue: types.StatusWithPercent,
+  combiner: (a: skillTypes.StatusWithPercent, b: skillTypes.StatusWithPercent) => string | null,
+  accumulator: skillTypes.StatusWithPercent[],
+  currentValue: skillTypes.StatusWithPercent,
 ) {
   if (accumulator.length) {
     const combined = combiner(accumulator[accumulator.length - 1], currentValue);
@@ -1553,11 +1557,11 @@ function reduceStatuses(
  * one status and re-merging it.
  */
 export function checkForAndStatuses(
-  accumulator: types.StatusWithPercent[],
-  currentValue: types.StatusWithPercent,
+  accumulator: skillTypes.StatusWithPercent[],
+  currentValue: skillTypes.StatusWithPercent,
 ) {
   return reduceStatuses(
-    (a: types.StatusWithPercent, b: types.StatusWithPercent) => {
+    (a: skillTypes.StatusWithPercent, b: skillTypes.StatusWithPercent) => {
       if (typeof a.status !== 'string' || typeof b.status !== 'string') {
         return null;
       }
@@ -1578,11 +1582,11 @@ const elementStatuses = [
 ];
 
 export function slashMergeElementStatuses(
-  accumulator: types.StatusWithPercent[],
-  currentValue: types.StatusWithPercent,
+  accumulator: skillTypes.StatusWithPercent[],
+  currentValue: skillTypes.StatusWithPercent,
 ) {
   return reduceStatuses(
-    (a: types.StatusWithPercent, b: types.StatusWithPercent) => {
+    (a: skillTypes.StatusWithPercent, b: skillTypes.StatusWithPercent) => {
       for (const i of elementStatuses) {
         if (typeof a.status === 'string' && typeof b.status === 'string') {
           const ma = a.status.match(i);
@@ -1609,8 +1613,8 @@ function forceOwnDuration(status: EnlirStatus) {
 }
 
 export function shareStatusDurations(
-  accumulator: types.StatusWithPercent[],
-  currentItem: types.StatusWithPercent,
+  accumulator: skillTypes.StatusWithPercent[],
+  currentItem: skillTypes.StatusWithPercent,
 ) {
   if (accumulator.length) {
     const prevItem = accumulator[accumulator.length - 1];
@@ -1654,8 +1658,8 @@ export function shareStatusDurations(
 }
 
 export function shareStatusWho(
-  accumulator: types.StatusWithPercent[],
-  currentItem: types.StatusWithPercent,
+  accumulator: skillTypes.StatusWithPercent[],
+  currentItem: skillTypes.StatusWithPercent,
 ) {
   if (currentItem.who && currentItem.whoAllowsLookahead) {
     for (let i = accumulator.length - 1; i >= 0; i--) {
