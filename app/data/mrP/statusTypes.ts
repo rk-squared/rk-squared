@@ -121,18 +121,18 @@ export interface HitRate {
 export interface StatusChance {
   type: 'statusChance';
   value: number;
-  status?: string;
+  status?: common.StatusName;
 }
 
 export interface StatusStacking {
   type: 'statusStacking';
-  status: string;
+  status: common.StatusName;
   level: number;
 }
 
 export interface PreventStatus {
   type: 'preventStatus';
-  status: string[];
+  status: common.StatusName[];
 }
 
 // --------------------------------------------------------------------------
@@ -537,7 +537,10 @@ interface TriggerChance {
   effect: TriggerableEffect;
 }
 
-type StatusItem = string | { status: string; chance: number } | { type: 'gainSB'; value: number };
+type StatusItem =
+  | common.StatusName
+  | { status: common.StatusName; chance: number }
+  | { type: 'gainSB'; value: number };
 
 // --------------------------------------------------------------------------
 // Soul Break points
@@ -617,7 +620,7 @@ interface TurnDuration {
 interface RemovedUnlessStatus {
   type: 'removedUnlessStatus';
   any: boolean;
-  status: string;
+  status: common.StatusName;
 }
 
 interface OnceOnly {
@@ -634,26 +637,26 @@ interface RemovedAfterTrigger {
 
 interface TrackStatusLevel {
   type: 'trackStatusLevel';
-  status: string;
+  status: common.StatusName;
   max: number;
 }
 
 interface ChangeStatusLevel {
   type: 'changeStatusLevel';
-  status: string;
+  status: common.StatusName;
   value: number;
   trigger?: Trigger;
 }
 
 interface SetStatusLevel {
   type: 'setStatusLevel';
-  status: string;
+  status: common.StatusName;
   value: number;
 }
 
 interface StatusLevelBooster {
   type: 'statusLevelBooster';
-  status: string;
+  status: common.StatusName;
   value: number;
 }
 
@@ -679,7 +682,7 @@ interface BurstReset {
 
 interface StatusReset {
   type: 'statusReset';
-  status: string;
+  status: common.StatusName;
 }
 
 interface DisableAttacks {
@@ -710,7 +713,7 @@ type Trigger =
   | { type: 'auto'; interval: number }
   | { type: 'damaged'; skillType?: EnlirSkillType }
   | { type: 'dealDamage' }
-  | { type: 'loseStatus'; status: string }
+  | { type: 'loseStatus'; status: common.StatusName }
   | { type: 'skill'; skill: string | string[]; count?: number }
   | { type: 'skillTriggered'; skill: string; count: number }
   | {
