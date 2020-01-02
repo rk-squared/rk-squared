@@ -31,6 +31,14 @@ export function describeMultiplierScaleType(scaleType: types.MultiplierScaleType
   }
 }
 
+function formatCountCharacters(count: number | number[], characters: string): string {
+  if (typeof count === 'number') {
+    return 'if ≥' + count + ' ' + characters;
+  } else {
+    return 'if ' + formatNumberSlashList(count) + ' ' + characters;
+  }
+}
+
 /**
  * Returns a text string describing the given Condition.
  *
@@ -91,11 +99,9 @@ export function describeCondition(condition: types.Condition, count?: number | n
         return 'if ' + condition.character + what;
       }
     case 'females':
-      if (typeof condition.count === 'number') {
-        return 'if ≥' + condition.count + ' females in party';
-      } else {
-        return 'if ' + formatNumberSlashList(condition.count) + ' females in party';
-      }
+      return formatCountCharacters(condition.count, 'females in party');
+    case 'realmCharactersInParty':
+      return formatCountCharacters(condition.count, condition.realm + ' characters in party');
     case 'alliesJump':
       return 'if ' + formatNumberSlashList(condition.count) + ' allies in air';
     case 'doomTimer':

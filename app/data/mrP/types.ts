@@ -3,7 +3,7 @@
  * TypeScript type definitions corresponding to skillParser's output
  */
 
-import { EnlirElement, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
+import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
 
 export type SkillEffect = EffectClause[];
 
@@ -398,6 +398,7 @@ export type Condition =
   | { type: 'characterAlive'; character: string; count?: number | number[] }
   | { type: 'characterInParty'; character: string; count?: number | number[] }
   | { type: 'females'; count: number | number[] }
+  | { type: 'realmCharactersInParty'; realm: EnlirRealm; count: number | number[] }
   | { type: 'alliesJump'; count: number | number[] }
   | { type: 'doomTimer'; value: number | number[] }
   | { type: 'hpBelowPercent'; value: number | number[] }

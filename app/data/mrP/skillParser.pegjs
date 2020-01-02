@@ -603,6 +603,7 @@ Condition
   / "if" _ count:IntegerSlashList _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
@@ -645,13 +646,14 @@ Condition
   // Alternate phrasing - this appears to be an error, so we smooth it out. TODO: Fix upstream.
   / "scaling" _ "with" _ school:School _ "attacks" _ "used" _ "(" _ count:IntegerSlashList _ ")" { return { type: 'abilitiesUsed', count, school }; }
 
-  / "at" _ "rank" _ "1/2/3/4/5" _ "of" _ "the" _ "triggering" _ "ability" { return { type: 'rankBased' }; }
+  / "at" _ "rank" _ "1/2/3/4/5" (_ "of" _ "the" _ "triggering" _ "ability")? { return { type: 'rankBased' }; }
+  / "at" _ "ability" _ "rank" _ "1/2/3/4/5" { return { type: 'rankBased' }; }
 
   // Alternate status phrasing.  For example, Stone Press:
   // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
   / "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
 
-  // Stat thresolds (e.g., Tiamat, Guardbringer)
+  // Stat thresholds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
 
@@ -693,9 +695,13 @@ CharacterName
 CharacterNameList
   = CharacterName ((_ "&" _ / "/" / _ "or" _) CharacterName)* { return text(); }
 
-// Any skill - burst commands, etc.
+// Any skill - burst commands, etc. ??? is referenced in one particular status.
 AnySkillName
-  = GenericName
+  = GenericName / '???'
+
+AnySkillOrOptions
+  = head:AnySkillName tail:(_ "/" _ AnySkillName)+ { return { options: util.pegList(head, tail, 3) }; }
+  / skill:AnySkillName ! (_ "/") { return skill; }
 
 // Generic names.  Somewhat complex expression to match these.  Developed for
 // statuses, so the rules may need revision for other uses.
@@ -714,13 +720,13 @@ GenericName
         // Articles, etc., are okay, but use &' ' to make sure they're at a
         // word bounary.
         / (('in' / 'or' / 'of' / 'the' / 'with' / '&' / 'a') & ' ')
-        // "for" in particular needs extra logic to ensure that it's part of
-        // status words instead of part of the duration.
-        / "for" _ GenericNameWord
+        // "for" and "to" in particular needs extra logic to ensure that
+        // they're part of status words instead of part of later clauses.
+        / ("for" / "to") _ GenericNameWord
 
         / SignedIntegerSlashList [%+]?
         / [=*]? IntegerSlashList [%+]?
-        / '(' [A-Za-z-0-9/]+ ')'
+        / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) ')'
       )
     )*
   ) {
@@ -783,6 +789,8 @@ SkillType "skill type"
   / "SUM"
   / "NAT"
   / "NIN"
+  // Used for EX: Soldier
+  / "physical" { return "PHY"; }
 
 SkillTypeList "skill type list"
   = head:SkillType tail:(OrList SkillType)* { return util.pegList(head, tail, 1, true); }
@@ -795,9 +803,10 @@ Element "element"
   / "Wind"
   / "Water"
   / "Holy"
-  / "Dark"
+  / "Dark" ! "ness" { return "Dark"; }
   / "Poison"
   / "NE"
+  / "Non-Elemental" { return "NE"; }
 
 ElementList "element list"
   = head:Element tail:(OrList Element)* { return util.pegList(head, tail, 1, true); }
@@ -825,7 +834,7 @@ School "ability school"
   / "White Magic"
   / "Witch"
 
-SchoolList "element list"
+SchoolList "school list"
   = head:School tail:(OrList School)* { return util.pegList(head, tail, 1, true); }
 
 SB = "Soul" _ "Break" / "SB"
@@ -833,6 +842,28 @@ Maximum = "maximum" / "max" "."?
 
 // "x + yn"
 UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return { x, y }; }
+
+Realm "realm"
+  = "Beyond"
+  / "Core"
+  / "IX"
+  / "IV"
+  / "FFT"
+  / "III"
+  / "II"
+  / "I"
+  / "VIII"
+  / "VII"
+  / "VI"
+  / "V"
+  / "XV"
+  / "XIV"
+  / "XIII"
+  / "XII"
+  / "XI"
+  / "X"
+  / "KH"
+  / "Type-0"
 
 
 // --------------------------------------------------------------------------
