@@ -39,7 +39,7 @@ EffectClause
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / Doublecast / Dualcast / Dualcast100 / NoAirTime
+  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Dualcast / Dualcast100 / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal
   / Doom / DoomTimer / DrainHp
@@ -194,10 +194,10 @@ Reflect
 // references to individual schools or elements.
 
 Awoken
-  = type:AwokenType _ ("abilities" / "attacks") _ "don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast?
+  = awoken:AwokenType _ ("abilities" / "attacks") _ "don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast?
   & { return !rankCast || util.isEqual(type, rankCast); }
   & { return !dualcast || util.isEqual(type, dualcast); }
-  { return { type: 'awoken', type, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast }; }
+  { return { type: 'awoken', awoken, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast }; }
 
 AwokenType
   = school:SchoolAndOrList { return { school }; }
@@ -226,13 +226,13 @@ SwitchDrawPart
 
 SwitchDrawAlt
   = "Grants"i _ "Attach" _ elements1:ElementSlashList _ "after using a" "n"? _ elements2:ElementSlashList _ "ability, lasts 1 turn"
-  & { return util.isEqual(elements1, elements2); }
+  & { return elements1.length > 1 && util.isEqual(elements1, elements2); }
     { return { type: 'switchDraw', elements: elements1 }; }
 
 SwitchDrawStacking
   = "Grants Attach" _ elements1:ElementSlashList _ level:Integer? _ "with Stacking after using a"
     _ elements2:ElementSlashList _ "ability, lasts 1 turn"
-    & { return util.isEqual(elements1, elements2); }
+    & { return elements1.length > 1 && util.isEqual(elements1, elements2); }
     { return { type: 'switchDrawStacking', elements: elements1, level }; }
 
 
@@ -240,7 +240,7 @@ SwitchDrawStacking
 // Element buffs and debuffs
 
 ElementAttack
-  = sign:IncreasesOrReduces _ element:Element _ "damage dealt by" _ value:Integer _ "%" ", cumulable"? { return { type: 'elementAttack', element, value: value * sign }; }
+  = sign:IncreasesOrReduces _ element:Element _ "damage dealt by" _ value:Integer _ "%, cumulable" { return { type: 'elementAttack', element, value: value * sign }; }
 
 ElementResist
   = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" ", cumulable"? { return { type: 'elementResist', element, value }; }
@@ -271,9 +271,9 @@ LoseAnyEnElement
 // Abilities and elements
 
 AbilityBuildup
-  = school:School _ "abilities deal" _ increment:Integer "% more damage for each" _ schoolUsed:School _ "ability used, up to +" max:Integer "%" {
-    return { type: 'abilityBuildup', school, schoolUsed, increment, max };
-  }
+  = school:School _ "abilities deal" _ increment:Integer "% more damage for each" _ schoolUsed:School _ "ability used, up to +" max:Integer "%"
+  & { return school === schoolUsed; }
+    { return { type: 'abilityBuildup', school, schoolUsed, increment, max }; }
 
 // A special case of DamageUp
 RankBoost
@@ -290,8 +290,8 @@ AltDamageUp
   / "Increases"i _ "damage dealt by" _ value:Integer "% when exploiting elemental weaknesses" { return { type: 'damageUp', vsWeak: true, value }; }
   / "Increases"i _ "damage dealt by" _ value:Integer "%" { return { type: 'damageUp', value }; }
 
-Doublecast
-  = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'doublecast' }, what); }
+AbilityDouble
+  = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'abilityDouble' }, what); }
 
 Dualcast100
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance: 100 }, what); }
@@ -434,7 +434,7 @@ Heal
   = "restores"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'heal', fixedHp, who }; }
 
 HealChance
-  = chance:Integer "% chance to restore"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'triggerChance', effect: { type: 'heal', fixedHp, who, chance } }; }
+  = chance:Integer "% chance to restore"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'triggerChance', chance, effect: { type: 'heal', fixedHp, who } }; }
 
 StatusItem
   = status:StatusName _ chance:("(" n:Integer "%)" { return n; })? {
@@ -491,8 +491,8 @@ ZeroDamage
   / "Reduces to 0 all damage received from non-NIN attacks that deal physical damage and all damage received from PHY attacks" { return { type: 'zeroDamage', what: 'physical' }; }
   / "Reduces to 0 all damage received from NIN attacks" { return { type: 'zeroDamage', what: 'NIN' }; }
 
+// Galuf's status; aka Peerless
 EvadeAll
-  // Galuf's status; aka Peerless
   = "Evades"i _ "all attacks" { return { type: 'evadeAll' }; }
 
 MultiplyDamage
@@ -527,7 +527,7 @@ OnceOnly
   = "Removed"i _ "after triggering" { return { type: 'onceOnly' }; }
 
 RemovedAfterTrigger
-  = "Removed"i _ trigger:Trigger { return { tyoe: 'removedAfterTrigger', trigger }; }
+  = "Removed"i _ trigger:Trigger { return { type: 'removedAfterTrigger', trigger }; }
 
 
 // --------------------------------------------------------------------------
@@ -554,7 +554,7 @@ StatusLevelBooster
 // Other
 
 BurstToggle
-  = "Affects"i _ "certain Burst Commands"
+  = "Affects"i _ "certain Burst Commands" { return { type: 'burstToggle' }; }
 
 TrackUses
   = "Keeps"i _ "track of the" _ ("number of")? _ "uses of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
@@ -570,16 +570,16 @@ StatusReset
   = "reset upon refreshing" _ status:StatusName { return { type: 'statusReset', status }; }
 
 ReplaceAttack
-  = "Replaces"i _ "the Attack command" { return { type: 'replaceAttack' }; }
+  = "Replaces"i _ "the Attack command" { return null; }
 
 ReplaceAttackDefend
-  = "Replaces"i _ "the Attack and Defend commands" { return { type: 'replaceAttackDefend' }; }
+  = "Replaces"i _ "the Attack and Defend commands" { return null; }
 
 DisableAttacks
   = "Disables"i _ skillType:(SkillTypeAndList / "Jump") _ "attacks" { return { type: 'disableAttacks', skillType }; }
 
 Ai
-  = "Affects"i _ GenericName _ "behaviour" { return { type: 'ai' }; }
+  = "Affects"i _ GenericName _ "behaviour" { return null; }
 
 Paralyze
   = "Arrests"i _ "ATB charge rate, can't act" ", resets ATB when set"? { return { type: 'paralyze' }; }
@@ -614,7 +614,7 @@ Trigger
   / ("when using" / "after using") _ skill:AnySkillName _ count:Occurrence? { return { type: 'skill', skill, count }; }
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
   / "after using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
-  / "after taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'allyAttack', skillType, element }; }
+  / "after taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
   / "after using a single-target heal" { return { type: 'singleHeal' }; }
 
 AbilityOrAttack

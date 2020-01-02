@@ -207,14 +207,8 @@ export interface RandomEther {
   who?: common.Who;
 }
 
-export interface SmartEther extends SmartEtherStatus {
+export interface SmartEther extends common.SmartEtherStatus {
   who?: common.Who;
-}
-
-export interface SmartEtherStatus {
-  type: 'smartEther';
-  amount: number | number[];
-  school?: EnlirSchool;
 }
 
 // --------------------------------------------------------------------------
@@ -265,7 +259,7 @@ export interface StatusEffect {
 export type StatusVerb = 'grants' | 'causes' | 'removes' | "doesn't remove";
 
 export interface StatusWithPercent extends StatusClause {
-  status: SmartEtherStatus | StatusLevel | common.StatusName;
+  status: common.SmartEtherStatus | StatusLevel | common.StatusName;
   chance?: number;
 }
 

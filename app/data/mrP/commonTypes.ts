@@ -5,6 +5,12 @@ import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from
 
 export type StatusName = string;
 
+export interface SmartEtherStatus {
+  type: 'smartEther';
+  amount: number | number[];
+  school?: EnlirSchool;
+}
+
 export interface Duration {
   value: number;
   valueIsUncertain?: number;
@@ -91,3 +97,10 @@ export type UseCount =
       from: number;
       to: number;
     };
+
+export interface Fraction {
+  numerator: number;
+  denominator: number;
+}
+
+export type OrOptions<T> = T | { options: T[] };
