@@ -323,21 +323,22 @@ export function slashMerge(options: string[], opt: SlashMergeOptions = {}): stri
   return result;
 }
 
+export function isSequential(values: number[]): boolean {
+  for (let i = 1; i < values.length; i++) {
+    if (values[i] !== values[i - 1] + 1) {
+      return false;
+    }
+  }
+  return true;
+}
+
 /**
  * Cleans up a slashed numbers list by summarizing longer ranges.
  */
 export function cleanUpSlashedNumbers(s: string): string {
   const values = s.split('/').map(i => +i);
 
-  let isSequential = true;
-  for (let i = 1; i < values.length; i++) {
-    if (values[i] !== values[i - 1] + 1) {
-      isSequential = false;
-      break;
-    }
-  }
-
-  if (isSequential && values.length > 4) {
+  if (isSequential(values) && values.length > 4) {
     return values[0] + '-' + values[values.length - 1];
   } else {
     return s;

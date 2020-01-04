@@ -44,6 +44,7 @@ import {
   damageTypeAbbreviation,
   formatSchoolOrAbilityList,
   getAbbreviation,
+  getElementAbbreviation,
   getElementShortName,
   getShortName,
   getShortNameWithSpaces,
@@ -56,6 +57,7 @@ import {
   andOrList,
   cleanUpSlashedNumbers,
   handleOrOptions,
+  isSequential,
   lowerCaseFirst,
   numberOrUnknown,
   orList,
@@ -563,13 +565,13 @@ function formatAnyType<T extends AnyType>(type: T, suffix?: string): string {
   const result: string[] = [];
 
   // The way that formatAnyType is used, a slash-separated list of alternatives
-  // is displayed the same as a comma-separated list.
+  // may be displayed the same as a comma-separated list.
   if (type.element) {
-    result.push(
-      formatSchoolOrAbilityList(
-        common.isOptions(type.element) ? type.element.options : type.element,
-      ),
-    );
+    if (common.isOptions(type.element)) {
+      result.push(type.element.options.map(getElementAbbreviation).join('/'));
+    } else {
+      result.push(formatSchoolOrAbilityList(type.element));
+    }
   }
   if (type.school) {
     result.push(
@@ -630,9 +632,17 @@ function formatAwoken({
 function formatTriggerCount(count: statusTypes.TriggerCount) {
   if (count.values === 1 && !count.plus) {
     return '';
-  } else {
-    return arrayify(count.values).join('/') + (count.plus ? '+' : '') + ' ';
   }
+
+  const values = arrayify(count.values);
+  let result: string;
+  if (isSequential(values) && values.length > 4) {
+    // Clean up a slashed numbers list by summarizing longer ranges.
+    result = values[0] + '-' + values[values.length - 1];
+  } else {
+    result = values.join('/');
+  }
+  return result + (count.plus ? '+' : '') + ' ';
 }
 
 function formatTrigger(trigger: statusTypes.Trigger): string {
@@ -732,23 +742,27 @@ function formatTriggerableEffect(
 ): string {
   switch (effect.type) {
     case 'castSkill': {
-      return handleOrOptions(effect.skill, skill => {
-        const enlirSkill = enlir.otherSkillsByName[skill];
-        if (enlirSkill) {
-          return formatMrPSkill(
-            convertEnlirSkillToMrP(enlirSkill, {
-              abbreviate,
-              showNoMiss: false,
-              includeSchool: true,
-              includeSbPoints: false,
-              prereqStatus: enlirStatus.name,
-            }),
-            { showTime: false },
-          );
-        } else {
-          return skill;
-        }
-      });
+      return handleOrOptions(effect.skill, skill =>
+        slashMerge(
+          expandSlashOptions(skill).map(option => {
+            const enlirSkill = enlir.otherSkillsByName[option];
+            if (!enlirSkill) {
+              return option;
+            } else {
+              return formatMrPSkill(
+                convertEnlirSkillToMrP(enlirSkill, {
+                  abbreviate,
+                  showNoMiss: false,
+                  includeSchool: true,
+                  includeSbPoints: false,
+                  prereqStatus: enlirStatus.name,
+                }),
+                { showTime: false },
+              );
+            }
+          }),
+        ),
+      );
     }
     case 'randomCastSkill':
       return ''; // TODO
