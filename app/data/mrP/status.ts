@@ -1093,15 +1093,22 @@ function describeStatusEffect(
     case 'removedAfterTrigger':
       return null; // TODO
     case 'changeStatusLevel':
-      return null; // TODO
+      return addTrigger(
+        (statusLevelAlias[effect.status] || effect.status) + ' ' + signedNumber(effect.value),
+        effect.trigger,
+      );
     case 'setStatusLevel':
       return null; // TODO
     case 'statusLevelBooster':
-      return null; // TODO
+      return `+${effect.value} to all ${statusLevelAlias[effect.status] || effect.status} gains`;
     case 'burstToggle':
       return null; // TODO
-    case 'trackUses':
     case 'trackStatusLevel':
+      return (
+        (statusLevelAlias[effect.status] || effect.status) +
+        (!isNaN(effect.current) ? ' ' + effect.current : '')
+      );
+    case 'trackUses':
     case 'burstOnly':
     case 'burstReset':
       // Internal details; omit from descriptions.
@@ -1136,7 +1143,7 @@ function sortStatusEffects(statusEffects: statusTypes.EffectClause[]): statusTyp
   return _.sortBy(statusEffects, i => (i.type === 'taunt' ? 0 : 1));
 }
 
-export function describeEnlirStatus(
+export function describeEnlirStatusAndDuration(
   status: string,
   enlirStatus?: EnlirStatusWithPlaceholders,
   source?: EnlirSkill,
@@ -1146,6 +1153,9 @@ export function describeEnlirStatus(
     return [status, null];
   } else if (wellKnownAliases[status]) {
     return [wellKnownAliases[status], null];
+  }
+  if (!enlirStatus) {
+    enlirStatus = getEnlirStatusWithPlaceholders(status);
   }
   if (!enlirStatus) {
     return [status, null];
@@ -1194,6 +1204,15 @@ export function describeEnlirStatus(
   return [effects, duration || null];
 }
 
+export function describeEnlirStatus(
+  status: string,
+  enlirStatus?: EnlirStatusWithPlaceholders,
+  source?: EnlirSkill,
+  options?: StatusOptions,
+): string {
+  return describeEnlirStatusAndDuration(status, enlirStatus, source, options)[0];
+}
+
 const getFinisherSkillName = (effect: string) => {
   const m = effect.match(/[Cc]asts (.*?) when removed/);
   return m ? m[1] : null;
@@ -1218,7 +1237,7 @@ function describeFinisherSkill(skillName: string, sourceStatusName: string) {
 
 function describeFinisherStatus(statusName: string): string {
   const status = getEnlirStatusByName(statusName);
-  let [result] = describeEnlirStatus(statusName);
+  let result = describeEnlirStatus(statusName);
 
   // Hack: Partially duplicated from convertEnlirSkillToMrP.  We currently
   // only support default durations.
@@ -1894,7 +1913,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     logger.warn(`Unknown status: ${status}`);
   }
   const enlirStatus = enlirStatusWithPlaceholders ? enlirStatusWithPlaceholders.status : undefined;
-  let [description, specialDuration] = describeEnlirStatus(
+  let [description, specialDuration] = describeEnlirStatusAndDuration(
     status,
     enlirStatusWithPlaceholders,
     source,

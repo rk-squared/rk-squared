@@ -624,6 +624,7 @@ interface TrackStatusLevel {
   type: 'trackStatusLevel';
   status: common.StatusName;
   max: number;
+  current: number;
 }
 
 interface ChangeStatusLevel {

@@ -545,7 +545,7 @@ RemovedAfterTrigger
 // Status levels
 
 TrackStatusLevel
-  = "Keeps"i _ "track of the" _ status:StatusName _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max }; }
+  = "Keeps"i _ "track of the" _ status:StatusName _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max, current: getX() }; }
 
 ChangeStatusLevel
   = sign:IncreasesOrReduces _ "the"? _ status:StatusName _ "level by" _ value:Integer _ trigger:TriggerOrWhenSet {
