@@ -71,6 +71,7 @@ const shortAliases: { [s: string]: string } = {
   // Note the oddity: 'NE' as shown as an EnlirElement gets changed to 'non',
   // while 'Non-Elemental' in effect text gets changed to 'non-elem.'  (E.g.,
   // '1.1x non-elem dmg').
+  // TODO: Now that we have a proper parser, this code path may no longer be used.
   'non-elemental': 'non-elem',
 };
 
@@ -115,6 +116,13 @@ export function formatSchoolOrAbilityList(list: string | string[]): string {
   if (!Array.isArray(list)) {
     list = list.split(andOrList);
   }
+
+  // Special case: "non" by itself looks bad.
+  const nonElem: EnlirElement = 'NE';
+  if (list.length === 1 && list[0] === nonElem) {
+    return 'non-elem';
+  }
+
   return (
     list
       .map(getShortName)

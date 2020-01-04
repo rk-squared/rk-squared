@@ -106,7 +106,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'females':
       return formatCountCharacters(condition.count, 'females in party');
     case 'realmCharactersInParty':
-      return formatCountCharacters(condition.count, condition.realm + ' characters in party');
+      return formatCountCharacters(condition.count, condition.realm + ' chars. in party');
     case 'alliesJump':
       return 'if ' + formatNumberSlashList(condition.count) + ' allies in air';
     case 'doomTimer':

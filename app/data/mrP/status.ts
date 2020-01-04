@@ -882,7 +882,7 @@ function describeStatusEffect(
     case 'statMod':
       return signedNumber(effect.value) + '% ' + describeStats(arrayify(effect.stats));
     case 'critChance':
-      return addTrigger('crit =' + effect.value + '%', effect.trigger);
+      return addTrigger('crit =' + arrayify(effect.value).join('/') + '%', effect.trigger);
     case 'critDamage':
       return signedNumber(effect.value) + '% crit dmg';
     case 'hitRate':
