@@ -624,15 +624,17 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
   switch (trigger.type) {
     case 'ability':
       const count = formatTriggerCount(trigger.count);
+      let result: string;
       if (!trigger.element && !trigger.school && !trigger.jump) {
         if (trigger.requiresAttack) {
-          return !count ? 'any attack' : count + ' attacks';
+          result = !count ? 'any attack' : count + ' attacks';
         } else {
-          return !count ? 'any ability' : count + ' abilities';
+          result = !count ? 'any ability' : count + ' abilities';
         }
       } else {
-        return count + formatAnyType(trigger);
+        result = count + formatAnyType(trigger);
       }
+      return result + (trigger.requiresDamage ? ' dmg' : '');
     case 'crit':
       return ''; // TODO
     case 'vsWeak':
@@ -677,9 +679,12 @@ function formatGrantStatus(
       if (sequence) {
         return describeMergedSequence(sequence);
       } else {
-        return (
-          parseEnlirStatus(thisStatus, source).description +
-          (typeof i !== 'string' && i.chance !== 100 ? ` (${i.chance}%)` : '')
+        return slashMerge(
+          expandSlashOptions(thisStatus).map(
+            option =>
+              parseEnlirStatus(option, source).description +
+              (typeof i !== 'string' && i.chance !== 100 ? ` (${i.chance}%)` : ''),
+          ),
         );
       }
     })
@@ -737,21 +742,38 @@ function formatTriggerableEffect(
   }
 }
 
+function formatSwitchDraw(
+  elements: EnlirElement[],
+  isStacking?: boolean,
+  stackingLevel?: number,
+): string {
+  return (
+    '(' +
+    elements.map(getElementShortName).join('/') +
+    ' ⤇ ' +
+    elements.map(getElementShortName).join('/') +
+    ' infuse' +
+    (stackingLevel ? stackingLevel + ' ' : '') +
+    (isStacking ? ' w/ stacking' : '') +
+    ')'
+  );
+}
+
 function formatTriggeredEffect(
   effect: statusTypes.TriggeredEffect,
   enlirStatus: EnlirStatus,
   source?: EnlirSkill,
 ): string {
-  // TODO: condition
   // Following MrP's example, finishers are displayed differently.
   const isFinisher = effect.trigger.type === 'whenRemoved';
   const effects = arrayify(effect.effects)
     .map(i => formatTriggerableEffect(i, effect.trigger, enlirStatus, source, !isFinisher))
     .join(', ');
+  const condition = effect.condition ? ' ' + describeCondition(effect.condition) : '';
   if (isFinisher) {
-    return 'Finisher: ' + effects;
+    return 'Finisher: ' + effects + condition;
   } else {
-    return '(' + formatTrigger(effect.trigger) + ' ⤇ ' + effects + ')';
+    return '(' + formatTrigger(effect.trigger) + ' ⤇ ' + effects + condition + ')';
   }
 }
 
@@ -837,21 +859,24 @@ function describeStatusEffect(
       return null; // TODO
     case 'damageBarrier':
       return effect.value + '% Dmg barrier ' + effect.attackCount;
-    case 'radiantShield':
-      // TODO: overflow
-      return (
-        'Reflect Dmg' +
-        (effect.value !== 100 ? ' ' + effect.value + '%' : '') +
-        (effect.element ? ' as ' + getElementShortName(effect.element) : '')
-      );
+    case 'radiantShield': {
+      let result = 'Reflect Dmg' + (effect.value !== 100 ? ' ' + effect.value + '%' : '');
+      if (effect.element) {
+        result +=
+          (effect.overflow ? ' as overstrike ' : ' as ') + getElementShortName(effect.element);
+      } else if (effect.overflow) {
+        result += ' overstrike';
+      }
+      return result;
+    }
     case 'reflect':
       return null; // TODO
     case 'awoken':
       return formatAwoken(effect);
     case 'switchDraw':
-      return null; // TODO
+      return formatSwitchDraw(effect.elements);
     case 'switchDrawStacking':
-      return null; // TODO
+      return formatSwitchDraw(effect.elements, true, effect.level);
     case 'elementAttack':
       return signedNumber(effect.value) + '% ' + getElementShortName(effect.element) + ' dmg';
     case 'elementResist':
