@@ -107,7 +107,7 @@ export function safeParseStatus(
 
 const finisherText = 'Finisher: ';
 export const hitWeaknessTriggerText = 'hit weak';
-export const formatTriggeredEffect = (
+export const formatTriggeredEffectOld = (
   trigger: string,
   description: string,
   percent?: string | number,
@@ -536,7 +536,7 @@ interface AnyType {
   skill?: string;
 }
 
-function formatAnyType<T extends AnyType>(type: T): string {
+function formatAnyType<T extends AnyType>(type: T, suffix?: string): string {
   const result: string[] = [];
 
   // The way that formatAnyType is used, a slash-separated list of alternatives
@@ -568,11 +568,11 @@ function formatAnyType<T extends AnyType>(type: T): string {
   if (type.magical) {
     result.push('mag');
   }
-  return result.length ? result.join(' ') + ' ' : '';
+  return result.length ? result.join(' ') + (suffix || '') : '';
 }
 
 function formatAnyCast<T extends AnyType>(type: T, cast: string): string {
-  return formatAnyType({ ...type, magical: false }) + cast + (type.magical ? 'zap' : 'cast');
+  return formatAnyType({ ...type, magical: false }, ' ') + cast + (type.magical ? 'zap' : 'cast');
 }
 
 function shouldAbbreviateTurns(effect: statusTypes.EffectClause) {
@@ -604,22 +604,26 @@ function formatAwoken({
   return result;
 }
 
+function formatTriggerCount(count: statusTypes.TriggerCount) {
+  if (count.values === 1 && !count.plus) {
+    return '';
+  } else {
+    return arrayify(count.values).join('/') + (count.plus ? '+' : '') + ' ';
+  }
+}
+
 function formatTrigger(trigger: statusTypes.Trigger): string {
   switch (trigger.type) {
     case 'ability':
+      const count = formatTriggerCount(trigger.count);
       if (!trigger.element && !trigger.school && !trigger.jump) {
         if (trigger.requiresAttack) {
-          return trigger.count === 1
-            ? 'any attack'
-            : arrayify(trigger.count).join('/') + ' attacks';
+          return !count ? 'any attack' : count + ' attacks';
         } else {
-          return trigger.count === 1
-            ? 'any ability'
-            : arrayify(trigger.count).join('/') + ' abilities';
+          return !count ? 'any ability' : count + ' abilities';
         }
       } else {
-        const count = trigger.count === 1 ? '' : arrayify(trigger.count).join('/') + ' ';
-        return count + formatAnyType(trigger).trimRight();
+        return count + formatAnyType(trigger);
       }
     case 'crit':
       return ''; // TODO
@@ -659,7 +663,8 @@ function handleOrOptions<T>(options: common.OrOptions<T>, f: (item: T) => string
 function formatTriggerableEffect(
   effect: statusTypes.TriggerableEffect,
   enlirStatus: EnlirStatus,
-  source?: EnlirSkill,
+  source: EnlirSkill | undefined,
+  abbreviate: boolean,
 ): string {
   switch (effect.type) {
     case 'castSkill': {
@@ -668,7 +673,7 @@ function formatTriggerableEffect(
         if (enlirSkill) {
           return formatMrPSkill(
             convertEnlirSkillToMrP(enlirSkill, {
-              abbreviate: true,
+              abbreviate,
               showNoMiss: false,
               includeSchool: true,
               includeSbPoints: false,
@@ -693,6 +698,24 @@ function formatTriggerableEffect(
       return ''; // TODO
     case 'smartEther':
       return ''; // TODO
+  }
+}
+
+function formatTriggeredEffect(
+  effect: statusTypes.TriggeredEffect,
+  enlirStatus: EnlirStatus,
+  source?: EnlirSkill,
+): string {
+  // TODO: condition
+  // Following MrP's example, finishers are displayed differently.
+  const isFinisher = effect.trigger.type === 'whenRemoved';
+  const effects = arrayify(effect.effects)
+    .map(i => formatTriggerableEffect(i, enlirStatus, source, !isFinisher))
+    .join(', ');
+  if (isFinisher) {
+    return 'Finisher: ' + effects;
+  } else {
+    return '(' + formatTrigger(effect.trigger) + ' ⤇ ' + effects + ')';
   }
 }
 
@@ -813,7 +836,7 @@ function describeStatusEffect(
     case 'abilityBuildup':
       return null; // TODO
     case 'rankBoost':
-      return null; // TODO
+      return rankBoostAlias(formatAnyType(effect));
     case 'damageUp':
       // TODO: trigger
       return (
@@ -821,7 +844,7 @@ function describeStatusEffect(
           .map(percentToMultiplier)
           .join('/') +
         'x ' +
-        formatAnyType(effect) +
+        formatAnyType(effect, ' ') +
         'dmg' +
         (effect.vsWeak ? ' vs. weak' : '')
       );
@@ -867,16 +890,7 @@ function describeStatusEffect(
     case 'rowCover':
       return null; // TODO
     case 'triggeredEffect':
-      // TODO: condition
-      return (
-        '(' +
-        formatTrigger(effect.trigger) +
-        ' ⤇ ' +
-        arrayify(effect.effects)
-          .map(i => formatTriggerableEffect(i, enlirStatus, source))
-          .join(', ') +
-        ')'
-      );
+      return formatTriggeredEffect(effect, enlirStatus, source);
     case 'gainSb':
       return null; // TODO
     case 'sbGainUp':
@@ -932,6 +946,15 @@ function describeStatusEffect(
   }
 }
 
+/**
+ * Sort statuses for nicer display.
+ */
+function sortStatusEffects(statusEffects: statusTypes.EffectClause[]): statusTypes.EffectClause[] {
+  // For example, put Draw Fire's taunt effect before its stat mod, since a
+  // stat mod that immediately follows an attack normally applies to the enemy.
+  return _.sortBy(statusEffects, i => (i.type === 'taunt' ? 0 : 1));
+}
+
 export function describeEnlirStatus(
   status: string,
   enlirStatus?: EnlirStatusWithPlaceholders,
@@ -946,10 +969,12 @@ export function describeEnlirStatus(
     return status;
   }
 
-  const statusEffects = safeParseStatus(enlirStatus.status, enlirStatus.placeholders);
+  let statusEffects = safeParseStatus(enlirStatus.status, enlirStatus.placeholders);
   if (!statusEffects) {
     return status;
   }
+
+  statusEffects = sortStatusEffects(statusEffects);
 
   // Simple turn-limited statuses are represented with a numeric suffix.
   let suffix = '';
@@ -1260,7 +1285,7 @@ function describeEnlirStatusEffect(
     if (percentChance) {
       triggerDescription += ` (${percentChance}%)`;
     }
-    return formatTriggeredEffect(
+    return formatTriggeredEffectOld(
       triggerDescription,
       describeFollowUpSkill(skill, undefined, enlirStatus ? enlirStatus.name : undefined),
     );
@@ -1626,7 +1651,7 @@ function describeFollowUp(followUp: FollowUpEffect, sourceStatusName: string): s
     fullDescription += ' (' + followUp.customTriggerSuffix + ')';
   }
 
-  return formatTriggeredEffect(triggerDescription, fullDescription, followUp.chance);
+  return formatTriggeredEffectOld(triggerDescription, fullDescription, followUp.chance);
 }
 
 function isFinisherOnly({ effects }: EnlirStatus): boolean {

@@ -486,7 +486,7 @@ interface RowCover {
 // --------------------------------------------------------------------------
 // Abilities and status effects
 
-interface TriggeredEffect {
+export interface TriggeredEffect {
   type: 'triggeredEffect';
   effects: TriggerableEffect | TriggerableEffect[];
   trigger: Trigger;
@@ -697,7 +697,7 @@ export type Trigger =
       type: 'ability';
       element?: common.OrOptions<EnlirElement>;
       school?: EnlirSchool | EnlirSchool[];
-      count: number | number[];
+      count: TriggerCount;
       jump: boolean;
       requiresDamage: boolean;
       requiresAttack: boolean;
@@ -717,3 +717,8 @@ export type Trigger =
       element: common.OrOptions<EnlirElement>;
     }
   | { type: 'singleHeal' };
+
+export interface TriggerCount {
+  values: number | number[];
+  plus?: boolean;
+}

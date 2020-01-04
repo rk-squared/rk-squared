@@ -626,11 +626,9 @@ AbilityOrAttack
   / "attack" "s"? { return true; }
 
 TriggerCount
-  = ArticleOrNumberString
-  / UseCount
-  / values:IntegerSlashList "+"? { return values; }
-  / Integer
-  / "" { return 1; }
+  = values:(ArticleOrNumberString / UseCount / Integer) ! "/" { return { values }; }
+  / values:IntegerSlashList plus:"+"? { return { values, plus: !!plus }; }
+  / "" { return { values: 1 }; }
 
 TriggerOrWhenSet
   = Trigger

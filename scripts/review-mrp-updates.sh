@@ -15,11 +15,11 @@ if ! $convert >& $after ; then
   exit 1
 fi
 
-if command -v bcomp >& /dev/null; then
-  if ! pgrep bcomp >& /dev/null; then
-    bcomp $before $after &
-  fi
-fi
+# if command -v bcomp >& /dev/null; then
+#   if ! pgrep bcomp >& /dev/null; then
+#     bcomp $before $after &
+#   fi
+# fi
 
 year=$(date +%Y)
 diff <(perl -pe "s/^$year\\S+//" $before) <(perl -pe "s/^$year\\S+//" $after) > $diff || true
