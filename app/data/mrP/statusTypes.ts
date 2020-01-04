@@ -456,7 +456,7 @@ interface DrainHp {
 // --------------------------------------------------------------------------
 // Counter and cover
 
-interface Counter {
+export interface Counter {
   type: 'counter';
   skillType: EnlirSkillType | EnlirSkillType[];
   enemyOnly: boolean;

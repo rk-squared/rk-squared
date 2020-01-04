@@ -782,7 +782,7 @@ function formatTriggerableEffect(
       return handleOrOptions(effect.skill, skill =>
         slashMerge(
           expandSlashOptions(skill).map(option => {
-            const enlirSkill = enlir.otherSkillsByName[option];
+            const enlirSkill = getEnlirOtherSkill(option, enlirStatus.name);
             if (!enlirSkill) {
               return option;
             } else {
@@ -862,6 +862,53 @@ function formatCastSpeedBuildup({
   return `cast speed ${value.toFixed(1)}x, +${increment.toFixed(
     1,
   )}x per ${what}, max ${max}x @ ${maxCount} ${what}s`;
+}
+
+function formatCounter(
+  { skillType, chance, counter, enemyOnly }: statusTypes.Counter,
+  source?: EnlirStatus,
+): string {
+  const chanceText = chance ? ' (' + chance + '%)' : '';
+
+  let counterText: string;
+  let isSimple = skillType === 'PHY';
+  if (!counter) {
+    counterText = 'Retaliate';
+  } else if (counter.type === 'attack') {
+    counterText =
+      'Retaliate @' +
+      damageTypeAbbreviation(describeDamageType(null, counter.overrideSkillType)) +
+      describeDamage(counter.attackMultiplier, counter.numAttacks);
+  } else {
+    isSimple = false;
+    const skill = getEnlirOtherSkill(counter.skill, source ? source.name : undefined);
+    if (!skill) {
+      logger.warn(`Unknown counter skill ${skill}`);
+      counterText = counter.skill;
+    } else {
+      const mrP = convertEnlirSkillToMrP(skill, {
+        abbreviate: true,
+        showNoMiss: false,
+        includeSbPoints: false,
+      });
+      counterText = formatMrPSkill(mrP, { showTime: false });
+    }
+  }
+
+  if (isSimple) {
+    return counterText + chanceText;
+  }
+
+  return (
+    '(' +
+    (enemyOnly ? "foe's " : '') +
+    arrayify(skillType).join('/') +
+    ' atk' +
+    chanceText +
+    TRIGGER_ARROW +
+    counterText +
+    ')'
+  );
 }
 
 function isDurationEffect(effect: statusTypes.EffectClause) {
@@ -1039,18 +1086,7 @@ function describeStatusEffect(
     case 'drainHp':
       return 'heal ' + effect.value + '% of' + formatElementOrSchoolList(effect, ' ') + ' dmg';
     case 'counter':
-      if (effect.skillType === 'PHY') {
-        if (!effect.chance && !effect.counter) {
-          return 'Retaliate';
-        } else if (effect.counter && effect.counter.type === 'attack') {
-          return (
-            'Retaliate @' +
-            damageTypeAbbreviation(describeDamageType(null, effect.counter.overrideSkillType)) +
-            describeDamage(effect.counter.attackMultiplier, effect.counter.numAttacks)
-          );
-        }
-      }
-      return null; // TODO
+      return formatCounter(effect, enlirStatus);
     case 'rowCover':
       return (
         `if in front, ${effect.chance}% cover ` +
