@@ -45,7 +45,7 @@ EffectClause
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal
   / Doom / DoomTimer / DrainHp
-  / Counter / RowCover
+  / CounterWithImmune / Counter / RowCover
   / TriggeredEffect
   / GainSb / SbGainUp
   / Runic / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
@@ -414,6 +414,11 @@ RowCover
   = "While front row," _ chance:Integer "% chance to cover" _ skillType:SkillTypeAndList _ "attacks that target back row allies, reducing damage taken by" _ damageReduce:Integer "%" {
     return { type: 'rowCover', chance, skillType, damageReduce };
   }
+
+CounterWithImmune
+  = immune:ImmuneAttackSkills "," _ counter:Counter
+  & { return util.isEqual(immune.skillType, counter.skillType) && !immune.ranged && !immune.nonRanged; }
+    { return Object.assign(counter, { immune: true }); }
 
 
 // --------------------------------------------------------------------------

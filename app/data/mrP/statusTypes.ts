@@ -462,6 +462,9 @@ export interface Counter {
   enemyOnly: boolean;
   counter?: CounterResponse;
   chance?: number;
+
+  // Is the user immune to the effects they're countering, as with Retaliate?
+  immune?: boolean;
 }
 
 type CounterResponse =
