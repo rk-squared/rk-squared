@@ -5,8 +5,9 @@ import * as process from 'process';
 import * as yargs from 'yargs';
 
 import { enlir, EnlirStatus } from '../app/data/enlir';
+import { parseEnlirStatus } from '../app/data/mrP/status';
 import { parse, SyntaxError } from '../app/data/mrp/statusParser';
-import { SkillEffect } from '../app/data/mrP/types';
+import { StatusEffect } from '../app/data/mrP/statusTypes';
 
 // tslint:disable: no-console
 
@@ -58,7 +59,7 @@ const skipStatuses = new Set<string>([
   'Reraise',
 ]);
 
-function shouldAlwaysSkip(status: Enlir.Status) {
+function shouldAlwaysSkip(status: EnlirStatus) {
   // Skip Nightmare statuses; these often have unique mechanics that aren't
   // relevant for characters.
   return skipStatuses.has(status.name) || status.name.startsWith('Nightmare ');
@@ -66,22 +67,20 @@ function shouldAlwaysSkip(status: Enlir.Status) {
 
 function processStatuses(): [number, number] {
   const items = enlir.statusByName;
-  function shouldShow(parseResults: SkillEffect | undefined, parseError: SyntaxError | undefined) {
+  function shouldShow(parseResults: StatusEffect | undefined, parseError: SyntaxError | undefined) {
     return (parseResults && !argv.hideSuccesses) || (parseError && !argv.hideFailures);
   }
 
   function showText(
     item: EnlirStatus,
-    parseResults: SkillEffect | undefined,
+    parseResults: StatusEffect | undefined,
     parseError: SyntaxError | undefined,
   ) {
     console.log(item.id + ' - ' + item.name);
     console.log(item.effects);
     if (parseResults) {
       console.dir(parseResults, { depth: null });
-      // const mrP = convertEnlirSkillToMrP(item);
-      // const text = formatMrPSkill(mrP);
-      // console.log(text);
+      console.dir(parseEnlirStatus(item.name), { depth: null });
     }
     if (parseError) {
       console.log(' '.repeat(parseError.location.start.offset) + '^');
@@ -92,7 +91,7 @@ function processStatuses(): [number, number] {
 
   function showJson(
     item: EnlirStatus,
-    parseResults: SkillEffect | undefined,
+    parseResults: StatusEffect | undefined,
     parseError: SyntaxError | undefined,
   ) {
     const mrPText = parseResults ? '' /*formatMrPSkill(convertEnlirSkillToMrP(item))*/ : undefined;
@@ -110,7 +109,7 @@ function processStatuses(): [number, number] {
     if (shouldAlwaysSkip(i) || (argv.filter && !i.name.match(argv.filter))) {
       return;
     }
-    let parseResults: SkillEffect | undefined;
+    let parseResults: StatusEffect | undefined;
     let parseError: SyntaxError | undefined;
     totalCount++;
     try {

@@ -987,14 +987,14 @@ export function getEnlirStatusWithPlaceholders(
     return { status: enlirStatusAltName[status], placeholders };
   }
 
-  const checkNumbers: Array<[RegExp, string]> = [[/(\d+\??|\?)/, 'X'], [/-X/, '+X']];
+  const checkNumbers: Array<[RegExp, string]> = [[/(\d+\??|\?)/, 'X'], [/(-\d+)/, '+X']];
   for (const [search, replace] of checkNumbers) {
     const m = status.match(search);
     if (m) {
-      status = status.replace(search, replace);
-      if (enlir.statusByName[status]) {
+      const newStatus = status.replace(search, replace);
+      if (enlir.statusByName[newStatus]) {
         placeholders.xValue = +m[0];
-        return { status: enlir.statusByName[status], placeholders };
+        return { status: enlir.statusByName[newStatus], placeholders };
       }
     }
   }

@@ -1479,9 +1479,12 @@ function getSlashOptions(s: string): string[] | null {
   }
   return options;
 }
-function expandSlashOptions(s: string, options?: string[]): string[] {
+function expandSlashOptions(s: string, options?: string[] | null): string[] {
   if (!options) {
-    options = getSlashOptions(s) || [];
+    options = getSlashOptions(s);
+    if (!options) {
+      return [s];
+    }
   }
   return options.map(i => s.replace(slashOptionsRe, i));
 }
