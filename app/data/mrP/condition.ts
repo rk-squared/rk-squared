@@ -2,6 +2,7 @@ import { arrayifyLength, KeysOfType } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import { describeEnlirStatus } from './status';
+import { statusLevelAlias } from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import { formatNumberSlashList, formatUseCount, formatUseNumber, orList } from './util';
 
@@ -71,9 +72,12 @@ export function describeCondition(condition: common.Condition, count?: number | 
         }
         const m = condition.status.match(/^(.*) ((?:\d+\/)+\d+)/);
         if (m) {
-          return '@ ' + m[2] + ' ' + describeEnlirStatus(m[1]);
+          const status = m[1];
+          return '@ ' + m[2] + ' ' + (statusLevelAlias[status] || describeEnlirStatus(status));
         }
-        return 'if ' + describeEnlirStatus(condition.status);
+        return (
+          'if ' + (statusLevelAlias[condition.status] || describeEnlirStatus(condition.status))
+        );
       } else {
         // If we have one status, show it.  Otherwise, in practice, this is always
         // the same status ailments that the attack itself inflicts, so omit

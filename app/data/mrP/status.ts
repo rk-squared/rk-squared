@@ -38,6 +38,7 @@ import {
   sbPointsAlias,
   sbPointsBoosterAlias,
   splitNumbered,
+  statusLevelAlias,
 } from './statusAlias';
 import * as statusParser from './statusParser';
 import * as statusTypes from './statusTypes';
@@ -564,6 +565,10 @@ interface AnyType {
   skill?: string;
 }
 
+function isMagical(skillType: EnlirSkillType | EnlirSkillType[]): boolean {
+  return Array.isArray(skillType) && _.isEqual(_.sortBy(skillType), ['BLK', 'BLU', 'SUM', 'WHT']);
+}
+
 function formatAnyType(type: AnyType, suffix?: string, physAbbrev?: string): string {
   const result: string[] = [];
 
@@ -582,9 +587,10 @@ function formatAnyType(type: AnyType, suffix?: string, physAbbrev?: string): str
     );
   }
 
+  const magical = type.magical || (type.skillType && isMagical(type.skillType));
   if (type.skillType === 'PHY' && physAbbrev) {
     result.push(physAbbrev);
-  } else if (type.skillType) {
+  } else if (type.skillType && !magical) {
     result.push(arrayify(type.skillType).join('/'));
   }
   if (type.jump) {
@@ -593,7 +599,7 @@ function formatAnyType(type: AnyType, suffix?: string, physAbbrev?: string): str
   if (type.skill) {
     result.push(type.skill);
   }
-  if (type.magical) {
+  if (magical) {
     result.push('mag');
   }
   return result.length ? result.join(' ') + (suffix || '') : '';
@@ -710,7 +716,7 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'skillTriggered':
       return ''; // TODO
     case 'damagedByAlly':
-      return ''; // TODO
+      return `take ${formatAnyType(trigger, ' ')}dmg from ally`;
     case 'singleHeal':
       return ''; // TODO
   }
@@ -798,7 +804,7 @@ function formatTriggerableEffect(
     case 'randomCastSkill':
       return ''; // TODO
     case 'gainSb':
-      return ''; // TODO
+      return sbPointsAlias(effect.value);
     case 'grantStatus':
       return formatGrantStatus(effect, trigger, enlirStatus, source);
     case 'heal':
@@ -882,7 +888,7 @@ function describeStatusEffect(
     case 'statusChance':
       return percentToMultiplier(effect.value) + 'x status chance';
     case 'statusStacking':
-      return null; // TODO
+      return (statusLevelAlias[effect.status] || effect.status) + ' stacking';
     case 'preventStatus':
       if (enlirStatus.name === 'Astra') {
         return 'Status blink 1';

@@ -75,6 +75,16 @@ const kiloConverter = aliasConverter(toMrPKilo);
 const multiplierConverter = aliasConverter(percentToMultiplier);
 
 /**
+ * Aliases of numbered statuses, minus the numbers, for use by status
+ * thresholds and status stacking logic.  These match the text within
+ * describeStatusEffect.
+ */
+export const statusLevelAlias: _.Dictionary<string> = {
+  'Magical Blink': 'Magic blink',
+  'Physical Blink': 'Phys blink',
+};
+
+/**
  * Enlir status aliases
  */
 export const statusAlias: AliasMap = {
