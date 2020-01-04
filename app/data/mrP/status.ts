@@ -36,6 +36,7 @@ import {
   resolveNumbered,
   resolveStatusAlias,
   sbPointsAlias,
+  sbPointsBoosterAlias,
   splitNumbered,
 } from './statusAlias';
 import * as statusParser from './statusParser';
@@ -89,6 +90,7 @@ const wellKnownStatuses = new Set<string>([
   'Slow',
   'Stop',
   'Stun',
+  'KO',
 ]);
 
 const wellKnownAliases: _.Dictionary<string> = {
@@ -562,7 +564,7 @@ interface AnyType {
   skill?: string;
 }
 
-function formatAnyType<T extends AnyType>(type: T, suffix?: string): string {
+function formatAnyType(type: AnyType, suffix?: string, physAbbrev?: string): string {
   const result: string[] = [];
 
   // The way that formatAnyType is used, a slash-separated list of alternatives
@@ -580,8 +582,8 @@ function formatAnyType<T extends AnyType>(type: T, suffix?: string): string {
     );
   }
 
-  if (type.skillType === 'PHY') {
-    result.push('phys');
+  if (type.skillType === 'PHY' && physAbbrev) {
+    result.push(physAbbrev);
   } else if (type.skillType) {
     result.push(arrayify(type.skillType).join('/'));
   }
@@ -598,11 +600,34 @@ function formatAnyType<T extends AnyType>(type: T, suffix?: string): string {
 }
 
 function formatAnyCast<T extends AnyType>(type: T, cast: string): string {
-  return formatAnyType({ ...type, magical: false }, ' ') + cast + (type.magical ? 'zap' : 'cast');
+  // Since we treat magical damage specially ("...zap"), and to match MrP, we
+  // treat physical damage specially also.
+  return (
+    formatAnyType({ ...type, magical: false }, ' ', 'phys') + cast + (type.magical ? 'zap' : 'cast')
+  );
+}
+
+function formatElementOrSchoolList(
+  {
+    element,
+    school,
+  }: { element?: EnlirElement | EnlirElement[]; school?: EnlirSchool | EnlirSchool[] },
+  prefix: string = '',
+  suffix: string = '',
+): string {
+  return (
+    (element ? prefix + formatSchoolOrAbilityList(element) + suffix : '') +
+    (school ? prefix + formatSchoolOrAbilityList(school) + suffix : '')
+  );
 }
 
 function shouldAbbreviateTurns(effect: statusTypes.EffectClause) {
-  return effect.type === 'instacast' || effect.type === 'castSpeed';
+  return (
+    effect.type === 'instacast' ||
+    effect.type === 'castSpeed' ||
+    effect.type === 'instantAtb' ||
+    effect.type === 'atbSpeed'
+  );
 }
 
 function formatAwoken({
@@ -666,11 +691,12 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
       }
       return result + (trigger.requiresDamage ? ' dmg' : '');
     case 'crit':
-      return ''; // TODO
+      return 'crit';
     case 'vsWeak':
-      return ''; // TODO
+      return 'hit weak';
     case 'whenRemoved':
-      return ''; // TODO
+      // Finishers are handled separately, so this code path isn't hit.
+      return 'finisher';
     case 'auto':
       return describeAutoInterval(trigger.interval);
     case 'damaged':
@@ -680,7 +706,7 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'loseStatus':
       return ''; // TODO
     case 'skill':
-      return ''; // TODO
+      return (trigger.count ? trigger.count + ' ' : '') + arrayify(trigger.skill).join('/');
     case 'skillTriggered':
       return ''; // TODO
     case 'damagedByAlly':
@@ -780,7 +806,7 @@ function formatTriggerableEffect(
     case 'triggerChance':
       return ''; // TODO
     case 'smartEther':
-      return ''; // TODO
+      return formatSmartEther(effect.amount, effect.school);
   }
 }
 
@@ -795,7 +821,7 @@ function formatSwitchDraw(
     TRIGGER_ARROW +
     elements.map(getElementShortName).join('/') +
     ' infuse' +
-    (stackingLevel ? stackingLevel + ' ' : '') +
+    (stackingLevel ? ' ' + stackingLevel : '') +
     (isStacking ? ' w/ stacking' : '') +
     ')'
   );
@@ -819,6 +845,19 @@ function formatTriggeredEffect(
   }
 }
 
+function formatCastSpeedBuildup({
+  value,
+  increment,
+  max,
+  requiresAttack,
+}: statusTypes.CastSpeedBuildup): string {
+  const what = requiresAttack ? 'atk' : 'abil';
+  const maxCount = Math.round((max - value) / increment);
+  return `cast speed ${value.toFixed(1)}x, +${increment.toFixed(
+    1,
+  )}x per ${what}, max ${max}x @ ${maxCount} ${what}s`;
+}
+
 function describeStatusEffect(
   effect: statusTypes.EffectClause,
   enlirStatus: EnlirStatus,
@@ -827,16 +866,9 @@ function describeStatusEffect(
 ): string | null {
   switch (effect.type) {
     case 'statMod':
-      return (
-        signedNumber(effect.value) +
-        '% ' +
-        arrayify(effect.stats)
-          .map(i => i.toUpperCase())
-          .join('/')
-      );
+      return signedNumber(effect.value) + '% ' + describeStats(arrayify(effect.stats));
     case 'critChance':
-      // TODO: trigger
-      return 'crit =' + effect.value + '%';
+      return addTrigger('crit =' + effect.value + '%', effect.trigger);
     case 'critDamage':
       return signedNumber(effect.value) + '% crit dmg';
     case 'hitRate':
@@ -848,7 +880,7 @@ function describeStatusEffect(
     case 'reraise':
       return 'Reraise ' + effect.value + '%';
     case 'statusChance':
-      return null; // TODO
+      return percentToMultiplier(effect.value) + 'x status chance';
     case 'statusStacking':
       return null; // TODO
     case 'preventStatus':
@@ -866,7 +898,7 @@ function describeStatusEffect(
     case 'instacast':
       return formatAnyCast(effect, 'insta');
     case 'castSpeedBuildup':
-      return null; // TODO
+      return formatCastSpeedBuildup(effect);
     case 'castSpeed': {
       let cast: string = '';
       if (Array.isArray(effect.value) || options.forceNumbers) {
@@ -885,9 +917,9 @@ function describeStatusEffect(
       return formatAnyCast(effect, cast);
     }
     case 'instantAtb':
-      return null; // TODO
+      return 'instant ATB';
     case 'atbSpeed':
-      return null; // TODO
+      return effect.value + 'x ATB';
     case 'physicalBlink':
       return 'Phys blink ' + effect.level;
     case 'magicBlink':
@@ -956,28 +988,24 @@ function describeStatusEffect(
           'x ' +
           formatAnyType(effect, ' ') +
           'dmg' +
-          (effect.vsWeak ? ' vs. weak' : ''),
+          (effect.vsWeak ? ' vs weak' : ''),
         effect.trigger,
       );
     case 'abilityDouble':
-      return null; // TODO
+      return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
     case 'dualcast':
-      return (
-        effect.chance +
-        '% dualcast' +
-        (effect.element ? ' ' + formatSchoolOrAbilityList(effect.element) : '') +
-        (effect.school ? ' ' + formatSchoolOrAbilityList(effect.school) : '')
-      );
+      return effect.chance + '% dualcast' + formatElementOrSchoolList(effect, ' ');
     case 'noAirTime':
       return 'no air time';
     case 'breakDamageCap':
-      return null; // TODO
+      return 'break ' + formatAnyType(effect, ' ') + 'dmg cap';
     case 'damageCap':
       return 'dmg cap +' + toMrPKilo(effect.value);
     case 'hpStock':
       return 'Autoheal ' + toMrPKilo(effect.value);
     case 'regen':
-      return null; // TODO
+      // Show regen details.  The standard low/medium/high regen are aliased elsewhere.
+      return `regen ${effect.percentHp}% HP per ${effect.interval.toFixed(2)}s`;
     case 'fixedHpRegen':
       return 'regen ' + toMrPKilo(effect.value) + ' HP per ' + effect.interval + 's';
     case 'poison':
@@ -991,11 +1019,11 @@ function describeStatusEffect(
     case 'barHeal':
       return null; // TODO
     case 'doom':
-      return null; // TODO
+      return 'Doom ' + effect.timer + 's';
     case 'doomTimer':
-      return null; // TODO
+      return effect.value + 's Doom';
     case 'drainHp':
-      return null; // TODO
+      return 'heal ' + effect.value + '% of' + formatElementOrSchoolList(effect, ' ') + ' dmg';
     case 'counter':
       if (effect.skillType === 'PHY') {
         if (!effect.chance && !effect.counter) {
@@ -1010,23 +1038,27 @@ function describeStatusEffect(
       }
       return null; // TODO
     case 'rowCover':
-      return null; // TODO
+      return (
+        `if in front, ${effect.chance}% cover ` +
+        arrayify(effect.skillType).join() +
+        ` vs back row, taking ${percentToMultiplier(-effect.damageReduce)}x dmg`
+      );
     case 'triggeredEffect':
       return formatTriggeredEffect(effect, enlirStatus, source);
     case 'gainSb':
-      return null; // TODO
+      return sbPointsAlias(effect.value);
     case 'sbGainUp':
-      return null; // TODO
+      return sbPointsBoosterAlias(effect.value, formatElementOrSchoolList(effect));
     case 'taunt':
       return 'taunt ' + arrayify(effect.skillType).join('/');
     case 'runic':
-      return null; // TODO
+      return 'taunt & absorb ' + arrayify(effect.skillType).join('/');
     case 'immuneAttacks':
       return null; // TODO
     case 'zeroDamage':
       return null; // TODO
     case 'evadeAll':
-      return null; // TODO
+      return 'immune atks/status/heal';
     case 'multiplyDamage':
       return null; // TODO
     case 'berserk':
@@ -1034,7 +1066,7 @@ function describeStatusEffect(
     case 'rage':
       return null; // TODO
     case 'abilityBerserk':
-      return null; // TODO
+      return 'Abil. berserk';
     case 'turnDuration':
       return null; // TODO
     case 'removedUnlessStatus':
@@ -1042,8 +1074,6 @@ function describeStatusEffect(
     case 'onceOnly':
       return null; // TODO
     case 'removedAfterTrigger':
-      return null; // TODO
-    case 'trackStatusLevel':
       return null; // TODO
     case 'changeStatusLevel':
       return null; // TODO
@@ -1055,10 +1085,11 @@ function describeStatusEffect(
       return null; // TODO
     case 'trackUses':
       return null; // TODO
+    case 'trackStatusLevel':
     case 'burstOnly':
-      return null; // TODO
     case 'burstReset':
-      return null; // TODO
+      // Internal details; omit from descriptions.
+      return null;
     case 'statusReset':
       return null; // TODO
     case 'disableAttacks':

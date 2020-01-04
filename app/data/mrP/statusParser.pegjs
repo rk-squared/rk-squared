@@ -48,7 +48,7 @@ EffectClause
   / Counter / RowCover
   / TriggeredEffect
   / GainSb / SbGainUp
-  / Taunt / Runic / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
+  / Runic / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / OnceOnly / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
@@ -213,10 +213,10 @@ AwokenRankCast
   = ", cast speed x2.00/2.25/2.50/2.75/3.00 for" _ type:AwokenType _ "abilities at ability rank 1/2/3/4/5" { return type; }
 
 AwokenDualcast
-  = ", dualcasts" _ type:AwokenType _ "abilities" { return type; }
+  = ", dualcasts" _ type:AwokenType _ ("abilities" / "attacks") { return type; }
 
 AwokenInstacast
-  = ", cast speed x999" "9"* _ "for" _ type:AwokenType _ "abilities" { return type; }
+  = ", cast speed x999" "9"* _ "for" _ type:AwokenType _ ("abilities" / "attacks") { return type; }
 
 
 // --------------------------------------------------------------------------
@@ -469,8 +469,11 @@ SbGainUp
 Taunt
   = "Taunts"i _ "single-target" _ skillType:SkillTypeAndList _ "attacks" { return { type: 'taunt', skillType }; }
 
+// A special case of taunt
 Runic
-  = "Absorbs"i _ skillType:SkillTypeAndList _ "attacks to restore 1 consumed ability use" { return { type: 'runic', skillType }; }
+  = taunt:Taunt ", absorbs"i _ skillType:SkillTypeAndList _ "attacks to restore 1 consumed ability use"
+  & { return util.isEqual(taunt.skillType, skillType); }
+    { return { type: 'runic', skillType }; }
 
 ImmuneAttackSkills
   = "Can't"i _ "be hit by" _ ranged:("ranged")? _ nonRanged:("non-ranged")? _ skillType:SkillTypeList _ "attacks" {

@@ -153,7 +153,7 @@ interface CastSpeed extends ForAbilities {
   trigger?: Trigger;
 }
 
-interface CastSpeedBuildup {
+export interface CastSpeedBuildup {
   type: 'castSpeedBuildup';
   value: number;
   increment: number;
@@ -449,8 +449,8 @@ interface DoomTimer {
 interface DrainHp {
   type: 'drainHp';
   value: number;
-  element: EnlirElement | EnlirElement[];
-  school: EnlirSchool | EnlirSchool[];
+  element?: EnlirElement | EnlirElement[];
+  school?: EnlirSchool | EnlirSchool[];
 }
 
 // --------------------------------------------------------------------------
@@ -538,8 +538,8 @@ export interface GainSb {
 interface SbGainUp {
   type: 'sbGainUp';
   value: number;
-  element: EnlirElement | EnlirElement[];
-  school: EnlirSchool | EnlirSchool[];
+  element?: EnlirElement | EnlirElement[];
+  school?: EnlirSchool | EnlirSchool[];
 }
 
 // --------------------------------------------------------------------------
