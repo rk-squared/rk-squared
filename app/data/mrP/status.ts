@@ -16,6 +16,7 @@ import {
   getEnlirStatusByName,
   getEnlirStatusWithPlaceholders,
 } from '../enlir';
+import { describeDamage, describeDamageType } from './attack';
 import * as common from './commonTypes';
 import { describeCondition } from './condition';
 import { describeRageEffects } from './rage';
@@ -40,6 +41,7 @@ import {
 import * as statusParser from './statusParser';
 import * as statusTypes from './statusTypes';
 import {
+  damageTypeAbbreviation,
   formatSchoolOrAbilityList,
   getAbbreviation,
   getElementShortName,
@@ -92,6 +94,12 @@ const wellKnownAliases: _.Dictionary<string> = {
   'High Regen': 'Regen (hi)',
 };
 
+interface StatusOptions {
+  forceNumbers?: boolean;
+}
+
+const TRIGGER_ARROW = ' ⤇ ';
+
 export function safeParseStatus(
   status: EnlirStatus,
   placeholders?: EnlirStatusPlaceholders,
@@ -114,7 +122,7 @@ export const formatTriggeredEffectOld = (
   trigger: string,
   description: string,
   percent?: string | number,
-) => '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
+) => '(' + trigger + TRIGGER_ARROW + (percent ? `${percent}% for ` : '') + description + ')';
 
 export function describeStats(stats: string[]): string {
   return stats
@@ -388,7 +396,7 @@ function getFollowUpStatusSequence(
       break;
     }
   }
-  return result.length ? result : null;
+  return result.length > 1 ? result : null;
 }
 
 /**
@@ -396,8 +404,15 @@ function getFollowUpStatusSequence(
  * effects.
  */
 function describeMergedSequence(sequence: FollowUpStatusSequence) {
-  const parts = sequence.map(([status, effects]) => describeEnlirStatusEffects(effects, status));
-  return slashMerge(parts, { join: '-' });
+  // Hack: Insert spaces in strings like '2x' and '50%' so that their numeric
+  // parts can be slash-merged, then remove them when done.
+  const parts = sequence.map(([status, effects]) =>
+    describeEnlirStatusEffects(effects, status, undefined, { forceNumbers: true }).replace(
+      /(\d)([x%])([ ,]|$)/g,
+      '$1 $2$3',
+    ),
+  );
+  return slashMerge(parts, { join: '-' }).replace(/(\d) ([x%])([ ,]|$)/g, '$1$2$3');
 }
 
 const isFinisherStatus = ({ effects }: EnlirStatus) =>
@@ -660,6 +675,14 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
   }
 }
 
+function addTrigger(effect: string, trigger: statusTypes.Trigger | undefined): string {
+  if (!trigger) {
+    return effect;
+  } else {
+    return '(' + formatTrigger(trigger) + TRIGGER_ARROW + effect + ')';
+  }
+}
+
 function formatGrantStatus(
   { status, who, duration, condition }: statusTypes.GrantStatus,
   trigger: statusTypes.Trigger,
@@ -750,7 +773,7 @@ function formatSwitchDraw(
   return (
     '(' +
     elements.map(getElementShortName).join('/') +
-    ' ⤇ ' +
+    TRIGGER_ARROW +
     elements.map(getElementShortName).join('/') +
     ' infuse' +
     (stackingLevel ? stackingLevel + ' ' : '') +
@@ -780,7 +803,8 @@ function formatTriggeredEffect(
 function describeStatusEffect(
   effect: statusTypes.EffectClause,
   enlirStatus: EnlirStatus,
-  source?: EnlirSkill,
+  source: EnlirSkill | undefined,
+  options: StatusOptions,
 ): string | null {
   switch (effect.type) {
     case 'statMod':
@@ -825,12 +849,19 @@ function describeStatusEffect(
     case 'castSpeedBuildup':
       return null; // TODO
     case 'castSpeed': {
-      let cast: string;
-      if (Array.isArray(effect.value)) {
-        cast = effect.value.map(i => i.toString()).join('/');
+      let cast: string = '';
+      if (Array.isArray(effect.value) || options.forceNumbers) {
+        cast =
+          arrayify(effect.value)
+            .map(i => i.toString())
+            .join('/') + 'x ';
       } else {
         cast =
-          effect.value === 2 ? 'fast' : effect.value === 3 ? 'hi fast' : effect.value.toString();
+          effect.value === 2
+            ? 'fast'
+            : effect.value === 3
+            ? 'hi fast'
+            : effect.value.toString() + 'x ';
       }
       return formatAnyCast(effect, cast);
     }
@@ -899,15 +930,15 @@ function describeStatusEffect(
     case 'rankBoost':
       return rankBoostAlias(formatAnyType(effect));
     case 'damageUp':
-      // TODO: trigger
-      return (
+      return addTrigger(
         arrayify(effect.value)
           .map(percentToMultiplier)
-          .join('/') +
-        'x ' +
-        formatAnyType(effect, ' ') +
-        'dmg' +
-        (effect.vsWeak ? ' vs. weak' : '')
+          .join('-') +
+          'x ' +
+          formatAnyType(effect, ' ') +
+          'dmg' +
+          (effect.vsWeak ? ' vs. weak' : ''),
+        effect.trigger,
       );
     case 'abilityDouble':
       return null; // TODO
@@ -945,6 +976,12 @@ function describeStatusEffect(
       if (effect.skillType === 'PHY') {
         if (!effect.chance && !effect.counter) {
           return 'Retaliate';
+        } else if (effect.counter && effect.counter.type === 'attack') {
+          return (
+            'Retaliate @' +
+            damageTypeAbbreviation(describeDamageType(null, effect.counter.overrideSkillType)) +
+            describeDamage(effect.counter.attackMultiplier, effect.counter.numAttacks)
+          );
         }
       }
       return null; // TODO
@@ -1010,7 +1047,8 @@ function describeStatusEffect(
 function describeEnlirStatusEffects(
   statusEffects: statusTypes.StatusEffect,
   enlirStatus: EnlirStatus,
-  source?: EnlirSkill,
+  source: EnlirSkill | undefined,
+  options: StatusOptions,
 ): string {
   statusEffects = sortStatusEffects(statusEffects);
 
@@ -1034,7 +1072,7 @@ function describeEnlirStatusEffects(
 
   return (
     statusEffects
-      .map(i => describeStatusEffect(i, enlirStatus, source))
+      .map(i => describeStatusEffect(i, enlirStatus, source, options))
       .filter(i => !!i)
       .join(', ') + suffix
   );
@@ -1053,6 +1091,7 @@ export function describeEnlirStatus(
   status: string,
   enlirStatus?: EnlirStatusWithPlaceholders,
   source?: EnlirSkill,
+  options?: StatusOptions,
 ) {
   if (wellKnownStatuses.has(status)) {
     return status;
@@ -1068,7 +1107,7 @@ export function describeEnlirStatus(
     return status;
   }
 
-  return describeEnlirStatusEffects(statusEffects, enlirStatus.status, source);
+  return describeEnlirStatusEffects(statusEffects, enlirStatus.status, source, options || {});
 }
 
 const getFinisherSkillName = (effect: string) => {

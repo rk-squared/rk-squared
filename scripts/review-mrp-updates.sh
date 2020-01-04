@@ -15,11 +15,15 @@ if ! $convert >& $after ; then
   exit 1
 fi
 
-# if command -v bcomp >& /dev/null; then
-#   if ! pgrep bcomp >& /dev/null; then
-#     bcomp $before $after &
-#   fi
-# fi
+# Optionally launch Beyond Compare, but don't run it if it's already running.
+# "Already running" logic is currently unimplemented in MinGW.
+if [ "$OSTYPE" != msys ]; then
+  if command -v bcomp >& /dev/null; then
+    if ! pgrep bcomp >& /dev/null; then
+      bcomp $before $after &
+    fi
+  fi
+fi
 
 year=$(date +%Y)
 diff <(perl -pe "s/^$year\\S+//" $before) <(perl -pe "s/^$year\\S+//" $after) > $diff || true

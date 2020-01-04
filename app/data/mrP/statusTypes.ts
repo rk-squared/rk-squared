@@ -465,15 +465,8 @@ interface Counter {
 }
 
 type CounterResponse =
-  | { skill: string }
-  | {
-      attack: {
-        type: 'attack';
-        numAttacks: 1;
-        attackMultiplier: number;
-        overrideSkillType: EnlirSkillType;
-      };
-    };
+  | { type: 'skill'; skill: string }
+  | { type: 'attack'; numAttacks: 1; attackMultiplier: number; overrideSkillType: EnlirSkillType };
 
 // Haurchefant Cover
 interface RowCover {

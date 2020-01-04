@@ -401,10 +401,10 @@ CounterWhen
 
 CounterResponse
   = "Attack" { return undefined; }
-  / skill:AnySkillName { return { skill }; }
+  / skill:AnySkillName { return { type: 'skill', skill }; }
   / "an ability (single," _ attackMultiplier:DecimalNumber _ damageType:("physical" / "magical") _ ")" {
     const overrideSkillType = damageType === 'physical' ? 'PHY' : 'BLK';
-    return { attack: { type: 'attack', numAttacks: 1, attackMultiplier, overrideSkillType } };
+    return { type: 'attack', numAttacks: 1, attackMultiplier, overrideSkillType };
   }
 
 // Haurchefant Cover
