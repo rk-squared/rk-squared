@@ -311,7 +311,7 @@ interface LoseEnElement {
 // --------------------------------------------------------------------------
 // Abilities and elements
 
-interface AbilityBuildup {
+export interface AbilityBuildup {
   type: 'abilityBuildup';
   school: EnlirSchool;
   increment: number;

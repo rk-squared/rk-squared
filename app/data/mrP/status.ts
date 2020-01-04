@@ -48,6 +48,7 @@ import {
   getAbbreviation,
   getElementAbbreviation,
   getElementShortName,
+  getSchoolShortName,
   getShortName,
   getShortNameWithSpaces,
   whoText,
@@ -726,7 +727,7 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'damagedByAlly':
       return `take ${formatAnyType(trigger, ' ')}dmg from ally`;
     case 'singleHeal':
-      return ''; // TODO
+      return 'ally heal';
   }
 }
 
@@ -748,6 +749,8 @@ function formatGrantStatus(
 
   if (who && who !== 'self' && who !== 'target') {
     result += whoText[who] + ' ';
+  } else if (who === 'target' && trigger.type === 'singleHeal') {
+    result += whoText['ally'] + ' ';
   }
 
   result += arrayify(status)
@@ -769,10 +772,10 @@ function formatGrantStatus(
     .join(', ');
 
   if (duration) {
-    result += formatDuration(duration) + ' ';
+    result += ' ' + formatDuration(duration);
   }
   if (condition) {
-    result += describeCondition(condition);
+    result += ' ' + describeCondition(condition);
   }
 
   return result.trim();
@@ -870,6 +873,14 @@ function formatCastSpeedBuildup({
   return `cast speed ${value.toFixed(1)}x, +${increment.toFixed(
     1,
   )}x per ${what}, max ${max}x @ ${maxCount} ${what}s`;
+}
+
+function formatAbilityBuildup(effect: statusTypes.AbilityBuildup): string {
+  const increment = percentToMultiplier(effect.increment);
+  const max = percentToMultiplier(effect.max);
+  const school = getSchoolShortName(effect.school);
+  const maxCount = effect.max / effect.increment;
+  return `${increment}x ${school} dmg per ${school}, max ${max}x @ ${maxCount} ${school}`;
 }
 
 function formatCounter(
@@ -1063,7 +1074,7 @@ function describeStatusEffect(
         (effect.level !== 1 ? ' ' + effect.level : '')
       );
     case 'abilityBuildup':
-      return null; // TODO
+      return formatAbilityBuildup(effect);
     case 'rankBoost':
       return rankBoostAlias(formatAnyType(effect));
     case 'damageUp':
@@ -1163,7 +1174,11 @@ function describeStatusEffect(
         effect.trigger,
       );
     case 'setStatusLevel':
-      return (statusLevelAlias[effect.status] || effect.status) + ' =' + effect.value;
+      if (effect.value) {
+        return (statusLevelAlias[effect.status] || effect.status) + ' =' + effect.value;
+      } else {
+        return 'reset ' + (statusLevelAlias[effect.status] || effect.status);
+      }
     case 'statusLevelBooster':
       return `+${effect.value} to all ${statusLevelAlias[effect.status] || effect.status} gains`;
     case 'burstToggle':
