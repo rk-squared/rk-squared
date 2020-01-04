@@ -628,7 +628,8 @@ AbilityOrAttack
   / "attack" "s"? { return true; }
 
 TriggerCount
-  = values:(ArticleOrNumberString / UseCount / Integer) ! "/" { return { values }; }
+  = useCount:UseCount { return useCount; }
+  / values:(ArticleOrNumberString / Integer) ! "/" { return { values }; }
   / values:IntegerSlashList plus:"+"? { return { values, plus: !!plus }; }
   / "" { return { values: 1 }; }
 

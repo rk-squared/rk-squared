@@ -56,6 +56,7 @@ import {
   andList,
   andOrList,
   cleanUpSlashedNumbers,
+  formatUseCount,
   handleOrOptions,
   isSequential,
   lowerCaseFirst,
@@ -630,6 +631,10 @@ function formatAwoken({
 }
 
 function formatTriggerCount(count: statusTypes.TriggerCount) {
+  if (!('values' in count)) {
+    return formatUseCount(count) + ' ';
+  }
+
   if (count.values === 1 && !count.plus) {
     return '';
   }
@@ -667,7 +672,7 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'whenRemoved':
       return ''; // TODO
     case 'auto':
-      return ''; // TODO
+      return describeAutoInterval(trigger.interval);
     case 'damaged':
       return ''; // TODO
     case 'dealDamage':
@@ -771,7 +776,7 @@ function formatTriggerableEffect(
     case 'grantStatus':
       return formatGrantStatus(effect, trigger, enlirStatus, source);
     case 'heal':
-      return ''; // TODO
+      return whoText[effect.who] + ' heal ' + toMrPKilo(effect.fixedHp) + ' HP';
     case 'triggerChance':
       return ''; // TODO
     case 'smartEther':
@@ -957,7 +962,12 @@ function describeStatusEffect(
     case 'abilityDouble':
       return null; // TODO
     case 'dualcast':
-      return null; // TODO
+      return (
+        effect.chance +
+        '% dualcast' +
+        (effect.element ? ' ' + formatSchoolOrAbilityList(effect.element) : '') +
+        (effect.school ? ' ' + formatSchoolOrAbilityList(effect.school) : '')
+      );
     case 'noAirTime':
       return 'no air time';
     case 'breakDamageCap':

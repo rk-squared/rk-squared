@@ -338,8 +338,8 @@ interface AbilityDouble {
 interface Dualcast {
   type: 'dualcast';
   chance: number;
-  element: EnlirElement | EnlirElement[];
-  school: EnlirSchool | EnlirSchool[];
+  element?: EnlirElement | EnlirElement[];
+  school?: EnlirSchool | EnlirSchool[];
 }
 
 interface NoAirTime {
@@ -708,7 +708,9 @@ export type Trigger =
     }
   | { type: 'singleHeal' };
 
-export interface TriggerCount {
-  values: number | number[];
-  plus?: boolean;
-}
+export type TriggerCount =
+  | common.UseCount
+  | {
+      values: number | number[];
+      plus?: boolean;
+    };

@@ -357,7 +357,7 @@ export function formatUseNumber(count: number | undefined): string {
 
 export function formatUseCount(count: common.UseCount): string {
   if ('x' in count) {
-    return `${count.x} + ${count.y}n`;
+    return arrayify(count.x).join('/') + ` +${count.y}n`;
   } else if (!('from' in count)) {
     return `≤${count.to}`;
   } else if (!('to' in count)) {
