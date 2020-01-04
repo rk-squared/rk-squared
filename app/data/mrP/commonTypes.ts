@@ -104,3 +104,7 @@ export interface Fraction {
 }
 
 export type OrOptions<T> = T | T[] | { options: T[] };
+
+export function isOptions<T>(items: OrOptions<T>): items is { options: T[] } {
+  return typeof items === 'object' && 'options' in items;
+}

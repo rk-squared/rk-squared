@@ -244,12 +244,13 @@ interface Reflect {
 // --------------------------------------------------------------------------
 // Awoken modes
 
-interface Awoken {
+export interface Awoken {
   type: 'awoken';
   awoken: AwokenType;
   rankBoost: boolean;
   rankCast: boolean;
   dualcast: boolean;
+  instacast: boolean;
 }
 
 export type AwokenType =
@@ -694,7 +695,7 @@ interface Paralyze {
 export type Trigger =
   | {
       type: 'ability';
-      element?: EnlirElement | EnlirElement[];
+      element?: common.OrOptions<EnlirElement>;
       school?: EnlirSchool | EnlirSchool[];
       count: number | number[];
       jump: boolean;
@@ -713,6 +714,6 @@ export type Trigger =
   | {
       type: 'damagedByAlly';
       skillType: EnlirSkillType | EnlirSkillType[];
-      element: EnlirElement | EnlirElement[];
+      element: common.OrOptions<EnlirElement>;
     }
   | { type: 'singleHeal' };

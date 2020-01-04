@@ -528,8 +528,8 @@ function statusAsStatMod(statusName: string, enlirStatus?: EnlirStatus) {
 }
 
 interface AnyType {
-  element?: EnlirElement | EnlirElement[];
-  school?: EnlirSchool | EnlirSchool[];
+  element?: common.OrOptions<EnlirElement>;
+  school?: common.OrOptions<EnlirSchool>;
   jump?: boolean;
   magical?: boolean;
   skillType?: EnlirSkillType | EnlirSkillType[];
@@ -538,12 +538,22 @@ interface AnyType {
 
 function formatAnyType<T extends AnyType>(type: T): string {
   const result: string[] = [];
+
+  // The way that formatAnyType is used, a slash-separated list of alternatives
+  // is displayed the same as a comma-separated list.
   if (type.element) {
-    result.push(formatSchoolOrAbilityList(type.element));
+    result.push(
+      formatSchoolOrAbilityList(
+        common.isOptions(type.element) ? type.element.options : type.element,
+      ),
+    );
   }
   if (type.school) {
-    result.push(formatSchoolOrAbilityList(type.school));
+    result.push(
+      formatSchoolOrAbilityList(common.isOptions(type.school) ? type.school.options : type.school),
+    );
   }
+
   if (type.skillType === 'PHY') {
     result.push('phys');
   } else if (type.skillType) {
@@ -569,6 +579,31 @@ function shouldAbbreviateTurns(effect: statusTypes.EffectClause) {
   return effect.type === 'instacast' || effect.type === 'castSpeed';
 }
 
+function formatAwoken({
+  awoken,
+  dualcast,
+  instacast,
+  rankBoost,
+  rankCast,
+}: statusTypes.Awoken): string {
+  const type = formatSchoolOrAbilityList('school' in awoken ? awoken.school : awoken.element);
+  let result = `${type} inf. hones`;
+  // TODO: Remove redundant `${type}` below
+  if (rankBoost) {
+    result += ', up to 1.3x dmg @ rank 5';
+  }
+  if (rankCast) {
+    result += `, 2-3x ${type} cast @ rank 1-5`;
+  }
+  if (dualcast) {
+    result += ', 100% dualcast';
+  }
+  if (instacast) {
+    result += `, ${type} instacast`;
+  }
+  return result;
+}
+
 function formatTrigger(trigger: statusTypes.Trigger): string {
   switch (trigger.type) {
     case 'ability':
@@ -582,8 +617,10 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
             ? 'any ability'
             : arrayify(trigger.count).join('/') + ' abilities';
         }
+      } else {
+        const count = trigger.count === 1 ? '' : arrayify(trigger.count).join('/') + ' ';
+        return count + formatAnyType(trigger).trimRight();
       }
-      return ''; // TODO
     case 'crit':
       return ''; // TODO
     case 'vsWeak':
@@ -751,7 +788,7 @@ function describeStatusEffect(
     case 'reflect':
       return null; // TODO
     case 'awoken':
-      return null; // TODO
+      return formatAwoken(effect);
     case 'switchDraw':
       return null; // TODO
     case 'switchDrawStacking':

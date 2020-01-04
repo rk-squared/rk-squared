@@ -194,10 +194,11 @@ Reflect
 // references to individual schools or elements.
 
 Awoken
-  = awoken:AwokenType _ ("abilities" / "attacks") _ "don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast?
+  = awoken:AwokenType _ ("abilities" / "attacks") _ "don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast? instacast:AwokenInstacast?
   & { return !rankCast || util.isEqual(awoken, rankCast); }
   & { return !dualcast || util.isEqual(awoken, dualcast); }
-  { return { type: 'awoken', awoken, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast }; }
+  & { return !instacast || util.isEqual(awoken, instacast); }
+  { return { type: 'awoken', awoken, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast, instacast: !!instacast }; }
 
 AwokenType
   = school:SchoolAndOrList { return { school }; }
@@ -211,6 +212,9 @@ AwokenRankCast
 
 AwokenDualcast
   = ", dualcasts" _ type:AwokenType _ "abilities" { return type; }
+
+AwokenInstacast
+  = ", cast speed x999" "9"* _ "for" _ type:AwokenType _ "abilities" { return type; }
 
 
 // --------------------------------------------------------------------------
