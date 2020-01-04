@@ -706,7 +706,7 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'auto':
       return describeAutoInterval(trigger.interval);
     case 'damaged':
-      return ''; // TODO
+      return 'damaged';
     case 'dealDamage':
       return ''; // TODO
     case 'loseStatus':
@@ -865,7 +865,11 @@ function formatCastSpeedBuildup({
 }
 
 function isDurationEffect(effect: statusTypes.EffectClause) {
-  return effect.type === 'turnDuration' || effect.type === 'removedUnlessStatus';
+  return (
+    effect.type === 'turnDuration' ||
+    effect.type === 'removedUnlessStatus' ||
+    effect.type === 'removedAfterTrigger'
+  );
 }
 
 function describeStatusEffect(
@@ -1074,7 +1078,7 @@ function describeStatusEffect(
     case 'berserk':
       return null; // TODO
     case 'rage':
-      return null; // TODO
+      return source ? describeRageEffects(source) : null;
     case 'abilityBerserk':
       return 'Abil. berserk';
     case 'turnDuration':
@@ -1091,7 +1095,7 @@ function describeStatusEffect(
     case 'onceOnly':
       return null; // TODO
     case 'removedAfterTrigger':
-      return null; // TODO
+      return 'until ' + formatTrigger(effect.trigger);
     case 'changeStatusLevel':
       return addTrigger(
         (statusLevelAlias[effect.status] || effect.status) + ' ' + signedNumber(effect.value),

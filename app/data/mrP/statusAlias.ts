@@ -84,6 +84,7 @@ export const statusLevelAlias: _.Dictionary<string> = {
   'Physical Blink': 'Phys blink',
   Stoneskin: 'Neg. Dmg.',
   'Heavy Charge': 'Hvy Charge',
+  Ingredients: 'ingred.',
 };
 
 /**
