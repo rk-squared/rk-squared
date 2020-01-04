@@ -569,6 +569,96 @@ function shouldAbbreviateTurns(effect: statusTypes.EffectClause) {
   return effect.type === 'instacast' || effect.type === 'castSpeed';
 }
 
+function formatTrigger(trigger: statusTypes.Trigger): string {
+  switch (trigger.type) {
+    case 'ability':
+      if (!trigger.element && !trigger.school && !trigger.jump) {
+        if (trigger.requiresAttack) {
+          return trigger.count === 1
+            ? 'any attack'
+            : arrayify(trigger.count).join('/') + ' attacks';
+        } else {
+          return trigger.count === 1
+            ? 'any ability'
+            : arrayify(trigger.count).join('/') + ' abilities';
+        }
+      }
+      return ''; // TODO
+    case 'crit':
+      return ''; // TODO
+    case 'vsWeak':
+      return ''; // TODO
+    case 'whenRemoved':
+      return ''; // TODO
+    case 'auto':
+      return ''; // TODO
+    case 'damaged':
+      return ''; // TODO
+    case 'dealDamage':
+      return ''; // TODO
+    case 'loseStatus':
+      return ''; // TODO
+    case 'skill':
+      return ''; // TODO
+    case 'skillTriggered':
+      return ''; // TODO
+    case 'damagedByAlly':
+      return ''; // TODO
+    case 'singleHeal':
+      return ''; // TODO
+  }
+}
+
+function handleOrOptions<T>(options: common.OrOptions<T>, f: (item: T) => string): string {
+  if (Array.isArray(options)) {
+    return options.map(f).join('+');
+  } else if (typeof options === 'object' && 'options' in options) {
+    return slashMerge(options.options.map(f));
+  } else {
+    return f(options);
+  }
+}
+
+function formatTriggerableEffect(
+  effect: statusTypes.TriggerableEffect,
+  enlirStatus: EnlirStatus,
+  source?: EnlirSkill,
+): string {
+  switch (effect.type) {
+    case 'castSkill': {
+      return handleOrOptions(effect.skill, skill => {
+        const enlirSkill = enlir.otherSkillsByName[skill];
+        if (enlirSkill) {
+          return formatMrPSkill(
+            convertEnlirSkillToMrP(enlirSkill, {
+              abbreviate: true,
+              showNoMiss: false,
+              includeSchool: true,
+              includeSbPoints: false,
+              prereqStatus: enlirStatus.name,
+            }),
+            { showTime: false },
+          );
+        } else {
+          return skill;
+        }
+      });
+    }
+    case 'randomCastSkill':
+      return ''; // TODO
+    case 'gainSb':
+      return ''; // TODO
+    case 'grantStatus':
+      return ''; // TODO
+    case 'heal':
+      return ''; // TODO
+    case 'triggerChance':
+      return ''; // TODO
+    case 'smartEther':
+      return ''; // TODO
+  }
+}
+
 function describeStatusEffect(
   effect: statusTypes.EffectClause,
   enlirStatus: EnlirStatus,
@@ -584,6 +674,7 @@ function describeStatusEffect(
           .join('/')
       );
     case 'critChance':
+      // TODO: trigger
       return 'crit =' + effect.value + '%';
     case 'critDamage':
       return signedNumber(effect.value) + '% crit dmg';
@@ -611,9 +702,8 @@ function describeStatusEffect(
         : effect.value === 0.5
         ? 'Slow'
         : effect.value + 'x speed';
-    case 'instacast': {
+    case 'instacast':
       return formatAnyCast(effect, 'insta');
-    }
     case 'castSpeedBuildup':
       return null; // TODO
     case 'castSpeed': {
@@ -652,6 +742,7 @@ function describeStatusEffect(
     case 'damageBarrier':
       return effect.value + '% Dmg barrier ' + effect.attackCount;
     case 'radiantShield':
+      // TODO: overflow
       return (
         'Reflect Dmg' +
         (effect.value !== 100 ? ' ' + effect.value + '%' : '') +
@@ -687,13 +778,15 @@ function describeStatusEffect(
     case 'rankBoost':
       return null; // TODO
     case 'damageUp':
+      // TODO: trigger
       return (
         arrayify(effect.value)
           .map(percentToMultiplier)
           .join('/') +
         'x ' +
         formatAnyType(effect) +
-        'dmg'
+        'dmg' +
+        (effect.vsWeak ? ' vs. weak' : '')
       );
     case 'abilityDouble':
       return null; // TODO
@@ -737,7 +830,16 @@ function describeStatusEffect(
     case 'rowCover':
       return null; // TODO
     case 'triggeredEffect':
-      return null; // TODO
+      // TODO: condition
+      return (
+        '(' +
+        formatTrigger(effect.trigger) +
+        ' ⤇ ' +
+        arrayify(effect.effects)
+          .map(i => formatTriggerableEffect(i, enlirStatus, source))
+          .join(', ') +
+        ')'
+      );
     case 'gainSb':
       return null; // TODO
     case 'sbGainUp':

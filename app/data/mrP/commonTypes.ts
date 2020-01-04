@@ -103,4 +103,4 @@ export interface Fraction {
   denominator: number;
 }
 
-export type OrOptions<T> = T | { options: T[] };
+export type OrOptions<T> = T | T[] | { options: T[] };

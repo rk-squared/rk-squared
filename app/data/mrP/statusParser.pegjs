@@ -412,7 +412,7 @@ RowCover
 // Abilities and status effects
 
 TriggeredEffect
-  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger? _ condition:Condition? {
+  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? {
     return util.addCondition({ type: 'triggeredEffect', effects: util.pegList(head, tail, 2, true), trigger }, condition);
   }
 
@@ -423,11 +423,11 @@ CastSkill
   = "casts"i _ skill:AnySkillOrOptions  { return { type: 'castSkill', skill }; }
 
 RandomCastSkill
-  = "randomly"i _ "casts" _ skill:AnySkillOrOptions  { return { type: 'castSkill', skill }; }
+  = "randomly"i _ "casts" _ skill:AnySkillOrOptions  { return { type: 'randomCastSkill', skill }; }
 
 GrantStatus
   = verb:StatusVerb _ head:StatusItem _ tail:(("," / "and") _ StatusItem)* _ condition:Condition? _ who:Who? _ duration:Duration? {
-    return util.addCondition({ type: 'grantsStatus', status: util.pegList(head, tail, 2, true), who, duration }, condition);
+    return util.addCondition({ type: 'grantStatus', status: util.pegList(head, tail, 2, true), who, duration }, condition);
   }
 
 Heal

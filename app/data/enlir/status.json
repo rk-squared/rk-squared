@@ -11378,7 +11378,7 @@
   {
     "id": 50522,
     "name": "EX: Snipe Mode",
-    "effects": "Grants ATK +30%, casts Raining Arrows when removed",
+    "effects": "ATK +30%, casts Raining Arrows when removed",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12749,7 +12749,7 @@
   {
     "id": 50653,
     "name": "Allegiance",
-    "effects": "Samurai abilities deal 15/30/50% more damage after using 0/1/2 Samurai abilities. Casts Inferno Slash after using 4 Samurai abilities, removes Allegiance",
+    "effects": "Samurai abilities deal 15/30/50% more damage after using 0/1/2 Samurai abilities. Casts Inferno Slash after using 4 Samurai abilities, removed after triggering",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

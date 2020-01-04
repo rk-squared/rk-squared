@@ -488,11 +488,11 @@ interface RowCover {
 interface TriggeredEffect {
   type: 'triggeredEffect';
   effects: TriggerableEffect | TriggerableEffect[];
-  trigger?: Trigger;
+  trigger: Trigger;
   condition?: common.Condition;
 }
 
-type TriggerableEffect =
+export type TriggerableEffect =
   | CastSkill
   | RandomCastSkill
   | GainSb
@@ -507,12 +507,12 @@ interface CastSkill {
 }
 
 interface RandomCastSkill {
-  type: 'castSkill';
+  type: 'randomCastSkill';
   skill: common.OrOptions<string>;
 }
 
 interface GrantStatus {
-  type: 'grantsStatus';
+  type: 'grantStatus';
   status: StatusItem | StatusItem[];
   who?: common.Who;
   duration?: common.Duration;
@@ -691,7 +691,7 @@ interface Paralyze {
 // --------------------------------------------------------------------------
 // Triggers
 
-type Trigger =
+export type Trigger =
   | {
       type: 'ability';
       element?: EnlirElement | EnlirElement[];
