@@ -559,6 +559,8 @@ function statusAsStatMod(statusName: string, enlirStatus?: EnlirStatus) {
 interface AnyType {
   element?: common.OrOptions<EnlirElement>;
   school?: common.OrOptions<EnlirSchool>;
+  ranged?: boolean;
+  nonRanged?: boolean;
   jump?: boolean;
   magical?: boolean;
   skillType?: EnlirSkillType | EnlirSkillType[];
@@ -592,6 +594,12 @@ function formatAnyType(type: AnyType, suffix?: string, physAbbrev?: string): str
     result.push(physAbbrev);
   } else if (type.skillType && !magical) {
     result.push(arrayify(type.skillType).join('/'));
+  }
+  if (type.ranged && !type.jump) {
+    result.push('rngd');
+  }
+  if (type.nonRanged) {
+    result.push('non-rngd');
   }
   if (type.jump) {
     result.push('jump');
@@ -778,8 +786,9 @@ function formatTriggerableEffect(
   abbreviate: boolean,
 ): string {
   switch (effect.type) {
-    case 'castSkill': {
-      return handleOrOptions(effect.skill, skill =>
+    case 'castSkill':
+    case 'randomCastSkill': {
+      const skillText = handleOrOptions(effect.skill, skill =>
         slashMerge(
           expandSlashOptions(skill).map(option => {
             const enlirSkill = getEnlirOtherSkill(option, enlirStatus.name);
@@ -800,9 +809,8 @@ function formatTriggerableEffect(
           }),
         ),
       );
+      return skillText + (effect.type === 'randomCastSkill' ? ' (random)' : '');
     }
-    case 'randomCastSkill':
-      return ''; // TODO
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'grantStatus':
@@ -988,7 +996,7 @@ function describeStatusEffect(
     case 'dualBlink':
       return 'PM blink ' + effect.level;
     case 'elementBlink':
-      return null; // TODO
+      return getElementShortName(effect.element) + ' blink ' + effect.level;
     case 'stoneskin':
       return (
         'Negate dmg ' +
@@ -997,9 +1005,21 @@ function describeStatusEffect(
         (effect.element ? ' (' + getElementShortName(effect.element) + ' only)' : '')
       );
     case 'magiciteStoneskin':
-      return null; // TODO
+      return (
+        'Negate dmg ' +
+        effect.percentHp +
+        '% magicite HP (' +
+        getElementShortName(effect.element) +
+        ' only)'
+      );
     case 'fixedStoneskin':
-      return null; // TODO
+      return (
+        'Negate dmg ' +
+        toMrPKilo(effect.damage) +
+        ' HP (' +
+        arrayify(effect.skillType).join('/') +
+        ' only)'
+      );
     case 'damageBarrier':
       return effect.value + '% Dmg barrier ' + effect.attackCount;
     case 'radiantShield': {
@@ -1013,7 +1033,7 @@ function describeStatusEffect(
       return result;
     }
     case 'reflect':
-      return null; // TODO
+      return 'Reflect';
     case 'awoken':
       return formatAwoken(effect);
     case 'switchDraw':
@@ -1036,7 +1056,12 @@ function describeStatusEffect(
         'w/ stacking'
       );
     case 'loseEnElement':
-      return null; // TODO
+      return (
+        'lose ' +
+        (effect.element ? getElementShortName(effect.element) + ' ' : '') +
+        ' element infuse' +
+        (effect.level !== 1 ? ' ' + effect.level : '')
+      );
     case 'abilityBuildup':
       return null; // TODO
     case 'rankBoost':
@@ -1104,15 +1129,15 @@ function describeStatusEffect(
     case 'runic':
       return 'taunt & absorb ' + arrayify(effect.skillType).join('/');
     case 'immuneAttacks':
-      return null; // TODO
+      return 'immune ' + formatAnyType(effect, ' ') + 'atks';
     case 'zeroDamage':
-      return null; // TODO
+      return '0 dmg';
     case 'evadeAll':
       return 'immune atks/status/heal';
     case 'multiplyDamage':
-      return null; // TODO
+      return effect.value + 'x dmg recv';
     case 'berserk':
-      return null; // TODO
+      return 'berserk';
     case 'rage':
       return source ? describeRageEffects(source) : null;
     case 'abilityBerserk':
@@ -1138,11 +1163,12 @@ function describeStatusEffect(
         effect.trigger,
       );
     case 'setStatusLevel':
-      return null; // TODO
+      return (statusLevelAlias[effect.status] || effect.status) + ' =' + effect.value;
     case 'statusLevelBooster':
       return `+${effect.value} to all ${statusLevelAlias[effect.status] || effect.status} gains`;
     case 'burstToggle':
-      return null; // TODO
+      // Manually handled elsewhere. TODO: Consolidate duplicated logic.
+      return null;
     case 'trackStatusLevel':
       return (
         (statusLevelAlias[effect.status] || effect.status) +
@@ -1156,9 +1182,9 @@ function describeStatusEffect(
     case 'statusReset':
       return null; // TODO
     case 'disableAttacks':
-      return null; // TODO
+      return "can't " + formatAnyType(effect, ' ') + 'atk';
     case 'paralyze':
-      return null; // TODO
+      return "can't act";
   }
 }
 

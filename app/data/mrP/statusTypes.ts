@@ -557,7 +557,6 @@ interface Runic {
 
 interface ImmuneAttacks {
   type: 'immuneAttacks';
-  attacks: boolean;
   skillType?: EnlirSkillType | EnlirSkillType[];
   ranged?: boolean;
   nonRanged?: boolean;
@@ -673,7 +672,8 @@ interface StatusReset {
 
 interface DisableAttacks {
   type: 'disableAttacks';
-  skillType: EnlirSkillType | EnlirSkillType[] | 'jump';
+  skillType: EnlirSkillType | EnlirSkillType[];
+  jump?: boolean;
 }
 
 interface Paralyze {

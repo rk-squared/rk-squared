@@ -481,7 +481,6 @@ ImmuneAttackSkills
   = "Can't"i _ "be hit by" _ ranged:("ranged")? _ nonRanged:("non-ranged")? _ skillType:SkillTypeList _ "attacks" {
     return {
       type: 'immuneAttacks',
-      attacks: true,
       skillType,
       ranged: !!ranged,
       nonRanged: !!nonRanged,
@@ -492,7 +491,6 @@ ImmuneAttacks
   = "Can't be hit by any attack" {
     return {
       type: 'immuneAttacks',
-      attacks: true,
     }
   }
 
@@ -587,7 +585,7 @@ ReplaceAttackDefend
   = "Replaces"i _ "the Attack and Defend commands" { return null; }
 
 DisableAttacks
-  = "Disables"i _ skillType:(SkillTypeAndList / "Jump") _ "attacks" { return { type: 'disableAttacks', skillType }; }
+  = "Disables"i _ skillType:SkillTypeAndList? _ jump:"jump"i? _ "attacks" { return { type: 'disableAttacks', skillType, jump: !!jump }; }
 
 Ai
   = "Affects"i _ GenericName _ "behaviour" { return null; }
