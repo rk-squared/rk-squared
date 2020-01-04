@@ -864,6 +864,10 @@ function formatCastSpeedBuildup({
   )}x per ${what}, max ${max}x @ ${maxCount} ${what}s`;
 }
 
+function isDurationEffect(effect: statusTypes.EffectClause) {
+  return effect.type === 'turnDuration' || effect.type === 'removedUnlessStatus';
+}
+
 function describeStatusEffect(
   effect: statusTypes.EffectClause,
   enlirStatus: EnlirStatus,
@@ -1074,9 +1078,16 @@ function describeStatusEffect(
     case 'abilityBerserk':
       return 'Abil. berserk';
     case 'turnDuration':
-      return null; // TODO
+      return formatDuration(effect.duration);
     case 'removedUnlessStatus':
-      return null; // TODO
+      // Hack: "Any" statuses are typically well-known statuses like Stoneskin
+      // or Physical Blink.  Specific statuses are normally related to the
+      // current soul break, so they're detailed enough that we can omit them.
+      if (effect.any) {
+        return 'until ' + (statusLevelAlias[effect.status] || effect.status) + ' lost';
+      } else {
+        return null;
+      }
     case 'onceOnly':
       return null; // TODO
     case 'removedAfterTrigger':
@@ -1090,7 +1101,6 @@ function describeStatusEffect(
     case 'burstToggle':
       return null; // TODO
     case 'trackUses':
-      return null; // TODO
     case 'trackStatusLevel':
     case 'burstOnly':
     case 'burstReset':
@@ -1111,32 +1121,10 @@ function describeEnlirStatusEffects(
   source: EnlirSkill | undefined,
   options: StatusOptions,
 ): string {
-  statusEffects = sortStatusEffects(statusEffects);
-
-  // Simple turn-limited statuses are represented with a numeric suffix.
-  let suffix = '';
-  if (
-    statusEffects.length === 2 &&
-    statusEffects[1].type === 'turnDuration' &&
-    statusEffects[1].duration.units === 'turns'
-  ) {
-    const turnCount = statusEffects[1].duration.value;
-    suffix = ' ' + turnCount;
-    if (statusEffects[1].duration.valueIsUncertain) {
-      suffix += '?';
-    }
-    if (!shouldAbbreviateTurns(statusEffects[0])) {
-      suffix += ' turn' + (turnCount === 1 ? '' : 's');
-    }
-    statusEffects.splice(1, 1);
-  }
-
-  return (
-    statusEffects
-      .map(i => describeStatusEffect(i, enlirStatus, source, options))
-      .filter(i => !!i)
-      .join(', ') + suffix
-  );
+  return sortStatusEffects(statusEffects)
+    .map(i => describeStatusEffect(i, enlirStatus, source, options))
+    .filter(i => !!i)
+    .join(', ');
 }
 
 /**
@@ -1153,22 +1141,57 @@ export function describeEnlirStatus(
   enlirStatus?: EnlirStatusWithPlaceholders,
   source?: EnlirSkill,
   options?: StatusOptions,
-) {
+): [string, string | null] {
   if (wellKnownStatuses.has(status)) {
-    return status;
+    return [status, null];
   } else if (wellKnownAliases[status]) {
-    return wellKnownAliases[status];
+    return [wellKnownAliases[status], null];
   }
   if (!enlirStatus) {
-    return status;
+    return [status, null];
   }
 
   const statusEffects = safeParseStatus(enlirStatus.status, enlirStatus.placeholders);
   if (!statusEffects) {
-    return status;
+    return [status, null];
   }
 
-  return describeEnlirStatusEffects(statusEffects, enlirStatus.status, source, options || {});
+  const [durationEffects, normalEffects] = _.partition(statusEffects, isDurationEffect);
+
+  let effects = describeEnlirStatusEffects(
+    normalEffects,
+    enlirStatus.status,
+    source,
+    options || {},
+  );
+  let duration = durationEffects.length
+    ? describeEnlirStatusEffects(durationEffects, enlirStatus.status, source, options || {})
+    : null;
+
+  // Hack: Simple turn-limited statuses are represented with a numeric suffix.
+  let suffix = '';
+  if (
+    normalEffects.length === 1 &&
+    normalEffects[0].type !== 'switchDraw' &&
+    normalEffects[0].type !== 'switchDrawStacking' &&
+    normalEffects[0].type !== 'triggeredEffect' &&
+    durationEffects.length === 1 &&
+    durationEffects[0].type === 'turnDuration' &&
+    durationEffects[0].duration.units === 'turns'
+  ) {
+    const turnCount = durationEffects[0].duration.value;
+    suffix = ' ' + turnCount;
+    if (durationEffects[0].duration.valueIsUncertain) {
+      suffix += '?';
+    }
+    if (!shouldAbbreviateTurns(statusEffects[0])) {
+      suffix += ' turn' + (turnCount === 1 ? '' : 's');
+    }
+    effects += suffix;
+    duration = null;
+  }
+
+  return [effects, duration || null];
 }
 
 const getFinisherSkillName = (effect: string) => {
@@ -1195,7 +1218,7 @@ function describeFinisherSkill(skillName: string, sourceStatusName: string) {
 
 function describeFinisherStatus(statusName: string): string {
   const status = getEnlirStatusByName(statusName);
-  let result = describeEnlirStatus(statusName);
+  let [result] = describeEnlirStatus(statusName);
 
   // Hack: Partially duplicated from convertEnlirSkillToMrP.  We currently
   // only support default durations.
@@ -1871,7 +1894,11 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     logger.warn(`Unknown status: ${status}`);
   }
   const enlirStatus = enlirStatusWithPlaceholders ? enlirStatusWithPlaceholders.status : undefined;
-  let description = describeEnlirStatus(status, enlirStatusWithPlaceholders, source);
+  let [description, specialDuration] = describeEnlirStatus(
+    status,
+    enlirStatusWithPlaceholders,
+    source,
+  );
 
   const isEx = isExStatus(status);
   const isAwoken = isAwokenStatus(status);
@@ -1897,8 +1924,6 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     }
   }
 
-  let specialDuration = enlirStatus ? getSpecialDuration(enlirStatus) : undefined;
-
   if (enlirStatus && isFinisherOnly(enlirStatus)) {
     // Hack: Munge the text to change 'until foo: Finisher: bar' to
     // 'when foo: bar'
@@ -1922,7 +1947,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     isTrance: enlirStatus != null && isTranceStatus(enlirStatus),
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
-    specialDuration,
+    specialDuration: specialDuration || undefined,
   };
 }
 

@@ -223,21 +223,23 @@ AwokenInstacast
 // Switch draw - These are described as broken down within Enlir, but we treat
 // them specially because of how common they are.
 
+// Note that we could also include (and thus special-case) the 1-turn duration
+// here as well by matching on ", lasts 1 turn"
 SwitchDraw
-  = head:SwitchDrawPart tail:("," _ SwitchDrawPart)+ ", lasts 1 turn" { return { type: 'switchDraw', elements: util.pegList(head, tail, 2) }; }
+  = head:SwitchDrawPart tail:("," _ SwitchDrawPart)+ { return { type: 'switchDraw', elements: util.pegList(head, tail, 2) }; }
 
 SwitchDrawPart
   = "Grants"i _ "Attach" _ element1:Element _ "after using a" "n"? _ element2:Element _ "ability"
   & { return element1 === element2; } { return element1; }
 
 SwitchDrawAlt
-  = "Grants"i _ "Attach" _ elements1:ElementSlashList _ "after using a" "n"? _ elements2:ElementSlashList _ "ability, lasts 1 turn"
+  = "Grants"i _ "Attach" _ elements1:ElementSlashList _ "after using a" "n"? _ elements2:ElementSlashList _ "ability"
   & { return elements1.length > 1 && util.isEqual(elements1, elements2); }
     { return { type: 'switchDraw', elements: elements1 }; }
 
 SwitchDrawStacking
   = "Grants Attach" _ elements1:ElementSlashList _ level:Integer? _ "with Stacking after using a"
-    _ elements2:ElementSlashList _ "ability, lasts 1 turn"
+    _ elements2:ElementSlashList _ "ability"
     & { return elements1.length > 1 && util.isEqual(elements1, elements2); }
     { return { type: 'switchDrawStacking', elements: elements1, level }; }
 
