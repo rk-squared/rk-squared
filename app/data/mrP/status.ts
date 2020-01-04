@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { logException, logger } from '../../utils/logger';
-import { arrayify, getAllSameValue } from '../../utils/typeUtils';
+import { arrayify, getAllSameValue, scalarify } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirElement,
@@ -315,7 +315,7 @@ function isStackingStatus({ name, exclusiveStatus }: EnlirStatus): boolean {
   return true;
 }
 
-type FollowUpStatusSequence = Array<[EnlirStatus, string[]]>;
+type FollowUpStatusSequence = Array<[EnlirStatus, statusTypes.StatusEffect]>;
 
 /**
  * Gets the follow-up status sequence for a follow-up effect with the given
@@ -328,14 +328,14 @@ type FollowUpStatusSequence = Array<[EnlirStatus, string[]]>;
  */
 function getFollowUpStatusSequence(
   statusName: string,
-  followUp: FollowUpEffect,
+  trigger: statusTypes.Trigger,
 ): FollowUpStatusSequence | null {
-  if (!statusName.endsWith(' 0')) {
+  if (!statusName.endsWith(' 1')) {
     return null;
   }
 
   const result: FollowUpStatusSequence = [];
-  const baseStatusName = statusName.replace(/ 0$/, '');
+  const baseStatusName = statusName.replace(/ 1$/, '');
   for (let n = 1; ; n++) {
     // Verify that the next status in the sequence exists, that it's actually
     // a follow-up status, and that it's triggered the same as this status.
@@ -347,21 +347,46 @@ function getFollowUpStatusSequence(
       break;
     }
 
-    const thisEffects = splitStatusEffects(thisStatus.effects).filter(
-      i => !shouldSkipEffect(i) && !parseFollowUpEffect(i),
-    );
+    const thisEffects = safeParseStatus(thisStatus);
+    if (!thisEffects) {
+      break;
+    }
+
+    let hasFollowUp = false;
+    for (let i = 0; i < thisEffects.length; i++) {
+      const effect = thisEffects[i];
+      if (effect.type === 'triggeredEffect' && _.isEqual(trigger, effect.trigger)) {
+        const triggeredEffects = arrayify(effect.effects);
+        for (let j = 0; j < triggeredEffects.length; j++) {
+          const e = triggeredEffects[j];
+          if (e.type === 'grantStatus') {
+            const followUp = _.find(
+              arrayify(e.status),
+              granted => granted === thisStatusName || granted === baseStatusName + ' ' + (n + 1),
+            );
+            if (followUp) {
+              hasFollowUp = true;
+              if (!Array.isArray(e.status)) {
+                triggeredEffects.splice(j, 1);
+              } else {
+                e.status = scalarify(e.status.filter(granted => granted !== followUp));
+              }
+              if (!triggeredEffects.length) {
+                thisEffects.splice(i, 1);
+              } else {
+                effect.effects = scalarify(triggeredEffects);
+              }
+            }
+          }
+        }
+      }
+    }
 
     result.push([thisStatus, thisEffects]);
 
-    const thisStatusFollowUp = parseFollowUpEffect(thisStatus.effects);
-    if (!thisStatusFollowUp) {
+    if (!hasFollowUp) {
       break;
     }
-    if (!isSameTrigger(followUp, thisStatusFollowUp)) {
-      break;
-    }
-    // To be thorough, we'd also verify that the triggered name matches,
-    // instead of assuming that they all follow the numbered sequence.
   }
   return result.length ? result : null;
 }
@@ -371,28 +396,8 @@ function getFollowUpStatusSequence(
  * effects.
  */
 function describeMergedSequence(sequence: FollowUpStatusSequence) {
-  const fallback = sequence.map(([, effects]) => effects.join(', ')).join(' / ');
-
-  // The component effects of the sequence.  Object keys give the numbered
-  // effect alias (see statusAlias.ts), while object values give the
-  // (string-formatted) numbers themselves.
-  const result: { [s: string]: string[] } = {};
-
-  for (const [, effects] of sequence) {
-    for (const i of effects) {
-      const [text, numbered] = splitNumbered(i);
-      if (!text || !numbered) {
-        return fallback;
-      }
-      result[text] = result[text] || [];
-      // Cast to number and back to format floating point values more simply.
-      result[text].push('' + +numbered);
-    }
-  }
-
-  return _.map(result, (values, key) =>
-    resolveNumbered(effectAlias.numbered[lowerCaseFirst(key)] || key, values.join('-')),
-  ).join(', ');
+  const parts = sequence.map(([status, effects]) => describeEnlirStatusEffects(effects, status));
+  return slashMerge(parts, { join: '-' });
 }
 
 const isFinisherStatus = ({ effects }: EnlirStatus) =>
@@ -655,6 +660,7 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
 
 function formatGrantStatus(
   { status, who, duration, condition }: statusTypes.GrantStatus,
+  trigger: statusTypes.Trigger,
   enlirStatus: EnlirStatus,
   source: EnlirSkill | undefined,
 ): string {
@@ -667,14 +673,15 @@ function formatGrantStatus(
   result += arrayify(status)
     .map(i => {
       const thisStatus = typeof i === 'string' ? i : i.status;
-      const sequence = getFollowUpStatusSequence(thisStatus);
+      const sequence = getFollowUpStatusSequence(thisStatus, trigger);
       if (sequence) {
         return describeMergedSequence(sequence);
+      } else {
+        return (
+          parseEnlirStatus(thisStatus, source).description +
+          (typeof i !== 'string' && i.chance !== 100 ? ` (${i.chance}%)` : '')
+        );
       }
-      return (
-        parseEnlirStatus(thisStatus, source).description +
-        (typeof i !== 'string' && i.chance !== 100 ? ` (${i.chance}%)` : '')
-      );
     })
     .join(', ');
 
@@ -690,6 +697,7 @@ function formatGrantStatus(
 
 function formatTriggerableEffect(
   effect: statusTypes.TriggerableEffect,
+  trigger: statusTypes.Trigger,
   enlirStatus: EnlirStatus,
   source: EnlirSkill | undefined,
   abbreviate: boolean,
@@ -719,7 +727,7 @@ function formatTriggerableEffect(
     case 'gainSb':
       return ''; // TODO
     case 'grantStatus':
-      return formatGrantStatus(effect, enlirStatus, source);
+      return formatGrantStatus(effect, trigger, enlirStatus, source);
     case 'heal':
       return ''; // TODO
     case 'triggerChance':
@@ -738,7 +746,7 @@ function formatTriggeredEffect(
   // Following MrP's example, finishers are displayed differently.
   const isFinisher = effect.trigger.type === 'whenRemoved';
   const effects = arrayify(effect.effects)
-    .map(i => formatTriggerableEffect(i, enlirStatus, source, !isFinisher))
+    .map(i => formatTriggerableEffect(i, effect.trigger, enlirStatus, source, !isFinisher))
     .join(', ');
   if (isFinisher) {
     return 'Finisher: ' + effects;
@@ -974,6 +982,39 @@ function describeStatusEffect(
   }
 }
 
+function describeEnlirStatusEffects(
+  statusEffects: statusTypes.StatusEffect,
+  enlirStatus: EnlirStatus,
+  source?: EnlirSkill,
+): string {
+  statusEffects = sortStatusEffects(statusEffects);
+
+  // Simple turn-limited statuses are represented with a numeric suffix.
+  let suffix = '';
+  if (
+    statusEffects.length === 2 &&
+    statusEffects[1].type === 'turnDuration' &&
+    statusEffects[1].duration.units === 'turns'
+  ) {
+    const turnCount = statusEffects[1].duration.value;
+    suffix = ' ' + turnCount;
+    if (statusEffects[1].duration.valueIsUncertain) {
+      suffix += '?';
+    }
+    if (!shouldAbbreviateTurns(statusEffects[0])) {
+      suffix += ' turn' + (turnCount === 1 ? '' : 's');
+    }
+    statusEffects.splice(1, 1);
+  }
+
+  return (
+    statusEffects
+      .map(i => describeStatusEffect(i, enlirStatus, source))
+      .filter(i => !!i)
+      .join(', ') + suffix
+  );
+}
+
 /**
  * Sort statuses for nicer display.
  */
@@ -997,37 +1038,12 @@ export function describeEnlirStatus(
     return status;
   }
 
-  let statusEffects = safeParseStatus(enlirStatus.status, enlirStatus.placeholders);
+  const statusEffects = safeParseStatus(enlirStatus.status, enlirStatus.placeholders);
   if (!statusEffects) {
     return status;
   }
 
-  statusEffects = sortStatusEffects(statusEffects);
-
-  // Simple turn-limited statuses are represented with a numeric suffix.
-  let suffix = '';
-  if (
-    statusEffects.length === 2 &&
-    statusEffects[1].type === 'turnDuration' &&
-    statusEffects[1].duration.units === 'turns'
-  ) {
-    const turnCount = statusEffects[1].duration.value;
-    suffix = ' ' + turnCount;
-    if (statusEffects[1].duration.valueIsUncertain) {
-      suffix += '?';
-    }
-    if (!shouldAbbreviateTurns(statusEffects[0])) {
-      suffix += ' turn' + (turnCount === 1 ? '' : 's');
-    }
-    statusEffects.splice(1, 1);
-  }
-
-  return (
-    statusEffects
-      .map(i => describeStatusEffect(i, enlirStatus.status, source))
-      .filter(i => !!i)
-      .join(', ') + suffix
-  );
+  return describeEnlirStatusEffects(statusEffects, enlirStatus.status, source);
 }
 
 const getFinisherSkillName = (effect: string) => {

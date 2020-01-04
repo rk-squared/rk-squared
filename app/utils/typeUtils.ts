@@ -9,6 +9,7 @@ export type KeysOfType<T, TProp> = { [P in keyof T]: T[P] extends TProp ? P : ne
 
 export const arrayify = <T>(value: T | T[]) => (Array.isArray(value) ? value : [value]);
 export const arrayifyLength = <T>(value: T | T[]) => (Array.isArray(value) ? value.length : 1);
+export const scalarify = <T>(value: T[]) => (value.length === 1 ? value[0] : value);
 
 export function compareWithUndefined<T>(compare: (a: T, b: T) => number) {
   return (a: T | undefined, b: T | undefined) => {

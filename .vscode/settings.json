@@ -223,6 +223,7 @@
     "prefs",
     "promisify",
     "reselect",
+    "scalarify",
     "selectable",
     "sourcemap",
     "sprintf",
