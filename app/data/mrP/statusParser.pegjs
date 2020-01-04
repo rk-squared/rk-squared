@@ -25,7 +25,9 @@
 
 StatusEffect
   = head:EffectClause tail:((',' / '.') _ EffectClause)* {
-    return util.pegList(head, tail, 2).filter(i => i != null);
+    const result = util.pegList(head, tail, 2).filter(i => i != null);
+    util.separateStatusAndSb(result);
+    return result;
   }
   / "" { return []; }
 
@@ -448,7 +450,7 @@ StatusItem
       return { status, chance };
     }
   }
-  / value:Integer _ "SB points"{ return { type: 'gainSB', value }; }
+  / value:Integer _ "SB points" { return { type: 'gainSb', value }; }
 
 
 // --------------------------------------------------------------------------

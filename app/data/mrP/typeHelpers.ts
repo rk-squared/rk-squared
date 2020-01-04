@@ -7,6 +7,7 @@ import {
   isEnlirElement,
   isEnlirSchool,
 } from '../enlir';
+import * as common from './commonTypes';
 import { andOrList } from './util';
 
 export interface DescribeOptions {
@@ -144,3 +145,18 @@ export function getShortNameWithSpaces(s: string): string {
   }
   return result;
 }
+
+export const whoText: { [w in common.Who]: string } = {
+  self: 'self',
+  target: 'target',
+  enemies: 'AoE',
+  sameRow: 'same row',
+  frontRow: 'front row',
+  backRow: 'back row',
+  party: 'party',
+  lowestHpAlly: 'ally',
+  allyWithoutStatus: 'ally',
+  allyWithNegativeStatus: 'ally',
+  allyWithKO: 'ally',
+  ally: 'ally',
+};

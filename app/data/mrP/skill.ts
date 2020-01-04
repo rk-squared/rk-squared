@@ -634,6 +634,7 @@ class OtherDetail {
   statusInfliction: StatusInfliction[] = [];
   aoe: string[] = [];
   infuse: string[] = []; // Following MrP, self en-element is listed separately.
+  // TODO: Turn most of these into an object indexed by Who
   self: string[] = [];
   sameRow: string[] = [];
   frontRow: string[] = [];

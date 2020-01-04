@@ -17,6 +17,7 @@ import {
   getEnlirStatusWithPlaceholders,
 } from '../enlir';
 import * as common from './commonTypes';
+import { describeCondition } from './condition';
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
 import * as skillTypes from './skillTypes';
@@ -33,7 +34,7 @@ import {
   resolveEffectAlias,
   resolveNumbered,
   resolveStatusAlias,
-  sbPointsBoosterAlias,
+  sbPointsAlias,
   splitNumbered,
 } from './statusAlias';
 import * as statusParser from './statusParser';
@@ -44,6 +45,7 @@ import {
   getElementShortName,
   getShortName,
   getShortNameWithSpaces,
+  whoText,
   XRegExpNamedGroups,
 } from './typeHelpers';
 import {
@@ -51,6 +53,7 @@ import {
   andList,
   andOrList,
   cleanUpSlashedNumbers,
+  handleOrOptions,
   lowerCaseFirst,
   numberOrUnknown,
   orList,
@@ -650,14 +653,39 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
   }
 }
 
-function handleOrOptions<T>(options: common.OrOptions<T>, f: (item: T) => string): string {
-  if (Array.isArray(options)) {
-    return options.map(f).join('+');
-  } else if (typeof options === 'object' && 'options' in options) {
-    return slashMerge(options.options.map(f));
-  } else {
-    return f(options);
+function formatGrantStatus(
+  { status, who, duration, condition }: statusTypes.GrantStatus,
+  enlirStatus: EnlirStatus,
+  source: EnlirSkill | undefined,
+): string {
+  let result = '';
+
+  if (who && who !== 'self' && who !== 'target') {
+    result += whoText[who] + ' ';
   }
+
+  result += arrayify(status)
+    .map(i => {
+      const thisStatus = typeof i === 'string' ? i : i.status;
+      const sequence = getFollowUpStatusSequence(thisStatus);
+      if (sequence) {
+        return describeMergedSequence(sequence);
+      }
+      return (
+        parseEnlirStatus(thisStatus, source).description +
+        (typeof i !== 'string' && i.chance !== 100 ? ` (${i.chance}%)` : '')
+      );
+    })
+    .join(', ');
+
+  if (duration) {
+    result += formatDuration(duration) + ' ';
+  }
+  if (condition) {
+    result += describeCondition(condition);
+  }
+
+  return result.trim();
 }
 
 function formatTriggerableEffect(
@@ -691,7 +719,7 @@ function formatTriggerableEffect(
     case 'gainSb':
       return ''; // TODO
     case 'grantStatus':
-      return ''; // TODO
+      return formatGrantStatus(effect, enlirStatus, source);
     case 'heal':
       return ''; // TODO
     case 'triggerChance':
@@ -1087,7 +1115,7 @@ function describeEnlirStatusEffect(
   if (enlirStatus) {
     const followUp = parseFollowUpEffect(effect, enlirStatus);
     if (followUp) {
-      const sequence = getFollowUpStatusSequence(enlirStatus.name, followUp);
+      const sequence = getFollowUpStatusSequence(enlirStatus.name);
       if (sequence) {
         followUp.statuses = sequence.map(([status, effects]) => ({ statusName: status.name }));
         followUp.customStatusesDescription = describeMergedSequence(sequence);

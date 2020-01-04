@@ -512,7 +512,7 @@ interface RandomCastSkill {
   skill: common.OrOptions<string>;
 }
 
-interface GrantStatus {
+export interface GrantStatus {
   type: 'grantStatus';
   status: StatusItem | StatusItem[];
   who?: common.Who;
@@ -532,15 +532,12 @@ interface TriggerChance {
   effect: TriggerableEffect;
 }
 
-type StatusItem =
-  | common.StatusName
-  | { status: common.StatusName; chance: number }
-  | { type: 'gainSB'; value: number };
+export type StatusItem = common.StatusName | { status: common.StatusName; chance: number };
 
 // --------------------------------------------------------------------------
 // Soul Break points
 
-interface GainSb {
+export interface GainSb {
   type: 'gainSb';
   value: number;
 }

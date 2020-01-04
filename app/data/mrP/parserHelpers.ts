@@ -4,6 +4,7 @@ import { logger } from '../../utils/logger';
 import { arrayify } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
+import * as statusTypes from './statusTypes';
 import { parseNumberString } from './util';
 
 const isEqual = _.isEqual;
@@ -85,4 +86,36 @@ export function mergeAttackExtras(
     }
   }
   return result;
+}
+
+/**
+ * At the parser level, we allow mixed status items and SB gains.  That
+ * complicates higher-level code, so separate them out.
+ */
+export function separateStatusAndSb(effects: statusTypes.EffectClause[]): void {
+  type RawStatusItem = statusTypes.StatusItem | statusTypes.GainSb;
+  const isGainSb = (item: RawStatusItem): item is statusTypes.GainSb =>
+    typeof item === 'object' && 'type' in item && item.type === 'gainSb';
+  const isStatusItem = (item: RawStatusItem): item is statusTypes.StatusItem => !isGainSb(item);
+
+  for (const i of effects) {
+    if (i.type === 'triggeredEffect') {
+      const newGainSb: statusTypes.GainSb[] = [];
+      for (const j of arrayify(i.effects)) {
+        if (j.type === 'grantStatus') {
+          const unfilteredStatus = arrayify(j.status) as RawStatusItem[];
+          const gainSb = unfilteredStatus.filter(isGainSb);
+          if (gainSb.length) {
+            const filteredStatus = unfilteredStatus.filter(isStatusItem);
+            j.status = filteredStatus.length === 1 ? filteredStatus[0] : filteredStatus;
+            newGainSb.push(...gainSb);
+          }
+        }
+      }
+      if (newGainSb.length) {
+        i.effects = arrayify(i.effects);
+        i.effects.push(...newGainSb);
+      }
+    }
+  }
 }

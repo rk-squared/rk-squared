@@ -404,3 +404,13 @@ export function handleUncertain<T>(f: (value: string) => T) {
     };
   };
 }
+
+export function handleOrOptions<T>(options: common.OrOptions<T>, f: (item: T) => string): string {
+  if (Array.isArray(options)) {
+    return options.map(f).join('+');
+  } else if (typeof options === 'object' && 'options' in options) {
+    return slashMerge(options.options.map(f));
+  } else {
+    return f(options);
+  }
+}
