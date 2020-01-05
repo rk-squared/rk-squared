@@ -424,13 +424,18 @@ CounterWithImmune
 // --------------------------------------------------------------------------
 // Abilities and status effects
 
+// Note that we allow triggerable effects to appear after the trigger, to
+// accommodate statuses like Cyan's AASB.
 TriggeredEffect
-  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? onceOnly:("," _ OnceOnly)? {
-    return util.addCondition({ type: 'triggeredEffect', effects: util.pegList(head, tail, 2, true), trigger, onceOnly: !!onceOnly }, condition);
+  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? tail2:("," _ BareTriggerableEffect)* onceOnly:("," _ OnceOnly)? {
+    return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: !!onceOnly }, condition);
   }
 
 TriggerableEffect
   = CastSkill / RandomCastSkill / GainSb / GrantStatus / Heal / HealChance / SmartEtherStatus
+
+BareTriggerableEffect
+  = effect:TriggerableEffect ! (_ (Trigger / "and")) { return effect; }
 
 CastSkill
   = "casts"i _ skill:AnySkillOrOptions  { return { type: 'castSkill', skill }; }
@@ -440,7 +445,7 @@ RandomCastSkill
 
 GrantStatus
   = verb:StatusVerb _ head:StatusItem _ tail:(("," / "and") _ StatusItem)* _ condition:Condition? _ who:Who? _ duration:Duration? {
-    return util.addCondition({ type: 'grantStatus', status: util.pegList(head, tail, 2, true), who, duration }, condition);
+    return util.addCondition({ type: 'grantStatus', status: util.pegList(head, tail, 2, true), who, duration, verb }, condition);
   }
 
 Heal

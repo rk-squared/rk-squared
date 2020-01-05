@@ -740,12 +740,13 @@ function addTrigger(effect: string, trigger: statusTypes.Trigger | undefined): s
 }
 
 function formatGrantStatus(
-  { status, who, duration, condition }: statusTypes.GrantStatus,
+  { verb, status, who, duration, condition }: statusTypes.GrantStatus,
   trigger: statusTypes.Trigger,
   enlirStatus: EnlirStatus,
   source: EnlirSkill | undefined,
 ): string {
   let result = '';
+  result += verb === 'removes' ? 'remove ' : '';
 
   if (who && who !== 'self' && who !== 'target') {
     result += whoText[who] + ' ';
@@ -756,6 +757,9 @@ function formatGrantStatus(
   result += arrayify(status)
     .map(i => {
       const thisStatus = typeof i === 'string' ? i : i.status;
+      if (thisStatus === enlirStatus.name) {
+        return 'status';
+      }
       const sequence = getFollowUpStatusSequence(thisStatus, trigger);
       if (sequence) {
         return describeMergedSequence(sequence);
@@ -791,9 +795,15 @@ function formatTriggerableEffect(
   switch (effect.type) {
     case 'castSkill':
     case 'randomCastSkill': {
-      const skillText = handleOrOptions(effect.skill, skill =>
-        slashMerge(
-          expandSlashOptions(skill).map(option => {
+      const skillText = handleOrOptions(effect.skill, skill => {
+        let options: string[];
+        if (skill.match('/') && !getEnlirOtherSkill(skill, enlirStatus.name)) {
+          options = expandSlashOptions(skill);
+        } else {
+          options = [skill];
+        }
+        return slashMerge(
+          options.map(option => {
             const enlirSkill = getEnlirOtherSkill(option, enlirStatus.name);
             if (!enlirSkill) {
               return option;
@@ -810,8 +820,8 @@ function formatTriggerableEffect(
               );
             }
           }),
-        ),
-      );
+        );
+      });
       return skillText + (effect.type === 'randomCastSkill' ? ' (random)' : '');
     }
     case 'gainSb':

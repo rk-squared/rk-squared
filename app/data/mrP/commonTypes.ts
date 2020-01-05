@@ -5,6 +5,8 @@ import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from
 
 export type StatusName = string;
 
+export type StatusVerb = 'grants' | 'causes' | 'removes' | "doesn't remove";
+
 export interface SmartEtherStatus {
   type: 'smartEther';
   amount: number | number[];

@@ -506,6 +506,8 @@ function processStatus(
     }
 
     if ('source' in skill && skill.source === status && removes) {
+      // TODO: Some inconsistency here between "(once only)", "removes status", and "once only"
+      // See, e.g., Enna Kros vs. Cloud vs. Cyan AASBs.
       if (other.self.length) {
         other.self.push('once only');
       } else {

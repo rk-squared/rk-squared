@@ -28,6 +28,20 @@ export function pegList(head: any, tail: any, index: number, forceSingle: boolea
   );
 }
 
+export function pegMultiList(head: any, tails: [any, number], forceSingle: boolean = false): any {
+  const result: any[] = [head];
+  for (const [tail, index] of tails) {
+    for (const element of tail) {
+      result.push(element[index]);
+    }
+  }
+  if (forceSingle && result.length === 1) {
+    return result[0];
+  } else {
+    return result;
+  }
+}
+
 export function pegSlashList(head: any, tail: any): any[] {
   return pegList(head, tail, 1, true);
 }

@@ -252,11 +252,9 @@ export interface Mimic {
 
 export interface StatusEffect {
   type: 'status';
-  verb: StatusVerb;
+  verb: common.StatusVerb;
   statuses: StatusWithPercent[];
 }
-
-export type StatusVerb = 'grants' | 'causes' | 'removes' | "doesn't remove";
 
 export interface StatusWithPercent extends StatusClause {
   status: common.SmartEtherStatus | StatusLevel | common.StatusName;

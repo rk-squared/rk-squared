@@ -511,6 +511,7 @@ interface RandomCastSkill {
 
 export interface GrantStatus {
   type: 'grantStatus';
+  verb: common.StatusVerb;
   status: StatusItem | StatusItem[];
   who?: common.Who;
   duration?: common.Duration;
