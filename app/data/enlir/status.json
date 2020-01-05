@@ -10156,7 +10156,7 @@
   {
     "id": 50408,
     "name": "Chaotic Magic 0",
-    "effects": "Grants Chaotic 1 after using a Black Magic ability, removed if the user hasn't EX: Black Mage",
+    "effects": "Grants Chaotic Magic 1 after using a Black Magic ability, removed if the user hasn't EX: Black Mage",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

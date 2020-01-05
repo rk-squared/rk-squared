@@ -785,12 +785,17 @@ function formatGrantStatus(
   return result.trim();
 }
 
+function getPrereqStatus(condition: common.Condition | undefined): string | undefined {
+  return condition && condition.type === 'status' ? condition.status : undefined;
+}
+
 function formatTriggerableEffect(
   effect: statusTypes.TriggerableEffect,
   trigger: statusTypes.Trigger,
   enlirStatus: EnlirStatus,
   source: EnlirSkill | undefined,
   abbreviate: boolean,
+  condition: common.Condition | undefined,
 ): string {
   switch (effect.type) {
     case 'castSkill':
@@ -814,7 +819,7 @@ function formatTriggerableEffect(
                   showNoMiss: false,
                   includeSchool: true,
                   includeSbPoints: false,
-                  prereqStatus: enlirStatus.name,
+                  prereqStatus: getPrereqStatus(condition),
                 }),
                 { showTime: false },
               );
@@ -862,9 +867,26 @@ function formatTriggeredEffect(
   // Following MrP's example, finishers are displayed differently.
   const isFinisher = effect.trigger.type === 'whenRemoved';
   const effects = arrayify(effect.effects)
-    .map(i => formatTriggerableEffect(i, effect.trigger, enlirStatus, source, !isFinisher))
+    .map(i =>
+      formatTriggerableEffect(
+        i,
+        effect.trigger,
+        enlirStatus,
+        source,
+        !isFinisher,
+        effect.condition,
+      ),
+    )
     .join(', ');
-  const condition = effect.condition ? ' ' + describeCondition(effect.condition) : '';
+
+  // Hack: As of January 2020, any prerequisite status is always reflected in
+  // the follow-up skill, so we don't need to list it separately.  (See, e.g.,
+  // Edge's Chaotic Moon / Lurking Shadow.)
+  const condition =
+    effect.condition && !getPrereqStatus(effect.condition)
+      ? ' ' + describeCondition(effect.condition)
+      : '';
+
   if (isFinisher) {
     return 'Finisher: ' + effects + condition;
   } else {
@@ -1267,12 +1289,15 @@ export function describeEnlirStatusAndDuration(
 
   const [durationEffects, normalEffects] = _.partition(statusEffects, isDurationEffect);
 
-  let effects = describeEnlirStatusEffects(
-    normalEffects,
-    enlirStatus.status,
-    source,
-    options || {},
-  );
+  // If dealing with an effect from a stacking status, like Tifa's
+  // Striker Mode's 2x / 4x / 6x cast, then prefer generic numbered effects,
+  // on the assumption that higher-level code will want to slash-merge it.
+  const forceNumbers = isStackingStatus(enlirStatus.status);
+
+  let effects = describeEnlirStatusEffects(normalEffects, enlirStatus.status, source, {
+    ...(options || {}),
+    forceNumbers,
+  });
   let duration = durationEffects.length
     ? describeEnlirStatusEffects(durationEffects, enlirStatus.status, source, options || {})
     : null;
