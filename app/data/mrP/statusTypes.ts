@@ -512,7 +512,7 @@ interface RandomCastSkill {
 export interface GrantStatus {
   type: 'grantStatus';
   verb: common.StatusVerb;
-  status: StatusItem | StatusItem[];
+  status: StatusWithPercent | StatusWithPercent[];
   who?: common.Who;
   duration?: common.Duration;
   condition?: common.Condition;
@@ -530,7 +530,11 @@ interface TriggerChance {
   effect: TriggerableEffect;
 }
 
-export type StatusItem = common.StatusName | { status: common.StatusName; chance: number };
+// Note: Compatible with, but simpler than, skillTypes.StatusWithPercent
+export interface StatusWithPercent {
+  status: common.StatusName;
+  chance?: number;
+}
 
 // --------------------------------------------------------------------------
 // Soul Break points

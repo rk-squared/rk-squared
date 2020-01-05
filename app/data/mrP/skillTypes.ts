@@ -256,6 +256,7 @@ export interface StatusEffect {
   statuses: StatusWithPercent[];
 }
 
+// Note: Compatible with, but more complex than, skillTypes.StatusWithPercent
 export interface StatusWithPercent extends StatusClause {
   status: common.SmartEtherStatus | StatusLevel | common.StatusName;
   chance?: number;

@@ -445,7 +445,7 @@ RandomCastSkill
   = "randomly"i _ "casts" _ skill:AnySkillOrOptions  { return { type: 'randomCastSkill', skill }; }
 
 GrantStatus
-  = verb:StatusVerb _ head:StatusItem _ tail:(("," / "and") _ StatusItem)* _ condition:Condition? _ who:Who? _ duration:Duration? {
+  = verb:StatusVerb _ head:StatusWithPercent _ tail:(("," / "and") _ StatusWithPercent)* _ condition:Condition? _ who:Who? _ duration:Duration? {
     return util.addCondition({ type: 'grantStatus', status: util.pegList(head, tail, 2, true), who, duration, verb }, condition);
   }
 
@@ -455,10 +455,10 @@ Heal
 HealChance
   = chance:Integer "% chance to restore"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'triggerChance', chance, effect: { type: 'heal', fixedHp, who } }; }
 
-StatusItem
+StatusWithPercent
   = status:StatusName _ chance:("(" n:Integer "%)" { return n; })? {
     if (!chance || chance === 100) {
-      return status;
+      return { status };
     } else {
       return { status, chance };
     }

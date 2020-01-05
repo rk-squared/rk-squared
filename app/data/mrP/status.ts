@@ -377,7 +377,9 @@ function getFollowUpStatusSequence(
           if (e.type === 'grantStatus') {
             const followUp = _.find(
               arrayify(e.status),
-              granted => granted === thisStatusName || granted === baseStatusName + ' ' + (n + 1),
+              granted =>
+                granted.status === thisStatusName ||
+                granted.status === baseStatusName + ' ' + (n + 1),
             );
             if (followUp) {
               hasFollowUp = true;
@@ -755,20 +757,20 @@ function formatGrantStatus(
   }
 
   result += arrayify(status)
-    .map(i => {
-      const thisStatus = typeof i === 'string' ? i : i.status;
-      if (thisStatus === enlirStatus.name) {
+    .reduce(slashMergeElementStatuses, [])
+    .map((i: statusTypes.StatusWithPercent) => {
+      if (i.status === enlirStatus.name) {
         return 'status';
       }
-      const sequence = getFollowUpStatusSequence(thisStatus, trigger);
+      const sequence = getFollowUpStatusSequence(i.status, trigger);
       if (sequence) {
         return describeMergedSequence(sequence);
       } else {
         return slashMerge(
-          expandSlashOptions(thisStatus).map(
+          expandSlashOptions(i.status).map(
             option =>
               parseEnlirStatus(option, source).description +
-              (typeof i !== 'string' && i.chance !== 100 ? ` (${i.chance}%)` : ''),
+              (i.chance && i.chance !== 100 ? ` (${i.chance}%)` : ''),
           ),
         );
       }
