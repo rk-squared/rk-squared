@@ -389,7 +389,7 @@ function configureHttpsProxy(server: http.Server, store: Store<IState>, httpsPor
       });
     clientSocket.on('error', (e: Error) => {
       logger.debug(`Error communicating with ${serverUrl.hostname}`);
-      logger.debug(e);
+      logException(e, 'debug');
       serverSocket.destroy();
     });
   });

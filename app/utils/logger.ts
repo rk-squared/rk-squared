@@ -33,9 +33,9 @@ export function logToFile(filename: string) {
  * results in an empty object.  Calling printf results in just the message, so
  * it loses the exception name and the stack trace.
  */
-export function logException(e: any) {
+export function logException(e: any, level: string = 'error') {
   if (e.message && e.name && e.stack) {
-    logger.error(`${e.name}: ${e.message}\n${e.stack}`, {
+    logger.log(level, `${e.name}: ${e.message}\n${e.stack}`, {
       ...e,
       rawMessage: e.message,
       name: e.name,
@@ -44,7 +44,7 @@ export function logException(e: any) {
   } else if (e.syscall && e.code) {
     // Errors from sockets ("Error communicating with") lack details.  Try this
     // alternate code for handling them.
-    logger.error(`${e.syscall} ${e.code}` + (e.stack ? `\n${e.stack}` : ''), {
+    logger.log(level, `${e.syscall} ${e.code}` + (e.stack ? `\n${e.stack}` : ''), {
       ...e,
       rawMessage: `${e.syscall} ${e.code}`,
       stack: e.stack,
