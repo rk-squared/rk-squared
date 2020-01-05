@@ -70,6 +70,7 @@ import {
   percentToMultiplier,
   signedNumber,
   slashMerge,
+  slashMergeWithDetails,
   toMrPFixed,
   toMrPKilo,
 } from './util';
@@ -1076,7 +1077,9 @@ function describeStatusEffect(
     case 'damageBarrier':
       return effect.value + '% Dmg barrier ' + effect.attackCount;
     case 'radiantShield': {
-      let result = 'Reflect Dmg' + (effect.value !== 100 ? ' ' + effect.value + '%' : '');
+      let result =
+        'Reflect Dmg' +
+        (options.forceNumbers || effect.value !== 100 ? ' ' + effect.value + '%' : '');
       if (effect.element) {
         result +=
           (effect.overflow ? ' as overstrike ' : ' as ') + getElementShortName(effect.element);
@@ -1272,6 +1275,8 @@ export function describeEnlirStatusAndDuration(
   source?: EnlirSkill,
   options?: StatusOptions,
 ): [string, string | null] {
+  options = options || {};
+
   if (wellKnownStatuses.has(status)) {
     return [status, null];
   } else if (wellKnownAliases[status]) {
@@ -1294,12 +1299,9 @@ export function describeEnlirStatusAndDuration(
   // If dealing with an effect from a stacking status, like Tifa's
   // Striker Mode's 2x / 4x / 6x cast, then prefer generic numbered effects,
   // on the assumption that higher-level code will want to slash-merge it.
-  const forceNumbers = isStackingStatus(enlirStatus.status);
+  options.forceNumbers = options.forceNumbers || isStackingStatus(enlirStatus.status);
 
-  let effects = describeEnlirStatusEffects(normalEffects, enlirStatus.status, source, {
-    ...(options || {}),
-    forceNumbers,
-  });
+  let effects = describeEnlirStatusEffects(normalEffects, enlirStatus.status, source, options);
   let duration = durationEffects.length
     ? describeEnlirStatusEffects(durationEffects, enlirStatus.status, source, options || {})
     : null;
@@ -2027,7 +2029,11 @@ const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB point
  * Parses a string description of an Enlir status name, returning details about
  * it and how it should be shown.
  */
-export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnlirStatus {
+export function parseEnlirStatus(
+  status: string,
+  source?: EnlirSkill,
+  options?: StatusOptions,
+): ParsedEnlirStatus {
   let isUnconfirmed = false;
   if (status !== '?') {
     isUnconfirmed = status.endsWith('?');
@@ -2043,6 +2049,7 @@ export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnl
     status,
     enlirStatusWithPlaceholders,
     source,
+    options,
   );
 
   const isEx = isExStatus(status);
@@ -2132,8 +2139,17 @@ export function parseEnlirStatusWithSlashes(
     return makeResult(options, ' or ');
   } else if (!enlirStatus && status.match('/')) {
     // Handle slash-separated options.
-    const options = expandSlashOptions(status).map(i => parseEnlirStatus(i, source));
-    return makeResult(options);
+    const statusOptions = expandSlashOptions(status);
+    const options = [false, true].map(forceNumbers =>
+      statusOptions.map(i => parseEnlirStatus(i, source, { forceNumbers })),
+    );
+    const descriptions = options.map(opt => slashMergeWithDetails(opt.map(i => i.description)));
+
+    // If forcing numbers gives us a better merge than not forcing numbers,
+    // then use that.
+    const pickedForceNumbers = descriptions[+true].different < descriptions[+false].different;
+
+    return makeResult(options[+pickedForceNumbers]);
   } else {
     return parseEnlirStatus(status, source);
   }

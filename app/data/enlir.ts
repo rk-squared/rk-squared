@@ -736,10 +736,8 @@ function patchEnlir() {
       desperateMadness.effects ===
       'Four single attacks (0.56 each), Desperate Madness and Radiant Shield 100/125/150/175/200/225/250/275/300% to the user',
     desperateMadness => {
-      // Hack: The status name is actually "Radiant Shield:" - but leave it
-      // without the colon so that our default 100% alias isn't invoked.
       desperateMadness.effects =
-        'Four single attacks (0.56 each), grants Desperate Madness and Radiant Shield 100/125/150/175/200/225/250/275/300% to the user scaling with uses';
+        'Four single attacks (0.56 each), grants Desperate Madness and Radiant Shield: 100/125/150/175/200/225/250/275/300% to the user scaling with uses';
     },
   );
 
@@ -945,17 +943,6 @@ export const enlirStatusAltName: { [status: string]: EnlirStatus } = {
   'B. M.': enlir.statusByName['Burst Mode'],
   IC1: enlir.statusByName['Instant Cast 1'],
   'Critical 100%': enlir.statusByName['100% Critical'],
-
-  // Radiant shield aliases - see statusAlias.ts's 'Radiant Shield {X}%'
-  'Radiant Shield 100%': enlir.statusByName['Radiant Shield: 100%'],
-  'Radiant Shield 125%': enlir.statusByName['Radiant Shield: 125%'],
-  'Radiant Shield 150%': enlir.statusByName['Radiant Shield: 150%'],
-  'Radiant Shield 175%': enlir.statusByName['Radiant Shield: 175%'],
-  'Radiant Shield 200%': enlir.statusByName['Radiant Shield: 200%'],
-  'Radiant Shield 225%': enlir.statusByName['Radiant Shield: 225%'],
-  'Radiant Shield 250%': enlir.statusByName['Radiant Shield: 250%'],
-  'Radiant Shield 275%': enlir.statusByName['Radiant Shield: 275%'],
-  'Radiant Shield 300%': enlir.statusByName['Radiant Shield: 300%'],
 };
 
 export interface EnlirStatusPlaceholders {

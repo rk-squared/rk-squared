@@ -291,7 +291,7 @@ function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
   return { result, same, different };
 }
 
-export function slashMerge(options: string[], opt: SlashMergeOptions = {}): string {
+export function slashMergeWithDetails(options: string[], opt: SlashMergeOptions = {}) {
   const standardPlus = rawSlashMerge(options, { ...opt, splitAtPlus: true });
   const standardNoPlus = rawSlashMerge(options, { ...opt, splitAtPlus: false });
   const useNoPlus = standardNoPlus.different < standardPlus.different;
@@ -316,11 +316,16 @@ export function slashMerge(options: string[], opt: SlashMergeOptions = {}): stri
   // use slashes here?  Unfortunately, MrP isn't completely consistent - a lot
   // depends on whether the clauses we're separating use slashes or hyphens
   // internally.)
-  if (picked.same < picked.different) {
+  const mergeFailed = picked.same < picked.different;
+  if (mergeFailed) {
     result = options.join(enDashJoin);
   }
 
-  return result;
+  return { result, same: picked.same, different: picked.different, mergeFailed };
+}
+
+export function slashMerge(options: string[], opt: SlashMergeOptions = {}): string {
+  return slashMergeWithDetails(options, opt).result;
 }
 
 export function isSequential(values: number[]): boolean {
