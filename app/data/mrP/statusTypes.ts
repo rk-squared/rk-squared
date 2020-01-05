@@ -487,6 +487,7 @@ export interface TriggeredEffect {
   effects: TriggerableEffect | TriggerableEffect[];
   trigger: Trigger;
   condition?: common.Condition;
+  onceOnly?: boolean;
 }
 
 export type TriggerableEffect =

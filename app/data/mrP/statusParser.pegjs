@@ -50,7 +50,7 @@ EffectClause
   / GainSb / SbGainUp
   / Runic / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
-  / TurnDuration / RemovedUnlessStatus / OnceOnly / RemovedAfterTrigger
+  / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
   / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / NoEffect / Persists / GameOver
 
@@ -425,8 +425,8 @@ CounterWithImmune
 // Abilities and status effects
 
 TriggeredEffect
-  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? {
-    return util.addCondition({ type: 'triggeredEffect', effects: util.pegList(head, tail, 2, true), trigger }, condition);
+  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? onceOnly:("," _ OnceOnly)? {
+    return util.addCondition({ type: 'triggeredEffect', effects: util.pegList(head, tail, 2, true), trigger, onceOnly: !!onceOnly }, condition);
   }
 
 TriggerableEffect
@@ -537,6 +537,8 @@ TurnDuration
 RemovedUnlessStatus
   = "Removed"i _ "if" _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
 
+// This is only processed as part of a TriggeredEffect, since it arguably
+// applies to the trigger itself.
 OnceOnly
   = "Removed"i _ "after triggering" { return { type: 'onceOnly' }; }
 

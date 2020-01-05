@@ -858,7 +858,15 @@ function formatTriggeredEffect(
   if (isFinisher) {
     return 'Finisher: ' + effects + condition;
   } else {
-    return '(' + formatTrigger(effect.trigger) + ' ⤇ ' + effects + condition + ')';
+    return (
+      '(' +
+      formatTrigger(effect.trigger) +
+      ' ⤇ ' +
+      effects +
+      condition +
+      (effect.onceOnly ? ' (once only)' : '') +
+      ')'
+    );
   }
 }
 
