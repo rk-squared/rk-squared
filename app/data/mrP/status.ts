@@ -717,13 +717,13 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'damaged':
       return 'damaged';
     case 'dealDamage':
-      return ''; // TODO
+      return 'deal dmg';
     case 'loseStatus':
-      return ''; // TODO
+      return (statusLevelAlias[trigger.status] || trigger.status) + ' lost';
     case 'skill':
       return (trigger.count ? trigger.count + ' ' : '') + arrayify(trigger.skill).join('/');
     case 'skillTriggered':
-      return ''; // TODO
+      return trigger.count + ' ' + trigger.skill;
     case 'damagedByAlly':
       return `take ${formatAnyType(trigger, ' ')}dmg from ally`;
     case 'singleHeal':

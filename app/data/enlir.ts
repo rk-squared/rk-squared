@@ -945,7 +945,6 @@ export const enlirStatusAltName: { [status: string]: EnlirStatus } = {
   'B. M.': enlir.statusByName['Burst Mode'],
   IC1: enlir.statusByName['Instant Cast 1'],
   'Critical 100%': enlir.statusByName['100% Critical'],
-  'Cast Speed *999': enlir.statusByName['Instant Cast 1'],
 
   // Radiant shield aliases - see statusAlias.ts's 'Radiant Shield {X}%'
   'Radiant Shield 100%': enlir.statusByName['Radiant Shield: 100%'],

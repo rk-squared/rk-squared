@@ -664,7 +664,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (0.42 each), grants Cast Speed *999 to the user for 1 turn",
+    "effects": "Four single attacks (0.42 each), grants Instant Cast 1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 50,

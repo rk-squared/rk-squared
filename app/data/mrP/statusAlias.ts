@@ -85,6 +85,7 @@ export const statusLevelAlias: _.Dictionary<string> = {
   Stoneskin: 'Neg. Dmg.',
   'Heavy Charge': 'Hvy Charge',
   Ingredients: 'ingred.',
+  'Damage Reduction Barrier': 'Dmg barrier',
 };
 
 /**
@@ -132,7 +133,6 @@ export const statusAlias: AliasMap = {
     'Haurchefant Cover': 'if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
 
     // Nonstandard alternatives.  See enlirStatusAltName.
-    'Cast Speed *999': 'instacast',
     'B. M.': 'Burst Mode',
 
     // Aliases of numbered statuses, minus the numbers, for use by status
