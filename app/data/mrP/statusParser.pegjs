@@ -27,6 +27,7 @@ StatusEffect
   = head:EffectClause tail:((',' / '.') _ EffectClause)* {
     const result = util.pegList(head, tail, 2).filter(i => i != null);
     util.separateStatusAndSb(result);
+    util.checkSelfSkillTrigger(result);
     return result;
   }
   / "" { return []; }

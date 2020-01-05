@@ -723,7 +723,7 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'skill':
       return (trigger.count ? trigger.count + ' ' : '') + arrayify(trigger.skill).join('/');
     case 'skillTriggered':
-      return trigger.count + ' ' + trigger.skill;
+      return trigger.count + ' ' + (trigger.isSelfSkill ? 'times' : trigger.skill);
     case 'damagedByAlly':
       return `take ${formatAnyType(trigger, ' ')}dmg from ally`;
     case 'singleHeal':

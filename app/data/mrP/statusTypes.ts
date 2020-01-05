@@ -706,7 +706,7 @@ export type Trigger =
   | { type: 'dealDamage' }
   | { type: 'loseStatus'; status: common.StatusName }
   | { type: 'skill'; skill: string | string[]; count?: number }
-  | { type: 'skillTriggered'; skill: string; count: number }
+  | { type: 'skillTriggered'; skill: string; count: number; isSelfSkill?: boolean }
   | {
       type: 'damagedByAlly';
       skillType: EnlirSkillType | EnlirSkillType[];

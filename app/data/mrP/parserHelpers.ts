@@ -133,3 +133,20 @@ export function separateStatusAndSb(effects: statusTypes.EffectClause[]): void {
     }
   }
 }
+
+export function checkSelfSkillTrigger(effects: statusTypes.EffectClause[]): void {
+  for (const effect of effects) {
+    if (effect.type === 'removedAfterTrigger' && effect.trigger.type === 'skillTriggered') {
+      const skill = effect.trigger.skill;
+      for (const effect2 of effects) {
+        if (
+          effect2.type === 'triggeredEffect' &&
+          _.find(arrayify(effect2.effects), i => i.type === 'castSkill' && i.skill === skill)
+        ) {
+          effect.trigger.isSelfSkill = true;
+          break;
+        }
+      }
+    }
+  }
+}
