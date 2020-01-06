@@ -742,6 +742,42 @@ function addTrigger(effect: string, trigger: statusTypes.Trigger | undefined): s
   }
 }
 
+function formatCastSkill(
+  effect: statusTypes.CastSkill | statusTypes.RandomCastSkill,
+  enlirStatus: EnlirStatus,
+  abbreviate: boolean,
+  condition: common.Condition | undefined,
+): string {
+  const skillText = handleOrOptions(effect.skill, skill => {
+    let options: string[];
+    if (skill.match('/') && !getEnlirOtherSkill(skill, enlirStatus.name)) {
+      options = expandSlashOptions(skill);
+    } else {
+      options = [skill];
+    }
+    return slashMerge(
+      options.map(option => {
+        const enlirSkill = getEnlirOtherSkill(option, enlirStatus.name);
+        if (!enlirSkill) {
+          return option;
+        } else {
+          return formatMrPSkill(
+            convertEnlirSkillToMrP(enlirSkill, {
+              abbreviate,
+              showNoMiss: false,
+              includeSchool: true,
+              includeSbPoints: false,
+              prereqStatus: getPrereqStatus(condition),
+            }),
+            { showTime: false },
+          );
+        }
+      }),
+    );
+  });
+  return skillText + (effect.type === 'randomCastSkill' ? ' (random)' : '');
+}
+
 function formatGrantStatus(
   { verb, status, who, duration, condition }: statusTypes.GrantStatus,
   trigger: statusTypes.Trigger,
@@ -802,36 +838,8 @@ function formatTriggerableEffect(
 ): string {
   switch (effect.type) {
     case 'castSkill':
-    case 'randomCastSkill': {
-      const skillText = handleOrOptions(effect.skill, skill => {
-        let options: string[];
-        if (skill.match('/') && !getEnlirOtherSkill(skill, enlirStatus.name)) {
-          options = expandSlashOptions(skill);
-        } else {
-          options = [skill];
-        }
-        return slashMerge(
-          options.map(option => {
-            const enlirSkill = getEnlirOtherSkill(option, enlirStatus.name);
-            if (!enlirSkill) {
-              return option;
-            } else {
-              return formatMrPSkill(
-                convertEnlirSkillToMrP(enlirSkill, {
-                  abbreviate,
-                  showNoMiss: false,
-                  includeSchool: true,
-                  includeSbPoints: false,
-                  prereqStatus: getPrereqStatus(condition),
-                }),
-                { showTime: false },
-              );
-            }
-          }),
-        );
-      });
-      return skillText + (effect.type === 'randomCastSkill' ? ' (random)' : '');
-    }
+    case 'randomCastSkill':
+      return formatCastSkill(effect, enlirStatus, abbreviate, condition);
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'grantStatus':

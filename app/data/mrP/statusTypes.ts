@@ -499,12 +499,12 @@ export type TriggerableEffect =
   | TriggerChance
   | common.SmartEtherStatus;
 
-interface CastSkill {
+export interface CastSkill {
   type: 'castSkill';
   skill: common.OrOptions<string>;
 }
 
-interface RandomCastSkill {
+export interface RandomCastSkill {
   type: 'randomCastSkill';
   skill: common.OrOptions<string>;
 }
