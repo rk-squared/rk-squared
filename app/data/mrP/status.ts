@@ -251,7 +251,12 @@ function describeMergedSequence(sequence: FollowUpStatusSequence) {
 }
 
 const isTriggerStatus = (statusEffects: statusTypes.StatusEffect) =>
-  statusEffects.find(i => 'trigger' in i && i.trigger != null) != null;
+  statusEffects.find(
+    i =>
+      i.type === 'switchDraw' ||
+      i.type === 'switchDrawStacking' ||
+      ('trigger' in i && i.trigger != null),
+  ) != null;
 
 const isSoulBreakMode = ({ name, codedName }: EnlirStatus) =>
   codedName === 'BRAVE_MODE' ||
@@ -286,6 +291,17 @@ function isModeStatus(enlirStatus: EnlirStatus): boolean {
       name === 'Haurchefant Cover'
     );
   }
+}
+
+/**
+ * Checks whether this status effect indicates that it's limited to a specific
+ * soul break's mode status.
+ */
+function isModeLimitedEffect(effect: statusTypes.EffectClause): boolean {
+  // Hack: "Any" statuses are typically well-known statuses like Stoneskin
+  // or Physical Blink.  Specific statuses are normally related to the
+  // current soul break.
+  return effect.type === 'removedUnlessStatus' && !effect.any;
 }
 
 /**
@@ -606,11 +622,28 @@ function formatGrantStatus(
         return describeMergedSequence(sequence);
       } else {
         return slashMerge(
-          expandSlashOptions(i.status).map(
-            option =>
-              parseEnlirStatus(option, source).description +
-              (i.chance && i.chance !== 100 ? ` (${i.chance}%)` : ''),
-          ),
+          expandSlashOptions(i.status).map(option => {
+            const parsed = parseEnlirStatus(option, source);
+            let optionResult = parsed.description;
+
+            // Hack: Partial duplication of logic on when to append durations.
+            // This is valuable to make Galuf AASB's instacast clear.
+            if (
+              !duration &&
+              parsed.defaultDuration &&
+              !parsed.isVariableDuration &&
+              !parsed.specialDuration &&
+              !parsed.isModeLimited
+            ) {
+              optionResult +=
+                ' ' + formatDuration({ value: parsed.defaultDuration, units: 'seconds' });
+            }
+
+            if (i.chance && i.chance !== 100) {
+              optionResult += ` (${i.chance}%)`;
+            }
+            return optionResult;
+          }),
         );
       }
     })
@@ -1020,10 +1053,8 @@ function describeStatusEffect(
     case 'turnDuration':
       return formatDuration(effect.duration);
     case 'removedUnlessStatus':
-      // Hack: "Any" statuses are typically well-known statuses like Stoneskin
-      // or Physical Blink.  Specific statuses are normally related to the
-      // current soul break, so they're detailed enough that we can omit them.
-      if (effect.any) {
+      // Mode-specific statuses are detailed enough that we can omit them.
+      if (!isModeLimitedEffect(effect)) {
         return 'until ' + (statusLevelAlias[effect.status] || effect.status) + ' lost';
       } else {
         return null;
@@ -1167,6 +1198,7 @@ export interface ParsedEnlirStatus {
   isExLike: boolean;
   isBurstToggle: boolean;
   isTrance: boolean;
+  isModeLimited: boolean;
   defaultDuration: number | null;
   isVariableDuration: boolean;
   specialDuration?: string;
@@ -1203,7 +1235,10 @@ const describeAutoInterval = (autoInterval: number) => `every ${toMrPFixed(autoI
 function isFinisherOnly(effects: statusTypes.StatusEffect): boolean {
   // Hack: If the skill starts with 'Removed ', instead of having ', removed'
   // in the middle, then assume that it consists only of finisher effects.
-  return effects.length > 0 && effects[0].type === 'removedAfterTrigger';
+  return (
+    effects.length > 0 &&
+    (effects[0].type === 'removedAfterTrigger' || effects[0].type === 'removedUnlessStatus')
+  );
 }
 
 const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB points$/);
@@ -1280,6 +1315,7 @@ export function parseEnlirStatus(
     isDetail: isExLike || (enlirStatus != null && forceDetail(enlirStatus)),
     isBurstToggle: burstToggle,
     isTrance: enlirStatus != null && isTranceStatus(enlirStatus),
+    isModeLimited: statusEffects != null && statusEffects.find(isModeLimitedEffect) != null,
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
     specialDuration: specialDuration || undefined,

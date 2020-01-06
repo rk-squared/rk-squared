@@ -1282,11 +1282,11 @@ Object {
         other:
           'lgt infuse 25s, ' +
           '15s: (lgt ⤇ back row hi fastzap 1), ' +
-          '(3 lgt ⤇ party +10% lgt dmg)',
+          '(3 lgt ⤇ party +10% lgt dmg 15s)',
       });
       expect(describeSoulBreak('Steiner - Enlightened Blade')).toEqual({
         damage: 'phys 7.0/10 fire+lgt+ice',
-        other: 'self +100% RES 25s, 15s: (take f/i/l mag dmg from ally ⤇ fire/ice/lgt infuse)',
+        other: 'self +100% RES 25s, 15s: (take f/i/l mag dmg from ally ⤇ fire/ice/lgt infuse 25s)',
       });
       expect(describeSoulBreak('Zack - Climhazzard Xeno')).toEqual({
         damage: 'phys 6.8/10 wind+non',
@@ -1429,7 +1429,7 @@ Object {
       expect(describeSoulBreak('Steiner - USB2')).toEqual({
         damage: 'phys 6.9/10 fire+lgt+ice+non',
         other:
-          'party instacast 1, 15s: (hit weak ⤇ p1.86/6 f+l+i+n Spellblade, +10% fire/lgt/ice dmg)',
+          'party instacast 1, 15s: (hit weak ⤇ p1.86/6 f+l+i+n Spellblade, +10% fire/lgt/ice dmg 15s)',
       });
     });
 
@@ -2294,7 +2294,7 @@ Object {
           'earth infuse 25s, self dmg cap +10k 15s, ' +
           'Reflect Dmg 75% as overstrike earth 30s, ' +
           '15s: (4 earth ⤇ p5.2 e+d+n overstrike Spellblade, self instacast 1), ' +
-          '15s: (1/2/3+ earth ⤇ Reflect Dmg 125%/200%/300% as overstrike earth), ' +
+          '15s: (1/2/3+ earth ⤇ Reflect Dmg 125%/200%/300% as overstrike earth 30s), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2366,9 +2366,9 @@ Object {
         damage: 'phys 9.0/15 fire+dark+non rngd',
         other:
           'self dmg cap +10k 15s, ' +
-          '1 turn: (fire ⤇ fire infuse), (dark ⤇ dark infuse), ' +
-          '15s: (dark ⤇ (1/2/3+ dark ⤇ 2.0-2.5-3.0x cast), (dark ⤇ p1.95/5 d+n rngd Sharpshooter)), ' +
-          '(fire ⤇ (1/2/3+ fire ⤇ crit =50%/75%/100%), (fire ⤇ p1.95/5 f+n rngd Monk)), ' +
+          '1 turn: (fire/dark ⤇ fire/dark infuse), ' +
+          '15s: (dark ⤇ (1/2/3+ dark ⤇ 2/2.5/3x cast), (dark ⤇ p1.95/5 d+n rngd Sharpshooter)), ' +
+          '(fire ⤇ (1/2/3+ fire ⤇ crit =50/75/100%), (fire ⤇ p1.95/5 f+n rngd Monk)), ' +
           '15s: Awoken Legendary Player: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2376,7 +2376,7 @@ Object {
         damage: 'phys 9.0/15 water+non',
         other:
           'water infuse 25s, self dmg cap +10k 15s, 15s: fastcast, ' +
-          '(1/2/3/4+ water ⤇ crit =25%/50%/75%/100%), ' +
+          '(1/2/3/4+ water ⤇ crit =25/50/75/100%), ' +
           '15s: Awoken Water: water inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
