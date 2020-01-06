@@ -2393,17 +2393,17 @@ Object {
         damage: 'phys 9.0/15 fire+non',
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +
-          '15s: (0/1/2 Samurai ⤇ 1.15-1.3-1.5x Samurai dmg (once only)), ' +
+          '15s: (0/1/2 Samurai ⤇ 1.15-1.3-1.5x Samurai dmg), ' +
           '(4 Samurai ⤇ p6.9 - 6.9 - 7.0/2 f+n overstrike Samurai @ +0 - 50 - 100% crit ' +
-          '@ 0-500-1000 SB pts (once only)), ' +
+          '@ 0-500-1000 SB pts, remove status), ' +
           '15s: Awoken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeSoulBreak('Edgar - AASB')).toEqual({
         damage: 'phys 9.0/15 bio+fire+lgt+non rngd',
         other:
-          'self dmg cap +10k 15s, 1 turn: (b/f/l ⤇ bio/fire/lgt infuse), ' +
-          '15s: (2 b/f/l ⤇ +10% bio/fire/lgt vuln.), ' +
+          'self dmg cap +10k 15s, 1 turn: (bio/fire/lgt ⤇ bio/fire/lgt infuse), ' +
+          '15s: (2 b/f/l ⤇ +10% bio/fire/lgt vuln. 15s), ' +
           '15s: Awoken Machinery Cultivator: Machinist inf. hones, ' +
           '2-3x Machinist cast @ rank 1-5, 100% dualcast',
       });
@@ -2421,7 +2421,7 @@ Object {
         other:
           'party h105, Negate dmg 30%, Last stand, self hi fastcast 15s, ' +
           '15s: Awoken Guardian: W.Mag inf. hones, ' +
-          '(ally heal ⤇ ally Negate dmg 30%/40%/50%/60%/70% @ rank 1-5), 100% dualcast',
+          '(ally heal ⤇ ally Negate dmg 30%/40%/50%/60%/70% @ rank 1-5), 100% dualcast W.Mag',
       });
     });
 

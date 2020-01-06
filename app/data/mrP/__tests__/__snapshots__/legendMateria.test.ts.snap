@@ -1822,7 +1822,7 @@ Array [
   },
   Object {
     "character": "Genesis",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +30% ATK, 50% chance to dualcast Fire attacks 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +30% ATK, 50% dualcast fire 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Genesis Trance when HP fall below 20%",
     "name": "G-Cell Host",
   },

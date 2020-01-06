@@ -81,6 +81,9 @@ const wellKnownAliases: _.Dictionary<string> = {
   'Low Regen': 'Regen (lo)',
   'Medium Regen': 'Regen (med)',
   'High Regen': 'Regen (hi)',
+
+  // Orlandeau's "Infinite Haste" deserves its own name.
+  'Infinite Haste': 'Infinite Haste',
 };
 
 interface StatusOptions {
@@ -609,6 +612,11 @@ function formatGrantStatus(
     result += whoText[who] + ' ';
   } else if (who === 'target' && trigger.type === 'singleHeal') {
     result += whoText['ally'] + ' ';
+  } else if (!who && arrayify(status).find(i => i.chance != null)) {
+    // Hack: The convention is to show chance for negative statuses.  A
+    // negative self status is unusual, so force showing who in that case.
+    // This is used for Eight's trance (Back to the Wall Mode).
+    result += whoText['self'] + ' ';
   }
 
   result += arrayify(status)
@@ -639,7 +647,7 @@ function formatGrantStatus(
                 ' ' + formatDuration({ value: parsed.defaultDuration, units: 'seconds' });
             }
 
-            if (i.chance && i.chance !== 100) {
+            if (i.chance) {
               optionResult += ` (${i.chance}%)`;
             }
             return optionResult;
@@ -682,7 +690,11 @@ function formatTriggerableEffect(
     case 'heal':
       return whoText[effect.who] + ' heal ' + toMrPKilo(effect.fixedHp) + ' HP';
     case 'triggerChance':
-      return ''; // TODO
+      return (
+        effect.chance +
+        '% for ' +
+        formatTriggerableEffect(effect.effect, trigger, enlirStatus, source, abbreviate, condition)
+      );
     case 'smartEther':
       return formatSmartEther(effect.amount, effect.school);
   }
@@ -882,7 +894,7 @@ function describeStatusEffect(
             ? 'hi fast'
             : effect.value.toString() + 'x ';
       }
-      return formatAnyCast(effect, cast);
+      return addTrigger(formatAnyCast(effect, cast), effect.trigger);
     }
     case 'instantAtb':
       return 'instant ATB';

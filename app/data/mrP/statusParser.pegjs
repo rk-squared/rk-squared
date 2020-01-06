@@ -468,7 +468,7 @@ HealChance
 
 StatusWithPercent
   = status:StatusName _ chance:("(" n:Integer "%)" { return n; })? {
-    if (!chance || chance === 100) {
+    if (!chance) {
       return { status };
     } else {
       return { status, chance };
