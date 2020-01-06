@@ -580,12 +580,12 @@ describe('mrP', () => {
       });
       expect(describeSoulBreak('Galuf - Unshaken Resolve')).toEqual({
         damage: 'phys 7.8/4',
-        other: 'self +50% ATK 25s, immune atks/status/heal 30s',
+        other: 'self +50% ATK 25s, +50% ATK, immune atks/status/heal 30s',
       });
       expect(describeSoulBreak('Haurchefant - Live to Serve')).toEqual({
         other:
           'self Autoheal 6k, +100% DEF/RES, +50% MND 25s, ' +
-          '15s: if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
+          '15s: if in front, 100% cover PHY,BLK,WHT,BLU,SUM vs back row, taking 0.5x dmg',
       });
       expect(describeSoulBreak('Paine - Rushing Steel')).toEqual({
         damage: 'phys 7.1/10 water+non',
@@ -768,7 +768,7 @@ describe('mrP', () => {
           {
             burstToggle: true,
             damage: undefined,
-            other: "self Magic blink 1, until OFF: (foe's PHY atk (50%) ⤇ AoE m4.85 f+n B.Mag)",
+            other: "self Magic blink 1, until OFF: (foe's PHY atk ⤇ 50% for AoE m4.85 f+n B.Mag)",
             school: 'Black Magic',
           },
           { burstToggle: false, damage: 'm8.84/4 f+n', other: undefined, school: 'Black Magic' },
@@ -779,7 +779,7 @@ describe('mrP', () => {
         other: 'fire infuse 25s',
       });
       expect(counter.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
-        "ON, self Magic blink 1, until OFF: (foe's PHY atk (50%) ⤇ AoE m4.85 f+n B.Mag)",
+        "ON, self Magic blink 1, until OFF: (foe's PHY atk ⤇ 50% for AoE m4.85 f+n B.Mag)",
         'OFF, m8.84/4 f+n',
         'AoE m5.9/2 f+n',
         'AoE m8.85/3 f+n',
@@ -864,7 +864,7 @@ describe('mrP', () => {
             other: undefined,
             school: 'Combat',
           },
-          { damage: 'p1.68/4 h+n', other: 'self instacast 1 turn', school: 'Combat' },
+          { damage: 'p1.68/4 h+n', other: 'self instacast 1', school: 'Combat' },
         ],
       });
       expect(describeSoulBreak("Seifer - Sorceress's Knight")).toMatchInlineSnapshot(`
@@ -890,13 +890,13 @@ Object {
     it('handles complex burst modes', () => {
       expect(describeSoulBreak('Ignis - Stalwart Cook')).toEqual({
         burstCommands: [
-          { damage: 'p1.92/3 f+l+i', other: '+1 ingredients', school: 'Thief' },
-          { other: 'crit =100% 25s, -1 ingredients', school: 'Support' },
-          { other: 'heal 30% HP, +50% crit dmg 25s, -1 ingredients', school: 'Support' },
-          { other: 'heal 40% HP, instacast 1, -1 ingredients', school: 'Support' },
+          { damage: 'p1.92/3 f+l+i', other: 'ingred. +1', school: 'Thief' },
+          { other: 'crit =100% 25s, ingred. -1', school: 'Support' },
+          { other: 'heal 30% HP, +50% crit dmg 25s, ingred. -1', school: 'Support' },
+          { other: 'heal 40% HP, instacast 1, ingred. -1', school: 'Support' },
         ],
         damage: undefined,
-        other: 'party Haste, +30% ATK/RES 25s, +2 ingredients',
+        other: 'party Haste, +30% ATK/RES 25s, ingred. +2',
       });
 
       expect(describeSoulBreak('Josef - Undaunted Hero')).toEqual({
@@ -914,7 +914,7 @@ Object {
         burstCommands: [
           {
             damage: 'p2.32/4 f+n',
-            other: 'self stacking +15%/30%/50% ATK, 1.33x/2.0x/4.0x cast until damaged',
+            other: 'until damaged: stacking +15%/30%/50% ATK, 1.33x/2x/4x cast',
             school: 'Monk',
           },
           { damage: undefined, other: 'self Negate dmg 30%', school: 'Monk' },
@@ -934,8 +934,7 @@ Object {
       });
       expect(describeSoulBreak('Tifa - Zangan Awakening')).toEqual({
         instant: true,
-        other:
-          'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ rank 1-5 15s, 15s: stacking 2.0x/4.0x/6.0x cast',
+        other: 'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ rank 1-5 15s, 15s: stacking 2x/4x/6x cast',
       });
       expect(describeSoulBreak("Sabin - Perdition's Phoenix")).toEqual({
         damage: 'phys 4.9/7 - 5.6/8 - 6.3/9 - 7.0/10 fire+non @ 700-1250-1700 ATK',
@@ -953,7 +952,7 @@ Object {
         instant: true,
         other:
           'party Haste, crit =50% 25s, self hi fastcast 15s, ' +
-          '15s: (1/2/3/4/5+ Support ⤇ party crit =60%/70%/80%/90%/100% 15s)',
+          '15s: (1-5+ Support ⤇ party crit =60%/70%/80%/90%/100% 15s)',
       });
       expect(describeSoulBreak('Warrior of Light - Bitter End')).toEqual({
         damage: 'phys 7.1/10 holy+non',
@@ -1012,13 +1011,13 @@ Object {
     it('converts EX modes with unusual bonuses', () => {
       expect(describeSoulBreak('Cloud - Ultra Cross Slash')).toEqual({
         damage: 'phys 7.5/5 wind+dark',
-        other: 'self crit =100% 25s, 15s: EX: 1.3x phys dmg, break PHY dmg cap',
+        other: 'self crit =100% 25s, 15s: EX: 1.3x PHY dmg, break PHY dmg cap',
       });
       expect(describeSoulBreak('Sephiroth - Zanshin')).toEqual({
         damage: 'phys 7.2/15 dark rngd',
         other:
           'dark infuse 25s, self crit =50% 25s, ' +
-          '15s: EX: (2 dark ⤇ 1.3x dark dmg 1 turn), break PHY Dark dmg cap',
+          '15s: EX: (2 dark ⤇ 1.3x dark dmg 1 turn), break dark PHY dmg cap',
       });
     });
 
@@ -1226,7 +1225,7 @@ Object {
         damage: 'magic 17.0/10 fire+non',
         other:
           'fire infuse 25s, self 1.3x B.Mag dmg 15s, ' +
-          '15s: (1/2/3 B.Mag ⤇ m4.08/2 f+n B.Mag, self hi fastcast 2 ' +
+          'until 3 B.Mag: (1/2/3 B.Mag ⤇ m4.08/2 f+n B.Mag, self hi fastcast 2 ' +
           '– m4.08/2 f+n B.Mag, same row heal 1.5k ' +
           '– m16.32/8 f+n B.Mag)',
       });
@@ -1255,7 +1254,7 @@ Object {
         damage: 'phys 7.1/10 dark+non rngd',
         other:
           '-70% DEF/MAG 8s, party instacast 1, ' +
-          '15s: (1/2/3/4 +4n damaging Support ⤇ p1.71/3 d+n rngd Support, -40% ATK/-50% MAG/-40% DEF/-50% RES 15s)',
+          '15s: (1/2/3/4 +4n Support dmg ⤇ p1.71/3 d+n rngd Support, -40% ATK/-50% MAG/-40% DEF/-50% RES 15s)',
       });
 
       expect(describeSoulBreak('Exdeath - Balance of Power')).toEqual({
@@ -1334,7 +1333,7 @@ Object {
       expect(describeSoulBreak('Relm - Friendly Sketch')).toEqual({
         instant: true,
         other:
-          'party h85, Last stand, 15s: (every 3.5s ⤇ w9.0/6 wa+n/wa+n/wa+d+n/wa+d+f+n W.Mag, party h25, 0̸/0̸/0̸/Regen (hi) if 0/1/2/3+ VI chars. in party)',
+          'party h85, Last stand, 15s: (every 3.5s ⤇ w9.0/6 wa+n/wa+n/wa+d+n/wa+d+f+n W.Mag, party h25, 0̸/0̸/0̸/Regen (hi) if 0-1-2-3 VI chars. in party)',
       });
     });
 

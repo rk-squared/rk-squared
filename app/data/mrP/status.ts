@@ -251,7 +251,7 @@ function describeMergedSequence(sequence: FollowUpStatusSequence) {
 }
 
 const isTriggerStatus = (statusEffects: statusTypes.StatusEffect) =>
-  statusEffects.find(i => i.type === 'triggeredEffect') != null;
+  statusEffects.find(i => 'trigger' in i && i.trigger != null) != null;
 
 const isSoulBreakMode = ({ name, codedName }: EnlirStatus) =>
   codedName === 'BRAVE_MODE' ||
@@ -763,7 +763,7 @@ function formatCounter(
   }
 
   if (isSimple) {
-    return counterText + ' (' + chance + '%)';
+    return counterText + (chance != null && chance !== 100 ? ' (' + chance + '%)' : '');
   }
 
   return formatGenericTrigger(
@@ -972,7 +972,7 @@ function describeStatusEffect(
     case 'poison':
       return null; // TODO
     case 'healUp':
-      return null; // TODO
+      return signedNumber(effect.value) + '% healing';
     case 'pain':
       return null; // TODO
     case 'damageTaken':
@@ -1203,7 +1203,7 @@ const describeAutoInterval = (autoInterval: number) => `every ${toMrPFixed(autoI
 function isFinisherOnly(effects: statusTypes.StatusEffect): boolean {
   // Hack: If the skill starts with 'Removed ', instead of having ', removed'
   // in the middle, then assume that it consists only of finisher effects.
-  return effects[0].type === 'removedAfterTrigger';
+  return effects.length > 0 && effects[0].type === 'removedAfterTrigger';
 }
 
 const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB points$/);
