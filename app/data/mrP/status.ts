@@ -87,8 +87,6 @@ interface StatusOptions {
   forceNumbers?: boolean;
 }
 
-const TRIGGER_ARROW = ' ⤇ ';
-
 export function safeParseStatus(
   status: EnlirStatus,
   placeholders?: EnlirStatusPlaceholders,
@@ -107,11 +105,11 @@ export function safeParseStatus(
 
 const finisherText = 'Finisher: ';
 export const hitWeaknessTriggerText = 'hit weak';
-export const formatTriggeredEffectOld = (
+export const formatGenericTrigger = (
   trigger: string,
   description: string,
   percent?: string | number,
-) => '(' + trigger + TRIGGER_ARROW + (percent ? `${percent}% for ` : '') + description + ')';
+) => '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
 
 export function describeStats(stats: string[]): string {
   return stats
@@ -497,7 +495,7 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'crit':
       return 'crit';
     case 'vsWeak':
-      return 'hit weak';
+      return hitWeaknessTriggerText;
     case 'whenRemoved':
       // Finishers are handled separately, so this code path isn't hit.
       return 'finisher';
@@ -524,7 +522,7 @@ function addTrigger(effect: string, trigger: statusTypes.Trigger | undefined): s
   if (!trigger) {
     return effect;
   } else {
-    return '(' + formatTrigger(trigger) + TRIGGER_ARROW + effect + ')';
+    return formatGenericTrigger(formatTrigger(trigger), effect);
   }
 }
 
@@ -660,15 +658,12 @@ function formatSwitchDraw(
   isStacking?: boolean,
   stackingLevel?: number,
 ): string {
-  return (
-    '(' +
+  return formatGenericTrigger(
+    elements.map(getElementShortName).join('/'),
     elements.map(getElementShortName).join('/') +
-    TRIGGER_ARROW +
-    elements.map(getElementShortName).join('/') +
-    ' infuse' +
-    (stackingLevel ? ' ' + stackingLevel : '') +
-    (isStacking ? ' w/ stacking' : '') +
-    ')'
+      ' infuse' +
+      (stackingLevel ? ' ' + stackingLevel : '') +
+      (isStacking ? ' w/ stacking' : ''),
   );
 }
 
@@ -740,8 +735,6 @@ function formatCounter(
   { skillType, chance, counter, enemyOnly }: statusTypes.Counter,
   source?: EnlirStatus,
 ): string {
-  const chanceText = chance ? ' (' + chance + '%)' : '';
-
   let counterText: string;
   let isSimple = skillType === 'PHY';
   if (!counter) {
@@ -768,18 +761,13 @@ function formatCounter(
   }
 
   if (isSimple) {
-    return counterText + chanceText;
+    return counterText + ' (' + chance + '%)';
   }
 
-  return (
-    '(' +
-    (enemyOnly ? "foe's " : '') +
-    arrayify(skillType).join('/') +
-    ' atk' +
-    chanceText +
-    TRIGGER_ARROW +
-    counterText +
-    ')'
+  return formatGenericTrigger(
+    (enemyOnly ? "foe's " : '') + arrayify(skillType).join('/') + ' atk',
+    counterText,
+    chance,
   );
 }
 

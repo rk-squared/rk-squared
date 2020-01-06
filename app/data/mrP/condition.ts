@@ -137,7 +137,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'differentAbilityUses':
       return formatThreshold(
         condition.count,
-        'diff. ' + getSchoolShortName(condition.school) + ' abils.',
+        'diff. ' + getSchoolShortName(condition.school) + ' abils',
       );
     case 'abilitiesUsedDuringStatus':
       return (

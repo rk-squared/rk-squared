@@ -1094,7 +1094,7 @@ Object {
         other: 'self Monk fastcast 5',
         burstCommands: [
           {
-            damage: 'p2.4/3 - 3.2/4 - 4.0/5 - 4.8/6 @ 1-2-3 diff. Monk abils.',
+            damage: 'p2.4/3 - 3.2/4 - 4.0/5 - 4.8/6 @ 1-2-3 diff. Monk abils',
             other: 'reset count',
             school: 'Monk',
           },
@@ -1255,7 +1255,7 @@ Object {
         damage: 'phys 7.1/10 dark+non rngd',
         other:
           '-70% DEF/MAG 8s, party instacast 1, ' +
-          '15s: (1/2/3/4 + 4n damaging Support ⤇ p1.71/3 d+n rngd Support, -40% ATK/-50% MAG/-40% DEF/-50% RES 15s)',
+          '15s: (1/2/3/4 +4n damaging Support ⤇ p1.71/3 d+n rngd Support, -40% ATK/-50% MAG/-40% DEF/-50% RES 15s)',
       });
 
       expect(describeSoulBreak('Exdeath - Balance of Power')).toEqual({
@@ -1287,8 +1287,7 @@ Object {
       });
       expect(describeSoulBreak('Steiner - Enlightened Blade')).toEqual({
         damage: 'phys 7.0/10 fire+lgt+ice',
-        other:
-          'self +100% RES 25s, 15s: (take fire/ice/lgt mag dmg from ally ⤇ fire/ice/lgt infuse)',
+        other: 'self +100% RES 25s, 15s: (take f/i/l mag dmg from ally ⤇ fire/ice/lgt infuse)',
       });
       expect(describeSoulBreak('Zack - Climhazzard Xeno')).toEqual({
         damage: 'phys 6.8/10 wind+non',
@@ -1335,7 +1334,7 @@ Object {
       expect(describeSoulBreak('Relm - Friendly Sketch')).toEqual({
         instant: true,
         other:
-          'party h85, Last stand, 15s: (every 3.5s ⤇ w9.0/6 wa+n/wa+n/wa+d+n/wa+d+f+n W.Mag, party h25, 0̸/0̸/0̸/Regen (hi) if 0/1/2/3+ VI chars.)',
+          'party h85, Last stand, 15s: (every 3.5s ⤇ w9.0/6 wa+n/wa+n/wa+d+n/wa+d+f+n W.Mag, party h25, 0̸/0̸/0̸/Regen (hi) if 0/1/2/3+ VI chars. in party)',
       });
     });
 
@@ -1364,7 +1363,7 @@ Object {
         damage: 'magic 16.5/10 ice+water+lgt+non',
         other:
           'self fastcast 15s, ' +
-          '15s: (B.Mag ⤇ MAG +30-34-38-42-46-50%), ' +
+          '15s: (B.Mag ⤇ +30-34-38-42-46-50% MAG), ' +
           '15s: EX: (B.Mag ⤇ m7.68/6 i+wa+l+n B.Mag), ' +
           'Finisher: magic 17.3/10 ice+water+lgt+non B.Mag',
       });
@@ -1387,7 +1386,7 @@ Object {
       expect(describeSoulBreak('Onion Knight - Forbidden Power')).toEqual({
         other:
           'party Haste, crit =50%, +50% ATK 25s, ' +
-          '15s: EX: +30% ATK, cast speed 1.3x, +0.3x per abil., max 3.4x @ 7 abils.',
+          '15s: EX: +30% ATK, cast speed 1.3x, +0.3x per abil, max 3.4x @ 7 abils',
       });
     });
 
@@ -1431,7 +1430,7 @@ Object {
       expect(describeSoulBreak('Steiner - USB2')).toEqual({
         damage: 'phys 6.9/10 fire+lgt+ice+non',
         other:
-          'party instacast 1, 15s: (hit weak ⤇ +10% fire/lgt/ice dmg, p1.86/6 f+l+i+n Spellblade)',
+          'party instacast 1, 15s: (hit weak ⤇ p1.86/6 f+l+i+n Spellblade, +10% fire/lgt/ice dmg)',
       });
     });
 
@@ -2203,7 +2202,7 @@ Object {
       expect(describeSoulBreak('Seifer - AASB')).toEqual({
         damage: 'phys 9.0/15 dark+fire+non rngd',
         other:
-          'self dmg cap +10k 15s, 1 turn: (fire ⤇ fire infuse), (dark ⤇ dark infuse), ' +
+          'self dmg cap +10k 15s, 1 turn: (fire/dark ⤇ fire/dark infuse), ' +
           '15s: (2 dark/fire ⤇ p3.68/8 d+f+n rngd Darkness), ' +
           "15s: Awoken Sorceress's Knight: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast",
       });
@@ -2260,7 +2259,7 @@ Object {
         damage: 'phys 9.0/15 wind+fire+non rngd',
         other:
           '+20% wind/fire vuln. 25s, self dmg cap +10k 15s, ' +
-          '1 turn: (fire ⤇ fire infuse), (wind ⤇ wind infuse), ' +
+          '1 turn: (fire/wind ⤇ fire/wind infuse), ' +
           '15s: (3 Thief ⤇ +10% wind/fire vuln. 15s), ' +
           '15s: Awoken Thief: Thief inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2285,8 +2284,8 @@ Object {
         damage: 'magic 22.5/15 earth+holy+non',
         other:
           'earth infuse 25s, self dmg cap +10k 15s, fastcast 15s, ' +
-          '15s: (3 earth ⤇ m3.6/3 - 6.0/5 - 18.0/15 e+h+n B.Mag @ 0-72001-240001 dmg dealt, ' +
-          'then m17.3 e+h+n overstrike B.Mag @ 240001 dmg dealt, once only), ' +
+          '15s: (3 earth ⤇ m3.6/3 - 6.0/5 - 18.0/15 e+h+n B.Mag @ 0-72001-240001 earth dmg dealt, ' +
+          'then m17.3 e+h+n overstrike B.Mag @ 240001 earth dmg dealt, once only), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 

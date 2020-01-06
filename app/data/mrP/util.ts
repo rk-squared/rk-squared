@@ -188,7 +188,7 @@ export function toMrPGeneral(s: string): string {
 
 export function signedNumber(x: number): string {
   if (isNaN(x)) {
-    return '?';
+    return '+?';
   }
   return (x >= 0 ? '+' : '') + x;
 }
