@@ -755,25 +755,41 @@ function formatCastSkill(
     } else {
       options = [skill];
     }
-    return slashMerge(
-      options.map(option => {
-        const enlirSkill = getEnlirOtherSkill(option, enlirStatus.name);
-        if (!enlirSkill) {
-          return option;
-        } else {
-          return formatMrPSkill(
-            convertEnlirSkillToMrP(enlirSkill, {
-              abbreviate,
-              showNoMiss: false,
-              includeSchool: true,
-              includeSbPoints: false,
-              prereqStatus: getPrereqStatus(condition),
-            }),
-            { showTime: false },
-          );
-        }
-      }),
-    );
+
+    const result = options.map(option => {
+      const enlirSkill = getEnlirOtherSkill(option, enlirStatus.name);
+      if (!enlirSkill) {
+        return option;
+      } else {
+        return formatMrPSkill(
+          convertEnlirSkillToMrP(enlirSkill, {
+            abbreviate,
+            showNoMiss: false,
+            includeSchool: true,
+            includeSbPoints: false,
+            prereqStatus: getPrereqStatus(condition),
+          }),
+          { showTime: false },
+        );
+      }
+    });
+
+    if (options.length > 1) {
+      // Slash-merging skills is really a hack:
+      // - For abilities like Exdeath's Balance of Power or Relm's Friendly
+      //   Friendly Sketch that have significantly varying effects, the code
+      //   does a good job of separating the clauses.
+      // - For abilities like Dr. Mog's AASB that have the same number of
+      //   effects, some effects can be similar enough to force another one to
+      //   merged piecemeal.  Merge effects individually in that case.
+      // There really ought to be a better way of handling this...
+      const resultParts = result.map(i => i.split(', '));
+      const length = getAllSameValue(resultParts.map(i => i.length));
+      if (length) {
+        return _.times(length, i => slashMerge(resultParts.map(parts => parts[i]))).join(', ');
+      }
+    }
+    return slashMerge(result);
   });
   return skillText + (effect.type === 'randomCastSkill' ? ' (random)' : '');
 }
