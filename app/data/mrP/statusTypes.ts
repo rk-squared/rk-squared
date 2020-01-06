@@ -590,37 +590,37 @@ interface MultiplyDamage {
 // Berserk and related statuses
 
 // This effect is also used for Confuse.
-interface Berserk {
+export interface Berserk {
   type: 'berserk';
 }
 
-interface AbilityBerserk {
+export interface AbilityBerserk {
   type: 'abilityBerserk';
 }
 
-interface Rage {
+export interface Rage {
   type: 'rage';
 }
 
 // --------------------------------------------------------------------------
 // Special durations
 
-interface TurnDuration {
+export interface TurnDuration {
   type: 'turnDuration';
   duration: common.Duration;
 }
 
-interface RemovedUnlessStatus {
+export interface RemovedUnlessStatus {
   type: 'removedUnlessStatus';
   any: boolean;
   status: common.StatusName;
 }
 
-interface OnceOnly {
+export interface OnceOnly {
   type: 'onceOnly';
 }
 
-interface RemovedAfterTrigger {
+export interface RemovedAfterTrigger {
   type: 'removedAfterTrigger';
   trigger: Trigger;
 }

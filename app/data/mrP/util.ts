@@ -111,19 +111,6 @@ export function parseNumberString(s: string): number | null {
   return result;
 }
 
-export function parseNumberOccurrence(s: string): number | null {
-  if (s === 'once') {
-    return 1;
-  } else if (s === 'twice') {
-    return 2;
-  }
-  const m = s.match(/(.*) times/);
-  if (m) {
-    return parseNumberString(m[1]);
-  }
-  return null;
-}
-
 export function parseThresholdValues(s: string): number[] {
   return s.split('/').map(parseFloat);
 }
@@ -335,19 +322,6 @@ export function isSequential(values: number[]): boolean {
     }
   }
   return true;
-}
-
-/**
- * Cleans up a slashed numbers list by summarizing longer ranges.
- */
-export function cleanUpSlashedNumbers(s: string): string {
-  const values = s.split('/').map(i => +i);
-
-  if (isSequential(values) && values.length > 4) {
-    return values[0] + '-' + values[values.length - 1];
-  } else {
-    return s;
-  }
 }
 
 export function formatUseNumber(count: number | undefined): string {

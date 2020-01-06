@@ -13,10 +13,6 @@ import {
   toMrPKilo,
 } from './util';
 
-export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
-export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
-export const enlirRankCastSpeedRe = /cast speed (?:x2\.00-x3\.00|x2\.00\/2\.25\/2\.50\/2\.75\/3\.00) for (.*) (abilities|attacks) at ability rank 1\/2\/3\/4\/5/;
-
 const rawSbPointsBoosterAlias = (multiplierString: string, s: string) =>
   // Duplicated for effect aliases below
   `${multiplierString}x SB gauge from ${formatSchoolOrAbilityList(s)}`;
@@ -391,5 +387,3 @@ export function resolveAlias(
 
 export const resolveStatusAlias = (status: string, options: Partial<ResolveOptions> = {}) =>
   resolveAlias(status, statusAlias, options);
-export const resolveEffectAlias = (effect: string, options: Partial<ResolveOptions> = {}) =>
-  resolveAlias(lowerCaseFirst(effect), effectAlias, options);

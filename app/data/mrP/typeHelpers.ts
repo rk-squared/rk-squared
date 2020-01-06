@@ -97,14 +97,6 @@ export function getShortName(s: string): string {
     : shortAliases[s.toLowerCase()] || s;
 }
 
-export function getAbbreviation(s: string): string {
-  return isEnlirElement(s)
-    ? getElementAbbreviation(s)
-    : isEnlirSchool(s)
-    ? getSchoolShortName(s)
-    : s;
-}
-
 export function appendElement(
   element: EnlirElement[] | null,
   f: (element: EnlirElement[]) => string,
@@ -131,27 +123,6 @@ export function formatSchoolOrAbilityList(list: string | string[]): string {
       // and Relm's LM2 and the Elemental Boost status effect.
       .replace('fire/ice/lgt/earth/wind/water/holy/dark/bio', 'elem')
   );
-}
-
-/**
- * Handles a short name request that possibly is two parts together - e.g.,
- * "White Magic" is one part, but "Ice Spellblade" is two.
- */
-export function getShortNameWithSpaces(s: string): string {
-  // Hack: Effects like 'Fire or Ice Spellblade' are ambiguous: is it
-  // '(Fire) || (Ice Spellblade)', or '(Fire || Ice) Spellblade'?  Check
-  // for both cases - shorter means we found an abbreviation.
-  const result = getShortName(s);
-  if (s.indexOf(' ') !== -1) {
-    const splitCandidate = s
-      .split(' ')
-      .map(getShortName)
-      .join(' ');
-    if (splitCandidate.length <= result.length) {
-      return splitCandidate;
-    }
-  }
-  return result;
 }
 
 export const whoText: { [w in common.Who]: string } = {

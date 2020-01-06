@@ -107,10 +107,11 @@ export function mergeAttackExtras(
  * complicates higher-level code, so separate them out.
  */
 export function separateStatusAndSb(effects: statusTypes.EffectClause[]): void {
-  type RawStatusItem = statusTypes.StatusItem | statusTypes.GainSb;
+  type RawStatusItem = statusTypes.StatusWithPercent | statusTypes.GainSb;
   const isGainSb = (item: RawStatusItem): item is statusTypes.GainSb =>
     typeof item === 'object' && 'type' in item && item.type === 'gainSb';
-  const isStatusItem = (item: RawStatusItem): item is statusTypes.StatusItem => !isGainSb(item);
+  const isStatusItem = (item: RawStatusItem): item is statusTypes.StatusWithPercent =>
+    !isGainSb(item);
 
   for (const i of effects) {
     if (i.type === 'triggeredEffect') {

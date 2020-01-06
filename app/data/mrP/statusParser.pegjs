@@ -463,6 +463,8 @@ StatusWithPercent
       return { status, chance };
     }
   }
+  // Note: This alternative is pulled out by separateStatusAndSb, so
+  // higher-level code can ignore it.
   / value:Integer _ "SB points" { return { type: 'gainSb', value }; }
 
 
