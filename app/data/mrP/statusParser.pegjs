@@ -8,7 +8,10 @@
   peg$anyExpectation;
 
   function getX() {
-    return options.xValue != null ? options.xValue : NaN;
+    return {
+      value: options.xValue != null ? options.xValue : NaN,
+      valueIsUncertain: options.xValueIsUncertain,
+    };
   }
   function getElementPlaceholder() {
     // HACK: EnlirElement requires *something*, and we don't want to complicate
@@ -61,7 +64,7 @@ EffectClause
 
 StatMod
   = stats:StatListOrPlaceholder _ value:SignedIntegerOrX "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
-    const result = { type: 'statMod', stats, value };
+    const result = Object.assign({ type: 'statMod', stats }, value);
     if (ignoreBuffCaps) {
       result.ignoreBuffCaps = true;
     }
@@ -69,10 +72,18 @@ StatMod
   }
 
 CritChance
-  = "Critical chance =" value:(IntegerSlashList / IntegerOrX)  "%" _ trigger:Trigger? { return { type: 'critChance', value, trigger }; }
+  = "Critical chance =" value:(IntegerSlashList / IntegerOrX)  "%" _ trigger:Trigger? {
+    const result = { type: 'critChance', trigger };
+    if (typeof value === 'object' && !Array.isArray(value)) {
+      Object.assign(result, value);
+    } else {
+      result.value = value;
+    }
+    return result;
+  }
 
 CritDamage
-  = "Critical hits deal" _ value:IntegerOrX "% more damage (additive with the base critical coefficient)" { return { type: 'critDamage', value }; }
+  = "Critical hits deal" _ value:IntegerOrX "% more damage (additive with the base critical coefficient)" { return Object.assign({ type: 'critDamage' }, value); }
 
 HitRate
   = sign:IncreasesOrReduces _ "hit rate by" _ value:Integer "%" { return { type: 'hitRate', value: sign * value }; }
@@ -82,7 +93,7 @@ HitRate
 // Status manipulation
 
 StatusChance
-  = "Increases the chance of inflicting Status by" _ value:IntegerOrX "%" { return { type: 'statusChance', value }; }
+  = "Increases the chance of inflicting Status by" _ value:IntegerOrX "%" { return Object.assign({ type: 'statusChance' }, value); }
   / "Increases the chance of being inflicted with" _ status:StatusName _ "by" _ value:Integer "%"? { return { type: 'statusChance', value, status }; }
 
 StatusStacking
@@ -106,7 +117,7 @@ Instacast
 
 SchoolCastSpeed
   = "Cast speed x" value:IntegerOrX _ "for [School] attacks, or any attack if no [School] is specified" {
-    return { type: 'castSpeed', value, school: getSchoolPlaceholder() };
+    return Object.assign({ type: 'castSpeed', school: getSchoolPlaceholder() }, value);
   }
 
 CastSpeed
@@ -252,7 +263,7 @@ ElementAttack
   = sign:IncreasesOrReduces _ element:Element _ "damage dealt by" _ value:Integer _ "%, cumulable" { return { type: 'elementAttack', element, value: value * sign }; }
 
 ElementResist
-  = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" ", cumulable"? { return { type: 'elementResist', element, value }; }
+  = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" ", cumulable"? { return Object.assign({ type: 'elementResist', element }, value); }
 
 EnElement
   = "Replaces Attack command, increases" _ element:Element _ "damage dealt by 50/80/120% (abilities) or 80/100/120% (Soul Breaks)," _ element2:Element _ "resistance +20%" {
@@ -334,7 +345,7 @@ DamageCap
 // Healing up and down; damage and healing over time
 
 HpStock
-  = "Automatically"i _ "restores HP, up to" _ value:IntegerOrX _ "HP" { return { type: 'hpStock', value }; }
+  = "Automatically"i _ "restores HP, up to" _ value:IntegerOrX _ "HP" { return Object.assign({ type: 'hpStock' }, value); }
 
 Regen
   = "Heals"i _ "for" _ percentHp:Integer "% max HP every" _ interval:SecondsInterval { return { type: 'regen', percentHp, interval }; }
@@ -518,7 +529,7 @@ EvadeAll
   = "Evades"i _ "all attacks" { return { type: 'evadeAll' }; }
 
 MultiplyDamage
-  = "Multiplies all damage received by" _ value:IntegerOrX { return { type: 'multiplyDamage', value }; }
+  = "Multiplies all damage received by" _ value:IntegerOrX { return Object.assign({ type: 'multiplyDamage' }, value); }
 
 
 // --------------------------------------------------------------------------
@@ -558,7 +569,7 @@ RemovedAfterTrigger
 // Status levels
 
 TrackStatusLevel
-  = "Keeps"i _ "track of the" _ status:StatusName _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max, current: getX() }; }
+  = "Keeps"i _ "track of the" _ status:StatusName _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max, current: getX().value }; }
 
 ChangeStatusLevel
   = sign:IncreasesOrReduces _ "the"? _ status:StatusName _ "level by" _ value:Integer _ trigger:TriggerOrWhenSet {
@@ -1029,7 +1040,8 @@ Integer "integer"
   = ([0-9]+ / '?') { return parseInt(text(), 10); }
 
 IntegerOrX "integer or X"
-  = Integer / "X" { return getX(); }
+  = value:Integer { return { value }; }
+  / "X" { return getX(); }
 
 SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
@@ -1037,9 +1049,10 @@ SignedInteger "signed integer"
 SignedIntegerOrX "signed integer or X"
   = sign:[+-] _ value:([0-9]+ / "X") {
     if (value === 'X') {
-      return (sign === '-' ? -1 : 1) * getX();
+      const value = getX();
+      return Object.assign(value, { value: (sign === '-' ? -1 : 1) * value.value });
     } else {
-      return parseInt(sign + value.join(''), 10);
+      return { value: parseInt(sign + value.join(''), 10) };
     }
   }
 

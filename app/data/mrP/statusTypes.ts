@@ -95,18 +95,21 @@ export interface StatMod {
   type: 'statMod';
   stats: EnlirStat | EnlirStat[];
   value: number;
+  valueIsUncertain?: boolean;
   ignoreBuffCap?: boolean;
 }
 
 export interface CritChance {
   type: 'critChance';
   value: number | number[];
+  valueIsUncertain?: boolean;
   trigger?: Trigger;
 }
 
 export interface CritDamage {
   type: 'critDamage';
   value: number;
+  valueIsUncertain?: boolean;
 }
 
 export interface HitRate {
@@ -120,6 +123,7 @@ export interface HitRate {
 export interface StatusChance {
   type: 'statusChance';
   value: number;
+  valueIsUncertain?: boolean;
   status?: common.StatusName;
 }
 
@@ -150,6 +154,7 @@ interface Instacast extends ForAbilities {
 interface CastSpeed extends ForAbilities {
   type: 'castSpeed';
   value: number | number[];
+  valueIsUncertain?: boolean;
   trigger?: Trigger;
 }
 
@@ -284,6 +289,7 @@ interface ElementResist {
   type: 'elementResist';
   element: EnlirElement;
   value: number;
+  valueIsUncertain?: boolean;
 }
 
 interface EnElement {
@@ -376,6 +382,7 @@ interface DamageCap {
 interface HpStock {
   type: 'hpStock';
   value: number;
+  valueIsUncertain?: boolean;
 }
 
 interface Regen {
@@ -584,6 +591,7 @@ interface EvadeAll {
 interface MultiplyDamage {
   type: 'multiplyDamage';
   value: number;
+  valueIsUncertain?: boolean;
 }
 
 // --------------------------------------------------------------------------

@@ -87,6 +87,8 @@ interface StatusOptions {
   forceNumbers?: boolean;
 }
 
+const uncertain = (isUncertain: boolean | undefined) => (isUncertain ? '?' : '');
+
 export function safeParseStatus(
   status: EnlirStatus,
   placeholders?: EnlirStatusPlaceholders,
@@ -787,11 +789,19 @@ function describeStatusEffect(
 ): string | null {
   switch (effect.type) {
     case 'statMod':
-      return signedNumber(effect.value) + '% ' + describeStats(arrayify(effect.stats));
+      return (
+        signedNumber(effect.value) +
+        uncertain(effect.valueIsUncertain) +
+        '% ' +
+        describeStats(arrayify(effect.stats))
+      );
     case 'critChance':
-      return addTrigger('crit =' + arrayify(effect.value).join('/') + '%', effect.trigger);
+      return addTrigger(
+        'crit =' + arrayify(effect.value).join('/') + uncertain(effect.valueIsUncertain) + '%',
+        effect.trigger,
+      );
     case 'critDamage':
-      return signedNumber(effect.value) + '% crit dmg';
+      return signedNumber(effect.value) + uncertain(effect.valueIsUncertain) + '% crit dmg';
     case 'hitRate':
       return signedNumber(effect.value) + '% hit rate';
     case 'ko':
@@ -801,7 +811,9 @@ function describeStatusEffect(
     case 'reraise':
       return 'Reraise ' + effect.value + '%';
     case 'statusChance':
-      return percentToMultiplier(effect.value) + 'x status chance';
+      return (
+        percentToMultiplier(effect.value) + uncertain(effect.valueIsUncertain) + 'x status chance'
+      );
     case 'statusStacking':
       return (statusLevelAlias[effect.status] || effect.status) + ' stacking';
     case 'preventStatus':
@@ -822,6 +834,8 @@ function describeStatusEffect(
       return formatCastSpeedBuildup(effect);
     case 'castSpeed': {
       let cast: string = '';
+      // Skip checking valueIsUncertain; it doesn't seem to actually be used
+      // in current statuses.
       if (Array.isArray(effect.value) || options.forceNumbers) {
         cast =
           arrayify(effect.value)
@@ -897,7 +911,13 @@ function describeStatusEffect(
     case 'elementAttack':
       return signedNumber(effect.value) + '% ' + getElementShortName(effect.element) + ' dmg';
     case 'elementResist':
-      return signedNumber(-effect.value) + '% ' + getElementShortName(effect.element) + ' vuln.';
+      return (
+        signedNumber(-effect.value) +
+        uncertain(effect.valueIsUncertain) +
+        '% ' +
+        getElementShortName(effect.element) +
+        ' vuln.'
+      );
     case 'enElement':
       return getElementShortName(effect.element) + ' infuse';
     case 'enElementStacking':
@@ -942,6 +962,7 @@ function describeStatusEffect(
     case 'damageCap':
       return 'dmg cap +' + toMrPKilo(effect.value);
     case 'hpStock':
+      // Skip valueIsUncertain; HP stock values are always documented.
       return 'Autoheal ' + toMrPKilo(effect.value);
     case 'regen':
       // Show regen details.  The standard low/medium/high regen are aliased elsewhere.
@@ -989,7 +1010,7 @@ function describeStatusEffect(
     case 'evadeAll':
       return 'immune atks/status/heal';
     case 'multiplyDamage':
-      return effect.value + 'x dmg recv';
+      return effect.value + uncertain(effect.valueIsUncertain) + 'x dmg recv';
     case 'berserk':
       return 'berserk';
     case 'rage':

@@ -13,6 +13,8 @@ import {
   toMrPKilo,
 } from './util';
 
+// TODO: Many of these are obsolete now that status parsing was rewritten to use PEG.js
+
 const rawSbPointsBoosterAlias = (multiplierString: string, s: string) =>
   // Duplicated for effect aliases below
   `${multiplierString}x SB gauge from ${formatSchoolOrAbilityList(s)}`;

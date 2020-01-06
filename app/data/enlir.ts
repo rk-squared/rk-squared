@@ -947,6 +947,7 @@ export const enlirStatusAltName: { [status: string]: EnlirStatus } = {
 
 export interface EnlirStatusPlaceholders {
   xValue?: number;
+  xValueIsUncertain?: boolean;
   element?: EnlirElement;
   school?: EnlirSchool;
   stat?: EnlirStat;
@@ -979,7 +980,12 @@ export function getEnlirStatusWithPlaceholders(
     if (m) {
       const newStatus = status.replace(search, replace);
       if (enlir.statusByName[newStatus]) {
-        placeholders.xValue = +m[0];
+        if (m[0] === '?') {
+          placeholders.xValue = NaN;
+        } else {
+          placeholders.xValue = +m[0].replace('?', '');
+          placeholders.xValueIsUncertain = m[0].endsWith('?');
+        }
         return { status: enlir.statusByName[newStatus], placeholders };
       }
     }
