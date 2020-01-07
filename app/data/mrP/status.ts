@@ -19,7 +19,7 @@ import { describeDamage, describeDamageType } from './attack';
 import * as common from './commonTypes';
 import { describeCondition } from './condition';
 import { describeRageEffects } from './rage';
-import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
+import { convertEnlirSkillToMrP, describeRecoilHp, formatMrPSkill } from './skill';
 import * as skillTypes from './skillTypes';
 import {
   formatSmartEther,
@@ -709,6 +709,8 @@ function formatTriggerableEffect(
         '% for ' +
         formatTriggerableEffect(effect.effect, trigger, enlirStatus, source, abbreviate, condition)
       );
+    case 'recoilHp':
+      return describeRecoilHp(effect);
     case 'smartEther':
       return formatSmartEther(effect.amount, effect.school);
   }
@@ -1014,6 +1016,8 @@ function describeStatusEffect(
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
     case 'dualcast':
       return effect.chance + '% dualcast' + formatElementOrSchoolList(effect, ' ');
+    case 'dualcastAbility':
+      return 'dualcast' + formatElementOrSchoolList(effect, ' ');
     case 'noAirTime':
       return 'no air time';
     case 'breakDamageCap':

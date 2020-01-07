@@ -150,6 +150,7 @@ export interface DrainHp {
   condition?: common.Condition;
 }
 
+// duplicated in statusTypes.ts
 export interface RecoilHp {
   type: 'recoilHp';
   damagePercent: number | number[];

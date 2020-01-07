@@ -45,7 +45,7 @@ EffectClause
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Dualcast / Dualcast100 / NoAirTime
+  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Dualcast / DualcastAbility / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal
   / Doom / DoomTimer / DrainHp
@@ -313,11 +313,12 @@ AltDamageUp
 AbilityDouble
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'abilityDouble' }, what); }
 
-Dualcast100
-  = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance: 100 }, what); }
-
 Dualcast
-  = chance:Integer "% chance to dualcast" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance }, what); }
+  = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance: 100 }, what); }
+  / chance:Integer "% chance to dualcast" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance }, what); }
+
+DualcastAbility
+  = "dualcasts"i _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") { return Object.assign({ type: 'dualcastAbility' }, what); }
 
 NoAirTime
   = "Changes"i _ "the air time of Jump attacks to 0.01 seconds" { return { type: 'noAirTime' }; }
@@ -338,7 +339,7 @@ BreakDamageCap
   = "Sets"i _ "the damage cap for" _ skillType:SkillTypeAndList? _ what:ElementOrSchoolList? _ "attacks to 99999" { return Object.assign({ type: 'breakDamageCap', skillType }, what); }
 
 DamageCap
-  = "Increases the damage/healing cap by" _ value:Integer { return { type: 'damageCap', value }; }
+  = "Increases the damage" "/healing"? _ "cap by" _ value:Integer { return { type: 'damageCap', value }; }
 
 
 // --------------------------------------------------------------------------
@@ -444,7 +445,7 @@ TriggeredEffect
   }
 
 TriggerableEffect
-  = CastSkill / RandomCastSkill / GainSb / GrantStatus / Heal / HealChance / SmartEtherStatus
+  = CastSkill / RandomCastSkill / GainSb / GrantStatus / Heal / HealChance / RecoilHp / SmartEtherStatus
 
 BareTriggerableEffect
   = effect:TriggerableEffect ! (_ (Trigger / "and")) { return effect; }
@@ -465,6 +466,17 @@ Heal
 
 HealChance
   = chance:Integer "% chance to restore"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'triggerChance', chance, effect: { type: 'heal', fixedHp, who } }; }
+
+RecoilHp
+  = "damages" _ "the" _ "user" _ "for" _ damagePercent:DecimalNumberSlashList "%"
+  _ maxOrCurrent:((Maximum / "current") { return text().startsWith('max') ? 'max' : 'curr'; })
+  _ "HP" {
+    return {
+      type: 'recoilHp',
+      damagePercent,
+      maxOrCurrent,
+    };
+  }
 
 StatusWithPercent
   = status:StatusName _ chance:("(" n:Integer "%)" { return n; })? {
@@ -592,7 +604,7 @@ BurstToggle
   = "Affects"i _ "certain Burst Commands" { return { type: 'burstToggle' }; }
 
 TrackUses
-  = "Keeps"i _ "track of the" _ ("number of")? _ "uses of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
+  = "Keeps"i _ "track of the" _ ("number of")? _ ("uses of" / "casts of") _ skill:AnySkillName { return { type: 'trackUses', skill }; }
   / "Used to determine the effect of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
 
 BurstOnly

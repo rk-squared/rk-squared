@@ -5494,7 +5494,7 @@
   {
     "id": 3009,
     "name": "Dualcast Poison 1",
-    "effects": "Dualcasts the next Posion ability, lasts for 1 turn",
+    "effects": "Dualcasts the next Poison ability, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -5703,7 +5703,7 @@
   {
     "id": 3029,
     "name": "Dualcast Witch 1",
-    "effects": "Dualcasts the next Dualcast ability, lasts for 1 turn",
+    "effects": "Dualcasts the next Witch ability, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

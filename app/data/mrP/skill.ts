@@ -169,7 +169,11 @@ function describeMimic(skill: EnlirSkill, { chance, count }: skillTypes.Mimic): 
   return description;
 }
 
-function describeRecoilHp({ damagePercent, maxOrCurrent, condition }: skillTypes.RecoilHp): string {
+export function describeRecoilHp({
+  damagePercent,
+  maxOrCurrent,
+  condition,
+}: skillTypes.RecoilHp): string {
   return (
     `lose ${formatNumberSlashList(damagePercent)}% ${maxOrCurrent} HP` + appendCondition(condition)
   );

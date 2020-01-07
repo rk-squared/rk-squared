@@ -44,6 +44,7 @@ export type EffectClause =
   | DamageUp
   | AbilityDouble
   | Dualcast
+  | DualcastAbility
   | NoAirTime
   | BreakDamageCap
   | DamageCap
@@ -348,6 +349,12 @@ interface Dualcast {
   school?: EnlirSchool | EnlirSchool[];
 }
 
+interface DualcastAbility {
+  type: 'dualcastAbility';
+  element?: EnlirElement | EnlirElement[];
+  school?: EnlirSchool | EnlirSchool[];
+}
+
 interface NoAirTime {
   type: 'noAirTime';
 }
@@ -503,6 +510,7 @@ export type TriggerableEffect =
   | GainSb
   | GrantStatus
   | Heal
+  | RecoilHp
   | TriggerChance
   | common.SmartEtherStatus;
 
@@ -535,6 +543,13 @@ interface TriggerChance {
   type: 'triggerChance';
   chance: number;
   effect: TriggerableEffect;
+}
+
+// duplicated in skillTypes.ts
+export interface RecoilHp {
+  type: 'recoilHp';
+  damagePercent: number | number[];
+  maxOrCurrent: 'max' | 'curr';
 }
 
 // Note: Compatible with, but simpler than, skillTypes.StatusWithPercent
