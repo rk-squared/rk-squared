@@ -32716,7 +32716,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, causes Minor Imperil Wind and Minor Imperil Poison/Medium Imperil Wind and Medium Imperil Poison if 1/2+ FF9 characters are alive, grants Instant Cast 1/grants Instant Cast 1 and Weakness +30% Boost to all allies if 3/4+ FF9 characters are alive",
+    "effects": "Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, causes Minor Imperil Wind and Minor Imperil Poison/Medium Imperil Wind and Medium Imperil Poison if 1/2+ IX characters are alive, grants Instant Cast 1/grants Instant Cast 1 and Weakness +30% Boost to all allies if 3/4+ IX characters are alive",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

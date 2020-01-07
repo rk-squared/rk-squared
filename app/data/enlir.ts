@@ -782,8 +782,9 @@ function patchEnlir() {
       mode.effects ===
       "Casts Drain Blade 1/2/3 after using two Dark abilities if the user's current HP percentage is greater than or equal to 100/80/79",
     mode => {
+      // Showing 0% is inconsistent with other abilities, but it's a bit clearer.
       mode.effects =
-        "Casts Drain Blade 1/2/3 after using two Dark abilities if the user's HP are below 100/80%";
+        "Casts Drain Blade 1/2/3 after using two Dark abilities if the user's HP are below 100/80/0%";
     },
   );
 

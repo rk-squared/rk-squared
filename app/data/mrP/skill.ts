@@ -59,6 +59,7 @@ import {
   fixedNumberOrUnknown,
   formatNumberSlashList,
   formatSignedIntegerSlashList,
+  numberOrUnknown,
   toMrPFixed,
   toMrPKilo,
 } from './util';
@@ -132,7 +133,7 @@ function describeChain({ chainType, fieldBonus, max }: skillTypes.Chain): string
 }
 
 function describeDrainHp({ healPercent, condition }: skillTypes.DrainHp): string {
-  return `heal ${healPercent}% of dmg` + appendCondition(condition);
+  return `heal ${numberOrUnknown(healPercent)}% of dmg` + appendCondition(condition);
 }
 
 function describeHeal(skill: EnlirSkill, { amount, condition }: skillTypes.Heal): string {
