@@ -417,7 +417,7 @@ const legendMateriaHandlers: HandlerList = [
         // Back to the Wall trance.
         .replace(/(, Finisher|$)/, (duration ? ' ' + duration : '') + '$1');
       if (bonusSb) {
-        statusDescription = sbPointsAlias(bonusSb) + ', ' + statusDescription;
+        statusDescription = sbPointsAlias(+bonusSb) + ', ' + statusDescription;
       }
       if (isHeal) {
         statusDescription = 'heal 100% HP, ' + statusDescription;

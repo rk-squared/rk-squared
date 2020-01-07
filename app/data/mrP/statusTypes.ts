@@ -83,6 +83,7 @@ export type EffectClause =
   | StatusLevelBooster
   | BurstToggle
   | TrackUses
+  | ModifiesSkill
   | BurstOnly
   | BurstReset
   | StatusReset
@@ -686,6 +687,11 @@ interface BurstToggle {
 
 interface TrackUses {
   type: 'trackUses';
+  skill: string;
+}
+
+interface ModifiesSkill {
+  type: 'modifiesSkill';
   skill: string;
 }
 

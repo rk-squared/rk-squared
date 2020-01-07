@@ -56,7 +56,7 @@ EffectClause
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
-  / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze
+  / BurstToggle / TrackUses / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze
   / ResetTarget / NoEffect / Persists / GameOver
 
 
@@ -570,7 +570,7 @@ TurnDuration
   = "lasts" _ "for"? _ value:Integer _ "turn" "s"? { return { type: 'turnDuration', duration: { value, units: 'turns' } }; }
 
 RemovedUnlessStatus
-  = "Removed"i _ "if" _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
+  = "Removed"i _ ("if" / "when") _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
 
 // This is only processed as part of a TriggeredEffect, since it arguably
 // applies to the trigger itself.
@@ -610,6 +610,9 @@ BurstToggle
 TrackUses
   = "Keeps"i _ "track of the" _ ("number of")? _ ("uses of" / "casts of") _ skill:AnySkillName { return { type: 'trackUses', skill }; }
   / "Used to determine the effect of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
+
+ModifiesSkill
+  = "Modifies"i _ "behavior of" _ skill:AnySkillName { return { type: 'modifiesSkill', skill }; }
 
 BurstOnly
   = "removed if the user hasn't Burst Mode" { return { type: 'burstOnly' }; }

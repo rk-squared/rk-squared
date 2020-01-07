@@ -775,6 +775,17 @@ function patchEnlir() {
         "White Magic abilities don't consume uses, grants Stoneskin: 30/40/50/60/70% at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities";
     },
   );
+  applyPatch(
+    enlir.statusByName,
+    'Drain Blade Follow-Up',
+    mode =>
+      mode.effects ===
+      "Casts Drain Blade 1/2/3 after using two Dark abilities if the user's current HP percentage is greater than or equal to 100/80/79",
+    mode => {
+      mode.effects =
+        "Casts Drain Blade 1/2/3 after using two Dark abilities if the user's HP are below 100/80%";
+    },
+  );
 
   // Legend materia.  These, too, should be upstreamed if possible.
   applyPatch(
