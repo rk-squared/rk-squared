@@ -9952,9 +9952,9 @@
   {
     "eventName": "FFXIV Fanfest 2019",
     "realm": "XIV",
-    "glDate": null,
+    "glDate": "2019-12-11",
     "jpDate": "2019-03-20",
-    "type": "?",
+    "type": "Relic Draw",
     "heroRecords": null,
     "memoryCrystals1": [
       "???"
@@ -10199,7 +10199,7 @@
   {
     "eventName": "Record Dungeon Canon (XII, IX)",
     "realm": null,
-    "glDate": "2019-10-17",
+    "glDate": "2019-12-07",
     "jpDate": "2019-05-08",
     "type": "Record Dungeon",
     "heroRecords": null,
@@ -10278,7 +10278,7 @@
   {
     "eventName": "An Arduous Journey",
     "realm": "XI",
-    "glDate": null,
+    "glDate": "2019-12-12",
     "jpDate": "2019-05-24",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10329,7 +10329,7 @@
   {
     "eventName": "Dungeon Update #63 (X-2, XV)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-12-09",
     "jpDate": "2019-06-05",
     "type": "Dungeons Update",
     "heroRecords": null,
@@ -10342,7 +10342,7 @@
   {
     "eventName": "The Blaze of Dawn",
     "realm": "V",
-    "glDate": null,
+    "glDate": "2019-12-19",
     "jpDate": "2019-06-07",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10370,7 +10370,7 @@
   {
     "eventName": "Ancient Mission",
     "realm": "III",
-    "glDate": null,
+    "glDate": "2020-01-03",
     "jpDate": "2019-06-14",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10411,7 +10411,7 @@
   {
     "eventName": "Glory Feast 2019",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-12-25",
     "jpDate": "2019-06-21",
     "type": "Festival",
     "heroRecords": null,
@@ -10424,7 +10424,7 @@
   {
     "eventName": "Magicite: Leviathan",
     "realm": null,
-    "glDate": null,
+    "glDate": "2019-12-20",
     "jpDate": "2019-06-27",
     "type": "Magicite Dungeon",
     "heroRecords": null,
@@ -11003,6 +11003,76 @@
     "realm": null,
     "glDate": null,
     "jpDate": "2019-11-30",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "A Hero Among the Snow",
+    "realm": "II",
+    "glDate": null,
+    "jpDate": "2019-12-06",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Hilda",
+      "Maria",
+      "Josef",
+      "Scott",
+      "Gordon"
+    ],
+    "memoryCrystals1": [
+      "Hilda",
+      "Maria",
+      "Josef",
+      "Scott",
+      "Gordon"
+    ],
+    "memoryCrystals2": [
+      "Hilda",
+      "Maria",
+      "Josef",
+      "Scott",
+      "Gordon"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Part of the Sky",
+    "realm": "IX",
+    "glDate": null,
+    "jpDate": "2019-12-20",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "New Year Party 2020",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2019-12-27",
+    "type": "Festival",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Heroes of Ivalice",
+    "realm": "Tactics",
+    "glDate": null,
+    "jpDate": "2019-12-31",
     "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,

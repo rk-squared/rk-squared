@@ -338,7 +338,7 @@ BreakDamageCap
   = "Sets"i _ "the damage cap for" _ skillType:SkillTypeAndList? _ what:ElementOrSchoolList? _ "attacks to 99999" { return Object.assign({ type: 'breakDamageCap', skillType }, what); }
 
 DamageCap
-  = "Increases the damage cap by" _ value:Integer { return { type: 'damageCap', value }; }
+  = "Increases the damage/healing cap by" _ value:Integer { return { type: 'damageCap', value }; }
 
 
 // --------------------------------------------------------------------------

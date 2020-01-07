@@ -200,7 +200,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Elbow Follow-Up",
-    "name": "Elbow",
+    "name": "Elbow Blow",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -251,7 +251,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Mog Follow-Up",
-    "name": "Mog Magic",
+    "name": "Moogle Magic",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -275,7 +275,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Mog Follow-Up",
-    "name": "Mog Heal",
+    "name": "Moogle Heal",
     "type": "WHT",
     "target": "All allies",
     "formula": "Magical",
@@ -294,8 +294,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Royal Archives' Teachings Follow-Up",
-    "name": "Royal Archives' Teachings",
+    "source": "Archivist's Teachings Follow-Up",
+    "name": "Archivist's Teachings",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -314,7 +314,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541205,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -689,6 +689,74 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Sorrow of Loss Follow-Up",
+    "name": "Love of Restoration",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single ranged hybrid attacks (0.28 or 1.00 each), grants Physical +30% Boost 1 or Magical +30% Boost 1 to all allies, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Support",
+    "id": 30545089,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Sorrow of Loss Follow-Up",
+    "name": "Sorrow of Loss",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single ranged hybrid attacks (0.28 or 1.00 each), causes ATK and DEF -50% Medium/MAG and RES -50% Medium after 1/2 + 2n uses, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Support",
+    "id": 30545090,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Sacrificial Love Follow-Up",
+    "name": "Sacrificial Love",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Attach Fire and Fire +30/50/70% Boost 1 to the user if 0/1/2 of Gordon or Hilda are alive",
+    "counter": false,
+    "autoTarget": "Self",
+    "sb": 0,
+    "school": "?",
+    "id": 30545092,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Gale Spear Follow-Up",
     "name": "Gale Spear",
     "type": "PHY",
@@ -951,8 +1019,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Gentleman's Thunder Follow-Up",
-    "name": "Gentleman's Thunder",
+    "source": "Gentle Thunder Follow-Up",
+    "name": "Gentle Thunder",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -1163,7 +1231,7 @@
       "White Magic"
     ],
     "id": 30544267,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1259,8 +1327,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Darkness Storm Follow-Up",
-    "name": "Darkness Storm",
+    "source": "Storm of Darkness Follow-Up",
+    "name": "Storm of Darkness",
     "type": "NAT",
     "target": "All allies",
     "formula": null,
@@ -1273,7 +1341,7 @@
     "sb": 0,
     "school": "Special",
     "id": 30541458,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1861,8 +1929,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Wind's Intuition Follow-Up",
-    "name": "Wind's Intuition",
+    "source": "Enlightening Breeze Follow-Up",
+    "name": "Enlightening Breeze",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -2943,7 +3011,7 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Spark",
+    "source": "Awoken Stormborn",
     "name": "Technical Rush",
     "type": "PHY",
     "target": "Single enemy",
@@ -2964,7 +3032,7 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Anger Heat Up Mode",
+    "source": "Kindling Rage Mode",
     "name": "Flame Bomber",
     "type": "PHY",
     "target": "Single enemy",
@@ -2975,13 +3043,13 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Fifteen single ranged attacks (0.50 each), 100% hit rate, removes Anger Heat Up Mode",
+    "effects": "Fifteen single ranged attacks (0.50 each), 100% hit rate, removes Kindling Rage Mode",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Machinist",
     "id": 30549250,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3002,7 +3070,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547031,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3459,8 +3527,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Planet Creator Mode",
-    "name": "Planet Apocalypse",
+    "source": "Starforge Mode",
+    "name": "Grand Apocalypse",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -3470,13 +3538,13 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Two single attacks (13.75 each) capped at 99999, removes Planet Creator Mode",
+    "effects": "Two single attacks (13.75 each) capped at 99999, removes Starforge Mode",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Black Magic",
     "id": 30541340,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4039,7 +4107,7 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Kindred Mode",
+    "source": "Awoken Kindred",
     "name": "Friendship Crystal",
     "type": "WHT",
     "target": "All allies",
@@ -4182,8 +4250,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Pope's Fragment Follow-Up",
-    "name": "Pope's Fragment",
+    "source": "Glimpse of Divinity Follow-Up",
+    "name": "Glimpse of Divinity",
     "type": "NAT",
     "target": "Single enemy",
     "formula": null,
@@ -4196,7 +4264,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542165,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4463,8 +4531,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Savage Thunderstrike Follow-Up",
-    "name": "Savage Thunderstrike",
+    "source": "Thunderous Squall Follow-Up",
+    "name": "Thunderous Squall",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -4480,7 +4548,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541134,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4724,8 +4792,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Heart",
-    "name": "Merciful Prayer",
+    "source": "Awoken Empath",
+    "name": "Selfless Prayer",
     "type": "WHT",
     "target": "All allies",
     "formula": null,
@@ -4738,7 +4806,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 30542811,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4897,13 +4965,13 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 1.92,
     "element": [
       "Fire",
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single ranged attacks (? each), grants Physical High Quick Cast 1 to all allies in the front row",
+    "effects": "Six single ranged attacks (0.32 each), grants Physical High Quick Cast 1 to all allies in the front row, 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -5121,8 +5189,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Thunder Bullet Follow-Up",
-    "name": "Thunder Bullet 1",
+    "source": "Thunder Barret Follow-Up",
+    "name": "Thunder Barret 1",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -5138,12 +5206,12 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549155,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Thunder Bullet Follow-Up",
-    "name": "Thunder Bullet 2",
+    "source": "Thunder Barret Follow-Up",
+    "name": "Thunder Barret 2",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -5159,7 +5227,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549156,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -5344,6 +5412,69 @@
     "sb": 0,
     "school": "Special",
     "id": 30545084,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Drain Blade Follow-Up",
+    "name": "Drain Blade 1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (? each), causes ATK and MAG -50% for ? seconds, grantrs ATK and MAG +?% for ? seconds and High Quick Cast 2 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 30544383,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Drain Blade Follow-Up",
+    "name": "Drain Blade 2",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (? each), heals the user for ?% of the damage dealt, grants High Quick Cast 2 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 30544383,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Drain Blade Follow-Up",
+    "name": "Drain Blade 3",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (? each), heals the user for ?% of the damage dealt",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 30544383,
     "gl": false
   },
   {
@@ -6181,13 +6312,34 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "10 single attacks (0.96 each), 10/30/50% additional critical chance if the user used 0/5/9 Ice attacks during the status. Additional one single attack (6.40) capped at 99999 if the user used 9 Ice attacks during the status",
+    "effects": "Ten single attacks (0.96 each), 10/30/50% additional critical chance if the user used 0/5/9 Ice attacks during the status. Additional one single attack (6.40) capped at 99999 if the user used 9 Ice attacks during the status",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Spellblade",
     "id": 30547027,
     "gl": true
+  },
+  {
+    "sourceType": "Finisher Status",
+    "source": "Fated Burn Finisher",
+    "name": "Fated Burn",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 12.4,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.67 each) followed by one group attack (5.70) capped at 99999, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 30544407,
+    "gl": false
   },
   {
     "sourceType": "Finisher Status",
@@ -6253,6 +6405,28 @@
   },
   {
     "sourceType": "Finisher Status",
+    "source": "Hundred Knights Slayer Mode",
+    "name": "Hundred Knights Slayer",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 6,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two group attacks (2.52~3.00 each scaling with targets) capped at 99999, 100% hit rate, restores HP for 100% of the user's maximum HP, grants Last Stand to the user",
+    "effectsNote": "The multiplier per hit for this ability decreases as the number of enemies increases. The exact number is given by the following formula, where X is the number of alive enemies:\n\n2.52+(3.00-2.52)*exp(-(X-1)*0.60)\n\nThis multiplier starts at 3.00 with only 1 enemy and is always higher than 2.52.",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 0,
+    "school": "Knight",
+    "id": 30548545,
+    "gl": false
+  },
+  {
+    "sourceType": "Finisher Status",
     "source": "Lingering Flame Finisher",
     "name": "Lingering Flame",
     "type": "PHY",
@@ -6267,29 +6441,6 @@
     "sb": 0,
     "school": "Samurai",
     "id": 30549015,
-    "gl": true
-  },
-  {
-    "sourceType": "Finisher Status",
-    "source": "Royal Mode",
-    "name": "Point-Blank Warp-Strike",
-    "type": "PHY",
-    "target": "Single enemy",
-    "formula": "Physical",
-    "multiplier": 9.7,
-    "element": [
-      "Fire",
-      "Earth",
-      "Lightning",
-      "NE"
-    ],
-    "time": 0.01,
-    "effects": "One single attack (3.10/6.20/9.70) capped at 99999 if the user used 0/7/11 Fire, Earth or Lightning attacks during the status, 100% hit rate",
-    "counter": true,
-    "autoTarget": "Lowest HP% enemy",
-    "sb": 0,
-    "school": "Combat",
-    "id": 30544103,
     "gl": true
   },
   {
@@ -6347,6 +6498,29 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549053,
+    "gl": true
+  },
+  {
+    "sourceType": "Finisher Status",
+    "source": "Royal Mode",
+    "name": "Point-Blank Warp-Strike",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9.7,
+    "element": [
+      "Fire",
+      "Earth",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (3.10/6.20/9.70) capped at 99999 if the user used 0/7/11 Fire, Earth or Lightning attacks during the status, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Combat",
+    "id": 30544103,
     "gl": true
   },
   {
@@ -9246,6 +9420,31 @@
   },
   {
     "sourceType": "Legend Materia",
+    "source": "Inhererited Spirit",
+    "name": "Inhererited Spirit",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single ranged hybrid attacks (? or? each), removes positive effects",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "?",
+    "id": null,
+    "gl": false
+  },
+  {
+    "sourceType": "Legend Materia",
     "source": "Stoic Knight",
     "name": "Stoic Knight",
     "type": "PHY",
@@ -9667,8 +9866,8 @@
   },
   {
     "sourceType": "Legend Materia",
-    "source": "Self Chosen Future",
-    "name": "Self Chosen Future",
+    "source": "Chosen Future",
+    "name": "Fulminating Flash",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",

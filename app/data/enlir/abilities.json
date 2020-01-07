@@ -2753,6 +2753,114 @@
     "recordBoardCharacter": "Onion Knight"
   },
   {
+    "school": "Black Magic",
+    "name": "Explosion VIII",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 21,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.8,
+    "effects": "Six single attacks (3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Maria's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "A Hero Among the Snow",
+    "nameJp": "ばくは8",
+    "id": 30111381,
+    "gl": false,
+    "recordBoardCharacter": "Maria"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Ultima Arrow",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Ice"
+    ],
+    "time": 2.6,
+    "effects": "Seven single attacks (? each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Serah's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "New Year Party 2020",
+    "nameJp": "アルテミスアロー(セラ専用)",
+    "id": 30111391,
+    "gl": false,
+    "recordBoardCharacter": "Serah"
+  },
+  {
     "school": "White Magic",
     "name": "Cure",
     "rarity": 1,
@@ -4580,6 +4688,60 @@
     "id": 30121341,
     "gl": false,
     "recordBoardCharacter": "Minwu"
+  },
+  {
+    "school": "White Magic",
+    "name": "Siphon Sphere",
+    "rarity": 6,
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 21.3,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.55), grants smart ether 1 on every second use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Rem's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "New Year Party 2020",
+    "nameJp": "アスピルベノム(レム専用)",
+    "id": 30121351,
+    "gl": false,
+    "recordBoardCharacter": "Rem"
   },
   {
     "school": "Combat",
@@ -6431,6 +6593,73 @@
     "gl": true
   },
   {
+    "school": "Support",
+    "name": "Judgment Grimoire",
+    "rarity": 6,
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "Earth",
+      "Wind",
+      "Water",
+      "Holy",
+      "Dark",
+      "Poison",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Three single ranged hybrid attacks (1.00 or 3.30 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 120,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Tyro's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "New Year Party 2020",
+    "nameJp": "断撃のグリモア(デシ専用)",
+    "id": 30161251,
+    "gl": false,
+    "recordBoardCharacter": "Tyro"
+  },
+  {
     "school": "Celerity",
     "name": "Aim",
     "rarity": 1,
@@ -7214,7 +7443,7 @@
   },
   {
     "school": "Celerity",
-    "name": "Stormy Chain",
+    "name": "Running Start",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -7264,7 +7493,7 @@
     "introducingEvent": "Glory Feast 2019",
     "nameJp": "レイジングスターター",
     "id": 30171221,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Celerity",
@@ -9111,10 +9340,10 @@
         0
       ]
     },
-    "introducingEvent": "Braving the Countless Ordeals",
+    "introducingEvent": "An Arduous Journey",
     "nameJp": "ブラザーズ",
     "id": 30131411,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Summoning",
@@ -11032,6 +11261,63 @@
     "id": 30141261,
     "gl": false,
     "recordBoardCharacter": "Celes"
+  },
+  {
+    "school": "Spellblade",
+    "name": "Light of the Four",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Fire",
+      "Water",
+      "Wind",
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Bartz's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "New Year Party 2020",
+    "nameJp": "四晶の輝き(バッツ専用)",
+    "id": 30141271,
+    "gl": false,
+    "recordBoardCharacter": "Bartz"
   },
   {
     "school": "Dragoon",
@@ -13522,7 +13808,7 @@
       "Fire"
     ],
     "time": null,
-    "effects": "Four single attacks (? each), ATK and DEF -50%, grants ATK and DEF +50% to the user",
+    "effects": "Four single attacks (? each), ATK and DEF -50% Short, grants ATK and DEF +50% to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": null,
@@ -13576,7 +13862,7 @@
       "Water"
     ],
     "time": 1.2,
-    "effects": "Four single attacks (1.00 each), ATK and DEF -50% for 8 seconds, grants ATK and DEF +50% for 8 seconds to the user",
+    "effects": "Four single attacks (1.00 each), ATK and DEF -50% Short, grants ATK and DEF +50% for 8 seconds to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -13617,6 +13903,60 @@
     "id": 30201161,
     "gl": false,
     "recordBoardCharacter": "Rikku"
+  },
+  {
+    "school": "Thief",
+    "name": "Sagefire",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.2,
+    "effects": "Four single attacks (? each), grants Minor Buff Fire every second use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Fire Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ignis's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "New Year Party 2020",
+    "nameJp": "賢者の炎(イグニス専用)",
+    "id": 30201171,
+    "gl": false,
+    "recordBoardCharacter": "Ignis"
   },
   {
     "school": "Knight",
@@ -14529,6 +14869,116 @@
     "id": 30211181,
     "gl": false,
     "recordBoardCharacter": "Cecil (Paladin)"
+  },
+  {
+    "school": "Knight",
+    "name": "Seiken Shock",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.1,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (7.10) capped at 99999, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Beatrix's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Part of the Sky",
+    "nameJp": "聖剣技・ショック(ベアトリクス専用)",
+    "id": 30211201,
+    "gl": false,
+    "recordBoardCharacter": "Beatrix"
+  },
+  {
+    "school": "Knight",
+    "name": "Saintly Swordplay",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Holy",
+      "Dark",
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Orlandeau's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Heroes of Ivalice",
+    "nameJp": "剣聖技(オルランドゥ専用)",
+    "id": 30211191,
+    "gl": false,
+    "recordBoardCharacter": "Orlandeau"
   },
   {
     "school": "Samurai",
@@ -16323,7 +16773,7 @@
         0
       ]
     },
-    "introducingEvent": "Battle That Burns Until Dawn",
+    "introducingEvent": "The Blaze of Dawn",
     "nameJp": "木端微塵",
     "id": 30231185,
     "gl": false
@@ -17548,7 +17998,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK, DEF, MAG and RES -50% for 10 seconds, restores 500/600/700/800/1000 HP to all allies at 1/2/3/4/5 uses, resets if KO'd",
+    "effects": "Brief ATK, DEF, MAG and RES -50%, restores 500/600/700/800/1000 HP to all allies at 1/2/3/4/5 uses, resets if KO'd",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 100,
@@ -19426,6 +19876,114 @@
     "id": 30271211,
     "gl": false,
     "recordBoardCharacter": "Exdeath"
+  },
+  {
+    "school": "Darkness",
+    "name": "Heartless Angel",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Sephiroth's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "New Year Party 2020",
+    "nameJp": "心無い天使(セフィロス専用)",
+    "id": 30271231,
+    "gl": false,
+    "recordBoardCharacter": "Sephiroth"
+  },
+  {
+    "school": "Darkness",
+    "name": "Fellblade",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (? each), heals the user for ?% of the damage dealt",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Gaffgarion's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Heroes of Ivalice",
+    "nameJp": "闇の剣(ガフガリオン専用)",
+    "id": 30271221,
+    "gl": false,
+    "recordBoardCharacter": "Gaffgarion"
   },
   {
     "school": "Sharpshooter",
