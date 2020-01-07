@@ -331,7 +331,7 @@ function checkSbPoints(skill: EnlirSkill, effects: skillTypes.SkillEffect, opt: 
       // If this skill grants an abnormally high number of SB points, show it.
       // We set a flat rate of 150 (to get Lifesiphon and Wrath) instead of
       // trying to track what's normal at each rarity level.
-      return sbPointsAlias(skill.sb.toString());
+      return sbPointsAlias(skill.sb);
     } else if (isAbility(skill) && skill.sb < getNormalSBPoints(skill)) {
       // Special case: Exclude abilities like Lightning Jab that have a normal
       // default cast time but "fast" tier SB generation because they

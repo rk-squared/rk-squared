@@ -21,7 +21,7 @@ import {
   hitWeaknessTriggerText,
   parseEnlirStatus,
 } from './status';
-import { formatSmartEther, sbPointsAlias } from './statusAlias';
+import { formatSmartEther, lowHpAlias, sbPointsAlias } from './statusAlias';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -39,7 +39,7 @@ import {
 
 const parseUncertainEnlirStatus = handleUncertain(parseEnlirStatus);
 
-const tranceTriggerText = '<20% HP';
+const tranceTriggerText = lowHpAlias(20);
 const dmg = (isDamageTrigger: string | null | boolean) =>
   isDamageTrigger === true || (isDamageTrigger && isDamageTrigger.match('dealing damage with'))
     ? ' dmg'

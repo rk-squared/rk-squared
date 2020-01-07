@@ -739,7 +739,8 @@ export type Trigger =
       skillType: EnlirSkillType | EnlirSkillType[];
       element: common.OrOptions<EnlirElement>;
     }
-  | { type: 'singleHeal' };
+  | { type: 'singleHeal' }
+  | { type: 'lowHp'; value: number };
 
 export type TriggerCount =
   | common.UseCount

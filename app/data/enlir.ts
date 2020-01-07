@@ -744,22 +744,22 @@ function patchEnlir() {
   // Status cleanups.  These too should be fixed up.
   applyPatch(
     enlir.statusByName,
-    'True Greased Lightning Mode',
-    mode => mode.effects === 'Grants True Greased Lightning 0/1/2/3 after using a Monk ability',
+    'Windborn Swiftness Mode',
+    mode => mode.effects === 'Grants Windborn Swiftness 0/1/2/3 after using a Monk ability',
     mode => {
-      // Adequately covered by True Greased Lightning 0/1/2/3
+      // Adequately covered by Windborn Swiftness 0/1/2/3
       mode.effects = '';
     },
   );
   for (let i = 0; i <= 3; i++) {
     applyPatch(
       enlir.statusByName,
-      `True Greased Lightning ${i}`,
-      mode => mode.effects.match(/[Gg]rants True Greased Lightning (\d+),/) != null,
+      `Windborn Swiftness ${i}`,
+      mode => mode.effects.match(/[Gg]rants Windborn Swiftness (\d+),/) != null,
       mode => {
         mode.effects = mode.effects.replace(
-          /([Gg]rants) True Greased Lightning (\d+),/,
-          (match, p1, p2) => `${p1} True Greased Lightning ${p2} after using a Monk ability,`,
+          /([Gg]rants) Windborn Swiftness (\d+),/,
+          (match, p1, p2) => `${p1} Windborn Swiftness ${p2} after using a Monk ability,`,
         );
       },
     );

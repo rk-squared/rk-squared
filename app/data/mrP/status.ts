@@ -23,6 +23,7 @@ import { convertEnlirSkillToMrP, describeRecoilHp, formatMrPSkill } from './skil
 import * as skillTypes from './skillTypes';
 import {
   formatSmartEther,
+  lowHpAlias,
   rankBoostAlias,
   rankCastSpeedAlias,
   resolveStatusAlias,
@@ -550,6 +551,8 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
       return `take ${formatAnyType(trigger, ' ')}dmg from ally`;
     case 'singleHeal':
       return 'ally heal';
+    case 'lowHp':
+      return lowHpAlias(trigger.value);
   }
 }
 

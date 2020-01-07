@@ -56,7 +56,8 @@ EffectClause
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
-  / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / NoEffect / Persists / GameOver
+  / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze
+  / ResetTarget / NoEffect / Persists / GameOver
 
 
 // --------------------------------------------------------------------------
@@ -325,6 +326,7 @@ NoAirTime
 
 DamageUpType
   = ElementSchoolOrSkillTypeList
+  / "physical"i { return { skillType: 'PHY' }; }
   / "magical"i { return { magical: true }; }
   / "jump"i { return { jump: true }; }
 
@@ -360,6 +362,7 @@ Poison
 
 HealUp
   = "Abilities"i _ "restore" _ value:Integer "% more HP" { return { type: 'healUp', value }; }
+  / "Increases"i _ "healing done by" _ value:Integer "%" { return { type: 'healUp', value }; }
 
 Pain
   = "Take" _ value:Integer "% more damage" { return { type: 'pain', value }; }
@@ -496,6 +499,7 @@ StatusWithPercent
 
 GainSb
   = "Grants"i _ value:Integer _ "SB points" _ "when set"? { return { type: 'gainSb', value }; }
+  / "Removes"i _ value:Integer _ "SB points" _ "when set"? { return { type: 'gainSb', value: -value }; }
 
 SbGainUp
   = what:ElementOrSchoolList _ ("abilities" / "attacks") _ "grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
@@ -632,6 +636,9 @@ Paralyze
   = "Arrests"i _ "ATB charge rate, can't act" ", resets ATB when set"? { return { type: 'paralyze' }; }
   / "Can't"i _ "act, resets ATB when set or removed" { return { type: 'paralyze' }; }
 
+ResetTarget
+  = "Will"i _ "remove any" _ "Active Targeting"i _ "upon selecting the random action" { return null; }
+
 NoEffect
   = "No gameplay effects" { return null; }
 
@@ -647,7 +654,7 @@ GameOver
 
 Trigger
   = "after" _ requiresDamage1:("using" / "dealing damage with") _ count:TriggerCount _ requiresDamage2:"damaging"?
-    _ element:ElementListOrOptions? _ school:SchoolList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
+    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
   / "after dealing a critical hit" { return { type: 'crit' }; }
@@ -663,6 +670,7 @@ Trigger
   / "after using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
   / "after taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
   / "after using a single-target heal" { return { type: 'singleHeal' }; }
+  / "when HP fall" "s"? _ "below" _ value:Integer "%" { return { type: 'lowHp', value }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
