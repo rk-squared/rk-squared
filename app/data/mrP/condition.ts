@@ -2,7 +2,7 @@ import { arrayifyLength, KeysOfType } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import { describeEnlirStatus } from './status';
-import { statusLevelAlias } from './statusAlias';
+import { statusLevelAlias, vsWeak } from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import { formatNumberSlashList, formatUseCount, formatUseNumber, orList } from './util';
 
@@ -120,7 +120,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'targetStatusAilments':
       return formatThreshold(condition.count, 'statuses');
     case 'vsWeak':
-      return 'vs. weak';
+      return vsWeak;
     case 'inFrontRow':
       return 'if in front row';
     case 'hitsTaken':

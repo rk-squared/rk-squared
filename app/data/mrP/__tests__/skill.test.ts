@@ -2332,7 +2332,7 @@ Object {
         damage: 'phys 9.0/15 fire+wind+non rngd',
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +
-          '15s: (1/2/3/4 fire ⤇ 1.15-1.3-1.5-1.75x fire dmg), ' +
+          '15s: (0/1/2/3 fire ⤇ 1.15-1.3-1.5-1.75x fire dmg), ' +
           '(4 fire ⤇ p7.5/15 f+n rngd Machinist, once only), ' +
           '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2415,7 +2415,7 @@ Object {
           'party h85, Regenga, self dmg cap +10k 15s, ' +
           '15s: Awoken Kindred: Summon inf. hones, 100% dualcast, (Summon ⤇ party h10-15-25-35-45 @ rank 1-5)',
       });
-      expect(describeSoulBreak("Y'shtola - Pulse of Life")).toEqual({
+      expect(describeSoulBreak("Y'shtola - AASB")).toEqual({
         damage: undefined,
         instant: true,
         other:

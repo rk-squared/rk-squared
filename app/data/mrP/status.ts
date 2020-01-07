@@ -1126,6 +1126,7 @@ function describeStatusEffect(
         (!isNaN(effect.current) ? ' ' + effect.current : '')
       );
     case 'trackUses':
+    case 'modifiesSkill':
     case 'burstOnly':
     case 'burstReset':
     case 'statusReset':

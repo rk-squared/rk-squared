@@ -65,7 +65,7 @@ Array [
   Object {
     "character": "Aerith",
     "description": "(W.Mag ⤇ 35% for party h25)",
-    "effect": "35% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "effect": "35% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability, can trigger on dualcasts",
     "name": "Motherly Protector",
   },
   Object {
@@ -208,9 +208,9 @@ Array [
   },
   Object {
     "character": "Aphmau",
-    "description": "(W.Mag/Monk ⤇ 25% for party heal 1k? HP)",
-    "effect": "25% chance to cast an ability (?: group, restores 1000? HP) after using a White Magic or Monk ability",
-    "name": "Affection for Automaton",
+    "description": "(W.Mag/Monk ⤇ 25% for party heal 1k HP)",
+    "effect": "25% chance to cast an ability (NAT: group, restores 1000 HP) after using a White Magic or Monk ability",
+    "name": "Automaton Affinity",
   },
   Object {
     "character": "Aranea",
@@ -234,7 +234,7 @@ Array [
     "character": "Aranea",
     "description": "25% dualcast Dragoon",
     "effect": "25% chance to dualcast Dragoon abilities",
-    "name": "Magitek Spear User",
+    "name": "Magitek Dragoon",
   },
   Object {
     "character": "Arc",
@@ -292,9 +292,9 @@ Array [
   },
   Object {
     "character": "Aria",
-    "description": "(W.Mag ⤇ 25?% for party h25)",
-    "effect": "25?% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
-    "name": "Shipwrecked Priestess",
+    "description": "(W.Mag ⤇ 25% for party h25)",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "name": "Maiden of the Wreck",
   },
   Object {
     "character": "Ashe",
@@ -450,7 +450,7 @@ Array [
     "character": "Barret",
     "description": "25% dualcast Machinist",
     "effect": "25% chance to dualcast Machinist abilities",
-    "name": "AVALANCHE's Leader",
+    "name": "Opposition Leader",
   },
   Object {
     "character": "Bartz",
@@ -924,7 +924,7 @@ Array [
     "character": "Cloud of Darkness",
     "description": "25?% dualcast dark",
     "effect": "25?% chance to dualcast abilities that deal Dark damage",
-    "name": "Void Aspirer",
+    "name": "Oblivion Seeker",
   },
   Object {
     "character": "Cor",
@@ -1038,7 +1038,7 @@ Array [
     "character": "Desch",
     "description": "lgt infuse at battle start",
     "effect": "Grants Attach Lightning at the beginning of the battle",
-    "name": "Wandering Stud",
+    "name": "Lovestruck Wanderer",
   },
   Object {
     "character": "Deuce",
@@ -1122,7 +1122,7 @@ Array [
     "character": "Dr. Mog",
     "description": "(<20% HP ⤇ 1.25x elem dmg 25s)",
     "effect": "Grants Dr. Mog Trance when HP fall below 20%",
-    "name": "History Institute Leader's Potential",
+    "name": "Archives' Promise",
   },
   Object {
     "character": "Echo",
@@ -1293,6 +1293,12 @@ Array [
     "name": "Descendent of Legends",
   },
   Object {
+    "character": "Eiko",
+    "description": "(Summon ⤇ 15% for party h25)",
+    "effect": "15% chance to cast an ability (WHT: group, restores HP (25)) after using a Summoning ability",
+    "name": "Maiden in Love",
+  },
+  Object {
     "character": "Elarra",
     "description": "1.15x WHT healing",
     "effect": "WHT abilities restore 15% more HP",
@@ -1374,7 +1380,7 @@ Array [
     "character": "Emperor",
     "description": "dark infuse at battle start",
     "effect": "Grants Attach Dark at the beginning of the battle",
-    "name": "?",
+    "name": "Treacherous Tyrant",
   },
   Object {
     "character": "Enna Kros",
@@ -1977,6 +1983,12 @@ Array [
     "name": "Ascendant Prince",
   },
   Object {
+    "character": "Gordon",
+    "description": "(Support ⤇ 25% for p?/4 or m?/4 f+n rngd, Dispel)",
+    "effect": "25% chance to cast Inherited Spirit after using a Support ability",
+    "name": "Inherited Spirit",
+  },
+  Object {
     "character": "Guy",
     "description": "1.1x earth dmg",
     "effect": "Increases Earth damage dealt by 10%",
@@ -2537,7 +2549,7 @@ Array [
   Object {
     "character": "Lenna",
     "description": "(W.Mag ⤇ 25% for party h25)",
-    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability, can trigger on dualcasts",
     "name": "Impartial Kindness",
   },
   Object {
@@ -2914,8 +2926,8 @@ Array [
   },
   Object {
     "character": "Matoya",
-    "description": "(Witch ⤇ 25?% for fastcast 1)",
-    "effect": "25?% chance to grant Quick Cast 1 to the user after using a Witch ability",
+    "description": "(Witch ⤇ 35% for fastcast 1)",
+    "effect": "35% chance to grant Quick Cast 1 to the user after using a Witch ability",
     "name": "Professional Pharmacist",
   },
   Object {
@@ -3132,19 +3144,19 @@ Array [
     "character": "Naja",
     "description": "1.1x earth dmg",
     "effect": "Increases Earth damage dealt by 10%",
-    "name": "Whismical One",
+    "name": "Fickle Master",
   },
   Object {
     "character": "Naja",
     "description": "Haste, instacast 3 at battle start",
     "effect": "Grants Haste and Instant Cast 3 at the beginning of the battle",
-    "name": "High Class Cat President",
+    "name": "Mithra Muscle",
   },
   Object {
     "character": "Naja",
     "description": "earth infuse at battle start",
     "effect": "Grants Attach Earth at the beginning of the battle",
-    "name": "Wishing for Reinstatement",
+    "name": "Dream of Glory",
   },
   Object {
     "character": "Nine",
@@ -3393,6 +3405,12 @@ Array [
     "name": "Practiced Prestidigitator",
   },
   Object {
+    "character": "Papalymo",
+    "description": "25% dualcast fire",
+    "effect": "25% chance to dualcast abilities that deal Fire damage",
+    "name": "Witty Lalafell",
+  },
+  Object {
     "character": "Penelo",
     "description": "1.15x WHT healing",
     "effect": "WHT abilities restore 15% more HP",
@@ -3456,7 +3474,7 @@ Array [
     "character": "Prishe",
     "description": "fastcast 3 at battle start",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
-    "name": "Straightforward Girl",
+    "name": "Perfect Beauty",
   },
   Object {
     "character": "Prompto",
@@ -3480,7 +3498,7 @@ Array [
     "character": "Prompto",
     "description": "Haste, instacast 1 at battle start",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
-    "name": "More than Friends",
+    "name": "Uncommon Friendship",
   },
   Object {
     "character": "Queen",
@@ -3942,7 +3960,7 @@ Array [
     "character": "Rosa",
     "description": "(W.Mag ⤇ 25% for party h25)",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
-    "name": "Affectionate Blessing",
+    "name": "Fruits of Kindness",
   },
   Object {
     "character": "Roxas",
@@ -4098,7 +4116,7 @@ Array [
     "character": "Sarah",
     "description": "(Bard ⤇ 25% for party h25)",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a Bard ability",
-    "name": "Warrior's Ballad",
+    "name": "Warriors' Ballad",
   },
   Object {
     "character": "Sarah",
@@ -4336,8 +4354,8 @@ Array [
   },
   Object {
     "character": "Seven",
-    "description": "25?% dualcast ice",
-    "effect": "25?% chance to dualcast abilities that deal Ice damage",
+    "description": "25% dualcast ice",
+    "effect": "25% chance to dualcast abilities that deal Ice damage",
     "name": "Big Sis",
   },
   Object {
@@ -4440,7 +4458,7 @@ Array [
     "character": "Shelke",
     "description": "25% dualcast Celerity",
     "effect": "25% chance to dualcast Celerity abilities",
-    "name": "Event Rewriter",
+    "name": "Shaper of Fate",
   },
   Object {
     "character": "Sice",
@@ -4827,6 +4845,12 @@ Array [
     "name": "Heroic Aspiration",
   },
   Object {
+    "character": "Tyro",
+    "description": "1.2x dmg vs. weak",
+    "effect": "Increases damage dealt by 20% when exploiting elemental weakness",
+    "name": "Young Prodigy",
+  },
+  Object {
     "character": "Ultimecia",
     "description": "1.1x BLK dmg",
     "effect": "BLK attacks deal 10% more damage",
@@ -4962,7 +4986,7 @@ Array [
     "character": "Vanille",
     "description": "(Support ⤇ 35% for fastcast 1)",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Support ability",
-    "name": "Time of Waking",
+    "name": "Hour of Awakening",
   },
   Object {
     "character": "Vayne",
@@ -5220,7 +5244,7 @@ Array [
     "character": "Y'shtola",
     "description": "(W.Mag ⤇ 25% for party h25)",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
-    "name": "Price of Forbidden Magic",
+    "name": "Price of Power",
   },
   Object {
     "character": "Yang",
@@ -5262,7 +5286,7 @@ Array [
     "character": "Yda",
     "description": "fire infuse at battle start",
     "effect": "Grants Attach Fire at the beginning of the battle",
-    "name": "Stormblood",
+    "name": "Moonfire Liberator",
   },
   Object {
     "character": "Ysayle",
@@ -5281,6 +5305,12 @@ Array [
     "description": "(ice ⤇ 20% for +10% ice vuln.)",
     "effect": "20% chance to cause Minor Imperil Ice to the target after using a Ice attack on an enemy",
     "name": "The Greater Good",
+  },
+  Object {
+    "character": "Ysayle",
+    "description": "25% dualcast ice",
+    "effect": "25% chance to dualcast abilities that deal Ice damage",
+    "name": "Lady Iceheart",
   },
   Object {
     "character": "Yuffie",

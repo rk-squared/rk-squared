@@ -28,6 +28,7 @@ export const sbPointsAlias = (s: string | number) =>
 export const sbPointsBoosterAlias = (percent: string | number, s: string) =>
   rawSbPointsBoosterAlias(percentToMultiplier(percent), s);
 export const lowHpAlias = (value: number) => `<${value}% HP`;
+export const vsWeak = 'vs. weak';
 
 export const formatRandomEther = (amount: string | number) =>
   'refill ' + amount + ' random abil. use';

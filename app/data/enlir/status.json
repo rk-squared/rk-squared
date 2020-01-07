@@ -9839,7 +9839,7 @@
   {
     "id": 50331,
     "name": "Elbow Follow-Up",
-    "effects": "Casts Elbow after using a Earth or Holy attack",
+    "effects": "Casts Elbow Blow after using a Earth or Holy attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9850,7 +9850,7 @@
   {
     "id": 50335,
     "name": "Mog Follow-Up",
-    "effects": "Casts Mog Magic after using a Black Magic or Summoning ability, casts Mog Heal after using a White Magic ability",
+    "effects": "Casts Moogle Magic after using a Black Magic or Summoning ability, casts Moogle Heal after using a White Magic ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
