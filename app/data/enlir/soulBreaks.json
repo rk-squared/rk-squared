@@ -13228,7 +13228,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Regenga, Protect, Shell, Haste and High Quick Cast 2, grants Awoke Double Job to the user",
+    "effects": "Grants Regenga, Protect, Shell, Haste and High Quick Cast 2, grants Awoken Double Job to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,

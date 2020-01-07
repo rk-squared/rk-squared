@@ -64,7 +64,7 @@ EffectClause
 // Stat mods
 
 StatMod
-  = stats:StatListOrPlaceholder _ value:SignedIntegerOrX "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
+  = stats:StatListOrPlaceholder _ value:(SignedIntegerOrX / [+-]? "?" { return NaN; }) "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
     const result = Object.assign({ type: 'statMod', stats }, value);
     if (ignoreBuffCaps) {
       result.ignoreBuffCaps = true;
@@ -209,11 +209,12 @@ Reflect
 // references to individual schools or elements.
 
 Awoken
-  = awoken:AwokenType _ ("abilities" / "attacks") _ "don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast? instacast:AwokenInstacast?
+  = awoken:AwokenType _ ("abilities" / "attacks") _ "don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast? instacast:AwokenInstacast? castSpeed:AwokenCastSpeed?
   & { return !rankCast || util.isEqual(awoken, rankCast); }
   & { return !dualcast || util.isEqual(awoken, dualcast); }
   & { return !instacast || util.isEqual(awoken, instacast); }
-  { return { type: 'awoken', awoken, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast, instacast: !!instacast }; }
+  & { return !castSpeed || util.isEqual(awoken, castSpeed.type); }
+  { return { type: 'awoken', awoken, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast, instacast: !!instacast, castSpeed: castSpeed ? castSpeed.value : undefined }; }
 
 AwokenType
   = school:SchoolAndOrList { return { school }; }
@@ -230,6 +231,9 @@ AwokenDualcast
 
 AwokenInstacast
   = ", cast speed x999" "9"* _ "for" _ type:AwokenType _ ("abilities" / "attacks") { return type; }
+
+AwokenCastSpeed
+  = ", cast speed x" value:DecimalNumber _ "for" _ type:AwokenType _ ("abilities" / "attacks") { return { type, value }; }
 
 
 // --------------------------------------------------------------------------
@@ -720,11 +724,11 @@ Condition
   // Beginning of attacks and skills (like Passionate Salsa)
 
   // Scaling with uses - both specific counts and generically
-  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
+  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList "+"? _ "uses" { return { type: 'scaleUseCount', useCount }; }
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
-  / "after" _ useCount:UseCount _ skill:AnySkillName _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
+  / "after" _ useCount:UseCount _ skill:AnySkillName? _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
   / "on" _ "first" _ "use" { return { type: 'afterUseCount', useCount: { from: 1, to: 1 } }; }
   / "on" _ first:Integer "+" _ "use" "s"? { return { type: 'afterUseCount', useCount: { from: first } }; }
 
@@ -808,7 +812,7 @@ StatusVerb
 StatusName "status effect"
   = (
     // Stat mods in particular have a distinctive format.
-    ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
+    ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%'
   / GenericName
   / "?"
   ) {

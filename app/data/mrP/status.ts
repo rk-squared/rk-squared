@@ -93,6 +93,9 @@ interface StatusOptions {
 
 const uncertain = (isUncertain: boolean | undefined) => (isUncertain ? '?' : '');
 
+const getCastString = (value: number) =>
+  value === 2 ? 'fast' : value === 3 ? 'hi fast' : value.toString() + 'x ';
+
 export function safeParseStatus(
   status: EnlirStatus,
   placeholders?: EnlirStatusPlaceholders,
@@ -460,10 +463,11 @@ function formatAwoken({
   instacast,
   rankBoost,
   rankCast,
+  castSpeed,
 }: statusTypes.Awoken): string {
   const type = formatSchoolOrAbilityList('school' in awoken ? awoken.school : awoken.element);
   let result = `${type} inf. hones`;
-  // TODO: Remove redundant `${type}` below
+  // TODO: Remove redundant `${type}` below?
   if (rankBoost) {
     result += ', up to 1.3x dmg @ rank 5';
   }
@@ -475,6 +479,9 @@ function formatAwoken({
   }
   if (instacast) {
     result += `, ${type} instacast`;
+  }
+  if (castSpeed) {
+    result += `, ${type} ${getCastString(castSpeed)}cast`;
   }
   return result;
 }
@@ -508,6 +515,8 @@ function getTriggerPreposition(trigger: statusTypes.Trigger): string {
     return 'until';
   } else if (trigger.type === 'skillTriggered' || trigger.type === 'ability') {
     return 'for next';
+  } else if (trigger.type === 'lowHp') {
+    return 'once';
   } else {
     return 'for';
   }
@@ -906,12 +915,7 @@ function describeStatusEffect(
             .map(i => i.toString())
             .join('/') + 'x ';
       } else {
-        cast =
-          effect.value === 2
-            ? 'fast'
-            : effect.value === 3
-            ? 'hi fast'
-            : effect.value.toString() + 'x ';
+        cast = getCastString(effect.value);
       }
       return addTrigger(formatAnyCast(effect, cast), effect.trigger);
     }

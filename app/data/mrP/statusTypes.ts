@@ -258,6 +258,7 @@ export interface Awoken {
   rankCast: boolean;
   dualcast: boolean;
   instacast: boolean;
+  castSpeed?: number;
 }
 
 export type AwokenType =

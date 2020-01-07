@@ -5427,7 +5427,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Four single attacks (? each), causes ATK and MAG -50% for ? seconds, grantrs ATK and MAG +?% for ? seconds and High Quick Cast 2 to the user",
+    "effects": "Four single attacks (? each), causes ATK and MAG -50% for ? seconds, grants ATK and MAG +?% for ? seconds and High Quick Cast 2 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,

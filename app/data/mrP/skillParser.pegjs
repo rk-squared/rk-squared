@@ -494,7 +494,7 @@ SetStatusLevel
 // Stat mods
 
 StatMod
-  = stats:StatList _ percent:SignedIntegerSlashList '%' statModClauses:StatModClause* {
+  = stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' statModClauses:StatModClause* {
     const result = {
       type: 'statMod',
       stats,
@@ -589,11 +589,11 @@ Condition
   // Beginning of attacks and skills (like Passionate Salsa)
 
   // Scaling with uses - both specific counts and generically
-  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
+  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList "+"? _ "uses" { return { type: 'scaleUseCount', useCount }; }
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
-  / "after" _ useCount:UseCount _ skill:AnySkillName _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
+  / "after" _ useCount:UseCount _ skill:AnySkillName? _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
   / "on" _ "first" _ "use" { return { type: 'afterUseCount', useCount: { from: 1, to: 1 } }; }
   / "on" _ first:Integer "+" _ "use" "s"? { return { type: 'afterUseCount', useCount: { from: first } }; }
 
@@ -677,7 +677,7 @@ StatusVerb
 StatusName "status effect"
   = (
     // Stat mods in particular have a distinctive format.
-    ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
+    ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%'
   / GenericName
   / "?"
   ) {
