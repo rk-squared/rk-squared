@@ -9,7 +9,7 @@ import * as _ from 'lodash';
 
 import { enlir, EnlirOtherSkill, EnlirSkill } from '../enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, safeParseSkill } from './skill';
-import * as types from './types';
+import * as skillTypes from './skillTypes';
 import { describeChances, enDashJoin } from './util';
 
 export function getRageSkills(source: EnlirSkill | string): EnlirOtherSkill[] {
@@ -41,7 +41,7 @@ export function describeRageEffects(source: EnlirSkill | string) {
   }
 }
 
-function isPureRage(skill: EnlirSkill, skillEffectsWithoutRage: types.SkillEffect): boolean {
+function isPureRage(skill: EnlirSkill, skillEffectsWithoutRage: skillTypes.SkillEffect): boolean {
   if (skillEffectsWithoutRage.length === 1) {
     const effect = skillEffectsWithoutRage[0];
     if (effect.type === 'randomCastOther' && effect.other === skill.name) {
@@ -83,8 +83,8 @@ function isPureRage(skill: EnlirSkill, skillEffectsWithoutRage: types.SkillEffec
  */
 export function checkPureRage(
   skill: EnlirSkill,
-  skillEffects: types.SkillEffect,
-): [number, types.SkillEffect] | undefined {
+  skillEffects: skillTypes.SkillEffect,
+): [number, skillTypes.SkillEffect] | undefined {
   const effectIndex = _.findIndex(
     skillEffects,
     i => i.type === 'status' && i.statuses.find(j => j.status === 'Rage') != null,
@@ -93,7 +93,7 @@ export function checkPureRage(
     // Normal case - no Rage status.
     return undefined;
   }
-  const effect = skillEffects[effectIndex] as types.StatusEffect;
+  const effect = skillEffects[effectIndex] as skillTypes.StatusEffect;
 
   const statusIndex = _.findIndex(effect.statuses, i => i.status === 'Rage');
   const status = effect.statuses[statusIndex];

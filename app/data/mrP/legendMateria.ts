@@ -17,7 +17,7 @@ import {
   describeEnlirStatus,
   describeStats,
   formatDuration,
-  formatTriggeredEffect,
+  formatGenericTrigger,
   hitWeaknessTriggerText,
   parseEnlirStatus,
 } from './status';
@@ -281,7 +281,7 @@ const legendMateriaHandlers: HandlerList = [
     ([statuses, reraiseStatus]) =>
       describeBattleStart(statuses) +
       ', ' +
-      formatTriggeredEffect('Reraise', describeEnlirStatus(reraiseStatus)),
+      formatGenericTrigger('Reraise', describeEnlirStatus(reraiseStatus)),
   ],
   [
     /^Grants (.*) at the beginning of the battle, begins the round with full ATB gauge$/,
@@ -291,18 +291,28 @@ const legendMateriaHandlers: HandlerList = [
   // Triggered self statuses
   [
     /^(?:(\d+\??|\?)% chance (?:of|to grant)|[Gg]rants) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit)|(taking damage from an enemy))$/,
-    ([percent, status, duration, schoolOrElement, critical, takeDamage]) => {
+    ([percent, statusName, duration, schoolOrElement, critical, takeDamage]) => {
       // TODO: Consolidate trigger logic with status.ts?
       const trigger = schoolOrElement
         ? formatSchoolOrAbilityList(schoolOrElement)
         : critical
         ? 'crit'
         : 'take dmg';
-      return formatTriggeredEffect(
-        trigger,
-        describeEnlirStatus(status) + (duration ? ' ' + duration + 's' : ''),
-        percent,
-      );
+      const m = statusName.match(/^smart ether (\d+)/);
+      if (m) {
+        return formatGenericTrigger(trigger, formatSmartEther(m[1]), percent);
+      } else {
+        const status = parseEnlirStatus(statusName);
+        // Note that we simplify specialDuration's display (no colon, etc.)
+        // compared to the full skill + status code.
+        return formatGenericTrigger(
+          trigger,
+          status.description +
+            (duration ? ' ' + duration + 's' : '') +
+            (status.specialDuration ? ' ' + status.specialDuration : ''),
+          percent,
+        );
+      }
     },
   ],
 
@@ -317,11 +327,11 @@ const legendMateriaHandlers: HandlerList = [
   [
     /^(\d+\??|\?)% chance to grant (.*) to the target after using a single-target White Magic ability that restores HP on an ally$/,
     ([percent, status]) =>
-      formatTriggeredEffect('ally W.Mag heal', 'ally ' + describeEnlirStatus(status), percent),
+      formatGenericTrigger('ally W.Mag heal', 'ally ' + describeEnlirStatus(status), percent),
   ],
   [
     /^(\d+\??|\?)% chance to remove negative effects to the target after using a single-target White Magic ability that restores HP on an ally$/,
-    ([percent, status]) => formatTriggeredEffect('ally W.Mag heal', 'ally Esuna'),
+    ([percent, status]) => formatGenericTrigger('ally W.Mag heal', 'ally Esuna'),
   ],
 
   // Triggered simple skills and triggered named skills
@@ -360,7 +370,7 @@ const legendMateriaHandlers: HandlerList = [
         : damageAbility
         ? formatSchoolOrAbilityList(damageAbility) + dmg(true)
         : 'take dmg';
-      return formatTriggeredEffect(trigger, description, percent);
+      return formatGenericTrigger(trigger, description, percent);
     },
   ],
 
@@ -372,7 +382,7 @@ const legendMateriaHandlers: HandlerList = [
       if (!description) {
         return null;
       }
-      return formatTriggeredEffect(`foe's ${attackType} atk`, description, percent);
+      return formatGenericTrigger(`foe's ${attackType} atk`, description, percent);
     },
   ],
 
@@ -382,7 +392,7 @@ const legendMateriaHandlers: HandlerList = [
     ([percent, status, isDamageTrigger, schoolOrAbility, when]) => {
       const trigger =
         formatSchoolOrAbilityList(schoolOrAbility) + dmg(isDamageTrigger) + whenDescription(when);
-      return formatTriggeredEffect(trigger, describeEnlirStatus(status), percent);
+      return formatGenericTrigger(trigger, describeEnlirStatus(status), percent);
     },
   ],
 
@@ -400,17 +410,19 @@ const legendMateriaHandlers: HandlerList = [
         duration = formatDuration({ value: lastStatus.defaultDuration, units: 'seconds' });
       }
 
-      let statusDescription =
-        status
-          .map(i => (i.isTrance ? 'Trance: ' : '') + i.description + (i.isUncertain ? '?' : ''))
-          .join(', ') + (duration ? ' ' + duration : '');
+      let statusDescription = status
+        .map(i => (i.isTrance ? 'Trance: ' : '') + i.description + (i.isUncertain ? '?' : ''))
+        .join(', ')
+        // HACK: Insert duration before any finisher.  This affects Eight's
+        // Back to the Wall trance.
+        .replace(/(, Finisher|$)/, (duration ? ' ' + duration : '') + '$1');
       if (bonusSb) {
         statusDescription = sbPointsAlias(bonusSb) + ', ' + statusDescription;
       }
       if (isHeal) {
         statusDescription = 'heal 100% HP, ' + statusDescription;
       }
-      return formatTriggeredEffect(tranceTriggerText, statusDescription);
+      return formatGenericTrigger(tranceTriggerText, statusDescription);
     },
   ],
   // Josef's unique LM2.  We ought to parse this using the same logic that we
@@ -426,7 +438,7 @@ const legendMateriaHandlers: HandlerList = [
         .split(andList)
         .map(i => describeEnlirStatus(i))
         .join(', ');
-      return formatTriggeredEffect(
+      return formatGenericTrigger(
         tranceTriggerText,
         `self ${selfStatusDescription}, party heal ${healPercent}% HP, ${partyStatusDescription}`,
       );
@@ -453,7 +465,7 @@ const legendMateriaHandlers: HandlerList = [
   [
     /^(\d+|\?)% chance of restoring HP to the user for (\d+|\?)% of the damage dealt with single-target (.*) attacks$/,
     ([percentChance, healPercent, type]) =>
-      formatTriggeredEffect(
+      formatGenericTrigger(
         `single-target ${formatSchoolOrAbilityList(type)}`,
         `heal ${healPercent}% of dmg`,
         percentChance,
@@ -469,7 +481,7 @@ const legendMateriaHandlers: HandlerList = [
   // Unique effects
   [
     /^Exploiting elemental weakness grants (\d+|\?)% more Soul Break points \(additive with the default 50% bonus\)$/,
-    ([percent]) => formatTriggeredEffect(hitWeaknessTriggerText, `+${percent}% SB gauge`),
+    ([percent]) => formatGenericTrigger(hitWeaknessTriggerText, `+${percent}% SB gauge`),
   ],
   [
     /^(\d+|\?)% chance to increase Gil gained at the end of battle by (\d+|\?)% when equipping (.*)$/,

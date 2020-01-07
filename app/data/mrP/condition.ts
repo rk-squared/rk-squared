@@ -1,7 +1,9 @@
 import { arrayifyLength, KeysOfType } from '../../utils/typeUtils';
+import * as common from './commonTypes';
+import * as skillTypes from './skillTypes';
 import { describeEnlirStatus } from './status';
+import { statusLevelAlias } from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
-import * as types from './types';
 import { formatNumberSlashList, formatUseCount, formatUseNumber, orList } from './util';
 
 export function formatThreshold(
@@ -12,7 +14,7 @@ export function formatThreshold(
   return '@ ' + formatNumberSlashList(thresholdValues) + units + ' ' + thresholdName;
 }
 
-export function describeMultiplierScaleType(scaleType: types.MultiplierScaleType): string {
+export function describeMultiplierScaleType(scaleType: skillTypes.MultiplierScaleType): string {
   switch (scaleType.type) {
     case 'percentHp':
       return '@ 1% HP';
@@ -31,6 +33,14 @@ export function describeMultiplierScaleType(scaleType: types.MultiplierScaleType
   }
 }
 
+function formatCountCharacters(count: number | number[], characters: string): string {
+  if (typeof count === 'number') {
+    return 'if ≥' + count + ' ' + characters;
+  } else {
+    return 'if ' + formatNumberSlashList(count) + ' ' + characters;
+  }
+}
+
 /**
  * Returns a text string describing the given Condition.
  *
@@ -38,7 +48,7 @@ export function describeMultiplierScaleType(scaleType: types.MultiplierScaleType
  * @param count Number of values covered by this condition.  E.g.,
  *    "4/5/6 attacks, scaling with uses" could pass [4,5,6].
  */
-export function describeCondition(condition: types.Condition, count?: number | number[]): string {
+export function describeCondition(condition: common.Condition, count?: number | number[]): string {
   switch (condition.type) {
     case 'equipped':
       return (
@@ -62,9 +72,12 @@ export function describeCondition(condition: types.Condition, count?: number | n
         }
         const m = condition.status.match(/^(.*) ((?:\d+\/)+\d+)/);
         if (m) {
-          return '@ ' + m[2] + ' ' + describeEnlirStatus(m[1]);
+          const status = m[1];
+          return '@ ' + m[2] + ' ' + (statusLevelAlias[status] || describeEnlirStatus(status));
         }
-        return 'if ' + describeEnlirStatus(condition.status);
+        return (
+          'if ' + (statusLevelAlias[condition.status] || describeEnlirStatus(condition.status))
+        );
       } else {
         // If we have one status, show it.  Otherwise, in practice, this is always
         // the same status ailments that the attack itself inflicts, so omit
@@ -91,11 +104,9 @@ export function describeCondition(condition: types.Condition, count?: number | n
         return 'if ' + condition.character + what;
       }
     case 'females':
-      if (typeof condition.count === 'number') {
-        return 'if ≥' + condition.count + ' females in party';
-      } else {
-        return 'if ' + formatNumberSlashList(condition.count) + ' females in party';
-      }
+      return formatCountCharacters(condition.count, 'females in party');
+    case 'realmCharactersInParty':
+      return formatCountCharacters(condition.count, condition.realm + ' chars. in party');
     case 'alliesJump':
       return 'if ' + formatNumberSlashList(condition.count) + ' allies in air';
     case 'doomTimer':
@@ -126,7 +137,7 @@ export function describeCondition(condition: types.Condition, count?: number | n
     case 'differentAbilityUses':
       return formatThreshold(
         condition.count,
-        'diff. ' + getSchoolShortName(condition.school) + ' abils.',
+        'diff. ' + getSchoolShortName(condition.school) + ' abils',
       );
     case 'abilitiesUsedDuringStatus':
       return (
@@ -153,7 +164,7 @@ export function describeCondition(condition: types.Condition, count?: number | n
 }
 
 export function appendCondition(
-  condition: types.Condition | undefined | null,
+  condition: common.Condition | undefined | null,
   count?: number | number[],
 ): string {
   return condition ? ' ' + describeCondition(condition, count) : '';
@@ -164,19 +175,19 @@ export function appendCondition(
  * what's there), and return whether it should continue visitation.
  */
 type ConditionVisitor = (
-  condition: types.Condition,
-) => [types.Condition | undefined | null, boolean];
+  condition: common.Condition,
+) => [common.Condition | undefined | null, boolean];
 
 function visitEffectCondition<T>(
   f: ConditionVisitor,
   effect: T,
-  props: Array<KeysOfType<T, types.Condition | undefined>>,
+  props: Array<KeysOfType<T, common.Condition | undefined>>,
 ): boolean {
   for (const i of props) {
     if (!effect[i]) {
       continue;
     }
-    const [newCondition, shouldContinue] = f((effect[i] as unknown) as types.Condition);
+    const [newCondition, shouldContinue] = f((effect[i] as unknown) as common.Condition);
     if (newCondition !== null) {
       effect[i] = newCondition as any;
     }
@@ -187,7 +198,7 @@ function visitEffectCondition<T>(
   return true;
 }
 
-export function visitCondition(f: ConditionVisitor, effects: types.SkillEffect): void {
+export function visitCondition(f: ConditionVisitor, effects: skillTypes.SkillEffect): void {
   // TODO: Implement remaining visitors.  Only those types we need are implemented so far.
   for (const i of effects) {
     switch (i.type) {
@@ -226,11 +237,11 @@ export function visitCondition(f: ConditionVisitor, effects: types.SkillEffect):
 }
 
 export function findCondition(
-  effects: types.SkillEffect,
-  filter: (condition: types.Condition) => boolean,
+  effects: skillTypes.SkillEffect,
+  filter: (condition: skillTypes.Condition) => boolean,
 ): boolean {
   let result: boolean = false;
-  visitCondition((condition: types.Condition) => {
+  visitCondition((condition: skillTypes.Condition) => {
     if (filter(condition)) {
       result = true;
       return [null, false];
@@ -241,10 +252,10 @@ export function findCondition(
 }
 
 export function excludeCondition(
-  effects: types.SkillEffect,
-  filter: (condition: types.Condition) => boolean,
+  effects: skillTypes.SkillEffect,
+  filter: (condition: common.Condition) => boolean,
 ) {
-  visitCondition((condition: types.Condition) => {
+  visitCondition((condition: common.Condition) => {
     return [filter(condition) ? undefined : null, true];
   }, effects);
 }

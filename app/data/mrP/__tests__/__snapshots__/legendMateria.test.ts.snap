@@ -952,8 +952,8 @@ Array [
   },
   Object {
     "character": "Curilla",
-    "description": "(take dmg ⤇ 35% for Magic Blink 1)",
-    "effect": "35% chance to grant Magic Blink 1 to the user after taking damage from an enemy",
+    "description": "(take dmg ⤇ 35% for Magic blink 1)",
+    "effect": "35% chance to grant Magical Blink 1 to the user after taking damage from an enemy",
     "name": "Faith in the Dawn",
   },
   Object {
@@ -1258,7 +1258,7 @@ Array [
   },
   Object {
     "character": "Eight",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +50% ATK, Monk hi fastcast, causes Stun (100%) when removed 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +50% ATK, Monk hi fastcast 25s, Finisher: self Stun (100%))",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Back to the Wall Mode when HP fall below 20%",
     "name": "Righteous Fists",
   },
@@ -1684,7 +1684,7 @@ Array [
   },
   Object {
     "character": "Gaffgarion",
-    "description": "(dark ⤇ 35% for smart ether 1)",
+    "description": "(dark ⤇ 35% for refill 1 abil. use)",
     "effect": "35% chance of smart ether 1 to the user after using a Dark attack",
     "name": "Tested Knight",
   },
@@ -1822,7 +1822,7 @@ Array [
   },
   Object {
     "character": "Genesis",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +30% ATK, 50% chance to dualcast Fire attacks 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +30% ATK, 50% dualcast fire 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Genesis Trance when HP fall below 20%",
     "name": "G-Cell Host",
   },
@@ -4918,7 +4918,7 @@ Array [
   },
   Object {
     "character": "Vaan",
-    "description": "(Thief ⤇ 25% for smart ether 1)",
+    "description": "(Thief ⤇ 25% for refill 1 abil. use)",
     "effect": "25% chance of smart ether 1 to the user after using a Thief ability",
     "name": "Skyward Dreams",
   },
@@ -5182,7 +5182,7 @@ Array [
   },
   Object {
     "character": "Xezat",
-    "description": "(ice ⤇ 35% for smart ether 1)",
+    "description": "(ice ⤇ 35% for refill 1 abil. use)",
     "effect": "35% chance of smart ether 1 to the user after using a Ice attack",
     "name": "Warrior King",
   },

@@ -1067,7 +1067,7 @@
   {
     "id": 2109,
     "name": "Spellblade Quick Cast 3",
-    "effects": "Cast speed x2.00 for Spallblade abilities, lasts for 3 turns",
+    "effects": "Cast speed x2.00 for Spellblade abilities, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -3677,7 +3677,7 @@
   {
     "id": 27101,
     "name": "Pre-Dispel",
-    "effects": "Prevents Haste, Protect, Shell, Reflect, Low Regen, Medium Regen, High Regen, Regenga  and Triple once",
+    "effects": "Prevents Haste, Protect, Shell, Reflect, Low Regen, Medium Regen, High Regen, Regenga and Triple once",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -4153,7 +4153,7 @@
   {
     "id": 282022,
     "name": "Ninja +30% Boost 3",
-    "effects": "Ninjka abilities deal 30% more damage, lasts for 3 turns",
+    "effects": "Ninja abilities deal 30% more damage, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -6485,7 +6485,7 @@
   {
     "id": 50057,
     "name": "Null Physical",
-    "effects": "Reduces to 0 all damage received from non-NIN attacks that deal physical damage and all damage received from PHY attacks ",
+    "effects": "Reduces to 0 all damage received from non-NIN attacks that deal physical damage and all damage received from PHY attacks",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -6496,7 +6496,7 @@
   {
     "id": 50058,
     "name": "Null Magical",
-    "effects": "Reduces to 0 all damage received from non-NIN attacks that deal magical damage and all damage received from BLK, WHT, BLU or SUM attacks ",
+    "effects": "Reduces to 0 all damage received from non-NIN attacks that deal magical damage and all damage received from BLK, WHT, BLU or SUM attacks",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10156,7 +10156,7 @@
   {
     "id": 50408,
     "name": "Chaotic Magic 0",
-    "effects": "Grants Chaotic 1 after using a Black Magic ability, removed if the user hasn't EX: Black Mage",
+    "effects": "Grants Chaotic Magic 1 after using a Black Magic ability, removed if the user hasn't EX: Black Mage",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10412,7 +10412,7 @@
   {
     "id": 50431,
     "name": "Cloudy Wolf Mode",
-    "effects": "Grants Instant Cast 1 and 250 SB points after using three wind attacks, removed after triggering",
+    "effects": "Grants Instant Cast 1 and 250 SB points after using three Wind attacks, removed after triggering",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10480,7 +10480,7 @@
   {
     "id": 50437,
     "name": "Awoken Runic Blade Follow-Up",
-    "effects": "Casts Awoken Runic Blade after using two ice or holy attacks",
+    "effects": "Casts Awoken Runic Blade after using two Ice or Holy attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10513,7 +10513,7 @@
   {
     "id": 50440,
     "name": "Chain Grand Spark Follow-Up",
-    "effects": " Grants Stoneskin: 30% to all allies after using three Earth attacks",
+    "effects": "Grants Stoneskin: 30% to all allies after using three Earth attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10927,7 +10927,7 @@
   {
     "id": 50476,
     "name": "Heroic Spirit Follow-Up",
-    "effects": "Casts Heroic Spirit after using an ice attack",
+    "effects": "Casts Heroic Spirit after using an Ice attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11268,7 +11268,7 @@
   {
     "id": 50506,
     "name": "Ground Dive Follow-Up",
-    "effects": "Casts Ground Dive after using two dark attacks",
+    "effects": "Casts Ground Dive after using two Dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11279,7 +11279,7 @@
   {
     "id": 50507,
     "name": "Dark Ray Follow-Up",
-    "effects": "Casts Dark Ray after using two dark attacks",
+    "effects": "Casts Dark Ray after using two Dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11345,7 +11345,7 @@
   {
     "id": 50519,
     "name": "Blind Stud Follow-Up",
-    "effects": "Casts Blind Stud (BLK) after using a Black Magic, casts Blind Stud (SUM) after using a Summon ability",
+    "effects": "Casts Blind Stud (BLK) after using a Black Magic ability, casts Blind Stud (SUM) after using a Summoning ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11378,7 +11378,7 @@
   {
     "id": 50522,
     "name": "EX: Snipe Mode",
-    "effects": "Grants ATK +30%, casts Raining Arrows when removed",
+    "effects": "ATK +30%, casts Raining Arrows when removed",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11744,7 +11744,7 @@
   {
     "id": 50555,
     "name": "Royal Archives' Teachings Follow-Up",
-    "effects": "Casts Royal Archives' Teachings after using 3 Black Magic or Summoning abillities",
+    "effects": "Casts Royal Archives' Teachings after using 3 Black Magic or Summoning abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12020,7 +12020,7 @@
   {
     "id": 50581,
     "name": "New Red Wings Mode",
-    "effects": "Critical chance =100%, increases Holy damage dealt by 50% and cast speed x9999999 for three turns",
+    "effects": "Critical chance =100%, increases Holy damage dealt by 50%, cast speed x9999999, lasts for 3 turns",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15783,7 +15783,7 @@
   {
     "id": 633130,
     "name": "ATK, DEF and MAG -70%",
-    "effects": "ATK, DEF and MAG -70% for 8 seconds",
+    "effects": "ATK, DEF and MAG -70%",
     "defaultDuration": 8,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -16209,8 +16209,8 @@
   },
   {
     "id": 7190,
-    "name": "Deatch Element",
-    "effects": "Decrease any  attached element's level by 1",
+    "name": "Detach Element",
+    "effects": "Decrease any attached element's level by 1",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -16862,7 +16862,7 @@
   {
     "id": 804,
     "name": "Attach Fire",
-    "effects": "Replaces Attack command, increases Fire damage dealt by 50/80/120%  (abilities) or 80/100/120% (Soul Breaks), Fire resistance +20%",
+    "effects": "Replaces Attack command, increases Fire damage dealt by 50/80/120% (abilities) or 80/100/120% (Soul Breaks), Fire resistance +20%",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

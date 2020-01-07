@@ -10,7 +10,7 @@ import * as _ from 'lodash';
 
 import { andJoin } from '../../utils/textUtils';
 import { arrayify, isAllSame } from '../../utils/typeUtils';
-import * as types from './types';
+import * as common from './commonTypes';
 
 export { andJoin };
 
@@ -111,19 +111,6 @@ export function parseNumberString(s: string): number | null {
   return result;
 }
 
-export function parseNumberOccurrence(s: string): number | null {
-  if (s === 'once') {
-    return 1;
-  } else if (s === 'twice') {
-    return 2;
-  }
-  const m = s.match(/(.*) times/);
-  if (m) {
-    return parseNumberString(m[1]);
-  }
-  return null;
-}
-
 export function parseThresholdValues(s: string): number[] {
   return s.split('/').map(parseFloat);
 }
@@ -197,6 +184,13 @@ export function toMrPGeneral(s: string): string {
     }
     return (s.startsWith('+') ? '+' : '') + result;
   }
+}
+
+export function signedNumber(x: number): string {
+  if (isNaN(x)) {
+    return '+?';
+  }
+  return (x >= 0 ? '+' : '') + x;
 }
 
 // https://stackoverflow.com/a/2901298/25507
@@ -284,7 +278,7 @@ function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
   return { result, same, different };
 }
 
-export function slashMerge(options: string[], opt: SlashMergeOptions = {}): string {
+export function slashMergeWithDetails(options: string[], opt: SlashMergeOptions = {}) {
   const standardPlus = rawSlashMerge(options, { ...opt, splitAtPlus: true });
   const standardNoPlus = rawSlashMerge(options, { ...opt, splitAtPlus: false });
   const useNoPlus = standardNoPlus.different < standardPlus.different;
@@ -309,32 +303,25 @@ export function slashMerge(options: string[], opt: SlashMergeOptions = {}): stri
   // use slashes here?  Unfortunately, MrP isn't completely consistent - a lot
   // depends on whether the clauses we're separating use slashes or hyphens
   // internally.)
-  if (picked.same < picked.different) {
+  const mergeFailed = picked.same < picked.different;
+  if (mergeFailed) {
     result = options.join(enDashJoin);
   }
 
-  return result;
+  return { result, same: picked.same, different: picked.different, mergeFailed };
 }
 
-/**
- * Cleans up a slashed numbers list by summarizing longer ranges.
- */
-export function cleanUpSlashedNumbers(s: string): string {
-  const values = s.split('/').map(i => +i);
+export function slashMerge(options: string[], opt: SlashMergeOptions = {}): string {
+  return slashMergeWithDetails(options, opt).result;
+}
 
-  let isSequential = true;
+export function isSequential(values: number[]): boolean {
   for (let i = 1; i < values.length; i++) {
     if (values[i] !== values[i - 1] + 1) {
-      isSequential = false;
-      break;
+      return false;
     }
   }
-
-  if (isSequential && values.length > 4) {
-    return values[0] + '-' + values[values.length - 1];
-  } else {
-    return s;
-  }
+  return true;
 }
 
 export function formatUseNumber(count: number | undefined): string {
@@ -347,9 +334,9 @@ export function formatUseNumber(count: number | undefined): string {
   }
 }
 
-export function formatUseCount(count: types.UseCount): string {
+export function formatUseCount(count: common.UseCount): string {
   if ('x' in count) {
-    return `${count.x} + ${count.y}n`;
+    return arrayify(count.x).join('/') + ` +${count.y}n`;
   } else if (!('from' in count)) {
     return `≤${count.to}`;
   } else if (!('to' in count)) {
@@ -399,4 +386,14 @@ export function handleUncertain<T>(f: (value: string) => T) {
       isUncertain: value.endsWith('?'),
     };
   };
+}
+
+export function handleOrOptions<T>(options: common.OrOptions<T>, f: (item: T) => string): string {
+  if (Array.isArray(options)) {
+    return options.map(f).join('+');
+  } else if (typeof options === 'object' && 'options' in options) {
+    return slashMerge(options.options.map(f));
+  } else {
+    return f(options);
+  }
 }

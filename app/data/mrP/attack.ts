@@ -15,6 +15,7 @@ import {
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
+import * as skillTypes from './skillTypes';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -26,7 +27,6 @@ import {
   MrPDamageType,
   SB_BAR_SIZE,
 } from './typeHelpers';
-import * as types from './types';
 import {
   describeChances,
   fixedNumberOrUnknown,
@@ -63,7 +63,7 @@ function convergentMultiplier(
 
 const convergentScaleType = 'vs 1-2-3… foes';
 
-function isConvergent(attack: types.Attack) {
+function isConvergent(attack: skillTypes.Attack) {
   return attack.multiplierScaleType && attack.multiplierScaleType.type === 'convergent';
 }
 
@@ -112,7 +112,9 @@ export function describeDamage(
   }
 }
 
-function isRandomNumAttacks(numAttacks: types.NumAttacks): numAttacks is types.RandomNumAttacks {
+function isRandomNumAttacks(
+  numAttacks: skillTypes.NumAttacks,
+): numAttacks is skillTypes.RandomNumAttacks {
   return (
     typeof numAttacks === 'object' && 'type' in numAttacks && numAttacks.type === 'randomNumAttacks'
   );
@@ -120,7 +122,7 @@ function isRandomNumAttacks(numAttacks: types.NumAttacks): numAttacks is types.R
 
 function describeRandomDamage(
   damageFunction: (n: number) => string,
-  { value }: types.RandomNumAttacks,
+  { value }: skillTypes.RandomNumAttacks,
 ): [string | undefined, string] {
   const defaultChanceCount = _.sumBy(value, i => +!Array.isArray(i));
   const defaultChance = 100 / (value.length - defaultChanceCount);
@@ -148,7 +150,7 @@ function describeThresholdDamage(
     .join(thresholdJoin);
 }
 
-function describeOr(attack: types.Attack): [string | undefined, string | undefined] {
+function describeOr(attack: skillTypes.Attack): [string | undefined, string | undefined] {
   if (
     !attack.orMultiplier &&
     !attack.orNumAttacks &&
@@ -178,7 +180,10 @@ function describeOr(attack: types.Attack): [string | undefined, string | undefin
   ];
 }
 
-export function describeSkillDamageType(skill: EnlirSkill, attack: types.Attack): MrPDamageType {
+export function describeSkillDamageType(
+  skill: EnlirSkill,
+  attack: skillTypes.Attack,
+): MrPDamageType {
   let { formula, type } = skill;
   // For hybrid, report the main damage as the first hybrid type (usually
   // physical), and use separate fields for the magical alternative.
@@ -218,7 +223,7 @@ export function describeDamageType(
 
 function describeHybridDamageType(
   skill: EnlirSkill,
-  attack: types.Attack,
+  attack: skillTypes.Attack,
 ): MrPDamageType | undefined {
   if (!attack.isHybrid) {
     return undefined;
@@ -233,7 +238,7 @@ function describeHybridDamageType(
   }
 }
 
-function isPiercingByType(attack: types.Attack, type: EnlirSkillType): boolean {
+function isPiercingByType(attack: skillTypes.Attack, type: EnlirSkillType): boolean {
   if (type === 'PHY') {
     return !!attack.isPiercingDef;
   } else if (type !== '?') {
@@ -243,7 +248,7 @@ function isPiercingByType(attack: types.Attack, type: EnlirSkillType): boolean {
   }
 }
 
-function isPiercing(skill: EnlirSkill, attack: types.Attack): boolean {
+function isPiercing(skill: EnlirSkill, attack: skillTypes.Attack): boolean {
   const type = skill.typeDetails ? skill.typeDetails[0] : skill.type;
   if (!type) {
     return false;
@@ -252,7 +257,7 @@ function isPiercing(skill: EnlirSkill, attack: types.Attack): boolean {
   }
 }
 
-function isHybridPiercing(skill: EnlirSkill, attack: types.Attack): boolean {
+function isHybridPiercing(skill: EnlirSkill, attack: skillTypes.Attack): boolean {
   // Hard-coded check, useful for older or less consistent data.
   const manualCheck =
     skill.formula === 'Hybrid' &&
@@ -279,7 +284,7 @@ function formatDamageType(damageType: MrPDamageType, abbreviate: boolean): strin
 function getAttackCount({
   numAttacks,
   attackMultiplier,
-}: types.Attack): number | number[] | undefined {
+}: skillTypes.Attack): number | number[] | undefined {
   if (isRandomNumAttacks(numAttacks)) {
     // Currently unimplemented
     return undefined;
@@ -297,7 +302,7 @@ function getAttackCount({
  * for two types of attacks: 20+1 AOSBs, and one weird "other" skill
  * ("Dirty Trick") that does one magic fire attack then one physical attack.
  */
-function isSimpleFollowedBy(attack: types.Attack) {
+function isSimpleFollowedBy(attack: skillTypes.Attack) {
   return (
     attack.followedBy &&
     !attack.overrideElement &&
@@ -307,7 +312,7 @@ function isSimpleFollowedBy(attack: types.Attack) {
   );
 }
 
-function describeSimpleFollowedBy(skill: EnlirSkill, attack: types.Attack) {
+function describeSimpleFollowedBy(skill: EnlirSkill, attack: skillTypes.Attack) {
   const attackDamage = describeAttackDamage(skill, attack, {});
   if (!attackDamage) {
     return '???';
@@ -342,9 +347,9 @@ function describeSimpleFollowedBy(skill: EnlirSkill, attack: types.Attack) {
  */
 function checkAttackPrereqStatus(
   skill: EnlirSkill,
-  attack: types.Attack,
+  attack: skillTypes.Attack,
   prereqStatus: string | undefined,
-): types.Attack {
+): skillTypes.Attack {
   if (!attack.scaleType || attack.scaleType.type !== 'status') {
     return attack;
   }
@@ -394,7 +399,7 @@ function checkAttackPrereqStatus(
  */
 function describeAttackDamage(
   skill: EnlirSkill,
-  attack: types.Attack,
+  attack: skillTypes.Attack,
   {
     prereqStatus,
   }: {
@@ -548,7 +553,7 @@ function describeAttackDamage(
  */
 export function describeAttack(
   skill: EnlirSkill,
-  attack: types.Attack,
+  attack: skillTypes.Attack,
   opt: DescribeOptions,
 ): string {
   const school = getSchool(skill);
@@ -673,7 +678,7 @@ export function describeAttack(
 
 export function describeFixedAttack(
   skill: EnlirSkill,
-  attack: types.FixedAttack,
+  attack: skillTypes.FixedAttack,
   opt: DescribeOptions,
 ): string {
   const school = getSchool(skill);
@@ -700,19 +705,19 @@ export function describeFixedAttack(
   return damage;
 }
 
-export function describeRandomFixedAttack(attack: types.RandomFixedAttack): string {
+export function describeRandomFixedAttack(attack: skillTypes.RandomFixedAttack): string {
   return joinOr(attack.fixedDamage) + ' fixed dmg';
 }
 
-export function describeGravityAttack({ damagePercent }: types.GravityAttack): string {
+export function describeGravityAttack({ damagePercent }: skillTypes.GravityAttack): string {
   return damagePercent + '% curr HP dmg';
 }
 
-export function describeHpAttack({ multiplier }: types.HpAttack): string {
+export function describeHpAttack({ multiplier }: skillTypes.HpAttack): string {
   return multiplier + ' ⋅ (max HP - curr HP) dmg';
 }
 
-export function formatAttackStatusChance(chance: number, attack?: types.Attack): string {
+export function formatAttackStatusChance(chance: number, attack?: skillTypes.Attack): string {
   const fallback = `${chance}%`;
   if (chance === 100 || !attack) {
     return fallback;
@@ -736,7 +741,7 @@ export function formatAttackStatusChance(chance: number, attack?: types.Attack):
  * Cast a random ability.  In practice, these are always pure damage, so
  * callers may treat them accordingly.
  */
-export function formatRandomCastAbility({ abilities }: types.RandomCastAbility) {
+export function formatRandomCastAbility({ abilities }: skillTypes.RandomCastAbility) {
   let skills: string[];
   if (abilities.length <= 3) {
     // Resolve skill effects, if it looks like it won't be too verbose.

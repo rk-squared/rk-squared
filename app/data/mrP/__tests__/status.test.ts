@@ -1,4 +1,4 @@
-import { allTranceStatus, extractCount, isTranceStatus } from '../status';
+import { allTranceStatus, isTranceStatus } from '../status';
 
 import { enlir } from '../../enlir';
 
@@ -31,24 +31,6 @@ describe('mrP/status', () => {
       );
 
       expect(isTranceStatus(enlir.statusByName['EX: Dreadwyrm Trance'])).toEqual(false);
-    });
-  });
-
-  describe('extractCount', () => {
-    it('handles no counts', () => {
-      expect(extractCount('Summoning')).toEqual([null, 'Summoning']);
-    });
-
-    it('handles simple counts', () => {
-      expect(extractCount('three Dark')).toEqual([3, 'Dark']);
-    });
-
-    it('handles slash-separated counts', () => {
-      expect(extractCount('1/2/3 Fire')).toEqual(['1/2/3', 'Fire']);
-    });
-
-    it('handles "twice"', () => {
-      expect(extractCount('Renzokuken Freezeslash twice')).toEqual([2, 'Renzokuken Freezeslash']);
     });
   });
 });
