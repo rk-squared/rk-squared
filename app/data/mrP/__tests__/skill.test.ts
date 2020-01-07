@@ -580,12 +580,12 @@ describe('mrP', () => {
       });
       expect(describeSoulBreak('Galuf - Unshaken Resolve')).toEqual({
         damage: 'phys 7.8/4',
-        other: 'self +50% ATK 25s, immune atks/status/heal 30s',
+        other: 'self +50% ATK 25s, +50% ATK, immune atks/status/heal 30s',
       });
       expect(describeSoulBreak('Haurchefant - Live to Serve')).toEqual({
         other:
           'self Autoheal 6k, +100% DEF/RES, +50% MND 25s, ' +
-          '15s: if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
+          '15s: if in front, 100% cover PHY,BLK,WHT,BLU,SUM vs back row, taking 0.5x dmg',
       });
       expect(describeSoulBreak('Paine - Rushing Steel')).toEqual({
         damage: 'phys 7.1/10 water+non',
@@ -768,7 +768,7 @@ describe('mrP', () => {
           {
             burstToggle: true,
             damage: undefined,
-            other: "self Magic blink 1, until OFF: (foe's PHY atk (50%) ⤇ AoE m4.85 f+n B.Mag)",
+            other: "self Magic blink 1, until OFF: (foe's PHY atk ⤇ 50% for AoE m4.85 f+n B.Mag)",
             school: 'Black Magic',
           },
           { burstToggle: false, damage: 'm8.84/4 f+n', other: undefined, school: 'Black Magic' },
@@ -779,7 +779,7 @@ describe('mrP', () => {
         other: 'fire infuse 25s',
       });
       expect(counter.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
-        "ON, self Magic blink 1, until OFF: (foe's PHY atk (50%) ⤇ AoE m4.85 f+n B.Mag)",
+        "ON, self Magic blink 1, until OFF: (foe's PHY atk ⤇ 50% for AoE m4.85 f+n B.Mag)",
         'OFF, m8.84/4 f+n',
         'AoE m5.9/2 f+n',
         'AoE m8.85/3 f+n',
@@ -864,7 +864,7 @@ describe('mrP', () => {
             other: undefined,
             school: 'Combat',
           },
-          { damage: 'p1.68/4 h+n', other: 'self instacast 1 turn', school: 'Combat' },
+          { damage: 'p1.68/4 h+n', other: 'self instacast 1', school: 'Combat' },
         ],
       });
       expect(describeSoulBreak("Seifer - Sorceress's Knight")).toMatchInlineSnapshot(`
@@ -890,13 +890,13 @@ Object {
     it('handles complex burst modes', () => {
       expect(describeSoulBreak('Ignis - Stalwart Cook')).toEqual({
         burstCommands: [
-          { damage: 'p1.92/3 f+l+i', other: '+1 ingredients', school: 'Thief' },
-          { other: 'crit =100% 25s, -1 ingredients', school: 'Support' },
-          { other: 'heal 30% HP, +50% crit dmg 25s, -1 ingredients', school: 'Support' },
-          { other: 'heal 40% HP, instacast 1, -1 ingredients', school: 'Support' },
+          { damage: 'p1.92/3 f+l+i', other: 'ingred. +1', school: 'Thief' },
+          { other: 'crit =100% 25s, ingred. -1', school: 'Support' },
+          { other: 'heal 30% HP, +50% crit dmg 25s, ingred. -1', school: 'Support' },
+          { other: 'heal 40% HP, instacast 1, ingred. -1', school: 'Support' },
         ],
         damage: undefined,
-        other: 'party Haste, +30% ATK/RES 25s, +2 ingredients',
+        other: 'party Haste, +30% ATK/RES 25s, ingred. +2',
       });
 
       expect(describeSoulBreak('Josef - Undaunted Hero')).toEqual({
@@ -914,7 +914,7 @@ Object {
         burstCommands: [
           {
             damage: 'p2.32/4 f+n',
-            other: 'self stacking +15%/30%/50% ATK, 1.33x/2.0x/4.0x cast until damaged',
+            other: 'until damaged: stacking +15%/30%/50% ATK, 1.33x/2x/4x cast',
             school: 'Monk',
           },
           { damage: undefined, other: 'self Negate dmg 30%', school: 'Monk' },
@@ -934,8 +934,7 @@ Object {
       });
       expect(describeSoulBreak('Tifa - Zangan Awakening')).toEqual({
         instant: true,
-        other:
-          'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ rank 1-5 15s, 15s: stacking 2.0x/4.0x/6.0x cast',
+        other: 'self 1.05-1.1-1.15-1.2-1.3x Monk dmg @ rank 1-5 15s, 15s: stacking 2x/4x/6x cast',
       });
       expect(describeSoulBreak("Sabin - Perdition's Phoenix")).toEqual({
         damage: 'phys 4.9/7 - 5.6/8 - 6.3/9 - 7.0/10 fire+non @ 700-1250-1700 ATK',
@@ -953,7 +952,7 @@ Object {
         instant: true,
         other:
           'party Haste, crit =50% 25s, self hi fastcast 15s, ' +
-          '15s: (1/2/3/4/5+ Support ⤇ party crit =60%/70%/80%/90%/100% 15s)',
+          '15s: (1-5+ Support ⤇ party crit =60%/70%/80%/90%/100% 15s)',
       });
       expect(describeSoulBreak('Warrior of Light - Bitter End')).toEqual({
         damage: 'phys 7.1/10 holy+non',
@@ -1012,13 +1011,13 @@ Object {
     it('converts EX modes with unusual bonuses', () => {
       expect(describeSoulBreak('Cloud - Ultra Cross Slash')).toEqual({
         damage: 'phys 7.5/5 wind+dark',
-        other: 'self crit =100% 25s, 15s: EX: 1.3x phys dmg, break PHY dmg cap',
+        other: 'self crit =100% 25s, 15s: EX: 1.3x PHY dmg, break PHY dmg cap',
       });
       expect(describeSoulBreak('Sephiroth - Zanshin')).toEqual({
         damage: 'phys 7.2/15 dark rngd',
         other:
           'dark infuse 25s, self crit =50% 25s, ' +
-          '15s: EX: (2 dark ⤇ 1.3x dark dmg 1 turn), break PHY Dark dmg cap',
+          '15s: EX: (2 dark ⤇ 1.3x dark dmg 1 turn), break dark PHY dmg cap',
       });
     });
 
@@ -1094,7 +1093,7 @@ Object {
         other: 'self Monk fastcast 5',
         burstCommands: [
           {
-            damage: 'p2.4/3 - 3.2/4 - 4.0/5 - 4.8/6 @ 1-2-3 diff. Monk abils.',
+            damage: 'p2.4/3 - 3.2/4 - 4.0/5 - 4.8/6 @ 1-2-3 diff. Monk abils',
             other: 'reset count',
             school: 'Monk',
           },
@@ -1226,7 +1225,7 @@ Object {
         damage: 'magic 17.0/10 fire+non',
         other:
           'fire infuse 25s, self 1.3x B.Mag dmg 15s, ' +
-          '15s: (1/2/3 B.Mag ⤇ m4.08/2 f+n B.Mag, self hi fastcast 2 ' +
+          'for next 3 B.Mag: (1/2/3 B.Mag ⤇ m4.08/2 f+n B.Mag, self hi fastcast 2 ' +
           '– m4.08/2 f+n B.Mag, same row heal 1.5k ' +
           '– m16.32/8 f+n B.Mag)',
       });
@@ -1255,7 +1254,7 @@ Object {
         damage: 'phys 7.1/10 dark+non rngd',
         other:
           '-70% DEF/MAG 8s, party instacast 1, ' +
-          '15s: (1/2/3/4 + 4n damaging Support ⤇ p1.71/3 d+n rngd Support, -40% ATK/-50% MAG/-40% DEF/-50% RES 15s)',
+          '15s: (1/2/3/4 +4n Support dmg ⤇ p1.71/3 d+n rngd Support, -40% ATK/-50% MAG/-40% DEF/-50% RES 15s)',
       });
 
       expect(describeSoulBreak('Exdeath - Balance of Power')).toEqual({
@@ -1283,12 +1282,11 @@ Object {
         other:
           'lgt infuse 25s, ' +
           '15s: (lgt ⤇ back row hi fastzap 1), ' +
-          '(3 lgt ⤇ party +10% lgt dmg)',
+          '(3 lgt ⤇ party +10% lgt dmg 15s)',
       });
       expect(describeSoulBreak('Steiner - Enlightened Blade')).toEqual({
         damage: 'phys 7.0/10 fire+lgt+ice',
-        other:
-          'self +100% RES 25s, 15s: (take fire/ice/lgt mag dmg from ally ⤇ fire/ice/lgt infuse)',
+        other: 'self +100% RES 25s, 15s: (take f/i/l mag dmg from ally ⤇ fire/ice/lgt infuse 25s)',
       });
       expect(describeSoulBreak('Zack - Climhazzard Xeno')).toEqual({
         damage: 'phys 6.8/10 wind+non',
@@ -1335,7 +1333,7 @@ Object {
       expect(describeSoulBreak('Relm - Friendly Sketch')).toEqual({
         instant: true,
         other:
-          'party h85, Last stand, 15s: (every 3.5s ⤇ w9.0/6 wa+n/wa+n/wa+d+n/wa+d+f+n W.Mag, party h25, 0̸/0̸/0̸/Regen (hi) if 0/1/2/3+ VI chars.)',
+          'party h85, Last stand, 15s: (every 3.5s ⤇ w9.0/6 wa+n/wa+n/wa+d+n/wa+d+f+n W.Mag, party h25, 0̸/0̸/0̸/Regen (hi) if 0-1-2-3 VI chars. in party)',
       });
     });
 
@@ -1364,7 +1362,7 @@ Object {
         damage: 'magic 16.5/10 ice+water+lgt+non',
         other:
           'self fastcast 15s, ' +
-          '15s: (B.Mag ⤇ MAG +30-34-38-42-46-50%), ' +
+          '15s: (B.Mag ⤇ +30-34-38-42-46-50% MAG), ' +
           '15s: EX: (B.Mag ⤇ m7.68/6 i+wa+l+n B.Mag), ' +
           'Finisher: magic 17.3/10 ice+water+lgt+non B.Mag',
       });
@@ -1387,7 +1385,7 @@ Object {
       expect(describeSoulBreak('Onion Knight - Forbidden Power')).toEqual({
         other:
           'party Haste, crit =50%, +50% ATK 25s, ' +
-          '15s: EX: +30% ATK, cast speed 1.3x, +0.3x per abil., max 3.4x @ 7 abils.',
+          '15s: EX: +30% ATK, cast speed 1.3x, +0.3x per abil, max 3.4x @ 7 abils',
       });
     });
 
@@ -1431,7 +1429,7 @@ Object {
       expect(describeSoulBreak('Steiner - USB2')).toEqual({
         damage: 'phys 6.9/10 fire+lgt+ice+non',
         other:
-          'party instacast 1, 15s: (hit weak ⤇ +10% fire/lgt/ice dmg, p1.86/6 f+l+i+n Spellblade)',
+          'party instacast 1, 15s: (hit weak ⤇ p1.86/6 f+l+i+n Spellblade, +10% fire/lgt/ice dmg 15s)',
       });
     });
 
@@ -2203,7 +2201,7 @@ Object {
       expect(describeSoulBreak('Seifer - AASB')).toEqual({
         damage: 'phys 9.0/15 dark+fire+non rngd',
         other:
-          'self dmg cap +10k 15s, 1 turn: (fire ⤇ fire infuse), (dark ⤇ dark infuse), ' +
+          'self dmg cap +10k 15s, 1 turn: (fire/dark ⤇ fire/dark infuse), ' +
           '15s: (2 dark/fire ⤇ p3.68/8 d+f+n rngd Darkness), ' +
           "15s: Awoken Sorceress's Knight: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast",
       });
@@ -2260,7 +2258,7 @@ Object {
         damage: 'phys 9.0/15 wind+fire+non rngd',
         other:
           '+20% wind/fire vuln. 25s, self dmg cap +10k 15s, ' +
-          '1 turn: (fire ⤇ fire infuse), (wind ⤇ wind infuse), ' +
+          '1 turn: (fire/wind ⤇ fire/wind infuse), ' +
           '15s: (3 Thief ⤇ +10% wind/fire vuln. 15s), ' +
           '15s: Awoken Thief: Thief inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2296,7 +2294,7 @@ Object {
           'earth infuse 25s, self dmg cap +10k 15s, ' +
           'Reflect Dmg 75% as overstrike earth 30s, ' +
           '15s: (4 earth ⤇ p5.2 e+d+n overstrike Spellblade, self instacast 1), ' +
-          '15s: (1/2/3+ earth ⤇ Reflect Dmg 125%/200%/300% as overstrike earth), ' +
+          '15s: (1/2/3+ earth ⤇ Reflect Dmg 125%/200%/300% as overstrike earth 30s), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2368,9 +2366,9 @@ Object {
         damage: 'phys 9.0/15 fire+dark+non rngd',
         other:
           'self dmg cap +10k 15s, ' +
-          '1 turn: (fire ⤇ fire infuse), (dark ⤇ dark infuse), ' +
-          '15s: (dark ⤇ (1/2/3+ dark ⤇ 2.0-2.5-3.0x cast), (dark ⤇ p1.95/5 d+n rngd Sharpshooter)), ' +
-          '(fire ⤇ (1/2/3+ fire ⤇ crit =50%/75%/100%), (fire ⤇ p1.95/5 f+n rngd Monk)), ' +
+          '1 turn: (fire/dark ⤇ fire/dark infuse), ' +
+          '15s: (dark ⤇ (1/2/3+ dark ⤇ 2/2.5/3x cast), (dark ⤇ p1.95/5 d+n rngd Sharpshooter)), ' +
+          '(fire ⤇ (1/2/3+ fire ⤇ crit =50/75/100%), (fire ⤇ p1.95/5 f+n rngd Monk)), ' +
           '15s: Awoken Legendary Player: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2378,7 +2376,7 @@ Object {
         damage: 'phys 9.0/15 water+non',
         other:
           'water infuse 25s, self dmg cap +10k 15s, 15s: fastcast, ' +
-          '(1/2/3/4+ water ⤇ crit =25%/50%/75%/100%), ' +
+          '(1/2/3/4+ water ⤇ crit =25/50/75/100%), ' +
           '15s: Awoken Water: water inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2395,17 +2393,17 @@ Object {
         damage: 'phys 9.0/15 fire+non',
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +
-          '15s: (0/1/2 Samurai ⤇ 1.15-1.3-1.5x Samurai dmg (once only)), ' +
+          '15s: (0/1/2 Samurai ⤇ 1.15-1.3-1.5x Samurai dmg), ' +
           '(4 Samurai ⤇ p6.9 - 6.9 - 7.0/2 f+n overstrike Samurai @ +0 - 50 - 100% crit ' +
-          '@ 0-500-1000 SB pts (once only)), ' +
+          '@ 0-500-1000 SB pts, remove status), ' +
           '15s: Awoken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeSoulBreak('Edgar - AASB')).toEqual({
         damage: 'phys 9.0/15 bio+fire+lgt+non rngd',
         other:
-          'self dmg cap +10k 15s, 1 turn: (b/f/l ⤇ bio/fire/lgt infuse), ' +
-          '15s: (2 b/f/l ⤇ +10% bio/fire/lgt vuln.), ' +
+          'self dmg cap +10k 15s, 1 turn: (bio/fire/lgt ⤇ bio/fire/lgt infuse), ' +
+          '15s: (2 b/f/l ⤇ +10% bio/fire/lgt vuln. 15s), ' +
           '15s: Awoken Machinery Cultivator: Machinist inf. hones, ' +
           '2-3x Machinist cast @ rank 1-5, 100% dualcast',
       });
@@ -2423,7 +2421,7 @@ Object {
         other:
           'party h105, Negate dmg 30%, Last stand, self hi fastcast 15s, ' +
           '15s: Awoken Guardian: W.Mag inf. hones, ' +
-          '(ally heal ⤇ ally Negate dmg 30%/40%/50%/60%/70% @ rank 1-5), 100% dualcast',
+          '(ally heal ⤇ ally Negate dmg 30%/40%/50%/60%/70% @ rank 1-5), 100% dualcast W.Mag',
       });
     });
 

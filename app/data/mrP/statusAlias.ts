@@ -13,9 +13,7 @@ import {
   toMrPKilo,
 } from './util';
 
-export const enlirRankBoost = 'deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5';
-export const enlirRankBoostRe = /(.*) (abilities|attacks) deal 5\/10\/15\/20\/30% more damage at ability rank 1\/2\/3\/4\/5/;
-export const enlirRankCastSpeedRe = /cast speed (?:x2\.00-x3\.00|x2\.00\/2\.25\/2\.50\/2\.75\/3\.00) for (.*) (abilities|attacks) at ability rank 1\/2\/3\/4\/5/;
+// TODO: Many of these are obsolete now that status parsing was rewritten to use PEG.js
 
 const rawSbPointsBoosterAlias = (multiplierString: string, s: string) =>
   // Duplicated for effect aliases below
@@ -75,6 +73,20 @@ const kiloConverter = aliasConverter(toMrPKilo);
 const multiplierConverter = aliasConverter(percentToMultiplier);
 
 /**
+ * Aliases of numbered statuses, minus the numbers, for use by status
+ * thresholds and status stacking logic.  These match the text within
+ * describeStatusEffect.
+ */
+export const statusLevelAlias: _.Dictionary<string> = {
+  'Magical Blink': 'Magic blink',
+  'Physical Blink': 'Phys blink',
+  Stoneskin: 'Neg. Dmg.',
+  'Heavy Charge': 'Hvy Charge',
+  Ingredients: 'ingred.',
+  'Damage Reduction Barrier': 'Dmg barrier',
+};
+
+/**
  * Enlir status aliases
  */
 export const statusAlias: AliasMap = {
@@ -119,7 +131,6 @@ export const statusAlias: AliasMap = {
     'Haurchefant Cover': 'if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
 
     // Nonstandard alternatives.  See enlirStatusAltName.
-    'Cast Speed *999': 'instacast',
     'B. M.': 'Burst Mode',
 
     // Aliases of numbered statuses, minus the numbers, for use by status
@@ -378,5 +389,3 @@ export function resolveAlias(
 
 export const resolveStatusAlias = (status: string, options: Partial<ResolveOptions> = {}) =>
   resolveAlias(status, statusAlias, options);
-export const resolveEffectAlias = (effect: string, options: Partial<ResolveOptions> = {}) =>
-  resolveAlias(lowerCaseFirst(effect), effectAlias, options);
