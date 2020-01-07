@@ -298,16 +298,21 @@ const legendMateriaHandlers: HandlerList = [
         : critical
         ? 'crit'
         : 'take dmg';
-      const status = parseEnlirStatus(statusName);
-      // Note that we simplify specialDuration display compared to the full
-      // skill + status code.
-      return formatGenericTrigger(
-        trigger,
-        status.description +
-          (duration ? ' ' + duration + 's' : '') +
-          (status.specialDuration ? ' ' + status.specialDuration : ''),
-        percent,
-      );
+      const m = statusName.match(/^smart ether (\d+)/);
+      if (m) {
+        return formatGenericTrigger(trigger, formatSmartEther(m[1]), percent);
+      } else {
+        const status = parseEnlirStatus(statusName);
+        // Note that we simplify specialDuration's display (no colon, etc.)
+        // compared to the full skill + status code.
+        return formatGenericTrigger(
+          trigger,
+          status.description +
+            (duration ? ' ' + duration + 's' : '') +
+            (status.specialDuration ? ' ' + status.specialDuration : ''),
+          percent,
+        );
+      }
     },
   ],
 

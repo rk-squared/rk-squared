@@ -1684,7 +1684,7 @@ Array [
   },
   Object {
     "character": "Gaffgarion",
-    "description": "(dark ⤇ 35% for smart ether 1)",
+    "description": "(dark ⤇ 35% for refill 1 abil. use)",
     "effect": "35% chance of smart ether 1 to the user after using a Dark attack",
     "name": "Tested Knight",
   },
@@ -4918,7 +4918,7 @@ Array [
   },
   Object {
     "character": "Vaan",
-    "description": "(Thief ⤇ 25% for smart ether 1)",
+    "description": "(Thief ⤇ 25% for refill 1 abil. use)",
     "effect": "25% chance of smart ether 1 to the user after using a Thief ability",
     "name": "Skyward Dreams",
   },
@@ -5182,7 +5182,7 @@ Array [
   },
   Object {
     "character": "Xezat",
-    "description": "(ice ⤇ 35% for smart ether 1)",
+    "description": "(ice ⤇ 35% for refill 1 abil. use)",
     "effect": "35% chance of smart ether 1 to the user after using a Ice attack",
     "name": "Warrior King",
   },
