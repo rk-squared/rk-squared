@@ -498,6 +498,20 @@ function formatTriggerCount(count: statusTypes.TriggerCount) {
   return result + (count.plus ? '+' : '') + ' ';
 }
 
+/**
+ * Gets a good preposition to use for expressing this trigger as a duration.
+ * This is a hack.
+ */
+function getTriggerPreposition(trigger: statusTypes.Trigger): string {
+  if (trigger.type === 'damaged' || (trigger.type === 'skillTriggered' && trigger.isSelfSkill)) {
+    return 'until';
+  } else if (trigger.type === 'skillTriggered' || trigger.type === 'ability') {
+    return 'for next';
+  } else {
+    return 'for';
+  }
+}
+
 function formatTrigger(trigger: statusTypes.Trigger): string {
   switch (trigger.type) {
     case 'ability':
@@ -525,7 +539,7 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'damaged':
       return 'damaged';
     case 'dealDamage':
-      return 'deal dmg';
+      return 'next atk';
     case 'loseStatus':
       return (statusLevelAlias[trigger.status] || trigger.status) + ' lost';
     case 'skill':
@@ -1015,15 +1029,23 @@ function describeStatusEffect(
     case 'fixedHpRegen':
       return 'regen ' + toMrPKilo(effect.value) + ' HP per ' + effect.interval + 's';
     case 'poison':
-      return null; // TODO
+      return (
+        'lose ' +
+        effect.fractionHp.numerator +
+        '/' +
+        effect.fractionHp.denominator +
+        ' HP per ' +
+        effect.interval +
+        's'
+      );
     case 'healUp':
       return signedNumber(effect.value) + '% healing';
     case 'pain':
-      return null; // TODO
+      return signedNumber(effect.value) + '% dmg taken';
     case 'damageTaken':
-      return null; // TODO
+      return percentToMultiplier(effect.value) + 'x dmg taken';
     case 'barHeal':
-      return null; // TODO
+      return -effect.value + '% healing recv';
     case 'doom':
       return 'Doom ' + effect.timer + 's';
     case 'doomTimer':
@@ -1072,9 +1094,9 @@ function describeStatusEffect(
         return null;
       }
     case 'onceOnly':
-      return null; // TODO
+      return 'once only'; // Handled at the trigger level
     case 'removedAfterTrigger':
-      return 'until ' + formatTrigger(effect.trigger);
+      return getTriggerPreposition(effect.trigger) + ' ' + formatTrigger(effect.trigger);
     case 'changeStatusLevel':
       return addTrigger(
         (statusLevelAlias[effect.status] || effect.status) + ' ' + signedNumber(effect.value),
@@ -1099,10 +1121,9 @@ function describeStatusEffect(
     case 'trackUses':
     case 'burstOnly':
     case 'burstReset':
+    case 'statusReset':
       // Internal details; omit from descriptions.
       return null;
-    case 'statusReset':
-      return null; // TODO
     case 'disableAttacks':
       return "can't " + formatAnyType(effect, ' ') + 'atk';
     case 'paralyze':

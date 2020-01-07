@@ -14,7 +14,13 @@ let handledCount = 0;
 
 const aliases = makeLegendMateriaAliases(enlir.legendMateria);
 
+const onlyItems = process.argv.slice(2);
+
 for (const lm of _.sortBy(Object.values(enlir.legendMateria), ['character', 'id'])) {
+  if (onlyItems.length && onlyItems.indexOf(lm.name) === -1) {
+    continue;
+  }
+
   if (lm.character !== lastCharacter) {
     console.log();
     console.log(lm.character);

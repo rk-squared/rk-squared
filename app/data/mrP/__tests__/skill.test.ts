@@ -1225,7 +1225,7 @@ Object {
         damage: 'magic 17.0/10 fire+non',
         other:
           'fire infuse 25s, self 1.3x B.Mag dmg 15s, ' +
-          'until 3 B.Mag: (1/2/3 B.Mag ⤇ m4.08/2 f+n B.Mag, self hi fastcast 2 ' +
+          'for next 3 B.Mag: (1/2/3 B.Mag ⤇ m4.08/2 f+n B.Mag, self hi fastcast 2 ' +
           '– m4.08/2 f+n B.Mag, same row heal 1.5k ' +
           '– m16.32/8 f+n B.Mag)',
       });

@@ -974,19 +974,22 @@ export function getEnlirStatusWithPlaceholders(
     return { status: enlirStatusAltName[status], placeholders };
   }
 
-  const checkNumbers: Array<[RegExp, string]> = [[/(\d+\??|\?)/, 'X'], [/(-\d+)/, '+X']];
+  const checkNumbers: Array<[RegExp, string]> = [[/(-\d+)/, '+X'], [/(\d+\??|\?)/, 'X']];
   for (const [search, replace] of checkNumbers) {
     const m = status.match(search);
     if (m) {
       const newStatus = status.replace(search, replace);
-      if (enlir.statusByName[newStatus]) {
+      if (newStatus !== status) {
+        status = newStatus;
         if (m[0] === '?') {
           placeholders.xValue = NaN;
         } else {
           placeholders.xValue = +m[0].replace('?', '');
           placeholders.xValueIsUncertain = m[0].endsWith('?');
         }
-        return { status: enlir.statusByName[newStatus], placeholders };
+        if (enlir.statusByName[newStatus]) {
+          return { status: enlir.statusByName[newStatus], placeholders };
+        }
       }
     }
   }
@@ -995,6 +998,17 @@ export function getEnlirStatusWithPlaceholders(
     const newStatus = status.replace(i, '[Element]');
     if (newStatus !== status) {
       placeholders.element = i;
+      status = newStatus;
+    }
+  }
+  if (enlir.statusByName[status]) {
+    return { status: enlir.statusByName[status], placeholders };
+  }
+
+  for (const i of allEnlirStats) {
+    const newStatus = status.replace(i.toUpperCase(), '[Stats]');
+    if (newStatus !== status) {
+      placeholders.stat = i;
       status = newStatus;
     }
   }

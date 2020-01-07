@@ -291,16 +291,21 @@ const legendMateriaHandlers: HandlerList = [
   // Triggered self statuses
   [
     /^(?:(\d+\??|\?)% chance (?:of|to grant)|[Gg]rants) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit)|(taking damage from an enemy))$/,
-    ([percent, status, duration, schoolOrElement, critical, takeDamage]) => {
+    ([percent, statusName, duration, schoolOrElement, critical, takeDamage]) => {
       // TODO: Consolidate trigger logic with status.ts?
       const trigger = schoolOrElement
         ? formatSchoolOrAbilityList(schoolOrElement)
         : critical
         ? 'crit'
         : 'take dmg';
+      const status = parseEnlirStatus(statusName);
+      // Note that we simplify specialDuration display compared to the full
+      // skill + status code.
       return formatGenericTrigger(
         trigger,
-        describeEnlirStatus(status) + (duration ? ' ' + duration + 's' : ''),
+        status.description +
+          (duration ? ' ' + duration + 's' : '') +
+          (status.specialDuration ? ' ' + status.specialDuration : ''),
         percent,
       );
     },
@@ -400,10 +405,12 @@ const legendMateriaHandlers: HandlerList = [
         duration = formatDuration({ value: lastStatus.defaultDuration, units: 'seconds' });
       }
 
-      let statusDescription =
-        status
-          .map(i => (i.isTrance ? 'Trance: ' : '') + i.description + (i.isUncertain ? '?' : ''))
-          .join(', ') + (duration ? ' ' + duration : '');
+      let statusDescription = status
+        .map(i => (i.isTrance ? 'Trance: ' : '') + i.description + (i.isUncertain ? '?' : ''))
+        .join(', ')
+        // HACK: Insert duration before any finisher.  This affects Eight's
+        // Back to the Wall trance.
+        .replace(/(, Finisher|$)/, (duration ? ' ' + duration : '') + '$1');
       if (bonusSb) {
         statusDescription = sbPointsAlias(bonusSb) + ', ' + statusDescription;
       }

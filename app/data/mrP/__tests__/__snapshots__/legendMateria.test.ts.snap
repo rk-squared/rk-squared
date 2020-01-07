@@ -952,8 +952,8 @@ Array [
   },
   Object {
     "character": "Curilla",
-    "description": "(take dmg ⤇ 35% for Magic Blink 1)",
-    "effect": "35% chance to grant Magic Blink 1 to the user after taking damage from an enemy",
+    "description": "(take dmg ⤇ 35% for Magic blink 1)",
+    "effect": "35% chance to grant Magical Blink 1 to the user after taking damage from an enemy",
     "name": "Faith in the Dawn",
   },
   Object {
@@ -1258,7 +1258,7 @@ Array [
   },
   Object {
     "character": "Eight",
-    "description": "(<20% HP ⤇ heal 100% HP, Trance: +50% ATK, Monk hi fastcast, causes Stun (100%) when removed 25s)",
+    "description": "(<20% HP ⤇ heal 100% HP, Trance: +50% ATK, Monk hi fastcast 25s, Finisher: self Stun (100%))",
     "effect": "Restores HP for 100% of the user's maximum HP and grants Back to the Wall Mode when HP fall below 20%",
     "name": "Righteous Fists",
   },
