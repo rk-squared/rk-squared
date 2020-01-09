@@ -51,6 +51,7 @@ EffectClause
   / Doom / DoomTimer / DrainHp
   / CounterWithImmune / Counter / RowCover
   / TriggeredEffect
+  / ConditionalStatus
   / GainSb / SbGainUp
   / Runic / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
@@ -503,6 +504,16 @@ StatusWithPercent
 
 
 // --------------------------------------------------------------------------
+// Conditional status - like Conditional Attach Element.  These aren't "real"
+// effects.
+
+ConditionalStatus
+  = status:GrantStatus
+  & { return status.condition != null }
+    { return Object.assign(status, { type: 'conditionalStatus' } ); }
+
+
+// --------------------------------------------------------------------------
 // Soul Break points
 
 GainSb
@@ -723,6 +734,10 @@ Condition
       who: who === 'user' ? 'self' : 'target',
       any: !!any
     };
+  }
+
+  / "if current number of combined Attach Element statuses on party members are a majority Attach" _ element:ElementSlashList _ ", in the case of ties the prior listed order is used to determine status granted" {
+    return { type: 'conditionalEnElement', element };
   }
 
   // Beginning of attacks and skills (like Passionate Salsa)

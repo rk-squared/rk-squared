@@ -43,6 +43,7 @@ export type Condition =
   | { type: 'statusLevel'; status: StatusName; value: number | number[] }
   | { type: 'ifDoomed' }
   | { type: 'status'; status: StatusName; who: 'self' | 'target'; any: boolean }
+  | { type: 'conditionalEnElement'; element: EnlirElement | EnlirElement[] }
   | { type: 'scaleUseCount'; useCount: number | number[] }
   | { type: 'scaleWithUses' }
   | { type: 'scaleWithSkillUses'; skill: string }

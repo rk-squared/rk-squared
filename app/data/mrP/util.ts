@@ -11,6 +11,7 @@ import * as _ from 'lodash';
 import { andJoin } from '../../utils/textUtils';
 import { arrayify, isAllSame } from '../../utils/typeUtils';
 import * as common from './commonTypes';
+import { allElementsShortName } from './typeHelpers';
 
 export { andJoin };
 
@@ -237,9 +238,13 @@ function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
     }
     if (parts.length >= 8) {
       // Hack: Abbreviate particularly long lists.
-      return (
-        parts[0] + joinString + parts[1] + joinString + '…' + joinString + parts[parts.length - 1]
-      );
+      if (parts.join('/') === allElementsShortName) {
+        return 'element';
+      } else {
+        return (
+          parts[0] + joinString + parts[1] + joinString + '…' + joinString + parts[parts.length - 1]
+        );
+      }
     } else {
       return parts.join(joinString);
     }

@@ -64,6 +64,8 @@ export function describeCondition(condition: common.Condition, count?: number | 
       return formatThreshold(condition.value, 'status lvl');
     case 'ifDoomed':
       return 'if Doomed';
+    case 'conditionalEnElement':
+      return 'based on party element infuse';
     case 'status':
       if (condition.who === 'self') {
         // Special case: We don't show "High Retaliate" to the user.

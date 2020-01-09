@@ -625,9 +625,15 @@ function formatCastSkill(
   return skillText + (effect.type === 'randomCastSkill' ? ' (random)' : '');
 }
 
-function formatGrantStatus(
-  { verb, status, who, duration, condition }: statusTypes.GrantStatus,
-  trigger: statusTypes.Trigger,
+function formatGrantOrConditionalStatus(
+  {
+    verb,
+    status,
+    who,
+    duration,
+    condition,
+  }: statusTypes.GrantStatus | statusTypes.ConditionalStatus,
+  trigger: statusTypes.Trigger | null,
   enlirStatus: EnlirStatus,
   source: EnlirSkill | undefined,
 ): string {
@@ -636,7 +642,7 @@ function formatGrantStatus(
 
   if (who && who !== 'self' && who !== 'target') {
     result += whoText[who] + ' ';
-  } else if (who === 'target' && trigger.type === 'singleHeal') {
+  } else if (who === 'target' && trigger && trigger.type === 'singleHeal') {
     result += whoText['ally'] + ' ';
   } else if (!who && arrayify(status).find(i => i.chance != null)) {
     // Hack: The convention is to show chance for negative statuses.  A
@@ -651,7 +657,7 @@ function formatGrantStatus(
       if (i.status === enlirStatus.name) {
         return 'status';
       }
-      const sequence = getFollowUpStatusSequence(i.status, trigger);
+      const sequence = trigger ? getFollowUpStatusSequence(i.status, trigger) : null;
       if (sequence) {
         return describeMergedSequence(sequence);
       } else {
@@ -713,7 +719,7 @@ function formatTriggerableEffect(
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'grantStatus':
-      return formatGrantStatus(effect, trigger, enlirStatus, source);
+      return formatGrantOrConditionalStatus(effect, trigger, enlirStatus, source);
     case 'heal':
       return whoText[effect.who] + ' heal ' + toMrPKilo(effect.fixedHp) + ' HP';
     case 'triggerChance':
@@ -1074,6 +1080,8 @@ function describeStatusEffect(
       );
     case 'triggeredEffect':
       return formatTriggeredEffect(effect, enlirStatus, source);
+    case 'conditionalStatus':
+      return formatGrantOrConditionalStatus(effect, null, enlirStatus, source);
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'sbGainUp':

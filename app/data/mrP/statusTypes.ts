@@ -62,6 +62,7 @@ export type EffectClause =
   | Counter
   | RowCover
   | TriggeredEffect
+  | ConditionalStatus
   | GainSb
   | SbGainUp
   | Taunt
@@ -558,6 +559,18 @@ export interface RecoilHp {
 export interface StatusWithPercent {
   status: common.StatusName;
   chance?: number;
+}
+
+// --------------------------------------------------------------------------
+// Conditional status
+
+export interface ConditionalStatus {
+  type: 'conditionalStatus';
+  verb: common.StatusVerb;
+  status: StatusWithPercent | StatusWithPercent[];
+  who?: common.Who;
+  duration?: common.Duration;
+  condition: common.Condition;
 }
 
 // --------------------------------------------------------------------------

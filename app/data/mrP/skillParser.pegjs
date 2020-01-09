@@ -587,6 +587,10 @@ Condition
     };
   }
 
+  / "if current number of combined Attach Element statuses on party members are a majority Attach" _ element:ElementSlashList _ ", in the case of ties the prior listed order is used to determine status granted" {
+    return { type: 'conditionalEnElement', element };
+  }
+
   // Beginning of attacks and skills (like Passionate Salsa)
 
   // Scaling with uses - both specific counts and generically
@@ -818,6 +822,9 @@ Element "element"
 
 ElementList "element list"
   = head:Element tail:(OrList Element)* { return util.pegList(head, tail, 1, true); }
+
+ElementSlashList "element list"
+  = head:Element tail:("/" Element)* { return util.pegList(head, tail, 1, true); }
 
 School "ability school"
   = "Bard"
