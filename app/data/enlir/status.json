@@ -16150,7 +16150,7 @@
   {
     "id": 6039,
     "name": "DEF -15%, RES -15% and MND +50%",
-    "effects": "DEF -15%, RES -15% and MND +50%",
+    "effects": "DEF and RES -15%, MND +50%",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

@@ -20,7 +20,7 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCastAbility / RandomCastOther / Chain / Mimic
-  / StatMod / StatusEffect / ImplicitStatusEffect / SetStatusLevel
+  / StatMod / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
   / CastTime / CastTimePerUse / StandaloneAttackExtra
 
@@ -438,7 +438,7 @@ StatusList
   }
 
 StatusWithPercent
-  = status:(SmartEtherStatus / StatusLevel / StatusName)
+  = status:StatusItem
     chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )?
     statusClauses:StatusClause*
   {
@@ -489,6 +489,19 @@ SetStatusLevel
   = "set"i _ status:StatusName _ "level" _ "to" _ value:Integer {
     return { type: 'setStatusLevel', status, value };
   }
+
+RandomStatusEffect
+  = "randomly"i _ verb:StatusVerb _ head:RandomStatusList tail:(_ "or" _ RandomStatusList)+ {
+    return { type: 'randomStatus', verb, statuses: util.pegList(head, tail, 3) };
+  }
+
+RandomStatusList
+  = head:StatusItem tail:(AndList StatusItem)* _ "(" chance:Integer "%)" _ who:Who? {
+    return { status: util.pegList(head, tail, 1, true), chance, who };
+  }
+
+StatusItem
+  = SmartEtherStatus / StatusLevel / StatusName
 
 
 // --------------------------------------------------------------------------

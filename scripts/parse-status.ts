@@ -106,7 +106,10 @@ function processStatuses(): [number, number] {
   let successCount = 0;
   let totalCount = 0;
   _.forEach(items, i => {
-    if (shouldAlwaysSkip(i) || (argv.filter && !i.name.match(argv.filter))) {
+    if (
+      shouldAlwaysSkip(i) ||
+      (argv.filter && !i.name.match(argv.filter) && i.id.toString() !== argv.filter)
+    ) {
       return;
     }
     let parseResults: StatusEffect | undefined;

@@ -1394,7 +1394,7 @@ export function parseEnlirStatus(
   };
 }
 
-interface ParsedEnlirStatusWithSlashes extends ParsedEnlirStatus {
+export interface ParsedEnlirStatusWithSlashes extends ParsedEnlirStatus {
   optionCount?: number;
 }
 

@@ -33,6 +33,7 @@ export type EffectClause =
   | StatMod
   | StatusEffect
   | SetStatusLevel
+  | RandomStatusEffect
   | Entrust
   | GainSBOnSuccess
   | GainSB
@@ -259,7 +260,7 @@ export interface StatusEffect {
 
 // Note: Compatible with, but more complex than, skillTypes.StatusWithPercent
 export interface StatusWithPercent extends StatusClause {
-  status: common.SmartEtherStatus | StatusLevel | common.StatusName;
+  status: StatusItem;
   chance?: number;
 }
 
@@ -284,6 +285,15 @@ export interface SetStatusLevel {
   status: common.StatusName;
   value: number;
 }
+
+export interface RandomStatusEffect {
+  type: 'randomStatus';
+  verb: common.StatusVerb;
+  statuses: Array<{ status: StatusItem[]; chance: number }>;
+  who?: common.Who;
+}
+
+type StatusItem = common.SmartEtherStatus | StatusLevel | common.StatusName;
 
 // --------------------------------------------------------------------------
 // Stat mods

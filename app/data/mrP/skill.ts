@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 
 import { logException, logger } from '../../utils/logger';
-import { assertNever, isAllSame } from '../../utils/typeUtils';
+import { arrayify, assertNever, isAllSame } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirElement,
@@ -28,6 +28,7 @@ import {
   formatRandomCastAbility,
   formatRandomCastOther,
 } from './attack';
+import * as common from './commonTypes';
 import {
   appendCondition,
   describeCondition,
@@ -42,6 +43,7 @@ import {
   checkForAndStatuses,
   describeStats,
   formatDuration,
+  ParsedEnlirStatusWithSlashes,
   parseEnlirStatus,
   parseEnlirStatusWithSlashes,
   shareStatusDurations,
@@ -471,6 +473,54 @@ function checkStacking(
   return [statusName, false];
 }
 
+function formatStatusDescription(
+  parsed: ParsedEnlirStatusWithSlashes,
+  duration?: common.Duration,
+  condition?: common.Condition,
+  stacking: boolean = false,
+) {
+  const {
+    isExLike,
+    isTrance,
+    defaultDuration,
+    isVariableDuration,
+    isBurstToggle,
+    optionCount,
+  } = parsed;
+  let description = parsed.description;
+
+  // Special duration, including handling for a burst toggle with effects of
+  // its own.
+  const specialDuration = isBurstToggle ? 'until OFF' : parsed.specialDuration;
+
+  if (isTrance) {
+    description = 'Trance: ' + description;
+  }
+  if (stacking) {
+    description = 'stacking ' + description;
+  }
+
+  if (condition && !stacking) {
+    const options = optionCount ? _.times(optionCount, i => i + 1) : undefined;
+    description += appendCondition(condition, options);
+  }
+
+  if (!duration && defaultDuration) {
+    duration = { value: defaultDuration, units: 'seconds' };
+  }
+
+  if ((duration || specialDuration) && !isVariableDuration) {
+    const durationText = specialDuration || formatDuration(duration!);
+    if (isExLike) {
+      description = durationText + ': ' + description;
+    } else {
+      description = description + ' ' + durationText;
+    }
+  }
+
+  return description;
+}
+
 /**
  * Process a status, and return whether this is a burst toggle.
  */
@@ -522,38 +572,26 @@ function processStatus(
     }
 
     const parsed = parseEnlirStatusWithSlashes(status, skill);
-    // tslint:disable: prefer-const
-    let {
-      description,
-      isExLike,
-      isDetail,
-      isBurstToggle,
-      isTrance,
-      defaultDuration,
-      isVariableDuration,
-      specialDuration,
-      optionCount,
-    } = parsed;
-    // tslint:enable: prefer-const
+    const { isDetail, isBurstToggle } = parsed;
 
     if (isBurstToggle) {
       burstToggle = effect.verb !== 'removes';
-      if (description === '') {
+      if (parsed.description === '') {
         return;
       }
       // Special case: A burst toggle with an effect of its own.  If we're
       // switching it ON, show it with a custom duration.  If switching OFF,
       // show nothing.
-      if (burstToggle) {
-        specialDuration = 'until OFF';
-      } else {
+      if (!burstToggle) {
         return;
       }
     }
 
-    if (description === '') {
+    if (parsed.description === '') {
       return;
     }
+
+    let description = formatStatusDescription(parsed, duration, condition, stacking);
 
     // Status removal.  In practice, only a few White Magic abilities hit
     // this; the rest are special cased (Esuna, burst toggles, etc.).
@@ -563,30 +601,6 @@ function processStatus(
     // the spreadsheet, so we can key off of the status index to handle that.
     if (removes && thisStatusIndex === 0) {
       description = 'remove ' + description;
-    }
-
-    if (isTrance) {
-      description = 'Trance: ' + description;
-    }
-    if (stacking) {
-      description = 'stacking ' + description;
-    }
-    const options = optionCount ? _.times(optionCount, i => i + 1) : undefined;
-    if (condition && !stacking) {
-      description += appendCondition(condition, options);
-    }
-
-    if (!duration && defaultDuration) {
-      duration = { value: defaultDuration, units: 'seconds' };
-    }
-
-    if ((duration || specialDuration) && !isVariableDuration) {
-      const durationText = specialDuration || formatDuration(duration!);
-      if (isExLike) {
-        description = durationText + ': ' + description;
-      } else {
-        description = description + ' ' + durationText;
-      }
     }
 
     if (perUses) {
@@ -613,6 +627,33 @@ function processStatus(
   });
 
   return burstToggle;
+}
+
+/**
+ * Process a set of randomly chosen statuses.  This is a much simpler version
+ * of processStatus.
+ */
+function processRandomStatus(
+  skill: EnlirSkill,
+  effect: skillTypes.RandomStatusEffect,
+  other: OtherDetail,
+) {
+  const choices = effect.statuses.map(
+    ({ status, chance }) =>
+      arrayify(status)
+        .map(s => {
+          if (typeof s === 'string') {
+            const parsed = parseEnlirStatusWithSlashes(s, skill);
+            return formatStatusDescription(parsed);
+          } else if (s.type === 'smartEther') {
+            return formatSmartEther(s.amount, s.school);
+          } else {
+            return formatStatusLevel(s.value);
+          }
+        })
+        .join(' & ') + ` (${chance}%)`,
+  );
+  other.push(skill, effect.who, choices.join(' or '));
 }
 
 interface StatusInfliction {
@@ -933,6 +974,9 @@ export function convertEnlirSkillToMrP(
         }
         break;
       }
+      case 'randomStatus':
+        processRandomStatus(skill, effect, other);
+        break;
       case 'setStatusLevel':
         other.self.push(formatStatusLevel(effect.value));
         break;

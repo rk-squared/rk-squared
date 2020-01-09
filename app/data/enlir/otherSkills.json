@@ -3142,7 +3142,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Randomly Grants HP Stock (1500) (50%) or HP Stock (3000) and smart ether 1 (50%)",
+    "effects": "Randomly grants HP Stock (1500) (50%) or HP Stock (3000) and smart ether 1 (50%)",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 0,

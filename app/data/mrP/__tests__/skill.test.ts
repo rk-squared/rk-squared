@@ -868,23 +868,23 @@ describe('mrP', () => {
         ],
       });
       expect(describeSoulBreak("Seifer - Sorceress's Knight")).toMatchInlineSnapshot(`
-        Object {
-          "burstCommands": Array [
-            Object {
-              "damage": "p2.24/4 d+n",
-              "other": "self -50% DEF, -25% RES 30s, Reflect Dmg 100%/125%/…/300% w/ 1…9 uses 30s",
-              "school": "Darkness",
-            },
-            Object {
-              "damage": "p2.2 d+n",
-              "other": "self heal 20% of dmg",
-              "school": "Darkness",
-            },
-          ],
-          "damage": "phys 7.68/8 dark+non",
-          "other": "taunt PHY/BLK, +200% DEF 25s",
-        }
-      `);
+                Object {
+                  "burstCommands": Array [
+                    Object {
+                      "damage": "p2.24/4 d+n",
+                      "other": "self -50% DEF, -25% RES 30s, Reflect Dmg 100%/125%/…/300% w/ 1…9 uses 30s",
+                      "school": "Darkness",
+                    },
+                    Object {
+                      "damage": "p2.2 d+n",
+                      "other": "self heal 20% of dmg",
+                      "school": "Darkness",
+                    },
+                  ],
+                  "damage": "phys 7.68/8 dark+non",
+                  "other": "taunt PHY/BLK, +200% DEF 25s",
+                }
+            `);
     });
 
     it('handles complex burst modes', () => {
@@ -1293,36 +1293,36 @@ describe('mrP', () => {
         other: '+20% wind vuln. 25s, self +30% ATK/DEF 25s, fastcast 1, 15s: (wind ⤇ fastcast 1)',
       });
       expect(describeSoulBreak('Squall - Double Junction')).toMatchInlineSnapshot(`
-        Object {
-          "braveCommands": Array [
-            Object {
-              "damage": "p1.92 i+f",
-              "other": undefined,
-              "school": "Spellblade",
-            },
-            Object {
-              "damage": "p3.2 i+f overstrike",
-              "other": undefined,
-              "school": "Spellblade",
-            },
-            Object {
-              "damage": "p6.4 i+f overstrike",
-              "other": undefined,
-              "school": "Spellblade",
-            },
-            Object {
-              "damage": "p10.0 i+f overstrike",
-              "other": undefined,
-              "school": "Spellblade",
-            },
-          ],
-          "braveCondition": Array [
-            "Spellblade",
-          ],
-          "damage": "phys 7.1/10 ice+fire",
-          "other": "self hi fastcast 15s, 15s: (0-8 fire/ice Spellblade ⤇ 1.3-1.35-1.4-1.45-1.5-1.55-1.6-1.65-1.7x Spellblade dmg)",
-        }
-      `);
+                Object {
+                  "braveCommands": Array [
+                    Object {
+                      "damage": "p1.92 i+f",
+                      "other": undefined,
+                      "school": "Spellblade",
+                    },
+                    Object {
+                      "damage": "p3.2 i+f overstrike",
+                      "other": undefined,
+                      "school": "Spellblade",
+                    },
+                    Object {
+                      "damage": "p6.4 i+f overstrike",
+                      "other": undefined,
+                      "school": "Spellblade",
+                    },
+                    Object {
+                      "damage": "p10.0 i+f overstrike",
+                      "other": undefined,
+                      "school": "Spellblade",
+                    },
+                  ],
+                  "braveCondition": Array [
+                    "Spellblade",
+                  ],
+                  "damage": "phys 7.1/10 ice+fire",
+                  "other": "self hi fastcast 15s, 15s: (0-8 fire/ice Spellblade ⤇ 1.3-1.35-1.4-1.45-1.5-1.55-1.6-1.65-1.7x Spellblade dmg)",
+                }
+            `);
     });
 
     it('converts auto skills', () => {
@@ -2423,6 +2423,13 @@ describe('mrP', () => {
           '15s: Awoken Guardian: W.Mag inf. hones, ' +
           '(ally heal ⤇ ally Negate dmg 30%/40%/50%/60%/70% @ rank 1-5), 100% dualcast W.Mag',
       });
+      expect(describeSoulBreak('Cait Sith - AASB')).toMatchInlineSnapshot(`
+        Object {
+          "damage": undefined,
+          "instant": true,
+          "other": "party Haste, +50% MAG/MND 25s, hi fastzap 2, 1.3x mag dmg 15s, 15s: Awoken Fortune Teller: Dancer/Bard inf. hones, 2-3x Dancer/Bard cast @ rank 1-5, (Dancer/Bard ⤇ party Autoheal 1.5k (50%) or Autoheal 3k & refill 1 abil. use (50%))",
+        }
+      `);
     });
 
     it('handles synchro soul breaks', () => {
@@ -2447,27 +2454,27 @@ describe('mrP', () => {
       });
 
       expect(describeSoulBreak('Orlandeau - SASB')).toMatchInlineSnapshot(`
-        Object {
-          "damage": "phys 9.0/15 holy+non",
-          "other": "self Attach Holy with Stacking 3, dmg cap +10k 15s, 25s: hi fastcast, 15s: (2 Saintly Gleam ⤇ instacast 1, instant ATB 1 if hi fastcast, remove hi fastcast)",
-          "synchroCommands": Array [
-            Object {
-              "damage": "p5.16/6 - 5.34/6 - 5.52/6 - 5.7/6 @ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses",
-              "other": undefined,
-              "school": "Knight",
-            },
-            Object {
-              "damage": undefined,
-              "other": "25s: hi fastcast",
-              "school": "Knight",
-            },
-          ],
-          "synchroCondition": Array [
-            "Holy",
-            "Knight",
-          ],
-        }
-      `);
+                Object {
+                  "damage": "phys 9.0/15 holy+non",
+                  "other": "self Attach Holy with Stacking 3, dmg cap +10k 15s, 25s: hi fastcast, 15s: (2 Saintly Gleam ⤇ instacast 1, instant ATB 1 if hi fastcast, remove hi fastcast)",
+                  "synchroCommands": Array [
+                    Object {
+                      "damage": "p5.16/6 - 5.34/6 - 5.52/6 - 5.7/6 @ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses",
+                      "other": undefined,
+                      "school": "Knight",
+                    },
+                    Object {
+                      "damage": undefined,
+                      "other": "25s: hi fastcast",
+                      "school": "Knight",
+                    },
+                  ],
+                  "synchroCondition": Array [
+                    "Holy",
+                    "Knight",
+                  ],
+                }
+            `);
     });
 
     it('handles turn-limited effects', () => {
