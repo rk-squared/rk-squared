@@ -14,6 +14,8 @@ import {
   getEnlirOtherSkill,
   getEnlirStatusByName,
   getEnlirStatusWithPlaceholders,
+  isSoulBreak,
+  isSynchroSoulBreak,
 } from '../enlir';
 import { describeDamage, describeDamageType } from './attack';
 import * as common from './commonTypes';
@@ -522,7 +524,25 @@ function getTriggerPreposition(trigger: statusTypes.Trigger): string {
   }
 }
 
-function formatTrigger(trigger: statusTypes.Trigger): string {
+function getTriggerSkillAlias(skill: string, source: EnlirSkill | undefined): string {
+  if (source && isSoulBreak(source) && isSynchroSoulBreak(source) && source.character) {
+    if (
+      enlir.synchroCommandsByCharacter[source.character] &&
+      enlir.synchroCommandsByCharacter[source.character][source.name]
+    ) {
+      const index = _.findIndex(
+        enlir.synchroCommandsByCharacter[source.character][source.name],
+        i => i.name.startsWith(skill),
+      );
+      if (index !== -1) {
+        return `cmd ` + (index + 1);
+      }
+    }
+  }
+  return skill;
+}
+
+function formatTrigger(trigger: statusTypes.Trigger, source?: EnlirSkill): string {
   switch (trigger.type) {
     case 'ability':
       const count = formatTriggerCount(trigger.count);
@@ -553,9 +573,18 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'loseStatus':
       return (statusLevelAlias[trigger.status] || trigger.status) + ' lost';
     case 'skill':
-      return (trigger.count ? trigger.count + ' ' : '') + arrayify(trigger.skill).join('/');
+      return (
+        (trigger.count ? trigger.count + ' ' : '') +
+        arrayify(trigger.skill)
+          .map(i => getTriggerSkillAlias(i, source))
+          .join('/')
+      );
     case 'skillTriggered':
-      return trigger.count + ' ' + (trigger.isSelfSkill ? 'times' : trigger.skill);
+      return (
+        trigger.count +
+        ' ' +
+        (trigger.isSelfSkill ? 'times' : getTriggerSkillAlias(trigger.skill, source))
+      );
     case 'damagedByAlly':
       return `take ${formatAnyType(trigger, ' ')}dmg from ally`;
     case 'singleHeal':
@@ -565,11 +594,15 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
   }
 }
 
-function addTrigger(effect: string, trigger: statusTypes.Trigger | undefined): string {
+function addTrigger(
+  effect: string,
+  trigger: statusTypes.Trigger | undefined,
+  source?: EnlirSkill,
+): string {
   if (!trigger) {
     return effect;
   } else {
-    return formatGenericTrigger(formatTrigger(trigger), effect);
+    return formatGenericTrigger(formatTrigger(trigger, source), effect);
   }
 }
 
@@ -782,7 +815,7 @@ function formatTriggeredEffect(
   } else {
     return (
       '(' +
-      formatTrigger(effect.trigger) +
+      formatTrigger(effect.trigger, source) +
       ' ⤇ ' +
       effects +
       condition +
@@ -879,6 +912,7 @@ function describeStatusEffect(
       return addTrigger(
         'crit =' + arrayify(effect.value).join('/') + uncertain(effect.valueIsUncertain) + '%',
         effect.trigger,
+        source,
       );
     case 'critDamage':
       return signedNumber(effect.value) + uncertain(effect.valueIsUncertain) + '% crit dmg';
@@ -924,7 +958,7 @@ function describeStatusEffect(
       } else {
         cast = getCastString(effect.value);
       }
-      return addTrigger(formatAnyCast(effect, cast), effect.trigger);
+      return addTrigger(formatAnyCast(effect, cast), effect.trigger, source);
     }
     case 'instantAtb':
       return 'instant ATB';
@@ -1025,6 +1059,7 @@ function describeStatusEffect(
           'dmg' +
           (effect.vsWeak ? ' vs weak' : ''),
         effect.trigger,
+        source,
       );
     case 'abilityDouble':
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
@@ -1116,11 +1151,12 @@ function describeStatusEffect(
     case 'onceOnly':
       return 'once only'; // Handled at the trigger level
     case 'removedAfterTrigger':
-      return getTriggerPreposition(effect.trigger) + ' ' + formatTrigger(effect.trigger);
+      return getTriggerPreposition(effect.trigger) + ' ' + formatTrigger(effect.trigger, source);
     case 'changeStatusLevel':
       return addTrigger(
         (statusLevelAlias[effect.status] || effect.status) + ' ' + signedNumber(effect.value),
         effect.trigger,
+        source,
       );
     case 'setStatusLevel':
       if (effect.value) {

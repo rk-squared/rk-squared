@@ -687,7 +687,13 @@ Trigger
   / "by"i _ skillType:SkillType _ "attacks" { return { type: 'damaged', skillType }; }
   / "upon"i _ "dealing damage" { return { type: 'dealDamage' }; }
   / "when"i _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
-  / ("when"i _ / "after"i) _ "using" _ skill:AnySkillName _ count:Occurrence? { return { type: 'skill', skill, count }; }
+  / ("when"i _ / "after"i) _ "using" _ skill:AnySkillName _ count:Occurrence? {
+    // Hack: "or" is a valid skill name, but in this context, assume it's separating synchro commands.
+    if (skill.match(/ or /)) {
+      skill = skill.split(/ or /);
+    }
+    return { type: 'skill', skill, count };
+  }
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
   / "after"i _ "using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
   / "after"i _ "taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
