@@ -1275,6 +1275,24 @@ function expandSlashOptions(s: string, options?: string[] | null): string[] {
   return options.map(i => s.replace(slashOptionsRe, i));
 }
 
+/**
+ * expandSlashOptions logic specific to status names.  Check for cases where
+ * entire status names are slash-separated, like Gordon's
+ * "ATK and DEF -50% Medium/MAG and RES - 50% Medium", and normal
+ * slash-separated options, like "Imperil Fire/Ice".
+ */
+function expandStatusSlashOptions(status: string): string[] {
+  const splitStatus = status.split('/');
+  if (_.every(splitStatus, i => enlir.statusByName[i] != null)) {
+    // As of January 2020, any occurrences of slash-separated statuses don't
+    // use placeholders, so we can check enlir.statusByName instead of
+    // getEnlirStatusByName.
+    return splitStatus;
+  } else {
+    return expandSlashOptions(status);
+  }
+}
+
 const describeAutoInterval = (autoInterval: number) => `every ${toMrPFixed(autoInterval)}s`;
 
 function isFinisherOnly(effects: statusTypes.StatusEffect): boolean {
@@ -1402,8 +1420,8 @@ export function parseEnlirStatusWithSlashes(
     const options = status.split(orList).map(i => parseEnlirStatus(i, source));
     return makeResult(options, ' or ');
   } else if (!enlirStatus && status.match('/')) {
-    // Handle slash-separated options.
-    const statusOptions = expandSlashOptions(status);
+    // Handle slash-separated status options.
+    const statusOptions = expandStatusSlashOptions(status);
     const options = [false, true].map(forceNumbers =>
       statusOptions.map(i => parseEnlirStatus(i, source, { forceNumbers })),
     );

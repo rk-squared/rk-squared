@@ -469,7 +469,7 @@ StatusClause
     / who:Who ! (_ Duration) { return { who, whoAllowsLookahead: true }; }
     / who:Who { return { who }; }
     // Flexibility: Support both "two uses" and "second use"
-    / "every" _ ("two" _ "uses" / "second" _ "use") { return { perUses: 2 }; }
+    / "on"? _ "every" _ ("two" _ "uses" / "second" _ "use") { return { perUses: 2 }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
     / "to" _ "undeads" { return { ifUndead: true }; }
     / condition:Condition { return { condition }; }
@@ -677,13 +677,16 @@ StatusVerb
 
 StatusName "status effect"
   = (
-    // Stat mods in particular have a distinctive format.
-    ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%'
+    StatModStatusName ("/" StatModStatusName)*
   / GenericName
   / "?"
   ) {
     return text();
   }
+
+// Stat mods in particular have a distinctive format.
+StatModStatusName
+  = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%' (_ "Short" / _ "Medium" / _ "Long")?
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName

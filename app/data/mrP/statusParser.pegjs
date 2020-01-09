@@ -813,7 +813,7 @@ StatusVerb
 StatusName "status effect"
   = (
     // Stat mods in particular have a distinctive format.
-    ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%'
+    ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%' (_ "Short" / _ "Medium" / _ "Long")?
   / GenericName
   / "?"
   ) {
