@@ -20,7 +20,7 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCastAbility / RandomCastOther / Chain / Mimic
-  / StatMod / StatusEffect / ImperilStatusEffect / SetStatusLevel
+  / StatMod / StatusEffect / ImplicitStatusEffect / SetStatusLevel
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
   / CastTime / CastTimePerUse / StandaloneAttackExtra
 
@@ -478,9 +478,10 @@ StatusClause
   }
 
 // Special case: Some Imperil soul breaks omit "causes".  See Climhazzard Xeno,
-// Ragnarok Buster, Whirling Lance
-ImperilStatusEffect
-  = & "Imperil" statuses:StatusList {
+// Ragnarok Buster, Whirling Lance.  Some atypical stat modifiers, like
+// Rikku's record board ability or Passionate Salsa, do as well.
+ImplicitStatusEffect
+  = & ("Imperil" / ("Brief" _)? Stat) statuses:StatusList {
     return { type: 'status', verb: 'causes', statuses };
   }
 
@@ -494,7 +495,7 @@ SetStatusLevel
 // Stat mods
 
 StatMod
-  = stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' statModClauses:StatModClause* {
+  = stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' ! StatModDuration statModClauses:StatModClause* {
     const result = {
       type: 'statMod',
       stats,
@@ -686,7 +687,10 @@ StatusName "status effect"
 
 // Stat mods in particular have a distinctive format.
 StatModStatusName
-  = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%' (_ "Short" / _ "Medium" / _ "Long")?
+  = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%' StatModDuration?
+
+StatModDuration
+  = _ ("Short" / "Medium" / "Long")
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName

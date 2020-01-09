@@ -663,6 +663,7 @@ function formatGrantStatus(
             // Hack: Partial duplication of logic on when to append durations.
             // This is valuable to make Galuf AASB's instacast clear.
             if (
+              verb !== 'removes' &&
               !duration &&
               parsed.defaultDuration &&
               !parsed.isVariableDuration &&

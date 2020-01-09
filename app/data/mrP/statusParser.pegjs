@@ -450,6 +450,10 @@ TriggeredEffect
   = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? tail2:("," _ BareTriggerableEffect)* onceOnly:("," _ OnceOnly)? {
     return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: !!onceOnly }, condition);
   }
+  // Alternate form for complex effects - used by Orlandeau's SASB
+  / trigger:Trigger "," _ head:TriggerableEffect _ tail:("," _ TriggerableEffect)* {
+    return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2) };
+  }
 
 TriggerableEffect
   = CastSkill / RandomCastSkill / GainSb / GrantStatus / Heal / HealChance / RecoilHp / SmartEtherStatus
@@ -660,24 +664,24 @@ GameOver
 // Triggers
 
 Trigger
-  = "after" _ requiresDamage1:("using" / "dealing damage with") _ count:TriggerCount _ requiresDamage2:"damaging"?
+  = "after"i _ requiresDamage1:("using" / "dealing damage with") _ count:TriggerCount _ requiresDamage2:"damaging"?
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
-  / "after dealing a critical hit" { return { type: 'crit' }; }
-  / "after exploiting elemental weakness" { return { type: 'vsWeak' }; }
-  / "when removed" { return { type: 'whenRemoved' }; }
-  / "every" _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
-  / "upon taking damage" skillType:(_ "by" _ s:SkillType _ "attack" { return s; })? { return { type: 'damaged', skillType }; }
-  / "by" _ skillType:SkillType _ "attacks" { return { type: 'damaged', skillType }; }
-  / "upon dealing damage" { return { type: 'dealDamage' }; }
-  / "when" _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
-  / ("when using" / "after using") _ skill:AnySkillName _ count:Occurrence? { return { type: 'skill', skill, count }; }
+  / "after"i _ "dealing a critical hit" { return { type: 'crit' }; }
+  / "after"i _ "exploiting elemental weakness" { return { type: 'vsWeak' }; }
+  / "when"i _ "removed" { return { type: 'whenRemoved' }; }
+  / "every"i _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
+  / "upon"i _ "taking damage" skillType:(_ "by" _ s:SkillType _ "attack" { return s; })? { return { type: 'damaged', skillType }; }
+  / "by"i _ skillType:SkillType _ "attacks" { return { type: 'damaged', skillType }; }
+  / "upon"i _ "dealing damage" { return { type: 'dealDamage' }; }
+  / "when"i _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
+  / ("when"i _ / "after"i) _ "using" _ skill:AnySkillName _ count:Occurrence? { return { type: 'skill', skill, count }; }
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
-  / "after using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
-  / "after taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
-  / "after using a single-target heal" { return { type: 'singleHeal' }; }
-  / "when HP fall" "s"? _ "below" _ value:Integer "%" { return { type: 'lowHp', value }; }
+  / "after"i _ "using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
+  / "after"i _ "taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
+  / "after"i _ "using a single-target heal" { return { type: 'singleHeal' }; }
+  / "when"i _ "HP fall" "s"? _ "below" _ value:Integer "%" { return { type: 'lowHp', value }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
@@ -812,13 +816,19 @@ StatusVerb
 
 StatusName "status effect"
   = (
-    // Stat mods in particular have a distinctive format.
-    ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%' (_ "Short" / _ "Medium" / _ "Long")?
+    StatModStatusName ("/" StatModStatusName)*
   / GenericName
   / "?"
   ) {
     return text();
   }
+
+// Stat mods in particular have a distinctive format.
+StatModStatusName
+  = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%' StatModDuration?
+
+StatModDuration
+  = _ ("Short" / "Medium" / "Long")
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName
