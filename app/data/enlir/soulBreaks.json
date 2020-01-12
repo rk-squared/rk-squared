@@ -48194,7 +48194,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Holy with Stacking 3, Thunder God's Might, Synchro Mode, Damage Cap +10000 and Swordsaint Judgment Blade Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Holy 3 with Stacking, Thunder God's Might, Synchro Mode, Damage Cap +10000 and Swordsaint Judgment Blade Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
