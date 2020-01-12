@@ -10398,7 +10398,7 @@
   {
     "eventName": "Record Dungeons Canon (V, VIII)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-01-05",
     "jpDate": "2019-06-19",
     "type": "Record Dungeon",
     "heroRecords": null,
@@ -10437,7 +10437,7 @@
   {
     "eventName": "Blood Against Destiny",
     "realm": "FFT",
-    "glDate": null,
+    "glDate": "2019-01-09",
     "jpDate": "2019-06-28",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11073,6 +11073,19 @@
     "realm": "Tactics",
     "glDate": null,
     "jpDate": "2019-12-31",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "A Brilliant Journey",
+    "realm": "I",
+    "glDate": null,
+    "jpDate": "2020-01-10",
     "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,

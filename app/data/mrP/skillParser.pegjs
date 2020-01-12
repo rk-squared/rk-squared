@@ -483,6 +483,7 @@ StatusClause
     / who:Who { return { who }; }
     // Flexibility: Support both "two uses" and "second use"
     / "on"? _ "every" _ ("two" _ "uses" / "second" _ "use") { return { perUses: 2 }; }
+    / "on"? _ "every" _ ("three" _ "uses" / "third" _ "use") { return { perUses: 3 }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
     / "to" _ "undeads" { return { ifUndead: true }; }
     / condition:Condition { return { condition }; }

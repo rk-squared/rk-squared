@@ -12196,8 +12196,8 @@
   },
   {
     "id": 50553,
-    "name": "Flag of Rebellion Follow-Up",
-    "effects": "Casts Flag of Rebellion after using two Knight abilities",
+    "name": "Denial of Fate Follow-Up",
+    "effects": "Casts Denial of Fate after using two Knight abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14686,6 +14686,17 @@
     "notes": null
   },
   {
+    "id": 50799,
+    "name": "Warrior of Destiny Mode",
+    "effects": "?",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DESTINY_WARRIOR_MODE",
+    "notes": null
+  },
+  {
     "id": 508,
     "name": "Retaliate",
     "effects": "Can't be hit by PHY attacks, counters PHY attacks with Attack",
@@ -14742,7 +14753,7 @@
   },
   {
     "id": 50819,
-    "name": "Goddess Sniper",
+    "name": "Goddess Archer",
     "effects": "Modifies behavior of Etro Shot, removed when user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,

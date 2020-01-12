@@ -120,7 +120,7 @@ Array [
     "character": "Alma",
     "description": "(W.Mag ⤇ 25% for party h25)",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
-    "name": "Revered Cleric",
+    "name": "Devout Cleric",
   },
   Object {
     "character": "Alphinaud",
@@ -1149,6 +1149,12 @@ Array [
     "name": "Fabled Spirit",
   },
   Object {
+    "character": "Echo",
+    "description": "Haste, instacast 1 at battle start",
+    "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
+    "name": "Fairy's Gift",
+  },
+  Object {
     "character": "Edea",
     "description": "1.1x BLK dmg",
     "effect": "BLK attacks deal 10% more damage",
@@ -1222,7 +1228,7 @@ Array [
   },
   Object {
     "character": "Edge",
-    "description": "(Ninja ⤇ 25% for p1.26/3 or m^1201.5/3 wa+f+l+n)",
+    "description": "(Ninja ⤇ 25% for p1.26/3 or m1201.5/3 wa+f+l+n)",
     "effect": "25% chance to cast Unequaled Master after using a Ninja ability",
     "name": "Unequaled Master",
   },
@@ -2820,7 +2826,7 @@ Array [
     "character": "Marach",
     "description": "(lgt ⤇ 20% for +10% lgt vuln.)",
     "effect": "20% chance to cause Minor Imperil Lightning to the target after using a Lightning ability on an enemy",
-    "name": "Descendant of Galthena",
+    "name": "Blood of Galthena",
   },
   Object {
     "character": "Marche",
@@ -3624,7 +3630,7 @@ Array [
     "character": "Ramza",
     "description": "holy infuse at battle start",
     "effect": "Grants Attach Holy at the beginning of the battle",
-    "name": "Honorable Lineage",
+    "name": "Martial Pedigree",
   },
   Object {
     "character": "Rapha",
@@ -5179,6 +5185,12 @@ Array [
     "description": "(<20% HP ⤇ 1.25x elem dmg 25s)",
     "effect": "Grants Elemental Boost when HP fall below 20%",
     "name": "Breaker of Laws",
+  },
+  Object {
+    "character": "Wol",
+    "description": "(earth ⤇ 20% for +10% earth vuln.)",
+    "effect": "20% chance to cause Minor Imperil Earth to the target after using a Earth attack on an enemy",
+    "name": "Prospective Warrior",
   },
   Object {
     "character": "Wrieg",

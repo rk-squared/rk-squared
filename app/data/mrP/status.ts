@@ -100,12 +100,16 @@ const uncertain = (isUncertain: boolean | undefined) => (isUncertain ? '?' : '')
 const getCastString = (value: number) =>
   value === 2 ? 'fast' : value === 3 ? 'hi fast' : value.toString() + 'x ';
 
+const memoizedParser = _.memoize((effects: string) => statusParser.parse(effects, {}));
+
 export function safeParseStatus(
   status: EnlirStatus,
   placeholders?: EnlirStatusPlaceholders,
 ): statusTypes.StatusEffect | null {
   try {
-    return statusParser.parse(status.effects, placeholders);
+    return placeholders
+      ? statusParser.parse(status.effects, placeholders)
+      : memoizedParser(status.effects);
   } catch (e) {
     logger.error(`Failed to parse ${status.name}:`);
     logException(e);

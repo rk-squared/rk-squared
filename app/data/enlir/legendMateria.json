@@ -493,6 +493,18 @@
   },
   {
     "realm": "I",
+    "character": "Wol",
+    "name": "Prospective Warrior",
+    "effect": "20% chance to cause Minor Imperil Earth to the target after using a Earth attack on an enemy",
+    "master": "ATK +10",
+    "relic": "Druga's Firangi (I)",
+    "nameJp": "光の戦士候補",
+    "id": 201010403,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "I",
     "character": "Echo",
     "name": "Blank Guide",
     "effect": "Reduces damage taken by BLK attacks by 10%",
@@ -538,6 +550,18 @@
     "id": 201010503,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "I",
+    "character": "Echo",
+    "name": "Fairy's Gift",
+    "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
+    "master": "MAG +5, MND +5",
+    "relic": "Yggdrasil Staff (I)",
+    "nameJp": "妖精の手助け",
+    "id": 201010504,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "I",
@@ -9254,14 +9278,14 @@
   {
     "realm": "FFT",
     "character": "Ramza",
-    "name": "Honorable Lineage",
+    "name": "Martial Pedigree",
     "effect": "Grants Attach Holy at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Broadsword (FFT)",
     "nameJp": "誉れ高き武門の系譜",
     "id": 201500104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -9614,14 +9638,14 @@
   {
     "realm": "FFT",
     "character": "Marach",
-    "name": "Descendant of Galthena",
+    "name": "Blood of Galthena",
     "effect": "20% chance to cause Minor Imperil Lightning to the target after using a Lightning ability on an enemy",
     "master": null,
     "relic": "Magepower Glove (FFT)",
     "nameJp": "ガルテナーハの末裔",
     "id": 201501003,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -9782,14 +9806,14 @@
   {
     "realm": "FFT",
     "character": "Alma",
-    "name": "Revered Cleric",
+    "name": "Devout Cleric",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "master": "MND +10",
     "relic": "Red Robe (FFT)",
     "nameJp": "敬虔なるクレリック",
     "id": 201501403,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",

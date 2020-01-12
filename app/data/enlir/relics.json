@@ -27828,7 +27828,7 @@
     "effect": null,
     "character": "Ramza",
     "soulBreak": null,
-    "legendMateria": "Honorable Lineage",
+    "legendMateria": "Martial Pedigree",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -27852,7 +27852,7 @@
       "eva": null
     },
     "id": 21002374,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Bolt Rapiers",
@@ -32372,7 +32372,7 @@
     },
     "effect": null,
     "character": "Ramza",
-    "soulBreak": "Blade of Truth",
+    "soulBreak": "Blade of Remembrance",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -32397,7 +32397,7 @@
       "eva": null
     },
     "id": 21003115,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Nagamitsu",
@@ -60182,7 +60182,7 @@
     },
     "effect": null,
     "character": "Rapha",
-    "soulBreak": "Nethersky Mantra",
+    "soulBreak": "Concordant Mantra",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -60207,10 +60207,10 @@
       "eva": null
     },
     "id": 21008214,
-    "gl": false
+    "gl": true
   },
   {
-    "name": "Octagonal Rod",
+    "name": "Eight-fluted Pole",
     "realm": "FFT",
     "type": "Rod",
     "rarity": 6,
@@ -60227,7 +60227,7 @@
     },
     "effect": null,
     "character": "Marach",
-    "soulBreak": "Bestial Wrath",
+    "soulBreak": "Beastly Wrath",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -60252,7 +60252,7 @@
       "eva": null
     },
     "id": 21008211,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ivory Pole",
@@ -60272,7 +60272,7 @@
     },
     "effect": null,
     "character": "Marach",
-    "soulBreak": "Khamja Arts",
+    "soulBreak": "Way of the Khamja",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -60297,7 +60297,7 @@
       "eva": null
     },
     "id": 21008179,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Prism Rod",
@@ -66527,7 +66527,7 @@
     },
     "effect": null,
     "character": "Rapha",
-    "soulBreak": "Mantra Mysteries",
+    "soulBreak": "Mystic Mantra",
     "legendMateria": null,
     "baseStats": {
       "rarity": 5,
@@ -66552,7 +66552,7 @@
       "eva": null
     },
     "id": 21008178,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Misty Rod",
@@ -71162,7 +71162,7 @@
     },
     "effect": null,
     "character": "Alma",
-    "soulBreak": "Azure Radiance",
+    "soulBreak": "Auracite Glow",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -71187,7 +71187,7 @@
       "eva": null
     },
     "id": 21009136,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Spring Staff",
@@ -101897,7 +101897,7 @@
     },
     "effect": null,
     "character": "Ramza",
-    "soulBreak": "Noble Cry",
+    "soulBreak": "War Cry Commander",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -101922,7 +101922,7 @@
       "eva": 112
     },
     "id": 22050092,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Erdrick's Shield",
@@ -119717,7 +119717,7 @@
     },
     "effect": null,
     "character": "Alma",
-    "soulBreak": "Divine Awakening",
+    "soulBreak": "Holy Seal",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -119742,7 +119742,7 @@
       "eva": 100
     },
     "id": 22053351,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mirage Vest",
@@ -139293,7 +139293,7 @@
     "effect": null,
     "character": "Alma",
     "soulBreak": null,
-    "legendMateria": "Revered Cleric",
+    "legendMateria": "Devout Cleric",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -139317,7 +139317,7 @@
       "eva": 105
     },
     "id": 22055090,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Luminous Robe",
@@ -148968,7 +148968,7 @@
     "effect": null,
     "character": "Marach",
     "soulBreak": null,
-    "legendMateria": "Descendant of Galthena",
+    "legendMateria": "Blood of Galthena",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -148992,7 +148992,7 @@
       "eva": 105
     },
     "id": 22056180,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Platinum Bangle",
@@ -163530,7 +163530,7 @@
     "gl": true
   },
   {
-    "name": "Sortilège",
+    "name": "Sortilége",
     "realm": "FFT",
     "type": "Accessory",
     "rarity": 5,
@@ -163572,7 +163572,7 @@
       "eva": null
     },
     "id": 23080457,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Reflect Ring",

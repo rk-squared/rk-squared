@@ -969,7 +969,7 @@ export interface EnlirStatusPlaceholders {
 
 export interface EnlirStatusWithPlaceholders {
   status: EnlirStatus;
-  placeholders: EnlirStatusPlaceholders;
+  placeholders?: EnlirStatusPlaceholders;
 }
 
 /**
@@ -979,14 +979,15 @@ export interface EnlirStatusWithPlaceholders {
 export function getEnlirStatusWithPlaceholders(
   status: string,
 ): EnlirStatusWithPlaceholders | undefined {
-  const placeholders: EnlirStatusPlaceholders = {};
   if (enlir.statusByName[status]) {
-    return { status: enlir.statusByName[status], placeholders };
+    return { status: enlir.statusByName[status] };
   }
 
   if (enlirStatusAltName[status]) {
-    return { status: enlirStatusAltName[status], placeholders };
+    return { status: enlirStatusAltName[status] };
   }
+
+  const placeholders: EnlirStatusPlaceholders = {};
 
   const checkNumbers: Array<[RegExp, string]> = [[/(-\d+)/, '+X'], [/(\d+\??|\?)/, 'X']];
   for (const [search, replace] of checkNumbers) {

@@ -58,7 +58,7 @@ EffectClause
   / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
   / BurstToggle / TrackUses / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze
-  / ResetTarget / NoEffect / Persists / GameOver
+  / ResetTarget / NoEffect / Persists / GameOver / Unknown
 
 
 // --------------------------------------------------------------------------
@@ -669,6 +669,9 @@ Persists
 
 GameOver
   = "Counts"i _ "towards Game Over" { return null; }
+
+Unknown
+  = "?" { return null; }
 
 
 // --------------------------------------------------------------------------

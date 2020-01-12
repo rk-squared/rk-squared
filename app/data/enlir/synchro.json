@@ -103,6 +103,56 @@
     "gl": false
   },
   {
+    "character": "Warrior of Light",
+    "source": "Photon Wave",
+    "name": "Photon Strike",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": "Holy",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.4,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.90 each), 100% additional critical chance if user has any Dual Blink",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Knight",
+    "nameJp": "フォトンストライク",
+    "id": 30548648,
+    "synchroConditionId": 106,
+    "gl": false
+  },
+  {
+    "character": "Warrior of Light",
+    "source": "Photon Wave",
+    "name": "Crystal's Blessing",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": "Holy",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.7,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (0.90 each), 100% additional critical chance if user has any Dual Blink, grants Quick Cast 3 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Knight",
+    "nameJp": "クリスタルブースト",
+    "id": 30548649,
+    "synchroConditionId": 106,
+    "gl": false
+  },
+  {
     "character": "Minwu",
     "source": "Holy XCIX",
     "name": "Diara LXVI",

@@ -9394,10 +9394,10 @@
         0
       ]
     },
-    "introducingEvent": "Pride of the Dark Dragoon",
+    "introducingEvent": "Blood Against Destiny",
     "nameJp": "H･イクシオン",
     "id": 30131421,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Summoning",
@@ -14979,6 +14979,114 @@
     "id": 30211191,
     "gl": false,
     "recordBoardCharacter": "Orlandeau"
+  },
+  {
+    "school": "Knight",
+    "name": "Radiant Sword",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Four single attacks (? each), grants Minor Buff Holy to all allies every third use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Warrior of Light's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "A Brilliant Journey",
+    "nameJp": "レディアントソード(光の戦士専用)",
+    "id": 30211211,
+    "gl": false,
+    "recordBoardCharacter": "Warrior of Light"
+  },
+  {
+    "school": "Knight",
+    "name": "Great Form",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Holy",
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (0.80 each), grants 20% Damage Reduction Barrier 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Holy Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "A Brilliant Journey",
+    "nameJp": "グレートフォーム",
+    "id": 30211221,
+    "gl": false
   },
   {
     "school": "Samurai",

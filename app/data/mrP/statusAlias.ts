@@ -85,6 +85,7 @@ const multiplierConverter = aliasConverter(percentToMultiplier);
 export const statusLevelAlias: _.Dictionary<string> = {
   'Magical Blink': 'Magic blink',
   'Physical Blink': 'Phys blink',
+  'Dual Blink': 'PM blink',
   Stoneskin: 'Neg. Dmg.',
   'Heavy Charge': 'Hvy Charge',
   'Damage Reduction Barrier': 'Dmg barrier',

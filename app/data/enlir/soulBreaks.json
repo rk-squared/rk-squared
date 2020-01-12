@@ -2250,6 +2250,31 @@
   },
   {
     "realm": "I",
+    "character": "Warrior of Light",
+    "name": "Photon Wave",
+    "tier": "SASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attack (0.60 each), grants Attach Holy 3 with Stacking, Synchro Mode, Damage Cap +10000, Dual Blink 1 and Warrior of Destiny Mode to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "soulbreakBonus": "Damage Up, Cast Time Down",
+    "relic": "Excalibur II (I)",
+    "nameJp": "フォトンウェーブ",
+    "id": 20330019,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "I",
     "character": "Garland",
     "name": "Dire Strike",
     "tier": "Default",
@@ -2988,6 +3013,101 @@
   },
   {
     "realm": "I",
+    "character": "Wol",
+    "name": "Rune Saber",
+    "tier": "AASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Holy",
+      "Earth",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), causes Medium Imperil Earth and Medium Imperil Holy, grants Awoken Otherworld Knight, Damage Cap +10000, High Quick Cast and Twin Element Mode (Holy/Earth) to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "soulbreakBonus": "ATK +10",
+    "relic": "Paladin Form (I)",
+    "nameJp": "ルーンセイバー",
+    "id": 22280008,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Wol",
+    "name": "Final Sudden Smite",
+    "tier": "AOSB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 24,
+    "element": [
+      "Earth",
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Three single attacks (8.00 each) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "soulbreakBonus": "ATK +10",
+    "relic": "Andraste's Nail (I)",
+    "nameJp": "真サドンスマイト",
+    "id": 22280009,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Wol",
+    "name": "Ultimate Arc Slash",
+    "tier": "USB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Holy",
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (? each), causes DEF, RES and MND -70% for ? seconds, grants Twin Element Mode II (Holy/Earth) to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "soulbreakBonus": "ATK +10",
+    "relic": "Knight Form (I)",
+    "nameJp": "真ラウンドスラッシュ",
+    "id": 22280010,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Wol",
+    "name": "Elemental Drive",
+    "tier": "Glint",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Twin Element Mode II (Holy/Earth), grants High Quick Cast 1 to all allies",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 250,
+    "soulbreakBonus": "ATK +10",
+    "relic": "Laevateinn (I)",
+    "nameJp": "エレメントチョイス",
+    "id": 22280011,
+    "gl": false
+  },
+  {
+    "realm": "I",
     "character": "Echo",
     "name": "Healing Gift",
     "tier": "Default",
@@ -3145,6 +3265,69 @@
     "id": 22290007,
     "anima": "3",
     "gl": true
+  },
+  {
+    "realm": "I",
+    "character": "Echo",
+    "name": "Voice of the Light",
+    "tier": "AASB",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (105), grants Last Stand and Haste, grants Awoken Whimsical Fairy and Whimsical Aid Follow-Up to the userto the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "soulbreakBonus": "MAG +5, MND +5",
+    "relic": "Cat Costume (I)",
+    "nameJp": "エコー必殺技変更",
+    "id": 22290008,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Echo",
+    "name": "Echo Concert",
+    "tier": "USB",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55), grants HP Stock (2000) and Regenga, grants Encore Time Follow-Up to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "soulbreakBonus": "MAG +5, MND +5",
+    "relic": "Staffuar (I)",
+    "nameJp": "エコー・コラボタイム",
+    "id": 22290009,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Echo",
+    "name": "Fairy's Wings",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Protect, Shell and Haste",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 0,
+    "soulbreakBonus": "MAG +5, MND +5",
+    "relic": "Nadeshiko Costume (I)",
+    "nameJp": "フェアリーエール",
+    "id": 22290010,
+    "gl": false
   },
   {
     "realm": "I",
@@ -11450,7 +11633,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single hybrid attacks (0.60 or 222.50 each), ignores RES, grants Awoken Ninja, Damage Cap +10000, Ninja High Quick Cast and Eblan Tactics Follow-Up to the user",
+    "effects": "Fifteen single hybrid attacks (0.60 or 222.50 each), grants Awoken Ninja, Damage Cap +10000, Ninja High Quick Cast and Eblan Tactics Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -32594,7 +32777,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Activates Dark Chain (max 150, field +50%), MAG +50% for 25 seconds, grants Medium Buff Dark",
+    "effects": "Activates Dark Chain (max 99, field +50%), grants MAG +50% and Medium Buff Dark for 25 seconds",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -33572,7 +33755,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Activates Holy Chain (max 150, field +50%), MAG and MND +30% for 25 seconds, grants Medium Buff Holy",
+    "effects": "Activates Holy Chain (max 150, field +50%), grants MAG and MND +30% and Medium Buff Holy for 25 seconds",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -47061,7 +47244,7 @@
   {
     "realm": "FFT",
     "character": "Ramza",
-    "name": "Blade of Truth",
+    "name": "Blade of Remembrance",
     "tier": "AASB",
     "type": "PHY",
     "target": "Single enemy",
@@ -47072,7 +47255,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants Attach Holy, Awoken Knight, Damage Cap +10000 and Flag of Rebellion Follow-Up to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants Attach Holy, Awoken Knight, Damage Cap +10000 and Denial of Fate Follow-Up to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -47081,12 +47264,12 @@
     "nameJp": "刻まれた記憶の剣",
     "id": 22140013,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
     "character": "Ramza",
-    "name": "Noble Cry",
+    "name": "War Cry Commander",
     "tier": "Glint+",
     "type": "PHY",
     "target": "Single enemy",
@@ -47105,7 +47288,8 @@
     "relic": "Platinum Shield (FFT)",
     "nameJp": "ウォークライコマンダー",
     "id": 22140014,
-    "gl": false
+    "anima": null,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -48606,7 +48790,7 @@
   {
     "realm": "FFT",
     "character": "Rapha",
-    "name": "Nethersky Mantra",
+    "name": "Concordant Mantra",
     "tier": "AASB",
     "type": "BLK",
     "target": "Single enemy",
@@ -48626,12 +48810,12 @@
     "nameJp": "真言・表裏一体",
     "id": 22700005,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
     "character": "Rapha",
-    "name": "Mantra Mysteries",
+    "name": "Mystic Mantra",
     "tier": "Glint",
     "type": "NAT",
     "target": "All allies",
@@ -48647,7 +48831,8 @@
     "relic": "Iron Fan (FFT)",
     "nameJp": "真言の秘奥",
     "id": 22700006,
-    "gl": false
+    "anima": null,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -48749,7 +48934,7 @@
   {
     "realm": "FFT",
     "character": "Marach",
-    "name": "Bestial Wrath",
+    "name": "Beastly Wrath",
     "tier": "AASB",
     "type": "BLK",
     "target": "Single enemy",
@@ -48766,16 +48951,16 @@
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "soulbreakBonus": "MAG +10",
-    "relic": "Octagonal Rod (FFT)",
+    "relic": "Eight-fluted Pole (FFT)",
     "nameJp": "操獣・裏天鼓雷音",
     "id": 22710005,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
     "character": "Marach",
-    "name": "Khamja Arts",
+    "name": "Way of the Khamja",
     "tier": "Glint+",
     "type": "BLK",
     "target": "Single enemy",
@@ -48794,7 +48979,8 @@
     "relic": "Ivory Pole (FFT)",
     "nameJp": "カミュジャの秘術",
     "id": 22710006,
-    "gl": false
+    "anima": null,
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -49290,7 +49476,7 @@
   {
     "realm": "FFT",
     "character": "Alma",
-    "name": "Divine Awakening",
+    "name": "Holy Seal",
     "tier": "AASB",
     "type": "WHT",
     "target": "All allies",
@@ -49307,12 +49493,12 @@
     "nameJp": "聖印の目覚め",
     "id": 23150006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
     "character": "Alma",
-    "name": "Azure Radiance",
+    "name": "Auracite Glow",
     "tier": "USB",
     "type": "WHT",
     "target": "All allies",
@@ -49329,7 +49515,7 @@
     "nameJp": "青き聖石の光",
     "id": 23150007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
