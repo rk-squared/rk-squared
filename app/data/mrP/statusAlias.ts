@@ -87,9 +87,29 @@ export const statusLevelAlias: _.Dictionary<string> = {
   'Physical Blink': 'Phys blink',
   Stoneskin: 'Neg. Dmg.',
   'Heavy Charge': 'Hvy Charge',
-  Ingredients: 'ingred.',
   'Damage Reduction Barrier': 'Dmg barrier',
 };
+
+// Synchro statuses.  These are generally not maintained within the Enlir
+// database, and each character's synchro has a unique name.
+// HACK: It's simpler to manually list them.
+export const synchroStatusLevelAlias: _.Dictionary<string> = {
+  // Used in both burst and synchro soul breaks.
+  Ingredients: 'ingred.',
+
+  // Actually glint, but it works the same.
+  'Storm Raider': statusLevelText,
+
+  Aetherflow: statusLevelText,
+  Gehenna: statusLevelText,
+  'Lightning Garb': statusLevelText,
+  'Phantom Flame': statusLevelText,
+  'Mako Resonance': statusLevelText,
+
+  Items: 'items',
+};
+
+Object.assign(statusLevelAlias, synchroStatusLevelAlias);
 
 /**
  * Enlir status aliases

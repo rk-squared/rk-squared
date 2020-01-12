@@ -268,6 +268,8 @@ export interface StatusLevel {
   type: 'statusLevel';
   status: common.StatusName;
   value: number;
+  // If true, setting to value; if false, modifying by value.
+  set?: boolean;
 }
 
 export interface StatusClause {

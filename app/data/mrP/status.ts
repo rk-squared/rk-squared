@@ -33,6 +33,7 @@ import {
   sbPointsBoosterAlias,
   statusLevelAlias,
   statusLevelText,
+  synchroStatusLevelAlias,
 } from './statusAlias';
 import * as statusParser from './statusParser';
 import * as statusTypes from './statusTypes';
@@ -1359,7 +1360,8 @@ function isFinisherOnly(effects: statusTypes.StatusEffect): boolean {
   );
 }
 
-const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB points$/);
+const hideUnknownStatusWarning = (status: string) =>
+  status.match(/^\d+ SB points$/) || synchroStatusLevelAlias[status] != null;
 
 /**
  * Parses a string description of an Enlir status name, returning details about

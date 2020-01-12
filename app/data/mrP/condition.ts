@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 import { arrayifyLength, KeysOfType } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
@@ -69,9 +71,16 @@ export function describeCondition(condition: common.Condition, count?: number | 
           ? 'a rngd wpn'
           : condition.article + ' ' + condition.equipped)
       );
-    case 'scaleWithStatusLevel':
-      // FIXME: Reimplement isOwnStatusThreshold, statusThresholdCount, commandRelatingToStatus
-      return 'if ' + condition.status;
+    case 'scaleWithStatusLevel': {
+      const status = statusLevelAlias[condition.status] || condition.status;
+      if (!count) {
+        return 'w/ ' + status;
+      } else {
+        return (
+          'w/ ' + formatNumberSlashList(_.times(arrayifyLength(count), i => i + 1)) + ' ' + status
+        );
+      }
+    }
     case 'statusLevel':
       return formatThreshold(condition.value, statusLevelText);
     case 'ifDoomed':

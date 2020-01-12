@@ -2,6 +2,7 @@
   let parsedNumberString = null;
   let lastDamageDuringStatus = NaN;
   let lastDamageDuringStatusElement = undefined;
+  let statusLevelMatch = null;
 
   // Hack: Suppress warnings about unused functions.
   location;
@@ -456,8 +457,20 @@ StatusWithPercent
 
 StatusLevel "status with level"
   = status:StatusName _ "level" _ value:Integer {
-    return { type:'statusLevel', status, value };
+    return { type:'statusLevel', status, value, set: true };
   }
+  / status:StatusName
+    & { return util.synchroStatusLevelAlias[status] != null; }
+      { return { type:'statusLevel', status, value: 1, set: true }; }
+  / value:SignedInteger _ status:StatusName
+    & { return util.synchroStatusLevelAlias[status] != null; }
+      { return { type:'statusLevel', status, value }; }
+  / status:StatusName
+    & {
+        statusLevelMatch = status.match(/(.*) ([+-]?\d)$/);
+        return statusLevelMatch && util.synchroStatusLevelAlias[statusLevelMatch[1]] != null;
+      }
+      { return { type:'statusLevel', status: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
 
 StatusClause
   = _ clause:(

@@ -52,7 +52,13 @@ import {
   slashMergeElementStatuses,
   sortStatus,
 } from './status';
-import { formatRandomEther, formatSmartEther, sbPointsAlias, statusLevelText } from './statusAlias';
+import {
+  formatRandomEther,
+  formatSmartEther,
+  sbPointsAlias,
+  statusLevelAlias,
+  statusLevelText,
+} from './statusAlias';
 import {
   DescribeOptions,
   getDescribeOptionsWithDefaults,
@@ -63,6 +69,7 @@ import {
   formatNumberSlashList,
   formatSignedIntegerSlashList,
   numberOrUnknown,
+  signedNumber,
   toMrPFixed,
   toMrPKilo,
 } from './util';
@@ -197,11 +204,14 @@ function describeStatMod({ stats, percent, duration, condition }: skillTypes.Sta
   return statMod;
 }
 
-function formatStatusLevel(value: number) {
-  if (value === 0) {
-    return 'reset ' + statusLevelText;
+function formatStatusLevel(status: string, value: number, set: boolean | undefined) {
+  status = statusLevelAlias[status] || statusLevelText;
+  if (!set) {
+    return status + ` ${signedNumber(value)}`;
+  } else if (value === 0) {
+    return 'reset ' + status;
   } else {
-    return statusLevelText + ` =${value}`;
+    return status + ` =${value}`;
   }
 }
 
@@ -559,7 +569,12 @@ function processStatus(
       if (status.type === 'smartEther') {
         other.push(skill, who, formatSmartEther(status.amount, status.school));
       } else {
-        other.push(skill, who, formatStatusLevel(status.value));
+        // Status levels are always self.
+        if (removes) {
+          other.push(skill, 'self', formatStatusLevel(status.status, 0, true));
+        } else {
+          other.push(skill, 'self', formatStatusLevel(status.status, status.value, status.set));
+        }
       }
       return;
     }
@@ -655,7 +670,7 @@ function processRandomStatus(
           } else if (s.type === 'smartEther') {
             return formatSmartEther(s.amount, s.school);
           } else {
-            return formatStatusLevel(s.value);
+            return formatStatusLevel(s.status, s.value, s.set);
           }
         })
         .join(' & ') + ` (${chance}%)`,
@@ -985,7 +1000,7 @@ export function convertEnlirSkillToMrP(
         processRandomStatus(skill, effect, other);
         break;
       case 'setStatusLevel':
-        other.self.push(formatStatusLevel(effect.value));
+        other.self.push(formatStatusLevel(effect.status, effect.value, true));
         break;
       case 'statMod':
         other.push(skill, effect.who, describeStatMod(effect));
