@@ -510,9 +510,8 @@ function makeRelicMap<T extends { character: string | null; name: string; relic:
       const found = indexedItems[(i.character || '-') + ':' + i[prop]];
       if (found) {
         result[i.id] = found;
-        // TODO: Enable validation - but there are too many problems right now
-        /*
         if (
+          i.character && // Skip shared soul breaks - these don't have 1-to-1 mappings.
           found.relic &&
           found.relic.replace(/ \([^()]+\)$/, '') !== i.name &&
           found.relic.replace(/ \(.*\)$/, '') !== i.name
@@ -522,7 +521,6 @@ function makeRelicMap<T extends { character: string | null; name: string; relic:
               `${prop} ${found.name} lists name as ${found.relic}`,
           );
         }
-        */
       } else {
         logger.warn(`Failed to find ${prop} for ${i.character} - ${i.name} - ${i[prop]}`);
       }
