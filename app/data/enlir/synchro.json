@@ -1504,7 +1504,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (3.05 each), grants Instant ATB 1 and Instant Cast 1 if user has Goddess Sniper, removes Goddess Sniper",
+    "effects": "Six single attacks (3.05 each), grants Instant ATB 1 and Instant Cast 1 to the user if user has Goddess Sniper, removes Goddess Sniper",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -1529,7 +1529,7 @@
       "NE"
     ],
     "time": 0.83,
-    "effects": "One single attack (3.05), grants Goddess Sniper",
+    "effects": "One single attack (3.05), grants Goddess Sniper to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,

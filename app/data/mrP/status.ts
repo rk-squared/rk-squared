@@ -32,6 +32,7 @@ import {
   sbPointsAlias,
   sbPointsBoosterAlias,
   statusLevelAlias,
+  statusLevelText,
 } from './statusAlias';
 import * as statusParser from './statusParser';
 import * as statusTypes from './statusTypes';
@@ -1174,8 +1175,12 @@ function describeStatusEffect(
         (statusLevelAlias[effect.status] || effect.status) +
         (!isNaN(effect.current) ? ' ' + effect.current : '')
       );
-    case 'trackUses':
     case 'modifiesSkill':
+      // Most of what we call "status levels" appear to be tracking SASB-only
+      // command counts or levels.  As of January 2020, the only modifiesSkill
+      // status operates similarly, so treat it as such.
+      return statusLevelText;
+    case 'trackUses':
     case 'burstOnly':
     case 'burstReset':
     case 'statusReset':
@@ -1292,6 +1297,8 @@ export interface ParsedEnlirStatus {
   defaultDuration: number | null;
   isVariableDuration: boolean;
   specialDuration?: string;
+  // Is this a generic status level for a SASB?
+  statusLevel?: number;
 }
 
 const slashOptionsRe = /(?:(?:\w|\.)+\/)+(?:\w|\.)+/;
@@ -1363,6 +1370,7 @@ export function parseEnlirStatus(
   source?: EnlirSkill,
   options?: StatusOptions,
 ): ParsedEnlirStatus {
+  let statusLevel: number | undefined;
   let isUnconfirmed = false;
   if (status !== '?') {
     isUnconfirmed = status.endsWith('?');
@@ -1415,6 +1423,9 @@ export function parseEnlirStatus(
       specialDuration = specialDuration.replace(/^until /, 'when ');
     }
   }
+  if (statusEffects && statusEffects.find(i => i.type === 'modifiesSkill')) {
+    statusLevel = 1;
+  }
 
   if (isUnconfirmed) {
     description += '?';
@@ -1430,6 +1441,7 @@ export function parseEnlirStatus(
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
     specialDuration: specialDuration || undefined,
+    statusLevel,
   };
 }
 

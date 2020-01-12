@@ -16,6 +16,7 @@ import {
   isEnlirElement,
   isGlint,
   isSoulBreak,
+  isSynchroCommand,
   isSynchroSoulBreak,
 } from '../enlir';
 import {
@@ -51,7 +52,7 @@ import {
   slashMergeElementStatuses,
   sortStatus,
 } from './status';
-import { formatRandomEther, formatSmartEther, sbPointsAlias } from './statusAlias';
+import { formatRandomEther, formatSmartEther, sbPointsAlias, statusLevelText } from './statusAlias';
 import {
   DescribeOptions,
   getDescribeOptionsWithDefaults,
@@ -198,9 +199,9 @@ function describeStatMod({ stats, percent, duration, condition }: skillTypes.Sta
 
 function formatStatusLevel(value: number) {
   if (value === 0) {
-    return 'reset status lvl';
+    return 'reset ' + statusLevelText;
   } else {
-    return `status lvl =${value}`;
+    return statusLevelText + ` =${value}`;
   }
 }
 
@@ -292,35 +293,38 @@ function checkPoweredUpBy(
   }, effects);
 
   // Check if this skill scales with a nonstandard status granted by the paired
-  // command.
-  let pairedStatus: string | undefined;
-  for (const i of pairedEffects) {
-    if (i.type === 'status') {
-      for (const j of i.statuses) {
-        if (j.who === 'self' && typeof j.status === 'string') {
-          pairedStatus = j.status;
+  // command.  Don't do this for SASBs; those are better handled as status
+  // levels.
+  if (!isSynchroCommand(skill)) {
+    let pairedStatus: string | undefined;
+    for (const i of pairedEffects) {
+      if (i.type === 'status') {
+        for (const j of i.statuses) {
+          if (j.who === 'self' && typeof j.status === 'string') {
+            pairedStatus = j.status;
+            break;
+          }
+        }
+        if (pairedStatus) {
           break;
         }
       }
-      if (pairedStatus) {
-        break;
+    }
+    if (!pairedStatus) {
+      return;
+    }
+    visitCondition((condition: skillTypes.Condition) => {
+      if (
+        condition.type === 'status' &&
+        condition.status === pairedStatus &&
+        condition.who === 'self'
+      ) {
+        return [{ ...condition, status: `cmd ${paired.index + 1} status` }, false];
+      } else {
+        return [null, true];
       }
-    }
+    }, effects);
   }
-  if (!pairedStatus) {
-    return;
-  }
-  visitCondition((condition: skillTypes.Condition) => {
-    if (
-      condition.type === 'status' &&
-      condition.status === pairedStatus &&
-      condition.who === 'self'
-    ) {
-      return [{ ...condition, status: `cmd ${paired.index + 1} status` }, false];
-    } else {
-      return [null, true];
-    }
-  }, effects);
 }
 
 function checkSbPoints(skill: EnlirSkill, effects: skillTypes.SkillEffect, opt: DescribeOptions) {
@@ -600,7 +604,10 @@ function processStatus(
     // a removes then grants.  There are no occurrences of "removes A, B" in
     // the spreadsheet, so we can key off of the status index to handle that.
     if (removes && thisStatusIndex === 0) {
-      description = 'remove ' + description;
+      description = (parsed.statusLevel ? 'reset ' : 'remove ') + description;
+      if (parsed.statusLevel) {
+        who = 'self';
+      }
     }
 
     if (perUses) {
@@ -618,7 +625,7 @@ function processStatus(
       other.statusInfliction.push({ description, chance, chanceDescription });
     } else if (description.match(/^\w+ infuse/)) {
       other.infuse.push(description);
-    } else if (isDetail) {
+    } else if (isDetail && !parsed.statusLevel) {
       // (Always?) has implied 'self'
       other.detail.push(description);
     } else {

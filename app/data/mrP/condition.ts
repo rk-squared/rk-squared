@@ -2,7 +2,7 @@ import { arrayifyLength, KeysOfType } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import { describeEnlirStatus } from './status';
-import { statusLevelAlias, vsWeak } from './statusAlias';
+import { statusLevelAlias, statusLevelText, vsWeak } from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import { formatNumberSlashList, formatUseCount, formatUseNumber, orList } from './util';
 
@@ -73,7 +73,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
       // FIXME: Reimplement isOwnStatusThreshold, statusThresholdCount, commandRelatingToStatus
       return 'if ' + condition.status;
     case 'statusLevel':
-      return formatThreshold(condition.value, 'status lvl');
+      return formatThreshold(condition.value, statusLevelText);
     case 'ifDoomed':
       return 'if Doomed';
     case 'conditionalEnElement':
