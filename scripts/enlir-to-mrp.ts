@@ -24,6 +24,8 @@ const filtered = argv.brave || argv.burst;
 
 const onlySoulBreaks = process.argv.slice(2);
 
+const startTime = process.hrtime();
+
 for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
   i => i.character || '-',
   i => tierOrder[i.tier],
@@ -69,3 +71,6 @@ for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
   }
   console.log();
 }
+
+const endTime = process.hrtime(startTime);
+console.warn('Finished in %ds %dms', endTime[0], endTime[1] / 1000000);
