@@ -766,6 +766,7 @@ Condition
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "are" _ "alive" { return { type: 'realmCharactersAlive', realm, count }; }
   / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
 
@@ -846,7 +847,7 @@ StatusName "status effect"
 
 // Stat mods in particular have a distinctive format.
 StatModStatusName
-  = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger / [+-]? "?") '%' StatModDuration?
+  = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' StatModDuration?
 
 StatModDuration
   = _ ("Short" / "Medium" / "Long")
