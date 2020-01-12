@@ -14446,7 +14446,7 @@
   {
     "id": 50776,
     "name": "Drain Blade Follow-Up",
-    "effects": "Casts Drain Blade 1/2/3 after using two Dark abilities if the user's current HP percentage is greater than or equal to 100/80/79",
+    "effects": "Casts Drain Blade 1/2/3 after using two Dark abilities if the user's HP are at least 100/80/0%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

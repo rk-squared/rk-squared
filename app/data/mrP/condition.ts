@@ -10,8 +10,9 @@ export function formatThreshold(
   thresholdValues: number | number[],
   thresholdName: string,
   units: string = '',
+  prefix: string = '',
 ): string {
-  return '@ ' + formatNumberSlashList(thresholdValues) + units + ' ' + thresholdName;
+  return '@ ' + prefix + formatNumberSlashList(thresholdValues) + units + ' ' + thresholdName;
 }
 
 export function describeMultiplierScaleType(scaleType: skillTypes.MultiplierScaleType): string {
@@ -134,6 +135,8 @@ export function describeCondition(condition: common.Condition, count?: number | 
       return formatThreshold(condition.value, 'sec Doom');
     case 'hpBelowPercent':
       return formatThreshold(condition.value, 'HP', '%');
+    case 'hpAtLeastPercent':
+      return formatThreshold(condition.value, 'HP', '%', '≥ ');
     case 'soulBreakPoints':
       return formatThreshold(condition.value, 'SB pts');
     case 'targetStatBreaks':

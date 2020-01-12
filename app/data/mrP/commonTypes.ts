@@ -58,6 +58,7 @@ export type Condition =
   | { type: 'alliesJump'; count: number | number[] }
   | { type: 'doomTimer'; value: number | number[] }
   | { type: 'hpBelowPercent'; value: number | number[] }
+  | { type: 'hpAtLeastPercent'; value: number | number[] }
   | { type: 'soulBreakPoints'; value: number | number[] }
   | { type: 'targetStatBreaks'; count: number | number[] }
   | { type: 'targetStatusAilments'; count: number | number[] }
