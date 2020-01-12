@@ -619,7 +619,6 @@ function applyPatch<T>(
 
 /**
  * HACK: Patch Enlir data to make it easier for our text processing.
- * FIXME: See if any of these can be removed as we continue to improve parsing
  */
 function patchEnlir() {
   // Two different follow-up attacks for Gladiolus's AASB is hard.  For now,
@@ -708,6 +707,21 @@ function patchEnlir() {
     strike => {
       strike.effects =
         'Fifteen single attacks (0.60 each), grants Major Buff Ice, Major Buff Earth, Major Buff Lightning, Awoken Spellblade, Damage Cap +10000 to the user, grants 50% Critical to all allies, grants High Quick Cast 1/2/2 to all allies if 1/2/3 of Kelger/Galuf/Dorgann are alive, grants Extended 100% Critical and Critical Damage +50% to all allies if Kelger & Galuf & Dorgann are alive';
+    },
+  );
+  applyPatch(
+    enlir.soulBreaks,
+    '23070005',
+    marcus =>
+      marcus.effects ===
+      'Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, ' +
+        'causes Minor Imperil Wind and Minor Imperil Poison/Medium Imperil Wind and Medium Imperil Poison if 1/2+ IX characters are alive, ' +
+        'grants Instant Cast 1/grants Instant Cast 1 and Weakness +30% Boost to all allies if 3/4+ IX characters are alive',
+    marcus => {
+      marcus.effects =
+        'Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, ' +
+        'causes Minor Imperil Wind/Poison if 1 IX character is alive, causes Medium Imperil Wind/Poison if 2+ IX characters are alive, ' +
+        'grants Instant Cast 1 to all allies if 3+ IX characters are alive, grants Weakness +30% Boost to all allies if 4+ IX characters are alive';
     },
   );
 

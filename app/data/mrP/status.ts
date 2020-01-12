@@ -1328,10 +1328,13 @@ function expandSlashOptions(s: string, options?: string[] | null): string[] {
  */
 function expandStatusSlashOptions(status: string): string[] {
   const splitStatus = status.split('/');
-  if (_.every(splitStatus, i => enlir.statusByName[i] != null)) {
-    // As of January 2020, any occurrences of slash-separated statuses don't
-    // use placeholders, so we can check enlir.statusByName instead of
-    // getEnlirStatusByName.
+  // Hack: "Do Something/Poison" probably treats "poison" as an element, not
+  // an individual status.
+  //
+  // As of January 2020, any occurrences of slash-separated statuses don't
+  // use placeholders, so we can check enlir.statusByName instead of
+  // getEnlirStatusByName.
+  if (_.every(splitStatus, i => enlir.statusByName[i] != null && i !== 'Poison')) {
     return splitStatus;
   } else {
     return expandSlashOptions(status);

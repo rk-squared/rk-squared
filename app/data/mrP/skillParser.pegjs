@@ -622,7 +622,7 @@ Condition
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
-  / "if" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "are" _ "alive" { return { type: 'realmCharactersAlive', realm, count }; }
+  / "if" _ count:IntegerSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
   / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
 

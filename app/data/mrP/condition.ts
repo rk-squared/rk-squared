@@ -33,11 +33,22 @@ export function describeMultiplierScaleType(scaleType: skillTypes.MultiplierScal
   }
 }
 
-function formatCountCharacters(count: number | number[], characters: string): string {
+function formatCountCharacters(
+  count: number | number[],
+  characters: string,
+  plus?: boolean,
+): string {
+  // Note: This code has stricter handling of at least / "plus" than other
+  // condition code - mostly because Marcus's AASB is complex enough to benefit
+  // from it.  Since not all conditions have implemented tracking "plus", we'll
+  // assume reasonable defaults if it's absent.
+  if (count === 1 && plus === false) {
+    return 'if ' + count + ' ' + characters.replace('chars.', 'char.');
+  }
   if (typeof count === 'number') {
-    return 'if ≥' + count + ' ' + characters;
+    return 'if ' + (plus !== false ? '≥' : '') + count + ' ' + characters;
   } else {
-    return 'if ' + formatNumberSlashList(count) + ' ' + characters;
+    return 'if ' + formatNumberSlashList(count) + (plus === true ? '+' : '') + ' ' + characters;
   }
 }
 
@@ -110,7 +121,11 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'realmCharactersInParty':
       return formatCountCharacters(condition.count, condition.realm + ' chars. in party');
     case 'realmCharactersAlive':
-      return formatCountCharacters(condition.count, condition.realm + ' chars. alive');
+      return formatCountCharacters(
+        condition.count,
+        condition.realm + ' chars. alive',
+        condition.plus,
+      );
     case 'charactersAlive':
       return formatCountCharacters(condition.count, 'chars. alive');
     case 'alliesJump':

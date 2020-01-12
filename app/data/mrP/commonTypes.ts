@@ -53,7 +53,7 @@ export type Condition =
   | { type: 'characterInParty'; character: string; count?: number | number[] }
   | { type: 'females'; count: number | number[] }
   | { type: 'realmCharactersInParty'; realm: EnlirRealm; count: number | number[] }
-  | { type: 'realmCharactersAlive'; realm: EnlirRealm; count: number | number[] }
+  | { type: 'realmCharactersAlive'; realm: EnlirRealm; count: number | number[]; plus: boolean }
   | { type: 'charactersAlive'; count: number | number[] }
   | { type: 'alliesJump'; count: number | number[] }
   | { type: 'doomTimer'; value: number | number[] }
