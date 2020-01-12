@@ -628,7 +628,7 @@ export function describeAttack(
     damage +=
       ', default ' + damageTypeAbbreviation(attackDamage.damageType) + attackDamage.defaultDamage;
   }
-  if (attack.minDamage) {
+  if (attack.minDamage && attack.minDamage > 1) {
     damage += `, min dmg ${attack.minDamage}`;
   }
   if (attack.damageModifier) {
