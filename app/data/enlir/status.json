@@ -326,7 +326,8 @@
     "exclusiveStatus": [
       "All \"Retaliate\" status",
       "Rage",
-      "Green Cherry"
+      "Green Cherry",
+      "Ability Berserk"
     ],
     "codedName": "CONFUSION",
     "notes": null
@@ -1573,7 +1574,9 @@
     "exclusiveStatus": [
       "All \"Retaliate\" status",
       "Rage",
-      "Green Cherry"
+      "Green Cherry",
+      "Ability Berserk",
+      "Confuse"
     ],
     "codedName": "BERSERKER",
     "notes": null
@@ -2647,6 +2650,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHANGE_CAST_TIME_MAX_15000_MSEC_MACHINIST",
+    "notes": null
+  },
+  {
+    "id": 2258,
+    "name": "High Quick Cast 3",
+    "effects": "Cast speed x3.00, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_300_3_ALL",
     "notes": null
   },
   {
@@ -4833,6 +4847,28 @@
     "notes": null
   },
   {
+    "id": 282162,
+    "name": "Magical +30% Boost 1",
+    "effects": "Magical attacks deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_MAGIC_ATTACK_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282163,
+    "name": "Physical +30% Boost 1",
+    "effects": "Physical attacks deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_PHYSICAL_ATTACK_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
     "id": 282200,
     "name": "Earth +30% Boost 3",
     "effects": "Earth abilities deal 30% more damage, lasts for 3 turns",
@@ -4932,6 +4968,50 @@
     "notes": null
   },
   {
+    "id": 282210,
+    "name": "Fire +30% Boost 1",
+    "effects": "Fire attacks deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_FIRE_ATTACK_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282211,
+    "name": "Fire +50% Boost 1",
+    "effects": "Fire attacks deal 50% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_FIRE_ATTACK_LARGE_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282212,
+    "name": "Fire +70% Boost 1",
+    "effects": "Fire attacks deal 70% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_FIRE_ATTACK_EXTRA_LARGE_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282214,
+    "name": "Fire +40% Boost 1",
+    "effects": "Fire attacks deal 40% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_FIRE_ATTACK_EXTRA_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
     "id": 283,
     "name": "Steiner Trance",
     "effects": "ATK and DEF +25%, increases Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark and Poison damage dealt by 25%",
@@ -4962,6 +5042,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 283059,
+    "name": "Prismatic +50% Boost",
+    "effects": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark and Poison attacks deal 50% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_ALL_ELEMENTS_LARGE_TIME_15000",
     "notes": null
   },
   {
@@ -5313,6 +5404,325 @@
     "notes": null
   },
   {
+    "id": 3001,
+    "name": "Dualcast Fire 1",
+    "effects": "Dualcasts the next Fire ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_ELEMENT_FIRE_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3002,
+    "name": "Dualcast Ice 1",
+    "effects": "Dualcasts the next Ice ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_ELEMENT_ICE_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3003,
+    "name": "Dualcast Lightning 1",
+    "effects": "Dualcasts the next Lightning ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_ELEMENT_LIGHTNING_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3004,
+    "name": "Dualcast Earth 1",
+    "effects": "Dualcasts the next Earth ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_ELEMENT_EARTH_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3005,
+    "name": "Dualcast Wind 1",
+    "effects": "Dualcasts the next Wind ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_ELEMENT_WIND_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3006,
+    "name": "Dualcast Water 1",
+    "effects": "Dualcasts the next Water ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_ELEMENT_WATER_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3007,
+    "name": "Dualcast Holy 1",
+    "effects": "Dualcasts the next Holy ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_ELEMENT_HOLY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3008,
+    "name": "Dualcast Dark 1",
+    "effects": "Dualcasts the next Dark ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_ELEMENT_DARK_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3009,
+    "name": "Dualcast Poison 1",
+    "effects": "Dualcasts the next Poison ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_ELEMENT_POISON_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3011,
+    "name": "Dualcast Black Magic 1",
+    "effects": "Dualcasts the next Black Magic ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_BLACK_MAGIC_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3012,
+    "name": "Dualcast White Magic 1",
+    "effects": "Dualcasts the next White Magic ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_WHITE_MAGIC_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3013,
+    "name": "Dualcast Summoning 1",
+    "effects": "Dualcasts the next Summoning ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_SUMMONING_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3014,
+    "name": "Dualcast Spellblade 1",
+    "effects": "Dualcasts the next Spellblade ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_SPELLBLADE_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3015,
+    "name": "Dualcast Combat 1",
+    "effects": "Dualcasts the next Combat ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_COMBAT_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3016,
+    "name": "Dualcast Support 1",
+    "effects": "Dualcasts the next Support ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_SUPPORT_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3017,
+    "name": "Dualcast Celerity 1",
+    "effects": "Dualcasts the next Celerity ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_CELERITY_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3018,
+    "name": "Dualcast Dragoon 1",
+    "effects": "Dualcasts the next Dragoon ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_DRAGOON_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3019,
+    "name": "Dualcast Monk 1",
+    "effects": "Dualcasts the next Monk ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_MONK_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3020,
+    "name": "Dualcast Thief 1",
+    "effects": "Dualcasts the next Thief ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_THIEF_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3021,
+    "name": "Dualcast Knight 1",
+    "effects": "Dualcasts the next Knight ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_KNIGHT_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3022,
+    "name": "Dualcast Samurai 1",
+    "effects": "Dualcasts the next Samurai ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_SAMURAI_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3023,
+    "name": "Dualcast Ninja 1",
+    "effects": "Dualcasts the next Ninja ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_NINJA_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3024,
+    "name": "Dualcast Bard 1",
+    "effects": "Dualcasts the next Bard ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_BARD_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3025,
+    "name": "Dualcast Dancer 1",
+    "effects": "Dualcasts the next Dancer ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_DANCER_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3026,
+    "name": "Dualcast Machinist 1",
+    "effects": "Dualcasts the next Machinist ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_MACHINIST_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3027,
+    "name": "Dualcast Darkness 1",
+    "effects": "Dualcasts the next Darkness ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_DARKNESS_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3028,
+    "name": "Dualcast Sharpshooter 1",
+    "effects": "Dualcasts the next Sharpshooter ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_SHOOTER_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3029,
+    "name": "Dualcast Witch 1",
+    "effects": "Dualcasts the next Witch ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_WITCH_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3030,
+    "name": "Dualcast Heavy 1",
+    "effects": "Dualcasts the next Heavy ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_HEAVY_ABILITY_BY_TURN_1",
+    "notes": null
+  },
+  {
     "id": 30001,
     "name": "Bar Heal 1",
     "effects": "Healing restores 10% less HP",
@@ -5574,262 +5984,327 @@
   },
   {
     "id": 5001,
-    "name": "Soulbreak Hone Boost 1",
+    "name": "Soulbreak Hone Stat Boost 1 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +1%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_1_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5002,
-    "name": "Soulbreak Hone Boost 2",
+    "name": "Soulbreak Hone Stat Boost 2 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +2%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_2_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5003,
-    "name": "Soulbreak Hone Boost 3",
+    "name": "Soulbreak Hone Stat Boost 3 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +3%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_3_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5004,
-    "name": "Soulbreak Hone Boost 4",
+    "name": "Soulbreak Hone Stat Boost 4 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +4%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_4_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5005,
-    "name": "Soulbreak Hone Boost 5",
+    "name": "Soulbreak Hone Stat Boost 5 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +5%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_5_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5006,
-    "name": "Soulbreak Hone Boost 6",
+    "name": "Soulbreak Hone Stat Boost 6 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +6%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_6_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5007,
-    "name": "Soulbreak Hone Boost 7",
+    "name": "Soulbreak Hone Stat Boost 7 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +7%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_7_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5008,
-    "name": "Soulbreak Hone Boost 8",
+    "name": "Soulbreak Hone Stat Boost 8 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +8%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_8_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5009,
-    "name": "Soulbreak Hone Boost 9",
+    "name": "Soulbreak Hone Stat Boost 9 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +9%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_9_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5010,
-    "name": "Soulbreak Hone Boost 10",
+    "name": "Soulbreak Hone Stat Boost 10 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +10%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_10_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5011,
-    "name": "Soulbreak Hone Boost 11",
+    "name": "Soulbreak Hone Stat Boost 11 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +11%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_11_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5012,
-    "name": "Soulbreak Hone Boost 12",
+    "name": "Soulbreak Hone Stat Boost 12 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +12%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_12_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5013,
-    "name": "Soulbreak Hone Boost 13",
+    "name": "Soulbreak Hone Stat Boost 13 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +13%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_13_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5014,
-    "name": "Soulbreak Hone Boost 14",
+    "name": "Soulbreak Hone Stat Boost 14 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +14%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_14_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5015,
-    "name": "Soulbreak Hone Boost 15",
+    "name": "Soulbreak Hone Stat Boost 15 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +15%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_15_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5016,
-    "name": "Soulbreak Hone Boost 16",
+    "name": "Soulbreak Hone Stat Boost 16 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +16%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_16_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5017,
-    "name": "Soulbreak Hone Boost 17",
+    "name": "Soulbreak Hone Stat Boost 17 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +17%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_17_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5018,
-    "name": "Soulbreak Hone Boost 18",
+    "name": "Soulbreak Hone Stat Boost 18 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +18%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_18_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5019,
-    "name": "Soulbreak Hone Boost 19",
+    "name": "Soulbreak Hone Stat Boost 19 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +19%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_19_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
     "id": 5020,
-    "name": "Soulbreak Hone Boost 20",
+    "name": "Soulbreak Hone Stat Boost 20 Medium",
     "effects": "ATK, DEF, MAG, RES and MND +20%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"Soulbreak Hone Boost\""
+      "All other \"Soulbreak Hone Stat Boon X\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_20_WITH_DURATION_MEDIUM_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5021,
+    "name": "Soulbreak Hone Stat Boon 1 Long",
+    "effects": "ATK, DEF, MAG, RES and MND +1%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Stat Boon X\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_1_WITH_DURATION_LARGE_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5024,
+    "name": "Soulbreak Hone Stat Boon 4 Long",
+    "effects": "ATK, DEF, MAG, RES and MND +4%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Stat Boon X\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_4_WITH_DURATION_LARGE_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5026,
+    "name": "Soulbreak Hone Stat Boon 6 Long",
+    "effects": "ATK, DEF, MAG, RES and MND +6%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Stat Boon X\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_6_WITH_DURATION_LARGE_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5028,
+    "name": "Soulbreak Hone Stat Boon 8 Long",
+    "effects": "ATK, DEF, MAG, RES and MND +8%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Stat Boon X\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_8_WITH_DURATION_LARGE_FOR_CHOREN_EFFECT",
+    "notes": null
+  },
+  {
+    "id": 5030,
+    "name": "Soulbreak Hone Stat Boon 10 Long",
+    "effects": "ATK, DEF, MAG, RES and MND +10%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"Soulbreak Hone Stat Boon X\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_10_WITH_DURATION_LARGE_FOR_CHOREN_EFFECT",
     "notes": null
   },
   {
@@ -9364,7 +9839,7 @@
   {
     "id": 50331,
     "name": "Elbow Follow-Up",
-    "effects": "Casts Elbow after using a Earth or Holy attack",
+    "effects": "Casts Elbow Blow after using a Earth or Holy attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9375,7 +9850,7 @@
   {
     "id": 50335,
     "name": "Mog Follow-Up",
-    "effects": "Casts Mog Magic after using a Black Magic or Summoning ability, casts Mog Heal after using a White Magic ability",
+    "effects": "Casts Moogle Magic after using a Black Magic or Summoning ability, casts Moogle Heal after using a White Magic ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9529,7 +10004,7 @@
   {
     "id": 50349,
     "name": "Damage Cap +10000",
-    "effects": "Increases the damage cap by 10000",
+    "effects": "Increases the damage/healing cap by 10000",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -9540,7 +10015,7 @@
   {
     "id": 50350,
     "name": "Damage Cap +20000",
-    "effects": "Increases the damage cap by 20000",
+    "effects": "Increases the damage/healing cap by 20000",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10764,8 +11239,8 @@
   },
   {
     "id": 50462,
-    "name": "True Greased Lightning Mode",
-    "effects": "Grants True Greased Lightning 0/1/2/3 after using a Monk ability",
+    "name": "Windborn Swiftness Mode",
+    "effects": "Grants Windborn Swiftness 0/1/2/3 after using a Monk ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -10775,52 +11250,52 @@
   },
   {
     "id": 50463,
-    "name": "True Greased Lightning 0",
-    "effects": "Grants True Greased Lightning 1, removed if the user hasn't True Greased Lightning Mode",
+    "name": "Windborn Swiftness 0",
+    "effects": "Grants Windborn Swiftness 1, removed if the user hasn't Windborn Swiftness Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"True Greased Lightning X\" status"
+      "All other \"Windborn Swiftness X\" status"
     ],
     "codedName": "ORTH_LIGHTNING_STORM_MODE_GRADE_0",
     "notes": null
   },
   {
     "id": 50464,
-    "name": "True Greased Lightning 1",
-    "effects": "Monk abilities deal 10% more damage, cast speed x2.00, grants True Greased Lightning 2, removed if the user hasn't True Greased Lightning Mode",
+    "name": "Windborn Swiftness 1",
+    "effects": "Monk abilities deal 10% more damage, cast speed x2.00, grants Windborn Swiftness 2, removed if the user hasn't Windborn Swiftness Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"True Greased Lightning X\" status"
+      "All other \"Windborn Swiftness X\" status"
     ],
     "codedName": "ORTH_LIGHTNING_STORM_MODE_GRADE_1",
     "notes": null
   },
   {
     "id": 50465,
-    "name": "True Greased Lightning 2",
-    "effects": "Monk abilities deal 20% more damage, cast speed x3.00, grants True Greased Lightning 3, removed if the user hasn't True Greased Lightning Mode",
+    "name": "Windborn Swiftness 2",
+    "effects": "Monk abilities deal 20% more damage, cast speed x3.00, grants Windborn Swiftness 3, removed if the user hasn't Windborn Swiftness Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"True Greased Lightning X\" status"
+      "All other \"Windborn Swiftness X\" status"
     ],
     "codedName": "ORTH_LIGHTNING_STORM_MODE_GRADE_2",
     "notes": null
   },
   {
     "id": 50466,
-    "name": "True Greased Lightning 3",
-    "effects": "Monk abilities deal 30% more damage, cast speed x4.00, grants True Greased Lightning 3, removed if the user hasn't True Greased Lightning Mode",
+    "name": "Windborn Swiftness 3",
+    "effects": "Monk abilities deal 30% more damage, cast speed x4.00, grants Windborn Swiftness 3, removed if the user hasn't Windborn Swiftness Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All other \"True Greased Lightning X\" status"
+      "All other \"Windborn Swiftness X\" status"
     ],
     "codedName": "ORTH_LIGHTNING_STORM_MODE_GRADE_3",
     "notes": null
@@ -11388,7 +11863,7 @@
   },
   {
     "id": 50523,
-    "name": "Awoken Flash Wind",
+    "name": "Awoken Zephyr",
     "effects": "Wind abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, cast speed x9999999 for Wind abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11743,8 +12218,8 @@
   },
   {
     "id": 50555,
-    "name": "Royal Archives' Teachings Follow-Up",
-    "effects": "Casts Royal Archives' Teachings after using 3 Black Magic or Summoning abilities",
+    "name": "Archivist's Teachings Follow-Up",
+    "effects": "Casts Archivist's Teachings after using 3 Black Magic or Summoning abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11754,7 +12229,7 @@
   },
   {
     "id": 50556,
-    "name": "Awoken Royal Archives",
+    "name": "Awoken Archivist",
     "effects": "Black Magic and Summoning abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, cast speed x9999999 for Black Magic and Summoning abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11765,8 +12240,8 @@
   },
   {
     "id": 50557,
-    "name": "Awoken Heart",
-    "effects": "White Magic and Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for White Magic and Support abilities at ability rank 1/2/3/4/5, casts Merciful Prayer after using a White Magic or Support ability",
+    "name": "Awoken Empath",
+    "effects": "White Magic and Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for White Magic and Support abilities at ability rank 1/2/3/4/5, casts Selfless Prayer after using a White Magic or Support ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11776,8 +12251,8 @@
   },
   {
     "id": 50558,
-    "name": "Darkness Storm Follow-Up",
-    "effects": "Casts Darkness Storm after using a Wind attack",
+    "name": "Storm of Darkness Follow-Up",
+    "effects": "Casts Storm of Darkness after using a Wind attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11787,8 +12262,8 @@
   },
   {
     "id": 50559,
-    "name": "Magitek Lance Expert Mode",
-    "effects": "Grants Magitek Lance Expert 1/2/3/4 after using 1/2/3/4+ Dragoon abilities",
+    "name": "Lance Mastery Mode",
+    "effects": "Grants Lance Mastery 1/2/3/4 after using 1/2/3/4+ Dragoon abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11798,53 +12273,53 @@
   },
   {
     "id": 50560,
-    "name": "Magitek Lance Expert 1",
-    "effects": "Critical chance =30%, removed if the user hasn't Magitek Lance Expert 0",
+    "name": "Lance Mastery 1",
+    "effects": "Critical chance =30%, removed if the user hasn't Lance Mastery 0",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "Magitek Lance Expert 2",
-      "Magitek Lance Expert 3",
-      "Magitek Lance Expert 4"
+      "Lance Mastery 2",
+      "Lance Mastery 3",
+      "Lance Mastery 4"
     ],
     "codedName": "MASTERED_MAGIC_SPEAR_MODE_LEVEL_1",
     "notes": null
   },
   {
     "id": 50561,
-    "name": "Magitek Lance Expert 2",
-    "effects": "Critical chance =50%, removed if the user hasn't Magitek Lance Expert 0",
+    "name": "Lance Mastery 2",
+    "effects": "Critical chance =50%, removed if the user hasn't Lance Mastery 0",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "Magitek Lance Expert 1",
-      "Magitek Lance Expert 2",
-      "Magitek Lance Expert 4"
+      "Lance Mastery 1",
+      "Lance Mastery 2",
+      "Lance Mastery 4"
     ],
     "codedName": "MASTERED_MAGIC_SPEAR_MODE_LEVEL_2",
     "notes": null
   },
   {
     "id": 50562,
-    "name": "Magitek Lance Expert 3",
-    "effects": "Critical chance =75%, removed if the user hasn't Magitek Lance Expert 0",
+    "name": "Lance Mastery 3",
+    "effects": "Critical chance =75%, removed if the user hasn't Lance Mastery 0",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "Magitek Lance Expert 1",
-      "Magitek Lance Expert 2",
-      "Magitek Lance Expert 3"
+      "Lance Mastery 1",
+      "Lance Mastery 2",
+      "Lance Mastery 3"
     ],
     "codedName": "MASTERED_MAGIC_SPEAR_MODE_LEVEL_3",
     "notes": null
   },
   {
     "id": 50563,
-    "name": "Magitek Lance Expert 4",
-    "effects": "Critical chance =100%, removed if the user hasn't Magitek Lance Expert 0",
+    "name": "Lance Mastery 4",
+    "effects": "Critical chance =100%, removed if the user hasn't Lance Mastery 0",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11854,7 +12329,7 @@
   },
   {
     "id": 50564,
-    "name": "Awoken Spark",
+    "name": "Awoken Stormborn",
     "effects": "Celerity and Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Celerity and Support abilities at ability rank 1/2/3/4/5, casts Technical Rush after using a Celerity or Support ability",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11876,8 +12351,8 @@
   },
   {
     "id": 50566,
-    "name": "Wind's Intuition Follow-Up",
-    "effects": "Casts Wind's Intuition after using two Wind attacks",
+    "name": "Enlightening Breeze Follow-Up",
+    "effects": "Casts Enlightening Breeze after using two Wind attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11887,8 +12362,8 @@
   },
   {
     "id": 50567,
-    "name": "Thunder Bullet Follow-Up",
-    "effects": "Casts Thunder Bullet 1/2 after using 1/2 + 2n Lightning attacks",
+    "name": "Thunder Barret Follow-Up",
+    "effects": "Casts Thunder Barret 1/2 after using 1/2 + 2n Lightning attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11920,7 +12395,7 @@
   },
   {
     "id": 50570,
-    "name": "Awoken Flash Earth",
+    "name": "Awoken Primordial",
     "effects": "Earth abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, cast speed x9999999 for Earth abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -11931,8 +12406,8 @@
   },
   {
     "id": 50572,
-    "name": "Planet Creator Mode",
-    "effects": "Earth attacks deal 50% more damage, casts Planet Apocalypse after using five Earth attacks",
+    "name": "Starforge Mode",
+    "effects": "Earth attacks deal 50% more damage, casts Grand Apocalypse after using five Earth attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11975,8 +12450,8 @@
   },
   {
     "id": 50576,
-    "name": "Anger Heat Up Mode",
-    "effects": "Fire attacks deal 15/30/50/75% more damage after using 1/2/3/4 Fire attacks, casts Flame Bomber after using four Fire attacks",
+    "name": "Kindling Rage Mode",
+    "effects": "Fire attacks deal 15/30/50/75% more damage after using 0/1/2/3 Fire attacks, casts Flame Bomber after using four Fire attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -11997,8 +12472,8 @@
   },
   {
     "id": 50578,
-    "name": "Savage Thunderstrike Follow-Up",
-    "effects": "Casts Savage Thunderstrike after using three Lightning attacks",
+    "name": "Thunderous Squall Follow-Up",
+    "effects": "Casts Thunderous Squall after using three Lightning attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12041,8 +12516,8 @@
   },
   {
     "id": 50583,
-    "name": "Pope's Fragment Follow-Up",
-    "effects": "Casts Pope's Fragment after using two White Magic abilities",
+    "name": "Glimpse of Divinity Follow-Up",
+    "effects": "Casts Glimpse of Divinity after using two White Magic abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12206,7 +12681,7 @@
   },
   {
     "id": 50600,
-    "name": "Magitek Lance Expert 0",
+    "name": "Lance Mastery 0",
     "effects": "Cast speed x2.00",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12217,7 +12692,7 @@
   },
   {
     "id": 50601,
-    "name": "Awoken Kindness",
+    "name": "Awoken Altruist",
     "effects": "Holy and Water abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Holy and Water abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12250,8 +12725,8 @@
   },
   {
     "id": 50604,
-    "name": "Gentleman's Thunder Follow-Up",
-    "effects": "Casts Gentleman's Thunder after using a Lightning attack",
+    "name": "Gentle Thunder Follow-Up",
+    "effects": "Casts Gentle Thunder after using a Lightning attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12261,7 +12736,7 @@
   },
   {
     "id": 50605,
-    "name": "Awoken Priestess",
+    "name": "Awoken Maiden",
     "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities, grants HP Stock (500/1000/1500/2000/3000) to all allies after using White Magic or Bard abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12339,14 +12814,16 @@
   {
     "id": 50613,
     "name": "Ability Berserk",
-    "effects": "Forces a random available action, excluding Defend, affects targeting, Berserk, Confuse, Paralyze, Stop are prioritized",
+    "effects": "Forces a random available action, excluding Defend, affects targeting, Berserk, Confuse, Paralyze, Stop are prioritized, will remove any Active Targeting upon selecting the random action",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
       "All \"Retaliate\" status",
       "Rage",
-      "Green Cherry"
+      "Green Cherry",
+      "Berserk",
+      "Confuse"
     ],
     "codedName": "ABILITY_BERSERKER",
     "notes": null
@@ -13562,7 +14039,7 @@
   {
     "id": 50737,
     "name": "Awoken Dignified Lineage",
-    "effects": "Holy abilities don't consume uses, dualcasts Holy abilities, grants Damage Reduction Barrier 10/15/20/30/40% 1 to all allies after using a Holy ability at ability rank 1/2/3/4/5",
+    "effects": "Holy abilities don't consume uses, dualcasts Holy abilities, grants 10/15/20/30/40% Damage Reduction Barrier 1 to all allies after using a Holy ability at ability rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13661,7 +14138,7 @@
   {
     "id": 50748,
     "name": "Stroke of Talent Follow-Up",
-    "effects": "Casts Stroke of Talen after using two Dark attacks",
+    "effects": "Casts Stroke of Talent after using two Dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13714,6 +14191,28 @@
     "notes": null
   },
   {
+    "id": 50753,
+    "name": "Swordsaint Judgment Blade Follow-Up",
+    "effects": "After using Saintly Gleam two times, grants Instant Cast 1, grants Instant ATB 1 if the user has Thunder God's Might, removes Thunder God's Might",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SACRED_SWORD_SKILL",
+    "notes": null
+  },
+  {
+    "id": 50754,
+    "name": "Holy Combo Follow-Up",
+    "effects": "Grants Physical High Quick Cast 1 to all allies in the front row after using a Knight ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_HOLY_BLADE_COMBO",
+    "notes": null
+  },
+  {
     "id": 50755,
     "name": "Twin Element Mode III (Exdeath)",
     "effects": "Grants Attach Dark/Holy 2 with Stacking after using a Dark/Holy ability, lasts 1 turn",
@@ -13733,6 +14232,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CRAVING_EMPTINESS_MODE",
+    "notes": null
+  },
+  {
+    "id": 50757,
+    "name": "Undefeated Sword Master Mode",
+    "effects": "Grants Attach Holy after using a Holy ability, grants Attach Dark after using a Dark ability, grants Attach Earth after using a Earth ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "UNDEFEATED_SWORD_MASTER_MODE",
     "notes": null
   },
   {
@@ -13934,6 +14444,17 @@
     "notes": null
   },
   {
+    "id": 50776,
+    "name": "Drain Blade Follow-Up",
+    "effects": "Casts Drain Blade 1/2/3 after using two Dark abilities if the user's HP are at least 100/80/0%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_OBSTINACY_BLACK_BLADE",
+    "notes": null
+  },
+  {
     "id": 50777,
     "name": "Shadow Chaser Follow-Up",
     "effects": "Casts Shadow Chaser after using Shadow Drive, removed if user hasn't Synchro Mode",
@@ -13942,6 +14463,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_ABILITY_USE_COUNT_SHADOW_BLAZER",
+    "notes": null
+  },
+  {
+    "id": 50778,
+    "name": "Soul Break Gauge -250",
+    "effects": "Removes 250 SB points when set",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DECREASE_SS_POINT_WHEN_SET_GAUGE_1",
     "notes": null
   },
   {
@@ -13956,6 +14488,204 @@
     "notes": null
   },
   {
+    "id": 50780,
+    "name": "Path of Might",
+    "effects": "Grants Dualcast Monk 1 to the user after using two Monk attacks",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ROAD_OF_MAN",
+    "notes": null
+  },
+  {
+    "id": 50781,
+    "name": "Awoken Ruler's Pride",
+    "effects": "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, grants Physical Blink 1 and Magical Blink 1 to all allies after using two Support abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_KASHUAN",
+    "notes": null
+  },
+  {
+    "id": 50782,
+    "name": "Sacrificial Love Follow-Up",
+    "effects": "Casts Sacrificial Love after using two Spellblade abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_KING_SWORD_OF_KASHUAN",
+    "notes": null
+  },
+  {
+    "id": 50783,
+    "name": "Hundred Knights Slayer Mode",
+    "effects": "Removed when HP fall below 20%, casts Hundred Knights Slayer when removed",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "HUNDRED_SLASH_MODE",
+    "notes": null
+  },
+  {
+    "id": 50784,
+    "name": "Awoken Unfortunate Girl",
+    "effects": "White Magic and Summoning abilities don't consume uses, cast speed x3.00 for White Magic and Summoning abilities, grants HP Stock (500/1000/1500/2000/3000) after using White Magic or Summoning abilities at rank 1/2/3/4/5",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_UNHAPPY_GIRL",
+    "notes": null
+  },
+  {
+    "id": 50785,
+    "name": "Awoken Multitalent",
+    "effects": "Dancer and Bard abilities don't consume uses, cast speed x3.00 for Dancer and Bard abilities, grants 10/15/20/30/40% Damage Reduction Barrier 1 to all allies after using Dancer or Bard abilities at rank 1/2/3/4/5",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_TALENT",
+    "notes": null
+  },
+  {
+    "id": 50786,
+    "name": "Sorrow of Loss Follow-Up",
+    "effects": "Casts Love of Restoration after using a Support attack, casts Sorrow of Loss after using a Support attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_KING_SHIELD_OF_KASHUAN",
+    "notes": null
+  },
+  {
+    "id": 50787,
+    "name": "Awoken Tantalus",
+    "effects": "Wind and Poison abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Wind and Poison abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_TANTALUS",
+    "notes": null
+  },
+  {
+    "id": 50788,
+    "name": "Twin Element Mode (Wind/Poison)",
+    "effects": "Grants Attach Wind after using a Wind ability, grants Attach Poison after using an Poison ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_WIND_AND_POISON",
+    "notes": null
+  },
+  {
+    "id": 50789,
+    "name": "Twin Element Mode II (Wind/Poison)",
+    "effects": "Grants Attach Wind/Poison with Stacking after using a Wind/Poison ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_II_WIND_AND_POISON",
+    "notes": null
+  },
+  {
+    "id": 50790,
+    "name": "Heals +30% Boost 1",
+    "effects": "Increases healing done by 30%, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_HEAL_WHITE_MAGIC_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 50791,
+    "name": "Damage Cap +80000 1",
+    "effects": "Increases the damage cap by 80000, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_DAMAGE_THRESHOLD_LV_8_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 50792,
+    "name": "Quick ATB",
+    "effects": "Increase ATB charge speed by 2.00, removed if user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ATB_TIME_FACTOR_HASTE_WHILE_SYNCHRO_MODE",
+    "notes": null
+  },
+  {
+    "id": 50793,
+    "name": "Awoken Double Job",
+    "effects": "White Magic and Dancer abilities don't consume uses, dualcasts White Magic and Dancer abilities, grants HP Stock (500/1000/1500/2000/3000) after using White Magic and Dancer abilities at rank 1/2/3/4/5",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_WJOB",
+    "notes": null
+  },
+  {
+    "id": 50794,
+    "name": "Last Resort Mode",
+    "effects": "Fire abilities deal 30% more damage, cast speed x9999999 for Fire abilities, damages the user for 25% max HP after using Fire abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "LAST_SECRET_MODE",
+    "notes": null
+  },
+  {
+    "id": 50795,
+    "name": "Umbral Freeze Follow-Up",
+    "effects": "Grants Instant Cast 1 and Ice +50% Boost to the user after using two Summoning abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_PERMA_FROST",
+    "notes": null
+  },
+  {
+    "id": 50796,
+    "name": "Astral Flare Follow-Up",
+    "effects": "Grants Fire +30/40/50% Boost 1 after using 2/4/6 Fire abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_HENOKIENS_DISPARE",
+    "notes": null
+  },
+  {
+    "id": 50797,
+    "name": "Bonds of Wind Follow-Up",
+    "effects": "Grants Attach Wind after using Blowing Winds or Still Winds three times",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_WIND_BOND",
+    "notes": null
+  },
+  {
     "id": 508,
     "name": "Retaliate",
     "effects": "Can't be hit by PHY attacks, counters PHY attacks with Attack",
@@ -13964,6 +14694,61 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "COUNTER_AIMING",
+    "notes": null
+  },
+  {
+    "id": 50800,
+    "name": "Fated Burn Finisher",
+    "effects": "Casts Fated Burn when removed, removed if user hasn't Awoken Fire",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "END_OF_FRAME_MODE",
+    "notes": null
+  },
+  {
+    "id": 50807,
+    "name": "??? Counter",
+    "effects": "?",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "USED_ABILITY_COUNTER_REQUIEM_OF_KAMUY",
+    "notes": null
+  },
+  {
+    "id": 50816,
+    "name": "Dashing Glow Follow-Up",
+    "effects": "Grants Attach Holy and Minor Buff Holy to the user after using two Holy abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ELEGANT_DRIVE",
+    "notes": null
+  },
+  {
+    "id": 50817,
+    "name": "Sorrow of Loss Counter",
+    "effects": "Keeps track of the number of casts of Sorrow of Loss",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "USED_ABILITY_COUNTER_SORROW_OF_RUINED_COUNTRY",
+    "notes": null
+  },
+  {
+    "id": 50819,
+    "name": "Goddess Sniper",
+    "effects": "Modifies behavior of Etro Shot, removed when user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "GODDESS_ARCHER_MODE",
     "notes": null
   },
   {
@@ -15025,7 +15810,7 @@
   },
   {
     "id": 6009,
-    "name": "",
+    "name": "MAG and DEF -15%",
     "effects": "MAG +15%, DEF -15%",
     "defaultDuration": null,
     "mndModifier": null,
@@ -15047,7 +15832,7 @@
   },
   {
     "id": 6010,
-    "name": "",
+    "name": "MAG and RES -15%",
     "effects": "MAG +15%, RES -15%",
     "defaultDuration": null,
     "mndModifier": null,
@@ -15069,7 +15854,7 @@
   },
   {
     "id": 6012,
-    "name": "",
+    "name": "ATK and DEF -15%",
     "effects": "ATK +15%, DEF -15%",
     "defaultDuration": null,
     "mndModifier": null,
@@ -15124,7 +15909,7 @@
   },
   {
     "id": 6017,
-    "name": "",
+    "name": "MAG +30% and DEF -15%",
     "effects": "MAG +30%, DEF -15%",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -15190,7 +15975,7 @@
   },
   {
     "id": 6022,
-    "name": "",
+    "name": "MAG +30% and RES +50%",
     "effects": "MAG +30%, RES +50%",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -15332,7 +16117,7 @@
   {
     "id": 6036,
     "name": "Short 50% Critical",
-    "effects": "Critical hits deal 50% more damage (additive with the base critical coefficient)",
+    "effects": "Critical chance =50%",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15360,6 +16145,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_PARAM_MULTI_ATK_30_MATK_30_MND_30",
+    "notes": null
+  },
+  {
+    "id": 6039,
+    "name": "DEF -15%, RES -15% and MND +50%",
+    "effects": "DEF and RES -15%, MND +50%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_PARAM_MULTI_DEF_M15_MDEF_M15_MND_50_WITH_DURATION_LARGE",
     "notes": null
   },
   {
@@ -15507,13 +16303,24 @@
   },
   {
     "id": 611131,
-    "name": "ATK and DEF -50%",
+    "name": "ATK and DEF -50% Short",
     "effects": "ATK and DEF -50%",
     "defaultDuration": 8,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_ATK_DEF_M50_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 611132,
+    "name": "ATK and DEF -50% Medium",
+    "effects": "ATK and DEF -50%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_M50_WITH_DURATION_MEDIUM_15000",
     "notes": null
   },
   {
@@ -15649,6 +16456,17 @@
     "notes": null
   },
   {
+    "id": 622132,
+    "name": "MAG and RES -50% Medium",
+    "effects": "MAG and RES -50%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_MATK_MDEF_M50_WITH_DURATION_MEDIUM_15000",
+    "notes": null
+  },
+  {
     "id": 623,
     "name": "MAG and MND +X%",
     "effects": "MAG and MND +X%",
@@ -15745,6 +16563,72 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND",
+    "notes": null
+  },
+  {
+    "id": 630003,
+    "name": "ATK, DEF, MAG, RES and MND +10% Long",
+    "effects": "ATK, DEF, MAG, RES and MND +10%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_10_WITH_DURATION_LARGE_25000",
+    "notes": null
+  },
+  {
+    "id": 630013,
+    "name": "ATK, DEF, MAG, RES and MND +20% Long",
+    "effects": "ATK, DEF, MAG, RES and MND +20%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_20_WITH_DURATION_LARGE_25000",
+    "notes": null
+  },
+  {
+    "id": 630023,
+    "name": "ATK, DEF, MAG, RES and MND +30% Long",
+    "effects": "ATK, DEF, MAG, RES and MND +30%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_30_WITH_DURATION_LARGE_25000",
+    "notes": null
+  },
+  {
+    "id": 630033,
+    "name": "ATK, DEF, MAG, RES and MND +40% Long",
+    "effects": "ATK, DEF, MAG, RES and MND +40%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_40_WITH_DURATION_LARGE_25000",
+    "notes": null
+  },
+  {
+    "id": 630043,
+    "name": "ATK, DEF, MAG, RES and MND +50% Long",
+    "effects": "ATK, DEF, MAG, RES and MND +50%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_50_WITH_DURATION_LARGE_25000",
+    "notes": null
+  },
+  {
+    "id": 630131,
+    "name": "ATK, DEF, MAG, RES and MND -50% Short",
+    "effects": "ATK, DEF, MAG, RES and MND -50%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_M50_WITH_DURATION_SMALL_8000",
     "notes": null
   },
   {
@@ -15944,6 +16828,16 @@
     "exclusiveStatus": null,
     "codedName": "CUSTOM_DEF_MDEF_MND",
     "notes": null
+  },
+  {
+    "id": 646033,
+    "name": "DEF, RES and MND +50% Long",
+    "effects": "DEF, RES and MND +50%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_DEF_MDEF_MND_50_WITH_DURATION_LARGE"
   },
   {
     "id": 646141,
@@ -18077,5 +18971,16 @@
     ],
     "codedName": "DEATH",
     "notes": null
+  },
+  {
+    "id": -1,
+    "name": "Conditional Attach Element",
+    "effects": "Grants Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison if current number of combined Attach Element statuses on party members are a majority Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison, in the case of ties the prior listed order is used to determine status granted",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "-",
+    "notes": "Placeholder status for database purposes"
   }
 ]

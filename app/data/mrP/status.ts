@@ -14,21 +14,26 @@ import {
   getEnlirOtherSkill,
   getEnlirStatusByName,
   getEnlirStatusWithPlaceholders,
+  isSoulBreak,
+  isSynchroSoulBreak,
 } from '../enlir';
 import { describeDamage, describeDamageType } from './attack';
 import * as common from './commonTypes';
 import { describeCondition } from './condition';
 import { describeRageEffects } from './rage';
-import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
+import { convertEnlirSkillToMrP, describeRecoilHp, formatMrPSkill } from './skill';
 import * as skillTypes from './skillTypes';
 import {
   formatSmartEther,
+  lowHpAlias,
   rankBoostAlias,
   rankCastSpeedAlias,
   resolveStatusAlias,
   sbPointsAlias,
   sbPointsBoosterAlias,
   statusLevelAlias,
+  statusLevelText,
+  synchroStatusLevelAlias,
 } from './statusAlias';
 import * as statusParser from './statusParser';
 import * as statusTypes from './statusTypes';
@@ -91,6 +96,9 @@ interface StatusOptions {
 }
 
 const uncertain = (isUncertain: boolean | undefined) => (isUncertain ? '?' : '');
+
+const getCastString = (value: number) =>
+  value === 2 ? 'fast' : value === 3 ? 'hi fast' : value.toString() + 'x ';
 
 export function safeParseStatus(
   status: EnlirStatus,
@@ -459,10 +467,11 @@ function formatAwoken({
   instacast,
   rankBoost,
   rankCast,
+  castSpeed,
 }: statusTypes.Awoken): string {
   const type = formatSchoolOrAbilityList('school' in awoken ? awoken.school : awoken.element);
   let result = `${type} inf. hones`;
-  // TODO: Remove redundant `${type}` below
+  // TODO: Remove redundant `${type}` below?
   if (rankBoost) {
     result += ', up to 1.3x dmg @ rank 5';
   }
@@ -474,6 +483,9 @@ function formatAwoken({
   }
   if (instacast) {
     result += `, ${type} instacast`;
+  }
+  if (castSpeed) {
+    result += `, ${type} ${getCastString(castSpeed)}cast`;
   }
   return result;
 }
@@ -507,12 +519,32 @@ function getTriggerPreposition(trigger: statusTypes.Trigger): string {
     return 'until';
   } else if (trigger.type === 'skillTriggered' || trigger.type === 'ability') {
     return 'for next';
+  } else if (trigger.type === 'lowHp') {
+    return 'once';
   } else {
     return 'for';
   }
 }
 
-function formatTrigger(trigger: statusTypes.Trigger): string {
+function getTriggerSkillAlias(skill: string, source: EnlirSkill | undefined): string {
+  if (source && isSoulBreak(source) && isSynchroSoulBreak(source) && source.character) {
+    if (
+      enlir.synchroCommandsByCharacter[source.character] &&
+      enlir.synchroCommandsByCharacter[source.character][source.name]
+    ) {
+      const index = _.findIndex(
+        enlir.synchroCommandsByCharacter[source.character][source.name],
+        i => i.name.startsWith(skill),
+      );
+      if (index !== -1) {
+        return `cmd ` + (index + 1);
+      }
+    }
+  }
+  return skill;
+}
+
+function formatTrigger(trigger: statusTypes.Trigger, source?: EnlirSkill): string {
   switch (trigger.type) {
     case 'ability':
       const count = formatTriggerCount(trigger.count);
@@ -543,21 +575,36 @@ function formatTrigger(trigger: statusTypes.Trigger): string {
     case 'loseStatus':
       return (statusLevelAlias[trigger.status] || trigger.status) + ' lost';
     case 'skill':
-      return (trigger.count ? trigger.count + ' ' : '') + arrayify(trigger.skill).join('/');
+      return (
+        (trigger.count ? trigger.count + ' ' : '') +
+        arrayify(trigger.skill)
+          .map(i => getTriggerSkillAlias(i, source))
+          .join('/')
+      );
     case 'skillTriggered':
-      return trigger.count + ' ' + (trigger.isSelfSkill ? 'times' : trigger.skill);
+      return (
+        trigger.count +
+        ' ' +
+        (trigger.isSelfSkill ? 'times' : getTriggerSkillAlias(trigger.skill, source))
+      );
     case 'damagedByAlly':
       return `take ${formatAnyType(trigger, ' ')}dmg from ally`;
     case 'singleHeal':
       return 'ally heal';
+    case 'lowHp':
+      return lowHpAlias(trigger.value);
   }
 }
 
-function addTrigger(effect: string, trigger: statusTypes.Trigger | undefined): string {
+function addTrigger(
+  effect: string,
+  trigger: statusTypes.Trigger | undefined,
+  source?: EnlirSkill,
+): string {
   if (!trigger) {
     return effect;
   } else {
-    return formatGenericTrigger(formatTrigger(trigger), effect);
+    return formatGenericTrigger(formatTrigger(trigger, source), effect);
   }
 }
 
@@ -613,9 +660,15 @@ function formatCastSkill(
   return skillText + (effect.type === 'randomCastSkill' ? ' (random)' : '');
 }
 
-function formatGrantStatus(
-  { verb, status, who, duration, condition }: statusTypes.GrantStatus,
-  trigger: statusTypes.Trigger,
+function formatGrantOrConditionalStatus(
+  {
+    verb,
+    status,
+    who,
+    duration,
+    condition,
+  }: statusTypes.GrantStatus | statusTypes.ConditionalStatus,
+  trigger: statusTypes.Trigger | null,
   enlirStatus: EnlirStatus,
   source: EnlirSkill | undefined,
 ): string {
@@ -624,7 +677,7 @@ function formatGrantStatus(
 
   if (who && who !== 'self' && who !== 'target') {
     result += whoText[who] + ' ';
-  } else if (who === 'target' && trigger.type === 'singleHeal') {
+  } else if (who === 'target' && trigger && trigger.type === 'singleHeal') {
     result += whoText['ally'] + ' ';
   } else if (!who && arrayify(status).find(i => i.chance != null)) {
     // Hack: The convention is to show chance for negative statuses.  A
@@ -639,7 +692,7 @@ function formatGrantStatus(
       if (i.status === enlirStatus.name) {
         return 'status';
       }
-      const sequence = getFollowUpStatusSequence(i.status, trigger);
+      const sequence = trigger ? getFollowUpStatusSequence(i.status, trigger) : null;
       if (sequence) {
         return describeMergedSequence(sequence);
       } else {
@@ -651,6 +704,7 @@ function formatGrantStatus(
             // Hack: Partial duplication of logic on when to append durations.
             // This is valuable to make Galuf AASB's instacast clear.
             if (
+              verb !== 'removes' &&
               !duration &&
               parsed.defaultDuration &&
               !parsed.isVariableDuration &&
@@ -700,7 +754,7 @@ function formatTriggerableEffect(
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'grantStatus':
-      return formatGrantStatus(effect, trigger, enlirStatus, source);
+      return formatGrantOrConditionalStatus(effect, trigger, enlirStatus, source);
     case 'heal':
       return whoText[effect.who] + ' heal ' + toMrPKilo(effect.fixedHp) + ' HP';
     case 'triggerChance':
@@ -709,6 +763,8 @@ function formatTriggerableEffect(
         '% for ' +
         formatTriggerableEffect(effect.effect, trigger, enlirStatus, source, abbreviate, condition)
       );
+    case 'recoilHp':
+      return describeRecoilHp(effect);
     case 'smartEther':
       return formatSmartEther(effect.amount, effect.school);
   }
@@ -761,7 +817,7 @@ function formatTriggeredEffect(
   } else {
     return (
       '(' +
-      formatTrigger(effect.trigger) +
+      formatTrigger(effect.trigger, source) +
       ' ⤇ ' +
       effects +
       condition +
@@ -858,6 +914,7 @@ function describeStatusEffect(
       return addTrigger(
         'crit =' + arrayify(effect.value).join('/') + uncertain(effect.valueIsUncertain) + '%',
         effect.trigger,
+        source,
       );
     case 'critDamage':
       return signedNumber(effect.value) + uncertain(effect.valueIsUncertain) + '% crit dmg';
@@ -901,14 +958,9 @@ function describeStatusEffect(
             .map(i => i.toString())
             .join('/') + 'x ';
       } else {
-        cast =
-          effect.value === 2
-            ? 'fast'
-            : effect.value === 3
-            ? 'hi fast'
-            : effect.value.toString() + 'x ';
+        cast = getCastString(effect.value);
       }
-      return addTrigger(formatAnyCast(effect, cast), effect.trigger);
+      return addTrigger(formatAnyCast(effect, cast), effect.trigger, source);
     }
     case 'instantAtb':
       return 'instant ATB';
@@ -1009,11 +1061,14 @@ function describeStatusEffect(
           'dmg' +
           (effect.vsWeak ? ' vs weak' : ''),
         effect.trigger,
+        source,
       );
     case 'abilityDouble':
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
     case 'dualcast':
       return effect.chance + '% dualcast' + formatElementOrSchoolList(effect, ' ');
+    case 'dualcastAbility':
+      return 'dualcast' + formatElementOrSchoolList(effect, ' ');
     case 'noAirTime':
       return 'no air time';
     case 'breakDamageCap':
@@ -1062,6 +1117,8 @@ function describeStatusEffect(
       );
     case 'triggeredEffect':
       return formatTriggeredEffect(effect, enlirStatus, source);
+    case 'conditionalStatus':
+      return formatGrantOrConditionalStatus(effect, null, enlirStatus, source);
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'sbGainUp':
@@ -1096,11 +1153,12 @@ function describeStatusEffect(
     case 'onceOnly':
       return 'once only'; // Handled at the trigger level
     case 'removedAfterTrigger':
-      return getTriggerPreposition(effect.trigger) + ' ' + formatTrigger(effect.trigger);
+      return getTriggerPreposition(effect.trigger) + ' ' + formatTrigger(effect.trigger, source);
     case 'changeStatusLevel':
       return addTrigger(
         (statusLevelAlias[effect.status] || effect.status) + ' ' + signedNumber(effect.value),
         effect.trigger,
+        source,
       );
     case 'setStatusLevel':
       if (effect.value) {
@@ -1118,6 +1176,11 @@ function describeStatusEffect(
         (statusLevelAlias[effect.status] || effect.status) +
         (!isNaN(effect.current) ? ' ' + effect.current : '')
       );
+    case 'modifiesSkill':
+      // Most of what we call "status levels" appear to be tracking SASB-only
+      // command counts or levels.  As of January 2020, the only modifiesSkill
+      // status operates similarly, so treat it as such.
+      return statusLevelText;
     case 'trackUses':
     case 'burstOnly':
     case 'burstReset':
@@ -1235,6 +1298,8 @@ export interface ParsedEnlirStatus {
   defaultDuration: number | null;
   isVariableDuration: boolean;
   specialDuration?: string;
+  // Is this a generic status level for a SASB?
+  statusLevel?: number;
 }
 
 const slashOptionsRe = /(?:(?:\w|\.)+\/)+(?:\w|\.)+/;
@@ -1263,6 +1328,27 @@ function expandSlashOptions(s: string, options?: string[] | null): string[] {
   return options.map(i => s.replace(slashOptionsRe, i));
 }
 
+/**
+ * expandSlashOptions logic specific to status names.  Check for cases where
+ * entire status names are slash-separated, like Gordon's
+ * "ATK and DEF -50% Medium/MAG and RES - 50% Medium", and normal
+ * slash-separated options, like "Imperil Fire/Ice".
+ */
+function expandStatusSlashOptions(status: string): string[] {
+  const splitStatus = status.split('/');
+  // Hack: "Do Something/Poison" probably treats "poison" as an element, not
+  // an individual status.
+  //
+  // As of January 2020, any occurrences of slash-separated statuses don't
+  // use placeholders, so we can check enlir.statusByName instead of
+  // getEnlirStatusByName.
+  if (_.every(splitStatus, i => enlir.statusByName[i] != null && i !== 'Poison')) {
+    return splitStatus;
+  } else {
+    return expandSlashOptions(status);
+  }
+}
+
 const describeAutoInterval = (autoInterval: number) => `every ${toMrPFixed(autoInterval)}s`;
 
 function isFinisherOnly(effects: statusTypes.StatusEffect): boolean {
@@ -1274,7 +1360,8 @@ function isFinisherOnly(effects: statusTypes.StatusEffect): boolean {
   );
 }
 
-const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB points$/);
+const hideUnknownStatusWarning = (status: string) =>
+  status.match(/^\d+ SB points$/) || synchroStatusLevelAlias[status] != null;
 
 /**
  * Parses a string description of an Enlir status name, returning details about
@@ -1285,6 +1372,7 @@ export function parseEnlirStatus(
   source?: EnlirSkill,
   options?: StatusOptions,
 ): ParsedEnlirStatus {
+  let statusLevel: number | undefined;
   let isUnconfirmed = false;
   if (status !== '?') {
     isUnconfirmed = status.endsWith('?');
@@ -1337,6 +1425,9 @@ export function parseEnlirStatus(
       specialDuration = specialDuration.replace(/^until /, 'when ');
     }
   }
+  if (statusEffects && statusEffects.find(i => i.type === 'modifiesSkill')) {
+    statusLevel = 1;
+  }
 
   if (isUnconfirmed) {
     description += '?';
@@ -1352,10 +1443,11 @@ export function parseEnlirStatus(
     defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
     specialDuration: specialDuration || undefined,
+    statusLevel,
   };
 }
 
-interface ParsedEnlirStatusWithSlashes extends ParsedEnlirStatus {
+export interface ParsedEnlirStatusWithSlashes extends ParsedEnlirStatus {
   optionCount?: number;
 }
 
@@ -1390,8 +1482,8 @@ export function parseEnlirStatusWithSlashes(
     const options = status.split(orList).map(i => parseEnlirStatus(i, source));
     return makeResult(options, ' or ');
   } else if (!enlirStatus && status.match('/')) {
-    // Handle slash-separated options.
-    const statusOptions = expandSlashOptions(status);
+    // Handle slash-separated status options.
+    const statusOptions = expandStatusSlashOptions(status);
     const options = [false, true].map(forceNumbers =>
       statusOptions.map(i => parseEnlirStatus(i, source, { forceNumbers })),
     );

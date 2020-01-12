@@ -1,8 +1,10 @@
+import * as _ from 'lodash';
+
 import { arrayifyLength, KeysOfType } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import { describeEnlirStatus } from './status';
-import { statusLevelAlias } from './statusAlias';
+import { statusLevelAlias, statusLevelText, vsWeak } from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import { formatNumberSlashList, formatUseCount, formatUseNumber, orList } from './util';
 
@@ -10,8 +12,9 @@ export function formatThreshold(
   thresholdValues: number | number[],
   thresholdName: string,
   units: string = '',
+  prefix: string = '',
 ): string {
-  return '@ ' + formatNumberSlashList(thresholdValues) + units + ' ' + thresholdName;
+  return '@ ' + prefix + formatNumberSlashList(thresholdValues) + units + ' ' + thresholdName;
 }
 
 export function describeMultiplierScaleType(scaleType: skillTypes.MultiplierScaleType): string {
@@ -33,11 +36,22 @@ export function describeMultiplierScaleType(scaleType: skillTypes.MultiplierScal
   }
 }
 
-function formatCountCharacters(count: number | number[], characters: string): string {
+function formatCountCharacters(
+  count: number | number[],
+  characters: string,
+  plus?: boolean,
+): string {
+  // Note: This code has stricter handling of at least / "plus" than other
+  // condition code - mostly because Marcus's AASB is complex enough to benefit
+  // from it.  Since not all conditions have implemented tracking "plus", we'll
+  // assume reasonable defaults if it's absent.
+  if (count === 1 && plus === false) {
+    return 'if ' + count + ' ' + characters.replace('chars.', 'char.');
+  }
   if (typeof count === 'number') {
-    return 'if ≥' + count + ' ' + characters;
+    return 'if ' + (plus !== false ? '≥' : '') + count + ' ' + characters;
   } else {
-    return 'if ' + formatNumberSlashList(count) + ' ' + characters;
+    return 'if ' + formatNumberSlashList(count) + (plus === true ? '+' : '') + ' ' + characters;
   }
 }
 
@@ -57,13 +71,22 @@ export function describeCondition(condition: common.Condition, count?: number | 
           ? 'a rngd wpn'
           : condition.article + ' ' + condition.equipped)
       );
-    case 'scaleWithStatusLevel':
-      // FIXME: Reimplement isOwnStatusThreshold, statusThresholdCount, commandRelatingToStatus
-      return 'if ' + condition.status;
+    case 'scaleWithStatusLevel': {
+      const status = statusLevelAlias[condition.status] || condition.status;
+      if (!count) {
+        return 'w/ ' + status;
+      } else {
+        return (
+          'w/ ' + formatNumberSlashList(_.times(arrayifyLength(count), i => i + 1)) + ' ' + status
+        );
+      }
+    }
     case 'statusLevel':
-      return formatThreshold(condition.value, 'status lvl');
+      return formatThreshold(condition.value, statusLevelText);
     case 'ifDoomed':
       return 'if Doomed';
+    case 'conditionalEnElement':
+      return 'based on party element infuse';
     case 'status':
       if (condition.who === 'self') {
         // Special case: We don't show "High Retaliate" to the user.
@@ -107,12 +130,22 @@ export function describeCondition(condition: common.Condition, count?: number | 
       return formatCountCharacters(condition.count, 'females in party');
     case 'realmCharactersInParty':
       return formatCountCharacters(condition.count, condition.realm + ' chars. in party');
+    case 'realmCharactersAlive':
+      return formatCountCharacters(
+        condition.count,
+        condition.realm + ' chars. alive',
+        condition.plus,
+      );
+    case 'charactersAlive':
+      return formatCountCharacters(condition.count, 'chars. alive');
     case 'alliesJump':
       return 'if ' + formatNumberSlashList(condition.count) + ' allies in air';
     case 'doomTimer':
       return formatThreshold(condition.value, 'sec Doom');
     case 'hpBelowPercent':
       return formatThreshold(condition.value, 'HP', '%');
+    case 'hpAtLeastPercent':
+      return formatThreshold(condition.value, 'HP', '%', '≥ ');
     case 'soulBreakPoints':
       return formatThreshold(condition.value, 'SB pts');
     case 'targetStatBreaks':
@@ -120,7 +153,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'targetStatusAilments':
       return formatThreshold(condition.count, 'statuses');
     case 'vsWeak':
-      return 'vs. weak';
+      return vsWeak;
     case 'inFrontRow':
       return 'if in front row';
     case 'hitsTaken':

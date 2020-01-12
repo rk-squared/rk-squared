@@ -4895,7 +4895,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Glittering Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5022,7 +5022,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Hero Among the Snow",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5403,7 +5403,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Hero Among the Snow",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5657,7 +5657,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Hero Among the Snow",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5784,7 +5784,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Hero Among the Snow",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -7562,7 +7562,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Glittering Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9594,7 +9594,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Seeker of the Void",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10102,7 +10102,7 @@
       "mnd": 30,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Seeker of the Void",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10229,7 +10229,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Seeker of the Void",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -20571,7 +20571,7 @@
       "heavy": 6
     },
     "id": 11100900,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -21024,7 +21024,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Glittering Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,

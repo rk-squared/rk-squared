@@ -45,25 +45,27 @@ EffectClause
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Dualcast / Dualcast100 / NoAirTime
+  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Dualcast / DualcastAbility / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal
   / Doom / DoomTimer / DrainHp
   / CounterWithImmune / Counter / RowCover
   / TriggeredEffect
+  / ConditionalStatus
   / GainSb / SbGainUp
   / Runic / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
-  / BurstToggle / TrackUses / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / NoEffect / Persists / GameOver
+  / BurstToggle / TrackUses / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze
+  / ResetTarget / NoEffect / Persists / GameOver
 
 
 // --------------------------------------------------------------------------
 // Stat mods
 
 StatMod
-  = stats:StatListOrPlaceholder _ value:SignedIntegerOrX "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
+  = stats:StatListOrPlaceholder _ value:(SignedIntegerOrX / [+-]? "?" { return NaN; }) "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
     const result = Object.assign({ type: 'statMod', stats }, value);
     if (ignoreBuffCaps) {
       result.ignoreBuffCaps = true;
@@ -208,11 +210,12 @@ Reflect
 // references to individual schools or elements.
 
 Awoken
-  = awoken:AwokenType _ ("abilities" / "attacks") _ "don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast? instacast:AwokenInstacast?
+  = awoken:AwokenType _ ("abilities" / "attacks") _ "don't consume uses" _ rankBoost:AwokenRankBoost? rankCast:AwokenRankCast? dualcast:AwokenDualcast? instacast:AwokenInstacast? castSpeed:AwokenCastSpeed?
   & { return !rankCast || util.isEqual(awoken, rankCast); }
   & { return !dualcast || util.isEqual(awoken, dualcast); }
   & { return !instacast || util.isEqual(awoken, instacast); }
-  { return { type: 'awoken', awoken, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast, instacast: !!instacast }; }
+  & { return !castSpeed || util.isEqual(awoken, castSpeed.type); }
+  { return { type: 'awoken', awoken, rankBoost: !!rankBoost, rankCast: !!rankCast, dualcast: !!dualcast, instacast: !!instacast, castSpeed: castSpeed ? castSpeed.value : undefined }; }
 
 AwokenType
   = school:SchoolAndOrList { return { school }; }
@@ -229,6 +232,9 @@ AwokenDualcast
 
 AwokenInstacast
   = ", cast speed x999" "9"* _ "for" _ type:AwokenType _ ("abilities" / "attacks") { return type; }
+
+AwokenCastSpeed
+  = ", cast speed x" value:DecimalNumber _ "for" _ type:AwokenType _ ("abilities" / "attacks") { return { type, value }; }
 
 
 // --------------------------------------------------------------------------
@@ -313,17 +319,19 @@ AltDamageUp
 AbilityDouble
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'abilityDouble' }, what); }
 
-Dualcast100
-  = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance: 100 }, what); }
-
 Dualcast
-  = chance:Integer "% chance to dualcast" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance }, what); }
+  = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance: 100 }, what); }
+  / chance:Integer "% chance to dualcast" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance }, what); }
+
+DualcastAbility
+  = "dualcasts"i _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") { return Object.assign({ type: 'dualcastAbility' }, what); }
 
 NoAirTime
   = "Changes"i _ "the air time of Jump attacks to 0.01 seconds" { return { type: 'noAirTime' }; }
 
 DamageUpType
   = ElementSchoolOrSkillTypeList
+  / "physical"i { return { skillType: 'PHY' }; }
   / "magical"i { return { magical: true }; }
   / "jump"i { return { jump: true }; }
 
@@ -338,7 +346,7 @@ BreakDamageCap
   = "Sets"i _ "the damage cap for" _ skillType:SkillTypeAndList? _ what:ElementOrSchoolList? _ "attacks to 99999" { return Object.assign({ type: 'breakDamageCap', skillType }, what); }
 
 DamageCap
-  = "Increases the damage cap by" _ value:Integer { return { type: 'damageCap', value }; }
+  = "Increases the damage" "/healing"? _ "cap by" _ value:Integer { return { type: 'damageCap', value }; }
 
 
 // --------------------------------------------------------------------------
@@ -359,6 +367,7 @@ Poison
 
 HealUp
   = "Abilities"i _ "restore" _ value:Integer "% more HP" { return { type: 'healUp', value }; }
+  / "Increases"i _ "healing done by" _ value:Integer "%" { return { type: 'healUp', value }; }
 
 Pain
   = "Take" _ value:Integer "% more damage" { return { type: 'pain', value }; }
@@ -442,9 +451,13 @@ TriggeredEffect
   = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? tail2:("," _ BareTriggerableEffect)* onceOnly:("," _ OnceOnly)? {
     return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: !!onceOnly }, condition);
   }
+  // Alternate form for complex effects - used by Orlandeau's SASB
+  / trigger:Trigger "," _ head:TriggerableEffect _ tail:("," _ TriggerableEffect)* {
+    return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2) };
+  }
 
 TriggerableEffect
-  = CastSkill / RandomCastSkill / GainSb / GrantStatus / Heal / HealChance / SmartEtherStatus
+  = CastSkill / RandomCastSkill / GainSb / GrantStatus / Heal / HealChance / RecoilHp / SmartEtherStatus
 
 BareTriggerableEffect
   = effect:TriggerableEffect ! (_ (Trigger / "and")) { return effect; }
@@ -466,6 +479,17 @@ Heal
 HealChance
   = chance:Integer "% chance to restore"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'triggerChance', chance, effect: { type: 'heal', fixedHp, who } }; }
 
+RecoilHp
+  = "damages" _ "the" _ "user" _ "for" _ damagePercent:DecimalNumberSlashList "%"
+  _ maxOrCurrent:((Maximum / "current") { return text().startsWith('max') ? 'max' : 'curr'; })
+  _ "HP" {
+    return {
+      type: 'recoilHp',
+      damagePercent,
+      maxOrCurrent,
+    };
+  }
+
 StatusWithPercent
   = status:StatusName _ chance:("(" n:Integer "%)" { return n; })? {
     if (!chance) {
@@ -480,10 +504,21 @@ StatusWithPercent
 
 
 // --------------------------------------------------------------------------
+// Conditional status - like Conditional Attach Element.  These aren't "real"
+// effects.
+
+ConditionalStatus
+  = status:GrantStatus
+  & { return status.condition != null }
+    { return Object.assign(status, { type: 'conditionalStatus' } ); }
+
+
+// --------------------------------------------------------------------------
 // Soul Break points
 
 GainSb
   = "Grants"i _ value:Integer _ "SB points" _ "when set"? { return { type: 'gainSb', value }; }
+  / "Removes"i _ value:Integer _ "SB points" _ "when set"? { return { type: 'gainSb', value: -value }; }
 
 SbGainUp
   = what:ElementOrSchoolList _ ("abilities" / "attacks") _ "grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
@@ -554,7 +589,7 @@ TurnDuration
   = "lasts" _ "for"? _ value:Integer _ "turn" "s"? { return { type: 'turnDuration', duration: { value, units: 'turns' } }; }
 
 RemovedUnlessStatus
-  = "Removed"i _ "if" _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
+  = "Removed"i _ ("if" / "when") _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
 
 // This is only processed as part of a TriggeredEffect, since it arguably
 // applies to the trigger itself.
@@ -592,8 +627,11 @@ BurstToggle
   = "Affects"i _ "certain Burst Commands" { return { type: 'burstToggle' }; }
 
 TrackUses
-  = "Keeps"i _ "track of the" _ ("number of")? _ "uses of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
+  = "Keeps"i _ "track of the" _ ("number of")? _ ("uses of" / "casts of") _ skill:AnySkillName { return { type: 'trackUses', skill }; }
   / "Used to determine the effect of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
+
+ModifiesSkill
+  = "Modifies"i _ "behavior of" _ skill:AnySkillName { return { type: 'modifiesSkill', skill }; }
 
 BurstOnly
   = "removed if the user hasn't Burst Mode" { return { type: 'burstOnly' }; }
@@ -620,6 +658,9 @@ Paralyze
   = "Arrests"i _ "ATB charge rate, can't act" ", resets ATB when set"? { return { type: 'paralyze' }; }
   / "Can't"i _ "act, resets ATB when set or removed" { return { type: 'paralyze' }; }
 
+ResetTarget
+  = "Will"i _ "remove any" _ "Active Targeting"i _ "upon selecting the random action" { return null; }
+
 NoEffect
   = "No gameplay effects" { return null; }
 
@@ -634,23 +675,30 @@ GameOver
 // Triggers
 
 Trigger
-  = "after" _ requiresDamage1:("using" / "dealing damage with") _ count:TriggerCount _ requiresDamage2:"damaging"?
-    _ element:ElementListOrOptions? _ school:SchoolList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
+  = "after"i _ requiresDamage1:("using" / "dealing damage with") _ count:TriggerCount _ requiresDamage2:"damaging"?
+    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
-  / "after dealing a critical hit" { return { type: 'crit' }; }
-  / "after exploiting elemental weakness" { return { type: 'vsWeak' }; }
-  / "when removed" { return { type: 'whenRemoved' }; }
-  / "every" _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
-  / "upon taking damage" skillType:(_ "by" _ s:SkillType _ "attack" { return s; })? { return { type: 'damaged', skillType }; }
-  / "by" _ skillType:SkillType _ "attacks" { return { type: 'damaged', skillType }; }
-  / "upon dealing damage" { return { type: 'dealDamage' }; }
-  / "when" _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
-  / ("when using" / "after using") _ skill:AnySkillName _ count:Occurrence? { return { type: 'skill', skill, count }; }
+  / "after"i _ "dealing a critical hit" { return { type: 'crit' }; }
+  / "after"i _ "exploiting elemental weakness" { return { type: 'vsWeak' }; }
+  / "when"i _ "removed" { return { type: 'whenRemoved' }; }
+  / "every"i _ interval:DecimalNumber _ "seconds" { return { type: 'auto', interval }; }
+  / "upon"i _ "taking damage" skillType:(_ "by" _ s:SkillType _ "attack" { return s; })? { return { type: 'damaged', skillType }; }
+  / "by"i _ skillType:SkillType _ "attacks" { return { type: 'damaged', skillType }; }
+  / "upon"i _ "dealing damage" { return { type: 'dealDamage' }; }
+  / "when"i _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
+  / ("when"i _ / "after"i) _ "using" _ skill:AnySkillName _ count:Occurrence? {
+    // Hack: "or" is a valid skill name, but in this context, assume it's separating synchro commands.
+    if (skill.match(/ or /)) {
+      skill = skill.split(/ or /);
+    }
+    return { type: 'skill', skill, count };
+  }
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
-  / "after using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
-  / "after taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
-  / "after using a single-target heal" { return { type: 'singleHeal' }; }
+  / "after"i _ "using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
+  / "after"i _ "taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
+  / "after"i _ "using a single-target heal" { return { type: 'singleHeal' }; }
+  / "when"i _ "HP fall" "s"? _ "below" _ value:Integer "%" { return { type: 'lowHp', value }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
@@ -694,14 +742,18 @@ Condition
     };
   }
 
+  / "if current number of combined Attach Element statuses on party members are a majority Attach" _ element:ElementSlashList _ ", in the case of ties the prior listed order is used to determine status granted" {
+    return { type: 'conditionalEnElement', element };
+  }
+
   // Beginning of attacks and skills (like Passionate Salsa)
 
   // Scaling with uses - both specific counts and generically
-  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
+  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList "+"? _ "uses" { return { type: 'scaleUseCount', useCount }; }
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
-  / "after" _ useCount:UseCount _ skill:AnySkillName _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
+  / "after" _ useCount:UseCount _ skill:AnySkillName? _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
   / "on" _ "first" _ "use" { return { type: 'afterUseCount', useCount: { from: 1, to: 1 } }; }
   / "on" _ first:Integer "+" _ "use" "s"? { return { type: 'afterUseCount', useCount: { from: first } }; }
 
@@ -712,13 +764,16 @@ Condition
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
+  / "if" _ count:IntegerSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
   / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
 
   / "if" _ "the" _ "user's" _ "Doom" _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
-  / "if" _ "the" _ "user" _ "has" _ value:IntegerSlashList _ SB _ "points" { return { type: 'soulBreakPoints', value }; }
+  / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "at" _ "least" _ value:IntegerSlashList "%" { return { type: 'hpAtLeastPercent', value }; }
+  / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashList _ SB _ "points" { return { type: 'soulBreakPoints', value }; }
 
   / "if" _ count:IntegerSlashList _ "of" _ "the" _ "target's" _ "stats" _ "are" _ "lowered" { return { type: 'targetStatBreaks', count }; }
   / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
@@ -784,13 +839,19 @@ StatusVerb
 
 StatusName "status effect"
   = (
-    // Stat mods in particular have a distinctive format.
-    ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
+    StatModStatusName ("/" StatModStatusName)*
   / GenericName
   / "?"
   ) {
     return text();
   }
+
+// Stat mods in particular have a distinctive format.
+StatModStatusName
+  = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' StatModDuration?
+
+StatModDuration
+  = _ ("Short" / "Medium" / "Long")
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName

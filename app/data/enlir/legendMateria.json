@@ -61,6 +61,18 @@
   },
   {
     "realm": "Core",
+    "character": "Tyro",
+    "name": "Young Prodigy",
+    "effect": "Increases damage dealt by 20% when exploiting elemental weakness",
+    "master": "ATK +5, MAG +5",
+    "relic": "Magic Armlet (Core)",
+    "nameJp": "英知学びし少年",
+    "id": 201000205,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "Core",
     "character": "Elarra",
     "name": "To Be Human",
     "effect": "WHT abilities restore 15% more HP",
@@ -254,14 +266,14 @@
   {
     "realm": "Core",
     "character": "Dr. Mog",
-    "name": "History Institute Leader's Potential",
+    "name": "Archives' Promise",
     "effect": "Grants Dr. Mog Trance when HP fall below 20%",
-    "master": "MND +10",
-    "relic": "Light Staff (Core)",
+    "master": "MAG +10",
+    "relic": "Staff of Light (Core)",
     "nameJp": "歴史省トップの底力",
     "id": 201004504,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -422,7 +434,7 @@
   {
     "realm": "I",
     "character": "Sarah",
-    "name": "Warrior's Ballad",
+    "name": "Warriors' Ballad",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a Bard ability",
     "master": "MND +10",
     "relic": "Princess Veil (I)",
@@ -437,7 +449,7 @@
     "name": "Windsong",
     "effect": "?% chance to grant Quick Cast 1 to the user after using a Bard ability",
     "master": "MND +10",
-    "relic": "Golden Hairpin (I)",
+    "relic": "Gold Hairpin (I)",
     "nameJp": "はやての調べ",
     "id": 201010303,
     "anima": null,
@@ -615,7 +627,7 @@
     "realm": "I",
     "character": "Matoya",
     "name": "Professional Pharmacist",
-    "effect": "25?% chance to grant Quick Cast 1 to the user after using a Witch ability",
+    "effect": "35% chance to grant Quick Cast 1 to the user after using a Witch ability",
     "master": "MAG +10",
     "relic": "Mage's Staff (I)",
     "nameJp": "優れた薬師",
@@ -1033,6 +1045,18 @@
   },
   {
     "realm": "II",
+    "character": "Gordon",
+    "name": "Inherited Spirit",
+    "effect": "25% chance to cast Inherited Spirit after using a Support ability",
+    "master": "ATK +5, MAG +5",
+    "relic": "Crimson Armlet (II)",
+    "nameJp": "継承せし気炎",
+    "id": 201020604,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "II",
     "character": "Leila",
     "name": "Mischievous Meddler",
     "effect": "PHY attacks deal 10% more damage",
@@ -1250,7 +1274,7 @@
   {
     "realm": "II",
     "character": "Emperor",
-    "name": "?",
+    "name": "Treacherous Tyrant",
     "effect": "Grants Attach Dark at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Military Bracelet (II)",
@@ -1493,7 +1517,7 @@
     "name": "The Road Ahead",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Cat-Ear Hood (III)",
+    "relic": "Cat-ear Hood (III)",
     "nameJp": "旅立ちの決意",
     "id": 201030303,
     "anima": null,
@@ -1610,14 +1634,14 @@
   {
     "realm": "III",
     "character": "Desch",
-    "name": "Wandering Stud",
+    "name": "Lovestruck Wanderer",
     "effect": "Grants Attach Lightning at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Coral Sword (III)",
     "nameJp": "流浪の伊達男",
     "id": 201030504,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -1730,14 +1754,14 @@
   {
     "realm": "III",
     "character": "Cloud of Darkness",
-    "name": "Void Aspirer",
+    "name": "Oblivion Seeker",
     "effect": "25?% chance to dualcast abilities that deal Dark damage",
     "master": "MAG +10",
-    "relic": "Darkness Bracelet (III)",
+    "relic": "Dark Armlet (III)",
     "nameJp": "虚無を望む者",
     "id": 201030704,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -1790,14 +1814,14 @@
   {
     "realm": "III",
     "character": "Aria",
-    "name": "Shipwrecked Priestess",
-    "effect": "25?% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "name": "Maiden of the Wreck",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "master": "MND +10",
     "relic": "Angel Robe (III)",
     "nameJp": "難破船に眠りし巫女",
     "id": 201030904,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -2126,14 +2150,14 @@
   {
     "realm": "IV",
     "character": "Rosa",
-    "name": "Affectionate Blessing",
+    "name": "Fruits of Kindness",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "master": "MND +10",
-    "relic": "Rosa's Hairpiece (IV)",
+    "relic": "Rosa's Tiara (IV)",
     "nameJp": "慈愛の恵み",
     "id": 201040604,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -2549,7 +2573,7 @@
     "name": "Unselfish Disposition",
     "effect": "Grants Attach Lightning at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Triton Hammer (IV)",
+    "relic": "Triton's Hammer (IV)",
     "nameJp": "世話好きな性分",
     "id": 201041503,
     "anima": null,
@@ -2775,7 +2799,7 @@
     "realm": "V",
     "character": "Lenna",
     "name": "Impartial Kindness",
-    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability, can trigger on dualcasts",
     "master": "MND +10",
     "relic": "Laurel Crown (V)",
     "nameJp": "わけへだてなき優しさ",
@@ -3173,7 +3197,7 @@
     "name": "A Granddaughter's Drive",
     "effect": "25% chance to dualcast abilities that deal Fire damage",
     "master": "MAG +10",
-    "relic": "Cat-Ear Hood (V)",
+    "relic": "Cat-ear Hood (V)",
     "nameJp": "祖父譲りの行動力",
     "id": 201051203,
     "anima": null,
@@ -4238,14 +4262,14 @@
   {
     "realm": "VII",
     "character": "Barret",
-    "name": "AVALANCHE's Leader",
+    "name": "Opposition Leader",
     "effect": "25% chance to dualcast Machinist abilities",
     "master": "ATK +10",
     "relic": "Chainsaw (VII)",
     "nameJp": "反神羅組織のリーダー",
     "id": 201070203,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -4323,7 +4347,7 @@
     "realm": "VII",
     "character": "Aerith",
     "name": "Motherly Protector",
-    "effect": "35% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
+    "effect": "35% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability, can trigger on dualcasts",
     "master": null,
     "relic": null,
     "nameJp": "星を見守る慈母",
@@ -4517,7 +4541,7 @@
     "name": "Beastly Aspect",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "master": "ATK +5, MAG +5",
-    "relic": "Gauntlet (DoC) (VII)",
+    "relic": "Gauntlet (VII)",
     "nameJp": "魔獣の因子",
     "id": 201070803,
     "anima": null,
@@ -4802,14 +4826,14 @@
   {
     "realm": "VII",
     "character": "Shelke",
-    "name": "Event Rewriter",
+    "name": "Shaper of Fate",
     "effect": "25% chance to dualcast Celerity abilities",
     "master": "ATK +10",
     "relic": "Rubber Suit (DoC) (VII)",
     "nameJp": "事象を書き換える者",
     "id": 201071903,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -6097,6 +6121,18 @@
   },
   {
     "realm": "IX",
+    "character": "Eiko",
+    "name": "Maiden in Love",
+    "effect": "15% chance to cast an ability (WHT: group, restores HP (25)) after using a Summoning ability",
+    "master": "MND +10",
+    "relic": "Jade Armlet (IX)",
+    "nameJp": "恋する乙女",
+    "id": 201090704,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "IX",
     "character": "Amarant",
     "name": "Speak Softly",
     "effect": "Increases Fire damage dealt by 10%",
@@ -7046,14 +7082,14 @@
   {
     "realm": "XI",
     "character": "Prishe",
-    "name": "Straightforward Girl",
+    "name": "Perfect Beauty",
     "effect": "Grants Quick Cast 3 at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Crow Beret (XI)",
     "nameJp": "天衣無縫な少女",
     "id": 201110403,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -7130,14 +7166,14 @@
   {
     "realm": "XI",
     "character": "Aphmau",
-    "name": "Affection for Automaton",
-    "effect": "25% chance to cast an ability (?: group, restores 1000? HP) after using a White Magic or Monk ability",
+    "name": "Automaton Affinity",
+    "effect": "25% chance to cast an ability (NAT: group, restores 1000 HP) after using a White Magic or Monk ability",
     "master": "MND +10",
     "relic": "Healing Mace (XI)",
     "nameJp": "オートマトンへの友愛",
     "id": 201110603,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -7226,38 +7262,38 @@
   {
     "realm": "XI",
     "character": "Naja",
-    "name": "Whismical One",
+    "name": "Fickle Master",
     "effect": "Increases Earth damage dealt by 10%",
     "master": null,
     "relic": null,
     "nameJp": "気まぐれなワンマン",
     "id": 201110900,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
     "character": "Naja",
-    "name": "High Class Cat President",
+    "name": "Mithra Muscle",
     "effect": "Grants Haste and Instant Cast 3 at the beginning of the battle",
     "master": null,
     "relic": null,
     "nameJp": "豪腕ネコ社長",
     "id": 201110901,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
     "character": "Naja",
-    "name": "Wishing for Reinstatement",
+    "name": "Dream of Glory",
     "effect": "Grants Attach Earth at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Warhammer (XI)",
     "nameJp": "復権への願い",
     "id": 201110902,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -7958,14 +7994,14 @@
   {
     "realm": "XIII",
     "character": "Vanille",
-    "name": "Time of Waking",
+    "name": "Hour of Awakening",
     "effect": "35% chance to grant Quick Cast 1 to the user after using a Support ability",
     "master": "MND +10",
     "relic": "Witch's Bracelet (XIII)",
     "nameJp": "目覚めの時",
     "id": 201130304,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -8402,7 +8438,7 @@
   {
     "realm": "XIV",
     "character": "Y'shtola",
-    "name": "Price of Forbidden Magic",
+    "name": "Price of Power",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "master": "MND +10",
     "relic": "Mistilteinn",
@@ -8486,14 +8522,14 @@
   {
     "realm": "XIV",
     "character": "Yda",
-    "name": "Stormblood",
+    "name": "Moonfire Liberator",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Shire Cesti",
     "nameJp": "紅蓮の解放者",
     "id": 201140303,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -8530,6 +8566,18 @@
     "id": 201140502,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "XIV",
+    "character": "Papalymo",
+    "name": "Witty Lalafell",
+    "effect": "25% chance to dualcast abilities that deal Fire damage",
+    "master": "MAG +10",
+    "relic": "Shire Rod (XIV)",
+    "nameJp": "毒舌家のララフェル",
+    "id": 201140503,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XIV",
@@ -8686,6 +8734,18 @@
     "id": 201140903,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "XIV",
+    "character": "Ysayle",
+    "name": "Lady Iceheart",
+    "effect": "25% chance to dualcast abilities that deal Ice damage",
+    "master": "MAG +10",
+    "relic": "Goetia Chausses (XIV)",
+    "nameJp": "氷の巫女",
+    "id": 201140904,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XIV",
@@ -8966,14 +9026,14 @@
   {
     "realm": "XV",
     "character": "Prompto",
-    "name": "More than Friends",
+    "name": "Uncommon Friendship",
     "effect": "Grants Haste and Instant Cast 1 at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Prompto's Gloves (VX)",
     "nameJp": "生まれを超えた友情",
     "id": 201150403,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -9062,14 +9122,14 @@
   {
     "realm": "XV",
     "character": "Aranea",
-    "name": "Magitek Spear User",
+    "name": "Magitek Dragoon",
     "effect": "25% chance to dualcast Dragoon abilities",
     "master": "ATK +10",
-    "relic": "Women's Snowsuit (XV)",
+    "relic": "Frostbite Suit (XV)",
     "nameJp": "魔導槍の使い手",
     "id": 201150603,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -10227,7 +10287,7 @@
     "realm": "Type-0",
     "character": "Seven",
     "name": "Big Sis",
-    "effect": "25?% chance to dualcast abilities that deal Ice damage",
+    "effect": "25% chance to dualcast abilities that deal Ice damage",
     "master": "MAG +10",
     "relic": "Frostshield Cloak (Type-0)",
     "nameJp": "断り切れない性格",

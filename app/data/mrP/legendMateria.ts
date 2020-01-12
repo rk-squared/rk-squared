@@ -21,7 +21,7 @@ import {
   hitWeaknessTriggerText,
   parseEnlirStatus,
 } from './status';
-import { formatSmartEther, sbPointsAlias } from './statusAlias';
+import { formatSmartEther, lowHpAlias, sbPointsAlias, vsWeak } from './statusAlias';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -39,7 +39,7 @@ import {
 
 const parseUncertainEnlirStatus = handleUncertain(parseEnlirStatus);
 
-const tranceTriggerText = '<20% HP';
+const tranceTriggerText = lowHpAlias(20);
 const dmg = (isDamageTrigger: string | null | boolean) =>
   isDamageTrigger === true || (isDamageTrigger && isDamageTrigger.match('dealing damage with'))
     ? ' dmg'
@@ -223,6 +223,13 @@ const legendMateriaHandlers: HandlerList = [
       return `${multiplier}x ${getShortName(schoolOrElement)} dmg` + whenDescription(when);
     },
   ],
+  [
+    /^Increases damage dealt by (\d+)% when exploiting elemental weakness$/,
+    ([percent]) => {
+      const multiplier = percentToMultiplier(percent);
+      return `${multiplier}x dmg ${vsWeak}`;
+    },
+  ],
 
   // Healing bonuses
   [
@@ -336,8 +343,17 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered simple skills and triggered named skills
   [
-    /^(\d+\??|\?)% chance to cast (?:an ability \((.*)\)|(.*)) after (?:(using|dealing damage with) a (.*) (?:ability|attack)|(taking damage from an enemy)|using an ability that deals (.*) damage)$/,
-    ([percent, effect, skillName, isDamageTrigger, schoolOrAbility, takeDamage, damageAbility]) => {
+    /^(\d+\??|\?)% chance to cast (?:an ability \((.*)\)|(.*)) after (?:(using|dealing damage with) a (.*) (?:ability|attack)|(taking damage from an enemy)|using an ability that deals (.*) damage)(, can trigger on dualcasts)?$/,
+    ([
+      percent,
+      effect,
+      skillName,
+      isDamageTrigger,
+      schoolOrAbility,
+      takeDamage,
+      damageAbility,
+      triggersOnDualcasts,
+    ]) => {
       let description: string | null = null;
       if (effect) {
         description = resolveWithHandlers(simpleSkillHandlers, effect);
@@ -417,7 +433,7 @@ const legendMateriaHandlers: HandlerList = [
         // Back to the Wall trance.
         .replace(/(, Finisher|$)/, (duration ? ' ' + duration : '') + '$1');
       if (bonusSb) {
-        statusDescription = sbPointsAlias(bonusSb) + ', ' + statusDescription;
+        statusDescription = sbPointsAlias(+bonusSb) + ', ' + statusDescription;
       }
       if (isHeal) {
         statusDescription = 'heal 100% HP, ' + statusDescription;

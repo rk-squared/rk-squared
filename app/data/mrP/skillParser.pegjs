@@ -2,6 +2,7 @@
   let parsedNumberString = null;
   let lastDamageDuringStatus = NaN;
   let lastDamageDuringStatusElement = undefined;
+  let statusLevelMatch = null;
 
   // Hack: Suppress warnings about unused functions.
   location;
@@ -20,7 +21,7 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCastAbility / RandomCastOther / Chain / Mimic
-  / StatMod / StatusEffect / ImperilStatusEffect / SetStatusLevel
+  / StatMod / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
   / CastTime / CastTimePerUse / StandaloneAttackExtra
 
@@ -438,7 +439,7 @@ StatusList
   }
 
 StatusWithPercent
-  = status:(SmartEtherStatus / StatusLevel / StatusName)
+  = status:StatusItem
     chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )?
     statusClauses:StatusClause*
   {
@@ -456,8 +457,20 @@ StatusWithPercent
 
 StatusLevel "status with level"
   = status:StatusName _ "level" _ value:Integer {
-    return { type:'statusLevel', status, value };
+    return { type:'statusLevel', status, value, set: true };
   }
+  / status:StatusName
+    & { return util.synchroStatusLevelAlias[status] != null; }
+      { return { type:'statusLevel', status, value: 1, set: true }; }
+  / value:SignedInteger _ status:StatusName
+    & { return util.synchroStatusLevelAlias[status] != null; }
+      { return { type:'statusLevel', status, value }; }
+  / status:StatusName
+    & {
+        statusLevelMatch = status.match(/(.*) ([+-]?\d)$/);
+        return statusLevelMatch && util.synchroStatusLevelAlias[statusLevelMatch[1]] != null;
+      }
+      { return { type:'statusLevel', status: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
 
 StatusClause
   = _ clause:(
@@ -469,7 +482,7 @@ StatusClause
     / who:Who ! (_ Duration) { return { who, whoAllowsLookahead: true }; }
     / who:Who { return { who }; }
     // Flexibility: Support both "two uses" and "second use"
-    / "every" _ ("two" _ "uses" / "second" _ "use") { return { perUses: 2 }; }
+    / "on"? _ "every" _ ("two" _ "uses" / "second" _ "use") { return { perUses: 2 }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
     / "to" _ "undeads" { return { ifUndead: true }; }
     / condition:Condition { return { condition }; }
@@ -478,9 +491,10 @@ StatusClause
   }
 
 // Special case: Some Imperil soul breaks omit "causes".  See Climhazzard Xeno,
-// Ragnarok Buster, Whirling Lance
-ImperilStatusEffect
-  = & "Imperil" statuses:StatusList {
+// Ragnarok Buster, Whirling Lance.  Some atypical stat modifiers, like
+// Rikku's record board ability or Passionate Salsa, do as well.
+ImplicitStatusEffect
+  = & ("Imperil" / ("Brief" _)? Stat) statuses:StatusList {
     return { type: 'status', verb: 'causes', statuses };
   }
 
@@ -489,12 +503,25 @@ SetStatusLevel
     return { type: 'setStatusLevel', status, value };
   }
 
+RandomStatusEffect
+  = "randomly"i _ verb:StatusVerb _ head:RandomStatusList tail:(_ "or" _ RandomStatusList)+ {
+    return { type: 'randomStatus', verb, statuses: util.pegList(head, tail, 3) };
+  }
+
+RandomStatusList
+  = head:StatusItem tail:(AndList StatusItem)* _ "(" chance:Integer "%)" _ who:Who? {
+    return { status: util.pegList(head, tail, 1, true), chance, who };
+  }
+
+StatusItem
+  = SmartEtherStatus / StatusLevel / StatusName
+
 
 // --------------------------------------------------------------------------
 // Stat mods
 
 StatMod
-  = stats:StatList _ percent:SignedIntegerSlashList '%' statModClauses:StatModClause* {
+  = stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' ! StatModDuration statModClauses:StatModClause* {
     const result = {
       type: 'statMod',
       stats,
@@ -586,14 +613,18 @@ Condition
     };
   }
 
+  / "if current number of combined Attach Element statuses on party members are a majority Attach" _ element:ElementSlashList _ ", in the case of ties the prior listed order is used to determine status granted" {
+    return { type: 'conditionalEnElement', element };
+  }
+
   // Beginning of attacks and skills (like Passionate Salsa)
 
   // Scaling with uses - both specific counts and generically
-  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList _ "uses" { return { type: 'scaleUseCount', useCount }; }
+  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList "+"? _ "uses" { return { type: 'scaleUseCount', useCount }; }
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
-  / "after" _ useCount:UseCount _ skill:AnySkillName _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
+  / "after" _ useCount:UseCount _ skill:AnySkillName? _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
   / "on" _ "first" _ "use" { return { type: 'afterUseCount', useCount: { from: 1, to: 1 } }; }
   / "on" _ first:Integer "+" _ "use" "s"? { return { type: 'afterUseCount', useCount: { from: first } }; }
 
@@ -604,13 +635,16 @@ Condition
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
+  / "if" _ count:IntegerSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
   / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
 
   / "if" _ "the" _ "user's" _ "Doom" _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
-  / "if" _ "the" _ "user" _ "has" _ value:IntegerSlashList _ SB _ "points" { return { type: 'soulBreakPoints', value }; }
+  / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "at" _ "least" _ value:IntegerSlashList "%" { return { type: 'hpAtLeastPercent', value }; }
+  / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashList _ SB _ "points" { return { type: 'soulBreakPoints', value }; }
 
   / "if" _ count:IntegerSlashList _ "of" _ "the" _ "target's" _ "stats" _ "are" _ "lowered" { return { type: 'targetStatBreaks', count }; }
   / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
@@ -676,13 +710,19 @@ StatusVerb
 
 StatusName "status effect"
   = (
-    // Stat mods in particular have a distinctive format.
-    ([A-Z] [a-z]+ _)? StatList _ SignedInteger '%'
+    StatModStatusName ("/" StatModStatusName)*
   / GenericName
   / "?"
   ) {
     return text();
   }
+
+// Stat mods in particular have a distinctive format.
+StatModStatusName
+  = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' StatModDuration?
+
+StatModDuration
+  = _ ("Short" / "Medium" / "Long")
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName
@@ -810,6 +850,9 @@ Element "element"
 
 ElementList "element list"
   = head:Element tail:(OrList Element)* { return util.pegList(head, tail, 1, true); }
+
+ElementSlashList "element list"
+  = head:Element tail:("/" Element)* { return util.pegList(head, tail, 1, true); }
 
 School "ability school"
   = "Bard"

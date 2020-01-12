@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 
 import { logException, logger } from '../../utils/logger';
-import { assertNever, isAllSame } from '../../utils/typeUtils';
+import { arrayify, assertNever, isAllSame } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirElement,
@@ -16,6 +16,7 @@ import {
   isEnlirElement,
   isGlint,
   isSoulBreak,
+  isSynchroCommand,
   isSynchroSoulBreak,
 } from '../enlir';
 import {
@@ -28,6 +29,7 @@ import {
   formatRandomCastAbility,
   formatRandomCastOther,
 } from './attack';
+import * as common from './commonTypes';
 import {
   appendCondition,
   describeCondition,
@@ -42,6 +44,7 @@ import {
   checkForAndStatuses,
   describeStats,
   formatDuration,
+  ParsedEnlirStatusWithSlashes,
   parseEnlirStatus,
   parseEnlirStatusWithSlashes,
   shareStatusDurations,
@@ -49,7 +52,13 @@ import {
   slashMergeElementStatuses,
   sortStatus,
 } from './status';
-import { formatRandomEther, formatSmartEther, sbPointsAlias } from './statusAlias';
+import {
+  formatRandomEther,
+  formatSmartEther,
+  sbPointsAlias,
+  statusLevelAlias,
+  statusLevelText,
+} from './statusAlias';
 import {
   DescribeOptions,
   getDescribeOptionsWithDefaults,
@@ -59,6 +68,8 @@ import {
   fixedNumberOrUnknown,
   formatNumberSlashList,
   formatSignedIntegerSlashList,
+  numberOrUnknown,
+  signedNumber,
   toMrPFixed,
   toMrPKilo,
 } from './util';
@@ -132,7 +143,7 @@ function describeChain({ chainType, fieldBonus, max }: skillTypes.Chain): string
 }
 
 function describeDrainHp({ healPercent, condition }: skillTypes.DrainHp): string {
-  return `heal ${healPercent}% of dmg` + appendCondition(condition);
+  return `heal ${numberOrUnknown(healPercent)}% of dmg` + appendCondition(condition);
 }
 
 function describeHeal(skill: EnlirSkill, { amount, condition }: skillTypes.Heal): string {
@@ -169,7 +180,11 @@ function describeMimic(skill: EnlirSkill, { chance, count }: skillTypes.Mimic): 
   return description;
 }
 
-function describeRecoilHp({ damagePercent, maxOrCurrent, condition }: skillTypes.RecoilHp): string {
+export function describeRecoilHp({
+  damagePercent,
+  maxOrCurrent,
+  condition,
+}: skillTypes.RecoilHp): string {
   return (
     `lose ${formatNumberSlashList(damagePercent)}% ${maxOrCurrent} HP` + appendCondition(condition)
   );
@@ -189,11 +204,14 @@ function describeStatMod({ stats, percent, duration, condition }: skillTypes.Sta
   return statMod;
 }
 
-function formatStatusLevel(value: number) {
-  if (value === 0) {
-    return 'reset status lvl';
+function formatStatusLevel(status: string, value: number, set: boolean | undefined) {
+  status = statusLevelAlias[status] || statusLevelText;
+  if (!set) {
+    return status + ` ${signedNumber(value)}`;
+  } else if (value === 0) {
+    return 'reset ' + status;
   } else {
-    return `status lvl =${value}`;
+    return status + ` =${value}`;
   }
 }
 
@@ -285,35 +303,38 @@ function checkPoweredUpBy(
   }, effects);
 
   // Check if this skill scales with a nonstandard status granted by the paired
-  // command.
-  let pairedStatus: string | undefined;
-  for (const i of pairedEffects) {
-    if (i.type === 'status') {
-      for (const j of i.statuses) {
-        if (j.who === 'self' && typeof j.status === 'string') {
-          pairedStatus = j.status;
+  // command.  Don't do this for SASBs; those are better handled as status
+  // levels.
+  if (!isSynchroCommand(skill)) {
+    let pairedStatus: string | undefined;
+    for (const i of pairedEffects) {
+      if (i.type === 'status') {
+        for (const j of i.statuses) {
+          if (j.who === 'self' && typeof j.status === 'string') {
+            pairedStatus = j.status;
+            break;
+          }
+        }
+        if (pairedStatus) {
           break;
         }
       }
-      if (pairedStatus) {
-        break;
+    }
+    if (!pairedStatus) {
+      return;
+    }
+    visitCondition((condition: skillTypes.Condition) => {
+      if (
+        condition.type === 'status' &&
+        condition.status === pairedStatus &&
+        condition.who === 'self'
+      ) {
+        return [{ ...condition, status: `cmd ${paired.index + 1} status` }, false];
+      } else {
+        return [null, true];
       }
-    }
+    }, effects);
   }
-  if (!pairedStatus) {
-    return;
-  }
-  visitCondition((condition: skillTypes.Condition) => {
-    if (
-      condition.type === 'status' &&
-      condition.status === pairedStatus &&
-      condition.who === 'self'
-    ) {
-      return [{ ...condition, status: `cmd ${paired.index + 1} status` }, false];
-    } else {
-      return [null, true];
-    }
-  }, effects);
 }
 
 function checkSbPoints(skill: EnlirSkill, effects: skillTypes.SkillEffect, opt: DescribeOptions) {
@@ -327,7 +348,7 @@ function checkSbPoints(skill: EnlirSkill, effects: skillTypes.SkillEffect, opt: 
       // If this skill grants an abnormally high number of SB points, show it.
       // We set a flat rate of 150 (to get Lifesiphon and Wrath) instead of
       // trying to track what's normal at each rarity level.
-      return sbPointsAlias(skill.sb.toString());
+      return sbPointsAlias(skill.sb);
     } else if (isAbility(skill) && skill.sb < getNormalSBPoints(skill)) {
       // Special case: Exclude abilities like Lightning Jab that have a normal
       // default cast time but "fast" tier SB generation because they
@@ -466,6 +487,54 @@ function checkStacking(
   return [statusName, false];
 }
 
+function formatStatusDescription(
+  parsed: ParsedEnlirStatusWithSlashes,
+  duration?: common.Duration,
+  condition?: common.Condition,
+  stacking: boolean = false,
+) {
+  const {
+    isExLike,
+    isTrance,
+    defaultDuration,
+    isVariableDuration,
+    isBurstToggle,
+    optionCount,
+  } = parsed;
+  let description = parsed.description;
+
+  // Special duration, including handling for a burst toggle with effects of
+  // its own.
+  const specialDuration = isBurstToggle ? 'until OFF' : parsed.specialDuration;
+
+  if (isTrance) {
+    description = 'Trance: ' + description;
+  }
+  if (stacking) {
+    description = 'stacking ' + description;
+  }
+
+  if (condition && !stacking) {
+    const options = optionCount ? _.times(optionCount, i => i + 1) : undefined;
+    description += appendCondition(condition, options);
+  }
+
+  if (!duration && defaultDuration) {
+    duration = { value: defaultDuration, units: 'seconds' };
+  }
+
+  if ((duration || specialDuration) && !isVariableDuration) {
+    const durationText = specialDuration || formatDuration(duration!);
+    if (isExLike) {
+      description = durationText + ': ' + description;
+    } else {
+      description = description + ' ' + durationText;
+    }
+  }
+
+  return description;
+}
+
 /**
  * Process a status, and return whether this is a burst toggle.
  */
@@ -500,7 +569,12 @@ function processStatus(
       if (status.type === 'smartEther') {
         other.push(skill, who, formatSmartEther(status.amount, status.school));
       } else {
-        other.push(skill, who, formatStatusLevel(status.value));
+        // Status levels are always self.
+        if (removes) {
+          other.push(skill, 'self', formatStatusLevel(status.status, 0, true));
+        } else {
+          other.push(skill, 'self', formatStatusLevel(status.status, status.value, status.set));
+        }
       }
       return;
     }
@@ -517,38 +591,26 @@ function processStatus(
     }
 
     const parsed = parseEnlirStatusWithSlashes(status, skill);
-    // tslint:disable: prefer-const
-    let {
-      description,
-      isExLike,
-      isDetail,
-      isBurstToggle,
-      isTrance,
-      defaultDuration,
-      isVariableDuration,
-      specialDuration,
-      optionCount,
-    } = parsed;
-    // tslint:enable: prefer-const
+    const { isDetail, isBurstToggle } = parsed;
 
     if (isBurstToggle) {
       burstToggle = effect.verb !== 'removes';
-      if (description === '') {
+      if (parsed.description === '') {
         return;
       }
       // Special case: A burst toggle with an effect of its own.  If we're
       // switching it ON, show it with a custom duration.  If switching OFF,
       // show nothing.
-      if (burstToggle) {
-        specialDuration = 'until OFF';
-      } else {
+      if (!burstToggle) {
         return;
       }
     }
 
-    if (description === '') {
+    if (parsed.description === '') {
       return;
     }
+
+    let description = formatStatusDescription(parsed, duration, condition, stacking);
 
     // Status removal.  In practice, only a few White Magic abilities hit
     // this; the rest are special cased (Esuna, burst toggles, etc.).
@@ -557,30 +619,9 @@ function processStatus(
     // a removes then grants.  There are no occurrences of "removes A, B" in
     // the spreadsheet, so we can key off of the status index to handle that.
     if (removes && thisStatusIndex === 0) {
-      description = 'remove ' + description;
-    }
-
-    if (isTrance) {
-      description = 'Trance: ' + description;
-    }
-    if (stacking) {
-      description = 'stacking ' + description;
-    }
-    const options = optionCount ? _.times(optionCount, i => i + 1) : undefined;
-    if (condition && !stacking) {
-      description += appendCondition(condition, options);
-    }
-
-    if (!duration && defaultDuration) {
-      duration = { value: defaultDuration, units: 'seconds' };
-    }
-
-    if ((duration || specialDuration) && !isVariableDuration) {
-      const durationText = specialDuration || formatDuration(duration!);
-      if (isExLike) {
-        description = durationText + ': ' + description;
-      } else {
-        description = description + ' ' + durationText;
+      description = (parsed.statusLevel ? 'reset ' : 'remove ') + description;
+      if (parsed.statusLevel) {
+        who = 'self';
       }
     }
 
@@ -599,7 +640,7 @@ function processStatus(
       other.statusInfliction.push({ description, chance, chanceDescription });
     } else if (description.match(/^\w+ infuse/)) {
       other.infuse.push(description);
-    } else if (isDetail) {
+    } else if (isDetail && !parsed.statusLevel) {
       // (Always?) has implied 'self'
       other.detail.push(description);
     } else {
@@ -608,6 +649,33 @@ function processStatus(
   });
 
   return burstToggle;
+}
+
+/**
+ * Process a set of randomly chosen statuses.  This is a much simpler version
+ * of processStatus.
+ */
+function processRandomStatus(
+  skill: EnlirSkill,
+  effect: skillTypes.RandomStatusEffect,
+  other: OtherDetail,
+) {
+  const choices = effect.statuses.map(
+    ({ status, chance }) =>
+      arrayify(status)
+        .map(s => {
+          if (typeof s === 'string') {
+            const parsed = parseEnlirStatusWithSlashes(s, skill);
+            return formatStatusDescription(parsed);
+          } else if (s.type === 'smartEther') {
+            return formatSmartEther(s.amount, s.school);
+          } else {
+            return formatStatusLevel(s.status, s.value, s.set);
+          }
+        })
+        .join(' & ') + ` (${chance}%)`,
+  );
+  other.push(skill, effect.who, choices.join(' or '));
 }
 
 interface StatusInfliction {
@@ -928,8 +996,11 @@ export function convertEnlirSkillToMrP(
         }
         break;
       }
+      case 'randomStatus':
+        processRandomStatus(skill, effect, other);
+        break;
       case 'setStatusLevel':
-        other.self.push(formatStatusLevel(effect.value));
+        other.self.push(formatStatusLevel(effect.status, effect.value, true));
         break;
       case 'statMod':
         other.push(skill, effect.who, describeStatMod(effect));

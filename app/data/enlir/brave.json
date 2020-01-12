@@ -1216,6 +1216,108 @@
     "gl": true
   },
   {
+    "character": "Lenna",
+    "source": "Two Princesses' Prayer",
+    "name": "Aqua Cure",
+    "brave": 0,
+    "type": "WHT",
+    "target": "Single ally",
+    "formula": "Magical",
+    "multiplier": 1.2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": false,
+    "autoTarget": "Lowest HP% ally",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Dancer"
+    ],
+    "nameJp": "アクアヒール",
+    "id": 30542369,
+    "gl": false
+  },
+  {
+    "character": "Lenna",
+    "source": "Two Princesses' Prayer",
+    "name": "Aqua Cure",
+    "brave": 1,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (25), damages undeads",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Dancer"
+    ],
+    "nameJp": "アクアヒール",
+    "id": 30542460,
+    "gl": false
+  },
+  {
+    "character": "Lenna",
+    "source": "Two Princesses' Prayer",
+    "name": "Aqua Cure",
+    "brave": 2,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Dancer"
+    ],
+    "nameJp": "アクアヒール",
+    "id": 30542461,
+    "gl": false
+  },
+  {
+    "character": "Lenna",
+    "source": "Two Princesses' Prayer",
+    "name": "Aqua Cure",
+    "brave": 3,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": "Magical",
+    "multiplier": 2,
+    "element": [
+      "Holy"
+    ],
+    "time": 0.01,
+    "effects": "Restores HP (55), grants Last Stand",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Dancer"
+    ],
+    "nameJp": "アクアヒール",
+    "id": 30542462,
+    "gl": false
+  },
+  {
     "character": "Terra",
     "source": "Magitek Inferno",
     "name": "Riot Fire",

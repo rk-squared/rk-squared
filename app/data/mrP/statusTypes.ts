@@ -44,6 +44,7 @@ export type EffectClause =
   | DamageUp
   | AbilityDouble
   | Dualcast
+  | DualcastAbility
   | NoAirTime
   | BreakDamageCap
   | DamageCap
@@ -61,6 +62,7 @@ export type EffectClause =
   | Counter
   | RowCover
   | TriggeredEffect
+  | ConditionalStatus
   | GainSb
   | SbGainUp
   | Taunt
@@ -82,6 +84,7 @@ export type EffectClause =
   | StatusLevelBooster
   | BurstToggle
   | TrackUses
+  | ModifiesSkill
   | BurstOnly
   | BurstReset
   | StatusReset
@@ -256,6 +259,7 @@ export interface Awoken {
   rankCast: boolean;
   dualcast: boolean;
   instacast: boolean;
+  castSpeed?: number;
 }
 
 export type AwokenType =
@@ -344,6 +348,12 @@ interface AbilityDouble {
 interface Dualcast {
   type: 'dualcast';
   chance: number;
+  element?: EnlirElement | EnlirElement[];
+  school?: EnlirSchool | EnlirSchool[];
+}
+
+interface DualcastAbility {
+  type: 'dualcastAbility';
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
 }
@@ -503,6 +513,7 @@ export type TriggerableEffect =
   | GainSb
   | GrantStatus
   | Heal
+  | RecoilHp
   | TriggerChance
   | common.SmartEtherStatus;
 
@@ -537,10 +548,29 @@ interface TriggerChance {
   effect: TriggerableEffect;
 }
 
+// duplicated in skillTypes.ts
+export interface RecoilHp {
+  type: 'recoilHp';
+  damagePercent: number | number[];
+  maxOrCurrent: 'max' | 'curr';
+}
+
 // Note: Compatible with, but simpler than, skillTypes.StatusWithPercent
 export interface StatusWithPercent {
   status: common.StatusName;
   chance?: number;
+}
+
+// --------------------------------------------------------------------------
+// Conditional status
+
+export interface ConditionalStatus {
+  type: 'conditionalStatus';
+  verb: common.StatusVerb;
+  status: StatusWithPercent | StatusWithPercent[];
+  who?: common.Who;
+  duration?: common.Duration;
+  condition: common.Condition;
 }
 
 // --------------------------------------------------------------------------
@@ -674,6 +704,11 @@ interface TrackUses {
   skill: string;
 }
 
+interface ModifiesSkill {
+  type: 'modifiesSkill';
+  skill: string;
+}
+
 interface BurstOnly {
   type: 'burstOnly';
 }
@@ -724,7 +759,8 @@ export type Trigger =
       skillType: EnlirSkillType | EnlirSkillType[];
       element: common.OrOptions<EnlirElement>;
     }
-  | { type: 'singleHeal' };
+  | { type: 'singleHeal' }
+  | { type: 'lowHp'; value: number };
 
 export type TriggerCount =
   | common.UseCount

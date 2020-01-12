@@ -43,6 +43,7 @@ export type Condition =
   | { type: 'statusLevel'; status: StatusName; value: number | number[] }
   | { type: 'ifDoomed' }
   | { type: 'status'; status: StatusName; who: 'self' | 'target'; any: boolean }
+  | { type: 'conditionalEnElement'; element: EnlirElement | EnlirElement[] }
   | { type: 'scaleUseCount'; useCount: number | number[] }
   | { type: 'scaleWithUses' }
   | { type: 'scaleWithSkillUses'; skill: string }
@@ -52,9 +53,12 @@ export type Condition =
   | { type: 'characterInParty'; character: string; count?: number | number[] }
   | { type: 'females'; count: number | number[] }
   | { type: 'realmCharactersInParty'; realm: EnlirRealm; count: number | number[] }
+  | { type: 'realmCharactersAlive'; realm: EnlirRealm; count: number | number[]; plus: boolean }
+  | { type: 'charactersAlive'; count: number | number[] }
   | { type: 'alliesJump'; count: number | number[] }
   | { type: 'doomTimer'; value: number | number[] }
   | { type: 'hpBelowPercent'; value: number | number[] }
+  | { type: 'hpAtLeastPercent'; value: number | number[] }
   | { type: 'soulBreakPoints'; value: number | number[] }
   | { type: 'targetStatBreaks'; count: number | number[] }
   | { type: 'targetStatusAilments'; count: number | number[] }

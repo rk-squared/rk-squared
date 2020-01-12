@@ -104,6 +104,8 @@ export function appendElement(
   return element && element.length ? ' ' + f(element) : '';
 }
 
+export const allElementsShortName = 'fire/ice/lgt/earth/wind/water/holy/dark/bio';
+
 export function formatSchoolOrAbilityList(list: string | string[]): string {
   if (!Array.isArray(list)) {
     list = list.split(andOrList);
@@ -121,7 +123,7 @@ export function formatSchoolOrAbilityList(list: string | string[]): string {
       .join('/')
       // Hack: Special-case the list of all elements, as observed in Ovelia's
       // and Relm's LM2 and the Elemental Boost status effect.
-      .replace('fire/ice/lgt/earth/wind/water/holy/dark/bio', 'elem')
+      .replace(allElementsShortName, 'elem')
   );
 }
 

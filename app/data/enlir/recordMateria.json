@@ -5342,32 +5342,32 @@
   {
     "realm": "XI",
     "character": "Naja",
-    "name": "Miser",
+    "name": "Miserly Matron",
     "effect": "Monk abilities deal 15% more damage",
     "unlockCriteria": "Use Naja's Memory Crystal",
     "nameJp": "守銭奴",
     "id": 111110090,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
     "character": "Naja",
-    "name": "Selfish Owner",
+    "name": "Headstrong President",
     "effect": "PHY attacks deal 20% more damage when equipping a hammer",
     "unlockCriteria": "Use Naja's Memory Crystal II, chance to obtain with Naja in party",
     "nameJp": "勝手気ままな経営者",
     "id": 111110091,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
     "character": "Naja",
-    "name": "Patriotic Mercenary",
+    "name": "Moral Mercenary",
     "effect": "PHY attacks deal 30% more damage when equipping a hammer",
     "unlockCriteria": "Bring Naja to level 99",
     "nameJp": "愛国故の傭兵稼業",
     "id": 111110092,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",

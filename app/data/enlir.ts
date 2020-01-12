@@ -619,7 +619,6 @@ function applyPatch<T>(
 
 /**
  * HACK: Patch Enlir data to make it easier for our text processing.
- * FIXME: See if any of these can be removed as we continue to improve parsing
  */
 function patchEnlir() {
   // Two different follow-up attacks for Gladiolus's AASB is hard.  For now,
@@ -710,6 +709,21 @@ function patchEnlir() {
         'Fifteen single attacks (0.60 each), grants Major Buff Ice, Major Buff Earth, Major Buff Lightning, Awoken Spellblade, Damage Cap +10000 to the user, grants 50% Critical to all allies, grants High Quick Cast 1/2/2 to all allies if 1/2/3 of Kelger/Galuf/Dorgann are alive, grants Extended 100% Critical and Critical Damage +50% to all allies if Kelger & Galuf & Dorgann are alive';
     },
   );
+  applyPatch(
+    enlir.soulBreaks,
+    '23070005',
+    marcus =>
+      marcus.effects ===
+      'Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, ' +
+        'causes Minor Imperil Wind and Minor Imperil Poison/Medium Imperil Wind and Medium Imperil Poison if 1/2+ IX characters are alive, ' +
+        'grants Instant Cast 1/grants Instant Cast 1 and Weakness +30% Boost to all allies if 3/4+ IX characters are alive',
+    marcus => {
+      marcus.effects =
+        'Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, ' +
+        'causes Minor Imperil Wind/Poison if 1 IX character is alive, causes Medium Imperil Wind/Poison if 2+ IX characters are alive, ' +
+        'grants Instant Cast 1 to all allies if 3+ IX characters are alive, grants Weakness +30% Boost to all allies if 4+ IX characters are alive';
+    },
+  );
 
   // Abbreviations - I don't know if it's best to update Enlir to remove these
   // or not.  Where possible, we update our code to handle abbreviations, but
@@ -744,22 +758,22 @@ function patchEnlir() {
   // Status cleanups.  These too should be fixed up.
   applyPatch(
     enlir.statusByName,
-    'True Greased Lightning Mode',
-    mode => mode.effects === 'Grants True Greased Lightning 0/1/2/3 after using a Monk ability',
+    'Windborn Swiftness Mode',
+    mode => mode.effects === 'Grants Windborn Swiftness 0/1/2/3 after using a Monk ability',
     mode => {
-      // Adequately covered by True Greased Lightning 0/1/2/3
+      // Adequately covered by Windborn Swiftness 0/1/2/3
       mode.effects = '';
     },
   );
   for (let i = 0; i <= 3; i++) {
     applyPatch(
       enlir.statusByName,
-      `True Greased Lightning ${i}`,
-      mode => mode.effects.match(/[Gg]rants True Greased Lightning (\d+),/) != null,
+      `Windborn Swiftness ${i}`,
+      mode => mode.effects.match(/[Gg]rants Windborn Swiftness (\d+),/) != null,
       mode => {
         mode.effects = mode.effects.replace(
-          /([Gg]rants) True Greased Lightning (\d+),/,
-          (match, p1, p2) => `${p1} True Greased Lightning ${p2} after using a Monk ability,`,
+          /([Gg]rants) Windborn Swiftness (\d+),/,
+          (match, p1, p2) => `${p1} Windborn Swiftness ${p2} after using a Monk ability,`,
         );
       },
     );
