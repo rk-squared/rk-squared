@@ -9,6 +9,7 @@ import {
   EnlirSkill,
   EnlirSkillType,
   isBurstCommand,
+  isLimitBreak,
   isNat,
   isSoulBreak,
 } from '../enlir';
@@ -260,10 +261,11 @@ function isPiercing(skill: EnlirSkill, attack: skillTypes.Attack): boolean {
 function isHybridPiercing(skill: EnlirSkill, attack: skillTypes.Attack): boolean {
   // Hard-coded check, useful for older or less consistent data.
   const manualCheck =
-    skill.formula === 'Hybrid' &&
-    skill.typeDetails != null &&
-    skill.typeDetails.length === 2 &&
-    skill.typeDetails[1] === 'NIN';
+    isLimitBreak(skill) ||
+    (skill.formula === 'Hybrid' &&
+      skill.typeDetails != null &&
+      skill.typeDetails.length === 2 &&
+      skill.typeDetails[1] === 'NIN');
   const type =
     skill.typeDetails != null && skill.typeDetails.length === 2 ? skill.typeDetails[1] : null;
   const autoCheck = type ? isPiercingByType(attack, type) : false;

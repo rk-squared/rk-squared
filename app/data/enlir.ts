@@ -82,6 +82,8 @@ export type EnlirEventType =
 // See, e.g., Exdeath's Double Hole record board ability.
 export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
+export type EnlirLimitBreakTier = 'OLB';
+
 export type EnlirRelicType =
   | 'Accessory'
   | 'Axe'
@@ -223,15 +225,20 @@ export interface EnlirGenericSkill {
   element: EnlirElement[] | null;
   time: number | null;
   effects: string;
+  effectsNote?: string;
   counter: boolean;
   autoTarget: string;
   id: number;
   gl: boolean;
 }
 
+/**
+ * A soul break, limit break, or legend materia
+ */
 export interface EnlirSoulBreakOrLegendMateria {
   id: number;
-  anima: number | null;
+  name: string;
+  anima?: number | null;
   gl: boolean;
 }
 
@@ -315,6 +322,16 @@ export interface EnlirLegendMateria {
   gl: boolean;
 }
 
+export interface EnlirLimitBreak extends EnlirGenericSkill {
+  realm: EnlirRealm;
+  character: string;
+  tier: EnlirLimitBreakTier;
+  minimumLbPoints: number;
+  limitBreakBonus: string[];
+  relic: string;
+  nameJp: string;
+}
+
 export interface EnlirOtherSkill extends EnlirGenericSkill {
   sourceType: string;
   source: string;
@@ -361,7 +378,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
   anima: number | null;
 
   // Added to the spreadsheet to accommodate Balthier's USB1 and USB2, which
-  // aren't in ID order.
+  // weren't in ID order.  (This seems to be fixed now.)
   sortOrder: number;
 }
 
@@ -394,14 +411,15 @@ export type EnlirSkill =
   | EnlirBurstCommand
   | EnlirOtherSkill
   | EnlirSynchroCommand
-  | EnlirSoulBreak;
+  | EnlirSoulBreak
+  | EnlirLimitBreak;
 
 export enum SbOrLm {
   SoulBreak,
   LegendMateria,
 }
 
-export const tierOrder: { [t in EnlirSoulBreakTier]: number } = {
+export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
   Default: 0,
   SB: 1,
   SSB: 2,
@@ -418,6 +436,10 @@ export const tierOrder: { [t in EnlirSoulBreakTier]: number } = {
   Shared: 101,
 };
 
+export const limitBreakTierOrder: { [t in EnlirLimitBreakTier]: number } = {
+  OLB: 0,
+};
+
 const rawData = {
   abilities: require('./enlir/abilities.json') as EnlirAbility[],
   braveCommands: require('./enlir/brave.json') as EnlirBraveCommand[],
@@ -425,6 +447,7 @@ const rawData = {
   characters: require('./enlir/characters.json') as EnlirCharacter[],
   events: require('./enlir/events.json') as EnlirEvent[],
   legendMateria: require('./enlir/legendMateria.json') as EnlirLegendMateria[],
+  limitBreaks: require('./enlir/limitBreaks.json') as EnlirLimitBreak[],
   magicite: require('./enlir/magicite.json'),
   otherSkills: require('./enlir/otherSkills.json') as EnlirOtherSkill[],
   recordMateria: require('./enlir/recordMateria.json') as EnlirRecordMateria[],
@@ -495,19 +518,30 @@ function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
   return result;
 }
 
+interface RelicMapType {
+  character: string | null;
+  name: string;
+  relic: string | null;
+}
+
 /**
  * Maps from relic IDs (equipment IDs) to soul breaks or legend materia.
  */
-function makeRelicMap<T extends { character: string | null; name: string; relic: string | null }>(
+function makeRelicMap<T extends RelicMapType>(
   relics: EnlirRelic[],
   prop: keyof EnlirRelic,
   items: T[],
+  altItems?: RelicMapType[][],
 ): { [relicId: number]: T } {
+  const key = (character: string | null, name: any) => (character || '-') + ':' + name;
   const result: { [relicId: number]: T } = {};
-  const indexedItems = _.keyBy(items, i => (i.character || '-') + ':' + i.name);
+  const indexedItems = _.keyBy(items, i => key(i.character, i.name));
+  const indexedAltItems = new Set<string>(
+    altItems ? _.flatten(altItems).map(i => key(i.character, i.name)) : [],
+  );
   for (const i of relics) {
     if (i[prop]) {
-      const found = indexedItems[(i.character || '-') + ':' + i[prop]];
+      const found = indexedItems[key(i.character, i[prop])];
       if (found) {
         result[i.id] = found;
         if (
@@ -521,7 +555,7 @@ function makeRelicMap<T extends { character: string | null; name: string; relic:
               `${prop} ${found.name} lists name as ${found.relic}`,
           );
         }
-      } else {
+      } else if (!indexedAltItems.has(key(i.character, i[prop]))) {
         logger.warn(`Failed to find ${prop} for ${i.character} - ${i.name} - ${i[prop]}`);
       }
     }
@@ -567,6 +601,12 @@ export const enlir = {
     (i: EnlirLegendMateria) => i.id,
   ]),
 
+  limitBreaks: _.keyBy(rawData.limitBreaks, 'id'),
+  limitBreaksByCharacter: makeCharacterMap(rawData.limitBreaks, [
+    (i: EnlirLimitBreak) => limitBreakTierOrder[i.tier],
+    (i: EnlirLimitBreak) => i.id,
+  ]),
+
   magicites: _.keyBy(rawData.magicite, 'id'),
 
   // NOTE: Other Skills' names are not unique, and they often lack IDs, so
@@ -582,7 +622,7 @@ export const enlir = {
 
   soulBreaks: _.keyBy(rawData.soulBreaks, 'id'),
   soulBreaksByCharacter: makeCharacterMap(rawData.soulBreaks, [
-    (i: EnlirSoulBreak) => tierOrder[i.tier],
+    (i: EnlirSoulBreak) => soulBreakTierOrder[i.tier],
     (i: EnlirSoulBreak) => i.sortOrder,
   ]),
 
@@ -591,7 +631,12 @@ export const enlir = {
   synchroCommands: makeIdMultimap(rawData.synchroCommands),
   synchroCommandsByCharacter: makeCommandsMap(rawData.synchroCommands),
 
-  relicSoulBreaks: makeRelicMap(rawData.relics, 'soulBreak', rawData.soulBreaks),
+  relicSoulBreaks: makeRelicMap(rawData.relics, 'soulBreak', rawData.soulBreaks, [
+    rawData.limitBreaks,
+  ]),
+  relicLimitBreaks: makeRelicMap(rawData.relics, 'soulBreak', rawData.limitBreaks, [
+    rawData.soulBreaks,
+  ]),
   relicLegendMateria: makeRelicMap(rawData.relics, 'legendMateria', rawData.legendMateria),
   sharedSoulBreaks: getSharedSoulBreaks(rawData.relics, rawData.soulBreaks),
 };
@@ -1100,49 +1145,72 @@ export function isSharedSoulBreak(sb: EnlirSoulBreak): boolean {
   return sb.character == null;
 }
 
-export function makeSoulBreakAliases(
-  soulBreaks: _.Dictionary<EnlirSoulBreak>,
-  tierAlias?: { [s in EnlirSoulBreakTier]: string },
+export function isLimitBreak(skill: EnlirSkill): skill is EnlirLimitBreak {
+  return 'minimumLbPoints' in skill;
+}
+
+function makeSkillAliases<
+  TierT extends string,
+  SkillT extends { id: number; character: string | null; tier: TierT }
+>(
+  skills: _.Dictionary<SkillT>,
+  tierAlias: { [s in TierT]: string } | undefined,
+  makeAlias: (skill: SkillT, tierText: string, total: number, seen: number) => string,
 ): { [id: number]: string } {
   const total: { [key: string]: number } = {};
   const seen: { [key: string]: number } = {};
-  const makeKey = ({ character, tier }: EnlirSoulBreak) => character + '-' + tier;
-  const tierText = tierAlias
-    ? (tier: EnlirSoulBreakTier) => tierAlias[tier]
-    : (tier: EnlirSoulBreakTier) => tier as string;
-  _.forEach(soulBreaks, sb => {
-    const key = makeKey(sb);
+  const makeKey = ({ character, tier }: SkillT) => character + '-' + tier;
+  const tierText = tierAlias ? (tier: TierT) => tierAlias[tier] : (tier: TierT) => tier as string;
+  _.forEach(skills, i => {
+    const key = makeKey(i);
     total[key] = total[key] || 0;
     total[key]++;
   });
 
   const result: { [id: number]: string } = {};
-  _.sortBy(soulBreaks, 'sortOrder').forEach(sb => {
-    const key = makeKey(sb);
+  _.sortBy(skills, 'sortOrder').forEach(i => {
+    const key = makeKey(i);
     seen[key] = seen[key] || 0;
     seen[key]++;
 
-    let alias = tierText(sb.tier);
-    if (isBraveSoulBreak(sb)) {
-      alias = 'B' + alias;
-    } else if (total[key] > 1 && sb.tier !== 'SB' && sb.tier !== 'RW' && sb.tier !== 'Shared') {
-      // Skip numbers for unique SB tier - those are too old to be of interest.
-      alias += seen[key];
-    }
-    result[sb.id] = alias;
+    result[i.id] = makeAlias(i, tierText(i.tier), total[key], seen[key]);
   });
+
+  return result;
+}
+
+export function makeSoulBreakAliases(
+  soulBreaks: _.Dictionary<EnlirSoulBreak>,
+  tierAlias?: { [s in EnlirSoulBreakTier]: string },
+): { [id: number]: string } {
+  const result = makeSkillAliases(
+    soulBreaks,
+    tierAlias,
+    (sb: EnlirSoulBreak, tierText: string, total: number, seen: number) => {
+      let alias = tierText;
+      if (isBraveSoulBreak(sb)) {
+        alias = 'B' + alias;
+      } else if (total > 1 && sb.tier !== 'SB' && sb.tier !== 'RW' && sb.tier !== 'Shared') {
+        // Skip numbers for unique SB tier - those are too old to be of interest.
+        alias += seen;
+      }
+      return alias;
+    },
+  );
 
   // Special-case a few soul breaks.
   // Bartz - seemed like a good idea, but they're too big...
   /*
-  result[20400009] = tierText('BSB') + '-wa';
-  result[20400011] = tierText('BSB') + '-e';
-  result[20400012] = tierText('BSB') + '-wi';
-  result[20400013] = tierText('BSB') + '-f';
+  const bsb = tierAlias ? tierAlias['BSB'] : 'USB';
+  result[20400009] = bsb + '-wa';
+  result[20400011] = bsb + '-e';
+  result[20400012] = bsb + '-wi';
+  result[20400013] = bsb + '-f';
   */
   // Onion Knight
-  result[22460006] = 'm-' + tierText('USB');
-  result[22460007] = 'p-' + tierText('USB');
+  const usb = tierAlias ? tierAlias['USB'] : 'USB';
+  result[22460006] = 'm-' + usb;
+  result[22460007] = 'p-' + usb;
 
   return result;
 }
@@ -1178,6 +1246,23 @@ export function makeLegendMateriaAliases(
   });
 
   return result;
+}
+
+export function makeLimitBreakAliases(
+  limitBreaks: _.Dictionary<EnlirLimitBreak>,
+  tierAlias?: { [s in EnlirLimitBreakTier]: string },
+): { [id: number]: string } {
+  return makeSkillAliases(
+    limitBreaks,
+    tierAlias,
+    (lb: EnlirLimitBreak, tierText: string, total: number, seen: number) => {
+      let alias = tierText;
+      if (total > 1) {
+        alias += seen;
+      }
+      return alias;
+    },
+  );
 }
 
 export enum EnlirAbilityUnlockType {

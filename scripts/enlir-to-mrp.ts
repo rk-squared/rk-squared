@@ -3,7 +3,7 @@
 import * as _ from 'lodash';
 import * as yargs from 'yargs';
 
-import { enlir, tierOrder } from '../app/data/enlir';
+import { enlir, soulBreakTierOrder } from '../app/data/enlir';
 import { formatBraveCommands } from '../app/data/mrP/brave';
 import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrP/skill';
 import { getShortName } from '../app/data/mrP/typeHelpers';
@@ -28,7 +28,7 @@ const startTime = process.hrtime();
 
 for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
   i => i.character || '-',
-  i => tierOrder[i.tier],
+  i => soulBreakTierOrder[i.tier],
   'id',
 ])) {
   if (sb.tier === 'RW') {

@@ -4,10 +4,10 @@ import * as _ from 'lodash';
 import * as process from 'process';
 import * as yargs from 'yargs';
 
-import { enlir, EnlirSkill, tierOrder } from '../app/data/enlir';
+import { enlir, EnlirSkill, soulBreakTierOrder } from '../app/data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrp/skill';
 import { parse, SyntaxError } from '../app/data/mrp/skillParser';
-import { SkillEffect } from '../app/data/mrP/types';
+import { SkillEffect } from '../app/data/mrP/skillTypes';
 
 // tslint:disable: no-console
 
@@ -68,6 +68,11 @@ const argv = yargs
   })
   .option('other', {
     description: "Show 'other' skills",
+    default: false,
+    boolean: true,
+  })
+  .option('limitBreaks', {
+    description: 'Show limit breaks',
     default: false,
     boolean: true,
   }).argv;
@@ -152,9 +157,9 @@ function processEffects<T extends EnlirSkill>(
 function processSoulBreaks() {
   return processEffects(
     'soulBreaks',
-    _.sortBy(Object.values(enlir.soulBreaks), [
+    _.sortBy(_.values(enlir.soulBreaks), [
       i => i.character || '-',
-      i => tierOrder[i.tier],
+      i => soulBreakTierOrder[i.tier],
       'id',
     ]).filter(sb => sb.tier !== 'RW'),
     sb => (sb.character || '-') + ': ' + sb.tier + ': ' + sb.name,
@@ -164,7 +169,7 @@ function processSoulBreaks() {
 function processAbilities() {
   return processEffects(
     'abilities',
-    _.sortBy(Object.values(enlir.abilities), 'name'),
+    _.sortBy(_.values(enlir.abilities), 'name'),
     ability => ability.name,
   );
 }
@@ -178,7 +183,7 @@ const getCommandName = <T extends { character: string; source: string; name: str
 function processBurst() {
   return processEffects(
     'burst',
-    _.sortBy(_.flatten(Object.values(enlir.burstCommands)), ['character', 'id']),
+    _.sortBy(_.flatten(_.values(enlir.burstCommands)), ['character', 'id']),
     getCommandName,
   );
 }
@@ -186,7 +191,7 @@ function processBurst() {
 function processBrave() {
   return processEffects(
     'brave',
-    _.sortBy(_.flatten(Object.values(enlir.braveCommands)), ['character', 'id']),
+    _.sortBy(_.flatten(_.values(enlir.braveCommands)), ['character', 'id']),
     getCommandName,
   );
 }
@@ -194,7 +199,7 @@ function processBrave() {
 function processSynchro() {
   return processEffects(
     'synchro',
-    _.sortBy(_.flatten(Object.values(enlir.synchroCommands)), ['character', 'id']),
+    _.sortBy(_.flatten(_.values(enlir.synchroCommands)), ['character', 'id']),
     getCommandName,
   );
 }
@@ -202,8 +207,16 @@ function processSynchro() {
 function processOther() {
   return processEffects(
     'other',
-    _.sortBy(Object.values(enlir.otherSkills), 'name'),
+    _.sortBy(_.values(enlir.otherSkills), 'name'),
     other => other.name,
+  );
+}
+
+function processLimitBreaks() {
+  return processEffects(
+    'limitBreaks',
+    _.sortBy(_.values(enlir.limitBreaks), ['character', 'id']),
+    lb => (lb.character || '-') + ': ' + lb.tier + ': ' + lb.name,
   );
 }
 
@@ -214,6 +227,7 @@ const result = [
   processSynchro(),
   processOther(),
   processAbilities(),
+  processLimitBreaks(),
 ];
 if (argv.json) {
   console.log(JSON.stringify(jsonOutput, null, 2));

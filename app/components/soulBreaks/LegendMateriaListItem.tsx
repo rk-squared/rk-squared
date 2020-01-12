@@ -5,7 +5,11 @@ import * as _ from 'lodash';
 
 import { EnlirLegendMateria } from '../../data/enlir';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
-import { legendMateriaAliases, styles } from '../shared/SoulBreakShared';
+import {
+  formatSoulBreakOrLegendMateriaName,
+  legendMateriaAliases,
+  styles,
+} from '../shared/SoulBreakShared';
 
 interface Props {
   legendMateria: EnlirLegendMateria;
@@ -24,7 +28,6 @@ export class LegendMateriaListItem extends React.PureComponent<Props> {
     }
     const mrP = mrPLegendMateria[id];
 
-    const name = gl ? legendMateria.name : '“' + legendMateria.name + '”';
     const alias = legendMateriaAliases[id];
     const fullClassName = classNames(className, styles.legendMateria, {
       [styles.jp]: !gl,
@@ -34,7 +37,7 @@ export class LegendMateriaListItem extends React.PureComponent<Props> {
         <td className={styles.tier}>
           <span className={styles.legendMateriaTier}>{alias}</span>
         </td>
-        <td className={styles.name}>{name}</td>
+        <td className={styles.name}>{formatSoulBreakOrLegendMateriaName(legendMateria)}</td>
         <td className={styles.effects}>{mrP || '???'}</td>
       </tr>
     );

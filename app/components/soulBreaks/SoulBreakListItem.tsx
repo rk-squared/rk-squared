@@ -7,6 +7,7 @@ import { EnlirSoulBreak } from '../../data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import { breakHyphensAndSlashes } from '../../utils/textUtils';
 import {
+  formatSoulBreakOrLegendMateriaName,
   getBraveColumns,
   getBurstColumns,
   getSynchroColumns,
@@ -73,7 +74,6 @@ export class SoulBreakListItem extends React.PureComponent<Props> {
     }
     const mrP = mrPSoulBreaks[soulBreak.id];
 
-    const name = soulBreak.gl ? soulBreak.name : '“' + soulBreak.name + '”';
     const text = formatMrPSkill(mrP);
 
     let alias = soulBreakAbbrevAliases[soulBreak.id] || soulBreak.tier;
@@ -88,7 +88,7 @@ export class SoulBreakListItem extends React.PureComponent<Props> {
       <>
         <tr className={fullClassName}>
           <td className={styles.tier}>{alias}</td>
-          <td className={styles.name}>{name}</td>
+          <td className={styles.name}>{formatSoulBreakOrLegendMateriaName(soulBreak)}</td>
           <td className={styles.effects}>{text || '???'}</td>
         </tr>
         {mrP.braveCommands && this.renderBraveCommands(mrP, mrP.braveCommands)}

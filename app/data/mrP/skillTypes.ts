@@ -94,7 +94,8 @@ export type MultiplierScaleType =
   | { type: 'hitsTaken' }
   | { type: 'abilitiesUsed'; school: EnlirSchool }
   | { type: 'attacksUsed'; element: EnlirElement }
-  | { type: 'doomTimer'; defaultMultiplier: number };
+  | { type: 'doomTimer'; defaultMultiplier: number }
+  | { type: 'limitBreak' };
 
 export interface AttackExtras {
   additionalCritDamage?: number | number[];

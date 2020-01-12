@@ -33,6 +33,8 @@ export function describeMultiplierScaleType(scaleType: skillTypes.MultiplierScal
       return `w/ ${getElementShortName(scaleType.element)} atks used`;
     case 'doomTimer':
       return 'at low Doom time';
+    case 'limitBreak':
+      return 'scaling w/ LB pts and honing';
   }
 }
 

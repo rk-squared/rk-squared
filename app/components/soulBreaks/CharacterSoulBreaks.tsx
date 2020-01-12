@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 
 import { enlir, EnlirSoulBreakOrLegendMateria } from '../../data/enlir';
 import { LegendMateriaListItem } from './LegendMateriaListItem';
+import { LimitBreakListItem } from './LimitBreakListItem';
 import { SoulBreakListItem } from './SoulBreakListItem';
 
 const styles = require('./CharacterSoulBreaks.scss');
@@ -12,8 +13,10 @@ interface Props {
   character: string;
   ownedSoulBreaks?: Set<number>;
   ownedLegendMateria?: Set<number>;
+  ownedLimitBreaks?: Set<number>;
   soulBreaksFilter?: (item: EnlirSoulBreakOrLegendMateria) => boolean;
   legendMateriaFilter?: (item: EnlirSoulBreakOrLegendMateria) => boolean;
+  limitBreaksFilter?: (item: EnlirSoulBreakOrLegendMateria) => boolean;
 }
 
 export class CharacterSoulBreaks extends React.PureComponent<Props> {
@@ -24,6 +27,14 @@ export class CharacterSoulBreaks extends React.PureComponent<Props> {
     );
     return _.reverse(
       soulBreaksFilter ? characterSoulBreaks.filter(soulBreaksFilter) : characterSoulBreaks,
+    );
+  }
+
+  getLimitBreaks() {
+    const { character, limitBreaksFilter } = this.props;
+    const characterLimitBreaks = enlir.limitBreaksByCharacter[character] || [];
+    return _.reverse(
+      limitBreaksFilter ? characterLimitBreaks.filter(limitBreaksFilter) : characterLimitBreaks,
     );
   }
 
@@ -38,17 +49,19 @@ export class CharacterSoulBreaks extends React.PureComponent<Props> {
   }
 
   render() {
-    const { character, ownedSoulBreaks, ownedLegendMateria } = this.props;
+    const { character, ownedSoulBreaks, ownedLegendMateria, ownedLimitBreaks } = this.props;
     // Class name to use, indexed by the boolean value of whether we have this
     // soul break or legend materia.
     const ownedSB = [ownedSoulBreaks ? styles.unowned : undefined, undefined];
+    const ownedLB = [ownedLimitBreaks ? styles.unowned : undefined, undefined];
     const ownedLM = [ownedLegendMateria ? styles.unowned : undefined, undefined];
 
     // TODO: Show default tier someplace, like MrP does?
 
     const soulBreaks = this.getSoulBreaks();
+    const limitBreaks = this.getLimitBreaks();
     const legendMateria = this.getLegendMateria();
-    if (!soulBreaks.length && !legendMateria.length) {
+    if (!soulBreaks.length && !limitBreaks.length && !legendMateria.length) {
       return null;
     }
 
@@ -62,6 +75,13 @@ export class CharacterSoulBreaks extends React.PureComponent<Props> {
               </tr>
             </thead>
             <tbody>
+              {limitBreaks.map((lb, i) => (
+                <LimitBreakListItem
+                  limitBreak={lb}
+                  className={ownedLB[ownedLimitBreaks ? +ownedLimitBreaks.has(lb.id) : 1]}
+                  key={i}
+                />
+              ))}
               {soulBreaks.map((sb, i) => (
                 <SoulBreakListItem
                   soulBreak={sb}

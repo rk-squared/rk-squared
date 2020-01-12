@@ -110,6 +110,9 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Points: toInt,
   Brave: toInt,
   'Brave Condition': toCommaSeparatedArray(toString),
+  'Soulbreak Bonus': toCommaSeparatedArray(toString),
+  'Limit Break Bonus': toCommaSeparatedArray(toString),
+  'Minimum LB Points': toInt,
 };
 
 // The '✓' column indicates whether a row has been confirmed (e.g., verified
@@ -748,6 +751,12 @@ const dataTypes: DataType[] = [
     sheet: 'Legend Materia',
     localName: 'legendMateria',
     converter: convertLegendMateria,
+  },
+  {
+    sheet: 'Limit Breaks',
+    localName: 'limitBreaks',
+    includeNotes: true,
+    converter: convertSkills,
   },
   {
     sheet: 'Magicite',

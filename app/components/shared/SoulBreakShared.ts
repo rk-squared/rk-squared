@@ -8,8 +8,11 @@ import * as TrieSearch from 'trie-search';
 
 import {
   enlir,
+  EnlirLimitBreakTier,
+  EnlirSoulBreakOrLegendMateria,
   EnlirSoulBreakTier,
   makeLegendMateriaAliases,
+  makeLimitBreakAliases,
   makeSoulBreakAliases,
 } from '../../data/enlir';
 import { formatBraveCommands } from '../../data/mrP/brave';
@@ -20,7 +23,7 @@ export const styles = require('./SoulBreakShared.scss');
 
 export function makeTierStyleMap(
   cssStyles: any,
-): { [tier in EnlirSoulBreakTier]: string | undefined } {
+): { [tier in EnlirSoulBreakTier | EnlirLimitBreakTier]: string | undefined } {
   return {
     SB: cssStyles.unique,
     SSB: cssStyles.super,
@@ -33,6 +36,8 @@ export function makeTierStyleMap(
     SASB: cssStyles.synchro,
     Glint: cssStyles.glint,
     'Glint+': cssStyles.glint,
+
+    OLB: cssStyles.overstrikeLimitBreak,
 
     // Unused - placeholders
     Default: cssStyles.unique,
@@ -60,7 +65,15 @@ export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   Shared: '-',
 });
 export const soulBreakFullAliases = makeSoulBreakAliases(enlir.soulBreaks);
+export const limitBreakAbbrevAliases = makeLimitBreakAliases(enlir.limitBreaks, {
+  OLB: 'OL',
+});
+export const limitBreakFullAliases = makeLimitBreakAliases(enlir.limitBreaks);
 export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
+
+export function formatSoulBreakOrLegendMateriaName(item: EnlirSoulBreakOrLegendMateria): string {
+  return item.gl ? item.name : '“' + item.name + '”';
+}
 
 function getSchoolName(command: MrPSkill): string {
   if (command.schoolDetails) {
@@ -125,6 +138,7 @@ interface LegendMateriaSearchItem {
 }
 
 let cachedSoulBreakSearch: TrieSearch<SoulBreakSearchItem> | undefined;
+let cachedLimitBreakSearch: TrieSearch<SoulBreakSearchItem> | undefined;
 let cachedLegendMateriaSearch: TrieSearch<LegendMateriaSearchItem> | undefined;
 function getSearches() {
   if (!cachedSoulBreakSearch) {
@@ -149,6 +163,23 @@ function getSearches() {
         })),
     );
   }
+  if (!cachedLimitBreakSearch) {
+    cachedLimitBreakSearch = new TrieSearch(['character', 'characterText', 'name', 'tier'], {
+      indexField: 'id',
+      idFieldOrFunction: 'id',
+    });
+    cachedLimitBreakSearch.addAll(
+      Object.values(enlir.limitBreaks).map(i => ({
+        id: i.id,
+        character: i.character,
+        characterText: i.character!.replace(/[^a-zA-Z]/g, ''),
+        name: i.name,
+        nameJp: i.nameJp,
+        fullTier: limitBreakFullAliases[i.id],
+        abbrevTier: limitBreakAbbrevAliases[i.id],
+      })),
+    );
+  }
   if (!cachedLegendMateriaSearch) {
     cachedLegendMateriaSearch = new TrieSearch(['character', 'characterText', 'name', 'tier'], {
       indexField: 'id',
@@ -165,25 +196,31 @@ function getSearches() {
       })),
     );
   }
-  return [cachedSoulBreakSearch, cachedLegendMateriaSearch];
+  return [cachedSoulBreakSearch, cachedLimitBreakSearch, cachedLegendMateriaSearch];
 }
 
 export interface SearchResults {
   characters: Set<string>;
   soulBreakIds: Set<number>;
+  limitBreakIds: Set<number>;
   legendMateriaIds: Set<number>;
 }
 
 export function searchSoulBreaksAndLegendMateria(searchFilter: string): SearchResults {
-  const [soulBreakSearch, legendMateriaSearch] = getSearches();
+  const [soulBreakSearch, limitBreakSearch, legendMateriaSearch] = getSearches();
   const searchResults: SearchResults = {
     characters: new Set<string>(),
     soulBreakIds: new Set<number>(),
+    limitBreakIds: new Set<number>(),
     legendMateriaIds: new Set<number>(),
   };
   for (const i of soulBreakSearch.get(searchFilter, TrieSearch.UNION_REDUCER)) {
     searchResults.characters.add(i.character);
     searchResults.soulBreakIds.add(i.id);
+  }
+  for (const i of limitBreakSearch.get(searchFilter, TrieSearch.UNION_REDUCER)) {
+    searchResults.characters.add(i.character);
+    searchResults.limitBreakIds.add(i.id);
   }
   for (const i of legendMateriaSearch.get(searchFilter, TrieSearch.UNION_REDUCER)) {
     searchResults.characters.add(i.character);

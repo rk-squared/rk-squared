@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as _ from 'lodash';
 
 import { getOffBannerRelics, RelicDrawProbabilities } from '../../actions/relicDraws';
-import { enlir, tierOrder } from '../../data/enlir';
+import { enlir, soulBreakTierOrder } from '../../data/enlir';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { isAllSame } from '../../utils/typeUtils';
 import RelicDrawBannerTable from './RelicDrawBannerTable';
@@ -18,7 +18,8 @@ function sortRelics(relicIds: number[]) {
   return _.sortBy(relicIds, [
     (i: number) =>
       enlir.relics[i].character ? enlir.charactersByName[enlir.relics[i].character!].id : 0,
-    (i: number) => (enlir.relicSoulBreaks[i] ? -tierOrder[enlir.relicSoulBreaks[i].tier] : 0),
+    (i: number) =>
+      enlir.relicSoulBreaks[i] ? -soulBreakTierOrder[enlir.relicSoulBreaks[i].tier] : 0,
     (i: number) =>
       enlir.relicSoulBreaks[i]
         ? -enlir.relicSoulBreaks[i].id

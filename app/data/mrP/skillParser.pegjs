@@ -161,6 +161,7 @@ MultiplierScaleType
   / "scaling" _ "with" _ school:School _ "abilities" _ "used" { return { type: 'abilitiesUsed', school }; }
   / "scaling" _ "with" _ element:Element _ "attacks" _ "used" { return { type: 'attacksUsed', element }; }
   / "scaling" _ "with" _ "Doom" _ "timer," _ defaultMultiplier:DecimalNumber _ "default" { return { type: 'doomTimer', defaultMultiplier }; }
+  / "scaling with LB gauge and LB honing level" { return { type: 'limitBreak' }; }
 
 
 AttackExtras
@@ -185,6 +186,7 @@ AttackExtra
   / OrMultiplier
   / OrNumAttacks
   / OverrideElement
+  / PiercingDefRes
   / PiercingDef
   / PiercingRes
   / ScaleWithAtkAndDef
@@ -263,6 +265,9 @@ PiercingDef
 
 PiercingRes
   = "ignores" _ "RES" { return { isPiercingRes: true }; }
+
+PiercingDefRes
+  = "ignores DEF/RES" { return { isPiercingDef: true, isPiercingRes: true }; }
 
 ScaleWithAtkAndDef
   = "damage" _ "scales" _ "with" _ "both" _ "ATK" _ "and" _ "DEF" { return { scalesWithAtkAndDef: true }; }

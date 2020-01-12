@@ -1,0 +1,114 @@
+[
+  {
+    "realm": "IV",
+    "character": "Cecil (Paladin)",
+    "name": "Sacred Charge",
+    "tier": "OLB",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "WHT"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Four single hybrid attacks (1.00 or 0.008 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF/RES, 100% additional critical chance",
+    "effectsNote": "Piercing exponent for the WHT multiplier is 1.0 instead of the normal 0.5. Piercing exponent for PHY remains at 0.5",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Guard of Avalon (IV)",
+    "nameJp": "セイクリッドチャージ",
+    "id": 20070021,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Terra",
+    "name": "Two Worlds as One",
+    "tier": "OLB",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 96,
+    "element": [
+      "Fire",
+      "Wind"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Demonsbane (VI)",
+    "nameJp": "人と幻獣の力",
+    "id": 20100022,
+    "gl": false
+  },
+  {
+    "realm": "IX",
+    "character": "Vivi",
+    "name": "Elemental Burst",
+    "tier": "OLB",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 96,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "El Dorado (IX)",
+    "nameJp": "エレメントボール",
+    "id": 20370017,
+    "gl": false
+  },
+  {
+    "realm": "Tactics",
+    "character": "Agrias",
+    "name": "Devoted Trueblade",
+    "tier": "OLB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5,
+    "element": [
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Sacri Shield (FFT)",
+    "nameJp": "我が主君に捧げし剣",
+    "id": 22150011,
+    "gl": false
+  }
+]

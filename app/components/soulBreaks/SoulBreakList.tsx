@@ -25,6 +25,7 @@ interface Props {
 
   ownedSoulBreaks?: Set<number>;
   ownedLegendMateria?: Set<number>;
+  ownedLimitBreaks?: Set<number>;
   showSoulBreaks?: ShowSoulBreaksType;
 
   isAnonymous?: boolean;
@@ -38,16 +39,19 @@ export class SoulBreakList extends React.Component<Props> {
       isAnonymous,
       ownedSoulBreaks,
       ownedLegendMateria,
+      ownedLimitBreaks,
       showSoulBreaks,
       searchFilter,
     } = this.props;
 
     const soulBreaksShowFilter = filterSoulBreaks(showSoulBreaks, ownedSoulBreaks);
+    const limitBreaksShowFilter = filterSoulBreaks(showSoulBreaks, ownedLimitBreaks);
     const legendMateriaShowFilter = filterSoulBreaks(showSoulBreaks, ownedLegendMateria);
 
     let searchResults: SearchResults | undefined;
     let showCharacters: typeof characters;
     let soulBreaksFilter: (item: EnlirSoulBreakOrLegendMateria) => boolean;
+    let limitBreaksFilter: (item: EnlirSoulBreakOrLegendMateria) => boolean;
     let legendMateriaFilter: (item: EnlirSoulBreakOrLegendMateria) => boolean;
     if (searchFilter) {
       searchResults = searchSoulBreaksAndLegendMateria(searchFilter);
@@ -55,10 +59,12 @@ export class SoulBreakList extends React.Component<Props> {
         c.filter(i => searchResults!.characters.has(i.name)),
       );
       soulBreaksFilter = combineFilter(soulBreaksShowFilter, searchResults.soulBreakIds);
+      limitBreaksFilter = combineFilter(limitBreaksShowFilter, searchResults.limitBreakIds);
       legendMateriaFilter = combineFilter(legendMateriaShowFilter, searchResults.legendMateriaIds);
     } else {
       showCharacters = characters;
       soulBreaksFilter = soulBreaksShowFilter;
+      limitBreaksFilter = limitBreaksShowFilter;
       legendMateriaFilter = legendMateriaShowFilter;
     }
 
@@ -75,8 +81,10 @@ export class SoulBreakList extends React.Component<Props> {
                     <CharacterSoulBreaks
                       character={character.name}
                       ownedSoulBreaks={isAnonymous ? undefined : ownedSoulBreaks}
+                      ownedLimitBreaks={isAnonymous ? undefined : ownedLimitBreaks}
                       ownedLegendMateria={isAnonymous ? undefined : ownedLegendMateria}
                       soulBreaksFilter={soulBreaksFilter}
+                      limitBreaksFilter={limitBreaksFilter}
                       legendMateriaFilter={legendMateriaFilter}
                       key={j}
                     />
@@ -92,6 +100,7 @@ export class SoulBreakList extends React.Component<Props> {
 
 export default connect((state: IState) => ({
   ownedSoulBreaks: getOwnedSoulBreaks(state),
+  ownedLimitBreaks: new Set<number>(), // FIXME: Implement
   ownedLegendMateria: getOwnedLegendMateria(state),
   showSoulBreaks: state.prefs.showSoulBreaks,
 }))(SoulBreakList);
