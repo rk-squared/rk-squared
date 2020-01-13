@@ -294,7 +294,7 @@ export const getVisibleExchangeShopSelections = createSelector<
     const allSelections = _.flatten(_.flatten(_.values(selections)));
     return new Set<number>(
       allSelections.filter(id => {
-        if (showRelicSelections !== ShowRelicSelectionType.All) {
+        if (showRelicSelections !== ShowRelicSelectionType.All && enlir.relics[id]) {
           const wave = getRelicAnimaWave(enlir.relics[id]);
           if (showRelicSelections === ShowRelicSelectionType.HideAllAnima && wave) {
             return false;

@@ -9,6 +9,12 @@ export interface DropdownProps {
   right?: boolean;
   className?: string;
   linkClassName?: string;
+
+  /**
+   * Use static positioning? By default, Bootstrap uses Popper.js.
+   */
+  staticPosition?: boolean;
+
   children: any;
 }
 
@@ -16,6 +22,7 @@ export const dropdownToggleProps: (props: DropdownProps) => React.HTMLAttributes
   id,
   linkClassName,
   label,
+  staticPosition,
 }: DropdownProps) => ({
   className: classNames('dropdown-toggle', linkClassName),
   id,
@@ -23,6 +30,7 @@ export const dropdownToggleProps: (props: DropdownProps) => React.HTMLAttributes
   ['aria-haspopup']: 'true',
   ['aria-expanded']: 'false',
   ['aria-label']: label,
+  ['data-display']: staticPosition ? 'static' : undefined,
 });
 
 export const dropdownMenuProps = ({ id, right }: DropdownProps) => ({

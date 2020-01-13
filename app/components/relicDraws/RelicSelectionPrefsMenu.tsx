@@ -47,6 +47,7 @@ export class RelicSelectionPrefsMenu extends React.PureComponent<Props> {
         linkClassName="caret-off"
         display={<FontAwesomeIcon icon="cog" aria-label="Settings" />}
         right={true}
+        staticPosition={true}
       >
         <DropdownItem onClick={select(ShowRelicSelectionType.All)}>
           <Bullet show={showRelicSelections === ShowRelicSelectionType.All} />
@@ -79,9 +80,12 @@ export class RelicSelectionPrefsMenu extends React.PureComponent<Props> {
 }
 
 export default connect(
-  ({ prefs: { hideRelicSelectionDupes, showRelicSelections } }: IState) => ({
+  ({
+    prefs: { hideRelicSelectionDupes, showRelicSelections, showNewRelicSelectionsOnly },
+  }: IState) => ({
     hideRelicSelectionDupes,
     showRelicSelections,
+    showNewRelicSelectionsOnly,
   }),
   dispatch => ({
     updateRelicSelection: (prefs: Prefs) => dispatch(updatePrefs(prefs)),
