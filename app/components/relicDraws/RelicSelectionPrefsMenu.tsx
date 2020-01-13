@@ -39,6 +39,12 @@ export class RelicSelectionPrefsMenu extends React.PureComponent<Props> {
       updateRelicSelection({ showRelicSelections: selected });
     const toggle = (prop: keyof Prefs) => () => updateRelicSelection({ [prop]: !this.props[prop] });
 
+    // Due to a bug in our old version of Electron, Popper.js doesn't handle
+    // sticky positioning correctly, so optionally disable it:
+    // https://github.com/popperjs/popper.js/issues/253
+    const staticPosition = !!process.env.IS_ELECTRON;
+    // TODO: Retest once we upgrade to Electron 7.x
+
     return (
       <DivDropdown
         id="relicSelectionPrefsDropdown"
@@ -47,7 +53,7 @@ export class RelicSelectionPrefsMenu extends React.PureComponent<Props> {
         linkClassName="caret-off"
         display={<FontAwesomeIcon icon="cog" aria-label="Settings" />}
         right={true}
-        staticPosition={true}
+        staticPosition={staticPosition}
       >
         <DropdownItem onClick={select(ShowRelicSelectionType.All)}>
           <Bullet show={showRelicSelections === ShowRelicSelectionType.All} />

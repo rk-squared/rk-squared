@@ -346,7 +346,10 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
           {this.renderColumnGroup(showProbability)}
           <thead>
             <tr className="thead-dark">
-              <th className={styles.sectionHead} colSpan={colCount}>
+              <th
+                className={classNames(styles.sectionHead, { [styles.withPrefsMenu]: !!PrefsMenu })}
+                colSpan={colCount}
+              >
                 {title}
                 {allowCollapse && this.renderShowHideLink()}
                 {commonProbability && (

@@ -53,6 +53,10 @@
       position: sticky;
       top: 0;
     }
+    th.sectionHead.withPrefsMenu {
+      // Don't let the drop-down menu appear under later sticky headers.
+      z-index: 10;
+    }
 
     col.characterColumn {
       width: 6em;

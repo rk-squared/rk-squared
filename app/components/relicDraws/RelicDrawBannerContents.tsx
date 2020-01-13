@@ -49,7 +49,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         groupBySeries={true}
         allowSelect={true}
         includeAvailability={true}
-        prefsMenu={() => <RelicSelectionPrefsMenu />}
+        prefsMenu={() => <RelicSelectionPrefsMenu isAnonymous={isAnonymous} />}
         filter={(id: number) =>
           !visibleExchangeShopSelections || visibleExchangeShopSelections.has(id)
         }
