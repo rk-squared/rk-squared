@@ -27,8 +27,8 @@ export interface Prefs {
   showSoulBreaks?: ShowSoulBreaksType;
 
   // Relic selection preferences
-  hideRelicSelectionDupes?: boolean;
   showRelicSelections?: ShowRelicSelectionType;
+  hideRelicSelectionDupes?: boolean;
   showNewRelicSelectionsOnly?: boolean;
 
   lastFilename?: {

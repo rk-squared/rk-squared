@@ -13,6 +13,7 @@ interface Props {
   banner: RelicDrawBannerDetails;
   probabilities?: RelicDrawProbabilities;
   isAnonymous?: boolean;
+  visibleExchangeShopSelections?: Set<number>;
 }
 
 function sortRelics(relicIds: number[]) {
@@ -36,7 +37,7 @@ function sortRelics(relicIds: number[]) {
  */
 export class RelicDrawBannerContents extends React.PureComponent<Props> {
   renderSelections() {
-    const { banner, isAnonymous } = this.props;
+    const { banner, isAnonymous, visibleExchangeShopSelections } = this.props;
     if (!banner.selections || !banner.selections.length) {
       return null;
     }
@@ -49,6 +50,9 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         allowSelect={true}
         includeAvailability={true}
         prefsMenu={() => <RelicSelectionPrefsMenu />}
+        filter={(id: number) =>
+          !visibleExchangeShopSelections || visibleExchangeShopSelections.has(id)
+        }
       />
     );
   }

@@ -47,6 +47,7 @@ interface Props {
   onSelect?: (relicId: number, want: boolean) => void;
 
   prefsMenu?: () => React.ReactNode;
+  filter?: (id: number) => boolean;
 }
 
 interface State {
@@ -297,6 +298,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       allowSelect,
       groupBySeries,
       prefsMenu: PrefsMenu,
+      filter,
     } = this.props;
 
     let showProbability: boolean;
@@ -323,6 +325,9 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       );
     } else if (groupBySeries && relicsArray.length > 1) {
       relicsArray = _.sortBy(relicsArray, getRelicGroupRealmId);
+    }
+    if (filter) {
+      relicsArray = relicsArray.map(i => i.filter(filter));
     }
 
     const collapsed = allowCollapse && this.state.collapsed;

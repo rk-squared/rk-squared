@@ -9,7 +9,11 @@ import RelicChances from '../components/relicDraws/RelicChances';
 import { RelicDrawBannerContents } from '../components/relicDraws/RelicDrawBannerContents';
 import { RelicDrawModalLink } from '../components/relicDraws/RelicDrawModalLink';
 import { IState } from '../reducers';
-import { getBannerDetails, RelicDrawBannerDetails } from '../selectors/relicDraws';
+import {
+  getBannerDetails,
+  getVisibleExchangeShopSelections,
+  RelicDrawBannerDetails,
+} from '../selectors/relicDraws';
 
 const styles = require('./RelicDrawBannerPage.scss');
 
@@ -26,13 +30,21 @@ interface Props {
   };
   isAnonymous?: boolean;
   backLink: string;
+  visibleExchangeShopSelections: Set<number>;
 }
 
 export class RelicDrawBannerPage extends React.PureComponent<
   Props & RouteComponentProps<RouteParams>
 > {
   render() {
-    const { banners, probabilities, isAnonymous, match, backLink } = this.props;
+    const {
+      banners,
+      probabilities,
+      isAnonymous,
+      match,
+      backLink,
+      visibleExchangeShopSelections,
+    } = this.props;
     const bannerId = +match.params.banner;
     const banner = banners[bannerId];
     const probability = probabilities[bannerId];
@@ -54,6 +66,7 @@ export class RelicDrawBannerPage extends React.PureComponent<
         </div>
         <RelicDrawBannerContents
           banner={banner}
+          visibleExchangeShopSelections={visibleExchangeShopSelections}
           probabilities={probability}
           isAnonymous={isAnonymous}
         />
@@ -73,4 +86,5 @@ export class RelicDrawBannerPage extends React.PureComponent<
 export default connect((state: IState) => ({
   banners: getBannerDetails(state),
   probabilities: state.relicDraws.probabilities,
+  visibleExchangeShopSelections: getVisibleExchangeShopSelections(state),
 }))(RelicDrawBannerPage);

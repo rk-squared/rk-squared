@@ -2,19 +2,21 @@ import { createSelector } from 'reselect';
 
 import * as _ from 'lodash';
 
+import { ShowRelicSelectionType } from '../actions/prefs';
 import {
   ExchangeShopSelections,
   RelicDrawBanner,
   RelicDrawGroup,
   RelicDrawProbabilities,
 } from '../actions/relicDraws';
+import { getRelicAnimaWave } from '../data/anima';
 import { enlir } from '../data/enlir';
 import { RelicProbability } from '../data/probabilities';
 import { IState } from '../reducers';
 import { RelicDrawState } from '../reducers/relicDraws';
 import { difference } from '../utils/setUtils';
 import { isClosed } from '../utils/timeUtils';
-import { getOwnedLegendMateria, getOwnedSoulBreaks } from './characters';
+import { getOwnedLegendMateria, getOwnedRelics, getOwnedSoulBreaks } from './characters';
 
 export interface RelicDrawBannerDetails extends RelicDrawBanner {
   /**
@@ -255,5 +257,67 @@ export const getRelicProbabilities = createSelector<
       probability,
       rarity: enlir.relics[relicId].rarity,
     }));
+  },
+);
+
+export const getVisibleExchangeShopSelections = createSelector<
+  IState,
+  {
+    [exchangeShopId: number]: ExchangeShopSelections;
+  },
+  ShowRelicSelectionType,
+  boolean,
+  boolean,
+  Set<number> | undefined,
+  Set<number>,
+  Set<number>
+>(
+  (state: IState) => state.relicDraws.selections,
+  (state: IState) =>
+    state.prefs.showRelicSelections != null
+      ? state.prefs.showRelicSelections
+      : ShowRelicSelectionType.Default,
+  (state: IState) => !!state.prefs.hideRelicSelectionDupes,
+  (state: IState) => !!state.prefs.showNewRelicSelectionsOnly,
+  getOwnedRelics,
+  getNewExchangeShopSelections,
+  (
+    selections: {
+      [exchangeShopId: number]: ExchangeShopSelections;
+    },
+    showRelicSelections: ShowRelicSelectionType,
+    hideRelicSelectionDupes: boolean,
+    showNewRelicSelectionsOnly: boolean,
+    owned: Set<number> | undefined,
+    newExchangeShopSelections: Set<number>,
+  ) => {
+    const allSelections = _.flatten(_.flatten(_.values(selections)));
+    return new Set<number>(
+      allSelections.filter(id => {
+        if (showRelicSelections !== ShowRelicSelectionType.All) {
+          const wave = getRelicAnimaWave(enlir.relics[id]);
+          if (showRelicSelections === ShowRelicSelectionType.HideAllAnima && wave) {
+            return false;
+          }
+          if (
+            showRelicSelections === ShowRelicSelectionType.HideCurrentAnima &&
+            wave &&
+            wave.released
+          ) {
+            return false;
+          }
+        }
+
+        if (hideRelicSelectionDupes && owned && owned.has(id)) {
+          return false;
+        }
+
+        if (showNewRelicSelectionsOnly && !newExchangeShopSelections.has(id)) {
+          return false;
+        }
+
+        return true;
+      }),
+    );
   },
 );
