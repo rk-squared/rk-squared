@@ -1,3 +1,5 @@
+import { enlir, EnlirRelic } from './enlir';
+
 interface AnimaWave {
   color: string;
   released?: boolean;
@@ -25,3 +27,12 @@ export const animaWaves: { [wave: number]: AnimaWave } = {
     estimatedYear: 2020,
   },
 };
+
+export function getRelicAnimaWave({ id }: EnlirRelic): AnimaWave | null {
+  const anima = enlir.relicSoulBreaks[id]
+    ? enlir.relicSoulBreaks[id].anima
+    : enlir.relicLegendMateria[id]
+    ? enlir.relicLegendMateria[id].anima
+    : null;
+  return anima != null ? animaWaves[anima] : null;
+}

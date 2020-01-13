@@ -7,6 +7,7 @@ import { enlir, soulBreakTierOrder } from '../../data/enlir';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { isAllSame } from '../../utils/typeUtils';
 import RelicDrawBannerTable from './RelicDrawBannerTable';
+import RelicSelectionPrefsMenu from './RelicSelectionPrefsMenu';
 
 interface Props {
   banner: RelicDrawBannerDetails;
@@ -47,6 +48,7 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
         groupBySeries={true}
         allowSelect={true}
         includeAvailability={true}
+        prefsMenu={() => <RelicSelectionPrefsMenu />}
       />
     );
   }

@@ -45,6 +45,8 @@ interface Props {
   allowSelect?: boolean;
   getSelected?: (relicId: number) => boolean;
   onSelect?: (relicId: number, want: boolean) => void;
+
+  prefsMenu?: () => React.ReactNode;
 }
 
 interface State {
@@ -275,19 +277,27 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       caption = 'hide';
     }
     return (
-      <span>
+      <>
         {' '}
         (
         <a href="#" onClick={this.toggleCollapsed}>
           {caption}
         </a>
         )
-      </span>
+      </>
     );
   }
 
   render() {
-    const { title, relics, probabilities, allowCollapse, allowSelect, groupBySeries } = this.props;
+    const {
+      title,
+      relics,
+      probabilities,
+      allowCollapse,
+      allowSelect,
+      groupBySeries,
+      prefsMenu: PrefsMenu,
+    } = this.props;
 
     let showProbability: boolean;
     let commonProbability: number | null;
@@ -318,13 +328,20 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
     const collapsed = allowCollapse && this.state.collapsed;
     const grouped = relicsArray.length > 1 && _.some(relicsArray, i => i.length > 1);
     this.lastRealm = null;
+
+    // TODO: Appearance at low screen sizes (mobile) is quite bad.
+    // Part of the problem is that we don't fix column widths, so the sr-only
+    // status column takes space.  Most of the problem is that we need to use
+    // a proper responsive table design to move effects to its own row, but
+    // that's hard.
+
     return (
-      <div className="table-responsive">
+      <div className={classNames('table-responsive', styles.container)}>
         <table className={classNames('table', styles.component, { [styles.grouped]: grouped })}>
           {this.renderColumnGroup(showProbability)}
           <thead>
             <tr className="thead-dark">
-              <th colSpan={colCount}>
+              <th className={styles.sectionHead} colSpan={colCount}>
                 {title}
                 {allowCollapse && this.renderShowHideLink()}
                 {commonProbability && (
@@ -335,6 +352,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
                     Chance of drawing: {totalProbability.toFixed(2)}% total
                   </span>
                 )}
+                {PrefsMenu && <div className="float-right">{PrefsMenu()}</div>}
               </th>
             </tr>
             {!collapsed && this.renderColumnHeaders(showProbability)}

@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env -S npx ts-node
 
 import * as fs from 'fs-extra';
 import * as _ from 'lodash';
