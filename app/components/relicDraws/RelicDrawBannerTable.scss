@@ -43,6 +43,21 @@
   }
 
   @include media-breakpoint-up(md) {
+    // Override overflow-x from .table-responsive.  Note that we don't really
+    // benefit from .table-responsive due to generally poor mobile support.
+    div.container {
+      overflow-x: visible;
+    }
+
+    th.sectionHead {
+      position: sticky;
+      top: 0;
+    }
+    th.sectionHead.withPrefsMenu {
+      // Don't let the drop-down menu appear under later sticky headers.
+      z-index: 10;
+    }
+
     col.characterColumn {
       width: 6em;
     }
@@ -65,6 +80,7 @@
       width: 2em;
     }
   }
+
   col.statusColumn {
     width: 0;
     padding: 0;

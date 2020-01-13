@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ShowSoulBreaksType, updatePrefs } from '../../actions/prefs';
 import { IState } from '../../reducers';
-import { NavDropdownItem } from '../common/NavDropdownItem';
+import { DropdownItem } from '../common/Dropdown';
+import { Bullet } from '../common/Glyphs';
 import { NavMenuDropdown } from '../common/NavMenuDropdown';
 
 interface PrefsMenuProps {
@@ -14,12 +15,6 @@ interface PrefsMenuProps {
   updateShowSoulBreaks: (showSoulBreaks: ShowSoulBreaksType) => void;
   className?: string;
 }
-
-const Bullet = ({ show }: { show: boolean }) => (
-  <span className={show ? '' : 'invisible'} aria-label="selected">
-    ●
-  </span>
-);
 
 export const SoulBreaksNavPrefsMenu = ({
   isAnonymous,
@@ -35,16 +30,16 @@ export const SoulBreaksNavPrefsMenu = ({
     display={<FontAwesomeIcon icon="cog" aria-label="Settings" />}
     right={true}
   >
-    <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.All)}>
+    <DropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.All)}>
       <Bullet show={showSoulBreaks === ShowSoulBreaksType.All} /> JP and GL
-    </NavDropdownItem>
-    <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.Gl)}>
+    </DropdownItem>
+    <DropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.Gl)}>
       <Bullet show={showSoulBreaks === ShowSoulBreaksType.Gl} /> GL
-    </NavDropdownItem>
+    </DropdownItem>
     {!isAnonymous && (
-      <NavDropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.Owned)}>
+      <DropdownItem onClick={() => updateShowSoulBreaks(ShowSoulBreaksType.Owned)}>
         <Bullet show={showSoulBreaks === ShowSoulBreaksType.Owned} /> Owned
-      </NavDropdownItem>
+      </DropdownItem>
     )}
   </NavMenuDropdown>
 );

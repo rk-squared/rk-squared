@@ -13,10 +13,23 @@ export enum ShowSoulBreaksType {
   Default = All,
 }
 
+export enum ShowRelicSelectionType {
+  All = 0,
+  HideCurrentAnima = 1,
+  HideAllAnima = 2,
+
+  Default = All,
+}
+
 export interface Prefs {
   showItemType: { [t in ItemType]: boolean };
 
   showSoulBreaks?: ShowSoulBreaksType;
+
+  // Relic selection preferences
+  showRelicSelections?: ShowRelicSelectionType;
+  hideRelicSelectionDupes?: boolean;
+  showNewRelicSelectionsOnly?: boolean;
 
   lastFilename?: {
     [key: string]: string;

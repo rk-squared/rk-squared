@@ -2,7 +2,7 @@
 
 exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1`] = `
 <div
-  className="table-responsive"
+  className="table-responsive container"
 >
   <table
     className="table component"
@@ -29,6 +29,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
         className="thead-dark"
       >
         <th
+          className="sectionHead"
           colSpan={5}
         >
           Featured Relics
@@ -535,7 +536,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
 
 exports[`RelicDrawBannerTable renders featured relics with varying probabilities 1`] = `
 <div
-  className="table-responsive"
+  className="table-responsive container"
 >
   <table
     className="table component"
@@ -565,6 +566,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         className="thead-dark"
       >
         <th
+          className="sectionHead"
           colSpan={6}
         >
           Featured Relics
@@ -1134,7 +1136,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
 
 exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] = `
 <div
-  className="table-responsive"
+  className="table-responsive container"
 >
   <table
     className="table component"
@@ -1161,6 +1163,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
         className="thead-dark"
       >
         <th
+          className="sectionHead"
           colSpan={5}
         >
           Featured Relics

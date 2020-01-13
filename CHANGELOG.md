@@ -3,7 +3,11 @@
 - Abilities
   - Ability tooltips for future abilities now include information about their expected release.
   - The Future Abilities screen now includes Record Board abilities.
+- Soul Breaks
+  - Add support for OLBs (Overstrike Limit Breaks)
+  - Numerous updates and fixes to soul break and legend materia descriptions
 - Relic Draws
+  - Dream Relic Draws now allow filtering by anima lens availability, new relic selections, and dupe status.
   - The chance of getting a 6\* or better is now shown, instead of showing the raw count of the number of relics that are 6\*.
   - Fix: Unknown relics are now shown as ??? instead of breaking the entire relic banner page
 - Installing a certificate for iOS is now slightly easier.
