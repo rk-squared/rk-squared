@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import classNames from 'classnames';
 
+require('./Dropdown.scss');
+
 export interface DropdownProps {
   id: string;
   label: string;
