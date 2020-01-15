@@ -130,7 +130,7 @@ app.on('ready', () =>
               mainWindow.webContents.inspectElement(x, y);
             },
           },
-        ]).popup(mainWindow);
+        ]).popup({ window: mainWindow });
       });
     }
 
