@@ -375,7 +375,7 @@ function configureHttpsProxy(server: http.Server, store: Store<IState>, httpsPor
         logger.debug(
           `Error ${connected ? 'communicating with' : 'connecting to'} ${serverUrl.hostname}`,
         );
-        logger.debug(e);
+        logException(e, 'debug');
         if (!connected) {
           // Unable to connect to destination - send a clean error back to the client
           clientSocket.end(
@@ -449,11 +449,11 @@ function configureApp(
   app.use((req: http.IncomingMessage, res: http.ServerResponse) => {
     req.on('error', e => {
       logger.debug('Error within proxy req');
-      logger.debug(e);
+      logException(e, 'debug');
     });
     res.on('error', e => {
       logger.debug('Error within proxy res');
-      logger.debug(e);
+      logException(e, 'debug');
     });
 
     // Disabled; not currently functional:
@@ -580,7 +580,7 @@ export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
   const proxy = httpProxy.createProxyServer({ preserveHeaderKeyCase: true });
   proxy.on('error', e => {
     logger.debug('Error within proxy');
-    logger.debug(e);
+    logException(e, 'debug');
   });
   proxy.on('proxyReq', preserveProxyReqHeaderKeyCase);
 
@@ -604,6 +604,7 @@ export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
 
   server.listen(port);
   httpsServer.listen(httpsPort, '127.0.0.1');
+  logger.info(`Listening on 127.0.0.1 port ${httpsPort}`);
   if (store.getState().options.enableTransparentProxy) {
     const transparentApp = createTransparentApp(store, proxy, tlsCert);
     const transparentServer = http.createServer(transparentApp);
