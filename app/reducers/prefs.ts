@@ -21,7 +21,7 @@ import { ItemType } from '../data/items';
 
 export type PrefsState = Prefs;
 
-const initialState: PrefsState = {
+export const initialState: PrefsState = {
   showItemType: _.fromPairs(Object.keys(ItemType).map(i => [ItemType[i as any], true])) as {
     [t in ItemType]: boolean;
   },

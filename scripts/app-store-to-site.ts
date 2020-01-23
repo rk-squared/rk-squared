@@ -4,6 +4,8 @@ import * as fs from 'fs-extra';
 import * as _ from 'lodash';
 import * as path from 'path';
 
+import { initialState as initialPrefsState } from '../app/reducers/prefs';
+
 const { build } = require('../package.json');
 
 // tslint:disable no-console
@@ -25,6 +27,7 @@ config = _.mapValues(config, JSON.parse);
 // Anonymize and reset user preferences.
 // TODO: More thorough
 config.relicDraws.want = {};
+config.prefs = initialPrefsState;
 
 const outputPath = path.join(__dirname, '..', 'app', 'tmp', 'store.json');
 const tmpOutputPath = outputPath + '.new';
