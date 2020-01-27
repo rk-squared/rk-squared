@@ -897,6 +897,16 @@ export const items: Item[] = [
     type: ItemType.Orb,
     id: 40000146,
   },
+  {
+    name: 'Darkness Swing Record',
+    type: ItemType.Orb,
+    id: 40000147,
+  },
+  {
+    name: 'Flashfist Lightning Record',
+    type: ItemType.Orb,
+    id: 40000148,
+  },
 
   {
     name: 'Minor Growth Egg',
