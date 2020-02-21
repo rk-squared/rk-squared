@@ -907,6 +907,31 @@ export const items: Item[] = [
     type: ItemType.Orb,
     id: 40000148,
   },
+  {
+    name: 'Taboo Raid Record',
+    type: ItemType.Orb,
+    id: 40000149,
+  },
+  {
+    name: 'Trinity Bombshell Record',
+    type: ItemType.Orb,
+    id: 40000150,
+  },
+  {
+    name: 'Anima Record',
+    type: ItemType.Orb,
+    id: 40000151,
+  },
+  {
+    name: 'Frostfire Carnage Record',
+    type: ItemType.Orb,
+    id: 40000152,
+  },
+  {
+    name: 'Iceclaw Assault Record',
+    type: ItemType.Orb,
+    id: 40000155,
+  },
 
   {
     name: 'Minor Growth Egg',
