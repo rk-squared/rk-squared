@@ -288,7 +288,7 @@ const magMndTable: TableDefinition = {
     {
       header: '(always)',
       items: {
-        10: [['Fusoya', '3']],
+        10: [['Fusoya', '3'], ['Fina', '1']],
       },
     },
     {
@@ -371,7 +371,7 @@ const mndTable: TableDefinition = {
       header: 'Bow',
       items: {
         25: [['Rosa', '3']],
-        20: [['Rosa', '2']],
+        20: [['Rosa', '2'], ['Fina', '2']],
         10: [['Rosa', '1']],
       },
     },

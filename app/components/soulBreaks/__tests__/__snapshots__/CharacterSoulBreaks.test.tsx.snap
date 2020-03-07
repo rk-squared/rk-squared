@@ -42,7 +42,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           </td>
         </tr>
         <tr
-          className="unowned synchro jp"
+          className="unowned synchro"
         >
           <td
             className="tier"
@@ -52,7 +52,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="name"
           >
-            “Sanguined Dragoon”
+            Blood Dragoon
           </td>
           <td
             className="effects"
@@ -218,7 +218,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           </td>
         </tr>
         <tr
-          className="unowned glint jp"
+          className="unowned glint"
         >
           <td
             className="tier"
@@ -228,7 +228,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="name"
           >
-            “Lightning Rise”
+            Draconic Tempest
           </td>
           <td
             className="effects"
@@ -524,7 +524,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
-          className="synchro jp"
+          className="synchro"
         >
           <td
             className="tier"
@@ -534,7 +534,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="name"
           >
-            “Sanguined Dragoon”
+            Blood Dragoon
           </td>
           <td
             className="effects"
@@ -700,7 +700,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
-          className="glint jp"
+          className="glint"
         >
           <td
             className="tier"
@@ -710,7 +710,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="name"
           >
-            “Lightning Rise”
+            Draconic Tempest
           </td>
           <td
             className="effects"

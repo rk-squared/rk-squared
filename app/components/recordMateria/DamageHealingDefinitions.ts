@@ -31,14 +31,14 @@ const elementalTable: TableDefinition = {
       header: 'Earth',
       items: {
         13: [['Tifa', '3']],
-        12: [['Cinque', '2']],
+        12: [['Cinque', '2'], ['Rain', '2']],
         11: [['Ingus', '1a'], ['Rude', '1'], ['Enna Kros', '1']],
       },
     },
     {
       header: 'Fire',
       items: {
-        13: [['Vivi', '3'], ['Axel', '3']],
+        13: [['Vivi', '3'], ['Axel', '3'], ['Rain', '3']],
         12: [['Edge', '2'], ['Axel', '2'], ['Genesis', '2']],
         11: [['Refia', '1a'], ['Rubicante', '1'], ['Lulu', '1'], ['Axel', '1']],
       },
@@ -195,7 +195,14 @@ const abilityTable: TableDefinition = {
       items: {
         '1_4': [['Celes', '3'], ['Machina', '3'], ['Sora', '3']],
         '1_3': [['Celes', '2'], ['Paine', '2'], ['Sora', '2'], ['Xezat', '2']],
-        '1_15': [['Scott', '1'], ['Paine', '1'], ['Reks', '1'], ['Machina', '1'], ['Sora', '1']],
+        '1_15': [
+          ['Scott', '1'],
+          ['Paine', '1'],
+          ['Reks', '1'],
+          ['Machina', '1'],
+          ['Sora', '1'],
+          ['Rain', '1'],
+        ],
         '13w': [['Bartz', '2']],
       },
     },
@@ -310,8 +317,8 @@ const physicalTable: TableDefinition = {
     {
       header: 'PHY Katana',
       items: {
-        '1_3': [['Sephiroth', '3']],
-        '1_2': [['Sephiroth', '2']],
+        '1_3': [['Sephiroth', '3'], ['Lasswell', '3']],
+        '1_2': [['Sephiroth', '2'], ['Lasswell', '2']],
         '1_1': [['Cyan', '1a'], ['Auron', '1']],
       },
     },

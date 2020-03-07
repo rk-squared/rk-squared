@@ -351,7 +351,7 @@
   },
   {
     "character": "Kain",
-    "source": "Sanguined Dragoon",
+    "source": "Blood Dragoon",
     "name": "Sworn Lance",
     "synchroAbilitySlot": 1,
     "synchroCondition": "Lightning",
@@ -376,7 +376,7 @@
   },
   {
     "character": "Kain",
-    "source": "Sanguined Dragoon",
+    "source": "Blood Dragoon",
     "name": "Dragoon Thunderbolt",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Lightning",
@@ -1487,7 +1487,7 @@
   },
   {
     "character": "Tidus",
-    "source": "Blitz Cry",
+    "source": "Blitz Yell",
     "name": "Sphere Shot",
     "synchroAbilitySlot": 1,
     "synchroCondition": "Water",
@@ -1512,7 +1512,7 @@
   },
   {
     "character": "Tidus",
-    "source": "Blitz Cry",
+    "source": "Blitz Yell",
     "name": "Vitality Shot",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Water",

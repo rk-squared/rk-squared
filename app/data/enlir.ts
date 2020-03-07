@@ -849,7 +849,7 @@ function patchEnlir() {
   // Paine's AASB. It seems odd for a status to directly grant a status.
   applyPatch(
     enlir.statusByName,
-    'Respect Counter Mode',
+    'Respect Point Mode',
     mode => mode.effects === 'Cast speed x2.00, grants Respect Counter Critical',
     mode => {
       mode.effects = 'Cast speed x2.00';
@@ -861,11 +861,11 @@ function patchEnlir() {
     combo =>
       combo.effects ===
       'Fifteen single attacks (0.60 each), grants Attach Water, Awoken Water, ' +
-        'Damage Cap +10000 and Respect Counter Mode to the user',
+        'Damage Cap +10000 and Respect Point Mode to the user',
     combo => {
       combo.effects =
         'Fifteen single attacks (0.60 each), grants Attach Water, Awoken Water, ' +
-        'Damage Cap +10000, Respect Counter Mode, and Respect Counter Critical to the user';
+        'Damage Cap +10000, Respect Point Mode, and Respect Counter Critical to the user';
     },
   );
 

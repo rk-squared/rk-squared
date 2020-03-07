@@ -196,7 +196,7 @@ const counterTable: TableDefinition = {
       items: {
         3: [['Gaffgarion', '3']],
         2: [['Samurai', '2'], ['Ignis', '2'], ['Gaffgarion', '2']],
-        1: [['Galuf', '1b'], ['Cloud', '1b']],
+        1: [['Galuf', '1b'], ['Cloud', '1b'], ['Lasswell', '1']],
       },
     },
     {
