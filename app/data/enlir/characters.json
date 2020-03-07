@@ -231,7 +231,7 @@
     "skills": {
       "blackMagic": null,
       "whiteMagic": null,
-      "combat": 4,
+      "combat": 5,
       "support": null,
       "celerity": null,
       "summoning": null,
@@ -366,7 +366,7 @@
       "dragoon": null,
       "monk": null,
       "thief": null,
-      "knight": 4,
+      "knight": 5,
       "samurai": null,
       "ninja": null,
       "bard": null,
@@ -491,7 +491,7 @@
       "summoning": null,
       "spellblade": null,
       "dragoon": null,
-      "monk": 4,
+      "monk": 5,
       "thief": null,
       "knight": null,
       "samurai": null,
@@ -610,8 +610,8 @@
       "accessory": true
     },
     "skills": {
-      "blackMagic": 3,
-      "whiteMagic": 3,
+      "blackMagic": 4,
+      "whiteMagic": 4,
       "combat": null,
       "support": null,
       "celerity": null,
@@ -1250,7 +1250,7 @@
       "combat": null,
       "support": null,
       "celerity": null,
-      "summoning": 4,
+      "summoning": 5,
       "spellblade": null,
       "dragoon": null,
       "monk": null,
@@ -1383,7 +1383,7 @@
       "monk": null,
       "thief": null,
       "knight": null,
-      "samurai": 4,
+      "samurai": 5,
       "ninja": null,
       "bard": null,
       "dancer": null,
@@ -1506,7 +1506,7 @@
       "celerity": null,
       "summoning": null,
       "spellblade": null,
-      "dragoon": 4,
+      "dragoon": 5,
       "monk": null,
       "thief": null,
       "knight": null,
@@ -1642,7 +1642,7 @@
       "bard": null,
       "dancer": null,
       "machinist": null,
-      "darkness": 4,
+      "darkness": 6,
       "sharpshooter": null,
       "witch": null,
       "heavy": null
@@ -1759,7 +1759,7 @@
       "support": null,
       "celerity": null,
       "summoning": null,
-      "spellblade": 4,
+      "spellblade": 5,
       "dragoon": null,
       "monk": null,
       "thief": null,
@@ -2151,7 +2151,7 @@
       "dancer": null,
       "machinist": null,
       "darkness": null,
-      "sharpshooter": 4,
+      "sharpshooter": 6,
       "witch": null,
       "heavy": null
     },
@@ -2265,12 +2265,12 @@
       "whiteMagic": null,
       "combat": null,
       "support": null,
-      "celerity": 4,
+      "celerity": 5,
       "summoning": null,
       "spellblade": null,
       "dragoon": null,
       "monk": null,
-      "thief": 4,
+      "thief": 5,
       "knight": null,
       "samurai": null,
       "ninja": null,
@@ -2401,7 +2401,7 @@
       "knight": null,
       "samurai": null,
       "ninja": null,
-      "bard": 4,
+      "bard": 5,
       "dancer": null,
       "machinist": null,
       "darkness": null,
@@ -2527,7 +2527,7 @@
       "thief": null,
       "knight": null,
       "samurai": null,
-      "ninja": 4,
+      "ninja": 5,
       "bard": null,
       "dancer": null,
       "machinist": null,
@@ -2644,7 +2644,7 @@
     "skills": {
       "blackMagic": null,
       "whiteMagic": null,
-      "combat": 4,
+      "combat": 5,
       "support": null,
       "celerity": 3,
       "summoning": null,
@@ -5911,7 +5911,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Traveling Soldier's Hidden Feelings",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6165,7 +6165,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Traveling Soldier's Hidden Feelings",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6292,7 +6292,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Traveling Soldier's Hidden Feelings",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -9340,7 +9340,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A New Dawn Rising",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9848,7 +9848,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bonds of Friendship",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -12769,7 +12769,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Crisis Before the Star",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13023,7 +13023,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Crisis Before the Star",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13277,7 +13277,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Crisis Before the Star",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14734,7 +14734,7 @@
   {
     "realm": "VII",
     "name": "Genesis",
-    "introducingEventLv50": "Poems for the Planet",
+    "introducingEventLv50": "Ode to a Sundered World",
     "lv50": {
       "hp": 3836,
       "atk": 110,
@@ -14742,11 +14742,11 @@
       "mag": 79,
       "res": 83,
       "mnd": 71,
-      "acc": null,
-      "eva": null,
+      "acc": 23,
+      "eva": 22,
       "spd": 123
     },
-    "introducingEventLv65": "Poems for the Planet",
+    "introducingEventLv65": "Ode to a Sundered World",
     "lv65": {
       "hp": 4769,
       "atk": 140,
@@ -14754,11 +14754,11 @@
       "mag": 104,
       "res": 105,
       "mnd": 93,
-      "acc": null,
-      "eva": null,
+      "acc": 24,
+      "eva": 23,
       "spd": 131
     },
-    "introducingEventLv80": "Poems for the Planet",
+    "introducingEventLv80": "Ode to a Sundered World",
     "lv80": {
       "hp": 5670,
       "atk": 170,
@@ -14766,11 +14766,11 @@
       "mag": 129,
       "res": 128,
       "mnd": 116,
-      "acc": null,
-      "eva": null,
+      "acc": 24,
+      "eva": 24,
       "spd": 139
     },
-    "introducingEventLv99": "Poems for the Planet",
+    "introducingEventLv99": "Ode to a Sundered World",
     "lv99": {
       "hp": 6777,
       "atk": 209,
@@ -14782,7 +14782,7 @@
       "eva": 25,
       "spd": 149
     },
-    "introducingEventRecordSpheres": "Poems for the Planet",
+    "introducingEventRecordSpheres": "Ode to a Sundered World",
     "recordSpheres": {
       "hp": 780,
       "atk": 32,
@@ -14791,7 +14791,7 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Poems for the Planet",
+    "introducingEventLegendSpheres": "Ode to a Sundered World",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -14856,7 +14856,7 @@
       "heavy": null
     },
     "id": 10708000,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -20457,8 +20457,8 @@
       "mag": 55,
       "res": 59,
       "mnd": 60,
-      "acc": null,
-      "eva": null,
+      "acc": 22,
+      "eva": 22,
       "spd": 98
     },
     "introducingEventLv65": "Braving the Countless Ordeals",
@@ -20469,8 +20469,8 @@
       "mag": 73,
       "res": 78,
       "mnd": 79,
-      "acc": null,
-      "eva": null,
+      "acc": 23,
+      "eva": 23,
       "spd": 105
     },
     "introducingEventLv80": "Braving the Countless Ordeals",
@@ -20481,8 +20481,8 @@
       "mag": 90,
       "res": 97,
       "mnd": 98,
-      "acc": null,
-      "eva": null,
+      "acc": 24,
+      "eva": 24,
       "spd": 112
     },
     "introducingEventLv99": "Braving the Countless Ordeals",
@@ -20897,7 +20897,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Armor of Vengence",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -21278,7 +21278,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Armor of Vengence",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -21405,7 +21405,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Armor of Vengence",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22040,7 +22040,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Breaking Misfortune, Indomitable Fist",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22167,7 +22167,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Breaking Misfortune, Indomitable Fist",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22548,7 +22548,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Breaking Misfortune, Indomitable Fist",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25156,8 +25156,8 @@
       "mag": 65,
       "res": 70,
       "mnd": 74,
-      "acc": null,
-      "eva": null,
+      "acc": 23,
+      "eva": 22,
       "spd": 142
     },
     "introducingEventLv65": "Shield of the Past",
@@ -25168,8 +25168,8 @@
       "mag": 86,
       "res": 88,
       "mnd": 97,
-      "acc": null,
-      "eva": null,
+      "acc": 24,
+      "eva": 23,
       "spd": 151
     },
     "introducingEventLv80": "Shield of the Past",
@@ -25180,8 +25180,8 @@
       "mag": 107,
       "res": 107,
       "mnd": 121,
-      "acc": null,
-      "eva": null,
+      "acc": 24,
+      "eva": 24,
       "spd": 160
     },
     "introducingEventLv99": "Shield of the Past",
@@ -25275,7 +25275,7 @@
   {
     "realm": "XV",
     "name": "Lunafreya",
-    "introducingEventLv50": "The Guiding Oracle",
+    "introducingEventLv50": "Starseer Oracle",
     "lv50": {
       "hp": 3014,
       "atk": 49,
@@ -25283,11 +25283,11 @@
       "mag": 123,
       "res": 103,
       "mnd": 115,
-      "acc": null,
-      "eva": null,
+      "acc": 22,
+      "eva": 22,
       "spd": 118
     },
-    "introducingEventLv65": "The Guiding Oracle",
+    "introducingEventLv65": "Starseer Oracle",
     "lv65": {
       "hp": 3882,
       "atk": 65,
@@ -25295,11 +25295,11 @@
       "mag": 152,
       "res": 127,
       "mnd": 142,
-      "acc": null,
-      "eva": null,
+      "acc": 23,
+      "eva": 23,
       "spd": 127
     },
-    "introducingEventLv80": "The Guiding Oracle",
+    "introducingEventLv80": "Starseer Oracle",
     "lv80": {
       "hp": 4750,
       "atk": 80,
@@ -25307,11 +25307,11 @@
       "mag": 179,
       "res": 150,
       "mnd": 168,
-      "acc": null,
-      "eva": null,
+      "acc": 24,
+      "eva": 24,
       "spd": 136
     },
-    "introducingEventLv99": "The Guiding Oracle",
+    "introducingEventLv99": "Starseer Oracle",
     "lv99": {
       "hp": 5849,
       "atk": 101,
@@ -25323,7 +25323,7 @@
       "eva": 25,
       "spd": 149
     },
-    "introducingEventRecordSpheres": "The Guiding Oracle",
+    "introducingEventRecordSpheres": "Starseer Oracle",
     "recordSpheres": {
       "hp": 505,
       "atk": 0,
@@ -25332,7 +25332,7 @@
       "res": 5,
       "mnd": 22
     },
-    "introducingEventLegendSpheres": "The Guiding Oracle",
+    "introducingEventLegendSpheres": "Starseer Oracle",
     "legendSpheres": {
       "hp": 500,
       "atk": 0,
@@ -25397,7 +25397,7 @@
       "heavy": null
     },
     "id": 11500900,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -27501,7 +27501,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Gambler's Message",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28517,7 +28517,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Gambler's Message",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28898,7 +28898,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Gambler's Message",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30477,6 +30477,387 @@
       "heavy": null
     },
     "id": 19003200,
+    "gl": true
+  },
+  {
+    "realm": "Beyond",
+    "name": "Rain",
+    "introducingEventLv50": "Grandshelt Knight",
+    "lv50": {
+      "hp": 3836,
+      "atk": 110,
+      "def": 92,
+      "mag": 61,
+      "res": 83,
+      "mnd": 72,
+      "acc": 23,
+      "eva": 22,
+      "spd": 123
+    },
+    "introducingEventLv65": "Grandshelt Knight",
+    "lv65": {
+      "hp": 4769,
+      "atk": 140,
+      "def": 114,
+      "mag": 80,
+      "res": 105,
+      "mnd": 95,
+      "acc": 24,
+      "eva": 23,
+      "spd": 131
+    },
+    "introducingEventLv80": "Grandshelt Knight",
+    "lv80": {
+      "hp": 5670,
+      "atk": 170,
+      "def": 135,
+      "mag": 100,
+      "res": 128,
+      "mnd": 118,
+      "acc": 24,
+      "eva": 24,
+      "spd": 139
+    },
+    "introducingEventLv99": "Grandshelt Knight",
+    "lv99": {
+      "hp": 6777,
+      "atk": 209,
+      "def": 161,
+      "mag": 126,
+      "res": 157,
+      "mnd": 149,
+      "acc": 26,
+      "eva": 25,
+      "spd": 149
+    },
+    "introducingEventRecordSpheres": "Grandshelt Knight",
+    "recordSpheres": {
+      "hp": 850,
+      "atk": 31,
+      "def": 19,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0
+    },
+    "introducingEventLegendSpheres": "Grandshelt Knight",
+    "legendSpheres": {
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
+    },
+    "introducingEventRecordBoards": "Grandshelt Knight",
+    "equipment": {
+      "dagger": true,
+      "sword": true,
+      "katana": false,
+      "axe": false,
+      "hammer": false,
+      "spear": false,
+      "fist": false,
+      "rod": false,
+      "staff": false,
+      "bow": false,
+      "instrument": false,
+      "whip": false,
+      "thrown": false,
+      "gun": false,
+      "book": false,
+      "blitzball": false,
+      "hairpin": false,
+      "gunArm": false,
+      "gamblingGear": false,
+      "doll": false,
+      "keyblade": false,
+      "shield": false,
+      "hat": true,
+      "helm": true,
+      "lightArmor": true,
+      "heavyArmor": true,
+      "robe": false,
+      "bracer": true,
+      "accessory": true
+    },
+    "skills": {
+      "blackMagic": null,
+      "whiteMagic": null,
+      "combat": 5,
+      "support": null,
+      "celerity": null,
+      "summoning": null,
+      "spellblade": 5,
+      "dragoon": null,
+      "monk": null,
+      "thief": null,
+      "knight": 5,
+      "samurai": null,
+      "ninja": null,
+      "bard": null,
+      "dancer": null,
+      "machinist": null,
+      "darkness": null,
+      "sharpshooter": null,
+      "witch": null,
+      "heavy": null
+    },
+    "id": 19003300,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "name": "Fina",
+    "introducingEventLv50": "Grandshelt Knight",
+    "lv50": {
+      "hp": 2679,
+      "atk": 64,
+      "def": 58,
+      "mag": 105,
+      "res": 103,
+      "mnd": 121,
+      "acc": 22,
+      "eva": 22,
+      "spd": 118
+    },
+    "introducingEventLv65": "Grandshelt Knight",
+    "lv65": {
+      "hp": 3451,
+      "atk": 82,
+      "def": 76,
+      "mag": 134,
+      "res": 127,
+      "mnd": 149,
+      "acc": 23,
+      "eva": 23,
+      "spd": 127
+    },
+    "introducingEventLv80": "Grandshelt Knight",
+    "lv80": {
+      "hp": 4222,
+      "atk": 99,
+      "def": 95,
+      "mag": 163,
+      "res": 150,
+      "mnd": 176,
+      "acc": 23,
+      "eva": 24,
+      "spd": 136
+    },
+    "introducingEventLv99": "Grandshelt Knight",
+    "lv99": {
+      "hp": 5199,
+      "atk": 122,
+      "def": 120,
+      "mag": 200,
+      "res": 179,
+      "mnd": 210,
+      "acc": 25,
+      "eva": 25,
+      "spd": 149
+    },
+    "introducingEventRecordSpheres": "Grandshelt Knight",
+    "recordSpheres": {
+      "hp": 510,
+      "atk": 0,
+      "def": 3,
+      "mag": 2,
+      "res": 20,
+      "mnd": 29
+    },
+    "introducingEventLegendSpheres": "Grandshelt Knight",
+    "legendSpheres": {
+      "hp": 500,
+      "atk": 0,
+      "def": 20,
+      "mag": 20,
+      "res": 30,
+      "mnd": 40,
+      "spd": 0
+    },
+    "introducingEventRecordBoards": "Grandshelt Knight",
+    "equipment": {
+      "dagger": true,
+      "sword": false,
+      "katana": false,
+      "axe": false,
+      "hammer": false,
+      "spear": false,
+      "fist": false,
+      "rod": true,
+      "staff": true,
+      "bow": true,
+      "instrument": true,
+      "whip": false,
+      "thrown": false,
+      "gun": false,
+      "book": false,
+      "blitzball": false,
+      "hairpin": false,
+      "gunArm": false,
+      "gamblingGear": false,
+      "doll": false,
+      "keyblade": false,
+      "shield": false,
+      "hat": true,
+      "helm": false,
+      "lightArmor": true,
+      "heavyArmor": false,
+      "robe": true,
+      "bracer": true,
+      "accessory": true
+    },
+    "skills": {
+      "blackMagic": 5,
+      "whiteMagic": 5,
+      "combat": null,
+      "support": 5,
+      "celerity": null,
+      "summoning": null,
+      "spellblade": null,
+      "dragoon": null,
+      "monk": null,
+      "thief": null,
+      "knight": null,
+      "samurai": null,
+      "ninja": null,
+      "bard": null,
+      "dancer": null,
+      "machinist": null,
+      "darkness": null,
+      "sharpshooter": 6,
+      "witch": null,
+      "heavy": null
+    },
+    "id": 19003400,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "name": "Lasswell",
+    "introducingEventLv50": "Grandshelt Knight",
+    "lv50": {
+      "hp": 3571,
+      "atk": 111,
+      "def": 97,
+      "mag": 58,
+      "res": 69,
+      "mnd": 78,
+      "acc": 22,
+      "eva": 22,
+      "spd": 122
+    },
+    "introducingEventLv65": "Grandshelt Knight",
+    "lv65": {
+      "hp": 4600,
+      "atk": 141,
+      "def": 120,
+      "mag": 76,
+      "res": 91,
+      "mnd": 99,
+      "acc": 23,
+      "eva": 23,
+      "spd": 131
+    },
+    "introducingEventLv80": "Grandshelt Knight",
+    "lv80": {
+      "hp": 5628,
+      "atk": 172,
+      "def": 142,
+      "mag": 95,
+      "res": 113,
+      "mnd": 120,
+      "acc": 24,
+      "eva": 24,
+      "spd": 139
+    },
+    "introducingEventLv99": "Grandshelt Knight",
+    "lv99": {
+      "hp": 6930,
+      "atk": 211,
+      "def": 169,
+      "mag": 120,
+      "res": 142,
+      "mnd": 148,
+      "acc": 25,
+      "eva": 25,
+      "spd": 151
+    },
+    "introducingEventRecordSpheres": "Grandshelt Knight",
+    "recordSpheres": {
+      "hp": 800,
+      "atk": 38,
+      "def": 14,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0
+    },
+    "introducingEventLegendSpheres": "Grandshelt Knight",
+    "legendSpheres": {
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
+    },
+    "introducingEventRecordBoards": "Grandshelt Knight",
+    "equipment": {
+      "dagger": true,
+      "sword": true,
+      "katana": true,
+      "axe": false,
+      "hammer": false,
+      "spear": false,
+      "fist": false,
+      "rod": false,
+      "staff": false,
+      "bow": false,
+      "instrument": false,
+      "whip": false,
+      "thrown": false,
+      "gun": false,
+      "book": false,
+      "blitzball": false,
+      "hairpin": false,
+      "gunArm": false,
+      "gamblingGear": false,
+      "doll": false,
+      "keyblade": false,
+      "shield": false,
+      "hat": true,
+      "helm": false,
+      "lightArmor": true,
+      "heavyArmor": false,
+      "robe": false,
+      "bracer": true,
+      "accessory": true
+    },
+    "skills": {
+      "blackMagic": null,
+      "whiteMagic": null,
+      "combat": 5,
+      "support": 5,
+      "celerity": null,
+      "summoning": null,
+      "spellblade": null,
+      "dragoon": null,
+      "monk": null,
+      "thief": null,
+      "knight": null,
+      "samurai": 5,
+      "ninja": null,
+      "bard": null,
+      "dancer": null,
+      "machinist": null,
+      "darkness": null,
+      "sharpshooter": null,
+      "witch": null,
+      "heavy": null
+    },
+    "id": 19003500,
     "gl": false
   }
 ]

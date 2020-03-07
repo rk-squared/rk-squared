@@ -3048,9 +3048,7 @@
     "memoryCrystals2": null,
     "memoryCrystals3": null,
     "wardrobeRecords": null,
-    "abilitiesAwarded": [
-      "Angelsong"
-    ]
+    "abilitiesAwarded": null
   },
   {
     "eventName": "The Gilded Concert",
@@ -3063,7 +3061,9 @@
     "memoryCrystals2": null,
     "memoryCrystals3": null,
     "wardrobeRecords": null,
-    "abilitiesAwarded": null
+    "abilitiesAwarded": [
+      "Angelsong"
+    ]
   },
   {
     "eventName": "Glimmer of Hope",
@@ -8641,7 +8641,7 @@
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": [
-      "Fires Without"
+      "Earthen Rebuke"
     ]
   },
   {
@@ -10437,7 +10437,7 @@
   {
     "eventName": "Blood Against Destiny",
     "realm": "FFT",
-    "glDate": "2019-01-09",
+    "glDate": "2020-01-09",
     "jpDate": "2019-06-28",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10463,14 +10463,26 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Pride of the Dark Dragoon",
+    "eventName": "Piercing the Darkness",
     "realm": "IV",
-    "glDate": null,
+    "glDate": "2020-01-16",
     "jpDate": "2019-06-30",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Kain",
+      "Tellah",
+      "Palom"
+    ],
+    "memoryCrystals1": [
+      "Kain",
+      "Tellah",
+      "Palom"
+    ],
+    "memoryCrystals2": [
+      "Kain",
+      "Tellah",
+      "Palom"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -10478,38 +10490,32 @@
   {
     "eventName": "Fat Black Chocobo Event: Holy",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-01-23",
     "jpDate": "2019-07-05",
     "type": "Challenge Event",
     "heroRecords": [
-      "Kain",
-      "Palom",
-      "Tellah",
-      "Edge",
-      "Cecil (Dark Knight)"
+      "Ceodore",
+      "Beatrix",
+      "Cecil (Paladin)"
     ],
     "memoryCrystals1": [
-      "Kain",
-      "Palom",
-      "Tellah",
-      "Edge",
-      "Cecil (Dark Knight)"
+      "Ceodore",
+      "Beatrix",
+      "Cecil (Paladin)"
     ],
     "memoryCrystals2": [
-      "Kain",
-      "Palom",
-      "Tellah",
-      "Edge",
-      "Cecil (Dark Knight)"
+      "Ceodore",
+      "Beatrix",
+      "Cecil (Paladin)"
     ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Dungeon Update #64",
+    "eventName": "Dungeon Update #64 (XIII-2, XV)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-01-15",
     "jpDate": "2019-07-10",
     "type": "Dungeons Update",
     "heroRecords": null,
@@ -10520,9 +10526,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Poems for the Planet",
+    "eventName": "Ode to a Sundered World",
     "realm": "VII",
-    "glDate": null,
+    "glDate": "2020-01-30",
     "jpDate": "2019-07-12",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10545,27 +10551,51 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Hard-Clenched Sorrow",
+    "eventName": "The Fists Remember",
     "realm": "Type-0",
-    "glDate": null,
+    "glDate": "2020-02-06",
     "jpDate": "2019-07-19",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Deuce",
+      "Eight",
+      "Machina"
+    ],
+    "memoryCrystals1": [
+      "Deuce",
+      "Eight",
+      "Machina"
+    ],
+    "memoryCrystals2": [
+      "Deuce",
+      "Eight",
+      "Machina"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
   },
   {
-    "eventName": "A Matron No More",
+    "eventName": "A Mother Transformed",
     "realm": "VIII",
-    "glDate": null,
+    "glDate": "2020-02-13",
     "jpDate": "2019-07-26",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Edea",
+      "Laguna",
+      "Raijin"
+    ],
+    "memoryCrystals1": [
+      "Edea",
+      "Laguna",
+      "Raijin"
+    ],
+    "memoryCrystals2": [
+      "Edea",
+      "Laguna",
+      "Raijin"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -10573,7 +10603,7 @@
   {
     "eventName": "Magicite: Ifrit",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-02-21",
     "jpDate": "2019-07-31",
     "type": "Magicite Dungeon",
     "heroRecords": null,
@@ -10584,9 +10614,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Trailing Spira's Dream",
+    "eventName": "Footsteps Across Spira",
     "realm": "X",
-    "glDate": null,
+    "glDate": "2020-02-20",
     "jpDate": "2019-07-31",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10609,9 +10639,22 @@
     "abilitiesAwarded": null
   },
   {
+    "eventName": "Fat Black Chocobo Event: Dark",
+    "realm": null,
+    "glDate": "2020-02-27",
+    "jpDate": "2019-08-02",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
     "eventName": "Dungeon Update #65 (IV:TAY, T)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-02-15",
     "jpDate": "2019-08-07",
     "type": "Dungeons Update",
     "heroRecords": null,
@@ -10622,9 +10665,22 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "The Guiding Oracle",
+    "eventName": "Record Dungeons Canon (X, VI)",
+    "realm": null,
+    "glDate": "2020-02-25",
+    "jpDate": "2019-08-07",
+    "type": "Record Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Starseer Oracle",
     "realm": "XV",
-    "glDate": null,
+    "glDate": "2020-03-05",
     "jpDate": "2019-08-16",
     "type": "Challenge Event",
     "heroRecords": [
@@ -10653,7 +10709,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Awakening Lion",
+    "eventName": "The Lion Dreambreaker",
     "realm": "XI",
     "glDate": null,
     "jpDate": "2019-08-23",
@@ -11086,6 +11142,183 @@
     "realm": "I",
     "glDate": null,
     "jpDate": "2020-01-10",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Warrior of Light",
+      "Wol",
+      "Echo"
+    ],
+    "memoryCrystals1": [
+      "Warrior of Light",
+      "Wol",
+      "Echo"
+    ],
+    "memoryCrystals2": [
+      "Warrior of Light",
+      "Wol",
+      "Echo"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Bonds of Friendship",
+    "realm": "V",
+    "glDate": null,
+    "jpDate": "2020-01-17",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Lenna",
+      "Faris",
+      "Bartz"
+    ],
+    "memoryCrystals1": [
+      "Lenna",
+      "Faris",
+      "Bartz"
+    ],
+    "memoryCrystals2": [
+      "Lenna",
+      "Faris",
+      "Bartz"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Record Dungeons Canon (V, IX)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-01-25",
+    "type": "Record Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "The Gambler's Message",
+    "realm": "Type-0",
+    "glDate": null,
+    "jpDate": "2020-01-24",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Ace",
+      "Rem",
+      "Trey"
+    ],
+    "memoryCrystals1": [
+      "Ace",
+      "Rem",
+      "Trey"
+    ],
+    "memoryCrystals2": [
+      "Ace",
+      "Rem",
+      "Trey"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Breaking Misfortune, Indomitable Fist",
+    "realm": "XIII",
+    "glDate": null,
+    "jpDate": "2020-01-31",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Lightning",
+      "Snow",
+      "Fang"
+    ],
+    "memoryCrystals1": [
+      "Lightning",
+      "Snow",
+      "Fang"
+    ],
+    "memoryCrystals2": [
+      "Lightning",
+      "Snow",
+      "Fang"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "The Traveling Soldier's Hidden Feelings",
+    "realm": "III",
+    "glDate": null,
+    "jpDate": "2020-02-07",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Grandshelt Knight",
+    "realm": "Beyond",
+    "glDate": null,
+    "jpDate": "2020-02-14",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Rain",
+      "FIna",
+      "Laswell"
+    ],
+    "memoryCrystals1": [
+      "Rain",
+      "FIna",
+      "Laswell"
+    ],
+    "memoryCrystals2": [
+      "Rain",
+      "FIna",
+      "Laswell"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "A New Dawn Rising",
+    "realm": "V",
+    "glDate": null,
+    "jpDate": "2020-02-20",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Crisis Before the Star",
+    "realm": "VII",
+    "glDate": null,
+    "jpDate": "2020-02-29",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Armor of Vengence",
+    "realm": "XII",
+    "glDate": null,
+    "jpDate": "2020-03-07",
     "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,

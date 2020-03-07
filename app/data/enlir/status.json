@@ -336,8 +336,8 @@
     "id": 204,
     "name": "Haste",
     "effects": "Wait speed x2.00",
-    "defaultDuration": 20,
-    "mndModifier": 2.5,
+    "defaultDuration": null,
+    "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
       "Slow"
@@ -594,8 +594,8 @@
     "id": 207,
     "name": "Protect",
     "effects": "DEF +100% (ignoring the buff stacking caps)",
-    "defaultDuration": 35,
-    "mndModifier": 3,
+    "defaultDuration": null,
+    "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "PROTECT",
@@ -715,8 +715,8 @@
     "id": 208,
     "name": "Shell",
     "effects": "RES +100% (ignoring the buff stacking caps)",
-    "defaultDuration": 35,
-    "mndModifier": 3,
+    "defaultDuration": null,
+    "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "SHELL",
@@ -2664,6 +2664,17 @@
     "notes": null
   },
   {
+    "id": 2259,
+    "name": "Physical Quick Cast 2",
+    "effects": "Cast speed x2.00 for PHY attacks, lasts 2 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_200_2_CUSTOM_PHYSICAL_DAMAGE_ABILITIES",
+    "notes": null
+  },
+  {
     "id": 226,
     "name": "Imp",
     "effects": "",
@@ -2673,6 +2684,28 @@
     "exclusiveStatus": null,
     "codedName": "WATER_IMP",
     "notes": "Not used"
+  },
+  {
+    "id": 2260,
+    "name": "Jump Instant Cast 3",
+    "effects": "Cast speed x9999999 for Jump attacks, lasts 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_MAX_3_FLIGHT_ATTACK",
+    "notes": null
+  },
+  {
+    "id": 261,
+    "name": "Thief Instant Cast",
+    "effects": "Cast speed x9999999 for Thief abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_MAX_15000_MSEC_THIEF",
+    "notes": null
   },
   {
     "id": 227,
@@ -3919,7 +3952,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CELES_SPELLBLADE_MODE",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SPELLBLADE_SMALL_TURN_2",
     "notes": null
   },
   {
@@ -3930,7 +3963,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SPELLBLADE_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SPELLBLADE_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -3941,7 +3974,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DRAGOON_109_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DRAGOON_EXTRA_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -3952,7 +3985,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SHOOTER_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SHOOTER_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -3963,7 +3996,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_KNIGHT_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_KNIGHT_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -3974,7 +4007,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DARKNESS_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARKNESS_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -3985,7 +4018,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_FLIGHT_ATTACK_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_FLIGHT_ATTACK_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -3996,7 +4029,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_WHITE_MAGIC_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WHITE_MAGIC_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4007,7 +4040,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_MONK_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_MONK_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4018,7 +4051,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_HEAVY_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_HEAVY_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4040,7 +4073,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DARK_130_1",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_DARK_MEDIUM_TURN_1",
     "notes": null
   },
   {
@@ -4051,7 +4084,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_BLACK_MAGIC_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_BLACK_MAGIC_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4062,7 +4095,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SAMURAI_115_2",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SAMURAI_SMALL_TURN_2",
     "notes": null
   },
   {
@@ -4073,7 +4106,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_DRAGOON_MEDIUM_TURN_1",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DRAGOON_MEDIUM_TURN_1",
     "notes": null
   },
   {
@@ -4084,7 +4117,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_BLACK_MAGIC_LARGE_TURN_2",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_BLACK_MAGIC_LARGE_TURN_2",
     "notes": null
   },
   {
@@ -4106,7 +4139,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_MONK_MEDIUM_TURN_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_MONK_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -4117,7 +4150,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_SHOOTER_MEDIUM_TURN_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SHOOTER_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -4128,7 +4161,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_FIRE_MEDIUM_TURN_1",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_FIRE_MEDIUM_TURN_1",
     "notes": null
   },
   {
@@ -4139,7 +4172,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_SPELLBLADE_MEDIUM_TURN_1",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SPELLBLADE_MEDIUM_TURN_1",
     "notes": null
   },
   {
@@ -4150,7 +4183,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_SPELLBLADE_MEDIUM_TURN_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SPELLBLADE_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -4161,7 +4194,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_DARKNESS_MEDIUM_TURN_1",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARKNESS_MEDIUM_TURN_1",
     "notes": null
   },
   {
@@ -4172,7 +4205,18 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_NINJA_MEDIUM_TURN_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_NINJA_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
+    "id": 282023,
+    "name": "Monk +30% Boost 1",
+    "effects": "Monk abilities deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_MONK_MEDIUM_TURN_1",
     "notes": null
   },
   {
@@ -4183,7 +4227,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DARKNESS_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARKNESS_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4194,7 +4238,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SUMMON_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SUMMON_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4205,7 +4249,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_KNIGHT_115_25000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_KNIGHT_SMALL_TIME_25000",
     "notes": null
   },
   {
@@ -4216,7 +4260,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SPELLBLADE_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SPELLBLADE_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4227,7 +4271,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_KNIGHT_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_KNIGHT_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4238,7 +4282,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_BLACK_MAGIC_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_BLACK_MAGIC_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4249,7 +4293,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_NINJA_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_NINJA_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4260,7 +4304,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SPELLBLADE_OR_CELERITY_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SPELLBLADE_OR_CELERITY_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4271,7 +4315,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_WEAKNESS_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_WEAKNESS_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4282,7 +4326,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_HOLY_150_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_HOLY_LARGE_TIME_15000",
     "notes": null
   },
   {
@@ -4293,7 +4337,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_BLACK_MAGIC_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_BLACK_MAGIC_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4304,7 +4348,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SPELLBLADE_OR_CELERITY_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SPELLBLADE_OR_CELERITY_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4315,7 +4359,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_WHITE_MAGIC_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WHITE_MAGIC_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4326,7 +4370,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_WHITE_MAGIC_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WHITE_MAGIC_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4337,7 +4381,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_COMBAT_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_COMBAT_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4348,7 +4392,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_COMBAT_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_COMBAT_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4359,7 +4403,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SUPPORT_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SUPPORT_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4370,7 +4414,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SUPPORT_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SUPPORT_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4381,7 +4425,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DRAGOON_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DRAGOON_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4392,7 +4436,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DRAGOON_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DRAGOON_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4403,7 +4447,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_MONK_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_MONK_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4414,7 +4458,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_MONK_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_MONK_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4425,7 +4469,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_THIEF_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_THIEF_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4436,7 +4480,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_THIEF_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_THIEF_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4447,7 +4491,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SAMURAI_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SAMURAI_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4458,7 +4502,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SAMURAI_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SAMURAI_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4469,7 +4513,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_NINJA_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_NINJA_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4480,7 +4524,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DARKNESS_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARKNESS_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4491,7 +4535,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_BARD_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_BARD_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4502,7 +4546,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_BARD_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_BARD_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4513,7 +4557,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DANCER_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DANCER_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4524,7 +4568,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DANCER_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DANCER_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4535,7 +4579,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_MACHINIST_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_MACHINIST_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4546,7 +4590,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_MACHINIST_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_MACHINIST_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4557,7 +4601,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SHOOTER_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SHOOTER_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4568,7 +4612,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SHOOTER_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SHOOTER_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4579,7 +4623,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_WITCH_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WITCH_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4590,7 +4634,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_WITCH_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WITCH_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4601,7 +4645,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_HEAVY_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_HEAVY_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4612,7 +4656,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_HEAVY_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_HEAVY_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4623,7 +4667,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SPELLBLADE_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SPELLBLADE_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4634,7 +4678,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SUMMON_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SUMMON_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4645,7 +4689,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SUMMONING_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SUMMONING_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4656,7 +4700,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_COMBAT_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_COMBAT_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4667,7 +4711,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SUPPORT_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SUPPORT_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4678,7 +4722,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_CELERITY_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_CELERITY_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4689,7 +4733,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DRAGOON_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DRAGOON_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4700,7 +4744,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_THIEF_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_THIEF_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4711,7 +4755,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_SAMURAI_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SAMURAI_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4722,7 +4766,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_NINJA_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_NINJA_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4733,7 +4777,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_BARD_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_BARD_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4744,7 +4788,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_DANCER_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DANCER_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4755,7 +4799,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_MACHINIST_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_MACHINIST_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4766,7 +4810,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_WITCH_115_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WITCH_SMALL_TURN_3",
     "notes": null
   },
   {
@@ -4777,7 +4821,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_MACHINIST_OR_BLACK_MAGIC_130_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_MACHINIST_OR_BLACK_MAGIC_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -4788,7 +4832,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_KNIGHT_115_15000_MSEC",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_KNIGHT_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -4876,7 +4920,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_EARTH_MEDIUM_TURN_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_EARTH_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -4887,7 +4931,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_WIND_MEDIUM_TURN_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WIND_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -4898,7 +4942,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_WIND_LARGE_TURN_1",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WIND_LARGE_TURN_1",
     "notes": null
   },
   {
@@ -4920,7 +4964,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_WATER_MEDIUM_TURN_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WATER_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -4931,7 +4975,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_ICE_MEDIUM_TURN_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_ICE_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -4942,7 +4986,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_EARTH_LARGE_TURN_1",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_EARTH_LARGE_TURN_1",
     "notes": null
   },
   {
@@ -4964,7 +5008,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_DAMAGE_HOLY_MEDIUM_TURN_3",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_HOLY_MEDIUM_TURN_3",
     "notes": null
   },
   {
@@ -5001,6 +5045,17 @@
     "notes": null
   },
   {
+    "id": 282213,
+    "name": "Ice +50% Boost 1",
+    "effects": "Ice attacks deal 50% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_ICE_LARGE_TURN_1",
+    "notes": null
+  },
+  {
     "id": 282214,
     "name": "Fire +40% Boost 1",
     "effects": "Fire attacks deal 40% more damage, lasts for 1 turn",
@@ -5009,6 +5064,28 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_FIRE_ATTACK_EXTRA_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282215,
+    "name": "Weakness +50% Boost 1",
+    "effects": "Increases damage dealt by 50% when exploiting elemental weaknesses, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_WEAKNESS_LARGE_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282216,
+    "name": "Weakness +15% Boost",
+    "effects": "Increases damage dealt by 15% when exploiting elemental weaknesses",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_WEAKNESS_SMALL_TIME_15000",
     "notes": null
   },
   {
@@ -5031,6 +5108,633 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "RADIANT_SHIELD_EARTH_75",
+    "notes": null
+  },
+  {
+    "id": 283001,
+    "name": "FF I +9% Boost",
+    "effects": "Attacks dealt by FF I realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF1_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283002,
+    "name": "FF II +9% Boost",
+    "effects": "Attacks dealt by FF II realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF2_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283003,
+    "name": "FF III +9% Boost",
+    "effects": "Attacks dealt by FF III realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF3_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283004,
+    "name": "FF IV +9% Boost",
+    "effects": "Attacks dealt by FF IV realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF4_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283005,
+    "name": "FF V +9% Boost",
+    "effects": "Attacks dealt by FF V realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF5_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283006,
+    "name": "FF VI +9% Boost",
+    "effects": "Attacks dealt by FF VI realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF6_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283007,
+    "name": "FF VII +9% Boost",
+    "effects": "Attacks dealt by FF VII realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF7_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283008,
+    "name": "FF VIII +9% Boost",
+    "effects": "Attacks dealt by FF VIII realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF8_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283009,
+    "name": "FF IX +9% Boost",
+    "effects": "Attacks dealt by FF IX realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF9_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283010,
+    "name": "FF X +9% Boost",
+    "effects": "Attacks dealt by FF X realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF10_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283011,
+    "name": "FF XI +9% Boost",
+    "effects": "Attacks dealt by FF XI realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF11_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283012,
+    "name": "FF XII +9% Boost",
+    "effects": "Attacks dealt by FF XII realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF12_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283013,
+    "name": "FF XIII +9% Boost",
+    "effects": "Attacks dealt by FF XIII realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF13_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283014,
+    "name": "FF XIV +9% Boost",
+    "effects": "Attacks dealt by FF XIV realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF14_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283015,
+    "name": "FF XV +9% Boost",
+    "effects": "Attacks dealt by FF XV realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF15_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283016,
+    "name": "Tactics +9% Boost",
+    "effects": "Attacks dealt by Tactics realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FFT_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283017,
+    "name": "Type-0 +9% Boost",
+    "effects": "Attacks dealt by Type-0 realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF_TYPE0_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283018,
+    "name": "Beyond +9% Boost",
+    "effects": "Attacks dealt by Beyond realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF_GAIDEN_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283019,
+    "name": "FF I +15% Boost",
+    "effects": "Attacks dealt by FF I realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF1_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283020,
+    "name": "FF II +15% Boost",
+    "effects": "Attacks dealt by FF II realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF2_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283021,
+    "name": "FF III +15% Boost",
+    "effects": "Attacks dealt by FF III realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF3_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283022,
+    "name": "FF IV +15% Boost",
+    "effects": "Attacks dealt by FF IV realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF4_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283023,
+    "name": "FF V +15% Boost",
+    "effects": "Attacks dealt by FF V realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF5_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283024,
+    "name": "FF VI +15% Boost",
+    "effects": "Attacks dealt by FF VI realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF6_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283025,
+    "name": "FF VII +15% Boost",
+    "effects": "Attacks dealt by FF VII realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF7_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283026,
+    "name": "FF VIII +15% Boost",
+    "effects": "Attacks dealt by FF VIII realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF8_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283027,
+    "name": "FF IX +15% Boost",
+    "effects": "Attacks dealt by FF IX realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF9_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283028,
+    "name": "FF X +15% Boost",
+    "effects": "Attacks dealt by FF X realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF10_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283029,
+    "name": "FF XI +15% Boost",
+    "effects": "Attacks dealt by FF XI realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF11_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283030,
+    "name": "FF XII +15% Boost",
+    "effects": "Attacks dealt by FF XII realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF12_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283031,
+    "name": "FF XIII +15% Boost",
+    "effects": "Attacks dealt by FF XIII realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF13_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283032,
+    "name": "FF XIV +15% Boost",
+    "effects": "Attacks dealt by FF XIV realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF14_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283033,
+    "name": "FF XV +15% Boost",
+    "effects": "Attacks dealt by FF XV realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF15_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283034,
+    "name": "Tactics +15% Boost",
+    "effects": "Attacks dealt by Tactics realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FFT_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283035,
+    "name": "Type-0 +15% Boost",
+    "effects": "Attacks dealt by Type-0 realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF_TYPE0_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283036,
+    "name": "Beyond +15% Boost",
+    "effects": "Attacks dealt by Beyond realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF_GAIDEN_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283037,
+    "name": "FF I +30% Boost",
+    "effects": "Attacks dealt by FF I realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF1_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283038,
+    "name": "FF II +30% Boost",
+    "effects": "Attacks dealt by FF II realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF2_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283039,
+    "name": "FF III +30% Boost",
+    "effects": "Attacks dealt by FF III realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF3_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283040,
+    "name": "FF IV +30% Boost",
+    "effects": "Attacks dealt by FF IV realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF4_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283041,
+    "name": "FF V +30% Boost",
+    "effects": "Attacks dealt by FF V realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF5_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283042,
+    "name": "FF VI +30% Boost",
+    "effects": "Attacks dealt by FF VI realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF6_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283043,
+    "name": "FF VII +30% Boost",
+    "effects": "Attacks dealt by FF VII realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF7_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283044,
+    "name": "FF VIII +30% Boost",
+    "effects": "Attacks dealt by FF VIII realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF8_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283045,
+    "name": "FF IX +30% Boost",
+    "effects": "Attacks dealt by FF IX realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF9_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283046,
+    "name": "FF X +30% Boost",
+    "effects": "Attacks dealt by FF X realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF10_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283047,
+    "name": "FF XI +30% Boost",
+    "effects": "Attacks dealt by FF XI realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF11_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283048,
+    "name": "FF XII +30% Boost",
+    "effects": "Attacks dealt by FF XII realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF12_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283049,
+    "name": "FF XIII +30% Boost",
+    "effects": "Attacks dealt by FF XIII realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF13_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283050,
+    "name": "FF XIV +30% Boost",
+    "effects": "Attacks dealt by FF XIV realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF14_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283051,
+    "name": "FF XV +30% Boost",
+    "effects": "Attacks dealt by FF XV realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF15_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283052,
+    "name": "Tactics +30% Boost",
+    "effects": "Attacks dealt by Tactics realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FFT_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283053,
+    "name": "Type-0 +30% Boost",
+    "effects": "Attacks dealt by Type-0 realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF_TYPE0_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283054,
+    "name": "Beyond +30% Boost",
+    "effects": "Attacks dealt by Beyond realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_FF_GAIDEN_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283055,
+    "name": "Core +9% Boost",
+    "effects": "Attacks dealt by Core realm members deal 9% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_JOB_EXTRA_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283056,
+    "name": "Core +15% Boost",
+    "effects": "Attacks dealt by Core realm members deal 15% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_JOB_SMALL_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 283057,
+    "name": "Core +30% Boost",
+    "effects": "Attacks dealt by Core realm members deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_SERIES_JOB_MEDIUM_TIME_15000",
     "notes": null
   },
   {
@@ -5353,7 +6057,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "DAMAGE_BOOST_115_2_KNIGHT_ABILITIES",
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_KNIGHT_SMALL_TURN_2",
     "notes": null
   },
   {
@@ -5983,8 +6687,41 @@
     "notes": null
   },
   {
+    "id": 3114,
+    "name": "Dualcast Spellblade",
+    "effects": "Dualcasts Spellblade abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_SPELLBLADE_ABILITY_BY_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 3131,
+    "name": "50% Dualcast Spellblade`",
+    "effects": "50% chance to dualcast Spellblade abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_FOR_SPELLBLADE_ABILITY_BY_TIME_15000_WITH_PROBABILITY_LARGE",
+    "notes": null
+  },
+  {
+    "id": 4001,
+    "name": "En-Heal 30%",
+    "effects": "Increases healing received by 30%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_RECEIVED_HEAL_FACTOR_MEDIUM_WITH_DURATION_15000",
+    "notes": null
+  },
+  {
     "id": 5001,
-    "name": "Soulbreak Hone Stat Boost 1 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 1",
     "effects": "ATK, DEF, MAG, RES and MND +1%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -5997,7 +6734,7 @@
   },
   {
     "id": 5002,
-    "name": "Soulbreak Hone Stat Boost 2 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 2",
     "effects": "ATK, DEF, MAG, RES and MND +2%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6010,7 +6747,7 @@
   },
   {
     "id": 5003,
-    "name": "Soulbreak Hone Stat Boost 3 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 3",
     "effects": "ATK, DEF, MAG, RES and MND +3%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6023,7 +6760,7 @@
   },
   {
     "id": 5004,
-    "name": "Soulbreak Hone Stat Boost 4 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 4",
     "effects": "ATK, DEF, MAG, RES and MND +4%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6036,7 +6773,7 @@
   },
   {
     "id": 5005,
-    "name": "Soulbreak Hone Stat Boost 5 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 5",
     "effects": "ATK, DEF, MAG, RES and MND +5%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6049,7 +6786,7 @@
   },
   {
     "id": 5006,
-    "name": "Soulbreak Hone Stat Boost 6 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 6",
     "effects": "ATK, DEF, MAG, RES and MND +6%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6062,7 +6799,7 @@
   },
   {
     "id": 5007,
-    "name": "Soulbreak Hone Stat Boost 7 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 7",
     "effects": "ATK, DEF, MAG, RES and MND +7%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6075,7 +6812,7 @@
   },
   {
     "id": 5008,
-    "name": "Soulbreak Hone Stat Boost 8 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 8",
     "effects": "ATK, DEF, MAG, RES and MND +8%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6088,7 +6825,7 @@
   },
   {
     "id": 5009,
-    "name": "Soulbreak Hone Stat Boost 9 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 9",
     "effects": "ATK, DEF, MAG, RES and MND +9%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6101,7 +6838,7 @@
   },
   {
     "id": 5010,
-    "name": "Soulbreak Hone Stat Boost 10 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 10",
     "effects": "ATK, DEF, MAG, RES and MND +10%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6114,7 +6851,7 @@
   },
   {
     "id": 5011,
-    "name": "Soulbreak Hone Stat Boost 11 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 11",
     "effects": "ATK, DEF, MAG, RES and MND +11%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6127,7 +6864,7 @@
   },
   {
     "id": 5012,
-    "name": "Soulbreak Hone Stat Boost 12 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 12",
     "effects": "ATK, DEF, MAG, RES and MND +12%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6140,7 +6877,7 @@
   },
   {
     "id": 5013,
-    "name": "Soulbreak Hone Stat Boost 13 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 13",
     "effects": "ATK, DEF, MAG, RES and MND +13%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6153,7 +6890,7 @@
   },
   {
     "id": 5014,
-    "name": "Soulbreak Hone Stat Boost 14 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 14",
     "effects": "ATK, DEF, MAG, RES and MND +14%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6166,7 +6903,7 @@
   },
   {
     "id": 5015,
-    "name": "Soulbreak Hone Stat Boost 15 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 15",
     "effects": "ATK, DEF, MAG, RES and MND +15%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6179,7 +6916,7 @@
   },
   {
     "id": 5016,
-    "name": "Soulbreak Hone Stat Boost 16 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 16",
     "effects": "ATK, DEF, MAG, RES and MND +16%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6192,7 +6929,7 @@
   },
   {
     "id": 5017,
-    "name": "Soulbreak Hone Stat Boost 17 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 17",
     "effects": "ATK, DEF, MAG, RES and MND +17%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6205,7 +6942,7 @@
   },
   {
     "id": 5018,
-    "name": "Soulbreak Hone Stat Boost 18 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 18",
     "effects": "ATK, DEF, MAG, RES and MND +18%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6218,7 +6955,7 @@
   },
   {
     "id": 5019,
-    "name": "Soulbreak Hone Stat Boost 19 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 19",
     "effects": "ATK, DEF, MAG, RES and MND +19%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6231,7 +6968,7 @@
   },
   {
     "id": 5020,
-    "name": "Soulbreak Hone Stat Boost 20 Medium",
+    "name": "Medium Soulbreak Hone Stat Boost 20",
     "effects": "ATK, DEF, MAG, RES and MND +20%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -6244,7 +6981,7 @@
   },
   {
     "id": 5021,
-    "name": "Soulbreak Hone Stat Boon 1 Long",
+    "name": "Long Soulbreak Hone Stat Boon 1",
     "effects": "ATK, DEF, MAG, RES and MND +1%",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -6257,7 +6994,7 @@
   },
   {
     "id": 5024,
-    "name": "Soulbreak Hone Stat Boon 4 Long",
+    "name": "Long Soulbreak Hone Stat Boon 4",
     "effects": "ATK, DEF, MAG, RES and MND +4%",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -6270,7 +7007,7 @@
   },
   {
     "id": 5026,
-    "name": "Soulbreak Hone Stat Boon 6 Long",
+    "name": "Long Soulbreak Hone Stat Boon 6",
     "effects": "ATK, DEF, MAG, RES and MND +6%",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -6283,7 +7020,7 @@
   },
   {
     "id": 5028,
-    "name": "Soulbreak Hone Stat Boon 8 Long",
+    "name": "Long Soulbreak Hone Stat Boon 8",
     "effects": "ATK, DEF, MAG, RES and MND +8%",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -6296,7 +7033,7 @@
   },
   {
     "id": 5030,
-    "name": "Soulbreak Hone Stat Boon 10 Long",
+    "name": "Long Soulbreak Hone Stat Boon 10",
     "effects": "ATK, DEF, MAG, RES and MND +10%",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -9827,8 +10564,8 @@
   },
   {
     "id": 50330,
-    "name": "Aero Star Follow-Up",
-    "effects": "Casts Aero Star after using a Wind attack",
+    "name": "Aeroburst Follow-Up",
+    "effects": "Casts Aeroburst after using a Wind attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12117,7 +12854,7 @@
   {
     "id": 50546,
     "name": "Awoken Automaton Mode",
-    "effects": "White Magic and Monk abilities don't consume uses, cast speed x3.00 for White Magic and Monk abilities, grants HP Stock (500/1000/1500/2000/3000) after using White Magic or Monk abilities at rank 1/2/3/4/5",
+    "effects": "White Magic and Monk abilities don't consume uses, cast speed x3.00 for White Magic and Monk abilities, grants HP Stock (500/1000/1500/2000/3000) to all allies after using White Magic or Monk abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12483,7 +13220,7 @@
   },
   {
     "id": 50580,
-    "name": "Holy Valkyrie Mode",
+    "name": "Valkyrie Mode",
     "effects": "Casts Cross Break after using three Holy attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12549,7 +13286,7 @@
   },
   {
     "id": 50586,
-    "name": "Awoken Protection Melody",
+    "name": "Awoken Soother",
     "effects": "White Magic and Bard abilities don't consume uses, cast speed x3.00 for White Magic and Bard abilities, grants Stoneskin: 10/15/20/25/30% after using White Magic or Bard abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12578,6 +13315,28 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "DAMAGE_BARRIER_25",
+    "notes": null
+  },
+  {
+    "id": 50589,
+    "name": "Strike Water Mode",
+    "effects": "Grants Magical High Quick Cast 1 to all allies in the back row after using a Water ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_STRIKE_WATER_1",
+    "notes": null
+  },
+  {
+    "id": 50590,
+    "name": "Rain Arrow Follow-Up",
+    "effects": "Casts Rain Arrow after using a Water attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_STRIKE_WATER_2",
     "notes": null
   },
   {
@@ -12626,8 +13385,8 @@
   },
   {
     "id": 50595,
-    "name": "Awoken Endurance",
-    "effects": "Earth abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, casts Persistence after using an Earth attack",
+    "name": "Awoken Stalwart",
+    "effects": "Earth abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, casts Persistent Strike after using an Earth attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12637,8 +13396,8 @@
   },
   {
     "id": 50596,
-    "name": "Final Stand",
-    "effects": "Removed if the user doesn't have any Stoneskin, grants Instant Cast when removed",
+    "name": "Do-or-Die",
+    "effects": "Removed if the user doesn't have any Stoneskin, grants Instant Cast and Last Stand when removed",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12791,7 +13550,7 @@
   },
   {
     "id": 50610,
-    "name": "Unleashed Earth",
+    "name": "Unsealed Earth",
     "effects": "Cast speed x2.00 for abilities that deal Earth damage, Earth attacks grant 25% more SB points",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12830,7 +13589,7 @@
   },
   {
     "id": 50614,
-    "name": "Awoken Leviathan",
+    "name": "Awoken Water God",
     "effects": "Water abilities don't consume uses, dualcasts Water abilities, casts Oracle's Prayer after using two Water abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12863,8 +13622,8 @@
   },
   {
     "id": 50617,
-    "name": "Heat Recital Follow-Up",
-    "effects": "Casts Heat Recital after using a Fire attack",
+    "name": "Heat Reciter Follow-Up",
+    "effects": "Casts Heat Reciter after using a Fire attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12918,7 +13677,7 @@
   },
   {
     "id": 50623,
-    "name": "Respect Counter Mode",
+    "name": "Respect Point Mode",
     "effects": "Cast speed x2.00, grants Respect Counter Critical",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12929,7 +13688,7 @@
   },
   {
     "id": 50624,
-    "name": "Awoken Legendary Player",
+    "name": "Awoken Legend",
     "effects": "Dark and Fire abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dark and Fire abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -12951,8 +13710,8 @@
   },
   {
     "id": 50626,
-    "name": "Deblizzard Shot Follow-Up",
-    "effects": "Casts Deblizzard Shot after using 3 Ice attacks",
+    "name": "Deblizz Shot Follow-Up",
+    "effects": "Casts Deblizz Shot after using 3 Ice attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12962,8 +13721,8 @@
   },
   {
     "id": 50627,
-    "name": "Vigor Mode",
-    "effects": "Grants Dark Vigor Mode after using a Dark attack, grants Fire Vigor Mode after using a Fire attack",
+    "name": "Perfection Mode",
+    "effects": "Grants Dark Perfection Mode after using a Dark attack, grants Fire Perfection Mode after using a Fire attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12974,7 +13733,7 @@
   {
     "id": 50628,
     "name": "Respect Counter Critical",
-    "effects": "Critical chance =25/50/75/100% after using 1/2/3/4+ Water attacks, removed if the user hasn't Respect Counter Mode",
+    "effects": "Critical chance =25/50/75/100% after using 1/2/3/4+ Water attacks, removed if the user hasn't Respect Point Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13006,8 +13765,8 @@
   },
   {
     "id": 50631,
-    "name": "Ice Pursuit Follow-Up",
-    "effects": "Casts Ice Pursuit (Black Magic) after using a Black Magic ability, casts Ice Pursuit (Witch) after using a Witch ability",
+    "name": "Ice Stalker Follow-Up",
+    "effects": "Casts Ice Stalker (Black Magic) after using a Black Magic ability, casts Ice Stalker (Witch) after using a Witch ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13024,6 +13783,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_HEAVY_THUNDER",
+    "notes": null
+  },
+  {
+    "id": 50633,
+    "name": "War of Disguise",
+    "effects": "DEF and RES -70%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_DEF_MDEF_FOR_WAR_OF_DISGUISEM",
     "notes": null
   },
   {
@@ -13116,8 +13886,8 @@
   },
   {
     "id": 50642,
-    "name": "Forbidden Curse Follow-Up",
-    "effects": "Casts Forbidden Curse after using three Dark attacks",
+    "name": "Forbidden Incantation Follow-Up",
+    "effects": "Casts Forbidden Incantation after using three Dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13127,7 +13897,7 @@
   },
   {
     "id": 50644,
-    "name": "Elegant Angel of Death Mode",
+    "name": "Alluring Reaper Mode",
     "effects": "Cast speed x3.00, grants Minor Buff Dark after using 2 Dark attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -13160,8 +13930,8 @@
   },
   {
     "id": 50647,
-    "name": "Dark Vigor Mode",
-    "effects": "Cast speed x2.00/2.50/3.00 after using 1/2/3+ Dark attacks, casts Fault Check Shot (Dark) after using a Dark attack, removed if the user hasn't Vigor Mode",
+    "name": "Dark Perfection Mode",
+    "effects": "Cast speed x2.00/2.50/3.00 after using 1/2/3+ Dark attacks, casts Execution Shot (Dark) after using a Dark attack, removed if the user hasn't Perfection Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13171,8 +13941,8 @@
   },
   {
     "id": 50648,
-    "name": "Fire Vigor Mode",
-    "effects": "Critical chance =50/75/100% after using 1/2/3+ Fire attacks, casts Fault Check Shot (Fire) after using a Fire attack, removed if the user hasn't Vigor Mode",
+    "name": "Fire Perfection Mode",
+    "effects": "Critical chance =50/75/100% after using 1/2/3+ Fire attacks, casts Execution Shot (Fire) after using a Fire attack, removed if the user hasn't Perfection Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13216,7 +13986,7 @@
   {
     "id": 50652,
     "name": "Technical Bravo! Follow-Up",
-    "effects": "Causes Minor Imperil Poison/Fire/Lightning after using two Poison/Fire/Lightning attacks",
+    "effects": "Causes Minor Imperil Poison (15s)/Fire/Lightning after using two Poison/Fire/Lightning attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -13380,7 +14150,7 @@
   {
     "id": 50671,
     "name": "Awoken Fake Cry",
-    "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilities, grants HP Stock (500/1000/1500/2000/3000) after using White Magic abilities at rank 1/2/3/4/5",
+    "effects": "White Magic abilities don't consume uses, cast speed x3.00 for White Magic abilities, grants HP Stock (500/1000/1500/2000/3000) to all allies after using White Magic abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14302,7 +15072,7 @@
   },
   {
     "id": 50763,
-    "name": "Twin Element Mode (Krile)",
+    "name": "Twin Element Mode (Fire/Earth)",
     "effects": "Grants Attach Fire after using a Fire ability, grants Attach Earth after using an Earth ability, lasts 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
@@ -14534,7 +15304,7 @@
   {
     "id": 50784,
     "name": "Awoken Unfortunate Girl",
-    "effects": "White Magic and Summoning abilities don't consume uses, cast speed x3.00 for White Magic and Summoning abilities, grants HP Stock (500/1000/1500/2000/3000) after using White Magic or Summoning abilities at rank 1/2/3/4/5",
+    "effects": "White Magic and Summoning abilities don't consume uses, cast speed x3.00 for White Magic and Summoning abilities, grants HP Stock (500/1000/1500/2000/3000) to all allies after using White Magic or Summoning abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14556,7 +15326,7 @@
   {
     "id": 50786,
     "name": "Sorrow of Loss Follow-Up",
-    "effects": "Casts Love of Restoration after using a Support attack, casts Sorrow of Loss after using a Support attack",
+    "effects": "Casts Love of Restoration after using a Support ability, casts Sorrow of Loss after using a Support ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14599,8 +15369,8 @@
   },
   {
     "id": 50790,
-    "name": "Heals +30% Boost 1",
-    "effects": "Increases healing done by 30%, lasts 1 turn",
+    "name": "White Magic Heals +30% Boost 1",
+    "effects": "Increases healing done by White Magic abilities by 30%, lasts 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14633,7 +15403,7 @@
   {
     "id": 50793,
     "name": "Awoken Double Job",
-    "effects": "White Magic and Dancer abilities don't consume uses, dualcasts White Magic and Dancer abilities, grants HP Stock (500/1000/1500/2000/3000) after using White Magic and Dancer abilities at rank 1/2/3/4/5",
+    "effects": "White Magic and Dancer abilities don't consume uses, dualcasts White Magic and Dancer abilities, grants HP Stock (500/1000/1500/2000/3000) to all allies after using White Magic and Dancer abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14655,7 +15425,7 @@
   {
     "id": 50795,
     "name": "Umbral Freeze Follow-Up",
-    "effects": "Grants Instant Cast 1 and Ice +50% Boost to the user after using two Summoning abilities",
+    "effects": "Grants Instant Cast 1 and Ice +50% Boost 1 to the user after using two Summoning abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14666,7 +15436,7 @@
   {
     "id": 50796,
     "name": "Astral Flare Follow-Up",
-    "effects": "Grants Fire +30/40/50% Boost 1 after using 2/4/6 Fire abilities",
+    "effects": "Grants Fire +30/40/50% Boost 1 to all allies after using 2/4/6 Fire abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14688,7 +15458,7 @@
   {
     "id": 50799,
     "name": "Warrior of Destiny Mode",
-    "effects": "?",
+    "effects": "Casts Bash of Light after Dual Blink 1 or Dual Blink 2 is removed, removed after triggering twice",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14709,13 +15479,79 @@
   },
   {
     "id": 50800,
-    "name": "Fated Burn Finisher",
-    "effects": "Casts Fated Burn when removed, removed if user hasn't Awoken Fire",
+    "name": "Awoken Otherworld Knight",
+    "effects": "Earth and Holy abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Earth and Holy abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_MYSTERIOUS_WARRIOR",
+    "notes": null
+  },
+  {
+    "id": 50801,
+    "name": "Twin Element Mode (Earth/Holy)",
+    "effects": "Grants Attach Earth after using a Earth ability, grants Attach Holy after using an Holy ability, lasts 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "END_OF_FRAME_MODE",
+    "codedName": "TWIN_ELEMENT_MODE_EARTH_AND_HOLY",
+    "notes": null
+  },
+  {
+    "id": 50802,
+    "name": "Awoken Whimsical Fairy",
+    "effects": "Black Magic and Dancer abilities don't consume uses, cast speed x3.00 for Black Magic and Dancer abilities, restores 1500 HP to all allies after using Black Magic or Dancer abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_WHIMSICAL_FAIRY",
+    "notes": null
+  },
+  {
+    "id": 50803,
+    "name": "Whimsical Aid Follow-Up",
+    "effects": "Grants Weakness +50% Boost 1 to all allies after using two Black Magic or Dancer abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_VOICE_OF_LIGHT",
+    "notes": null
+  },
+  {
+    "id": 50804,
+    "name": "Twin Element Mode II (Earth/Holy)",
+    "effects": "Grants Attach Earth/Holy with Stacking after using a Earth/Holy ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_II_EARTH_AND_HOLY",
+    "notes": null
+  },
+  {
+    "id": 50805,
+    "name": "Encore Time Follow-Up",
+    "effects": "Casts Encore Time after using two Black Magic or Dancer abilities",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ECHO_COLLABORATION_TIME",
+    "notes": null
+  },
+  {
+    "id": 50806,
+    "name": "Twin Element Mode II (Wind/Fire)",
+    "effects": "Grants Attach Wind/Fire with Stacking after using a Wind/Fire ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_II_WIND_AND_FIRE",
     "notes": null
   },
   {
@@ -14727,6 +15563,94 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "USED_ABILITY_COUNTER_REQUIEM_OF_KAMUY",
+    "notes": null
+  },
+  {
+    "id": 50808,
+    "name": "Fated Burn Finisher",
+    "effects": "Casts Fated Burn when removed, removed if user hasn't Awoken Fire",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "END_OF_FRAME_MODE",
+    "notes": null
+  },
+  {
+    "id": 50809,
+    "name": "Triple Raining Arrows Follow-Up",
+    "effects": "Casts Fire Wall/Freezing Arrow/Rain Shot after using Fire/Ice/Water Sharpshooter abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TRY_ARROW_SHOWER",
+    "notes": null
+  },
+  {
+    "id": 50810,
+    "name": "Awoken Sniper",
+    "effects": "Sharpshooter abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, cast speed x9999999 for Sharpshooter abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_ARCHER",
+    "notes": null
+  },
+  {
+    "id": 50811,
+    "name": "Tri Element Mode (Fire/Ice/Water)",
+    "effects": "Grants Attach Fire after using a Fire ability, grants Attach Ice after using an Ice ability, grants Attach Water after using an Water ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TRY_ELEMENT_MODE",
+    "notes": null
+  },
+  {
+    "id": 50812,
+    "name": "Rowdy Friendship Follow-Up",
+    "effects": "Casts Rowdy Friendship when any Damage Reduction Barrier is removed, removed after Rowdy Friendship is cast three times",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ROUGH_FRIENDSHIP_MODE",
+    "notes": null
+  },
+  {
+    "id": 50813,
+    "name": "Unrivaled Slash Mode",
+    "effects": "Critical hits deal 50% more damage (additive with the base critical coefficient), casts Unrivaled Slash after using two Fire abilities, removed if user hasn't any Stoneskin",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "PEERLESS_FLASH_MODE",
+    "notes": null
+  },
+  {
+    "id": 50814,
+    "name": "Tri Element Mode II (Fire/Ice/Water)",
+    "effects": "Grants Attach Fire/Ice/Water with Stacking after using a Fire/Ice/Water ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TRY_ELEMENT_MODE_II",
+    "notes": null
+  },
+  {
+    "id": 50815,
+    "name": "Assault Deck Follow-Up",
+    "effects": "Grants Quick ATB 1 after using Flare BOM or Split Card if the user has any Physical Blink",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ASSAULT_GUARD",
     "notes": null
   },
   {
@@ -14760,6 +15684,292 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "GODDESS_ARCHER_MODE",
+    "notes": null
+  },
+  {
+    "id": 50820,
+    "name": "Damage Cap +10000 1",
+    "effects": "Increases the damage/healing cap by 10000, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_DAMAGE_THRESHOLD_LV_1_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 50821,
+    "name": "40% Damage Reduction Barrier 3",
+    "effects": "Reduces damage taken by 40% for the next three attacks",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_RATE_REDUCTION_BARRIER_FOR_ATTACK_WITH_MEDIUM_3",
+    "notes": null
+  },
+  {
+    "id": 50822,
+    "name": "Revenge Fist Follow-Up",
+    "effects": "Casts Revenge Fist when any Damage Reduction Barrier is removed",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TENSION_EXPLOSION",
+    "notes": null
+  },
+  {
+    "id": 50823,
+    "name": "Guardian Mode",
+    "effects": "Restores 1500 HP and grants 40% Damage Reduction Barrier 1 to all allies when any Damage Reduction Barrier is removed, removed after triggering four times",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "GUARD_MODE",
+    "notes": null
+  },
+  {
+    "id": 50824,
+    "name": "Awoken Forbidden Ninja",
+    "effects": "Celerity, Support and Ninja abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Celerity, Support and Ninja abilities at ability rank 1/2/3/4/5, casts Release of Power after using Celerity, Support and Ninja abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_NINJA_OF_PROHIBIT",
+    "notes": null
+  },
+  {
+    "id": 50825,
+    "name": "Blacksmith's Daughter Follow-Up",
+    "effects": "Casts Blacksmith's Daugher after using a Fire ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "BLACKSMITH_DAUGHTER",
+    "notes": null
+  },
+  {
+    "id": 50826,
+    "name": "Explosive Palm",
+    "effects": "Grants Attach Fire after using two Fire abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_HEAT_RUSH_WAVE_PUNCH",
+    "notes": null
+  },
+  {
+    "id": 50827,
+    "name": "Quad Element Mode II (Wind/Water/Fire/Earth)",
+    "effects": "Grants Attach Wind/Water/Fire/Earth with Stacking after using a Wind/Water/Fire/Earth ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "QUAD_ELEMENT_MODE_II_WIND_WATER_FIRE_EARTH",
+    "notes": null
+  },
+  {
+    "id": 50828,
+    "name": "Blaze Rush Counter",
+    "effects": "Keeps track of the number of uses of Blaze Rush",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "USED_ABILITY_COUNTER_BLAZE_RUSH",
+    "notes": null
+  },
+  {
+    "id": 50830,
+    "name": "Eternal Oath",
+    "effects": "Grants 50% Damage Reduction Barrier 3 to user and Serah, if in the party, after using an Ice ability, removes Eternal Oath",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ETERNAL_VOW_MODE",
+    "notes": null
+  },
+  {
+    "id": 50831,
+    "name": "Vagrant Knight Follow-Up",
+    "effects": "Casts Crimson Alpha 1/2 at Alpha Level 2/3 and Beta Level 0 or 1, casts Crimson Beta 1/2 at Beta Level 2/3 and Alpha Level 0 or 1, casts Crimson Gamma 1/2 at Alpha Level 1 and Beta Level 1/Alpha Level 2+ and Beta Level 2+, all follow-ups only triggered every other cast of either Crimson Charge or Crimson Break",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_CRIMSON_NOVA",
+    "notes": null
+  },
+  {
+    "id": 50832,
+    "name": "Twin Element Mode III (Fire/Earth)",
+    "effects": "Grants Attach Fire/Earth 2 with Stacking after using a Fire/Earth ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_III_FIRE_AND_EARTH",
+    "notes": null
+  },
+  {
+    "id": 50833,
+    "name": "Frostmoon Slash Follow-Up",
+    "effects": "Casts Frostmoon Slash after using two Ice abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_UNCLEAR_ICE_MOON",
+    "notes": null
+  },
+  {
+    "id": 50834,
+    "name": "Awoken Lotus",
+    "effects": "White Magic and Support abilities don't consume uses, cast speed x3.00 for White Magic and Support abilities, casts Superior Light after White Magic and Support abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_WHITE_LOUTS",
+    "notes": null
+  },
+  {
+    "id": 50835,
+    "name": "Lavafloor Follow-Up",
+    "effects": "Casts Lavafloor after using three Spellblade abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_GRAND_LAVA",
+    "notes": null
+  },
+  {
+    "id": 50836,
+    "name": "Azure Blade Follow-Up",
+    "effects": "Casts Azure Blade 1/2 after using three Ice abilities if user hasn't any retaliate/has any retaliate",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_UNGAI_BRAHMA",
+    "notes": null
+  },
+  {
+    "id": 50837,
+    "name": "EX: Purgatory Charge",
+    "effects": "ATK +50%, casts Purgatory Charge when removed",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "EX_MODE_FOR_SOUL_PROMINENCE",
+    "notes": null
+  },
+  {
+    "id": 50838,
+    "name": "Hyomonken Follow-Up",
+    "effects": "Casts Hyomonken after using a Samurai ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_FLASH_OF_LIGHTNING",
+    "notes": null
+  },
+  {
+    "id": 50840,
+    "name": "50% Damage Reduction Barrier 3",
+    "effects": "Reduces damage taken by 50% for the next three attacks",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_RATE_REDUCTION_BARRIER_FOR_ATTACK_WITH_LARGE_3",
+    "notes": null
+  },
+  {
+    "id": 50841,
+    "name": "Baldesion Strike Follow-Up",
+    "effects": "Grants Minor Buff Fire after using a Fire ability, grants Minor Buff Earth after using an Earth ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_BALDESION_ATTACK",
+    "notes": null
+  },
+  {
+    "id": 50856,
+    "name": "Quad Element Mode (Wind/Water/Fire/Earth)",
+    "effects": "Grants Attach Wind/Water/Fire/Earth after using a Wind/Water/Fire/Earth ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "QUAD_ELEMENT_MODE_WIND_WATER_FIRE_EARTH",
+    "notes": null
+  },
+  {
+    "id": 50858,
+    "name": "Luminescence",
+    "effects": "Grants Attach Wind after using two Thief abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_LUMINESCENCE",
+    "notes": null
+  },
+  {
+    "id": 50866,
+    "name": "Hero's Admiration Mode",
+    "effects": "Keeps track of the number of Wind abilities, grants Hero's Admiration Critical Chance after using a Wind ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "LONGING_FOR_A_HERO_MODE",
+    "notes": null
+  },
+  {
+    "id": 50867,
+    "name": "Hero's Admiration Critical Chance",
+    "effects": "Critical chance =25/50/75/100% after using 1/2/3/4+ Wind abilities while under Hero's Admiration Mode, removed if user hasn't Hero's Admiration Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "LONGING_FOR_A_HERO_MODE_FOR_CRITICAL",
+    "notes": null
+  },
+  {
+    "id": 50868,
+    "name": "Hell Aero Follow-Up",
+    "effects": "Casts Hell Aero after using two Wind abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ROAD_TO_THE_HERO",
+    "notes": null
+  },
+  {
+    "id": 50869,
+    "name": "Chain Materia Mode II (Wind/Dark)",
+    "effects": "Grants Attach Wind/Dark with Stacking after using a Wind/Dark ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "LINK_MATERIA_MODE_II_WIND_AND_DARK",
     "notes": null
   },
   {
@@ -16253,18 +17463,41 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG and RES\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF",
     "notes": null
   },
   {
+    "id": 609023,
+    "name": "ATK, DEF, MAG and RES +30% (25s)",
+    "effects": "ATK, DEF, MAG and RES +30%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG and RES\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_30_WITH_DURATION_LARGE",
+    "notes": null
+  },
+  {
     "id": 609121,
-    "name": "Brief ATK, DEF, MAG and RES -50%",
+    "name": "ATK, DEF, MAG and RES -50% (10s)",
     "effects": "ATK, DEF, MAG and RES -50%",
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG and RES\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_M50_WITH_DURATION_SMALL_10000",
     "notes": null
   },
@@ -16275,7 +17508,11 @@
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG and RES\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_M50_WITH_DURATION_LARGE",
     "notes": null
   },
@@ -16286,7 +17523,11 @@
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG and RES\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_M40_WITH_DURATION_LARGE",
     "notes": null
   },
@@ -16302,6 +17543,28 @@
     "notes": null
   },
   {
+    "id": 610031,
+    "name": "Short ATK and MAG +50%",
+    "effects": "ATK and MAG +50%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_MATK_50_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 610131,
+    "name": "Short ATK and MAG -50%",
+    "effects": "ATK and MAG -50%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_ATK_MATK_M50_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
     "id": 611,
     "name": "ATK and DEF +X%",
     "effects": "ATK and DEF +X%",
@@ -16314,7 +17577,7 @@
   },
   {
     "id": 611131,
-    "name": "ATK and DEF -50% Short",
+    "name": "Short ATK and DEF -50%",
     "effects": "ATK and DEF -50%",
     "defaultDuration": 8,
     "mndModifier": null,
@@ -16325,7 +17588,7 @@
   },
   {
     "id": 611132,
-    "name": "ATK and DEF -50% Medium",
+    "name": "Medium ATK and DEF -50%",
     "effects": "ATK and DEF -50%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -16468,7 +17731,7 @@
   },
   {
     "id": 622132,
-    "name": "MAG and RES -50% Medium",
+    "name": "Medium MAG and RES -50%",
     "effects": "MAG and RES -50%",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -16572,74 +17835,141 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG",
+      "RES and MND\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND",
     "notes": null
   },
   {
     "id": 630003,
-    "name": "ATK, DEF, MAG, RES and MND +10% Long",
+    "name": "Long ATK, DEF, MAG, RES and MND +10%",
     "effects": "ATK, DEF, MAG, RES and MND +10%",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG",
+      "RES and MND\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_10_WITH_DURATION_LARGE_25000",
     "notes": null
   },
   {
     "id": 630013,
-    "name": "ATK, DEF, MAG, RES and MND +20% Long",
+    "name": "Long ATK, DEF, MAG, RES and MND +20%",
     "effects": "ATK, DEF, MAG, RES and MND +20%",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG",
+      "RES and MND\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_20_WITH_DURATION_LARGE_25000",
     "notes": null
   },
   {
     "id": 630023,
-    "name": "ATK, DEF, MAG, RES and MND +30% Long",
+    "name": "Long ATK, DEF, MAG, RES and MND +30%",
     "effects": "ATK, DEF, MAG, RES and MND +30%",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG",
+      "RES and MND\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_30_WITH_DURATION_LARGE_25000",
     "notes": null
   },
   {
     "id": 630033,
-    "name": "ATK, DEF, MAG, RES and MND +40% Long",
+    "name": "Long ATK, DEF, MAG, RES and MND +40%",
     "effects": "ATK, DEF, MAG, RES and MND +40%",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG",
+      "RES and MND\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_40_WITH_DURATION_LARGE_25000",
     "notes": null
   },
   {
     "id": 630043,
-    "name": "ATK, DEF, MAG, RES and MND +50% Long",
+    "name": "Long ATK, DEF, MAG, RES and MND +50%",
     "effects": "ATK, DEF, MAG, RES and MND +50%",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG",
+      "RES and MND\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_50_WITH_DURATION_LARGE_25000",
     "notes": null
   },
   {
+    "id": 630122,
+    "name": "ATK, DEF, MAG, RES and MND -30% (15s)",
+    "effects": "ATK, DEF, MAG, RES and MND -30%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG",
+      "RES and MND\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_M30_WITH_DURATION_SMALL_15000",
+    "notes": null
+  },
+  {
     "id": 630131,
-    "name": "ATK, DEF, MAG, RES and MND -50% Short",
+    "name": "Short ATK, DEF, MAG, RES and MND -50%",
     "effects": "ATK, DEF, MAG, RES and MND -50%",
     "defaultDuration": 8,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG",
+      "RES and MND\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_M50_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 630132,
+    "name": "ATK, DEF, MAG, RES and MND -50% (15s)",
+    "effects": "ATK, DEF, MAG, RES and MND -50%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG",
+      "RES and MND\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_MND_M50_WITH_DURATION_SMALL_15000",
     "notes": null
   },
   {
@@ -16842,7 +18172,7 @@
   },
   {
     "id": 646033,
-    "name": "DEF, RES and MND +50% Long",
+    "name": "Long DEF, RES and MND +50%",
     "effects": "DEF, RES and MND +50%",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -16852,7 +18182,7 @@
   },
   {
     "id": 646141,
-    "name": "DEF, RES and MND -70%",
+    "name": "Short DEF, RES and MND -70%",
     "effects": "DEF, RES and MND -70%",
     "defaultDuration": 8,
     "mndModifier": null,
@@ -16939,6 +18269,58 @@
     "notes": null
   },
   {
+    "id": 654044,
+    "name": "War Dance ATK and MAG +5%",
+    "effects": "ATK and MAG +5%",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All War Dance ATK and MAG +X%"
+    ],
+    "codedName": "CUSTOM_ATK_MATK_5_KNOWLEDGE_DANCE",
+    "notes": null
+  },
+  {
+    "id": 654054,
+    "name": "War Dance ATK and MAG +10%",
+    "effects": "ATK and MAG +10%",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All War Dance ATK and MAG +X%"
+    ],
+    "codedName": "CUSTOM_ATK_MATK_10_KNOWLEDGE_DANCE",
+    "notes": null
+  },
+  {
+    "id": 654064,
+    "name": "War Dance ATK and MAG +15%",
+    "effects": "ATK and MAG +15%",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All War Dance ATK and MAG +X%"
+    ],
+    "codedName": "CUSTOM_ATK_MATK_15_KNOWLEDGE_DANCE",
+    "notes": null
+  },
+  {
+    "id": 654074,
+    "name": "War Dance ATK and MAG +20%",
+    "effects": "ATK and MAG +20%",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All War Dance ATK and MAG +X%"
+    ],
+    "codedName": "CUSTOM_ATK_MATK_20_KNOWLEDGE_DANCE",
+    "notes": null
+  },
+  {
     "id": 7000,
     "name": "Attach Element",
     "effects": "Current attached element's info (element and level)",
@@ -16946,7 +18328,8 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "ATTACH_ELEMENT"
+    "codedName": "ATTACH_ELEMENT",
+    "notes": null
   },
   {
     "id": 7001,
@@ -16956,7 +18339,8 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "ATTACH_ELEMENT_MAX_LEVEL"
+    "codedName": "ATTACH_ELEMENT_MAX_LEVEL",
+    "notes": null
   },
   {
     "id": 701,
@@ -18191,7 +19575,7 @@
   },
   {
     "id": 837,
-    "name": "Minor Imperil Holy",
+    "name": "Minor Imperil Holy (15s)",
     "effects": "Holy Resistance -10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18202,7 +19586,7 @@
   },
   {
     "id": 838,
-    "name": "Minor Imperil Dark",
+    "name": "Minor Imperil Dark (15s)",
     "effects": "Dark Resistance -10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18213,7 +19597,7 @@
   },
   {
     "id": 839,
-    "name": "Minor Imperil Fire",
+    "name": "Minor Imperil Fire (15s)",
     "effects": "Fire Resistance -10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18224,7 +19608,7 @@
   },
   {
     "id": 840,
-    "name": "Minor Imperil Wind",
+    "name": "Minor Imperil Wind (15s)",
     "effects": "Wind Resistance -10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18235,7 +19619,7 @@
   },
   {
     "id": 841,
-    "name": "Minor Imperil Lightning",
+    "name": "Minor Imperil Lightning (15s)",
     "effects": "Lightning Resistance -10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18345,7 +19729,7 @@
   },
   {
     "id": 842,
-    "name": "Minor Imperil Water",
+    "name": "Minor Imperil Water (15s)",
     "effects": "Water Resistance -10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18356,7 +19740,7 @@
   },
   {
     "id": 8421001,
-    "name": "Medium Resist Fire",
+    "name": "Medium Resist Fire (25s)",
     "effects": "Fire Resistance +20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18367,7 +19751,7 @@
   },
   {
     "id": 8421011,
-    "name": "Medium Resist Ice",
+    "name": "Medium Resist Ice (25s)",
     "effects": "Ice Resistance +20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18378,7 +19762,7 @@
   },
   {
     "id": 8421021,
-    "name": "Medium Resist Lightning",
+    "name": "Medium Resist Lightning (25s)",
     "effects": "Lightning Resistance +20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18389,7 +19773,7 @@
   },
   {
     "id": 8421031,
-    "name": "Medium Resist Earth",
+    "name": "Medium Resist Earth (25s)",
     "effects": "Earth Resistance +20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18400,7 +19784,7 @@
   },
   {
     "id": 8421041,
-    "name": "Medium Resist Wind",
+    "name": "Medium Resist Wind (25s)",
     "effects": "Wind Resistance +20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18411,7 +19795,7 @@
   },
   {
     "id": 8421051,
-    "name": "Medium Resist Water",
+    "name": "Medium Resist Water (25s)",
     "effects": "Water Resistance +20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18422,7 +19806,7 @@
   },
   {
     "id": 8421061,
-    "name": "Medium Resist Holy",
+    "name": "Medium Resist Holy (25s)",
     "effects": "Holy Resistance +20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18433,7 +19817,7 @@
   },
   {
     "id": 8421071,
-    "name": "Medium Resist Dark",
+    "name": "Medium Resist Dark (25s)",
     "effects": "Dark Resistance +20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18444,7 +19828,7 @@
   },
   {
     "id": 8421081,
-    "name": "Medium Resist Poison",
+    "name": "Medium Resist Poison (25s)",
     "effects": "Poison Resistance +20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18455,7 +19839,7 @@
   },
   {
     "id": 843,
-    "name": "Minor Imperil Ice",
+    "name": "Minor Imperil Ice (15s)",
     "effects": "Ice Resistance -10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18466,7 +19850,7 @@
   },
   {
     "id": 8431001,
-    "name": "Minor Resist Fire",
+    "name": "Minor Resist Fire (15s)",
     "effects": "Fire Resistance +10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18477,7 +19861,7 @@
   },
   {
     "id": 8431011,
-    "name": "Minor Resist Ice",
+    "name": "Minor Resist Ice (15s)",
     "effects": "Ice Resistance +10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18488,7 +19872,7 @@
   },
   {
     "id": 8431021,
-    "name": "Minor Resist Lightning",
+    "name": "Minor Resist Lightning (15s)",
     "effects": "Lightning Resistance +10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18499,7 +19883,7 @@
   },
   {
     "id": 8431031,
-    "name": "Minor Resist Earth",
+    "name": "Minor Resist Earth (15s)",
     "effects": "Earth Resistance +10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18510,7 +19894,7 @@
   },
   {
     "id": 8431041,
-    "name": "Minor Resist Wind",
+    "name": "Minor Resist Wind (15s)",
     "effects": "Wind Resistance +10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18521,7 +19905,7 @@
   },
   {
     "id": 8431051,
-    "name": "Minor Resist Water",
+    "name": "Minor Resist Water (15s)",
     "effects": "Water Resistance +10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18532,7 +19916,7 @@
   },
   {
     "id": 8431061,
-    "name": "Minor Resist Holy",
+    "name": "Minor Resist Holy (15s)",
     "effects": "Holy Resistance +10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18543,7 +19927,7 @@
   },
   {
     "id": 8431071,
-    "name": "Minor Resist Dark",
+    "name": "Minor Resist Dark (15s)",
     "effects": "Dark Resistance +10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18554,7 +19938,7 @@
   },
   {
     "id": 8431081,
-    "name": "Minor Resist Poison",
+    "name": "Minor Resist Poison (15s)",
     "effects": "Poison Resistance +10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18565,7 +19949,7 @@
   },
   {
     "id": 844,
-    "name": "Minor Imperil Earth",
+    "name": "Minor Imperil Earth (15s)",
     "effects": "Earth Resistance -10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18576,7 +19960,7 @@
   },
   {
     "id": 8441001,
-    "name": "Major Resist Fire",
+    "name": "Major Resist Fire (25s)",
     "effects": "Fire Resistance +30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18587,7 +19971,7 @@
   },
   {
     "id": 8441011,
-    "name": "Major Resist Ice",
+    "name": "Major Resist Ice (25s)",
     "effects": "Ice Resistance +30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18598,7 +19982,7 @@
   },
   {
     "id": 8441021,
-    "name": "Major Resist Lightning",
+    "name": "Major Resist Lightning (25s)",
     "effects": "Lightning Resistance +30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18609,7 +19993,7 @@
   },
   {
     "id": 8441031,
-    "name": "Major Resist Earth",
+    "name": "Major Resist Earth (25s)",
     "effects": "Earth Resistance +30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18620,7 +20004,7 @@
   },
   {
     "id": 8441041,
-    "name": "Major Resist Wind",
+    "name": "Major Resist Wind (25s)",
     "effects": "Wind Resistance +30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18631,7 +20015,7 @@
   },
   {
     "id": 8441051,
-    "name": "Major Resist Water",
+    "name": "Major Resist Water (25s)",
     "effects": "Water Resistance +30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18642,7 +20026,7 @@
   },
   {
     "id": 8441061,
-    "name": "Major Resist Holy",
+    "name": "Major Resist Holy (25s)",
     "effects": "Holy Resistance +30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18653,7 +20037,7 @@
   },
   {
     "id": 8441071,
-    "name": "Major Resist Dark",
+    "name": "Major Resist Dark (25s)",
     "effects": "Dark Resistance +30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18664,7 +20048,7 @@
   },
   {
     "id": 8441081,
-    "name": "Major Resist Poison",
+    "name": "Major Resist Poison (25s)",
     "effects": "Poison Resistance +30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18675,7 +20059,7 @@
   },
   {
     "id": 845,
-    "name": "Minor Imperil Poison",
+    "name": "Minor Imperil Poison (15s)",
     "effects": "Poison Resistance -10%, cumulable",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18686,7 +20070,7 @@
   },
   {
     "id": 846,
-    "name": "Medium Imperil Lightning",
+    "name": "Medium Imperil Lightning (25s)",
     "effects": "Lightning Resistance -20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18697,7 +20081,7 @@
   },
   {
     "id": 847,
-    "name": "Medium Imperil Holy",
+    "name": "Medium Imperil Holy (25s)",
     "effects": "Holy Resistance -20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18708,7 +20092,7 @@
   },
   {
     "id": 848,
-    "name": "Medium Imperil Dark",
+    "name": "Medium Imperil Dark (25s)",
     "effects": "Dark Resistance -20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18719,7 +20103,7 @@
   },
   {
     "id": 849,
-    "name": "Medium Imperil Fire",
+    "name": "Medium Imperil Fire (25s)",
     "effects": "Fire Resistance -20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18730,7 +20114,7 @@
   },
   {
     "id": 850,
-    "name": "Medium Imperil Wind",
+    "name": "Medium Imperil Wind (25s)",
     "effects": "Wind Resistance -20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18741,7 +20125,7 @@
   },
   {
     "id": 851,
-    "name": "Medium Imperil Water",
+    "name": "Medium Imperil Water (25s)",
     "effects": "Water Resistance -20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18752,7 +20136,7 @@
   },
   {
     "id": 852,
-    "name": "Medium Imperil Ice",
+    "name": "Medium Imperil Ice (25s)",
     "effects": "Ice Resistance -20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18763,7 +20147,7 @@
   },
   {
     "id": 853,
-    "name": "Medium Imperil Earth",
+    "name": "Medium Imperil Earth (25s)",
     "effects": "Earth Resistance -20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18774,7 +20158,7 @@
   },
   {
     "id": 854,
-    "name": "Medium Imperil Poison",
+    "name": "Medium Imperil Poison (25s)",
     "effects": "Poison Resistance -20%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18785,7 +20169,7 @@
   },
   {
     "id": 855,
-    "name": "Major Imperil Lightning",
+    "name": "Major Imperil Lightning (25s)",
     "effects": "Lightning Resistance -30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18796,7 +20180,7 @@
   },
   {
     "id": 856,
-    "name": "Major Imperil Holy",
+    "name": "Major Imperil Holy (25s)",
     "effects": "Holy Resistance -30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18807,7 +20191,7 @@
   },
   {
     "id": 857,
-    "name": "Major Imperil Dark",
+    "name": "Major Imperil Dark (25s)",
     "effects": "Dark Resistance -30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18818,7 +20202,7 @@
   },
   {
     "id": 858,
-    "name": "Major Imperil Fire",
+    "name": "Major Imperil Fire (25s)",
     "effects": "Fire Resistance -30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18829,7 +20213,7 @@
   },
   {
     "id": 859,
-    "name": "Major Imperil Wind",
+    "name": "Major Imperil Wind (25s)",
     "effects": "Wind Resistance -30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18840,7 +20224,7 @@
   },
   {
     "id": 860,
-    "name": "Major Imperil Water",
+    "name": "Major Imperil Water (25s)",
     "effects": "Water Resistance -30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18851,7 +20235,7 @@
   },
   {
     "id": 861,
-    "name": "Major Imperil Ice",
+    "name": "Major Imperil Ice (25s)",
     "effects": "Ice Resistance -30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18862,7 +20246,7 @@
   },
   {
     "id": 862,
-    "name": "Major Imperl Earth",
+    "name": "Major Imperil Earth (25s)",
     "effects": "Earth Resistance -30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -18873,13 +20257,134 @@
   },
   {
     "id": 863,
-    "name": "Major Imperil Poison",
+    "name": "Major Imperil Poison (25s)",
     "effects": "Poison Resistance -30%, cumulable",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_ELEMENT_DEF_POISON_M3_TIME_LARGE",
+    "notes": null
+  },
+  {
+    "id": 864,
+    "name": "Minor Imperil Wind (25s)",
+    "effects": "Wind Resistance -10%, cumulable",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_WIND_M1_TIME_LARGE",
+    "notes": null
+  },
+  {
+    "id": 865,
+    "name": "Minor Imperil Poison (25s)",
+    "effects": "Poison Resistance -10%, cumulable",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_POISON_M1_TIME_LARGE",
+    "notes": null
+  },
+  {
+    "id": 873,
+    "name": "Medium Imperil Holy (15s)",
+    "effects": "Holy Resistance -20%, cumulable",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_HOLY_M2_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 874,
+    "name": "Medium Imperil Dark (15s)",
+    "effects": "Dark Resistance -20%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_DARK_M2_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 875,
+    "name": "Medium Imperil Fire (15s)",
+    "effects": "Fire Resistance -20%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_FIRE_M2_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 876,
+    "name": "Medium Imperil Wind (15s)",
+    "effects": "Wind Resistance -20%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_WIND_M2_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 877,
+    "name": "Medium Imperil Lightning (15s)",
+    "effects": "Lightning Resistance -20%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_LIGHTNING_M2_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 878,
+    "name": "Medium Imperil Water (15s)",
+    "effects": "Water Resistance -20%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_WATER_M2_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 879,
+    "name": "Medium Imperil Ice (15s)",
+    "effects": "Ice Resistance -20%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_ICE_M2_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 880,
+    "name": "Medium Imperil Earth (15s)",
+    "effects": "Earth Resistance -20%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_EARTH_M2_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 881,
+    "name": "Medium Imperil Poison (15s)",
+    "effects": "Poison Resistance -20%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_POISON_M2_TIME_MEDIUM",
     "notes": null
   },
   {
