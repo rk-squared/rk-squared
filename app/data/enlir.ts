@@ -758,7 +758,7 @@ function patchEnlir() {
     marcus =>
       marcus.effects ===
       'Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, ' +
-        'causes Minor Imperil Wind and Minor Imperil Poison/Medium Imperil Wind and Medium Imperil Poison if 1/2+ IX characters are alive, ' +
+        'causes Minor Imperil Wind (15s) and Minor Imperil Poison (15s)/Medium Imperil Wind (25s) and Medium Imperil Poison (25s) if 1/2+ IX characters are alive, ' +
         'grants Instant Cast 1/grants Instant Cast 1 and Weakness +30% Boost to all allies if 3/4+ IX characters are alive',
     marcus => {
       marcus.effects =
@@ -830,6 +830,17 @@ function patchEnlir() {
     mode => {
       mode.effects =
         "White Magic abilities don't consume uses, grants Stoneskin: 30/40/50/60/70% at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities";
+    },
+  );
+  applyPatch(
+    enlir.statusByName,
+    'Technical Bravo! Follow-Up',
+    mode =>
+      mode.effects ===
+      'Causes Minor Imperil Poison (15s)/Fire/Lightning after using two Poison/Fire/Lightning attacks',
+    mode => {
+      mode.effects =
+        'Causes Minor Imperil Poison/Fire/Lightning (15s) after using two Poison/Fire/Lightning attacks';
     },
   );
 
