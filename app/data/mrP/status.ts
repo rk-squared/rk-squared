@@ -1098,7 +1098,12 @@ function describeStatusEffect(
         's'
       );
     case 'healUp':
-      return signedNumber(effect.value) + '% healing';
+      return (
+        signedNumber(effect.value) +
+        '% ' +
+        (effect.school ? formatSchoolOrAbilityList(effect.school) + ' ' : '') +
+        'healing'
+      );
     case 'pain':
       return signedNumber(effect.value) + '% dmg taken';
     case 'damageTaken':

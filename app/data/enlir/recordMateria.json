@@ -3897,7 +3897,7 @@
     "unlockCriteria": "Use Genesis's Memory Crystal",
     "nameJp": "反旗のソルジャー",
     "id": 111070800,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -3907,7 +3907,7 @@
     "unlockCriteria": "Use Genesis's Memory Crystal II, chance to obtain with Genesis in party",
     "nameJp": "女神の贈り物",
     "id": 111070801,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -3917,7 +3917,7 @@
     "unlockCriteria": "Bring Genesis to level 99",
     "nameJp": "ゆがんだ創造主",
     "id": 111070802,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -6502,12 +6502,12 @@
   {
     "realm": "XV",
     "character": "Lunafreya",
-    "name": "Youngest Maiden",
+    "name": "Youngest Oracle",
     "effect": "40% chance to restore 1 use for all White Magic or Summoning abilities at the beginning of the battle",
     "unlockCriteria": "Use Lunafreya's Memory Crystal",
     "nameJp": "史上最年少の神凪",
     "id": 111150090,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -6517,17 +6517,17 @@
     "unlockCriteria": "Use Lunafreya's Memory Crystal II, chance to obtain with Lunafreya in party",
     "nameJp": "救済の旅路",
     "id": 111150091,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
     "character": "Lunafreya",
-    "name": "Beloved Maiden",
+    "name": "Subject of Adoration",
     "effect": "Acting and taking damage grants 25% more Soul Break points",
     "unlockCriteria": "Bring Lunafreya to level 99",
     "nameJp": "民に敬愛されし巫女",
     "id": 111150092,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -7707,7 +7707,7 @@
     "unlockCriteria": "Use Serafie's Memory Crystal",
     "nameJp": "グリモワルの妖精",
     "id": 111900320,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
@@ -7717,7 +7717,7 @@
     "unlockCriteria": "Use Serafie's Memory Crystal II, chance to obtain with Serafie in party",
     "nameJp": "気だるげなしゃべり方",
     "id": 111900321,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
@@ -7727,6 +7727,96 @@
     "unlockCriteria": "Bring Serafie to level 99",
     "nameJp": "ガーデンジェムの管理人",
     "id": 111900322,
+    "gl": true
+  },
+  {
+    "realm": "Beyond",
+    "character": "Rain",
+    "name": "Grandshelt Knight",
+    "effect": "Spellblade abilities deal 15% more damage",
+    "unlockCriteria": "Use Rain's Memory Crystal",
+    "nameJp": "グランシェルトの騎士",
+    "id": 111900330,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Rain",
+    "name": "Knight's Pride",
+    "effect": "Increases Earth damage dealt by 20%",
+    "unlockCriteria": "Use Rain's Memory Crystal II, chance to obtain with Rain in party",
+    "nameJp": "騎士のプライド",
+    "id": 111900331,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Rain",
+    "name": "Burning Heart",
+    "effect": "Increases Fire damage dealt by 30%",
+    "unlockCriteria": "Bring Fina to level 99",
+    "nameJp": "燃えたつ心",
+    "id": 111900332,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Fina",
+    "name": "Pure Innocence",
+    "effect": "MAG and MND +10%",
+    "unlockCriteria": "Use Fina's Memory Crystal",
+    "nameJp": "純真無垢",
+    "id": 111900340,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Fina",
+    "name": "Crystal Dwelling Girl",
+    "effect": "MND +20% when equipping a bow",
+    "unlockCriteria": "Use Fina's Memory Crystal II, chance to obtain with Fina in party",
+    "nameJp": "クリスタルより現れし少女",
+    "id": 111900341,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Fina",
+    "name": "Pure Wishes",
+    "effect": "Attack turns into an ability (NAT: single, removes negative effects)",
+    "unlockCriteria": "Bring Fina to level 99",
+    "nameJp": "清廉なる願い",
+    "id": 111900342,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Lasswell",
+    "name": "Rain's Childhood Friend",
+    "effect": "15% chance to counter PHY attacks with an ability (PHY: single, 1x 1.00 physical)",
+    "unlockCriteria": "Use Lasswell's Memory Crystal",
+    "nameJp": "レインの幼馴染",
+    "id": 111900350,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Lasswell",
+    "name": "Calm Fighting Spirit",
+    "effect": "PHY attacks deal 20% more damage when equipping a katana",
+    "unlockCriteria": "Use Lasswell's Memory Crystal II, chance to obtain with Lasswell in party",
+    "nameJp": "静かなる闘志",
+    "id": 111900351,
+    "gl": false
+  },
+  {
+    "realm": "Beyond",
+    "character": "Lasswell",
+    "name": "Consistent Effort",
+    "effect": "PHY attacks deal 30% more damage when equipping a katana",
+    "unlockCriteria": "Bring Lasswell to level 99",
+    "nameJp": "たゆまぬ努力",
+    "id": 111900352,
     "gl": false
   }
 ]

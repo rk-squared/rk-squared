@@ -1,5 +1,31 @@
 [
   {
+    "realm": "III",
+    "character": "Luneth",
+    "name": "Running Like the Wind",
+    "tier": "OLB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5,
+    "element": [
+      "Wind"
+    ],
+    "time": 2.5,
+    "effects": "Five single ranged attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Kazekiri (III)",
+    "nameJp": " 駆けろ、疾風のごとく",
+    "id": 20290015,
+    "gl": false
+  },
+  {
     "realm": "IV",
     "character": "Cecil (Paladin)",
     "name": "Sacred Charge",
@@ -16,8 +42,8 @@
       "Holy"
     ],
     "time": 2.5,
-    "effects": "Four single hybrid attacks (1.00 or 0.008 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF/RES, 100% additional critical chance",
-    "effectsNote": "Piercing exponent for the WHT multiplier is 1.0 instead of the normal 0.5. Piercing exponent for PHY remains at 0.5",
+    "effects": "Four single hybrid attacks (1.00 or 3.17 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF/RES, 100% additional critical chance",
+    "effectsNote": "[JP] 02/06/2020 - Multiplier and piercing exponent updated for the MND version of this attack to 3.17 and 0.5 respectively.\n\nOn JP release, the piercing exponent for the WHT multiplier is 1.0 instead of the normal 0.5. Piercing exponent for PHY remains at 0.5",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 250,
@@ -28,6 +54,59 @@
     "relic": "Guard of Avalon (IV)",
     "nameJp": "セイクリッドチャージ",
     "id": 20070021,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Galuf",
+    "name": "Gaia Gazer",
+    "tier": "OLB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5,
+    "element": [
+      "Earth"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Master's Gloves (V)",
+    "nameJp": "ガイアゲイザー",
+    "id": 20650016,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Faris",
+    "name": "Syldra's Roar",
+    "tier": "OLB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Wind",
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Four single ranged attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Viking Coat (V)",
+    "nameJp": "海竜の咆哮",
+    "id": 20930018,
     "gl": false
   },
   {
@@ -55,6 +134,32 @@
     "relic": "Demonsbane (VI)",
     "nameJp": "人と幻獣の力",
     "id": 20100022,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Tifa",
+    "name": "Beat Crush",
+    "tier": "OLB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5,
+    "element": [
+      "Earth"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Ehrgeiz (VII)",
+    "nameJp": "破砕・掌打クラッシュ",
+    "id": 20230017,
     "gl": false
   },
   {
@@ -86,6 +191,58 @@
     "gl": false
   },
   {
+    "realm": "XII",
+    "character": "Vaan",
+    "name": "Speed Superstar",
+    "tier": "OLB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5,
+    "element": [
+      "Wind"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Lust Dagger (XII)",
+    "nameJp": "スピードスーパースター",
+    "id": 20700018,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
+    "character": "Lightning",
+    "name": "Artemis Pierce",
+    "tier": "OLB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5,
+    "element": [
+      "Lightning"
+    ],
+    "time": 2.5,
+    "effects": "Five single ranged attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Helter-Skelter (XIII)",
+    "nameJp": "アルテミスピアス",
+    "id": 20600026,
+    "gl": false
+  },
+  {
     "realm": "Tactics",
     "character": "Agrias",
     "name": "Devoted Trueblade",
@@ -109,6 +266,33 @@
     "relic": "Sacri Shield (FFT)",
     "nameJp": "我が主君に捧げし剣",
     "id": 22150011,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Rem",
+    "name": "S Dagger Boomerang",
+    "tier": "OLB",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 15.85,
+    "element": [
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (3.17 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "effectsNote": "[JP] 02/06/2020 - Multiplier and piercing exponent updated to 3.17 and 0.5 respectively.\n\nOn JP release, the piercing exponent for the WHT multiplier is 1.0 instead of the normal 0.5.",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Zwillblades (Type-0)",
+    "nameJp": "S・ブーメランダガー",
+    "id": 23080012,
     "gl": false
   }
 ]

@@ -316,7 +316,7 @@ const healTable: TableDefinition = {
     {
       header: 'Esuna',
       items: {
-        3: [['Devout', '3']],
+        3: [['Devout', '3'], ['Fina', '3']],
         2: [['Devout', '2']],
         1: [['Ceodore', '1'], ['Ramza', '1'], ['Fujin', '1']],
       },

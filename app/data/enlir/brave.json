@@ -1318,6 +1318,110 @@
     "gl": false
   },
   {
+    "character": "Bartz",
+    "source": "Rousing Water",
+    "name": "Spellblade Barrage: Torrent",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92), grants Instant Cast 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "魔法剣みだれうち　激流",
+    "id": 30547161,
+    "gl": false
+  },
+  {
+    "character": "Bartz",
+    "source": "Rousing Water",
+    "name": "Spellblade Barrage: Torrent",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.2,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (3.20) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "魔法剣みだれうち　激流",
+    "id": 30547163,
+    "gl": false
+  },
+  {
+    "character": "Bartz",
+    "source": "Rousing Water",
+    "name": "Spellblade Barrage: Torrent",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.4,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.40) capped at 99999, grants 50% Damage Reduction Barrier 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "魔法剣みだれうち　激流",
+    "id": 30547164,
+    "gl": false
+  },
+  {
+    "character": "Bartz",
+    "source": "Rousing Water",
+    "name": "Spellblade Barrage: Torrent",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (10.00) capped at 99999, grants 75% Damage Reduction Barrier 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Spellblade",
+    "braveCondition": [
+      "Spellblade"
+    ],
+    "nameJp": "魔法剣みだれうち　激流",
+    "id": 30547165,
+    "gl": false
+  },
+  {
     "character": "Terra",
     "source": "Magitek Inferno",
     "name": "Riot Fire",
@@ -1986,7 +2090,7 @@
   {
     "character": "Genesis",
     "source": "Genesis's Rhapsody",
-    "name": "Null Destruction",
+    "name": "Void Destruction",
     "brave": 0,
     "type": "PHY",
     "target": "Single enemy",
@@ -2007,12 +2111,12 @@
     ],
     "nameJp": "無に帰す破壊",
     "id": 30547065,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Genesis",
     "source": "Genesis's Rhapsody",
-    "name": "Null Destruction",
+    "name": "Void Destruction",
     "brave": 1,
     "type": "PHY",
     "target": "Single enemy",
@@ -2033,12 +2137,12 @@
     ],
     "nameJp": "無に帰す破壊",
     "id": 30547069,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Genesis",
     "source": "Genesis's Rhapsody",
-    "name": "Null Destruction",
+    "name": "Void Destruction",
     "brave": 2,
     "type": "PHY",
     "target": "Single enemy",
@@ -2059,12 +2163,12 @@
     ],
     "nameJp": "無に帰す破壊",
     "id": 30547070,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Genesis",
     "source": "Genesis's Rhapsody",
-    "name": "Null Destruction",
+    "name": "Void Destruction",
     "brave": 3,
     "type": "PHY",
     "target": "Single enemy",
@@ -2085,7 +2189,7 @@
     ],
     "nameJp": "無に帰す破壊",
     "id": 30547071,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Squall",
@@ -2490,7 +2594,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (4.16 each), causes DEF, RES and MND -70%",
+    "effects": "Six single attacks (4.16 each), causes Short DEF, RES and MND -70%",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4328,5 +4432,101 @@
     "nameJp": "凱旋マーチ",
     "id": 30541456,
     "gl": true
+  },
+  {
+    "character": "Fina",
+    "source": "Blossom Heart",
+    "name": "Blossom Heal",
+    "brave": 0,
+    "type": "WHT",
+    "target": "Single ally",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (25)",
+    "counter": false,
+    "autoTarget": "Lowest HP% ally",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Support"
+    ],
+    "nameJp": "ブロッサムヒール",
+    "id": 30542567,
+    "gl": false
+  },
+  {
+    "character": "Fina",
+    "source": "Blossom Heart",
+    "name": "Blossom Heal",
+    "brave": 1,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (25)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Support"
+    ],
+    "nameJp": "ブロッサムヒール",
+    "id": 30542568,
+    "gl": false
+  },
+  {
+    "character": "Fina",
+    "source": "Blossom Heart",
+    "name": "Blossom Heal",
+    "brave": 2,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Support"
+    ],
+    "nameJp": "ブロッサムヒール",
+    "id": 30542569,
+    "gl": false
+  },
+  {
+    "character": "Fina",
+    "source": "Blossom Heart",
+    "name": "Blossom Heal",
+    "brave": 3,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55), grants High Quick Cast 1",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic",
+      "Support"
+    ],
+    "nameJp": "ブロッサムヒール",
+    "id": 30542660,
+    "gl": false
   }
 ]

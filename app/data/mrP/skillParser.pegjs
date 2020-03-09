@@ -500,7 +500,7 @@ StatusClause
 // Ragnarok Buster, Whirling Lance.  Some atypical stat modifiers, like
 // Rikku's record board ability or Passionate Salsa, do as well.
 ImplicitStatusEffect
-  = & ("Imperil" / ("Brief" _)? Stat) statuses:StatusList {
+  = & ("Imperil" / (StatModDuration1 _)? Stat) statuses:StatusList {
     return { type: 'status', verb: 'causes', statuses };
   }
 
@@ -527,7 +527,7 @@ StatusItem
 // Stat mods
 
 StatMod
-  = stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' ! StatModDuration statModClauses:StatModClause* {
+  = stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' ! (_ StatModDuration2) statModClauses:StatModClause* {
     const result = {
       type: 'statMod',
       stats,
@@ -641,7 +641,7 @@ Condition
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
-  / "if" _ count:IntegerSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
+  / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
   / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
 
@@ -725,10 +725,13 @@ StatusName "status effect"
 
 // Stat mods in particular have a distinctive format.
 StatModStatusName
-  = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' StatModDuration?
+  = (StatModDuration1 _)? ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' (_ StatModDuration2)?
 
-StatModDuration
-  = _ ("Short" / "Medium" / "Long")
+StatModDuration1
+  = "Short" / "Medium" / "Long"
+
+StatModDuration2
+  = StatModDuration1 / _ "(" Integer "s)"
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName
@@ -913,6 +916,22 @@ Realm "realm"
   / "X"
   / "KH"
   / "Type-0"
+  // Newer Enlir data writes realms this way.  TODO: Standardize?
+  / "FF1" { return 'I'; }
+  / "FF2" { return 'II'; }
+  / "FF3" { return 'III'; }
+  / "FF4" { return 'IV'; }
+  / "FF5" { return 'V'; }
+  / "FF6" { return 'VI'; }
+  / "FF7" { return 'VII'; }
+  / "FF8" { return 'VIII'; }
+  / "FF9" { return 'IX'; }
+  / "FF10" { return 'X'; }
+  / "FF11" { return 'XI'; }
+  / "FF12" { return 'XII'; }
+  / "FF13" { return 'XIII'; }
+  / "FF14" { return 'XIV'; }
+  / "FF15" { return 'XV'; }
 
 
 // --------------------------------------------------------------------------
@@ -948,6 +967,14 @@ DecimalNumberSlashList "slash-separated decimal numbers"
 
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }
+
+// An IntegerSlashList with support for ranges like 1/2-3/4
+IntegerRangeSlashList "slash-separated integer ranges"
+  = head:IntegerOrRange tail:('/' IntegerOrRange)* { return util.pegSlashList(head, tail); }
+
+IntegerOrRange
+  = from:Integer "-" to:Integer { return from; }
+  / Integer
 
 SignedIntegerSlashList "slash-separated signed integers"
   = sign:[+-] _ values:IntegerSlashList {

@@ -440,7 +440,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Fire",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), causes Poison (11%), grants Medium Resist Ice to all allies",
+      "effects": "Five group attacks (12.60 each), causes Poison (11%), grants Medium Resist Ice (25s) to all allies",
       "counter": false
     },
     "nameJp": "【契】ブッシュファイア",
@@ -744,7 +744,7 @@
       "spd": 163
     },
     "passives": {
-      "Perdition Blessings": {},
+      "Perdition's Blessing": {},
       "Stat Boon": {}
     },
     "cooldown": 10,
@@ -762,7 +762,7 @@
     },
     "nameJp": "【契】地獄の火炎",
     "id": 161000100,
-    "gl": false
+    "gl": true
   },
   {
     "11": "1",
@@ -1843,7 +1843,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Lightning",
       "time": 2.5,
-      "effects": "Four group attacks (12.60 each), grants Medium Resist Water to all allies",
+      "effects": "Four group attacks (12.60 each), grants Medium Resist Water (25s) to all allies",
       "counter": false
     },
     "nameJp": "【契】激怒の嵐",
@@ -2274,7 +2274,7 @@
       "spd": 163
     },
     "passives": {
-      "Fulminating Blessings": {},
+      "Thunderous Blessing": {},
       "Stat Boon": {}
     },
     "cooldown": 10,
@@ -2735,7 +2735,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Earth",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Medium Resist Lightning to all allies",
+      "effects": "Five group attacks (12.60 each), grants Medium Resist Lightning (25s) to all allies",
       "counter": false
     },
     "nameJp": "【契】地震",
@@ -3039,7 +3039,7 @@
       "spd": 163
     },
     "passives": {
-      "Earth King's Blessings": {},
+      "Earth King's Blessing": {},
       "Stat Boon": {}
     },
     "cooldown": 10,
@@ -3436,7 +3436,7 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 2.5,
-      "effects": "Grants Physical Blink 1 and Medium Resist Earth",
+      "effects": "Grants Physical Blink 1 and Medium Resist Earth (25s)",
       "counter": false
     },
     "nameJp": "【契】ハウリングムーン",
@@ -4138,7 +4138,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Water",
       "time": 2.5,
-      "effects": "Four group attacks (12.60 each), grants Medium Resist Fire to all allies",
+      "effects": "Four group attacks (12.60 each), grants Medium Resist Fire (25s) to all allies",
       "counter": false
     },
     "nameJp": "【契】憤怒の波",
@@ -4569,7 +4569,7 @@
       "spd": 163
     },
     "passives": {
-      "Aqua Blessings": {},
+      "Imperial Blessing": {},
       "Stat Boon": {}
     },
     "cooldown": 10,
@@ -4587,7 +4587,7 @@
     },
     "nameJp": "【契】タイダルウエイブ",
     "id": 161000099,
-    "gl": false
+    "gl": true
   },
   {
     "11": "1",
@@ -4966,7 +4966,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Holy",
       "time": 2.5,
-      "effects": "Four group attacks (12.60 each), grants Medium Resist Dark to all allies",
+      "effects": "Four group attacks (12.60 each), grants Medium Resist Dark (25s) to all allies",
       "counter": false
     },
     "nameJp": "【契】霧のブレス",
@@ -5669,7 +5669,7 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 2.5,
-      "effects": "Grants Holy Blink 1 and Medium Resist Holy",
+      "effects": "Grants Holy Blink 1 and Medium Resist Holy (25s)",
       "counter": false
     },
     "nameJp": "【契】バニシングボディー",

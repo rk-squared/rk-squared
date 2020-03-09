@@ -1860,7 +1860,7 @@
         0
       ]
     },
-    "introducingEvent": "Forgiveness Over Vengeance",
+    "introducingEvent": "Hard-Won Absolution",
     "nameJp": "連続ブリザジャ",
     "id": 30111262,
     "gl": true
@@ -2405,7 +2405,7 @@
         0
       ]
     },
-    "introducingEvent": "Eye of Violence",
+    "introducingEvent": "One-Eyed Tyrant",
     "nameJp": "連続ウォタジャ",
     "id": 30111322,
     "gl": true
@@ -2612,7 +2612,7 @@
         0
       ]
     },
-    "introducingEvent": "Beast of the Sanctuary",
+    "introducingEvent": "Guardian of the Altar",
     "nameJp": "連続トルネド",
     "id": 30111361,
     "gl": true
@@ -2813,12 +2813,12 @@
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 19.95,
     "element": [
       "Ice"
     ],
     "time": 2.6,
-    "effects": "Seven single attacks (? each)",
+    "effects": "Seven single attacks (2.85 each)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -2859,6 +2859,115 @@
     "id": 30111391,
     "gl": false,
     "recordBoardCharacter": "Serah"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Firaga RF",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 21,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ace's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Gambler's Message",
+    "nameJp": "ファイガRF(エース専用)",
+    "id": 30111401,
+    "gl": false,
+    "recordBoardCharacter": "Ace"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Cleansing",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 13.2,
+    "element": [
+      "Fire",
+      "Earth"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (3.30 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 70,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Krile's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "A New Dawn Rising",
+    "nameJp": "てんちほうかい(クルル専用)",
+    "id": 30111411,
+    "gl": false,
+    "recordBoardCharacter": "Krile"
   },
   {
     "school": "White Magic",
@@ -4351,7 +4460,7 @@
         30
       ]
     },
-    "introducingEvent": "The Miraculous Artist",
+    "introducingEvent": "Sketching Miracles",
     "nameJp": "マレイズ",
     "id": 30121251,
     "gl": true
@@ -4540,7 +4649,7 @@
         0
       ]
     },
-    "introducingEvent": "Beast of the Sanctuary",
+    "introducingEvent": "Guardian of the Altar",
     "nameJp": "ホーリジャ",
     "id": 30121321,
     "gl": true
@@ -4594,7 +4703,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (3.50 each), causes Minor Imperil Holy every second use",
+    "effects": "Three single attacks (3.50 each), causes Minor Imperil Holy (15s) every second use",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4742,6 +4851,110 @@
     "id": 30121351,
     "gl": false,
     "recordBoardCharacter": "Rem"
+  },
+  {
+    "school": "White Magic",
+    "name": "Tycoon Cure",
+    "rarity": 6,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.2,
+    "effects": "Restores HP (17.50)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lenna's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Bonds of Friendship",
+    "nameJp": "タイクーン・ケアル(レナ専用)",
+    "id": 30121361,
+    "gl": false,
+    "recordBoardCharacter": "Lenna"
+  },
+  {
+    "school": "White Magic",
+    "name": "Healing Wind",
+    "rarity": 6,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 2.1,
+    "effects": "Restores HP (25)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 100,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Aerith's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Crisis Before the Star",
+    "nameJp": "癒しの風(エアリス専用)",
+    "id": 30121371,
+    "gl": false,
+    "recordBoardCharacter": "Aerith"
   },
   {
     "school": "Combat",
@@ -6441,7 +6654,7 @@
         60
       ]
     },
-    "introducingEvent": "Take Memories Back",
+    "introducingEvent": "Lost Memories",
     "nameJp": "フルブレイク",
     "id": 30161211,
     "gl": true
@@ -7656,6 +7869,61 @@
     "gl": false
   },
   {
+    "school": "Celerity",
+    "name": "Blaze Rush",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Lightning",
+      "Holy"
+    ],
+    "time": 2.4,
+    "effects": "Six single ranged attacks (1.10 each), cast time 2.40/2.10/1.80/1.50/1.20 scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Breaking Misfortune, Indomitable Fist",
+    "nameJp": "ブレイズラッシュ(ライトニング専用)",
+    "id": 30171261,
+    "gl": false,
+    "recordBoardCharacter": "Lightning"
+  },
+  {
     "school": "Summoning",
     "name": "Goblin",
     "nameNote": "Alias name: Goblin Punch",
@@ -8844,6 +9112,29 @@
   },
   {
     "school": "Summoning",
+    "name": "Bahamut",
+    "nameNote": "Alias name: Mega Flare\n\nGlobal only, ability was bugged upon arrival and the correct ability was gifted later (Bahamut (V))",
+    "rarity": 5,
+    "type": "SUM",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": 5,
+    "element": [],
+    "time": 1.8,
+    "effects": "One group attack (5.00), minimum damage 5500",
+    "counter": false,
+    "autoTarget": "All enemies",
+    "sb": 65,
+    "uses": 1,
+    "max": 1,
+    "orbs": {},
+    "introducingEvent": "Anniversary Celebration 2",
+    "nameJp": "-",
+    "id": 30131091,
+    "gl": true
+  },
+  {
+    "school": "Summoning",
     "name": "Ultima Weapon",
     "nameNote": "Alias name: Shimmering Rain",
     "rarity": 5,
@@ -9079,7 +9370,7 @@
         0
       ]
     },
-    "introducingEvent": "Eye of Violence",
+    "introducingEvent": "One-Eyed Tyrant",
     "nameJp": "ルナリヴァイア",
     "id": 30131361,
     "gl": true
@@ -9133,7 +9424,7 @@
         0
       ]
     },
-    "introducingEvent": "Descent of the Ultimate Fantasy",
+    "introducingEvent": "Terror of the Heavens",
     "nameJp": "H・ヴァルファーレ",
     "id": 30131371,
     "gl": true
@@ -9232,7 +9523,7 @@
         0
       ]
     },
-    "introducingEvent": "Crusher of Hopes",
+    "introducingEvent": "Revel in Destruction",
     "nameJp": "ルナイフリート",
     "id": 30131391,
     "gl": true
@@ -9286,7 +9577,7 @@
         0
       ]
     },
-    "introducingEvent": "Forgiveness Over Vengeance",
+    "introducingEvent": "Hard-Won Absolution",
     "nameJp": "ルナドラゴン",
     "id": 30131401,
     "gl": true
@@ -9451,7 +9742,7 @@
     "introducingEvent": "Fat Black Chocobo Event: Dark",
     "nameJp": "アニマ",
     "id": 30131431,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Summoning",
@@ -11047,7 +11338,7 @@
         0
       ]
     },
-    "introducingEvent": "Descent of the Ultimate Fantasy",
+    "introducingEvent": "Terror of the Heavens",
     "nameJp": "至高魔法剣・裂砕 ",
     "id": 30141221,
     "gl": true
@@ -11318,6 +11609,114 @@
     "id": 30141271,
     "gl": false,
     "recordBoardCharacter": "Bartz"
+  },
+  {
+    "school": "Spellblade",
+    "name": "Torrent Assault",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.5,
+    "element": [
+      "Water"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (0.90 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Holy Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "A New Dawn Rising",
+    "nameJp": "至高魔法剣・激流",
+    "id": 30141281,
+    "gl": false
+  },
+  {
+    "school": "Spellblade",
+    "name": "Braver",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Wind",
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Cloud's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Crisis Before the Star",
+    "nameJp": "ブレイバー(クラウド専用)",
+    "id": 30141291,
+    "gl": false,
+    "recordBoardCharacter": "Cloud"
   },
   {
     "school": "Dragoon",
@@ -12109,10 +12508,64 @@
         0
       ]
     },
-    "introducingEvent": "5th Anniversary",
+    "introducingEvent": "5th Anniversary Festival",
     "nameJp": "サーペントダイブ",
     "id": 30181171,
     "gl": false
+  },
+  {
+    "school": "Dragoon",
+    "name": "Whirlwind",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.65,
+    "element": [
+      "Wind"
+    ],
+    "time": 1.5,
+    "effects": "Seven single jump attacks (0.95 each), air time (2.50 sec.)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Lightning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fang's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Breaking Misfortune, Indomitable Fist",
+    "nameJp": "エアリアルレイヴ(ファング専用)",
+    "id": 30181181,
+    "gl": false,
+    "recordBoardCharacter": "Fang"
   },
   {
     "school": "Monk",
@@ -13054,7 +13507,7 @@
   },
   {
     "school": "Monk",
-    "name": "Lightning Jab",
+    "name": "Flashfist Lightning",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13100,10 +13553,64 @@
         0
       ]
     },
-    "introducingEvent": "Trailing Spira's Dream",
+    "introducingEvent": "A Mother Transformed",
     "nameJp": "瞬拳・雷の型",
     "id": 30191211,
-    "gl": false
+    "gl": true
+  },
+  {
+    "school": "Monk",
+    "name": "Froststrike",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Ice"
+    ],
+    "time": 1.65,
+    "effects": "4/6 single attacks (1.10 each) if the user has any 0/1+ Damage Reduction Barrier, grants 40% Damage Reduction Barrier 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ice Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Snow's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Breaking Misfortune, Indomitable Fist",
+    "nameJp": "フロストブロウ(スノウ専用)",
+    "id": 30191221,
+    "gl": false,
+    "recordBoardCharacter": "Snow"
   },
   {
     "school": "Thief",
@@ -13313,7 +13820,7 @@
         60
       ]
     },
-    "introducingEvent": "The Jet-Black Assassin",
+    "introducingEvent": "Assassin in Black",
     "nameJp": "時間をぶんどる",
     "id": 30201041,
     "gl": true
@@ -13692,14 +14199,14 @@
         60
       ]
     },
-    "introducingEvent": "Dragons of Ruin",
+    "introducingEvent": "Dragons of Death",
     "nameJp": "ヒートバイト",
     "id": 30201121,
     "gl": true
   },
   {
     "school": "Thief",
-    "name": "Aqua Lower",
+    "name": "Aquatic Weakness",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13709,7 +14216,7 @@
       "Water"
     ],
     "time": 1.2,
-    "effects": "Four single attacks (0.80 each), causes Minor Imperil Water every two uses",
+    "effects": "Four single attacks (0.80 each), causes Minor Imperil Water (15s) every two uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -13745,10 +14252,10 @@
         0
       ]
     },
-    "introducingEvent": "Pride of the Dark Dragoon",
+    "introducingEvent": "Piercing the Darkness",
     "nameJp": "アクアロウアー",
     "id": 30201131,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Thief",
@@ -13803,15 +14310,15 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 4,
     "element": [
       "Fire"
     ],
-    "time": null,
-    "effects": "Four single attacks (? each), ATK and DEF -50% Short, grants ATK and DEF +50% to the user",
-    "counter": false,
+    "time": 1.2,
+    "effects": "Four single attacks (1.00 each), Short ATK and DEF -50%, grants ATK and DEF +50% to the user",
+    "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 80,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -13862,7 +14369,7 @@
       "Water"
     ],
     "time": 1.2,
-    "effects": "Four single attacks (1.00 each), ATK and DEF -50% Short, grants ATK and DEF +50% for 8 seconds to the user",
+    "effects": "Four single attacks (1.00 each), Short ATK and DEF -50%, grants ATK and DEF +50% for 8 seconds to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -13911,15 +14418,15 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 4,
     "element": [
       "Fire"
     ],
-    "time": 1.2,
-    "effects": "Four single attacks (? each), grants Minor Buff Fire every second use",
+    "time": 0.83,
+    "effects": "Four single attacks (1.00 each), grants Minor Buff Fire every second use",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 80,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -14987,12 +15494,12 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 4,
     "element": [
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (? each), grants Minor Buff Holy to all allies every third use",
+    "effects": "Four single attacks (1.00 each), grants Minor Buff Holy to all allies every third use",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -15087,6 +15594,60 @@
     "nameJp": "グレートフォーム",
     "id": 30211221,
     "gl": false
+  },
+  {
+    "school": "Knight",
+    "name": "Titan Blade",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "Four single attacks (1.00 each), grants Minor Buff Earth to all allies every third use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Holy Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ingus's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Traveling Soldier's Hidden Feelings",
+    "nameJp": "ティターンブレード(イングズ専用)",
+    "id": 30211231,
+    "gl": false,
+    "recordBoardCharacter": "Ingus"
   },
   {
     "school": "Samurai",
@@ -15859,7 +16420,7 @@
         0
       ]
     },
-    "introducingEvent": "Crusher of Hopes",
+    "introducingEvent": "Revel in Destruction",
     "nameJp": "抜刀ノ弐・火閃",
     "id": 30221171,
     "gl": true
@@ -15969,6 +16530,60 @@
     "introducingEvent": "Walking with Espers",
     "nameJp": "なで斬り・氷炎",
     "id": 30221191,
+    "gl": false
+  },
+  {
+    "school": "Samurai",
+    "name": "Freezeburn Moon",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.25,
+    "element": [
+      "Fire",
+      "Ice"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (0.85 each), grants Retaliate to the user for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Fire Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ice Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Grandshelt Knight",
+    "nameJp": "焔冷の構え",
+    "id": 30221201,
     "gl": false
   },
   {
@@ -16317,7 +16932,7 @@
         60
       ]
     },
-    "introducingEvent": "The Miraculous Artist",
+    "introducingEvent": "Sketching Miracles",
     "nameJp": "狂影刃",
     "id": 30231071,
     "gl": true
@@ -16835,7 +17450,7 @@
   },
   {
     "school": "Ninja",
-    "name": "Earth Dust",
+    "name": "Grind to Dust",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -16884,7 +17499,7 @@
     "introducingEvent": "The Blaze of Dawn",
     "nameJp": "木端微塵",
     "id": 30231185,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Ninja",
@@ -16907,10 +17522,10 @@
     "orbs": {
       "Power Crystal": [
         null,
-        5,
         10,
-        25,
-        35
+        15,
+        50,
+        75
       ],
       "Wind Crystal": [
         null,
@@ -16921,10 +17536,10 @@
       ],
       "Dark Crystal": [
         null,
+        5,
         10,
-        15,
-        50,
-        75
+        25,
+        35
       ],
       "Shadow's Record Board": [
         1,
@@ -16944,9 +17559,9 @@
     "school": "Ninja",
     "name": "Umbra Essence",
     "rarity": 6,
-    "type": "?",
-    "target": "?",
-    "formula": "?",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
     "multiplier": 6.3,
     "element": [
       "Dark"
@@ -16955,7 +17570,7 @@
     "effects": "3/5/7 single attacks (0.90 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 80,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -17285,7 +17900,7 @@
         60
       ]
     },
-    "introducingEvent": "The Spark Before Fire",
+    "introducingEvent": "The Gilded Concert",
     "introducingEventNote": "Introduced with The Gilded Concert in JP",
     "nameJp": "天使の詩",
     "id": 30241061,
@@ -18106,7 +18721,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Brief ATK, DEF, MAG and RES -50%, restores 500/600/700/800/1000 HP to all allies at 1/2/3/4/5 uses, resets if KO'd",
+    "effects": "ATK, DEF, MAG and RES -50% (10s), restores 500/600/700/800/1000 HP to all allies at 1/2/3/4/5 uses, resets if KO'd",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 100,
@@ -18146,6 +18761,58 @@
     "nameJp": "パッションサルサ",
     "id": 30251101,
     "gl": true
+  },
+  {
+    "school": "Dancer",
+    "name": "War Dance",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": null,
+    "effects": "Restores 1500 HP, grants War Dance ATK and MAG +5/10/15/20% at Proficiency level 0/1/2/3, grants Proficiency +1 to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Penelo's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Armor of Vengence",
+    "nameJp": "ブレイブダンス(パンネロ専用)",
+    "id": 30251111,
+    "gl": false,
+    "recordBoardCharacter": "Penelo"
   },
   {
     "school": "Machinist",
@@ -18782,7 +19449,7 @@
         0
       ]
     },
-    "introducingEvent": "Crusher of Hopes",
+    "introducingEvent": "Revel in Destruction",
     "nameJp": "フレイムオファ",
     "id": 30261141,
     "gl": true
@@ -19026,7 +19693,7 @@
         100
       ]
     },
-    "introducingEvent": "Gaia's Angel of Death",
+    "introducingEvent": "Angel of Death",
     "nameJp": "ダークゾーン",
     "id": 30271021,
     "gl": true
@@ -19072,7 +19739,7 @@
         50
       ]
     },
-    "introducingEvent": "Gaia's Angel of Death",
+    "introducingEvent": "Angel of Death",
     "nameJp": "メメント・モリ",
     "id": 30271031,
     "gl": true
@@ -19440,7 +20107,7 @@
         100
       ]
     },
-    "introducingEvent": "Inherited Flaming Will",
+    "introducingEvent": "The Torch Burns On",
     "nameJp": "クリムゾンクロス",
     "id": 30271111,
     "gl": true
@@ -19543,7 +20210,7 @@
         0
       ]
     },
-    "introducingEvent": "Beast of the Sanctuary",
+    "introducingEvent": "Guardian of the Altar",
     "nameJp": "デモンズクロス",
     "id": 30271131,
     "gl": true
@@ -19596,7 +20263,7 @@
         0
       ]
     },
-    "introducingEvent": "Beast of the Sanctuary",
+    "introducingEvent": "Guardian of the Altar",
     "nameJp": "ネクロカウント",
     "id": 30271141,
     "gl": true
@@ -19879,15 +20546,15 @@
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 17.5,
     "element": [
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (? each), grants HP Stock (3000) to the user",
+    "effects": "Five single attacks (3.50 each), grants HP Stock (3000) to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 90,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -20046,15 +20713,15 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 5.5,
     "element": [
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (? each), heals the user for ?% of the damage dealt",
+    "effects": "Five single attacks (1.10 each), heals the user for 20% of the damage dealt",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 90,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -20417,7 +21084,7 @@
         0
       ]
     },
-    "introducingEvent": "Eye of Violence",
+    "introducingEvent": "One-Eyed Tyrant",
     "nameJp": "サファイアブリット",
     "id": 30281101,
     "gl": true
@@ -20477,7 +21144,7 @@
   },
   {
     "school": "Sharpshooter",
-    "name": "Trinity Bullet",
+    "name": "Trinity Bombshell",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -20525,10 +21192,10 @@
         0
       ]
     },
-    "introducingEvent": "Trailing Spira's Dream",
+    "introducingEvent": "Footsteps Across Spira",
     "nameJp": "トリニティブリット",
     "id": 30281112,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Sharpshooter",
@@ -20578,7 +21245,7 @@
         0
       ]
     },
-    "introducingEvent": "5th Anniversary",
+    "introducingEvent": "5th Anniversary Festival",
     "nameJp": "ルビーブリット",
     "id": 30281131,
     "gl": false
@@ -20914,7 +21581,7 @@
         0
       ]
     },
-    "introducingEvent": "Descent of the Ultimate Fantasy",
+    "introducingEvent": "Terror of the Heavens",
     "nameJp": "ルナティックサンダー",
     "id": 30301041,
     "gl": true
@@ -21013,7 +21680,7 @@
         60
       ]
     },
-    "introducingEvent": "Solitary Lion",
+    "introducingEvent": "Orphaned Lion",
     "nameJp": "ファストサンダラ",
     "id": 30301061,
     "gl": true
@@ -21059,7 +21726,7 @@
         60
       ]
     },
-    "introducingEvent": "Solitary Lion",
+    "introducingEvent": "Orphaned Lion",
     "nameJp": "ファストブリザラ",
     "id": 30301071,
     "gl": true
@@ -21084,7 +21751,7 @@
     "uses": 2,
     "max": 10,
     "orbs": {
-      "Ice Crystal": [
+      "Dark Crystal": [
         null,
         10,
         15,
@@ -21098,7 +21765,7 @@
         25,
         35
       ],
-      "Dark Crystal": [
+      "Ice Crystal": [
         null,
         5,
         10,
@@ -21562,19 +22229,19 @@
     "uses": 2,
     "max": 10,
     "orbs": {
-      "Fire Crystal": [
-        6,
-        12,
-        18,
-        30,
-        60
-      ],
       "Power Crystal": [
         10,
         20,
         30,
         50,
         100
+      ],
+      "Fire Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
       ],
       "Earth Crystal": [
         6,
@@ -21615,19 +22282,19 @@
     "uses": 2,
     "max": 10,
     "orbs": {
-      "Earth Crystal": [
-        6,
-        12,
-        18,
-        30,
-        60
-      ],
       "Power Crystal": [
         10,
         20,
         30,
         50,
         100
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
       ],
       "Dark Crystal": [
         6,
@@ -21644,10 +22311,10 @@
         0
       ]
     },
-    "introducingEvent": "Poems for the Planet",
+    "introducingEvent": "Ode to a Sundered World",
     "nameJp": "ダークネススイング",
     "id": 30311091,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Heavy",
@@ -21702,5 +22369,60 @@
     "id": 30311101,
     "gl": false,
     "recordBoardCharacter": "Cinque"
+  },
+  {
+    "school": "Heavy",
+    "name": "Innocence",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": null,
+    "effects": "Six single attacks (? each), grants Heavy Charge +1 to the user, cast time 3.30/2.475/1.65 scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Gabranth's Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Armor of Vengence",
+    "nameJp": "イノセンス(ガブラス専用)",
+    "id": 30311111,
+    "gl": false,
+    "recordBoardCharacter": "Gabranth"
   }
 ]

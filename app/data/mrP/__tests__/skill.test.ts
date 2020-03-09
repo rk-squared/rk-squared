@@ -2275,7 +2275,7 @@ describe('mrP', () => {
         other:
           'party h105 (NAT), revive @ 100% HP, Haste, PM blink 1, instacast 1, ' +
           '15s: Awoken Automaton: W.Mag/Monk inf. hones, W.Mag/Monk hi fastcast, ' +
-          '(W.Mag/Monk ⤇ Autoheal 0.5k/1k/1.5k/2k/3k @ rank 1-5)',
+          '(W.Mag/Monk ⤇ party Autoheal 0.5k/1k/1.5k/2k/3k @ rank 1-5)',
         instant: true,
       });
 
@@ -2302,8 +2302,8 @@ describe('mrP', () => {
         damage: 'phys 9.0/15 earth+non',
         other:
           'earth infuse 25s, self dmg cap +10k 15s, Negate dmg 100%, ' +
-          'Last stand, when Neg. Dmg. lost: instacast 15s, ' +
-          '15s: Awoken Endurance: earth inf. hones, up to 1.3x dmg @ rank 5, ' +
+          'Last stand, when Neg. Dmg. lost: instacast 15s, Last stand, ' +
+          '15s: Awoken Stalwart: earth inf. hones, up to 1.3x dmg @ rank 5, ' +
           '(earth ⤇ p1.92/6 e+n Monk)',
       });
 
@@ -2369,7 +2369,7 @@ describe('mrP', () => {
           '1 turn: (fire/dark ⤇ fire/dark infuse), ' +
           '15s: (dark ⤇ (1/2/3+ dark ⤇ 2/2.5/3x cast), (dark ⤇ p1.95/5 d+n rngd Sharpshooter)), ' +
           '(fire ⤇ (1/2/3+ fire ⤇ crit =50/75/100%), (fire ⤇ p1.95/5 f+n rngd Monk)), ' +
-          '15s: Awoken Legendary Player: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
+          '15s: Awoken Legend: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
       expect(describeSoulBreak('Paine - AASB')).toEqual({
@@ -2465,7 +2465,7 @@ describe('mrP', () => {
           "other": "holy infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 25s: hi fastcast, 15s: (2 cmd 1 ⤇ instacast 1, instant ATB 1 if hi fastcast, remove hi fastcast)",
           "synchroCommands": Array [
             Object {
-              "damage": "p5.16/6 - 5.34/6 - 5.52/6 - 5.7/6 @ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses",
+              "damage": "p5.16/6 - 5.34/6 - 5.52/6 - 5.7/6 h+n @ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses",
               "other": undefined,
               "school": "Knight",
             },
