@@ -222,6 +222,7 @@
     "memoized",
     "minification",
     "minified",
+    "omni",
     "prefs",
     "promisify",
     "reselect",

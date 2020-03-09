@@ -77,12 +77,18 @@ const shortAliases: { [s: string]: string } = {
 
 export function getElementShortName(element: EnlirElement | EnlirElement[]): string {
   element = arrayify(element);
-  return element.map(i => elementShortName[i.toLowerCase()] || i.toLowerCase()).join('+');
+  return element
+    .map(i => elementShortName[i.toLowerCase()] || i.toLowerCase())
+    .join('+')
+    .replace(prismElementsShortName, 'prism');
 }
 
 export function getElementAbbreviation(element: EnlirElement | EnlirElement[]): string {
   element = arrayify(element);
-  return element.map(i => elementAbbreviation[i.toLowerCase()] || i[0].toLowerCase()).join('+');
+  return element
+    .map(i => elementAbbreviation[i.toLowerCase()] || i[0].toLowerCase())
+    .join('+')
+    .replace(prismElementsAbbreviation, 'prism');
 }
 
 export function getSchoolShortName(school: EnlirSchool): string {
@@ -104,7 +110,12 @@ export function appendElement(
   return element && element.length ? ' ' + f(element) : '';
 }
 
+// Hack: Handle damage versions (which JP has started calling "prismatic") and
+// omni-elemental statuses (Ovelia's and Relm's LM2, Elemental Boost status
+// effect) differently.
 export const allElementsShortName = 'fire/ice/lgt/earth/wind/water/holy/dark/bio';
+export const prismElementsShortName = 'fire+ice+lgt+earth+wind+water+holy+dark+bio';
+export const prismElementsAbbreviation = 'f+i+l+e+wi+wa+h+d+b';
 
 export function formatSchoolOrAbilityList(list: string | string[]): string {
   if (!Array.isArray(list)) {
