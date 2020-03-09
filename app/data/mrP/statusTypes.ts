@@ -417,6 +417,7 @@ interface Poison {
 interface HealUp {
   type: 'healUp';
   value: number;
+  school?: EnlirSchool | EnlirSchool[];
 }
 
 interface Pain {

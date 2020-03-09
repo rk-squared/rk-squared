@@ -367,7 +367,7 @@ Poison
 
 HealUp
   = "Abilities"i _ "restore" _ value:Integer "% more HP" { return { type: 'healUp', value }; }
-  / "Increases"i _ "healing done by" _ value:Integer "%" { return { type: 'healUp', value }; }
+  / "Increases"i _ "healing done by" _ school:(s:SchoolAndOrList _ "abilities by" { return s; })? _ value:Integer "%" { return { type: 'healUp', value, school }; }
 
 Pain
   = "Take" _ value:Integer "% more damage" { return { type: 'pain', value }; }
@@ -854,7 +854,7 @@ StatModStatusName
   = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' StatModDuration?
 
 StatModDuration
-  = _ ("Short" / "Medium" / "Long")
+  = _ ("Short" / "Medium" / "Long" / _ "(" Integer "s)")
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName

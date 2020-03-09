@@ -728,7 +728,7 @@ StatModStatusName
   = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' StatModDuration?
 
 StatModDuration
-  = _ ("Short" / "Medium" / "Long")
+  = _ ("Short" / "Medium" / "Long" / _ "(" Integer "s)")
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName
