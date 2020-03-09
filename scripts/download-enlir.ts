@@ -172,15 +172,15 @@ function convertAbilities(rows: any[], notes?: NotesRowData[]): any[] {
       } else if (col.match(/Orb \d+ Required/)) {
         item.orbs = item.orbs || {};
         orb = rows[i][j];
-        if (orb) {
+        if (orb && orb !== '-') {
           item.orbs[orb] = [];
         }
       } else if (col === '' || col.match(/^\d-R\d$/)) {
         // The spreadsheet used to have blank column names for orb costs.  Now,
         // it has columns 1-R1 through 4-R5.  We could perhaps simplify our code
         // by taking advantage of those numbers.
-        if (rows[i][j]) {
-          if (orb == null || orb === '') {
+        if (rows[i][j] && orb !== '-') {
+          if (rows[i][j] !== '-' && (orb == null || orb === '' || orb === '-')) {
             throw new Error(`Got orb count with no orb at row ${i} column ${j}`);
           } else if (!item.orbs[orb].length && (rows[i][j] === '?' || rows[i][j] === '')) {
             // Record Board rank 1 has no orb costs, but the spreadsheet may

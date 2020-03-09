@@ -500,7 +500,7 @@ StatusClause
 // Ragnarok Buster, Whirling Lance.  Some atypical stat modifiers, like
 // Rikku's record board ability or Passionate Salsa, do as well.
 ImplicitStatusEffect
-  = & ("Imperil" / ("Brief" _)? Stat) statuses:StatusList {
+  = & ("Imperil" / (StatModDuration1 _)? Stat) statuses:StatusList {
     return { type: 'status', verb: 'causes', statuses };
   }
 
@@ -527,7 +527,7 @@ StatusItem
 // Stat mods
 
 StatMod
-  = stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' ! StatModDuration statModClauses:StatModClause* {
+  = stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' ! (_ StatModDuration2) statModClauses:StatModClause* {
     const result = {
       type: 'statMod',
       stats,
@@ -725,10 +725,13 @@ StatusName "status effect"
 
 // Stat mods in particular have a distinctive format.
 StatModStatusName
-  = ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' StatModDuration?
+  = (StatModDuration1 _)? ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' (_ StatModDuration2)?
 
-StatModDuration
-  = _ ("Short" / "Medium" / "Long" / _ "(" Integer "s)")
+StatModDuration1
+  = "Short" / "Medium" / "Long"
+
+StatModDuration2
+  = StatModDuration1 / _ "(" Integer "s)"
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName
