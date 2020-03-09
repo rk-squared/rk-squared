@@ -15744,7 +15744,7 @@
   {
     "id": 50825,
     "name": "Blacksmith's Daughter Follow-Up",
-    "effects": "Casts Blacksmith's Daugher after using a Fire ability",
+    "effects": "Casts Blacksmith's Daughter after using a Fire ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

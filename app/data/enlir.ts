@@ -763,7 +763,7 @@ function patchEnlir() {
     marcus => {
       marcus.effects =
         'Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, ' +
-        'causes Minor Imperil Wind/Poison if 1 IX character is alive, causes Medium Imperil Wind/Poison if 2+ IX characters are alive, ' +
+        'causes Minor Imperil Wind/Poison (15s) if 1 IX character is alive, causes Medium Imperil Wind/Poison (25s) if 2+ IX characters are alive, ' +
         'grants Instant Cast 1 to all allies if 3+ IX characters are alive, grants Weakness +30% Boost to all allies if 4+ IX characters are alive';
     },
   );
