@@ -1127,7 +1127,7 @@ export function isGlint(sb: EnlirSoulBreak): boolean {
 }
 
 export function isBraveSoulBreak(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'USB' && sb.effects.match(/Brave Mode/) != null;
+  return (sb.tier === 'USB' || sb.tier === 'AASB') && sb.effects.match(/Brave Mode/) != null;
 }
 
 export function isBurstSoulBreak(sb: EnlirSoulBreak): boolean {

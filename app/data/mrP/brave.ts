@@ -31,6 +31,27 @@ function formatBraveLevelRange(from: number, to: number): string {
 
 const isHeal = (s: string) => s.match(/\bh\d/) != null;
 
+/**
+ * Brave AASBs grant instacast at brave level 0 to make the second double-cast
+ * brave command more useful.  We treat this case specially instead of letting
+ * our generic effect-merging code handle it.
+ *
+ * More generically, if the brave level 0 effect occurs nowhere else, extract
+ * it.
+ */
+function extractBrave0Effects(effects: string[][]): string | undefined {
+  const effect = effects[0][effects[0].length - 1];
+  const found = effects[0].indexOf(effect);
+  if (found === -1) {
+    return undefined;
+  }
+  if (_.some(effects.slice(1), i => i.indexOf(effect) !== -1)) {
+    return undefined;
+  }
+  effects[0].splice(found);
+  return effect;
+}
+
 function filterBraveLevels(allParts: string[]) {
   const firstLevel = _.findIndex(allParts);
   const lastLevel = _.findLastIndex(allParts);
@@ -92,6 +113,8 @@ function getBraveEffects(mrP: MrPSkill[]): string {
     return '';
   }
 
+  const brave0Effect = extractBrave0Effects(effects);
+
   // Array of merged effects, indexed by effect level then effect index.  This
   // assumes that effects mostly match up from one brave level to the next and
   // will make for ugly results otherwise.
@@ -111,13 +134,17 @@ function getBraveEffects(mrP: MrPSkill[]): string {
 
     combinedEffects[effectLevel] = combinedEffects[effectLevel] || [];
     combinedEffects[effectLevel].push(
-      slashMerge(effects.slice(effectLevel).map(e => e[effectIndex]), { join: enDashJoin }),
+      slashMerge(effects.slice(effectLevel).map(e => e[effectIndex] || ''), { join: enDashJoin }),
     );
   }
 
   const mergedEffects: Array<string | undefined> = combinedEffects.map(
     (e, i) => e && e.join(' & ') + formatBraveMinLevel(i),
   );
+
+  if (brave0Effect) {
+    mergedEffects.splice(0, 0, brave0Effect + formatBraveLevelRange(0, 0));
+  }
 
   return _.filter(mergedEffects).join(', ');
 }

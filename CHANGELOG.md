@@ -5,6 +5,7 @@
   - The Future Abilities screen now includes Record Board abilities.
 - Soul Breaks
   - Add support for OLBs (Overstrike Limit Breaks)
+  - Add support for brave AASBs
   - Numerous updates and fixes to soul break and legend materia descriptions
 - Relic Draws
   - Dream Relic Draws now allow filtering by anima lens availability, new relic selections, and dupe status.
