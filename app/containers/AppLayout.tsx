@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import { History } from 'history';
 
-import { GoogleAd250x250 } from '../components/common/GoogleAd250x250';
+// import { GoogleAd250x250 } from '../components/common/GoogleAd250x250';
 import { routes } from '../routes';
 import { RouteItem } from '../routes/types';
 import { ErrorBoundary } from './ErrorBoundary';
@@ -68,9 +68,7 @@ export class AppLayout extends React.Component<Props> {
             </div>
 
             {!process.env.IS_ELECTRON && (
-              <div className={styles.ad + ' d-none d-md-block'}>
-                <GoogleAd250x250 />
-              </div>
+              <div className={styles.ad + ' d-none d-md-block'}>{/* <GoogleAd250x250 /> */}</div>
             )}
           </nav>
 
