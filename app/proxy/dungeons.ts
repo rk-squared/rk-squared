@@ -331,6 +331,8 @@ export function convertWorld(
       // Fall back / generic - e.g., third_anniversary
       category = WorldCategory.SpecialEvent;
       subcategory = _.startCase(event.tag);
+      // Manually clean up some known internal names.
+      subcategory = subcategory.replace(/\bGenmu\b/, 'Dreams');
     } else {
       category = WorldCategory.Event;
     }
