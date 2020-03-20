@@ -934,9 +934,29 @@ export const items: Item[] = [
     id: 40000152,
   },
   {
+    name: 'Ruby Bombshell Record',
+    type: ItemType.Orb,
+    id: 40000153,
+  },
+  {
+    name: 'Serpent Dive Record',
+    type: ItemType.Orb,
+    id: 40000154,
+  },
+  {
     name: 'Iceclaw Assault Record',
     type: ItemType.Orb,
     id: 40000155,
+  },
+  {
+    name: 'Dark Shiva Record',
+    type: ItemType.Orb,
+    id: 40000156,
+  },
+  {
+    name: 'Icebound Record',
+    type: ItemType.Orb,
+    id: 40000157,
   },
 
   {
@@ -1131,6 +1151,11 @@ export const items: Item[] = [
   },
 
   {
+    name: 'Record Sapphire',
+    type: ItemType.Mote,
+    id: 130000000,
+  },
+  {
     name: 'Spirit Mote (3★)',
     type: ItemType.Mote,
     id: 130100100,
@@ -1144,6 +1169,11 @@ export const items: Item[] = [
     name: 'Spirit Mote (5★)',
     type: ItemType.Mote,
     id: 130100300,
+  },
+  {
+    name: '6★ Spirit Mote',
+    type: ItemType.Mote,
+    id: 130100400,
   },
   {
     name: 'Dexterity Mote (3★)',
@@ -1161,6 +1191,11 @@ export const items: Item[] = [
     id: 130200300,
   },
   {
+    name: '6★ Dexterity Mote',
+    type: ItemType.Mote,
+    id: 130200400,
+  },
+  {
     name: 'Vitality Mote (3★)',
     type: ItemType.Mote,
     id: 130300100,
@@ -1174,6 +1209,11 @@ export const items: Item[] = [
     name: 'Vitality Mote (5★)',
     type: ItemType.Mote,
     id: 130300300,
+  },
+  {
+    name: '6★ Vitality Mote',
+    type: ItemType.Mote,
+    id: 130300400,
   },
   {
     name: 'Wisdom Mote (3★)',

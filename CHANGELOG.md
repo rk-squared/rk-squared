@@ -1,5 +1,7 @@
 # Unreleased
 
+- Dungeons
+  - Minor updates to dungeon tracker
 - Abilities
   - Ability tooltips for future abilities now include information about their expected release.
   - The Future Abilities screen now includes Record Board abilities.
