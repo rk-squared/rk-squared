@@ -69,7 +69,7 @@ export class FutureAbilitiesTable extends React.PureComponent<Props> {
     if (!abilities.length) {
       return null;
     }
-    const description = showRecordBoard ? 'Record Board' : rarity + '★';
+    const description = showRecordBoard ? 'Hero Board' : rarity + '★';
     const id = showRecordBoard ? 'recordBoard' : `star-${rarity}`;
     return (
       <>
@@ -85,7 +85,7 @@ export class FutureAbilitiesTable extends React.PureComponent<Props> {
               {ability.name}
             </td>
             <td className={styles.school}>
-              <img src={schoolIcons[ability.school]} title={ability.school} />
+              <img src={schoolIcons[ability.school]} title={ability.school} alt="" />
             </td>
             <td className={styles.effects}>{formatMrPSkill(getMrPAbility(ability))}</td>
             <td data-tip={ability.id} data-for={orbCostsTooltipId} className={styles.orbCosts}>

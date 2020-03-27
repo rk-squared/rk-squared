@@ -20,8 +20,8 @@ function RecordBoardAbilitiesTab() {
   return (
     <>
       <div className="alert alert-secondary">
-        The Record Board is a new feature added for 5th Anniversary (September 2019 for JP, March
-        2020 for GL). It allows you to unlock various character-specific bonuses, including new
+        The Hero Board is a new feature added for 5th Anniversary (September 2019 for JP, March 2020
+        for GL). It allows you to unlock various character-specific bonuses, including new
         character-specific abilities.
       </div>
       <AbilitiesList rarity={6} showRecordBoard={true} key={'6RB'} />
@@ -46,7 +46,7 @@ export class AbilitiesPage extends React.PureComponent<RouteComponentProps> {
               activeClassName="active"
               to={joinUrl(match.url, 'recordBoard')}
             >
-              Record Board
+              Hero Board
             </NavLink>
           </li>
           {rarities.map(i => (
@@ -57,7 +57,7 @@ export class AbilitiesPage extends React.PureComponent<RouteComponentProps> {
                 activeClassName="active"
                 to={joinUrl(match.url, i.toString())}
               >
-                {i}⭑<span className={styles.abilities}> Abilities</span>
+                {i}★<span className={styles.abilities}> Abilities</span>
               </NavLink>
             </li>
           ))}

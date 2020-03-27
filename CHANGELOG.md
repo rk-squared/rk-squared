@@ -3,8 +3,9 @@
 - Dungeons
   - Minor updates to dungeon tracker
 - Abilities
+  - Update for the release of Hero Board in GL.
   - Ability tooltips for future abilities now include information about their expected release.
-  - The Future Abilities screen now includes Record Board abilities.
+  - The Future Abilities screen now includes Hero Board abilities.
 - Soul Breaks
   - Add support for OLBs (Overstrike Limit Breaks)
   - Add support for brave AASBs

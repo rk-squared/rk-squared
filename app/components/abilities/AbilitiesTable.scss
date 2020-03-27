@@ -23,9 +23,9 @@
     width: calc(100% - #{$ability-name-width} - #{$orbCosts-width});
   }
 
-  // Record Board cells are taller due to showing character icons, so
-  // vertically align their contents.  (Normally, cells would only be taller if
-  // they word wrap; vertical alignment seems less good there.
+  // Record Board (Hero Board) cells are taller due to showing character icons,
+  // so vertically align their contents.  (Normally, cells would only be taller
+  // if they word wrap; vertical alignment seems less good there.
   .recordBoard td {
     vertical-align: middle;
   }
