@@ -1113,6 +1113,12 @@ export const items: Item[] = [
     id: 95001182,
   },
   {
+    // 5th Anniversary Fantastic Feast
+    name: 'Feast Coin',
+    type: ItemType.Common,
+    id: 95001189,
+  },
+  {
     // "A Shadowy Request"
     name: 'Krakka Greens',
     type: ItemType.Common,

@@ -70,10 +70,13 @@ export class FutureAbilitiesTable extends React.PureComponent<Props> {
       return null;
     }
     const description = showRecordBoard ? 'Record Board' : rarity + '★';
+    const id = showRecordBoard ? 'recordBoard' : `star-${rarity}`;
     return (
       <>
         <tr className="thead-dark">
-          <th colSpan={5}>{description} Abilities</th>
+          <th colSpan={5} id={id}>
+            {description} Abilities
+          </th>
         </tr>
         {abilities.map((ability, i) => (
           <tr className={styles.jp} key={i}>
