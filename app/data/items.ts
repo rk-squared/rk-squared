@@ -119,6 +119,12 @@ export const items: Item[] = [
     type: ItemType.BattleTicket,
     id: 9632211,
   },
+  {
+    // "A Heated Request"
+    name: 'Rush Ticket',
+    type: ItemType.BattleTicket,
+    id: 9632241,
+  },
 
   {
     name: 'Dark Matter (1★)',
@@ -1123,6 +1129,11 @@ export const items: Item[] = [
     name: 'Krakka Greens',
     type: ItemType.Common,
     id: 95001190,
+  },
+  {
+    name: 'Krakka Greens',
+    type: ItemType.Common,
+    id: 95001208,
   },
 
   // Items 95003001 through 95003009 are apparently internal virtual items used
