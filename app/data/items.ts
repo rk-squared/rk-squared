@@ -1140,29 +1140,27 @@ export const items: Item[] = [
   // to track whether Acolyte Archive relic draws are available.
 
   {
-    name: 'Feast Ticket',
-    type: ItemType.BattleTicket,
-    id: 96003851,
-  },
-
-  // Items only in JP - unconfirmed in GL
-  {
-    name: 'Anima Lens Lv1',
+    name: 'Anima Lens Lv 1',
     type: ItemType.Common,
     id: 95004001,
   },
   {
-    name: 'Anima Lens Lv2',
+    name: 'Anima Lens Lv 2',
     type: ItemType.Common,
     id: 95004002,
   },
   {
-    name: 'Anima Lens Lv3',
+    name: 'Anima Lens Lv 3',
     type: ItemType.Common,
     id: 95004003,
   },
   {
-    name: 'Sacred Lithograph',
+    name: 'Feast Ticket',
+    type: ItemType.BattleTicket,
+    id: 96003851,
+  },
+  {
+    name: 'Artifact Stone',
     type: ItemType.Common,
     id: 98000000,
   },
