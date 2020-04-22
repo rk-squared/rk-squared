@@ -4,7 +4,7 @@
   - Minor updates to dungeon tracker
 - Abilities
   - Update for the release of Hero Board in GL.
-  - Allow sorting of Hero Board abliities by character, realm, or release date.
+  - Allow sorting of Hero Board abilities by character, realm, or release date.
   - Ability tooltips for future abilities now include information about their expected release.
   - The Future Abilities screen now includes Hero Board abilities.
 - Soul Breaks
@@ -15,6 +15,7 @@
   - Dream Relic Draws now allow filtering by anima lens availability, new relic selections, and dupe status.
   - The chance of getting a 6\* or better is now shown, instead of showing the raw count of the number of relics that are 6\*.
   - Fix: Unknown relics are now shown as ??? instead of breaking the entire relic banner page
+  - Fix: The probability display incorrectly labelled special banners as an 11× pull (but still calculated correctly internally).
 - Installing a certificate for iOS is now slightly easier.
 
 # v2.5.0

@@ -93,6 +93,7 @@ function getRelicChanceDetails(
   );
 
   return {
+    drawCount: params.drawCount,
     starOrBetterChancePerRelic,
     desiredCount,
     desiredFeaturedCount,
@@ -247,7 +248,7 @@ export class RelicChances extends React.PureComponent<Props> {
             {details.starOrBetterChancePerRelic[5].toFixed(2)}% chance of 5★ or better
           </p>
           <p className="card-text">
-            (ave. {details.expectedValue.toFixed(2)} 5★ or better per 11× pull)
+            (ave. {details.expectedValue.toFixed(2)} 5★ or better per {details.drawCount}× pull)
           </p>
           <p className="card-text">
             {details.starOrBetterChancePerRelic[6].toFixed(2)}% chance of 6★
