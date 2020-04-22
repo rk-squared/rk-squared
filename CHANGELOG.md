@@ -4,6 +4,7 @@
   - Minor updates to dungeon tracker
 - Abilities
   - Update for the release of Hero Board in GL.
+  - Allow sorting of Hero Board abliities by character, realm, or release date.
   - Ability tooltips for future abilities now include information about their expected release.
   - The Future Abilities screen now includes Hero Board abilities.
 - Soul Breaks

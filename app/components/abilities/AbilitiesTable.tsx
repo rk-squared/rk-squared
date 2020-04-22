@@ -1,10 +1,8 @@
 import * as React from 'react';
 
 import * as classNames from 'classnames';
-import * as _ from 'lodash';
 
-import { EnlirAbility, EnlirSchool } from '../../data/enlir';
-import { schoolIcons } from '../../data/localData';
+import { EnlirAbility } from '../../data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import { getOrbCosts } from '../../data/orbDetails';
 import { OrbCostsDisplay } from './OrbCostsDisplay';
@@ -26,8 +24,9 @@ export function getMrPAbility(ability: EnlirAbility) {
 }
 
 interface Props {
-  abilities: { [s in EnlirSchool]?: EnlirAbility[] };
-  schools: EnlirSchool[];
+  abilities: EnlirAbility[] | { [s: string]: EnlirAbility[] };
+  categories?: string[];
+  categoryRenderer?: (key: string) => React.ReactNode;
   showRecordBoard?: boolean;
   className?: string;
   abilitiesTooltipId?: string;
@@ -118,8 +117,13 @@ export class AbilitiesTable extends React.PureComponent<Props> {
     );
   }
 
+  renderAbilityList(abilities: EnlirAbility[]) {
+    return groupAbilities(abilities).map((ability, j) => this.renderRow(ability, j));
+  }
+
   render() {
-    const { abilities, schools, className, showRecordBoard } = this.props;
+    const { abilities, categoryRenderer, className, showRecordBoard } = this.props;
+    const categories = this.props.categories || [];
 
     const allClassNames = classNames('table table-sm table-bordered', styles.component, className, {
       [styles.recordBoard]: showRecordBoard,
@@ -133,19 +137,20 @@ export class AbilitiesTable extends React.PureComponent<Props> {
           <col className={styles.orbCosts} />
         </colgroup>
         <tbody>
-          {schools
-            .filter(school => abilities[school] != null)
-            .map((school, i) => (
-              <React.Fragment key={i}>
-                <tr>
-                  <th colSpan={3}>
-                    <img src={schoolIcons[school]} alt="" className={styles.schoolIcon} />
-                    {school}
-                  </th>
-                </tr>
-                {groupAbilities(abilities[school]!).map((ability, j) => this.renderRow(ability, j))}
-              </React.Fragment>
-            ))}
+          {Array.isArray(abilities)
+            ? this.renderAbilityList(abilities)
+            : categories
+                .filter(category => abilities[category] != null)
+                .map((category, i) => (
+                  <React.Fragment key={i}>
+                    <tr>
+                      <th colSpan={3}>
+                        {categoryRenderer ? categoryRenderer(category) : category}
+                      </th>
+                    </tr>
+                    {this.renderAbilityList(abilities[category]!)}
+                  </React.Fragment>
+                ))}
         </tbody>
       </table>
     );

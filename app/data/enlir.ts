@@ -35,6 +35,28 @@ export type EnlirRealm =
   | 'XIII'
   | 'XIV'
   | 'XV';
+export const allEnlirRealms: EnlirRealm[] = [
+  'I',
+  'II',
+  'III',
+  'IV',
+  'V',
+  'VI',
+  'VII',
+  'VIII',
+  'IX',
+  'X',
+  'XI',
+  'XII',
+  'XIII',
+  'XIV',
+  'XV',
+  'FFT',
+  'Type-0',
+  'Beyond',
+  'Core',
+  'KH',
+];
 
 export type EnlirElement =
   | 'Fire'
@@ -249,7 +271,7 @@ export interface EnlirAbility extends EnlirGenericSkill {
   uses: number;
   max: number;
   orbs: { [orbName: string]: number[] };
-  introducingEvent: string | string;
+  introducingEvent: string;
   nameJp: string;
   recordBoardCharacter?: string;
 }

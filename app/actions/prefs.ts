@@ -5,6 +5,17 @@ import * as _ from 'lodash';
 import { EnlirSoulBreakOrLegendMateria } from '../data/enlir';
 import { ItemType } from '../data/items';
 
+/**
+ * How to sort abilities.  This list is optimized for Record Board; realm and
+ * character don't make sense otherwise.
+ */
+export enum AbilitySortType {
+  BySchool = 0,
+  ByRealm = 1,
+  ByCharacter = 2,
+  ByRelease = 3,
+}
+
 export enum ShowSoulBreaksType {
   All = 0,
   Gl = 1,
@@ -30,6 +41,9 @@ export interface Prefs {
   showRelicSelections?: ShowRelicSelectionType;
   hideRelicSelectionDupes?: boolean;
   showNewRelicSelectionsOnly?: boolean;
+
+  // Ability preferences
+  recordBoardSort?: AbilitySortType;
 
   lastFilename?: {
     [key: string]: string;
