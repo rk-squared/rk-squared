@@ -13,10 +13,10 @@ describe('orbDetails', () => {
     it('gets orb costs', () => {
       expect(getOrbCosts(enlir.abilitiesByName['Chain Firaja'])).toEqual([
         {
-          orbType: 'Black',
-          cost: '10-',
+          orbType: 'Fire',
+          cost: '6',
           rarity: 6,
-          id: 40000068,
+          id: 40000072,
         },
         {
           orbType: 'NE',
@@ -25,10 +25,10 @@ describe('orbDetails', () => {
           id: 40000071,
         },
         {
-          orbType: 'Fire',
-          cost: '6',
+          orbType: 'Black',
+          cost: '10-',
           rarity: 6,
-          id: 40000072,
+          id: 40000068,
         },
       ]);
     });

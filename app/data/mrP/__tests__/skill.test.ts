@@ -2489,7 +2489,7 @@ describe('mrP', () => {
                           "other": "element infuse 25s based on party element infuse, self +10%/20%/30%/40%/50% A/D/M/R/MND if 1-2-3-4-5 chars. alive 25s, 1.5x elem dmg 15s, dmg cap +10k 15s",
                           "synchroCommands": Array [
                             Object {
-                              "damage": "p3.24/4 or m11.0/4 f+i+l+e+wi+wa+h+d+b+n rngd",
+                              "damage": "p3.24/4 or m11.0/4 prism+n rngd",
                               "other": "self hi fastcast 1",
                               "school": "Support",
                             },

@@ -17,16 +17,13 @@ describe('probabilities', () => {
     it('calculates chances for a normal 11 pull', () => {
       // A normal banner for which we want 5 on-banner relics and no off-banner
       // relics.
-      expect(
-        chanceOfDesiredDrawProp5(
-          { drawCount: 11, guaranteedCount: 1, guaranteedRarity: 5 },
-          0.1404,
-          0.05,
-        ),
-      ).toEqual({
-        desiredChance: 0.5319173336944308,
-        expectedValue: 0.6784661320463586,
-      });
+      const { desiredChance, expectedValue } = chanceOfDesiredDrawProp5(
+        { drawCount: 11, guaranteedCount: 1, guaranteedRarity: 5 },
+        0.1404,
+        0.05,
+      );
+      expect(desiredChance).toBeCloseTo(0.5319173336944308);
+      expect(expectedValue).toBeCloseTo(0.6784661320463586);
     });
   });
 });

@@ -32,6 +32,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
     >
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130300300/130300300_112.png"
           width={32}
@@ -42,6 +43,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130400200/130400200_112.png"
           width={32}
@@ -52,6 +54,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png"
           width={32}
@@ -62,6 +65,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png"
           width={32}
@@ -72,6 +76,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/91000000.png"
           width={32}
@@ -82,6 +87,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/92000000.png"
           width={32}
@@ -92,6 +98,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001020.png"
           width={32}
@@ -102,6 +109,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists 1`] = `
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001080.png"
           width={32}
@@ -147,6 +155,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
     >
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130300300/130300300_112.png"
           width={32}
@@ -157,6 +166,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/sphere_material/130400200/130400200_112.png"
           width={32}
@@ -167,6 +177,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000060/40000060_112.png"
           width={32}
@@ -177,6 +188,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/ability_material/40000066/40000066_112.png"
           width={32}
@@ -187,6 +199,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/91000000.png"
           width={32}
@@ -197,6 +210,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/92000000.png"
           width={32}
@@ -207,6 +221,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001020.png"
           width={32}
@@ -217,6 +232,7 @@ exports[`DungeonCard DungeonListItem renders complex prize lists in anonymous vi
       </li>
       <li>
         <img
+          alt=""
           height={32}
           src="https://ffrk.denagames.com/dff/static/lang/ww/compile/en/image/common_item/95001080.png"
           width={32}
