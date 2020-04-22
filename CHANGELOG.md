@@ -1,4 +1,4 @@
-# Unreleased
+# v2.6.0
 
 - Dungeons
   - Minor updates to dungeon tracker
