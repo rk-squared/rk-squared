@@ -328,7 +328,6 @@
     "npm": ">=3.x"
   },
   "resolutions": {
-    "@types/react": "^16.6.0",
-    "**/fsevents": "^1.2.9"
+    "@types/react": "^16.6.0"
   }
 }
