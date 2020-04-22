@@ -1245,7 +1245,7 @@
       "accessory": true
     },
     "skills": {
-      "blackMagic": 2,
+      "blackMagic": 4,
       "whiteMagic": null,
       "combat": null,
       "support": null,
@@ -2646,7 +2646,7 @@
       "whiteMagic": null,
       "combat": 5,
       "support": null,
-      "celerity": 3,
+      "celerity": 4,
       "summoning": null,
       "spellblade": null,
       "dragoon": null,
@@ -4641,7 +4641,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Towering Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5276,7 +5276,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -7435,7 +7435,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bloomfest",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7689,7 +7689,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Towering Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7816,7 +7816,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bloomfest",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8197,7 +8197,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bloomfest",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8578,7 +8578,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Shocking Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8959,7 +8959,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Towering Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12388,7 +12388,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bloomfest",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13150,7 +13150,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bloomfest",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13531,7 +13531,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bloomfest",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14928,7 +14928,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Whispers in the Wind",
+    "introducingEventRecordBoards": "Voice in the Void",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -15055,7 +15055,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Whispers in the Wind",
+    "introducingEventRecordBoards": "Voice in the Void",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15182,7 +15182,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Clashing Lion and Knight",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15563,7 +15563,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Clashing Lion and Knight",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15817,7 +15817,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Clashing Lion and Knight",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -16315,7 +16315,7 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Whispers in the Wind",
+    "introducingEventLegendSpheres": "Voice in the Void",
     "legendSpheres": {
       "hp": 800,
       "atk": 35,
@@ -16325,7 +16325,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Whispers in the Wind",
+    "introducingEventRecordBoards": "Voice in the Void",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -16340,7 +16340,7 @@
       "instrument": false,
       "whip": false,
       "thrown": false,
-      "gun": false,
+      "gun": true,
       "book": false,
       "blitzball": false,
       "hairpin": false,
@@ -16366,7 +16366,7 @@
       "summoning": null,
       "spellblade": null,
       "dragoon": null,
-      "monk": null,
+      "monk": 5,
       "thief": null,
       "knight": null,
       "samurai": null,
@@ -16375,7 +16375,7 @@
       "dancer": null,
       "machinist": null,
       "darkness": null,
-      "sharpshooter": null,
+      "sharpshooter": 6,
       "witch": null,
       "heavy": null
     },
@@ -16442,7 +16442,7 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Whispers in the Wind",
+    "introducingEventLegendSpheres": "Voice in the Void",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -16452,7 +16452,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Whispers in the Wind",
+    "introducingEventRecordBoards": "Voice in the Void",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16467,7 +16467,7 @@
       "instrument": false,
       "whip": false,
       "thrown": true,
-      "gun": false,
+      "gun": true,
       "book": false,
       "blitzball": false,
       "hairpin": false,
@@ -16502,7 +16502,7 @@
       "dancer": null,
       "machinist": null,
       "darkness": null,
-      "sharpshooter": null,
+      "sharpshooter": 6,
       "witch": null,
       "heavy": 6
     },
@@ -16833,7 +16833,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Shocking Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22969,7 +22969,7 @@
       "celerity": 4,
       "summoning": null,
       "spellblade": null,
-      "dragoon": null,
+      "dragoon": 5,
       "monk": null,
       "thief": 4,
       "knight": null,
@@ -23183,7 +23183,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Conquest Against the Primals",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -23818,7 +23818,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Conquest Against the Primals",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24199,7 +24199,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Conquest Against the Primals",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24382,6 +24382,133 @@
     },
     "id": 11401100,
     "gl": true
+  },
+  {
+    "realm": "XIV",
+    "name": "Alisaie",
+    "introducingEventLv50": "Conquest Against the Primals",
+    "lv50": {
+      "hp": 2997,
+      "atk": 86,
+      "def": 56,
+      "mag": 121,
+      "res": 85,
+      "mnd": 93,
+      "acc": 22,
+      "eva": 22,
+      "spd": 118
+    },
+    "introducingEventLv65": "Conquest Against the Primals",
+    "lv65": {
+      "hp": 3860,
+      "atk": 110,
+      "def": 74,
+      "mag": 149,
+      "res": 108,
+      "mnd": 119,
+      "acc": 23,
+      "eva": 23,
+      "spd": 127
+    },
+    "introducingEventLv80": "Conquest Against the Primals",
+    "lv80": {
+      "hp": 4723,
+      "atk": 133,
+      "def": 92,
+      "mag": 176,
+      "res": 132,
+      "mnd": 144,
+      "acc": 24,
+      "eva": 24,
+      "spd": 136
+    },
+    "introducingEventLv99": "Conquest Against the Primals",
+    "lv99": {
+      "hp": 5816,
+      "atk": 164,
+      "def": 116,
+      "mag": 210,
+      "res": 162,
+      "mnd": 177,
+      "acc": 25,
+      "eva": 25,
+      "spd": 149
+    },
+    "introducingEventRecordSpheres": "Conquest Against the Primals",
+    "recordSpheres": {
+      "hp": 470,
+      "atk": 5,
+      "def": 0,
+      "mag": 23,
+      "res": 8,
+      "mnd": 15
+    },
+    "introducingEventLegendSpheres": "Conquest Against the Primals",
+    "legendSpheres": {
+      "hp": 500,
+      "atk": 0,
+      "def": 20,
+      "mag": 40,
+      "res": 30,
+      "mnd": 20,
+      "spd": 0
+    },
+    "introducingEventRecordBoards": "Conquest Against the Primals",
+    "equipment": {
+      "dagger": true,
+      "sword": true,
+      "katana": false,
+      "axe": false,
+      "hammer": false,
+      "spear": false,
+      "fist": false,
+      "rod": true,
+      "staff": true,
+      "bow": false,
+      "instrument": false,
+      "whip": false,
+      "thrown": false,
+      "gun": false,
+      "book": true,
+      "blitzball": false,
+      "hairpin": false,
+      "gunArm": false,
+      "gamblingGear": false,
+      "doll": false,
+      "keyblade": false,
+      "shield": false,
+      "hat": true,
+      "helm": false,
+      "lightArmor": true,
+      "heavyArmor": false,
+      "robe": true,
+      "bracer": true,
+      "accessory": true
+    },
+    "skills": {
+      "blackMagic": 5,
+      "whiteMagic": 5,
+      "combat": 4,
+      "support": null,
+      "celerity": null,
+      "summoning": 4,
+      "spellblade": 5,
+      "dragoon": null,
+      "monk": null,
+      "thief": null,
+      "knight": null,
+      "samurai": null,
+      "ninja": null,
+      "bard": null,
+      "dancer": null,
+      "machinist": null,
+      "darkness": null,
+      "sharpshooter": null,
+      "witch": null,
+      "heavy": null
+    },
+    "id": 11401200,
+    "gl": false
   },
   {
     "realm": "XV",
@@ -24580,7 +24707,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bloomfest",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -27120,7 +27247,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bloomfest",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27628,7 +27755,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Towering Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,

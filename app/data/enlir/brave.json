@@ -414,6 +414,98 @@
     "gl": true
   },
   {
+    "character": "Ricard",
+    "source": "The Last Dragoon",
+    "name": "Pride of Deist",
+    "brave": 0,
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Jump Quick Cast 1",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "Combat",
+    "braveCondition": [
+      "Dragoon"
+    ],
+    "nameJp": "ディストの誇り",
+    "id": 31540048,
+    "gl": false
+  },
+  {
+    "character": "Ricard",
+    "source": "The Last Dragoon",
+    "name": "Pride of Deist",
+    "brave": 1,
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Jump Quick Cast 1 and Dragoon +15% Boost 1",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "Combat",
+    "braveCondition": [
+      "Dragoon"
+    ],
+    "nameJp": "ディストの誇り",
+    "id": 31540049,
+    "gl": false
+  },
+  {
+    "character": "Ricard",
+    "source": "The Last Dragoon",
+    "name": "Pride of Deist",
+    "brave": 2,
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Jump Instant Cast 1 and Dragoon +15% Boost 1",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "Combat",
+    "braveCondition": [
+      "Dragoon"
+    ],
+    "nameJp": "ディストの誇り",
+    "id": 31540050,
+    "gl": false
+  },
+  {
+    "character": "Ricard",
+    "source": "The Last Dragoon",
+    "name": "Pride of Deist",
+    "brave": 3,
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Jump Instant Cast 1, Dragoon +30% Boost 1 and Dualcast Dragoon 1",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "Combat",
+    "braveCondition": [
+      "Dragoon"
+    ],
+    "nameJp": "ディストの誇り",
+    "id": 31540051,
+    "gl": false
+  },
+  {
     "character": "Arc",
     "source": "Heavenly Rains",
     "name": "Life Fountain",
@@ -810,6 +902,110 @@
     "nameJp": "巨人の咆哮",
     "id": 30543045,
     "gl": true
+  },
+  {
+    "character": "Cid (IV)",
+    "source": "Trial and Error",
+    "name": "Gramps's Impulse",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (1.92), grants Instant Cast 1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Machinist",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "オヤジの覚悟",
+    "id": 31540064,
+    "gl": false
+  },
+  {
+    "character": "Cid (IV)",
+    "source": "Trial and Error",
+    "name": "Gramps's Impulse",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.2,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (3.20) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Machinist",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "オヤジの覚悟",
+    "id": 31540065,
+    "gl": false
+  },
+  {
+    "character": "Cid (IV)",
+    "source": "Trial and Error",
+    "name": "Gramps's Impulse",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.4,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (6.40) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Machinist",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "オヤジの覚悟",
+    "id": 31540066,
+    "gl": false
+  },
+  {
+    "character": "Cid (IV)",
+    "source": "Trial and Error",
+    "name": "Gramps's Impulse",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 12.8,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Two single ranged attacks (6.40 each) capped at 99999, damages the user for 99% max HP, grants Stoneskin: 100% to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Machinist",
+    "braveCondition": [
+      "Lightning"
+    ],
+    "nameJp": "オヤジの覚悟",
+    "id": 31540067,
+    "gl": false
   },
   {
     "character": "Gilgamesh",
@@ -2497,8 +2693,8 @@
   },
   {
     "character": "Quistis",
-    "source": "Mix Breath",
-    "name": "Toxic Breath",
+    "source": "Mixed Breath",
+    "name": "Venomwash Breath",
     "brave": 0,
     "type": "BLK",
     "target": "Single enemy",
@@ -2521,12 +2717,12 @@
     ],
     "nameJp": "毒水の息吹",
     "id": 30541169,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Quistis",
-    "source": "Mix Breath",
-    "name": "Toxic Breath",
+    "source": "Mixed Breath",
+    "name": "Venomwash Breath",
     "brave": 1,
     "type": "BLK",
     "target": "Single enemy",
@@ -2549,12 +2745,12 @@
     ],
     "nameJp": "毒水の息吹",
     "id": 30541260,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Quistis",
-    "source": "Mix Breath",
-    "name": "Toxic Breath",
+    "source": "Mixed Breath",
+    "name": "Venomwash Breath",
     "brave": 2,
     "type": "BLK",
     "target": "Single enemy",
@@ -2577,12 +2773,12 @@
     ],
     "nameJp": "毒水の息吹",
     "id": 30541261,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Quistis",
-    "source": "Mix Breath",
-    "name": "Toxic Breath",
+    "source": "Mixed Breath",
+    "name": "Venomwash Breath",
     "brave": 3,
     "type": "BLK",
     "target": "Single enemy",
@@ -2594,7 +2790,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (4.16 each), causes Short DEF, RES and MND -70%",
+    "effects": "Six single attacks (4.16 each), causes DEF, RES and MND -70% (8s)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -2605,7 +2801,7 @@
     ],
     "nameJp": "毒水の息吹",
     "id": 30541262,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ultimecia",

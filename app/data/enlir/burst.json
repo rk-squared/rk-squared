@@ -11060,7 +11060,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "",
+    "effects": "-",
     "counter": false,
     "autoTarget": "Self",
     "sb": 180,

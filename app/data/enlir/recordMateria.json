@@ -6290,6 +6290,36 @@
     "gl": true
   },
   {
+    "realm": "XIV",
+    "character": "Alisaie",
+    "name": "Precocious Daughter",
+    "effect": "40% chance to restore 1 use for all Black Magic and White Magic abilities at the beginning of the battle",
+    "unlockCriteria": "Use Alisaie's Memory Crystal",
+    "nameJp": "勝ち気な令嬢",
+    "id": 111140120,
+    "gl": false
+  },
+  {
+    "realm": "XIV",
+    "character": "Alisaie",
+    "name": "Eorzea's Sword",
+    "effect": "15% chance to dualcast White Magic abilities",
+    "unlockCriteria": "Use Alisaie's Memory Crystal II, chance to obtain with Alisaie in party",
+    "nameJp": "エオルゼアの剣",
+    "id": 111140121,
+    "gl": false
+  },
+  {
+    "realm": "XIV",
+    "character": "Alisaie",
+    "name": "Bouncer at Departure Inn",
+    "effect": "BLK attacks deal 30% more damage when equipping a sword",
+    "unlockCriteria": "Bring Alisaie to level 99",
+    "nameJp": "旅立ちの宿の用心棒",
+    "id": 111140122,
+    "gl": false
+  },
+  {
     "realm": "XV",
     "character": "Noctis",
     "name": "Sleeping Prince",
@@ -7742,7 +7772,7 @@
   {
     "realm": "Beyond",
     "character": "Rain",
-    "name": "Knight's Pride",
+    "name": "Pride of a Knight",
     "effect": "Increases Earth damage dealt by 20%",
     "unlockCriteria": "Use Rain's Memory Crystal II, chance to obtain with Rain in party",
     "nameJp": "騎士のプライド",

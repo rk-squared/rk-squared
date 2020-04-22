@@ -733,7 +733,7 @@
     "name": "Ifrit",
     "realm": "X",
     "rarity": 6,
-    "introducingEventLv99": "Magicite Dawn, Part 16",
+    "introducingEventLv99": "Magicite: Ifrit",
     "stats": {
       "hp": 5371,
       "atk": 265,
@@ -1498,7 +1498,7 @@
     "name": "Shiva",
     "realm": "X",
     "rarity": 6,
-    "introducingEventLv99": "Magicite Dawn, Part 17",
+    "introducingEventLv99": "Magicite: Shiva",
     "stats": {
       "hp": 5371,
       "atk": 265,
@@ -1509,7 +1509,7 @@
       "spd": 163
     },
     "passives": {
-      "Permafrost Blessings": {},
+      "Hoarfrost Blessing": {},
       "Stat Boon": {}
     },
     "cooldown": 10,
@@ -1527,7 +1527,7 @@
     },
     "nameJp": "【契】ダイアモンドダスト",
     "id": 161000101,
-    "gl": false
+    "gl": true
   },
   {
     "11": "1",
@@ -2263,7 +2263,7 @@
     "name": "Ramuh",
     "realm": "VI",
     "rarity": 6,
-    "introducingEventLv99": "Magicite Dawn, Part 14",
+    "introducingEventLv99": "Magicite: Ramuh",
     "stats": {
       "hp": 5371,
       "atk": 265,
@@ -3028,7 +3028,7 @@
     "name": "Titan",
     "realm": "V",
     "rarity": 6,
-    "introducingEventLv99": "Magicite Dawn, Part 13",
+    "introducingEventLv99": "Magicite: Titan",
     "stats": {
       "hp": 5371,
       "atk": 265,
@@ -3793,7 +3793,7 @@
     "name": "Valefor",
     "realm": "X",
     "rarity": 6,
-    "introducingEventLv99": "Magicite Dawn, Part 18",
+    "introducingEventLv99": "Magicite: Valefor",
     "stats": {
       "hp": 5371,
       "atk": 265,
@@ -4558,7 +4558,7 @@
     "name": "Leviathan",
     "realm": "V",
     "rarity": 6,
-    "introducingEventLv99": "Magicite Dawn, Part 15",
+    "introducingEventLv99": "Magicite: Leviathan",
     "stats": {
       "hp": 5371,
       "atk": 265,
@@ -5323,7 +5323,7 @@
     "name": "Alexander",
     "realm": "VI",
     "rarity": 6,
-    "introducingEventLv99": "Magicite Dawn, Part 16",
+    "introducingEventLv99": "Magicite: Alexander",
     "stats": {
       "hp": 5371,
       "atk": 265,
@@ -6085,11 +6085,11 @@
     "381": null,
     "390": null,
     "399": null,
-    "element": "Holy",
+    "element": "Dark",
     "name": "Diablos",
     "realm": "XI",
     "rarity": 6,
-    "introducingEventLv99": "Magicite Dawn, Part 17",
+    "introducingEventLv99": "Magicite: Diablos",
     "stats": {
       "hp": 5371,
       "atk": 265,

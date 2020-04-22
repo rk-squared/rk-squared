@@ -1730,14 +1730,14 @@
   {
     "realm": "III",
     "character": "Onion Knight",
-    "name": "Dramatic Growth",
+    "name": "Bounding Growth",
     "effect": "Grants Attach Water at the beginning of the battle",
     "master": "MAG +10",
     "relic": "Ninja Cowl (III)",
     "nameJp": "飛躍的な成長",
     "id": 201030604,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -2366,14 +2366,14 @@
   {
     "realm": "IV",
     "character": "Porom",
-    "name": "Older Sister",
+    "name": "Sisterly Guidance",
     "effect": "25?% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "master": "MND +10",
     "relic": "Faerie Tail (IV)",
     "nameJp": "大人びた姉",
     "id": 201041004,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -2762,14 +2762,14 @@
   {
     "realm": "IV",
     "character": "Rubicante",
-    "name": "Strongest of the Four Fiends",
+    "name": "Fiercest Fiend",
     "effect": "20% chance to cause Minor Imperil Fire (15s) to the target after using a Black Magic ability on an enemy",
     "master": "MAG +10",
-    "relic": "Fire Rod (IV)",
+    "relic": "Rod of Fire (IV)",
     "nameJp": "四天王最強の魔物",
     "id": 201042003,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -3987,13 +3987,13 @@
     "realm": "VI",
     "character": "Relm",
     "name": "Passionate Painter",
-    "effect": "25?% chance to cast an ability (WHT: group, restores HP (25?)) after using a White Magic ability",
+    "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "master": "MND +10",
     "relic": "Beastmaster's Robe (VI)",
     "nameJp": "絵画への情熱",
     "id": 201061305,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -4694,14 +4694,14 @@
   {
     "realm": "VII",
     "character": "Sephiroth",
-    "name": "Severe Blade",
+    "name": "Cruelest Cut",
     "effect": "25% chance to dualcast Samurai abilities",
     "master": "ATK +10",
     "relic": "Dragon Mail (VII)",
     "nameJp": "凶刃振るいし者",
     "id": 201071004,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -5258,14 +5258,14 @@
   {
     "realm": "VIII",
     "character": "Zell",
-    "name": "Reckless Personality",
+    "name": "Renowned Recklessness",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Power Wrist (VIII)",
     "nameJp": "無鉄砲な人格",
     "id": 201080404,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -5702,7 +5702,7 @@
   {
     "realm": "VIII",
     "character": "Kiros",
-    "name": "Katar Wielder",
+    "name": "Katar Master",
     "effect": "PHY attacks deal 10% more damage",
     "master": null,
     "relic": null,
@@ -5714,7 +5714,7 @@
   {
     "realm": "VIII",
     "character": "Kiros",
-    "name": "Lightweight Helper",
+    "name": "Slim Sidekick",
     "effect": "35% chance to dualcast abilities that deal Dark or Ice damage",
     "master": null,
     "relic": null,
@@ -5726,10 +5726,10 @@
   {
     "realm": "VIII",
     "character": "Kiros",
-    "name": "Exotic Boy",
+    "name": "Exotic Presence",
     "effect": "20% chance to cause Minor Imperil Dark (15s) to the target after using a Ninja or Sharpshooter ability on an enemy",
     "master": "ATK +10",
-    "relic": "Kiros's Glove (VIII)",
+    "relic": "Kiros's Gloves (VIII)",
     "nameJp": "エキゾチックな最年少",
     "id": 201081502,
     "anima": null,
@@ -5738,7 +5738,7 @@
   {
     "realm": "VIII",
     "character": "Ward",
-    "name": "Harpoon Wielder",
+    "name": "Harpoon Master",
     "effect": "PHY attacks deal 10% more damage",
     "master": null,
     "relic": null,
@@ -5750,8 +5750,8 @@
   {
     "realm": "VIII",
     "character": "Ward",
-    "name": "Heavyweight Helper",
-    "effect": "35% chance to cast That's Us! +1 after using an ability that deals Water, Ice or Earth damage",
+    "name": "Stocky Sidekick",
+    "effect": "35% chance to cast Up a Point after using an ability that deals Water, Ice or Earth damage",
     "master": null,
     "relic": null,
     "nameJp": "重量級の補佐官",
@@ -5762,10 +5762,10 @@
   {
     "realm": "VIII",
     "character": "Ward",
-    "name": "Jovial Scarface",
+    "name": "Scarred Soldier",
     "effect": "PHY attacks deal 20% more damage when equipping a hat",
     "master": "ATK +10",
-    "relic": "Pirate Cap (VIII)",
+    "relic": "Pirate Hat (VIII)",
     "nameJp": "気さくなスカーフェイス",
     "id": 201081602,
     "anima": null,
@@ -6230,14 +6230,14 @@
   {
     "realm": "IX",
     "character": "Amarant",
-    "name": "Blazing Redhead",
+    "name": "Smoldering Flame",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Twist Headband (IX)",
     "nameJp": "燃えさかる焔髪",
     "id": 201090804,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -7269,7 +7269,7 @@
     "nameJp": "放浪の暗黒騎士",
     "id": 201110703,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -7574,7 +7574,7 @@
   {
     "realm": "XII",
     "character": "Basch",
-    "name": "Captain's Honor",
+    "name": "Warring Captain",
     "effect": "25% chance to dualcast Knight or Samurai abilities",
     "master": "ATK +10",
     "relic": "Basch's Gauntlet (XII)",
@@ -8402,14 +8402,14 @@
   {
     "realm": "XIII",
     "character": "Noel",
-    "name": "Nomadic Family",
+    "name": "Nomad Child",
     "effect": "Grants Attach Water at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Black Mage Noel's Guise (XIII)",
+    "relic": "Black Mage Noel (XIII)",
     "nameJp": "放浪の民の一族",
     "id": 201131105,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -8501,9 +8501,21 @@
     "name": "Price of Power",
     "effect": "25% chance to cast an ability (WHT: group, restores HP (25)) after using a White Magic ability",
     "master": "MND +10",
-    "relic": "Mistilteinn",
+    "relic": "Mistilteinn (XIV)",
     "nameJp": "禁術の代償",
     "id": 201140103,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIV",
+    "character": "Y'shtola",
+    "name": "Master Matoya",
+    "effect": "25% chance to dualcast Black Magic and Witch abilities",
+    "master": "MAG +10",
+    "relic": "Scion Sorceress's Shadowtalons (XIV)",
+    "nameJp": "魔女「マトーヤ」",
+    "id": 201140104,
     "anima": null,
     "gl": false
   },
@@ -8585,7 +8597,7 @@
     "name": "Moonfire Liberator",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Shire Cesti",
+    "relic": "Shire Cesti (XIV)",
     "nameJp": "紅蓮の解放者",
     "id": 201140303,
     "anima": null,
@@ -8845,6 +8857,18 @@
   },
   {
     "realm": "XIV",
+    "character": "Haurchefant",
+    "name": "A Smile Suits A Hero",
+    "effect": "25% chance to dualcast Knight abilities",
+    "master": "ATK +10",
+    "relic": "Shire Custodian's Armor (XIV)",
+    "nameJp": "英雄に悲しい顔は似合わない",
+    "id": 201141004,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIV",
     "character": "Estinien",
     "name": "Set on Vengeance",
     "effect": "Dragoon abilities deal 15% more damage",
@@ -8878,6 +8902,30 @@
     "id": 201141103,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "XIV",
+    "character": "Alisaie",
+    "name": "Swimming Sister",
+    "effect": "BLK attacks deal 10?% more damage",
+    "master": null,
+    "relic": null,
+    "nameJp": "水泳の得意な妹",
+    "id": 201141200,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIV",
+    "character": "Alisaie",
+    "name": "Scion Descendant",
+    "effect": "35% chance to dualcast Black Magic and White Magic abilities",
+    "master": null,
+    "relic": null,
+    "nameJp": "救世詩盟盟主の令孫",
+    "id": 201141201,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XV",
@@ -8930,14 +8978,14 @@
   {
     "realm": "XV",
     "character": "Noctis",
-    "name": "True Friendship",
+    "name": "Unwavering Friendship",
     "effect": "Grants Attach Fire at the beginning of the battle",
     "master": "ATK +10",
-    "relic": "Noctis's Armguard (XV)",
+    "relic": "Noctis's Armguards (XV)",
     "nameJp": "変わらぬ友情",
     "id": 201150104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",

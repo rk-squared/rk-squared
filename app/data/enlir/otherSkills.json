@@ -750,7 +750,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Four single ranged hybrid attacks (0.28 or 1.00 each), causes Medium ATK and DEF -50%/Medium MAG and RES -50% after 1/2 + 2n uses, 100% hit rate",
+    "effects": "Four single ranged hybrid attacks (0.28 or 1.00 each), causes ATK and DEF -50% (15s)/MAG and RES -50% (15s) after 1/2 + 2n uses, 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -774,6 +774,48 @@
     "sb": 0,
     "school": "?",
     "id": 30545092,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Earthen Fury Follow-Up",
+    "name": "Earthen Fury",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.8,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (1.80), causes Minor Imperil Earth (15s) and DEF, RES and MND -70% (8s), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31540031,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Gaia Stamp Follow-Up",
+    "name": "Gaia Stamp",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (? each), grants Quick Cast 1 to all allies in the character's row",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31540032,
     "gl": false
   },
   {
@@ -1372,8 +1414,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Crimson Flurry Follow-Up",
-    "name": "Crimson Flurry",
+    "source": "Flame Dance Follow-Up",
+    "name": "Flame Dance",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -1389,7 +1431,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541814,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1516,6 +1558,49 @@
     "sb": 0,
     "school": "Knight",
     "id": 30548449,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Martial Tradition Follow-Up",
+    "name": "Martial Tradition",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.28,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (0.76/0.82 each), grants Instant Cast 1 to the user, grants Instant Cast 1 to Ursula if Ursula is alive, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31540027,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Martial Succession Follow-Up",
+    "name": "Martial Succession",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Earth",
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (?/? each) if Yang is not alive/alive, grants Attach Earth to the user, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31540029,
     "gl": false
   },
   {
@@ -2682,8 +2767,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Allegiance",
-    "name": "Inferno Slash",
+    "source": "Iron Allegiance",
+    "name": "Flashfire Slash",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -2699,12 +2784,12 @@
     "sb": 0,
     "school": "Samurai",
     "id": 30549131,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Unsoku Mode",
-    "name": "Afterimage Fist",
+    "source": "Footwork Mode",
+    "name": "Streaking Fist",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -2843,6 +2928,27 @@
     "sb": 0,
     "school": "Ninja",
     "id": 30549326,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Downburst Follow-Up",
+    "name": "Downburst",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (? each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541654,
     "gl": false
   },
   {
@@ -3158,8 +3264,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Top of the World Follow-Up",
-    "name": "Top of the World",
+    "source": "Heaven and Earth Follow-Up",
+    "name": "Heaven and Earth",
     "type": "NAT",
     "target": "Single enemy",
     "formula": null,
@@ -3172,12 +3278,12 @@
     "sb": 0,
     "school": "Ninja",
     "id": 30549320,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Disaster Blade Mode",
-    "name": "Disaster Blade",
+    "source": "Assassin's Blade Mode",
+    "name": "Pyre Flame",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -3193,7 +3299,7 @@
     "sb": 0,
     "school": "Samurai",
     "id": 30549216,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3667,7 +3773,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547321,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3688,12 +3794,12 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30547322,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Ice Edge Follow-Up",
-    "name": "Ice Edge",
+    "source": "Ice Age Follow-Up",
+    "name": "Ice Age",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -3709,7 +3815,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541423,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3731,7 +3837,7 @@
     "sb": 0,
     "school": "Ninja",
     "id": 30549321,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -3754,6 +3860,27 @@
     "sb": 0,
     "school": "Dragoon",
     "id": 30548316,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Charismatic Sniper Follow-Up",
+    "name": "Charismatic Sniper",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.56,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Eight single ranged attacks (0.32 each), additional 100% critical chance if Kiros or Ward are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 31540008,
     "gl": false
   },
   {
@@ -3972,8 +4099,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Golden Frog Follow-Up",
-    "name": "Frog Stamp",
+    "source": "Gold Frog Follow-Up",
+    "name": "Frog Stomp",
     "type": "PHY",
     "target": "All enemies",
     "formula": "Physical",
@@ -3991,6 +4118,27 @@
     "sb": 0,
     "school": "Support",
     "id": 30545114,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Princess' Resolve Mode",
+    "name": "Princess' Resolve",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.4,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (16.40) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 31540057,
     "gl": false
   },
   {
@@ -4310,10 +4458,10 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Rising Flame Follow-Up",
-    "name": "Rising Flame",
+    "source": "Crimson Wildfire Follow-Up",
+    "name": "Crimson Wildfire",
     "type": "SUM",
-    "target": "Single target",
+    "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 16.62,
     "element": [
@@ -4327,7 +4475,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 30543011,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4384,7 +4532,7 @@
     "sb": 0,
     "school": "Thief",
     "id": 30108001,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4405,7 +4553,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30179010,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4675,8 +4823,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Scorching Bullet Follow-Up",
-    "name": "Scorching Bullet",
+    "source": "Scorching Shot Follow-Up",
+    "name": "Scorching Shot",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4692,7 +4840,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 30549252,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4709,12 +4857,70 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single ranged attack (1.44), causes Short DEF, RES and MND -70%, grants 40% Damage Reduction Barrier 1 to all allies, 100% hit rate",
+    "effects": "One single ranged attack (1.44), causes DEF, RES and MND -70% (8s), grants 40% Damage Reduction Barrier 1 to all allies, 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Knight",
     "id": 30548541,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Viera",
+    "name": "Thunderous Shatterheart",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Ice",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.32 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31540061,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Mist Flow Follow-Up",
+    "name": "Mist Flow (Ice)",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Minor Imperil Ice (15s), grants Attach Ice and Minor Buff Ice",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31540059,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Mist Flow Follow-Up",
+    "name": "Mist Flow (Lightning)",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Minor Imperil Lightning (15s), grants Attach Lightning and Minor Buff Lightning to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31540060,
     "gl": false
   },
   {
@@ -5188,6 +5394,100 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Night's Blessed Follow-Up",
+    "name": "Night's Blessed (Fire)",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Minor Imperil Fire (15s), grants Minor Buff Fire to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Witch",
+    "id": 30549183,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Night's Blessed Follow-Up",
+    "name": "Night's Blessed (Ice)",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Minor Imperil Ice (15s), grants Minor Buff Ice to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Witch",
+    "id": 30549184,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Night's Blessed Follow-Up",
+    "name": "Night's Blessed (Lightning)",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Minor Imperil Lightning (15s), grants Minor Buff Lightning to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Witch",
+    "id": 30549185,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Night's Blessed Follow-Up",
+    "name": "Night's Blessed (Dark)",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes Minor Imperil Dark (15s), grants Minor Buff Dark to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Witch",
+    "id": 30549186,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Ver Mode",
+    "name": "Scorch",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.2,
+    "element": [
+      "Wind",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Fifteen single attacks (1.05 each), grants Black Mana +1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541555,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Future King",
     "name": "Warp Strike",
     "type": "PHY",
@@ -5419,6 +5719,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Righteous Guard Mode",
+    "name": "Righteous Guard",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.32 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Knight",
+    "id": 30544464,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Seeker of Truth",
     "name": "Knight's Lightblade",
     "type": "PHY",
@@ -5571,7 +5892,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Four single attacks (0.76 each), causes Short ATK and MAG -50%, grants Short ATK and MAG +50% and Physical High Quick Cast 2 to the user, 100% hit rate",
+    "effects": "Four single attacks (0.76 each), causes ATK and MAG -50% (8s), grants ATK and MAG +50% (8s) and Physical High Quick Cast 2 to the user, 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -5960,7 +6281,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Causes Minor Imperil Ice (15s) and Short DEF, RES and MND -70%, removes positive effects",
+    "effects": "Causes Minor Imperil Ice (15s) and DEF, RES and MND -70% (8s), removes positive effects",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -6042,7 +6363,8 @@
     "element": [
       "Fire",
       "Ice",
-      "Water NE"
+      "Water",
+      "NE"
     ],
     "time": 0.01,
     "effects": "Two single ranged attacks (0.40 each), grants 40% Damage Reduction Barrier 1 to all allies, 100% hit rate",
@@ -6064,7 +6386,8 @@
     "element": [
       "Fire",
       "Ice",
-      "Water NE"
+      "Water",
+      "NE"
     ],
     "time": 0.01,
     "effects": "Two single ranged attacks (0.40 each), grants Minor Buff Ice to all allies every second cast, 100% hit rate",
@@ -6086,7 +6409,8 @@
     "element": [
       "Fire",
       "Ice",
-      "Water NE"
+      "Water",
+      "NE"
     ],
     "time": 0.01,
     "effects": "Two single ranged attacks (0.40 each), causes Minor Imperil Water (15s) every second cast, 100% hit rate",
@@ -6095,6 +6419,28 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 30549373,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Serial Thrust Follow-Up",
+    "name": "Serial Thrust",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.4,
+    "element": [
+      "Earth",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Randomly deals 4/5/6 (30/40/30%) single attacks (0.40 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31540022,
     "gl": false
   },
   {
@@ -6664,7 +7010,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (5.20) capped at 99999, causes Short DEF, RES and MND -70% and Minor Imperil Ice (15s), grants Minor Buff Ice to the user",
+    "effects": "One single attack (5.20) capped at 99999, causes DEF, RES and MND -70% (8s) and Minor Imperil Ice (15s), grants Minor Buff Ice to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -7012,6 +7358,28 @@
   },
   {
     "sourceType": "Finisher Status",
+    "source": "Red Mana Mode",
+    "name": "Anti Sword Finisher",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 22.2,
+    "element": [
+      "Wind",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.02/2.12/2.22 each) scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 30541650,
+    "gl": false
+  },
+  {
+    "sourceType": "Finisher Status",
     "source": "Royal Mode",
     "name": "Point-Blank Warp-Strike",
     "type": "PHY",
@@ -7099,14 +7467,14 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 6.3,
     "element": [
       "Fire",
       "Earth",
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (?) capped at 99999",
+    "effects": "One single attack (6.30) capped at 99999",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -9129,7 +9497,7 @@
   },
   {
     "sourceType": "Record Materia",
-    "source": "Knight's Pride",
+    "source": "Pride of a Knight",
     "name": "Guard",
     "type": "NAT",
     "target": "Self",
@@ -10258,8 +10626,8 @@
   },
   {
     "sourceType": "Legend Materia",
-    "source": "Heavyweight Helper",
-    "name": "That's Us! +1",
+    "source": "Stocky Sidekick",
+    "name": "Up a Point",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -10277,7 +10645,7 @@
     "sb": 0,
     "school": "Dragoon",
     "id": 30528014,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
