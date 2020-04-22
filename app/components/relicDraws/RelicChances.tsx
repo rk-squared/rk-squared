@@ -18,6 +18,7 @@ import { pluralize } from '../../utils/textUtils';
 import { MinableCard, MinableCardIcon } from '../common/MinableCard';
 import { Mythril } from '../shared/Mythril';
 import { RelicDrawModalLink } from './RelicDrawModalLink';
+import { RelicWantCount } from './RelicWantCount';
 
 const styles = require('./RelicChances.scss');
 
@@ -123,27 +124,6 @@ export class RelicChances extends React.PureComponent<Props> {
     );
   };
 
-  renderWantRelics(featuredCount: number | null, count: number) {
-    if (featuredCount && featuredCount !== count) {
-      const title = `${featuredCount} featured ${pluralize(featuredCount, 'relic')} and ${count -
-        featuredCount} off-banner relics are selected.`;
-      if (featuredCount === 1) {
-        return <abbr title={title}>1 selected relic</abbr>;
-      } else {
-        return (
-          <>
-            ≥1 of <abbr title={title}>{`${featuredCount}+${count - featuredCount}`}</abbr>
-            {' selected relics '}
-          </>
-        );
-      }
-    } else if (count === 1) {
-      return '1 selected relic ';
-    } else {
-      return `≥1 of ${count} selected relics `;
-    }
-  }
-
   renderWant(
     banner: RelicDrawBannerDetails,
     featuredCount: number | null,
@@ -183,8 +163,7 @@ export class RelicChances extends React.PureComponent<Props> {
     return (
       <div>
         <p className="card-text">
-          Odds of {this.renderWantRelics(featuredCount, count)}
-          after&hellip; (
+          Odds of <RelicWantCount featuredCount={featuredCount} count={count} /> after&hellip; (
           <a href="#" onClick={this.handleClear}>
             clear
           </a>

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import * as ReactTooltip from 'react-tooltip';
 
 import classNames from 'classnames';
 
@@ -14,6 +15,7 @@ import { pluralize } from '../../utils/textUtils';
 import { FAR_FUTURE, formatTimeT, formatTimeTNoYear, isClosed } from '../../utils/timeUtils';
 import { Mythril } from '../shared/Mythril';
 import { getRelicChanceDetails } from './RelicChances';
+import { RelicWantCount } from './RelicWantCount';
 
 const styles = require('./RelicDrawBannerList.scss');
 
@@ -128,11 +130,16 @@ const RelicDrawBannerLink = ({
     mythrilCost = details.cost.firstMythrilCost;
   }
 
+  const tooltipId = `tooltip-relic-banner-${details.id}`;
   let desiredChance: number | undefined;
+  let desiredFeaturedCount: number | null | undefined;
+  let desiredCount: number | undefined;
   if (want && probabilities) {
     const chanceDetails = getRelicChanceDetails(details, probabilities, want);
-    if (chanceDetails) {
+    if (chanceDetails && chanceDetails.desiredCount > 0) {
       desiredChance = chanceDetails.desiredChance;
+      desiredFeaturedCount = chanceDetails.desiredFeaturedCount;
+      desiredCount = chanceDetails.desiredCount;
     }
   }
 
@@ -161,13 +168,21 @@ const RelicDrawBannerLink = ({
             {mythrilCost}
           </Mythril>
           {desiredChance && (
-            <span className={styles.desiredChance}>{(desiredChance * 100).toFixed(0)}%</span>
+            <span className={styles.desiredChance} data-tip={true} data-for={tooltipId}>
+              {(desiredChance * 100).toFixed(0)}%
+            </span>
           )}
         </span>
         {currentTime != null && (
           <span className={styles.openedClosedAt}>{openedClosedAt(details, currentTime)}</span>
         )}
       </div>
+      {desiredChance && desiredFeaturedCount != null && desiredCount != null && (
+        <ReactTooltip id={tooltipId}>
+          Chance of <RelicWantCount featuredCount={desiredFeaturedCount} count={desiredCount} /> on
+          a single pull. Click the banner for details.
+        </ReactTooltip>
+      )}
     </div>
   );
 };

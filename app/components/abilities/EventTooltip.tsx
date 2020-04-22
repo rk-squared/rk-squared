@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import * as ReactTooltip from 'react-tooltip';
 
-import * as _ from 'lodash';
-
 import { WorldCategory } from '../../actions/worlds';
 import { LangContext } from '../../contexts/LangContext';
 import { enlir } from '../../data/enlir';
