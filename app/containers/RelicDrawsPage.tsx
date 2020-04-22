@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, RouteComponentProps } from 'react-router';
 import { Dispatch } from 'redux';
 
-import { loadBanners } from '../actions/relicDraws';
+import { loadBanners, RelicDrawProbabilities } from '../actions/relicDraws';
 import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
 import { RelicDrawBannerList } from '../components/relicDraws/RelicDrawBannerList';
 import LoadMissingPrompt from '../components/shared/LoadMissingPrompt';
@@ -21,6 +21,10 @@ import RelicDrawGroupPage from './RelicDrawGroupPage';
 
 interface Props {
   bannersAndGroups: RelicDrawBannersAndGroups;
+  probabilities: {
+    [bannerId: string]: RelicDrawProbabilities;
+  };
+  want?: { [relicId: number]: boolean };
   missingBanners: number[];
   currentTime: number;
   dispatch: Dispatch;
@@ -51,7 +55,14 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
   };
 
   renderContents() {
-    const { bannersAndGroups, missingBanners, currentTime, match } = this.props;
+    const {
+      bannersAndGroups,
+      probabilities,
+      missingBanners,
+      currentTime,
+      match,
+      want,
+    } = this.props;
     const details = bannersAndGroups['undefined'];
     if (!details || !details.length) {
       return <BadRelicDrawMessage />;
@@ -112,6 +123,8 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
               currentTime={currentTime}
               bannerLink={this.bannerLink}
               groupLink={this.groupLink}
+              probabilities={probabilities}
+              want={want}
             />
           )}
         />
@@ -130,6 +143,8 @@ export class RelicDrawsPage extends React.PureComponent<Props & RouteComponentPr
 
 export default connect((state: IState) => ({
   bannersAndGroups: getBannersAndGroups(state),
+  probabilities: state.relicDraws.probabilities,
+  want: state.relicDraws.want,
   missingBanners: getMissingBanners(state),
   currentTime: state.timeState.currentTime,
 }))(RelicDrawsPage);

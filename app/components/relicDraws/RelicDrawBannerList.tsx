@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import classNames from 'classnames';
 
+import { RelicDrawProbabilities } from '../../actions/relicDraws';
 import {
   isGroup,
   RelicDrawBannerDetails,
@@ -12,6 +13,7 @@ import {
 import { pluralize } from '../../utils/textUtils';
 import { FAR_FUTURE, formatTimeT, formatTimeTNoYear, isClosed } from '../../utils/timeUtils';
 import { Mythril } from '../shared/Mythril';
+import { getRelicChanceDetails } from './RelicChances';
 
 const styles = require('./RelicDrawBannerList.scss');
 
@@ -22,6 +24,10 @@ interface Props {
   currentTime?: number;
   groupLink: (group: string) => string;
   bannerLink: (bannerId: number) => string;
+  want?: { [relicId: number]: boolean };
+  probabilities: {
+    [bannerId: string]: RelicDrawProbabilities;
+  };
 }
 
 interface RelicLinkProps<T> {
@@ -29,6 +35,8 @@ interface RelicLinkProps<T> {
   to: string;
   isAnonymous?: boolean;
   currentTime?: number;
+  want?: { [relicId: number]: boolean };
+  probabilities?: RelicDrawProbabilities;
 }
 
 /**
@@ -108,6 +116,8 @@ const RelicDrawBannerLink = ({
   to,
   isAnonymous,
   currentTime,
+  want,
+  probabilities,
 }: RelicLinkProps<RelicDrawBannerDetails>) => {
   const closed = currentTime ? isClosed(details, currentTime) : false;
   const count = isAnonymous ? formatTotalCount(details) : formatAvailableCount(details);
@@ -116,6 +126,14 @@ const RelicDrawBannerLink = ({
   let mythrilCost = details.cost && details.cost.mythrilCost ? details.cost.mythrilCost : null;
   if (isAnonymous && details.cost && details.cost.firstMythrilCost) {
     mythrilCost = details.cost.firstMythrilCost;
+  }
+
+  let desiredChance: number | undefined;
+  if (want && probabilities) {
+    const chanceDetails = getRelicChanceDetails(details, probabilities, want);
+    if (chanceDetails) {
+      desiredChance = chanceDetails.desiredChance;
+    }
   }
 
   return (
@@ -142,6 +160,9 @@ const RelicDrawBannerLink = ({
           >
             {mythrilCost}
           </Mythril>
+          {desiredChance && (
+            <span className={styles.desiredChance}>{(desiredChance * 100).toFixed(0)}%</span>
+          )}
         </span>
         {currentTime != null && (
           <span className={styles.openedClosedAt}>{openedClosedAt(details, currentTime)}</span>
@@ -157,7 +178,15 @@ const RelicDrawBannerLink = ({
  */
 export class RelicDrawBannerList extends React.PureComponent<Props> {
   render() {
-    const { details, isAnonymous, currentTime, groupLink, bannerLink } = this.props;
+    const {
+      details,
+      isAnonymous,
+      currentTime,
+      groupLink,
+      bannerLink,
+      want,
+      probabilities,
+    } = this.props;
     return (
       <>
         {details
@@ -178,6 +207,8 @@ export class RelicDrawBannerList extends React.PureComponent<Props> {
                 currentTime={currentTime}
                 key={i}
                 to={bannerLink(d.id)}
+                want={want}
+                probabilities={probabilities[d.id]}
               />
             ),
           )}

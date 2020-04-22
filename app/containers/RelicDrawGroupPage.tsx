@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import { RelicDrawGroup } from '../actions/relicDraws';
+import { RelicDrawGroup, RelicDrawProbabilities } from '../actions/relicDraws';
 import { BadRelicDrawMessage } from '../components/relicDraws/BadRelicDrawMessage';
 import { RelicDrawBannerList } from '../components/relicDraws/RelicDrawBannerList';
 import { IState } from '../reducers';
@@ -18,6 +18,10 @@ interface Props {
     [group: string]: RelicDrawGroup;
   };
   bannersAndGroups: RelicDrawBannersAndGroups;
+  probabilities: {
+    [bannerId: string]: RelicDrawProbabilities;
+  };
+  want?: { [relicId: number]: boolean };
   isAnonymous?: boolean;
   currentTime: number;
   groupLink: (group: string) => string;
@@ -29,7 +33,16 @@ export class RelicDrawGroupPage extends React.PureComponent<
   Props & RouteComponentProps<RouteParams>
 > {
   render() {
-    const { groups, bannersAndGroups, isAnonymous, currentTime, match, backLink } = this.props;
+    const {
+      groups,
+      bannersAndGroups,
+      isAnonymous,
+      currentTime,
+      match,
+      backLink,
+      probabilities,
+      want,
+    } = this.props;
     const group = groups[match.params.group];
     const details = bannersAndGroups[match.params.group];
     if (!group || !details) {
@@ -47,6 +60,8 @@ export class RelicDrawGroupPage extends React.PureComponent<
           currentTime={currentTime}
           bannerLink={this.props.bannerLink}
           groupLink={this.props.groupLink}
+          probabilities={probabilities}
+          want={want}
         />
       </>
     );
@@ -56,5 +71,7 @@ export class RelicDrawGroupPage extends React.PureComponent<
 export default connect((state: IState) => ({
   groups: state.relicDraws.groups,
   bannersAndGroups: getBannersAndGroups(state),
+  probabilities: state.relicDraws.probabilities,
+  want: state.relicDraws.want,
   currentTime: state.timeState.currentTime,
 }))(RelicDrawGroupPage);

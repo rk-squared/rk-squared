@@ -41,7 +41,7 @@
 
   span.count {
     display: inline-block;
-    width: 50%;
+    width: 60%;
   }
 
   .mythrilCost {
@@ -49,9 +49,14 @@
     margin-left: 1em;
   }
 
+  .desiredChance {
+    display: inline-block;
+    margin-left: 1em;
+  }
+
   span.openedClosedAt {
     display: inline-block;
-    width: 50%;
+    width: 40%;
     text-align: right;
   }
 }

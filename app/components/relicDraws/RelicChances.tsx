@@ -31,7 +31,7 @@ interface Props {
   onClear?: (relicIds: number[]) => void;
 }
 
-function getRelicChanceDetails(
+export function getRelicChanceDetails(
   banner: RelicDrawBannerDetails,
   probabilities: RelicDrawProbabilities,
   want?: { [relicId: number]: boolean },
