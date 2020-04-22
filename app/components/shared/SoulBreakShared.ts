@@ -38,6 +38,7 @@ export function makeTierStyleMap(
     'Glint+': cssStyles.glint,
 
     OLB: cssStyles.overstrikeLimitBreak,
+    GLB: cssStyles.glint,
 
     // Unused - placeholders
     Default: cssStyles.unique,
@@ -67,6 +68,7 @@ export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
 export const soulBreakFullAliases = makeSoulBreakAliases(enlir.soulBreaks);
 export const limitBreakAbbrevAliases = makeLimitBreakAliases(enlir.limitBreaks, {
   OLB: 'OL',
+  GLB: 'GL',
 });
 export const limitBreakFullAliases = makeLimitBreakAliases(enlir.limitBreaks);
 export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);

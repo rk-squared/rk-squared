@@ -104,7 +104,7 @@ export type EnlirEventType =
 // See, e.g., Exdeath's Double Hole record board ability.
 export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
-export type EnlirLimitBreakTier = 'OLB';
+export type EnlirLimitBreakTier = 'OLB' | 'GLB';
 
 export type EnlirRelicType =
   | 'Accessory'
@@ -459,7 +459,8 @@ export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
 };
 
 export const limitBreakTierOrder: { [t in EnlirLimitBreakTier]: number } = {
-  OLB: 0,
+  OLB: 1,
+  GLB: 0,
 };
 
 const rawData = {

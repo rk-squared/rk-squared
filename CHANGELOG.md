@@ -8,7 +8,7 @@
   - Ability tooltips for future abilities now include information about their expected release.
   - The Future Abilities screen now includes Hero Board abilities.
 - Soul Breaks
-  - Add support for OLBs (Overstrike Limit Breaks)
+  - Add support for OLBs (Overstrike Limit Breaks) and GLBs (Glint Limit Breaks)
   - Add support for brave AASBs
   - Numerous updates and fixes to soul break and legend materia descriptions
 - Relic Draws
