@@ -12,6 +12,7 @@
   - Add support for brave AASBs
   - Numerous updates and fixes to soul break and legend materia descriptions
 - Relic Draws
+  - The list of relic draw banners now summarizes the chances of getting a selected relic on each banner.
   - Dream Relic Draws now allow filtering by anima lens availability, new relic selections, and dupe status.
   - The chance of getting a 6\* or better is now shown, instead of showing the raw count of the number of relics that are 6\*.
   - Fix: Unknown relics are now shown as ??? instead of breaking the entire relic banner page

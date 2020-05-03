@@ -344,9 +344,9 @@ function checkSbPoints(skill: EnlirSkill, effects: skillTypes.SkillEffect, opt: 
       // and finishers, since those don't generate gauge), then call out
       // anything that doesn't generate gauge.
       return 'no SB pts';
-    } else if (skill.sb >= 150) {
+    } else if (skill.sb >= 120) {
       // If this skill grants an abnormally high number of SB points, show it.
-      // We set a flat rate of 150 (to get Lifesiphon and Wrath) instead of
+      // We set a flat rate of 120 (to include Tyro's Hero Ability) instead of
       // trying to track what's normal at each rarity level.
       return sbPointsAlias(skill.sb);
     } else if (isAbility(skill) && skill.sb < getNormalSBPoints(skill)) {

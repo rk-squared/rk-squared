@@ -964,6 +964,31 @@ export const items: Item[] = [
     type: ItemType.Orb,
     id: 40000157,
   },
+  {
+    name: 'Howling Flames Record',
+    type: ItemType.Orb,
+    id: 40000158,
+  },
+  {
+    name: 'Midnight Bullet Record',
+    type: ItemType.Orb,
+    id: 40000159,
+  },
+  {
+    name: 'Ripping Storm Record',
+    type: ItemType.Orb,
+    id: 40000160,
+  },
+  {
+    name: 'Forbidden Cross Record',
+    type: ItemType.Orb,
+    id: 40000161,
+  },
+  {
+    name: 'Fleeting Fragrance Record',
+    type: ItemType.Orb,
+    id: 40000162,
+  },
 
   {
     name: 'Minor Growth Egg',
