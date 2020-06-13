@@ -1180,6 +1180,11 @@ export const items: Item[] = [
     id: 95004003,
   },
   {
+    name: 'Anima Lens +',
+    type: ItemType.Common,
+    id: 95004090,
+  },
+  {
     name: 'Feast Ticket',
     type: ItemType.BattleTicket,
     id: 96003851,

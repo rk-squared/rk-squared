@@ -2,37 +2,64 @@
 
 _A Record Keeper for Final Fantasy Record Keeper_
 
-Based on [electron-react-typescript-boilerplate](https://github.com/iRath96/electron-react-typescript-boilerplate)
+Current features:
 
-## To Do
+- Dungeon tracker - track dungeon completion status and unclaimed reward
+- Drop tracker - show what you'll get when you finish the current battle
+- Record Materia tracker - to help you see which RMs you have unlocked but not yet acquired, what you have to to do get the best RMs, and which RMs are cluttering up your inventory and should be stashed
+- Score tracker - view all your torment progress and magicite completion times on a single page to help you see where to focus next
+- Game options
+  - Always show timer
 
-- Limit break support: ownership, relic draw page, getDupeCount, getOwnedRelics
-- Improve JP support
-  - More frequent soul break updates
-  - Don't break relic draw page on unknown inventory
-- Export option
-- Relic Draw Simulator - tooltips, summarize past results
-- Soul Break updates - Lightning SASB, etc.
-- Minor bugs: old RMs show as missing
-- AndApp support; document BlueStacks support
-- Search hotkeys?
-- Add an explanation of probability calculator
-- Export to ffrktoolkit.com
-- Update Enlir data outside of releases
-- Check for updates
-- Support for multiple profiles
-- FFRK Toolkit Helper interop? (see Reddit messages)
-- Switch languages for JP
-- Show Dungeons expirations (see Reddit messages)
-- Soul break list - formatting, show random hits
-- Stateless components
-- Error reporting (Sentry?)
-- Rubies / ruby tracker
-- Touch-friendly tooltips?
-- Sorting/filtering for soul breaks and relic draw lists - e.g., sort by element
-- Update options - update dungeons without re-entering dungeons, update record materia, etc.
+RK Squared runs as a proxy: It runs on your PC and Mac, and you configure your phone, tablet, or emulator to connect through it, so that it can track your game status.
 
-### JP support
+Both Android and iOS versions of FFRK are supported.
+
+Both the global and Japanese versions of FFRK are supported. However, a running copy of RK Squared only supports a single FFRK profile, so trying to use one copy to track both GL and JP will cause confusion.
+
+## Development
+
+RK Squared uses TypeScript, React, and Electron.
+
+As of June 2020, a license to Font Awesome Pro is also required.
+
+Sample instructions for setting up development:
+
+```sh
+# Install packages (assuming you have Yarn installed).
+yarn
+
+# Download the latest data from the FFRK Community Database (originally
+# Enlir).
+yarn get-enlir
+
+# Run PEG.js to generate the parsers for the FFRK Community Database data.
+yarn peg
+
+# Run the following four commands in different terminal windows:
+
+# 1. Start the TypeScript compiler to automatically compile the back-end.
+yarn build:watch
+
+# 2. Start the test suite. Note: Some tests (esp. around parsing soul breaks)
+#    may be broken.
+yarn test:watch
+
+# 3. Start the renderer job. This builds and serves the React components for
+#    the front-end.
+yarn start-renderer-dev
+
+# 4. Start the main job. This runs the proxy and launches the Electron
+#    front-end, using React components served by the renderer job.
+yarn start-main-dev
+
+# Build an installable release.
+yarn package:all
+```
+
+## JP support
+
+Notes on playing the JP version and using RK Squared with it:
 
 https://www.reddit.com/r/FFRecordKeeper/comments/baxn2x/a_step_by_step_guide_to_playing_final_fantasy/
 
