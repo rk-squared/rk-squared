@@ -88,7 +88,7 @@
       "Holy"
     ],
     "time": 0.01,
-    "effects": "Restores HP (55), damages undeads, grants Instant Cast 1",
+    "effects": "Restores HP (55), damages undeads, grants [Instant Cast 1]",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 75,
@@ -141,7 +141,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (1.04), DEF -40% for 15 seconds",
+    "effects": "Three single attacks (1.04), [DEF -40%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -167,7 +167,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.99), DEF -40% for 15 seconds",
+    "effects": "Six single attacks (0.99), [DEF -40%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -193,7 +193,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Ten single attacks (0.88), ATK, DEF and MAG -70% for 8 seconds",
+    "effects": "Ten single attacks (0.88), [ATK, DEF and MAG -70%] for 8 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -351,7 +351,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "One single attack (3.85) capped at 99999, damages the user for 25% max HP, DEF -30% for 15 seconds",
+    "effects": "One single attack (3.85) capped at 99999, damages the user for 25% max HP, [DEF -30%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -376,7 +376,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "One single attack (7.70) capped at 99999, damages the user for 25% max HP, DEF -30% for 15 seconds",
+    "effects": "One single attack (7.70) capped at 99999, damages the user for 25% max HP, [DEF -30%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -401,7 +401,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "One single attack (12.00) capped at 99999, damages the user for 25% max HP, DEF and RES -70% for 8 seconds",
+    "effects": "One single attack (12.00) capped at 99999, damages the user for 25% max HP, [DEF and RES -70%] for 8 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -424,7 +424,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Jump Quick Cast 1",
+    "effects": "Grants [Jump Quick Cast 1]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 75,
@@ -447,7 +447,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Jump Quick Cast 1 and Dragoon +15% Boost 1",
+    "effects": "Grants [Jump Quick Cast 1] and [Dragoon +15% Boost 1]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 75,
@@ -470,7 +470,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Jump Instant Cast 1 and Dragoon +15% Boost 1",
+    "effects": "Grants [Jump Instant Cast 1] and [Dragoon +15% Boost 1]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 75,
@@ -493,7 +493,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Jump Instant Cast 1, Dragoon +30% Boost 1 and Dualcast Dragoon 1",
+    "effects": "Grants [Jump Instant Cast 1], [Dragoon +30% Boost 1] and [Dualcast Dragoon 1]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 75,
@@ -591,7 +591,7 @@
       "Holy"
     ],
     "time": 0.01,
-    "effects": "Restores HP (55), damages undeads, grants Last Stand",
+    "effects": "Restores HP (55), damages undeads, grants [Last Stand]",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 75,
@@ -641,7 +641,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (0.80 each), grants HP Stock (1000) to all allies",
+    "effects": "Three single attacks (0.80 each), grants [HP Stock (1000)] to all allies",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -666,7 +666,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.90 each), grants HP Stock (2000) to all allies",
+    "effects": "Five single attacks (0.90 each), grants [HP Stock (2000)] to all allies",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -691,7 +691,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Seven single attacks (1.00 each), grants HP Stock (4000) to all allies",
+    "effects": "Seven single attacks (1.00 each), grants [HP Stock (4000)] to all allies",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -917,7 +917,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single ranged attack (1.92), grants Instant Cast 1 to the user",
+    "effects": "One single ranged attack (1.92), grants [Instant Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -995,7 +995,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Two single ranged attacks (6.40 each) capped at 99999, damages the user for 99% max HP, grants Stoneskin: 100% to the user",
+    "effects": "Two single ranged attacks (6.40 each) capped at 99999, damages the user for 99% max HP, grants [Stoneskin: 100%] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -1147,7 +1147,7 @@
       "Wind"
     ],
     "time": 0.01,
-    "effects": "Six single ranged attacks (0.39 each), DEF -30% for 15 seconds",
+    "effects": "Six single ranged attacks (0.39 each), [DEF -30%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -1173,7 +1173,7 @@
       "Wind"
     ],
     "time": 0.01,
-    "effects": "Six single ranged attacks (0.78 each), DEF -40% for 15 seconds",
+    "effects": "Six single ranged attacks (0.78 each), [DEF -40%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -1199,7 +1199,7 @@
       "Wind"
     ],
     "time": 0.01,
-    "effects": "Six single ranged attacks (1.21 each), DEF, RES and MND -70% for 8 seconds",
+    "effects": "Six single ranged attacks (1.21 each), [DEF, RES and MND -70%] for 8 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -1500,7 +1500,7 @@
       "Holy"
     ],
     "time": 0.01,
-    "effects": "Restores HP (55), grants Last Stand",
+    "effects": "Restores HP (55), grants [Last Stand]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 75,
@@ -1527,7 +1527,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (1.92), grants Instant Cast 1 to the user",
+    "effects": "One single attack (1.92), grants [Instant Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -1579,7 +1579,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (6.40) capped at 99999, grants 50% Damage Reduction Barrier 1 to the user",
+    "effects": "One single attack (6.40) capped at 99999, grants [50% Damage Reduction Barrier 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -1605,7 +1605,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (10.00) capped at 99999, grants 75% Damage Reduction Barrier 1 to the user",
+    "effects": "One single attack (10.00) capped at 99999, grants [75% Damage Reduction Barrier 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -1927,8 +1927,8 @@
   },
   {
     "character": "Gogo (VI)",
-    "source": "Mimicking All",
-    "name": "Mimicking Everything",
+    "source": "Mass Mimicry",
+    "name": "Supreme Mimicry",
     "brave": 0,
     "type": "BLK",
     "target": "Single enemy",
@@ -1948,12 +1948,12 @@
     ],
     "nameJp": "なんでもものまね",
     "id": 30545116,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gogo (VI)",
-    "source": "Mimicking All",
-    "name": "Mimicking Everything",
+    "source": "Mass Mimicry",
+    "name": "Supreme Mimicry",
     "brave": 1,
     "type": "NAT",
     "target": null,
@@ -1971,12 +1971,12 @@
     ],
     "nameJp": "なんでもものまね",
     "id": 30545117,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gogo (VI)",
-    "source": "Mimicking All",
-    "name": "Mimicking Everything",
+    "source": "Mass Mimicry",
+    "name": "Supreme Mimicry",
     "brave": 2,
     "type": "NAT",
     "target": null,
@@ -1994,12 +1994,12 @@
     ],
     "nameJp": "なんでもものまね",
     "id": 30545118,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gogo (VI)",
-    "source": "Mimicking All",
-    "name": "Mimicking Everything",
+    "source": "Mass Mimicry",
+    "name": "Supreme Mimicry",
     "brave": 3,
     "type": "NAT",
     "target": null,
@@ -2017,7 +2017,7 @@
     ],
     "nameJp": "なんでもものまね",
     "id": 30545119,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vincent",
@@ -2285,7 +2285,7 @@
   },
   {
     "character": "Genesis",
-    "source": "Genesis's Rhapsody",
+    "source": "Genesis Rhapsody",
     "name": "Void Destruction",
     "brave": 0,
     "type": "PHY",
@@ -2297,7 +2297,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (1.92), grants Instant Cast 1",
+    "effects": "One single attack (1.92), grants [Instant Cast 1]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -2311,7 +2311,7 @@
   },
   {
     "character": "Genesis",
-    "source": "Genesis's Rhapsody",
+    "source": "Genesis Rhapsody",
     "name": "Void Destruction",
     "brave": 1,
     "type": "PHY",
@@ -2323,7 +2323,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (1.92) capped at 99999, grants Minor Buff Fire",
+    "effects": "One single attack (1.92) capped at 99999, grants [Buff Fire 10% (15s)]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -2337,7 +2337,7 @@
   },
   {
     "character": "Genesis",
-    "source": "Genesis's Rhapsody",
+    "source": "Genesis Rhapsody",
     "name": "Void Destruction",
     "brave": 2,
     "type": "PHY",
@@ -2349,7 +2349,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (6.40) capped at 99999, grants Medium Buff Fire",
+    "effects": "One single attack (6.40) capped at 99999, grants [Buff Fire 20% (15s)]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -2363,7 +2363,7 @@
   },
   {
     "character": "Genesis",
-    "source": "Genesis's Rhapsody",
+    "source": "Genesis Rhapsody",
     "name": "Void Destruction",
     "brave": 3,
     "type": "PHY",
@@ -2375,7 +2375,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (10.00) capped at 99999, grants Buff Fire +40%",
+    "effects": "One single attack (10.00) capped at 99999, grants [Buff Fire 40% (15s)]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -2734,7 +2734,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (1.43 each), causes RES -30%",
+    "effects": "Six single attacks (1.43 each), causes [RES -30%]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -2762,7 +2762,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (2.48 each), causes RES -50%",
+    "effects": "Six single attacks (2.48 each), causes [RES -50%]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -2790,7 +2790,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (4.16 each), causes DEF, RES and MND -70% (8s)",
+    "effects": "Six single attacks (4.16 each), causes [DEF, RES and MND -70% (8s)]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -2995,7 +2995,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (55), grants HP Stock (2000)",
+    "effects": "Restores HP (55), grants [HP Stock (2000)]",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 75,
@@ -3199,7 +3199,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "One single attack (35.00) capped at 99999, grants Reraise: 40% to the user",
+    "effects": "One single attack (35.00) capped at 99999, grants [Reraise: 40%] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -3210,6 +3210,118 @@
     "nameJp": "破滅の奏楽",
     "id": 30549467,
     "gl": true
+  },
+  {
+    "character": "Quina",
+    "source": "Midnight Snack",
+    "name": "Gourmand's Curiosity",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.82,
+    "element": [
+      "Water",
+      "Earth",
+      "Poison",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (1.82)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Support",
+    "braveCondition": [
+      "Support"
+    ],
+    "nameJp": "食の修行",
+    "id": 31540106,
+    "gl": false
+  },
+  {
+    "character": "Quina",
+    "source": "Midnight Snack",
+    "name": "Gourmand's Curiosity",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.88,
+    "element": [
+      "Water",
+      "Earth",
+      "Poison",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single ranged attacks (0.48 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Support",
+    "braveCondition": [
+      "Support"
+    ],
+    "nameJp": "食の修行",
+    "id": 31540107,
+    "gl": false
+  },
+  {
+    "character": "Quina",
+    "source": "Midnight Snack",
+    "name": "Gourmand's Curiosity",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.76,
+    "element": [
+      "Water",
+      "Earth",
+      "Poison",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single ranged attacks (0.96 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Support",
+    "braveCondition": [
+      "Support"
+    ],
+    "nameJp": "食の修行",
+    "id": 31540108,
+    "gl": false
+  },
+  {
+    "character": "Quina",
+    "source": "Midnight Snack",
+    "name": "Gourmand's Curiosity",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Water",
+      "Earth",
+      "Poison",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single ranged attacks (1.50 each), grants [Soul Break Gauge +250]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Support",
+    "braveCondition": [
+      "Support"
+    ],
+    "nameJp": "食の修行",
+    "id": 31540109,
+    "gl": false
   },
   {
     "character": "Tidus",
@@ -3395,7 +3507,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (55), grants HP Stock (2000)",
+    "effects": "Restores HP (55), grants [HP Stock (2000)]",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 75,
@@ -3545,7 +3657,7 @@
       "Wind"
     ],
     "time": 0.83,
-    "effects": "Three single attacks (0.89 each), DEF -40% for 15 seconds",
+    "effects": "Three single attacks (0.89 each), [DEF -40%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -3570,7 +3682,7 @@
       "Wind"
     ],
     "time": 0.83,
-    "effects": "Six single attacks (0.85 each), DEF -40% for 15 seconds",
+    "effects": "Six single attacks (0.85 each), [DEF -40%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -3595,7 +3707,7 @@
       "Wind"
     ],
     "time": 0.83,
-    "effects": "Ten single attacks (0.75 each), DEF, MAG and MND -70% for 8 seconds",
+    "effects": "Ten single attacks (0.75 each), [DEF, MAG and MND -70%] for 8 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4011,7 +4123,7 @@
       "Dark"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (4.22 each), causes Imperil Dark 40% for 5 seconds",
+    "effects": "Six single attacks (4.22 each), causes [Imperil Dark 40%] for 5 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4109,7 +4221,7 @@
       "Holy"
     ],
     "time": 0.01,
-    "effects": "Restores HP (55), damages undeads, grants Last Stand",
+    "effects": "Restores HP (55), damages undeads, grants [Last Stand]",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 75,
@@ -4161,7 +4273,7 @@
       "Fire"
     ],
     "time": 0.83,
-    "effects": "Three single attacks (0.87 each), DEF -40% for 15 seconds",
+    "effects": "Three single attacks (0.87 each), [DEF -40%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4187,7 +4299,7 @@
       "Fire"
     ],
     "time": 0.83,
-    "effects": "Six single attacks (0.82 each), DEF -40% for 15 seconds",
+    "effects": "Six single attacks (0.82 each), [DEF -40%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4213,7 +4325,7 @@
       "Fire"
     ],
     "time": 0.83,
-    "effects": "Ten single attacks (0.73 each), ATK, DEF and RES -70% for 8 seconds",
+    "effects": "Ten single attacks (0.73 each), [ATK, DEF and RES -70%] for 8 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4427,8 +4539,8 @@
   },
   {
     "character": "Sice",
-    "source": "Dark Nemesis",
-    "name": "Commandment",
+    "source": "Grim Reaper",
+    "name": "Life Reaper",
     "brave": 0,
     "type": "PHY",
     "target": "Single enemy",
@@ -4439,7 +4551,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (1.92), grants 100% Critical 1 to the user",
+    "effects": "One single attack (1.92), grants [100% Critical 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4449,12 +4561,12 @@
     ],
     "nameJp": "刈命",
     "id": 30549963,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Sice",
-    "source": "Dark Nemesis",
-    "name": "Commandment",
+    "source": "Grim Reaper",
+    "name": "Life Reaper",
     "brave": 1,
     "type": "PHY",
     "target": "Single enemy",
@@ -4475,12 +4587,12 @@
     ],
     "nameJp": "刈命",
     "id": 30549964,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Sice",
-    "source": "Dark Nemesis",
-    "name": "Commandment",
+    "source": "Grim Reaper",
+    "name": "Life Reaper",
     "brave": 2,
     "type": "PHY",
     "target": "Single enemy",
@@ -4491,7 +4603,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (6.40) capped at 99999, grants Minor Buff Dark to all allies",
+    "effects": "One single attack (6.40) capped at 99999, grants [Buff Dark 10% (15s)] to all allies",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4501,12 +4613,12 @@
     ],
     "nameJp": "刈命",
     "id": 30549965,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Sice",
-    "source": "Dark Nemesis",
-    "name": "Commandment",
+    "source": "Grim Reaper",
+    "name": "Life Reaper",
     "brave": 3,
     "type": "PHY",
     "target": "Single enemy",
@@ -4517,7 +4629,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (10.00) capped at 99999, grants Minor Buff Dark to all allies, grants High Quick Cast 1 to the user",
+    "effects": "One single attack (10.00) capped at 99999, grants [Buff Dark 10% (15s)] to all allies, grants [High Quick Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4527,7 +4639,7 @@
     ],
     "nameJp": "刈命",
     "id": 30549966,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Serafie",
@@ -4617,7 +4729,7 @@
       "Wind"
     ],
     "time": 0.01,
-    "effects": "Six single attack (4.22 each), causes Imperil Wind 40% for 5 seconds",
+    "effects": "Six single attack (4.22 each), causes [Imperil Wind 40%] for 5 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4712,7 +4824,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (55), grants High Quick Cast 1",
+    "effects": "Restores HP (55), grants [High Quick Cast 1]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 75,

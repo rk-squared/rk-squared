@@ -106,10 +106,9 @@ export function safeParseStatus(
   status: EnlirStatus,
   placeholders?: EnlirStatusPlaceholders,
 ): statusTypes.StatusEffect | null {
+  const effects = status.effects.replace(/[[\]]/g, '');
   try {
-    return placeholders
-      ? statusParser.parse(status.effects, placeholders)
-      : memoizedParser(status.effects);
+    return placeholders ? statusParser.parse(effects, placeholders) : memoizedParser(effects);
   } catch (e) {
     logger.error(`Failed to parse ${status.name}:`);
     logException(e);

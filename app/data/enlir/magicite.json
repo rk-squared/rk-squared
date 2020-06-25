@@ -313,7 +313,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Fire",
       "time": 2.5,
-      "effects": "Four group attacks (12.60 each), causes Imperil Fire 20% for 25 seconds",
+      "effects": "Four group attacks (12.60 each), causes [Imperil Fire 20%] for 25 seconds",
       "counter": false
     },
     "nameJp": "【契】大爆発",
@@ -376,7 +376,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Fire",
       "time": 0.01,
-      "effects": "Four group attacks (12.60 each), grants Ice Blink 1 to all allies",
+      "effects": "Four group attacks (12.60 each), grants [Ice Blink 1] to all allies",
       "counter": false
     },
     "nameJp": "【契】ほのお",
@@ -440,7 +440,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Fire",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), causes Poison (11%), grants Medium Resist Ice (25s) to all allies",
+      "effects": "Five group attacks (12.60 each), causes [Poison] (11%), grants [Resist Ice 20% (25s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】ブッシュファイア",
@@ -504,7 +504,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Fire",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Minor Buff Fire to all allies",
+      "effects": "Five group attacks (12.60 each), grants [Buff Fire 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】爆導索",
@@ -568,7 +568,7 @@
       "multiplier": 25.2,
       "ultraSkillElement": "Fire",
       "time": 2.5,
-      "effects": "Six single attacks (4.20 each), causes Medium Debuff Ice",
+      "effects": "Six single attacks (4.20 each), causes [Debuff Ice 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】火炎斬り",
@@ -631,7 +631,7 @@
       "multiplier": 40.6,
       "ultraSkillElement": "Fire",
       "time": 2.5,
-      "effects": "One single attack (40.60) capped at 99999, grants Minor Buff Fire to all allies",
+      "effects": "One single attack (40.60) capped at 99999, grants [Buff Fire 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】地獄の火炎",
@@ -694,7 +694,7 @@
       "multiplier": 63.75,
       "ultraSkillElement": "Fire",
       "time": 2.5,
-      "effects": "One group attack (63.75) capped at 99999, restores HP (55) to all allies, removes KO (40% HP) to all allies",
+      "effects": "One group attack (63.75) capped at 99999, restores HP (55) to all allies, removes KO [Raise: 40%] to all allies",
       "counter": false
     },
     "nameJp": "【契】転生の炎",
@@ -747,7 +747,7 @@
       "Perdition's Blessing": {},
       "Stat Boon": {}
     },
-    "cooldown": 10,
+    "cooldown": 0.01,
     "duration": 10,
     "magiciteUltraSkill": {
       "name": "Ultra Hellfire",
@@ -757,7 +757,7 @@
       "multiplier": null,
       "ultraSkillElement": "Fire",
       "time": 0.01,
-      "effects": "One single attack that deals 99999 damage, grants Medium Buff Fire to all allies",
+      "effects": "One single attack that deals 99999 damage, grants [Buff Fire 20% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】地獄の火炎",
@@ -1078,7 +1078,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Ice",
       "time": 2.5,
-      "effects": "Four group attacks (12.60 each), causes Imperil Ice 20% for 25 seconds",
+      "effects": "Four group attacks (12.60 each), causes [Imperil Ice 20%] for 25 seconds",
       "counter": false
     },
     "nameJp": "【契】コルドブレイク",
@@ -1141,7 +1141,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Ice",
       "time": 0.01,
-      "effects": "Four group attacks (12.60 each), grants Wind Blink 1 to all allies",
+      "effects": "Four group attacks (12.60 each), grants [Wind Blink 1] to all allies",
       "counter": false
     },
     "nameJp": "【契】ふぶき",
@@ -1205,7 +1205,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Ice",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Wind Stoneskin: Magicite 30% to all allies",
+      "effects": "Five group attacks (12.60 each), grants [Wind Stoneskin: Magicite 30%] to all allies",
       "counter": false
     },
     "nameJp": "【契】凍天撃",
@@ -1269,7 +1269,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Ice",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Minor Buff Ice to all allies",
+      "effects": "Five group attacks (12.60 each), grants [Buff Ice 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】ぜったいれいど",
@@ -1333,7 +1333,7 @@
       "multiplier": 20.15,
       "ultraSkillElement": "Ice",
       "time": 2.5,
-      "effects": "Five group ranged attacks (4.03 each), causes Medium Debuff Wind",
+      "effects": "Five group ranged attacks (4.03 each), causes [Debuff Wind 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】フロストブレス",
@@ -1396,7 +1396,7 @@
       "multiplier": 40.6,
       "ultraSkillElement": "Ice",
       "time": 2.5,
-      "effects": "One single ranged attack (40.60) capped at 99999, grants Minor Buff Ice to all allies",
+      "effects": "One single ranged attack (40.60) capped at 99999, grants [Buff Ice 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】ブレイズブレス",
@@ -1459,7 +1459,7 @@
       "multiplier": 85,
       "ultraSkillElement": "Ice",
       "time": 2.5,
-      "effects": "One group attack (85.00) capped at 99999, causes Imperil Ice 20% for 25 seconds",
+      "effects": "One group attack (85.00) capped at 99999, causes [Imperil Ice 20%] for 25 seconds",
       "counter": false
     },
     "nameJp": "【契】凍てつく波動",
@@ -1512,7 +1512,7 @@
       "Hoarfrost Blessing": {},
       "Stat Boon": {}
     },
-    "cooldown": 10,
+    "cooldown": 0.01,
     "duration": 10,
     "magiciteUltraSkill": {
       "name": "Ultra Diamond Dust",
@@ -1522,7 +1522,7 @@
       "multiplier": null,
       "ultraSkillElement": "Ice",
       "time": 0.01,
-      "effects": "One single attack that deals 99999 damage, grants Medium Buff Ice to all allies",
+      "effects": "One single attack that deals 99999 damage, grants [Buff Ice 20% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】ダイアモンドダスト",
@@ -1843,7 +1843,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Lightning",
       "time": 2.5,
-      "effects": "Four group attacks (12.60 each), grants Medium Resist Water (25s) to all allies",
+      "effects": "Four group attacks (12.60 each), grants [Resist Water 20% (25s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】激怒の嵐",
@@ -1906,7 +1906,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Lightning",
       "time": 2.5,
-      "effects": "Four group attacks (12.60 each), causes Imperil Lightning 20% for 25 seconds",
+      "effects": "Four group attacks (12.60 each), causes [Imperil Lightning 20%] for 25 seconds",
       "counter": false
     },
     "nameJp": "【契】いなずま",
@@ -1970,7 +1970,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Lightning",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Water Blink 1 to all allies",
+      "effects": "Five group attacks (12.60 each), grants [Water Blink 1] to all allies",
       "counter": false
     },
     "nameJp": "【契】サンダーバースト",
@@ -2034,7 +2034,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Lightning",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Minor Buff Lightning to all allies",
+      "effects": "Five group attacks (12.60 each), grants [Buff Lightning 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】かみなり",
@@ -2098,7 +2098,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Lightning",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), causes Medium Debuff Water",
+      "effects": "Five group attacks (12.60 each), causes [Debuff Water 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】トールハンマー",
@@ -2161,7 +2161,7 @@
       "multiplier": 40.6,
       "ultraSkillElement": "Lightning",
       "time": 2.5,
-      "effects": "One single attack (40.60) capped at 99999, grants Minor Buff Lightning to all allies",
+      "effects": "One single attack (40.60) capped at 99999, grants [Buff Lightning 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】サンダーバースト",
@@ -2224,7 +2224,7 @@
       "multiplier": 85,
       "ultraSkillElement": "Lightning",
       "time": 2.5,
-      "effects": "One group attack (85.00) capped at 99999, causes Imperil Lightning 20% for 25 seconds",
+      "effects": "One group attack (85.00) capped at 99999, causes [Imperil Lightning 20%] for 25 seconds",
       "counter": false
     },
     "nameJp": "【契】サンダーストーム",
@@ -2277,7 +2277,7 @@
       "Thunderous Blessing": {},
       "Stat Boon": {}
     },
-    "cooldown": 10,
+    "cooldown": 0.01,
     "duration": 10,
     "magiciteUltraSkill": {
       "name": "Ultra Judgment Bolt",
@@ -2287,12 +2287,138 @@
       "multiplier": null,
       "ultraSkillElement": "Lightning",
       "time": 0.01,
-      "effects": "One single attack that deals 99999 damage, grants Medium Buff Lightning to all allies",
+      "effects": "One single attack that deals 99999 damage, grants [Buff Lightning 20% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】裁きの雷",
     "id": 161000098,
     "gl": true
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Lightning",
+    "name": "Odin (Magical)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite: White Odin",
+    "stats": {
+      "hp": 6023,
+      "atk": 267,
+      "def": 260,
+      "mag": 305,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Sagacious Blessing": {},
+      "Lord of Knights Insignia (Lightning)": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Zantetsuken Magic",
+      "type": "BLK",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Magical",
+      "multiplier": 11,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (11.00) capped at 99999, ignores RES",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣・魔",
+    "id": 161000114,
+    "gl": false
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Lightning",
+    "name": "Odin (Physical)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite: White Odin",
+    "stats": {
+      "hp": 6023,
+      "atk": 301,
+      "def": 260,
+      "mag": 267,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Sagacious Blessing": {},
+      "Lord of Knights Insignia (Lightning)": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Zantetsuken",
+      "type": "PHY",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Physical",
+      "multiplier": 3.7,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (3.70) capped at 99999, ignores DEF",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣",
+    "id": 161000108,
+    "gl": false
   },
   {
     "11": "1",
@@ -2608,7 +2734,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Earth",
       "time": 2.5,
-      "effects": "Four group attacks (12.60 each), causes Imperil Earth 20% for 25 seconds",
+      "effects": "Four group attacks (12.60 each), causes [Imperil Earth 20%] for 25 seconds",
       "counter": false
     },
     "nameJp": "【契】アースシェイク",
@@ -2671,7 +2797,7 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 2.5,
-      "effects": "Grants Lightning Stoneskin: Magicite 30%",
+      "effects": "Grants [Lightning Stoneskin: Magicite 30%]",
       "counter": false
     },
     "nameJp": "【契】アースウォール",
@@ -2735,7 +2861,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Earth",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Medium Resist Lightning (25s) to all allies",
+      "effects": "Five group attacks (12.60 each), grants [Resist Lightning 20% (25s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】地震",
@@ -2799,7 +2925,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Earth",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), causes Medium Debuff Lightning",
+      "effects": "Five group attacks (12.60 each), causes [Debuff Lightning 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】アースシェイカー",
@@ -2863,7 +2989,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Earth",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Minor Buff Earth to all allies",
+      "effects": "Five group attacks (12.60 each), grants [Buff Earth 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】アースサラウンド",
@@ -2926,7 +3052,7 @@
       "multiplier": 35,
       "ultraSkillElement": "Earth",
       "time": 2.5,
-      "effects": "One single ranged attack (35.00) capped at 99999, grants Lightning Blink 1 to all allies",
+      "effects": "One single ranged attack (35.00) capped at 99999, grants [Lightning Blink 1] to all allies",
       "counter": false
     },
     "nameJp": "【契】大地の咆哮",
@@ -2989,7 +3115,7 @@
       "multiplier": 98.6,
       "ultraSkillElement": "Earth",
       "time": 2.5,
-      "effects": "One single attack (98.60) capped at 99999, causes Medium Debuff Lightning",
+      "effects": "One single attack (98.60) capped at 99999, causes [Debuff Lightning 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】ガイアサルヴォー",
@@ -3042,7 +3168,7 @@
       "Earth King's Blessing": {},
       "Stat Boon": {}
     },
-    "cooldown": 10,
+    "cooldown": 0.01,
     "duration": 10,
     "magiciteUltraSkill": {
       "name": "Ultra Gaia's Wrath",
@@ -3052,12 +3178,138 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 0.01,
-      "effects": "One single attack that deals 99999 damage, grants Medium Buff Earth to all allies",
+      "effects": "One single attack that deals 99999 damage, grants [Buff Earth 20% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】大地の怒り",
     "id": 161000097,
     "gl": true
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Earth",
+    "name": "Odin (Magical)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite: White Odin",
+    "stats": {
+      "hp": 6023,
+      "atk": 267,
+      "def": 260,
+      "mag": 305,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Sagacious Blessing": {},
+      "Lord of Knights Insignia (Earth)": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Zantetsuken Magic",
+      "type": "BLK",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Magical",
+      "multiplier": 11,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (11.00) capped at 99999, ignores RES",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣・魔",
+    "id": 161000105,
+    "gl": false
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Earth",
+    "name": "Odin (Physical)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite: White Odin",
+    "stats": {
+      "hp": 6023,
+      "atk": 301,
+      "def": 260,
+      "mag": 267,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Sagacious Blessing": {},
+      "Lord of Knights Insignia (Earth)": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Zantetsuken",
+      "type": "PHY",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Physical",
+      "multiplier": 3.7,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (3.70) capped at 99999, ignores DEF",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣",
+    "id": 161000106,
+    "gl": false
   },
   {
     "11": "1",
@@ -3436,7 +3688,7 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 2.5,
-      "effects": "Grants Physical Blink 1 and Medium Resist Earth (25s)",
+      "effects": "Grants [Physical Blink 1] and [Resist Earth 20% (25s)]",
       "counter": false
     },
     "nameJp": "【契】ハウリングムーン",
@@ -3564,7 +3816,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Wind",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Haste to all allies",
+      "effects": "Five group attacks (12.60 each), grants [Haste] to all allies",
       "counter": false
     },
     "nameJp": "【契】ブレスウイング",
@@ -3628,7 +3880,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Wind",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Minor Buff Wind to all allies",
+      "effects": "Five group attacks (12.60 each), grants [Buff Wind 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】ツイスター",
@@ -3691,7 +3943,7 @@
       "multiplier": 40.6,
       "ultraSkillElement": "Wind",
       "time": 2.5,
-      "effects": "One single ranged attack (40.60) capped at 99999, causes Medium Debuff Earth",
+      "effects": "One single ranged attack (40.60) capped at 99999, causes [Debuff Earth 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】はないき",
@@ -3754,7 +4006,7 @@
       "multiplier": 85,
       "ultraSkillElement": "Wind",
       "time": 2.5,
-      "effects": "One group attack (85.00) capped at 99999, 102.00 multiplier if Faris is alive, causes Imperil Wind 20% for 25 seconds",
+      "effects": "One group attack (85.00) capped at 99999, 102.00 multiplier if Faris is alive, causes [Imperil Wind 20%] for 25 seconds",
       "counter": false
     },
     "nameJp": "【契】サンダーストーム",
@@ -3804,10 +4056,10 @@
       "spd": 163
     },
     "passives": {
-      "Majestic Blessings": {},
+      "Majestic Blessing": {},
       "Stat Boon": {}
     },
-    "cooldown": 10,
+    "cooldown": 0.01,
     "duration": 10,
     "magiciteUltraSkill": {
       "name": "Ultra Energy Ray",
@@ -3817,12 +4069,12 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 0.01,
-      "effects": "One single attack that deals 99999 damage, grants Medium Buff Wind to all allies",
+      "effects": "One single attack that deals 99999 damage, grants [Buff Wind 20% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】シューティング・レイ",
     "id": 161000102,
-    "gl": false
+    "gl": true
   },
   {
     "11": "1",
@@ -4138,7 +4390,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Water",
       "time": 2.5,
-      "effects": "Four group attacks (12.60 each), grants Medium Resist Fire (25s) to all allies",
+      "effects": "Four group attacks (12.60 each), grants [Resist Fire 20% (25s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】憤怒の波",
@@ -4201,7 +4453,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Water",
       "time": 0.01,
-      "effects": "Four group attacks (12.60 each), grants Fire Blink 1 to all allies",
+      "effects": "Four group attacks (12.60 each), grants [Fire Blink 1] to all allies",
       "counter": false
     },
     "nameJp": "【契】バブルブロウ",
@@ -4265,7 +4517,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Water",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), causes Medium Debuff Fire",
+      "effects": "Five group attacks (12.60 each), causes [Debuff Fire 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】つなみ",
@@ -4329,7 +4581,7 @@
       "multiplier": 20.16,
       "ultraSkillElement": "Water",
       "time": 2.5,
-      "effects": "Eight single attacks (2.52 each), grants Minor Buff Water to all allies",
+      "effects": "Eight single attacks (2.52 each), grants [Buff Water 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】たこあし",
@@ -4393,7 +4645,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Water",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), causes Imperil Water 20% for 25 seconds",
+      "effects": "Five group attacks (12.60 each), causes [Imperil Water 20%] for 25 seconds",
       "counter": false
     },
     "nameJp": "【契】アクアブレス",
@@ -4456,7 +4708,7 @@
       "multiplier": 40.6,
       "ultraSkillElement": "Water",
       "time": 2.5,
-      "effects": "One single ranged attack (40.60) capped at 99999, grants Minor Buff Water to all allies",
+      "effects": "One single ranged attack (40.60) capped at 99999, grants [Buff Water 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】吐き出し",
@@ -4519,7 +4771,7 @@
       "multiplier": 98.6,
       "ultraSkillElement": "Water",
       "time": 2.5,
-      "effects": "One single attack (98.60) capped at 99999, grants Fire Stoneskin: Magicite 30% to all allies",
+      "effects": "One single attack (98.60) capped at 99999, grants [Fire Stoneskin: Magicite 30%] to all allies",
       "counter": false
     },
     "nameJp": "【契】蒼の砲撃",
@@ -4572,7 +4824,7 @@
       "Imperial Blessing": {},
       "Stat Boon": {}
     },
-    "cooldown": 10,
+    "cooldown": 0.01,
     "duration": 10,
     "magiciteUltraSkill": {
       "name": "Ultra Tidal Wave",
@@ -4582,12 +4834,138 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 0.01,
-      "effects": "One single attack that deals 99999 damage, grants Medium Buff Water to all allies",
+      "effects": "One single attack that deals 99999 damage, grants [Buff Water 20% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】タイダルウエイブ",
     "id": 161000099,
     "gl": true
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Water",
+    "name": "Odin (Magical)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite: White Odin",
+    "stats": {
+      "hp": 6023,
+      "atk": 267,
+      "def": 260,
+      "mag": 305,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Sagacious Blessing": {},
+      "Lord of Knights Insignia (Water)": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Zantetsuken Magic",
+      "type": "BLK",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Magical",
+      "multiplier": 11,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (11.00) capped at 99999, ignores RES",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣・魔",
+    "id": null,
+    "gl": false
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Water",
+    "name": "Odin (Physical)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite: White Odin",
+    "stats": {
+      "hp": 6023,
+      "atk": 301,
+      "def": 260,
+      "mag": 267,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Sagacious Blessing": {},
+      "Lord of Knights Insignia (Water)": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Zantetsuken",
+      "type": "PHY",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Physical",
+      "multiplier": 3.7,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (3.70) capped at 99999, ignores DEF",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣",
+    "id": null,
+    "gl": false
   },
   {
     "11": "1",
@@ -4903,7 +5281,7 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 2.5,
-      "effects": "Grants High Regen and Astra",
+      "effects": "Grants [High Regen] and [Astra]",
       "counter": false
     },
     "nameJp": "【契】ヒールホーン",
@@ -4966,7 +5344,7 @@
       "multiplier": 50.4,
       "ultraSkillElement": "Holy",
       "time": 2.5,
-      "effects": "Four group attacks (12.60 each), grants Medium Resist Dark (25s) to all allies",
+      "effects": "Four group attacks (12.60 each), grants [Resist Dark 20% (25s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】霧のブレス",
@@ -5030,7 +5408,7 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 2.5,
-      "effects": "Causes Status Chance -10% for 15 seconds, restores HP (82) to all allies",
+      "effects": "Causes [Status Chance -10%] for 15 seconds, restores HP (82) to all allies",
       "counter": false
     },
     "nameJp": "【契】エンジェルフェザー",
@@ -5094,7 +5472,7 @@
       "multiplier": 78.8,
       "ultraSkillElement": "Holy",
       "time": 2.5,
-      "effects": "Eight random attacks (9.85 each), causes Medium Debuff Dark",
+      "effects": "Eight random attacks (9.85 each), causes [Debuff Dark 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】光弾",
@@ -5158,7 +5536,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Holy",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), grants Minor Buff Holy to all allies",
+      "effects": "Five group attacks (12.60 each), grants [Buff Holy 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】ルナティックボイス",
@@ -5221,7 +5599,7 @@
       "multiplier": 40.6,
       "ultraSkillElement": "Holy",
       "time": 2.5,
-      "effects": "One single ranged attack (40.60) capped at 99999, causes Medium Debuff Dark",
+      "effects": "One single ranged attack (40.60) capped at 99999, causes [Debuff Dark 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】テラホーミング",
@@ -5284,7 +5662,7 @@
       "multiplier": 85,
       "ultraSkillElement": "Holy",
       "time": 2.5,
-      "effects": "One single attack (85.00) capped at 99999, grants Astra to all allies",
+      "effects": "One single attack (85.00) capped at 99999, grants [Astra] to all allies",
       "counter": false
     },
     "nameJp": "【契】みわくのほうよう",
@@ -5334,25 +5712,25 @@
       "spd": 163
     },
     "passives": {
-      "Sacred Blessings": {},
+      "Sanctified Blessing": {},
       "Stat Boon": {}
     },
-    "cooldown": 10,
+    "cooldown": 0.01,
     "duration": 20,
     "magiciteUltraSkill": {
-      "name": "Ultra Holy Judgment",
+      "name": "Ultra Divine Judgment",
       "type": "NAT",
       "autoTarget": "Lowest HP% enemy",
       "formula": null,
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 0.01,
-      "effects": "One single attack that deals 99999 damage, grants Medium Buff Holy to all allies",
+      "effects": "One single attack that deals 99999 damage, grants [Buff Holy 20% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】聖なるしんぱん",
     "id": 161000103,
-    "gl": false
+    "gl": true
   },
   {
     "11": "1",
@@ -5669,7 +6047,7 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 2.5,
-      "effects": "Grants Holy Blink 1 and Medium Resist Holy (25s)",
+      "effects": "Grants [Holy Blink 1] and [Resist Holy 20% (25s)]",
       "counter": false
     },
     "nameJp": "【契】バニシングボディー",
@@ -5732,7 +6110,7 @@
       "multiplier": 18,
       "ultraSkillElement": "Dark",
       "time": 2.5,
-      "effects": "Six single attacks (3.00 each), causes Sap (100%), causes Imperil Dark 20% for 25 seconds",
+      "effects": "Six single attacks (3.00 each), causes Sap (100%), causes [Imperil Dark 20%] for 25 seconds",
       "counter": false
     },
     "nameJp": "【契】黒い牙",
@@ -5796,7 +6174,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Dark",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), causes Medium Debuff Holy",
+      "effects": "Five group attacks (12.60 each), causes [Debuff Holy 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】シャドウフレア",
@@ -5860,7 +6238,7 @@
       "multiplier": 78.72,
       "ultraSkillElement": "Dark",
       "time": 2.5,
-      "effects": "Eight single attacks (9.84 each), grants Holy Stoneskin: Magicite 30% to all allies",
+      "effects": "Eight single attacks (9.84 each), grants [Holy Stoneskin: Magicite 30%] to all allies",
       "counter": false
     },
     "nameJp": "【契】フレア",
@@ -5924,7 +6302,7 @@
       "multiplier": 63,
       "ultraSkillElement": "Dark",
       "time": 2.5,
-      "effects": "Five group attacks (12.60 each), causes Poison, Confuse, Sleep, Paralyze, Silence and Slow (10%), grants Minor Buff Dark to all allies",
+      "effects": "Five group attacks (12.60 each), causes [Poison], [Confuse], [Sleep], [Paralyze], [Silence] and [Slow] (10%), grants [Buff Dark 10% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】暗黒の釜",
@@ -5987,7 +6365,7 @@
       "multiplier": 40.6,
       "ultraSkillElement": "Dark",
       "time": 2.5,
-      "effects": "One single ranged attack (40.60) capped at 99999, grants Holy Blink 1 to all allies",
+      "effects": "One single ranged attack (40.60) capped at 99999, grants [Holy Blink 1] to all allies",
       "counter": false
     },
     "nameJp": "【契】暗黒の運命",
@@ -6050,7 +6428,7 @@
       "multiplier": 85,
       "ultraSkillElement": "Dark",
       "time": 2.5,
-      "effects": "One group attack (85.00) capped at 99999, causes Medium Debuff Holy",
+      "effects": "One group attack (85.00) capped at 99999, causes [Debuff Holy 20% (15s)]",
       "counter": false
     },
     "nameJp": "【契】不吉なる邂逅",
@@ -6103,7 +6481,7 @@
       "Dark Blessings": {},
       "Stat Boon": {}
     },
-    "cooldown": 10,
+    "cooldown": 0.01,
     "duration": 20,
     "magiciteUltraSkill": {
       "name": "Ultra Ruinous Omen",
@@ -6113,7 +6491,7 @@
       "multiplier": null,
       "ultraSkillElement": null,
       "time": 0.01,
-      "effects": "One single attack that deals 99999 damage, grants Medium Buff Dark to all allies",
+      "effects": "One single attack that deals 99999 damage, grants [Buff Dark 20% (15s)] to all allies",
       "counter": false
     },
     "nameJp": "【契】ルイナスオーメン",

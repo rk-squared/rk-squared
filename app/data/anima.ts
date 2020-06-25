@@ -26,6 +26,12 @@ export const animaWaves: { [wave: number]: AnimaWave } = {
     estimatedMonth: 4,
     estimatedYear: 2020,
   },
+  4: {
+    color: '#8000ff',
+    released: false,
+    estimatedMonth: 11,
+    estimatedYear: 2020,
+  },
 };
 
 export function getRelicAnimaWave({ id }: EnlirRelic): AnimaWave | null {

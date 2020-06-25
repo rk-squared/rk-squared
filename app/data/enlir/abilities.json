@@ -664,7 +664,7 @@
       "Poison"
     ],
     "time": 1.8,
-    "effects": "One single attack (2.80), causes Poison (3%)",
+    "effects": "One single attack (2.80), causes [Poison] (3%)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 55,
@@ -703,7 +703,7 @@
       "Poison"
     ],
     "time": 1.8,
-    "effects": "One single attack (4.80), causes Poison (3%)",
+    "effects": "One single attack (4.80), causes [Poison] (3%)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 60,
@@ -742,7 +742,7 @@
       "Poison"
     ],
     "time": 1.8,
-    "effects": "One single attack (8.80), causes Poison (3%)",
+    "effects": "One single attack (8.80), causes [Poison] (3%)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -871,7 +871,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Causes Instant KO (70%)",
+    "effects": "Causes [Instant KO] (70%)",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 75,
@@ -960,7 +960,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Causes Sleep (30%)",
+    "effects": "Causes [Sleep] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -1004,7 +1004,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Causes Poison (30%)",
+    "effects": "Causes [Poison] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -1041,7 +1041,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Causes Confuse (30%)",
+    "effects": "Causes [Confuse] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -1122,7 +1122,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Causes Stop (70%)",
+    "effects": "Causes [Stop] (70%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 65,
@@ -1210,7 +1210,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Causes Petrify (25%)",
+    "effects": "Causes [Petrify] (25%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -1430,7 +1430,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Causes Blind (30%)",
+    "effects": "Causes [Blind] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -1467,7 +1467,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Causes Blind (60%)",
+    "effects": "Causes [Blind] (60%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 65,
@@ -2283,7 +2283,7 @@
       "Poison"
     ],
     "time": 1.8,
-    "effects": "Four single attacks (2.95 each), causes Poison (3%)",
+    "effects": "Four single attacks (2.95 each), causes [Poison] (3%)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -2763,7 +2763,7 @@
     "name": "Explosion VIII",
     "rarity": 6,
     "type": "BLK",
-    "target": "Single enemy",
+    "target": "Single",
     "formula": "Magical",
     "multiplier": 21,
     "element": [
@@ -2988,7 +2988,7 @@
       "Lightning"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (3.30 each), grants Instant Cast 1 to the user",
+    "effects": "Three single attacks (3.30 each), grants [Instant Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -3097,7 +3097,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (3.50 each), causes Imperil Earth 10% for 5 seconds",
+    "effects": "Five single attacks (3.50 each), causes [Imperil Earth 10%] for 5 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -3138,6 +3138,222 @@
     "id": 30111441,
     "gl": false,
     "recordBoardCharacter": "Red XIII"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Whirlwind",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 17.5,
+    "element": [
+      "Wind"
+    ],
+    "time": 0.01,
+    "effects": "Five single attacks (3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 70,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "True Pride's Awakening",
+    "nameJp": "たつまき(バルバリシア専用)",
+    "id": 30111451,
+    "gl": false,
+    "recordBoardCharacter": "Barbariccia"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Pallida Mors",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 21,
+    "element": [
+      "Water"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: A Soggy Forgery",
+    "nameJp": "パッリダ・モルス(メイア専用)",
+    "id": 30111461,
+    "gl": false,
+    "recordBoardCharacter": "Meia"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Maelstrom's Bolt",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": 21,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Fest 2020",
+    "nameJp": "天鼓雷音稲妻斬(アーシェ専用)",
+    "id": 30111471,
+    "gl": false,
+    "recordBoardCharacter": "Ashe"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Doublecast Fira",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": 21,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Fest 2020",
+    "nameJp": "W黒魔法・ファイラ(ビビ専用)",
+    "id": 30111481,
+    "gl": false,
+    "recordBoardCharacter": "Vivi"
   },
   {
     "school": "White Magic",
@@ -3321,7 +3537,7 @@
       "Holy"
     ],
     "time": 1.5,
-    "effects": "Restores HP (105), damages undeads, grants HP Stock (2000)",
+    "effects": "Restores HP (105), damages undeads, grants [HP Stock (2000)]",
     "counter": true,
     "autoTarget": "Lowest HP% ally",
     "sb": 100,
@@ -3372,7 +3588,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Removes Silence",
+    "effects": "Removes [Silence]",
     "counter": false,
     "autoTarget": "Random ally with status",
     "sb": 60,
@@ -3409,7 +3625,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Removes Poison",
+    "effects": "Removes [Poison]",
     "counter": false,
     "autoTarget": "Random ally with status",
     "sb": 60,
@@ -3446,7 +3662,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Removes Blind",
+    "effects": "Removes [Blind]",
     "counter": false,
     "autoTarget": "Random ally with status",
     "sb": 60,
@@ -3483,7 +3699,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Grants Protect",
+    "effects": "Grants [Protect]",
     "counter": true,
     "autoTarget": "Random ally without status",
     "sb": 60,
@@ -3520,7 +3736,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Grants Protect",
+    "effects": "Grants [Protect]",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 75,
@@ -3557,7 +3773,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Grants Shell",
+    "effects": "Grants [Shell]",
     "counter": true,
     "autoTarget": "Random ally without status",
     "sb": 60,
@@ -3601,7 +3817,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Grants Shell",
+    "effects": "Grants [Shell]",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 75,
@@ -3645,7 +3861,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Causes Silence (30%)",
+    "effects": "Causes [Silence] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -3682,7 +3898,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Causes Silence (60%)",
+    "effects": "Causes [Silence] (60%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 65,
@@ -3719,7 +3935,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Causes Slow (30%)",
+    "effects": "Causes [Slow] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -3756,7 +3972,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Causes Slow (80%)",
+    "effects": "Causes [Slow] (80%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -3793,7 +4009,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Grants Low Regen",
+    "effects": "Grants [Low Regen]",
     "counter": true,
     "autoTarget": "Random ally without status",
     "sb": 60,
@@ -3830,7 +4046,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Removes Petrify",
+    "effects": "Removes [Petrify]",
     "counter": false,
     "autoTarget": "Random ally with status",
     "sb": 60,
@@ -3867,7 +4083,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Grants Haste",
+    "effects": "Grants [Haste]",
     "counter": true,
     "autoTarget": "Random ally without status",
     "sb": 65,
@@ -3904,7 +4120,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Grants Haste",
+    "effects": "Grants [Haste]",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 85,
@@ -3992,7 +4208,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Removes KO (20% HP), causes Instant KO (100%) to undeads",
+    "effects": "Removes KO [Raise: 20%], causes [Instant KO] (100%) to undeads",
     "counter": true,
     "autoTarget": "Random ally with status",
     "sb": 75,
@@ -4075,7 +4291,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Causes Paralyze (1%)",
+    "effects": "Causes [Paralyze] (1%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -4301,7 +4517,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Causes Berserk (50%)",
+    "effects": "Causes [Berserk] (50%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 65,
@@ -4338,7 +4554,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK +30% for 25 seconds",
+    "effects": "[ATK +30%] for 25 seconds",
     "counter": true,
     "autoTarget": "Random ally",
     "sb": 65,
@@ -4375,7 +4591,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "MAG +20% for 25 seconds",
+    "effects": "[MAG +20%] for 25 seconds",
     "counter": false,
     "autoTarget": "Random ally",
     "sb": 65,
@@ -4414,7 +4630,7 @@
       "Holy"
     ],
     "time": 1.5,
-    "effects": "Restores HP (60), damages undeads, grants Low Regen",
+    "effects": "Restores HP (60), damages undeads, grants [Low Regen]",
     "counter": true,
     "autoTarget": "Lowest HP% ally",
     "sb": 65,
@@ -4459,7 +4675,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Grants Low Regen",
+    "effects": "Grants [Low Regen]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 65,
@@ -4504,7 +4720,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Removes KO (100% HP), causes Instant KO (100%) to undeads",
+    "effects": "Removes KO [Raise: 100%], causes [Instant KO] (100%) to undeads",
     "counter": true,
     "autoTarget": "Random ally with status",
     "sb": 85,
@@ -4548,7 +4764,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Grants Reraise: 80%",
+    "effects": "Grants [Reraise: 80%]",
     "counter": false,
     "autoTarget": "Random ally without status",
     "sb": 100,
@@ -4601,7 +4817,7 @@
       "Holy"
     ],
     "time": 1.5,
-    "effects": "Restores HP (80), damages undeads, removes KO (10% HP)",
+    "effects": "Restores HP (80), damages undeads, removes KO [Raise: 10%]",
     "counter": false,
     "autoTarget": "Ally with KO or lowest HP% ally",
     "sb": 75,
@@ -4691,7 +4907,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "MND +20% for 25 seconds",
+    "effects": "[MND +20%] for 25 seconds",
     "counter": false,
     "autoTarget": "Random ally without status",
     "sb": 65,
@@ -4737,7 +4953,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (3.07 each), 25% chance to cause Imperil Holy 10% for 15 seconds",
+    "effects": "Three single attacks (3.07 each), 25% chance to cause [Imperil Holy 10%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -4834,7 +5050,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Grants Reflect",
+    "effects": "Grants [Reflect]",
     "counter": true,
     "autoTarget": "Random ally without status",
     "sb": 65,
@@ -4873,7 +5089,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (3.50 each), causes Minor Imperil Holy (15s) every second use",
+    "effects": "Three single attacks (3.50 each), causes [Imperil Holy 10% (15s)] every second activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4909,17 +5125,17 @@
         0
       ]
     },
-    "introducingEvent": "Seeker of the Void",
+    "introducingEvent": "Brink of the Void",
     "nameJp": "デディアジャ",
     "id": 30121331,
-    "gl": false
+    "gl": true
   },
   {
     "school": "White Magic",
     "name": "Holy VIII",
     "rarity": 6,
     "type": "WHT",
-    "target": "Single enemy",
+    "target": "Single",
     "formula": "Magical",
     "multiplier": 21.3,
     "element": [
@@ -4962,10 +5178,10 @@
         0
       ]
     },
-    "introducingEvent": "Fat Black Chocobo: A Glittering Forgery",
+    "introducingEvent": "Fat Black Chocobo: Radiant Forgery",
     "nameJp": "ホーリー8(ミンウ専用)",
     "id": 30121341,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Minwu"
   },
   {
@@ -4980,7 +5196,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (3.55), grants smart ether 1 on every second use",
+    "effects": "Six single attacks (3.55), grants smart ether 1 on every second activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -5136,7 +5352,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Restores HP (20), smart ether 1 after four uses",
+    "effects": "Restores HP (20), restores 1 consumed ability use every fourth activation",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 100,
@@ -5179,6 +5395,110 @@
     "recordBoardCharacter": "Rosa"
   },
   {
+    "school": "White Magic",
+    "name": "Repair",
+    "rarity": 6,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.65,
+    "effects": "Restores HP (20), restores 1 consumed ability use every fourth activation",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 100,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Fest 2020",
+    "nameJp": "リペアー(アフマウ専用)",
+    "id": 30121401,
+    "gl": false,
+    "recordBoardCharacter": "Aphmau"
+  },
+  {
+    "school": "White Magic",
+    "name": "Oerba's Boon",
+    "rarity": 6,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 2.1,
+    "effects": "Restores HP (25)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 100,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Fest 2020",
+    "nameJp": "ヲルバの祝福(ヴァニラ専用)",
+    "id": 30121411,
+    "gl": false,
+    "recordBoardCharacter": "Vanille"
+  },
+  {
     "school": "Combat",
     "name": "Blade Bash",
     "rarity": 1,
@@ -5188,7 +5508,7 @@
     "multiplier": 1.1,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.10), causes Paralyze (10%)",
+    "effects": "One single attack (1.10), causes [Paralyze] (10%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -5373,7 +5693,7 @@
     "multiplier": 1.7,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.70), MAG -30% for 15 seconds",
+    "effects": "One single attack (1.70), [MAG -30%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 65,
@@ -5417,7 +5737,7 @@
     "multiplier": 1.7,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.70), DEF -30% for 15 seconds",
+    "effects": "One single attack (1.70), [DEF -30%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 65,
@@ -5461,7 +5781,7 @@
     "multiplier": 1.7,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.70), ATK -30% for 15 seconds",
+    "effects": "One single attack (1.70), [ATK -30%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 65,
@@ -5505,7 +5825,7 @@
     "multiplier": 1.7,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.70), RES -30% for 15 seconds",
+    "effects": "One single attack (1.70), [RES -30%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 65,
@@ -5818,7 +6138,7 @@
     "element": [],
     "elementNote": "JP 03/18/2020: - -> Dark, NE",
     "time": 1.65,
-    "effects": "Three group ranged attacks (1.20 each), causes Instant KO (99%)",
+    "effects": "Three group ranged attacks (1.20 each), causes [Instant KO] (99%)",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 100,
@@ -5915,7 +6235,7 @@
     "multiplier": 1.7,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.70), MND -30% for 15 seconds",
+    "effects": "One single attack (1.70), [MND -30%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 65,
@@ -6047,6 +6367,60 @@
     "gl": true
   },
   {
+    "school": "Combat",
+    "name": "Shifting Earth",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Fest 2020",
+    "nameJp": "シフトアース(ノクティス専用)",
+    "id": 30151201,
+    "gl": false,
+    "recordBoardCharacter": "Noctis"
+  },
+  {
     "school": "Support",
     "name": "Salve",
     "rarity": 1,
@@ -6093,7 +6467,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK +25% for 25 seconds",
+    "effects": "[ATK +25%] for 25 seconds",
     "counter": true,
     "autoTarget": "Random ally",
     "sb": 60,
@@ -6130,7 +6504,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Causes Paralyze (50%)",
+    "effects": "Causes [Paralyze] (50%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 65,
@@ -6167,7 +6541,7 @@
     "multiplier": 1.4,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.40), causes Sleep (10%)",
+    "effects": "One single attack (1.40), causes [Sleep] (10%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -6204,7 +6578,7 @@
     "multiplier": 1.4,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.40), causes Silence (10%)",
+    "effects": "One single attack (1.40), causes [Silence] (10%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -6241,7 +6615,7 @@
     "multiplier": 1.4,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.40), causes Poison (10%)",
+    "effects": "One single attack (1.40), causes [Poison] (10%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -6278,7 +6652,7 @@
     "multiplier": 1.4,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.40), causes Blind (10%)",
+    "effects": "One single attack (1.40), causes [Blind] (10%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -6315,7 +6689,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK +3% for 15 seconds",
+    "effects": "[ATK +3%] for 15 seconds",
     "counter": false,
     "autoTarget": "Self",
     "sb": 180,
@@ -6396,7 +6770,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Causes Confuse (30%)",
+    "effects": "Causes [Confuse] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 60,
@@ -6440,7 +6814,7 @@
     "multiplier": 1.7,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.70), causes Silence (30%)",
+    "effects": "One single attack (1.70), causes [Silence] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 65,
@@ -6477,7 +6851,7 @@
     "multiplier": 1.7,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.70), causes Blind (30%)",
+    "effects": "One single attack (1.70), causes [Blind] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 65,
@@ -6514,7 +6888,7 @@
     "multiplier": 1.7,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.70), causes Poison (30%)",
+    "effects": "One single attack (1.70), causes [Poison] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 65,
@@ -6558,7 +6932,7 @@
     "multiplier": 1.7,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.70), causes Sleep (30%)",
+    "effects": "One single attack (1.70), causes [Sleep] (30%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 65,
@@ -6602,7 +6976,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.10), RES -50% for 15 seconds",
+    "effects": "One single attack (2.10), [RES -50%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 75,
@@ -6646,7 +7020,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.10), MAG -50% for 15 seconds",
+    "effects": "One single attack (2.10), [MAG -50%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 75,
@@ -6690,7 +7064,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.10), ATK -40% for 15 seconds",
+    "effects": "One single attack (2.10), [ATK -40%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 75,
@@ -6734,7 +7108,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.10), DEF -40% for 15 seconds",
+    "effects": "One single attack (2.10), [DEF -40%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 75,
@@ -6778,7 +7152,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Removes KO (10% HP)",
+    "effects": "Removes KO [Raise: 10%]",
     "counter": true,
     "autoTarget": "Random ally with status",
     "sb": 60,
@@ -6815,7 +7189,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Low Regen",
+    "effects": "Grants [Low Regen]",
     "counter": true,
     "autoTarget": "Random ally without status",
     "sb": 60,
@@ -6852,7 +7226,7 @@
     "multiplier": 2.2,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.20), ATK, DEF, MAG and RES -30% for 15 seconds",
+    "effects": "One single attack (2.20), [ATK, DEF, MAG and RES -30%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 85,
@@ -6905,7 +7279,7 @@
     "element": [],
     "elementNote": "JP 03/18/2020: - -> Posion, NE",
     "time": 1.65,
-    "effects": "Four random ranged attacks (1.00), causes Poison (26%), Sleep (26%), Blind (26%) and Silence (26%)",
+    "effects": "Four random ranged attacks (1.00), causes [Poison] (26%), [Sleep] (26%), [Blind] (26%) and [Silence] (26%)",
     "effectsNote": "JP 03/18/2020: Four random hybrid ranged attacks (1.00 or 3.33), causes Poison (26%), Sleep (26%), Blind (26%) and Silence (26%)",
     "counter": true,
     "autoTarget": "Random enemies",
@@ -6958,7 +7332,7 @@
     "multiplier": 3,
     "element": [],
     "time": 1.65,
-    "effects": "2 single attacks (1.50 each), causes Status Chance -50% for 15 seconds",
+    "effects": "2 single attacks (1.50 each), causes [Status Chance -50%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 100,
@@ -7009,7 +7383,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.10), MND -40% for 15 seconds",
+    "effects": "One single attack (2.10), [MND -40%] for 15 seconds",
     "counter": true,
     "autoTarget": "Random enemy",
     "sb": 75,
@@ -7157,7 +7531,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.2,
-    "effects": "Grants Haste",
+    "effects": "Grants [Haste]",
     "counter": true,
     "autoTarget": "Self",
     "sb": 65,
@@ -7194,7 +7568,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.2,
-    "effects": "One single ranged attack (2.10), causes Stop (40%)",
+    "effects": "One single ranged attack (2.10), causes [Stop] (40%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -7270,7 +7644,7 @@
     "multiplier": 1.7,
     "element": [],
     "time": 1.2,
-    "effects": "One single attack (1.70), causes Slow (20%)",
+    "effects": "One single attack (1.70), causes [Slow] (20%)",
     "counter": true,
     "autoTarget": "Highest HP% enemy",
     "sb": 65,
@@ -7382,7 +7756,7 @@
     "multiplier": 1.8,
     "element": [],
     "time": 1.2,
-    "effects": "Two single attacks (0.90 each), causes Slow (20%)",
+    "effects": "Two single attacks (0.90 each), causes [Slow] (20%)",
     "counter": true,
     "autoTarget": "Random enemies without status",
     "sb": 65,
@@ -7426,7 +7800,7 @@
     "multiplier": 2.05,
     "element": [],
     "time": 1.2,
-    "effects": "One single attack (2.05), causes Stun (25%)",
+    "effects": "One single attack (2.05), causes [Stun] (25%)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -7470,7 +7844,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.2,
-    "effects": "One single attack (2.10), causes Paralyze (25%)",
+    "effects": "One single attack (2.10), causes [Paralyze] (25%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -7523,7 +7897,7 @@
     "element": [],
     "elementNote": "JP 03/18/2020: - -> Ice, NE",
     "time": 1.2,
-    "effects": "Four single attacks (1.00 each), causes Stun (17%) and Stop (17%)",
+    "effects": "Four single attacks (1.00 each), causes [Stun] (17%) and [Stop] (17%)",
     "effectsNote": "JP 03/18/2020: 1.00 -> 1.00 or 3.33",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
@@ -7576,7 +7950,7 @@
     "multiplier": 2,
     "element": [],
     "time": 1.2,
-    "effects": "Two single attacks (1.00 each), grants Instant Cast 1 to the user",
+    "effects": "Two single attacks (1.00 each), grants [Instant Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -7621,7 +7995,7 @@
     "multiplier": 3.84,
     "element": [],
     "time": 1.2,
-    "effects": "Eight single attacks (0.48 each), 0.60 multiplier if the user has Haste, grants Haste to the user",
+    "effects": "Eight single attacks (0.48 each), 0.60 multiplier if the user has Haste, grants [Haste] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -7920,7 +8294,7 @@
       "Wind"
     ],
     "time": 1.2,
-    "effects": "Two single attacks (0.90 each), grants Instant Cast 1 to the user",
+    "effects": "Two single attacks (0.90 each), grants [Instant Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -7973,7 +8347,7 @@
       "Fire"
     ],
     "time": 1.2,
-    "effects": "Three single attacks (1.00 each), grants Instant Cast 1 to the user",
+    "effects": "Three single attacks (1.00 each), grants [Instant Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -8027,7 +8401,7 @@
       "Ice"
     ],
     "time": 1.2,
-    "effects": "Five single attacks (0.80 each), removes Haste",
+    "effects": "Five single attacks (0.80 each), removes [Haste]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -8116,10 +8490,10 @@
         0
       ]
     },
-    "introducingEvent": "Prideful Sword",
+    "introducingEvent": "Entrusted Pride",
     "nameJp": "リッパーストーム",
     "id": 30171251,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Celerity",
@@ -8555,7 +8929,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Grants Low Regen",
+    "effects": "Grants [Low Regen]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 60,
@@ -8638,7 +9012,7 @@
     "multiplier": 12,
     "element": [],
     "time": 1.8,
-    "effects": "If not resisted, causes Instant KO (100%), otherwise, two group attacks (6.00 each), causes Different DEF and RES -20% for 25 seconds",
+    "effects": "If not resisted, causes [Instant KO] (100%), otherwise, two group attacks (6.00 each), causes [Different DEF and RES -20%] for 25 seconds",
     "effectsNote": "JP 03/18/2020: Causes DEF and RES -20% for 25 seconds, minimum damage 2500",
     "counter": false,
     "autoTarget": "All enemies",
@@ -8687,7 +9061,7 @@
       "Fire"
     ],
     "time": 1.8,
-    "effects": "One group attack (8.00), minimum damage 2200, removes KO (50% HP) to a random ally with KO",
+    "effects": "One group attack (8.00), minimum damage 2200, removes KO [Raise: 50%] to a random ally with KO",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 70,
@@ -8791,7 +9165,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Grants Reflect",
+    "effects": "Grants [Reflect]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 75,
@@ -8939,7 +9313,7 @@
       "Lightning"
     ],
     "time": 1.8,
-    "effects": "Two group attacks (4.00 each), minimum damage 1100, causes Paralyze (16%)",
+    "effects": "Two group attacks (4.00 each), minimum damage 1100, causes [Paralyze] (16%)",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 70,
@@ -9082,7 +9456,7 @@
     "multiplier": 9.6,
     "element": [],
     "time": 1.8,
-    "effects": "Eight single attacks (1.20 each), minimum damage 1000, causes Blind (10%)",
+    "effects": "Eight single attacks (1.20 each), minimum damage 1000, causes [Blind] (10%)",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -9230,7 +9604,7 @@
       "Ice"
     ],
     "time": 1.8,
-    "effects": "Two group attacks (4.00 each), minimum damage 1100, causes Silence (17%)",
+    "effects": "Two group attacks (4.00 each), minimum damage 1100, causes [Silence] (17%)",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 70,
@@ -10182,7 +10556,7 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
     "uses": 2,
-    "max": 10,
+    "max": 6,
     "maxNote": "4/17/2020 - 10 uses is a confirmed mistake by DeNA",
     "orbs": {
       "Summoning Crystal": [
@@ -10219,6 +10593,116 @@
     "id": 30131471,
     "gl": false,
     "recordBoardCharacter": "Garnet"
+  },
+  {
+    "school": "Summoning",
+    "name": "Prayer of the Lost",
+    "rarity": 6,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 19.8,
+    "element": [
+      "Holy",
+      "Wind"
+    ],
+    "time": 1.8,
+    "effects": "Four single attacks (4.95 each), minimum damage 2000, restores 1500 HP to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 6,
+    "orbs": {
+      "Summoning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Flute Resonating in the Ruins",
+    "nameJp": "マダイン・サリの祈り(エーコ専用)",
+    "id": 30131481,
+    "gl": false,
+    "recordBoardCharacter": "Eiko"
+  },
+  {
+    "school": "Summoning",
+    "name": "The Sending",
+    "rarity": 6,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 24.75,
+    "element": [
+      "Holy",
+      "Wind"
+    ],
+    "time": 1.8,
+    "effects": "Five single attacks (4.95 each), minimum damage 2000, restores 1000 HP to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 6,
+    "orbs": {
+      "Summoning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Start of Our Story",
+    "nameJp": "異界送り(ユウナ専用)",
+    "id": 30131491,
+    "gl": false,
+    "recordBoardCharacter": "Yuna"
   },
   {
     "school": "Spellblade",
@@ -10956,7 +11440,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.10), causes Petrify (15%)",
+    "effects": "One single attack (2.10), causes [Petrify] (15%)",
     "counter": true,
     "autoTarget": "Highest HP% enemy",
     "sb": 75,
@@ -11824,7 +12308,7 @@
     ],
     "time": 1.65,
     "effects": "Five group attacks (0.92~1.10 scaling with targets)",
-    "effectsNote": "The multiplier for this attack is given by the following formula, where X is the number of targets:\n\n(92+(110-92 *exp(-(X-1)*0.60))/100\n\nThe minimum multiplier is 0.92, and never goes higher than 1.10.",
+    "effectsNote": "The multiplier for this attack is given by the following formula, where X is the number of targets:\n\n(92+(18 *exp(-(X-1)*0.60))/100\n\nThe minimum multiplier is 0.92, and never goes higher than 1.10.",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 90,
@@ -11880,6 +12364,7 @@
     ],
     "time": 1.65,
     "effects": "Five group ranged attacks (0.92~1.10 scaling with targets)",
+    "effectsNote": "The multiplier for this attack is given by the following formula, where X is the number of targets:\n\n(92+(18 *exp(-(X-1)*0.60))/100\n\nThe minimum multiplier is 0.92, and never goes higher than 1.10.",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 90,
@@ -11915,10 +12400,10 @@
         0
       ]
     },
-    "introducingEvent": "Where True Love Lies",
+    "introducingEvent": "Unyielding Devotion",
     "nameJp": "スピニングエッジ(セリス専用)",
     "id": 30141261,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Celes"
   },
   {
@@ -12140,6 +12625,114 @@
     "id": 30141301,
     "gl": false,
     "recordBoardCharacter": "Machina"
+  },
+  {
+    "school": "Spellblade",
+    "name": "Bring the Pain!",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.1,
+    "element": [
+      "Water"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.10) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Start of Our Story",
+    "nameJp": "シメる！(パイン専用)",
+    "id": 30141311,
+    "gl": false,
+    "recordBoardCharacter": "Paine"
+  },
+  {
+    "school": "Spellblade",
+    "name": "Creation Laceration",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: Blazing Forgery",
+    "nameJp": "創世の斬撃(ジェネシス専用)",
+    "id": 30141321,
+    "gl": false,
+    "recordBoardCharacter": "Genesis"
   },
   {
     "school": "Dragoon",
@@ -12511,7 +13104,7 @@
     "multiplier": 2.2,
     "element": [],
     "time": 1.65,
-    "effects": "One single ranged attack (2.20), grants No Air Time 2 to the user",
+    "effects": "One single ranged attack (2.20), grants [No Air Time 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -12699,7 +13292,7 @@
       "Wind"
     ],
     "time": 1.5,
-    "effects": "Three single ranged attacks (0.70 each), grants No Air Time 2 to the user",
+    "effects": "Three single ranged attacks (0.70 each), grants [No Air Time 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -12845,7 +13438,7 @@
       "Wind"
     ],
     "time": 1.5,
-    "effects": "Four single ranged jump attacks (0.80 each), grants No Air Time 3 to the user",
+    "effects": "Four single ranged jump attacks (0.80 each), grants [No Air Time 3] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -12994,6 +13587,169 @@
     "recordBoardCharacter": "Fang"
   },
   {
+    "school": "Dragoon",
+    "name": "Dragoon's Pride",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.9,
+    "element": [
+      "Lightning",
+      "Dark"
+    ],
+    "time": 1.5,
+    "effects": "Six single ranged jump attacks (1.15 each), air time (2.50 sec.)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Lightning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "True Pride's Awakening",
+    "nameJp": "プライドオブドラグーン(カイン専用)",
+    "id": 30181201,
+    "gl": false,
+    "recordBoardCharacter": "Kain"
+  },
+  {
+    "school": "Dragoon",
+    "name": "Darkside Dive",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.46,
+    "element": [
+      "Dark"
+    ],
+    "time": 3.3,
+    "effects": "Six single ranged jump attacks (0.91 each), heals the user for 20% of the damage dealt",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Lightning Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "True Pride's Awakening",
+    "nameJp": "ダークサイドダイブ",
+    "id": 30181211,
+    "gl": false
+  },
+  {
+    "school": "Dragoon",
+    "name": "Star Diver",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Wind",
+      "Dark"
+    ],
+    "time": 3.3,
+    "effects": "Six single ranged jump attacks (? each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Feast 2020",
+    "nameJp": "スターダイバー(エスティニアン専用)",
+    "id": 30181221,
+    "gl": false,
+    "recordBoardCharacter": "Estinien"
+  },
+  {
     "school": "Monk",
     "name": "Death Strike",
     "rarity": 2,
@@ -13077,7 +13833,7 @@
     "multiplier": 1.5,
     "element": [],
     "time": 1.65,
-    "effects": "Restores HP (80), damages undeads, ATK +20% for 25 seconds",
+    "effects": "Restores HP (80), damages undeads, [ATK +20%] for 25 seconds",
     "counter": true,
     "autoTarget": "Self",
     "sb": 65,
@@ -13114,7 +13870,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.10), causes Instant KO (50%)",
+    "effects": "One single attack (2.10), causes [Instant KO] (50%)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -13151,7 +13907,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.10), ATK +30% to the user for 20 seconds",
+    "effects": "One single attack (2.10), [ATK +30%] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -13239,7 +13995,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK +30% for 25 seconds",
+    "effects": "[ATK +30%] for 25 seconds",
     "counter": false,
     "autoTarget": "Self",
     "sb": 65,
@@ -13413,7 +14169,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "Two single attacks (1.50 each), ATK +50% to the user for 20 seconds",
+    "effects": "Two single attacks (1.50 each), [ATK +50%] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -13892,7 +14648,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants ATK and DEF +50% to the user for 5 seconds, HP Stock (2000) and Monk High Quick Cast 1",
+    "effects": "Grants [ATK and DEF +50%] to the user for 5 seconds, [HP Stock (2000)] and [Monk High Quick Cast 1]",
     "effectsNote": "JP 03/18/2020: Monk High Quick Cast 1 -> Monk High Quick Cast 2",
     "counter": true,
     "autoTarget": "Self",
@@ -14000,7 +14756,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "4/6 single attacks (1.10 each) if the user has any 0/1+ Damage Reduction Barrier, grants 40% Damage Reduction Barrier 1 to the user",
+    "effects": "4/6 single attacks (1.10 each) if the user has any 0/1+ Damage Reduction Barrier, grants [40% Damage Reduction Barrier 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -14097,6 +14853,60 @@
     "gl": false
   },
   {
+    "school": "Monk",
+    "name": "Beat Rush",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Fest 2020",
+    "nameJp": "掌打ラッシュ(ティファ専用)",
+    "id": 30191241,
+    "gl": false,
+    "recordBoardCharacter": "Tifa"
+  },
+  {
     "school": "Thief",
     "name": "Steal HP",
     "rarity": 2,
@@ -14143,7 +14953,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.2,
-    "effects": "Causes Slow (50%), if successful grants Haste to the user",
+    "effects": "Causes [Slow] (50%), if successful grants [Haste] to the user",
     "counter": false,
     "autoTarget": "Random enemy without status",
     "sb": 65,
@@ -14187,7 +14997,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.2,
-    "effects": "DEF -40% for 20 seconds, DEF +50% to the user for 20 seconds",
+    "effects": "[DEF -40%] for 20 seconds, [DEF +50%] to the user for 20 seconds",
     "counter": false,
     "autoTarget": "Random enemy",
     "sb": 75,
@@ -14231,7 +15041,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.2,
-    "effects": "ATK -40% for 20 seconds, ATK +50% to the user for 20 seconds",
+    "effects": "[ATK -40%] for 20 seconds, [ATK +50%] to the user for 20 seconds",
     "counter": false,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -14275,7 +15085,7 @@
     "multiplier": 2.6,
     "element": [],
     "time": 1.2,
-    "effects": "Two single attacks (1.30 each), causes Slow (100%), grants Haste to the user",
+    "effects": "Two single attacks (1.30 each), causes [Slow] (100%), grants [Haste] to the user",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -14365,7 +15175,7 @@
     "multiplier": 3.2,
     "element": [],
     "time": 1.2,
-    "effects": "Two single attacks (1.60 each), ATK and DEF -30% for 20 seconds, ATK and DEF +30% to the user for 20 seconds",
+    "effects": "Two single attacks (1.60 each), ATK and DEF -30% for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 90,
@@ -14703,7 +15513,7 @@
       "Water"
     ],
     "time": 1.2,
-    "effects": "Four single attacks (0.80 each), causes Minor Imperil Water (15s) every two uses",
+    "effects": "Four single attacks (0.80 each), causes [Imperil Water 10% (15s)] every second activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -14802,9 +15612,9 @@
       "Fire"
     ],
     "time": 1.2,
-    "effects": "Four single attacks (1.00 each), ATK and DEF -50% (8s), grants ATK and DEF +50% for 8 seconds to the user",
+    "effects": "Four single attacks (1.00 each), [ATK and DEF -50% (8s)], grants [ATK and DEF +50%] for 8 seconds to the user",
     "counter": true,
-    "autoTarget": "Lowest HP% enemy",
+    "autoTarget": "Random enemy without status",
     "sb": 80,
     "uses": 2,
     "max": 10,
@@ -14856,9 +15666,9 @@
       "Water"
     ],
     "time": 1.2,
-    "effects": "Four single attacks (1.00 each), ATK and DEF -50% (8s), grants ATK and DEF +50% for 8 seconds to the user",
+    "effects": "Four single attacks (1.00 each), [ATK and DEF -50% (8s)], grants [ATK and DEF +50%] for 8 seconds to the user",
     "counter": true,
-    "autoTarget": "Lowest HP% enemy",
+    "autoTarget": "Random enemy without status",
     "sb": 80,
     "uses": 2,
     "max": 10,
@@ -14910,7 +15720,7 @@
       "Fire"
     ],
     "time": 0.83,
-    "effects": "Four single attacks (1.00 each), grants Minor Buff Fire every second use",
+    "effects": "Four single attacks (1.00 each), grants [Buff Fire 10% (15s)] every second activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -15007,6 +15817,170 @@
     "recordBoardCharacter": "Zidane"
   },
   {
+    "school": "Thief",
+    "name": "Pirate Anchor",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Water",
+      "Poison"
+    ],
+    "time": 1.2,
+    "effects": "Five single attacks (1.10 each), causes [ATK and MAG -50% (8s)] every second activation",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: A Soggy Forgery",
+    "nameJp": "パイレーツアンカー(レイラ専用)",
+    "id": 30201191,
+    "gl": false,
+    "recordBoardCharacter": "Leila"
+  },
+  {
+    "school": "Thief",
+    "name": "Red Spiral",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Wind"
+    ],
+    "time": null,
+    "effects": "Five single attacks (? each), causes [Imperil Wind 10% (5s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Fest 2020",
+    "nameJp": "レッドスパイラル(ヴァン専用)",
+    "id": 30201201,
+    "gl": false,
+    "recordBoardCharacter": "Vaan"
+  },
+  {
+    "school": "Thief",
+    "name": "Pirate's Cannon",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Wind",
+      "Fire"
+    ],
+    "time": 1.2,
+    "effects": "Four single ranged attacks (1.00 each), causes [ATK and MAG -50% (8s)], grants [ATK and MAG +50% (8s)] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Fest 2020",
+    "nameJp": "パイレーツキャノン(ファリス専用)",
+    "id": 30201211,
+    "gl": false,
+    "recordBoardCharacter": "Faris"
+  },
+  {
     "school": "Knight",
     "name": "Guard",
     "rarity": 2,
@@ -15016,7 +15990,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Protect",
+    "effects": "Grants [Protect]",
     "counter": false,
     "autoTarget": "Self",
     "sb": 60,
@@ -15053,7 +16027,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Draw Fire for 25 seconds",
+    "effects": "Grants [Draw Fire] for 25 seconds",
     "counter": false,
     "autoTarget": "Self",
     "sb": 65,
@@ -15134,7 +16108,7 @@
     "multiplier": 1.6,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.60), RES +50% to the user for 20 seconds",
+    "effects": "One single attack (1.60), [RES +50%] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 65,
@@ -15178,7 +16152,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Magic Lure for 25 seconds",
+    "effects": "Grants [Magic Lure] for 25 seconds",
     "counter": false,
     "autoTarget": "Self",
     "sb": 75,
@@ -15222,7 +16196,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "DEF and RES +50% for 25 seconds",
+    "effects": "[DEF and RES +50%] for 25 seconds",
     "counter": false,
     "autoTarget": "Random ally without status",
     "sb": 65,
@@ -15351,7 +16325,7 @@
     "multiplier": 1.6,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.60), DEF +50% to the user for 20 seconds",
+    "effects": "One single attack (1.60), [DEF +50%] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 65,
@@ -15397,7 +16371,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Two single attacks (1.70 each), removes negative effects to the user, grants High Regen to the user",
+    "effects": "Two single attacks (1.70 each), removes negative effects to the user, grants [High Regen] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -15490,7 +16464,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "Two single attacks (1.60 each), grants Draw Fire to the user for 25 seconds",
+    "effects": "Two single attacks (1.60 each), grants [Draw Fire] to the user for 25 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -15582,7 +16556,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Two single attacks (1.60 each), grants Draw Fire to the user for 25 seconds",
+    "effects": "Two single attacks (1.60 each), grants [Draw Fire] to the user for 25 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -15674,7 +16648,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.71 each), DEF -30% to the user for 20 seconds",
+    "effects": "Five single attacks (0.71 each), [DEF -30%] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -15720,7 +16694,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.71 each), DEF -30% to the user for 20 seconds",
+    "effects": "Five single attacks (0.71 each), [DEF -30%] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -15819,7 +16793,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.85/0.90/0.95 each) at 798/2736 DEF, grants DEF +100% to the user for 25 seconds",
+    "effects": "Five single attacks (0.85/0.90/0.95 each) at 798/2736 DEF, grants [DEF +100%] to the user for 25 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -15966,10 +16940,10 @@
         0
       ]
     },
-    "introducingEvent": "Part of the Sky",
+    "introducingEvent": "Memories of Life",
     "nameJp": "聖剣技・ショック(ベアトリクス専用)",
     "id": 30211201,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Beatrix"
   },
   {
@@ -16040,7 +17014,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Four single ranged attacks (1.00 each), grants Minor Buff Holy to all allies every third use",
+    "effects": "Four single ranged attacks (1.00 each), grants [Buff Holy 10% (15s)] to all allies every third activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -16095,7 +17069,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.80 each), grants 20% Damage Reduction Barrier 1 to the user",
+    "effects": "Five single attacks (0.80 each), grants [20% Damage Reduction Barrier 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -16148,7 +17122,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (1.00 each), grants Minor Buff Earth to all allies every third use",
+    "effects": "Four single attacks (1.00 each), grants [Buff Earth 10% (15s)] to all allies every third activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -16202,7 +17176,7 @@
       "Earth"
     ],
     "time": 3.3,
-    "effects": "Six single attacks (1.10 each), grants 20% Damage Reduction Barrier 1 to the user, cast time 3.30/2.475/1.650 scaling with uses",
+    "effects": "Six single attacks (1.10 each), grants [20% Damage Reduction Barrier 1] to the user, cast time 3.30/2.475/1.650 scaling with uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -16256,7 +17230,7 @@
       "Holy"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (1.00 each), grants High Quick Cast 1 to the user",
+    "effects": "Four single attacks (1.00 each), grants [High Quick Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -16308,7 +17282,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Retaliate for 15 seconds",
+    "effects": "Grants [Retaliate] for 15 seconds",
     "counter": true,
     "autoTarget": "Self",
     "sb": 80,
@@ -16352,7 +17326,7 @@
     "multiplier": 1.6,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.60), causes Instant KO (30%)",
+    "effects": "One single attack (1.60), causes [Instant KO] (30%)",
     "counter": true,
     "autoTarget": "Highest HP% enemy",
     "sb": 65,
@@ -16396,7 +17370,7 @@
     "multiplier": 1.5,
     "element": [],
     "time": 1.65,
-    "effects": "One group attack (1.50), causes Blind (20%)",
+    "effects": "One group attack (1.50), causes [Blind] (20%)",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 75,
@@ -16485,7 +17459,7 @@
     "multiplier": 2.2,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.20), causes Sap to the user, ATK +30% to the user for 20 seconds",
+    "effects": "One single attack (2.20), causes [Sap] to the user, [ATK +30%] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -16529,7 +17503,7 @@
     "multiplier": 1.5,
     "element": [],
     "time": 1.65,
-    "effects": "One group attack (1.50), causes Silence (20%)",
+    "effects": "One group attack (1.50), causes [Silence] (20%)",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 50,
@@ -16620,8 +17594,7 @@
     "element": [],
     "elementNote": "JP 03/18/2020: - -> Dark, NE",
     "time": 1.65,
-    "effects": "Three group attacks (1.10 each), grants Retaliate to the user for 15 seconds",
-    "effectsNote": "JP 03/18/2020: group -> random",
+    "effects": "Three group attacks (1.10 each), grants [Retaliate] to the user for 15 seconds",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 100,
@@ -16668,7 +17641,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (0.80 each), grants Hailstorm to the user for 20 seconds",
+    "effects": "Four single attacks (0.80 each), grants [Hailstorm] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -16761,7 +17734,7 @@
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Two single attacks (1.00 each), grants Retaliate to the user",
+    "effects": "Two single attacks (1.00 each), grants [Retaliate] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -16853,7 +17826,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Two single attacks (1.00 each), grants Retaliate to the user",
+    "effects": "Two single attacks (1.00 each), grants [Retaliate] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -16899,7 +17872,7 @@
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (0.80 each), grants Hailstorm to the user for 20 seconds",
+    "effects": "Four single attacks (0.80 each), grants [Hailstorm] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -16945,7 +17918,7 @@
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.71 each), 20% additional critical chance, grants Iai Bargain to the user for 20 seconds",
+    "effects": "Five single attacks (0.71 each), 20% additional critical chance, grants [Iai Bargain] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -16991,7 +17964,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.71 each), 20% additional critical chance, grants Iai Bargain to the user for 20 seconds",
+    "effects": "Five single attacks (0.71 each), 20% additional critical chance, grants [Iai Bargain] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -17136,7 +18109,7 @@
     "name": "Frostfire Carnage",
     "rarity": 6,
     "type": "PHY",
-    "target": "Single enemy",
+    "target": "All enemies",
     "formula": "Physical",
     "multiplier": 4.4,
     "element": [
@@ -17146,7 +18119,7 @@
     "time": 1.65,
     "effects": "Five single attacks (0.74~0.88 each scaling with targets)",
     "counter": true,
-    "autoTarget": "Lowest HP% enemy",
+    "autoTarget": "All enemies",
     "sb": 90,
     "uses": 2,
     "max": 10,
@@ -17198,7 +18171,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.85 each), grants Retaliate to the user for 15 seconds",
+    "effects": "Five single attacks (0.85 each), grants [Retaliate] to the user for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -17289,11 +18262,120 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories",
+    "introducingEvent": "Confounded Memories (II)",
     "nameJp": "のばら(フリオニール専用)",
     "id": 30221211,
     "gl": false,
     "recordBoardCharacter": "Firion"
+  },
+  {
+    "school": "Samurai",
+    "name": "Tachi Gekko",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.7,
+    "element": [
+      "Ice",
+      "Water"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.95 each), 100% additional critical chance if user has Retaliate or High Retaliate, removes Retaliate and High Retaliate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Lady Plays Rough",
+    "nameJp": "八之太刀・月光(アヤメ専用)",
+    "id": 30221221,
+    "gl": false,
+    "recordBoardCharacter": "Ayame"
+  },
+  {
+    "school": "Samurai",
+    "name": "Banishing Blade",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.1,
+    "element": [
+      "Fire"
+    ],
+    "time": 3.3,
+    "effects": "One single attack (3.30) capped at 99999, causes [ATK, DEF, MAG and RES -40% (25s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: Blazing Forgery",
+    "nameJp": "征伐(アーロン専用)",
+    "id": 30221231,
+    "gl": false,
+    "recordBoardCharacter": "Auron"
   },
   {
     "school": "Ninja",
@@ -17478,7 +18560,7 @@
     "multiplier": 2.1,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (2.10), causes Sap (25%)",
+    "effects": "One single attack (2.10), causes [Sap] (25%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -17568,7 +18650,7 @@
     "multiplier": 39,
     "element": [],
     "time": 0.83,
-    "effects": "One single attack (39.00), ignores RES, causes Sleep (50%)",
+    "effects": "One single attack (39.00), ignores RES, causes [Sleep] (50%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -17612,7 +18694,7 @@
     "multiplier": 2.38,
     "element": [],
     "time": 0.83,
-    "effects": "Two group attacks (1.19 each), causes Sap (17%)",
+    "effects": "Two group attacks (1.19 each), causes [Sap] (17%)",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 75,
@@ -17703,7 +18785,7 @@
     "multiplier": 3,
     "element": [],
     "time": 0.01,
-    "effects": "Two single attacks (1.50 each), grants Stitch in Time to the user for 15 seconds",
+    "effects": "Two single attacks (1.50 each), grants [Stitch in Time] to the user for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -17841,7 +18923,7 @@
       "Water"
     ],
     "time": 0.83,
-    "effects": "Two single attacks (1.00 each), grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "effects": "Two single attacks (1.00 each), grants [Physical Blink 1] and [Physical Blink Stacking 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 65,
@@ -17933,7 +19015,7 @@
       "Dark"
     ],
     "time": 0.83,
-    "effects": "Two single attacks (1.00 each), grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "effects": "Two single attacks (1.00 each), grants [Physical Blink 1] and [Physical Blink Stacking 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 65,
@@ -18025,7 +19107,7 @@
       "Earth"
     ],
     "time": 0.83,
-    "effects": "Two single attacks (1.00 each), grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "effects": "Two single attacks (1.00 each), grants [Physical Blink 1] and [Physical Blink Stacking 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 65,
@@ -18117,7 +19199,7 @@
       "Water"
     ],
     "time": 0.83,
-    "effects": "3/5/7 single attacks (0.90 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "effects": "3/5/7 single attacks (0.90 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] and [Physical Blink Stacking 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -18170,7 +19252,7 @@
       "Earth"
     ],
     "time": 0.83,
-    "effects": "3/5/7 single attacks (0.90 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "effects": "3/5/7 single attacks (0.90 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] and [Physical Blink Stacking 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -18259,15 +19341,15 @@
         0
       ]
     },
-    "introducingEvent": "Fat Black Chocobo: A Dark Forgery",
+    "introducingEvent": "Fat Black Chocobo: Shady Forgery",
     "nameJp": "シャドウファング(シャドウ専用)",
     "id": 30231191,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Shadow"
   },
   {
     "school": "Ninja",
-    "name": "Umbra Essence",
+    "name": "Fleeting Fragrance",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -18277,7 +19359,7 @@
       "Dark"
     ],
     "time": 0.83,
-    "effects": "3/5/7 single attacks (0.90 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "effects": "3/5/7 single attacks (0.90 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] and [Physical Blink Stacking 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -18313,10 +19395,10 @@
         0
       ]
     },
-    "introducingEvent": "Fat Black Chocobo: A Dark Forgery",
+    "introducingEvent": "Fat Black Chocobo: Shady Forgery",
     "nameJp": "暗香疎影",
     "id": 30231201,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Ninja",
@@ -18328,7 +19410,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Physical Blink 2, Physical Blink Stacking 2 and Ninja Instant Cast 1",
+    "effects": "Grants [Physical Blink 2], [Physical Blink Stacking 2] and [Ninja Instant Cast 1]",
     "counter": false,
     "autoTarget": "Self",
     "sb": null,
@@ -18387,7 +19469,7 @@
       "Lightning"
     ],
     "time": 0.83,
-    "effects": "4/5/6 single hybrid attacks (1.10 or 525.00 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 and Physical Blink Stacking 2 to the user",
+    "effects": "4/5/6 single hybrid attacks (1.10 or 525.00 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] and [Physical Blink Stacking 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -18428,6 +19510,60 @@
     "id": 30231221,
     "gl": false,
     "recordBoardCharacter": "Edge"
+  },
+  {
+    "school": "Ninja",
+    "name": "Gauntlet",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.72,
+    "element": [
+      "Water"
+    ],
+    "time": 2.1,
+    "effects": "4/4/8 single ranged attacks (0.84 each) if the user has Physical Blink 0/1/2",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Fest 2020",
+    "nameJp": "鎧袖一触(ユフィ専用)",
+    "id": 30231231,
+    "gl": false,
+    "recordBoardCharacter": "Yuffie"
   },
   {
     "school": "Bard",
@@ -18476,7 +19612,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK +15% for 25 seconds",
+    "effects": "[ATK +15%] for 25 seconds",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 65,
@@ -18520,7 +19656,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.5,
-    "effects": "Causes Sleep (20%)",
+    "effects": "Causes [Sleep] (20%)",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 60,
@@ -18558,7 +19694,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "MAG +15% for 25 seconds",
+    "effects": "[MAG +15%] for 25 seconds",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 65,
@@ -18603,7 +19739,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Shell",
+    "effects": "Grants [Shell]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 75,
@@ -18648,7 +19784,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Protect",
+    "effects": "Grants [Protect]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 75,
@@ -18692,7 +19828,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants High Regen",
+    "effects": "Grants [High Regen]",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 85,
@@ -18737,7 +19873,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Magical Quick Cast 3",
+    "effects": "Grants [Magical Quick Cast 3]",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 100,
@@ -18782,7 +19918,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Hymn MAG +10/20/30/40/50%, grants Mystic Bard 1/2/3/4/4 to the user if the user has Mystic Bard 0/1/2/3/4",
+    "effects": "Grants [Hymn MAG +10%/20%/30%/40%/50%], grants [Mystic Bard 1/2/3/4/4] to the user if the user has Mystic Bard 0/1/2/3/4",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 85,
@@ -18826,7 +19962,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Hymn ATK +10/20/30/40/50%, grants Battle Bard 1/2/3/4/4 to the user if the user has Battle Bard 0/1/2/3/4",
+    "effects": "Grants [Hymn ATK +10%/20%/30%/40%/50%], grants [Battle Bard 1/2/3/4/4] to the user if the user has Battle Bard 0/1/2/3/4",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 85,
@@ -18870,7 +20006,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Hymn MND +10/20/30/40/50%, grants Sacred Bard 1/2/3/4/4 to the user if the user has Sacred Bard 0/1/2/3/4",
+    "effects": "Grants [Hymn MND +10%/20%/30%/40%/50%], grants [Sacred Bard 1/2/3/4/4] to the user if the user has Sacred Bard 0/1/2/3/4",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 85,
@@ -18914,7 +20050,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants Critical Chance 10/20/30/40/50% for 10 seconds, grants Tactical Bard 1/2/3/4/4 to the user if the user has Tactical Bard 0/1/2/3/4",
+    "effects": "Grants [Critical Chance 10%/20%/30%/40%/50%] for 10 seconds, grants [Tactical Bard 1/2/3/4/4] to the user if the user has Tactical Bard 0/1/2/3/4",
     "counter": true,
     "autoTarget": "All allies",
     "sb": 85,
@@ -18950,7 +20086,7 @@
   },
   {
     "school": "Bard",
-    "name": "Divine Requiem",
+    "name": "Divine Dirge",
     "rarity": 6,
     "type": "NAT",
     "target": "Single enemy",
@@ -18961,7 +20097,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (3.44 each), grants 10% Damage Reduction Barrier 1 to all allies every two uses",
+    "effects": "Three single attacks (3.44 each), grants [10% Damage Reduction Barrier 1] to all allies every second activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -18997,10 +20133,10 @@
         0
       ]
     },
-    "introducingEvent": "Fat Black Chocobo: A Glittering Forgery",
+    "introducingEvent": "Fat Black Chocobo: Radiant Forgery",
     "nameJp": "神威の鎮魂歌",
     "id": 30241121,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Bard",
@@ -19012,7 +20148,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Removes Haste, grants Physical Quick Cast 2 to all allies",
+    "effects": "Removes [Haste], grants [Physical Quick Cast 2] to all allies",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 100,
@@ -19064,7 +20200,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Restores 1500 HP, grants 10% Damage Reduction Barrier 1",
+    "effects": "Restores 1500 HP, grants [10% Damage Reduction Barrier 1]",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 100,
@@ -19100,11 +20236,63 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories",
+    "introducingEvent": "Confounded Memories (II)",
     "nameJp": "のばらの祈り(ヒルダ専用)",
     "id": 30241141,
     "gl": false,
     "recordBoardCharacter": "Hilda"
+  },
+  {
+    "school": "Bard",
+    "name": "Hymn of Healing",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.65,
+    "effects": "Restores 1000 HP, grants [Hymn of Healing ATK and MAG +5%/10%/20%/30%], grants [Acoustic 1/2/3/3] to the user if the user has Acoustic 0/1/2/3",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 100,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Confounded Memories (Type-0)",
+    "nameJp": "白のセレナーデ(デュース専用)",
+    "id": 30241151,
+    "gl": false,
+    "recordBoardCharacter": "Deuce"
   },
   {
     "school": "Dancer",
@@ -19116,7 +20304,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "DEF -30% for 15 seconds",
+    "effects": "[DEF -30%] for 15 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 65,
@@ -19161,7 +20349,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "DEF -40% for 15 seconds",
+    "effects": "[DEF -40%] for 15 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 75,
@@ -19205,7 +20393,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "RES -30% for 15 seconds",
+    "effects": "[RES -30%] for 15 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 65,
@@ -19250,7 +20438,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "RES -50% for 15 seconds",
+    "effects": "[RES -50%] for 15 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 75,
@@ -19294,7 +20482,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK -30% for 15 seconds",
+    "effects": "[ATK -30%] for 15 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 65,
@@ -19338,7 +20526,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK -40% for 15 seconds",
+    "effects": "[ATK -40%] for 15 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 75,
@@ -19382,7 +20570,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.8,
-    "effects": "Causes Stop (70%)",
+    "effects": "Causes [Stop] (70%)",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 75,
@@ -19426,7 +20614,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "MAG -30% for 15 seconds",
+    "effects": "[MAG -30%] for 15 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 65,
@@ -19470,7 +20658,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "MAG -50% for 15 seconds",
+    "effects": "[MAG -50%] for 15 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 75,
@@ -19514,7 +20702,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK, DEF, MAG and RES -30% for 15 seconds",
+    "effects": "[ATK, DEF, MAG and RES -30%] for 15 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 85,
@@ -19558,7 +20746,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "DEF and RES -50% for 10 seconds",
+    "effects": "[DEF and RES -50%] for 10 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 85,
@@ -19602,7 +20790,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK and MAG -50% for 10 seconds",
+    "effects": "[ATK and MAG -50%] for 10 seconds",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 85,
@@ -19646,7 +20834,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "ATK, DEF, MAG and RES -50% (10s), restores 500/600/700/800/1000 HP to all allies at 1/2/3/4/5 uses, resets if KO'd",
+    "effects": "[ATK, DEF, MAG and RES -50% (10s)], restores 500/600/700/800/1000 HP to all allies at 1/2/3/4/5 uses, resets if KO'd",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 100,
@@ -19702,7 +20890,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Restores 1000 HP, grants War Dance ATK and MAG +5%/10/20/30%, grants Proficiency 1/2/3/3 to the user if the user has Proficiency 0/1/2/3",
+    "effects": "Restores 1000 HP, grants [War Dance ATK and MAG +5%/10%/20%/30%], grants [Proficiency 1/2/3/3] to the user if the user has Proficiency 0/1/2/3",
     "effectsNote": "03/09/2020: Buffed from War Dance ATK and MAG +5%/10/15/20% to War Dance ATK and MAG +5%/10/20/30%",
     "counter": false,
     "autoTarget": "All allies",
@@ -19755,7 +20943,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Causes ATK and MAG -50% (8s), restores 1500 HP to all allies",
+    "effects": "Causes [ATK and MAG -50% (8s)], restores 1500 HP to all allies",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 100,
@@ -19807,7 +20995,7 @@
     "multiplier": 1.9,
     "element": [],
     "time": 1.65,
-    "effects": "One single ranged attack (1.90), 2.40 multiplier if the target has Blind, causes Blind (60%)",
+    "effects": "One single ranged attack (1.90), 2.40 multiplier if the target has Blind, causes [Blind] (60%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -19851,7 +21039,7 @@
     "multiplier": 1.9,
     "element": [],
     "time": 1.65,
-    "effects": "One single ranged attack (1.90), 2.40 multiplier if the target has Silence, causes Silence (60%)",
+    "effects": "One single ranged attack (1.90), 2.40 multiplier if the target has Silence, causes [Silence] (60%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -19895,7 +21083,7 @@
     "multiplier": 1.9,
     "element": [],
     "time": 1.65,
-    "effects": "One single ranged attack (1.90), 2.40 multiplier if the target has Poison, causes Poison (60%)",
+    "effects": "One single ranged attack (1.90), 2.40 multiplier if the target has Poison, causes [Poison] (60%)",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -19939,7 +21127,7 @@
     "multiplier": 1.9,
     "element": [],
     "time": 1.65,
-    "effects": "One single ranged attack (1.90), 2.40 multiplier if the target has Confuse, causes Confuse (60%), doesn't remove Confuse",
+    "effects": "One single ranged attack (1.90), 2.40 multiplier if the target has Confuse, causes [Confuse] (60%), doesn't remove Confuse",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 75,
@@ -19985,7 +21173,7 @@
       "Poison"
     ],
     "time": 1.65,
-    "effects": "Two group ranged attacks (1.20 each), causes Poison (20%)",
+    "effects": "Two group ranged attacks (1.20 each), causes [Poison] (20%)",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 75,
@@ -20169,7 +21357,7 @@
       "Lightning"
     ],
     "time": 1.65,
-    "effects": "Two single ranged attacks (1.00 each), 35% chance to cause Imperil Lightning 10% for 15 seconds",
+    "effects": "Two single ranged attacks (1.00 each), 35% chance to cause [Imperil Lightning 10%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -20215,7 +21403,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Two single ranged attacks (1.00 each), 35% chance to cause Imperil Ice 10% for 15 seconds",
+    "effects": "Two single ranged attacks (1.00 each), 35% chance to cause [Imperil Ice 10%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -20261,7 +21449,7 @@
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Two single ranged attacks (1.00 each), 35% chance to cause Imperil Fire 10% for 15 seconds",
+    "effects": "Two single ranged attacks (1.00 each), 35% chance to cause [Imperil Fire 10%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -20399,7 +21587,7 @@
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Four single ranged attacks (0.85 each), 50% chance to cause Imperil Fire 10% for 15 seconds",
+    "effects": "Four single ranged attacks (0.85 each), 50% chance to cause [Imperil Fire 10%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -20452,7 +21640,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Four single ranged attacks (0.85 each), 50% chance to cause Imperil Ice 10% for 15 seconds",
+    "effects": "Four single ranged attacks (0.85 each), 50% chance to cause [Imperil Ice 10%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -20505,7 +21693,7 @@
       "Lightning"
     ],
     "time": 1.65,
-    "effects": "Four single ranged attacks (0.85 each), 50% chance to cause Imperil Lightning 10% for 15 seconds",
+    "effects": "Four single ranged attacks (0.85 each), 50% chance to cause [Imperil Lightning 10%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -20660,6 +21848,121 @@
     "gl": false
   },
   {
+    "school": "Machinist",
+    "name": "Charged Shot",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Three single ranged attacks (1.00 each), causes [Imperil Fire 10% (5s)], [Imperil Ice 10% (5s)] and [Imperil Lightning 10% (5s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Fire Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Confounding Memories (Type-0)",
+    "nameJp": "チャージショット(ケイト専用)",
+    "id": 30261201,
+    "gl": false,
+    "recordBoardCharacter": "Cater"
+  },
+  {
+    "school": "Machinist",
+    "name": "Pyramid",
+    "rarity": 6,
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single hybrid ranged attacks (1.10 or 3.50 each), removes [Haste] every second activation",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Confounding Memories (VII)",
+    "nameJp": "ピラミッド(レノ専用)",
+    "id": 30261211,
+    "gl": false,
+    "recordBoardCharacter": "Reno"
+  },
+  {
     "school": "Darkness",
     "name": "Dark Bargain",
     "rarity": 4,
@@ -20671,7 +21974,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "One single attack (2.20), grants Dark Bargain to the user for 20 seconds",
+    "effects": "One single attack (2.20), grants [Dark Bargain] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -20809,7 +22112,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "One single attack (8.00), causes Doom: 45 to the user, MAG +30% to the user for 50 seconds",
+    "effects": "One single attack (8.00), causes [Doom: 45] to the user, [MAG +30%] to the user for 50 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -20855,7 +22158,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "One single attack (1.80), causes Doom: 45 to the user, ATK +30% to the user for 50 seconds",
+    "effects": "One single attack (1.80), causes [Doom: 45] to the user, [ATK +30%] to the user for 50 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -20947,7 +22250,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (2.25 each), 3.80 multiplier if the user has any Doom, causes Doom Timer -3 to the user",
+    "effects": "Four single attacks (2.25 each), 3.80 multiplier if the user has any Doom, causes [Doom Timer -3] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -21227,7 +22530,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Three single hybrid attacks (0.64 or 2.64 each), 25% chance to cause Imperil Dark 10% for 15 seconds",
+    "effects": "Three single hybrid attacks (0.64 or 2.64 each), 25% chance to cause [Imperil Dark 10%] for 15 seconds",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -21326,7 +22629,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "5/6 single attacks (3.15 each) if the user's Doom timer is below 20, causes Doom: 45 and Doom Timer -1 to the user",
+    "effects": "5/6 single attacks (3.15 each) if the user's Doom timer is below 20, causes [Doom: 45] and [Doom Timer -1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -21383,7 +22686,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Three single hybrid attacks (0.90 or 3.44 each), causes Imperil Dark 10% for 15 seconds every two uses",
+    "effects": "Three single hybrid attacks (0.90 or 3.44 each), causes [Imperil Dark 10%] for 15 seconds every second activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -21479,7 +22782,7 @@
   },
   {
     "school": "Darkness",
-    "name": "Shadow Dragon",
+    "name": "Shadow Drake",
     "rarity": 6,
     "type": "BLK",
     "target": "Single enemy",
@@ -21525,10 +22828,10 @@
         0
       ]
     },
-    "introducingEvent": "Dark Lunarian Legacy",
+    "introducingEvent": "By the Light of the Moon",
     "nameJp": "あんこく(セシル(暗黒騎士)専用)",
     "id": 30271171,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Golbez"
   },
   {
@@ -21579,10 +22882,10 @@
         0
       ]
     },
-    "introducingEvent": "Dark Lunarian Legacy",
+    "introducingEvent": "By the Light of the Moon",
     "nameJp": "こくりゅう(ゴルベーザ専用)",
     "id": 30271181,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Cecil (Dark Knight)"
   },
   {
@@ -21633,14 +22936,14 @@
         0
       ]
     },
-    "introducingEvent": "Dark Lunarian Legacy",
+    "introducingEvent": "By the Light of the Moon",
     "nameJp": "フォビドゥンクロス",
     "id": 30271191,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Darkness",
-    "name": "Sacrifice Gear",
+    "name": "Sacrifice Pawn",
     "rarity": 6,
     "type": "BLK",
     "target": "Single enemy",
@@ -21650,7 +22953,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (3.50 each), grants HP Stock (3000) to the user",
+    "effects": "Five single attacks (3.50 each), grants [HP Stock (3000)] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -21686,10 +22989,10 @@
         0
       ]
     },
-    "introducingEvent": "A Father's Blues",
+    "introducingEvent": "The Daddy Blues",
     "nameJp": "サクリファイス＝ギア(ナバート専用)",
     "id": 30271201,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Nabaat"
   },
   {
@@ -21745,10 +23048,10 @@
         0
       ]
     },
-    "introducingEvent": "Seeker of the Void",
+    "introducingEvent": "Brink of the Void",
     "nameJp": "ダブルホール(エクスデス専用)",
     "id": 30271211,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Exdeath"
   },
   {
@@ -21858,6 +23161,62 @@
     "id": 30271221,
     "gl": false,
     "recordBoardCharacter": "Gaffgarion"
+  },
+  {
+    "school": "Darkness",
+    "name": "Bloodfeast",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Dark",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Five group ranged attacks (0.92~1.10 scaling with targets)",
+    "effectsNote": "The multiplier for this attack is given by the following formula, where X is the number of targets:\n\n(92+(18 *exp(-(X-1)*0.60))/100\n\nThe minimum multiplier is 0.92, and never goes higher than 1.10.",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Glory Fest 2020",
+    "nameJp": "血祭り(サイファー専用)",
+    "id": 30271251,
+    "gl": false,
+    "recordBoardCharacter": "Seifer"
   },
   {
     "school": "Sharpshooter",
@@ -22255,7 +23614,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Four single ranged attacks (0.80 each), 0.90 multiplier when equipping a ranged weapon, grants Sharpshooter Quick Cast 2 to the user",
+    "effects": "Four single ranged attacks (0.80 each), 0.90 multiplier when equipping a ranged weapon, grants [Sharpshooter Quick Cast 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -22351,7 +23710,7 @@
   },
   {
     "school": "Sharpshooter",
-    "name": "Midnight Shot",
+    "name": "Midnight Throw",
     "rarity": 5,
     "type": "PHY",
     "target": "Single enemy",
@@ -22390,14 +23749,14 @@
         100
       ]
     },
-    "introducingEvent": "Where True Love Lies",
+    "introducingEvent": "Unyielding Devotion",
     "nameJp": "ミッドナイトスロー",
     "id": 30281151,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Sharpshooter",
-    "name": "Obsidian Bullet",
+    "name": "Midnight Bullet",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -22443,10 +23802,10 @@
         0
       ]
     },
-    "introducingEvent": "Where True Love Lies",
+    "introducingEvent": "Unyielding Devotion",
     "nameJp": "ミッドナイトブリット",
     "id": 30281141,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Sharpshooter",
@@ -22606,7 +23965,7 @@
       "Lightning"
     ],
     "time": 1.65,
-    "effects": "Two single attacks (2.60 each), grants Magical Quick Cast 1 to the user",
+    "effects": "Two single attacks (2.60 each), grants [Magical Quick Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -22652,7 +24011,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Two single attacks (2.60 each), grants Magical Quick Cast 1 to the user",
+    "effects": "Two single attacks (2.60 each), grants [Magical Quick Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -22804,7 +24163,7 @@
       "Lightning"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (2.30 each), grants Magical Quick Cast 1 to the user",
+    "effects": "Three single attacks (2.30 each), grants [Magical Quick Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -22850,7 +24209,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (2.30 each), grants Magical Quick Cast 1 to the user",
+    "effects": "Three single attacks (2.30 each), grants [Magical Quick Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -22889,7 +24248,7 @@
     "name": "Angel Wing",
     "rarity": 6,
     "type": "BLK",
-    "target": "Single enemy",
+    "target": "Single",
     "formula": "Magical",
     "multiplier": 17.1,
     "element": [
@@ -22941,7 +24300,7 @@
   },
   {
     "school": "Witch",
-    "name": "Screamfire",
+    "name": "Howling Flames",
     "rarity": 6,
     "type": "BLK",
     "target": "Single enemy",
@@ -22987,17 +24346,17 @@
         0
       ]
     },
-    "introducingEvent": "For Lasting Peace",
+    "introducingEvent": "A Hope of Peace",
     "nameJp": "スクリームファイア",
     "id": 30301091,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Witch",
     "name": "Aetherial Force",
     "rarity": 6,
     "type": "BLK",
-    "target": "Single enemy",
+    "target": "Single",
     "formula": "Magical",
     "multiplier": 17.1,
     "element": [
@@ -23043,11 +24402,65 @@
         0
       ]
     },
-    "introducingEvent": "Conquest Against Primals",
+    "introducingEvent": "Conquest Against the Primals",
     "nameJp": "エーテリアルフォース(ヤ・シュトラ専用)",
     "id": 30301101,
     "gl": false,
     "recordBoardCharacter": "Y'shtola"
+  },
+  {
+    "school": "Witch",
+    "name": "Play Rough",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 19.95,
+    "element": [
+      "Lightning"
+    ],
+    "time": 2.6,
+    "effects": "Seven single attacks (2.85 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Lady Plays Rough",
+    "nameJp": "ブチ切れ(シャントット専用)",
+    "id": 30301111,
+    "gl": false,
+    "recordBoardCharacter": "Shantotto"
   },
   {
     "school": "Heavy",
@@ -23062,7 +24475,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (0.55 each), grants Heavy Charge +1 to the user",
+    "effects": "Four single attacks (0.55 each), grants [Heavy Charge +1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -23107,7 +24520,7 @@
     "multiplier": 1.5,
     "element": [],
     "time": 1.65,
-    "effects": "One single attack (1.50), grants Heavy Charge +1 to the user",
+    "effects": "One single attack (1.50), grants [Heavy Charge +1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -23154,7 +24567,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "3/4/8 single attacks (1.00/1.00/0.88 each) at Heavy Charge 0/1/2, causes Heavy Charge =0 to the user",
+    "effects": "3/4/8 single attacks (1.00/1.00/0.88 each) at Heavy Charge 0/1/2, causes [Heavy Charge =0] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -23201,7 +24614,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "1/2/6 group attacks (2.25/1.50/0.88 each) at Heavy Charge 0/1/2, causes Heavy Charge =0 to the user",
+    "effects": "1/2/6 group attacks (2.25/1.50/0.88 each) at Heavy Charge 0/1/2, causes [Heavy Charge =0] to the user",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 75,
@@ -23248,7 +24661,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "3/4/8 single attacks (1.00/1.00/0.88 each) at Heavy Charge 0/1/2, causes Heavy Charge =0 to the user",
+    "effects": "3/4/8 single attacks (1.00/1.00/0.88 each) at Heavy Charge 0/1/2, causes [Heavy Charge =0] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -23294,7 +24707,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "1/2/6 group attacks (2.25/1.50/0.88 each) at Heavy Charge 0/1/2, causes Heavy Charge =0 to the user",
+    "effects": "1/2/6 group attacks (2.25/1.50/0.88 each) at Heavy Charge 0/1/2, causes [Heavy Charge =0] to the user",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 75,
@@ -23340,7 +24753,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2, causes Heavy Charge =0 to the user",
+    "effects": "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2, causes [Heavy Charge =0] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -23386,7 +24799,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2, causes Heavy Charge =0 to the user",
+    "effects": "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2, causes [Heavy Charge =0] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -23432,7 +24845,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "4/5/8 single attacks (1.00/1.00/0.88 each) at Heavy Charge 0/1/2, causes Imperil Earth 10% at Heavy Charge 2, causes Heavy Charge =0 to the user",
+    "effects": "4/5/8 single attacks (1.00/1.00/0.88 each) at Heavy Charge 0/1/2, causes [Imperil Earth 10%] at Heavy Charge 2, causes [Heavy Charge =0] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -23485,7 +24898,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "4/5/8 single attacks (1.00/1.00/0.88 each) at Heavy Charge 0/1/2, causes Imperil Dark 10% at Heavy Charge 2, causes Heavy Charge =0 to the user",
+    "effects": "4/5/8 single attacks (1.00/1.00/0.88 each) at Heavy Charge 0/1/2, causes [Imperil Dark 10%] at Heavy Charge 2, causes [Heavy Charge =0] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -23538,7 +24951,7 @@
       "Earth"
     ],
     "time": 3.3,
-    "effects": "Six single attacks (1.10 each), grants Heavy Charge +1 to the user, cast time 3.30/2.475/1.65 scaling with uses",
+    "effects": "Six single attacks (1.10 each), grants [Heavy Charge +1] to the user, cast time 3.30/2.475/1.65 scaling with uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -23574,10 +24987,10 @@
         0
       ]
     },
-    "introducingEvent": "Fate Defying Innocence",
+    "introducingEvent": "Turning Aside Fate",
     "nameJp": "フルスイング(シンク専用)",
     "id": 30311101,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Cinque"
   },
   {
@@ -23593,7 +25006,7 @@
       "NE"
     ],
     "time": 3.3,
-    "effects": "Six single attacks (1.10 each), grants Heavy Charge +1 to the user, cast time 3.30/2.475/1.65 scaling with uses",
+    "effects": "Six single attacks (1.10 each), grants [Heavy Charge +1] to the user, cast time 3.30/2.475/1.65 scaling with uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

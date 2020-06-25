@@ -3498,7 +3498,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "For Lasting Peace",
+    "introducingEventRecordBoards": "A Hope of Peace",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -3668,7 +3668,7 @@
       "dragoon": 3,
       "monk": 4,
       "thief": 4,
-      "knight": 5,
+      "knight": null,
       "samurai": 4,
       "ninja": null,
       "bard": null,
@@ -3879,7 +3879,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "For Lasting Peace",
+    "introducingEventRecordBoards": "A Hope of Peace",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4006,7 +4006,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "For Lasting Peace",
+    "introducingEventRecordBoards": "A Hope of Peace",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4260,7 +4260,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": "For Lasting Peace",
+    "introducingEventRecordBoards": "A Hope of Peace",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4895,7 +4895,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Glittering Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Radiant Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5022,7 +5022,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "A Hero Among the Snow",
+    "introducingEventRecordBoards": "A Way Through the Snow",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5276,7 +5276,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories",
+    "introducingEventRecordBoards": "Confounded Memories (II)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5403,7 +5403,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "A Hero Among the Snow",
+    "introducingEventRecordBoards": "A Way Through the Snow",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5530,7 +5530,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Dark Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Shady Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5657,7 +5657,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "A Hero Among the Snow",
+    "introducingEventRecordBoards": "A Way Through the Snow",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5784,7 +5784,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "A Hero Among the Snow",
+    "introducingEventRecordBoards": "A Way Through the Snow",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6927,7 +6927,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Dark Lunarian Legacy",
+    "introducingEventRecordBoards": "By the Light of the Moon",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -7562,7 +7562,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Glittering Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Radiant Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8324,7 +8324,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Dark Lunarian Legacy",
+    "introducingEventRecordBoards": "By the Light of the Moon",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8451,7 +8451,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Dark Lunarian Legacy",
+    "introducingEventRecordBoards": "By the Light of the Moon",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -9260,7 +9260,7 @@
       "samurai": null,
       "ninja": null,
       "bard": null,
-      "dancer": 4,
+      "dancer": 6,
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
@@ -9594,7 +9594,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Seeker of the Void",
+    "introducingEventRecordBoards": "Brink of the Void",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10102,7 +10102,7 @@
       "mnd": 30,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Seeker of the Void",
+    "introducingEventRecordBoards": "Brink of the Void",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10229,7 +10229,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Seeker of the Void",
+    "introducingEventRecordBoards": "Brink of the Void",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -10864,7 +10864,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Where True Love Lies",
+    "introducingEventRecordBoards": "Unyielding Devotion",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -11372,7 +11372,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Dark Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Shady Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11753,7 +11753,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Where True Love Lies",
+    "introducingEventRecordBoards": "Unyielding Devotion",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -12134,7 +12134,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Where True Love Lies",
+    "introducingEventRecordBoards": "Unyielding Devotion",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -12261,7 +12261,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Where True Love Lies",
+    "introducingEventRecordBoards": "Unyielding Devotion",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13404,7 +13404,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Prideful Sword",
+    "introducingEventRecordBoards": "Entrusted Pride",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13658,7 +13658,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": "Prideful Sword",
+    "introducingEventRecordBoards": "Entrusted Pride",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -13912,7 +13912,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Prideful Sword",
+    "introducingEventRecordBoards": "Entrusted Pride",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14039,7 +14039,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounding Memories (VII)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14166,7 +14166,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Prideful Sword",
+    "introducingEventRecordBoards": "Entrusted Pride",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -14547,7 +14547,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounding Memories (VII)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14674,7 +14674,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounding Memories (VII)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14801,7 +14801,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: Blazing Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -15690,7 +15690,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Glory Fest 2020",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -16960,7 +16960,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Part of the Sky",
+    "introducingEventRecordBoards": "Memories of Life",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17468,7 +17468,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Part of the Sky",
+    "introducingEventRecordBoards": "Memories of Life",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17722,7 +17722,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Part of the Sky",
+    "introducingEventRecordBoards": "Memories of Life",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -17976,7 +17976,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": "Part of the Sky",
+    "introducingEventRecordBoards": "Memories of Life",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -18357,7 +18357,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Start of Our Story",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18865,7 +18865,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: Blazing Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19246,7 +19246,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Start of Our Story",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19627,7 +19627,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Lady Plays Rough",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19754,7 +19754,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Glory Fest 2020",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19881,7 +19881,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Lady Plays Rough",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20135,7 +20135,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Glory Fest 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -20389,7 +20389,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Lady Plays Rough",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20770,7 +20770,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: Blazing Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21024,7 +21024,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Glittering Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Radiant Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21068,7 +21068,7 @@
       "monk": null,
       "thief": null,
       "knight": 5,
-      "samurai": 4,
+      "samurai": 5,
       "ninja": null,
       "bard": null,
       "dancer": null,
@@ -22294,7 +22294,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "A Father's Blues",
+    "introducingEventRecordBoards": "The Daddy Blues",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22421,7 +22421,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "A Father's Blues",
+    "introducingEventRecordBoards": "The Daddy Blues",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -23056,7 +23056,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "A Father's Blues",
+    "introducingEventRecordBoards": "The Daddy Blues",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24326,7 +24326,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Glory Fest 2020",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -27501,7 +27501,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (Type-0)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -28009,7 +28009,7 @@
       "mnd": 0,
       "spd": 10
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (Type-0)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28136,7 +28136,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fate Defying Innocence",
+    "introducingEventRecordBoards": "Turning Aside Fate",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -28263,7 +28263,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fate Defying Innocence",
+    "introducingEventRecordBoards": "Turning Aside Fate",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -28390,7 +28390,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fate Defying Innocence",
+    "introducingEventRecordBoards": "Turning Aside Fate",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28517,7 +28517,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Dark Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Shady Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28898,7 +28898,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fate Defying Innocence",
+    "introducingEventRecordBoards": "Turning Aside Fate",
     "equipment": {
       "dagger": true,
       "sword": false,
