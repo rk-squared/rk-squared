@@ -7,6 +7,8 @@ interface AnimaWave {
   estimatedYear: number;
 }
 
+// NOTE: These currently must be manually kept in sync with anima icons in
+// localData.ts.
 export const animaWaves: { [wave: number]: AnimaWave } = {
   1: {
     color: '#6daf50',

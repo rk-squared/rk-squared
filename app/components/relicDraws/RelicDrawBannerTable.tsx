@@ -180,17 +180,15 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
         <tr className={className} onClick={handleClick}>
           <td rowSpan={rowSpan}>
             {character}
-            {includeAvailability && (
-              <>
-                <br />
-                <RelicAvailability
-                  item={sb || lm}
-                  isNewSelection={
-                    newExchangeShopSelections && newExchangeShopSelections.has(relic.id)
-                  }
-                />
-              </>
-            )}
+            <br />
+            <RelicAvailability
+              item={sb || lm}
+              isNewSelection={
+                includeAvailability &&
+                newExchangeShopSelections &&
+                newExchangeShopSelections.has(relic.id)
+              }
+            />
           </td>
           <td rowSpan={rowSpan}>
             <RelicTypeIcon type={type} className={styles.relicType} /> {name}
