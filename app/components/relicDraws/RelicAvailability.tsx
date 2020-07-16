@@ -17,7 +17,7 @@ interface Props {
 export class RelicAvailability extends React.Component<Props> {
   renderAnima() {
     const { item } = this.props;
-    if (!item.anima) {
+    if (!item || !item.anima) {
       return null;
     }
     const wave = animaWaves[item.anima];

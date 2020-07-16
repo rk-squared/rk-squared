@@ -989,6 +989,21 @@ export const items: Item[] = [
     type: ItemType.Orb,
     id: 40000162,
   },
+  {
+    name: "De'Diaja Record",
+    type: ItemType.Orb,
+    id: 40000163,
+  },
+  {
+    name: 'Divine Dirge Record',
+    type: ItemType.Orb,
+    id: 40000164,
+  },
+  {
+    name: 'Great Form Record',
+    type: ItemType.Orb,
+    id: 40000165,
+  },
 
   {
     name: 'Minor Growth Egg',
