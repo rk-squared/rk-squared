@@ -120,6 +120,11 @@ export const dressRecords: DressRecord[] = [
     characterId: 10900200,
   },
   {
+    name: 'White-Hooded Escape',
+    id: 120900500,
+    characterId: 10900200,
+  },
+  {
     name: 'Gunner Garb',
     id: 121000100,
     characterId: 11000200,
