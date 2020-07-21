@@ -76,7 +76,7 @@ import {
 
 export function safeParseSkill(skill: EnlirSkill): skillTypes.SkillEffect | null {
   try {
-    return skillParser.parse(skill.effects.replace(/[[\]]/g, ''));
+    return skillParser.parse(skill.effects);
   } catch (e) {
     logger.error(`Failed to parse ${skill.name}:`);
     logException(e);

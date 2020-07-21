@@ -11139,7 +11139,7 @@
   {
     "eventName": "Magicite: Diablos",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-07-15",
     "jpDate": "2019-12-06",
     "type": "Magicite Dungeon",
     "heroRecords": null,
@@ -11152,7 +11152,7 @@
   {
     "eventName": "A Way Through the Snow",
     "realm": "II",
-    "glDate": null,
+    "glDate": "2020-07-09",
     "jpDate": "2019-12-06",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11194,9 +11194,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "New Year Party 2020",
+    "eventName": "Summer Sun Festival 2020",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-06-26",
     "jpDate": "2019-12-27",
     "type": "Festival",
     "heroRecords": null,
@@ -11209,12 +11209,24 @@
   {
     "eventName": "Heroes of Ivalice",
     "realm": "FFT",
-    "glDate": null,
+    "glDate": "2020-07-16",
     "jpDate": "2019-12-31",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Orlandeau",
+      "Agrias",
+      "Gaffgarion"
+    ],
+    "memoryCrystals1": [
+      "Orlandeau",
+      "Agrias",
+      "Gaffgarion"
+    ],
+    "memoryCrystals2": [
+      "Orlandeau",
+      "Agrias",
+      "Gaffgarion"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -11708,6 +11720,83 @@
     "glDate": null,
     "jpDate": "2020-06-19",
     "type": "Festival",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Future King's Journey",
+    "realm": "XV",
+    "glDate": null,
+    "jpDate": "2020-06-26",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Ardyn",
+      "Iris",
+      "Prompto"
+    ],
+    "memoryCrystals1": [
+      "Ardyn",
+      "Iris",
+      "Prompto"
+    ],
+    "memoryCrystals2": [
+      "Ardyn",
+      "Iris",
+      "Prompto"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Separated Friends",
+    "realm": "VI",
+    "glDate": null,
+    "jpDate": "2020-06-30",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Confounded Memories (III)",
+    "realm": "III",
+    "glDate": null,
+    "jpDate": "2020-07-03",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "The Destined Time",
+    "realm": "I",
+    "glDate": null,
+    "jpDate": "2020-07-10",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Confounded Memories (XIII)",
+    "realm": "XIII",
+    "glDate": null,
+    "jpDate": "2020-07-17",
+    "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,

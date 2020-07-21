@@ -2760,7 +2760,7 @@
   },
   {
     "school": "Black Magic",
-    "name": "Explosion VIII",
+    "name": "Kerplode VIII",
     "rarity": 6,
     "type": "BLK",
     "target": "Single",
@@ -2806,15 +2806,15 @@
         0
       ]
     },
-    "introducingEvent": "A Hero Among the Snow",
+    "introducingEvent": "A Way Through the Snow",
     "nameJp": "ばくは8",
     "id": 30111381,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Maria"
   },
   {
     "school": "Black Magic",
-    "name": "Ultima Arrow",
+    "name": "Artemis Arrow",
     "rarity": 6,
     "type": "BLK",
     "target": "Single enemy",
@@ -2860,10 +2860,10 @@
         0
       ]
     },
-    "introducingEvent": "New Year Party 2020",
+    "introducingEvent": "Summer Sun Festival 2020",
     "nameJp": "アルテミスアロー(セラ専用)",
     "id": 30111391,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Serah"
   },
   {
@@ -5232,10 +5232,10 @@
         0
       ]
     },
-    "introducingEvent": "New Year Party 2020",
+    "introducingEvent": "Summer Sun Festival 2020",
     "nameJp": "アスピルベノム(レム専用)",
     "id": 30121351,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Rem"
   },
   {
@@ -5497,6 +5497,167 @@
     "id": 30121411,
     "gl": false,
     "recordBoardCharacter": "Vanille"
+  },
+  {
+    "school": "White Magic",
+    "name": "Pocket Potion",
+    "rarity": 6,
+    "type": "WHT",
+    "typeDetails": [
+      "Wrapped in PHY ability. On JP release both Physical and Magical quick casts worked on this ability\n\nFixed to no longer work with physical quick casts as of 7",
+      "17",
+      "2020 in JP"
+    ],
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 2.1,
+    "effects": "Restores HP (20), cast time 2.10/1.875/1.65/1.425/1.20 scaling with uses",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 100,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Future King's Journey",
+    "nameJp": "サポート・ポーション(イリス専用)",
+    "id": 30121391,
+    "gl": false,
+    "recordBoardCharacter": "Iris"
+  },
+  {
+    "school": "White Magic",
+    "name": "Starlight",
+    "rarity": 6,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.65,
+    "effects": "Randomly restores HP (17.50) (33%), restores HP (22) (33%), restores HP (22.50) (33%) or restores HP (80) (1%)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 100,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Separated Friends",
+    "nameJp": "スターライト(リルム専用)",
+    "id": 30121421,
+    "gl": false,
+    "recordBoardCharacter": "Relm"
+  },
+  {
+    "school": "White Magic",
+    "name": "Sacred Prayer",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.65,
+    "effects": "Restores 1500 HP and grants [10% Damage Reduction Barrier 1]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 100,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Destined Time",
+    "nameJp": "聖なる祈り(セーラ専用)",
+    "id": 30121431,
+    "gl": false,
+    "recordBoardCharacter": "Sarah"
   },
   {
     "school": "Combat",
@@ -7478,10 +7639,10 @@
         0
       ]
     },
-    "introducingEvent": "New Year Party 2020",
+    "introducingEvent": "Summer Sun Festival 2020",
     "nameJp": "断撃のグリモア(デシ専用)",
     "id": 30161251,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Tyro"
   },
   {
@@ -12408,7 +12569,7 @@
   },
   {
     "school": "Spellblade",
-    "name": "Light of the Four",
+    "name": "Crystal Shimmer",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -12457,10 +12618,10 @@
         0
       ]
     },
-    "introducingEvent": "New Year Party 2020",
+    "introducingEvent": "Summer Sun Festival 2020",
     "nameJp": "四晶の輝き(バッツ専用)",
     "id": 30141271,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Bartz"
   },
   {
@@ -13701,13 +13862,13 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 6.9,
     "element": [
       "Wind",
       "Dark"
     ],
     "time": 3.3,
-    "effects": "Six single ranged jump attacks (? each)",
+    "effects": "Six single ranged jump attacks (1.15 each)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -15756,10 +15917,10 @@
         0
       ]
     },
-    "introducingEvent": "New Year Party 2020",
+    "introducingEvent": "Summer Sun Festival 2020",
     "nameJp": "賢者の炎(イグニス専用)",
     "id": 30201171,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Ignis"
   },
   {
@@ -15878,15 +16039,15 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 5.5,
     "element": [
       "Wind"
     ],
-    "time": null,
-    "effects": "Five single attacks (? each), causes [Imperil Wind 10% (5s)]",
+    "time": 1.2,
+    "effects": "Five single attacks (1.10 each), causes [Imperil Wind 10% (5s)]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
-    "sb": null,
+    "sb": 80,
     "uses": 2,
     "max": 10,
     "orbs": {
@@ -16889,7 +17050,7 @@
     "introducingEvent": "Fat Black Chocobo: A Glittering Forgery",
     "nameJp": "パラディンフォース(セシル(パラディン)専用)",
     "id": 30211181,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Cecil (Paladin)"
   },
   {
@@ -16948,7 +17109,7 @@
   },
   {
     "school": "Knight",
-    "name": "Saintly Swordplay",
+    "name": "Sword Saint's Art",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -16999,7 +17160,7 @@
     "introducingEvent": "Heroes of Ivalice",
     "nameJp": "剣聖技(オルランドゥ専用)",
     "id": 30211191,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Orlandeau"
   },
   {
@@ -18335,7 +18496,7 @@
       "Fire"
     ],
     "time": 3.3,
-    "effects": "One single attack (3.30) capped at 99999, causes [ATK, DEF, MAG and RES -40% (25s)]",
+    "effects": "One single attack (7.10) capped at 99999, causes [ATK, DEF, MAG and RES -40% (25s)]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -19520,7 +19681,8 @@
     "formula": "Physical",
     "multiplier": 6.72,
     "element": [
-      "Water"
+      "Water",
+      "Earth"
     ],
     "time": 2.1,
     "effects": "4/4/8 single ranged attacks (0.84 each) if the user has Physical Blink 0/1/2",
@@ -20293,6 +20455,58 @@
     "id": 30241151,
     "gl": false,
     "recordBoardCharacter": "Deuce"
+  },
+  {
+    "school": "Bard",
+    "name": "Prismatic Light",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.65,
+    "effects": "Restores 1500 HP, grants [Magical High Quick Cast 1] every second activation",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Confounded Memories (III)",
+    "nameJp": "虹の光(エリア専用)",
+    "id": 30241161,
+    "gl": false,
+    "recordBoardCharacter": "Aria"
   },
   {
     "school": "Dancer",
@@ -21845,7 +22059,7 @@
     "introducingEvent": "Fat Black Chocobo: A Shocking Forgery",
     "nameJp": "トリニティグレネード",
     "id": 30261181,
-    "gl": false
+    "gl": true
   },
   {
     "school": "Machinist",
@@ -21961,6 +22175,60 @@
     "id": 30261211,
     "gl": false,
     "recordBoardCharacter": "Reno"
+  },
+  {
+    "school": "Machinist",
+    "name": "Trigger Happy",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.95,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Seven single ranged attacks (0.85 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Future King's Journey",
+    "nameJp": "トリガーハッピー(プロンプト専用)",
+    "id": 30261191,
+    "gl": false,
+    "recordBoardCharacter": "Prompto"
   },
   {
     "school": "Darkness",
@@ -23102,15 +23370,15 @@
         0
       ]
     },
-    "introducingEvent": "New Year Party 2020",
+    "introducingEvent": "Summer Sun Festival 2020",
     "nameJp": "心無い天使(セフィロス専用)",
     "id": 30271231,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Sephiroth"
   },
   {
     "school": "Darkness",
-    "name": "Fellblade",
+    "name": "Shadowblade",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -23159,7 +23427,7 @@
     "introducingEvent": "Heroes of Ivalice",
     "nameJp": "闇の剣(ガフガリオン専用)",
     "id": 30271221,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Gaffgarion"
   },
   {
@@ -23217,6 +23485,279 @@
     "id": 30271251,
     "gl": false,
     "recordBoardCharacter": "Seifer"
+  },
+  {
+    "school": "Darkness",
+    "name": "Dark Aura",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Dark",
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Five single ranged attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Future King's Journey",
+    "nameJp": "闇のオーラ(アーデン専用)",
+    "id": 30271241,
+    "gl": false,
+    "recordBoardCharacter": "Ardyn"
+  },
+  {
+    "school": "Darkness",
+    "name": "Havoc Wing",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 21,
+    "element": [
+      "Dark",
+      "Poison"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.50 each), causes [MND -30% (8s)] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Separated Friends",
+    "nameJp": "はかいのつばさ(ケフカ専用)",
+    "id": 30271261,
+    "gl": false,
+    "recordBoardCharacter": "Kefka"
+  },
+  {
+    "school": "Darkness",
+    "name": "Wave Cannon",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": 22.5,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (22.50) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Confounded Memories (III)",
+    "nameJp": "はどうほう(暗闇の雲専用)",
+    "id": 30271271,
+    "gl": false,
+    "recordBoardCharacter": "Cloud of Darkness"
+  },
+  {
+    "school": "Darkness",
+    "name": "Chaos Bringer",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Five single ranged attacks (? each), grants [ATK +30%, DEF and RES -30% (8s)] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Destined Time",
+    "nameJp": "カオスブリンガー(ガーランド専用)",
+    "id": 30271281,
+    "gl": false,
+    "recordBoardCharacter": "Garland"
+  },
+  {
+    "school": "Darkness",
+    "name": "Seraph Wings",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 21,
+    "element": [
+      "Dark",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.50 each), causes [Doom: 45] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Confounded Memories (XIII)",
+    "nameJp": "熾天使の翼(レインズ専用)",
+    "id": 30271291,
+    "gl": false,
+    "recordBoardCharacter": "Cid Raines"
   },
   {
     "school": "Sharpshooter",
@@ -23860,6 +24401,61 @@
     "id": 30281161,
     "gl": false,
     "recordBoardCharacter": "Tidus"
+  },
+  {
+    "school": "Sharpshooter",
+    "name": "Meteor Javelin",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Ice",
+      "Water"
+    ],
+    "time": 3.3,
+    "effects": "Six single ranged attacks (1.10 each), cast time 3.30/2.90/2.475/2.075/1.65 scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Confounded Memories (XIII)",
+    "nameJp": "メテオジャベリン(ノエル専用)",
+    "id": 30281171,
+    "gl": false,
+    "recordBoardCharacter": "Noel"
   },
   {
     "school": "Witch",

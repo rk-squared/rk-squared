@@ -3073,7 +3073,7 @@
     "realm": "VI",
     "character": "Cyan",
     "name": "Samurai Spirit",
-    "effect": "Grants Retaliate when HP fall below 20%",
+    "effect": "Grants [Retaliate] when HP fall below 20%",
     "unlockCriteria": "Chance to obtain with Cyan in party",
     "nameJp": "侍の心得",
     "id": 111060091,
@@ -6558,6 +6558,36 @@
     "nameJp": "民に敬愛されし巫女",
     "id": 111150092,
     "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Ardyn",
+    "name": "King of the Empire",
+    "effect": "PHY attacks deal 10% more damage when equipping a hat",
+    "unlockCriteria": "Use Ardyn's Memory Crystal",
+    "nameJp": "帝国の宰相",
+    "id": 111150100,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Ardyn",
+    "name": "Fearless Appearance",
+    "effect": "Attack turns in an ability (PHY: group, 1.00 physical Dark)",
+    "unlockCriteria": "Use Ardyn's Memory Crystal II, chance to obtain with Ardyn in party",
+    "nameJp": "不敵な佇まい",
+    "id": 111150101,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Ardyn",
+    "name": "Odd Stranger",
+    "effect": "Restores HP for 100% of the user's maximum HP when HP fall below 10%",
+    "unlockCriteria": "Bring Ardyn to level 99",
+    "nameJp": "神出鬼没な奇人",
+    "id": 111150102,
+    "gl": false
   },
   {
     "realm": "FFT",

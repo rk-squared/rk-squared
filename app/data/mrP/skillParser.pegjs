@@ -320,7 +320,7 @@ HpAttack
 // Healing
 
 Revive
-  = "removes"i _ "KO" _ "(" percentHp:Integer "%" _ "HP)" _ who:Who? {
+  = "removes"i _ "KO" _ "[Raise" _ percentHp:Integer "%]" _ who:Who? {
     const result = {
       type: 'revive',
       percentHp,
@@ -497,10 +497,9 @@ StatusClause
   }
 
 // Special case: Some Imperil soul breaks omit "causes".  See Climhazzard Xeno,
-// Ragnarok Buster, Whirling Lance.  Some atypical stat modifiers, like
-// Rikku's record board ability or Passionate Salsa, do as well.
+// Ragnarok Buster, Whirling Lance.
 ImplicitStatusEffect
-  = & ("Imperil" / (StatModDuration1 _)? Stat) statuses:StatusList {
+  = & "[Imperil" statuses:StatusList {
     return { type: 'status', verb: 'causes', statuses };
   }
 
@@ -527,7 +526,7 @@ StatusItem
 // Stat mods
 
 StatMod
-  = stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' ! (_ StatModDuration2) statModClauses:StatModClause* {
+  = "[" stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' ! (_ StatModDuration) "]" statModClauses:StatModClause* {
     const result = {
       type: 'statMod',
       stats,
@@ -715,23 +714,11 @@ StatusVerb
   }
 
 StatusName "status effect"
-  = (
-    StatModStatusName ("/" StatModStatusName)*
-  / GenericName
-  / "?"
-  ) {
-    return text();
-  }
+  = "[" name:[^\]]+ "]" { return name.join(''); }
+  / "?" { return text(); }
 
-// Stat mods in particular have a distinctive format.
-StatModStatusName
-  = (StatModDuration1 _)? ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' (_ StatModDuration2)?
-
-StatModDuration1
-  = "Short" / "Medium" / "Long"
-
-StatModDuration2
-  = StatModDuration1 / _ "(" Integer "s)"
+StatModDuration
+  = _ "(" Integer "s)"
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName

@@ -1710,6 +1710,96 @@
     "gl": false
   },
   {
+    "name": "Zanoku Shard (Dark)",
+    "realm": null,
+    "type": "Dagger",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 285,
+      "def": 0,
+      "mag": 285,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 206,
+      "def": null,
+      "mag": 206,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 285,
+      "def": null,
+      "mag": 285,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21201206,
+    "gl": false
+  },
+  {
+    "name": "Zanoku Shard (Holy)",
+    "realm": null,
+    "type": "Dagger",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 285,
+      "def": 0,
+      "mag": 285,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 206,
+      "def": null,
+      "mag": 206,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 285,
+      "def": null,
+      "mag": 285,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21201205,
+    "gl": false
+  },
+  {
     "name": "Danjuro",
     "realm": "II",
     "type": "Dagger",
@@ -1907,7 +1997,7 @@
     },
     "effect": "Fire damage +20%",
     "character": "Ignis",
-    "soulBreak": "Sageflare",
+    "soulBreak": "Sage's Hellfire",
     "legendMateria": null,
     "baseStats": {
       "rarity": 7,
@@ -1932,7 +2022,7 @@
       "eva": null
     },
     "id": 21001182,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mythril Daggers",
@@ -1952,7 +2042,7 @@
     },
     "effect": "Holy damage +20%",
     "character": "Rem",
-    "soulBreak": "Saintly Salvo",
+    "soulBreak": "Saintly Huntcraft",
     "legendMateria": null,
     "baseStats": {
       "rarity": 7,
@@ -1977,7 +2067,7 @@
       "eva": null
     },
     "id": 21001161,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Zwillblades",
@@ -2250,6 +2340,51 @@
     "gl": false
   },
   {
+    "name": "Valiant Knife",
+    "realm": "I",
+    "type": "Dagger",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 170,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Wind damage +20%",
+    "character": "Thief (I)",
+    "soulBreak": "Lively Thieves",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 124,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 188,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21001195,
+    "gl": false
+  },
+  {
     "name": "Zwill Crossblade",
     "realm": "II",
     "type": "Dagger",
@@ -2337,7 +2472,7 @@
       "eva": null
     },
     "id": 21001160,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Assassin Dagger",
@@ -2762,7 +2897,7 @@
     },
     "effect": null,
     "character": "Bartz",
-    "soulBreak": "Essence of the Four",
+    "soulBreak": "Quest of the Four",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -2787,7 +2922,7 @@
       "eva": null
     },
     "id": 21001156,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Adamant Knife",
@@ -3510,6 +3645,51 @@
     "gl": true
   },
   {
+    "name": "Dancing Dagger",
+    "realm": "XII",
+    "type": "Dagger",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 171,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Vaan",
+    "soulBreak": "Winds of Freedom",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 125,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 189,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21001175,
+    "gl": false
+  },
+  {
     "name": "Yukimitsu",
     "realm": "XIV",
     "type": "Dagger",
@@ -3662,7 +3842,7 @@
     },
     "effect": "Fire damage +20%",
     "character": "Ignis",
-    "soulBreak": "Burn Enhancement",
+    "soulBreak": "Flameboost Bite",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -3687,7 +3867,7 @@
       "eva": null
     },
     "id": 21001141,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Orichalcum Dirk",
@@ -3977,7 +4157,7 @@
     },
     "effect": null,
     "character": "Rem",
-    "soulBreak": "Resilient Wish",
+    "soulBreak": "Tenacious Stand",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -4002,7 +4182,7 @@
       "eva": null
     },
     "id": 21001163,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ripper",
@@ -4857,7 +5037,7 @@
       "eva": null
     },
     "id": 21001093,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Lust Dagger",
@@ -10260,6 +10440,141 @@
     "gl": false
   },
   {
+    "name": "Lightbringer",
+    "realm": "I",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": "Warrior of Light",
+    "soulBreak": "Eternal Sword",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002515,
+    "gl": false
+  },
+  {
+    "name": "Cross Claymore",
+    "realm": "I",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Garland",
+    "soulBreak": "Ultimate Soul of Chaos",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002617,
+    "gl": false
+  },
+  {
+    "name": "Break Blade",
+    "realm": "I",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Garland",
+    "soulBreak": "Tenebrous Rebirth",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002644,
+    "gl": false
+  },
+  {
     "name": "Save the Queen",
     "realm": "III",
     "type": "Sword",
@@ -10395,6 +10710,51 @@
     "gl": true
   },
   {
+    "name": "Durandal",
+    "realm": "IV",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 192,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 190,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": "Cecil (Paladin)",
+    "soulBreak": "Soul Shift",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 133,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 131,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 212,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 210,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002619,
+    "gl": false
+  },
+  {
     "name": "Mirage Sword",
     "realm": "V",
     "type": "Sword",
@@ -10412,7 +10772,7 @@
     },
     "effect": "Wind damage +20%",
     "character": "Bartz",
-    "soulBreak": "Bonds of the Wind",
+    "soulBreak": "Ethereal Bond",
     "legendMateria": null,
     "baseStats": {
       "rarity": 7,
@@ -10437,7 +10797,7 @@
       "eva": null
     },
     "id": 21002584,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Elemental Bringer",
@@ -10592,7 +10952,7 @@
     },
     "effect": "Wind damage +20%",
     "character": "Terra",
-    "soulBreak": "Two Worlds as One",
+    "soulBreak": "Half-Esper Might",
     "legendMateria": null,
     "baseStats": {
       "rarity": 7,
@@ -10617,7 +10977,7 @@
       "eva": null
     },
     "id": 21002410,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mythical Sword",
@@ -10662,6 +11022,51 @@
       "eva": null
     },
     "id": 21002555,
+    "gl": false
+  },
+  {
+    "name": "Hauteclaire",
+    "realm": "VI",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Ice damage +20%",
+    "character": "Celes",
+    "soulBreak": "Supreme Spinning Edge",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002616,
     "gl": false
   },
   {
@@ -10935,6 +11340,51 @@
     "gl": false
   },
   {
+    "name": "Deathbringer",
+    "realm": "VIII",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Seifer",
+    "soulBreak": "Forbidden: No Mercy",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002611,
+    "gl": false
+  },
+  {
     "name": "Save the Queen II",
     "realm": "IX",
     "type": "Sword",
@@ -11205,6 +11655,96 @@
     "gl": false
   },
   {
+    "name": "Lustrous Sword",
+    "realm": "XII",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 136,
+      "def": 0,
+      "mag": 204,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Lightning damage +20%",
+    "character": "Ashe",
+    "soulBreak": "Maelstrom's Soaring Bolt",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 92,
+      "def": null,
+      "mag": 144,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 150,
+      "def": null,
+      "mag": 224,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002632,
+    "gl": false
+  },
+  {
+    "name": "Rudra Tulwar",
+    "realm": "XII",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Wind damage +20%",
+    "character": "Vaan",
+    "soulBreak": "Deep Impact",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002631,
+    "gl": false
+  },
+  {
     "name": "Femme Fatale",
     "realm": "XIII",
     "type": "Sword",
@@ -11292,6 +11832,141 @@
       "eva": null
     },
     "id": 21002602,
+    "gl": false
+  },
+  {
+    "name": "Durandal",
+    "realm": "XIII",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Lightning damage +20%",
+    "character": "Lightning",
+    "soulBreak": "Zantetsuken",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002593,
+    "gl": false
+  },
+  {
+    "name": "Brass Falcon",
+    "realm": "XIII",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": "Lightning",
+    "soulBreak": "Batallion of One",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002536,
+    "gl": false
+  },
+  {
+    "name": "Catastrophe Blade",
+    "realm": "XIII",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Ice damage +20%",
+    "character": "Noel",
+    "soulBreak": "Memories for the Future",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002556,
     "gl": false
   },
   {
@@ -11385,6 +12060,51 @@
     "gl": false
   },
   {
+    "name": "Rakshasa Blade",
+    "realm": "XV",
+    "type": "Sword",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Ardyn",
+    "soulBreak": "Tenebrous Armiger",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002638,
+    "gl": false
+  },
+  {
     "name": "Thunder God's Arch Sword",
     "realm": "FFT",
     "type": "Sword",
@@ -11427,7 +12147,7 @@
       "eva": null
     },
     "id": 21002563,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Arondight",
@@ -11472,7 +12192,7 @@
       "eva": null
     },
     "id": 21002564,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Corkscrew Rapiers",
@@ -12285,6 +13005,51 @@
     "gl": true
   },
   {
+    "name": "Balmung",
+    "realm": "I",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Garland",
+    "soulBreak": "Endark (Garland)",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002376,
+    "gl": false
+  },
+  {
     "name": "Ragnarok",
     "realm": "II",
     "type": "Sword",
@@ -12642,7 +13407,7 @@
       "eva": null
     },
     "id": 21002414,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Onion Blade",
@@ -14130,6 +14895,51 @@
     "gl": true
   },
   {
+    "name": "Force Stealer",
+    "realm": "V",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Fire damage +20%",
+    "character": "Bartz",
+    "soulBreak": "Rousing Fire",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002615,
+    "gl": false
+  },
+  {
     "name": "Blood Sword",
     "realm": "VI",
     "type": "Sword",
@@ -14892,6 +15702,96 @@
       "eva": null
     },
     "id": 21002408,
+    "gl": false
+  },
+  {
+    "name": "Wildfire Saber",
+    "realm": "VI",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 120,
+      "def": 0,
+      "mag": 172,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Fire damage +20%",
+    "character": "Terra",
+    "soulBreak": "Enfire (Terra)",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 83,
+      "def": null,
+      "mag": 127,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 135,
+      "def": null,
+      "mag": 190,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002500,
+    "gl": false
+  },
+  {
+    "name": "Hoarfrost Saber",
+    "realm": "VI",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Celes",
+    "soulBreak": "Invincible General's Blade",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002501,
     "gl": false
   },
   {
@@ -16380,7 +17280,7 @@
     "gl": true
   },
   {
-    "name": "Dragonheart",
+    "name": "Dragon's Heart",
     "realm": "VIII",
     "type": "Sword",
     "rarity": 6,
@@ -16397,7 +17297,7 @@
     },
     "effect": "Fire damage +20%",
     "character": "Squall",
-    "soulBreak": "Fatal Flames",
+    "soulBreak": "End of Flame",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -16422,7 +17322,7 @@
       "eva": null
     },
     "id": 21002456,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rune Tooth",
@@ -17910,6 +18810,51 @@
     "gl": true
   },
   {
+    "name": "Macuahuitl",
+    "realm": "XI",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Curilla",
+    "soulBreak": "Prayer to Altana",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002633,
+    "gl": false
+  },
+  {
     "name": "Durandal",
     "realm": "XII",
     "type": "Sword",
@@ -19167,7 +20112,7 @@
       "eva": null
     },
     "id": 21002498,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Excalibur Zeta",
@@ -19347,6 +20292,96 @@
       "eva": null
     },
     "id": 21002552,
+    "gl": false
+  },
+  {
+    "name": "Murgleis",
+    "realm": "XIV",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 174,
+      "res": 0,
+      "mnd": 140,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Alisaie",
+    "soulBreak": "Carvers of the Path",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 129,
+      "res": null,
+      "mnd": 96,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 192,
+      "res": null,
+      "mnd": 158,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002642,
+    "gl": false
+  },
+  {
+    "name": "Sword of the Twin Thegns",
+    "realm": "XIV",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 94,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": "Minfilia",
+    "soulBreak": "Word of the Mother",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 63,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 106,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002640,
     "gl": false
   },
   {
@@ -19708,6 +20743,51 @@
     },
     "id": 21002322,
     "gl": true
+  },
+  {
+    "name": "Mutant Sword of the Wise",
+    "realm": "XV",
+    "type": "Sword",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Ardyn",
+    "soulBreak": "Dark Aura (XV)",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21002639,
+    "gl": false
   },
   {
     "name": "Saintly Excalibur",
@@ -20382,7 +21462,7 @@
       "eva": null
     },
     "id": 21002565,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Hardedge",
@@ -20427,7 +21507,7 @@
       "eva": null
     },
     "id": 21002567,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Shadow Blade",
@@ -20472,7 +21552,7 @@
       "eva": null
     },
     "id": 21002566,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Argentic Rapiers",
@@ -32777,7 +33857,7 @@
     },
     "effect": "Dark damage +20%",
     "character": "Sephiroth",
-    "soulBreak": "Tenma Hajun",
+    "soulBreak": "Demonic Lord",
     "legendMateria": null,
     "baseStats": {
       "rarity": 7,
@@ -32802,7 +33882,7 @@
       "eva": null
     },
     "id": 21003131,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Fire Blade",
@@ -39105,6 +40185,51 @@
     "gl": true
   },
   {
+    "name": "Mutant Axe of the Conqueror",
+    "realm": "XV",
+    "type": "Axe",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Ardyn",
+    "soulBreak": "Fallen King",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21004074,
+    "gl": false
+  },
+  {
     "name": "Giant's Axe",
     "realm": "FFT",
     "type": "Axe",
@@ -42297,7 +43422,7 @@
       "eva": null
     },
     "id": 21005052,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mighty Hammer",
@@ -44280,6 +45405,96 @@
     "gl": false
   },
   {
+    "name": "Wyrmshade Gae Bolg",
+    "realm": "XIV",
+    "type": "Spear",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Wind damage +20%",
+    "character": "Estinien",
+    "soulBreak": "Dark Dragoon Dive",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21006168,
+    "gl": false
+  },
+  {
+    "name": "Obelisk",
+    "realm": "I",
+    "type": "Spear",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Garland",
+    "soulBreak": "Obsession",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21006132,
+    "gl": false
+  },
+  {
     "name": "Trident",
     "realm": "II",
     "type": "Spear",
@@ -44547,7 +45762,7 @@
       "eva": null
     },
     "id": 21006165,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Wyvern's Lance",
@@ -44683,6 +45898,51 @@
     },
     "id": 21006142,
     "gl": true
+  },
+  {
+    "name": "Magic Lance",
+    "realm": "III",
+    "type": "Spear",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 180,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Wind damage +20%",
+    "character": "Luneth",
+    "soulBreak": "Cloudsoaring Warrior",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 198,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21006164,
+    "gl": false
   },
   {
     "name": "Longinus",
@@ -46438,6 +47698,96 @@
     },
     "id": 21006108,
     "gl": true
+  },
+  {
+    "name": "Shire Halberd",
+    "realm": "XIV",
+    "type": "Spear",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Estinien",
+    "soulBreak": null,
+    "legendMateria": "Enable (Estinien)",
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21006190,
+    "gl": false
+  },
+  {
+    "name": "Rhongomiant",
+    "realm": "XIV",
+    "type": "Spear",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 181,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Estinien",
+    "soulBreak": "Crimson Dragoon",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 135,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 199,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21006169,
+    "gl": false
   },
   {
     "name": "Stoss Spear",
@@ -51570,6 +52920,186 @@
     "gl": false
   },
   {
+    "name": "Stickyfingers",
+    "realm": "VII",
+    "type": "Fist",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Tifa",
+    "soulBreak": "Limit Combo",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007243,
+    "gl": false
+  },
+  {
+    "name": "Battle Freak",
+    "realm": "VII",
+    "type": "Fist",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Earth damage +20%",
+    "character": "Tifa",
+    "soulBreak": "Final Heaven",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007244,
+    "gl": false
+  },
+  {
+    "name": "Tit-for-Tat",
+    "realm": "XIII",
+    "type": "Fist",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 136,
+      "def": 0,
+      "mag": 204,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Cid Raines",
+    "soulBreak": "Destined End",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 92,
+      "def": null,
+      "mag": 144,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 150,
+      "def": null,
+      "mag": 224,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007221,
+    "gl": false
+  },
+  {
+    "name": "Crystal Guard",
+    "realm": "XIII",
+    "type": "Fist",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 209,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Ice damage +20%",
+    "character": "Snow",
+    "soulBreak": "Icebound Promise",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 149,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 229,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007224,
+    "gl": false
+  },
+  {
     "name": "Spectre Claw",
     "realm": "X",
     "type": "Fist",
@@ -51882,7 +53412,7 @@
       "eva": null
     },
     "id": 21007184,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Winter's Claw",
@@ -51927,7 +53457,7 @@
       "eva": null
     },
     "id": 21007190,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Metal Knuckles",
@@ -54627,6 +56157,96 @@
       "eva": null
     },
     "id": 21007225,
+    "gl": false
+  },
+  {
+    "name": "Hellish Talon",
+    "realm": "XIII",
+    "type": "Fist",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 122,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Cid Raines",
+    "soulBreak": "Seraphic Shift",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 91,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 134,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007187,
+    "gl": false
+  },
+  {
+    "name": "Rune Claw",
+    "realm": "XIII",
+    "type": "Fist",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 122,
+      "def": 0,
+      "mag": 173,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Cid Raines",
+    "soulBreak": null,
+    "legendMateria": "Swiftness (Cid Raines)",
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 91,
+      "def": null,
+      "mag": 128,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 134,
+      "def": null,
+      "mag": 191,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21007186,
     "gl": false
   },
   {
@@ -60795,6 +62415,96 @@
     "gl": true
   },
   {
+    "name": "Moogle Brush",
+    "realm": "VI",
+    "type": "Rod",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 85,
+      "def": 0,
+      "mag": 145,
+      "res": 0,
+      "mnd": 208,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Relm",
+    "soulBreak": "Galactic Prism",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 53,
+      "def": null,
+      "mag": 92,
+      "res": null,
+      "mnd": 148,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 96,
+      "def": null,
+      "mag": 163,
+      "res": null,
+      "mnd": 228,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008319,
+    "gl": false
+  },
+  {
+    "name": "Demon's Rod",
+    "realm": "VI",
+    "type": "Rod",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 85,
+      "def": 0,
+      "mag": 204,
+      "res": 0,
+      "mnd": 90,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Kefka",
+    "soulBreak": "Apocalypse Zero",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 53,
+      "def": null,
+      "mag": 144,
+      "res": null,
+      "mnd": 62,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 96,
+      "def": null,
+      "mag": 224,
+      "res": null,
+      "mnd": 99,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008244,
+    "gl": false
+  },
+  {
     "name": "Stardust Rod",
     "realm": "VII",
     "type": "Rod",
@@ -61200,6 +62910,51 @@
     "gl": false
   },
   {
+    "name": "Nirvana",
+    "realm": "XIII",
+    "type": "Rod",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 85,
+      "def": 0,
+      "mag": 145,
+      "res": 0,
+      "mnd": 207,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Holy damage +20%",
+    "character": "Vanille",
+    "soulBreak": "Summon Hecatoncheir",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 53,
+      "def": null,
+      "mag": 92,
+      "res": null,
+      "mnd": 147,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 96,
+      "def": null,
+      "mag": 163,
+      "res": null,
+      "mnd": 227,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21008282,
+    "gl": false
+  },
+  {
     "name": "Femme Fatale",
     "realm": "I",
     "type": "Rod",
@@ -61602,7 +63357,7 @@
       "eva": null
     },
     "id": 21008258,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Prism Rod",
@@ -65177,7 +66932,7 @@
     },
     "effect": null,
     "character": "Ysayle",
-    "soulBreak": "White Out",
+    "soulBreak": "Whiteout",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -65202,7 +66957,7 @@
       "eva": null
     },
     "id": 21008299,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rod of the Black Khan",
@@ -65247,7 +67002,7 @@
       "eva": null
     },
     "id": 21008316,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Hvergelmir",
@@ -65292,7 +67047,7 @@
       "eva": null
     },
     "id": 21008298,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Trident of the Oracle",
@@ -71478,7 +73233,7 @@
     "effect": null,
     "character": "Papalymo",
     "soulBreak": null,
-    "legendMateria": "Witty Lalafell",
+    "legendMateria": "Sharp-Tongued Lalafell",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -71502,7 +73257,7 @@
       "eva": null
     },
     "id": 21008317,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ice Rod",
@@ -73890,6 +75645,51 @@
     "gl": false
   },
   {
+    "name": "Thorned Mace",
+    "realm": "III",
+    "type": "Staff",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 85,
+      "def": 0,
+      "mag": 204,
+      "res": 0,
+      "mnd": 90,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Cloud of Darkness",
+    "soulBreak": "Mirage Particle Beam",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 53,
+      "def": null,
+      "mag": 144,
+      "res": null,
+      "mnd": 62,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 96,
+      "def": null,
+      "mag": 224,
+      "res": null,
+      "mnd": 99,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009195,
+    "gl": false
+  },
+  {
     "name": "Necromancer's Cane",
     "realm": "V",
     "type": "Staff",
@@ -74025,6 +75825,51 @@
     "gl": true
   },
   {
+    "name": "Arc Arcana",
+    "realm": "IX",
+    "type": "Staff",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 85,
+      "def": 0,
+      "mag": 204,
+      "res": 0,
+      "mnd": 90,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Fire damage +20%",
+    "character": "Vivi",
+    "soulBreak": "Incandescent Flame",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 53,
+      "def": null,
+      "mag": 144,
+      "res": null,
+      "mnd": 62,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 96,
+      "def": null,
+      "mag": 224,
+      "res": null,
+      "mnd": 99,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009204,
+    "gl": false
+  },
+  {
     "name": "Rune Staff",
     "realm": "XI",
     "type": "Staff",
@@ -74112,6 +75957,51 @@
       "eva": null
     },
     "id": 21009137,
+    "gl": false
+  },
+  {
+    "name": "Dominion Mace",
+    "realm": "XI",
+    "type": "Staff",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 85,
+      "def": 0,
+      "mag": 145,
+      "res": 0,
+      "mnd": 208,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Aphmau",
+    "soulBreak": "Automaton Band",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 53,
+      "def": null,
+      "mag": 92,
+      "res": null,
+      "mnd": 148,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 96,
+      "def": null,
+      "mag": 163,
+      "res": null,
+      "mnd": 228,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009206,
     "gl": false
   },
   {
@@ -74517,7 +76407,7 @@
       "eva": null
     },
     "id": 21009176,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Sage Staff",
@@ -75103,6 +76993,141 @@
     },
     "id": 21009178,
     "gl": true
+  },
+  {
+    "name": "Master's Staff",
+    "realm": "III",
+    "type": "Staff",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 130,
+      "res": 0,
+      "mnd": 176,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Water damage +20%",
+    "character": "Arc",
+    "soulBreak": "Grace of Water",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 86,
+      "res": null,
+      "mnd": 132,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 148,
+      "res": null,
+      "mnd": 194,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009194,
+    "gl": false
+  },
+  {
+    "name": "Rune Staff",
+    "realm": "III",
+    "type": "Staff",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 130,
+      "res": 0,
+      "mnd": 177,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Arc",
+    "soulBreak": "Illuminating the World",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 86,
+      "res": null,
+      "mnd": 133,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 148,
+      "res": null,
+      "mnd": 195,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009193,
+    "gl": false
+  },
+  {
+    "name": "Cloud Staff",
+    "realm": "III",
+    "type": "Staff",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 77,
+      "def": 0,
+      "mag": 174,
+      "res": 0,
+      "mnd": 81,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Cloud of Darkness",
+    "soulBreak": "Particle Shroud",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 50,
+      "def": null,
+      "mag": 129,
+      "res": null,
+      "mnd": 58,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 87,
+      "def": null,
+      "mag": 192,
+      "res": null,
+      "mnd": 90,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21009164,
+    "gl": false
   },
   {
     "name": "Mage's Staff",
@@ -76947,7 +78972,7 @@
       "eva": null
     },
     "id": 21009184,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Cheer Staff",
@@ -76992,7 +79017,7 @@
       "eva": null
     },
     "id": 21009183,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Million Terrors",
@@ -77397,7 +79422,7 @@
       "eva": null
     },
     "id": 21009175,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Healing Staff",
@@ -82392,6 +84417,51 @@
       "eva": null
     },
     "id": 21010070,
+    "gl": true
+  },
+  {
+    "name": "Rune Bow",
+    "realm": "V",
+    "type": "Bow",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 194,
+      "def": 0,
+      "mag": 39,
+      "res": 0,
+      "mnd": 39,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Wind damage +20%",
+    "character": "Faris",
+    "soulBreak": "Irreplaceable Friends",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 134,
+      "def": null,
+      "mag": 22,
+      "res": null,
+      "mnd": 22,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 214,
+      "def": null,
+      "mag": 44,
+      "res": null,
+      "mnd": 44,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21010098,
     "gl": false
   },
   {
@@ -82437,7 +84507,7 @@
       "eva": null
     },
     "id": 21010086,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Reincarnation",
@@ -82662,7 +84732,7 @@
       "eva": null
     },
     "id": 21010088,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Fairy's Bow",
@@ -82707,7 +84777,7 @@
       "eva": null
     },
     "id": 21010065,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Selene Bow",
@@ -83562,7 +85632,7 @@
       "eva": null
     },
     "id": 21010087,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rune Feather",
@@ -83607,6 +85677,51 @@
       "eva": null
     },
     "id": 21010073,
+    "gl": true
+  },
+  {
+    "name": "Mutant Bow of the Clever",
+    "realm": "XV",
+    "type": "Bow",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 165,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Ardyn",
+    "soulBreak": "Fallen King's Vengeance",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 119,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 183,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21010107,
     "gl": false
   },
   {
@@ -86580,6 +88695,51 @@
     "gl": true
   },
   {
+    "name": "Guardian Flute",
+    "realm": "I",
+    "type": "Instrument",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 124,
+      "def": 0,
+      "mag": 151,
+      "res": 0,
+      "mnd": 208,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Sarah",
+    "soulBreak": "Princess's Far-Reaching Prayer",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 91,
+      "def": null,
+      "mag": 98,
+      "res": null,
+      "mnd": 148,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 135,
+      "def": null,
+      "mag": 169,
+      "res": null,
+      "mnd": 228,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21011069,
+    "gl": false
+  },
+  {
     "name": "Muse Harp",
     "realm": "II",
     "type": "Instrument",
@@ -86622,6 +88782,96 @@
       "eva": null
     },
     "id": 21011075,
+    "gl": false
+  },
+  {
+    "name": "Mermaid Harp",
+    "realm": "III",
+    "type": "Instrument",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 124,
+      "def": 0,
+      "mag": 151,
+      "res": 0,
+      "mnd": 208,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Aria",
+    "soulBreak": "Transient Maiden",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 91,
+      "def": null,
+      "mag": 98,
+      "res": null,
+      "mnd": 148,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 135,
+      "def": null,
+      "mag": 169,
+      "res": null,
+      "mnd": 228,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21011079,
+    "gl": false
+  },
+  {
+    "name": "Loki's Harp",
+    "realm": "VI",
+    "type": "Instrument",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 124,
+      "def": 0,
+      "mag": 204,
+      "res": 0,
+      "mnd": 87,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Kefka",
+    "soulBreak": "Fall from Grace",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 91,
+      "def": null,
+      "mag": 144,
+      "res": null,
+      "mnd": 59,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 135,
+      "def": null,
+      "mag": 224,
+      "res": null,
+      "mnd": 96,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21011078,
     "gl": false
   },
   {
@@ -86892,7 +89142,7 @@
       "eva": null
     },
     "id": 21011063,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Rune Bell",
@@ -87387,6 +89637,51 @@
       "eva": null
     },
     "id": 21011077,
+    "gl": false
+  },
+  {
+    "name": "Fairy Flute",
+    "realm": "VI",
+    "type": "Instrument",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 115,
+      "def": 0,
+      "mag": 135,
+      "res": 0,
+      "mnd": 177,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Mog",
+    "soulBreak": "Dancing for Everyone",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 88,
+      "def": null,
+      "mag": 91,
+      "res": null,
+      "mnd": 133,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 126,
+      "def": null,
+      "mag": 153,
+      "res": null,
+      "mnd": 195,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21011054,
     "gl": false
   },
   {
@@ -90178,6 +92473,51 @@
     },
     "id": 21212029,
     "gl": true
+  },
+  {
+    "name": "Voracious Tentacles",
+    "realm": "III",
+    "type": "Whip",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 124,
+      "def": 0,
+      "mag": 204,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Dark damage +20%",
+    "character": "Cloud of Darkness",
+    "soulBreak": "Scattershot Particle Beam",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 91,
+      "def": null,
+      "mag": 144,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 135,
+      "def": null,
+      "mag": 224,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21012053,
+    "gl": false
   },
   {
     "name": "Gaia Whip",
@@ -93285,6 +95625,51 @@
     "gl": false
   },
   {
+    "name": "Valkyrie",
+    "realm": "VII",
+    "type": "Thrown",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 194,
+      "def": 0,
+      "mag": 111,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Water damage +20%",
+    "character": "Yuffie",
+    "soulBreak": "Freewheeling Darkmoon Splash",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 134,
+      "def": null,
+      "mag": 67,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 214,
+      "def": null,
+      "mag": 125,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21013159,
+    "gl": false
+  },
+  {
     "name": "Owl of the Forest",
     "realm": "VIII",
     "type": "Thrown",
@@ -93417,6 +95802,51 @@
       "eva": null
     },
     "id": 21013098,
+    "gl": false
+  },
+  {
+    "name": "Slactuar Plushie",
+    "realm": "XV",
+    "type": "Thrown",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 124,
+      "def": 0,
+      "mag": 38,
+      "res": 0,
+      "mnd": 208,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Iris",
+    "soulBreak": "Support Mega-Potion",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 91,
+      "def": null,
+      "mag": 20,
+      "res": null,
+      "mnd": 148,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 135,
+      "def": null,
+      "mag": 43,
+      "res": null,
+      "mnd": 228,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21013158,
     "gl": false
   },
   {
@@ -95623,6 +98053,51 @@
     },
     "id": 21013071,
     "gl": true
+  },
+  {
+    "name": "Magic Flask",
+    "realm": "XV",
+    "type": "Thrown",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 164,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Fire damage +20%",
+    "character": "Ignis",
+    "soulBreak": "Strategic Flair",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 118,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 182,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21013157,
+    "gl": false
   },
   {
     "name": "Arcane Deck",
@@ -100080,6 +102555,51 @@
     "gl": false
   },
   {
+    "name": "Valiant",
+    "realm": "XV",
+    "type": "Gun",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 194,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": "Lightning damage +20%",
+    "character": "Prompto",
+    "soulBreak": "Trigger Miracle",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 134,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 214,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21015126,
+    "gl": false
+  },
+  {
     "name": "Erinyes' Pistol",
     "realm": "Type-0",
     "type": "Gun",
@@ -101025,7 +103545,7 @@
     "gl": true
   },
   {
-    "name": "Alchemist Y",
+    "name": "Alchemist Yuna",
     "realm": "X",
     "type": "Gun",
     "rarity": 6,
@@ -101042,7 +103562,7 @@
     },
     "effect": null,
     "character": "Yuna",
-    "soulBreak": "Ballad of Dreams",
+    "soulBreak": "Fanciful Ballad",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -101067,7 +103587,7 @@
       "eva": null
     },
     "id": 21015049,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Arcturus",
@@ -101563,6 +104083,51 @@
     },
     "id": 21015108,
     "gl": true
+  },
+  {
+    "name": "Circular Saw",
+    "realm": "XV",
+    "type": "Gun",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 165,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "effect": null,
+    "character": "Prompto",
+    "soulBreak": "Party Shot",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 119,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 183,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21015127,
+    "gl": false
   },
   {
     "name": "Blaze Gun",
@@ -104307,7 +106872,7 @@
       "eva": null
     },
     "id": 21014031,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Magika Animus",
@@ -104352,7 +106917,7 @@
       "eva": null
     },
     "id": 21014032,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Anabasis",
@@ -104847,7 +107412,7 @@
       "eva": null
     },
     "id": 21014030,
-    "gl": false
+    "gl": true
   },
   {
     "name": "True Sentinel's Grimoire",
@@ -104867,7 +107432,7 @@
     },
     "effect": null,
     "character": "Tyro",
-    "soulBreak": "Last Sentinel's Grimoire",
+    "soulBreak": "True Sentinel's Grimoire",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -109122,7 +111687,7 @@
       "eva": 112
     },
     "id": 22050129,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Shield of the Just",
@@ -109212,7 +111777,7 @@
       "eva": 112
     },
     "id": 22050126,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Lustrous Shield",
@@ -109302,7 +111867,7 @@
       "eva": 112
     },
     "id": 22050110,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Wyvern's Shield",
@@ -110205,6 +112770,51 @@
     "gl": false
   },
   {
+    "name": "Shield of the Twin Thegns",
+    "realm": "XIV",
+    "type": "Shield",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 178,
+      "mag": 0,
+      "res": 118,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 112
+    },
+    "effect": null,
+    "character": "Minfilia",
+    "soulBreak": "Acquired Oath",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 143,
+      "mag": null,
+      "res": 94,
+      "mnd": 10,
+      "acc": null,
+      "eva": 112
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 192,
+      "mag": null,
+      "res": 128,
+      "mnd": 22,
+      "acc": null,
+      "eva": 112
+    },
+    "id": 22050143,
+    "gl": false
+  },
+  {
     "name": "Magitek Shield",
     "realm": "XV",
     "type": "Shield",
@@ -111057,7 +113667,7 @@
       "eva": 112
     },
     "id": 22050084,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Heroic Shield",
@@ -113307,7 +115917,7 @@
       "eva": 112
     },
     "id": 22050125,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ruby Shield",
@@ -114210,6 +116820,51 @@
     "gl": true
   },
   {
+    "name": " Feathered Cap",
+    "realm": "I",
+    "type": "Hat",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 112,
+      "mag": 35,
+      "res": 165,
+      "mnd": 44,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Sarah",
+    "soulBreak": "Song of Origins",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 90,
+      "mag": 25,
+      "res": 126,
+      "mnd": 34,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 121,
+      "mag": 38,
+      "res": 181,
+      "mnd": 47,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22051085,
+    "gl": false
+  },
+  {
     "name": "Firion's Bandana",
     "realm": "II",
     "type": "Hat",
@@ -114343,6 +116998,51 @@
     },
     "id": 22051187,
     "gl": true
+  },
+  {
+    "name": "Lambent Hat",
+    "realm": "III",
+    "type": "Hat",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 112,
+      "mag": 35,
+      "res": 165,
+      "mnd": 44,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Arc",
+    "soulBreak": "Seaglow Paean",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 90,
+      "mag": 25,
+      "res": 126,
+      "mnd": 34,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 121,
+      "mag": 38,
+      "res": 181,
+      "mnd": 47,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22051236,
+    "gl": false
   },
   {
     "name": "Cat-Ear Hood",
@@ -114587,7 +117287,7 @@
     },
     "effect": null,
     "character": "Lenna",
-    "soulBreak": "Two Princesses' Prayer",
+    "soulBreak": "Princesses' Prayer",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -114612,7 +117312,7 @@
       "eva": 105
     },
     "id": 22051148,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Astrakhan Hat",
@@ -114703,6 +117403,96 @@
     },
     "id": 22051154,
     "gl": true
+  },
+  {
+    "name": "Bewildering Headdress",
+    "realm": "VI",
+    "type": "Hat",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 112,
+      "mag": 45,
+      "res": 165,
+      "mnd": 34,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Kefka",
+    "soulBreak": "Clown's Sneer",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 90,
+      "mag": 35,
+      "res": 126,
+      "mnd": 24,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 121,
+      "mag": 48,
+      "res": 181,
+      "mnd": 37,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22051138,
+    "gl": false
+  },
+  {
+    "name": "Mage's Hat",
+    "realm": "VI",
+    "type": "Hat",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 112,
+      "mag": 35,
+      "res": 165,
+      "mnd": 44,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Mog",
+    "soulBreak": null,
+    "legendMateria": "Swiftness (Mog)",
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 90,
+      "mag": 25,
+      "res": 126,
+      "mnd": 34,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 121,
+      "mag": 38,
+      "res": 181,
+      "mnd": 47,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22051159,
+    "gl": false
   },
   {
     "name": "Thornlet",
@@ -115107,7 +117897,7 @@
       "eva": 105
     },
     "id": 22051195,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Hypno Crown",
@@ -115785,6 +118575,51 @@
     "gl": false
   },
   {
+    "name": "Ardyn's Hat",
+    "realm": "XV",
+    "type": "Hat",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 112,
+      "mag": 35,
+      "res": 165,
+      "mnd": 34,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Ardyn",
+    "soulBreak": null,
+    "legendMateria": "Ambush (Ardyn)",
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 90,
+      "mag": 25,
+      "res": 126,
+      "mnd": 24,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 121,
+      "mag": 38,
+      "res": 181,
+      "mnd": 37,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22051257,
+    "gl": false
+  },
+  {
     "name": "White Hat",
     "realm": "FFT",
     "type": "Hat",
@@ -115827,7 +118662,7 @@
       "eva": 105
     },
     "id": 22051233,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Brass Coronet",
@@ -122625,6 +125460,51 @@
     "gl": true
   },
   {
+    "name": "Barbut",
+    "realm": "VI",
+    "type": "Helm",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 153,
+      "mag": 0,
+      "res": 136,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Edgar",
+    "soulBreak": "Proper Manners",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 112,
+      "mag": null,
+      "res": 101,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 169,
+      "mag": null,
+      "res": 150,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22052058,
+    "gl": false
+  },
+  {
     "name": "Genji Helm (CC)",
     "realm": "VII",
     "type": "Helm",
@@ -122937,7 +125817,7 @@
       "eva": 105
     },
     "id": 22052069,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Cross Helm",
@@ -122982,7 +125862,7 @@
       "eva": 105
     },
     "id": 22052070,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Helm of Light",
@@ -125235,6 +128115,51 @@
     "gl": false
   },
   {
+    "name": "Black Garb",
+    "realm": "VII",
+    "type": "Light Armor",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 21,
+      "def": 176,
+      "mag": 0,
+      "res": 176,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Water damage +20%",
+    "character": "Yuffie",
+    "soulBreak": "Freewheeling Knife Throw",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 10,
+      "def": 123,
+      "mag": null,
+      "res": 123,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 24,
+      "def": 193,
+      "mag": null,
+      "res": 193,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053487,
+    "gl": false
+  },
+  {
     "name": "Camouflage AMP Coat",
     "realm": "XIII",
     "type": "Light Armor",
@@ -125415,6 +128340,96 @@
     "gl": true
   },
   {
+    "name": "Royal Raiment",
+    "realm": "XV",
+    "type": "Light Armor",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 21,
+      "def": 176,
+      "mag": 0,
+      "res": 176,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Earth damage +20%",
+    "character": "Noctis",
+    "soulBreak": "True Gladiolus Link",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 10,
+      "def": 123,
+      "mag": null,
+      "res": 123,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 24,
+      "def": 193,
+      "mag": null,
+      "res": 193,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053491,
+    "gl": false
+  },
+  {
+    "name": "Ardyn's Guise",
+    "realm": "XV",
+    "type": "Light Armor",
+    "rarity": 7,
+    "stats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 21,
+      "def": 176,
+      "mag": 0,
+      "res": 176,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Dark damage +20%",
+    "character": "Ardyn",
+    "soulBreak": "Mega Death",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": 10,
+      "def": 123,
+      "mag": null,
+      "res": 123,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 9,
+      "level": 40,
+      "atk": 24,
+      "def": 193,
+      "mag": null,
+      "res": 193,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053521,
+    "gl": false
+  },
+  {
     "name": "Keeper's Frock Coat",
     "realm": "Core",
     "type": "Light Armor",
@@ -125505,7 +128520,7 @@
     "gl": true
   },
   {
-    "name": "Dr. Mog's Swim Ring",
+    "name": "Dr. Mog's Floatie",
     "realm": "Core",
     "type": "Light Armor",
     "rarity": 6,
@@ -125522,7 +128537,7 @@
     },
     "effect": "Water damage +20%",
     "character": "Dr. Mog",
-    "soulBreak": "Surfing Moogle!",
+    "soulBreak": "Waverider Moogle",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -125547,7 +128562,7 @@
       "eva": 100
     },
     "id": 22053454,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Power Vest",
@@ -125955,6 +128970,51 @@
     "gl": false
   },
   {
+    "name": "Mirage Vest",
+    "realm": "I",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 152,
+      "mag": 0,
+      "res": 152,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Thief (I)",
+    "soulBreak": "Hollow Blast",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 111,
+      "mag": null,
+      "res": 111,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 168,
+      "mag": null,
+      "res": 168,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053526,
+    "gl": false
+  },
+  {
     "name": "Leon's Guise",
     "realm": "II",
     "type": "Light Armor",
@@ -126042,7 +129102,7 @@
       "eva": 100
     },
     "id": 22053378,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Jujitsu Gi",
@@ -126087,7 +129147,7 @@
       "eva": 100
     },
     "id": 22053433,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Power Vest",
@@ -127980,6 +131040,51 @@
     "gl": false
   },
   {
+    "name": "Battle Gear",
+    "realm": "VII",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 151,
+      "mag": 0,
+      "res": 151,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": "Water damage +20%",
+    "character": "Yuffie",
+    "soulBreak": "Freewheeling Camouflage",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 110,
+      "mag": null,
+      "res": 110,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 167,
+      "mag": null,
+      "res": 167,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053511,
+    "gl": false
+  },
+  {
     "name": "Ninja Gear",
     "realm": "VIII",
     "type": "Light Armor",
@@ -128115,6 +131220,51 @@
     "gl": false
   },
   {
+    "name": "Regal Gown",
+    "realm": "VIII",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 0,
+      "def": 152,
+      "mag": 19,
+      "res": 152,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Rinoa",
+    "soulBreak": "Angel Wing New Moon",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": 111,
+      "mag": 10,
+      "res": 111,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": 168,
+      "mag": 22,
+      "res": 168,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053460,
+    "gl": false
+  },
+  {
     "name": "Carmagnole",
     "realm": "IX",
     "type": "Light Armor",
@@ -128160,7 +131310,7 @@
     "gl": true
   },
   {
-    "name": "Gigas Chestplate",
+    "name": "Demon's Vest",
     "realm": "IX",
     "type": "Light Armor",
     "rarity": 6,
@@ -128177,7 +131327,7 @@
     },
     "effect": "Dark damage +20%",
     "character": "Kuja",
-    "soulBreak": "Silver Lining",
+    "soulBreak": "Cloudburst Blessing",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -129015,6 +132165,51 @@
     "gl": false
   },
   {
+    "name": "Restorer Cloak",
+    "realm": "XI",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 152,
+      "mag": 0,
+      "res": 152,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Aphmau",
+    "soulBreak": null,
+    "legendMateria": "Enable (Aphmau)",
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 111,
+      "mag": null,
+      "res": 111,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 168,
+      "mag": null,
+      "res": 168,
+      "mnd": 22,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053520,
+    "gl": false
+  },
+  {
     "name": "Hermes' Suit",
     "realm": "XII",
     "type": "Light Armor",
@@ -129732,7 +132927,7 @@
       "eva": 100
     },
     "id": 22053278,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Brigandine",
@@ -129797,7 +132992,7 @@
     },
     "effect": null,
     "character": "Lightning",
-    "soulBreak": "Warrior's Stance",
+    "soulBreak": "War God's Resolve",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -129822,7 +133017,7 @@
       "eva": 100
     },
     "id": 22053324,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Yusnaan Patron A",
@@ -129867,6 +133062,51 @@
       "eva": 100
     },
     "id": 22053242,
+    "gl": false
+  },
+  {
+    "name": "Heavy Coat",
+    "realm": "XIII",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 152,
+      "mag": 0,
+      "res": 152,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Sazh",
+    "soulBreak": "Seeking Purpose",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 111,
+      "mag": null,
+      "res": 111,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 168,
+      "mag": null,
+      "res": 168,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053527,
     "gl": false
   },
   {
@@ -130047,6 +133287,51 @@
       "eva": 100
     },
     "id": 22053495,
+    "gl": false
+  },
+  {
+    "name": "Midan Coat of Fending",
+    "realm": "XIV",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 152,
+      "mag": 0,
+      "res": 152,
+      "mnd": 19,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Minfilia",
+    "soulBreak": "Entrusted Wish",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 111,
+      "mag": null,
+      "res": 111,
+      "mnd": 10,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 168,
+      "mag": null,
+      "res": 168,
+      "mnd": 22,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053524,
     "gl": false
   },
   {
@@ -130365,6 +133650,51 @@
     "gl": true
   },
   {
+    "name": "Prompto's Guise",
+    "realm": "XV",
+    "type": "Light Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 152,
+      "mag": 0,
+      "res": 152,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "effect": null,
+    "character": "Prompto",
+    "soulBreak": "Trigger Sparks",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 111,
+      "mag": null,
+      "res": 111,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 168,
+      "mag": null,
+      "res": 168,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22053312,
+    "gl": false
+  },
+  {
     "name": "Gaia Gear",
     "realm": "FFT",
     "type": "Light Armor",
@@ -130542,7 +133872,7 @@
       "eva": 100
     },
     "id": 22053462,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ace's Summer Guise B",
@@ -139452,7 +142782,7 @@
       "eva": 100
     },
     "id": 22053119,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Serah's Guise",
@@ -139497,7 +142827,7 @@
       "eva": 100
     },
     "id": 22053467,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Ninja Chainmail",
@@ -139812,7 +143142,7 @@
       "eva": 100
     },
     "id": 22053483,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Prince's Fatigues",
@@ -140217,7 +143547,7 @@
       "eva": 100
     },
     "id": 22053314,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Adamant Vest",
@@ -142785,6 +146115,51 @@
     "gl": true
   },
   {
+    "name": "Hades Armor",
+    "realm": "I",
+    "type": "Heavy Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 187,
+      "mag": 0,
+      "res": 125,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Garland",
+    "soulBreak": "Chain of Chaos",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 148,
+      "mag": null,
+      "res": 102,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 202,
+      "mag": null,
+      "res": 134,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22054118,
+    "gl": false
+  },
+  {
     "name": "Maximillian",
     "realm": "II",
     "type": "Heavy Armor",
@@ -143145,6 +146520,51 @@
     "gl": false
   },
   {
+    "name": "Force Armor",
+    "realm": "V",
+    "type": "Heavy Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 187,
+      "mag": 0,
+      "res": 125,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Bartz",
+    "soulBreak": "Bestowed Flames",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 148,
+      "mag": null,
+      "res": 102,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 202,
+      "mag": null,
+      "res": 134,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22054134,
+    "gl": false
+  },
+  {
     "name": "Shielded Armor",
     "realm": "VI",
     "type": "Heavy Armor",
@@ -143233,6 +146653,51 @@
     },
     "id": 22054116,
     "gl": true
+  },
+  {
+    "name": "Demon Armor",
+    "realm": "VIII",
+    "type": "Heavy Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 187,
+      "mag": 0,
+      "res": 125,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Seifer",
+    "soulBreak": "Hellbent Dreams",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 148,
+      "mag": null,
+      "res": 102,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 202,
+      "mag": null,
+      "res": 134,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22054104,
+    "gl": false
   },
   {
     "name": "Chaos Cuirass",
@@ -143370,6 +146835,96 @@
     "gl": true
   },
   {
+    "name": "Dreadwyrm Mail of Maiming",
+    "realm": "XIV",
+    "type": "Heavy Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 187,
+      "mag": 0,
+      "res": 125,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Estinien",
+    "soulBreak": "Crimson Wyrmblood",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 148,
+      "mag": null,
+      "res": 102,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 202,
+      "mag": null,
+      "res": 134,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22054129,
+    "gl": false
+  },
+  {
+    "name": "Iceheart Mail",
+    "realm": "XIV",
+    "type": "Heavy Armor",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 185,
+      "mag": 0,
+      "res": 125,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": "Wind damage +20%",
+    "character": "Estinien",
+    "soulBreak": "Inherited Azure",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 146,
+      "mag": null,
+      "res": 102,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 200,
+      "mag": null,
+      "res": 134,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22054120,
+    "gl": false
+  },
+  {
     "name": "Delita's Armor",
     "realm": "FFT",
     "type": "Heavy Armor",
@@ -143457,7 +147012,7 @@
       "eva": 105
     },
     "id": 22054124,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Death Armor",
@@ -147527,7 +151082,7 @@
     },
     "effect": null,
     "character": "Lenna",
-    "soulBreak": "Wings Spread Wide",
+    "soulBreak": "Spreading One's Wings",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -147552,7 +151107,7 @@
       "eva": 105
     },
     "id": 22055067,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Professor's Robe",
@@ -148140,6 +151695,51 @@
     "gl": true
   },
   {
+    "name": "Chanter's Djellaba",
+    "realm": "XIII",
+    "type": "Robe",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 19,
+      "def": 122,
+      "mag": 19,
+      "res": 184,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": "Dark damage +20%",
+    "character": "Cid Raines",
+    "soulBreak": "Grimdark Shift",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 10,
+      "def": 90,
+      "mag": 10,
+      "res": 144,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 22,
+      "def": 134,
+      "mag": 22,
+      "res": 200,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22055125,
+    "gl": false
+  },
+  {
     "name": "Scion Thaumaturge's Robe",
     "realm": "XIV",
     "type": "Robe",
@@ -148227,7 +151827,7 @@
       "eva": 105
     },
     "id": 22055119,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Seventh Hell Coat",
@@ -148272,7 +151872,7 @@
       "eva": 105
     },
     "id": 22055133,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Savant's Overcoat",
@@ -152100,6 +155700,186 @@
     "gl": false
   },
   {
+    "name": "Lord of Knights Gauntlet (Magical Dark)",
+    "realm": null,
+    "type": "Bracer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 250,
+      "mag": 65,
+      "res": 250,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": "Dark damage +20%",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 171,
+      "mag": 39,
+      "res": 171,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 250,
+      "mag": 65,
+      "res": 250,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22256347,
+    "gl": false
+  },
+  {
+    "name": "Lord of Knights Gauntlet (Physical Dark)",
+    "realm": null,
+    "type": "Bracer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 65,
+      "def": 250,
+      "mag": 0,
+      "res": 250,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": "Dark damage +20%",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 39,
+      "def": 171,
+      "mag": null,
+      "res": 171,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 65,
+      "def": 250,
+      "mag": null,
+      "res": 250,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22256346,
+    "gl": false
+  },
+  {
+    "name": "Lord of Knights Gauntlet (Physical Holy)",
+    "realm": null,
+    "type": "Bracer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 65,
+      "def": 250,
+      "mag": 0,
+      "res": 250,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": "Holy damage +20%",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 39,
+      "def": 171,
+      "mag": null,
+      "res": 171,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 65,
+      "def": 250,
+      "mag": null,
+      "res": 250,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22256344,
+    "gl": false
+  },
+  {
+    "name": "Lord of Knights Gauntlet (Magical Holy)",
+    "realm": null,
+    "type": "Bracer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 250,
+      "mag": 0,
+      "res": 250,
+      "mnd": 65,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": "Holy damage +20%",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 171,
+      "mag": null,
+      "res": 171,
+      "mnd": 39,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 250,
+      "mag": null,
+      "res": 250,
+      "mnd": 65,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22256345,
+    "gl": false
+  },
+  {
     "name": "Master's Gloves",
     "realm": "V",
     "type": "Bracer",
@@ -152142,6 +155922,96 @@
       "eva": 105
     },
     "id": 22056306,
+    "gl": false
+  },
+  {
+    "name": "Genji Gloves",
+    "realm": "I",
+    "type": "Bracer",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 42,
+      "def": 125,
+      "mag": 24,
+      "res": 122,
+      "mnd": 23,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": "Holy damage +20%",
+    "character": "Warrior of Light",
+    "soulBreak": "Enholy (Warrior of Light)",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 30,
+      "def": 102,
+      "mag": 14,
+      "res": 90,
+      "mnd": 13,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 46,
+      "def": 134,
+      "mag": 28,
+      "res": 134,
+      "mnd": 27,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056276,
+    "gl": false
+  },
+  {
+    "name": "Giant's Gloves",
+    "realm": "I",
+    "type": "Bracer",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 42,
+      "def": 125,
+      "mag": 24,
+      "res": 122,
+      "mnd": 23,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": null,
+    "character": "Garland",
+    "soulBreak": null,
+    "legendMateria": "Ambush (Garland)",
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 30,
+      "def": 102,
+      "mag": 14,
+      "res": 90,
+      "mnd": 13,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 46,
+      "def": 134,
+      "mag": 28,
+      "res": 134,
+      "mnd": 27,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056124,
     "gl": false
   },
   {
@@ -152685,6 +156555,51 @@
     "gl": false
   },
   {
+    "name": "Celes's Armguard",
+    "realm": "VI",
+    "type": "Bracer",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 42,
+      "def": 125,
+      "mag": 24,
+      "res": 122,
+      "mnd": 23,
+      "acc": 0,
+      "eva": 105
+    },
+    "effect": "Ice damage +20%",
+    "character": "Celes",
+    "soulBreak": "Cleansing Indomitable Blade",
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": 30,
+      "def": 102,
+      "mag": 14,
+      "res": 90,
+      "mnd": 13,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": 46,
+      "def": 134,
+      "mag": 28,
+      "res": 134,
+      "mnd": 27,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22056263,
+    "gl": false
+  },
+  {
     "name": "Cloud's Gloves",
     "realm": "VII",
     "type": "Bracer",
@@ -153017,7 +156932,7 @@
     },
     "effect": null,
     "character": "Sephiroth",
-    "soulBreak": "Dark Fervent Blow",
+    "soulBreak": "Fervent Shadow",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -153042,7 +156957,7 @@
       "eva": 105
     },
     "id": 22056285,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Cerberus Wrist",
@@ -153852,7 +157767,7 @@
       "eva": 105
     },
     "id": 22056262,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Combat Apparatus",
@@ -153945,7 +157860,7 @@
     "gl": true
   },
   {
-    "name": "Goddess' Bangle",
+    "name": "Goddess's Bangle",
     "realm": "XIII",
     "type": "Bracer",
     "rarity": 6,
@@ -153962,7 +157877,7 @@
     },
     "effect": "Holy damage +20%",
     "character": "Lightning",
-    "soulBreak": "Gleaming Feathers",
+    "soulBreak": "Glittering Feather",
     "legendMateria": null,
     "baseStats": {
       "rarity": 6,
@@ -153987,7 +157902,7 @@
       "eva": 105
     },
     "id": 22056092,
-    "gl": false
+    "gl": true
   },
   {
     "name": "A1-Class Powershield",
@@ -154368,7 +158283,7 @@
     "effect": null,
     "character": "Tyro",
     "soulBreak": null,
-    "legendMateria": "Young Prodigy",
+    "legendMateria": "Wisdom's Pupil",
     "baseStats": {
       "rarity": 5,
       "level": 20,
@@ -154392,7 +158307,7 @@
       "eva": 105
     },
     "id": 22056271,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Faerie's Ring",
@@ -154797,7 +158712,7 @@
       "eva": 105
     },
     "id": 22056268,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Genji Gloves",
@@ -160512,7 +164427,7 @@
       "eva": 105
     },
     "id": 22056261,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Mythril Bangle",
@@ -164115,7 +168030,52 @@
     "gl": false
   },
   {
-    "name": "Decorative Ornaments",
+    "name": "Proof of Subjugating Chaos",
+    "realm": "I",
+    "type": "Accessory",
+    "rarity": 6,
+    "stats": {
+      "rarity": 6,
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Dark resistance (moderate), HP +700",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 6,
+      "level": 25,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 8,
+      "level": 35,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080616,
+    "gl": false
+  },
+  {
+    "name": "Emperor's Trappings",
     "realm": "II",
     "type": "Accessory",
     "rarity": 6,
@@ -167175,6 +171135,51 @@
     "gl": false
   },
   {
+    "name": "Protea",
+    "realm": "I",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 0,
+      "def": 15,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Sap immunity (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": 15,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": 15,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080443,
+    "gl": false
+  },
+  {
     "name": "Gigas Armlet",
     "realm": "II",
     "type": "Accessory",
@@ -167535,7 +171540,7 @@
     "gl": true
   },
   {
-    "name": "Josef's Earrings",
+    "name": "Josef's Earring",
     "realm": "II",
     "type": "Accessory",
     "rarity": 5,
@@ -167577,7 +171582,7 @@
       "eva": null
     },
     "id": 23080493,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Skybreaker Earrings",
@@ -168705,7 +172710,7 @@
     "gl": true
   },
   {
-    "name": "Cagnazzo's Shell",
+    "name": "Cagnazzo's Carapace",
     "realm": "IV",
     "type": "Accessory",
     "rarity": 5,
@@ -168747,7 +172752,7 @@
       "eva": null
     },
     "id": 23080578,
-    "gl": false
+    "gl": true
   },
   {
     "name": "Cecil's Earring",
@@ -170683,6 +174688,51 @@
     },
     "id": 23080566,
     "gl": true
+  },
+  {
+    "name": "Locke's Earrings",
+    "realm": "VI",
+    "type": "Accessory",
+    "rarity": 5,
+    "stats": {
+      "rarity": 5,
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 15,
+      "acc": 0,
+      "eva": 0
+    },
+    "effect": "Stun immunity (moderate)",
+    "character": null,
+    "soulBreak": null,
+    "legendMateria": null,
+    "baseStats": {
+      "rarity": 5,
+      "level": 20,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 15,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": 7,
+      "level": 30,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": 15,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23080554,
+    "gl": false
   },
   {
     "name": "Godo's Mask",

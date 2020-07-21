@@ -23,6 +23,55 @@
     "gl": false
   },
   {
+    "realm": "I",
+    "character": "Warrior of Light",
+    "name": "Eternal Sword",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Lightbringer (I)",
+    "nameJp": "エターナルソード",
+    "id": 22300014,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Garland",
+    "name": "Endark (Garland)",
+    "tier": "LBG",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Attach Dark]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Dark Damage Up"
+    ],
+    "relic": "Balmung (I)",
+    "nameJp": "闇装【ガーランド】",
+    "id": 22310019,
+    "gl": false
+  },
+  {
     "realm": "II",
     "character": "Firion",
     "name": "Cherished Rose",
@@ -100,6 +149,32 @@
     "gl": false
   },
   {
+    "realm": "III",
+    "character": "Cloud of Darkness",
+    "name": "Mirage Particle Beam",
+    "tier": "LBO",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 120,
+    "element": [
+      "Wind"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Thorned Mace (III)",
+    "nameJp": "虚構式 波動砲",
+    "id": 22670013,
+    "gl": false
+  },
+  {
     "realm": "IV",
     "character": "Cecil (Paladin)",
     "name": "Sacred Charge",
@@ -128,7 +203,7 @@
     "relic": "Guard of Avalon (IV)",
     "nameJp": "セイクリッドチャージ",
     "id": 20070021,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -420,7 +495,7 @@
   {
     "realm": "VI",
     "character": "Terra",
-    "name": "Two Worlds as One",
+    "name": "Half-Esper Might",
     "tier": "LBO",
     "type": "BLK",
     "target": "Single enemy",
@@ -442,7 +517,7 @@
     "relic": "Demonsbane (VI)",
     "nameJp": "人と幻獣の力",
     "id": 20100022,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -492,7 +567,7 @@
   },
   {
     "realm": "VI",
-    "character": "Kekfa",
+    "character": "Kefka",
     "name": "Endark (Kefka)",
     "tier": "LBG",
     "type": "NAT",
@@ -511,6 +586,32 @@
     "relic": "Madhura Harp (VI)",
     "nameJp": "闇装【ケフカ】",
     "id": 22070012,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Kefka",
+    "name": "Apocalypse Zero",
+    "tier": "LBO",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 120,
+    "element": [
+      "Wind"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES, deals 1000 magical damage to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Demon's Rod (VI)",
+    "nameJp": "カタストロフ・ゼロ",
+    "id": 22070014,
     "gl": false
   },
   {
@@ -961,6 +1062,32 @@
     "gl": false
   },
   {
+    "realm": "XIII",
+    "character": "Snow",
+    "name": "Icebound Promise",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Ice"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance, grants [50% Damage Reduction Barrier 2] to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Crystal Guard (XIII)",
+    "nameJp": "氷鎖の約束",
+    "id": 20310021,
+    "gl": false
+  },
+  {
     "realm": "XIV",
     "character": "Y'shtola",
     "name": "Scions' Meteor",
@@ -1018,6 +1145,33 @@
     "gl": false
   },
   {
+    "realm": "XV",
+    "character": "Ardyn",
+    "name": "Tenebrous Armiger",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Dark",
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Rakshasa Blade (XV)",
+    "nameJp": "エビルファントムソード",
+    "id": 23520003,
+    "gl": false
+  },
+  {
     "realm": "FFT",
     "character": "Agrias",
     "name": "Bestowed Blade",
@@ -1041,7 +1195,7 @@
     "relic": "Templar Shield (FFT)",
     "nameJp": "我が主君に捧げし剣",
     "id": 22150011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

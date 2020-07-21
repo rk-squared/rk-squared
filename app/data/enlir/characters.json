@@ -3625,7 +3625,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3752,7 +3752,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5807,14 +5807,14 @@
       "gamblingGear": false,
       "doll": false,
       "keyblade": false,
-      "shield": false,
+      "shield": true,
       "hat": false,
-      "helm": false,
-      "lightArmor": false,
-      "heavyArmor": false,
-      "robe": false,
-      "bracer": false,
-      "accessory": false
+      "helm": true,
+      "lightArmor": true,
+      "heavyArmor": true,
+      "robe": true,
+      "bracer": true,
+      "accessory": true
     },
     "skills": {
       "blackMagic": 3,
@@ -6038,7 +6038,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (III)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6673,7 +6673,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (III)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6800,7 +6800,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (III)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13785,7 +13785,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17849,7 +17849,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18230,7 +18230,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22675,7 +22675,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22929,7 +22929,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (XIII)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23564,7 +23564,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -24072,7 +24072,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24834,7 +24834,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -24961,7 +24961,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Future King's Journey",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -25088,7 +25088,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Future King's Journey",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -25377,9 +25377,9 @@
     "skills": {
       "blackMagic": null,
       "whiteMagic": null,
-      "combat": 6,
+      "combat": 5,
       "support": null,
-      "celerity": 6,
+      "celerity": 5,
       "summoning": null,
       "spellblade": null,
       "dragoon": null,
@@ -25525,6 +25525,133 @@
     },
     "id": 11500900,
     "gl": true
+  },
+  {
+    "realm": "XV",
+    "name": "Ardyn",
+    "introducingEventLv50": "Future King's Journey",
+    "lv50": {
+      "hp": 4420,
+      "atk": 111,
+      "def": 91,
+      "mag": 72,
+      "res": 78,
+      "mnd": 70,
+      "acc": 23,
+      "eva": 22,
+      "spd": 123
+    },
+    "introducingEventLv65": "Future King's Journey",
+    "lv65": {
+      "hp": 5495,
+      "atk": 141,
+      "def": 113,
+      "mag": 95,
+      "res": 99,
+      "mnd": 93,
+      "acc": 24,
+      "eva": 23,
+      "spd": 131
+    },
+    "introducingEventLv80": "Future King's Journey",
+    "lv80": {
+      "hp": 6534,
+      "atk": 172,
+      "def": 133,
+      "mag": 118,
+      "res": 120,
+      "mnd": 116,
+      "acc": 24,
+      "eva": 24,
+      "spd": 139
+    },
+    "introducingEventLv99": "Future King's Journey",
+    "lv99": {
+      "hp": 7810,
+      "atk": 211,
+      "def": 159,
+      "mag": 149,
+      "res": 148,
+      "mnd": 146,
+      "acc": 26,
+      "eva": 25,
+      "spd": 149
+    },
+    "introducingEventRecordSpheres": "Future King's Journey",
+    "recordSpheres": {
+      "hp": 940,
+      "atk": 32,
+      "def": 10,
+      "mag": 0,
+      "res": 1,
+      "mnd": 0
+    },
+    "introducingEventLegendSpheres": "Future King's Journey",
+    "legendSpheres": {
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
+    },
+    "introducingEventRecordBoards": "Future King's Journey",
+    "equipment": {
+      "dagger": true,
+      "sword": true,
+      "katana": true,
+      "axe": true,
+      "hammer": true,
+      "spear": true,
+      "fist": false,
+      "rod": false,
+      "staff": true,
+      "bow": true,
+      "instrument": false,
+      "whip": false,
+      "thrown": true,
+      "gun": true,
+      "book": false,
+      "blitzball": false,
+      "hairpin": false,
+      "gunArm": false,
+      "gamblingGear": false,
+      "doll": false,
+      "keyblade": false,
+      "shield": true,
+      "hat": true,
+      "helm": false,
+      "lightArmor": true,
+      "heavyArmor": false,
+      "robe": false,
+      "bracer": true,
+      "accessory": true
+    },
+    "skills": {
+      "blackMagic": 3,
+      "whiteMagic": null,
+      "combat": 5,
+      "support": null,
+      "celerity": 5,
+      "summoning": null,
+      "spellblade": null,
+      "dragoon": 5,
+      "monk": null,
+      "thief": null,
+      "knight": null,
+      "samurai": 5,
+      "ninja": null,
+      "bard": null,
+      "dancer": null,
+      "machinist": 4,
+      "darkness": 6,
+      "sharpshooter": null,
+      "witch": null,
+      "heavy": 6
+    },
+    "id": 11501000,
+    "gl": false
   },
   {
     "realm": "FFT",
@@ -25723,7 +25850,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Heroes of Ivalice",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25977,7 +26104,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Heroes of Ivalice",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -26231,7 +26358,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Heroes of Ivalice",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26358,7 +26485,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Heroes of Ivalice",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26866,7 +26993,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Heroes of Ivalice",
     "equipment": {
       "dagger": true,
       "sword": true,

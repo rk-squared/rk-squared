@@ -317,7 +317,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541068,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -338,7 +338,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541069,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -547,6 +547,27 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Chaos Rebirth Mode",
+    "name": "Chaos Rebirth",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.32 each), grants [Chaos Rebirth +15% Boost]/[Chaos Rebirth +30% Boost]/[Chaos Rebirth +50% Boost] after 1/2/3 casts, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31540294,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Anguished Rose Follow-Up",
     "name": "Anguished Rose",
     "type": "BLK",
@@ -569,8 +590,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Heroic Spirit Follow-Up",
-    "name": "Heroic Spirit",
+    "source": "Hero's Barrage Follow-Up",
+    "name": "Hero's Barrage",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -710,8 +731,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Sorrow of Loss Follow-Up",
-    "name": "Love of Restoration",
+    "source": "Beloved Homeland Follow-Up",
+    "name": "Beloved Homeland",
     "type": "NAT",
     "typeDetails": [
       "PHY",
@@ -731,12 +752,12 @@
     "sb": 0,
     "school": "Support",
     "id": 30545089,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Sorrow of Loss Follow-Up",
-    "name": "Sorrow of Loss",
+    "source": "Beloved Homeland Follow-Up",
+    "name": "Lost Nation",
     "type": "NAT",
     "typeDetails": [
       "PHY",
@@ -756,25 +777,25 @@
     "sb": 0,
     "school": "Support",
     "id": 30545090,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Sacrificial Love Follow-Up",
-    "name": "Sacrificial Love",
+    "source": "Lifelong Devotion Follow-Up",
+    "name": "Lifelong Devotion",
     "type": "NAT",
     "target": "Self",
     "formula": null,
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Attach Fire] and [Fire +30%/50%/70% Boost 1] to the user if 0/1/2 of Gordon or Hilda are alive",
+    "effects": "Grants [Attach Fire] and [Fire +30% Boost 1]/[Fire +50% Boost 1]/[Fire +70% Boost 1] to the user if 0/1/2 of Gordon or Hilda are alive",
     "counter": false,
     "autoTarget": "Self",
     "sb": 0,
     "school": "Special",
     "id": 30545092,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1204,6 +1225,27 @@
     "sb": 0,
     "school": "Ninja",
     "id": 30544425,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Blast Lance Follow-Up",
+    "name": "Blast Lance",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.46,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged attack (3.46) capped at 99999, 0%/100%/100% additional critical chance and 0%/0%/70% additional critical damage if 0/2/3 of Arc, Refia or Ingus are alive, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 31540289,
     "gl": false
   },
   {
@@ -2191,41 +2233,23 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Flame Storm Follow-Up",
-    "name": "Flame Storm",
-    "type": "PHY",
-    "target": "Single enemy",
-    "formula": null,
-    "multiplier": null,
-    "element": null,
-    "time": 0.01,
-    "effects": "?",
-    "counter": false,
-    "autoTarget": "?",
-    "sb": 0,
-    "school": "?",
-    "id": null,
-    "gl": false
-  },
-  {
-    "sourceType": "Follow-Up Status",
     "source": "Bonds of Friendship Follow-Up",
     "name": "Bonds of Friendship",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 6.92,
     "element": [
       "Wind",
       "Fire",
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single ranged attack (?) capped at 99999, 100% hit rate, grants [Instant Cast 1] to the user",
+    "effects": "One single ranged attack (6.92) capped at 99999, 100% hit rate, grants [Instant Cast 1] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
-    "school": "?",
+    "school": "Thief",
     "id": 31540247,
     "gl": false
   },
@@ -2236,13 +2260,13 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 2.01,
     "element": [
       "Fire",
       "NE"
     ],
     "time": 0.01,
-    "effects": "Three single attacks (? each), grants [Attach Fire] and [50% Damage Reduction Barrier 1] to the user",
+    "effects": "Three single attacks (0.67 each), 100% hit rate, grants [Attach Fire] and [50% Damage Reduction Barrier 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -3034,6 +3058,50 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541654,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Runic Release Follow-Up",
+    "name": "Runic Release",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.04,
+    "element": [
+      "Ice",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (0.76 each), 100% hit rate, grants [Ice +30% Boost 1] or [Holy +30% Boost 1] based on triggering ability's element",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31540265,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Mental Collapse Mode",
+    "name": "Mental Collapse",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 18.64,
+    "element": [
+      "Dark",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (18.64), ignores RES, grants [Instant ATB 1] and [40% Damage Reduction Barrier 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31540270,
     "gl": false
   },
   {
@@ -4294,12 +4362,12 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Fire Ability +%? Boost 1] and [Dualcast Fire 1]/[Fire Ability +%? Boost 1] and [Triplecast Fire 1]/[Fire Ability +%? Boost 1], [Quadcast Fire 1] and [Damage Cap +10000 1]/[Fire Ability +%? Boost 1], [Quincast Fire 1] and [Damage Cap +10000 1] at Borrowed Time level 1/2/3/4",
+    "effects": "Grants [Fire Ability +20% Boost 1] and [Dualcast Fire 1]/[Fire Ability +30% Boost 1] and [Triplecast Fire 1]/[Fire Ability +50% Boost 1], [Quadcast Fire 1] and [Damage Cap +10000 1]/[Fire Ability +70% Boost 1], [Quintcast Fire 1] and [Damage Cap +10000 1] at Borrowed Time level 1/2/3/4",
     "counter": false,
     "autoTarget": "Self",
     "sb": 0,
-    "school": "?",
-    "id": 31540287,
+    "school": "Special",
+    "id": 31540243,
     "gl": false
   },
   {
@@ -4475,8 +4543,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Law Breaker Follow-Up",
-    "name": "Law Breaker",
+    "source": "Broken Commandment Follow-Up",
+    "name": "Broken Commandment",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4814,7 +4882,7 @@
     "counter": false,
     "autoTarget": "All allies",
     "sb": 0,
-    "school": "?",
+    "school": "White Magic",
     "id": 31540202,
     "gl": false
   },
@@ -5171,13 +5239,13 @@
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 36,
     "element": [
       "Lightning",
       "NE"
     ],
     "time": 0.01,
-    "effects": "4/10/10 single attacks (? each) if user dealt ?/?/? damage during the status, removes [Mist Charge Mode] from the user. Additional one single attack (?) capped at 99999 if the final damage threshold was met",
+    "effects": "4/10/10 single attacks (2.30 each) if user dealt 0/72001/240001 damage during the status, removes [Mist Charge Mode] from the user. Additional one single attack (13.00) capped at 99999 if the final damage threshold was met",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -5397,12 +5465,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541161,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Blue Arrow Follow-Up",
-    "name": "Blue Arrow",
+    "source": "Azure Arrow Follow-Up",
+    "name": "Azure Arrow",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -5419,7 +5487,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 30541325,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -5605,8 +5673,30 @@
     "counter": false,
     "autoTarget": "Self",
     "sb": 0,
-    "school": "?",
+    "school": "Special",
     "id": 31540235,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Seraph",
+    "name": "Cross Shift",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.46,
+    "element": [
+      "Dark",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (2.41 each), grants [Buff Dark 10% (15s)]/[Buff Holy 10% (15s)] every second activation based on element of triggering ability",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31540320,
     "gl": false
   },
   {
@@ -5773,13 +5863,13 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 4.5,
     "element": [
       "Wind",
       "Dark"
     ],
     "time": 0.01,
-    "effects": "One single ranged jump? attack (?) capped at 99999, 100% hit rate",
+    "effects": "One single ranged attack (4.50) capped at 99999, 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -5790,18 +5880,18 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Azure Dragoon Mode",
-    "name": "Eye of Nidhogg",
+    "name": "Azure Dragoon",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 1.8,
     "element": [
       "Wind",
       "Dark",
       "NE"
     ],
     "time": 0.01,
-    "effects": "Three single ranged jump? attacks (? each), grants [Damage Cap +10000 1] and [Eye of Nidhogg Mode] to the user, removes [Azure Dragoon Mode] from the user",
+    "effects": "Three single ranged attacks (0.60 each), grants [Damage Cap +10000 1] and [Eye of Nidhogg Mode] to the user, removes [Azure Dragoon Mode] from the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -5811,19 +5901,19 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Eye of Nidhogg Mode",
-    "name": "Azure Dragoon",
+    "source": "Left Eye of Nidhogg Mode",
+    "name": "Left Eye of Nidhogg",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 1.95,
     "element": [
       "Wind",
       "Dark",
       "NE"
     ],
     "time": 0.01,
-    "effects": "Five single ranged jump? attacks (? each), grants [Damage Cap +10000 1] and [Azure Dragoon Mode] to the user, removes [Eye of Nidhogg Mode] from the user",
+    "effects": "Five single ranged attacks (0.39 each), grants [Damage Cap +10000 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -6085,6 +6175,24 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Dark Armiger Mode",
+    "name": "Dark Armiger",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Dark 10% (15s)] and [Imperil Fire 10% (15s)], grants [Buff Fire 10% (15s)] and [Buff Dark 10% (15s)] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31540160,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Seeker of Truth",
     "name": "Knight's Lightblade",
     "type": "PHY",
@@ -6243,7 +6351,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30544383,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -6264,7 +6372,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30544383,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -6285,7 +6393,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 30544383,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -7558,7 +7666,7 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 30544407,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Finisher Status",
@@ -10265,6 +10373,26 @@
   },
   {
     "sourceType": "Record Materia",
+    "source": "Fearless Appearance",
+    "name": "Fearless Appearance",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 1,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.5,
+    "effects": "One group attack (1.00)",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 65,
+    "school": "Special",
+    "id": null,
+    "gl": false
+  },
+  {
+    "sourceType": "Record Materia",
     "source": "Salve",
     "name": "Salve",
     "type": "NAT",
@@ -10683,8 +10811,8 @@
   },
   {
     "sourceType": "Legend Materia",
-    "source": "Inherited Spirit",
-    "name": "Inherited Spirit",
+    "source": "Ancestral Ardor",
+    "name": "Ancestral Ardor",
     "type": "NAT",
     "typeDetails": [
       "PHY",
@@ -10698,13 +10826,13 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Four single ranged hybrid attacks (? or ? each), removes positive effects",
+    "effects": "Four single ranged hybrid attacks (0.50 or 2.04 each), removes positive effects",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
-    "school": "?",
-    "id": null,
-    "gl": false
+    "school": "Support",
+    "id": 30525024,
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -11227,6 +11355,28 @@
     "sb": 0,
     "school": "Special",
     "id": null,
+    "gl": true
+  },
+  {
+    "sourceType": "Legend Materia",
+    "source": "Ambush (Ardyn)",
+    "name": "Ambush",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.17,
+    "element": [
+      "Dark",
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Three single attacks (0.39 each), heals the user for 20% of the damage dealt",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31520002,
     "gl": false
   },
   {

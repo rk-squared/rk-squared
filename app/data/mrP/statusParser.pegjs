@@ -841,23 +841,11 @@ StatusVerb
   }
 
 StatusName "status effect"
-  = (
-    StatModStatusName ("/" StatModStatusName)*
-  / GenericName
-  / "?"
-  ) {
-    return text();
-  }
+  = "[" name:[^\]]+ "]" { return name.join(''); }
+  / "?" { return text(); }
 
-// Stat mods in particular have a distinctive format.
-StatModStatusName
-  = (StatModDuration1 _)? ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' (_ StatModDuration2)?
-
-StatModDuration1
-  = "Short" / "Medium" / "Long"
-
-StatModDuration2
-  = StatModDuration1 / _ "(" Integer "s)"
+StatModDuration
+  = _ "(" Integer "s)"
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName

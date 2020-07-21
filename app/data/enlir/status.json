@@ -2741,6 +2741,17 @@
     "notes": null
   },
   {
+    "id": 2264,
+    "name": "Normal Cast 1",
+    "effects": "Cast speed x1.00, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_CAST_TIME_100_1_ALL",
+    "notes": null
+  },
+  {
     "id": 2265,
     "name": "Dragoon Quick Cast 1",
     "effects": "Cast speed x2.00 for Dragoon abilities, lasts for 1 turn",
@@ -3813,7 +3824,7 @@
   {
     "id": 274,
     "name": "Heals +30%",
-    "effects": "Abilities restore 30% more HP",
+    "effects": "Increases healing done by WHT abilities and soulbreaks by 30%",
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -5428,6 +5439,17 @@
     "notes": null
   },
   {
+    "id": 282234,
+    "name": "Ice +30% Boost 1",
+    "effects": "Ice attacks deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_ICE_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
     "id": 282235,
     "name": "Dark Ability +30% Boost",
     "effects": "Dark abilities deal 30% more damage",
@@ -5439,14 +5461,58 @@
     "notes": null
   },
   {
+    "id": 282239,
+    "name": "Dark/Fire Ability +30% Boost 3",
+    "effects": "Dark and Fire abilities deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_FIRE_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
     "id": 282240,
-    "name": "Wind and Dark Ability +30% Boost",
+    "name": "Wind/Dark Ability +30% Boost",
     "effects": "Wind and Dark abilities deal 30% more damage",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WIND_DARK_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 282241,
+    "name": "Dark/Poison Ability +30% Boost 1",
+    "effects": "Dark and Poison abilities deal 30% more damage",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_POISON_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282242,
+    "name": "Holy +30% Boost 1",
+    "effects": "Holy attacks deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_HOLY_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282245,
+    "name": "Fire Ability +70% Boost 1",
+    "effects": "Fire abilities deal 70% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_FIRE_EXTRA_LARGE_TURN_1",
     "notes": null
   },
   {
@@ -6263,6 +6329,50 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "RADIANT_SHIELD_DARK_75",
+    "notes": null
+  },
+  {
+    "id": 28511,
+    "name": "Overflow Dark Radiant Shield: 75%",
+    "effects": "Returns 75% of the damage taken to the attacker as Dark damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_DARK_75_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28512,
+    "name": "Overflow Dark Radiant Shield: 125%",
+    "effects": "Returns 125% of the damage taken to the attacker as Dark damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_DARK_125_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28513,
+    "name": "Overflow Dark Radiant Shield: 200%",
+    "effects": "Returns 200% of the damage taken to the attacker as Dark damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_DARK_200_ENABLE_OVERFLOW",
+    "notes": null
+  },
+  {
+    "id": 28514,
+    "name": "Overflow Dark Radiant Shield: 300%",
+    "effects": "Returns 300% of the damage taken to the attacker as Dark damage capped at 99999",
+    "defaultDuration": 30,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_DARK_300_ENABLE_OVERFLOW",
     "notes": null
   },
   {
@@ -7348,8 +7458,8 @@
   },
   {
     "id": 3601,
-    "name": "Quincast Fire 1",
-    "effects": "Quincasts the next Fire ability, lasts 1 turn",
+    "name": "Quintcast Fire 1",
+    "effects": "Quintcasts the next Fire ability, lasts 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12450,8 +12560,8 @@
   },
   {
     "id": 50447,
-    "name": "Law Breaker Follow-Up",
-    "effects": "Casts Law Breaker after using three Samurai attacks",
+    "name": "Broken Commandment Follow-Up",
+    "effects": "Casts Broken Commandment after using three Samurai attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12787,8 +12897,8 @@
   },
   {
     "id": 50476,
-    "name": "Heroic Spirit Follow-Up",
-    "effects": "Casts Heroic Spirit after using an Ice attack",
+    "name": "Hero's Barrage Follow-Up",
+    "effects": "Casts Hero's Barrage after using an Ice attack",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -14282,7 +14392,7 @@
   },
   {
     "id": 50618,
-    "name": "Genesis Trance",
+    "name": "Black Flurry Mode",
     "effects": "ATK +30%, 50% chance to dualcast Fire attacks",
     "defaultDuration": 25,
     "mndModifier": null,
@@ -14315,8 +14425,8 @@
   },
   {
     "id": 50622,
-    "name": "Blue Arrow Follow-Up",
-    "effects": "Casts Blue Arrow after using three Ice or Water attacks",
+    "name": "Azure Arrow Follow-Up",
+    "effects": "Casts Azure Arrow after using three Ice or Water attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15655,7 +15765,7 @@
   },
   {
     "id": 50757,
-    "name": "Undefeated Sword Master Mode",
+    "name": "Sword Saint Shutdown Mode",
     "effects": "Grants [Attach Holy] after using a Holy ability, grants [Attach Dark] after using a Dark ability, grants [Attach Earth] after using a Earth ability, lasts 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
@@ -15919,7 +16029,7 @@
   },
   {
     "id": 50781,
-    "name": "Awoken Ruler's Pride",
+    "name": "Awoken Sovereign",
     "effects": "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, grants [Physical Blink 1] and [Magical Blink 1] to all allies after using two Support abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -15930,8 +16040,8 @@
   },
   {
     "id": 50782,
-    "name": "Sacrificial Love Follow-Up",
-    "effects": "Casts Sacrificial Love after using two Spellblade abilities",
+    "name": "Lifelong Devotion Follow-Up",
+    "effects": "Casts Lifelong Devotion after using two Spellblade abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -15963,7 +16073,7 @@
   },
   {
     "id": 50785,
-    "name": "Awoken Multitalent",
+    "name": "Awoken Brilliance",
     "effects": "Dancer and Bard abilities don't consume uses, cast speed x3.00 for Dancer and Bard abilities, grants [10% Damage Reduction Barrier 1]/[15% Damage Reduction Barrier 1]/[20% Damage Reduction Barrier 1]/[30% Damage Reduction Barrier 1]/[40% Damage Reduction Barrier 1] to all allies after using Dancer or Bard abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -15974,8 +16084,8 @@
   },
   {
     "id": 50786,
-    "name": "Sorrow of Loss Follow-Up",
-    "effects": "Casts Love of Restoration after using a Support ability, casts Sorrow of Loss after using a Support ability",
+    "name": "Beloved Homeland Follow-Up",
+    "effects": "Casts Lost Nation after using a Support ability, casts Beloved Homeland after using a Support ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -16024,7 +16134,7 @@
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "INCREASE_EXECUTED_HEAL_WHITE_MAGIC_MEDIUM_TURN_1",
+    "codedName": "INCREASE_EXECUTED_HEAL_BY_ABILITY_WHITE_MAGIC_LARGE_TURN_1",
     "notes": null
   },
   {
@@ -16053,7 +16163,7 @@
   },
   {
     "id": 50793,
-    "name": "Awoken Double Job",
+    "name": "Awoken Dual Job",
     "effects": "White Magic and Dancer abilities don't consume uses, dualcasts White Magic and Dancer abilities, grants [HP Stock (500)]/[HP Stock (1000)]/[HP Stock (1500)]/[HP Stock (2000)]/[HP Stock (3000)] to all allies after using White Magic and Dancer abilities at rank 1/2/3/4/5",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -16064,7 +16174,7 @@
   },
   {
     "id": 50794,
-    "name": "Last Resort Mode",
+    "name": "Final Recipe Mode",
     "effects": "Fire abilities deal 30% more damage, cast speed x9999999 for Fire abilities, damages the user for 25% max HP after using Fire abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -16097,8 +16207,8 @@
   },
   {
     "id": 50797,
-    "name": "Bonds of Wind Follow-Up",
-    "effects": "Grants [Attach Wind] after using Blowing Winds or Still Winds three times",
+    "name": "Ethereal Bond Follow-Up",
+    "effects": "Grants [Attach Wind] after using Transient Wind or Relentless Wind three times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -16306,7 +16416,7 @@
   },
   {
     "id": 50816,
-    "name": "Dashing Glow Follow-Up",
+    "name": "Graceful Influence Follow-Up",
     "effects": "Grants [Attach Holy] and [Buff Holy 10% (15s)] to the user after using two Holy abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -16317,8 +16427,8 @@
   },
   {
     "id": 50817,
-    "name": "Sorrow of Loss Counter",
-    "effects": "Keeps track of the number of casts of Sorrow of Loss",
+    "name": "Beloved Homeland Counter",
+    "effects": "Keeps track of the number of casts of Lost Nation",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17610,7 +17720,7 @@
   {
     "id": 50938,
     "name": "Azure Dragoon Mode",
-    "effects": "Dragoon abilities deal 30% more damage, casts Eye of Nidhogg after using Mirage Dive two times, removed if user hasn't Synchro Mode",
+    "effects": "Dragoon abilities deal 30% more damage, casts Azure Dragoon after using Mirage Dive two times, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17620,8 +17730,8 @@
   },
   {
     "id": 50939,
-    "name": "Eye of Nidhogg Mode",
-    "effects": "Dragoon abilities deal 50% more damage, casts Azure Dragoon after using High Jump (XIV) two times, removed if user hasn't Synchro Mode",
+    "name": "Left Eye of Nidhogg Mode",
+    "effects": "Dragoon abilities deal 50% more damage, casts Left Eye of Nidhogg after using High Jump (XIV) two times, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17696,6 +17806,39 @@
     "notes": null
   },
   {
+    "id": 50946,
+    "name": "Revival Mode (Ardyn)",
+    "effects": "Grants [Instant ATB 2], [Instant Cast 2] and [100% Critical 2] to the user when the user's HP falls below 20%, removes Revival Mode (Ardyn)",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_REVENGE_HEART",
+    "notes": null
+  },
+  {
+    "id": 50947,
+    "name": "Twin Element Mode III (Dark/Fire)",
+    "effects": "Grants [Attach Dark 2 with Stacking]/[Attach Fire 2 with Stacking] after using a Dark/Fire ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_III_DARK_FIRE",
+    "notes": null
+  },
+  {
+    "id": 50948,
+    "name": "Instant ATB 2",
+    "effects": "Increase ATB charge speed by x9999999, lasts for 2 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ATB_TIME_FACTOR_MAX_TURN_2",
+    "notes": null
+  },
+  {
     "id": 50949,
     "name": "Innocent Prism Follow-Up",
     "effects": "Casts Innocent Prism after using Luminous Ray or Bright Gospel two times",
@@ -17704,6 +17847,72 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_WISH_TO_REACH_FROM_ANOTHER_WORLD",
+    "notes": null
+  },
+  {
+    "id": 50950,
+    "name": "White Magic Heals +10% Boost 1",
+    "effects": "Increases healing done by White Magic abilities by 10%, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_HEAL_BY_ABILITY_WHITE_MAGIC_SMALL_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 50951,
+    "name": "Fire SB Gauge +25% Boost",
+    "effects": "Fire abilities grant 25% more SB points",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ATK_SS_POINT_FACTOR_FOR_ELEMENT_FIRE_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 50952,
+    "name": "Awoken Lord of Darkness",
+    "effects": "Dark and Fire abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dark and Fire abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_DARK_KING",
+    "notes": null
+  },
+  {
+    "id": 50953,
+    "name": "Twin Element Mode (Dark/Fire)",
+    "effects": "Grants [Attach Dark]/[Attach Fire] after using a Dark/Fire ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_DARK_FIRE",
+    "notes": null
+  },
+  {
+    "id": 50954,
+    "name": "Dark Armiger Mode",
+    "effects": "Cast speed x9999999, casts Dark Armiger after using a Dark or Fire ability, removed after casting Dark Armiger three times",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EVIL_PHANTOM_MODE",
+    "notes": null
+  },
+  {
+    "id": 50956,
+    "name": "Twin Element Mode II (Dark/Fire)",
+    "effects": "Grants [Attach Dark with Stacking]/[Attach Fire with Stacking] after using a Dark/Fire ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_II_DARK_FIRE",
     "notes": null
   },
   {
@@ -17828,6 +18037,28 @@
     "notes": null
   },
   {
+    "id": 50968,
+    "name": "White Magic Heals +20% Boost 1",
+    "effects": "Increases healing done by White Magic abilities by 20%, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_HEAL_BY_ABILITY_WHITE_MAGIC_MEDIUM_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 50970,
+    "name": "Armiger Slash Counter",
+    "effects": "Tracks Armiger Slash casts",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "USED_ABILITY_COUNTER_PHANTOM_SLASH",
+    "notes": null
+  },
+  {
     "id": 50971,
     "name": "Linked Materia Mode II (Fire/Lightning)",
     "effects": "Grants [Attach Fire with Stacking]/[Attach Lightning with Stacking] after using a Fire/Lightning ability, lasts 1 turn",
@@ -17836,6 +18067,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "LINK_MATERIA_MODE_II_FIRE_LIGHTNING",
+    "notes": null
+  },
+  {
+    "id": 50972,
+    "name": "Potion Step Counter",
+    "effects": "Tracks Potion Step casts",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "USED_ABILITY_COUNTER_FOR_SUPPORT_POTION",
     "notes": null
   },
   {
@@ -17852,7 +18094,7 @@
   {
     "id": 50975,
     "name": "Limit Combo Follow-Up",
-    "effects": "Grants Earth Limit +1 after using Ground Break two times",
+    "effects": "Grants Earth Limit +1 after using Ground Break two times, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17916,7 +18158,7 @@
   {
     "id": 50981,
     "name": "Darkflame Reverse Mode",
-    "effects": "Grants [Overflow Fire Radiant Shield: 125%]/[Overflow Fire Radiant Shield: 200%]/[Overflow Fire Radiant Shield: 300%] or [Overflow Dark Radiant Shield: 125%]/[Overflow Dark Radiant Shield: 200%]/[Overflow Dark Radiant Shield: 300%] after using 1/2/3+ Dark or Fire attacks, count is shared between dark and fire elements",
+    "effects": "Grants [Overflow Fire Radiant Shield: 75%]/[Overflow Fire Radiant Shield: 125%]/[Overflow Fire Radiant Shield: 200%]/[Overflow Fire Radiant Shield: 300%] or [Overflow Dark Radiant Shield: 75%]/[Overflow Dark Radiant Shield: 125%]/[Overflow Dark Radiant Shield: 200%]/[Overflow Dark Radiant Shield: 300%] after using 1/2/3/4+ Dark or Fire attacks, count is shared between dark and fire elements",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17927,7 +18169,7 @@
   {
     "id": 50982,
     "name": "Crimson Resolve Mode",
-    "effects": "Firelight +1 if user has Firelight 0, Firelight -1 if user has Firelight 1 after using Vibrant Slash, removed if user hasn't Synchro Mode",
+    "effects": "Grants Firelight +1/-1 after using Vibrant Slash if user has Firelight 0/1, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17949,7 +18191,7 @@
   {
     "id": 50984,
     "name": "Mist Charge Mode",
-    "effects": "Casts Mist Charge after using Empyrean Thunderclap or Nethicite's Gleamfour times",
+    "effects": "Casts Mist Charge after using Empyrean Thunderclap or Nethicite's Gleam four times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17971,7 +18213,7 @@
   {
     "id": 50986,
     "name": "Connecting Hearts Mode",
-    "effects": "Casts Borrowed Time after using a Fire ability, removes Connecting Hearts Mode",
+    "effects": "Casts Borrowed Time after using Meaning of Life, sets Borrowed Time level to 0 after casting a Fire ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18004,7 +18246,7 @@
   {
     "id": 50989,
     "name": "Guiding Flame Mode",
-    "effects": "Casts Guiding Flame when any Damage Reduction Barrier is removed, removed when Guiding Flame is cast 2 times",
+    "effects": "Casts Guiding Flame when any Damage Reduction Barrier is removed, removed after casting Guiding Flame two times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18046,6 +18288,28 @@
     "notes": null
   },
   {
+    "id": 50993,
+    "name": "Twin Element Mode III (Dark/Poison)",
+    "effects": "Grants [Attach Dark 2 with Stacking]/[Attach Poison 2 with Stacking] after using a Dark/Poison ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_III_DARK_AND_POISON",
+    "notes": null
+  },
+  {
+    "id": 50994,
+    "name": "Mental Collapse Mode",
+    "effects": "Casts Mental Collapse when any Damage Reduction Barrier is removed, removed after casting Mental Collapse five times or if user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "MENTAL_BRAKEDOWN_MODE",
+    "notes": null
+  },
+  {
     "id": 50995,
     "name": "Mayakov Dance Mode (Celerity)",
     "effects": "Grants [40% Damage Reduction Barrier 1] to all allies after using Celerity abilities",
@@ -18057,9 +18321,53 @@
     "notes": null
   },
   {
+    "id": 50996,
+    "name": "Twin Element Mode (Ice/Holy)",
+    "effects": "Grants [Attach Ice]/[Attach Holy] after using a Ice/Holy attacks, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_ICE_AND_HOLY",
+    "notes": null
+  },
+  {
+    "id": 50997,
+    "name": "Runic Release Follow-Up",
+    "effects": "Casts Runic Release after using two Ice or Holy abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SWORD_OF_GRACEFUL_VICTORY",
+    "notes": null
+  },
+  {
+    "id": 50998,
+    "name": "Mog Step",
+    "effects": "Restores 1500 HP and removes negative effects from all allies after using two Dancer abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EVERYONE_STANDING_PEDALING",
+    "notes": null
+  },
+  {
+    "id": 50999,
+    "name": "Twin Element Mode II (Dark/Poison)",
+    "effects": "Grants [Attach Dark with Stacking]/[Attach Poison with Stacking] after using a Dark/Poison ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_II_DARK_AND_POISON",
+    "notes": null
+  },
+  {
     "id": 51000,
     "name": "True Arcane Augment Mode: Tifa",
-    "effects": "Keeps track of Final Heaven uses, removed if user has trigger Final Heaven two times",
+    "effects": "Keeps track of Final Heaven uses, removed if user has triggered Final Heaven two times",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18092,7 +18400,7 @@
   {
     "id": 51003,
     "name": "True Arcane Augment Mode: Lightning",
-    "effects": "Keeps track of Zatetsuken uses, removed if user has trigger Zatetsuken two times",
+    "effects": "Keeps track of Zantetsuken uses, removed if user has triggered Zantetsuken two times",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18102,8 +18410,8 @@
   },
   {
     "id": 51004,
-    "name": "Zantetsuken Damage Tracker",
-    "effects": "Increases Zatetsuken level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Lightning",
+    "name": "Zantetsuken Ability Tracker",
+    "effects": "Increases Zantetsuken level by 1 when user triggers 5 or 8 Lightning abilities during the status, removed if user hasn't True Arcane Augment Mode: Lightning",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18114,7 +18422,7 @@
   {
     "id": 51005,
     "name": "Zantetsuken Level",
-    "effects": "Keeps track of Zatetsuken level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Lightning",
+    "effects": "Keeps track of Zantetsuken level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Lightning",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18123,9 +18431,20 @@
     "notes": null
   },
   {
+    "id": 51006,
+    "name": "Weakness SB Gauge +25% Boost (15s)",
+    "effects": "Attacks that exploit an elemental weakness grant 25% more SB points",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ATK_SS_POINT_FACTOR_FOR_WEAKNESS_MEDIUM",
+    "notes": null
+  },
+  {
     "id": 51007,
     "name": "True Arcane Augment Mode: Cecil (Paladin)",
-    "effects": "Keeps track of Soul Shift uses, removed if user has trigger Soul Shift two times",
+    "effects": "Keeps track of Soul Shift uses, removed if user has triggered Soul Shift two times",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18156,6 +18475,39 @@
     "notes": null
   },
   {
+    "id": 51010,
+    "name": "True Arcane Augment Mode: Celes",
+    "effects": "Keeps track of Supreme Spinning Edge uses, removed if user has triggered Supreme Spinning Edge two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_CELES",
+    "notes": null
+  },
+  {
+    "id": 51011,
+    "name": "Supreme Spinning Edge Ability Tracker",
+    "effects": "Increases Supreme Spinning Edge level by 1 when user triggers 5 or 8 Ice abilities during the status, removed if user hasn't True Arcane Augment Mode: Celes",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SPINNING_EDGE",
+    "notes": null
+  },
+  {
+    "id": 51012,
+    "name": "Supreme Spinning Edge Level",
+    "effects": "Keeps track of Supreme Spinning Edge level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Celes",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_CELES",
+    "notes": null
+  },
+  {
     "id": 51013,
     "name": "Switch Draw Mode III (Dark/Fire)",
     "effects": "Grants [Attach Dark 2 with Stacking]/[Attach Fire 2 with Stacking] after using a Dark/Fire ability, lasts 1 turn",
@@ -18164,6 +18516,232 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "SWITCH_DRAW_MODE_III_FOR_DARK_AND_FIRE",
+    "notes": null
+  },
+  {
+    "id": 51014,
+    "name": "True Arcane Augment Mode: Garland",
+    "effects": "Keeps track of Ultimate Soul of Chaos uses, removed if user has triggered Ultimate Soul of Chaos two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_GARLAND",
+    "notes": null
+  },
+  {
+    "id": 51015,
+    "name": "Ultimate Soul of Chaos Damage Tracker",
+    "effects": "Increases Ultimate Soul of Chaos level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Garland",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SOUL_OF_CHAOS",
+    "notes": null
+  },
+  {
+    "id": 51016,
+    "name": "Ultimate Soul of Chaos Level",
+    "effects": "Keeps track of Ultimate Soul of Chaos level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Garland",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_GARLAND",
+    "notes": null
+  },
+  {
+    "id": 51017,
+    "name": "Portent of Darkness",
+    "effects": "Grants [Dark +30% Boost 1] to all allies after using two of Dual Aura Ball or Aura Ball Charge",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ELASTOMERIC_WAVE_CANNON",
+    "notes": null
+  },
+  {
+    "id": 51018,
+    "name": "Chaos Rebirth Mode",
+    "effects": "Casts Chaos Rebirth when any Damage Reduction Barrier is removed",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_REINCARNATION_MODE",
+    "notes": null
+  },
+  {
+    "id": 51019,
+    "name": "Twin Element Mode II (Holy/Water)",
+    "effects": "Grants [Attach Holy with Stacking]/[Attach Water with Stacking] after using a Holy/Water ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_II_HOLY_AND_WATER",
+    "notes": null
+  },
+  {
+    "id": 51020,
+    "name": "Word of Sorrow",
+    "effects": "Grants [Holy Ability +30% Boost 1]/[Water Ability +30% Boost 1] and [Attach Holy]/[Attach Water] to the user after using two Holy/Water abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_GRACE_OF_WATER",
+    "notes": null
+  },
+  {
+    "id": 51021,
+    "name": "Blast Lance Follow-Up",
+    "effects": "Casts Blast Lance after using two Wind abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_CLOUD_CARRYING_WARRIOR",
+    "notes": null
+  },
+  {
+    "id": 51024,
+    "name": "Hollow Blast Mode",
+    "effects": "Grants [Quick Cast 1] to all allies in the character's row after using a Wind or Poison attack",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_HOLLOW_BLAST",
+    "notes": null
+  },
+  {
+    "id": 51025,
+    "name": "Double Crystarium Mode II (Dark/Holy)",
+    "effects": "Grants [Attach Dark with Stacking]/[Attach Holy with Stacking] after using a Dark/Holy ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "W_CRYSTARIUM_MODE_II_DARK_HOLY",
+    "notes": null
+  },
+  {
+    "id": 51026,
+    "name": "Dawn",
+    "effects": "Grants [Dark Ability +30% Boost 1]/[Holy Ability +30% Boost 1]/[Dark Ability +30% Boost 1] after casting two of Dark Marionette and Seraphic Phase if the triggering ability deals Dark/Holy/Non-Elemental damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_LAST_DESTINY",
+    "notes": null
+  },
+  {
+    "id": 51027,
+    "name": "Double Crystarium Mode III (Ice/Water)",
+    "effects": "Grants [Attach Ice 2 with Stacking]/[Attach Water 2 with Stacking] after using a Ice/Water ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "W_CRYSTARIUM_MODE_III_ICE_WATER",
+    "notes": null
+  },
+  {
+    "id": 51028,
+    "name": "Time Traveller Mode",
+    "effects": "Sets Last Hunter level to 1",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_MEMORY_FOR_FUTURE",
+    "notes": null
+  },
+  {
+    "id": 51029,
+    "name": "Awoken Seraph",
+    "effects": "Dark and Holy abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Dark and Holy abilities at ability rank 1/2/3/4/5, casts Cross Shift after using a Dark or Holy ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_SERAPH",
+    "notes": null
+  },
+  {
+    "id": 51030,
+    "name": "Darkgleam Shift",
+    "effects": "Grants [Attach Dark]/[Attach Holy] to the user after using two Dark/Holy abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DARK_GRIMM_SHIFT",
+    "notes": null
+  },
+  {
+    "id": 51031,
+    "name": "Double Crystarium Mode III (Dark/Holy)",
+    "effects": "Grants [Attach Dark 2 with Stacking]/[Attach Holy 2 with Stacking] after using a Dark/Holy ability, lasts 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "W_CRYSTARIUM_MODE_III_DARK_HOLY",
+    "notes": null
+  },
+  {
+    "id": 51032,
+    "name": "40% Damage Reduction Barrier 2",
+    "effects": "Reduces damage taken by 40% for the next two attacks",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DAMAGE_RATE_REDUCTION_BARRIER_FOR_ATTACK_WITH_MEDIUM_2",
+    "notes": null
+  },
+  {
+    "id": 51073,
+    "name": "Chaos Rebirth +15% Boost",
+    "effects": "Dark abilities deal 15% more damage, removed if user hasn't Chaos Rebirth Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All \"Chaos Rebirth +X% Boost\""
+    ],
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_SMALL_WHILE_REINCARNATION_MODE",
+    "notes": null
+  },
+  {
+    "id": 51074,
+    "name": "Chaos Rebirth +30% Boost",
+    "effects": "Dark abilities deal 30% more damage, removed if user hasn't Chaos Rebirth Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All \"Chaos Rebirth +X% Boost\""
+    ],
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_MEDIUM_WHILE_REINCARNATION_MODE",
+    "notes": null
+  },
+  {
+    "id": 51075,
+    "name": "Chaos Rebirth +50% Boost",
+    "effects": "Dark abilities deal 50% more damage, removed if user hasn't Chaos Rebirth Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All \"Chaos Rebirth +X% Boost\""
+    ],
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_LARGE_WHILE_REINCARNATION_MODE",
     "notes": null
   },
   {
@@ -19367,6 +19945,17 @@
     "notes": null
   },
   {
+    "id": 602121,
+    "name": "MND -30% (8s)",
+    "effects": "MND -30%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_MND_M30_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
     "id": 6020,
     "name": "Stitch in Time",
     "effects": "ATK and MAG +30%, DEF -30%",
@@ -19952,6 +20541,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CUSTOM_DEF_MATK",
+    "notes": null
+  },
+  {
+    "id": 620023,
+    "name": "DEF and MAG +30% (25s)",
+    "effects": "DEF and MAG +30%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CUSTOM_DEF_MATK_30_WHTH_DURATION_LARGE",
     "notes": null
   },
   {
@@ -23060,7 +23660,7 @@
   {
     "id": -1,
     "name": "Conditional Attach Element From Party",
-    "effects": "Grants [Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison] if current number of combined Attach Element statuses on party members are a majority Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison, in the case of ties the prior listed order is used to determine status granted",
+    "effects": "Grants [Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison] if current number of combined Attach Element statuses on party members are a majority Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison. Considers number of stacks on a character as well (Attach Fire at level 2 counts as 2). In the case of ties the prior listed order is used to determine status granted",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -23071,7 +23671,7 @@
   {
     "id": -2,
     "name": "Conditional Attach Element with Stacking",
-    "effects": "Grants [Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison] with Stacking if the user has Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison",
+    "effects": "Grants [Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison] with Stacking if the user has [Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison]",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

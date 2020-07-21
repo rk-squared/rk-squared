@@ -446,12 +446,12 @@
     "nameJp": "幻想のグリモア 巻ノ弐",
     "id": 20140021,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
     "character": "Tyro",
-    "name": "Last Sentinel's Grimoire",
+    "name": "True Sentinel's Grimoire",
     "tier": "Glint+",
     "type": "NAT",
     "target": "All allies",
@@ -469,7 +469,7 @@
     "nameJp": "真・鉄壁のグリモア",
     "id": 20140022,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1425,7 +1425,7 @@
     "nameJp": "マギカ・アニムス",
     "id": 23210016,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1902,7 +1902,7 @@
     "nameJp": "マリンフィールド",
     "id": 23060051,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1925,7 +1925,7 @@
     "nameJp": "アクアモード",
     "id": 23060052,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1948,12 +1948,12 @@
     "nameJp": "バブルモード",
     "id": 23060053,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
     "character": "Dr. Mog",
-    "name": "Surfing Moogle!",
+    "name": "Waverider Moogle",
     "tier": "AOSB",
     "type": "BLK",
     "target": "Single enemy",
@@ -1969,11 +1969,11 @@
     "points": 750,
     "masteryBonus": "MAG +10",
     "honingEffects": "Damage Up, SB Gauge Down",
-    "relic": "Dr. Mog's Swim Ring (Core)",
+    "relic": "Dr. Mog's Floatie (Core)",
     "nameJp": "波乗り！モーグリ",
     "id": 23060054,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -2701,6 +2701,126 @@
   },
   {
     "realm": "I",
+    "character": "Garland",
+    "name": "Ultimate Soul of Chaos (Release)",
+    "tier": "TASB",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Attach Dark with Stacking], [Damage Cap +10000], [True Arcane Augment Mode: Garland], [Ultimate Soul of Chaos Damage Tracker] and [Ultimate Soul of Chaos Level]",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "masteryBonus": null,
+    "honingEffects": "Stat Boon",
+    "relic": "Cross Claymore (I)",
+    "nameJp": "ソウルオブカオス・極",
+    "id": 22310014,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Garland",
+    "name": "Ultimate Soul of Chaos",
+    "tier": "TASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 30,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Twenty single attacks (1.00/1.10/1.20 each) capped at 9999/19999/29999, followed by one single attack (10.00/11.00/12.00) capped at 99999 at Ultimate Soul of Chaos level 0/1/2, removes True Arcane Augment Mode: Garland from the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 750,
+    "masteryBonus": null,
+    "honingEffects": "Cast Time Down, SB Gauge Down",
+    "relic": "Cross Claymore (I)",
+    "nameJp": "ソウルオブカオス・極",
+    "id": 22310014,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Garland",
+    "name": "Tenebrous Rebirth",
+    "tier": "SASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants [40% Damage Reduction Barrier 1] to all allies, grants [Attach Dark 3 with Stacking], [Synchro Mode], [Damage Cap +10000] and [Chaos Rebirth Mode] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": "Damage Up, Cast Time Down",
+    "relic": "Break Blade (I)",
+    "nameJp": "禍々しき輪廻",
+    "id": 22310017,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Garland",
+    "name": "Chain of Chaos",
+    "tier": "CSB",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Activates I Chain (max 99, field +50%), grants [ATK, DEF, MAG and RES +30%] for 25 seconds, grants [Instant Cast 1]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": null,
+    "relic": "Hades Armor (I)",
+    "nameJp": "チェインオブカオス",
+    "id": 22310018,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Garland",
+    "name": "Obsession",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Attach Dark with Stacking] and [Soul Break Gauge +250]",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "masteryBonus": "ATK +10",
+    "honingEffects": null,
+    "relic": "Obelisk (I)",
+    "nameJp": "愛憎",
+    "id": 22310020,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "I",
     "character": "Sarah",
     "name": "Leading Light",
     "tier": "Default",
@@ -2978,6 +3098,52 @@
     "id": 22300012,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "I",
+    "character": "Sarah",
+    "name": "Princess's Far-Reaching Prayer",
+    "tier": "SASB",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (105), grants [Last Stand] and [High Quick Cast 2], grants [Synchro Mode], [Damage Cap +10000] and Desire +1",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": "Heal Boost, Stat Boon",
+    "relic": "Guardian Flute (I)",
+    "nameJp": "彼方に届く王女の祈り",
+    "id": 22300013,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Sarah",
+    "name": "Song of Origins",
+    "tier": "USB",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55), grants [Regenga] and [Quick Cast 3]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "masteryBonus": "MND +10",
+    "honingEffects": null,
+    "relic": " Feathered Cap (I)",
+    "nameJp": "はじまりの歌",
+    "id": 22300015,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "I",
@@ -4335,6 +4501,58 @@
     "gl": true
   },
   {
+    "realm": "I",
+    "character": "Thief (I)",
+    "name": "Lively Thieves",
+    "tier": "AASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Wind",
+      "Poison",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [40% Damage Reduction Barrier 2]/[40% Damage Reduction Barrier 2] and [Weakness +15% Boost]/[40% Damage Reduction Barrier 3] and [Weakness +30% Boost] to the all allies if 0-1/2-3/4+ I allies are alive, grants [Awoken Thief] and [Damage Cap +10000] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": "Damage Up, Cast Time Down, Extra Usage",
+    "relic": "Valiant Knife (I)",
+    "nameJp": "ライヴリーシーブス",
+    "id": 23140008,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Thief (I)",
+    "name": "Hollow Blast",
+    "tier": "USB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Wind",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (? each), grants [Quick Cast 1], [Twin Element Mode II (Wind/Poison] and [Hollow Blast Mode] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": null,
+    "relic": "Mirage Vest (I)",
+    "nameJp": "ホロウブラスト",
+    "id": 23140009,
+    "gl": false
+  },
+  {
     "realm": "II",
     "character": "Firion",
     "name": "Rope Knife",
@@ -4936,7 +5154,7 @@
     "nameJp": "アルマゲドン99",
     "id": 20560011,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -4959,7 +5177,7 @@
     "nameJp": "ちまとい16",
     "id": 20560012,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -5884,7 +6102,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [High Quick Cast 3], grants [Awoken Ruler's Pride], [Sorrow of Loss Follow-Up] and [Sorrow of Loss Counter] to the user",
+    "effects": "Grants [High Quick Cast 3], grants [Awoken Sovereign], [Beloved Homeland Follow-Up] and [Beloved Homeland Counter] to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -5894,7 +6112,7 @@
     "nameJp": "カシュオーンの王盾",
     "id": 20280009,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -5917,7 +6135,7 @@
     "nameJp": "王族の義心",
     "id": 20280010,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -6069,7 +6287,7 @@
     "nameJp": "パイレーツカットラス",
     "id": 22130006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -6094,7 +6312,7 @@
     "nameJp": "スプラッシュ64",
     "id": 22130007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -6117,7 +6335,7 @@
     "nameJp": "女海賊の気概",
     "id": 22130008,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -6578,7 +6796,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Attach Ice Stacking], [Attach Ice] and [Heroic Spirit Follow-Up] to the user",
+    "effects": "Grants [Attach Ice Stacking], [Attach Ice] and [Hero's Barrage Follow-Up] to the user",
     "counter": false,
     "autoTarget": "Self",
     "points": 250,
@@ -6614,7 +6832,7 @@
     "nameJp": "初志貫徹・漢道",
     "id": 20190011,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -7120,7 +7338,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Restores HP (105), removes KO [Raise: 100%], grants [Physical Blink 2] and [Haste], grants [Awoken Multitalent] to the user",
+    "effects": "Restores HP (105), removes KO [Raise: 100%], grants [Physical Blink 2] and [Haste], grants [Awoken Brilliance] to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -7130,7 +7348,7 @@
     "nameJp": "咲き誇る平和の華",
     "id": 23300006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -7153,7 +7371,7 @@
     "nameJp": "センチメンタルムーン",
     "id": 23300007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -7290,7 +7508,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [Attach Fire with Stacking], [Awoken Spellblade], [Damage Cap +10000], [Quick Cast] and [Sacrificial Love Follow-Up] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [Attach Fire with Stacking], [Awoken Spellblade], [Damage Cap +10000], [Quick Cast] and [Lifelong Devotion Follow-Up] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -7300,7 +7518,7 @@
     "nameJp": "カシュオーンの王剣",
     "id": 22940006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -7325,7 +7543,7 @@
     "nameJp": "曙光の炎",
     "id": 22940007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -7338,7 +7556,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Attach Fire with Stacking] and [Spellblade Quick Cast]",
+    "effects": "Grants [Attach Fire with Stacking] and [Spellblade High Quick Cast]",
     "counter": false,
     "autoTarget": "Self",
     "points": 250,
@@ -7347,7 +7565,8 @@
     "relic": "Thor's Hammer (II)",
     "nameJp": "勇壮なる気炎",
     "id": 22940008,
-    "gl": false
+    "anima": null,
+    "gl": true
   },
   {
     "realm": "III",
@@ -7670,6 +7889,32 @@
     "id": 20290014,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "III",
+    "character": "Luneth",
+    "name": "Cloudsoaring Warrior",
+    "tier": "AASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] and [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to all allies if 0-1/2-3/4+ FF3 allies are alive, grants [Awoken Wind], [Damage Cap +10000] and [Blast Lance Follow-Up] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": "Damage Up, Cast Time Down, Extra Usage",
+    "relic": "Magic Lance (III)",
+    "nameJp": "雲を駆ける戦士",
+    "id": 20290016,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "III",
@@ -7997,6 +8242,82 @@
     "id": 20420015,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "III",
+    "character": "Arc",
+    "name": "Grace of Water",
+    "tier": "AASB",
+    "type": "NAT",
+    "typeDetails": [
+      "SUM",
+      "WHT"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Holy",
+      "Water",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single hybrid attacks (1.82 or 1.92 each), grants [Awoken Altruist], [Damage Cap +10000], [Twin Element Mode II (Holy/Water)] and [Word of Sorrow] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "MAG +5, MND +5",
+    "honingEffects": "Damage Up, Cast Time Down, Extra Usage",
+    "relic": "Master's Staff (III)",
+    "nameJp": "グレイスオブウォータ",
+    "id": 20420016,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "III",
+    "character": "Arc",
+    "name": "Illuminating the World",
+    "tier": "CSB",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Activates III Chain (max 99, field +50%), grants [ATK, DEF, MAG and RES +30%] for 25 seconds, grants [Instant Cast 1]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "masteryBonus": "MAG +5, MND +5",
+    "honingEffects": null,
+    "relic": "Rune Staff (III)",
+    "nameJp": "世界を照らす者たち",
+    "id": 20420017,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "III",
+    "character": "Arc",
+    "name": "Seaglow Paean",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Twin Element Mode II (Holy/Water)] and [High Quick Cast 1]",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "masteryBonus": "MAG +5, MND +5",
+    "honingEffects": null,
+    "relic": "Lambent Hat (III)",
+    "nameJp": "水光の詩歌",
+    "id": 20420018,
+    "gl": false
   },
   {
     "realm": "III",
@@ -9536,6 +9857,54 @@
   },
   {
     "realm": "III",
+    "character": "Cloud of Darkness",
+    "name": "Scattershot Particle Beam",
+    "tier": "SASB",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 22.5,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), grants [Attach Dark 3 with Stacking], [Damage Cap +10000], [Synchro Mode], [Portent of Darkness] and Tentacle +1 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": "Damage Up, Cast Time Down",
+    "relic": "Voracious Tentacles (III)",
+    "nameJp": "散弾式 波動砲",
+    "id": 22670012,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "III",
+    "character": "Cloud of Darkness",
+    "name": "Particle Shroud",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "All enemies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [DEF, RES and MND -70% (8s)], grants [Instant Cast 1] to the user",
+    "counter": false,
+    "autoTarget": "All enemies",
+    "points": 0,
+    "masteryBonus": "MAG +10",
+    "honingEffects": null,
+    "relic": "Cloud Staff (III)",
+    "nameJp": "氾濫式 波動束",
+    "id": 22670014,
+    "gl": false
+  },
+  {
+    "realm": "III",
     "character": "Aria",
     "name": "Cura (III)",
     "tier": "Default",
@@ -9694,6 +10063,29 @@
     "id": 22960007,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "III",
+    "character": "Aria",
+    "name": "Transient Maiden",
+    "tier": "SASB",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (105), grants [Instant Cast 1] and [Stoneskin: 100%], grants [Synchro Mode] and [Damage Cap +10000] to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": "Heal Boost, Stat Boon",
+    "relic": "Mermaid Harp (III)",
+    "nameJp": "うたかたの巫女",
+    "id": 22960008,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -9988,7 +10380,7 @@
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "masteryBonus": "ATK +10",
-    "honingEffects": null,
+    "honingEffects": "Damage Up, Cast Time Down, and Extra Usage",
     "relic": "Claw of Darkness (IV)",
     "nameJp": "闇月",
     "id": 20060014,
@@ -10541,6 +10933,7 @@
     "relic": "Durandal (IV)",
     "nameJp": "ダブルフェイズ",
     "id": 20070024,
+    "anima": null,
     "gl": false
   },
   {
@@ -10561,15 +10954,16 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Twenty single hybrid attacks (?/?/? or ?/?/? each) capped at 9999/19999/29999, followed by one single attack (?/?/? or ?/?/?) capped at 99999 at Soul Shift level 0/1/2, removes True Arcane Augment Mode: Cecil (Paladin) from the user",
+    "effects": "Twenty single hybrid attacks (1.00/1.10/1.20 or 3.20/3.55/3.91 each) capped at 9999/19999/29999, followed by one single attack (10.00/11.00/12.00 or 35.15/38.67/42.18) capped at 99999 at Soul Shift level 0/1/2, removes True Arcane Augment Mode: Cecil (Paladin) from the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 750,
     "masteryBonus": null,
-    "honingEffects": "Damage Up, Cast Time Down",
+    "honingEffects": "Cast Time Down, SB Gauge Down",
     "relic": "Durandal (IV)",
     "nameJp": "ダブルフェイズ",
     "id": 20070024,
+    "anima": null,
     "gl": false
   },
   {
@@ -15179,7 +15573,7 @@
   {
     "realm": "V",
     "character": "Lenna",
-    "name": "Wings Spread Wide",
+    "name": "Spreading One's Wings",
     "tier": "AASB",
     "type": "NAT",
     "target": "All allies",
@@ -15187,7 +15581,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Regenga], [Protect], [Shell], [Haste] and [High Quick Cast 2], grants [Awoken Double Job] to the user",
+    "effects": "Grants [Regenga], [Protect], [Shell], [Haste] and [High Quick Cast 2], grants [Awoken Dual Job] to the user",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -15197,12 +15591,12 @@
     "nameJp": "大いなる翼を広げ",
     "id": 20200016,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
     "character": "Lenna",
-    "name": "Two Princesses' Prayer",
+    "name": "Princesses' Prayer",
     "tier": "USB",
     "type": "WHT",
     "target": "All allies",
@@ -15220,7 +15614,7 @@
     "nameJp": "二姫の祈り",
     "id": 20200017,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -16668,7 +17062,7 @@
   {
     "realm": "V",
     "character": "Bartz",
-    "name": "Bonds of the Wind",
+    "name": "Ethereal Bond",
     "tier": "SASB",
     "type": "PHY",
     "target": "Single enemy",
@@ -16679,7 +17073,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [Attach Wind 3 with Stacking], [Synchro Mode], [Damage Cap +10000] and [Bonds of Wind Follow-Up] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [Attach Wind 3 with Stacking], [Synchro Mode], [Damage Cap +10000] and [Ethereal Bond Follow-Up] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -16689,12 +17083,12 @@
     "nameJp": "風のきずな",
     "id": 20400021,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
     "character": "Bartz",
-    "name": "Essence of the Four",
+    "name": "Quest of the Four",
     "tier": "Glint+",
     "type": "NAT",
     "target": "Self",
@@ -16712,7 +17106,7 @@
     "nameJp": "4つの心「探求」",
     "id": 20400022,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -16858,6 +17252,7 @@
     "relic": "Force Stealer (V)",
     "nameJp": "炎のめざめ",
     "id": 20400030,
+    "anima": null,
     "gl": false
   },
   {
@@ -16877,9 +17272,10 @@
     "points": 0,
     "masteryBonus": "ATK +10",
     "honingEffects": null,
-    "relic": "Force Armo (V)",
+    "relic": "Force Armor (V)",
     "nameJp": "授かりし炎の力",
     "id": 20400031,
+    "anima": null,
     "gl": false
   },
   {
@@ -17375,6 +17771,7 @@
     "relic": "Rune Bow (V)",
     "nameJp": "かけがえのない親友",
     "id": 20930022,
+    "anima": null,
     "gl": false
   },
   {
@@ -20152,6 +20549,105 @@
   },
   {
     "realm": "VI",
+    "character": "Celes",
+    "name": "Supreme Spinning Edge (Release)",
+    "tier": "TASB",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Attach Ice with Stacking], [Damage Cap +10000], [True Arcane Augment Mode: Celes], [Supreme Spinning Edge Ability Tracker] and [Supreme Spinning Edge Level]",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 0,
+    "masteryBonus": null,
+    "honingEffects": "Stat Boon",
+    "relic": "Hauteclaire (VI)",
+    "nameJp": "スピニングエッジ・極",
+    "id": 20210018,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Celes",
+    "name": "Supreme Spinning Edge",
+    "tier": "TASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 30,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Twenty single attacks (1.00/1.10/1.20 each) capped at 9999/19999/29999, followed by one single attack (10.00/11.00/12.00) capped at 99999 at Supreme Spinning Edge level 0/1/2, removes True Arcane Augment Mode: Celes from the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 750,
+    "masteryBonus": null,
+    "honingEffects": "Cast Time Down, SB Gauge Down",
+    "relic": "Hauteclaire (VI)",
+    "nameJp": "スピニングエッジ・極",
+    "id": 20210018,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Celes",
+    "name": "Cleansing Indomitable Blade",
+    "tier": "AASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Ice",
+      "Holy",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants [Awoken Invincible General], [Damage Cap +10000], [Twin Element Mode (Ice/Holy)] and [Runic Release Follow-Up] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": "Damage Up, Cast Time Down, Extra Usage",
+    "relic": "Celes's Armguard (VI)",
+    "nameJp": "清廉なる常勝の剣",
+    "id": 20210019,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Celes",
+    "name": "Invincible General's Blade",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Magical Blink 1] and [Weakness SB Gauge +25% Boost (15s)]",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "masteryBonus": "ATK +10",
+    "honingEffects": null,
+    "relic": "Hoarfrost Saber (VI)",
+    "nameJp": "常勝将軍の剣気",
+    "id": 20210020,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VI",
     "character": "Mog",
     "name": "Leaf Swirl",
     "tier": "Default",
@@ -20382,6 +20878,29 @@
     "id": 20900008,
     "anima": "4",
     "gl": true
+  },
+  {
+    "realm": "VI",
+    "character": "Mog",
+    "name": "Dancing for Everyone",
+    "tier": "AASB",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [ATK, DEF, MAG and RES +30% (25s)], [Quick Cast] and [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to all allies if 0-1/2-3/4+ FF6 allies are alive, grants [Awoken Rhapsody] and [Mog Step] to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "masteryBonus": "MND +10",
+    "honingEffects": "Stat Boon, Damage Reduction Barrier, Extra Usage",
+    "relic": "Fairy Flute (VI)",
+    "nameJp": "みんなでダンシング",
+    "id": 20900009,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "VI",
@@ -20684,6 +21203,29 @@
     "id": 20530013,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "VI",
+    "character": "Edgar",
+    "name": "Proper Manners",
+    "tier": "CSB",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Activates VI Chain (max 99, field +50%), grants [ATK, DEF, MAG and RES +30%] for 25 seconds, grants [Instant Cast 1]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": null,
+    "relic": "Barbut (VI)",
+    "nameJp": "レディに対する礼儀",
+    "id": 20530014,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "VI",
@@ -22668,6 +23210,29 @@
   },
   {
     "realm": "VI",
+    "character": "Relm",
+    "name": "Galactic Prism",
+    "tier": "SASB",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (105), grants [High Quick Cast 2] and [Physical Blink Stacking 2], grants [Synchro Mode] and [Damage Cap +10000] to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": "Heal Boost, Stat Boon",
+    "relic": "Moogle Brush (VI)",
+    "nameJp": "ギャラクシープリズム",
+    "id": 22160013,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VI",
     "character": "Gogo (VI)",
     "name": "Mime",
     "tier": "Default",
@@ -23255,6 +23820,56 @@
     "id": 22070011,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "VI",
+    "character": "Kefka",
+    "name": "Fall from Grace",
+    "tier": "SASB",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 22.5,
+    "element": [
+      "Dark",
+      "Poison",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), grants [Synchro Mode], [Damage Cap +10000], [Twin Element Mode III (Dark/Poison)], [Mental Collapse Mode] and [40% Damage Reduction Barrier 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": "Damage Up, Cast Time Down",
+    "relic": "Loki's Harp (VI)",
+    "nameJp": "ふじょうなるおんちょう",
+    "id": 22070013,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Kefka",
+    "name": "Clown's Sneer",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Twin Element Mode II (Dark/Poison)] and [High Quick Cast 1]",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "masteryBonus": "MAG +10",
+    "honingEffects": null,
+    "relic": "Bewildering Headdress (VI)",
+    "nameJp": "嘲笑",
+    "id": 22070015,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "VI",
@@ -27393,7 +28008,7 @@
   {
     "realm": "VII",
     "character": "Sephiroth",
-    "name": "Tenma Hajun",
+    "name": "Demonic Lord",
     "tier": "SASB",
     "type": "PHY",
     "target": "Single enemy",
@@ -27414,12 +28029,12 @@
     "nameJp": "天魔波旬",
     "id": 20250022,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
     "character": "Sephiroth",
-    "name": "Dark Fervent Blow",
+    "name": "Fervent Shadow",
     "tier": "Glint+",
     "type": "NAT",
     "target": "Self",
@@ -27437,7 +28052,7 @@
     "nameJp": "縮地・闇の型",
     "id": 20250023,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -29271,7 +29886,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [Attach FIre 3 with Stacking], [Synchro Mode], [Damage Cap +10000] and [Genesis Trance] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [Attach Fire 3 with Stacking], [Synchro Mode], [Damage Cap +10000] and [Black Flurry Mode] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -29802,7 +30417,7 @@
   {
     "realm": "VIII",
     "character": "Squall",
-    "name": "Fatal Flames",
+    "name": "End of Flame",
     "tier": "AASB",
     "type": "PHY",
     "target": "Single enemy",
@@ -29819,11 +30434,11 @@
     "points": 500,
     "masteryBonus": "ATK +10",
     "honingEffects": "Damage Up, Cast Time Down, Extra Usage",
-    "relic": "Dragonheart (VIII)",
+    "relic": "Dragon's Heart (VIII)",
     "nameJp": "エンドオブフレイム",
     "id": 20350024,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -29846,7 +30461,7 @@
     "nameJp": "フェイテッドフォース",
     "id": 20350025,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -30406,7 +31021,7 @@
   {
     "realm": "VIII",
     "character": "Rinoa",
-    "name": "Angel Wing: New Moon",
+    "name": "Angel Wing New Moon",
     "tier": "CSB",
     "type": "NAT",
     "target": "All allies",
@@ -30423,6 +31038,7 @@
     "relic": "Regal Gown (VIII)",
     "nameJp": "ヴァリー・月隠",
     "id": 20300023,
+    "anima": null,
     "gl": false
   },
   {
@@ -34035,7 +34651,7 @@
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
     "masteryBonus": "ATK +10",
-    "honingEffects": null,
+    "honingEffects": "Damage Up, Cast Time Down, and Extra Usage",
     "relic": "Butterfly Edge (IX)",
     "nameJp": "リバースガイア",
     "id": 20860014,
@@ -34887,6 +35503,7 @@
     "relic": "Arc Arcana (IX)",
     "nameJp": "キラメクホノオ",
     "id": 20370018,
+    "anima": null,
     "gl": false
   },
   {
@@ -37216,7 +37833,7 @@
   {
     "realm": "IX",
     "character": "Kuja",
-    "name": "Silver Lining",
+    "name": "Cloudburst Blessing",
     "tier": "CSB",
     "type": "NAT",
     "target": "All allies",
@@ -37230,11 +37847,11 @@
     "points": 500,
     "masteryBonus": "MAG +10",
     "honingEffects": null,
-    "relic": "Gigas Chestplate (IX)",
+    "relic": "Demon's Vest (IX)",
     "nameJp": "祝福の陰雨",
     "id": 22240013,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -38264,7 +38881,7 @@
   {
     "realm": "X",
     "character": "Yuna",
-    "name": "Ballad of Dreams",
+    "name": "Fanciful Ballad",
     "tier": "CSB",
     "type": "NAT",
     "target": "All allies",
@@ -38272,17 +38889,17 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Activates Holy Chain (max 150, field +50%), grants [MAG and MND +30%] for 25 seconds, grants [Buff Holy 20% (15s)] ",
+    "effects": "Activates Holy Chain (max 99, field +50%), grants [MAG and MND +30%] for 25 seconds, grants [Buff Holy 20% (15s)] ",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
-    "masteryBonus": "MND +10",
+    "masteryBonus": "MAG +5, MND +5",
     "honingEffects": null,
-    "relic": "Alchemist Y (X)",
+    "relic": "Alchemist Yuna (X)",
     "nameJp": "素敵な夢の愛歌",
     "id": 20520019,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -39901,7 +40518,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [Attach Fire], [Awoken Samurai], [Damage Cap +10000] and [Law Breaker Follow-Up] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [Attach Fire], [Awoken Samurai], [Damage Cap +10000] and [Broken Commandment Follow-Up] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -42576,6 +43193,7 @@
     "relic": "Dominion Mace (XI)",
     "nameJp": "オートマトンバンド",
     "id": 22880008,
+    "anima": null,
     "gl": false
   },
   {
@@ -42842,7 +43460,7 @@
     "autoTarget": "All enemies",
     "points": 500,
     "masteryBonus": "ATK +5, MND +5",
-    "honingEffects": null,
+    "honingEffects": "Stat Boon, Damage Reduction Barrier, and Extra Usage",
     "relic": "Dancer's Casaque (XI)",
     "nameJp": "D.フラリッシュ",
     "id": 23350004,
@@ -43397,6 +44015,7 @@
     "relic": "Rudra Tulwar (XII)",
     "nameJp": "ディープインパクト",
     "id": 20700022,
+    "anima": null,
     "gl": false
   },
   {
@@ -43419,6 +44038,7 @@
     "relic": "Dancing Dagger (XII)",
     "nameJp": "自由なる風",
     "id": 20700023,
+    "anima": null,
     "gl": false
   },
   {
@@ -46610,7 +47230,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [Attach Holy with Stacking], [Awoken Holy], [Damage Cap +10000], [Quick Cast] and [Dashing Glow Follow-Up] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [Attach Holy with Stacking], [Awoken Holy], [Damage Cap +10000], [Quick Cast] and [Graceful Influence Follow-Up] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -46620,12 +47240,12 @@
     "nameJp": "エレガントドライブ",
     "id": 20600023,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
     "character": "Lightning",
-    "name": "Gleaming Feathers",
+    "name": "Glittering Feather",
     "tier": "AOSB",
     "type": "PHY",
     "target": "Single enemy",
@@ -46641,16 +47261,16 @@
     "points": 750,
     "masteryBonus": "ATK +10",
     "honingEffects": "Damage Up, SB Gauge Down",
-    "relic": "Goddess' Bangle (XIII)",
+    "relic": "Goddess's Bangle (XIII)",
     "nameJp": "グリッターフェザー",
     "id": 20600024,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
     "character": "Lightning",
-    "name": "Warrior's Stance",
+    "name": "War God's Resolve",
     "tier": "Glint+",
     "type": "NAT",
     "target": "Self",
@@ -46668,7 +47288,7 @@
     "nameJp": "軍神の覚悟",
     "id": 20600025,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -46681,7 +47301,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Attach Lightning with Stacking], [Damage Cap +10000], [True Arcane Augment Mode: Lightning], [Zantetsuken Damage Tracker] and [Zantetsuken Level]",
+    "effects": "Grants [Attach Lightning with Stacking], [Damage Cap +10000], [True Arcane Augment Mode: Lightning], [Zantetsuken Ability Tracker] and [Zantetsuken Level]",
     "counter": false,
     "autoTarget": "Self",
     "points": 0,
@@ -46690,6 +47310,7 @@
     "relic": "Durandal (XIII)",
     "nameJp": "斬鉄剣",
     "id": 20600027,
+    "anima": null,
     "gl": false
   },
   {
@@ -46711,10 +47332,11 @@
     "autoTarget": "Lowest HP% enemy",
     "points": 750,
     "masteryBonus": null,
-    "honingEffects": "Damage Up, Cast Time Down",
+    "honingEffects": "Cast Time Down, SB Gauge Down",
     "relic": "Durandal (XIII)",
     "nameJp": "斬鉄剣",
     "id": 20600027,
+    "anima": null,
     "gl": false
   },
   {
@@ -46740,6 +47362,7 @@
     "relic": "Brass Falcon (XIII)",
     "nameJp": "シーンドライブ・セント",
     "id": 20600028,
+    "anima": null,
     "gl": false
   },
   {
@@ -47790,6 +48413,29 @@
   },
   {
     "realm": "XIII",
+    "character": "Sazh",
+    "name": "Seeking Purpose",
+    "tier": "CSB",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Activates XIII Chain (max 99, field +50%), grants [ATK, DEF, MAG and RES +30%] for 25 seconds, grants [Instant Cast 1]",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": null,
+    "relic": "Heavy Coat (XIII)",
+    "nameJp": "使命を求めて",
+    "id": 20610011,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
     "character": "Hope",
     "name": "Fearsiphon",
     "tier": "Default",
@@ -48792,7 +49438,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants [Awoken Farseer], [Damage Cap +10000], [Quick Cast], [Double Crystarium Mode] and [Blue Arrow Follow-Up]",
+    "effects": "Fifteen single attacks (1.50 each), grants [Awoken Farseer], [Damage Cap +10000], [Quick Cast], [Double Crystarium Mode] and [Azure Arrow Follow-Up]",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -48802,7 +49448,7 @@
     "nameJp": "アブソリュートゼロ",
     "id": 22260011,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -48828,7 +49474,7 @@
     "nameJp": "アルテミスフロスト",
     "id": 22260012,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -48854,7 +49500,7 @@
     "nameJp": "ストライクウォータ",
     "id": 22260013,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -48877,7 +49523,7 @@
     "nameJp": "アルテミスチャージ",
     "id": 22260014,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -48900,7 +49546,7 @@
     "nameJp": "アルテミスフィールド",
     "id": 22260015,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -48926,7 +49572,7 @@
     "nameJp": "トランセンドアロー",
     "id": 22260016,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -48949,7 +49595,7 @@
     "nameJp": "アルテミスヴェール",
     "id": 22260017,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -49225,6 +49871,82 @@
     "id": 22410011,
     "anima": "4",
     "gl": true
+  },
+  {
+    "realm": "XIII",
+    "character": "Cid Raines",
+    "name": "Destined End",
+    "tier": "SASB",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 22.5,
+    "element": [
+      "Dark",
+      "Holy",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), grants [DEF and MAG +30% (25s)] to all allies, grants [Synchro Mode], [Damage Cap +10000], [Double Crystarium Mode III (Dark/Holy)] and [Dawn] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": "Damage Up, Cast Time Down",
+    "relic": "Tit-for-Tat (XIII)",
+    "nameJp": "ラストディスティニー",
+    "id": 22410012,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
+    "character": "Cid Raines",
+    "name": "Grimdark Shift",
+    "tier": "AASB",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 22.5,
+    "element": [
+      "Dark",
+      "Holy",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (1.50 each), removes positive effects, grants [Awoken Seraph], [Damage Cap +10000], [Double Crystarium Mode II (Dark/Holy)] and [Darkgleam Shift] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "MAG +10",
+    "honingEffects": "Damage Up, Cast Time Down, Extra Usage",
+    "relic": "Chanter's Djellaba (XIII)",
+    "nameJp": "ダークグリムシフト",
+    "id": 22410013,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
+    "character": "Cid Raines",
+    "name": "Seraphic Shift",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Double Crystarium Mode II (Dark/Holy)] and [High Quick Cast 1]",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "masteryBonus": "MAG +10",
+    "honingEffects": null,
+    "relic": "Hellish Talon (XIII)",
+    "nameJp": "セラフィックシフト",
+    "id": 22410014,
+    "gl": false
   },
   {
     "realm": "XIII",
@@ -49525,6 +50247,33 @@
     "id": 22450012,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "XIII",
+    "character": "Noel",
+    "name": "Memories for the Future",
+    "tier": "SASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Ice",
+      "Water",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single ranged attacks (0.60 each), grants [Synchro Mode], [Damage Cap +10000], [Double Crystarium Mode III (Ice/Water)], [Time Traveller Mode] and Hunter +1 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": "Damage Up, Cast Time Down",
+    "relic": "Catastrophe Blade (XIII)",
+    "nameJp": "未来への追憶",
+    "id": 22450013,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XIII",
@@ -50789,7 +51538,7 @@
     "nameJp": "エノキアンデスペア",
     "id": 22330010,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -50811,7 +51560,8 @@
     "relic": "Seventh Hell Coat (XIV)",
     "nameJp": "激成魔",
     "id": 22330011,
-    "gl": false
+    "anima": null,
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -51314,7 +52064,7 @@
     "autoTarget": "All allies",
     "points": 500,
     "masteryBonus": "ATK +10",
-    "honingEffects": "Damage Up, Cast Time Down, Extra Usage",
+    "honingEffects": "Stat Boon, Damage Reduction Barrier, Extra Usage",
     "relic": "Sword of the Twin Thegns (XIV)",
     "nameJp": "星の代弁者",
     "id": 22520008,
@@ -51593,7 +52343,7 @@
     "nameJp": "パーマフロスト",
     "id": 23130005,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -51619,12 +52369,12 @@
     "nameJp": "黒魔紋ブリザジャ",
     "id": 23130006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
     "character": "Ysayle",
-    "name": "White Out",
+    "name": "Whiteout",
     "tier": "Glint+",
     "type": "NAT",
     "target": "Self",
@@ -51642,7 +52392,7 @@
     "nameJp": "ホワイトアウト",
     "id": 23130007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -51932,7 +52682,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged jump attacks (0.60 each), grants [Twin Element Mode III (Wind/Dark], [Synchro Mode], [Damage Cap +10000] and [Azure Dragoon Mode] to the user",
+    "effects": "Fifteen single ranged jump attacks (0.60 each), grants [Twin Element Mode III (Wind/Dark)], [Synchro Mode], [Damage Cap +10000] and [Azure Dragoon Mode] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -51941,6 +52691,7 @@
     "relic": "Wyrmshade Gae Bolg (XIV)",
     "nameJp": "漆黒のドラゴンダイブ",
     "id": 23120005,
+    "anima": null,
     "gl": false
   },
   {
@@ -51967,6 +52718,7 @@
     "relic": "Iceheart Mail (XIV)",
     "nameJp": "蒼を継ぐ者",
     "id": 23120006,
+    "anima": null,
     "gl": false
   },
   {
@@ -51977,14 +52729,14 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 7.1,
     "element": [
       "Wind",
       "Dark",
       "NE"
     ],
     "time": 2.5,
-    "effects": "Ten single ranged jump attacks (? each), grants [Twin Element Mode II (Wind/Dark)], [Jump Instant Cast] and [Wind and Dark Ability +30% Boost] to the user",
+    "effects": "Ten single ranged jump attacks (0.71 each), grants [Twin Element Mode II (Wind/Dark)], [Jump Instant Cast] and [Wind/Dark Ability +30% Boost] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -51993,6 +52745,7 @@
     "relic": "Rhongomiant (XIV)",
     "nameJp": "紅の竜騎士",
     "id": 23120007,
+    "anima": null,
     "gl": false
   },
   {
@@ -52006,7 +52759,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Twin Element Mode II (Wind/Dark) and [High Quick Cast 1]",
+    "effects": "Grants [Twin Element Mode II (Wind/Dark)] and [High Quick Cast 1]",
     "counter": false,
     "autoTarget": "Self",
     "points": 0,
@@ -52015,6 +52768,7 @@
     "relic": "Dreadwyrm Mail of Maiming (XIV)",
     "nameJp": "紅の竜血",
     "id": 23120008,
+    "anima": null,
     "gl": false
   },
   {
@@ -52903,7 +53657,7 @@
   {
     "realm": "XV",
     "character": "Ignis",
-    "name": "Sageflare",
+    "name": "Sage's Hellfire",
     "tier": "SASB",
     "type": "PHY",
     "target": "Single enemy",
@@ -52914,7 +53668,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [Attach Fire 3 with Stacking], [Synchro Mode], [Damage Cap +10000] and +3 Ingredients to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [Attach Fire 3 with Stacking], [Synchro Mode], [Damage Cap +10000] and +3 Components to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -52924,12 +53678,12 @@
     "nameJp": "賢者の業火",
     "id": 23200006,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
     "character": "Ignis",
-    "name": "Burn Enhancement",
+    "name": "Flameboost Bite",
     "tier": "AASB",
     "type": "PHY",
     "target": "Single enemy",
@@ -52940,7 +53694,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [Attach Fire], [Awoken Fire], [Damage Cap +10000] and [Last Resort Mode] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [Attach Fire], [Awoken Fire], [Damage Cap +10000] and [Final Recipe Mode] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -52950,7 +53704,7 @@
     "nameJp": "バーンエンハンスバイト",
     "id": 23200007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -52973,6 +53727,31 @@
     "nameJp": "タクティカルセンス",
     "id": 23200008,
     "anima": null,
+    "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Ignis",
+    "name": "Strategic Flair",
+    "tier": "AASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to the all allies if 0-1/2-3/4+ XV allies are alive, grants [Awoken Fire], [Damage Cap +10000], [Quick Cast] and [Fire SB Gauge +25% Boost] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": "Damage Up, Cast Time Down, Extra Usage",
+    "relic": "Magic Flask (XV)",
+    "nameJp": "軍師たるもの",
+    "id": 23200009,
     "gl": false
   },
   {
@@ -53179,6 +53958,77 @@
   },
   {
     "realm": "XV",
+    "character": "Prompto",
+    "name": "Trigger Miracle",
+    "tier": "SASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single ranged attacks (0.60 each), grants [Attach Lightning 3 with Stacking], [Synchro Mode] and [Damage Cap +10000] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": "Damage Up, Cast Time Down",
+    "relic": "Valiant (XV)",
+    "nameJp": "トリガーミラクル",
+    "id": 22970009,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Prompto",
+    "name": "Party Shot",
+    "tier": "CSB",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Activates XV Chain (max 99, field +50%), grants [ATK, DEF, MAG and RES +30%] for 25 seconds, grants [Instant Cast 1]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": null,
+    "relic": "Circular Saw (XV)",
+    "nameJp": "パーティショット",
+    "id": 22970010,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Prompto",
+    "name": "Trigger Sparks",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Attach Lightning with Stacking] and [Instant Cast 1]",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "masteryBonus": "ATK +10",
+    "honingEffects": null,
+    "relic": "Prompto's Guise (XV)",
+    "nameJp": "スパークハッピー",
+    "id": 22970011,
+    "gl": false
+  },
+  {
+    "realm": "XV",
     "character": "Iris",
     "name": "Kupo Attack",
     "tier": "Default",
@@ -53337,6 +54187,29 @@
     "id": 22910007,
     "anima": "4",
     "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Iris",
+    "name": "Support Mega-Potion",
+    "tier": "SASB",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (105), grants [Regenga] and [Physical High Quick Cast 3], grants [Synchro Mode] and [Damage Cap +10000] to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": "Heal Boost, Stat Boon",
+    "relic": "Slactuar Plushie (XV)",
+    "nameJp": "サポートメガポーション",
+    "id": 22910008,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XV",
@@ -53731,7 +54604,7 @@
     "formula": null,
     "multiplier": null,
     "element": null,
-    "time": 2.5,
+    "time": 0.01,
     "effects": "Restores HP (105), removes KO [Raise: 100%], grants [Last Stand] and [Haste], grants [Awoken Water God], [Damage Cap +10000] and [Quick Cast] to the user",
     "counter": false,
     "autoTarget": "All allies",
@@ -53819,6 +54692,136 @@
     "id": 23460006,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Ardyn",
+    "name": "Grudge",
+    "tier": "Default",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.3,
+    "element": [
+      "Dark",
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "One single attack (1.30)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": null,
+    "honingEffects": null,
+    "relic": null,
+    "nameJp": "怨嗟の片鱗",
+    "id": 23520001,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Ardyn",
+    "name": "Mega Death",
+    "tier": "SASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Dark",
+      "Fire",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants [Synchro Mode], [Damage Cap +10000], [Twin Element Mode III (Dark/Fire)] and [Revival Mode (Ardyn)] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": "Damage Up, Cast Time Down",
+    "relic": "Ardyn's Guise (XV)",
+    "nameJp": "オーバーデス",
+    "id": 23520002,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Ardyn",
+    "name": "Fallen King",
+    "tier": "AASB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 9,
+    "element": [
+      "Dark",
+      "Fire",
+      "NE"
+    ],
+    "time": 2.5,
+    "effects": "Fifteen single attacks (0.60 each), grants [Awoken Lord of Darkness], [Damage Cap +10000], [Twin Element Mode (Dark/Fire)] and [Dark Armiger Mode] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": "Damage Up, Cast Time Down, Extra Usage",
+    "relic": "Mutant Axe of the Conqueror (XV)",
+    "nameJp": "闇の王の力",
+    "id": 23520004,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Ardyn",
+    "name": "Dark Aura (XV)",
+    "tier": "USB",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.2,
+    "element": [
+      "Dark",
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.62 each), grants [Instant Cast 1] and [Last Stand] to all allies, grants [Twin Element Mode (Dark/Fire)] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "points": 500,
+    "masteryBonus": "ATK +10",
+    "honingEffects": null,
+    "relic": "Mutant Sword of the Wise (XV)",
+    "nameJp": "闇のオーラ【XV】",
+    "id": 23520005,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Ardyn",
+    "name": "Fallen King's Vengeance",
+    "tier": "Glint+",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Twin Element Mode II (Dark/Fire)] and [High Quick Cast 1]",
+    "counter": false,
+    "autoTarget": "Self",
+    "points": 0,
+    "masteryBonus": "ATK +10",
+    "honingEffects": null,
+    "relic": "Mutant Bow of the Clever (XV)",
+    "nameJp": "弾かれた王の執念",
+    "id": 23520006,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "FFT",
@@ -54176,7 +55179,7 @@
     "nameJp": "異端者たちの物語",
     "id": 22140015,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -54911,7 +55914,7 @@
     "nameJp": "儚き想い",
     "id": 22390010,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -54934,7 +55937,7 @@
     "nameJp": "清らかなる生命の風",
     "id": 22390011,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -54957,7 +55960,7 @@
     "nameJp": "プリンセスの願い",
     "id": 22390012,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -55327,7 +56330,7 @@
     "nameJp": "聖剣技の極致",
     "id": 22550009,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -55340,7 +56343,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Undefeated Sword Master Mode] and [High Quick Cast 2]",
+    "effects": "Grants [Sword Saint Shutdown Mode] and [High Quick Cast 2]",
     "counter": false,
     "autoTarget": "Self",
     "points": 0,
@@ -55350,7 +56353,7 @@
     "nameJp": "闇の型",
     "id": 22550010,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -55373,7 +56376,7 @@
     "nameJp": "剣聖覇気",
     "id": 22550011,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -55576,7 +56579,7 @@
     "nameJp": "ダークエンド",
     "id": 22560008,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -55602,7 +56605,7 @@
     "nameJp": "我執黒刃",
     "id": 22560009,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -55625,7 +56628,7 @@
     "nameJp": "暗の型",
     "id": 22560010,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -55648,7 +56651,7 @@
     "nameJp": "闇の型",
     "id": 22560011,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -56225,7 +57228,7 @@
     "nameJp": "聖剣コンボ",
     "id": 23040007,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -56237,7 +57240,7 @@
     "formula": null,
     "multiplier": null,
     "element": null,
-    "time": 0.1,
+    "time": 0.01,
     "effects": "Grants [Attach Holy with Stacking] and [Instant Cast 1]",
     "counter": false,
     "autoTarget": "Self",
@@ -56248,7 +57251,7 @@
     "nameJp": "小さな正義",
     "id": 23040008,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -56619,7 +57622,7 @@
     "autoTarget": "All enemies",
     "points": 500,
     "masteryBonus": "MND +10",
-    "honingEffects": "Stat Boon, Damage Reduction Barrier, Extra Use",
+    "honingEffects": "Stat Boon, Damage Reduction Barrier, Extra Usage",
     "relic": "Mage Manual (FFT)",
     "nameJp": "星河一天",
     "id": 23330005,
@@ -57878,7 +58881,7 @@
   {
     "realm": "Type-0",
     "character": "Rem",
-    "name": "Saintly Salvo",
+    "name": "Saintly Huntcraft",
     "tier": "SASB",
     "type": "WHT",
     "target": "Single enemy",
@@ -57900,12 +58903,12 @@
     "nameJp": "セイントエンゲージ",
     "id": 23080010,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Rem",
-    "name": "Resilient Wish",
+    "name": "Tenacious Stand",
     "tier": "Glint+",
     "type": "NAT",
     "target": "All allies",
@@ -57923,7 +58926,7 @@
     "nameJp": "生きぬいて",
     "id": 23080011,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

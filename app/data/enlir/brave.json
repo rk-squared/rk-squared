@@ -1413,8 +1413,8 @@
   },
   {
     "character": "Lenna",
-    "source": "Two Princesses' Prayer",
-    "name": "Aqua Cure",
+    "source": "Princesses' Prayer",
+    "name": "Aqua Heal",
     "brave": 0,
     "type": "WHT",
     "target": "Single ally",
@@ -1435,12 +1435,12 @@
     ],
     "nameJp": "アクアヒール",
     "id": 30542369,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lenna",
-    "source": "Two Princesses' Prayer",
-    "name": "Aqua Cure",
+    "source": "Princesses' Prayer",
+    "name": "Aqua Heal",
     "brave": 1,
     "type": "WHT",
     "target": "All allies",
@@ -1461,12 +1461,12 @@
     ],
     "nameJp": "アクアヒール",
     "id": 30542460,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lenna",
-    "source": "Two Princesses' Prayer",
-    "name": "Aqua Cure",
+    "source": "Princesses' Prayer",
+    "name": "Aqua Heal",
     "brave": 2,
     "type": "WHT",
     "target": "All allies",
@@ -1485,12 +1485,12 @@
     ],
     "nameJp": "アクアヒール",
     "id": 30542461,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lenna",
-    "source": "Two Princesses' Prayer",
-    "name": "Aqua Cure",
+    "source": "Princesses' Prayer",
+    "name": "Aqua Heal",
     "brave": 3,
     "type": "WHT",
     "target": "All allies",
@@ -1511,7 +1511,7 @@
     ],
     "nameJp": "アクアヒール",
     "id": 30542462,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Bartz",
