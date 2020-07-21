@@ -320,7 +320,7 @@ HpAttack
 // Healing
 
 Revive
-  = "removes"i _ "KO" _ "[Raise" _ percentHp:Integer "%]" _ who:Who? {
+  = "removes"i _ "KO" _ "[Raise:" _ percentHp:Integer "%]" _ who:Who? {
     const result = {
       type: 'revive',
       percentHp,
@@ -602,14 +602,14 @@ Condition
   // to go before general statuses.
   / "scaling" _ "with" _ status:StatusName _ "level" { return { type: 'scaleWithStatusLevel', status }; }
   / "at" _ status:StatusName _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
-  / "if" _ "the"? _ "user" _ "has" _ status:StatusName _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
 
   // If Doomed - overlaps with the general status support below
   / ("if" _ "the" _ "user" _ "has" _ "any" _ "Doom" / "with" _ "any" _ "Doom") { return { type: 'ifDoomed' }; }
 
   // General status
-  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusName (OrList StatusName)* { return text(); }) {
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusNameNoBrackets (OrList StatusNameNoBrackets)* { return text(); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
@@ -716,6 +716,8 @@ StatusVerb
 StatusName "status effect"
   = "[" name:[^\]]+ "]" { return name.join(''); }
   / "?" { return text(); }
+
+StatusNameNoBrackets = GenericName
 
 StatModDuration
   = _ "(" Integer "s)"

@@ -99,12 +99,12 @@ StatusChance
   / "Increases the chance of being inflicted with" _ status:StatusName _ "by" _ value:Integer "%"? { return { type: 'statusChance', value, status }; }
 
 StatusStacking
-  = "Allows"i _ "to stack" _ status:StatusName ", up to" _ statusWithLevel:StatusName
+  = "Allows"i _ "to stack" _ status:StatusNameNoBrackets ", up to" _ statusWithLevel:StatusNameNoBrackets
   & { return statusWithLevel.startsWith(status) && statusWithLevel.substring(status.length).match(/^ \d+$/); }
     { return { type: 'statusStacking', status, level: +statusWithLevel.substring(status.length) }; }
 
 PreventStatus
-  = "Prevents" _ head:StatusName _ tail:(AndList StatusName)* _ "once" { return { type: 'preventStatus', status: util.pegList(head, tail, 1) }; }
+  = "Prevents" _ head:StatusNameNoBrackets _ tail:(AndList StatusNameNoBrackets)* _ "once" { return { type: 'preventStatus', status: util.pegList(head, tail, 1) }; }
 
 
 // --------------------------------------------------------------------------
@@ -135,7 +135,7 @@ InstantAtb
   = "Increase"i _ "ATB charge speed by x999" "9"* { return { type: 'instantAtb' }; }
 
 AtbSpeed
-  = "Increase"i _ "ATB charge speed by" _ value:DecimalNumber { return { type: 'atbSpeed', value }; }
+  = "Increase"i _ "ATB charge speed by x" _ value:DecimalNumber { return { type: 'atbSpeed', value }; }
 
 ForAbilities
   = "for" _ what:ElementOrSchoolList _ AbilityOrAttack { return what; }
@@ -247,19 +247,19 @@ SwitchDraw
   = head:SwitchDrawPart tail:("," _ SwitchDrawPart)+ { return { type: 'switchDraw', elements: util.pegList(head, tail, 2) }; }
 
 SwitchDrawPart
-  = "Grants"i _ "Attach" _ element1:Element _ "after using a" "n"? _ element2:Element _ "ability"
+  = "Grants"i _ "[Attach" _ element1:Element "] after using a" "n"? _ element2:Element _ "ability"
   & { return element1 === element2; } { return element1; }
 
 SwitchDrawAlt
-  = "Grants"i _ "Attach" _ elements1:ElementSlashList _ "after using a" "n"? _ elements2:ElementSlashList _ "ability"
+  = "Grants"i _ "[Attach" _ elements1:ElementSlashList _ "] after using a" "n"? _ elements2:ElementSlashList _ "ability"
   & { return elements1.length > 1 && util.isEqual(elements1, elements2); }
     { return { type: 'switchDraw', elements: elements1 }; }
 
 SwitchDrawStacking
-  = "Grants Attach" _ elements1:ElementSlashList _ level:Integer? _ "with Stacking after using a"
+  = "Grants"i _ elements1:EnElementStackingSlashList _ "after using a"
     _ elements2:ElementSlashList _ "ability"
-    & { return elements1.length > 1 && util.isEqual(elements1, elements2); }
-    { return { type: 'switchDrawStacking', elements: elements1, level }; }
+    & { return elements1.elements.length > 1 && util.isEqual(elements1.elements, elements2); }
+    { return { type: 'switchDrawStacking', elements: elements1.elements, level: elements1.level }; }
 
 
 // --------------------------------------------------------------------------
@@ -589,7 +589,7 @@ TurnDuration
   = "lasts" _ "for"? _ value:Integer _ "turn" "s"? { return { type: 'turnDuration', duration: { value, units: 'turns' } }; }
 
 RemovedUnlessStatus
-  = "Removed"i _ ("if" / "when") _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusName { return { type: 'removedUnlessStatus', any: !!any, status }; }
+  = "Removed"i _ ("if" / "when") _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusNameNoBrackets { return { type: 'removedUnlessStatus', any: !!any, status }; }
 
 // This is only processed as part of a TriggeredEffect, since it arguably
 // applies to the trigger itself.
@@ -736,7 +736,7 @@ Condition
   / ("if" _ "the" _ "user" _ "has" _ "any" _ "Doom" / "with" _ "any" _ "Doom") { return { type: 'ifDoomed' }; }
 
   // General status
-  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusName (OrList StatusName)* { return text(); }) {
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusNameNoBrackets (OrList StatusNameNoBrackets)* { return text(); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
@@ -843,6 +843,8 @@ StatusVerb
 StatusName "status effect"
   = "[" name:[^\]]+ "]" { return name.join(''); }
   / "?" { return text(); }
+
+StatusNameNoBrackets = GenericName
 
 StatModDuration
   = _ "(" Integer "s)"
@@ -990,6 +992,10 @@ ElementSlashList "element list"
 ElementListOrOptions "element list or slash-separated alternatives"
   = elements:ElementList ! "/" { return elements; }
   / elements:ElementSlashList { return { options: elements }; }
+
+EnElementStackingSlashList
+  = "[Attach" _ head:Element _ level:Integer? _ "with Stacking]" tail:("/[Attach" _ Element _ Integer? _ "with Stacking]")*
+    { return { elements: util.pegList(head, tail, 2, true), level }; }
 
 School "ability school"
   = "Bard"
