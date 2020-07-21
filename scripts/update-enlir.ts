@@ -385,6 +385,7 @@ async function main() {
             describe: 'sheet tab name',
             type: 'string',
           })
+          .required('tab')
           .positional('items', {
             describe: 'entity ID or name',
             type: 'string',
@@ -402,6 +403,7 @@ async function main() {
             describe: 'sheet tab name',
             type: 'string',
           })
+          .required('tab')
           .positional('from_to', {
             describe: 'entity ID or name',
             type: 'string',
@@ -414,7 +416,7 @@ async function main() {
             }
             return _.zip(nthElement(fromTo, 2, 0), nthElement(fromTo, 2, 1));
           }),
-      async argv => rename(sheets, argv.sheet, argv.tab, argv.from_to),
+      async argv => rename(sheets, argv.sheet, argv.tab, argv.from_to as Array<[string, string]>),
     ).argv;
 }
 

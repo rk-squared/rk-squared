@@ -10,11 +10,17 @@ const { build } = require('../package.json');
 
 // tslint:disable no-console
 
+const homeDir = process.env.HOME;
+if (homeDir == null) {
+  console.error('$HOME is not defined; unable to continue');
+  process.exit(1);
+}
+
 // Based on https://stackoverflow.com/a/26227660/25507
 const appDataPath =
   process.env.APPDATA ||
   path.join(
-    process.env.HOME,
+    homeDir!,
     process.platform === 'darwin' ? 'Library/Application Support' : '.local/share',
   );
 const userDataPath = path.join(appDataPath, build.productName);

@@ -52,9 +52,9 @@ for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
   if (mrP.braveCommands) {
     console.log(
       '    [' +
-        getShortName(mrP.braveCommands[0].school) +
+        getShortName(mrP.braveCommands[0].school || '?') +
         '], +1 on ' +
-        mrP.braveCondition.map(getShortName).join(', '),
+        (mrP.braveCondition || []).map(getShortName).join(', '),
     );
     console.log('    ' + formatBraveCommands(mrP.braveCommands));
   }

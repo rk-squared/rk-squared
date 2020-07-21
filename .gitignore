@@ -30,6 +30,9 @@ node_modules
 # OSX
 .DS_Store
 
+# Temporary files
+.*.swp
+
 # App packaged
 release
 app/main.prod.js

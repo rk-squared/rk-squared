@@ -44,6 +44,7 @@ function tagReleaseIfNeeded(tag: string): boolean {
 
   child_process.execSync(`git tag ${tag}`);
   child_process.execSync(`git push --tags`);
+  return true;
 }
 
 function readReleaseNotes(version: string): string {
