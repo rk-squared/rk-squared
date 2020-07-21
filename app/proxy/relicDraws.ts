@@ -57,6 +57,16 @@ function parseRiseMessage(riseMessage: string) {
   };
 }
 
+function getExchangeShopId(gacha: gachaSchemas.GachaSeriesList) {
+  if (gacha.exchange_shop_id != null && +gacha.exchange_shop_id !== 0) {
+    return +gacha.exchange_shop_id;
+  } else if (gacha.exchange_shop_info != null && gacha.exchange_shop_info.length) {
+    return +gacha.exchange_shop_info[0].exchange_shop_id;
+  } else {
+    return undefined;
+  }
+}
+
 export function convertBanner(
   lang: LangType,
   gacha: gachaSchemas.GachaSeriesList,
@@ -64,6 +74,7 @@ export function convertBanner(
 ): RelicDrawBanner {
   const entryPoints = _.flatten(gacha.box_list.map(i => i.entry_point_list));
   const { guaranteedRarity, guaranteedCount } = parseRiseMessage(gacha.rise_message);
+  const exchangeShopId = getExchangeShopId(gacha);
   return {
     id: gacha.series_id,
     openedAt: gacha.opened_at,
@@ -82,16 +93,14 @@ export function convertBanner(
       // Original attempt: But total_executable_num actually refers to pulls.
       // gacha.total_executable_num > 0 &&
       // gacha.user_exchange_shop_exchanged_num < gacha.total_executable_num,
-      gacha.exchange_shop_id != null &&
-      gacha.exchange_shop_id !== 0 &&
-      gacha.user_exchange_shop_exchanged_num === 0,
+      exchangeShopId != null && gacha.user_exchange_shop_exchanged_num === 0,
     pullLimit: gacha.total_executable_num || undefined,
 
     bannerRelics: _.sortBy(gacha.banner_list, 'disp_order')
       .map(i => i.item_id)
       .filter(i => i !== 0),
 
-    exchangeShopId: +gacha.exchange_shop_id || undefined,
+    exchangeShopId,
     imageUrl: relativeUrl(lang, gacha.line_up_image_path),
     group,
 

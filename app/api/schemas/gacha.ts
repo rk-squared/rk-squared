@@ -82,7 +82,16 @@ export interface GachaSeriesList {
   series_id: number;
   opened_at: Timestamp;
   line_up_disable_image_path: string;
-  exchange_shop_id: number; // Identifies selectable relics (Acolyte Archives, Wondrous Selects, etc.)?
+
+  // Identifies selectable relics (Acolyte Archives, Wondrous Selects, etc.) in older versions
+  exchange_shop_id?: number;
+  // Current selectable relics
+  exchange_shop_info: Array<{
+    disp_order: number;
+    required_item_num: number;
+    exchange_shop_id: NumberAsString;
+  }>;
+
   show_closed_at_flg: boolean;
 }
 
