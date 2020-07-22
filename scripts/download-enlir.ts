@@ -386,7 +386,7 @@ function convertLegendMateria(rows: any[]): any[] {
       }
 
       const field = _.camelCase(col);
-      if (field === 'relic') {
+      if (field === 'relic' || field === 'tier') {
         item[field] = dashNull(toString)(rows[i][j]);
       } else if (isAnima(col)) {
         item['anima'] = toInt(rows[i][j]);

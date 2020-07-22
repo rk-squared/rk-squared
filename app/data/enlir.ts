@@ -104,6 +104,8 @@ export type EnlirEventType =
 // See, e.g., Exdeath's Double Hole record board ability.
 export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
+export type EnlirLegendMateriaTier = 'LMR' | 'LMR+';
+
 export type EnlirLimitBreakTier = 'OLB' | 'GLB';
 
 export type EnlirRelicType =
@@ -340,6 +342,7 @@ export interface EnlirLegendMateria {
   realm: EnlirRealm;
   character: string;
   name: string;
+  tier: EnlirLegendMateriaTier | null;
   effect: string;
   master: string | null;
   relic: string | null;
@@ -1259,7 +1262,7 @@ export function makeLegendMateriaAliases(
 ): { [id: number]: string } {
   const total: { [key: string]: number } = {};
   const seen: { [key: string]: number } = {};
-  const makeKey = ({ character, relic }: EnlirLegendMateria) => character + (relic ? '-R' : '-LD');
+  const makeKey = ({ character, tier }: EnlirLegendMateria) => character + (tier || '');
   _.forEach(legendMateria, lm => {
     const key = makeKey(lm);
     total[key] = total[key] || 0;
@@ -1273,8 +1276,8 @@ export function makeLegendMateriaAliases(
     seen[key]++;
 
     let alias: string;
-    if (lm.relic) {
-      alias = 'LMR';
+    if (lm.tier) {
+      alias = lm.tier;
     } else {
       alias = 'LM';
     }

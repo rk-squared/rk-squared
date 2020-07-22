@@ -127,7 +127,7 @@ const simpleSkillHandlers: HandlerList = [
 
   // Attacks
   [
-    /^(PHY|BLK|WHT|\?)(?:\/(NIN))?: (single|random|group), (?:(\d+)x )?([0-9.]+|\?) (ranged )?(physical|magical|hybrid)(?: ([^,]+))?(, .*)?$/,
+    /^(PHY|BLK|WHT|NAT|\?)(?:\/(NIN))?: (single|random|group), (?:(\d+)x )?([0-9.]+|\?) (ranged )?(physical|magical|hybrid)(?: ([^,]+))?(, .*)?$/,
     ([
       type,
       hybridType,
@@ -179,10 +179,10 @@ const simpleSkillHandlers: HandlerList = [
 
   // Statuses
   [
-    /^NAT: group, causes (.*) for (\d+|\?) seconds$/,
-    ([status, duration]) => {
+    /^NAT: (single|group), causes (.*) for (\d+|\?) seconds$/,
+    ([attackType, status, duration]) => {
       return (
-        'AoE ' +
+        (attackType === 'group' ? 'AoE ' : '') +
         status
           .split(andList)
           .map(i => describeEnlirStatus(removeStatusBrackets(i)))
@@ -194,8 +194,9 @@ const simpleSkillHandlers: HandlerList = [
     },
   ],
   [
-    /^NAT: group, ((?:[A-Z]{3}\/)*[A-Z]{3}) -(\d+|\?)%$/,
-    ([stats, percent]) => `AoE -${percent}% ` + describeStats(stats.split('/')),
+    /^NAT: (single|group), ((?:[A-Z]{3}\/)*[A-Z]{3}) -(\d+|\?)%$/,
+    ([attackType, stats, percent]) =>
+      (attackType === 'group' ? 'AoE ' : '') + `-${percent}% ` + describeStats(stats.split('/')),
   ],
 ];
 

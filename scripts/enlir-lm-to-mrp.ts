@@ -17,7 +17,11 @@ const aliases = makeLegendMateriaAliases(enlir.legendMateria);
 const onlyItems = process.argv.slice(2);
 
 for (const lm of _.sortBy(Object.values(enlir.legendMateria), ['character', 'id'])) {
-  if (onlyItems.length && onlyItems.indexOf(lm.name) === -1) {
+  if (
+    onlyItems.length &&
+    onlyItems.indexOf(lm.name) === -1 &&
+    onlyItems.indexOf(lm.character) === -1
+  ) {
     continue;
   }
 
