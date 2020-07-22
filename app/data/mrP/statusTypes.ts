@@ -418,6 +418,7 @@ interface HealUp {
   type: 'healUp';
   value: number;
   school?: EnlirSchool | EnlirSchool[];
+  skillType?: EnlirSkillType;
 }
 
 interface Pain {

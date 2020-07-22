@@ -368,6 +368,7 @@ Poison
 HealUp
   = "Abilities"i _ "restore" _ value:Integer "% more HP" { return { type: 'healUp', value }; }
   / "Increases"i _ "healing done by" _ school:(s:SchoolAndOrList _ "abilities by" { return s; })? _ value:Integer "%" { return { type: 'healUp', value, school }; }
+  / "Increases"i _ "healing done by" _ skillType:SkillType _ "abilities and soulbreaks by" _ value:Integer "%" { return { type: 'healUp', value, skillType }; }
 
 Pain
   = "Take" _ value:Integer "% more damage" { return { type: 'pain', value }; }
@@ -604,18 +605,18 @@ RemovedAfterTrigger
 // Status levels
 
 TrackStatusLevel
-  = "Keeps"i _ "track of the" _ status:StatusName _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max, current: getX().value }; }
+  = "Keeps"i _ "track of the" _ status:StatusNameNoBrackets _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max, current: getX().value }; }
 
 ChangeStatusLevel
-  = sign:IncreasesOrReduces _ "the"? _ status:StatusName _ "level by" _ value:Integer _ trigger:TriggerOrWhenSet {
+  = sign:IncreasesOrReduces _ "the"? _ status:StatusNameNoBrackets _ "level by" _ value:Integer _ trigger:TriggerOrWhenSet {
     return { type: 'changeStatusLevel', status, value: value * sign, trigger };
   }
 
 SetStatusLevel
-  = "Sets"i _ "the" _ status:StatusName _ "level to" _ value:Integer _ "when set" { return { type: 'setStatusLevel', status, value }; }
+  = "Sets"i _ "the" _ status:StatusNameNoBrackets _ "level to" _ value:Integer _ "when set" { return { type: 'setStatusLevel', status, value }; }
 
 StatusLevelBooster
-  = "Increases"i _ "the" _ status:StatusName _ "level by" _ value:Integer _ "when the" _ status2:StatusName _ "level is increased"
+  = "Increases"i _ "the" _ status:StatusNameNoBrackets _ "level by" _ value:Integer _ "when the" _ status2:StatusNameNoBrackets _ "level is increased"
   & { return status === status2; }
     { return { type: 'statusLevelBooster', status, value }; }
 
@@ -733,7 +734,7 @@ Condition
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
 
   // If Doomed - overlaps with the general status support below
-  / ("if" _ "the" _ "user" _ "has" _ "any" _ "Doom" / "with" _ "any" _ "Doom") { return { type: 'ifDoomed' }; }
+  / ("if" _ "the" _ "user" _ "has" _ "any" _ ("[Doom]" / "Doom") / "with" _ "any" _ "[Doom]") { return { type: 'ifDoomed' }; }
 
   // General status
   / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusNameNoBrackets (OrList StatusNameNoBrackets)* { return text(); }) {

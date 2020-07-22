@@ -1101,6 +1101,7 @@ function describeStatusEffect(
       return (
         signedNumber(effect.value) +
         '% ' +
+        (effect.skillType ? effect.skillType + ' ' : '') +
         (effect.school ? formatSchoolOrAbilityList(effect.school) + ' ' : '') +
         'healing'
       );
