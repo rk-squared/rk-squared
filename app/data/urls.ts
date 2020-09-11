@@ -80,6 +80,7 @@ export function itemImage(lang: LangType, id: number, type: ItemType): string {
     case ItemType.Arcana:
     case ItemType.CrystalWater:
     case ItemType.DarkMatter:
+    case ItemType.Historia:
     case ItemType.Magicite:
     case ItemType.MemoryCrystal:
     case ItemType.Mote:

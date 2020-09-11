@@ -14,11 +14,19 @@ export const dressRecords: DressRecord[] = [
     id: 120000100,
     characterId: 10000200,
   },
+
   {
     name: 'Classic Crimson',
     id: 120100100,
     characterId: 10100100,
   },
+
+  {
+    name: 'Cosmic Onion Knight',
+    id: 120300100,
+    characterId: 10300600,
+  },
+
   {
     name: 'Chosen of Feymarch',
     id: 120400100,
@@ -44,6 +52,7 @@ export const dressRecords: DressRecord[] = [
     id: 120400500,
     characterId: 10401000,
   },
+
   {
     name: 'Freelancer Lenna',
     id: 120500100,
@@ -70,6 +79,12 @@ export const dressRecords: DressRecord[] = [
     characterId: 10500800,
   },
   {
+    name: 'Lenna the Dancer',
+    id: 120500600,
+    characterId: 10500200,
+  },
+
+  {
     name: 'Opera Star',
     id: 120600100,
     characterId: 10600400,
@@ -79,6 +94,7 @@ export const dressRecords: DressRecord[] = [
     id: 120600300,
     characterId: 10600100,
   },
+
   {
     name: 'Cloudy Wolf',
     id: 120700100,
@@ -100,6 +116,12 @@ export const dressRecords: DressRecord[] = [
     characterId: 10700100,
   },
   {
+    name: 'Glamorous Tifa',
+    id: 120700800,
+    characterId: 10700300,
+  },
+
+  {
     name: 'SeeD Uniform',
     id: 120800100,
     characterId: 10800100,
@@ -114,6 +136,7 @@ export const dressRecords: DressRecord[] = [
     id: 120800300,
     characterId: 10800100,
   },
+
   {
     name: 'Show of Resolve',
     id: 120900100,
@@ -124,6 +147,7 @@ export const dressRecords: DressRecord[] = [
     id: 120900500,
     characterId: 10900200,
   },
+
   {
     name: 'Gunner Garb',
     id: 121000100,
@@ -149,6 +173,7 @@ export const dressRecords: DressRecord[] = [
     id: 121000500,
     characterId: 11000100,
   },
+
   {
     name: 'Knight of Etro',
     id: 121300100,
@@ -160,6 +185,12 @@ export const dressRecords: DressRecord[] = [
     characterId: 11300500,
   },
   {
+    name: 'Equilibrium',
+    id: 121300300,
+    characterId: 11300100,
+  },
+
+  {
     name: 'Seeker of Truth',
     id: 125000100,
     characterId: 15000100,
@@ -169,6 +200,7 @@ export const dressRecords: DressRecord[] = [
     id: 125000200,
     characterId: 15000300,
   },
+
   {
     name: 'KINGDOM HEARTS III Sora',
     id: 127000100,

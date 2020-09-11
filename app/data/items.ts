@@ -10,6 +10,7 @@ export enum ItemType {
   DarkMatter = 'equipment_hyper_evolve_material',
   DressRecord = 'dress_record',
   GrowthEgg = 'grow_egg',
+  Historia = 'historia_crystal_evolution_material',
   Orb = 'ability_material',
   Magicite = 'beast',
   MemoryCrystal = 'memory_crystal',
@@ -38,6 +39,7 @@ export const itemTypeDescription: { [t in ItemType]: string } = {
   [ItemType.DressRecord]: 'Dress Records',
   [ItemType.DropItem]: 'Item Drops',
   [ItemType.GrowthEgg]: 'Growth Eggs',
+  [ItemType.Historia]: 'Historia',
   [ItemType.Orb]: 'Orbs',
   [ItemType.Magicite]: 'Magicite',
   [ItemType.MemoryCrystal]: 'Memory Crystals',
@@ -124,6 +126,47 @@ export const items: Item[] = [
     name: 'Rush Ticket',
     type: ItemType.BattleTicket,
     id: 9632241,
+  },
+
+  {
+    name: "Large Rat's Tail",
+    type: ItemType.Historia,
+    id: 24098027,
+  },
+  {
+    name: "Huge Rat's Tail",
+    type: ItemType.Historia,
+    id: 24098028,
+  },
+  {
+    name: 'Historia Soul 1 (FFT)',
+    type: ItemType.Historia,
+    id: 24099022,
+  },
+  {
+    name: 'Historia Soul 1 (FF Type-0)',
+    type: ItemType.Historia,
+    id: 24099023,
+  },
+  {
+    name: 'Historia Soul 2 (FFT)',
+    type: ItemType.Historia,
+    id: 24099040,
+  },
+  {
+    name: 'Historia Soul 2 (FF Type-0)',
+    type: ItemType.Historia,
+    id: 24099041,
+  },
+  {
+    name: 'Historia Soul 3 (FFT)',
+    type: ItemType.Historia,
+    id: 24099058,
+  },
+  {
+    name: 'Historia Soul 3 (FF Type-0)',
+    type: ItemType.Historia,
+    id: 24099059,
   },
 
   {
@@ -1003,6 +1046,16 @@ export const items: Item[] = [
     name: 'Great Form Record',
     type: ItemType.Orb,
     id: 40000165,
+  },
+  {
+    name: 'Chillblaze Stance Record',
+    type: ItemType.Orb,
+    id: 40000166,
+  },
+  {
+    name: 'Torrential Assault Record',
+    type: ItemType.Orb,
+    id: 40000167,
   },
 
   {
