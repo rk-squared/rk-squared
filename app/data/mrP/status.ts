@@ -33,7 +33,6 @@ import {
   sbPointsBoosterAlias,
   statusLevelAlias,
   statusLevelText,
-  synchroStatusLevelAlias,
 } from './statusAlias';
 import * as statusParser from './statusParser';
 import * as statusTypes from './statusTypes';
@@ -1056,16 +1055,18 @@ function describeStatusEffect(
     case 'rankBoost':
       return rankBoostAlias(formatAnyType(effect));
     case 'damageUp':
-      return addTrigger(
-        arrayify(effect.value)
-          .map(percentToMultiplier)
-          .join('-') +
-          'x ' +
-          formatAnyType(effect, ' ') +
-          'dmg' +
-          (effect.vsWeak ? ' vs weak' : ''),
-        effect.trigger,
-        source,
+      return (
+        addTrigger(
+          arrayify(effect.value)
+            .map(percentToMultiplier)
+            .join('-') +
+            'x ' +
+            formatAnyType(effect, ' ') +
+            'dmg' +
+            (effect.vsWeak ? ' vs weak' : ''),
+          effect.trigger,
+          source,
+        ) + (effect.condition ? ' ' + describeCondition(effect.condition) : '')
       );
     case 'abilityDouble':
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
@@ -1370,8 +1371,7 @@ function isFinisherOnly(effects: statusTypes.StatusEffect): boolean {
   );
 }
 
-const hideUnknownStatusWarning = (status: string) =>
-  status.match(/^\d+ SB points$/) || synchroStatusLevelAlias[status] != null;
+const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB points$/);
 
 /**
  * Parses a string description of an Enlir status name, returning details about

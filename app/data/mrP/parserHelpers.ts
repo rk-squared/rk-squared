@@ -10,8 +10,6 @@ import { parseNumberString } from './util';
 const isEqual = _.isEqual;
 export { arrayify, parseNumberString, isEqual };
 
-export { synchroStatusLevelAlias } from './statusAlias';
-
 export function lastValue(value: number | number[]): number {
   value = arrayify(value);
   return value[value.length - 1];

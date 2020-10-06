@@ -337,6 +337,7 @@ interface DamageUp extends DamageUpType {
   type: 'damageUp';
   value: number | number[];
   trigger?: Trigger;
+  condition?: common.Condition;
 }
 
 interface AbilityDouble {

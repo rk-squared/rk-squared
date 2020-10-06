@@ -461,21 +461,19 @@ StatusWithPercent
   }
 
 StatusLevel "status with level"
-  = status:StatusName _ "level" _ value:Integer {
+  = status:StatusNameNoBrackets _ "level" _ value:Integer {
     return { type:'statusLevel', status, value, set: true };
   }
-  / status:StatusName
-    & { return util.synchroStatusLevelAlias[status] != null; }
-      { return { type:'statusLevel', status, value: 1, set: true }; }
-  / value:SignedInteger _ status:StatusName
-    & { return util.synchroStatusLevelAlias[status] != null; }
+  / value:SignedInteger _ status:StatusNameNoBrackets
       { return { type:'statusLevel', status, value }; }
-  / status:StatusName
+  / status:StatusNameNoBrackets
     & {
-        statusLevelMatch = status.match(/(.*) ([+-]?\d)$/);
-        return statusLevelMatch && util.synchroStatusLevelAlias[statusLevelMatch[1]] != null;
+        statusLevelMatch = status.match(/(.*) ([+-]?\d+)$/);
+        return statusLevelMatch;
       }
       { return { type:'statusLevel', status: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
+  / status:StatusNameNoBrackets
+      { return { type:'statusLevel', status, value: 1, set: true }; }
 
 StatusClause
   = _ clause:(
@@ -600,8 +598,8 @@ Condition
   // "Level-like" or "counter-like" statuses, as seen on newer moves like
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
-  / "scaling" _ "with" _ status:StatusName _ "level" { return { type: 'scaleWithStatusLevel', status }; }
-  / "at" _ status:StatusName _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
+  / "scaling" _ "with" _ status:StatusNameNoBrackets _ "level" { return { type: 'scaleWithStatusLevel', status }; }
+  / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
 
@@ -809,6 +807,7 @@ NextClause
 
 Who
   = "to" _ "the"? _ "user" { return 'self'; }
+  / "from" _ "the"? _ "user" { return 'self'; }
   / "to" _ "the" _ "target" { return 'target'; }
   / "to" _ "all" _ "enemies" { return 'enemies'; }
   / "to" _ "all" _ "allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {

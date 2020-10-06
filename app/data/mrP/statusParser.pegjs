@@ -306,8 +306,8 @@ RankBoost
   = what:DamageUpType _ ("attacks" / "abilities") _ "deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5" { return Object.assign({ type: 'rankBoost' }, what); }
 
 DamageUp
-  = what:DamageUpType _ ("attacks" / "abilities") _ "deal" _ value:IntegerSlashList "% more damage" _ trigger:Trigger? {
-    return Object.assign({ type: 'damageUp', value, trigger }, what);
+  = what:DamageUpType _ ("attacks" / "abilities") _ "deal" _ value:(PercentSlashList / IntegerSlashList "%") _ "more damage" _ trigger:Trigger? _ condition:Condition? {
+    return Object.assign({ type: 'damageUp', value, trigger, condition }, what);
   }
 
 AltDamageUp
@@ -1121,6 +1121,9 @@ IntegerOrX "integer or X"
   = value:Integer { return { value }; }
   / "X" { return getX(); }
 
+PercentInteger "percentage"
+  = ([0-9]+ '%' / '?') { return parseInt(text(), 10); }
+
 SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
 
@@ -1139,6 +1142,9 @@ DecimalNumberSlashList "slash-separated decimal numbers"
 
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }
+
+PercentSlashList "slash-separated percent integers"
+  = head:PercentInteger tail:('/' PercentInteger)* { return util.pegSlashList(head, tail); }
 
 // An IntegerSlashList with support for ranges like 1/2-3/4
 IntegerRangeSlashList "slash-separated integer ranges"
