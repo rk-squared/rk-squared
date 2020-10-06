@@ -11113,7 +11113,7 @@
   {
     "eventName": "Record Dungeons Canon (II, XIII)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-08-08",
     "jpDate": "2019-11-25",
     "type": "Record Dungeon",
     "heroRecords": null,
@@ -11245,9 +11245,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "A Brilliant Journey",
+    "eventName": "The Journey of Light",
     "realm": "I",
-    "glDate": null,
+    "glDate": "2020-07-23",
     "jpDate": "2020-01-10",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11270,9 +11270,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Bonds of Friendship",
+    "eventName": "Unbreakable Bond",
     "realm": "V",
-    "glDate": null,
+    "glDate": "2020-07-30",
     "jpDate": "2020-01-17",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11308,9 +11308,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "The Gambler's Message",
+    "eventName": "Dear-Bought Message",
     "realm": "Type-0",
-    "glDate": null,
+    "glDate": "2020-08-06",
     "jpDate": "2020-01-24",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11333,9 +11333,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Breaking Misfortune, Indomitable Fist",
+    "eventName": "Striking Back at Fate",
     "realm": "XIII",
-    "glDate": null,
+    "glDate": "2020-08-13",
     "jpDate": "2020-01-31",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11358,22 +11358,34 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "The Traveling Soldier's Hidden Feelings",
+    "eventName": "Journey of Growth",
     "realm": "III",
-    "glDate": null,
+    "glDate": "2020-08-20",
     "jpDate": "2020-02-07",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Ingus",
+      "Luneth",
+      "Onion Knight"
+    ],
+    "memoryCrystals1": [
+      "Ingus",
+      "Luneth",
+      "Onion Knight"
+    ],
+    "memoryCrystals2": [
+      "Ingus",
+      "Luneth",
+      "Onion Knight"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Grandshelt Knight",
+    "eventName": "Knights of Grandshelt",
     "realm": "Beyond",
-    "glDate": null,
+    "glDate": "2020-08-26",
     "jpDate": "2020-02-14",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11396,22 +11408,34 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "A New Dawn Rising",
+    "eventName": "Rays of Dawn",
     "realm": "V",
-    "glDate": null,
+    "glDate": "2020-09-03",
     "jpDate": "2020-02-20",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Krile",
+      "Galuf",
+      "Bartz"
+    ],
+    "memoryCrystals1": [
+      "Krile",
+      "Galuf",
+      "Bartz"
+    ],
+    "memoryCrystals2": [
+      "Krile",
+      "Galuf",
+      "Bartz"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Crisis Before the Star",
+    "eventName": "Planet in Peril",
     "realm": "VII",
-    "glDate": null,
+    "glDate": "2020-09-10",
     "jpDate": "2020-02-29",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11447,10 +11471,10 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Armor of Vengence",
+    "eventName": "Clad in Hatred",
     "realm": "XII",
-    "glDate": null,
-    "jpDate": "2020-03-07",
+    "glDate": "2020-09-17",
+    "jpDate": "2020-03-06",
     "type": "Challenge Event",
     "heroRecords": [
       "Penelo",
@@ -11472,7 +11496,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Conquest Against the Primals",
+    "eventName": "Vanquish the Primals",
     "realm": "XIV",
     "glDate": null,
     "jpDate": "2020-03-13",
@@ -11495,9 +11519,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Bloomfest",
+    "eventName": "Autumn Festival 2020",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-09-26",
     "jpDate": "2020-03-26",
     "type": "Festival",
     "heroRecords": null,
@@ -11508,7 +11532,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Clashing Lion and Knight",
+    "eventName": "Lion and Knight",
     "realm": "VIII",
     "glDate": null,
     "jpDate": "2020-03-31",
@@ -11533,10 +11557,10 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Fat Black Chocobo: A Towering Forgery",
+    "eventName": "Fat Black Chocobo: Grand Forgery",
     "realm": null,
     "glDate": null,
-    "jpDate": "2020-04-02",
+    "jpDate": "2020-04-03",
     "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,
@@ -11546,7 +11570,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Confounded Memories (II)",
+    "eventName": "Chaotic Memories (II)",
     "realm": "II",
     "glDate": null,
     "jpDate": "2020-04-10",
@@ -11796,6 +11820,175 @@
     "realm": "XIII",
     "glDate": null,
     "jpDate": "2020-07-17",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Fat Black Chocobo: A Chilling Forgery",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-07-24",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Faeries from the Future",
+    "realm": "VIII",
+    "glDate": null,
+    "jpDate": "2020-07-31",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "To Preserve Peace",
+    "realm": "XII",
+    "glDate": null,
+    "jpDate": "2020-08-07",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Bug Catching Strategy",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-08-14",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Confounded Memories (V)",
+    "realm": "V",
+    "glDate": null,
+    "jpDate": "2020-08-21",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "The Enduring Transparent",
+    "realm": "VII",
+    "glDate": null,
+    "jpDate": "2020-08-28",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Recalling the Blue Light",
+    "realm": "IX",
+    "glDate": null,
+    "jpDate": "2020-08-31",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Confounded Memories (X)",
+    "realm": "X",
+    "glDate": null,
+    "jpDate": "2020-09-04",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dungeon Update (IV:TAY, VII:CC)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-09-09",
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "6th Anniversary Festival",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-09-19",
+    "type": "Festival",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Fat Black Chocobo: A Howling Forgery",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-09-26",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "A Tender Melody Dedicated to You",
+    "realm": "IV",
+    "glDate": null,
+    "jpDate": "2020-09-30",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Fat Black Chocobo: Radiant Magicites",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-10-02",
     "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,

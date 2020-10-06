@@ -6573,7 +6573,7 @@
     "realm": "XV",
     "character": "Ardyn",
     "name": "Fearless Appearance",
-    "effect": "Attack turns in an ability (PHY: group, 1.00 physical Dark)",
+    "effect": "Attack turns into an ability (PHY: group, 1.00 physical Dark)",
     "unlockCriteria": "Use Ardyn's Memory Crystal II, chance to obtain with Ardyn in party",
     "nameJp": "不敵な佇まい",
     "id": 111150101,
@@ -7792,91 +7792,91 @@
   {
     "realm": "Beyond",
     "character": "Rain",
-    "name": "Grandshelt Knight",
+    "name": "Knight of Grandshelt",
     "effect": "Spellblade abilities deal 15% more damage",
     "unlockCriteria": "Use Rain's Memory Crystal",
     "nameJp": "グランシェルトの騎士",
     "id": 111900330,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Rain",
-    "name": "Pride of a Knight",
+    "name": "Knight's Pride",
     "effect": "Increases Earth damage dealt by 20%",
     "unlockCriteria": "Use Rain's Memory Crystal II, chance to obtain with Rain in party",
     "nameJp": "騎士のプライド",
     "id": 111900331,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Rain",
-    "name": "Burning Heart",
+    "name": "Blazing Soul",
     "effect": "Increases Fire damage dealt by 30%",
     "unlockCriteria": "Bring Fina to level 99",
     "nameJp": "燃えたつ心",
     "id": 111900332,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Fina",
-    "name": "Pure Innocence",
+    "name": "Purity",
     "effect": "MAG and MND +10%",
     "unlockCriteria": "Use Fina's Memory Crystal",
     "nameJp": "純真無垢",
     "id": 111900340,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Fina",
-    "name": "Crystal Dwelling Girl",
+    "name": "Girl from the Crystal",
     "effect": "MND +20% when equipping a bow",
     "unlockCriteria": "Use Fina's Memory Crystal II, chance to obtain with Fina in party",
     "nameJp": "クリスタルより現れし少女",
     "id": 111900341,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Fina",
-    "name": "Pure Wishes",
+    "name": "Honest Wish",
     "effect": "Attack turns into an ability (NAT: single, removes negative effects)",
     "unlockCriteria": "Bring Fina to level 99",
     "nameJp": "清廉なる願い",
     "id": 111900342,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Lasswell",
-    "name": "Rain's Childhood Friend",
+    "name": "Lifelong Friend",
     "effect": "15% chance to counter PHY attacks with an ability (PHY: single, 1x 1.00 physical)",
     "unlockCriteria": "Use Lasswell's Memory Crystal",
     "nameJp": "レインの幼馴染",
     "id": 111900350,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Lasswell",
-    "name": "Calm Fighting Spirit",
+    "name": "Tranquil Spirit",
     "effect": "PHY attacks deal 20% more damage when equipping a katana",
     "unlockCriteria": "Use Lasswell's Memory Crystal II, chance to obtain with Lasswell in party",
     "nameJp": "静かなる闘志",
     "id": 111900351,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Lasswell",
-    "name": "Consistent Effort",
+    "name": "Untiring Efforts",
     "effect": "PHY attacks deal 30% more damage when equipping a katana",
     "unlockCriteria": "Bring Lasswell to level 99",
     "nameJp": "たゆまぬ努力",
     "id": 111900352,
-    "gl": false
+    "gl": true
   }
 ]

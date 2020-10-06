@@ -995,7 +995,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Two single ranged attacks (6.40 each) capped at 99999, damages the user for 99% max HP, grants [Stoneskin: 100%] to the user",
+    "effects": "Two single ranged attacks (6.40 each) capped at 99999, damages the user for 99% current HP, grants [Stoneskin: 100%] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -1005,6 +1005,98 @@
     ],
     "nameJp": "オヤジの覚悟",
     "id": 31540067,
+    "gl": false
+  },
+  {
+    "character": "Porom",
+    "source": "Prayer of Mysidia",
+    "name": "Recovery Magic",
+    "brave": 0,
+    "type": "WHT",
+    "target": "Single ally",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (25)",
+    "counter": false,
+    "autoTarget": "Lowest HP% ally",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "癒しの魔法陣",
+    "id": null,
+    "gl": false
+  },
+  {
+    "character": "Porom",
+    "source": "Prayer of Mysidia",
+    "name": "Recovery Magic",
+    "brave": 1,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (25)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "癒しの魔法陣",
+    "id": null,
+    "gl": false
+  },
+  {
+    "character": "Porom",
+    "source": "Prayer of Mysidia",
+    "name": "Recovery Magic",
+    "brave": 2,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55)",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "癒しの魔法陣",
+    "id": null,
+    "gl": false
+  },
+  {
+    "character": "Porom",
+    "source": "Prayer of Mysidia",
+    "name": "Recovery Magic",
+    "brave": 3,
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55), grants [HP Stock (2000])",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 75,
+    "school": "White Magic",
+    "braveCondition": [
+      "White Magic"
+    ],
+    "nameJp": "癒しの魔法陣",
+    "id": null,
     "gl": false
   },
   {
@@ -1516,7 +1608,7 @@
   {
     "character": "Bartz",
     "source": "Rousing Water",
-    "name": "Spellblade Barrage: Torrent",
+    "name": "Spellblade Deluge",
     "brave": 0,
     "type": "PHY",
     "target": "Single enemy",
@@ -1537,12 +1629,12 @@
     ],
     "nameJp": "魔法剣みだれうち　激流",
     "id": 30547161,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Bartz",
     "source": "Rousing Water",
-    "name": "Spellblade Barrage: Torrent",
+    "name": "Spellblade Deluge",
     "brave": 1,
     "type": "PHY",
     "target": "Single enemy",
@@ -1563,12 +1655,12 @@
     ],
     "nameJp": "魔法剣みだれうち　激流",
     "id": 30547163,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Bartz",
     "source": "Rousing Water",
-    "name": "Spellblade Barrage: Torrent",
+    "name": "Spellblade Deluge",
     "brave": 2,
     "type": "PHY",
     "target": "Single enemy",
@@ -1589,12 +1681,12 @@
     ],
     "nameJp": "魔法剣みだれうち　激流",
     "id": 30547164,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Bartz",
     "source": "Rousing Water",
-    "name": "Spellblade Barrage: Torrent",
+    "name": "Spellblade Deluge",
     "brave": 3,
     "type": "PHY",
     "target": "Single enemy",
@@ -1615,7 +1707,7 @@
     ],
     "nameJp": "魔法剣みだれうち　激流",
     "id": 30547165,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Terra",
@@ -4763,7 +4855,7 @@
     ],
     "nameJp": "ブロッサムヒール",
     "id": 30542567,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Fina",
@@ -4787,7 +4879,7 @@
     ],
     "nameJp": "ブロッサムヒール",
     "id": 30542568,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Fina",
@@ -4811,7 +4903,7 @@
     ],
     "nameJp": "ブロッサムヒール",
     "id": 30542569,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Fina",
@@ -4835,6 +4927,6 @@
     ],
     "nameJp": "ブロッサムヒール",
     "id": 30542660,
-    "gl": false
+    "gl": true
   }
 ]

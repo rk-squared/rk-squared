@@ -2,7 +2,7 @@
   {
     "realm": "I",
     "character": "Warrior of Light",
-    "name": "Enholy (Warrior of Light)",
+    "name": "Holy Raiment (Warrior of Light)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -79,7 +79,7 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": 40,
+    "multiplier": 32,
     "element": [
       "Holy",
       "Ice",
@@ -102,7 +102,7 @@
   {
     "realm": "II",
     "character": "Minwu",
-    "name": "Enholy (Minwu)",
+    "name": "Holy Raiment (Minwu)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -117,15 +117,41 @@
     "limitBreakBonus": [
       "Holy Damage Up"
     ],
-    "relic": "Maduin's Garb (II)",
+    "relic": "Maduin Gear (II)",
     "nameJp": "聖装【ミンウ】",
     "id": 22120013,
+    "gl": true
+  },
+  {
+    "realm": "II",
+    "character": "Josef",
+    "name": "Hero's Headbutt",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Ice"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance, grants [Dual Blink 1] to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Ice Shield (II)",
+    "nameJp": "漢の堅頭",
+    "id": 20190017,
     "gl": false
   },
   {
     "realm": "III",
     "character": "Luneth",
-    "name": "Running Like the Wind",
+    "name": "Tempest Dash",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -146,6 +172,31 @@
     "relic": "Kazekiri (III)",
     "nameJp": " 駆けろ、疾風のごとく",
     "id": 20290015,
+    "gl": true
+  },
+  {
+    "realm": "III",
+    "character": "Luneth",
+    "name": "Galestrike (Luneth)",
+    "tier": "LBG",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Wind"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (?), grants [Limit Break Gauge +250] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 0,
+    "limitBreakBonus": [
+      "Wind Damage Up"
+    ],
+    "relic": "Dragoon's Helm (III)",
+    "nameJp": "風閃【ルーネス】",
+    "id": 20290018,
     "gl": false
   },
   {
@@ -158,7 +209,7 @@
     "formula": "Magical",
     "multiplier": 120,
     "element": [
-      "Wind"
+      "Dark"
     ],
     "time": 2.5,
     "effects": "Five single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
@@ -172,6 +223,31 @@
     "relic": "Thorned Mace (III)",
     "nameJp": "虚構式 波動砲",
     "id": 22670013,
+    "gl": false
+  },
+  {
+    "realm": "III",
+    "character": "Onion Knight",
+    "name": "Aquastrike (Onion Knight)",
+    "tier": "LBG",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Water"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (?), grants [Limit Break Gauge +250] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 0,
+    "limitBreakBonus": [
+      "Water Damage Up"
+    ],
+    "relic": "Serpent Sword+ (III)",
+    "nameJp": "水閃【オニオンナイト】",
+    "id": 22460022,
     "gl": false
   },
   {
@@ -224,7 +300,7 @@
       "Lightning"
     ],
     "time": 2.5,
-    "effects": "Four single hybrid attacks (1.00 or 6.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF/RES, 100% additional critical chance",
+    "effects": "Four single hybrid attacks (1.00 or 6.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF and RES, 100% additional critical chance",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 250,
@@ -235,12 +311,12 @@
     "relic": "Chakram (IV)",
     "nameJp": "エブラーナ流・蓮華",
     "id": 20980016,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
     "character": "Palom",
-    "name": "Enlightning (Palom)",
+    "name": "Lightning Raiment (Palom)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -258,12 +334,12 @@
     "relic": "Palom's Guise (IV)",
     "nameJp": "雷装【パロム】",
     "id": 22210010,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
     "character": "Rydia",
-    "name": "Eidolons' Dearest",
+    "name": "Eidolon Confidante",
     "tier": "LBO",
     "type": "SUM",
     "target": "Single enemy",
@@ -291,7 +367,7 @@
   {
     "realm": "IV",
     "character": "Rydia",
-    "name": "Enwater (Rydia)",
+    "name": "Water Raiment (Rydia)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -314,7 +390,7 @@
   {
     "realm": "IV",
     "character": "Kain",
-    "name": "Enlightning (Kain)",
+    "name": "Lightning Raiment (Kain)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -361,6 +437,32 @@
     "gl": false
   },
   {
+    "realm": "IV",
+    "character": "Ceodore",
+    "name": "Vibra Plus",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance, grants [High Quick Cast 2] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Mythgraven Blade (IV)",
+    "nameJp": "バイブレイ・セカンド",
+    "id": 22720011,
+    "gl": false
+  },
+  {
     "realm": "V",
     "character": "Galuf",
     "name": "Gaia Gazer",
@@ -381,10 +483,10 @@
       "Limit Break Damage Up",
       "Cast Time Down"
     ],
-    "relic": "Master's Gloves (V)",
+    "relic": "Adept's Armlet (V)",
     "nameJp": "ガイアゲイザー",
     "id": 20650016,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -411,12 +513,12 @@
     "relic": "Viking Coat (V)",
     "nameJp": "海竜の咆哮",
     "id": 20930018,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
     "character": "Bartz",
-    "name": "Elemental Bringer",
+    "name": "Element Bringer",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -437,7 +539,7 @@
       "Limit Break Damage Up",
       "Cast Time Down"
     ],
-    "relic": "Elemental Bringer (V)",
+    "relic": "Element Bringer (V)",
     "nameJp": "エレメントブリンガー",
     "id": 20400029,
     "gl": false
@@ -445,7 +547,7 @@
   {
     "realm": "V",
     "character": "Krile",
-    "name": "Enearth (Krile)",
+    "name": "Earth Raiment (Krile)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -463,7 +565,7 @@
     "relic": "Earth Whip (V)",
     "nameJp": "地装【クルル】",
     "id": 20940023,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -490,6 +592,32 @@
     "relic": "Steel Snake (V)",
     "nameJp": "いんせき大破壊",
     "id": 20940024,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Gilgamesh",
+    "name": "Commander's Bladeblow",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Viper Halberd (V)",
+    "nameJp": "親衛隊長の一騎討ち",
+    "id": 20810019,
     "gl": false
   },
   {
@@ -522,7 +650,7 @@
   {
     "realm": "VI",
     "character": "Terra",
-    "name": "Enfire (Terra)",
+    "name": "Fire Raiment (Terra)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -545,7 +673,7 @@
   {
     "realm": "VI",
     "character": "Locke",
-    "name": "Enfire (Locke)",
+    "name": "Fire Raiment (Locke)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -563,12 +691,12 @@
     "relic": "Zwill Blade (VI)",
     "nameJp": "炎装【ロック】",
     "id": 20240021,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
     "character": "Kefka",
-    "name": "Endark (Kefka)",
+    "name": "Dark Raiment (Kefka)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -586,7 +714,7 @@
     "relic": "Madhura Harp (VI)",
     "nameJp": "闇装【ケフカ】",
     "id": 22070012,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -598,10 +726,12 @@
     "formula": "Magical",
     "multiplier": 120,
     "element": [
-      "Wind"
+      "Dark",
+      "Poison"
     ],
     "time": 2.5,
-    "effects": "Five single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES, deals 1000 magical damage to all allies",
+    "effects": "Five single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES, deals 1000 BLK magical damage to all allies",
+    "effectsNote": "Party damage ignores magic blinks",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 250,
@@ -643,7 +773,7 @@
   {
     "realm": "VII",
     "character": "Tifa",
-    "name": "Beat Crush",
+    "name": "Crushing Palm",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -664,7 +794,7 @@
     "relic": "Ehrgeiz (VII)",
     "nameJp": "破砕・掌打クラッシュ",
     "id": 20230017,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -780,6 +910,59 @@
     "gl": false
   },
   {
+    "realm": "VII",
+    "character": "Shelke",
+    "name": "Transparent Shock",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Lightning"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance, grants [50% Damage Reduction Barrier 2] to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Dragoon Lance (DoC) (VII)",
+    "nameJp": "無式・彩雷",
+    "id": 22820010,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Angeal",
+    "name": "Unleashed Wrath",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Wind",
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Soul Sabre (CC) (VII)",
+    "nameJp": "真・憤怒の解放",
+    "id": 22500011,
+    "gl": false
+  },
+  {
     "realm": "VIII",
     "character": "Rinoa",
     "name": "Angel Wing Icemound",
@@ -804,6 +987,32 @@
     "relic": "Brynhildr (VIII)",
     "nameJp": "ヴァリー・氷丘",
     "id": 20300022,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
+    "character": "Laguna",
+    "name": "Tactical Frost",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Ice"
+    ],
+    "time": 2.5,
+    "effects": "Five single ranged attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Spica (VIII)",
+    "nameJp": "タクティカルフリーズ",
+    "id": 22100018,
     "gl": false
   },
   {
@@ -837,7 +1046,7 @@
   {
     "realm": "IX",
     "character": "Zidane",
-    "name": "Enwind (Zidane)",
+    "name": "Wind Raiment (Zidane)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -855,6 +1064,32 @@
     "relic": "Angel Bless (IX)",
     "nameJp": "風装【ジタン】",
     "id": 20370017,
+    "gl": true
+  },
+  {
+    "realm": "IX",
+    "character": "Zidane",
+    "name": "Fragmented Blast",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Wind"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Thief's Cap (IX)",
+    "nameJp": "ブラストフラッグ",
+    "id": 20860022,
     "gl": false
   },
   {
@@ -880,7 +1115,7 @@
     ],
     "relic": "Princess Guard (IX)",
     "nameJp": "清廉なる奔雷の歌",
-    "id": 20360017,
+    "id": 20860017,
     "gl": false
   },
   {
@@ -914,7 +1149,7 @@
   {
     "realm": "X",
     "character": "Tidus",
-    "name": "Enwater (Tidus)",
+    "name": "Water Raiment (Tidus)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -929,10 +1164,10 @@
     "limitBreakBonus": [
       "Water Damage Up"
     ],
-    "relic": "Savior Shield (X)",
+    "relic": "Defending Shield (X)",
     "nameJp": "水装【ティーダ】",
     "id": 20130022,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -958,6 +1193,33 @@
     "relic": "Fayth Ball (X)",
     "nameJp": "ヘヴィレイン",
     "id": 20130023,
+    "gl": false
+  },
+  {
+    "realm": "X",
+    "character": "Jecht",
+    "name": "Jecht Beam Mk. II",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Dark",
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Four single ranged attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Summoner's Ball (X)",
+    "nameJp": "真・ジェクトビーム",
+    "id": 22090017,
     "gl": false
   },
   {
@@ -989,7 +1251,7 @@
   {
     "realm": "XII",
     "character": "Vaan",
-    "name": "Speed Superstar",
+    "name": "Swift Superstar",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1010,12 +1272,65 @@
     "relic": "Lust Dagger (XII)",
     "nameJp": "スピードスーパースター",
     "id": 20700018,
+    "gl": true
+  },
+  {
+    "realm": "XII",
+    "character": "Fran",
+    "name": "Dual Mist",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Ice",
+      "Lightning"
+    ],
+    "time": 2.5,
+    "effects": "Four single ranged attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Gastrophetes (XII)",
+    "nameJp": "デュアルミスト",
+    "id": 20390018,
+    "gl": false
+  },
+  {
+    "realm": "XII",
+    "character": "Gabranth",
+    "name": "Dual Rend",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Dark"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Daybreak & Twilight (XII)",
+    "nameJp": "二刀連斬",
+    "id": 22370016,
     "gl": false
   },
   {
     "realm": "XIII",
     "character": "Lightning",
-    "name": "Artemis Pierce",
+    "name": "Artemis's Arrows",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1036,12 +1351,12 @@
     "relic": "Helter-Skelter (XIII)",
     "nameJp": "アルテミスピアス",
     "id": 20600026,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
     "character": "Snow",
-    "name": "Enice (Snow)",
+    "name": "Ice Raiment (Snow)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -1056,10 +1371,10 @@
     "limitBreakBonus": [
       "Ice Damage Up"
     ],
-    "relic": "Valiant Emblem (XIII)",
+    "relic": "Chivalry Emblem (XIII)",
     "nameJp": "氷装【スノウ】",
     "id": 20310020,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -1069,7 +1384,7 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": 40,
+    "multiplier": 32,
     "element": [
       "Ice"
     ],
@@ -1117,9 +1432,32 @@
     "gl": false
   },
   {
+    "realm": "XIV",
+    "character": "Ysayle",
+    "name": "Ice Raiment (Ysayle)",
+    "tier": "LBG",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Attach Ice]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Ice Damage Up"
+    ],
+    "relic": "Voeburtite Tunic of Casting (XIV)",
+    "nameJp": "氷装【イゼル】",
+    "id": 23130009,
+    "gl": false
+  },
+  {
     "realm": "XV",
     "character": "Noctis",
-    "name": "Another Link",
+    "name": "Ancillary Link-Strike",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1139,10 +1477,10 @@
       "Limit Break Damage Up",
       "Cast Time Down"
     ],
-    "relic": "King's Jacket (XV)",
+    "relic": "Lucian King's Jacket (XV)",
     "nameJp": "アナザーリンクアタック",
     "id": 22740014,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -1200,7 +1538,7 @@
   {
     "realm": "Type-0",
     "character": "Rem",
-    "name": "S Dagger Boomerang",
+    "name": "Saintly Dagger Boomerang",
     "tier": "LBO",
     "type": "WHT",
     "target": "Single enemy",
@@ -1222,12 +1560,12 @@
     "relic": "Zwillblades (Type-0)",
     "nameJp": "S・ブーメランダガー",
     "id": 23080012,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Cinque",
-    "name": "Enearth (Cinque)",
+    "name": "Earth Raiment (Cinque)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",

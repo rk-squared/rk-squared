@@ -445,7 +445,7 @@
     "realm": "I",
     "character": "Garland",
     "name": "Ambush (Garland)",
-    "tier": "LMR",
+    "tier": "LMR+",
     "effect": "?% chance to cast an ability (PHY: single, 4x ? physical Dark/NE) after dealing damage with a Dark attack",
     "master": "ATK +10",
     "relic": "Giant's Gloves (I)",
@@ -556,7 +556,7 @@
     "nameJp": "光の戦士候補",
     "id": 201010403,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -621,7 +621,7 @@
     "nameJp": "妖精の手助け",
     "id": 201010504,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -1341,7 +1341,7 @@
   {
     "realm": "II",
     "character": "Emperor",
-    "name": "Otherwordly Power",
+    "name": "Otherworldly Power",
     "tier": null,
     "effect": "BLK attacks deal 10% more damage",
     "master": null,
@@ -1639,6 +1639,19 @@
   },
   {
     "realm": "III",
+    "character": "Arc",
+    "name": "Ambush (Arc)",
+    "tier": "LMR+",
+    "effect": "35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Holy/Water/NE, summoning ether 1 to the user) after dealing damage with a Holy or Water ability",
+    "master": "MAG +10",
+    "relic": "Laurel Crown (III)",
+    "nameJp": "遊撃【アルクゥ】",
+    "id": 201030205,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "III",
     "character": "Refia",
     "name": "Light of Affection",
     "tier": null,
@@ -1757,7 +1770,7 @@
   {
     "realm": "III",
     "character": "Ingus",
-    "name": "Hidden Love",
+    "name": "Hidden Feelings",
     "tier": "LMR",
     "effect": "25% chance to dualcast Knight abilities",
     "master": "ATK +10",
@@ -1765,7 +1778,7 @@
     "nameJp": "秘めたる恋慕",
     "id": 201030405,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -1993,7 +2006,7 @@
     "character": "Aria",
     "name": "Crystal Prayer",
     "tier": "LMR",
-    "effect": "25% chance to grant Heals +30% for 10 seconds to the user after using a WHT ability",
+    "effect": "25% chance to grant [Heals +30%] for 10 seconds to the user after using a WHT ability",
     "master": "MND +10",
     "relic": "Spirit Ring (III)",
     "nameJp": "クリスタルに捧ぐ祈り",
@@ -3072,7 +3085,7 @@
     "character": "Lenna",
     "name": "Overflowing Love",
     "tier": null,
-    "effect": "40% chance to grant [Heals +30%] to the user after using a WHT ability",
+    "effect": "40% chance to grant [Heals +30%] to the user after using a WHT ability or soulbreak",
     "master": null,
     "relic": null,
     "nameJp": "慈愛に満ちた心",
@@ -3377,7 +3390,7 @@
     "nameJp": "タイクーンの第1王女",
     "id": 201050905,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -4954,6 +4967,19 @@
   },
   {
     "realm": "VII",
+    "character": "Cait Sith",
+    "name": "Swiftness (Cait Sith)",
+    "tier": "LMR+",
+    "effect": "Grants [Quick Cast 3] after using three Dancer/Bard abilities",
+    "master": "MND +10",
+    "relic": "Cait Sith's Cloak (VII)",
+    "nameJp": "短縮【ケット・シー】",
+    "id": 201070703,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Vincent",
     "name": "Turk Among Turks",
     "tier": null,
@@ -5813,9 +5839,9 @@
   {
     "realm": "VIII",
     "character": "Irvine",
-    "name": "Trigger Finger",
+    "name": "Master Marksman",
     "tier": null,
-    "effect": "30% chance to grant [Quick Cast 3] to the user after using a Sharpshooter ability",
+    "effect": "30% chance to grant [Quick Cast 3] to the user after using a Sharpshooter or Machinist ability",
     "master": null,
     "relic": null,
     "nameJp": "凄腕の速射術",
@@ -5828,7 +5854,7 @@
     "character": "Irvine",
     "name": "Key to the Past",
     "tier": "LMR",
-    "effect": "20% chance to cause [Imperil Fire 10% (15s)] to the target after using a Sharpshooter ability on an enemy",
+    "effect": "20% chance to cause [Imperil Fire 10% (15s)] to the target after using a Sharpshooter or Machinist ability on an enemy",
     "master": "ATK +10",
     "relic": "Irvine's Guise (VIII)",
     "nameJp": "過去を知る者",
@@ -6134,6 +6160,19 @@
     "id": 201081303,
     "anima": 4,
     "gl": true
+  },
+  {
+    "realm": "VIII",
+    "character": "Fujin",
+    "name": "Ambush (Fujin)",
+    "tier": "LMR+",
+    "effect": "35?% chance to cast an ability (BLK: single, 4x ? magical Wind/NE) after dealing damage with a Wind attack",
+    "master": "MAG +10",
+    "relic": "Sniper (VIII)",
+    "nameJp": "遊撃【風神】",
+    "id": 201081304,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "VIII",
@@ -6891,6 +6930,19 @@
   },
   {
     "realm": "IX",
+    "character": "Kuja",
+    "name": "Trance (Kuja)",
+    "tier": "LMR+",
+    "effect": "Restores HP for 100% of the user's maximum HP and grants [MAG +50%, RES -50% (25s)] and [High Quick Cast (25s)] when HP fall below 20%",
+    "master": "MAG +10",
+    "relic": "Doom Mace (IX)",
+    "nameJp": "底力【クジャ】",
+    "id": 201091003,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "IX",
     "character": "Marcus",
     "name": "Tantalus Stalwart",
     "tier": null,
@@ -7216,6 +7268,19 @@
   },
   {
     "realm": "X",
+    "character": "Kimahri",
+    "name": "Enable (Kimahri)",
+    "tier": "LMR+",
+    "effect": "100% chance to dualcast every third Water ability",
+    "master": "ATK +10",
+    "relic": "Kimahri's Guise (X)",
+    "nameJp": "再動【キマリ】",
+    "id": 201100504,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "X",
     "character": "Rikku",
     "name": "Spiral Eyes",
     "tier": null,
@@ -7538,6 +7603,19 @@
     "id": 201101803,
     "anima": 4,
     "gl": true
+  },
+  {
+    "realm": "X",
+    "character": "Seymour",
+    "name": "Swiftness (Seymour)",
+    "tier": "LMR+",
+    "effect": "Grants [Quick Cast 3] after using three abilities that deal Dark damage",
+    "master": "MAG +10",
+    "relic": "Empyrean Rod (X)",
+    "nameJp": "短縮【シーモア】",
+    "id": 201101804,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XI",
@@ -8204,6 +8282,19 @@
   },
   {
     "realm": "XII",
+    "character": "Fran",
+    "name": "Enfeeble (Fran)",
+    "tier": "LMR+",
+    "effect": "Causes [Imperil Ice 10% (15s)] after using three Ice abilities",
+    "master": "ATK +10",
+    "relic": "Snow Scarf (XII)",
+    "nameJp": "耐降【フラン】",
+    "id": 201120306,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XII",
     "character": "Basch",
     "name": "Captain's Honor",
     "tier": null,
@@ -8699,7 +8790,7 @@
   {
     "realm": "XIII",
     "character": "Snow",
-    "name": "Passionate Fighter",
+    "name": "Fiery Fighter",
     "tier": "LMR",
     "effect": "25% chance to dualcast Monk abilities",
     "master": "ATK +10",
@@ -8707,7 +8798,7 @@
     "nameJp": "格闘術に長けた熱血漢",
     "id": 201130205,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -8753,7 +8844,7 @@
     "character": "Vanille",
     "name": "Constant Companion",
     "tier": "LMR",
-    "effect": "25% chance to grant Heals +30% for 10 seconds to the user after using a WHT ability",
+    "effect": "25% chance to grant [Heals +30%] for 10 seconds to the user after using a WHT ability",
     "master": "MND +10",
     "relic": "Vanille's Guise (XIII)",
     "nameJp": "穏やかな励まし",
@@ -8877,6 +8968,19 @@
     "id": 201130503,
     "anima": 4,
     "gl": true
+  },
+  {
+    "realm": "XIII",
+    "character": "Hope",
+    "name": "Sublimation (Hope)",
+    "tier": "LMR+",
+    "effect": "Increases Holy damage dealt by 25%",
+    "master": "MAG +10",
+    "relic": "White Cape (XIII)",
+    "nameJp": "昇華【ホープ】",
+    "id": 201130504,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XIII",
@@ -9423,6 +9527,19 @@
     "id": 201140503,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "XIV",
+    "character": "Papalymo",
+    "name": "Sublimation (Papalymo)",
+    "tier": "LMR+",
+    "effect": "BLK attacks deal 25% more damage",
+    "master": "MAG +10",
+    "relic": "Dreadwyrm Staff (XIV)",
+    "nameJp": "昇華【パパリモ】",
+    "id": 201140504,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XIV",
@@ -10362,6 +10479,19 @@
   },
   {
     "realm": "FFT",
+    "character": "Delita",
+    "name": "Ambush (Delita)",
+    "tier": "LMR+",
+    "effect": "?% chance to cast an ability (PHY: single, 4x ? physical Holy/Fire/Lightning/Ice) after dealing damage with a Spellblade or Knight attack",
+    "master": "ATK +10",
+    "relic": "Assassin's Dagger (FFT)",
+    "nameJp": "遊撃【ディリータ】",
+    "id": 201500304,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "FFT",
     "character": "Ovelia",
     "name": "Gentle Princess",
     "tier": null,
@@ -10989,7 +11119,7 @@
     "character": "Deuce",
     "name": "Reserved Demeanor",
     "tier": "LMR",
-    "effect": "25% chance to grant Heals +30% for 10 seconds to the user after using a Bard ability",
+    "effect": "25% chance to grant [Heals +30%] for 10 seconds to the user after using a Bard ability",
     "master": "MND +10",
     "relic": "Baroque Flute (Type-0)",
     "nameJp": "ひかえめな態度",
@@ -11052,7 +11182,7 @@
   {
     "realm": "Type-0",
     "character": "Nine",
-    "name": "Firm Companion",
+    "name": "Fierce Fellowship",
     "tier": "LMR",
     "effect": "25% chance to dualcast Dragoon abilities",
     "master": "ATK +10",
@@ -11060,7 +11190,7 @@
     "nameJp": "堅き仲間意識",
     "id": 201600303,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
@@ -11444,7 +11574,7 @@
     "character": "Jack",
     "name": "Stoic Soul",
     "tier": null,
-    "effect": "Grants [Retaliate] and [75% Critical] when HP fall below 20%",
+    "effect": "Grants [Retaliate] and [75% Critical (25s)] when HP fall below 20%",
     "master": null,
     "relic": null,
     "nameJp": "克己的な本質",
@@ -12066,7 +12196,7 @@
   {
     "realm": "Beyond",
     "character": "Rain",
-    "name": "Young Talent",
+    "name": "Precocious Power",
     "tier": null,
     "effect": "PHY attacks deal 20% more damage when equipping a sword",
     "master": null,
@@ -12074,12 +12204,12 @@
     "nameJp": "若き実力者",
     "id": 201903300,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Rain",
-    "name": "Heart of Fire",
+    "name": "Flaming Heart",
     "tier": null,
     "effect": "35% chance to dualcast Spellblade abilities",
     "master": null,
@@ -12087,12 +12217,12 @@
     "nameJp": "燃えたぎる心",
     "id": 201903301,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Fina",
-    "name": "Pure Heart",
+    "name": "Purest of Hearts",
     "tier": null,
     "effect": "35% chance to grant [Quick Cast 1] to the user after using a White Magic or Support ability",
     "master": null,
@@ -12100,25 +12230,25 @@
     "nameJp": "凛々しき純心",
     "id": 201903400,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Fina",
-    "name": "Pure Prayer",
+    "name": "Virtuous Prayer",
     "tier": null,
-    "effect": "35% chance to cast an ability (WHT: group, restores HP (25), damages undeads) after using Support ability",
+    "effect": "35% chance to cast an ability (WHT: group, restores HP (25), damages undeads) after using a Support ability",
     "master": null,
     "relic": null,
     "nameJp": "清逸なる祈り",
     "id": 201903401,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Lasswell",
-    "name": "Heir to a Secret World",
+    "name": "Heir to the Blade",
     "tier": null,
     "effect": "20% chance to cause [Imperil Ice 10% (15s)] to the target after using a Ice ability on an enemy",
     "master": null,
@@ -12126,12 +12256,12 @@
     "nameJp": "秘刀の継承者",
     "id": 201903500,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "character": "Lasswell",
-    "name": "Master of Excellence",
+    "name": "Extreme Skill",
     "tier": null,
     "effect": "35% chance to dualcast Samurai abilities",
     "master": null,
@@ -12139,6 +12269,6 @@
     "nameJp": "練達の極み",
     "id": 201903501,
     "anima": null,
-    "gl": false
+    "gl": true
   }
 ]
