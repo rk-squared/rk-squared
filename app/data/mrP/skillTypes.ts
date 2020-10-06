@@ -261,16 +261,8 @@ export interface StatusEffect {
 
 // Note: Compatible with, but more complex than, skillTypes.StatusWithPercent
 export interface StatusWithPercent extends StatusClause {
-  status: StatusItem;
+  status: common.StatusItem;
   chance?: number;
-}
-
-export interface StatusLevel {
-  type: 'statusLevel';
-  status: common.StatusName;
-  value: number;
-  // If true, setting to value; if false, modifying by value.
-  set?: boolean;
 }
 
 export interface StatusClause {
@@ -292,11 +284,9 @@ export interface SetStatusLevel {
 export interface RandomStatusEffect {
   type: 'randomStatus';
   verb: common.StatusVerb;
-  statuses: Array<{ status: StatusItem[]; chance: number }>;
+  statuses: Array<{ status: common.StatusItem[]; chance: number }>;
   who?: common.Who;
 }
-
-type StatusItem = common.SmartEtherStatus | StatusLevel | common.StatusName;
 
 // --------------------------------------------------------------------------
 // Stat mods

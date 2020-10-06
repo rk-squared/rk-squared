@@ -55,9 +55,9 @@ import {
 import {
   formatRandomEther,
   formatSmartEther,
+  formatSpecialStatusItem,
+  formatStatusLevel,
   sbPointsAlias,
-  statusLevelAlias,
-  statusLevelText,
 } from './statusAlias';
 import {
   DescribeOptions,
@@ -69,7 +69,6 @@ import {
   formatNumberSlashList,
   formatSignedIntegerSlashList,
   numberOrUnknown,
-  signedNumber,
   toMrPFixed,
   toMrPKilo,
 } from './util';
@@ -202,17 +201,6 @@ function describeStatMod({ stats, percent, duration, condition }: skillTypes.Sta
   statMod += appendCondition(condition, percent);
 
   return statMod;
-}
-
-function formatStatusLevel(status: string, value: number, set: boolean | undefined) {
-  status = statusLevelAlias[status] || statusLevelText;
-  if (!set) {
-    return status + ` ${signedNumber(value)}`;
-  } else if (value === 0) {
-    return 'reset ' + status;
-  } else {
-    return status + ` =${value}`;
-  }
 }
 
 function findOtherSkill(skill: EnlirSkill, otherSkills: EnlirSkill[] | undefined) {
@@ -566,16 +554,12 @@ function processStatus(
     const [status, stacking] = checkStacking(thisStatus);
 
     if (typeof status !== 'string') {
-      if (status.type === 'smartEther') {
-        other.push(skill, who, formatSmartEther(status.amount, status.school));
-      } else {
-        // Status levels are always self.
-        if (removes) {
-          other.push(skill, 'self', formatStatusLevel(status.status, 0, true));
-        } else {
-          other.push(skill, 'self', formatStatusLevel(status.status, status.value, status.set));
-        }
-      }
+      // Status levels are always self.
+      other.push(
+        skill,
+        status.type === 'statusLevel' ? 'self' : who,
+        formatSpecialStatusItem(status, removes ? 0 : undefined),
+      );
       return;
     }
 

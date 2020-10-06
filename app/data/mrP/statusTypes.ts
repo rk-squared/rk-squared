@@ -56,6 +56,7 @@ export type EffectClause =
   | Pain
   | DamageTaken
   | BarHeal
+  | EmpowerHeal
   | Doom
   | DoomTimer
   | DrainHp
@@ -437,6 +438,11 @@ interface BarHeal {
   value: number;
 }
 
+interface EmpowerHeal {
+  type: 'empowerHeal';
+  value: number;
+}
+
 // --------------------------------------------------------------------------
 // Inflict / resist KO
 
@@ -560,7 +566,7 @@ export interface RecoilHp {
 
 // Note: Compatible with, but simpler than, skillTypes.StatusWithPercent
 export interface StatusWithPercent {
-  status: common.StatusName;
+  status: common.StatusItem;
   chance?: number;
 }
 

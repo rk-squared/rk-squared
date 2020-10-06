@@ -34186,7 +34186,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants ATK and RES +30%, [High Quick Cast 1] and [Ice High Quick Cycle] to the user",
+    "effects": "Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants [ATK and RES +30%], [High Quick Cast 1] and [Ice High Quick Cycle] to the user",
     "counter": false,
     "autoTarget": "All enemies",
     "points": 500,
@@ -40676,7 +40676,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Activates Holy Chain (max 99, field +50%), grants [MAG and MND +30%] for 25 seconds, grants [Buff Holy 20% (15s)] ",
+    "effects": "Activates Holy Chain (max 99, field +50%), grants [MAG and MND +30%] for 25 seconds, grants [Buff Holy 20% (15s)]",
     "counter": false,
     "autoTarget": "All allies",
     "points": 500,
@@ -53948,7 +53948,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (1.50 each), grants [Attach FIre 3 with Stacking], [Synchro Mode], [Damage Cap +10000], [Instant ATB 3] and [Instant Cast 3] to the user",
+    "effects": "Fifteen single attacks (1.50 each), grants [Attach Fire 3 with Stacking], [Synchro Mode], [Damage Cap +10000], [Instant ATB 3] and [Instant Cast 3] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

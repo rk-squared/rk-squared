@@ -7,11 +7,21 @@ export type StatusName = string;
 
 export type StatusVerb = 'grants' | 'causes' | 'removes' | "doesn't remove";
 
+export interface StatusLevel {
+  type: 'statusLevel';
+  status: StatusName;
+  value: number;
+  // If true, setting to value; if false, modifying by value.
+  set?: boolean;
+}
+
 export interface SmartEtherStatus {
   type: 'smartEther';
   amount: number | number[];
   school?: EnlirSchool;
 }
+
+export type StatusItem = SmartEtherStatus | StatusLevel | StatusName;
 
 export interface Duration {
   value: number;

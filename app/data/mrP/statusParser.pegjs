@@ -1,5 +1,6 @@
 {
   let parsedNumberString = null;
+  let statusLevelMatch = null;
 
   // Hack: Suppress warnings about unused functions.
   location;
@@ -47,7 +48,7 @@ EffectClause
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
   / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Dualcast / DualcastAbility / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
-  / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal
+  / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal / EmpowerHeal
   / Doom / DoomTimer / DrainHp
   / CounterWithImmune / Counter / RowCover
   / TriggeredEffect
@@ -379,6 +380,9 @@ DamageTaken
 BarHeal
   = "Healing restores" _ value:Integer "% less HP" { return { type: 'barHeal', value }; }
 
+EmpowerHeal
+  = "Increases"i _ "healing received by" _ value:Integer "%" { return { type: 'empowerHeal', value }; }
+
 SecondsInterval
   = "second" { return 1; }
   / interval:DecimalNumber _ "seconds" { return interval; }
@@ -458,7 +462,7 @@ TriggeredEffect
   }
 
 TriggerableEffect
-  = CastSkill / RandomCastSkill / GainSb / GrantStatus / Heal / HealChance / RecoilHp / SmartEtherStatus
+  = CastSkill / RandomCastSkill / GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealChance / RecoilHp / SmartEtherStatus
 
 BareTriggerableEffect
   = effect:TriggerableEffect ! (_ (Trigger / "and")) { return effect; }
@@ -468,6 +472,11 @@ CastSkill
 
 RandomCastSkill
   = "randomly"i _ "casts" _ skill:AnySkillOrOptions  { return { type: 'randomCastSkill', skill }; }
+
+SimpleRemoveStatus
+  = "removes"i _ status:StatusNameNoBrackets {
+    return { type: 'grantStatus', status: { status }, verb: 'removes' };
+  }
 
 GrantStatus
   = verb:StatusVerb _ head:StatusWithPercent _ tail:(("," / "and") _ StatusWithPercent)* _ condition:Condition? _ who:Who? _ duration:Duration? {
@@ -492,7 +501,7 @@ RecoilHp
   }
 
 StatusWithPercent
-  = status:StatusName _ chance:("(" n:Integer "%)" { return n; })? {
+  = status:StatusItem _ chance:("(" n:Integer "%)" { return n; })? {
     if (!chance) {
       return { status };
     } else {
@@ -502,6 +511,27 @@ StatusWithPercent
   // Note: This alternative is pulled out by separateStatusAndSb, so
   // higher-level code can ignore it.
   / value:Integer _ "SB points" { return { type: 'gainSb', value }; }
+
+StatusLevel "status with level"
+  = status:StatusNameNoBrackets _ "level" _ value:Integer {
+    return { type:'statusLevel', status, value, set: true };
+  }
+  / status:StatusNameNoBrackets _ "level" _ value:SignedInteger {
+    return { type:'statusLevel', status, value };
+  }
+  / value:SignedInteger _ status:StatusNameNoBrackets
+      { return { type:'statusLevel', status, value }; }
+  / status:StatusNameNoBrackets
+    & {
+        statusLevelMatch = status.match(/(.*) ([+-]?\d+)$/);
+        return statusLevelMatch;
+      }
+      { return { type:'statusLevel', status: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
+  / status:StatusNameNoBrackets
+      { return { type:'statusLevel', status, value: 1, set: true }; }
+
+StatusItem
+  = SmartEtherStatus / StatusLevel / StatusName
 
 
 // --------------------------------------------------------------------------
@@ -700,6 +730,12 @@ Trigger
   }
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
   / "after"i _ "using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
+  / "after"i _ "using" _ count:NumberString _ "of" _ skill1or2:AnySkillName
+    & {
+        // Variation for "or" instead of "and/or" - these may be part of a skill name themselves.
+        return (skill1or2.match(/ or /g) || []).length === 1;
+      }
+      { return { type: 'skill', skill: skill1or2.split(/ or /), count }; }
   / "after"i _ "taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
   / "after"i _ "using a single-target heal" { return { type: 'singleHeal' }; }
   / "when"i _ "HP fall" "s"? _ "below" _ value:Integer "%" { return { type: 'lowHp', value }; }
@@ -728,13 +764,13 @@ Condition
   // "Level-like" or "counter-like" statuses, as seen on newer moves like
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
-  / "scaling" _ "with" _ status:StatusName _ "level" { return { type: 'scaleWithStatusLevel', status }; }
-  / "at" _ status:StatusName _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
-  / "if" _ "the"? _ "user" _ "has" _ status:StatusName _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
+  / "scaling" _ "with" _ status:StatusNameNoBrackets _ "level" { return { type: 'scaleWithStatusLevel', status }; }
+  / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
 
   // If Doomed - overlaps with the general status support below
-  / ("if" _ "the" _ "user" _ "has" _ "any" _ ("[Doom]" / "Doom") / "with" _ "any" _ "[Doom]") { return { type: 'ifDoomed' }; }
+  / ("if" _ "the" _ "user" _ "has" _ "any" _ ("[Doom]" / "Doom") / "with" _ "any" _ ("[Doom]" / "Doom")) { return { type: 'ifDoomed' }; }
 
   // General status
   / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusNameNoBrackets (OrList StatusNameNoBrackets)* { return text(); }) {
@@ -774,7 +810,7 @@ Condition
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
 
-  / "if" _ "the" _ "user's" _ "Doom" _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
+  / "if" _ "the" _ "user's" _ ("[Doom]" / "Doom") _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "at" _ "least" _ value:IntegerSlashList "%" { return { type: 'hpAtLeastPercent', value }; }
   / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashList _ SB _ "points" { return { type: 'soulBreakPoints', value }; }
@@ -818,7 +854,7 @@ Condition
 
   // Alternate status phrasing.  For example, Stone Press:
   // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
-  / "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
+  / "at" _ status:StatusNameNoBrackets { return { type: 'status', status, who: 'self' }; }
 
   // Stat thresholds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
@@ -934,6 +970,7 @@ StatListOrPlaceholder
 
 Who
   = "to" _ "the"? _ "user" { return 'self'; }
+  / "from" _ "the"? _ "user" { return 'self'; }
   / "to" _ "the" _ "target" { return 'target'; }
   / "to" _ "all" _ "enemies" { return 'enemies'; }
   / "to" _ "all" _ "allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {

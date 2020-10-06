@@ -464,6 +464,9 @@ StatusLevel "status with level"
   = status:StatusNameNoBrackets _ "level" _ value:Integer {
     return { type:'statusLevel', status, value, set: true };
   }
+  / status:StatusNameNoBrackets _ "level" _ value:SignedInteger {
+    return { type:'statusLevel', status, value };
+  }
   / value:SignedInteger _ status:StatusNameNoBrackets
       { return { type:'statusLevel', status, value }; }
   / status:StatusNameNoBrackets
@@ -502,7 +505,7 @@ ImplicitStatusEffect
   }
 
 SetStatusLevel
-  = "set"i _ status:StatusName _ "level" _ "to" _ value:Integer {
+  = "set"i _ status:StatusNameNoBrackets _ "level" _ "to" _ value:Integer {
     return { type: 'setStatusLevel', status, value };
   }
 

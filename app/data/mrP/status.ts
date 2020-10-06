@@ -25,6 +25,7 @@ import { convertEnlirSkillToMrP, describeRecoilHp, formatMrPSkill } from './skil
 import * as skillTypes from './skillTypes';
 import {
   formatSmartEther,
+  formatSpecialStatusItem,
   lowHpAlias,
   rankBoostAlias,
   rankCastSpeedAlias,
@@ -359,6 +360,13 @@ export const allTranceStatus = new Set(
     // Take the last status - in practice, that's the one that's the character-
     // specific trance.
     .map(i => i[i.length - 1])
+    // Strip brackets and durations.
+    .map(i =>
+      i
+        .replace(/^\[/, '')
+        .replace(/]$/, '')
+        .replace(/ \(\d+s\)$/, ''),
+    )
     // Exclude generic statuses, like Haurchefant and Jack.
     .filter(i => resolveStatusAlias(i) == null),
 );
@@ -695,6 +703,11 @@ function formatGrantOrConditionalStatus(
       if (i.status === enlirStatus.name) {
         return 'status';
       }
+
+      if (typeof i.status !== 'string') {
+        return formatSpecialStatusItem(i.status);
+      }
+
       const sequence = trigger ? getFollowUpStatusSequence(i.status, trigger) : null;
       if (sequence) {
         return describeMergedSequence(sequence);
@@ -1112,6 +1125,8 @@ function describeStatusEffect(
       return percentToMultiplier(effect.value) + 'x dmg taken';
     case 'barHeal':
       return -effect.value + '% healing recv';
+    case 'empowerHeal':
+      return signedNumber(effect.value) + '% healing recv';
     case 'doom':
       return 'Doom ' + effect.timer + 's';
     case 'doomTimer':

@@ -1,4 +1,5 @@
 import { allEnlirElements, allEnlirSchools } from '../enlir';
+import * as common from './commonTypes';
 import {
   formatSchoolOrAbilityList,
   getElementShortName,
@@ -39,6 +40,32 @@ export const formatSmartEther = (amount: string | number | number[], type?: stri
   }
   return 'refill ' + amount + ' ' + (type ? getShortName(type) + ' ' : '') + 'abil. use';
 };
+
+export function formatStatusLevel(status: string, value: number, set: boolean | undefined) {
+  status = statusLevelAlias[status] || statusLevelText;
+  if (!set) {
+    return status + ` ${signedNumber(value)}`;
+  } else if (value === 0) {
+    return 'reset ' + status;
+  } else {
+    return status + ` =${value}`;
+  }
+}
+
+export function formatSpecialStatusItem(
+  status: common.SmartEtherStatus | common.StatusLevel,
+  overrideValue?: number,
+) {
+  if (status.type === 'smartEther') {
+    return formatSmartEther(status.amount, status.school);
+  } else {
+    if (overrideValue != null) {
+      return formatStatusLevel(status.status, overrideValue, true);
+    } else {
+      return formatStatusLevel(status.status, status.value, status.set);
+    }
+  }
+}
 
 /**
  * Mappings from Enlir status names or status effect names to MrP names.
