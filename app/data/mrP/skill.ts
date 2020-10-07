@@ -819,6 +819,7 @@ class OtherDetail {
     }
   }
 
+  // noinspection JSMethodCanBeStatic
   private makeGroup(inGroup: string[], description?: string) {
     if (inGroup.length) {
       return [(description ? description + ' ' : '') + inGroup.join(', ')];
