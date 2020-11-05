@@ -1057,6 +1057,26 @@ export const items: Item[] = [
     type: ItemType.Orb,
     id: 40000167,
   },
+  {
+    name: 'Kaleidoshift Record',
+    type: ItemType.Orb,
+    id: 40000168,
+  },
+  {
+    name: 'Meditative Palm Record',
+    type: ItemType.Orb,
+    id: 40000169,
+  },
+  {
+    name: 'Trinity Grenade Record',
+    type: ItemType.Orb,
+    id: 40000170,
+  },
+  {
+    name: 'Dark Side Dive Record',
+    type: ItemType.Orb,
+    id: 40000171,
+  },
 
   {
     name: 'Minor Growth Egg',
@@ -1227,6 +1247,11 @@ export const items: Item[] = [
     name: 'Krakka Greens',
     type: ItemType.Common,
     id: 95001208,
+  },
+  {
+    name: 'Magicite Shard',
+    type: ItemType.Common,
+    id: 95001298,
   },
 
   // Items 95003001 through 95003009 are apparently internal virtual items used
@@ -1412,6 +1437,11 @@ export const items: Item[] = [
     name: 'Eiko Mote (5★)',
     type: ItemType.Mote,
     id: 132002300,
+  },
+  {
+    name: '5★ Shifting Mote',
+    type: ItemType.Mote,
+    id: 133001300,
   },
 
   {
