@@ -3,7 +3,7 @@ import * as ReactTooltip from 'react-tooltip';
 
 import * as _ from 'lodash';
 
-import { describeRelicStats, enlir } from '../../data/enlir';
+import { describeRelicStats, enlir, EnlirRelicRarity } from '../../data/enlir';
 import { formatRelicName } from '../../data/items';
 import { separateWithBr } from '../common/BrText';
 
@@ -11,6 +11,8 @@ interface Props {
   id: string;
   relicId: number;
 }
+
+const formatRarity = (rarity: EnlirRelicRarity) => rarity === 'S' ? 'Artifact' : `${rarity}★`;
 
 export class RelicTooltip extends React.PureComponent<Props & any> {
   render() {
@@ -21,7 +23,7 @@ export class RelicTooltip extends React.PureComponent<Props & any> {
     }
 
     const lines = _.filter([
-      `${relic.rarity}★ ${relic.type}`,
+      formatRarity(relic.rarity) + ' ' + relic.type,
       describeRelicStats(relic),
       relic.effect,
     ]);

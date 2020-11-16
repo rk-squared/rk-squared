@@ -255,7 +255,9 @@ export const getRelicProbabilities = createSelector<
     return _.toPairs(probabilities.byRelic).map(([relicId, probability]) => ({
       relicId: +relicId,
       probability,
-      rarity: enlir.relics[relicId].rarity,
+      // Hack: Cast 'S' rarity to NaN so we don't have to worry about it.
+      // Artifacts should never show up on relic draws.
+      rarity: +enlir.relics[relicId].rarity,
     }));
   },
 );

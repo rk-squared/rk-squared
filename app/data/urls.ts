@@ -5,7 +5,7 @@
 
 import { BaseUrl, LangType } from '../api/apiUrls';
 import { dressRecordsById } from './dressRecords';
-import { enlir } from './enlir';
+import { enlir, EnlirRelicRarity } from './enlir';
 import { ItemType } from './items';
 
 // Within the Electron app, use HTTP, so that our transparent proxy can serve
@@ -66,8 +66,9 @@ export function recordMateriaImage(lang: LangType, id: number): string {
   return url(lang, `image/record_materia/${id}/${id}_128.png`);
 }
 
-export function relicImage(lang: LangType, id: number, rarity: number): string {
-  return url(lang, `image/equipment/${id}/${id}_0${rarity}_112.png`);
+export function relicImage(lang: LangType, id: number, rarity: EnlirRelicRarity): string {
+  const fragment = rarity === 'S' ? '100' : `0${rarity}`;
+  return url(lang, `image/equipment/${id}/${id}_${fragment}_112.png`);
 }
 
 export function itemImage(lang: LangType, id: number, type: ItemType): string {

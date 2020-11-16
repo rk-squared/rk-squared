@@ -225,8 +225,13 @@ export type EnlirTarget =
   | 'Single target'
   | 'Single';
 
+/**
+ * Relic (equipment) rarities.  'S' means artifact.
+ */
+export type EnlirRelicRarity = number | 'S';
+
 interface EnlirRelicStats {
-  rarity: number;
+  rarity: EnlirRelicRarity;
   level: number;
   atk: null | number;
   def: null | number;
@@ -377,7 +382,7 @@ export interface EnlirRelic {
   name: string;
   realm: EnlirRealm | null;
   type: EnlirRelicType;
-  rarity: number;
+  rarity: EnlirRelicRarity;
   stats: EnlirRelicStats;
   effect: null | string;
   character: null | string;
