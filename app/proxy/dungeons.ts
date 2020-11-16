@@ -313,7 +313,7 @@ export function convertWorld(
     name = world.name + ' (' + seriesShortName + ')';
   } else if (event.tag === 'crystal_tower') {
     category = WorldCategory.CrystalTower;
-  } else if (world.name.startsWith("Newcomers' Dungeons - ")) {
+  } else if (world.name.startsWith("Newcomers' Dungeons - ") || world.name === "Beginner's Hall") {
     category = WorldCategory.Newcomer;
   } else if (event.tag.match(/^ff.*_reopen_ww\d+/)) {
     category = WorldCategory.Renewal;
@@ -404,9 +404,13 @@ function checkForWorldIcon(
     case WorldCategory.PowerUpMote: {
       let item: Item | undefined;
       if (world.subcategory === moteDungeonsSubcategory) {
-        const m = world.name.match(/^(\w+)/);
-        if (m) {
-          item = itemsByName[`${m[1]} Mote (4★)`];
+        if (world.name === 'Secret Hunt') {
+          item = itemsByName['5★ Shifting Mote'];
+        } else {
+          const m = world.name.match(/^(\w+)/);
+          if (m) {
+            item = itemsByName[`${m[1]} Mote (5★)`];
+          }
         }
       } else if (!world.subcategory && world.name === 'Power Up Dungeons') {
         item = itemsByName['Gysahl Greens'];

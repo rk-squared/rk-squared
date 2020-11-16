@@ -32,7 +32,7 @@ export const descriptions = {
   [WorldCategory.Raid]: 'Raids',
   [WorldCategory.CrystalTower]: 'Crystal Tower',
   [WorldCategory.PowerUpMote]: 'Power Up & Mote Dungeons',
-  [WorldCategory.Newcomer]: "Newcomers' Dungeons",
+  [WorldCategory.Newcomer]: 'Newcomer Dungeons',
   [WorldCategory.Renewal]: 'Renewal Dungeons',
   [WorldCategory.Record]: 'Record Dungeons',
 };
