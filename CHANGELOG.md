@@ -1,5 +1,9 @@
 # v2.7.0
 
+- Dungeon Tracker
+  - Add / update handling for Beginner's Hall and Secret Hunt
+- Record Materia
+  - Add Alisaie
 - Options
   - Online comments suggest that the "Always show timer" option no longer works, so it's been removed.
 

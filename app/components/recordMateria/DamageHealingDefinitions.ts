@@ -299,6 +299,12 @@ const physicalTable: TableDefinition = {
       },
     },
     {
+      header: 'PHY Hat',
+      items: {
+        '1_1': [['Ardyn', '1']],
+      },
+    },
+    {
       header: 'PHY Hammer',
       items: {
         '1_3': [['Naja', '3']],
@@ -432,6 +438,7 @@ const magicTable: TableDefinition = {
     {
       header: 'BLK Sword',
       items: {
+        '1_3': [['Alisaie', '3']],
         '1_1': [['Desch', '1']],
       },
     },
@@ -529,7 +536,7 @@ const magicDualcastTable: TableDefinition = {
     {
       header: 'White Magic',
       items: {
-        '15w': [['Alma', '2'], ['Devout', '1b']],
+        '15w': [['Alma', '2'], ['Alisaie', '2'], ['Devout', '1b']],
         '8w': [['Devout', '1a'], ['Porom', '1']],
       },
     },

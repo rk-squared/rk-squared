@@ -183,6 +183,12 @@ const selfHealTable: TableDefinition = {
         1: [['Cecil (Paladin)', '1b']],
       },
     },
+    {
+      header: 'At Low HP',
+      items: {
+        3: [['Ardyn', '3']],
+      },
+    },
   ],
 };
 
@@ -299,7 +305,7 @@ const abilityRefillTable: TableDefinition = {
       header: 'Black or White Magic',
       items: {
         100: [['Fusoya', '1b'], ['Tama', '2']],
-        40: [['Fusoya', '1a']],
+        40: [['Fusoya', '1a'], ['Alisaie', '1']],
       },
     },
     {

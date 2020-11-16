@@ -9,7 +9,14 @@ const physicalNonElementalTable: TableDefinition = {
       header: 'AoE',
       items: {
         3: [['Yang', '3'], ['Yda', '3']],
-        2: [['Leo', '2'], ['Machina', '2'], ['Orlandeau', '2'], ['Yda', '2'], ['Yang', '2']],
+        2: [
+          ['Leo', '2'],
+          ['Machina', '2'],
+          ['Orlandeau', '2'],
+          ['Yda', '2'],
+          ['Yang', '2'],
+          ['Ardyn', '2'],
+        ],
         1: [['Bard', '1b']],
       },
     },

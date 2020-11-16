@@ -10,8 +10,6 @@ Current features:
 - Drop tracker - show what you'll get when you finish the current battle
 - Record Materia tracker - to help you see which RMs you have unlocked but not yet acquired, what you have to to do get the best RMs, and which RMs are cluttering up your inventory and should be stashed
 - Score tracker - view all your torment progress and magicite completion times on a single page to help you see where to focus next
-- Game options
-  - Always show timer
 
 RK Squared runs as a proxy: It runs on your PC and Mac, and you configure your phone, tablet, or emulator to connect through it, so that it can track your game status.
 
