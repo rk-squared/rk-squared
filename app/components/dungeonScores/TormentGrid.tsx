@@ -29,7 +29,7 @@ interface Props {
 // TODO: Tooltips break if a tooltip is up while the score updates
 
 const dColumnDef = {
-  width: 85,
+  width: 90,
   cellRendererFramework: TormentScoreCellRenderer,
   cellClass: 'text-right',
   comparator: compareDungeonsWithScore,

@@ -68,7 +68,7 @@ export class MagiciteGrid extends React.Component<Props> {
       },
       {
         headerName: 'Time',
-        width: 85,
+        width: 90,
         field: 'score',
         cellClass: 'text-right',
         cellRendererFramework: MagiciteScoreCellRenderer,
