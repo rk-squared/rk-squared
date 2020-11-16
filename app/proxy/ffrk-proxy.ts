@@ -24,7 +24,6 @@ import { StartupHandler } from './common';
 import dungeons from './dungeons';
 import dungeonScores from './dungeonScores';
 import itemUpdates from './itemUpdates';
-import options from './options';
 import recordMateria from './recordMateria';
 import relicDraws from './relicDraws';
 import { sessionHandler } from './session';
@@ -53,10 +52,6 @@ const handlers = [
   itemUpdates,
   recordMateria,
   dungeonScores,
-
-  // Apply options last so that changes that options make won't interfere with
-  // other processing.
-  options,
 ];
 
 const ffrkRegex = /ffrk\.denagames\.com\/dff|dff\.sp\.mbga\.jp\/dff/;

@@ -72,8 +72,7 @@ export class CheatWarningModalLink extends React.PureComponent<Props, State> {
             </p>
             <p>
               Any of RK&sup2;'s options that modify the behavior of FFRK itself should be used at
-              your own risk. This is especially true for the &ldquo;Always show timer&rdquo; option,
-              which modifies battle data. Cosmetic options are believed to be safe and are regularly
+              your own risk. Cosmetic options are believed to be safe and are regularly
               used by RK&sup2;'s developer with no ill effects.
             </p>
           </ModalDialog>

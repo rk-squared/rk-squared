@@ -7,11 +7,9 @@ import { remote } from 'electron';
 
 import { showDanger } from '../../actions/messages';
 import { Options, setOption as setOptionAction } from '../../actions/options';
-import { ffrkCommunityHelp, ffrkCommunityUrl, misterPHelp, misterPUrl } from '../../data/resources';
 import { deleteCertificate } from '../../proxy/tls';
 import { IState } from '../../reducers';
 import { KeysOfType } from '../../utils/typeUtils';
-import { BrowserLink } from '../common/BrowserLink';
 import { CheatWarningModalLink } from './CheatWarningModalLink';
 import { OptionsInput } from './OptionsInput';
 
@@ -109,31 +107,6 @@ export class OptionsForm extends React.Component<Props, State> {
     const { recreatedCertificate } = this.state;
     return (
       <div className={styles.component}>
-        <div className="form-group">
-          <Checkbox id="alwaysShowTimer2" {...{ options, setOption }}>
-            Always show timer
-          </Checkbox>
-          <HelpText>
-            <p>
-              Besides self-imposed speedrun challenges, this can be useful for tracking when buffs
-              and debuffs might expire. Check{' '}
-              <BrowserLink href={ffrkCommunityUrl} title={ffrkCommunityHelp}>
-                FFRK Community
-              </BrowserLink>{' '}
-              or{' '}
-              <BrowserLink href={misterPUrl} title={misterPHelp}>
-                MisterP
-              </BrowserLink>{' '}
-              for details on buff durations.
-            </p>
-            <p>
-              <CheatWarningModalLink>
-                This option modifies FFRK battle data. Use it at your own risk.
-              </CheatWarningModalLink>
-            </p>
-          </HelpText>
-        </div>
-
         <div className="form-group">
           <Checkbox id="hideAccolades" {...{ options, setOption }} needsGameRestart={true}>
             Hide accolades

@@ -1,3 +1,8 @@
+# v2.7.0
+
+- Options
+  - Online comments suggest that the "Always show timer" option no longer works, so it's been removed.
+
 # v2.6.0
 
 - Dungeons

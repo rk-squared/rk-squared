@@ -5,12 +5,9 @@ import { createAction } from 'typesafe-actions';
  * or of RK Squared
  */
 export interface Options {
-  /**
-   * We used to call this alwaysShowTimer.  It's been removed as a simple way
-   * to reset it to off to help address any potential concerns about RK Squared
-   * being flagged as cheating.
-   */
-  alwaysShowTimer2?: boolean;
+  // We used to have an option called alwaysShowTimer / alwaysShowTimer2, but
+  // online comments suggest that FFRK no longer permits modifying game data
+  // like that.
   enableLogging?: boolean;
   saveTrafficCaptures?: boolean;
   enableTransparentProxy?: boolean;
@@ -40,7 +37,6 @@ export interface Options {
 }
 
 export const defaultOptions: Required<Options> = {
-  alwaysShowTimer2: false,
   enableLogging: false,
   saveTrafficCaptures: false,
   enableTransparentProxy: false,
