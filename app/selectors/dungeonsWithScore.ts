@@ -62,6 +62,8 @@ const magiciteStarsByDifficulty: { [difficulty: number]: number } = {
   250: 3,
   300: 4,
   400: 5,
+  550: 6,
+  // In case the user has some not-yet-updated dungeons:
   0: 6,
 };
 

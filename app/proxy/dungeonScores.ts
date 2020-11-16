@@ -109,15 +109,7 @@ function updateElementScores(
 const dungeonScoresHandler: Handler = {
   battles(data: schemas.Battles, store: Store<IState>) {
     for (const i of data.battles) {
-      if (i.user_clear_time) {
-        store.dispatch(
-          setDungeonScore(i.dungeon_id, {
-            type: DungeonScoreType.ClearTime,
-            time: i.user_clear_time,
-            won: true,
-          }),
-        );
-      } else if (i.grade_score_type && i.grade_score) {
+      if (i.grade_score_type && i.grade_score) {
         const type = gradeToScoreType(i.grade_score_type);
         if (type) {
           store.dispatch(
@@ -130,6 +122,14 @@ const dungeonScoresHandler: Handler = {
             }),
           );
         }
+      } else if (i.user_clear_time) {
+        store.dispatch(
+          setDungeonScore(i.dungeon_id, {
+            type: DungeonScoreType.ClearTime,
+            time: i.user_clear_time,
+            won: true,
+          }),
+        );
       }
     }
   },
