@@ -35,7 +35,7 @@ export interface MagiciteDungeonWithScore extends DungeonWithScore {
 export interface TormentWorldWithScore extends World {
   d240?: DungeonWithScore;
   d280?: DungeonWithScore;
-  dUnknown?: DungeonWithScore;
+  d450?: DungeonWithScore;
 }
 
 function getWorlds(worldsState: WorldState, category: WorldCategory) {
@@ -159,7 +159,9 @@ export const getTormentScores = createSelector<
         ...w,
         d240: dungeons[240],
         d280: dungeons[280],
-        dUnknown: dungeons[0],
+        // Check dungeons[0] to accommodate scores from when torment was still
+        // D???.
+        d450: dungeons[450] || dungeons[0],
       };
     });
   },

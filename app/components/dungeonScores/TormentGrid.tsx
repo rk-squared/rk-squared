@@ -66,8 +66,8 @@ export class TormentGrid extends React.Component<Props> {
         ...dColumnDef,
       },
       {
-        headerName: 'D???',
-        field: 'dUnknown',
+        headerName: 'D450',
+        field: 'd450',
         ...dColumnDef,
       },
     ];
