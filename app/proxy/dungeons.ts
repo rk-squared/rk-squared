@@ -311,6 +311,12 @@ export function convertWorld(
   } else if (event.tag === 'regular_nightmare_dungeon') {
     category = WorldCategory.Torment;
     name = world.name + ' (' + seriesShortName + ')';
+  } else if (event.tag === 'regular_genmu_dungeon') {
+    category = WorldCategory.Dreams;
+    name = world.name.replace(/^Dreams - /, '') + ' (' + seriesShortName + ')';
+  } else if (event.tag === 'regular_zetsumu_dungeon') {
+    category = WorldCategory.Dreambreaker;
+    name = world.name.replace(/^Dreambreaker - /, '') + ' (' + seriesShortName + ')';
   } else if (event.tag === 'crystal_tower') {
     category = WorldCategory.CrystalTower;
   } else if (world.name.startsWith("Newcomers' Dungeons - ") || world.name === "Beginner's Hall") {

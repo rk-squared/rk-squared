@@ -5,7 +5,7 @@ import WorldBadge from './WorldBadge';
 
 const styles = require('./DungeonCategoryTitle.scss');
 
-export const categoryImages: { [category: string]: string } = {
+export const categoryImages: { [category in WorldCategory]: string } = {
   [WorldCategory.CrystalTower]: require('../../images/game-icons/white-tower.svg'),
   [WorldCategory.Event]: require('../../images/game-icons/book-cover.svg'),
   [WorldCategory.JumpStart]: require('../../images/game-icons/lob-arrow.svg'),
@@ -19,6 +19,8 @@ export const categoryImages: { [category: string]: string } = {
   [WorldCategory.Renewal]: require('../../images/game-icons/calendar.svg'),
   [WorldCategory.SpecialEvent]: require('../../images/game-icons/star-formation.svg'),
   [WorldCategory.Torment]: require('../../images/game-icons/daemon-skull.svg'),
+  [WorldCategory.Dreams]: require('../../images/game-icons/night-sleep.svg'),
+  [WorldCategory.Dreambreaker]: require('../../images/game-icons/breaking-chain.svg'),
 };
 
 interface Props {

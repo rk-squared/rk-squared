@@ -19,13 +19,17 @@ export enum WorldCategory {
   Newcomer,
   Renewal,
   Record,
+  Dreams,
+  Dreambreaker,
 }
 
 export const descriptions = {
   [WorldCategory.Realm]: 'Realm Dungeons',
   [WorldCategory.Nightmare]: 'Nightmare',
   [WorldCategory.Magicite]: 'Magicite',
+  [WorldCategory.Dreams]: 'Dreams',
   [WorldCategory.Torment]: 'Torments',
+  [WorldCategory.Dreambreaker]: 'Dreambreaker',
   [WorldCategory.Event]: 'Events',
   [WorldCategory.SpecialEvent]: 'Special Events',
   [WorldCategory.JumpStart]: 'Jump Start',
@@ -48,7 +52,9 @@ export const sortOrder = [
   WorldCategory.Record,
   WorldCategory.Nightmare,
   WorldCategory.Magicite,
+  WorldCategory.Dreams,
   WorldCategory.Torment,
+  WorldCategory.Dreambreaker,
   WorldCategory.PowerUpMote,
   WorldCategory.Newcomer,
 ];
@@ -96,10 +102,13 @@ function getSortOrder(category: WorldCategory) {
     case WorldCategory.SpecialEvent:
     case WorldCategory.Raid:
       return WorldSortOrder.ByTime;
+    case WorldCategory.Dreams:
     case WorldCategory.Torment:
-      // Old torments were sorted by series.  Neo Torments were listed by
-      // time when first released, but now that they've all been out for a
-      // bit, the game lists them by series.
+    case WorldCategory.Dreambreaker:
+      // Old torments were sorted by series.  Neo Torments were listed by time
+      // when first released, but now that they've all been out for a bit, the
+      // the game lists them by series.  Similarly, FFRK lists Dreambreaker
+      // dungeons and permanent Dreams dungeons by series, so we'll follow suit.
       return WorldSortOrder.BySeriesId;
     case WorldCategory.CrystalTower:
     case WorldCategory.Realm:
