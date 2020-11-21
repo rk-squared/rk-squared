@@ -317,7 +317,8 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
     let relicsArray = (relics.length > 0 && Array.isArray(relics[0])
       ? relics
       : [relics]) as number[][];
-    if (probabilities && showProbability) {
+    const isStandardBanner = relicsArray.length === 1 && relicsArray[0].length <= 14;
+    if (!isStandardBanner && probabilities && showProbability) {
       relicsArray = relicsArray.map(i =>
         _.sortBy(i, getRelicRealmId, j => -probabilities.byRelic[j]),
       );
