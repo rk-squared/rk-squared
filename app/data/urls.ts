@@ -6,7 +6,7 @@
 import { BaseUrl, LangType } from '../api/apiUrls';
 import { dressRecordsById } from './dressRecords';
 import { enlir, EnlirRelicRarity } from './enlir';
-import { ItemType } from './items';
+import { itemsByName, ItemType } from './items';
 
 // Within the Electron app, use HTTP, so that our transparent proxy can serve
 // resources without also having to implement HTTPS.
@@ -81,7 +81,7 @@ export function itemImage(lang: LangType, id: number, type: ItemType): string {
     case ItemType.Arcana:
     case ItemType.CrystalWater:
     case ItemType.DarkMatter:
-    case ItemType.Historia:
+    case ItemType.HistoriaSoul: // unconfirmed
     case ItemType.Magicite:
     case ItemType.MemoryCrystal:
     case ItemType.Mote:
@@ -90,6 +90,15 @@ export function itemImage(lang: LangType, id: number, type: ItemType): string {
       return url(lang, `image/${type}/${id}/${id}_112.png`);
     case ItemType.BattleTicket:
       return url(lang, `image/${type}/${id}_112.png`);
+    case ItemType.HistoriaTail: {
+      // Hack: Assume sequential IDs.
+      let rarity = 5;
+      const hugeTail = itemsByName["Huge Rat's Tail"];
+      if (hugeTail) {
+        rarity = 5 - hugeTail.id + id;
+      }
+      return url(lang, `image/${type}/${id}/${id}_0${rarity}_112.png`);
+    }
     case ItemType.Relic: {
       const relic = enlir.relics[id];
 
