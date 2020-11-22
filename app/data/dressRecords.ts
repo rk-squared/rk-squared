@@ -22,6 +22,12 @@ export const dressRecords: DressRecord[] = [
   },
 
   {
+    name: 'Cosmic Retainer',
+    id: 120200100,
+    characterId: 10200100,
+  },
+
+  {
     name: 'Cosmic Onion Knight',
     id: 120300100,
     characterId: 10300600,
@@ -51,6 +57,11 @@ export const dressRecords: DressRecord[] = [
     name: 'Grown-Up Porom',
     id: 120400500,
     characterId: 10401000,
+  },
+  {
+    name: 'Golbez: The After Years',
+    id: 120400600,
+    characterId: 10401400,
   },
 
   {
@@ -140,6 +151,11 @@ export const dressRecords: DressRecord[] = [
     name: 'KINGDOM HEARTS Leon',
     id: 120800300,
     characterId: 10800100,
+  },
+  {
+    name: 'SeeD Zell',
+    id: 120801000,
+    characterId: 10800400,
   },
 
   {

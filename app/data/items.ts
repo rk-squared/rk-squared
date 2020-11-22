@@ -1249,6 +1249,12 @@ export const items: Item[] = [
     id: 95001208,
   },
   {
+    // Golden Fest 2020 Fantastic Feast
+    name: 'Feast Coin',
+    type: ItemType.Common,
+    id: 95001268,
+  },
+  {
     name: 'Magicite Shard',
     type: ItemType.Common,
     id: 95001298,

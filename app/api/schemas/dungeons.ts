@@ -62,10 +62,10 @@ export enum RewardType {
 export const MinRewardGrade = 8;
 
 /**
- * We normally try to avoid hard-coding world IDs, but Dark Odin has a few
- * unique traits, so it simplifies code to have this available.
+ * We normally try to avoid hard-coding world IDs, but Dark Odin / Odin has a
+ * few unique traits, so it simplifies code to have this available.
  */
-export const DarkOdinWorldId = 13052;
+export const OdinWorldId = 13052;
 
 export interface DungeonPrizeItem {
   type_name: ItemTypeName;

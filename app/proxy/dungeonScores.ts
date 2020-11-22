@@ -8,6 +8,7 @@ import { Store } from 'redux';
 
 import * as _ from 'lodash';
 
+import { Difficulty } from '../actions/dungeons';
 import {
   DungeonScoreType,
   setDungeonScore,
@@ -143,11 +144,17 @@ const dungeonScoresHandler: Handler = {
       logger.error('Unrecognized dungeons query');
       return;
     }
-    if (+query.world_id !== dungeonsSchemas.DarkOdinWorldId) {
+    if (+query.world_id !== dungeonsSchemas.OdinWorldId) {
       return;
     }
 
-    const dungeon = data.dungeons[0];
+    const darkOdinDungeons = data.dungeons.filter(i => i.challenge_level === Difficulty.DarkOdin);
+    if (darkOdinDungeons.length !== 1) {
+      logger.error('Unrecognized Dark Odin data');
+      return;
+    }
+
+    const dungeon = darkOdinDungeons[0];
     const elements = getElementsClaimed(dungeon);
     updateElementScores(store, dungeon.id, elements.claimed, true);
     updateElementScores(store, dungeon.id, elements.unclaimed, false);

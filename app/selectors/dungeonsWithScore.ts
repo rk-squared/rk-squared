@@ -10,7 +10,7 @@ import {
   shouldUseEstimatedScore,
 } from '../actions/dungeonScores';
 import { getSorter, World, WorldCategory } from '../actions/worlds';
-import { DarkOdinWorldId } from '../api/schemas/dungeons';
+import { OdinWorldId } from '../api/schemas/dungeons';
 import { allEnlirElements } from '../data/enlir';
 import { IState } from '../reducers';
 import { DungeonState, getDungeonsForWorld } from '../reducers/dungeons';
@@ -118,7 +118,7 @@ export const getMagiciteScores = createSelector<
 
     let dungeons: MagiciteDungeonWithScore[] = _.flatten(
       worlds
-        .filter(w => w.id !== DarkOdinWorldId)
+        .filter(w => w.id !== OdinWorldId)
         .map(w =>
           getDungeonsWithScoreForWorld(dungeonsState, scoresState, w).map(d => ({
             ...d,
@@ -230,7 +230,7 @@ export const getDarkOdinScores = createSelector<
 >(
   [(state: IState) => state.dungeons, (state: IState) => state.dungeonScores],
   (dungeonsState: DungeonState, scoresState: DungeonScoreState): MagiciteDungeonWithScore[] => {
-    const darkOdinDungeons = getDungeonsForWorld(dungeonsState, DarkOdinWorldId);
+    const darkOdinDungeons = getDungeonsForWorld(dungeonsState, OdinWorldId);
     if (!darkOdinDungeons || !darkOdinDungeons.length) {
       return [];
     }
@@ -249,7 +249,7 @@ export const getDarkOdinScores = createSelector<
           element,
           score: scores[element],
           estimatedScore: undefined,
-          worldId: DarkOdinWorldId,
+          worldId: OdinWorldId,
         });
       }
     }

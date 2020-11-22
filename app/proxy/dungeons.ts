@@ -410,7 +410,7 @@ function checkForWorldIcon(
     }
 
     case WorldCategory.Magicite: {
-      if (world.id === dungeonsSchemas.DarkOdinWorldId) {
+      if (world.id === dungeonsSchemas.OdinWorldId) {
         world.localIcon = 'odin';
       } else {
         world.localIcon = elementIcon(world.name);
