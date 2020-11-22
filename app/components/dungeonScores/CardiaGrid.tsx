@@ -86,7 +86,7 @@ export class CardiaGrid extends React.Component<Props> {
     ];
   }
 
-  getRowNodeId = (row: DungeonWithScore) => '' + row.id;
+  getRowNodeId = (row: DungeonWithScore) => '' + row.seriesId;
   getTooltipContent = (dungeonId: string) =>
     this.props.dungeons[+dungeonId] ? (
       <PrizeList prizes={getAvailablePrizes(this.props.dungeons[+dungeonId])} />
