@@ -5,6 +5,20 @@ import { TimeT } from '../utils/timeUtils';
 import * as _ from 'lodash';
 import { arrayify } from '../utils/typeUtils';
 
+export const Difficulty = {
+  Torment1: 240,
+  Torment2: 280,
+  Torment3: 450,
+
+  Magicite3: 250,
+  Magicite4: 300,
+  Magicite5: 400,
+  Magicite6: 550,
+
+  DarkOdin: 500,
+  ArgentOdin: 600,
+};
+
 export interface PrizeItem {
   type: ItemType;
   amount: number;

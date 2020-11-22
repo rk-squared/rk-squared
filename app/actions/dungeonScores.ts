@@ -1,7 +1,7 @@
 import { sprintf } from 'sprintf-js';
 import { createAction } from 'typesafe-actions';
 
-import { Dungeon } from './dungeons';
+import { Difficulty, Dungeon } from './dungeons';
 import { World, WorldCategory } from './worlds';
 
 import * as _ from 'lodash';
@@ -89,10 +89,10 @@ function estimateTormentScore(dungeon: Dungeon, world: World): DungeonScore | nu
   const timePrizes: PrizeList = [[30, 1], [40, 2], [50, 2], [60, 1]];
   const percentPrizes50: PrizeList = [[100, 3], [90, 3], [80, 3], [70, 3], [60, 3], [50, 2]];
   const percentPrizes10: PrizeList = [[40, 3], [30, 3], [20, 3], [10, 3]];
-  if (dungeon.difficulty === 240) {
+  if (dungeon.difficulty === Difficulty.Torment1) {
     percentPrizes50[0][1]--;
   }
-  if (dungeon.difficulty === 0 || dungeon.difficulty === 450) {
+  if (dungeon.difficulty === 0 || dungeon.difficulty === Difficulty.Torment2) {
     timePrizes[0][1]++;
     timePrizes[timePrizes.length - 1][1]++;
   }
@@ -113,9 +113,9 @@ function estimateTormentScore(dungeon: Dungeon, world: World): DungeonScore | nu
 
   // These numbers don't apply to every torment, but they're close enough.
   const maxHpByDifficulty: { [difficulty: number]: number } = {
-    240: 6e5,
-    280: 1e6,
-    450: 1e6,
+    [Difficulty.Torment1]: 6e5,
+    [Difficulty.Torment2]: 1e6,
+    [Difficulty.Torment3]: 1e6,
     0: 2e6,
   };
   const maxHp = maxHpByDifficulty[dungeon.difficulty] || maxHpByDifficulty[0];

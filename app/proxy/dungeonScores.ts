@@ -146,10 +146,6 @@ const dungeonScoresHandler: Handler = {
     if (+query.world_id !== dungeonsSchemas.DarkOdinWorldId) {
       return;
     }
-    if (data.dungeons.length !== 1) {
-      logger.error('Unrecognized Dark Odin data');
-      return;
-    }
 
     const dungeon = data.dungeons[0];
     const elements = getElementsClaimed(dungeon);

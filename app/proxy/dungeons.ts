@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 
 import {
   addWorldDungeons,
+  Difficulty,
   Dungeon,
   finishWorldDungeons,
   forgetWorldDungeons,
@@ -216,9 +217,26 @@ export function addRecordDungeonChests(dungeons: Dungeon[], nodes: dungeonsSchem
 function addMagiciteDetails(dungeons: Dungeon[]) {
   const dungeonsById = _.sortBy(dungeons, 'id');
   for (let i = 1; i < dungeonsById.length; i++) {
-    if (dungeonsById[i].name === dungeonsById[i - 1].name) {
-      dungeonsById[i - 1].detail = 'phys. effective';
-      dungeonsById[i].detail = 'mag. effective';
+    if (dungeonsById[i].difficulty === Difficulty.Magicite6) {
+      if (dungeonsById[i].name === dungeonsById[i - 1].name) {
+        dungeonsById[i - 1].detail = 'phys. effective';
+        dungeonsById[i].detail = 'mag. effective';
+      }
+    } else if (dungeonsById[i].difficulty === Difficulty.ArgentOdin) {
+      const gauntlet = dungeonsById[i].prizes.mastery.filter(prize =>
+        prize.name.match(/Lord's Gauntlet/),
+      );
+      if (gauntlet.length === 1) {
+        const m = gauntlet[0].name.match(/Lord's Gauntlet: (.*)/);
+        if (m) {
+          const detail = m[1]
+            .replace(/Physical/, 'phys.')
+            .replace(/Magical/, 'mag.')
+            .replace(/Lightning/, 'lit.')
+            .toLowerCase();
+          dungeonsById[i].detail = detail;
+        }
+      }
     }
   }
 }

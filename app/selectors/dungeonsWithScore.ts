@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 import * as _ from 'lodash';
 
-import { Dungeon } from '../actions/dungeons';
+import { Difficulty, Dungeon } from '../actions/dungeons';
 import {
   compareScore,
   DungeonScore,
@@ -65,10 +65,10 @@ function getDungeonsWithScoreForWorld(
 }
 
 const magiciteStarsByDifficulty: { [difficulty: number]: number } = {
-  250: 3,
-  300: 4,
-  400: 5,
-  550: 6,
+  [Difficulty.Magicite3]: 3,
+  [Difficulty.Magicite4]: 4,
+  [Difficulty.Magicite5]: 5,
+  [Difficulty.Magicite6]: 6,
   // In case the user has some not-yet-updated dungeons:
   0: 6,
 };
