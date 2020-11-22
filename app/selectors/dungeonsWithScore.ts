@@ -16,7 +16,7 @@ import { IState } from '../reducers';
 import { DungeonState, getDungeonsForWorld } from '../reducers/dungeons';
 import { DungeonScoreState } from '../reducers/dungeonScores';
 import { WorldState } from '../reducers/worlds';
-import { compareWithUndefined } from '../utils/typeUtils';
+import { compareWithUndefined, simpleFilter } from '../utils/typeUtils';
 
 const MIN_MAGICITE_STARS = 3;
 const MAX_MAGICITE_STARS = 6;
@@ -36,6 +36,12 @@ export interface TormentWorldWithScore extends World {
   d240?: DungeonWithScore;
   d280?: DungeonWithScore;
   d450?: DungeonWithScore;
+}
+
+export interface CardiaRealmWithScore {
+  seriesId: number;
+  torment: TormentWorldWithScore;
+  dreambreaker: DungeonWithScore;
 }
 
 function getWorlds(worldsState: WorldState, category: WorldCategory) {
@@ -167,12 +173,12 @@ export const getTormentScores = createSelector<
   },
 );
 
-export const getDarkOdinScores = createSelector<
+export const getDreambreakerScores = createSelector<
   IState,
   WorldState,
   DungeonState,
   DungeonScoreState,
-  MagiciteDungeonWithScore[]
+  DungeonWithScore[]
 >(
   [
     (state: IState) => state.worlds,
@@ -183,7 +189,47 @@ export const getDarkOdinScores = createSelector<
     worldsState: WorldState,
     dungeonsState: DungeonState,
     scoresState: DungeonScoreState,
-  ): MagiciteDungeonWithScore[] => {
+  ): DungeonWithScore[] =>
+    simpleFilter(
+      getWorlds(worldsState, WorldCategory.Dreambreaker).map(w =>
+        getDungeonsWithScoreForWorld(dungeonsState, scoresState, w),
+      ),
+    ).map(i => i[0]), // Each dreambreaker has one dungeon
+);
+
+export const getCardiaScores = createSelector<
+  IState,
+  TormentWorldWithScore[],
+  DungeonWithScore[],
+  CardiaRealmWithScore[]
+>(
+  [getTormentScores, getDreambreakerScores],
+  (
+    torments: TormentWorldWithScore[],
+    dreambreakers: DungeonWithScore[],
+  ): CardiaRealmWithScore[] => {
+    const tormentsBySeries = _.keyBy(torments, 'seriesId');
+    const dreambreakersBySeries = _.keyBy(dreambreakers, 'seriesId');
+    const allSeries = _.uniq([
+      ...torments.map(i => i.seriesId),
+      ...dreambreakers.map(i => i.seriesId),
+    ]).sort();
+    return allSeries.map(seriesId => ({
+      seriesId,
+      torment: tormentsBySeries[seriesId],
+      dreambreaker: dreambreakersBySeries[seriesId],
+    }));
+  },
+);
+
+export const getDarkOdinScores = createSelector<
+  IState,
+  DungeonState,
+  DungeonScoreState,
+  MagiciteDungeonWithScore[]
+>(
+  [(state: IState) => state.dungeons, (state: IState) => state.dungeonScores],
+  (dungeonsState: DungeonState, scoresState: DungeonScoreState): MagiciteDungeonWithScore[] => {
     const darkOdinDungeons = getDungeonsForWorld(dungeonsState, DarkOdinWorldId);
     if (!darkOdinDungeons || !darkOdinDungeons.length) {
       return [];

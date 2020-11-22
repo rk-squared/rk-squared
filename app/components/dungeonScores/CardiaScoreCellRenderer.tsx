@@ -11,8 +11,8 @@ import {
 import { DungeonWithScore } from '../../selectors/dungeonsWithScore';
 import { CheckIcon } from './CheckIcon';
 
-export class TormentScoreCellRenderer extends React.Component<ICellRendererParams> {
-  static ID = 'TORMENT_SCORE_CELL';
+export class CardiaScoreCellRenderer extends React.Component<ICellRendererParams> {
+  static ID = 'CARDIA_SCORE_CELL';
 
   render() {
     const { value } = this.props;
@@ -28,7 +28,7 @@ export class TormentScoreCellRenderer extends React.Component<ICellRendererParam
     const sub30 = isSub30(score);
     const showTooltips = !sub30;
     return (
-      <span data-tip={showTooltips ? dungeon.id : undefined} data-for={TormentScoreCellRenderer.ID}>
+      <span data-tip={showTooltips ? dungeon.id : undefined} data-for={CardiaScoreCellRenderer.ID}>
         {useEstimated ? formatEstimatedScore(score) : formatScore(score)}
         <CheckIcon checked={sub30} className={'ml-1'} />
       </span>

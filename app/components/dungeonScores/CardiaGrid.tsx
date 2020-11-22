@@ -12,30 +12,32 @@ import { series } from '../../data';
 import { SeriesId } from '../../data/series';
 import { IState } from '../../reducers';
 import {
+  CardiaRealmWithScore,
   compareDungeonsWithScore,
   DungeonWithScore,
-  getTormentScores,
-  TormentWorldWithScore,
+  getCardiaScores,
 } from '../../selectors/dungeonsWithScore';
 import { GridContainer } from '../common/GridContainer';
 import { PrizeList } from '../dungeons/PrizeList';
-import { TormentScoreCellRenderer } from './TormentScoreCellRenderer';
+import { CardiaScoreCellRenderer } from './CardiaScoreCellRenderer';
 
 interface Props {
   dungeons: { [id: number]: Dungeon };
-  tormentScores: TormentWorldWithScore[];
+  cardiaScores: CardiaRealmWithScore[];
 }
 
 // TODO: Tooltips break if a tooltip is up while the score updates
 
 const dColumnDef = {
   width: 90,
-  cellRendererFramework: TormentScoreCellRenderer,
+  cellRendererFramework: CardiaScoreCellRenderer,
   cellClass: 'text-right',
   comparator: compareDungeonsWithScore,
 };
 
-export class TormentGrid extends React.Component<Props> {
+const formatName = ({ value }: { value: string | undefined }) => value ? value.replace(/\(.*?\)$/, '').replace(/^Dreambreaker - /, '') : '';
+
+export class CardiaGrid extends React.Component<Props> {
   columnDefs: ColDef[];
   objectValues = _.memoize(_.values);
 
@@ -45,29 +47,40 @@ export class TormentGrid extends React.Component<Props> {
     this.columnDefs = [
       {
         headerName: 'Series',
-        width: 85,
+        width: 65,
         field: 'seriesId',
         valueFormatter: ({ value }: { value: SeriesId }) => series.short[value],
       },
       {
-        headerName: 'Name',
-        width: 245,
-        field: 'name',
-        valueFormatter: ({ value }: { value: string }) => value.replace(/\(.*?\)$/, ''),
+        headerName: 'Torment',
+        width: 165,
+        field: 'torment.name',
+        valueFormatter: formatName,
       },
       {
         headerName: 'D240',
-        field: 'd240',
+        field: 'torment.d240',
         ...dColumnDef,
       },
       {
         headerName: 'D280',
-        field: 'd280',
+        field: 'torment.d280',
         ...dColumnDef,
       },
       {
         headerName: 'D450',
-        field: 'd450',
+        field: 'torment.d450',
+        ...dColumnDef,
+      },
+      {
+        headerName: 'Dreambreaker',
+        width: 165,
+        field: 'dreambreaker.name',
+        valueFormatter: formatName,
+      },
+      {
+        headerName: 'D580',
+        field: 'dreambreaker',
         ...dColumnDef,
       },
     ];
@@ -80,9 +93,9 @@ export class TormentGrid extends React.Component<Props> {
     ) : null;
 
   render() {
-    const { tormentScores } = this.props;
-    if (!tormentScores.length) {
-      return <div>No torment dungeons have been loaded.</div>;
+    const { cardiaScores } = this.props;
+    if (!cardiaScores.length) {
+      return <div>No torment or Dreambreaker dungeons have been loaded.</div>;
     }
     return (
       <GridContainer>
@@ -90,7 +103,7 @@ export class TormentGrid extends React.Component<Props> {
           enableSorting={true}
           enableColResize={true}
           columnDefs={this.columnDefs}
-          rowData={this.objectValues(tormentScores)}
+          rowData={this.objectValues(cardiaScores)}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
           onViewportChanged={ReactTooltip.rebuild}
@@ -99,7 +112,7 @@ export class TormentGrid extends React.Component<Props> {
         />
         <ReactTooltip
           place="bottom"
-          id={TormentScoreCellRenderer.ID}
+          id={CardiaScoreCellRenderer.ID}
           getContent={this.getTooltipContent}
         />
       </GridContainer>
@@ -109,5 +122,5 @@ export class TormentGrid extends React.Component<Props> {
 
 export default connect((state: IState) => ({
   dungeons: state.dungeons.dungeons,
-  tormentScores: getTormentScores(state),
-}))(TormentGrid);
+  cardiaScores: getCardiaScores(state),
+}))(CardiaGrid);
