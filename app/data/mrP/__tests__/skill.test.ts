@@ -37,7 +37,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     element: ['Fire', 'Wind', 'NE'],
     time: null,
     effects:
-      'Fifteen single ranged hybrid attacks (? or ? each), grants Attach Fire, Awoken Fire, Damage Cap +10000 and Fiery Tornado Follow-Up to the user',
+      'Fifteen single ranged hybrid attacks (? or ? each), grants [Attach Fire], [Awoken Fire], [Damage Cap +10000] and [Fiery Tornado Follow-Up] to the user',
     counter: false,
     autoTarget: '?',
     points: 500,
@@ -86,7 +86,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     element: [],
     time: null,
     effects:
-      'Ten single ranged hybrid attacks (? each), grants Attach Fire, Quick Cast 1 and Firetooth Follow-Up to the user',
+      'Ten single ranged hybrid attacks (? each), grants [Attach Fire], [Quick Cast 1] and [Firetooth Follow-Up] to the user',
     counter: false,
     autoTarget: '?',
     points: 500,
@@ -111,7 +111,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     element: ['Fire', 'Wind', 'NE'],
     time: 0.01,
     effects:
-      'Six single ranged hybrid attacks (? each), grants Attach Fire Stacking and Attach Fire to the user',
+      'Six single ranged hybrid attacks (? each), grants [Attach Fire Stacking] and [Attach Fire] to the user',
     counter: false,
     autoTarget: '?',
     points: 250,
@@ -134,7 +134,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     multiplier: null,
     element: null,
     time: 0.01,
-    effects: 'MAG and RES +?% for ? seconds, grants Darkness High Quick Cast for ? seconds',
+    effects: '[MAG and RES +?%] for ? seconds, grants [Darkness High Quick Cast] for ? seconds',
     counter: false,
     autoTarget: '?',
     points: 250,
@@ -158,7 +158,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     element: ['Ice', 'NE'],
     time: null,
     effects:
-      'Ten single attacks (? each), causes Imperil Ice ?%, grants Ice Radiant Shield: 75% to all allies, grants Attach Ice and Quick Cast 3 to the user',
+      'Ten single attacks (? each), causes [Imperil Ice ?%], grants [Ice Radiant Shield: 75%] to all allies, grants [Attach Ice] and [Quick Cast 3] to the user',
     counter: false,
     autoTarget: '?',
     points: 500,
@@ -182,7 +182,7 @@ const unknownSoulBreaks: EnlirSoulBreak[] = [
     element: ['Earth', 'NE'],
     time: 0.01,
     effects:
-      'Six single attacks (? each), causes Imperil Earth 10?% for 15? seconds, grants Minor Buff Earth to the user',
+      'Six single attacks (? each), causes [Imperil Earth 10?%] for 15? seconds, grants [Buff Earth 10% (15s)] to the user',
     counter: false,
     autoTarget: '?',
     points: 250,
@@ -1133,14 +1133,14 @@ describe('mrP', () => {
       expect(describeSoulBreak('Cecil (Dark Knight) - Endless Darkness')).toEqual({
         damage: 'phys 7.1/10 dark+non',
         other:
-          'dark infuse 25s, self lose 99% max HP, Negate dmg 100%, ' +
+          'dark infuse 25s, self lose 99% curr HP, Negate dmg 100%, ' +
           'until Neg. Dmg. lost: EX: +30% ATK, Darkness hi fastcast, 100% dualcast Darkness',
       });
 
       expect(describeSoulBreak('Golbez - Creature of Shadow')).toEqual({
         damage: 'magic 17.0/10 dark+non',
         other:
-          'dark infuse 25s, self lose 99% max HP, Negate dmg 100%, ' +
+          'dark infuse 25s, self lose 99% curr HP, Negate dmg 100%, ' +
           'until Neg. Dmg. lost: 100% dualcast Darkness, ' +
           'Finisher: magic 11.8 - 20.5 - 34.6 dark+non overstrike Darkness @ 5-9 Darkness used',
       });

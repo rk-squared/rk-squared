@@ -5358,7 +5358,7 @@
   },
   {
     "character": "Ayame",
-    "source": "Gekko-no-Setsugekka",
+    "source": "Winter Moon Blossom",
     "name": "Tachi: Yukikaze",
     "synchroAbilitySlot": 1,
     "synchroCondition": "Samurai",
@@ -5383,7 +5383,7 @@
   },
   {
     "character": "Ayame",
-    "source": "Gekko-no-Setsugekka",
+    "source": "Winter Moon Blossom",
     "name": "Meikyo Shisui",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Samurai",
@@ -5836,7 +5836,7 @@
   },
   {
     "character": "Basch",
-    "source": "Unmistakable End",
+    "source": "Ruin Imminent",
     "name": "Banish Evil",
     "synchroAbilitySlot": 1,
     "synchroCondition": "Holy, Fire",
@@ -5862,7 +5862,7 @@
   },
   {
     "character": "Basch",
-    "source": "Unmistakable End",
+    "source": "Ruin Imminent",
     "name": "Flawless Strike",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Holy, Fire",

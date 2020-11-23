@@ -52,6 +52,7 @@ function dashAs<TDash, TValue>(
 ): (value: string) => TValue | TDash {
   return (value: string) => (value === '-' ? dashValue : f(value));
 }
+const dashBlank = <T>(f: (value: string) => T) => dashAs('', f);
 const dashNull = <T>(f: (value: string) => T) => dashAs(null, f);
 function toCommaSeparatedArray<T>(f: (value: string | null) => T): (value: string) => T[] | null {
   return (value: string) => (value == null || value === '' ? null : value.split(', ').map(f));
@@ -103,7 +104,7 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Multiplier: toFloat,
   Element: dashAs([], toCommaSeparatedArray(toStringWithLookup(elementAbbreviations))),
   Time: toFloat,
-  Effects: toStringWithDecimals,
+  Effects: dashBlank(toStringWithDecimals),
   Counter: toBool,
   'Auto Target': toString,
   SB: toInt,

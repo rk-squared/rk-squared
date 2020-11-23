@@ -1025,6 +1025,44 @@ function patchEnlir() {
         '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] to the user';
     },
   );
+
+  // Apparent mistakes from adding brackets to status names.  Should be
+  // upstreamed.
+  applyPatch(
+    enlir.soulBreaks,
+    '20860003', // Zidane - Rumble Rush
+    sb =>
+      sb.effects ===
+      'Four single attacks (1.28 each), ATK -50% for 25 seconds, [ATK +35%] to the user for 25 seconds',
+    sb => {
+      sb.effects =
+        'Four single attacks (1.28 each), [ATK -50%] for 25 seconds, [ATK +35%] to the user for 25 seconds';
+    },
+  );
+  applyPatch(
+    enlir.soulBreaks,
+    '20860004', // Zidane - Shift Break
+    sb =>
+      sb.effects ===
+      'Four group ranged attacks (1.50 each), ATK -50% for 25 seconds, ATK +35% to the user for 25 seconds',
+    sb => {
+      sb.effects =
+        'Four group ranged attacks (1.50 each), [ATK -50%] for 25 seconds, [ATK +35%] to the user for 25 seconds';
+    },
+  );
+  applyPatch(
+    enlir.soulBreaks,
+    '22500004', // Angeal - Idle Rage
+    sb =>
+      sb.effects ===
+      'Ten single attacks (0.71 each), grants 100% Critical to the user, ' +
+        'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
+    sb => {
+      sb.effects =
+        'Ten single attacks (0.71 each), grants [100% Critical] to the user, ' +
+        'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies';
+    },
+  );
 }
 patchEnlir();
 
