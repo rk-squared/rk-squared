@@ -820,8 +820,8 @@ Who
 
 // Flexibility: Support both "two uses" and "second use"
 PerUses
-  = "on"? _ "every" _ perUses:NumberString _ ("uses" / "activations") { return perUses; }
-  / "on"? _ "every" _ perUses:Ordinal _ ("use" / "activation") { return perUses; }
+  = "on"? _ "every" _ perUses:NumberString _ ("uses" / "activations" / "cast") { return perUses; }
+  / "on"? _ "every" _ perUses:Ordinal _ ("use" / "activation" / "cast") { return perUses; }
 
 SkillType "skill type"
   = "PHY"

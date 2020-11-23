@@ -1030,6 +1030,14 @@ function patchEnlir() {
   // upstreamed.
   applyPatch(
     enlir.soulBreaks,
+    '20690002', // Auron - Dragon Fang
+    sb => sb.effects === 'One group attack (3.20), ATK -50% for 25 seconds',
+    sb => {
+      sb.effects = 'One group attack (3.20), [ATK -50%] for 25 seconds';
+    },
+  );
+  applyPatch(
+    enlir.soulBreaks,
     '20860003', // Zidane - Rumble Rush
     sb =>
       sb.effects ===

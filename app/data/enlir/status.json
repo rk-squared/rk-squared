@@ -19804,7 +19804,7 @@
   {
     "id": 51091,
     "name": "Strike Chaser Follow-Up",
-    "effects": "Casts Striker Chaser after using Split-Second Salvo or Embers of Light",
+    "effects": "Casts Strike Chaser after using Split-Second Salvo or Embers of Light",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
