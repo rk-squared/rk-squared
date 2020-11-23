@@ -210,7 +210,10 @@ function convertAbilities(rows: any[], notes?: NotesRowData[]): any[] {
  * although it doesn't currently need it.
  */
 function postProcessAbilities(abilities: any[]) {
-  const recordBoardCharacterRegex = / \((.*) Only\)$/;
+  // We're looking for abilities ending in "(Character only)".  Allow a single
+  // pair of nested parenthesis but no more, so that we can handle names like
+  // "(Cecil (Paladin) Only)" and "Jump (III) (Luneth Only)".
+  const recordBoardCharacterRegex = / \(([^()]+(?:\([^()]+\))?) Only\)$/;
   _.forEach(abilities, ability => {
     const orbs = Object.keys(ability.orbs);
     const m = ability.name.match(recordBoardCharacterRegex);

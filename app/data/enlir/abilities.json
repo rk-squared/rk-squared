@@ -15300,7 +15300,7 @@
   },
   {
     "school": "Dragoon",
-    "name": "Jump",
+    "name": "Jump (III)",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -15350,7 +15350,7 @@
     "nameJp": "ジャンプ【III】(ルーネス専用)",
     "id": 30181241,
     "gl": false,
-    "recordBoardCharacter": "III) (Luneth"
+    "recordBoardCharacter": "Luneth"
   },
   {
     "school": "Dragoon",
