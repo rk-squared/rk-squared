@@ -121,6 +121,7 @@ async function main() {
   if (!process.env.GITHUB_TOKEN) {
     console.error('No GITHUB_TOKEN in the environment. Unable to continue.');
     process.exit(1);
+    return;
   }
   const client = github.client(process.env.GITHUB_TOKEN);
   const ghRepo = client.repo(repoName);
@@ -134,13 +135,12 @@ async function main() {
     assetsUploaded = release.assets.length;
   } else {
     console.log('Drafting new GitHub release...');
-    release = await ghRepo.releaseAsync({
+    release = (await ghRepo.releaseAsync({
       name: 'Version ' + version,
       tag_name: tag,
       draft: true,
       body: releaseNotes,
-    });
-    release = release[0];
+    }))[0];
   }
   const releaseId = release.id;
   console.log(`Release draft is ${releaseId}`);
@@ -163,9 +163,9 @@ async function main() {
   showRedditDraft(version, releaseNotes);
 
   const draftTag = path.basename(release.html_url);
-  open(`https://github.com/rk-squared/rk-squared/releases/edit/${draftTag}`);
+  await open(`https://github.com/rk-squared/rk-squared/releases/edit/${draftTag}`);
   const postTitle = `RK Squared ${version} - track soul breaks, LMs, relic banners, etc.`;
-  open(
+  await open(
     'https://www.reddit.com/r/FFRecordKeeper/submit?selftext=true&title=' +
       querystring.escape(postTitle),
   );

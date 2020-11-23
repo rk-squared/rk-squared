@@ -179,8 +179,8 @@ function convertAbilities(rows: any[], notes?: NotesRowData[]): any[] {
         // The spreadsheet used to have blank column names for orb costs.  Now,
         // it has columns 1-R1 through 4-R5.  We could perhaps simplify our code
         // by taking advantage of those numbers.
-        if (rows[i][j] && orb !== '-') {
-          if (rows[i][j] !== '-' && (orb == null || orb === '' || orb === '-')) {
+        if (rows[i][j] && orb !== '-' && orb !== null) {
+          if (rows[i][j] !== '-' && (orb === '' || orb === '-')) {
             throw new Error(`Got orb count with no orb at row ${i} column ${j}`);
           } else if (!item.orbs[orb].length && (rows[i][j] === '?' || rows[i][j] === '')) {
             // Record Board rank 1 has no orb costs, but the spreadsheet may
