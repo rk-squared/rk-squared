@@ -556,7 +556,11 @@ interface RelicMapType {
 }
 
 /**
- * Maps from relic IDs (equipment IDs) to soul breaks or legend materia.
+ * Maps from relic IDs (equipment IDs) to soul breaks, limit breaks, or legend
+ * materia.
+ *
+ * The altItems parameter lets us handle the fact that relics "Soul Break" field
+ * maps to two different tables.
  */
 function makeRelicMap<T extends RelicMapType>(
   relics: EnlirRelic[],
@@ -565,28 +569,37 @@ function makeRelicMap<T extends RelicMapType>(
   altItems?: RelicMapType[][],
 ): { [relicId: number]: T } {
   const key = (character: string | null, name: any) => (character || '-') + ':' + name;
+  const relicNameMatches = (item: RelicMapType, name: string) =>
+    item.relic &&
+    (item.relic.replace(/ \([^()]+\)$/, '') === name ||
+      item.relic.replace(/ \(.*\)$/, '') === name);
+
   const result: { [relicId: number]: T } = {};
+
   const indexedItems = _.keyBy(items, i => key(i.character, i.name));
-  const indexedAltItems = new Set<string>(
-    altItems ? _.flatten(altItems).map(i => key(i.character, i.name)) : [],
-  );
+  const indexedAltItems = altItems
+    ? _.keyBy(_.flatten(altItems), i => key(i.character, i.name))
+    : {};
+
   for (const i of relics) {
     if (i[prop]) {
       const found = indexedItems[key(i.character, i[prop])];
+      const altFound = indexedAltItems[key(i.character, i[prop])];
+
+      if (altFound && relicNameMatches(altFound, i.name)) {
+        continue;
+      }
+
       if (found) {
         result[i.id] = found;
-        if (
-          i.character && // Skip shared soul breaks - these don't have 1-to-1 mappings.
-          found.relic &&
-          found.relic.replace(/ \([^()]+\)$/, '') !== i.name &&
-          found.relic.replace(/ \(.*\)$/, '') !== i.name
-        ) {
+        // Don't warn for shared soul breaks; these don't have 1-to-1 mappings.
+        if (i.character && !relicNameMatches(found, i.name)) {
           logger.warn(
             `Name mismatch: relic lists name as ${i.name}, ` +
               `${prop} ${found.name} lists name as ${found.relic}`,
           );
         }
-      } else if (!indexedAltItems.has(key(i.character, i[prop]))) {
+      } else if (!altFound) {
         logger.warn(`Failed to find ${prop} for ${i.character} - ${i.name} - ${i[prop]}`);
       }
     }
