@@ -1,14 +1,14 @@
 import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
-import { arrayify } from '../../utils/typeUtils';
+import { arrayify, scalarify } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import * as statusTypes from './statusTypes';
 import { parseNumberString } from './util';
 
 const isEqual = _.isEqual;
-export { arrayify, parseNumberString, isEqual };
+export { arrayify, parseNumberString, isEqual, scalarify };
 
 export function lastValue(value: number | number[]): number {
   value = arrayify(value);

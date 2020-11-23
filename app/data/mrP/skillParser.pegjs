@@ -883,8 +883,17 @@ SchoolList "school list"
 SB = "Soul" _ "Break" / "SB"
 Maximum = "maximum" / "max" "."?
 
-// "x + yn"
-UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return { x, y }; }
+// "x1+yn/x2+yn/x3+yn"
+UseCount
+  = head:UseCountTerm tail:('/' UseCountTerm)*
+  & { for (const i of tail) { if (i[1].y !== head.y) { return false; } }; return true; }
+  {
+    const list = util.pegList(head, tail, 1, false);
+    return { x: util.scalarify(list.map(i => i.x)), y: list[0].y };
+  }
+
+UseCountTerm
+  = x:Integer "+" y:Integer "n" { return { x, y }; }
 
 Realm "realm"
   = "Beyond"
