@@ -153,3 +153,7 @@ export const whoText: { [w in common.Who]: string } = {
   allyWithKO: 'ally',
   ally: 'ally',
 };
+
+export function appendPerUses(perUses: number | undefined) {
+  return perUses ? ` per ${perUses} uses` : '';
+}

@@ -333,7 +333,7 @@ Revive
 
 Heal
   = "restores"i _ amount:(
-      "HP" _ "(" healFactor:IntegerSlashList ")" { return { healFactor }; }
+      "HP" _ "(" healFactor:DecimalNumberSlashList ")" { return { healFactor }; }
       / fixedHp:IntegerSlashList _ "HP" { return { fixedHp }; }
     ) _ who:Who? _ condition:Condition? {
     return util.addCondition({
@@ -364,13 +364,12 @@ DispelOrEsuna
   }
 
 RandomEther
-  = "restores"i _ amount:Integer _ "consumed" _ "ability" _ "use" _ who:Who? {
-    return { type: 'randomEther', amount, who };
+  = "restores"i _ amount:Integer _ "consumed" _ "ability" _ "use" _ who:Who? _ perUses:PerUses? {
+    return { type: 'randomEther', amount, who, perUses };
   }
 
 SmartEther
-  = status:SmartEtherStatus _ who:Who? { return Object.assign({}, status, { who }); }
-
+  = status:SmartEtherStatus _ who:Who? _ perUses:PerUses? { return Object.assign({}, status, { who, perUses }); }
 
 // --------------------------------------------------------------------------
 // "Randomly casts"
@@ -487,9 +486,7 @@ StatusClause
     // See, e.g., Desch SSB or Sarah BSB.
     / who:Who ! (_ Duration) { return { who, whoAllowsLookahead: true }; }
     / who:Who { return { who }; }
-    // Flexibility: Support both "two uses" and "second use"
-    / "on"? _ "every" _ ("two" _ "uses" / "second" _ "use") { return { perUses: 2 }; }
-    / "on"? _ "every" _ ("three" _ "uses" / "third" _ "use") { return { perUses: 3 }; }
+    / perUses:PerUses { return { perUses }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
     / "to" _ "undeads" { return { ifUndead: true }; }
     / condition:Condition { return { condition }; }
@@ -821,6 +818,11 @@ Who
   / "to" _ "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
   / "to" _ "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
 
+// Flexibility: Support both "two uses" and "second use"
+PerUses
+  = "on"? _ "every" _ perUses:NumberString _ ("uses" / "activations") { return perUses; }
+  / "on"? _ "every" _ perUses:Ordinal _ ("use" / "activation") { return perUses; }
+
 SkillType "skill type"
   = "PHY"
   / "WHT"
@@ -998,6 +1000,14 @@ Occurrence
   = "once" { return 1; }
   / "twice" { return 2; }
   / count:NumberString _ "time" "s"? { return count; }
+
+
+Ordinal
+  = "first" { return 1; }
+  / "second" { return 2; }
+  / "third" { return 3; }
+  / "fourth" { return 4; }
+  / "fifth" { return 5; }
 
 
 UppercaseWord

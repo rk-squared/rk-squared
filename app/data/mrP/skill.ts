@@ -60,6 +60,7 @@ import {
   sbPointsAlias,
 } from './statusAlias';
 import {
+  appendPerUses,
   DescribeOptions,
   getDescribeOptionsWithDefaults,
   getElementShortName,
@@ -609,9 +610,7 @@ function processStatus(
       }
     }
 
-    if (perUses) {
-      description += ` per ${perUses} uses`;
-    }
+    description += appendPerUses(perUses);
     if (ifSuccessful) {
       description += ' on success';
     }
@@ -948,10 +947,18 @@ export function convertEnlirSkillToMrP(
         other.push(skill, effect.who, effect.dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna');
         break;
       case 'randomEther':
-        other.push(skill, effect.who, formatRandomEther(effect.amount));
+        other.push(
+          skill,
+          effect.who,
+          formatRandomEther(effect.amount) + appendPerUses(effect.perUses),
+        );
         break;
       case 'smartEther':
-        other.push(skill, effect.who, formatSmartEther(effect.amount, effect.school));
+        other.push(
+          skill,
+          effect.who,
+          formatSmartEther(effect.amount, effect.school) + appendPerUses(effect.perUses),
+        );
         break;
       case 'randomCastAbility':
         damage.push(formatRandomCastAbility(effect));

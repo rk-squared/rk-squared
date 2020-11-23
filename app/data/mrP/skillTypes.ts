@@ -208,10 +208,12 @@ export interface RandomEther {
   type: 'randomEther';
   amount: number;
   who?: common.Who;
+  perUses?: number;
 }
 
 export interface SmartEther extends common.SmartEtherStatus {
   who?: common.Who;
+  perUses?: number;
 }
 
 // --------------------------------------------------------------------------

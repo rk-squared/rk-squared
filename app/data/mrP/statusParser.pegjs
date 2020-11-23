@@ -981,6 +981,11 @@ Who
   / "to" _ "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
   / "to" _ "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
 
+// Flexibility: Support both "two uses" and "second use"
+PerUses
+  = "on"? _ "every" _ perUses:NumberString _ ("uses" / "activations") { return perUses; }
+  / "on"? _ "every" _ perUses:Ordinal _ ("use" / "activation") { return perUses; }
+
 SkillType "skill type"
   = "PHY"
   / "WHT"
@@ -1219,6 +1224,14 @@ Occurrence
   = "once" { return 1; }
   / "twice" { return 2; }
   / count:NumberString _ "time" "s"? { return count; }
+
+
+Ordinal
+  = "first" { return 1; }
+  / "second" { return 2; }
+  / "third" { return 3; }
+  / "fourth" { return 4; }
+  / "fifth" { return 5; }
 
 
 Fraction
