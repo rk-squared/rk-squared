@@ -36,7 +36,7 @@ const toFloat = (value: string) =>
 const toString = (value: string) => (value === '' ? null : value);
 const checkToBool = (value: string) => value === '✓';
 const toDate = (value: string) => {
-  if (!value) {
+  if (!value || value === '?') {
     return null;
   }
   const m = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
