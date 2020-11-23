@@ -31,19 +31,20 @@ describe('SoulBreakShared', () => {
           "Noctis - Kings of Old",
           "Noctis - Royal Guardian",
           "Noctis - Warp Factor",
-          "Noctis - Burst Attack",
+          "Noctis - Static Edge",
           "Noctis - Armiger",
           "Noctis - Critical Link",
           "Noctis - Rush Link",
           "Noctis - Armiger Wakes",
           "Noctis - Airstride",
           "Noctis - Regal Flair",
-          "Noctis - True Link Attack I",
+          "Noctis - True Ignis Link",
+          "Noctis - True Gladiolus Link",
           "Noctis - Path of the True King",
           "Noctis - Heir to Greatness",
           "Noctis - Divine Revelation",
           "Noctis - Bringer of Dawn",
-          "Noctis - True Friendship",
+          "Noctis - Unwavering Friendship",
         ]
       `);
     });

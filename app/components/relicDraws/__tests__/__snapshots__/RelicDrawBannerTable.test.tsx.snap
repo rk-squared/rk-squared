@@ -72,6 +72,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -106,6 +112,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -137,6 +149,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           rowSpan={2}
         >
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td
           rowSpan={2}
@@ -179,6 +197,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -213,6 +237,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Bartz
+          <br />
         </td>
         <td>
           <img
@@ -247,6 +272,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Krile
+          <br />
         </td>
         <td>
           <img
@@ -281,6 +307,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -315,6 +347,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -344,6 +382,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -373,6 +417,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -402,6 +452,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -435,6 +491,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -468,6 +530,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -501,6 +569,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 1 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1199,6 +1273,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1233,6 +1313,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1264,6 +1350,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           rowSpan={2}
         >
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td
           rowSpan={2}
@@ -1306,6 +1398,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1340,6 +1438,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Bartz
+          <br />
         </td>
         <td>
           <img
@@ -1374,6 +1473,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Krile
+          <br />
         </td>
         <td>
           <img
@@ -1408,6 +1508,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1442,6 +1548,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1471,6 +1583,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1500,6 +1618,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1529,6 +1653,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -1562,6 +1692,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -1595,6 +1731,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -1628,6 +1770,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 1 (currently available)"
+          />
         </td>
         <td>
           <img
