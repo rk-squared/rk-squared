@@ -1352,9 +1352,17 @@ export const normalSBPoints = {
   },
 };
 
+/**
+ * Checks whether the given element property is "truly" elemental (not purely
+ * non-elemental).
+ */
+export function isNonElemental(element: EnlirElement[]) {
+  return element.length === 1 && element[0] === 'NE';
+}
+
 export function getNormalSBPoints(ability: EnlirAbility): number {
   const isFast = ability.time && ability.time <= 1.2;
-  const isElemental = ability.element && ability.element.length;
+  const isElemental = ability.element && ability.element.length && !isNonElemental(ability.element);
   const checkSpeed = isFast ? normalSBPoints.fast : normalSBPoints;
   const checkElemental = isElemental ? checkSpeed.elemental : checkSpeed.nonElemental;
   return checkElemental[ability.rarity];

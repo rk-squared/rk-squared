@@ -6,6 +6,7 @@ import {
   EnlirSynchroCommand,
   isEnlirElement,
   isEnlirSchool,
+  isNonElemental,
 } from '../enlir';
 import * as common from './commonTypes';
 import { andOrList } from './util';
@@ -107,7 +108,7 @@ export function appendElement(
   element: EnlirElement[] | null,
   f: (element: EnlirElement[]) => string,
 ): string {
-  return element && element.length ? ' ' + f(element) : '';
+  return element && element.length && !isNonElemental(element) ? ' ' + f(element) : '';
 }
 
 // Hack: Handle damage versions (which JP has started calling "prismatic") and
