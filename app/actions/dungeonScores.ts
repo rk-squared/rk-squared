@@ -92,7 +92,7 @@ function estimateTormentScore(dungeon: Dungeon, world: World): DungeonScore | nu
   if (dungeon.difficulty === Difficulty.Torment1) {
     percentPrizes50[0][1]--;
   }
-  if (dungeon.difficulty === 0 || dungeon.difficulty === Difficulty.Torment2) {
+  if (dungeon.difficulty === 0 || dungeon.difficulty === Difficulty.Torment3) {
     timePrizes[0][1]++;
     timePrizes[timePrizes.length - 1][1]++;
   }
