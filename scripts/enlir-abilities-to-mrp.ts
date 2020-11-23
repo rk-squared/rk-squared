@@ -2,7 +2,7 @@
 
 import * as _ from 'lodash';
 
-import { enlir } from '../app/data/enlir';
+import { enlir } from '../app/data';
 import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrP/skill';
 import { getOrbCosts } from '../app/data/orbDetails';
 
