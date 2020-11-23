@@ -19411,7 +19411,7 @@
     "points": 500,
     "masteryBonus": "MAG +5, MND +5",
     "honingEffects": "Damage Up, Cast Time Down, Extra Usage",
-    "relic": "Judgment (V)",
+    "relic": "Judgement (V)",
     "nameJp": "エンプティネスブレイク",
     "id": 22080013,
     "anima": null,
@@ -28726,7 +28726,7 @@
   {
     "realm": "VII",
     "character": "Vincent",
-    "name": "Markman's Spite",
+    "name": "Marksman's Spite",
     "tier": "USB",
     "type": "NAT",
     "typeDetails": [
@@ -39369,7 +39369,7 @@
   {
     "realm": "IX",
     "character": "Eiko",
-    "name": "Soothing Float",
+    "name": "Soothing Flute",
     "tier": "USB",
     "type": "WHT",
     "target": "All allies",

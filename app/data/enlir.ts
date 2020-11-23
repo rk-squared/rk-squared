@@ -954,17 +954,17 @@ function patchEnlir() {
     'Odin',
     ability =>
       ability.effects ===
-      'If not resisted, causes Instant KO (100%), otherwise, two group attacks (6.00 each), Different DEF and RES -20% for 25 seconds',
+      'If not resisted, causes [Instant KO] (100%), otherwise, two group attacks (6.00 each), minimum damage 2500, causes [DEF and RES -20%] for 25 seconds',
     ability =>
       (ability.effects =
-        'Two group attacks (6.00 each), causes Instant KO (100%) and Different DEF and RES -20% for 25 seconds'),
+        'Two group attacks (6.00 each), minimum damage 2500, causes [Instant KO] (100%) and [DEF and RES -20%] for 25 seconds'),
   );
   // Make Steal Time match a more common word order.
   applyPatch(
     enlir.abilitiesByName,
     'Steal Time',
-    ability => ability.effects === 'Causes Slow (50%), if successful grants Haste to the user',
-    ability => (ability.effects = 'Causes Slow (50%), grants Haste to the user if successful'),
+    ability => ability.effects === 'Causes [Slow] (50%), if successful grants [Haste] to the user',
+    ability => (ability.effects = 'Causes [Slow] (50%), grants [Haste] to the user if successful'),
   );
 
   // Patch Bahamut (VI) to have an orb cost for rank 1.
