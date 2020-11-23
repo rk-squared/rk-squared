@@ -12,7 +12,7 @@ interface Props {
   relicId: number;
 }
 
-const formatRarity = (rarity: EnlirRelicRarity) => rarity === 'S' ? 'Artifact' : `${rarity}★`;
+const formatRarity = (rarity: EnlirRelicRarity) => (rarity === 'S' ? 'Artifact' : `${rarity}★`);
 
 export class RelicTooltip extends React.PureComponent<Props & any> {
   render() {

@@ -35,7 +35,8 @@ const dColumnDef = {
   comparator: compareDungeonsWithScore,
 };
 
-const formatName = ({ value }: { value: string | undefined }) => value ? value.replace(/\(.*?\)$/, '').replace(/^Dreambreaker - /, '') : '';
+const formatName = ({ value }: { value: string | undefined }) =>
+  value ? value.replace(/\(.*?\)$/, '').replace(/^Dreambreaker - /, '') : '';
 
 export class CardiaGrid extends React.Component<Props> {
   columnDefs: ColDef[];
