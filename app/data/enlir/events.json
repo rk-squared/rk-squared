@@ -11232,10 +11232,36 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Dungeon Update #68? (X-2, XV)",
+    "eventName": "Dungeon Update #68 (IV:TAY, Type-0)",
+    "realm": null,
+    "glDate": "2020-10-18",
+    "jpDate": "2020-01-07",
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dungeon Update #69 (VII:DoC, Type-0)",
+    "realm": null,
+    "glDate": "2020-11-17",
+    "jpDate": null,
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dungeon Update #70 (X-2, XV)",
     "realm": null,
     "glDate": null,
-    "jpDate": "2020-01-07",
+    "jpDate": null,
     "type": "Dungeons Update",
     "heroRecords": null,
     "memoryCrystals1": null,
@@ -11297,7 +11323,7 @@
   {
     "eventName": "Record Dungeons Canon (V, IX)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-11-10",
     "jpDate": "2020-01-25",
     "type": "Record Dungeon",
     "heroRecords": null,
@@ -11498,7 +11524,7 @@
   {
     "eventName": "Vanquish the Primals",
     "realm": "XIV",
-    "glDate": null,
+    "glDate": "2020-10-08",
     "jpDate": "2020-03-13",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11534,7 +11560,7 @@
   {
     "eventName": "Lion and Knight",
     "realm": "VIII",
-    "glDate": null,
+    "glDate": "2020-09-14",
     "jpDate": "2020-03-31",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11559,7 +11585,7 @@
   {
     "eventName": "Fat Black Chocobo: Grand Forgery",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-10-22",
     "jpDate": "2020-04-03",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -11572,7 +11598,7 @@
   {
     "eventName": "Chaotic Memories (II)",
     "realm": "II",
-    "glDate": null,
+    "glDate": "2020-10-29",
     "jpDate": "2020-04-10",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -11596,9 +11622,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Fat Black Chocobo: A Shocking Forgery",
+    "eventName": "Fat Black Chocobo: Shocking Forgery",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-11-05",
     "jpDate": "2020-04-16",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -11609,9 +11635,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Magicite: White Odin",
+    "eventName": "Magicite: Odin (Lightning)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-11-12",
     "jpDate": "2020-04-24",
     "type": "Magicite Dungeon",
     "heroRecords": null,
@@ -11622,9 +11648,22 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "True Pride's Awakening",
+    "eventName": "Magicite: Odin (Earth)",
+    "realm": null,
+    "glDate": "2020-11-12",
+    "jpDate": null,
+    "type": "Magicite Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Pride Wakens",
     "realm": "IV",
-    "glDate": null,
+    "glDate": "2020-11-19",
     "jpDate": "2020-04-30",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -11635,7 +11674,46 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Dungeon Update (IV:TAY, V)",
+    "eventName": "Dungeon Update #71 (FFT)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": null,
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dungeon Update #72 (IV:TAY, I, II)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": null,
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dungeon Update #73 (III, IV, XIII-2)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": null,
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dungeon Update #74 (IV:TAY, V)",
     "realm": null,
     "glDate": null,
     "jpDate": "2020-05-07",
@@ -11648,7 +11726,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Flute Resonating in the Ruins",
+    "eventName": "Echo Amongst the Ruins",
     "realm": "IX",
     "glDate": null,
     "jpDate": "2020-05-08",
@@ -11661,7 +11739,20 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "The Lady Plays Rough",
+    "eventName": "Magicite: Odin (Water)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-05-12",
+    "type": "Magicite Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "A Demanding Mistress",
     "realm": "XI",
     "glDate": null,
     "jpDate": "2020-05-15",
@@ -11674,7 +11765,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Fat Black Chocobo: A Soggy Forgery",
+    "eventName": "Fat Black Chocobo: Soggy Forgery",
     "realm": null,
     "glDate": null,
     "jpDate": "2020-05-22",
@@ -11713,6 +11804,19 @@
     "abilitiesAwarded": null
   },
   {
+    "eventName": "Magicite: Odin (Fire)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-06-01",
+    "type": "Magicite Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
     "eventName": "Confounded Memories (VII)",
     "realm": "VII",
     "glDate": null,
@@ -11731,6 +11835,19 @@
     "glDate": null,
     "jpDate": "2020-06-11",
     "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Magicite: Odin (Ice)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-06-12",
+    "type": "Magicite Dungeon",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -11777,6 +11894,19 @@
     "abilitiesAwarded": null
   },
   {
+    "eventName": "Magicite: Odin (Dark)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-06-27",
+    "type": "Magicite Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
     "eventName": "Separated Friends",
     "realm": "VI",
     "glDate": null,
@@ -11808,6 +11938,19 @@
     "glDate": null,
     "jpDate": "2020-07-10",
     "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Magicite: Odin (Holy)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-07-11",
+    "type": "Magicite Dungeon",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -11933,7 +12076,46 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Dungeon Update (IV:TAY, VII:CC)",
+    "eventName": "Dungeon Update #75 (X-2, XIII-2)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": null,
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dungeon Update #76 (IV:TAY, X-2)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": null,
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dungeon Update #77 (VII:CC, VII:DoC)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": null,
+    "type": "Dungeons Update",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Dungeon Update #78 (IV:TAY, VII:CC)",
     "realm": null,
     "glDate": null,
     "jpDate": "2020-09-09",
@@ -11989,6 +12171,97 @@
     "realm": null,
     "glDate": null,
     "jpDate": "2020-10-02",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Confounded Memories (VI)",
+    "realm": "VI",
+    "glDate": null,
+    "jpDate": "2020-10-09",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "The Ultimate Magic",
+    "realm": "II",
+    "glDate": null,
+    "jpDate": "2020-10-15",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Clash of Gunblades",
+    "realm": "VIII",
+    "glDate": null,
+    "jpDate": "2020-10-23",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Thrills and Treats",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-10-31",
+    "type": "Collection Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Fat Black Chocobo: Shady Magicites",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-11-07",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Core Torment",
+    "realm": "Core",
+    "glDate": null,
+    "jpDate": "2020-11-14",
+    "type": "Torment Dungeon",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Journey through the Dark City",
+    "realm": "IX",
+    "glDate": null,
+    "jpDate": "2020-11-21",
     "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,

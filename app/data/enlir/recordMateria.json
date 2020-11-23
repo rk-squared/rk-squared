@@ -6292,32 +6292,32 @@
   {
     "realm": "XIV",
     "character": "Alisaie",
-    "name": "Precocious Daughter",
+    "name": "Unwavering Spirit",
     "effect": "40% chance to restore 1 use for all Black Magic and White Magic abilities at the beginning of the battle",
     "unlockCriteria": "Use Alisaie's Memory Crystal",
     "nameJp": "勝ち気な令嬢",
     "id": 111140120,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
     "character": "Alisaie",
-    "name": "Eorzea's Sword",
+    "name": "Blade of Eorzea",
     "effect": "15% chance to dualcast White Magic abilities",
     "unlockCriteria": "Use Alisaie's Memory Crystal II, chance to obtain with Alisaie in party",
     "nameJp": "エオルゼアの剣",
     "id": 111140121,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
     "character": "Alisaie",
-    "name": "Bouncer at Departure Inn",
+    "name": "Fencing Guardian",
     "effect": "BLK attacks deal 30% more damage when equipping a sword",
     "unlockCriteria": "Bring Alisaie to level 99",
     "nameJp": "旅立ちの宿の用心棒",
     "id": 111140122,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",

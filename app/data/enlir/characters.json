@@ -2863,7 +2863,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -2990,7 +2990,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3117,7 +3117,7 @@
       "mnd": 15,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bug Catching Strategy",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4768,7 +4768,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Ultimate Magic",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -8578,7 +8578,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Shocking Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Shocking Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9086,7 +9086,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Pride Wakens",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11626,7 +11626,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (VI)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12515,7 +12515,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (VI)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -16833,7 +16833,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Shocking Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Shocking Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16867,7 +16867,7 @@
     },
     "skills": {
       "blackMagic": null,
-      "whiteMagic": 4,
+      "whiteMagic": 5,
       "combat": null,
       "support": 2,
       "celerity": null,
@@ -19627,7 +19627,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Lady Plays Rough",
+    "introducingEventRecordBoards": "A Demanding Mistress",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19881,7 +19881,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Lady Plays Rough",
+    "introducingEventRecordBoards": "A Demanding Mistress",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20389,7 +20389,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": "The Lady Plays Rough",
+    "introducingEventRecordBoards": "A Demanding Mistress",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23310,7 +23310,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Thrills and Treats",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23437,7 +23437,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Thrills and Treats",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23945,7 +23945,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Thrills and Treats",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24508,7 +24508,7 @@
       "heavy": null
     },
     "id": 11401200,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -29787,7 +29787,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29914,7 +29914,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30041,7 +30041,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30168,7 +30168,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30295,7 +30295,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30422,7 +30422,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30549,7 +30549,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30676,7 +30676,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": false,

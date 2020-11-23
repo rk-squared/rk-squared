@@ -235,6 +235,19 @@
   },
   {
     "realm": "Core",
+    "character": "Wedge",
+    "name": "Ambush (Wedge)",
+    "tier": "LMR+",
+    "effect": "35% chance to cast an ability (NAT: single hybrid, 4x 0.51 or 2.04 Wind/NE) after dealing damage with a Wind attack",
+    "master": "ATK +5, MAG +5",
+    "relic": "Silk Shirt (Core)",
+    "nameJp": "遊撃【ウェッジ】",
+    "id": 201004404,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "Core",
     "character": "Dr. Mog",
     "name": "Hardened Resistance",
     "tier": null,
@@ -355,7 +368,7 @@
     "character": "Warrior of Light",
     "name": "Steadfast Warrior",
     "tier": "LMR",
-    "effect": "25% chance to cast an ability (PHY: single, 3x 0.42 physical Holy/NE, 1500 HP to an ally) after taking damage from an enemy",
+    "effect": "25% chance to cast an ability (PHY: single, 3x 0.42 physical Holy/NE, 1500 HP to the lowest HP% ally) after taking damage from an enemy",
     "master": "ATK +10",
     "relic": "Crystal Shield (I)",
     "nameJp": "毅然たる戦士",
@@ -1135,7 +1148,7 @@
     "character": "Gordon",
     "name": "Love's Vow",
     "tier": null,
-    "effect": "30% chance to cause [Imperil Fire 10% (15s)] to the target after using a Support ability on an enemy",
+    "effect": "30% chance to cause [Imperil Fire 10% (15s)] to the target after using a Support ability",
     "master": null,
     "relic": null,
     "nameJp": "愛する者への誓い",
@@ -1181,6 +1194,19 @@
     "id": 201020604,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "II",
+    "character": "Gordon",
+    "name": "Swiftness (Gordon)",
+    "tier": "LMR+",
+    "effect": "Grants [Haste] and [Instant Cast 3] at the beginning of the battle",
+    "master": "ATK +5, MAG +5",
+    "relic": "Gordon's Guise (II)",
+    "nameJp": "迅速【ゴードン】",
+    "id": 201020605,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "II",
@@ -1508,6 +1534,19 @@
     "gl": true
   },
   {
+    "realm": "II",
+    "character": "Scott",
+    "name": "Moxie (Scott)",
+    "tier": "LMR+",
+    "effect": "Increases Fire damage dealt by 25%",
+    "master": "ATK +10",
+    "relic": "Scott's Guise (II)",
+    "nameJp": "昇華【スコット】",
+    "id": 201021203,
+    "anima": null,
+    "gl": false
+  },
+  {
     "realm": "III",
     "character": "Luneth",
     "name": "Unbridled Curiosity",
@@ -1642,7 +1681,7 @@
     "character": "Arc",
     "name": "Ambush (Arc)",
     "tier": "LMR+",
-    "effect": "35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Holy/Water/NE, summoning ether 1 to the user) after dealing damage with a Holy or Water ability",
+    "effect": "35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Water/Holy/NE, summoning ether 1 to the user) after dealing damage with a Water or Holy ability",
     "master": "MAG +10",
     "relic": "Laurel Crown (III)",
     "nameJp": "遊撃【アルクゥ】",
@@ -1759,7 +1798,7 @@
     "character": "Ingus",
     "name": "Stoic Knight",
     "tier": "LMR",
-    "effect": "25% chance to cast an ability (PHY: single, 3x 0.42 physical Earth/NE, restores 1500 HP to an ally) after using a Knight ability",
+    "effect": "25% chance to cast an ability (PHY: single, 3x 0.42 physical Earth/NE, restores 1500 HP to the lowest HP% ally) after using a Knight ability",
     "master": "ATK +10",
     "relic": "Knight's Helm (III)",
     "nameJp": "静かなる騎士",
@@ -5815,7 +5854,7 @@
     "character": "Selphie",
     "name": "Spirit of Trabia",
     "tier": "LMR",
-    "effect": "MND +1% for each Dancer ability used, up to +25%",
+    "effect": "MND +1% for each hit dealt by Dancer abilities, up to +25%",
     "master": "MND +10",
     "relic": "White Dress (VIII)",
     "nameJp": "トラビアを想う意志",
@@ -6280,6 +6319,19 @@
   },
   {
     "realm": "VIII",
+    "character": "Kiros",
+    "name": "Enfeeble (Kiros)",
+    "tier": "LMR+",
+    "effect": "Causes [Imperil Ice 10% (15s)] after using three Ice abilities",
+    "master": "ATK +10",
+    "relic": "Dark Claws (VIII)",
+    "nameJp": "耐降【キロス】",
+    "id": 201081503,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
     "character": "Ward",
     "name": "Harpoon Master",
     "tier": null,
@@ -6316,6 +6368,19 @@
     "id": 201081602,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "VIII",
+    "character": "Ward",
+    "name": "Echo (Ward)",
+    "tier": "LMR+",
+    "effect": "100% chance to dualcast every third Water, Ice or Earth ability",
+    "master": "ATK +10",
+    "relic": "Ward's Guise (VIII)",
+    "nameJp": "再動【ウォード】",
+    "id": 201081603,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "IX",
@@ -6446,6 +6511,19 @@
     "id": 201090205,
     "anima": 4,
     "gl": true
+  },
+  {
+    "realm": "IX",
+    "character": "Garnet",
+    "name": "Echo (Garnet)",
+    "tier": "LMR+",
+    "effect": "100% chance to dualcast every third Summoning ability",
+    "master": "MAG +10",
+    "relic": "Rune Armlet (IX)",
+    "nameJp": "再動【ガーネット】",
+    "id": 201090206,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "IX",
@@ -8347,6 +8425,19 @@
   },
   {
     "realm": "XII",
+    "character": "Basch",
+    "name": "Ambush (Basch)",
+    "tier": "LMR+",
+    "effect": "35% chance to cast an ability (PHY: single, 3x 0.49 physical Holy/Fire/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Holy or Fire ability",
+    "master": "ATK +10",
+    "relic": "Viking Axe (XII)",
+    "nameJp": "遊撃【バッシュ】",
+    "id": 201120404,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XII",
     "character": "Ashe",
     "name": "Regal Bearing",
     "tier": null,
@@ -9379,11 +9470,11 @@
     "tier": "LMR",
     "effect": "25% chance to dualcast Black Magic and Witch abilities",
     "master": "MAG +10",
-    "relic": "Scion Sorceress's Shadowtalons (XIV)",
+    "relic": "Scion Sorceress's Shadowtalon (XIV)",
     "nameJp": "魔女「マトーヤ」",
     "id": 201140104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -9765,13 +9856,26 @@
   {
     "realm": "XIV",
     "character": "Haurchefant",
-    "name": "A Smile Suits A Hero",
+    "name": "Smile of a Hero",
     "tier": "LMR",
     "effect": "25% chance to dualcast Knight abilities",
     "master": "ATK +10",
     "relic": "Shire Custodian's Armor (XIV)",
     "nameJp": "英雄に悲しい顔は似合わない",
     "id": 201141004,
+    "anima": null,
+    "gl": true
+  },
+  {
+    "realm": "XIV",
+    "character": "Haurchefant",
+    "name": "Swiftness (Haurchefant)",
+    "tier": "LMR+",
+    "effect": "Grants [Quick Cast 3] after using three Knight abilities",
+    "master": "ATK +10",
+    "relic": "Dreadwyrm Shield (XIV)",
+    "nameJp": "短縮【オルシュファン】",
+    "id": 201141005,
     "anima": null,
     "gl": false
   },
@@ -9830,7 +9934,7 @@
   {
     "realm": "XIV",
     "character": "Alisaie",
-    "name": "Swimming Sister",
+    "name": "Spirited Swimmer",
     "tier": null,
     "effect": "BLK attacks deal 10% more damage",
     "master": null,
@@ -9838,12 +9942,12 @@
     "nameJp": "水泳の得意な妹",
     "id": 201141200,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
     "character": "Alisaie",
-    "name": "Scion Descendant",
+    "name": "Progeny of the Circle",
     "tier": null,
     "effect": "35% chance to dualcast Black Magic and White Magic abilities",
     "master": null,
@@ -9851,7 +9955,7 @@
     "nameJp": "救世詩盟盟主の令孫",
     "id": 201141201,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -11709,7 +11813,7 @@
     "relic": "Trey's Summer Guise (Type-0)",
     "nameJp": "博雅の名射手",
     "id": 201601402,
-    "anima": null,
+    "anima": 4,
     "gl": true
   },
   {

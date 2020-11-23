@@ -1,5 +1,61 @@
 [
   {
+    "realm": "Core",
+    "character": "Biggs",
+    "name": "Pulverizing Powerbomb",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 24,
+    "element": [
+      "Earth"
+    ],
+    "time": 2.5,
+    "effects": "Three single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, grants [100% Critical 2] and [High Quick Cast 2] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Great Sword (Core)",
+    "nameJp": "オレ様流・マッスル全開",
+    "id": 23310006,
+    "gl": false
+  },
+  {
+    "realm": "Core",
+    "character": "Wedge",
+    "name": "Tornado Star",
+    "tier": "LBO",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Wind"
+    ],
+    "time": 2.5,
+    "effects": "Three single hybrid ranged attacks (1.00 or 3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF and RES, 100% additional critical chance, grants [Instant Cast 3] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Wedge's Guise (Core)",
+    "nameJp": "トルネドスター",
+    "id": 23320007,
+    "gl": false
+  },
+  {
     "realm": "I",
     "character": "Warrior of Light",
     "name": "Holy Raiment (Warrior of Light)",
@@ -51,7 +107,7 @@
   {
     "realm": "I",
     "character": "Garland",
-    "name": "Endark (Garland)",
+    "name": "Dark Raiment (Garland)",
     "tier": "LBG",
     "type": "NAT",
     "target": "All allies",
@@ -74,7 +130,7 @@
   {
     "realm": "II",
     "character": "Firion",
-    "name": "Cherished Rose",
+    "name": "Wild Rose Fist",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -97,7 +153,7 @@
     "relic": "Medical Shield (II)",
     "nameJp": "のばらの拳",
     "id": 20270017,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -149,6 +205,32 @@
     "gl": false
   },
   {
+    "realm": "II",
+    "character": "Minwu",
+    "name": "Holy Judgment",
+    "tier": "LBO",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 126.8,
+    "element": [
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (3.17 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Golden Staff (II)",
+    "nameJp": "ホーリージャッジメント",
+    "id": 22120017,
+    "gl": false
+  },
+  {
     "realm": "III",
     "character": "Luneth",
     "name": "Tempest Dash",
@@ -184,10 +266,11 @@
     "formula": "Physical",
     "multiplier": null,
     "element": [
-      "Wind"
+      "Wind",
+      "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (?), grants [Limit Break Gauge +250] to the user",
+    "effects": "One single attack (?) capped at 99999, grants [Limit Break Gauge +250] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 0,
@@ -233,12 +316,13 @@
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 7.5,
     "element": [
-      "Water"
+      "Water",
+      "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (?), grants [Limit Break Gauge +250] to the user",
+    "effects": "One single attack (7.50) capped at 99999, grants [Limit Break Gauge +250] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 0,
@@ -362,7 +446,7 @@
     "relic": "Star Whip (IV)",
     "nameJp": "幻獣に愛されし少女",
     "id": 20090019,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -405,15 +489,15 @@
     "limitBreakBonus": [
       "Lighting Damage Up"
     ],
-    "relic": "Demon Spear (IV)",
+    "relic": "Magic Lance (IV)",
     "nameJp": "雷装【カイン】",
     "id": 20080022,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
     "character": "Barbariccia",
-    "name": "Hurricane",
+    "name": "Harsh Wind",
     "tier": "LBO",
     "type": "BLK",
     "target": "Single enemy",
@@ -434,7 +518,7 @@
     "relic": "Man-Eater (IV)",
     "nameJp": "ぼうふう",
     "id": 23220008,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -570,7 +654,7 @@
   {
     "realm": "V",
     "character": "Krile",
-    "name": "Meteoric Devastation",
+    "name": "Starfall Devastation",
     "tier": "LBO",
     "type": "BLK",
     "target": "Single enemy",
@@ -592,7 +676,7 @@
     "relic": "Steel Snake (V)",
     "nameJp": "いんせき大破壊",
     "id": 20940024,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "V",
@@ -965,7 +1049,7 @@
   {
     "realm": "VIII",
     "character": "Rinoa",
-    "name": "Angel Wing Icemound",
+    "name": "Angel Wing Permafrost",
     "tier": "LBO",
     "type": "BLK",
     "target": "Single enemy",
@@ -987,7 +1071,7 @@
     "relic": "Brynhildr (VIII)",
     "nameJp": "ヴァリー・氷丘",
     "id": 20300022,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -1013,6 +1097,33 @@
     "relic": "Spica (VIII)",
     "nameJp": "タクティカルフリーズ",
     "id": 22100018,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
+    "character": "Kiros",
+    "name": "Exhilarating Times",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Dark",
+      "Ice"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Shadow Maverick (VIII)",
+    "nameJp": "飽くなき人生",
+    "id": 22990007,
     "gl": false
   },
   {
@@ -1063,7 +1174,7 @@
     ],
     "relic": "Angel Bless (IX)",
     "nameJp": "風装【ジタン】",
-    "id": 20370017,
+    "id": 20860017,
     "gl": true
   },
   {
@@ -1095,7 +1206,7 @@
   {
     "realm": "IX",
     "character": "Garnet",
-    "name": "Devoted Thundersong",
+    "name": "Truespark Anthem",
     "tier": "LBO",
     "type": "SUM",
     "target": "Single enemy",
@@ -1113,15 +1224,15 @@
       "Limit Break Damage Up",
       "Cast Time Down"
     ],
-    "relic": "Princess Guard (IX)",
+    "relic": "Crown Scepter (IX)",
     "nameJp": "清廉なる奔雷の歌",
-    "id": 20860017,
-    "gl": false
+    "id": 20360017,
+    "gl": true
   },
   {
     "realm": "IX",
     "character": "Steiner",
-    "name": "Frostfire Thunder Smite",
+    "name": "Frostfire Thunder Carnage",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1225,7 +1336,7 @@
   {
     "realm": "XI",
     "character": "Shantotto",
-    "name": "Ancient Magic: Burst II",
+    "name": "Ancient Magic Burst II",
     "tier": "LBO",
     "type": "BLK",
     "target": "Single enemy",
@@ -1328,6 +1439,33 @@
     "gl": false
   },
   {
+    "realm": "XII",
+    "character": "Basch",
+    "name": "Heroic Blade",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Holy",
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Galatyn (XII)",
+    "nameJp": "勇将の誓剣",
+    "id": 22180018,
+    "gl": false
+  },
+  {
     "realm": "XIII",
     "character": "Lightning",
     "name": "Artemis's Arrows",
@@ -1405,7 +1543,7 @@
   {
     "realm": "XIV",
     "character": "Y'shtola",
-    "name": "Scions' Meteor",
+    "name": "Scion's Meteor",
     "tier": "LBO",
     "type": "BLK",
     "target": "Single enemy",
@@ -1426,10 +1564,10 @@
       "Limit Break Damage Up",
       "Cast Time Down"
     ],
-    "relic": "Nightseeker (XIV)",
+    "relic": "Night Seeker (XIV)",
     "nameJp": "サイオンズ・メテオ",
     "id": 20960011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -1452,6 +1590,33 @@
     "relic": "Voeburtite Tunic of Casting (XIV)",
     "nameJp": "氷装【イゼル】",
     "id": 23130009,
+    "gl": false
+  },
+  {
+    "realm": "XIV",
+    "character": "Haurchefant",
+    "name": "Last Bastion",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Holy",
+      "Ice"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "relic": "Priwen (XIV)",
+    "nameJp": "ラストバスティオン",
+    "id": 23110009,
     "gl": false
   },
   {
@@ -1583,12 +1748,12 @@
     "relic": "Ares' Mace (Type-0)",
     "nameJp": "地装【シンク】",
     "id": 23190009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",
     "character": "Queen",
-    "name": "Mana Destroyer",
+    "name": "Destructive Energy",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1609,7 +1774,7 @@
     "relic": "Bastard Sword (Type-0)",
     "nameJp": "エナジーデストロイ",
     "id": 23100009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

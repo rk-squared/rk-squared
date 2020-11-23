@@ -905,8 +905,8 @@
   },
   {
     "character": "Cid (IV)",
-    "source": "Trial and Error",
-    "name": "Gramps's Impulse",
+    "source": "Engineer's Trial",
+    "name": "Old-Timer's Resolve",
     "brave": 0,
     "type": "PHY",
     "target": "Single enemy",
@@ -927,12 +927,12 @@
     ],
     "nameJp": "オヤジの覚悟",
     "id": 31540064,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cid (IV)",
-    "source": "Trial and Error",
-    "name": "Gramps's Impulse",
+    "source": "Engineer's Trial",
+    "name": "Old-Timer's Resolve",
     "brave": 1,
     "type": "PHY",
     "target": "Single enemy",
@@ -953,12 +953,12 @@
     ],
     "nameJp": "オヤジの覚悟",
     "id": 31540065,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cid (IV)",
-    "source": "Trial and Error",
-    "name": "Gramps's Impulse",
+    "source": "Engineer's Trial",
+    "name": "Old-Timer's Resolve",
     "brave": 2,
     "type": "PHY",
     "target": "Single enemy",
@@ -979,12 +979,12 @@
     ],
     "nameJp": "オヤジの覚悟",
     "id": 31540066,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cid (IV)",
-    "source": "Trial and Error",
-    "name": "Gramps's Impulse",
+    "source": "Engineer's Trial",
+    "name": "Old-Timer's Resolve",
     "brave": 3,
     "type": "PHY",
     "target": "Single enemy",
@@ -1005,7 +1005,7 @@
     ],
     "nameJp": "オヤジの覚悟",
     "id": 31540067,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Porom",
@@ -3413,6 +3413,114 @@
     ],
     "nameJp": "食の修行",
     "id": 31540109,
+    "gl": false
+  },
+  {
+    "character": "Garnet",
+    "source": "Princess of Storms",
+    "name": "Summoners' Legacy",
+    "brave": 0,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Lightning",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Summoning",
+      "Bard"
+    ],
+    "nameJp": "本来の召喚の力",
+    "id": 31540582,
+    "gl": false
+  },
+  {
+    "character": "Garnet",
+    "source": "Princess of Storms",
+    "name": "Summoners' Legacy",
+    "brave": 1,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 11.8,
+    "element": [
+      "Lightning",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (11.80) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Summoning",
+      "Bard"
+    ],
+    "nameJp": "本来の召喚の力",
+    "id": 31540583,
+    "gl": false
+  },
+  {
+    "character": "Garnet",
+    "source": "Princess of Storms",
+    "name": "Summoners' Legacy",
+    "brave": 2,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.5,
+    "element": [
+      "Lightning",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.50) capped at 99999",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Summoning",
+      "Bard"
+    ],
+    "nameJp": "本来の召喚の力",
+    "id": 31540584,
+    "gl": false
+  },
+  {
+    "character": "Garnet",
+    "source": "Princess of Storms",
+    "name": "Summoners' Legacy",
+    "brave": 3,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 34.6,
+    "element": [
+      "Lightning",
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (34.60) capped at 99999, Summoning smart ether 2 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Summoning",
+    "braveCondition": [
+      "Summoning",
+      "Bard"
+    ],
+    "nameJp": "本来の召喚の力",
+    "id": 31540585,
     "gl": false
   },
   {
