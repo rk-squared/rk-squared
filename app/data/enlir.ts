@@ -744,15 +744,15 @@ function patchEnlir() {
     '22300009',
     aria =>
       aria.effects ===
-      'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
-        'grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, ' +
-        'grants Medium Buff Holy/Dark if both are in the party',
+      'Restores HP (85), grants [Regenga], grants [Quick Cast] to the user, ' +
+        'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] if Warrior of Light/Garland is in the party, ' +
+        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if both are in the party',
     aria => {
       aria.effects =
         'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
-        'grants Minor Buff Holy if Warrior of Light is in the party, ' +
-        'grants Minor Buff Dark if Garland is in the party, ' +
-        'grants Medium Buff Holy/Dark if Warrior of Light & Garland are in the party';
+        'grants [Buff Holy 10% (15s)] if Warrior of Light is in the party, ' +
+        'grants [Buff Dark 10% (15s)] if Garland is in the party, ' +
+        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if Warrior of Light & Garland are in the party';
     },
   );
   applyPatch(
@@ -760,16 +760,16 @@ function patchEnlir() {
     '22300011',
     song =>
       song.effects ===
-      'Restores HP (105), removes KO (100% HP), grants Last Stand, Haste, High Quick Cast 2, ' +
-        'grants Minor Buff Holy/Dark and HP Stock (2000) if Warrior of Light/Garland is in the party, ' +
-        'grants Medium Buff Holy/Dark and HP Stock (2000) if both are in the party, ' +
-        'grants Awoken Princess Cornelia to the user',
+      'Restores HP (105), removes KO [Raise: 100%], grants [Last Stand], [Haste], [High Quick Cast 2], ' +
+        'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] and [HP Stock (2000)] if Warrior of Light/Garland is in the party, ' +
+        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] and [HP Stock (2000)] if both are in the party, ' +
+        'grants [Awoken Cornelian Princess] to the user',
     song => {
       song.effects =
-        'Restores HP (105), removes KO (100% HP), grants Last Stand, Haste, High Quick Cast 2, ' +
-        'grants Minor Buff Holy/Dark and HP Stock (2000) if Warrior of Light/Garland is in the party, ' +
-        'grants Medium Buff Holy/Dark and HP Stock (2000) if Warrior of Light & Garland are in the party, ' +
-        'grants Awoken Princess Cornelia to the user';
+        'Restores HP (105), removes KO [Raise: 100%], grants [Last Stand], [Haste], [High Quick Cast 2], ' +
+        'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] and [HP Stock (2000)] if Warrior of Light/Garland is in the party, ' +
+        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] and [HP Stock (2000)] if Warrior of Light & Garland are in the party, ' +
+        'grants [Awoken Cornelian Princess] to the user';
     },
   );
   applyPatch(
@@ -777,10 +777,16 @@ function patchEnlir() {
     '23160005',
     strike =>
       strike.effects ===
-      'Fifteen single attacks (0.60 each), grants Major Buff Ice, Major Buff Earth, Major Buff Lightning, Awoken Spellblade, Damage Cap +10000 to the user, grants 50% Critical to all allies, grants High Quick Cast 1/High Quick Cast 2/Extended 100% Critical, Critical Damage +50% and High Quick Cast 2 if 1/2/3 of Kelger, Galuf or Dorgann are alive to all allies',
+      'Fifteen single attacks (0.60 each), grants [Buff Ice 30% (15s)], [Buff Earth 30% (15s)], [Buff Lightning 30% (15s)], ' +
+        '[Awoken Spellblade], [Damage Cap +10000] to the user, grants [50% Critical] to all allies, ' +
+        'grants [High Quick Cast 1]/[High Quick Cast 2]/[100% Critical (25s)], [Critical Damage +50%] and [High Quick Cast 2] ' +
+        'if 1/2/3 of Kelger, Galuf or Dorgann are alive to all allies',
     strike => {
       strike.effects =
-        'Fifteen single attacks (0.60 each), grants Major Buff Ice, Major Buff Earth, Major Buff Lightning, Awoken Spellblade, Damage Cap +10000 to the user, grants 50% Critical to all allies, grants High Quick Cast 1/2/2 to all allies if 1/2/3 of Kelger/Galuf/Dorgann are alive, grants Extended 100% Critical and Critical Damage +50% to all allies if Kelger & Galuf & Dorgann are alive';
+        'Fifteen single attacks (0.60 each), grants [Buff Ice 30% (15s)], [Buff Earth 30% (15s)], [Buff Lightning 30% (15s)], ' +
+        '[Awoken Spellblade], [Damage Cap +10000] to the user, grants [50% Critical] to all allies, ' +
+        'grants [High Quick Cast 1]/[High Quick Cast 2]/[High Quick Cast 2] to all allies if 1/2/3 of Kelger/Galuf/Dorgann are alive, ' +
+        'grants [100% Critical (25s)] and [Critical Damage +50%] to all allies if Kelger & Galuf & Dorgann are alive';
     },
   );
   applyPatch(
@@ -788,32 +794,32 @@ function patchEnlir() {
     '23070005',
     marcus =>
       marcus.effects ===
-      'Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, ' +
-        'causes Minor Imperil Wind (15s) and Minor Imperil Poison (15s)/Medium Imperil Wind (25s) and Medium Imperil Poison (25s) if 1/2+ IX characters are alive, ' +
-        'grants Instant Cast 1/grants Instant Cast 1 and Weakness +30% Boost to all allies if 3/4+ IX characters are alive',
+      'Fifteen single attacks (0.60 each), grants [Awoken Tantalus], [Damage Cap +10000] and [Twin Element Mode (Wind/Poison)] to the user, ' +
+        'causes [Imperil Wind 10% (15s)] and [Imperil Poison 10% (15s)]/[Imperil Wind 20% (25s)] and [Imperil Poison 20% (25s)] if 1/2+ IX characters are alive, ' +
+        'grants [Instant Cast 1]/grants [Instant Cast 1] and [Weakness +30% Boost] to all allies if 3/4+ IX characters are alive',
     marcus => {
       marcus.effects =
-        'Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, ' +
-        'causes Minor Imperil Wind/Poison (15s) if 1 IX character is alive, causes Medium Imperil Wind/Poison (25s) if 2+ IX characters are alive, ' +
-        'grants Instant Cast 1 to all allies if 3+ IX characters are alive, grants Weakness +30% Boost to all allies if 4+ IX characters are alive';
+        'Fifteen single attacks (0.60 each), grants [Awoken Tantalus], [Damage Cap +10000] and [Twin Element Mode (Wind/Poison)] to the user, ' +
+        'causes [Imperil Wind 10% (15s)] and [Imperil Poison 10% (15s)]/[Imperil Wind 20% (25s)] and [Imperil Poison 20% (25s)] if 1/2+ IX characters are alive, ' +
+        'grants [Instant Cast 1] to all allies if 3+ IX characters are alive, grants [Instant Cast 1] and [Weakness +30% Boost] to all allies if 4+ IX characters are alive';
     },
   );
 
   // Abbreviations - I don't know if it's best to update Enlir to remove these
   // or not.  Where possible, we update our code to handle abbreviations, but
-  // some are too hard.  If we had an actual parser, it would help.
+  // some are too hard.
   // Wol - Howl of Hell
   applyPatch(
     enlir.burstCommands,
     '30512822',
     heavyBreak =>
       heavyBreak.effects ===
-      'Four single attacks (0.58 each), ATK and MAG -20/30/50% for 15 seconds at Heavy Charge 0/1/2, Heavy Charge =0 to the user',
+      'Four single attacks (0.58 each), [ATK and MAG -20%/-30%/-50%] for 15 seconds at Heavy Charge 0/1/2, [Heavy Charge =0] to the user',
     heavyBreak => {
       // Insert 'causes' - it's too big to fit on one line, but too much of our
       // processing keys off of it.
       heavyBreak.effects =
-        'Four single attacks (0.58 each), ATK and MAG -20/30/50% for 15 seconds at Heavy Charge 0/1/2, causes Heavy Charge =0 to the user';
+        'Four single attacks (0.58 each), [ATK and MAG -20%/-30%/-50%] for 15 seconds at Heavy Charge 0/1/2, causes [Heavy Charge =0] to the user';
     },
   );
   // Seifer - Sorceress's Knight
@@ -822,10 +828,10 @@ function patchEnlir() {
     '30510911',
     desperateMadness =>
       desperateMadness.effects ===
-      'Four single attacks (0.56 each), Desperate Madness and Radiant Shield 100/125/150/175/200/225/250/275/300% to the user',
+      'Four single attacks (0.56 each), [Desperate Madness] and [Radiant Shield 100%/125%/150%/175%/200%/225%/250%/275%/300%] to the user',
     desperateMadness => {
       desperateMadness.effects =
-        'Four single attacks (0.56 each), grants Desperate Madness and Radiant Shield: 100/125/150/175/200/225/250/275/300% to the user scaling with uses';
+        'Four single attacks (0.56 each), grants [Desperate Madness] and [Radiant Shield: 100%/125%/150%/175%/200%/225%/250%/275%/300%] to the user scaling with uses';
     },
   );
 
@@ -833,7 +839,9 @@ function patchEnlir() {
   applyPatch(
     enlir.statusByName,
     'Windborn Swiftness Mode',
-    mode => mode.effects === 'Grants Windborn Swiftness 0/1/2/3 after using a Monk ability',
+    mode =>
+      mode.effects ===
+      'Grants [Windborn Swiftness 0]/[Windborn Swiftness 1]/[Windborn Swiftness 2]/[Windborn Swiftness 3] after using a Monk ability',
     mode => {
       // Adequately covered by Windborn Swiftness 0/1/2/3
       mode.effects = '';
@@ -843,11 +851,11 @@ function patchEnlir() {
     applyPatch(
       enlir.statusByName,
       `Windborn Swiftness ${i}`,
-      mode => mode.effects.match(/[Gg]rants Windborn Swiftness (\d+),/) != null,
+      mode => mode.effects.match(/[Gg]rants \[Windborn Swiftness (\d+)],/) != null,
       mode => {
         mode.effects = mode.effects.replace(
-          /([Gg]rants) Windborn Swiftness (\d+),/,
-          (match, p1, p2) => `${p1} Windborn Swiftness ${p2} after using a Monk ability,`,
+          /([Gg]rants) \[Windborn Swiftness (\d+)],/,
+          (match, p1, p2) => `${p1} \[Windborn Swiftness ${p2}] after using a Monk ability,`,
         );
       },
     );
@@ -857,21 +865,10 @@ function patchEnlir() {
     'Awoken Guardian',
     mode =>
       mode.effects ===
-      "White Magic abilities don't consume uses and single target heals grant Stoneskin: 30/40/50/60/70% to target at ability rank 1/2/3/4/5, dualcasts White Magic abilities",
+      "White Magic abilities don't consume uses and single target heals grant [Stoneskin: 30/40/50/60/70%] to target at ability rank 1/2/3/4/5, dualcasts White Magic abilities",
     mode => {
       mode.effects =
-        "White Magic abilities don't consume uses, grants Stoneskin: 30/40/50/60/70% at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities";
-    },
-  );
-  applyPatch(
-    enlir.statusByName,
-    'Technical Bravo! Follow-Up',
-    mode =>
-      mode.effects ===
-      'Causes Minor Imperil Poison (15s)/Fire/Lightning after using two Poison/Fire/Lightning attacks',
-    mode => {
-      mode.effects =
-        'Causes Minor Imperil Poison/Fire/Lightning (15s) after using two Poison/Fire/Lightning attacks';
+        "White Magic abilities don't consume uses, grants [Stoneskin: 30/40/50/60/70%] at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities";
     },
   );
 
@@ -892,7 +889,7 @@ function patchEnlir() {
   applyPatch(
     enlir.statusByName,
     'Respect Point Mode',
-    mode => mode.effects === 'Cast speed x2.00, grants Respect Counter Critical',
+    mode => mode.effects === 'Cast speed x2.00, grants [Respect Counter Critical]',
     mode => {
       mode.effects = 'Cast speed x2.00';
     },
@@ -902,12 +899,12 @@ function patchEnlir() {
     '22420008',
     combo =>
       combo.effects ===
-      'Fifteen single attacks (0.60 each), grants Attach Water, Awoken Water, ' +
-        'Damage Cap +10000 and Respect Point Mode to the user',
+      'Fifteen single attacks (0.60 each), grants [Attach Water], [Awoken Water], ' +
+        '[Damage Cap +10000] and [Respect Point Mode] to the user',
     combo => {
       combo.effects =
-        'Fifteen single attacks (0.60 each), grants Attach Water, Awoken Water, ' +
-        'Damage Cap +10000, Respect Point Mode, and Respect Counter Critical to the user';
+        'Fifteen single attacks (0.60 each), grants [Attach Water], [Awoken Water], ' +
+        '[Damage Cap +10000], [Respect Point Mode], and [Respect Counter Critical] to the user';
     },
   );
 
@@ -917,10 +914,10 @@ function patchEnlir() {
     '20140018',
     tyroAasb =>
       tyroAasb.effects ===
-      'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode and Unraveled History Follow-Up to the user',
+      'Grants [50% Critical] and [Haste], [ATK and DEF +30%] for 25 seconds, grants [Awoken Keeper Mode] and [Unraveled History Follow-Up] to the user',
     tyroAasb => {
       tyroAasb.effects =
-        'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode, Awoken Keeper Mode Critical Chance and Unraveled History Follow-Up to the user';
+        'Grants [50% Critical] and [Haste], [ATK and DEF +30%] for 25 seconds, grants [Awoken Keeper Mode], [Awoken Keeper Mode Critical Chance] and [Unraveled History Follow-Up] to the user';
     },
   );
   applyPatch(
@@ -928,7 +925,8 @@ function patchEnlir() {
     'Awoken Keeper Mode',
     scholar =>
       scholar.effects ===
-      "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, grants Awoken Keeper Mode Critical Chance to all allies",
+      "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, " +
+        'casts Awoken Keeper Mode Critical after using a Support ability',
     scholar => {
       scholar.effects =
         "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5";
@@ -990,13 +988,13 @@ function patchEnlir() {
     ability =>
       ability.effects ===
       'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
-        'heals the user for 20% of the damage dealt at Gehenna levels 1 and 2 ' +
-        'and causes -1 Gehenna to the user, 100% hit rate',
+        'heals the user for 20% of the damage dealt at Gloomshade levels 1 and 2 ' +
+        'and causes -1 Gloomshade to the user, 100% hit rate',
     ability => {
       ability.effects =
         'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
-        'heals the user for 20% of the damage dealt at Gehenna levels 1 and 2,' +
-        'causes -1 Gehenna to the user, 100% hit rate';
+        'heals the user for 20% of the damage dealt at Gloomshade levels 1 and 2,' +
+        'causes -1 Gloomshade to the user, 100% hit rate';
     },
   );
   // Shadow's command is very unique and flavorful, but it becomes much simpler
@@ -1007,10 +1005,11 @@ function patchEnlir() {
     '30549323',
     ability =>
       ability.effects ===
-      '1 ranged or 4/8 single attacks (0.80 each) and grants Physical Blink 1/1/0 if the user has Physical Blink 0/1/2, 100% hit rate at Physical Blink 0',
+      '1/4/8 single ranged/single/single attacks (0.80 each) if the user Physical Blink 0/1/2, ' +
+        'grants [Physical Blink 1]/[Physical Blink 1] if the user has Physical Blink 0/1+, 100% hit rate at Physical Blink 0',
     ability => {
       ability.effects =
-        '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 to the user';
+        '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] to the user';
     },
   );
 }
