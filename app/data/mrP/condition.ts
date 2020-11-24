@@ -262,11 +262,6 @@ export function visitCondition(f: ConditionVisitor, effects: skillTypes.SkillEff
           }
         }
         break;
-      case 'statMod':
-        if (!visitEffectCondition(f, i, ['condition'])) {
-          return;
-        }
-        break;
     }
   }
 }

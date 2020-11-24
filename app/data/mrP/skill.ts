@@ -42,7 +42,6 @@ import * as skillParser from './skillParser';
 import * as skillTypes from './skillTypes';
 import {
   checkForAndStatuses,
-  describeStats,
   formatDuration,
   ParsedEnlirStatusWithSlashes,
   parseEnlirStatus,
@@ -68,7 +67,6 @@ import {
 import {
   fixedNumberOrUnknown,
   formatNumberSlashList,
-  formatSignedIntegerSlashList,
   numberOrUnknown,
   toMrPFixed,
   toMrPKilo,
@@ -97,42 +95,6 @@ function findFirstEffect<T extends skillTypes.EffectClause>(
     }
   }
   return undefined;
-}
-
-function sortSkillEffects(skillEffects: skillTypes.SkillEffect): skillTypes.SkillEffect {
-  const result: skillTypes.SkillEffect = [];
-  for (let i = 0; i < skillEffects.length; i++) {
-    if (skillEffects[i].type === 'statMod') {
-      const firstStatMod = i;
-      const lastStatMod = _.findIndex(skillEffects, e => e.type !== 'statMod', firstStatMod) - 1;
-      const firstStatus =
-        lastStatMod < 0 ? -1 : _.findIndex(skillEffects, e => e.type === 'status', lastStatMod + 1);
-      const lastStatus =
-        firstStatus < 0 ? -1 : _.findIndex(skillEffects, e => e.type !== 'status', firstStatus) - 1;
-      if (lastStatMod >= 0 && firstStatus >= 0 && lastStatMod + 1 === firstStatus) {
-        result.push(
-          ...skillEffects.slice(firstStatus, lastStatus < 0 ? undefined : lastStatus + 1),
-        );
-        result.push(...skillEffects.slice(firstStatMod, lastStatMod + 1));
-        i = lastStatus < 0 ? result.length : lastStatus;
-        continue;
-      }
-    }
-    result.push(skillEffects[i]);
-  }
-  return result;
-}
-
-/**
- * Stat modifications default to 25 seconds.
- */
-const defaultStatModDuration: skillTypes.Duration = {
-  value: 25,
-  units: 'seconds',
-};
-
-function isHybridStatSet(statSet: skillTypes.StatSet): statSet is skillTypes.HybridStatSet {
-  return statSet.length === 2 && Array.isArray(statSet[0]);
 }
 
 function describeChain({ chainType, fieldBonus, max }: skillTypes.Chain): string {
@@ -188,20 +150,6 @@ export function describeRecoilHp({
   return (
     `lose ${formatNumberSlashList(damagePercent)}% ${maxOrCurrent} HP` + appendCondition(condition)
   );
-}
-
-function describeStatMod({ stats, percent, duration, condition }: skillTypes.StatMod): string {
-  duration = duration || defaultStatModDuration;
-
-  const combinedStats = isHybridStatSet(stats)
-    ? describeStats(stats[0]) + ' or ' + describeStats(stats[1])
-    : describeStats(stats);
-  let statMod = formatSignedIntegerSlashList(percent) + '% ';
-  statMod += combinedStats;
-  statMod += ` ` + formatDuration(duration);
-  statMod += appendCondition(condition, percent);
-
-  return statMod;
 }
 
 function findOtherSkill(skill: EnlirSkill, otherSkills: EnlirSkill[] | undefined) {
@@ -898,8 +846,6 @@ export function convertEnlirSkillToMrP(
   }
   checkPoweredUpBy(skill, skillEffects, opt);
 
-  skillEffects = sortSkillEffects(skillEffects);
-
   for (const effect of skillEffects) {
     switch (effect.type) {
       case 'fixedAttack':
@@ -993,9 +939,6 @@ export function convertEnlirSkillToMrP(
         break;
       case 'setStatusLevel':
         other.self.push(formatStatusLevel(effect.status, effect.value, true));
-        break;
-      case 'statMod':
-        other.push(skill, effect.who, describeStatMod(effect));
         break;
       case 'entrust':
         other.normal.push('donate SB pts to target');

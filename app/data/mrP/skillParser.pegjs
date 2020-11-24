@@ -21,7 +21,7 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / DrainHp / RecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCastAbility / RandomCastOther / Chain / Mimic
-  / StatMod / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
+  / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
   / CastTime / CastTimePerUse / StandaloneAttackExtra
 
@@ -494,10 +494,10 @@ StatusClause
     return clause;
   }
 
-// Special case: Some Imperil soul breaks omit "causes".  See Climhazzard Xeno,
-// Ragnarok Buster, Whirling Lance.
+// Special case: Some Imperil soul breaks (e.g., Climhazzard Xeno, Ragnarok
+// Buster, Whirling Lance) and many stat mods omit "causes".
 ImplicitStatusEffect
-  = & "[Imperil" statuses:StatusList {
+  = & "[" statuses:StatusList {
     return { type: 'status', verb: 'causes', statuses };
   }
 
@@ -518,43 +518,6 @@ RandomStatusList
 
 StatusItem
   = SmartEtherStatus / StatusLevel / StatusName
-
-
-// --------------------------------------------------------------------------
-// Stat mods
-
-StatMod
-  = "[" stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' ! (_ StatModDuration) "]" statModClauses:StatModClause* {
-    const result = {
-      type: 'statMod',
-      stats,
-      percent,
-    };
-    for (const i of statModClauses) {
-      Object.assign(result, i);
-    }
-    return result;
-  }
-
-StatList
-  = HybridStatSet
-  / head:Stat tail:(AndList Stat)* {
-    return util.pegList(head, tail, 1);
-  }
-
-HybridStatSet
-  = stat1:Stat stat2:('/' Stat)* _ "or" _ stat3:Stat stat4:('/' Stat)* {
-    return [util.pegList(stat1, stat2, 1), util.pegList(stat3, stat4, 1)];
-  }
-
-StatModClause
-  = _ clause:(
-    duration:Duration { return { duration }; }
-    / who:Who { return { who }; }
-    / condition:Condition { return { condition }; }
-  ) {
-    return clause;
-  }
 
 
 // --------------------------------------------------------------------------

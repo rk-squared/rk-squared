@@ -30,7 +30,6 @@ export type EffectClause =
   | RandomCastOther
   | Chain
   | Mimic
-  | StatMod
   | StatusEffect
   | SetStatusLevel
   | RandomStatusEffect
@@ -288,25 +287,6 @@ export interface RandomStatusEffect {
   verb: common.StatusVerb;
   statuses: Array<{ status: common.StatusItem[]; chance: number }>;
   who?: common.Who;
-}
-
-// --------------------------------------------------------------------------
-// Stat mods
-
-export interface StatMod extends StatModClause {
-  type: 'statMod';
-  stats: StatSet;
-  percent: number | number[];
-}
-
-export type StatSet = HybridStatSet | EnlirStat[];
-
-export type HybridStatSet = [EnlirStat[], EnlirStat[]];
-
-export interface StatModClause {
-  duration?: common.Duration;
-  who?: common.Who;
-  condition?: common.Condition;
 }
 
 // --------------------------------------------------------------------------
