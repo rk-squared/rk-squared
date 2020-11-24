@@ -993,8 +993,8 @@ function patchEnlir() {
   );
 
   // Some Synchro skills are weird and hard to parse:
-  // Dk.Cecil's SASB chase is apparently trying to say that it's -1 Gehenna
-  // only if it's at Gehenna levels 1 and 2, but it's simpler to avoid that.
+  // Dk.Cecil's SASB chase is apparently trying to say that it's -1 Gloomshade
+  // only if it's at Gloomshade levels 1 and 2, but it's simpler to avoid that.
   applyPatch(
     enlir.otherSkillsByName,
     'Shadow Chaser',

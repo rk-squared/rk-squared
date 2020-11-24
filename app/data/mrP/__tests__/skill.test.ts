@@ -382,7 +382,7 @@ describe('mrP', () => {
           },
           {
             damage: 'AoE p2.0/2 d+n',
-            other: 'self lose 12.5% max HP',
+            other: 'self lose 10% max HP',
             school: 'Darkness',
           },
         ],
