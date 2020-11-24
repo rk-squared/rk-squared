@@ -327,6 +327,10 @@ function describeSimpleFollowedBy(skill: EnlirSkill, attack: skillTypes.Attack) 
     damage += attackDamage.hybridDamage;
   }
 
+  if (attack.additionalCritDamage) {
+    damage += ' @ +' + hyphenJoin(attack.additionalCritDamage) + '% crit dmg';
+  }
+
   // Skip element, isRanged, isJump, school, no miss - these are assumed to be
   // the same as the parent.
   damage += attack.isOverstrike ? ' overstrike' : '';
@@ -445,6 +449,9 @@ function describeAttackDamage(
     hybridDamage = describeDamage(hybridMultiplier, numAttacks[1]);
   } else if (Array.isArray(numAttacks) || Array.isArray(attackMultiplier)) {
     damage = describeThresholdDamage(numAttacks, attackMultiplier);
+    if (attack.isHybrid && hybridMultiplier != null) {
+      hybridDamage = describeThresholdDamage(numAttacks, hybridMultiplier);
+    }
   } else if (attack.isHybrid && hybridMultiplier != null) {
     damage = describeDamage(attackMultiplier, numAttacks);
     hybridDamage = describeDamage(hybridMultiplier, numAttacks);

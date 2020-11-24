@@ -973,7 +973,7 @@ Who
   / "from" _ "the"? _ "user" { return 'self'; }
   / "to" _ "the" _ "target" { return 'target'; }
   / "to" _ "all" _ "enemies" { return 'enemies'; }
-  / "to" _ "all" _ "allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
+  / ("to" / "from") _ "all allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
     return row || 'party';
   }
   / "to" _ "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }

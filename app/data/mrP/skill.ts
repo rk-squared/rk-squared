@@ -890,7 +890,12 @@ export function convertEnlirSkillToMrP(
         // Omit - too detailed to include in this output
         break;
       case 'dispelOrEsuna':
-        other.push(skill, effect.who, effect.dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna');
+        other.push(
+          skill,
+          effect.who,
+          (effect.dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna') +
+            appendPerUses(effect.perUses),
+        );
         break;
       case 'randomEther':
         other.push(

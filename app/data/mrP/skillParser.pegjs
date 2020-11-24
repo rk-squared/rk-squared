@@ -37,6 +37,7 @@ Attack
 SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
+    _ additionalCritDamage:('with additional' _ value:Integer '% critical damage' { return value; })?
     _ overstrike:(","? _ "capped" _ "at" _ "99999")?
     _ isPiercingDef:(_ "that ignores DEF" / _ ", ignores DEF")?
     _ isPiercingRes:(_ "that ignores RES" / _ ", ignores RES")? {
@@ -44,6 +45,9 @@ SimpleAttack
       type: 'attack',
       numAttacks,
     }, attackMultiplierGroup || {});
+    if (additionalCritDamage) {
+      result.additionalCritDamage = additionalCritDamage;
+    }
     if (overstrike) {
       result.isOverstrike = true;
     }
@@ -291,7 +295,7 @@ DrainHp
   }
 
 RecoilHp
-  = "damages" _ "the" _ "user" _ "for" _ damagePercent:DecimalNumberSlashList "%"
+  = "damages the user for" _ damagePercent:DecimalNumberPercentSlashList
   _ maxOrCurrent:((Maximum / "current") { return text().startsWith('max') ? 'max' : 'curr'; })
   _ "HP"
   _ condition:Condition? {
@@ -360,8 +364,8 @@ DamagesUndead
   }
 
 DispelOrEsuna
-  = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? {
-    return { type: 'dispelOrEsuna', dispelOrEsuna, who };
+  = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? _ perUses:PerUses? {
+    return { type: 'dispelOrEsuna', dispelOrEsuna, who, perUses };
   }
 
 RandomEther
@@ -774,7 +778,7 @@ Who
   / "from" _ "the"? _ "user" { return 'self'; }
   / "to" _ "the" _ "target" { return 'target'; }
   / "to" _ "all" _ "enemies" { return 'enemies'; }
-  / "to" _ "all" _ "allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
+  / ("to" / "from") _ "all allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
     return row || 'party';
   }
   / "to" _ "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
@@ -930,6 +934,9 @@ IntegerWithNegatives "integer (optionally negative)"
 
 DecimalNumberSlashList "slash-separated decimal numbers"
   = head:DecimalNumber tail:('/' DecimalNumber)* { return util.pegSlashList(head, tail); }
+
+DecimalNumberPercentSlashList "slash-separated decimal numbers"
+  = head:DecimalNumber '%'? tail:('/' DecimalNumber '%'?)* { return util.pegSlashList(head, tail); }
 
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }

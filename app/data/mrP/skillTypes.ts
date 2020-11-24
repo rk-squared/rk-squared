@@ -201,6 +201,7 @@ export interface DispelOrEsuna {
   type: 'dispelOrEsuna';
   dispelOrEsuna: 'negative' | 'positive';
   who?: common.Who;
+  perUses?: number;
 }
 
 export interface RandomEther {
