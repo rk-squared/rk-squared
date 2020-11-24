@@ -704,6 +704,15 @@ function applyPatch<T>(
   }
 }
 
+function applyEffectsPatch<T extends { effects: string | undefined }>(
+  lookup: { [s: string]: T | T[] },
+  name: string,
+  from: string,
+  to: string,
+) {
+  applyPatch(lookup, name, item => item.effects === from, item => (item.effects = to));
+}
+
 /**
  * HACK: Patch Enlir data to make it easier for our text processing.
  */
@@ -1028,48 +1037,43 @@ function patchEnlir() {
 
   // Apparent mistakes from adding brackets to status names.  Should be
   // upstreamed.
-  applyPatch(
+  applyEffectsPatch(
     enlir.soulBreaks,
     '20690002', // Auron - Dragon Fang
-    sb => sb.effects === 'One group attack (3.20), ATK -50% for 25 seconds',
-    sb => {
-      sb.effects = 'One group attack (3.20), [ATK -50%] for 25 seconds';
-    },
+    'One group attack (3.20), ATK -50% for 25 seconds',
+    'One group attack (3.20), [ATK -50%] for 25 seconds',
   );
-  applyPatch(
+  applyEffectsPatch(
     enlir.soulBreaks,
     '20860003', // Zidane - Rumble Rush
-    sb =>
-      sb.effects ===
-      'Four single attacks (1.28 each), ATK -50% for 25 seconds, [ATK +35%] to the user for 25 seconds',
-    sb => {
-      sb.effects =
-        'Four single attacks (1.28 each), [ATK -50%] for 25 seconds, [ATK +35%] to the user for 25 seconds';
-    },
+    'Four single attacks (1.28 each), ATK -50% for 25 seconds, [ATK +35%] to the user for 25 seconds',
+    'Four single attacks (1.28 each), [ATK -50%] for 25 seconds, [ATK +35%] to the user for 25 seconds',
   );
-  applyPatch(
+  applyEffectsPatch(
     enlir.soulBreaks,
     '20860004', // Zidane - Shift Break
-    sb =>
-      sb.effects ===
-      'Four group ranged attacks (1.50 each), ATK -50% for 25 seconds, ATK +35% to the user for 25 seconds',
-    sb => {
-      sb.effects =
-        'Four group ranged attacks (1.50 each), [ATK -50%] for 25 seconds, [ATK +35%] to the user for 25 seconds';
-    },
+    'Four group ranged attacks (1.50 each), ATK -50% for 25 seconds, ATK +35% to the user for 25 seconds',
+    'Four group ranged attacks (1.50 each), [ATK -50%] for 25 seconds, [ATK +35%] to the user for 25 seconds',
   );
-  applyPatch(
+  applyEffectsPatch(
     enlir.soulBreaks,
     '22500004', // Angeal - Idle Rage
-    sb =>
-      sb.effects ===
-      'Ten single attacks (0.71 each), grants 100% Critical to the user, ' +
-        'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
-    sb => {
-      sb.effects =
-        'Ten single attacks (0.71 each), grants [100% Critical] to the user, ' +
-        'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies';
-    },
+    'Ten single attacks (0.71 each), grants 100% Critical to the user, ' +
+      'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
+    'Ten single attacks (0.71 each), grants [100% Critical] to the user, ' +
+      'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
+  );
+  applyEffectsPatch(
+    enlir.abilitiesByName,
+    'Mug Bloodlust',
+    'Two single attacks (1.60 each), ATK and DEF -30% for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds',
+    'Two single attacks (1.60 each), [ATK and DEF -30%] for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.abilitiesByName,
+    'Quadruple Foul',
+    'Four random hybrid ranged attacks (1.00 or 3.33), causes Poison (26%), Sleep (26%), Blind (26%) and Silence (26%)',
+    'Four random hybrid ranged attacks (1.00 or 3.33), causes [Poison] (26%), [Sleep] (26%), [Blind] (26%) and [Silence] (26%)',
   );
 }
 patchEnlir();

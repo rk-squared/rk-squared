@@ -38,8 +38,8 @@ SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
     _ overstrike:(","? _ "capped" _ "at" _ "99999")?
-    _ isPiercingDef:(_ "that" _ "ignores" _ "DEF")?
-    _ isPiercingRes:(_ "that" _ "ignores" _ "RES")? {
+    _ isPiercingDef:(_ "that ignores DEF" / _ ", ignores DEF")?
+    _ isPiercingRes:(_ "that ignores RES" / _ ", ignores RES")? {
     const result = Object.assign({
       type: 'attack',
       numAttacks,
@@ -261,10 +261,10 @@ OverrideElement
   }
 
 PiercingDef
-  = "ignores" _ "DEF" { return { isPiercingDef: true }; }
+  = "ignores DEF" { return { isPiercingDef: true }; }
 
 PiercingRes
-  = "ignores" _ "RES" { return { isPiercingRes: true }; }
+  = "ignores RES" { return { isPiercingRes: true }; }
 
 PiercingDefRes
   = "ignores DEF/RES" { return { isPiercingDef: true, isPiercingRes: true }; }
