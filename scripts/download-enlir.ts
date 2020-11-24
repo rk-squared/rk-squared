@@ -19,8 +19,8 @@ import * as _ from 'lodash';
 // TypeScript warnings.
 import { OAuth2Client } from 'google-auth-library';
 
+import { logger } from '../app/utils/logger';
 import { authorize, enlirSpreadsheetIds, loadEnlirCredentials, workPath } from './enlirClient';
-import { logger } from './logger';
 
 // tslint:disable no-console
 

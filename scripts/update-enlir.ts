@@ -3,13 +3,13 @@ import { google, sheets_v4 } from 'googleapis';
 import * as _ from 'lodash';
 import * as yargs from 'yargs';
 
+import { logger } from '../app/utils/logger';
 import {
   authorize,
   enlirSpreadsheetIds,
   loadEnlirCredentials,
   rowColToCellId,
 } from './enlirClient';
-import { logger } from './logger';
 
 interface SheetData {
   range: string;

@@ -5,8 +5,10 @@ import * as _ from 'lodash';
 import { enlir } from '../app/data';
 import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrP/skill';
 import { getOrbCosts } from '../app/data/orbDetails';
+import { logForCli } from '../app/utils/logger';
 
 // tslint:disable: no-console
+logForCli();
 
 const onlyAbilities = process.argv.slice(2);
 
