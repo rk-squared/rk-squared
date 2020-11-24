@@ -243,7 +243,8 @@ HitRate
   / "(" hitRate:Integer "%" _ "hit" _ "rate" _ "if" _ "triggered)" { return { hitRate }; }
 
 MinDamage
-  = ("minimum" _ "damage" / "min.") _ minDamage:Integer { return { minDamage }; }
+  // "SUM only" may be added for hybrid WHT/SUM skills, but it can be assumed, so we don't track it.
+  = ("minimum" _ "damage" / "min.") _ minDamage:Integer (_ "(SUM only)")? { return { minDamage }; }
 
 OrMultiplier
   = orMultiplier:DecimalNumberSlashList _ ("multiplier" / "mult." / "each") _ orMultiplierCondition:Condition {
@@ -597,7 +598,7 @@ Condition
   // Beginning of attack-specific conditions
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
   / "if" _ character:CharacterNameList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
-  / "if" _ count:IntegerSlashList _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
+  / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }

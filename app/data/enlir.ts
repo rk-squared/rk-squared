@@ -1075,6 +1075,12 @@ function patchEnlir() {
     'Four random hybrid ranged attacks (1.00 or 3.33), causes Poison (26%), Sleep (26%), Blind (26%) and Silence (26%)',
     'Four random hybrid ranged attacks (1.00 or 3.33), causes [Poison] (26%), [Sleep] (26%), [Blind] (26%) and [Silence] (26%)',
   );
+  applyEffectsPatch(
+    enlir.abilities,
+    '30121431', // Sarah HA - Sacred Prayer
+    'Restores 1500 HP and grants [10% Damage Reduction Barrier 1]',
+    'Restores 1500 HP, grants [10% Damage Reduction Barrier 1]',
+  );
 }
 patchEnlir();
 
@@ -1434,4 +1440,10 @@ export function isNat(skill: EnlirSkill): boolean {
   // NOTE: This does not detect the case where a hybrid WHT/BLK or WHT/SUM
   // skill lists its formula as Magical; see comments on EnlirFormula.
   return skill.type === 'NAT' && skill.formula !== null && skill.formula !== 'Hybrid';
+}
+
+export function hasSkillType(skill: EnlirGenericSkill, type: EnlirSkillType): boolean {
+  return (
+    skill.type === type || (skill.typeDetails != null && skill.typeDetails.indexOf(type) !== -1)
+  );
 }

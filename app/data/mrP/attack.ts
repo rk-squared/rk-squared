@@ -8,6 +8,7 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirSkillType,
+  hasSkillType,
   isBurstCommand,
   isNat,
   isSoulBreak,
@@ -645,7 +646,7 @@ export function describeAttack(
     damage += appendCondition(attack.airTimeCondition, attack.airTime);
   }
   // Omit ' (SUM)' for Summoning school; it seems redundant.
-  damage += skill.type === 'SUM' && school !== 'Summoning' ? ' (SUM)' : '';
+  damage += hasSkillType(skill, 'SUM') && school !== 'Summoning' ? ' (SUM)' : '';
   damage += isNat(skill) && !attack.isHybrid ? ' (NAT)' : '';
 
   if (attack.followedBy && !simpleFollowedBy) {
