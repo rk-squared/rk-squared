@@ -46,7 +46,7 @@ EffectClause
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Dualcast / DualcastAbility / NoAirTime
+  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Dualcast / MulticastAbility / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal / EmpowerHeal
   / Doom / DoomTimer / DrainHp
@@ -252,7 +252,7 @@ SwitchDrawPart
   & { return element1 === element2; } { return element1; }
 
 SwitchDrawAlt
-  = "Grants"i _ "[Attach" _ elements1:ElementSlashList _ "] after using a" "n"? _ elements2:ElementSlashList _ "ability"
+  = "Grants"i _ elements1:EnElementSlashList _ "after using a" "n"? _ elements2:ElementSlashList _ "ability"
   & { return elements1.length > 1 && util.isEqual(elements1, elements2); }
     { return { type: 'switchDraw', elements: elements1 }; }
 
@@ -324,8 +324,10 @@ Dualcast
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance: 100 }, what); }
   / chance:Integer "% chance to dualcast" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance }, what); }
 
-DualcastAbility
-  = "dualcasts"i _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") { return Object.assign({ type: 'dualcastAbility' }, what); }
+MulticastAbility
+  = count:("dualcasts"i / "triplecasts"i) _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") {
+    return Object.assign({ type: 'multicastAbility', count: count.toLowerCase() === 'triplecasts' ? 3 : 2 }, what);
+  }
 
 NoAirTime
   = "Changes"i _ "the air time of Jump attacks to 0.01 seconds" { return { type: 'noAirTime' }; }
@@ -1035,6 +1037,10 @@ ElementSlashList "element list"
 ElementListOrOptions "element list or slash-separated alternatives"
   = elements:ElementList ! "/" { return elements; }
   / elements:ElementSlashList { return { options: elements }; }
+
+EnElementSlashList
+  = "[Attach" _ head:Element _ "]" tail:("/[Attach" _ Element _ "]")*
+    { return util.pegList(head, tail, 2, true); }
 
 EnElementStackingSlashList
   = "[Attach" _ head:Element _ level:Integer? _ "with Stacking]" tail:("/[Attach" _ Element _ Integer? _ "with Stacking]")*

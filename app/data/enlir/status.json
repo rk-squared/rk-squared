@@ -20608,7 +20608,7 @@
   {
     "id": 51162,
     "name": "Tri-Element Mode (Earth/Wind/Poison)",
-    "effects": "Grants [Attach Earth]/[Attach Wind]/[Attach Poison] after using a Earth/Wind/Poison attack, lasts for 1 turn",
+    "effects": "Grants [Attach Earth]/[Attach Wind]/[Attach Poison] after using a Earth/Wind/Poison ability, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

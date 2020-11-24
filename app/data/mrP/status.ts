@@ -1085,8 +1085,10 @@ function describeStatusEffect(
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
     case 'dualcast':
       return effect.chance + '% dualcast' + formatElementOrSchoolList(effect, ' ');
-    case 'dualcastAbility':
-      return 'dualcast' + formatElementOrSchoolList(effect, ' ');
+    case 'multicastAbility':
+      return (
+        (effect.count === 2 ? 'dualcast' : 'triplecast') + formatElementOrSchoolList(effect, ' ')
+      );
     case 'noAirTime':
       return 'no air time';
     case 'breakDamageCap':

@@ -1081,6 +1081,12 @@ function patchEnlir() {
     'Restores 1500 HP and grants [10% Damage Reduction Barrier 1]',
     'Restores 1500 HP, grants [10% Damage Reduction Barrier 1]',
   );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23000002', // Ward - Wordless Promise
+    'ATK +50% for 25 seconds, grants [Last Stand]',
+    '[ATK +50%] for 25 seconds, grants [Last Stand]',
+  );
 }
 patchEnlir();
 

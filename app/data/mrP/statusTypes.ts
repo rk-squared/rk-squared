@@ -44,7 +44,7 @@ export type EffectClause =
   | DamageUp
   | AbilityDouble
   | Dualcast
-  | DualcastAbility
+  | MulticastAbility
   | NoAirTime
   | BreakDamageCap
   | DamageCap
@@ -354,8 +354,9 @@ interface Dualcast {
   school?: EnlirSchool | EnlirSchool[];
 }
 
-interface DualcastAbility {
-  type: 'dualcastAbility';
+interface MulticastAbility {
+  type: 'multicastAbility';
+  count: 2 | 3;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
 }
