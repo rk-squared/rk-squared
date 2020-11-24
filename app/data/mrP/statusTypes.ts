@@ -596,6 +596,7 @@ interface SbGainUp {
   value: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
+  vsWeak?: true;
 }
 
 // --------------------------------------------------------------------------

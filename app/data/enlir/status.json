@@ -18799,7 +18799,7 @@
   {
     "id": 50996,
     "name": "Twin Element Mode (Ice/Holy)",
-    "effects": "Grants [Attach Ice]/[Attach Holy] after using a Ice/Holy attack, lasts for 1 turn",
+    "effects": "Grants [Attach Ice]/[Attach Holy] after using a Ice/Holy ability, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19349,7 +19349,7 @@
   {
     "id": 51048,
     "name": "Quad Element Mode II (Holy/Fire/Lightning/Ice)",
-    "effects": "Grants [Attach Holy with Stacking]/[Attach Fire with Stacking]/[Attach Lightning with Stacking]/[Attach Ice with Stacking] after using a Holy/Fire/Lightning/Ice ability, lasts for 1 turn ",
+    "effects": "Grants [Attach Holy with Stacking]/[Attach Fire with Stacking]/[Attach Lightning with Stacking]/[Attach Ice with Stacking] after using a Holy/Fire/Lightning/Ice ability, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19371,7 +19371,7 @@
   {
     "id": 51050,
     "name": "Quad Element Mode III (Holy/Fire/Lightning/Ice)",
-    "effects": "Grants [Attach Holy 2 with Stacking]/[Attach Fire 2 with Stacking]/[Attach Lightning 2 with Stacking]/[Attach Ice 2 with Stacking] after using a Holy/Fire/Lightning/Ice ability, lasts for 1 turn ",
+    "effects": "Grants [Attach Holy 2 with Stacking]/[Attach Fire 2 with Stacking]/[Attach Lightning 2 with Stacking]/[Attach Ice 2 with Stacking] after using a Holy/Fire/Lightning/Ice ability, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

@@ -35002,7 +35002,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30%] (25s)] to all allies, grants [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to all allies if 0/2/4+ FF8 allies are alive, grants [Awoken Ice], [Damage Cap +10000] and [Charismatic Snipe Follow-Up] to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to all allies if 0/2/4+ FF8 allies are alive, grants [Awoken Ice], [Damage Cap +10000] and [Charismatic Snipe Follow-Up] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

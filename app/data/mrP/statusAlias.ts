@@ -18,8 +18,8 @@ import {
 // TODO: Many of these are obsolete now that status parsing was rewritten to use PEG.js
 
 const rawSbPointsBoosterAlias = (multiplierString: string, s: string) =>
-  // Duplicated for effect aliases below
-  `${multiplierString}x SB gauge from ${formatSchoolOrAbilityList(s)}`;
+  // HACK: Special-case some strings to avoid redundant prepositions.
+  `${multiplierString}x SB gauge ` + (s === vsWeak ? s : `from ${formatSchoolOrAbilityList(s)}`);
 
 export const rankBoostAlias = (s: string) => `1.05-1.1-1.15-1.2-1.3x ${s} dmg @ rank 1-5`;
 export const rankCastSpeedAlias = (s: string) => `2-3x ${s} cast @ rank 1-5`;

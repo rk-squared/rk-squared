@@ -763,7 +763,7 @@ function patchEnlir() {
   // madness.  I have no shame in whatever hacks it takes to process them.
   applyPatch(
     enlir.soulBreaks,
-    '22300009',
+    '22300009', // Sarah - Song of Reunion
     aria =>
       aria.effects ===
       'Restores HP (85), grants [Regenga], grants [Quick Cast] to the user, ' +
@@ -771,7 +771,7 @@ function patchEnlir() {
         'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if both are in the party',
     aria => {
       aria.effects =
-        'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
+        'Restores HP (85), grants [Regenga], grants [Quick Cast] to the user, ' +
         'grants [Buff Holy 10% (15s)] if Warrior of Light is in the party, ' +
         'grants [Buff Dark 10% (15s)] if Garland is in the party, ' +
         'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if Warrior of Light & Garland are in the party';
@@ -1086,6 +1086,18 @@ function patchEnlir() {
     '23000002', // Ward - Wordless Promise
     'ATK +50% for 25 seconds, grants [Last Stand]',
     '[ATK +50%] for 25 seconds, grants [Last Stand]',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22880006', // Aphmau - Imperial Heal
+    'Causes Imperil Holy 20%, restores HP (85) to all allies, grants [Imperial Heal] and [Glimpse of Divinity Follow-Up] to the user',
+    'Causes [Imperil Holy 20%], restores HP (85) to all allies, grants [Imperial Heal] and [Glimpse of Divinity Follow-Up] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22100007', // Laguna - Ragnarok Buster
+    'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants ATK and RES +30%, [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
+    'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants [ATK and RES +30%], [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
   );
 }
 patchEnlir();
@@ -1443,9 +1455,12 @@ export function getNormalSBPoints(ability: EnlirAbility): number {
 }
 
 export function isNat(skill: EnlirSkill): boolean {
-  // NOTE: This does not detect the case where a hybrid WHT/BLK or WHT/SUM
-  // skill lists its formula as Magical; see comments on EnlirFormula.
-  return skill.type === 'NAT' && skill.formula !== null && skill.formula !== 'Hybrid';
+  return (
+    skill.type === 'NAT' &&
+    skill.formula !== null &&
+    skill.formula !== 'Hybrid' &&
+    !(skill.typeDetails && skill.typeDetails.length === 2)
+  );
 }
 
 export function hasSkillType(skill: EnlirGenericSkill, type: EnlirSkillType): boolean {

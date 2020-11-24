@@ -34,6 +34,7 @@ import {
   sbPointsBoosterAlias,
   statusLevelAlias,
   statusLevelText,
+  vsWeak,
 } from './statusAlias';
 import * as statusParser from './statusParser';
 import * as statusTypes from './statusTypes';
@@ -1150,7 +1151,10 @@ function describeStatusEffect(
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'sbGainUp':
-      return sbPointsBoosterAlias(effect.value, formatElementOrSchoolList(effect));
+      return sbPointsBoosterAlias(
+        effect.value,
+        effect.vsWeak ? vsWeak : formatElementOrSchoolList(effect),
+      );
     case 'taunt':
       return 'taunt ' + arrayify(effect.skillType).join('/');
     case 'runic':
@@ -1330,19 +1334,23 @@ export interface ParsedEnlirStatus {
   statusLevel?: number;
 }
 
-const slashOptionsRe = /(?:(?:\w|\.)+\/)+(?:\w|\.)+/;
+const slashOptionsRe = /(?:[+-]?(?:\w|\.)+%?\/)+[+-]?(?:\w|\.)+%?/;
 function getSlashOptions(s: string): string[] | null {
   const m = s.match(slashOptionsRe);
   if (!m) {
     return null;
   }
   let options = m[0].split('/');
-  // Make sure we consistently have a multiplier sign at the beginning or end.
+  // Make sure we consistently have a multiplier sign and/or percent sign (if
+  // appropriate) at the beginning or end.
   if (options[0].startsWith('x')) {
     options = options.map(i => i.replace(/^[^x]/, c => 'x' + c));
   }
   if (options[options.length - 1].endsWith('x')) {
     options = options.map(i => i.replace(/[^x]$/, c => c + 'x'));
+  }
+  if (options[options.length - 1].endsWith('%')) {
+    options = options.map(i => i.replace(/[^%]$/, c => c + '%'));
   }
   return options;
 }

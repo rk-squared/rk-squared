@@ -307,7 +307,7 @@ RankBoost
   = what:DamageUpType _ ("attacks" / "abilities") _ "deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5" { return Object.assign({ type: 'rankBoost' }, what); }
 
 DamageUp
-  = what:DamageUpType _ ("attacks" / "abilities") _ "deal" _ value:(PercentSlashList / IntegerSlashList "%") _ "more damage" _ trigger:Trigger? _ condition:Condition? {
+  = what:DamageUpType _ ("attacks" / "abilities") _ "deal" _ value:(PercentSlashList / v:IntegerSlashList "%" { return v; }) _ "more damage" _ trigger:Trigger? _ condition:Condition? {
     return Object.assign({ type: 'damageUp', value, trigger, condition }, what);
   }
 
@@ -555,6 +555,7 @@ GainSb
 
 SbGainUp
   = what:ElementOrSchoolList _ ("abilities" / "attacks") _ "grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
+  / "Attacks"i _ "that exploit an elemental weakness grant" _ value:Integer _ "% more SB points" { return { type: 'sbGainUp', value, vsWeak: true }; }
 
 
 // --------------------------------------------------------------------------
