@@ -263,7 +263,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="effects"
           >
-            phys 7.1/10 lgt+non jump, lgt infuse 25s, self jump instacast 15s, +30% ATK/DEF 25s
+            phys 7.1/10 lgt+non jump, lgt infuse 25s, self +30% ATK/DEF 25s, jump instacast 15s
           </td>
         </tr>
         <tr
@@ -889,7 +889,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="effects"
           >
-            phys 7.1/10 lgt+non jump, lgt infuse 25s, self jump instacast 15s, +30% ATK/DEF 25s
+            phys 7.1/10 lgt+non jump, lgt infuse 25s, self +30% ATK/DEF 25s, jump instacast 15s
           </td>
         </tr>
         <tr

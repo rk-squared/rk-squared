@@ -348,10 +348,10 @@ describe('mrP', () => {
       });
 
       expect(describeSoulBreak('Gogo (V) - Fantastic Symmetry')).toEqual({
-        other: 'party Haste, +30% ATK/MAG 25s',
+        other: 'party +30% ATK/MAG, Haste',
       });
       expect(describeSoulBreak('Galuf - Martial Might')).toEqual({
-        other: 'earth infuse 25s, party Haste, +30% ATK/MAG 25s',
+        other: 'earth infuse 25s, party +30% ATK/MAG, Haste',
       });
     });
 
@@ -513,7 +513,7 @@ describe('mrP', () => {
       // separate "exotic" statuses from "common" statuses, that's inconsistent
       // with other soul breaks.
       expect(describeSoulBreak('Alphinaud - Deployment Tactics')).toEqual({
-        other: 'party Reflect Dmg 30s, +30% ATK/MAG 25s',
+        other: 'party +30% ATK/MAG 25s, Reflect Dmg 30s',
       });
 
       expect(describeSoulBreak('Angeal - Glint')).toEqual({
@@ -589,7 +589,7 @@ describe('mrP', () => {
       });
       expect(describeSoulBreak('Paine - Rushing Steel')).toEqual({
         damage: 'phys 7.1/10 water+non',
-        other: 'water infuse 25s, self Spellblade fastcast 15s, +30% ATK/DEF 25s',
+        other: 'water infuse 25s, self +30% ATK/DEF 25s, Spellblade fastcast 15s',
       });
       expect(describeSoulBreak('Sarah - USB3')).toEqual({
         instant: true,
@@ -630,7 +630,7 @@ describe('mrP', () => {
       expect(describeSoulBreak('Lilisette - Sensual Dance')).toEqual({
         damage: undefined,
         other:
-          'AoE +20% lgt vuln. 25s, -70% ATK/DEF/MAG 8s, ' +
+          'AoE -70% ATK/DEF/MAG 8s, +20% lgt vuln. 25s, ' +
           '15s: (Celerity/Dancer ⤇ p2.0/5 l+wi+n Dancer)',
       });
       expect(describeSoulBreak('Orran - Celestial Stasis')).toEqual({
@@ -1147,7 +1147,7 @@ describe('mrP', () => {
 
       expect(describeSoulBreak('Maria - Magma XXXII')).toEqual({
         damage: 'magic 17.0/10 earth+non',
-        other: 'earth infuse 25s, self double B.Mag (uses extra hone) 15s, +30% DEF/MAG 25s',
+        other: 'earth infuse 25s, self +30% DEF/MAG 25s, double B.Mag (uses extra hone) 15s',
       });
 
       expect(describeSoulBreak('Noctis - Armiger')).toEqual({
@@ -2088,7 +2088,7 @@ describe('mrP', () => {
         ],
         damage: undefined,
         instant: true,
-        other: 'party Haste, +30% ATK/MAG/RES 25s',
+        other: 'party +30% ATK/MAG/RES, Haste',
       });
       expect(formatBraveCommands(mimic.braveCommands!)).toEqual(
         'p1.81 or m7.45 at brv.0, Mimic 1x – 2x – 3x at brv.1+',
@@ -2577,7 +2577,7 @@ describe('mrP', () => {
       });
       expect(describeSoulBreak('Cid Raines - True Miracle')).toEqual({
         damage: 'magic 16.2/10 dark+holy, or m18.7/10 if Doomed',
-        other: 'self +30% MAG/RES, Doom 30s, instacast 1, 15s: (holy/dark ⤇ m8.64/4 h+d B.Mag)',
+        other: 'self +30% MAG/RES 25s, Doom 30s, instacast 1, 15s: (holy/dark ⤇ m8.64/4 h+d B.Mag)',
       });
     });
 
@@ -2628,7 +2628,7 @@ describe('mrP', () => {
 
       expect(describeSoulBreak('Cid (VII) - Dynamite Boost')).toEqual({
         damage: 'phys 7.1/10 wind+non jump',
-        other: 'wind infuse 25s, self jump instacast 15s, +30% ATK/DEF 25s',
+        other: 'wind infuse 25s, self +30% ATK/DEF 25s, jump instacast 15s',
       });
     });
 
@@ -2644,7 +2644,7 @@ describe('mrP', () => {
         other: '1.05-1.1-1.15-1.2-1.3x Heavy dmg @ rank 1-5 15s, Hvy Charge +2',
       });
       expect(describeSoulBreak('Wol - Howl of Hell')).toEqual({
-        other: 'party Haste, +50% ATK 25s',
+        other: 'party +50% ATK 25s, Haste',
         burstCommands: [
           { damage: 'p1.95/3 e+h', other: 'self Hvy Charge +1', school: 'Heavy' },
           {
@@ -2764,7 +2764,7 @@ describe('mrP', () => {
       // status durations
       expect(convertEnlirSkillToMrP(unknownSoulBreaks[4])).toEqual({
         instant: true,
-        other: 'Darkness hi fastcast ?s, +?% MAG/RES ?s',
+        other: '+?% MAG/RES ?s, Darkness hi fastcast ?s',
       });
       // Test handling of numbered status aliases with question marks in place
       // of the number.
