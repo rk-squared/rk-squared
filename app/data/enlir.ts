@@ -1116,20 +1116,6 @@ export function isCoreJob(character: EnlirCharacter): boolean {
   );
 }
 
-/**
- * Handle statuses for which the FFRK Community spreadsheet is inconsistent.
- *
- * NOTE: These are unconfirmed.  (If they were confirmed, we'd just update
- * the spreadsheet.)  Some may be intentional abbreviations.
- *
- * TODO: Try to clean up alternate status names.
- */
-export const enlirStatusAltName: { [status: string]: EnlirStatus } = {
-  'B. M.': enlir.statusByName['Burst Mode'],
-  IC1: enlir.statusByName['Instant Cast 1'],
-  'Critical 100%': enlir.statusByName['100% Critical'],
-};
-
 export interface EnlirStatusPlaceholders {
   xValue?: number;
   xValueIsUncertain?: boolean;
@@ -1152,10 +1138,6 @@ export function getEnlirStatusWithPlaceholders(
 ): EnlirStatusWithPlaceholders | undefined {
   if (enlir.statusByName[status]) {
     return { status: enlir.statusByName[status] };
-  }
-
-  if (enlirStatusAltName[status]) {
-    return { status: enlirStatusAltName[status] };
   }
 
   const placeholders: EnlirStatusPlaceholders = {};

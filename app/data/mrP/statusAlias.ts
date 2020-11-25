@@ -164,9 +164,6 @@ export const statusAlias: AliasMap = {
     'Unyielding Fist': 'immune atks/status/heal',
     'Haurchefant Cover': 'if in front, 100% cover PHY,BLK,WHT,SUM,BLU vs back row, taking 0.5x dmg',
 
-    // Nonstandard alternatives.  See enlirStatusAltName.
-    'B. M.': 'Burst Mode',
-
     // Aliases of numbered statuses, minus the numbers, for use by status
     // threshold code.  We could instead try to slash-process the status
     // thresholds, but that seems needlessly complicated.
@@ -236,9 +233,6 @@ export const statusAlias: AliasMap = {
     // this is easier than trying to programmatically identify a few statuses as
     // needing expansion.
     'Crash {X}%': '{X}% DEF/RES',
-
-    // Nonstandard alternatives.  See enlirStatusAltName.
-    'IC{X}': 'instacast {X}',
 
     // Soul Break Gauge +X is a real status.  X SB points is not.
     'Soul Break Gauge +{X}': sbPointsAlias('{X}'),
