@@ -1373,8 +1373,6 @@ function isFinisherOnly(effects: statusTypes.StatusEffect): boolean {
   );
 }
 
-const hideUnknownStatusWarning = (status: string) => status.match(/^\d+ SB points$/);
-
 /**
  * Parses a string description of an Enlir status name, returning details about
  * it and how it should be shown.
@@ -1392,7 +1390,7 @@ export function parseEnlirStatus(
   }
 
   const enlirStatusWithPlaceholders = getEnlirStatusWithPlaceholders(status);
-  if (!enlirStatusWithPlaceholders && !hideUnknownStatusWarning(status)) {
+  if (!enlirStatusWithPlaceholders) {
     logger.warn(`Unknown status: ${status}`);
   }
   const enlirStatus = enlirStatusWithPlaceholders ? enlirStatusWithPlaceholders.status : undefined;
