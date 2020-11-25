@@ -154,23 +154,6 @@ export function toMrPKilo(n: number | string, favorSmall: boolean = false): stri
   }
 }
 
-/**
- * General-purpose formatting for a term that might be number-like
- */
-export function toMrPGeneral(s: string): string {
-  if (!isNumeric(s)) {
-    return s;
-  } else {
-    let result: string;
-    if (s.indexOf('.') !== -1) {
-      result = toMrPFixed(+s);
-    } else {
-      result = s;
-    }
-    return (s.startsWith('+') ? '+' : '') + result;
-  }
-}
-
 export function signedNumber(x: number): string {
   if (isNaN(x)) {
     return '+?';

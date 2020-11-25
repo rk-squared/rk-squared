@@ -29,7 +29,6 @@ import {
   lowHpAlias,
   rankBoostAlias,
   rankCastSpeedAlias,
-  resolveStatusAlias,
   sbPointsAlias,
   sbPointsBoosterAlias,
   statusLevelAlias,
@@ -353,6 +352,9 @@ export const allTranceStatus = new Set(
   _.values(enlir.legendMateria)
     // Exclude LMRs - those may grant generic statuses as trance.
     .filter(i => i.relic == null)
+    // Exclude generic statuses, like Haurchefant and Jack.  Invoking the full
+    // status-parsing code is too ugly; we'll just hard-code a list for now.
+    .filter(i => i.character !== 'Jack' && i.character !== 'Haurchefant')
     .map(i => i.effect.match(/.*[Gg]rants (.*) when HP fall below/))
     .filter(i => i != null && !i[1].match(/to all allies/))
     .map(i => i![1].split(andList))
@@ -365,9 +367,7 @@ export const allTranceStatus = new Set(
         .replace(/^\[/, '')
         .replace(/]$/, '')
         .replace(/ \(\d+s\)$/, ''),
-    )
-    // Exclude generic statuses, like Haurchefant and Jack.
-    .filter(i => resolveStatusAlias(i) == null),
+    ),
 );
 
 export function isTranceStatus({ name }: EnlirStatus) {
