@@ -47,13 +47,11 @@ import {
   whoText,
 } from './typeHelpers';
 import {
-  andJoin,
   andList,
   formatUseCount,
   handleOrOptions,
   isSequential,
   numberOrUnknown,
-  orList,
   percentToMultiplier,
   signedNumber,
   slashMerge,
@@ -1364,27 +1362,6 @@ function expandSlashOptions(s: string, options?: string[] | null): string[] {
   return options.map(i => s.replace(slashOptionsRe, i));
 }
 
-/**
- * expandSlashOptions logic specific to status names.  Check for cases where
- * entire status names are slash-separated, like Gordon's
- * "ATK and DEF -50% Medium/MAG and RES - 50% Medium", and normal
- * slash-separated options, like "Imperil Fire/Ice".
- */
-function expandStatusSlashOptions(status: string): string[] {
-  const splitStatus = status.split('/');
-  // Hack: "Do Something/Poison" probably treats "poison" as an element, not
-  // an individual status.
-  //
-  // As of January 2020, any occurrences of slash-separated statuses don't
-  // use placeholders, so we can check enlir.statusByName instead of
-  // getEnlirStatusByName.
-  if (_.every(splitStatus, i => enlir.statusByName[i] != null && i !== 'Poison')) {
-    return splitStatus;
-  } else {
-    return expandSlashOptions(status);
-  }
-}
-
 const describeAutoInterval = (autoInterval: number) => `every ${toMrPFixed(autoInterval)}s`;
 
 function isFinisherOnly(effects: statusTypes.StatusEffect): boolean {
@@ -1501,24 +1478,10 @@ export function parseEnlirStatusWithSlashes(
     };
   }
 
-  let m: RegExpMatchArray | null;
   const enlirStatus = getEnlirStatusByName(status);
-  if (
-    !enlirStatus &&
-    (m = status.match(/^((?:[A-Z]{3}\/)*[A-Z]{3}) or ((?:[A-Z]{3}\/)*[A-Z]{3}) (\+\d+%)$/))
-  ) {
-    // Handle hybrid ("or") stat buffs.
-    const [, stat1, stat2, amount] = m;
-    const makeStat = (stat: string) => andJoin(stat.split('/'), false) + ' ' + amount;
-    const options = [parseEnlirStatus(makeStat(stat1)), parseEnlirStatus(makeStat(stat2))];
-    return makeResult(options, ' or ');
-  } else if (!enlirStatus && status.match(' or ')) {
-    // Handle hybrid ("or") statuses.
-    const options = status.split(orList).map(i => parseEnlirStatus(i, source));
-    return makeResult(options, ' or ');
-  } else if (!enlirStatus && status.match('/')) {
+  if (!enlirStatus && status.match('/')) {
     // Handle slash-separated status options.
-    const statusOptions = expandStatusSlashOptions(status);
+    const statusOptions = expandSlashOptions(status);
     const options = [false, true].map(forceNumbers =>
       statusOptions.map(i => parseEnlirStatus(i, source, { forceNumbers })),
     );
@@ -1585,28 +1548,6 @@ function reduceStatuses(
 
   accumulator.push(currentValue);
   return accumulator;
-}
-
-/**
- * Reducer function for handling statuses like "Beast and Father."  If a status
- * like that is split into two items, this function handles recognizing it as
- * one status and re-merging it.
- */
-export function checkForAndStatuses(
-  accumulator: skillTypes.StatusWithPercent[],
-  currentValue: skillTypes.StatusWithPercent,
-) {
-  return reduceStatuses(
-    (a: skillTypes.StatusWithPercent, b: skillTypes.StatusWithPercent) => {
-      if (typeof a.status !== 'string' || typeof b.status !== 'string') {
-        return null;
-      }
-      const thisAndThat = a.status + ' and ' + b.status;
-      return enlir.statusByName[thisAndThat] ? thisAndThat : null;
-    },
-    accumulator,
-    currentValue,
-  );
 }
 
 const elementStatuses = [

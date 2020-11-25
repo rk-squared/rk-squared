@@ -116,22 +116,6 @@ export function parseThresholdValues(s: string): number[] {
   return s.split('/').map(parseFloat);
 }
 
-export function parsePercentageCounts(s: string): Array<[number, number]> | null {
-  const result: Array<[number, number]> = [];
-  for (const i of s.split(orList)) {
-    const m = i.match(/([A-Za-z\-]+) \((\d+)%\)/);
-    if (!m) {
-      return null;
-    }
-    const count = parseNumberString(m[1]);
-    if (count == null) {
-      return null;
-    }
-    result.push([count, +m[2]]);
-  }
-  return result;
-}
-
 export function toMrPFixed(n: number): string {
   if (isNaN(n)) {
     return '?';
@@ -192,11 +176,6 @@ export function signedNumber(x: number): string {
     return '+?';
   }
   return (x >= 0 ? '+' : '') + x;
-}
-
-// https://stackoverflow.com/a/2901298/25507
-export function numberWithCommas(x: number): string {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 export function joinOr<T>(items: T[]): string {
