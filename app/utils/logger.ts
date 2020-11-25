@@ -40,7 +40,11 @@ export function logToFile(filename: string) {
 export function logForCli() {
   logger.configure({
     level: 'debug',
-    transports:[new winston.transports.Console({ format: makeLogFormat({ colorize: true, timestamp: false }) })]
+    transports: [
+      new winston.transports.Console({
+        format: makeLogFormat({ colorize: true, timestamp: false }),
+      }),
+    ],
   });
 }
 
@@ -50,6 +54,12 @@ export function logForCli() {
  * it loses the exception name and the stack trace.
  */
 export function logException(e: any, level: string = 'error') {
+  // Exceptions are loud and can complicate comparing before/after results.
+  // Allow suppressing via environment variable for command-line use.
+  if (process.env.HIDE_EXCEPTIONS === '1') {
+    return;
+  }
+
   if (e.message && e.name && e.stack) {
     logger.log(level, `${e.name}: ${e.message}\n${e.stack}`, {
       ...e,
