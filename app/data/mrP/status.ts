@@ -163,14 +163,10 @@ function isStackingStatus({ name, exclusiveStatus }: EnlirStatus): boolean {
   }
 
   const [, baseName] = m;
-  if (
-    !_.find(exclusiveStatus, `All other "${baseName}" status`) &&
-    !_.find(exclusiveStatus, i => i.match(new RegExp('^' + baseName + ' \\d+')))
-  ) {
-    return false;
-  }
-
-  return true;
+  return (
+    _.find(exclusiveStatus, `All other "${baseName}" status`) != null ||
+    _.find(exclusiveStatus, i => i.match(new RegExp('^' + baseName + ' \\d+'))) != null
+  );
 }
 
 type FollowUpStatusSequence = Array<[EnlirStatus, statusTypes.StatusEffect]>;
