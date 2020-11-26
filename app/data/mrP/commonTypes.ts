@@ -1,5 +1,13 @@
 import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
 
+export type Placeholder = 'X';
+export type SignedPlaceholder = 'X' | '-X';
+export const placeholder: Placeholder = 'X';
+export const negativePlaceholder: SignedPlaceholder = '-X';
+
+export type ValueOrPlaceholder<T> = T | Placeholder;
+export type SignedValueOrPlaceholder<T> = T | SignedPlaceholder;
+
 // --------------------------------------------------------------------------
 // Lower-level game rules
 

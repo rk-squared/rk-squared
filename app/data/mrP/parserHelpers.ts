@@ -10,6 +10,10 @@ import { parseNumberString } from './util';
 const isEqual = _.isEqual;
 export { arrayify, parseNumberString, isEqual, scalarify };
 
+const placeholder = common.placeholder;
+const negativePlaceholder = common.negativePlaceholder;
+export { placeholder, negativePlaceholder };
+
 export function lastValue(value: number | number[]): number {
   value = arrayify(value);
   return value[value.length - 1];

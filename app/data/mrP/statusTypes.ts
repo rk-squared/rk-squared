@@ -97,23 +97,20 @@ export type EffectClause =
 
 export interface StatMod {
   type: 'statMod';
-  stats: EnlirStat | EnlirStat[];
-  value: number;
-  valueIsUncertain?: boolean;
+  stats: common.ValueOrPlaceholder<EnlirStat | EnlirStat[]>;
+  value: common.SignedValueOrPlaceholder<number>;
   ignoreBuffCap?: boolean;
 }
 
 export interface CritChance {
   type: 'critChance';
-  value: number | number[];
-  valueIsUncertain?: boolean;
+  value: common.ValueOrPlaceholder<number | number[]>;
   trigger?: Trigger;
 }
 
 export interface CritDamage {
   type: 'critDamage';
-  value: number;
-  valueIsUncertain?: boolean;
+  value: common.ValueOrPlaceholder<number>;
 }
 
 export interface HitRate {
@@ -126,8 +123,7 @@ export interface HitRate {
 
 export interface StatusChance {
   type: 'statusChance';
-  value: number;
-  valueIsUncertain?: boolean;
+  value: common.ValueOrPlaceholder<number>;
   status?: string;
 }
 
@@ -157,8 +153,7 @@ interface Instacast extends ForAbilities {
 
 interface CastSpeed extends ForAbilities {
   type: 'castSpeed';
-  value: number | number[];
-  valueIsUncertain?: boolean;
+  value: common.ValueOrPlaceholder<number | number[]>;
   trigger?: Trigger;
 }
 
@@ -180,7 +175,8 @@ interface AtbSpeed {
 }
 
 interface ForAbilities {
-  school?: EnlirSchool | EnlirSchool[];
+  // As of November 2020, only CastSpeed (SchoolCastSpeed) uses a placeholder.
+  school?: common.ValueOrPlaceholder<EnlirSchool | EnlirSchool[]>;
   element?: EnlirElement | EnlirElement[];
   magical?: boolean;
   jump?: boolean;
@@ -292,9 +288,8 @@ interface ElementAttack {
 
 interface ElementResist {
   type: 'elementResist';
-  element: EnlirElement;
-  value: number;
-  valueIsUncertain?: boolean;
+  element: common.ValueOrPlaceholder<EnlirElement>;
+  value: common.SignedValueOrPlaceholder<number>;
 }
 
 interface EnElement {
@@ -394,8 +389,7 @@ interface DamageCap {
 
 interface HpStock {
   type: 'hpStock';
-  value: number;
-  valueIsUncertain?: boolean;
+  value: common.ValueOrPlaceholder<number>;
 }
 
 interface Regen {
@@ -623,8 +617,7 @@ interface EvadeAll {
 
 interface MultiplyDamage {
   type: 'multiplyDamage';
-  value: number;
-  valueIsUncertain?: boolean;
+  value: common.ValueOrPlaceholder<number>;
 }
 
 // --------------------------------------------------------------------------
@@ -673,7 +666,7 @@ interface TrackStatusLevel {
   type: 'trackStatusLevel';
   status: string;
   max: number;
-  current: number;
+  current: common.ValueOrPlaceholder<number>;
 }
 
 interface ChangeStatusLevel {

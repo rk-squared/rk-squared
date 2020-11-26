@@ -8,6 +8,7 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirSkillType,
+  EnlirStat,
   EnlirStatus,
   EnlirStatusPlaceholders,
   EnlirStatusWithPlaceholders,
@@ -97,16 +98,11 @@ const uncertain = (isUncertain: boolean | undefined) => (isUncertain ? '?' : '')
 const getCastString = (value: number) =>
   value === 2 ? 'fast' : value === 3 ? 'hi fast' : value.toString() + 'x ';
 
-const memoizedParser = _.memoize((effects: string) => statusParser.parse(effects, {}));
+const memoizedParser = _.memoize((effects: string) => statusParser.parse(effects));
 
-export function safeParseStatus(
-  status: EnlirStatus,
-  placeholders?: EnlirStatusPlaceholders,
-): statusTypes.StatusEffect | null {
+export function safeParseStatus(status: EnlirStatus): statusTypes.StatusEffect | null {
   try {
-    return placeholders
-      ? statusParser.parse(status.effects, placeholders)
-      : memoizedParser(status.effects);
+    return memoizedParser(status.effects);
   } catch (e) {
     logger.error(`Failed to parse ${status.name}:`);
     logException(e);
@@ -264,10 +260,9 @@ function describeMergedSequence(sequence: FollowUpStatusSequence) {
   // Hack: Insert spaces in strings like '2x' and '50%' so that their numeric
   // parts can be slash-merged, then remove them when done.
   const parts = sequence.map(([status, effects]) =>
-    describeEnlirStatusEffects(effects, status, undefined, { forceNumbers: true }).replace(
-      /(\d)([x%])([ ,]|$)/g,
-      '$1 $2$3',
-    ),
+    describeEnlirStatusEffects(effects, status, undefined, undefined, {
+      forceNumbers: true,
+    }).replace(/(\d)([x%])([ ,]|$)/g, '$1 $2$3'),
   );
   return slashMerge(parts, { join: '-' }).replace(/(\d) ([x%])([ ,]|$)/g, '$1$2$3');
 }
@@ -402,6 +397,10 @@ interface AnyType {
   skillType?: EnlirSkillType | EnlirSkillType[];
   skill?: string;
 }
+
+type AnyTypeOrPlaceholder = Omit<AnyType, 'school'> & {
+  school?: common.ValueOrPlaceholder<AnyType['school']>;
+};
 
 function isMagical(skillType: EnlirSkillType | EnlirSkillType[]): boolean {
   return Array.isArray(skillType) && _.isEqual(_.sortBy(skillType), ['BLK', 'BLU', 'SUM', 'WHT']);
@@ -914,28 +913,54 @@ function isDurationEffect(effect: statusTypes.EffectClause) {
   );
 }
 
+function makePlaceholderResolvers(placeholders: EnlirStatusPlaceholders | undefined) {
+  return {
+    isUncertain: placeholders && placeholders.xValueIsUncertain,
+    x: <T extends number | number[]>(value: T | common.SignedPlaceholder) =>
+      value === 'X' || value === '-X'
+        ? placeholders && placeholders.xValue != null
+          ? placeholders.xValue * (value === common.negativePlaceholder ? -1 : 1)
+          : NaN
+        : value,
+    stat: <T extends EnlirStat | EnlirStat[]>(value: T | common.Placeholder) =>
+      value === common.placeholder ? placeholders!.stat! : value,
+    element: <T extends EnlirElement | EnlirElement[]>(value: T | common.Placeholder) =>
+      value === common.placeholder ? placeholders!.element! : value,
+    anyType: <T extends AnyType>(value: AnyTypeOrPlaceholder) => ({
+      ...value,
+      school: value.school === common.placeholder ? placeholders!.school! : value.school,
+    }),
+  };
+}
+
 function describeStatusEffect(
   effect: statusTypes.EffectClause,
   enlirStatus: EnlirStatus,
+  placeholders: EnlirStatusPlaceholders | undefined,
   source: EnlirSkill | undefined,
   options: StatusOptions,
 ): string | null {
+  const resolve = makePlaceholderResolvers(placeholders);
+
   switch (effect.type) {
     case 'statMod':
       return (
-        signedNumber(effect.value) +
-        uncertain(effect.valueIsUncertain) +
+        signedNumber(resolve.x(effect.value)) +
+        uncertain(resolve.isUncertain) +
         '% ' +
-        describeStats(arrayify(effect.stats))
+        describeStats(arrayify(resolve.stat(effect.stats)))
       );
     case 'critChance':
       return addTrigger(
-        'crit =' + arrayify(effect.value).join('/') + uncertain(effect.valueIsUncertain) + '%',
+        'crit =' +
+          arrayify(resolve.x(effect.value)).join('/') +
+          uncertain(resolve.isUncertain) +
+          '%',
         effect.trigger,
         source,
       );
     case 'critDamage':
-      return signedNumber(effect.value) + uncertain(effect.valueIsUncertain) + '% crit dmg';
+      return signedNumber(resolve.x(effect.value)) + uncertain(resolve.isUncertain) + '% crit dmg';
     case 'hitRate':
       return signedNumber(effect.value) + '% hit rate';
     case 'ko':
@@ -946,7 +971,9 @@ function describeStatusEffect(
       return 'Reraise ' + effect.value + '%';
     case 'statusChance':
       return (
-        percentToMultiplier(effect.value) + uncertain(effect.valueIsUncertain) + 'x status chance'
+        percentToMultiplier(resolve.x(effect.value)) +
+        uncertain(resolve.isUncertain) +
+        'x status chance'
       );
     case 'statusStacking':
       return (statusLevelAlias[effect.status] || effect.status) + ' stacking';
@@ -963,7 +990,7 @@ function describeStatusEffect(
         ? 'Slow'
         : effect.value + 'x speed';
     case 'instacast':
-      return formatAnyCast(effect, 'insta');
+      return formatAnyCast(resolve.anyType(effect), 'insta');
     case 'castSpeedBuildup':
       return formatCastSpeedBuildup(effect);
     case 'castSpeed': {
@@ -972,13 +999,13 @@ function describeStatusEffect(
       // in current statuses.
       if (Array.isArray(effect.value) || options.forceNumbers) {
         cast =
-          arrayify(effect.value)
+          arrayify(resolve.x(effect.value))
             .map(i => i.toString())
             .join('/') + 'x ';
       } else {
-        cast = getCastString(effect.value);
+        cast = getCastString(resolve.x(effect.value));
       }
-      return addTrigger(formatAnyCast(effect, cast), effect.trigger, source);
+      return addTrigger(formatAnyCast(resolve.anyType(effect), cast), effect.trigger, source);
     }
     case 'instantAtb':
       return 'instant ATB';
@@ -1041,10 +1068,10 @@ function describeStatusEffect(
       return signedNumber(effect.value) + '% ' + getElementShortName(effect.element) + ' dmg';
     case 'elementResist':
       return (
-        signedNumber(-effect.value) +
-        uncertain(effect.valueIsUncertain) +
+        signedNumber(-resolve.x(effect.value)) +
+        uncertain(resolve.isUncertain) +
         '% ' +
-        getElementShortName(effect.element) +
+        getElementShortName(resolve.element(effect.element)) +
         ' vuln.'
       );
     case 'enElement':
@@ -1167,7 +1194,7 @@ function describeStatusEffect(
     case 'evadeAll':
       return 'immune atks/status/heal';
     case 'multiplyDamage':
-      return effect.value + uncertain(effect.valueIsUncertain) + 'x dmg recv';
+      return effect.value + uncertain(resolve.isUncertain) + 'x dmg recv';
     case 'berserk':
       return 'berserk';
     case 'rage':
@@ -1204,11 +1231,12 @@ function describeStatusEffect(
     case 'burstToggle':
       // Manually handled elsewhere. TODO: Consolidate duplicated logic.
       return null;
-    case 'trackStatusLevel':
+    case 'trackStatusLevel': {
+      const current = resolve.x(effect.current);
       return (
-        (statusLevelAlias[effect.status] || effect.status) +
-        (!isNaN(effect.current) ? ' ' + effect.current : '')
+        (statusLevelAlias[effect.status] || effect.status) + (!isNaN(current) ? ' ' + current : '')
       );
+    }
     case 'modifiesSkill':
       // Most of what we call "status levels" appear to be tracking SASB-only
       // command counts or levels.  As of January 2020, the only modifiesSkill
@@ -1230,11 +1258,12 @@ function describeStatusEffect(
 function describeEnlirStatusEffects(
   statusEffects: statusTypes.StatusEffect,
   enlirStatus: EnlirStatus,
+  placeholders: EnlirStatusPlaceholders | undefined,
   source: EnlirSkill | undefined,
   options: StatusOptions,
 ): string {
   return sortStatusEffects(statusEffects)
-    .map(i => describeStatusEffect(i, enlirStatus, source, options))
+    .map(i => describeStatusEffect(i, enlirStatus, placeholders, source, options))
     .filter(i => !!i)
     .join(', ');
 }
@@ -1268,7 +1297,7 @@ export function describeEnlirStatusAndDuration(
     return [status, null, null];
   }
 
-  const statusEffects = safeParseStatus(enlirStatus.status, enlirStatus.placeholders);
+  const statusEffects = safeParseStatus(enlirStatus.status);
   if (!statusEffects) {
     return [status, null, null];
   }
@@ -1280,9 +1309,21 @@ export function describeEnlirStatusAndDuration(
   // on the assumption that higher-level code will want to slash-merge it.
   options.forceNumbers = options.forceNumbers || isStackingStatus(enlirStatus.status);
 
-  let effects = describeEnlirStatusEffects(normalEffects, enlirStatus.status, source, options);
+  let effects = describeEnlirStatusEffects(
+    normalEffects,
+    enlirStatus.status,
+    enlirStatus.placeholders,
+    source,
+    options,
+  );
   let duration = durationEffects.length
-    ? describeEnlirStatusEffects(durationEffects, enlirStatus.status, source, options || {})
+    ? describeEnlirStatusEffects(
+        durationEffects,
+        enlirStatus.status,
+        enlirStatus.placeholders,
+        source,
+        options || {},
+      )
     : null;
 
   // Hack: Simple turn-limited statuses are represented with a numeric suffix.

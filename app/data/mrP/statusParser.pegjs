@@ -7,24 +7,6 @@
   expected;
   error;
   peg$anyExpectation;
-
-  function getX() {
-    return {
-      value: options.xValue != null ? options.xValue : NaN,
-      valueIsUncertain: options.xValueIsUncertain,
-    };
-  }
-  function getElementPlaceholder() {
-    // HACK: EnlirElement requires *something*, and we don't want to complicate
-    // callers by making them deal with absence, so fall back to NE.
-    return options.element || 'NE';
-  }
-  function getStatsPlaceholder() {
-    return options.stat || '???';
-  }
-  function getSchoolPlaceholder() {
-    return options.school;
-  }
 }
 
 StatusEffect
@@ -67,7 +49,7 @@ EffectClause
 
 StatMod
   = stats:StatListOrPlaceholder _ value:(SignedIntegerOrX / [+-]? "?" { return NaN; }) "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
-    const result = Object.assign({ type: 'statMod', stats }, value);
+    const result = { type: 'statMod', stats, value };
     if (ignoreBuffCaps) {
       result.ignoreBuffCaps = true;
     }
@@ -96,7 +78,7 @@ HitRate
 // Status manipulation
 
 StatusChance
-  = "Increases the chance of inflicting Status by" _ value:IntegerOrX "%" { return Object.assign({ type: 'statusChance' }, value); }
+  = "Increases the chance of inflicting Status by" _ value:IntegerOrX "%" { return { type: 'statusChance' , value }; }
   / "Increases the chance of being inflicted with" _ status:StatusName _ "by" _ value:Integer "%"? { return { type: 'statusChance', value, status }; }
 
 StatusStacking
@@ -120,7 +102,7 @@ Instacast
 
 SchoolCastSpeed
   = "Cast speed x" value:IntegerOrX _ "for [School] attacks, or any attack if no [School] is specified" {
-    return Object.assign({ type: 'castSpeed', school: getSchoolPlaceholder() }, value);
+    return { type: 'castSpeed', school: util.placeholder, value };
   }
 
 CastSpeed
@@ -270,7 +252,7 @@ ElementAttack
   = sign:IncreasesOrReduces _ element:Element _ "damage dealt by" _ value:Integer _ "%, cumulable" { return { type: 'elementAttack', element, value: value * sign }; }
 
 ElementResist
-  = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" ", cumulable"? { return Object.assign({ type: 'elementResist', element }, value); }
+  = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" ", cumulable"? { return { type: 'elementResist', element, value }; }
 
 EnElement
   = "Replaces Attack command, increases" _ element:Element _ "damage dealt by 50/80/120% (abilities) or 80/100/120% (Soul Breaks)," _ element2:Element _ "resistance +20%" {
@@ -609,7 +591,7 @@ RemovedAfterTrigger
 // Status levels
 
 TrackStatusLevel
-  = "Keeps"i _ "track of the" _ status:StatusNameNoBrackets _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max, current: getX().value }; }
+  = "Keeps"i _ "track of the" _ status:StatusNameNoBrackets _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max, current: util.placeholder }; }
 
 ChangeStatusLevel
   = sign:IncreasesOrReduces _ "the"? _ status:StatusNameNoBrackets _ "level by" _ value:Integer _ trigger:TriggerOrWhenSet {
@@ -985,7 +967,7 @@ StatList "stat list"
   = head:Stat tail:(AndList Stat)* { return util.pegList(head, tail, 1, true); }
 
 StatListOrPlaceholder
-  = StatList / "[Stats]" { return getStatsPlaceholder(); }
+  = StatList / "[Stats]" { return util.placeholder; }
 
 Who
   = "to" _ "the"? _ "user" { return 'self'; }
@@ -1037,7 +1019,7 @@ Element "element"
 
 ElementOrPlaceholder
   = Element
-  / "[Element]" { return getElementPlaceholder(); }
+  / "[Element]" { return util.placeholder; }
 
 ElementList "element list"
   = head:Element tail:(OrList Element)* { return util.pegList(head, tail, 1, true); }
@@ -1193,7 +1175,7 @@ Integer "integer"
 
 IntegerOrX "integer or X"
   = value:Integer { return { value }; }
-  / "X" { return getX(); }
+  / "X" { return util.placeholder; }
 
 PercentInteger "percentage"
   = ([0-9]+ '%' / '?') { return parseInt(text(), 10); }
@@ -1202,14 +1184,9 @@ SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
 
 SignedIntegerOrX "signed integer or X"
-  = sign:[+-] _ value:([0-9]+ / "X") {
-    if (value === 'X') {
-      const value = getX();
-      return Object.assign(value, { value: (sign === '-' ? -1 : 1) * value.value });
-    } else {
-      return { value: parseInt(sign + value.join(''), 10) };
-    }
-  }
+  = SignedInteger
+  / "+"? "X" { return util.placeholder }
+  / "-X" { return util.negativePlaceholder }
 
 DecimalNumberSlashList "slash-separated decimal numbers"
   = head:DecimalNumber tail:('/' DecimalNumber)* { return util.pegSlashList(head, tail); }
