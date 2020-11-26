@@ -128,18 +128,18 @@ export interface StatusChance {
   type: 'statusChance';
   value: number;
   valueIsUncertain?: boolean;
-  status?: common.StatusName;
+  status?: string;
 }
 
 export interface StatusStacking {
   type: 'statusStacking';
-  status: common.StatusName;
+  status: string;
   level: number;
 }
 
 export interface PreventStatus {
   type: 'preventStatus';
-  status: common.StatusName[];
+  status: string[];
 }
 
 // --------------------------------------------------------------------------
@@ -540,9 +540,8 @@ export interface RandomCastSkill {
 export interface GrantStatus {
   type: 'grantStatus';
   verb: common.StatusVerb;
-  status: StatusWithPercent | StatusWithPercent[];
+  status: common.StatusWithPercent | common.StatusWithPercent[];
   who?: common.Who;
-  duration?: common.Duration;
   condition?: common.Condition;
 }
 
@@ -565,21 +564,14 @@ export interface RecoilHp {
   maxOrCurrent: 'max' | 'curr';
 }
 
-// Note: Compatible with, but simpler than, skillTypes.StatusWithPercent
-export interface StatusWithPercent {
-  status: common.StatusItem;
-  chance?: number;
-}
-
 // --------------------------------------------------------------------------
 // Conditional status
 
 export interface ConditionalStatus {
   type: 'conditionalStatus';
   verb: common.StatusVerb;
-  status: StatusWithPercent | StatusWithPercent[];
+  status: common.StatusWithPercent | common.StatusWithPercent[];
   who?: common.Who;
-  duration?: common.Duration;
   condition: common.Condition;
 }
 
@@ -662,7 +654,7 @@ export interface TurnDuration {
 export interface RemovedUnlessStatus {
   type: 'removedUnlessStatus';
   any: boolean;
-  status: common.StatusName;
+  status: string;
 }
 
 export interface OnceOnly {
@@ -679,27 +671,27 @@ export interface RemovedAfterTrigger {
 
 interface TrackStatusLevel {
   type: 'trackStatusLevel';
-  status: common.StatusName;
+  status: string;
   max: number;
   current: number;
 }
 
 interface ChangeStatusLevel {
   type: 'changeStatusLevel';
-  status: common.StatusName;
+  status: string;
   value: number;
   trigger?: Trigger;
 }
 
 interface SetStatusLevel {
   type: 'setStatusLevel';
-  status: common.StatusName;
+  status: string;
   value: number;
 }
 
 interface StatusLevelBooster {
   type: 'statusLevelBooster';
-  status: common.StatusName;
+  status: string;
   value: number;
 }
 
@@ -730,7 +722,7 @@ interface BurstReset {
 
 interface StatusReset {
   type: 'statusReset';
-  status: common.StatusName;
+  status: string;
 }
 
 interface DisableAttacks {
@@ -762,7 +754,7 @@ export type Trigger =
   | { type: 'auto'; interval: number }
   | { type: 'damaged'; skillType?: EnlirSkillType }
   | { type: 'dealDamage' }
-  | { type: 'loseStatus'; status: common.StatusName }
+  | { type: 'loseStatus'; status: string }
   | { type: 'skill'; skill: string | string[]; count?: number }
   | { type: 'skillTriggered'; skill: string; count: number; isSelfSkill?: boolean }
   | {

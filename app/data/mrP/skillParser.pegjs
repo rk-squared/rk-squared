@@ -434,10 +434,17 @@ Mimic
 // Status effects
 
 StatusEffect
-  = verb:StatusVerb _ all:"all"? _ statuses:StatusList {
+  = verb:StatusVerb _ all:"all"? _ statuses:StatusList statusClauses:StatusClause* {
     const result = { type: 'status', verb, statuses };
     if (all) {
       result.all = true;
+    }
+    for (const i of statusClauses) {
+      Object.assign(result, i);
+    }
+    if (result.duration) {
+      util.applyDuration(result.statuses, result.duration);
+      delete result.duration;
     }
     return result;
   }
@@ -447,49 +454,9 @@ StatusList
     return util.pegList(head, tail, 2);
   }
 
-StatusWithPercent
-  = status:StatusItem
-    chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )?
-    statusClauses:StatusClause*
-  {
-    const result = {
-      status
-    };
-    if (chance) {
-      result.chance = chance;
-    }
-    for (const i of statusClauses) {
-      Object.assign(result, i);
-    }
-    return result;
-  }
-
-StatusLevel "status with level"
-  = status:StatusNameNoBrackets _ "level" _ value:Integer {
-    return { type:'statusLevel', status, value, set: true };
-  }
-  / status:StatusNameNoBrackets _ "level" _ value:SignedInteger {
-    return { type:'statusLevel', status, value };
-  }
-  / value:SignedInteger _ status:StatusNameNoBrackets
-      { return { type:'statusLevel', status, value }; }
-  / status:StatusNameNoBrackets
-    & {
-        statusLevelMatch = status.match(/(.*) ([+-]?\d+)$/);
-        return statusLevelMatch;
-      }
-      { return { type:'statusLevel', status: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
-  / status:StatusNameNoBrackets
-      { return { type:'statusLevel', status, value: 1, set: true }; }
-
 StatusClause
   = _ clause:(
     duration:Duration { return { duration }; }
-    // As a special case, if who isn't followed by a duration, it may
-    // apparently apply to previous statuses (so previous statuses can look
-    // ahead to this one), while a who that is followed by a duration cannot.
-    // See, e.g., Desch SSB or Sarah BSB.
-    / who:Who ! (_ Duration) { return { who, whoAllowsLookahead: true }; }
     / who:Who { return { who }; }
     / perUses:PerUses { return { perUses }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
@@ -500,10 +467,18 @@ StatusClause
   }
 
 // Special case: Some Imperil soul breaks (e.g., Climhazzard Xeno, Ragnarok
-// Buster, Whirling Lance) and many stat mods omit "causes".
+// Buster, Whirling Lance) and many stat mods omit "causes" or "grants".
 ImplicitStatusEffect
-  = & "[" statuses:StatusList {
-    return { type: 'status', verb: 'causes', statuses };
+  = & "[" statuses:StatusList statusClauses:StatusClause* {
+    const result = { type: 'status', statuses };
+    for (const i of statusClauses) {
+      Object.assign(result, i);
+    }
+    if (result.duration) {
+      util.applyDuration(result.statuses, result.duration);
+      delete result.duration;
+    }
+    return result;
   }
 
 SetStatusLevel
@@ -520,9 +495,6 @@ RandomStatusList
   = head:StatusItem tail:(AndList StatusItem)* _ "(" chance:Integer "%)" _ who:Who? {
     return { status: util.pegList(head, tail, 1, true), chance, who };
   }
-
-StatusItem
-  = SmartEtherStatus / StatusLevel / StatusName
 
 
 // --------------------------------------------------------------------------
@@ -555,6 +527,48 @@ CastTimePerUse
 // Hit rate not associated with an attack
 StandaloneAttackExtra
   = extra:AttackExtra { return { type: 'attackExtra', extra }; }
+
+
+// --------------------------------------------------------------------------
+// Common status logic (shared between skillParser and statusParser)
+
+StatusWithPercent
+  = status:StatusItem _ chance:("(" n:Integer "%)" { return n; })? _ duration:Duration? {
+    const result = {
+      status
+    };
+    if (chance) {
+      result.chance = chance;
+    }
+    if (duration) {
+      result.duration = duration;
+    }
+    return result;
+  }
+
+StatusLevel "status with level"
+  = name:StatusNameNoBrackets _ "level" _ value:Integer {
+    return { type:'statusLevel', name, value, set: true };
+  }
+  / name:StatusNameNoBrackets _ "level" _ value:SignedInteger {
+    return { type:'statusLevel', name, value };
+  }
+  / value:SignedInteger _ name:StatusNameNoBrackets
+      { return { type:'statusLevel', name, value }; }
+  / name:StatusNameNoBrackets
+    & {
+        statusLevelMatch = name.match(/(.*) ([+-]?\d+)$/);
+        return statusLevelMatch;
+      }
+      { return { type:'statusLevel', name: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
+  / name:StatusNameNoBrackets
+      { return { type:'statusLevel', name, value: 1, set: true }; }
+
+StandardStatus
+  = name:StatusName { return { type: 'standardStatus', name }; }
+
+StatusItem
+  = SmartEtherStatus / StatusLevel / StandardStatus
 
 
 // --------------------------------------------------------------------------

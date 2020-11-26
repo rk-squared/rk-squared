@@ -45,9 +45,9 @@ export function formatSpecialStatusItem(
     return formatSmartEther(status.amount, status.school);
   } else {
     if (overrideValue != null) {
-      return formatStatusLevel(status.status, overrideValue, true);
+      return formatStatusLevel(status.name, overrideValue, true);
     } else {
-      return formatStatusLevel(status.status, status.value, status.set);
+      return formatStatusLevel(status.name, status.value, status.set);
     }
   }
 }

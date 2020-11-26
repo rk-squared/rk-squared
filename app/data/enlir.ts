@@ -1036,7 +1036,8 @@ function patchEnlir() {
   );
 
   // Apparent mistakes from adding brackets to status names.  Should be
-  // upstreamed.
+  // upstreamed.  We also add a few explicit "grants" and "causes" verbs - see
+  // below.
   applyEffectsPatch(
     enlir.soulBreaks,
     '20690002', // Auron - Dragon Fang
@@ -1047,13 +1048,13 @@ function patchEnlir() {
     enlir.soulBreaks,
     '20860003', // Zidane - Rumble Rush
     'Four single attacks (1.28 each), ATK -50% for 25 seconds, [ATK +35%] to the user for 25 seconds',
-    'Four single attacks (1.28 each), [ATK -50%] for 25 seconds, [ATK +35%] to the user for 25 seconds',
+    'Four single attacks (1.28 each), [ATK -50%] for 25 seconds, grants [ATK +35%] to the user for 25 seconds',
   );
   applyEffectsPatch(
     enlir.soulBreaks,
     '20860004', // Zidane - Shift Break
     'Four group ranged attacks (1.50 each), ATK -50% for 25 seconds, ATK +35% to the user for 25 seconds',
-    'Four group ranged attacks (1.50 each), [ATK -50%] for 25 seconds, [ATK +35%] to the user for 25 seconds',
+    'Four group ranged attacks (1.50 each), [ATK -50%] for 25 seconds, grants [ATK +35%] to the user for 25 seconds',
   );
   applyEffectsPatch(
     enlir.soulBreaks,
@@ -1067,7 +1068,7 @@ function patchEnlir() {
     enlir.abilitiesByName,
     'Mug Bloodlust',
     'Two single attacks (1.60 each), ATK and DEF -30% for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds',
-    'Two single attacks (1.60 each), [ATK and DEF -30%] for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds',
+    'Two single attacks (1.60 each), [ATK and DEF -30%] for 20 seconds, grants [ATK and DEF +30%] to the user for 20 seconds',
   );
   applyEffectsPatch(
     enlir.abilitiesByName,
@@ -1098,6 +1099,188 @@ function patchEnlir() {
     '22100007', // Laguna - Ragnarok Buster
     'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants ATK and RES +30%, [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
     'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants [ATK and RES +30%], [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
+  );
+
+  // Add explicit "grants" and "causes" verbs.  This greatly simplifies parsing.
+  applyEffectsPatch(
+    enlir.abilitiesByName,
+    'Steal Defense',
+    '[DEF -40%] for 20 seconds, [DEF +50%] to the user for 20 seconds',
+    '[DEF -40%] for 20 seconds, grants [DEF +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.abilitiesByName,
+    'Steal Power',
+    '[ATK -40%] for 20 seconds, [ATK +50%] to the user for 20 seconds',
+    '[ATK -40%] for 20 seconds, grants [ATK +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22300005', // Sarah - Age-old Hymn
+    'Restores HP (55), grants [Magical Blink 1], [RES and MND +30%] to the user for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Restores HP (55), grants [Magical Blink 1], grants [RES and MND +30%] to the user for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22130003', // Leila - Pirate's Knives
+    'Six single attacks (1.27 each), [ATK and RES -50%] for 25 seconds, [ATK and RES +30%] to the user for 25 seconds',
+    'Six single attacks (1.27 each), [ATK and RES -50%] for 25 seconds, grants [ATK and RES +30%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22230004', // Desch - Roiling Memories
+    'Six random attacks (2.94 each), causes [Imperil Lightning 20%] for 25 seconds, [MAG +30%] to the user for 25 seconds',
+    'Six random attacks (2.94 each), causes [Imperil Lightning 20%] for 25 seconds, grants [MAG +30%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20070016', // Cecil (Paladin) - Shining Crescent
+    'Fifteen single hybrid attacks (0.60 or 1.60 each), grants [Attach Holy], [Awoken Holy], [Damage Cap +10000] to the user and [75% Damage Reduction Barrier 3] to all allies',
+    'Fifteen single hybrid attacks (0.60 or 1.60 each), grants [Attach Holy], [Awoken Holy], [Damage Cap +10000] to the user, grants [75% Damage Reduction Barrier 3] to all allies',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22350003', // Edward - Whisperweed Ballad
+    'Causes [Imperil Holy 20%] for 25 seconds, [ATK +50%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Causes [Imperil Holy 20%] for 25 seconds, grants [ATK +50%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20730003', // Fusoya - Lunarian Might
+    'Causes [Imperil Dark 20%] for 25 seconds, [MAG and MND +30%] to all allies for 25 seconds',
+    'Causes [Imperil Dark 20%] for 25 seconds, grants [MAG and MND +30%] to all allies for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20200007', // Lenna - Phoenix of Tycoon
+    'Restores HP (55), grants [Reraise: 40%], [RES and MND +30%] to the user for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Restores HP (55), grants [Reraise: 40%], grants [RES and MND +30%] to the user for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22510002', // Dorgan - Shiradori
+    '[DEF -15%] for 25 seconds, [ATK +15%] to the user for 25 seconds',
+    '[DEF -15%] for 25 seconds, grants [ATK +15%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22510003', // Dorgan - Uncharted Lands
+    'Causes [Imperil Earth 20%] for 25 seconds, [ATK and DEF +30%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Causes [Imperil Earth 20%] for 25 seconds, grants [ATK and DEF +30%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20360007', // Garnet - Trial by Lightning
+    'Causes [Imperil Lightning 20%] for 25 seconds, [ATK and MAG +30%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Causes [Imperil Lightning 20%] for 25 seconds, grants [ATK and MAG +30%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20970004', // Rikku - Machina Sabotage
+    'Four single attacks (1.29 each), [ATK -50%] for 25 seconds, [ATK +50%] to the user for 25 seconds',
+    'Four single attacks (1.29 each), [ATK -50%] for 25 seconds, grants [ATK +50%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20970006', // Rikku - Master Thief
+    'Six single attacks (1.28 each), [ATK and RES -50%] for 25 seconds, [ATK and RES +30%] to the user for 25 seconds',
+    'Six single attacks (1.28 each), [ATK and RES -50%] for 25 seconds, grants [ATK and RES +30%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23350002', // Lilisette - Vivifying Waltz
+    'Grants [HP Stock (2000)], [ATK, DEF, MAG and RES -40%] to all enemies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Grants [HP Stock (2000)], causes [ATK, DEF, MAG and RES -40%] to all enemies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20700004', // Vaan - Pyroclasm
+    'Four group ranged attacks (1.50 each), [ATK -50%] for 25 seconds, [ATK +50%] to the user for 25 seconds',
+    'Four group ranged attacks (1.50 each), [ATK -50%] for 25 seconds, grants [ATK +50%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20700009', // Vaan - Cruelest Azure
+    'Ten random attacks (0.70 each), [ATK and RES -50%] for 25 seconds, [ATK and RES +30%] to the user for 25 seconds, grants [EX: Sky Pirate] to the user',
+    'Ten random attacks (0.70 each), [ATK and RES -50%] for 25 seconds, grants [ATK and RES +30%] to the user for 25 seconds, grants [EX: Sky Pirate] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22320001', // Yda - Twin Snake Dragon Kick
+    'Six single attacks (1.30 each), [DEF -50%] for 25 seconds, [ATK +30%] to all allies for 25 seconds',
+    'Six single attacks (1.30 each), [DEF -50%] for 25 seconds, grants [ATK +30%] to all allies for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22320005', // Yda - True Demolition
+    'Four group attacks (1.39 each), [DEF and RES -50%] for 25 seconds, [ATK and DEF +30%] to the user for 25 seconds',
+    'Four group attacks (1.39 each), [DEF and RES -50%] for 25 seconds, grants [ATK and DEF +30%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23330001', // Orran - Celestial Stasis
+    'Grants [Magical Blink 1] and [Instant Cast 1], [ATK, DEF, MAG and RES -70%] to all enemies for 8 seconds',
+    'Grants [Magical Blink 1] and [Instant Cast 1], causes [ATK, DEF, MAG and RES -70%] to all enemies for 8 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30511102', // Leila - Poison Cloud XVI
+    'Two single attacks (0.86 each), [ATK and MND -20%] for 20 seconds, [ATK and MND +20%] to the user for 20 seconds',
+    'Two single attacks (0.86 each), [ATK and MND -20%] for 20 seconds, grants [ATK and MND +20%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30511441', // Bartz - Woken Water
+    'One single attack (2.00), [ATK -40%] for 20 seconds, [ATK +50%] to the user for 20 seconds',
+    'One single attack (2.00), [ATK -40%] for 20 seconds, grants [ATK +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30510221', // Locke - Mirage Phoenix
+    'One single attack (2.00), [ATK and MAG -20%] for 20 seconds, [ATK and MAG +20%] to the user for 20 seconds',
+    'One single attack (2.00), [ATK and MAG -20%] for 20 seconds, grants [ATK and MAG +20%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30512222', // Locke - On the Hunt
+    'Two single ranged attacks (0.86 each), [ATK -50%] for 20 seconds, [ATK +50%] to the user for 20 seconds',
+    'Two single ranged attacks (0.86 each), [ATK -50%] for 20 seconds, grants [ATK +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30510622', // Yuffie - Guardian of Wutai
+    'Two single ranged attacks (0.86 each), [ATK and DEF -20%] for 20 seconds, [ATK and DEF +20%] to the user for 20 seconds',
+    'Two single ranged attacks (0.86 each), [ATK and DEF -20%] for 20 seconds, grants [ATK and DEF +20%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30511672', // Rinoa - Angel Wing Ice Shards
+    '[MAG -40%] for 20 seconds, [MAG +30%] to the user for 20 seconds',
+    '[MAG -40%] for 20 seconds, grants [MAG +30%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30510131', // Zidane - Stellar Circle 5
+    'One single attack (2.00), [ATK -40%] for 20 seconds, [ATK +50%] to the user for 20 seconds',
+    'One single attack (2.00), [ATK -40%] for 20 seconds, grants [ATK +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30510132', // Zidane - Stellar Circle 5
+    'One single attack (2.00), [DEF -40%] for 20 seconds, [DEF +50%] to the user for 20 seconds',
+    'One single attack (2.00), [DEF -40%] for 20 seconds, grants [DEF +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30510272', // Rikku - Machinations
+    'Two single ranged attacks (1.00 each), [ATK and DEF -20%] for 20 seconds, [ATK and DEF +20%] to the user for 20 seconds',
+    'Two single ranged attacks (1.00 each), [ATK and DEF -20%] for 20 seconds, grants [ATK and DEF +20%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30512452', // Rikku - Team Bomb
+    'Two single ranged attacks (0.86 each), [ATK -50%] for 20 seconds, [ATK +50%] to the user for 20 seconds',
+    'Two single ranged attacks (0.86 each), [ATK -50%] for 20 seconds, grants [ATK +50%] to the user for 20 seconds',
   );
 }
 patchEnlir();

@@ -45,9 +45,6 @@ import {
   ParsedEnlirStatusWithSlashes,
   parseEnlirStatus,
   parseEnlirStatusWithSlashes,
-  shareStatusDurations,
-  shareStatusWho,
-  slashMergeElementStatuses,
   sortStatus,
 } from './status';
 import {
@@ -244,10 +241,10 @@ function checkPoweredUpBy(
   if (!isSynchroCommand(skill)) {
     let pairedStatus: string | undefined;
     for (const i of pairedEffects) {
-      if (i.type === 'status') {
+      if (i.type === 'status' && i.who === 'self') {
         for (const j of i.statuses) {
-          if (j.who === 'self' && typeof j.status === 'string') {
-            pairedStatus = j.status;
+          if (j.status.type === 'standardStatus') {
+            pairedStatus = j.status.name;
             break;
           }
         }
@@ -375,23 +372,37 @@ function checkSynchroCommands(skill: EnlirSkill, result: MrPSkill) {
   }
 }
 
-function shouldIncludeStatus(skill: EnlirSkill) {
+function shouldIncludeStatus(skill: EnlirSkill, effect: skillTypes.StatusEffect) {
   const isBurst = isSoulBreak(skill) && isBurstSoulBreak(skill);
-  return ({ status, chance, who, ifUndead }: skillTypes.StatusWithPercent): boolean => {
+  return ({ status, chance }: common.StatusWithPercent): boolean => {
+    if (status.type !== 'standardStatus') {
+      return true;
+    }
+
     // Enlir lists Burst Mode and Haste for all BSBs and lists Brave Mode for all
     // all Brave Ultra Soul Breaks, but MrP's format doesn't.
-    if (status === 'Brave Mode' || status === 'Burst Mode' || status === 'Synchro Mode') {
+    if (
+      status.name === 'Brave Mode' ||
+      status.name === 'Burst Mode' ||
+      status.name === 'Synchro Mode'
+    ) {
       return false;
     }
-    if (isBurst && status === 'Haste' && (who === 'self' || (!who && skill.target === 'Self'))) {
+    if (
+      isBurst &&
+      status.name === 'Haste' &&
+      (effect.who === 'self' || (!effect.who && skill.target === 'Self'))
+    ) {
       // All burst soul breaks provide Haste, so listing it is redundant.
       return false;
     }
 
-    if (status === 'Instant KO' && ifUndead && chance === 100) {
+    // noinspection RedundantIfStatementJS
+    if (status.name === 'Instant KO' && effect.ifUndead && chance === 100) {
       // Raise effects cause instant KO to undead, but that's fairly niche; omit.
       return false;
     }
+
     return true;
   };
 }
@@ -401,26 +412,27 @@ function shouldIncludeStatus(skill: EnlirSkill) {
  * Warlord Mode 0/1/2/3"
  */
 function checkStacking(
-  status: skillTypes.StatusWithPercent,
-): [skillTypes.StatusWithPercent['status'], boolean] {
+  effect: skillTypes.StatusEffect,
+  status: common.StatusWithPercent,
+): [common.StatusItem, boolean] {
   if (
-    typeof status.status !== 'string' ||
-    !status.condition ||
-    status.condition.type !== 'status'
+    status.status.type !== 'standardStatus' ||
+    !effect.condition ||
+    effect.condition.type !== 'status'
   ) {
     return [status.status, false];
   }
 
-  let statusName = status.status;
-  const prereq = status.condition.status;
+  let statusName = status.status.name;
+  const prereq = effect.condition.status;
   if (statusName.replace(/[0-9\/]+/, 'X') === prereq.replace(/[0-9\/]+/, 'X')) {
     // Enlir lists, e.g., 'Warlord Mode 1/2/3/3' to show that it doesn't stack
     // further.  Remove the redundancy.
     statusName = statusName.replace(/(\d)\/\1/, '$1');
-    return [statusName, true];
+    return [{ type: 'standardStatus', name: statusName }, true];
   }
 
-  return [statusName, false];
+  return [{ type: 'standardStatus', name: statusName }, false];
 }
 
 function formatStatusDescription(
@@ -488,19 +500,18 @@ function processStatus(
   let burstToggle: boolean | undefined;
 
   const removes = effect.verb === 'removes';
-  const statuses = effect.statuses
-    .reduce(shareStatusWho, [])
-    .filter(shouldIncludeStatus(skill))
-    .reduce(shareStatusDurations, [])
-    .reduce(slashMergeElementStatuses, [])
-    .sort(sortStatus);
+  const statuses = effect.statuses.filter(shouldIncludeStatus(skill, effect)).sort(sortStatus);
+  // tslint:disable: prefer-const
+  let { who, condition, perUses, ifSuccessful } = effect;
+  // tslint:enable: prefer-const
   statuses.forEach((thisStatus, thisStatusIndex) => {
-    // tslint:disable: prefer-const
-    let { duration, who, chance, condition, perUses, ifSuccessful } = thisStatus;
-    // tslint:enable: prefer-const
-    const [status, stacking] = checkStacking(thisStatus);
+    const [status, stacking] = checkStacking(effect, thisStatus);
 
-    if (typeof status !== 'string') {
+    // If this is the last status, then append details of the whole status
+    // effect.
+    const isLast = thisStatusIndex + 1 === statuses.length;
+
+    if (status.type !== 'standardStatus') {
       // Status levels are always self.
       other.push(
         skill,
@@ -510,7 +521,7 @@ function processStatus(
       return;
     }
 
-    if ('source' in skill && skill.source === status && removes) {
+    if ('source' in skill && skill.source === status.name && removes) {
       // TODO: Some inconsistency here between "(once only)", "removes status", and "once only"
       // See, e.g., Enna Kros vs. Cloud vs. Cyan AASBs.
       if (other.self.length) {
@@ -521,7 +532,7 @@ function processStatus(
       return;
     }
 
-    const parsed = parseEnlirStatusWithSlashes(status, skill);
+    const parsed = parseEnlirStatusWithSlashes(status.name, skill);
     const { isDetail, isBurstToggle } = parsed;
 
     if (isBurstToggle) {
@@ -541,7 +552,12 @@ function processStatus(
       return;
     }
 
-    let description = formatStatusDescription(parsed, duration, condition, stacking);
+    let description = formatStatusDescription(
+      parsed,
+      thisStatus.duration,
+      isLast ? condition : undefined,
+      stacking,
+    );
 
     // Status removal.  In practice, only a few White Magic abilities hit
     // this; the rest are special cased (Esuna, burst toggles, etc.).
@@ -556,17 +572,19 @@ function processStatus(
       }
     }
 
-    description += appendPerUses(perUses);
-    if (ifSuccessful) {
-      description += ' on success';
+    if (isLast) {
+      description += appendPerUses(perUses);
+      if (ifSuccessful) {
+        description += ' on success';
+      }
     }
 
-    if (chance) {
+    if (thisStatus.chance) {
       const chanceDescription = formatAttackStatusChance(
-        chance,
+        thisStatus.chance,
         findFirstEffect<skillTypes.Attack>(skillEffects, 'attack'),
       );
-      other.statusInfliction.push({ description, chance, chanceDescription });
+      other.statusInfliction.push({ description, chance: thisStatus.chance, chanceDescription });
     } else if (description.match(/^\w+ infuse/)) {
       other.infuse.push(description);
     } else if (isDetail && !parsed.statusLevel) {
@@ -593,13 +611,13 @@ function processRandomStatus(
     ({ status, chance }) =>
       arrayify(status)
         .map(s => {
-          if (typeof s === 'string') {
-            const parsed = parseEnlirStatusWithSlashes(s, skill);
+          if (s.type === 'standardStatus') {
+            const parsed = parseEnlirStatusWithSlashes(s.name, skill);
             return formatStatusDescription(parsed);
           } else if (s.type === 'smartEther') {
             return formatSmartEther(s.amount, s.school);
           } else {
-            return formatStatusLevel(s.status, s.value, s.set);
+            return formatStatusLevel(s.name, s.value, s.set);
           }
         })
         .join(' & ') + ` (${chance}%)`,

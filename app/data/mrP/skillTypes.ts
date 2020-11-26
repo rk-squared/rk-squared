@@ -111,7 +111,7 @@ export interface AttackExtras {
   atkUpWithLowHp?: boolean;
 
   status?: {
-    status: common.StatusName;
+    status: string;
     chance: number | number[];
     duration?: common.Duration;
     condition?: common.Condition;
@@ -257,20 +257,10 @@ export interface Mimic {
 
 export interface StatusEffect {
   type: 'status';
-  verb: common.StatusVerb;
-  statuses: StatusWithPercent[];
-}
+  verb?: common.StatusVerb;
+  statuses: common.StatusWithPercent[];
 
-// Note: Compatible with, but more complex than, skillTypes.StatusWithPercent
-export interface StatusWithPercent extends StatusClause {
-  status: common.StatusItem;
-  chance?: number;
-}
-
-export interface StatusClause {
-  duration?: common.Duration;
   who?: common.Who;
-  whoAllowsLookahead?: boolean;
   perUses?: number;
   ifSuccessful?: boolean;
   ifUndead?: boolean;
@@ -279,7 +269,7 @@ export interface StatusClause {
 
 export interface SetStatusLevel {
   type: 'setStatusLevel';
-  status: common.StatusName;
+  status: string;
   value: number;
 }
 

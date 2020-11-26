@@ -477,12 +477,16 @@ RandomCastSkill
 
 SimpleRemoveStatus
   = "removes"i _ status:StatusNameNoBrackets {
-    return { type: 'grantStatus', status: { status }, verb: 'removes' };
+    return { type: 'grantStatus', status: { status: { type: 'standardStatus', name: status } }, verb: 'removes' };
   }
 
 GrantStatus
   = verb:StatusVerb _ head:StatusWithPercent _ tail:(("," / "and") _ StatusWithPercent)* _ condition:Condition? _ who:Who? _ duration:Duration? {
-    return util.addCondition({ type: 'grantStatus', status: util.pegList(head, tail, 2, true), who, duration, verb }, condition);
+    const result = util.addCondition({ type: 'grantStatus', status: util.pegList(head, tail, 2, true), who, verb }, condition);
+    if (duration) {
+      util.applyDuration(result.status, duration);
+    }
+    return result;
   }
 
 Heal
@@ -501,39 +505,6 @@ RecoilHp
       maxOrCurrent,
     };
   }
-
-StatusWithPercent
-  = status:StatusItem _ chance:("(" n:Integer "%)" { return n; })? {
-    if (!chance) {
-      return { status };
-    } else {
-      return { status, chance };
-    }
-  }
-  // Note: This alternative is pulled out by separateStatusAndSb, so
-  // higher-level code can ignore it.
-  / value:Integer _ "SB points" { return { type: 'gainSb', value }; }
-
-StatusLevel "status with level"
-  = status:StatusNameNoBrackets _ "level" _ value:Integer {
-    return { type:'statusLevel', status, value, set: true };
-  }
-  / status:StatusNameNoBrackets _ "level" _ value:SignedInteger {
-    return { type:'statusLevel', status, value };
-  }
-  / value:SignedInteger _ status:StatusNameNoBrackets
-      { return { type:'statusLevel', status, value }; }
-  / status:StatusNameNoBrackets
-    & {
-        statusLevelMatch = status.match(/(.*) ([+-]?\d+)$/);
-        return statusLevelMatch;
-      }
-      { return { type:'statusLevel', status: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
-  / status:StatusNameNoBrackets
-      { return { type:'statusLevel', status, value: 1, set: true }; }
-
-StatusItem
-  = SmartEtherStatus / StatusLevel / StatusName
 
 
 // --------------------------------------------------------------------------
@@ -756,6 +727,51 @@ TriggerCount
 TriggerOrWhenSet
   = Trigger
   / "when set" { return undefined; }
+
+
+// --------------------------------------------------------------------------
+// Common status logic (shared between skillParser and statusParser)
+
+StatusWithPercent
+  = status:StatusItem _ chance:("(" n:Integer "%)" { return n; })? _ duration:Duration? {
+    const result = {
+      status
+    };
+    if (chance) {
+      result.chance = chance;
+    }
+    if (duration) {
+      result.duration = duration;
+    }
+    return result;
+  }
+  // Note: This alternative is pulled out by separateStatusAndSb, so
+  // higher-level code can ignore it.
+  / value:Integer _ "SB points" { return { type: 'gainSb', value }; }
+
+StatusLevel "status with level"
+  = name:StatusNameNoBrackets _ "level" _ value:Integer {
+    return { type:'statusLevel', name, value, set: true };
+  }
+  / name:StatusNameNoBrackets _ "level" _ value:SignedInteger {
+    return { type:'statusLevel', name, value };
+  }
+  / value:SignedInteger _ name:StatusNameNoBrackets
+      { return { type:'statusLevel', name, value }; }
+  / name:StatusNameNoBrackets
+    & {
+        statusLevelMatch = name.match(/(.*) ([+-]?\d+)$/);
+        return statusLevelMatch;
+      }
+      { return { type:'statusLevel', name: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
+  / name:StatusNameNoBrackets
+      { return { type:'statusLevel', name, value: 1, set: true }; }
+
+StandardStatus
+  = name:StatusName { return { type: 'standardStatus', name }; }
+
+StatusItem
+  = SmartEtherStatus / StatusLevel / StandardStatus
 
 
 // --------------------------------------------------------------------------

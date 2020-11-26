@@ -3,13 +3,11 @@ import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from
 // --------------------------------------------------------------------------
 // Lower-level game rules
 
-export type StatusName = string;
-
 export type StatusVerb = 'grants' | 'causes' | 'removes' | "doesn't remove";
 
 export interface StatusLevel {
   type: 'statusLevel';
-  status: StatusName;
+  name: string;
   value: number;
   // If true, setting to value; if false, modifying by value.
   set?: boolean;
@@ -21,7 +19,18 @@ export interface SmartEtherStatus {
   school?: EnlirSchool;
 }
 
-export type StatusItem = SmartEtherStatus | StatusLevel | StatusName;
+export interface StandardStatus {
+  type: 'standardStatus';
+  name: string;
+}
+
+export type StatusItem = SmartEtherStatus | StatusLevel | StandardStatus;
+
+export interface StatusWithPercent {
+  status: StatusItem;
+  chance?: number;
+  duration?: Duration;
+}
 
 export interface Duration {
   value: number;
@@ -49,10 +58,10 @@ export type Who =
 
 export type Condition =
   | { type: 'equipped'; article: string; equipped: string }
-  | { type: 'scaleWithStatusLevel'; status: StatusName }
-  | { type: 'statusLevel'; status: StatusName; value: number | number[] }
+  | { type: 'scaleWithStatusLevel'; status: string }
+  | { type: 'statusLevel'; status: string; value: number | number[] }
   | { type: 'ifDoomed' }
-  | { type: 'status'; status: StatusName; who: 'self' | 'target'; any: boolean }
+  | { type: 'status'; status: string; who: 'self' | 'target'; any: boolean }
   | { type: 'conditionalEnElement'; element: EnlirElement | EnlirElement[] }
   | { type: 'scaleUseCount'; useCount: number | number[] }
   | { type: 'scaleWithUses' }

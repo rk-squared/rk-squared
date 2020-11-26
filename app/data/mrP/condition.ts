@@ -256,10 +256,8 @@ export function visitCondition(f: ConditionVisitor, effects: skillTypes.SkillEff
         }
         break;
       case 'status':
-        for (const status of i.statuses) {
-          if (!visitEffectCondition(f, status, ['condition'])) {
-            return;
-          }
+        if (!visitEffectCondition(f, i, ['condition'])) {
+          return;
         }
         break;
     }

@@ -22,7 +22,6 @@ import * as common from './commonTypes';
 import { describeCondition } from './condition';
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, describeRecoilHp, formatMrPSkill } from './skill';
-import * as skillTypes from './skillTypes';
 import {
   formatSmartEther,
   formatSpecialStatusItem,
@@ -118,6 +117,15 @@ export function safeParseStatus(
   }
 }
 
+export function getDuration(
+  statuses: common.StatusWithPercent | common.StatusWithPercent[],
+): common.Duration | undefined {
+  if (!Array.isArray(statuses)) {
+    return statuses.duration;
+  } else {
+    return statuses[statuses.length - 1].duration;
+  }
+}
 const finisherText = 'Finisher: ';
 export const hitWeaknessTriggerText = 'hit weak';
 export const formatGenericTrigger = (
@@ -217,8 +225,9 @@ function getFollowUpStatusSequence(
             const followUp = _.find(
               arrayify(e.status),
               granted =>
-                granted.status === thisStatusName ||
-                granted.status === baseStatusName + ' ' + (n + 1),
+                granted.status.type === 'standardStatus' &&
+                (granted.status.name === thisStatusName ||
+                  granted.status.name === baseStatusName + ' ' + (n + 1)),
             );
             if (followUp) {
               hasFollowUp = true;
@@ -671,13 +680,7 @@ function formatCastSkill(
 }
 
 function formatGrantOrConditionalStatus(
-  {
-    verb,
-    status,
-    who,
-    duration,
-    condition,
-  }: statusTypes.GrantStatus | statusTypes.ConditionalStatus,
+  { verb, status, who, condition }: statusTypes.GrantStatus | statusTypes.ConditionalStatus,
   trigger: statusTypes.Trigger | null,
   enlirStatus: EnlirStatus,
   source: EnlirSkill | undefined,
@@ -697,22 +700,21 @@ function formatGrantOrConditionalStatus(
   }
 
   result += arrayify(status)
-    .reduce(slashMergeElementStatuses, [])
-    .map((i: statusTypes.StatusWithPercent) => {
-      if (i.status === enlirStatus.name) {
+    .map((i: common.StatusWithPercent) => {
+      if (i.status.type === 'standardStatus' && i.status.name === enlirStatus.name) {
         return 'status';
       }
 
-      if (typeof i.status !== 'string') {
+      if (i.status.type !== 'standardStatus') {
         return formatSpecialStatusItem(i.status);
       }
 
-      const sequence = trigger ? getFollowUpStatusSequence(i.status, trigger) : null;
+      const sequence = trigger ? getFollowUpStatusSequence(i.status.name, trigger) : null;
       if (sequence) {
         return describeMergedSequence(sequence);
       } else {
-        return slashMerge(
-          expandSlashOptions(i.status).map(option => {
+        let thisResult = slashMerge(
+          expandSlashOptions(i.status.name).map(option => {
             const parsed = parseEnlirStatus(option, source);
             let optionResult = parsed.description;
 
@@ -720,7 +722,7 @@ function formatGrantOrConditionalStatus(
             // This is valuable to make Galuf AASB's instacast clear.
             if (
               verb !== 'removes' &&
-              !duration &&
+              !i.duration &&
               parsed.defaultDuration &&
               !parsed.isVariableDuration &&
               !parsed.specialDuration &&
@@ -736,13 +738,14 @@ function formatGrantOrConditionalStatus(
             return optionResult;
           }),
         );
+        if (i.duration) {
+          thisResult += ' ' + formatDuration(i.duration);
+        }
+        return thisResult;
       }
     })
     .join(', ');
 
-  if (duration) {
-    result += ' ' + formatDuration(duration);
-  }
   if (condition) {
     result += ' ' + describeCondition(condition);
   }
@@ -1514,140 +1517,16 @@ const statusSortOrder: { [status: string]: number } = {
   'Last Stand': 1,
 };
 
-const getSortOrder = (status: skillTypes.StatusWithPercent['status']) => {
-  if (typeof status !== 'string') {
+const getSortOrder = (status: common.StatusItem) => {
+  if (status.type !== 'standardStatus') {
     return 0;
-  } else if (isExStatus(status) || isAwokenStatus(status)) {
+  } else if (isExStatus(status.name) || isAwokenStatus(status.name)) {
     return 999;
   } else {
-    return statusSortOrder[status] || 0;
+    return statusSortOrder[status.name] || 0;
   }
 };
 
-export function sortStatus(
-  a: skillTypes.StatusWithPercent,
-  b: skillTypes.StatusWithPercent,
-): number {
+export function sortStatus(a: common.StatusWithPercent, b: common.StatusWithPercent): number {
   return getSortOrder(a.status) - getSortOrder(b.status);
-}
-
-function reduceStatuses(
-  combiner: (a: skillTypes.StatusWithPercent, b: skillTypes.StatusWithPercent) => string | null,
-  accumulator: skillTypes.StatusWithPercent[],
-  currentValue: skillTypes.StatusWithPercent,
-) {
-  if (accumulator.length) {
-    const combined = combiner(accumulator[accumulator.length - 1], currentValue);
-    if (combined) {
-      accumulator[accumulator.length - 1].status = combined;
-      return accumulator;
-    }
-  }
-
-  accumulator.push(currentValue);
-  return accumulator;
-}
-
-const elementStatuses = [
-  new RegExp('^Minor Buff ([a-zA-Z/]+)$'),
-  new RegExp('^Medium Buff ([a-zA-Z/]+)$'),
-  new RegExp('^Major Buff ([a-zA-Z/]+)$'),
-  new RegExp('^Imperil ([a-zA-Z/]+) 10%$'),
-  new RegExp('^Imperil ([a-zA-Z/]+) 20%$'),
-];
-
-export function slashMergeElementStatuses(
-  accumulator: skillTypes.StatusWithPercent[],
-  currentValue: skillTypes.StatusWithPercent,
-) {
-  return reduceStatuses(
-    (a: skillTypes.StatusWithPercent, b: skillTypes.StatusWithPercent) => {
-      for (const i of elementStatuses) {
-        if (typeof a.status === 'string' && typeof b.status === 'string') {
-          const ma = a.status.match(i);
-          const mb = b.status.match(i);
-          if (ma && mb) {
-            return ma && mb ? a.status.replace(ma[1], ma[1] + '/' + mb[1]) : null;
-          }
-        }
-      }
-      return null;
-    },
-    accumulator,
-    currentValue,
-  );
-}
-
-/**
- * Special case for shareStatusDuration - Reks' USB's Lightning Radiant Shield
- * shouldn't be shared.  We try to generalize this by saying that some statuses
- * never get non-default durations.
- */
-function forceOwnDuration(status: EnlirStatus) {
-  return status.name.match(/Radiant Shield/);
-}
-
-export function shareStatusDurations(
-  accumulator: skillTypes.StatusWithPercent[],
-  currentItem: skillTypes.StatusWithPercent,
-) {
-  if (accumulator.length) {
-    const prevItem = accumulator[accumulator.length - 1];
-    if (typeof prevItem.status === 'string' && typeof currentItem.status === 'string') {
-      const prevStatus = getEnlirStatusByName(prevItem.status);
-      const thisStatus = getEnlirStatusByName(currentItem.status);
-      // If the previous status can have a duration (as implied by the
-      // defaultDuration field) and doesn't have an explicit duration, and the
-      // current status has an explicit duration, then assume that the current
-      // status's duration also applies to the previous.  E.g.:
-      //
-      // - "causes Imperil Fire 10% and DEF -50% for 15 seconds"
-      // - "Causes Imperil Wind 10% and Imperil Fire 10% for 15 seconds"
-      //
-      // As an exception, if both have an explicit target, then that's intended
-      // to separate the two statues.  E.g.:
-      //
-      // - "grants Unyielding Fist to the user, ATK +50% to the user for 25
-      //   seconds"
-      //
-      // And we still need a special case for Reks' SB.  Sigh.
-      if (
-        prevStatus &&
-        thisStatus &&
-        !prevItem.duration &&
-        currentItem.duration &&
-        prevStatus.defaultDuration &&
-        !prevItem.who &&
-        !forceOwnDuration(prevStatus)
-      ) {
-        accumulator[accumulator.length - 1] = {
-          ...prevItem,
-          duration: currentItem.duration,
-        };
-      }
-    }
-  }
-
-  accumulator.push(currentItem);
-  return accumulator;
-}
-
-export function shareStatusWho(
-  accumulator: skillTypes.StatusWithPercent[],
-  currentItem: skillTypes.StatusWithPercent,
-) {
-  if (currentItem.who && currentItem.whoAllowsLookahead) {
-    for (let i = accumulator.length - 1; i >= 0; i--) {
-      if (accumulator[i].who) {
-        break;
-      }
-      accumulator[i] = {
-        ...accumulator[i],
-        who: currentItem.who,
-      };
-    }
-  }
-
-  accumulator.push(currentItem);
-  return accumulator;
 }
