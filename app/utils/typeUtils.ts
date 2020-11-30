@@ -44,6 +44,10 @@ export function getAllSameValue<T>(values: T[], iteratee?: (value: T) => any): T
   }
 }
 
+export function getSign(value: number): number {
+  return value === 0 ? 0 : value > 0 ? 1 : -1;
+}
+
 /**
  * Split total into roughly equal parts, each of size parts, and return the
  * lengths.

@@ -9,7 +9,7 @@
 import * as _ from 'lodash';
 
 import { andJoin } from '../../utils/textUtils';
-import { arrayify, isAllSame } from '../../utils/typeUtils';
+import { arrayify, getAllSameValue, getSign, isAllSame } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import { allElementsShortName } from './typeHelpers';
 
@@ -58,6 +58,7 @@ export function lowerCaseFirst(s: string): string {
 }
 
 export const numberOrUnknown = (n: number) => (isNaN(n) ? '?' : n.toString());
+export const absNumberOrUnknown = (n: number) => (isNaN(n) ? '?' : Math.abs(n).toString());
 export const fixedNumberOrUnknown = (n: number, fractionDigits: number) =>
   isNaN(n) ? '?' : n.toFixed(fractionDigits);
 
@@ -102,6 +103,15 @@ export function numberSlashList(
     );
   } else {
     return values.join(joinString);
+  }
+}
+
+export function signedNumberSlashList(n: number | number[], joinString = '/') {
+  const sign = getAllSameValue(arrayify(n).filter(i => i !== 0), getSign);
+  if (sign == null) {
+    return numberSlashList(n, signedNumber, joinString);
+  } else {
+    return (sign === -1 ? '-' : '+') + numberSlashList(n, absNumberOrUnknown, joinString);
   }
 }
 

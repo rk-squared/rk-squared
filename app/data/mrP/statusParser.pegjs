@@ -40,7 +40,7 @@ EffectClause
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
-  / BurstToggle / TrackUses / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze
+  / BurstToggle / TrackUses / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
   / ResetTarget / NoEffect / Persists / GameOver / Unknown
 
 
@@ -376,7 +376,8 @@ SecondsInterval
 // Inflict / resist KO
 
 Ko
-  = "HP = 0 when set" { return { type: 'ko' }; }
+  = "HP = 0 when set" { return { type: 'ko' }; } // "Instant KO" status (ID 214)
+  / "KO'd, can't act, persists after battle" { return { type: 'ko' }; } // "KO" (ID 999)
 
 LastStand
   = "Prevents KO once, restoring HP for 1% maximum HP" { return { type: 'lastStand' }; }
@@ -643,7 +644,10 @@ Ai
 
 Paralyze
   = "Arrests"i _ "ATB charge rate, can't act" ", resets ATB when set"? { return { type: 'paralyze' }; }
-  / "Can't"i _ "act, resets ATB when set or removed" { return { type: 'paralyze' }; }
+  / "Can't"i _ "act" ", resets ATB when set or removed"? { return { type: 'paralyze' }; }
+
+Stun
+  = "Resets"i _ "ATB when set"? { return { type: 'stun' }; }
 
 ResetTarget
   = "Will"i _ "remove any" _ "Active Targeting"i _ "upon selecting the random action" { return null; }

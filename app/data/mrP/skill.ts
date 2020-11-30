@@ -439,11 +439,12 @@ function checkStacking(
   if (statusName.replace(/[0-9\/]+/, 'X') === prereq.replace(/[0-9\/]+/, 'X')) {
     // Enlir lists, e.g., 'Warlord Mode 1/2/3/3' to show that it doesn't stack
     // further.  Remove the redundancy.
+    // TODO: Is this still needed after the latest rework of status code?
     statusName = statusName.replace(/(\d)\/\1/, '$1');
-    return [{ type: 'standardStatus', name: statusName }, true];
+    return [{ ...status.status, type: 'standardStatus', name: statusName }, true];
   }
 
-  return [{ type: 'standardStatus', name: statusName }, false];
+  return [{ ...status.status, type: 'standardStatus', name: statusName }, false];
 }
 
 function formatStatusDescription(

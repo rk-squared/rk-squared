@@ -90,7 +90,8 @@ export type EffectClause =
   | BurstReset
   | StatusReset
   | DisableAttacks
-  | Paralyze;
+  | Paralyze
+  | Stun;
 
 // --------------------------------------------------------------------------
 // Stat mods
@@ -98,7 +99,7 @@ export type EffectClause =
 export interface StatMod {
   type: 'statMod';
   stats: common.ValueOrPlaceholder<EnlirStat | EnlirStat[]>;
-  value: common.SignedValueOrPlaceholder<number>;
+  value: common.SignedValueOrPlaceholder<number | number[]>;
   ignoreBuffCap?: boolean;
 }
 
@@ -226,23 +227,23 @@ interface FixedStoneskin {
   damage: number;
 }
 
-interface DamageBarrier {
+export interface DamageBarrier {
   type: 'damageBarrier';
-  value: number;
+  value: number | number[];
   attackCount: number;
 }
 
 // --------------------------------------------------------------------------
 // Radiant shield, reflect
 
-interface RadiantShield {
+export interface RadiantShield {
   type: 'radiantShield';
   value: number | number[];
   element?: EnlirElement;
   overflow: boolean;
 }
 
-interface Reflect {
+export interface Reflect {
   type: 'reflect';
 }
 
@@ -389,7 +390,7 @@ interface DamageCap {
 
 interface HpStock {
   type: 'hpStock';
-  value: common.ValueOrPlaceholder<number>;
+  value: common.ValueOrPlaceholder<number | number[]>;
 }
 
 interface Regen {
@@ -726,6 +727,10 @@ interface DisableAttacks {
 
 interface Paralyze {
   type: 'paralyze';
+}
+
+interface Stun {
+  type: 'stun';
 }
 
 // --------------------------------------------------------------------------

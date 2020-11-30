@@ -54,6 +54,7 @@ import {
   numberSlashList,
   percentToMultiplier,
   signedNumber,
+  signedNumberSlashList,
   slashMerge,
   toMrPFixed,
   toMrPKilo,
@@ -946,7 +947,7 @@ function describeStatusEffect(
   switch (effect.type) {
     case 'statMod':
       return (
-        signedNumber(resolve.x(effect.value)) +
+        signedNumberSlashList(resolve.x(effect.value)) +
         uncertain(resolve.isUncertain) +
         '% ' +
         describeStats(arrayify(resolve.stat(effect.stats)))
@@ -1044,7 +1045,7 @@ function describeStatusEffect(
         ' only)'
       );
     case 'damageBarrier':
-      return effect.value + '% Dmg barrier ' + effect.attackCount;
+      return numberSlashList(effect.value) + '% Dmg barrier ' + effect.attackCount;
     case 'radiantShield': {
       let result =
         'Reflect Dmg' +
@@ -1129,7 +1130,7 @@ function describeStatusEffect(
       return 'dmg cap +' + toMrPKilo(effect.value);
     case 'hpStock':
       // Skip valueIsUncertain; HP stock values are always documented.
-      return 'Autoheal ' + toMrPKilo(effect.value);
+      return 'Autoheal ' + numberSlashList(resolve.x(effect.value), toMrPKilo);
     case 'regen':
       // Show regen details.  The standard low/medium/high regen are aliased elsewhere.
       return `regen ${effect.percentHp}% HP per ${effect.interval.toFixed(2)}s`;
@@ -1255,6 +1256,8 @@ function describeStatusEffect(
       return "can't " + formatAnyType(effect, ' ') + 'atk';
     case 'paralyze':
       return "can't act";
+    case 'stun':
+      return 'stun';
   }
 }
 
@@ -1389,10 +1392,16 @@ function getSlashOptions(s: string): string[] | null {
     return null;
   }
   let options = m[0].split('/');
-  // Make sure we consistently have a multiplier sign and/or percent sign (if
-  // appropriate) at the beginning or end.
+  // Make sure we consistently have signs (if appropriate) at the beginning or
+  // end.
   if (options[0].startsWith('x')) {
     options = options.map(i => i.replace(/^[^x]/, c => 'x' + c));
+  }
+  if (options[0].startsWith('+')) {
+    options = options.map(i => i.replace(/^[^+-]/, c => '+' + c));
+  }
+  if (options[0].startsWith('-')) {
+    options = options.map(i => i.replace(/^[^+-]/, c => '-' + c));
   }
   if (options[options.length - 1].endsWith('x')) {
     options = options.map(i => i.replace(/[^x]$/, c => c + 'x'));
@@ -1626,6 +1635,8 @@ export function resolveStatuses(statuses: common.StatusWithPercent[]) {
 function tryToMergeEffects(
   effectA: statusTypes.StatusEffect,
   effectB: statusTypes.StatusEffect,
+  placeholdersA?: EnlirStatusPlaceholders,
+  placeholdersB?: EnlirStatusPlaceholders,
 ): statusTypes.StatusEffect | undefined {
   if (effectA.length !== 1 || effectB.length !== 1) {
     return undefined;
@@ -1637,13 +1648,36 @@ function tryToMergeEffects(
     return undefined;
   }
 
-  if (
-    a.type === 'radiantShield' &&
-    b.type === 'radiantShield' &&
-    a.element === b.element &&
-    a.overflow === b.overflow
-  ) {
-    return [{ ...a, value: _.flatten([a.value, b.value]) }];
+  const resolve = (
+    value: common.SignedValueOrPlaceholder<number | number[]>,
+    placeholder?: EnlirStatusPlaceholders,
+  ) => {
+    const placeholderValue =
+      placeholder && placeholder.xValue != null ? placeholder.xValue : undefined;
+    if (value === '-X') {
+      return placeholderValue != null ? -placeholderValue : undefined;
+    } else if (value === 'X') {
+      return placeholderValue != null ? placeholderValue : undefined;
+    } else {
+      return value;
+    }
+  };
+
+  for (const type of [
+    'critChance',
+    'damageBarrier',
+    'damageUp',
+    'hpStock',
+    'radiantShield',
+    'statMod',
+  ] as const) {
+    if (a.type === type && b.type === type && _.isEqual(_.omit(a, 'value'), _.omit(b, 'value'))) {
+      const valueA = resolve(a.value, placeholdersA);
+      const valueB = resolve(b.value, placeholdersB);
+      return valueA == null || valueB == null
+        ? undefined
+        : [{ ...a, value: _.flatten([valueA, valueB]) }];
+    }
   }
 
   return undefined;
@@ -1663,7 +1697,12 @@ export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
       continue;
     }
 
-    const merged = tryToMergeEffects(prev.status.effects, i.status.effects);
+    const merged = tryToMergeEffects(
+      prev.status.effects,
+      i.status.effects,
+      prev.status.placeholders,
+      i.status.placeholders,
+    );
     if (!merged) {
       newStatuses.push(i);
       continue;
