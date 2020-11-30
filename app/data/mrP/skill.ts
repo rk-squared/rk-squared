@@ -434,17 +434,15 @@ function checkStacking(
     return [status.status, false];
   }
 
-  let statusName = status.status.name;
+  // Enlir lists, e.g., 'Warlord Mode 1/2/3/3' to show that it doesn't stack
+  // further.  Remove the redundancy.  We used to have logic here to remove that
+  // redundancy, but it fits poorly with the new resolveStatuses /
+  // mergeSimilarStatuses code, and it's not worth the complexity.
   const prereq = effect.condition.status;
-  if (statusName.replace(/[0-9\/]+/, 'X') === prereq.replace(/[0-9\/]+/, 'X')) {
-    // Enlir lists, e.g., 'Warlord Mode 1/2/3/3' to show that it doesn't stack
-    // further.  Remove the redundancy.
-    // TODO: Is this still needed after the latest rework of status code?
-    statusName = statusName.replace(/(\d)\/\1/, '$1');
-    return [{ ...status.status, type: 'standardStatus', name: statusName }, true];
-  }
+  const isStacking =
+    status.status.name.replace(/[0-9\/]+/, 'X') === prereq.replace(/[0-9\/]+/, 'X');
 
-  return [{ ...status.status, type: 'standardStatus', name: statusName }, false];
+  return [status.status, isStacking];
 }
 
 function formatStatusDescription(

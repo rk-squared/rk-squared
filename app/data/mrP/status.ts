@@ -1638,16 +1638,11 @@ function tryToMergeEffects(
   placeholdersA?: EnlirStatusPlaceholders,
   placeholdersB?: EnlirStatusPlaceholders,
 ): statusTypes.StatusEffect | undefined {
-  if (effectA.length !== 1 || effectB.length !== 1) {
+  if (effectA.length !== effectB.length) {
     return undefined;
   }
 
-  const a = effectA[0];
-  const b = effectB[0];
-  if (a.type !== b.type) {
-    return undefined;
-  }
-
+  const placeholdersEqual = _.isEqual(placeholdersA, placeholdersB);
   const resolve = (
     value: common.SignedValueOrPlaceholder<number | number[]>,
     placeholder?: EnlirStatusPlaceholders,
@@ -1663,30 +1658,57 @@ function tryToMergeEffects(
     }
   };
 
-  for (const type of [
-    'critChance',
-    'damageBarrier',
-    'damageUp',
-    'hpStock',
-    'radiantShield',
-    'statMod',
-  ] as const) {
-    if (a.type === type && b.type === type && _.isEqual(_.omit(a, 'value'), _.omit(b, 'value'))) {
-      const valueA = resolve(a.value, placeholdersA);
-      const valueB = resolve(b.value, placeholdersB);
-      return valueA == null || valueB == null
-        ? undefined
-        : [{ ...a, value: _.flatten([valueA, valueB]) }];
+  const result: statusTypes.StatusEffect = [];
+  for (let i = 0; i < effectA.length; i++) {
+    const a = effectA[i];
+    const b = effectB[i];
+    if (a.type !== b.type) {
+      return undefined;
+    }
+
+    if (_.isEqual(a, b) && placeholdersEqual) {
+      result.push(a);
+      continue;
+    }
+
+    let match = false;
+    for (const type of [
+      'castSpeed',
+      'critChance',
+      'damageBarrier',
+      'damageUp',
+      'hpStock',
+      'radiantShield',
+      'statMod',
+    ] as const) {
+      if (a.type === type && b.type === type && _.isEqual(_.omit(a, 'value'), _.omit(b, 'value'))) {
+        const valueA = resolve(a.value, placeholdersA);
+        const valueB = resolve(b.value, placeholdersB);
+        if (valueA == null || valueB == null) {
+          return undefined;
+        }
+        result.push({ ...a, value: _.flatten([valueA, valueB]) });
+        match = true;
+        break;
+      }
+    }
+
+    if (!match) {
+      return undefined;
     }
   }
 
-  return undefined;
+  return result;
 }
 
 export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
   const newStatuses: common.StatusWithPercent[] = [];
   for (const i of statuses) {
-    if (i.status.type !== 'standardStatus' || !i.status.effects) {
+    if (
+      i.status.type !== 'standardStatus' ||
+      wellKnownStatuses.has(i.status.name) ||
+      !i.status.effects
+    ) {
       newStatuses.push(i);
       continue;
     }
