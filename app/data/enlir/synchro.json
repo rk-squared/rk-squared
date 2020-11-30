@@ -314,7 +314,7 @@
   },
   {
     "character": "Meia",
-    "source": "True Undine",
+    "source": "Primal Undine",
     "name": "Surfacing Water",
     "synchroAbilitySlot": 1,
     "synchroCondition": "Water",
@@ -339,7 +339,7 @@
   },
   {
     "character": "Meia",
-    "source": "True Undine",
+    "source": "Primal Undine",
     "name": "Heretic Witch",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Water",

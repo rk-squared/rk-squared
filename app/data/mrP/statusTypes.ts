@@ -212,13 +212,13 @@ interface ElementBlink {
 interface Stoneskin {
   type: 'stoneskin';
   element?: EnlirElement;
-  percentHp: number;
+  value: number | number[]; // percent HP
 }
 
 interface MagiciteStoneskin {
   type: 'magiciteStoneskin';
   element: EnlirElement;
-  percentHp: number;
+  value: number; // percent HP
 }
 
 interface FixedStoneskin {
@@ -283,7 +283,7 @@ interface SwitchDrawStacking {
 
 interface ElementAttack {
   type: 'elementAttack';
-  element: EnlirElement;
+  element: EnlirElement | EnlirElement[];
   value: number;
 }
 
@@ -295,7 +295,7 @@ interface ElementResist {
 
 interface EnElement {
   type: 'enElement';
-  element: EnlirElement;
+  element: EnlirElement | EnlirElement[];
 }
 
 interface EnElementStacking {

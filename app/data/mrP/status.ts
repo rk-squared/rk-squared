@@ -935,12 +935,25 @@ function makePlaceholderResolvers(placeholders: EnlirStatusPlaceholders | undefi
           : NaN
         : value,
     stat: <T extends EnlirStat | EnlirStat[]>(value: T | common.Placeholder) =>
-      value === common.placeholder ? placeholders!.stat! : value,
+      value === common.placeholder
+        ? placeholders && placeholders.stat
+          ? placeholders.stat
+          : 'atk'
+        : value,
     element: <T extends EnlirElement | EnlirElement[]>(value: T | common.Placeholder) =>
-      value === common.placeholder ? placeholders!.element! : value,
+      value === common.placeholder
+        ? placeholders && placeholders.element
+          ? placeholders.element
+          : 'NE'
+        : value,
     anyType: <T extends AnyType>(value: AnyTypeOrPlaceholder) => ({
       ...value,
-      school: value.school === common.placeholder ? placeholders!.school! : value.school,
+      school:
+        value.school === common.placeholder
+          ? placeholders && placeholders.school
+            ? placeholders.school
+            : '?'
+          : value.school,
     }),
   };
 }
@@ -1034,14 +1047,14 @@ function describeStatusEffect(
     case 'stoneskin':
       return (
         'Negate dmg ' +
-        effect.percentHp +
+        numberSlashList(effect.value) +
         '%' +
         (effect.element ? ' (' + getElementShortName(effect.element) + ' only)' : '')
       );
     case 'magiciteStoneskin':
       return (
         'Negate dmg ' +
-        effect.percentHp +
+        effect.value +
         '% magicite HP (' +
         getElementShortName(effect.element) +
         ' only)'
@@ -1079,7 +1092,7 @@ function describeStatusEffect(
     case 'switchDrawStacking':
       return formatSwitchDraw(effect.elements, true, effect.level);
     case 'elementAttack':
-      return signedNumber(effect.value) + '% ' + getElementShortName(effect.element) + ' dmg';
+      return signedNumber(effect.value) + '% ' + getElementShortName(effect.element, '/') + ' dmg';
     case 'elementResist':
       return (
         signedNumber(-resolve.x(effect.value)) +
@@ -1089,7 +1102,7 @@ function describeStatusEffect(
         ' vuln.'
       );
     case 'enElement':
-      return getElementShortName(effect.element) + ' infuse';
+      return getElementShortName(effect.element, '/') + ' infuse';
     case 'enElementStacking':
       return getElementShortName(effect.element) + ' infuse stacking';
     case 'enElementWithStacking':
@@ -1682,6 +1695,7 @@ function tryToMergeEffects(
       'hpStock',
       'radiantShield',
       'statMod',
+      'stoneskin',
     ] as const) {
       if (a.type === type && b.type === type && _.isEqual(_.omit(a, 'value'), _.omit(b, 'value'))) {
         const valueA = resolveA.x(a.value);
@@ -1692,7 +1706,7 @@ function tryToMergeEffects(
       }
     }
 
-    for (const type of ['elementResist'] as const) {
+    for (const type of ['elementAttack', 'elementResist', 'enElement'] as const) {
       if (
         a.type === type &&
         b.type === type &&

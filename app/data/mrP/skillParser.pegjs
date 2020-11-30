@@ -742,7 +742,7 @@ GenericName
         / (('in' / 'or' / 'of' / 'the' / 'with' / '&' / 'a') & ' ')
         // "for" and "to" in particular needs extra logic to ensure that
         // they're part of status words instead of part of later clauses.
-        / ("for" / "to") _ GenericNameWord
+        / ("for" / "to" / "and") _ ("an" / "a")? _ GenericNameWord
 
         / [=*+-]? Integer ([%]? '/' [+-]? Integer)* [%+]?
         / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) ')'

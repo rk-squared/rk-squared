@@ -149,13 +149,13 @@ AttacksThatDeal
   = "attack" "s"? _ "that deal" "s"?
 
 Stoneskin
-  = "Reduces" _ element:Element? _ "damage taken to 0, up to an amount" _ ("of damage")? _ "equal to" _ percentHp:Integer "% of the character's maximum HP" {
-    return { type: 'stoneskin', element, percentHp };
+  = "Reduces" _ element:Element? _ "damage taken to 0, up to an amount" _ ("of damage")? _ "equal to" _ value:Integer "% of the character's maximum HP" {
+    return { type: 'stoneskin', element, value };
   }
 
 MagiciteStoneskin
-  = "Reduces" _ element:Element _ "damage taken to 0, up to an amount" _ ("of damage")? _ "equal to" _ percentHp:Integer "% of the Magicite's maximum HP" {
-    return { type: 'magiciteStoneskin', element, percentHp };
+  = "Reduces" _ element:Element _ "damage taken to 0, up to an amount" _ ("of damage")? _ "equal to" _ value:Integer "% of the Magicite's maximum HP" {
+    return { type: 'magiciteStoneskin', element, value };
   }
 
 FixedStoneskin
@@ -441,8 +441,8 @@ TriggeredEffect
   = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? tail2:("," _ BareTriggerableEffect)* onceOnly:("," _ OnceOnly)? {
     return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: !!onceOnly }, condition);
   }
-  // Alternate form for complex effects - used by Orlandeau's SASB
-  / trigger:Trigger "," _ head:TriggerableEffect _ tail:("," _ TriggerableEffect)* {
+  // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
+  / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* {
     return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2) };
   }
 
@@ -681,6 +681,7 @@ Trigger
   / "by"i _ skillType:SkillType _ "attacks" { return { type: 'damaged', skillType }; }
   / "upon"i _ "dealing damage" { return { type: 'dealDamage' }; }
   / "when"i _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
+  / "when"i _ "any"? _ status:StatusNameNoBrackets _ "is removed" { return { type: 'loseStatus', status }; }
   / ("when"i _ / "after"i) _ "using" _ skill:AnySkillName _ count:Occurrence? {
     // Hack: "or" is a valid skill name, but in this context, assume it's separating synchro commands.
     if (skill.match(/ or /)) {
@@ -936,7 +937,7 @@ GenericName
         / (('in' / 'or' / 'of' / 'the' / 'with' / '&' / 'a') & ' ')
         // "for" and "to" in particular needs extra logic to ensure that
         // they're part of status words instead of part of later clauses.
-        / ("for" / "to") _ GenericNameWord
+        / ("for" / "to" / "and") _ ("an" / "a")? _ GenericNameWord
 
         / [=*+-]? Integer ([%]? '/' [+-]? Integer)* [%+]?
         / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) ')'
