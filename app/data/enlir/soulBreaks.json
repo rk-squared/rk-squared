@@ -12626,7 +12626,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grant [Tri-Element Mode II (Water/Earth/Holy)], Summoning smart ether 2",
+    "effects": "Grants [Tri-Element Mode II (Water/Earth/Holy)], Summoning smart ether 2",
     "counter": false,
     "autoTarget": "Self",
     "points": 0,
@@ -50171,7 +50171,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [50% Damage Reduction Barrier 1]/[Weakness +15% Boost] and [50% Damage Reduction Barrier 1]/[Weakness +30% Boost] and [75% Damage Reduction Barrier 1] to all allies if 0-1/2-3/4+ XII members are alive, grants [Attach Lightning], [Awoken Lightning] and [Damage Cap +10000] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [50% Damage Reduction Barrier 1]/[Weakness +15% Boost] and [50% Damage Reduction Barrier 1]/[Weakness +30% Boost] and [75% Damage Reduction Barrier 1] to all allies if 0-1/2-3/4+ XII allies are alive, grants [Attach Lightning], [Awoken Lightning] and [Damage Cap +10000] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

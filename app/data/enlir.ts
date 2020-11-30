@@ -901,6 +901,12 @@ function patchEnlir() {
         "White Magic abilities don't consume uses, grants [Stoneskin: 30/40/50/60/70%] at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities";
     },
   );
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Items +1',
+    "Increases Items level by 1 after using Potato Masher, removed if user hasn't Synchro Mode",
+    'Increases Items level by 1 when set',
+  );
 
   // Legend materia.  These, too, should be upstreamed if possible.
   applyPatch(
@@ -1048,6 +1054,18 @@ function patchEnlir() {
   // below.
   applyEffectsPatch(
     enlir.soulBreaks,
+    '20210005', // Celes - Maria's Song
+    'ATK and MAG +30% to all allies for 25 seconds, grants [Haste], [Attach Holy] and [Burst Mode] to the user',
+    '[ATK and MAG +30%] to all allies for 25 seconds, grants [Haste], [Attach Holy] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22070002', // Kefka - Magic Infusion
+    'MAG +20% for 25 seconds, grants [Haste]',
+    '[MAG +20%] for 25 seconds, grants [Haste]',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
     '22500004', // Angeal - Idle Rage
     'Ten single attacks (0.71 each), grants 100% Critical to the user, ' +
       'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
@@ -1080,6 +1098,12 @@ function patchEnlir() {
   );
   applyEffectsPatch(
     enlir.soulBreaks,
+    '20840006', // Quina - Culinary Curiosity
+    'ATK +50% for 25 seconds, grants [Protect], [Shell] and [Haste]',
+    '[ATK +50%] for 25 seconds, grants [Protect], [Shell] and [Haste]',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
     '20690002', // Auron - Dragon Fang
     'One group attack (3.20), ATK -50% for 25 seconds',
     'One group attack (3.20), [ATK -50%] for 25 seconds',
@@ -1095,6 +1119,12 @@ function patchEnlir() {
     '23200002', // Ignis - Stalwart Cook
     'ATK and RES +30% for 25 seconds, grants [Haste], grants [Ingredients +2] and [Burst Mode] to the user',
     '[ATK and RES +30%] for 25 seconds, grants [Haste], grants [Ingredients +2] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22700004', // Rapha - Miracle of Scorpio
+    'MAG +30% for 25 seconds, grants [Haste] and [Magical Quick Cast 3], grants [Attach Lightning] to the user',
+    '[MAG +30%] for 25 seconds, grants [Haste] and [Magical Quick Cast 3], grants [Attach Lightning] to the user',
   );
   applyEffectsPatch(
     enlir.abilitiesByName,
@@ -1393,7 +1423,10 @@ export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
   return result ? result.status : undefined;
 }
 
-const getTrueArcaneBaseName = (sb: EnlirSoulBreak) => sb.name.replace(/ \(Release\)$/, '');
+const getTrueArcaneBaseName = (sb: EnlirSoulBreak) =>
+  // To accommodate Rydia's Gaia's Rage, we have to remove realm suffixes as
+  // well as "(Release)".
+  sb.name.replace(/ \(Release\)$/, '').replace(/ \([IV]+\)$/, '');
 
 /**
  * For a true arcane soul break (TASB), gets the associated status that
