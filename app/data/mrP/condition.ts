@@ -4,7 +4,7 @@ import { arrayifyLength, KeysOfType } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import { describeEnlirStatus } from './status';
-import { statusLevelAlias, statusLevelText, vsWeak } from './statusAlias';
+import { displayStatusLevel, statusLevelAlias, statusLevelText, vsWeak } from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import { formatNumberSlashList, formatUseCount, formatUseNumber, orList } from './util';
 
@@ -74,7 +74,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
           : condition.article + ' ' + condition.equipped)
       );
     case 'scaleWithStatusLevel': {
-      const status = statusLevelAlias[condition.status] || condition.status;
+      const status = displayStatusLevel(condition.status);
       if (!count) {
         return 'w/ ' + status;
       } else {

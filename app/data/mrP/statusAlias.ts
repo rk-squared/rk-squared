@@ -73,6 +73,14 @@ export const statusLevelAlias: _.Dictionary<string> = {
   Stoneskin: 'Neg. Dmg.',
   'Heavy Charge': 'Hvy Charge',
   'Damage Reduction Barrier': 'Dmg barrier',
+
+  // Soul break-specific status levels that are given their own text for
+  // historical reasons.
+  // Ingredients: 'ingred.',
 };
 
-Object.assign(statusLevelAlias);
+// We used to show the status name if we didn't have an alias, but there are
+// lots of one-off status levels (like Ignis BSB and many synchros), so I like
+// generic text better.
+export const displayStatusLevel = (statusName: string) =>
+  statusLevelAlias[statusName] || statusLevelText;

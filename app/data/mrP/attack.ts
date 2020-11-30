@@ -606,7 +606,12 @@ export function describeAttack(
   damage += attackDamage.damage;
 
   // Hack: Insert (SUM) if needed for hybrid attacks.
-  if (hasSkillType(skill, 'SUM') && school !== 'Summoning' && attack.isHybrid) {
+  if (
+    attack.isHybrid &&
+    skill.typeDetails &&
+    skill.typeDetails[0] === 'SUM' &&
+    school !== 'Summoning'
+  ) {
     damage += ' (SUM)';
   }
 
@@ -615,6 +620,16 @@ export function describeAttack(
     damage += formatDamageType(hybridDamageType, abbreviate);
     damage += isHybridPiercing(skill, attack) ? '^' : '';
     damage += attackDamage.hybridDamage;
+
+    // Hack: Insert (SUM) if needed for hybrid attacks.
+    if (
+      attack.isHybrid &&
+      skill.typeDetails &&
+      skill.typeDetails[1] === 'SUM' &&
+      school !== 'Summoning'
+    ) {
+      damage += ' (SUM)';
+    }
   }
 
   damage += attack.isScalingOverstrike ? ' w/ 9k/19k/29k cap' : '';
@@ -673,7 +688,8 @@ export function describeAttack(
       ', default ' + damageTypeAbbreviation(attackDamage.damageType) + attackDamage.defaultDamage;
   }
   if (attack.minDamage && attack.minDamage > 1) {
-    damage += `, min dmg ${attack.minDamage}`;
+    const caption = attack.isHybrid ? 'min dmg (SUM)' : 'min dmg';
+    damage += `, ${caption} ${attack.minDamage}`;
   }
   if (attack.damageModifier) {
     const damageModifier = arrayify(attack.damageModifier);

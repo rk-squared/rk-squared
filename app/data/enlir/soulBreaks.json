@@ -4851,7 +4851,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [40% Damage Reduction Barrier 2]/[40% Damage Reduction Barrier 2] and [Weakness +15% Boost]/[40% Damage Reduction Barrier 3] and [Weakness +30% Boost] to the all allies if 0-1/2-3/4+ I allies are alive, grants [Awoken Thief] and [Damage Cap +10000] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [40% Damage Reduction Barrier 2]/[40% Damage Reduction Barrier 2] and [Weakness +15% Boost]/[40% Damage Reduction Barrier 3] and [Weakness +30% Boost] to all allies if 0-1/2-3/4+ I allies are alive, grants [Awoken Thief] and [Damage Cap +10000] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -7358,7 +7358,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30%] (25s)] and [Last Stand] to all allies, grants [High Quick Cast 1]/[High Quick Cast 1] and [Weakness +15% Boost]/[High Quick Cast 1] and [Weakness +30% Boost] to the user/all allies/all allies if 0/2/4+ FF2 allies are alive, grants [Awoken Monk] and [Damage Cap +10000] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] and [Last Stand] to all allies, grants [High Quick Cast 1]/[High Quick Cast 1] and [Weakness +15% Boost]/[High Quick Cast 1] and [Weakness +30% Boost] to the user/all allies/all allies if 0/2/4+ FF2 allies are alive, grants [Awoken Monk] and [Damage Cap +10000] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -9199,7 +9199,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30%] (25s)] to all allies, grants [Awoken Fire], [Damage Cap +10000], [Blacksmith's Daughter Follow-Up] and [Explosive Palm] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Awoken Fire], [Damage Cap +10000], [Blacksmith's Daughter Follow-Up] and [Explosive Palm] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -26488,7 +26488,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30%] (25s)] to all allies, grants [Instant Cast 1] to the user/[Instant Cast 1] and [Weakness +15% Boost] to all allies/[Instant Cast 1] and [Weakness +30% Boost] to all allies if 1/2/4+ FF7 allies are alive, grants [Awoken Fire] and [Damage Cap +10000] to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Instant Cast 1] to the user/[Instant Cast 1] and [Weakness +15% Boost] to all allies/[Instant Cast 1] and [Weakness +30% Boost] to all allies if 1/2/4+ FF7 allies are alive, grants [Awoken Fire] and [Damage Cap +10000] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -51136,7 +51136,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30%] (25s)] to all allies, grants [HP Stock (2000)]/[HP Stock (3000)] and [Weakness +15% Boost]/[HP Stock (6000)] and [Weakness +30% Boost] to allies if 1/2-3/4+ XIII members are alive, grants [Awoken Ice], [Damage Cap +10000] and [Eternal Vow Mode] to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [HP Stock (2000)]/[HP Stock (3000)] and [Weakness +15% Boost]/[HP Stock (6000)] and [Weakness +30% Boost] to all allies if 1/2-3/4+ XIII allies are alive, grants [Awoken Ice], [Damage Cap +10000] and [Eternal Vow Mode] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -56238,7 +56238,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30%] (25s)] to all allies, grants [50% Damage Reduction Barrier 1]/[50% Damage Reduction Barrier 1] and [Weakness +15% Boost]/[75% Damage Reduction Barrier 1] and [Weakness +30% Boost] to all allies if 1/2/4+ FF14 allies are alive, grants [Attach Holy], [Awoken Knight] and [Damage Cap +10000] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [50% Damage Reduction Barrier 1]/[50% Damage Reduction Barrier 1] and [Weakness +15% Boost]/[75% Damage Reduction Barrier 1] and [Weakness +30% Boost] to all allies if 1/2/4+ FF14 allies are alive, grants [Attach Holy], [Awoken Knight] and [Damage Cap +10000] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -57500,7 +57500,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to the all allies if 0-1/2-3/4+ XV allies are alive, grants [Awoken Fire], [Damage Cap +10000], [Quick Cast] and [Fire SB Gauge +25% Boost] to the user",
+    "effects": "Fifteen single attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to all allies if 0-1/2-3/4+ XV allies are alive, grants [Awoken Fire], [Damage Cap +10000], [Quick Cast] and [Fire SB Gauge +25% Boost] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
@@ -61504,7 +61504,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Causes [ATK, DEF, MAG, RES and MND -50% (25s)], grants [ATK, DEF, MAG and RES +30%] (25s)] to all allies, grants [Synchro Mode] and [Damage Cap +10000] to the user",
+    "effects": "Causes [ATK, DEF, MAG, RES and MND -50% (25s)], grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Synchro Mode] and [Damage Cap +10000] to the user",
     "counter": false,
     "autoTarget": "All enemies",
     "points": 500,
@@ -64317,7 +64317,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to the all allies if 0-1/2-3/4+ Type-0 allies are alive, grants [Awoken Engineer], [Damage Cap +10000] and [Heavy Debuff Shot Follow-Up] to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to all allies if 0-1/2-3/4+ Type-0 allies are alive, grants [Awoken Engineer], [Damage Cap +10000] and [Heavy Debuff Shot Follow-Up] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

@@ -1108,6 +1108,12 @@ function patchEnlir() {
     'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants ATK and RES +30%, [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
     'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants [ATK and RES +30%], [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
   );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23200002', // Ignis - Stalwart Cook
+    'ATK and RES +30% for 25 seconds, grants [Haste], grants [Ingredients +2] and [Burst Mode] to the user',
+    '[ATK and RES +30%] for 25 seconds, grants [Haste], grants [Ingredients +2] and [Burst Mode] to the user',
+  );
 
   // Add explicit "grants" and "causes" verbs.  This greatly simplifies parsing.
   applyEffectsPatch(

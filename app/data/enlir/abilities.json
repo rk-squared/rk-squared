@@ -3058,7 +3058,7 @@
       "Wind"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (3.50 each), followed by one single attack (18.40), ignores RES",
+    "effects": "Four single attacks (3.50 each), followed by one single attack (18.40) that ignores RES",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -3717,7 +3717,7 @@
       "Wind"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (3.50 each), followed by one single attack (18.40), ignores RES",
+    "effects": "Four single attacks (3.50 each), followed by one single attack (18.40) that ignores RES",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

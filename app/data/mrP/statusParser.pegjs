@@ -1159,6 +1159,12 @@ Realm "realm"
   / "KH"
   / "Type-0"
   // Newer Enlir data writes realms this way.  TODO: Standardize?
+  / "FF10" { return 'X'; }
+  / "FF11" { return 'XI'; }
+  / "FF12" { return 'XII'; }
+  / "FF13" { return 'XIII'; }
+  / "FF14" { return 'XIV'; }
+  / "FF15" { return 'XV'; }
   / "FF1" { return 'I'; }
   / "FF2" { return 'II'; }
   / "FF3" { return 'III'; }
@@ -1168,12 +1174,6 @@ Realm "realm"
   / "FF7" { return 'VII'; }
   / "FF8" { return 'VIII'; }
   / "FF9" { return 'IX'; }
-  / "FF10" { return 'X'; }
-  / "FF11" { return 'XI'; }
-  / "FF12" { return 'XII'; }
-  / "FF13" { return 'XIII'; }
-  / "FF14" { return 'XIV'; }
-  / "FF15" { return 'XV'; }
 
 
 // --------------------------------------------------------------------------

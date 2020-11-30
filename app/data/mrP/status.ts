@@ -24,6 +24,7 @@ import { describeCondition, formatThreshold } from './condition';
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, describeRecoilHp, formatMrPSkill } from './skill';
 import {
+  displayStatusLevel,
   formatSmartEther,
   formatSpecialStatusItem,
   lowHpAlias,
@@ -361,8 +362,7 @@ function forceDetail({ name }: EnlirStatus) {
     name === 'High Runic' ||
     name === 'Sentinel' ||
     name === 'Unyielding Fist' ||
-    name === 'Haurchefant Cover' ||
-    name.startsWith('Ingredients ')
+    name === 'Haurchefant Cover'
   );
 }
 
@@ -1249,18 +1249,18 @@ function describeStatusEffect(
       return getTriggerPreposition(effect.trigger) + ' ' + formatTrigger(effect.trigger, source);
     case 'changeStatusLevel':
       return addTrigger(
-        (statusLevelAlias[effect.status] || effect.status) + ' ' + signedNumber(effect.value),
+        displayStatusLevel(effect.status) + ' ' + signedNumber(effect.value),
         effect.trigger,
         source,
       );
     case 'setStatusLevel':
       if (effect.value) {
-        return (statusLevelAlias[effect.status] || effect.status) + ' =' + effect.value;
+        return displayStatusLevel(effect.status) + ' =' + effect.value;
       } else {
-        return 'reset ' + (statusLevelAlias[effect.status] || effect.status);
+        return 'reset ' + displayStatusLevel(effect.status);
       }
     case 'statusLevelBooster':
-      return `+${effect.value} to all ${statusLevelAlias[effect.status] || effect.status} gains`;
+      return `+${effect.value} to all ${displayStatusLevel(effect.status)} gains`;
     case 'burstToggle':
       // Manually handled elsewhere. TODO: Consolidate duplicated logic.
       return null;
