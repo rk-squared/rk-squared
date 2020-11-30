@@ -605,6 +605,11 @@ export function describeAttack(
   damage += isPiercing(skill, attack) ? '^' : '';
   damage += attackDamage.damage;
 
+  // Hack: Insert (SUM) if needed for hybrid attacks.
+  if (hasSkillType(skill, 'SUM') && school !== 'Summoning' && attack.isHybrid) {
+    damage += ' (SUM)';
+  }
+
   if (hybridDamageType) {
     damage += ' or ';
     damage += formatDamageType(hybridDamageType, abbreviate);
@@ -688,8 +693,10 @@ export function describeAttack(
       ', air time ' + formatNumberSlashList(attack.airTime, i => fixedNumberOrUnknown(i, 2)) + 's';
     damage += appendCondition(attack.airTimeCondition, attack.airTime);
   }
-  // Omit ' (SUM)' for Summoning school; it seems redundant.
-  damage += hasSkillType(skill, 'SUM') && school !== 'Summoning' ? ' (SUM)' : '';
+  // Omit ' (SUM)' for Summoning school; it seems redundant.  Hybrid is handled
+  // above.
+  damage +=
+    hasSkillType(skill, 'SUM') && school !== 'Summoning' && !attack.isHybrid ? ' (SUM)' : '';
   damage += isNat(skill) && !attack.isHybrid ? ' (NAT)' : '';
 
   if (attack.followedBy && !simpleFollowedBy) {
