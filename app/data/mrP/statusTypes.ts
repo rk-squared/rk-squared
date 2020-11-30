@@ -10,6 +10,7 @@ export type EffectClause =
   | HitRate
   | Ko
   | LastStand
+  | Raise
   | Reraise
   | StatusChance
   | StatusStacking
@@ -448,6 +449,11 @@ interface Ko {
 
 interface LastStand {
   type: 'lastStand';
+}
+
+interface Raise {
+  type: 'raise';
+  value: number;
 }
 
 interface Reraise {

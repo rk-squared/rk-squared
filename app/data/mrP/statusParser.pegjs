@@ -20,7 +20,7 @@ StatusEffect
 
 EffectClause
   = StatMod / CritChance / CritDamage / HitRate
-  / Ko / LastStand / Reraise
+  / Ko / LastStand / Raise / Reraise
   / StatusChance / StatusStacking / PreventStatus
   / Speed / Instacast / SchoolCastSpeed / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
   / PhysicalBlink / MagicBlink / DualBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
@@ -382,6 +382,9 @@ Ko
 LastStand
   = "Prevents KO once, restoring HP for 1% maximum HP" { return { type: 'lastStand' }; }
 
+Raise
+  = "Removes KO (" value:Integer "% HP)" { return { type: 'raise', value }; }
+
 Reraise
   = "Automatically removes KO (" value:Integer "% HP) once" { return { type: 'reraise', value }; }
 
@@ -596,7 +599,10 @@ TrackStatusLevel
   / "Used"i _ "for tracking" _ status:StatusNameNoBrackets _ "level" { return { type: 'trackStatusLevel', status }; }
   // The first variation is used for Heavy Charge and is used to set a level.
   // The second is used for tracking stacking effects of 6* healer HAs and is
-  // mostly internal.  It may be better to treat these as separately.
+  // mostly internal.  It may be better to treat these as distinct types.
+  //
+  // TASB variant:
+  / "Keeps"i _ "track of" _ status:StatusNameNoBrackets _ "level, initially set at level" _ current:Integer _ "with a maximum level of" _ max:Integer { return { type: 'trackStatusLevel', status, max, current }; }
 
 ChangeStatusLevel
   = sign:IncreasesOrReduces _ "the"? _ status:StatusNameNoBrackets _ "level by" _ value:Integer _ trigger:TriggerOrWhenSet {
@@ -621,6 +627,8 @@ BurstToggle
 TrackUses
   = "Keeps"i _ "track of the" _ ("number of")? _ ("uses of" / "casts of") _ skill:AnySkillName { return { type: 'trackUses', skill }; }
   / "Used to determine the effect of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
+  // TASB variant.  `skill` gives the TASB name.
+  / "Keeps"i _ "track of" _ skill:AnySkillName _ "uses" { return { type: 'trackUses', skill }; }
 
 ModifiesSkill
   = "Modifies"i _ "behavior of" _ skill:AnySkillName { return { type: 'modifiesSkill', skill }; }
@@ -677,6 +685,10 @@ Trigger
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
+  / "when"i _ "user triggers" _ count:TriggerCount _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack _ "during the status" {
+      // TASB variant
+      return { type: 'ability', element, school, count, jump: !!jump, requiresAttack };
+    }
   / "after"i _ "dealing a critical hit" { return { type: 'crit' }; }
   / "after"i _ "exploiting elemental weakness" { return { type: 'vsWeak' }; }
   / "when"i _ "removed" { return { type: 'whenRemoved' }; }
@@ -694,6 +706,7 @@ Trigger
     return { type: 'skill', skill, count };
   }
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
+  / "if user has triggered" _ skill:AnySkillName _ count:NumberString _ "times" { return { type: 'skillTriggered', skill, count }; } // TASB variant
   / "after"i _ "using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
   / "after"i _ "using" _ count:NumberString _ "of" _ skill1or2:AnySkillName
     & {
@@ -711,6 +724,7 @@ AbilityOrAttack
 
 TriggerCount
   = useCount:UseCount { return useCount; }
+  / value1:Integer _ "or" _ value2:Integer { return { values: [value1, value2] }; }  // TASB variant. We may someday generalize.
   / values:(ArticleOrNumberString / Integer) ! "/" { return { values }; }
   / values:IntegerSlashList plus:"+"? { return { values, plus: !!plus }; }
   / "" { return { values: 1 }; }
@@ -799,7 +813,10 @@ Condition
     };
   }
 
-  / "if current number of combined Attach Element statuses on party members are a majority Attach" _ element:ElementSlashList _ ", in the case of ties the prior listed order is used to determine status granted" {
+  / "if current number of combined Attach Element statuses on party members are a majority Attach" _ element:ElementSlashList _ (
+    ", in the case of ties the prior listed order is used to determine status granted"
+    / ". Considers number of stacks on a character as well (Attach Fire at level 2 counts as 2). In the case of ties the prior listed order is used to determine status granted"
+  ) {
     return { type: 'conditionalEnElement', element };
   }
 

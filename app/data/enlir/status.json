@@ -18876,7 +18876,7 @@
   {
     "id": 51002,
     "name": "Final Heaven Level",
-    "effects": "Keeps track of Final Heaven level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Tifa",
+    "effects": "Keeps track of Final Heaven level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Tifa",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18909,7 +18909,7 @@
   {
     "id": 51005,
     "name": "Zantetsuken Level",
-    "effects": "Keeps track of Zantetsuken level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Lightning",
+    "effects": "Keeps track of Zantetsuken level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Lightning",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18953,7 +18953,7 @@
   {
     "id": 51009,
     "name": "Soul Shift Level",
-    "effects": "Keeps track of Soul Shift level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Cecil (Paladin)",
+    "effects": "Keeps track of Soul Shift level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Cecil (Paladin)",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18986,7 +18986,7 @@
   {
     "id": 51012,
     "name": "Supreme Spinning Edge Level",
-    "effects": "Keeps track of Supreme Spinning Edge level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Celes",
+    "effects": "Keeps track of Supreme Spinning Edge level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Celes",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19030,7 +19030,7 @@
   {
     "id": 51016,
     "name": "Ultimate Soul of Chaos Level",
-    "effects": "Keeps track of Ultimate Soul of Chaos level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Garland",
+    "effects": "Keeps track of Ultimate Soul of Chaos level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Garland",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19239,7 +19239,7 @@
   {
     "id": 51038,
     "name": "Angel Wing Zenith Level",
-    "effects": "Keeps track of Angel Wing Zenith level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Rinoa",
+    "effects": "Keeps track of Angel Wing Zenith level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Rinoa",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19545,7 +19545,7 @@
   {
     "id": 51066,
     "name": "Satan Slam Level",
-    "effects": "Keeps track of Satan Slam level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Vincent",
+    "effects": "Keeps track of Satan Slam level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Vincent",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19716,7 +19716,7 @@
   {
     "id": 51083,
     "name": "Ultimate Grand Lethal Level",
-    "effects": "Keeps track of Ultimate Grand Lethal level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Zidane",
+    "effects": "Keeps track of Ultimate Grand Lethal level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Zidane",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19749,7 +19749,7 @@
   {
     "id": 51086,
     "name": "Holy Chain Level",
-    "effects": "Keeps track of Holy Chain level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Warrior of Light",
+    "effects": "Keeps track of Holy Chain level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Warrior of Light",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19782,7 +19782,7 @@
   {
     "id": 51089,
     "name": "Job Mastered: Earth Level",
-    "effects": "Keeps track of Job Mastered: Earth level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Bartz",
+    "effects": "Keeps track of Job Mastered: Earth level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Bartz",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19837,7 +19837,7 @@
   {
     "id": 51094,
     "name": "Spirit Surge Level",
-    "effects": "Keeps track of Spirit Surge level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Onion Knight",
+    "effects": "Keeps track of Spirit Surge level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Onion Knight",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19892,7 +19892,7 @@
   {
     "id": 51099,
     "name": "Ultimate Mirage Dive Level",
-    "effects": "Keeps track of Ultimate Mirage Dive level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Locke",
+    "effects": "Keeps track of Ultimate Mirage Dive level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Locke",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19936,7 +19936,7 @@
   {
     "id": 51102,
     "name": "Omnislash Level",
-    "effects": "Keeps track of Omnislash level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Cloud",
+    "effects": "Keeps track of Omnislash level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Cloud",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19969,7 +19969,7 @@
   {
     "id": 51105,
     "name": "Overdrive Blitz Ace Level",
-    "effects": "Keeps track of Overdrive Blitz Ace level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Tidus",
+    "effects": "Keeps track of Overdrive Blitz Ace level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Tidus",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20002,7 +20002,7 @@
   {
     "id": 51108,
     "name": "Empyrean Heaven's Wrath Level",
-    "effects": "Keeps track of Empyrean Heaven's Wrath level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Ashe",
+    "effects": "Keeps track of Empyrean Heaven's Wrath level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Ashe",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20057,7 +20057,7 @@
   {
     "id": 51113,
     "name": "Seiken Fatal Shock Level",
-    "effects": "Keeps track of Seiken Fatal Shock level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Beatrix",
+    "effects": "Keeps track of Seiken Fatal Shock level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Beatrix",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20156,7 +20156,7 @@
   {
     "id": 51122,
     "name": "Our Fantasy Unbound Level",
-    "effects": "Keeps track of Our Fantasy Unbound level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Tyro",
+    "effects": "Keeps track of Our Fantasy Unbound level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Tyro",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20471,7 +20471,7 @@
   {
     "id": 51150,
     "name": "Gaia's Rage Level",
-    "effects": "Keeps track of Gaia's Rage level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Rydia",
+    "effects": "Keeps track of Gaia's Rage level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Rydia",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20685,7 +20685,7 @@
   {
     "id": 51169,
     "name": "Ultimate Shadow Fang Level",
-    "effects": "Keeps track of Ultimate Shadow Fang level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Shadow",
+    "effects": "Keeps track of Ultimate Shadow Fang level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Shadow",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20804,7 +20804,7 @@
   {
     "id": 51180,
     "name": "Final Disaster Level",
-    "effects": "Keeps track of Final Disaster level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Alphinaud",
+    "effects": "Keeps track of Final Disaster level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Alphinaud",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20848,7 +20848,7 @@
   {
     "id": 51184,
     "name": "Ultima CXXVIII Level",
-    "effects": "Keeps track of Ultima CXXVIII level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Minwu",
+    "effects": "Keeps track of Ultima CXXVIII level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Minwu",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20936,7 +20936,7 @@
   {
     "id": 51192,
     "name": "Zantetsuken Payback Level",
-    "effects": "Keeps track of Zantetsuken Payback level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Seifer",
+    "effects": "Keeps track of Zantetsuken Payback level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Seifer",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -21210,7 +21210,7 @@
   {
     "id": 51225,
     "name": "Fickle Geocrush Level",
-    "effects": "Keeps track of Fickle Geocrush level, initally set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Enna Kros",
+    "effects": "Keeps track of Fickle Geocrush level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Enna Kros",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -21284,7 +21284,7 @@
   {
     "id": 51244,
     "name": "Trance Terra Homing Level",
-    "effects": "Keeps track of Trance Terra Homing level, initally set at level 0 with a maximum level of 1, removed if user hasn't True Arcane Augment Mode: Eiko",
+    "effects": "Keeps track of Trance Terra Homing level, initially set at level 0 with a maximum level of 1, removed if user hasn't True Arcane Augment Mode: Eiko",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -22823,7 +22823,7 @@
   {
     "id": 6046,
     "name": "100% Critical 3",
-    "effects": "Critical chance=100%, lasts for 3 turns",
+    "effects": "Critical chance =100%, lasts for 3 turns",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

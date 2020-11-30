@@ -604,7 +604,10 @@ Condition
     };
   }
 
-  / "if current number of combined Attach Element statuses on party members are a majority Attach" _ element:ElementSlashList _ ", in the case of ties the prior listed order is used to determine status granted" {
+  / "if current number of combined Attach Element statuses on party members are a majority Attach" _ element:ElementSlashList _ (
+    ", in the case of ties the prior listed order is used to determine status granted"
+    / ". Considers number of stacks on a character as well (Attach Fire at level 2 counts as 2). In the case of ties the prior listed order is used to determine status granted"
+  ) {
     return { type: 'conditionalEnElement', element };
   }
 

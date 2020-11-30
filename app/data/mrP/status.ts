@@ -992,6 +992,8 @@ function describeStatusEffect(
       return 'KO';
     case 'lastStand':
       return 'Last stand';
+    case 'raise':
+      return 'Raise ' + effect.value + '%';
     case 'reraise':
       return 'Reraise ' + effect.value + '%';
     case 'statusChance':
