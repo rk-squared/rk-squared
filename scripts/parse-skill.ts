@@ -157,7 +157,7 @@ function processEffects<T extends EnlirSkill>(
 function processSoulBreaks() {
   return processEffects(
     'soulBreaks',
-    _.sortBy(_.values(enlir.soulBreaks), [
+    _.sortBy(enlir.allSoulBreaks, [
       i => i.character || '-',
       i => soulBreakTierOrder[i.tier],
       'id',

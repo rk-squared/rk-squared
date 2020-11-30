@@ -28,7 +28,7 @@ const onlySoulBreaks = process.argv.slice(2);
 
 const startTime = process.hrtime();
 
-for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
+for (const sb of _.sortBy(enlir.allSoulBreaks, [
   i => i.character || '-',
   i => soulBreakTierOrder[i.tier],
   'id',

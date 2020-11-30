@@ -204,6 +204,7 @@ export type EnlirSoulBreakTier =
   | 'AASB'
   | 'Glint+'
   | 'SASB'
+  | 'TASB'
   | 'RW'
   | 'Shared';
 
@@ -461,7 +462,8 @@ export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
   USB: 8,
   AASB: 9,
   SASB: 10,
-  CSB: 11,
+  TASB: 11,
+  CSB: 12,
   RW: 100,
   Shared: 101,
 };
@@ -669,6 +671,11 @@ export const enlir = {
     (i: EnlirSoulBreak) => soulBreakTierOrder[i.tier],
     (i: EnlirSoulBreak) => i.sortOrder,
   ]),
+
+  allSoulBreaks: rawData.soulBreaks,
+  // True Arcane Soul Breaks result in two entries with the same ID.  The second
+  // activation will be under soulBreaks; add the first activation here.
+  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isTrueArcane1st), 'id'),
 
   status: _.keyBy(rawData.status, 'id'),
   statusByName: _.keyBy(rawData.status, 'name'),
@@ -1441,6 +1448,14 @@ export function isSharedSoulBreak(sb: EnlirSoulBreak): boolean {
 
 export function isLimitBreak(skill: EnlirSkill): skill is EnlirLimitBreak {
   return 'minimumLbPoints' in skill;
+}
+
+export function isTrueArcane1st(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'TASB' && sb.points === 0;
+}
+
+export function isTrueArcane2nd(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'TASB' && sb.points !== 0;
 }
 
 function makeSkillAliases<

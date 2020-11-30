@@ -12,6 +12,7 @@ import {
   isBurstCommand,
   isNat,
   isSoulBreak,
+  isTrueArcane2nd,
 } from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
 import { describeRageEffects } from './rage';
@@ -499,6 +500,11 @@ function describeAttackDamage(
       scaleType = describeMultiplierScaleType(attack.multiplierScaleType);
     } else if (attack.scaleType) {
       scaleType = describeCondition(attack.scaleType, getAttackCount(attack));
+
+      // Special case: Since every TASB scales with status level, omit that.
+      if (attack.scaleType.type === 'statusLevel' && isSoulBreak(skill) && isTrueArcane2nd(skill)) {
+        scaleType = undefined;
+      }
     }
     if (attack.scaleToMultiplier && !isRandomNumAttacks(numAttacks)) {
       // Omit number of attacks - it's always the same as the main attack.
@@ -577,6 +583,8 @@ export function describeAttack(
     damage += isHybridPiercing(skill, attack) ? '^' : '';
     damage += attackDamage.hybridDamage;
   }
+
+  damage += attack.isScalingOverstrike ? ' w/ 9k/19k/29k cap' : '';
 
   if (attack.followedBy && simpleFollowedBy) {
     damage += ', then ' + describeSimpleFollowedBy(skill, attack.followedBy) + ',';

@@ -18,6 +18,7 @@ import {
   isSoulBreak,
   isSynchroCommand,
   isSynchroSoulBreak,
+  isTrueArcane2nd,
 } from '../enlir';
 import {
   describeAttack,
@@ -523,6 +524,11 @@ function processStatus(
     // If this is the last status, then append details of the whole status
     // effect.
     const isLast = thisStatusIndex + 1 === statuses.length;
+
+    // Special case: Since every TASB clears its associated mode, omit that.
+    if (who === 'self' && removes && isSoulBreak(skill) && isTrueArcane2nd(skill)) {
+      return;
+    }
 
     if (status.type !== 'standardStatus') {
       // Status levels are always self.

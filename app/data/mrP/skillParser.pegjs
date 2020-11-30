@@ -38,7 +38,8 @@ SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
     _ additionalCritDamage:('with additional' _ value:Integer '% critical damage' { return value; })?
-    _ overstrike:(","? _ "capped" _ "at" _ "99999")?
+    _ overstrike:(","? _ "capped at 99999")?
+    _ scalingOverstrike:(","? _ "capped at 9999/19999/29999")?
     _ isPiercingDef:(_ "that ignores DEF" / _ ", ignores DEF")?
     _ isPiercingRes:(_ "that ignores RES" / _ ", ignores RES")? {
     const result = Object.assign({
@@ -50,6 +51,9 @@ SimpleAttack
     }
     if (overstrike) {
       result.isOverstrike = true;
+    }
+    if (scalingOverstrike) {
+      result.isScalingOverstrike = true;
     }
 
     // Alternate isPiercingDef / isPiercingRes format that's only used for
