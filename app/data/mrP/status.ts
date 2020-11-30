@@ -20,7 +20,7 @@ import {
 } from '../enlir';
 import { describeDamage, describeDamageType } from './attack';
 import * as common from './commonTypes';
-import { describeCondition } from './condition';
+import { describeCondition, formatThreshold } from './condition';
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, describeRecoilHp, formatMrPSkill } from './skill';
 import {
@@ -580,7 +580,7 @@ function getTriggerSkillAlias(skill: string, source: EnlirSkill | undefined): st
   return skill;
 }
 
-function formatTrigger(trigger: statusTypes.Trigger, source?: EnlirSkill): string {
+export function formatTrigger(trigger: statusTypes.Trigger, source?: EnlirSkill): string {
   switch (trigger.type) {
     case 'ability':
       const count = formatTriggerCount(trigger.count);
@@ -629,6 +629,10 @@ function formatTrigger(trigger: statusTypes.Trigger, source?: EnlirSkill): strin
       return 'ally heal';
     case 'lowHp':
       return lowHpAlias(trigger.value);
+    case 'damageDuringStatus':
+      // Hack: Conditions (which formatThreshold expects) have prepositions, but
+      // triggers don't.
+      return formatThreshold(trigger.value, 'dmg dealt').replace(/^@ /, '');
   }
 }
 

@@ -676,7 +676,7 @@ interface TrackStatusLevel {
   current?: common.ValueOrPlaceholder<number>;
 }
 
-interface ChangeStatusLevel {
+export interface ChangeStatusLevel {
   type: 'changeStatusLevel';
   status: string;
   value: number;
@@ -767,7 +767,8 @@ export type Trigger =
       element: common.OrOptions<EnlirElement>;
     }
   | { type: 'singleHeal' }
-  | { type: 'lowHp'; value: number };
+  | { type: 'lowHp'; value: number }
+  | { type: 'damageDuringStatus'; value: number | number[] };
 
 export type TriggerCount =
   | common.UseCount

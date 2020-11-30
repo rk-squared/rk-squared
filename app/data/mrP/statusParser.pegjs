@@ -717,6 +717,10 @@ Trigger
   / "after"i _ "taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
   / "after"i _ "using a single-target heal" { return { type: 'singleHeal' }; }
   / "when"i _ "HP fall" "s"? _ "below" _ value:Integer "%" { return { type: 'lowHp', value }; }
+  / "when"i _ "user crosses" _ value1:Integer _ "and" _ value2:Integer _ "damage dealt during the status" {
+      // For TASBs
+      return { type: 'damageDuringStatus', value: [value1, value2] };
+    }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }

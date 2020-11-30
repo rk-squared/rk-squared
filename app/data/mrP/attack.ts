@@ -8,6 +8,8 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirSkillType,
+  EnlirSoulBreak,
+  getEnlirTrueArcaneTracker,
   hasSkillType,
   isBurstCommand,
   isNat,
@@ -18,6 +20,8 @@ import { appendCondition, describeCondition, describeMultiplierScaleType } from 
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
 import * as skillTypes from './skillTypes';
+import { formatTrigger, safeParseStatus } from './status';
+import * as statusTypes from './statusTypes';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -390,6 +394,29 @@ function checkAttackPrereqStatus(
   return attack;
 }
 
+function describeTrueArcaneCondition(sb: EnlirSoulBreak) {
+  const status = getEnlirTrueArcaneTracker(sb);
+  if (!status) {
+    logger.warn(`Failed to find TASB ability tracker for ${sb.name}`);
+    return undefined;
+  }
+
+  const parsed = safeParseStatus(status);
+  if (!parsed) {
+    return undefined; // Errors were already logged
+  }
+
+  const change = parsed.find(i => i.type === 'changeStatusLevel') as
+    | statusTypes.ChangeStatusLevel
+    | undefined;
+  if (!change || !change.trigger) {
+    logger.warn(`Unexpected contents for TASB ability tracker for ${sb.name}`);
+    return undefined;
+  }
+
+  return '@ ' + formatTrigger(change.trigger, sb);
+}
+
 /**
  * Helper function for describeAttack
  */
@@ -501,9 +528,10 @@ function describeAttackDamage(
     } else if (attack.scaleType) {
       scaleType = describeCondition(attack.scaleType, getAttackCount(attack));
 
-      // Special case: Since every TASB scales with status level, omit that.
+      // Special case: Every TASB scales with status level.  Try to resolve the
+      // status that manages that status level.
       if (attack.scaleType.type === 'statusLevel' && isSoulBreak(skill) && isTrueArcane2nd(skill)) {
-        scaleType = undefined;
+        scaleType = describeTrueArcaneCondition(skill);
       }
     }
     if (attack.scaleToMultiplier && !isRandomNumAttacks(numAttacks)) {

@@ -8,6 +8,8 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirTarget,
+  getEnlirTrueArcaneLevel,
+  getEnlirTrueArcaneTracker,
   getNormalSBPoints,
   isAbility,
   isBraveCommand,
@@ -18,6 +20,7 @@ import {
   isSoulBreak,
   isSynchroCommand,
   isSynchroSoulBreak,
+  isTrueArcane1st,
   isTrueArcane2nd,
 } from '../enlir';
 import {
@@ -538,6 +541,16 @@ function processStatus(
         formatSpecialStatusItem(status, removes ? 0 : undefined),
       );
       return;
+    }
+
+    // Special case: Omit / simplify some TASB details, and handle others via
+    // describeTrueArcaneCondition.
+    if (isSoulBreak(skill) && isTrueArcane1st(skill)) {
+      const tracker = getEnlirTrueArcaneTracker(skill);
+      const level = getEnlirTrueArcaneLevel(skill);
+      if ((tracker && tracker.id === status.id) || (level && level.id === status.id)) {
+        return;
+      }
     }
 
     if ('source' in skill && skill.source === status.name && removes) {

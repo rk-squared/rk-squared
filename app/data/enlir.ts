@@ -1387,6 +1387,27 @@ export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
   return result ? result.status : undefined;
 }
 
+const getTrueArcaneBaseName = (sb: EnlirSoulBreak) => sb.name.replace(/ \(Release\)$/, '');
+
+/**
+ * For a true arcane soul break (TASB), gets the associated status that
+ * increments the level.
+ */
+export function getEnlirTrueArcaneTracker(sb: EnlirSoulBreak): EnlirStatus | undefined {
+  const name = getTrueArcaneBaseName(sb);
+  return (
+    enlir.statusByName[name + ' Ability Tracker'] || enlir.statusByName[name + ' Damage Tracker']
+  );
+}
+
+/**
+ * For a true arcane soul break (TASB), gets the associated status that
+ * tracks the level.
+ */
+export function getEnlirTrueArcaneLevel(sb: EnlirSoulBreak): EnlirStatus | undefined {
+  return enlir.statusByName[getTrueArcaneBaseName(sb) + ' Level'];
+}
+
 /**
  * Gets an EnlirOtherSkill.  Other skills don't have unique names, so this
  * takes an optional source parameter to help disambiguate it.
