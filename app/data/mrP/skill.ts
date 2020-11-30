@@ -70,10 +70,13 @@ import {
   toMrPKilo,
 } from './util';
 
-function preprocessSkill(skill: skillTypes.SkillEffect): skillTypes.SkillEffect {
+function preprocessSkill(
+  skill: skillTypes.SkillEffect,
+  source: EnlirSkill,
+): skillTypes.SkillEffect {
   for (const i of skill) {
     if (i.type === 'status') {
-      i.statuses = mergeSimilarStatuses(resolveStatuses(i.statuses));
+      i.statuses = mergeSimilarStatuses(resolveStatuses(i.statuses, source));
     }
   }
   return skill;
@@ -81,7 +84,7 @@ function preprocessSkill(skill: skillTypes.SkillEffect): skillTypes.SkillEffect 
 
 export function safeParseSkill(skill: EnlirSkill): skillTypes.SkillEffect | null {
   try {
-    return preprocessSkill(skillParser.parse(skill.effects));
+    return preprocessSkill(skillParser.parse(skill.effects), skill);
   } catch (e) {
     logger.error(`Failed to parse ${skill.name}:`);
     logException(e);

@@ -22845,7 +22845,7 @@
   {
     "id": 6048,
     "name": "100% Critical (25s) Custom Param",
-    "effects": "Critical chance=100%",
+    "effects": "Critical chance =100%",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

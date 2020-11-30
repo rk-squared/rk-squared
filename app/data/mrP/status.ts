@@ -103,9 +103,25 @@ const memoizedParser = _.memoize((effects: string) => statusParser.parse(effects
 
 const failedStatusIds = new Set<number>();
 
+function preprocessStatus(
+  status: statusTypes.StatusEffect,
+  source: EnlirStatus,
+): statusTypes.StatusEffect {
+  for (const i of status) {
+    if (i.type === 'triggeredEffect') {
+      for (const j of arrayify(i.effects)) {
+        if (j.type === 'grantStatus') {
+          j.status = scalarify(mergeSimilarStatuses(resolveStatuses(arrayify(j.status), source)));
+        }
+      }
+    }
+  }
+  return status;
+}
+
 export function safeParseStatus(status: EnlirStatus): statusTypes.StatusEffect | null {
   try {
-    return memoizedParser(status.effects);
+    return preprocessStatus(memoizedParser(status.effects), status);
   } catch (e) {
     if (!failedStatusIds.has(status.id)) {
       logger.error(`Failed to parse ${status.name}:`);
@@ -714,31 +730,25 @@ function formatGrantOrConditionalStatus(
       if (sequence) {
         return describeMergedSequence(sequence);
       } else {
-        let thisResult = slashMerge(
-          expandSlashOptions(i.status.name).map(option => {
-            const parsed = parseEnlirStatus(option, source);
-            let optionResult = parsed.description;
+        const parsed = parseEnlirStatusItem(i.status, source);
+        let thisResult = parsed.description;
 
-            // Hack: Partial duplication of logic on when to append durations.
-            // This is valuable to make Galuf AASB's instacast clear.
-            if (
-              verb !== 'removes' &&
-              !i.duration &&
-              parsed.defaultDuration &&
-              !parsed.isVariableDuration &&
-              !parsed.specialDuration &&
-              !parsed.isModeLimited
-            ) {
-              optionResult +=
-                ' ' + formatDuration({ value: parsed.defaultDuration, units: 'seconds' });
-            }
+        // Hack: Partial duplication of logic on when to append durations.
+        // This is valuable to make Galuf AASB's instacast clear.
+        if (
+          verb !== 'removes' &&
+          !i.duration &&
+          parsed.defaultDuration &&
+          !parsed.isVariableDuration &&
+          !parsed.specialDuration &&
+          !parsed.isModeLimited
+        ) {
+          thisResult += ' ' + formatDuration({ value: parsed.defaultDuration, units: 'seconds' });
+        }
 
-            if (i.chance) {
-              optionResult += ` (${i.chance}%)`;
-            }
-            return optionResult;
-          }),
-        );
+        if (i.chance) {
+          thisResult += ` (${i.chance}%)`;
+        }
         if (i.duration) {
           thisResult += ' ' + formatDuration(i.duration);
         }
@@ -1573,7 +1583,10 @@ export function sortStatus(a: common.StatusWithPercent, b: common.StatusWithPerc
  * Given a set of status items, annotate them with Enlir status IDs and
  * placeholder values, and expand any slash-separated items.
  */
-export function resolveStatuses(statuses: common.StatusWithPercent[]) {
+export function resolveStatuses(
+  statuses: common.StatusWithPercent[],
+  source: EnlirSkill | EnlirStatus,
+) {
   function update(
     item: common.StatusWithPercent,
     status: common.StandardStatus,
@@ -1590,7 +1603,8 @@ export function resolveStatuses(statuses: common.StatusWithPercent[]) {
         id: enlirStatus.status.id,
         placeholders: enlirStatus.placeholders,
         isUncertain,
-        effects: safeParseStatus(enlirStatus.status),
+        // Avoid circular references
+        effects: enlirStatus.status === source ? undefined : safeParseStatus(enlirStatus.status),
       },
     };
   }

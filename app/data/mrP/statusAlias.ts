@@ -1,6 +1,11 @@
 import * as common from './commonTypes';
 import { formatSchoolOrAbilityList, getShortName } from './typeHelpers';
-import { formatNumberSlashList, percentToMultiplier, signedNumber } from './util';
+import {
+  formatNumberSlashList,
+  percentToMultiplier,
+  signedNumber,
+  signedNumberSlashList,
+} from './util';
 
 const rawSbPointsBoosterAlias = (multiplierString: string, s: string) =>
   // HACK: Special-case some strings to avoid redundant prepositions.
@@ -26,10 +31,14 @@ export const formatSmartEther = (amount: string | number | number[], type?: stri
   return 'refill ' + amount + ' ' + (type ? getShortName(type) + ' ' : '') + 'abil. use';
 };
 
-export function formatStatusLevel(status: string, value: number, set: boolean | undefined) {
+export function formatStatusLevel(
+  status: string,
+  value: number | number[],
+  set: boolean | undefined,
+) {
   status = statusLevelAlias[status] || statusLevelText;
   if (!set) {
-    return status + ` ${signedNumber(value)}`;
+    return status + ` ${signedNumberSlashList(value)}`;
   } else if (value === 0) {
     return 'reset ' + status;
   } else {

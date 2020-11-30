@@ -24,7 +24,7 @@ export type StatusVerb = 'grants' | 'causes' | 'removes' | "doesn't remove";
 export interface StatusLevel {
   type: 'statusLevel';
   name: string;
-  value: number;
+  value: number | number[];
   // If true, setting to value; if false, modifying by value.
   set?: boolean;
 }

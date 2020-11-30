@@ -449,11 +449,6 @@ StatusEffect
     return result;
   }
 
-StatusList
-  = head:StatusWithPercent tail:(!NextClause conj:StatusListConjunction status:StatusWithPercent { return { ...status, conj }; })* {
-    return [head, ...tail];
-  }
-
 StatusClause
   = _ clause:(
     duration:Duration { return { duration }; }
@@ -532,6 +527,11 @@ StandaloneAttackExtra
 // --------------------------------------------------------------------------
 // Common status logic (shared between skillParser and statusParser)
 
+StatusList
+  = head:StatusWithPercent tail:(!NextClause conj:StatusListConjunction status:StatusWithPercent { return { ...status, conj }; })* {
+    return [head, ...tail];
+  }
+
 StatusWithPercent
   = status:StatusItem _ chance:("(" n:Integer "%)" { return n; })? _ duration:Duration? {
     const result = {
@@ -557,10 +557,10 @@ StatusLevel "status with level"
       { return { type:'statusLevel', name, value }; }
   / name:StatusNameNoBrackets
     & {
-        statusLevelMatch = name.match(/(.*) ([+-]?\d+)$/);
+        statusLevelMatch = name.match(/(.*) ((?:[+-]?\d+)(?:\/[+-]?\d+)*)$/);
         return statusLevelMatch;
       }
-      { return { type:'statusLevel', name: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
+      { return { type:'statusLevel', name: statusLevelMatch[1], value: util.scalarify(statusLevelMatch[2].split('/').map(i => +i)) }; }
   / name:StatusNameNoBrackets
       { return { type:'statusLevel', name, value: 1, set: true }; }
 
@@ -581,7 +581,9 @@ Condition
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
   / "scaling" _ "with" _ status:StatusNameNoBrackets _ "level" { return { type: 'scaleWithStatusLevel', status }; }
+  // TODO: These two should be standardized
   / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
+  / "at" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
 
@@ -742,8 +744,7 @@ GenericName
         // they're part of status words instead of part of later clauses.
         / ("for" / "to") _ GenericNameWord
 
-        / SignedIntegerSlashList [%+]?
-        / [=*]? IntegerSlashList [%+]?
+        / [=*+-]? Integer ([%]? '/' [+-]? Integer)* [%+]?
         / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) ')'
       )
     )*
@@ -931,6 +932,7 @@ StatusListConjunction
   = ', and' _ { return 'and'; }
   / _ 'and' _ { return 'and'; }
   / ',' _ { return ','; }
+  / '/' { return '/'; }
 
 NumberString "numeric text"
   = numberString:[a-zA-Z\-]+

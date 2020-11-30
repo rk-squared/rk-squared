@@ -464,8 +464,8 @@ SimpleRemoveStatus
   }
 
 GrantStatus
-  = verb:StatusVerb _ head:StatusWithPercent _ tail:(("," / "and") _ StatusWithPercent)* _ condition:Condition? _ who:Who? _ duration:Duration? {
-    const result = util.addCondition({ type: 'grantStatus', status: util.pegList(head, tail, 2, true), who, verb }, condition);
+  = verb:StatusVerb _ statuses:StatusList _ condition:Condition? _ who:Who? _ duration:Duration? {
+    const result = util.addCondition({ type: 'grantStatus', status: statuses, who, verb }, condition);
     if (duration) {
       util.applyDuration(result.status, duration);
     }
@@ -718,6 +718,11 @@ TriggerOrWhenSet
 // --------------------------------------------------------------------------
 // Common status logic (shared between skillParser and statusParser)
 
+StatusList
+  = head:StatusWithPercent tail:(conj:StatusListConjunction status:StatusWithPercent { return { ...status, conj }; })* {
+    return [head, ...tail];
+  }
+
 StatusWithPercent
   = status:StatusItem _ chance:("(" n:Integer "%)" { return n; })? _ duration:Duration? {
     const result = {
@@ -746,10 +751,10 @@ StatusLevel "status with level"
       { return { type:'statusLevel', name, value }; }
   / name:StatusNameNoBrackets
     & {
-        statusLevelMatch = name.match(/(.*) ([+-]?\d+)$/);
+        statusLevelMatch = name.match(/(.*) ((?:[+-]?\d+)(?:\/[+-]?\d+)*)$/);
         return statusLevelMatch;
       }
-      { return { type:'statusLevel', name: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
+      { return { type:'statusLevel', name: statusLevelMatch[1], value: util.scalarify(statusLevelMatch[2].split('/').map(i => +i)) }; }
   / name:StatusNameNoBrackets
       { return { type:'statusLevel', name, value: 1, set: true }; }
 
@@ -770,7 +775,9 @@ Condition
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
   / "scaling" _ "with" _ status:StatusNameNoBrackets _ "level" { return { type: 'scaleWithStatusLevel', status }; }
+  // TODO: These two should be standardized
   / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
+  / "at" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
 
@@ -931,8 +938,7 @@ GenericName
         // they're part of status words instead of part of later clauses.
         / ("for" / "to") _ GenericNameWord
 
-        / SignedIntegerSlashList [%+]?
-        / [=*]? IntegerSlashList [%+]?
+        / [=*+-]? Integer ([%]? '/' [+-]? Integer)* [%+]?
         / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) ')'
       )
     )*
@@ -1161,6 +1167,12 @@ OrList
 AndOrList
   = (',' _ ('and' / 'or')? _) / (_ ('and' / 'or') _)
 
+StatusListConjunction
+  = ', and' _ { return 'and'; }
+  / _ 'and' _ { return 'and'; }
+  / ',' _ { return ','; }
+  / '/' { return '/'; }
+
 NumberString "numeric text"
   = numberString:[a-zA-Z\-]+
   & { parsedNumberString = util.parseNumberString(numberString.join('')); return parsedNumberString != null; }
@@ -1192,6 +1204,10 @@ SignedIntegerOrX "signed integer or X"
   / "+"? "X" { return util.placeholder }
   / "-X" { return util.negativePlaceholder }
 
+IntegerWithNegatives "integer (optionally negative)"
+  = sign:'-'? value:[0-9]+ { return parseInt(text(), 10); }
+
+
 DecimalNumberSlashList "slash-separated decimal numbers"
   = head:DecimalNumber tail:('/' DecimalNumber)* { return util.pegSlashList(head, tail); }
 
@@ -1218,7 +1234,6 @@ SignedIntegerSlashList "slash-separated signed integers"
       return applySign(values);
     }
   }
-
 
 IntegerAndList "integers separated with commas and 'and'"
   = head:Integer tail:((','? _ 'and' _ /',' _) Integer)* { return util.pegSlashList(head, tail); }
