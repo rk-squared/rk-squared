@@ -795,8 +795,8 @@ function formatSwitchDraw(
   stackingLevel?: number,
 ): string {
   return formatGenericTrigger(
-    elements.map(getElementShortName).join('/'),
-    elements.map(getElementShortName).join('/') +
+    elements.map(i => getElementShortName(i)).join('/'),
+    elements.map(i => getElementShortName(i)).join('/') +
       ' infuse' +
       (stackingLevel ? ' ' + stackingLevel : '') +
       (isStacking ? ' w/ stacking' : ''),
@@ -1075,7 +1075,7 @@ function describeStatusEffect(
         signedNumber(-resolve.x(effect.value)) +
         uncertain(resolve.isUncertain) +
         '% ' +
-        getElementShortName(resolve.element(effect.element)) +
+        getElementShortName(resolve.element(effect.element), '/') +
         ' vuln.'
       );
     case 'enElement':
@@ -1643,20 +1643,8 @@ function tryToMergeEffects(
   }
 
   const placeholdersEqual = _.isEqual(placeholdersA, placeholdersB);
-  const resolve = (
-    value: common.SignedValueOrPlaceholder<number | number[]>,
-    placeholder?: EnlirStatusPlaceholders,
-  ) => {
-    const placeholderValue =
-      placeholder && placeholder.xValue != null ? placeholder.xValue : undefined;
-    if (value === '-X') {
-      return placeholderValue != null ? -placeholderValue : undefined;
-    } else if (value === 'X') {
-      return placeholderValue != null ? placeholderValue : undefined;
-    } else {
-      return value;
-    }
-  };
+  const resolveA = makePlaceholderResolvers(placeholdersA);
+  const resolveB = makePlaceholderResolvers(placeholdersB);
 
   const result: statusTypes.StatusEffect = [];
   for (let i = 0; i < effectA.length; i++) {
@@ -1682,12 +1670,26 @@ function tryToMergeEffects(
       'statMod',
     ] as const) {
       if (a.type === type && b.type === type && _.isEqual(_.omit(a, 'value'), _.omit(b, 'value'))) {
-        const valueA = resolve(a.value, placeholdersA);
-        const valueB = resolve(b.value, placeholdersB);
+        const valueA = resolveA.x(a.value);
+        const valueB = resolveB.x(b.value);
+        result.push({ ...a, value: _.flatten([valueA, valueB]) });
+        match = true;
+        break;
+      }
+    }
+
+    for (const type of ['elementResist'] as const) {
+      if (
+        a.type === type &&
+        b.type === type &&
+        _.isEqual(_.omit(a, 'element'), _.omit(b, 'element'))
+      ) {
+        const valueA = resolveA.element(a.element);
+        const valueB = resolveB.element(b.element);
         if (valueA == null || valueB == null) {
           return undefined;
         }
-        result.push({ ...a, value: _.flatten([valueA, valueB]) });
+        result.push({ ...a, element: _.flatten([valueA, valueB]) });
         match = true;
         break;
       }

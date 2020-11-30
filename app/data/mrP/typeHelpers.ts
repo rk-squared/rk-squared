@@ -76,11 +76,14 @@ const shortAliases: { [s: string]: string } = {
   'non-elemental': 'non-elem',
 };
 
-export function getElementShortName(element: EnlirElement | EnlirElement[]): string {
+export function getElementShortName(
+  element: EnlirElement | EnlirElement[],
+  joinString = '+',
+): string {
   element = arrayify(element);
   return element
     .map(i => elementShortName[i.toLowerCase()] || i.toLowerCase())
-    .join('+')
+    .join(joinString)
     .replace(prismElementsShortName, 'prism');
 }
 

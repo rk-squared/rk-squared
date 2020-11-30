@@ -289,7 +289,7 @@ interface ElementAttack {
 
 interface ElementResist {
   type: 'elementResist';
-  element: common.ValueOrPlaceholder<EnlirElement>;
+  element: common.ValueOrPlaceholder<EnlirElement | EnlirElement[]>;
   value: common.SignedValueOrPlaceholder<number>;
 }
 
