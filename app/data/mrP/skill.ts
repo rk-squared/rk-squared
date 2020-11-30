@@ -42,9 +42,11 @@ import * as skillParser from './skillParser';
 import * as skillTypes from './skillTypes';
 import {
   formatDuration,
+  mergeSimilarStatuses,
   ParsedEnlirStatusWithSlashes,
   parseEnlirStatus,
-  parseEnlirStatusWithSlashes,
+  parseEnlirStatusItem,
+  resolveStatuses,
   sortStatus,
 } from './status';
 import {
@@ -68,9 +70,18 @@ import {
   toMrPKilo,
 } from './util';
 
+function preprocessSkill(skill: skillTypes.SkillEffect): skillTypes.SkillEffect {
+  for (const i of skill) {
+    if (i.type === 'status') {
+      i.statuses = mergeSimilarStatuses(resolveStatuses(i.statuses));
+    }
+  }
+  return skill;
+}
+
 export function safeParseSkill(skill: EnlirSkill): skillTypes.SkillEffect | null {
   try {
-    return skillParser.parse(skill.effects);
+    return preprocessSkill(skillParser.parse(skill.effects));
   } catch (e) {
     logger.error(`Failed to parse ${skill.name}:`);
     logException(e);
@@ -532,7 +543,7 @@ function processStatus(
       return;
     }
 
-    const parsed = parseEnlirStatusWithSlashes(status.name, skill);
+    const parsed = parseEnlirStatusItem(status, skill);
     const { isDetail, isBurstToggle } = parsed;
 
     if (isBurstToggle) {
@@ -612,7 +623,7 @@ function processRandomStatus(
       arrayify(status)
         .map(s => {
           if (s.type === 'standardStatus') {
-            const parsed = parseEnlirStatusWithSlashes(s.name, skill);
+            const parsed = parseEnlirStatus(s.name, skill);
             return formatStatusDescription(parsed);
           } else if (s.type === 'smartEther') {
             return formatSmartEther(s.amount, s.school);

@@ -83,6 +83,29 @@ export function formatSignedIntegerSlashList(n: number | number[]): string {
 }
 
 /**
+ * Newer alternative to formatNumberSlashList. TODO - Clean up
+ * @param n
+ * @param converter
+ * @param joinString
+ */
+export function numberSlashList(
+  n: number | number[],
+  converter: (n: number) => string = numberOrUnknown,
+  joinString = '/',
+) {
+  const values = arrayify(n).map(converter);
+
+  if (values.length >= 8) {
+    // Hack: Abbreviate particularly long lists.
+    return (
+      values[0] + joinString + values[1] + joinString + '…' + joinString + values[values.length - 1]
+    );
+  } else {
+    return values.join(joinString);
+  }
+}
+
+/**
  * As formatNumberSlashList, but include spaces when joining, to directly match
  * how we handle attack damage values.
  */

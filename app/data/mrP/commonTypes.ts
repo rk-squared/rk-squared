@@ -1,4 +1,12 @@
-import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
+import {
+  EnlirElement,
+  EnlirRealm,
+  EnlirSchool,
+  EnlirSkillType,
+  EnlirStat,
+  EnlirStatusPlaceholders,
+} from '../enlir';
+import * as statusTypes from './statusTypes';
 
 export type Placeholder = 'X';
 export type SignedPlaceholder = 'X' | '-X';
@@ -30,14 +38,28 @@ export interface SmartEtherStatus {
 export interface StandardStatus {
   type: 'standardStatus';
   name: string;
+
+  // Added by resolveStatuses
+  id?: number;
+  isUncertain?: boolean;
+  placeholders?: EnlirStatusPlaceholders;
+  effects?: statusTypes.StatusEffect | null;
+  // Added by mergeSimilarStatuses
+  /**
+   * The number of statuses that have been merged to create this.  Minimum 2.
+   */
+  mergeCount?: number;
 }
 
 export type StatusItem = SmartEtherStatus | StatusLevel | StandardStatus;
+
+export type Conjunction = 'and' | '/' | ',' | '[/]';
 
 export interface StatusWithPercent {
   status: StatusItem;
   chance?: number;
   duration?: Duration;
+  conj?: Conjunction;
 }
 
 export interface Duration {

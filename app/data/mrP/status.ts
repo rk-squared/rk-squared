@@ -51,10 +51,10 @@ import {
   handleOrOptions,
   isSequential,
   numberOrUnknown,
+  numberSlashList,
   percentToMultiplier,
   signedNumber,
   slashMerge,
-  slashMergeWithDetails,
   toMrPFixed,
   toMrPKilo,
 } from './util';
@@ -100,12 +100,17 @@ const getCastString = (value: number) =>
 
 const memoizedParser = _.memoize((effects: string) => statusParser.parse(effects));
 
+const failedStatusIds = new Set<number>();
+
 export function safeParseStatus(status: EnlirStatus): statusTypes.StatusEffect | null {
   try {
     return memoizedParser(status.effects);
   } catch (e) {
-    logger.error(`Failed to parse ${status.name}:`);
-    logException(e);
+    if (!failedStatusIds.has(status.id)) {
+      logger.error(`Failed to parse ${status.name}:`);
+      logException(e);
+      failedStatusIds.add(status.id);
+    }
     if (e.name === 'SyntaxError') {
       return null;
     }
@@ -1043,7 +1048,9 @@ function describeStatusEffect(
     case 'radiantShield': {
       let result =
         'Reflect Dmg' +
-        (options.forceNumbers || effect.value !== 100 ? ' ' + effect.value + '%' : '');
+        (options.forceNumbers || effect.value !== 100
+          ? ' ' + numberSlashList(effect.value) + '%'
+          : '');
       if (effect.element) {
         result +=
           (effect.overflow ? ' as overstrike ' : ' as ') + getElementShortName(effect.element);
@@ -1276,6 +1283,7 @@ function sortStatusEffects(statusEffects: statusTypes.EffectClause[]): statusTyp
 export function describeEnlirStatusAndDuration(
   status: string,
   enlirStatus?: EnlirStatusWithPlaceholders,
+  preprocessedEffects?: statusTypes.StatusEffect | null,
   source?: EnlirSkill,
   options?: StatusOptions,
 ): [string, string | null, statusTypes.StatusEffect | null] {
@@ -1293,7 +1301,7 @@ export function describeEnlirStatusAndDuration(
     return [status, null, null];
   }
 
-  const statusEffects = safeParseStatus(enlirStatus.status);
+  const statusEffects = preprocessedEffects || safeParseStatus(enlirStatus.status);
   if (!statusEffects) {
     return [status, null, null];
   }
@@ -1355,7 +1363,7 @@ export function describeEnlirStatus(
   source?: EnlirSkill,
   options?: StatusOptions,
 ): string {
-  return describeEnlirStatusAndDuration(status, enlirStatus, source, options)[0];
+  return describeEnlirStatusAndDuration(status, enlirStatus, undefined, source, options)[0];
 }
 
 export interface ParsedEnlirStatus {
@@ -1370,6 +1378,8 @@ export interface ParsedEnlirStatus {
   specialDuration?: string;
   // Is this a generic status level for a SASB?
   statusLevel?: number;
+  // The number of possible options for this status (for, e.g., scaleWithUses)
+  optionCount?: number;
 }
 
 const slashOptionsRe = /(?:[+-]?(?:\w|\.)+%?\/)+[+-]?(?:\w|\.)+%?/;
@@ -1392,7 +1402,7 @@ function getSlashOptions(s: string): string[] | null {
   }
   return options;
 }
-function expandSlashOptions(s: string, options?: string[] | null): string[] {
+export function expandSlashOptions(s: string, options?: string[] | null): string[] {
   if (!options) {
     options = getSlashOptions(s);
     if (!options) {
@@ -1414,37 +1424,26 @@ function isFinisherOnly(effects: statusTypes.StatusEffect): boolean {
 }
 
 /**
- * Parses a string description of an Enlir status name, returning details about
+ * Parses a string description of an Enlir status item, returning details about
  * it and how it should be shown.
  */
-export function parseEnlirStatus(
-  status: string,
+export function parseEnlirStatusItem(
+  status: common.StandardStatus,
   source?: EnlirSkill,
-  options?: StatusOptions,
 ): ParsedEnlirStatus {
   let statusLevel: number | undefined;
-  let isUnconfirmed = false;
-  if (status !== '?') {
-    isUnconfirmed = status.endsWith('?');
-    status = status.replace(/\?$/, '');
-  }
-
-  const enlirStatusWithPlaceholders = getEnlirStatusWithPlaceholders(status);
-  if (!enlirStatusWithPlaceholders) {
-    logger.warn(`Unknown status: ${status}`);
-  }
-  const enlirStatus = enlirStatusWithPlaceholders ? enlirStatusWithPlaceholders.status : undefined;
+  const enlirStatus = status.id == null ? undefined : enlir.status[status.id];
   // tslint:disable: prefer-const
   let [description, specialDuration, statusEffects] = describeEnlirStatusAndDuration(
-    status,
-    enlirStatusWithPlaceholders,
+    status.name,
+    enlirStatus && { status: enlirStatus, placeholders: status.placeholders },
+    status.effects,
     source,
-    options,
   );
   // tslint:enable: prefer-const
 
-  const isEx = isExStatus(status);
-  const isAwoken = isAwokenStatus(status);
+  const isEx = isExStatus(status.name);
+  const isAwoken = isAwokenStatus(status.name);
   const isExLike =
     isEx ||
     isAwoken ||
@@ -1461,7 +1460,7 @@ export function parseEnlirStatus(
       description = 'EX: ' + description;
     }
     if (isAwoken) {
-      description = status.replace(/ Mode$/, '') + ': ' + description;
+      description = status.name.replace(/ Mode$/, '') + ': ' + description;
     }
   }
 
@@ -1479,7 +1478,7 @@ export function parseEnlirStatus(
     statusLevel = 1;
   }
 
-  if (isUnconfirmed) {
+  if (status.isUncertain) {
     description += '?';
   }
 
@@ -1490,49 +1489,42 @@ export function parseEnlirStatus(
     isBurstToggle: burstToggle,
     isTrance: enlirStatus != null && isTranceStatus(enlirStatus),
     isModeLimited: statusEffects != null && statusEffects.find(isModeLimitedEffect) != null,
-    defaultDuration: enlirStatus && !hideDuration.has(status) ? enlirStatus.defaultDuration : null,
+    defaultDuration:
+      enlirStatus && !hideDuration.has(status.name) ? enlirStatus.defaultDuration : null,
     isVariableDuration: !!enlirStatus && !!enlirStatus.mndModifier,
     specialDuration: specialDuration || undefined,
     statusLevel,
+    optionCount: status.mergeCount,
   };
+}
+
+/**
+ * Parses a string description of an Enlir status name, returning details about
+ * it and how it should be shown.
+ */
+export function parseEnlirStatus(status: string, source?: EnlirSkill): ParsedEnlirStatus {
+  const isUncertain = status !== '?' && status.endsWith('?');
+
+  const enlirStatusWithPlaceholders = getEnlirStatusWithPlaceholders(status.replace(/\?$/, ''));
+  if (!enlirStatusWithPlaceholders) {
+    logger.warn(`Unknown status: ${status}`);
+  }
+  const enlirStatus = enlirStatusWithPlaceholders ? enlirStatusWithPlaceholders.status : undefined;
+
+  return parseEnlirStatusItem(
+    {
+      type: 'standardStatus',
+      name: status,
+      id: enlirStatus && enlirStatus.id,
+      placeholders: enlirStatusWithPlaceholders && enlirStatusWithPlaceholders.placeholders,
+      isUncertain,
+    },
+    source,
+  );
 }
 
 export interface ParsedEnlirStatusWithSlashes extends ParsedEnlirStatus {
   optionCount?: number;
-}
-
-export function parseEnlirStatusWithSlashes(
-  status: string,
-  source?: EnlirSkill,
-): ParsedEnlirStatusWithSlashes {
-  function makeResult(options: ParsedEnlirStatus[], join?: string) {
-    return {
-      // Assume that most parameters are the same across options.
-      ...options[0],
-
-      description: slashMerge(options.map(i => i.description), { join }),
-
-      optionCount: options.length,
-    };
-  }
-
-  const enlirStatus = getEnlirStatusByName(status);
-  if (!enlirStatus && status.match('/')) {
-    // Handle slash-separated status options.
-    const statusOptions = expandSlashOptions(status);
-    const options = [false, true].map(forceNumbers =>
-      statusOptions.map(i => parseEnlirStatus(i, source, { forceNumbers })),
-    );
-    const descriptions = options.map(opt => slashMergeWithDetails(opt.map(i => i.description)));
-
-    // If forcing numbers gives us a better merge than not forcing numbers,
-    // then use that.
-    const pickedForceNumbers = descriptions[+true].different < descriptions[+false].different;
-
-    return makeResult(options[+pickedForceNumbers]);
-  } else {
-    return parseEnlirStatus(status, source);
-  }
 }
 
 export function formatDuration({ value, valueIsUncertain, units }: common.Duration) {
@@ -1566,4 +1558,125 @@ const getSortOrder = (status: common.StatusItem) => {
 
 export function sortStatus(a: common.StatusWithPercent, b: common.StatusWithPercent): number {
   return getSortOrder(a.status) - getSortOrder(b.status);
+}
+
+/**
+ * Given a set of status items, annotate them with Enlir status IDs and
+ * placeholder values, and expand any slash-separated items.
+ */
+export function resolveStatuses(statuses: common.StatusWithPercent[]) {
+  function update(
+    item: common.StatusWithPercent,
+    status: common.StandardStatus,
+    enlirStatus: EnlirStatusWithPlaceholders,
+    isUncertain?: boolean,
+    conj?: common.Conjunction,
+  ): common.StatusWithPercent {
+    return {
+      ...item,
+      conj: conj || item.conj,
+      status: {
+        ...status,
+        name: enlirStatus.status.name,
+        id: enlirStatus.status.id,
+        placeholders: enlirStatus.placeholders,
+        isUncertain,
+        effects: safeParseStatus(enlirStatus.status),
+      },
+    };
+  }
+
+  const newStatuses: common.StatusWithPercent[] = [];
+  for (const i of statuses) {
+    if (i.status.type !== 'standardStatus') {
+      newStatuses.push(i);
+      continue;
+    }
+
+    let name = i.status.name;
+    let isUncertain: boolean | undefined;
+    if (name !== '?' && name.endsWith('?')) {
+      name = name.replace(/\?$/, '');
+      isUncertain = true;
+    }
+    const enlirStatus = getEnlirStatusWithPlaceholders(name);
+    if (enlirStatus) {
+      newStatuses.push(update(i, i.status, enlirStatus, isUncertain));
+    } else if (i.status.name.match('/')) {
+      const statusOptions = expandSlashOptions(name);
+      let conj: common.Conjunction | undefined = i.conj;
+      for (const j of statusOptions) {
+        const thisEnlirStatus = getEnlirStatusWithPlaceholders(j);
+        if (thisEnlirStatus) {
+          newStatuses.push(update(i, i.status, thisEnlirStatus, isUncertain, conj));
+        } else {
+          logger.warn(`Unknown status ${i.status.name}`);
+          newStatuses.push({ ...i, conj });
+        }
+        conj = '[/]';
+      }
+    } else {
+      logger.warn(`Unknown status ${i.status.name}`);
+      newStatuses.push(i);
+    }
+  }
+  return newStatuses;
+}
+
+function tryToMergeEffects(
+  effectA: statusTypes.StatusEffect,
+  effectB: statusTypes.StatusEffect,
+): statusTypes.StatusEffect | undefined {
+  if (effectA.length !== 1 || effectB.length !== 1) {
+    return undefined;
+  }
+
+  const a = effectA[0];
+  const b = effectB[0];
+  if (a.type !== b.type) {
+    return undefined;
+  }
+
+  if (
+    a.type === 'radiantShield' &&
+    b.type === 'radiantShield' &&
+    a.element === b.element &&
+    a.overflow === b.overflow
+  ) {
+    return [{ ...a, value: _.flatten([a.value, b.value]) }];
+  }
+
+  return undefined;
+}
+
+export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
+  const newStatuses: common.StatusWithPercent[] = [];
+  for (const i of statuses) {
+    if (i.status.type !== 'standardStatus' || !i.status.effects) {
+      newStatuses.push(i);
+      continue;
+    }
+
+    const prev = newStatuses.length ? newStatuses[newStatuses.length - 1] : undefined;
+    if (!prev || (prev.status.type !== 'standardStatus' || !prev.status.effects)) {
+      newStatuses.push(i);
+      continue;
+    }
+
+    const merged = tryToMergeEffects(prev.status.effects, i.status.effects);
+    if (!merged) {
+      newStatuses.push(i);
+      continue;
+    }
+
+    newStatuses[newStatuses.length - 1] = {
+      ...prev,
+      status: {
+        ...prev.status,
+        effects: merged,
+        mergeCount: (prev.status.mergeCount || 1) + 1,
+      },
+    };
+  }
+  return newStatuses;
 }

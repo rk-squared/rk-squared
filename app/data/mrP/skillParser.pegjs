@@ -450,8 +450,8 @@ StatusEffect
   }
 
 StatusList
-  = head:StatusWithPercent tail:(!NextClause AndList StatusWithPercent)* {
-    return util.pegList(head, tail, 2);
+  = head:StatusWithPercent tail:(!NextClause conj:StatusListConjunction status:StatusWithPercent { return { ...status, conj }; })* {
+    return [head, ...tail];
   }
 
 StatusClause
@@ -926,6 +926,11 @@ AndList
 
 OrList
   = (',' _ 'or'? _) / (_ 'or' _)
+
+StatusListConjunction
+  = ', and' _ { return 'and'; }
+  / _ 'and' _ { return 'and'; }
+  / ',' _ { return ','; }
 
 NumberString "numeric text"
   = numberString:[a-zA-Z\-]+

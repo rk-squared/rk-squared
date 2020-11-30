@@ -237,7 +237,7 @@ interface DamageBarrier {
 
 interface RadiantShield {
   type: 'radiantShield';
-  value: number;
+  value: number | number[];
   element?: EnlirElement;
   overflow: boolean;
 }

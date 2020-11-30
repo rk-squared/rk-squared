@@ -670,6 +670,7 @@ export const enlir = {
     (i: EnlirSoulBreak) => i.sortOrder,
   ]),
 
+  status: _.keyBy(rawData.status, 'id'),
   statusByName: _.keyBy(rawData.status, 'name'),
 
   synchroCommands: makeIdMultimap(rawData.synchroCommands),
