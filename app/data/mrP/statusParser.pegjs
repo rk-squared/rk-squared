@@ -627,6 +627,7 @@ BurstToggle
 TrackUses
   = "Keeps"i _ "track of the" _ ("number of")? _ ("uses of" / "casts of") _ skill:AnySkillName { return { type: 'trackUses', skill }; }
   / "Used to determine the effect of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
+  / "Used"i _ "for tracking" _ skill:AnySkillName _ "usage" { return { type: 'trackUses', skill }; }
   // TASB variant.  `skill` gives the TASB name.
   / "Keeps"i _ "track of" _ skill:AnySkillName _ "uses" { return { type: 'trackUses', skill }; }
 

@@ -1048,9 +1048,23 @@ function patchEnlir() {
   // below.
   applyEffectsPatch(
     enlir.soulBreaks,
-    '20690002', // Auron - Dragon Fang
-    'One group attack (3.20), ATK -50% for 25 seconds',
-    'One group attack (3.20), [ATK -50%] for 25 seconds',
+    '22500004', // Angeal - Idle Rage
+    'Ten single attacks (0.71 each), grants 100% Critical to the user, ' +
+      'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
+    'Ten single attacks (0.71 each), grants [100% Critical] to the user, ' +
+      'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22100007', // Laguna - Ragnarok Buster
+    'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants ATK and RES +30%, [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
+    'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants [ATK and RES +30%], [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23000002', // Ward - Wordless Promise
+    'ATK +50% for 25 seconds, grants [Last Stand]',
+    '[ATK +50%] for 25 seconds, grants [Last Stand]',
   );
   applyEffectsPatch(
     enlir.soulBreaks,
@@ -1066,11 +1080,21 @@ function patchEnlir() {
   );
   applyEffectsPatch(
     enlir.soulBreaks,
-    '22500004', // Angeal - Idle Rage
-    'Ten single attacks (0.71 each), grants 100% Critical to the user, ' +
-      'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
-    'Ten single attacks (0.71 each), grants [100% Critical] to the user, ' +
-      'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
+    '20690002', // Auron - Dragon Fang
+    'One group attack (3.20), ATK -50% for 25 seconds',
+    'One group attack (3.20), [ATK -50%] for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22880006', // Aphmau - Imperial Heal
+    'Causes Imperil Holy 20%, restores HP (85) to all allies, grants [Imperial Heal] and [Glimpse of Divinity Follow-Up] to the user',
+    'Causes [Imperil Holy 20%], restores HP (85) to all allies, grants [Imperial Heal] and [Glimpse of Divinity Follow-Up] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23200002', // Ignis - Stalwart Cook
+    'ATK and RES +30% for 25 seconds, grants [Haste], grants [Ingredients +2] and [Burst Mode] to the user',
+    '[ATK and RES +30%] for 25 seconds, grants [Haste], grants [Ingredients +2] and [Burst Mode] to the user',
   );
   applyEffectsPatch(
     enlir.abilitiesByName,
@@ -1089,30 +1113,6 @@ function patchEnlir() {
     '30121431', // Sarah HA - Sacred Prayer
     'Restores 1500 HP and grants [10% Damage Reduction Barrier 1]',
     'Restores 1500 HP, grants [10% Damage Reduction Barrier 1]',
-  );
-  applyEffectsPatch(
-    enlir.soulBreaks,
-    '23000002', // Ward - Wordless Promise
-    'ATK +50% for 25 seconds, grants [Last Stand]',
-    '[ATK +50%] for 25 seconds, grants [Last Stand]',
-  );
-  applyEffectsPatch(
-    enlir.soulBreaks,
-    '22880006', // Aphmau - Imperial Heal
-    'Causes Imperil Holy 20%, restores HP (85) to all allies, grants [Imperial Heal] and [Glimpse of Divinity Follow-Up] to the user',
-    'Causes [Imperil Holy 20%], restores HP (85) to all allies, grants [Imperial Heal] and [Glimpse of Divinity Follow-Up] to the user',
-  );
-  applyEffectsPatch(
-    enlir.soulBreaks,
-    '22100007', // Laguna - Ragnarok Buster
-    'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants ATK and RES +30%, [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
-    'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants [ATK and RES +30%], [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
-  );
-  applyEffectsPatch(
-    enlir.soulBreaks,
-    '23200002', // Ignis - Stalwart Cook
-    'ATK and RES +30% for 25 seconds, grants [Haste], grants [Ingredients +2] and [Burst Mode] to the user',
-    '[ATK and RES +30%] for 25 seconds, grants [Haste], grants [Ingredients +2] and [Burst Mode] to the user',
   );
 
   // Add explicit "grants" and "causes" verbs.  This greatly simplifies parsing.
