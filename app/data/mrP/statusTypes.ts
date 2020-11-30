@@ -666,8 +666,8 @@ export interface RemovedAfterTrigger {
 interface TrackStatusLevel {
   type: 'trackStatusLevel';
   status: string;
-  max: number;
-  current: common.ValueOrPlaceholder<number>;
+  max?: number;
+  current?: common.ValueOrPlaceholder<number>;
 }
 
 interface ChangeStatusLevel {

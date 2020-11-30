@@ -561,7 +561,7 @@ MultiplyDamage
 
 // This effect is also used for Confuse.
 Berserk
-  = "Forces"i _ "default action, affects targeting, resets ATB when set or removed" { return { type: 'berserk' }; }
+  = "Forces"i _ "default action, affects targeting" ", resets ATB when set or removed"? { return { type: 'berserk' }; }
 
 AbilityBerserk
   = "Forces a random available action, excluding Defend, affects targeting, Berserk, Confuse, Paralyze, Stop are prioritized" { return { type: 'abilityBerserk' }; }
@@ -593,6 +593,10 @@ RemovedAfterTrigger
 
 TrackStatusLevel
   = "Keeps"i _ "track of the" _ status:StatusNameNoBrackets _ "level, up to level" _ max:Integer { return { type: 'trackStatusLevel', status, max, current: util.placeholder }; }
+  / "Used"i _ "for tracking" _ status:StatusNameNoBrackets _ "level" { return { type: 'trackStatusLevel', status }; }
+  // The first variation is used for Heavy Charge and is used to set a level.
+  // The second is used for tracking stacking effects of 6* healer HAs and is
+  // mostly internal.  It may be better to treat these as separately.
 
 ChangeStatusLevel
   = sign:IncreasesOrReduces _ "the"? _ status:StatusNameNoBrackets _ "level by" _ value:Integer _ trigger:TriggerOrWhenSet {

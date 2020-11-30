@@ -588,7 +588,7 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Cornelian Princess ",
+    "source": "Awoken Cornelian Princess",
     "name": "Healing Voice",
     "type": "WHT",
     "target": "All allies",
@@ -5391,7 +5391,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Accomplice Follow-Up",
-    "name": "Accomplice ",
+    "name": "Accomplice",
     "type": "NAT",
     "target": "Single enemy",
     "formula": null,

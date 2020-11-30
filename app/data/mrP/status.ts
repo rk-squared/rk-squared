@@ -1259,6 +1259,10 @@ function describeStatusEffect(
       // Manually handled elsewhere. TODO: Consolidate duplicated logic.
       return null;
     case 'trackStatusLevel': {
+      if (effect.current == null) {
+        // A purely internal status level; nothing to report.
+        return '';
+      }
       const current = resolve.x(effect.current);
       return (
         (statusLevelAlias[effect.status] || effect.status) + (!isNaN(current) ? ' ' + current : '')
