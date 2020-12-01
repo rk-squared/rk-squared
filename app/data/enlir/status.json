@@ -20564,7 +20564,7 @@
   {
     "id": 51157,
     "name": "Deep Meditation Mode",
-    "effects": "Triplecast Fire abilities, casts Deep Meditation after an ally uses a Fire ability, removed after the user uses two Fire abilities",
+    "effects": "Triplecasts Fire abilities, casts Deep Meditation after an ally uses a Fire ability, removed after the user uses two Fire abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

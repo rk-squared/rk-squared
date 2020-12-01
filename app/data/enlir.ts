@@ -1049,6 +1049,22 @@ function patchEnlir() {
     },
   );
 
+  // Try to consistently use brackets for actual statuses and no brackets for
+  // status levels (such as are used for synchro commands).
+  //
+  // We also smooth out tiered effects to make them look nicer.
+  applyEffectsPatch(
+    enlir.synchroCommands,
+    '31540523',
+    'Grants [Fire Ability +10% Boost 1]/[Fire Ability +15% Boost 1]/[Fire Ability +30% Boost 1]/' +
+      '[Fire Ability +50% Boost 1] and [Damage Cap +10000 1] if the user has Chakra level 0/1/2/3, ' +
+      'removes [Chakra] from the user',
+    'Grants [Fire Ability +10% Boost 1]/[Fire Ability +15% Boost 1]/[Fire Ability +30% Boost 1]/' +
+      '[Fire Ability +50% Boost 1] if the user has Chakra level 0/1/2/3, ' +
+      'grants [Damage Cap +10000 1] if the user has Chakra level 3, ' +
+      'removes Chakra from the user',
+  );
+
   // Apparent mistakes from adding brackets to status names.  Should be
   // upstreamed.  We also add a few explicit "grants" and "causes" verbs - see
   // below.

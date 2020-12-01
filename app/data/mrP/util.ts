@@ -49,6 +49,19 @@ const numbers: { [s: string]: number } = {
   ninety: 90,
 };
 
+const tuple: Array<string | undefined> = [
+  undefined,
+  undefined,
+  'dual',
+  'triple',
+  'quad',
+  'penta',
+  'hex',
+  'sext',
+];
+
+export const tupleVerb = (count: number, verb: string) => (tuple[count] || `${count}-`) + verb;
+
 export function isNumeric(s: string): boolean {
   return !isNaN(Number(s));
 }

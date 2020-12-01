@@ -44,7 +44,7 @@ export type EffectClause =
   | RankBoost
   | DamageUp
   | AbilityDouble
-  | Dualcast
+  | Multicast
   | MulticastAbility
   | NoAirTime
   | BreakDamageCap
@@ -344,8 +344,9 @@ interface AbilityDouble {
   school: EnlirSchool | EnlirSchool[];
 }
 
-interface Dualcast {
-  type: 'dualcast';
+interface Multicast {
+  type: 'multicast';
+  count: number;
   chance: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
@@ -353,7 +354,7 @@ interface Dualcast {
 
 interface MulticastAbility {
   type: 'multicastAbility';
-  count: 2 | 3;
+  count: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
 }
@@ -769,7 +770,16 @@ export type Trigger =
     }
   | { type: 'singleHeal' }
   | { type: 'lowHp'; value: number }
-  | { type: 'damageDuringStatus'; value: number | number[] };
+  | { type: 'damageDuringStatus'; value: number | number[] }
+  | {
+      type: 'allyAbility';
+      element?: common.OrOptions<EnlirElement>;
+      school?: EnlirSchool | EnlirSchool[];
+      count: TriggerCount;
+      jump: boolean;
+      requiresDamage: boolean;
+      requiresAttack: boolean;
+    };
 
 export type TriggerCount =
   | common.UseCount

@@ -28,7 +28,7 @@ EffectClause
   / Awoken
   / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Dualcast / MulticastAbility / NoAirTime
+  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Multicast / MulticastAbility / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal / EmpowerHeal
   / Doom / DoomTimer / DrainHp
@@ -302,14 +302,17 @@ AltDamageUp
 AbilityDouble
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'abilityDouble' }, what); }
 
-Dualcast
-  = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance: 100 }, what); }
-  / chance:Integer "% chance to dualcast" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'dualcast', chance }, what); }
+Multicast
+  = count:MulticastVerb _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'multicast', count, chance: 100 }, what); }
+  / chance:Integer "% chance to" _ count:MulticastVerb _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'multicast', count, chance }, what); }
 
 MulticastAbility
-  = count:("dualcasts"i / "triplecasts"i) _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") {
-    return Object.assign({ type: 'multicastAbility', count: count.toLowerCase() === 'triplecasts' ? 3 : 2 }, what);
+  = count:MulticastVerb _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") {
+    return Object.assign({ type: 'multicastAbility', count }, what);
   }
+
+MulticastVerb
+  = count:Tuple "casts" { return count; }
 
 NoAirTime
   = "Changes"i _ "the air time of Jump attacks to 0.01 seconds" { return { type: 'noAirTime' }; }
@@ -683,7 +686,7 @@ Unknown
 // Triggers
 
 Trigger
-  = "after"i _ requiresDamage1:("using" / "dealing damage with") _ count:TriggerCount _ requiresDamage2:"damaging"?
+  = "after"i _ requiresDamage1:("using" / "dealing damage with" / "the user uses") _ count:TriggerCount _ requiresDamage2:"damaging"?
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
@@ -725,6 +728,10 @@ Trigger
   / "when"i _ "user crosses" _ value1:Integer _ "and" _ value2:Integer _ "damage dealt during the status" {
       // For TASBs
       return { type: 'damageDuringStatus', value: [value1, value2] };
+    }
+  / "after"i _ "an ally uses" _ count:TriggerCount _ requiresDamage:"damaging"?
+    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
+      return { type: 'allyAbility', element, school, count, jump: !!jump, requiresDamage, requiresAttack };
     }
 
 AbilityOrAttack
@@ -1283,6 +1290,14 @@ Ordinal
   / "third" { return 3; }
   / "fourth" { return 4; }
   / "fifth" { return 5; }
+
+
+Tuple
+  = "dual"i { return 2; }
+  / "triple"i { return 3; }
+  / "quad"i { return 4; }
+  / "penta"i { return 5; }
+  / "sext"i { return 6; }
 
 
 Fraction

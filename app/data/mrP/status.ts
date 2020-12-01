@@ -59,6 +59,7 @@ import {
   slashMerge,
   toMrPFixed,
   toMrPKilo,
+  tupleVerb,
 } from './util';
 
 const wellKnownStatuses = new Set<string>([
@@ -494,6 +495,10 @@ function shouldAbbreviateTurns(effect: statusTypes.EffectClause) {
     effect.type === 'castSpeed' ||
     effect.type === 'instantAtb' ||
     effect.type === 'atbSpeed'
+    // Should we include multicastAbility here?  By analogy with castSpeed
+    // and instacast, yes.  To parallel damageUp (which it's paried with in
+    // some synchro commands), no.
+    // effect.type === 'multicastAbility'
   );
 }
 
@@ -583,16 +588,17 @@ function getTriggerSkillAlias(skill: string, source: EnlirSkill | undefined): st
 export function formatTrigger(trigger: statusTypes.Trigger, source?: EnlirSkill): string {
   switch (trigger.type) {
     case 'ability':
+    case 'allyAbility':
       const count = formatTriggerCount(trigger.count);
-      let result: string;
+      let result: string = trigger.type === 'allyAbility' ? 'ally ' : '';
       if (!trigger.element && !trigger.school && !trigger.jump) {
         if (trigger.requiresAttack) {
-          result = !count ? 'any attack' : count + ' attacks';
+          result += !count ? 'any attack' : count + ' attacks';
         } else {
-          result = !count ? 'any ability' : count + ' abilities';
+          result += !count ? 'any ability' : count + ' abilities';
         }
       } else {
-        result = count + formatAnyType(trigger);
+        result += count + formatAnyType(trigger);
       }
       return result + (trigger.requiresDamage ? ' dmg' : '');
     case 'crit':
@@ -1145,12 +1151,11 @@ function describeStatusEffect(
       );
     case 'abilityDouble':
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
-    case 'dualcast':
-      return effect.chance + '% dualcast' + formatElementOrSchoolList(effect, ' ');
+    case 'multicast':
+      const chance = effect.chance === 100 ? '' : effect.chance + '% ';
+      return chance + tupleVerb(effect.count, 'cast') + formatElementOrSchoolList(effect, ' ');
     case 'multicastAbility':
-      return (
-        (effect.count === 2 ? 'dualcast' : 'triplecast') + formatElementOrSchoolList(effect, ' ')
-      );
+      return tupleVerb(effect.count, 'cast') + formatElementOrSchoolList(effect, ' ');
     case 'noAirTime':
       return 'no air time';
     case 'breakDamageCap':
