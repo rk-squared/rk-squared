@@ -818,36 +818,6 @@ function patchEnlir() {
     },
   );
 
-  // Abbreviations - I don't know if it's best to update Enlir to remove these
-  // or not.  Where possible, we update our code to handle abbreviations, but
-  // some are too hard.
-  // Wol - Howl of Hell
-  applyPatch(
-    enlir.burstCommands,
-    '30512822',
-    heavyBreak =>
-      heavyBreak.effects ===
-      'Four single attacks (0.58 each), [ATK and MAG -20%/-30%/-50%] for 15 seconds at Heavy Charge 0/1/2, [Heavy Charge =0] to the user',
-    heavyBreak => {
-      // Insert 'causes' - it's too big to fit on one line, but too much of our
-      // processing keys off of it.
-      heavyBreak.effects =
-        'Four single attacks (0.58 each), [ATK and MAG -20%/-30%/-50%] for 15 seconds at Heavy Charge 0/1/2, causes [Heavy Charge =0] to the user';
-    },
-  );
-  // Seifer - Sorceress's Knight
-  applyPatch(
-    enlir.burstCommands,
-    '30510911',
-    desperateMadness =>
-      desperateMadness.effects ===
-      'Four single attacks (0.56 each), [Desperate Madness] and [Radiant Shield 100%/125%/150%/175%/200%/225%/250%/275%/300%] to the user',
-    desperateMadness => {
-      desperateMadness.effects =
-        'Four single attacks (0.56 each), grants [Desperate Madness] and [Radiant Shield: 100%/125%/150%/175%/200%/225%/250%/275%/300%] to the user scaling with uses';
-    },
-  );
-
   // Status cleanups.  These too should be fixed up.
   applyPatch(
     enlir.statusByName,
@@ -901,29 +871,6 @@ function patchEnlir() {
     legendMateria => {
       legendMateria.effect =
         'Grants [Quick Cast] and [Lingering Spirit] for 25 seconds when HP fall below 20%';
-    },
-  );
-
-  // Paine's AASB. It seems odd for a status to directly grant a status.
-  applyPatch(
-    enlir.statusByName,
-    'Respect Point Mode',
-    mode => mode.effects === 'Cast speed x2.00, grants [Respect Counter Critical]',
-    mode => {
-      mode.effects = 'Cast speed x2.00';
-    },
-  );
-  applyPatch(
-    enlir.soulBreaks,
-    '22420008',
-    combo =>
-      combo.effects ===
-      'Fifteen single attacks (0.60 each), grants [Attach Water], [Awoken Water], ' +
-        '[Damage Cap +10000] and [Respect Point Mode] to the user',
-    combo => {
-      combo.effects =
-        'Fifteen single attacks (0.60 each), grants [Attach Water], [Awoken Water], ' +
-        '[Damage Cap +10000], [Respect Point Mode], and [Respect Counter Critical] to the user';
     },
   );
 

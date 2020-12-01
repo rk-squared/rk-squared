@@ -900,6 +900,9 @@ UseCount
     const list = util.pegList(head, tail, 1, false);
     return { x: util.scalarify(list.map(i => i.x)), y: list[0].y };
   }
+  / head:Integer tail:('/' Integer)* "+" y:Integer "n" {
+    return { x: util.pegList(head, tail, 1, true), y };
+  }
 
 UseCountTerm
   = x:Integer "+" y:Integer "n" { return { x, y }; }

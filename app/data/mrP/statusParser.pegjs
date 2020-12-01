@@ -36,6 +36,7 @@ EffectClause
   / TriggeredEffect
   / ConditionalStatus
   / GainSb / SbGainUp
+  / DirectGrantStatus
   / Runic / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
@@ -472,6 +473,17 @@ SimpleRemoveStatus
 GrantStatus
   = verb:StatusVerb _ statuses:StatusList _ condition:Condition? _ who:Who? _ duration:Duration? {
     const result = util.addCondition({ type: 'grantStatus', status: statuses, who, verb }, condition);
+    if (duration) {
+      util.applyDuration(result.status, duration);
+    }
+    return result;
+  }
+
+// Some statuses are listed as directly granting other statuses.  To avoid parser
+// ambiguities, this should go after TriggeredEffect and GainSb.
+DirectGrantStatus
+  = "Grants"i _ statuses:StatusList _ duration:Duration? {
+    const result = { type: 'directGrantStatus', status: statuses };
     if (duration) {
       util.applyDuration(result.status, duration);
     }
@@ -1156,6 +1168,9 @@ UseCount
   {
     const list = util.pegList(head, tail, 1, false);
     return { x: util.scalarify(list.map(i => i.x)), y: list[0].y };
+  }
+  / head:Integer tail:('/' Integer)* "+" y:Integer "n" {
+    return { x: util.pegList(head, tail, 1, true), y };
   }
 
 UseCountTerm

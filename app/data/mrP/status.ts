@@ -109,6 +109,23 @@ function preprocessStatus(
   status: statusTypes.StatusEffect,
   source: EnlirStatus,
 ): statusTypes.StatusEffect {
+  // To avoid complexities of mutating a list as we're iterating, we only check
+  // for one directGrantStatus.
+  const grantIndex = status.findIndex(i => i.type === 'directGrantStatus');
+  if (grantIndex !== -1) {
+    const grant = status[grantIndex] as statusTypes.DirectGrantStatus;
+    grant.status = resolveStatuses(arrayify(grant.status), source);
+    if (
+      _.every(grant.status, i => i.status.type === 'standardStatus' && i.status.effects != null)
+    ) {
+      status.splice(
+        grantIndex,
+        1,
+        ..._.flatten(grant.status.map(i => (i.status as common.StandardStatus).effects!)),
+      );
+    }
+  }
+
   for (const i of status) {
     if (i.type === 'triggeredEffect') {
       for (const j of arrayify(i.effects)) {
@@ -1217,6 +1234,14 @@ function describeStatusEffect(
       return formatTriggeredEffect(effect, enlirStatus, source);
     case 'conditionalStatus':
       return formatGrantOrConditionalStatus(effect, null, enlirStatus, source);
+    case 'directGrantStatus':
+      // In practice, these should be resolved during preprocessStatus, so this
+      // code path should not be hit.
+      return arrayify(effect.status)
+        .map(i =>
+          i.status.type === 'standardStatus' ? i.status.name : formatSpecialStatusItem(i.status),
+        )
+        .join(', ');
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'sbGainUp':

@@ -6131,7 +6131,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (0.56 each), [Desperate Madness] and [Radiant Shield 100%/125%/150%/175%/200%/225%/250%/275%/300%] to the user",
+    "effects": "Four single attacks (0.56 each), [Desperate Madness] and [Radiant Shield: 100%/125%/150%/175%/200%/225%/250%/275%/300%] scaling with uses to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 50,

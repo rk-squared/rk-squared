@@ -65,6 +65,7 @@ export type EffectClause =
   | RowCover
   | TriggeredEffect
   | ConditionalStatus
+  | DirectGrantStatus
   | GainSb
   | SbGainUp
   | Taunt
@@ -548,6 +549,13 @@ export interface GrantStatus {
   status: common.StatusWithPercent | common.StatusWithPercent[];
   who?: common.Who;
   condition?: common.Condition;
+  duration?: common.Duration;
+}
+
+export interface DirectGrantStatus {
+  type: 'directGrantStatus';
+  status: common.StatusWithPercent | common.StatusWithPercent[];
+  duration?: common.Duration;
 }
 
 interface Heal {
