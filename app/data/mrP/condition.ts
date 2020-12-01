@@ -123,10 +123,18 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'characterAlive':
     case 'characterInParty':
       const what = condition.type === 'characterAlive' ? ' alive' : ' in party';
+      const clause = condition.withoutWith ? 'w/o - w/' : 'if';
       if (condition.count) {
-        return 'if ' + formatNumberSlashList(condition.count) + ' of ' + condition.character + what;
+        return (
+          clause +
+          ' ' +
+          formatNumberSlashList(condition.count) +
+          ' of ' +
+          condition.character +
+          what
+        );
       } else {
-        return 'if ' + condition.character + what;
+        return clause + ' ' + condition.character + what;
       }
     case 'females':
       return formatCountCharacters(condition.count, 'females in party');

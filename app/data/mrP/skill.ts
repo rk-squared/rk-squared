@@ -519,8 +519,18 @@ function processStatus(
   const removes = effect.verb === 'removes';
   const statuses = effect.statuses.filter(shouldIncludeStatus(skill, effect)).sort(sortStatus);
   // tslint:disable: prefer-const
-  let { who, condition, perUses, ifSuccessful } = effect;
+  let { who, condition, perUses, ifSuccessful, toCharacter } = effect;
   // tslint:enable: prefer-const
+
+  if (
+    toCharacter &&
+    condition &&
+    condition.type === 'characterAlive' &&
+    (!condition.character || condition.character === toCharacter)
+  ) {
+    condition = undefined;
+  }
+
   statuses.forEach((thisStatus, thisStatusIndex) => {
     const [status, stacking] = checkStacking(effect, thisStatus);
 
@@ -611,7 +621,9 @@ function processStatus(
       }
     }
 
-    if (thisStatus.chance) {
+    if (toCharacter) {
+      other.push(skill, 'namedCharacter', toCharacter + ' ' + description);
+    } else if (thisStatus.chance) {
       const chanceDescription = formatAttackStatusChance(
         thisStatus.chance,
         findFirstEffect<skillTypes.Attack>(skillEffects, 'attack'),
@@ -692,6 +704,7 @@ class OtherDetail {
   ally: string[] = [];
   misc: string[] = [];
   detail: string[] = [];
+  namedCharacter: string[] = [];
 
   push(
     skill: EnlirSkill,
@@ -743,6 +756,7 @@ class OtherDetail {
         ...this.makeGroup(this.backRow, 'back row'),
 
         ...this.makeGroup(this.ally, 'ally'),
+        ...this.makeGroup(this.namedCharacter),
         ...this.makeGroup(this.party, 'party'),
         ...this.makeGroup(this.self, 'self'),
         ...this.misc,
@@ -811,6 +825,8 @@ class OtherDetail {
       case 'allyWithNegativeStatus':
       case 'allyWithKO':
         return this.ally;
+      case 'namedCharacter':
+        return this.namedCharacter;
     }
   }
 

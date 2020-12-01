@@ -84,7 +84,10 @@ export type Who =
   | 'allyWithKO'
   // Note: As of November 2019, 'ally' is used only for compatibility with
   // EnlirTarget.  The parser doesn't output it directly.
-  | 'ally';
+  | 'ally'
+  // Used in application code (not in the parser directly) to indicate specific
+  // toCharacter values.
+  | 'namedCharacter';
 
 export type Condition =
   | { type: 'equipped'; article: string; equipped: string }
@@ -98,8 +101,13 @@ export type Condition =
   | { type: 'scaleWithSkillUses'; skill: string }
   | { type: 'afterUseCount'; skill?: string; useCount: UseCount }
   | { type: 'alliesAlive' }
-  | { type: 'characterAlive'; character: string; count?: number | number[] }
-  | { type: 'characterInParty'; character: string; count?: number | number[] }
+  | { type: 'characterAlive'; character: string; count?: number | number[]; withoutWith?: boolean }
+  | {
+      type: 'characterInParty';
+      character: string;
+      count?: number | number[];
+      withoutWith?: boolean;
+    }
   | { type: 'females'; count: number | number[] }
   | { type: 'realmCharactersInParty'; realm: EnlirRealm; count: number | number[] }
   | { type: 'realmCharactersAlive'; realm: EnlirRealm; count: number | number[]; plus: boolean }

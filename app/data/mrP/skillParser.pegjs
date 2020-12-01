@@ -457,6 +457,7 @@ StatusClause
   = _ clause:(
     duration:Duration { return { duration }; }
     / who:Who { return { who }; }
+    / "to" _ toCharacter:CharacterNameList { return { toCharacter }; }
     / perUses:PerUses { return { perUses }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
     / "to" _ "undeads" { return { ifUndead: true }; }
@@ -625,6 +626,7 @@ Condition
   // Beginning of attack-specific conditions
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
   / "if" _ character:CharacterNameList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
+  / "if" _ character:CharacterNameList _ "is not alive/alive" { return { type: 'characterAlive', character, withoutWith: true }; }
   / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
