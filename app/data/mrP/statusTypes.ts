@@ -305,12 +305,12 @@ interface EnElement {
 
 interface EnElementStacking {
   type: 'enElementStacking';
-  element: EnlirElement;
+  element: EnlirElement | EnlirElement[];
 }
 
 interface EnElementWithStacking {
   type: 'enElementWithStacking';
-  element: EnlirElement;
+  element: EnlirElement | EnlirElement[];
   level: number;
 }
 

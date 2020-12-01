@@ -680,7 +680,15 @@ function formatCastSkill(
   const skillText = handleOrOptions(effect.skill, skill => {
     let options: string[];
     if (skill.match('/') && !getEnlirOtherSkill(skill, enlirStatus.name)) {
-      options = expandSlashOptions(skill);
+      const simple = skill.split('/');
+      const expanded = expandSlashOptions(skill);
+      const simpleCount = _.sumBy(simple, i =>
+        getEnlirOtherSkill(i, enlirStatus.name) == null ? 0 : 1,
+      );
+      const expandedCount = _.sumBy(expanded, i =>
+        getEnlirOtherSkill(i, enlirStatus.name) == null ? 0 : 1,
+      );
+      options = simpleCount > expandedCount ? simple : expanded;
     } else {
       options = [skill];
     }
@@ -723,6 +731,51 @@ function formatCastSkill(
   return skillText + (effect.type === 'randomCastSkill' ? ' (random)' : '');
 }
 
+function formatOneGrantOrConditionalStatus(
+  verb: common.StatusVerb,
+  item: common.StatusWithPercent,
+  trigger: statusTypes.Trigger | null,
+  enlirStatus: EnlirStatus,
+  source: EnlirSkill | undefined,
+) {
+  if (item.status.type === 'standardStatus' && item.status.name === enlirStatus.name) {
+    return 'status';
+  }
+
+  if (item.status.type !== 'standardStatus') {
+    return formatSpecialStatusItem(item.status);
+  }
+
+  const sequence = trigger ? getFollowUpStatusSequence(item.status.name, trigger) : null;
+  if (sequence) {
+    return describeMergedSequence(sequence);
+  }
+
+  const parsed = parseEnlirStatusItem(item.status, source);
+  let thisResult = parsed.description;
+
+  // Hack: Partial duplication of logic on when to append durations.
+  // This is valuable to make Galuf AASB's instacast clear.
+  if (
+    verb !== 'removes' &&
+    !item.duration &&
+    parsed.defaultDuration &&
+    !parsed.isVariableDuration &&
+    !parsed.specialDuration &&
+    !parsed.isModeLimited
+  ) {
+    thisResult += ' ' + formatDuration({ value: parsed.defaultDuration, units: 'seconds' });
+  }
+
+  if (item.chance) {
+    thisResult += ` (${item.chance}%)`;
+  }
+  if (item.duration) {
+    thisResult += ' ' + formatDuration(item.duration);
+  }
+  return thisResult;
+}
+
 function formatGrantOrConditionalStatus(
   { verb, status, who, condition }: statusTypes.GrantStatus | statusTypes.ConditionalStatus,
   trigger: statusTypes.Trigger | null,
@@ -743,46 +796,24 @@ function formatGrantOrConditionalStatus(
     result += whoText['self'] + ' ';
   }
 
-  result += arrayify(status)
-    .map((i: common.StatusWithPercent) => {
-      if (i.status.type === 'standardStatus' && i.status.name === enlirStatus.name) {
-        return 'status';
-      }
-
-      if (i.status.type !== 'standardStatus') {
-        return formatSpecialStatusItem(i.status);
-      }
-
-      const sequence = trigger ? getFollowUpStatusSequence(i.status.name, trigger) : null;
-      if (sequence) {
-        return describeMergedSequence(sequence);
-      } else {
-        const parsed = parseEnlirStatusItem(i.status, source);
-        let thisResult = parsed.description;
-
-        // Hack: Partial duplication of logic on when to append durations.
-        // This is valuable to make Galuf AASB's instacast clear.
-        if (
-          verb !== 'removes' &&
-          !i.duration &&
-          parsed.defaultDuration &&
-          !parsed.isVariableDuration &&
-          !parsed.specialDuration &&
-          !parsed.isModeLimited
-        ) {
-          thisResult += ' ' + formatDuration({ value: parsed.defaultDuration, units: 'seconds' });
-        }
-
-        if (i.chance) {
-          thisResult += ` (${i.chance}%)`;
-        }
-        if (i.duration) {
-          thisResult += ' ' + formatDuration(i.duration);
-        }
-        return thisResult;
-      }
-    })
-    .join(', ');
+  status = arrayify(status);
+  if (!isComplexStatusList(status)) {
+    result += status
+      .map(i => formatOneGrantOrConditionalStatus(verb, i, trigger, enlirStatus, source))
+      .join(', ');
+  } else {
+    const statusLength = status.length;
+    result += status
+      .map((item, i) =>
+        appendComplexStatusDescription(
+          item,
+          formatOneGrantOrConditionalStatus(verb, item, trigger, enlirStatus, source),
+          i,
+          statusLength,
+        ),
+      )
+      .join('');
+  }
 
   if (condition) {
     result += ' ' + describeCondition(condition);
@@ -1136,10 +1167,10 @@ function describeStatusEffect(
     case 'enElement':
       return getElementShortName(effect.element, '/') + ' infuse';
     case 'enElementStacking':
-      return getElementShortName(effect.element) + ' infuse stacking';
+      return getElementShortName(effect.element, '/') + ' infuse stacking';
     case 'enElementWithStacking':
       return (
-        getElementShortName(effect.element) +
+        getElementShortName(effect.element, '/') +
         ' infuse ' +
         (effect.level !== 1 ? effect.level + ' ' : '') +
         'w/ stacking'
@@ -1710,7 +1741,13 @@ const valueMergeTypes = [
   'statMod',
   'stoneskin',
 ] as const;
-const elementMergeTypes = ['elementAttack', 'elementResist', 'enElement'] as const;
+const elementMergeTypes = [
+  'elementAttack',
+  'elementResist',
+  'enElement',
+  'enElementStacking',
+  'enElementWithStacking',
+] as const;
 
 function tryToMergeEffects(
   effectA: statusTypes.StatusEffect,
@@ -1833,4 +1870,34 @@ export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
     };
   }
   return newStatuses;
+}
+
+/**
+ * Complex combinations of statuses, like "[A1] and [B1]/[A2] and [B2]/[A3]
+ * and [B3] and [C] if 1/2/3", need special handling.
+ */
+export function isComplexStatusList(statuses: common.StatusWithPercent[]): boolean {
+  // TODO: This could use refinement.
+  // The first conjunction is (nearly?) always null, so we're really just
+  // checking whether there's a slash, but it seems to work well in practice.
+  return statuses.find(i => i.conj === '/') != null && statuses.find(i => i.conj !== '/') != null;
+}
+
+export function appendComplexStatusDescription(
+  item: common.StatusWithPercent,
+  description: string,
+  index: number,
+  length: number,
+) {
+  let result: string;
+  if (index) {
+    result = item.conj === '/' ? ') / (' : item.conj === 'or' ? ' or ' : ', ';
+  } else {
+    result = '(';
+  }
+  result += description;
+  if (index + 1 === length) {
+    result += ')';
+  }
+  return result;
 }

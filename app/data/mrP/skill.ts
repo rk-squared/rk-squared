@@ -45,7 +45,9 @@ import { checkPureRage } from './rage';
 import * as skillParser from './skillParser';
 import * as skillTypes from './skillTypes';
 import {
+  appendComplexStatusDescription,
   formatDuration,
+  isComplexStatusList,
   mergeSimilarStatuses,
   ParsedEnlirStatusWithSlashes,
   parseEnlirStatus,
@@ -449,6 +451,7 @@ function checkStacking(
   // mergeSimilarStatuses code, and it's not worth the complexity.
   const prereq = effect.condition.status;
   const isStacking =
+    typeof prereq === 'string' &&
     status.status.name.replace(/[0-9\/]+/, 'X') === prereq.replace(/[0-9\/]+/, 'X');
 
   return [status.status, isStacking];
@@ -537,8 +540,7 @@ function processStatus(
   // and [B3] and [C] if 1/2/3", need special handling.
   let complex = '';
   let complexCount = 0;
-  const isComplex =
-    statuses.find(i => i.conj === '/') != null && statuses.find(i => i.conj !== '/');
+  const isComplex = isComplexStatusList(statuses);
   if (isComplex) {
     complexCount = statuses.filter(i => i.conj === '/').length + 1;
   }
@@ -640,12 +642,12 @@ function processStatus(
     }
 
     if (isComplex) {
-      if (complex) {
-        complex += thisStatus.conj === '/' ? ') / (' : thisStatus.conj === 'or' ? ' or ' : ', ';
-      } else {
-        complex = '(';
-      }
-      complex += description;
+      complex += appendComplexStatusDescription(
+        thisStatus,
+        description,
+        thisStatusIndex,
+        statuses.length,
+      );
     } else if (thisStatus.conj === 'or') {
       if (!lastItem || !lastItem.length) {
         logger.warn('Got an "or" status with no valid previous item');
@@ -655,7 +657,7 @@ function processStatus(
       }
     } else if (toCharacter) {
       lastItem = other.push(skill, 'namedCharacter', description);
-    } else if (thisStatus.chance) {
+    } else if (thisStatus.chance && who !== 'self') {
       const chanceDescription = formatAttackStatusChance(
         thisStatus.chance,
         findFirstEffect<skillTypes.Attack>(skillEffects, 'attack'),
@@ -676,7 +678,7 @@ function processStatus(
 
   if (complex) {
     const options = _.times(complexCount, i => i);
-    other.push(skill, who, complex + ')' + appendCondition(condition, options));
+    other.push(skill, who, complex + appendCondition(condition, options));
   }
 
   return burstToggle;

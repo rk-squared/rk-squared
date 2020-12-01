@@ -600,7 +600,7 @@ RemovedUnlessStatus
 // This is only processed as part of a TriggeredEffect, since it arguably
 // applies to the trigger itself.  As such, it does not get its own type.
 OnceOnly
-  = "Removed"i _ "after triggering" _ count:Occurrence { return count || true; }
+  = "Removed"i _ "after triggering" _ count:Occurrence? { return count || true; }
 
 RemovedAfterTrigger
   = "Removed"i _ trigger:Trigger { return { type: 'removedAfterTrigger', trigger }; }
@@ -881,6 +881,7 @@ Condition
   / "if" _ character:CharacterNameListOrPronoun _ "is not alive/alive" { return { type: 'characterAlive', character, withoutWith: true }; }
   / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
+  / "if" _ count:IntegerSlashList? _ character:CharacterNameAndList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count, all: true }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
@@ -973,9 +974,9 @@ CharacterName
 
 // Character names, for "if X are in the party."
 CharacterNameList
-  = head:CharacterName tail:((_ "&" _ / "/" / "," _ / _ "or" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+  = head:CharacterName tail:(("/" / "," _ / _ "or" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
 CharacterNameAndList
-  = head:CharacterName tail:((_ "&" _ / "/" / "," _ / _ "and" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+  = head:CharacterName tail:(("/" / "," _ / _ "and" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
 CharacterNameListOrPronoun
   = CharacterNameList
   / ("he" / "she" / "they") { return undefined; }
@@ -1169,7 +1170,7 @@ UseCount
     const list = util.pegList(head, tail, 1, false);
     return { x: util.scalarify(list.map(i => i.x)), y: list[0].y };
   }
-  / head:Integer tail:('/' Integer)* "+" y:Integer "n" {
+  / head:Integer tail:('/' Integer)* _? "+" _? y:Integer "n" {
     return { x: util.pegList(head, tail, 1, true), y };
   }
 

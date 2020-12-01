@@ -782,7 +782,7 @@ function patchEnlir() {
         'Restores HP (85), grants [Regenga], grants [Quick Cast] to the user, ' +
         'grants [Buff Holy 10% (15s)] if Warrior of Light is in the party, ' +
         'grants [Buff Dark 10% (15s)] if Garland is in the party, ' +
-        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if Warrior of Light & Garland are in the party';
+        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if Warrior of Light and Garland are in the party';
     },
   );
   applyPatch(
@@ -798,7 +798,7 @@ function patchEnlir() {
       song.effects =
         'Restores HP (105), removes KO [Raise: 100%], grants [Last Stand], [Haste], [High Quick Cast 2], ' +
         'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] and [HP Stock (2000)] if Warrior of Light/Garland is in the party, ' +
-        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] and [HP Stock (2000)] if Warrior of Light & Garland are in the party, ' +
+        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] and [HP Stock (2000)] if Warrior of Light and Garland are in the party, ' +
         'grants [Awoken Cornelian Princess] to the user';
     },
   );

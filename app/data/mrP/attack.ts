@@ -356,7 +356,9 @@ function checkAttackPrereqStatus(
 
   // If an attack scales with its own prerequisite status, then we can filter
   // level 0 from this attack.
-  const m = attack.scaleType.status.match(/^(.*) (0\/(?:(\d+\/)+\d+))$/);
+  const m =
+    typeof attack.scaleType.status === 'string' &&
+    attack.scaleType.status.match(/^(.*) (0\/(?:(\d+\/)+\d+))$/);
   if (!m) {
     return attack;
   }

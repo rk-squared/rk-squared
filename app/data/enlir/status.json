@@ -18041,7 +18041,7 @@
   {
     "id": 50925,
     "name": "Mascot Collector Mode",
-    "effects": "Grants [Soul Break Gauge +250] and [Instant Cast 1] to the user after using three Water abilities, removes Mascot Collector Mode from the user",
+    "effects": "Grants [Soul Break Gauge +250] and [Instant Cast 1] to the user after using three Water abilities, removed after triggering",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
