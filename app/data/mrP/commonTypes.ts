@@ -53,7 +53,7 @@ export interface StandardStatus {
 
 export type StatusItem = SmartEtherStatus | StatusLevel | StandardStatus;
 
-export type Conjunction = 'and' | '/' | ',' | '[/]';
+export type Conjunction = 'and' | '/' | ',' | '[/]' | 'or';
 
 export interface StatusWithPercent {
   status: StatusItem;

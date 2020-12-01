@@ -1759,7 +1759,11 @@ export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
     }
 
     const prev = newStatuses.length ? newStatuses[newStatuses.length - 1] : undefined;
-    if (!prev || (prev.status.type !== 'standardStatus' || !prev.status.effects)) {
+    if (
+      !prev ||
+      (prev.status.type !== 'standardStatus' || !prev.status.effects) ||
+      prev.conj === 'or'
+    ) {
       newStatuses.push(i);
       continue;
     }

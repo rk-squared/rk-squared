@@ -1223,6 +1223,7 @@ AndOrList
 StatusListConjunction
   = ', and' _ { return 'and'; }
   / _ 'and' _ { return 'and'; }
+  / _ 'or' _ { return 'or'; }
   / ',' _ { return ','; }
   / '/' { return '/'; }
 

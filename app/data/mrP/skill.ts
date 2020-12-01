@@ -542,6 +542,7 @@ function processStatus(
     complexCount = statuses.filter(i => i.conj === '/').length + 1;
   }
 
+  let lastItem: string[] | undefined;
   statuses.forEach((thisStatus, thisStatusIndex) => {
     const [status, stacking] = checkStacking(effect, thisStatus);
 
@@ -638,26 +639,36 @@ function processStatus(
 
     if (isComplex) {
       if (complex) {
-        complex += thisStatus.conj === '/' ? ') / (' : ', ';
+        complex += thisStatus.conj === '/' ? ') / (' : thisStatus.conj === 'or' ? ' or ' : ', ';
       } else {
         complex = '(';
       }
       complex += description;
+    } else if (thisStatus.conj === 'or') {
+      if (!lastItem || !lastItem.length) {
+        logger.warn('Got an "or" status with no valid previous item');
+        other.push(skill, who, description);
+      } else {
+        lastItem[lastItem.length - 1] += ' or ' + description;
+      }
     } else if (toCharacter) {
-      other.push(skill, 'namedCharacter', description);
+      lastItem = other.push(skill, 'namedCharacter', description);
     } else if (thisStatus.chance) {
       const chanceDescription = formatAttackStatusChance(
         thisStatus.chance,
         findFirstEffect<skillTypes.Attack>(skillEffects, 'attack'),
       );
       other.statusInfliction.push({ description, chance: thisStatus.chance, chanceDescription });
+      lastItem = undefined;
     } else if (description.match(/^\w+ infuse/)) {
       other.infuse.push(description);
+      lastItem = other.infuse;
     } else if (isDetail && !parsed.statusLevel) {
       // (Always?) has implied 'self'
       other.detail.push(description);
+      lastItem = other.detail;
     } else {
-      other.push(skill, who, description);
+      lastItem = other.push(skill, who, description);
     }
   });
 
@@ -739,7 +750,9 @@ class OtherDetail {
     description: string,
     options: OtherDetailOptions = {},
   ) {
-    this.getPart(skill, who, options).push(description);
+    const part = this.getPart(skill, who, options);
+    part.push(description);
+    return part;
   }
 
   combine(implicitlyTargetsEnemies: boolean, allowImplicitSelf: boolean): string | undefined {
