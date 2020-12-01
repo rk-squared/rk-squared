@@ -595,8 +595,17 @@ Condition
   // If Doomed - overlaps with the general status support below
   / ("if" _ "the" _ "user" _ "has" _ "any" _ ("[Doom]" / "Doom") / "with" _ "any" _ ("[Doom]" / "Doom")) { return { type: 'ifDoomed' }; }
 
-  // General status
+  // General status.
+  // TODO: I think the database is trying to standardize on brackets?
   / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusNameNoBrackets (OrList StatusNameNoBrackets)* { return text(); }) {
+    return {
+      type: 'status',
+      status,  // In string form - callers must separate by comma, "or", etc.
+      who: who === 'user' ? 'self' : 'target',
+      any: !!any
+    };
+  }
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:StatusName {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
