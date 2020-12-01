@@ -57,7 +57,7 @@ StatMod
   }
 
 CritChance
-  = "Critical chance =" value:(IntegerSlashList / IntegerOrX)  "%" _ trigger:Trigger? {
+  = "Critical chance =" value:(IntegerSlashList / IntegerOrX)  "%" _ trigger:Trigger? _ TriggerDetail? {
     const result = { type: 'critChance', trigger };
     if (typeof value === 'object' && !Array.isArray(value)) {
       Object.assign(result, value);
@@ -448,7 +448,7 @@ TriggeredEffect
     return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: !!onceOnly }, condition);
   }
   // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
-  / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* {
+  / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ TriggerDetail? {
     return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2) };
   }
 
@@ -748,6 +748,12 @@ TriggerCount
 TriggerOrWhenSet
   = Trigger
   / "when set" { return undefined; }
+
+// Trigger details.  These seem redundant, so they're only added to rules where
+// we know they're needed, and they're not included in the final result.
+TriggerDetail
+  = "while under" _ status:StatusNameNoBrackets
+  / "if the triggering ability is" _ element:ElementSlashList
 
 
 // --------------------------------------------------------------------------
