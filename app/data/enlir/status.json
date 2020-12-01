@@ -17384,7 +17384,7 @@
   {
     "id": 50867,
     "name": "Aspiring Hero Critical Chance",
-    "effects": "Critical chance =25/50/75/100% after using 1/2/3/4+ Wind attacks while under Aspiring Hero Mode, removed if user hasn't Hero's Admiration Mode",
+    "effects": "Critical chance =25/50/75/100% after using 1/2/3/4+ Wind attacks while under Aspiring Hero Mode, removed if user hasn't Aspiring Hero Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

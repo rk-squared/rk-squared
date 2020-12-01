@@ -704,7 +704,8 @@ interface BurstToggle {
 
 interface TrackUses {
   type: 'trackUses';
-  skill: string;
+  skill?: string;
+  element?: EnlirElement | EnlirElement[];
 }
 
 interface ModifiesSkill {

@@ -628,6 +628,7 @@ TrackUses
   = "Keeps"i _ "track of the" _ ("number of")? _ ("uses of" / "casts of") _ skill:AnySkillName { return { type: 'trackUses', skill }; }
   / "Used to determine the effect of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
   / "Used"i _ "for tracking" _ skill:AnySkillName _ "usage" { return { type: 'trackUses', skill }; }
+  / "Keeps"i _ "track of the number of" _ element:ElementAndList _ AbilityOrAttack _ "used" { return { type: 'trackUses', element }; }
   // TASB variant.  `skill` gives the TASB name.
   / "Keeps"i _ "track of" _ skill:AnySkillName _ "uses" { return { type: 'trackUses', skill }; }
 
@@ -689,6 +690,9 @@ Trigger
   / "when"i _ "user triggers" _ count:TriggerCount _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack _ "during the status" {
       // TASB variant
       return { type: 'ability', element, school, count, jump: !!jump, requiresAttack };
+    }
+  / "every"i _ count:Ordinal _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
+      return { type: 'ability', element, school, count: { values: count }, jump: !!jump, requiresAttack };
     }
   / "after"i _ "dealing a critical hit" { return { type: 'crit' }; }
   / "after"i _ "exploiting elemental weakness" { return { type: 'vsWeak' }; }
