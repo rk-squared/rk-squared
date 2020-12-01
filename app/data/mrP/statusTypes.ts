@@ -100,6 +100,10 @@ export type EffectClause =
 export interface StatMod {
   type: 'statMod';
   stats: common.ValueOrPlaceholder<EnlirStat | EnlirStat[]>;
+
+  // Special case: Alternative status for hybrid effects, merged by mergeSimilarStatuses
+  hybridStats: EnlirStat | EnlirStat[];
+
   value: common.SignedValueOrPlaceholder<number | number[]>;
   ignoreBuffCap?: boolean;
 }

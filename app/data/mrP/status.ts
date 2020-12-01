@@ -983,7 +983,8 @@ function describeStatusEffect(
         signedNumberSlashList(resolve.x(effect.value)) +
         uncertain(resolve.isUncertain) +
         '% ' +
-        describeStats(arrayify(resolve.stat(effect.stats)))
+        describeStats(arrayify(resolve.stat(effect.stats))) +
+        (effect.hybridStats ? ' or ' + describeStats(arrayify(effect.hybridStats)) : '')
       );
     case 'critChance':
       return addTrigger(
@@ -1674,9 +1675,22 @@ export function resolveStatuses(
   return newStatuses;
 }
 
+const valueMergeTypes = [
+  'castSpeed',
+  'critChance',
+  'damageBarrier',
+  'damageUp',
+  'hpStock',
+  'radiantShield',
+  'statMod',
+  'stoneskin',
+] as const;
+const elementMergeTypes = ['elementAttack', 'elementResist', 'enElement'] as const;
+
 function tryToMergeEffects(
   effectA: statusTypes.StatusEffect,
   effectB: statusTypes.StatusEffect,
+  conj: common.Conjunction | undefined,
   placeholdersA?: EnlirStatusPlaceholders,
   placeholdersB?: EnlirStatusPlaceholders,
 ): statusTypes.StatusEffect | undefined {
@@ -1702,39 +1716,46 @@ function tryToMergeEffects(
     }
 
     let match = false;
-    for (const type of [
-      'castSpeed',
-      'critChance',
-      'damageBarrier',
-      'damageUp',
-      'hpStock',
-      'radiantShield',
-      'statMod',
-      'stoneskin',
-    ] as const) {
-      if (a.type === type && b.type === type && _.isEqual(_.omit(a, 'value'), _.omit(b, 'value'))) {
-        const valueA = resolveA.x(a.value);
-        const valueB = resolveB.x(b.value);
-        result.push({ ...a, value: _.flatten([valueA, valueB]) });
-        match = true;
-        break;
-      }
-    }
-
-    for (const type of ['elementAttack', 'elementResist', 'enElement'] as const) {
+    if (conj === 'or') {
       if (
-        a.type === type &&
-        b.type === type &&
-        _.isEqual(_.omit(a, 'element'), _.omit(b, 'element'))
+        a.type === 'statMod' &&
+        b.type === 'statMod' &&
+        !a.hybridStats &&
+        _.isEqual(_.omit(a, 'stats'), _.omit(b, 'stats'))
       ) {
-        const valueA = resolveA.element(a.element);
-        const valueB = resolveB.element(b.element);
-        if (valueA == null || valueB == null) {
-          return undefined;
-        }
-        result.push({ ...a, element: _.flatten([valueA, valueB]) });
+        result.push({
+          ...a,
+          hybridStats: resolveB.stat(b.stats),
+        });
         match = true;
-        break;
+      }
+    } else {
+      for (const type of valueMergeTypes) {
+        if (
+          a.type === type &&
+          b.type === type &&
+          _.isEqual(_.omit(a, 'value'), _.omit(b, 'value'))
+        ) {
+          const valueA = resolveA.x(a.value);
+          const valueB = resolveB.x(b.value);
+          result.push({ ...a, value: _.flatten([valueA, valueB]) });
+          match = true;
+          break;
+        }
+      }
+
+      for (const type of elementMergeTypes) {
+        if (
+          a.type === type &&
+          b.type === type &&
+          _.isEqual(_.omit(a, 'element'), _.omit(b, 'element'))
+        ) {
+          const valueA = resolveA.element(a.element);
+          const valueB = resolveB.element(b.element);
+          result.push({ ...a, element: _.flatten([valueA, valueB]) });
+          match = true;
+          break;
+        }
       }
     }
 
@@ -1759,11 +1780,7 @@ export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
     }
 
     const prev = newStatuses.length ? newStatuses[newStatuses.length - 1] : undefined;
-    if (
-      !prev ||
-      (prev.status.type !== 'standardStatus' || !prev.status.effects) ||
-      prev.conj === 'or'
-    ) {
+    if (!prev || (prev.status.type !== 'standardStatus' || !prev.status.effects)) {
       newStatuses.push(i);
       continue;
     }
@@ -1771,6 +1788,7 @@ export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
     const merged = tryToMergeEffects(
       prev.status.effects,
       i.status.effects,
+      i.conj,
       prev.status.placeholders,
       i.status.placeholders,
     );
@@ -1781,6 +1799,7 @@ export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
 
     newStatuses[newStatuses.length - 1] = {
       ...prev,
+      duration: prev.duration || i.duration,
       status: {
         ...prev.status,
         effects: merged,
