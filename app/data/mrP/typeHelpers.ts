@@ -155,6 +155,7 @@ export const whoText: { [w in common.Who]: string } = {
   allyWithNegativeStatus: 'ally',
   allyWithKO: 'ally',
   ally: 'ally',
+  namedCharacter: 'specific character',
 };
 
 export function appendPerUses(perUses: number | undefined) {

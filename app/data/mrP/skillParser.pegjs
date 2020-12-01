@@ -731,7 +731,7 @@ CharacterName
 // Character names, for "if X are in the party."  Return these as text so that
 // higher-level code can process them.
 CharacterNameList
-  = CharacterName ((_ "&" _ / "/" / _ "or" _) CharacterName)* { return text(); }
+  = CharacterName ((_ "&" _ / "/" / "," _ / _ "or" _) CharacterName)* { return text(); }
 
 // Any skill - burst commands, etc. ??? is referenced in one particular status.
 AnySkillName

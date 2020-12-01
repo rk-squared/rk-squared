@@ -531,6 +531,16 @@ function processStatus(
     condition = undefined;
   }
 
+  // Complex combinations of statuses, like "[A1] and [B1]/[A2] and [B2]/[A3]
+  // and [B3] and [C] if 1/2/3", need special handling.
+  let complex = '';
+  let complexCount = 0;
+  const isComplex =
+    statuses.find(i => i.conj === '/') != null && statuses.find(i => i.conj !== '/');
+  if (isComplex) {
+    complexCount = statuses.filter(i => i.conj === '/').length + 1;
+  }
+
   statuses.forEach((thisStatus, thisStatusIndex) => {
     const [status, stacking] = checkStacking(effect, thisStatus);
 
@@ -597,7 +607,7 @@ function processStatus(
     let description = formatStatusDescription(
       parsed,
       thisStatus.duration,
-      isLast ? condition : undefined,
+      isLast && !isComplex ? condition : undefined,
       stacking,
     );
 
@@ -622,7 +632,18 @@ function processStatus(
     }
 
     if (toCharacter) {
-      other.push(skill, 'namedCharacter', toCharacter + ' ' + description);
+      description = toCharacter + ' ' + description;
+    }
+
+    if (isComplex) {
+      if (complex) {
+        complex += thisStatus.conj === '/' ? ') / (' : ', ';
+      } else {
+        complex = '(';
+      }
+      complex += description;
+    } else if (toCharacter) {
+      other.push(skill, 'namedCharacter', description);
     } else if (thisStatus.chance) {
       const chanceDescription = formatAttackStatusChance(
         thisStatus.chance,
@@ -638,6 +659,11 @@ function processStatus(
       other.push(skill, who, description);
     }
   });
+
+  if (complex) {
+    const options = _.times(complexCount, i => i);
+    other.push(skill, who, complex + ')' + appendCondition(condition, options));
+  }
 
   return burstToggle;
 }

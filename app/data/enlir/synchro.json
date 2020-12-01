@@ -7404,7 +7404,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.83,
-    "effects": "Restores HP (105), grants [White Magic Heals +10% Boost 1] and [133% Quick Cast 1]/[White Magic Heals +20% Boost 1] and [Quick Cast 1]/[White Magic Heals +30% Boost 1] and [High Quick Cast 1]  scaling with uses",
+    "effects": "Restores HP (105), grants [White Magic Heals +10% Boost 1] and [133% Quick Cast 1]/[White Magic Heals +20% Boost 1] and [Quick Cast 1]/[White Magic Heals +30% Boost 1] and [High Quick Cast 1] scaling with uses",
     "counter": false,
     "autoTarget": "Lowest HP% ally",
     "sb": 80,

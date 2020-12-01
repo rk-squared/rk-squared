@@ -804,23 +804,6 @@ function patchEnlir() {
   );
   applyPatch(
     enlir.soulBreaks,
-    '23160005',
-    strike =>
-      strike.effects ===
-      'Fifteen single attacks (0.60 each), grants [Buff Ice 30% (15s)], [Buff Earth 30% (15s)], [Buff Lightning 30% (15s)], ' +
-        '[Awoken Spellblade], [Damage Cap +10000] to the user, grants [50% Critical] to all allies, ' +
-        'grants [High Quick Cast 1]/[High Quick Cast 2]/[100% Critical (25s)], [Critical Damage +50%] and [High Quick Cast 2] ' +
-        'if 1/2/3 of Kelger, Galuf or Dorgann are alive to all allies',
-    strike => {
-      strike.effects =
-        'Fifteen single attacks (0.60 each), grants [Buff Ice 30% (15s)], [Buff Earth 30% (15s)], [Buff Lightning 30% (15s)], ' +
-        '[Awoken Spellblade], [Damage Cap +10000] to the user, grants [50% Critical] to all allies, ' +
-        'grants [High Quick Cast 1]/[High Quick Cast 2]/[High Quick Cast 2] to all allies if 1/2/3 of Kelger/Galuf/Dorgann are alive, ' +
-        'grants [100% Critical (25s)] and [Critical Damage +50%] to all allies if Kelger & Galuf & Dorgann are alive';
-    },
-  );
-  applyPatch(
-    enlir.soulBreaks,
     '23070005',
     marcus =>
       marcus.effects ===

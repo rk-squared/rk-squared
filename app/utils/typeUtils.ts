@@ -26,7 +26,9 @@ export function compareWithUndefined<T>(compare: (a: T, b: T) => number) {
 }
 
 export function isAllSame<T>(values: T[], iteratee?: (value: T) => any): boolean {
-  if (!iteratee) {
+  if (!values.length) {
+    return true;
+  } else if (!iteratee) {
     const first = values[0];
     return _.every(values, i => i === first);
   } else {
