@@ -101,10 +101,15 @@ export type Condition =
   | { type: 'scaleWithSkillUses'; skill: string }
   | { type: 'afterUseCount'; skill?: string; useCount: UseCount }
   | { type: 'alliesAlive' }
-  | { type: 'characterAlive'; character: string; count?: number | number[]; withoutWith?: boolean }
+  | {
+      type: 'characterAlive';
+      character: string | string[];
+      count?: number | number[];
+      withoutWith?: boolean;
+    }
   | {
       type: 'characterInParty';
-      character: string;
+      character: string | string[];
       count?: number | number[];
       withoutWith?: boolean;
     }

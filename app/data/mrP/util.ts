@@ -128,6 +128,10 @@ export function signedNumberSlashList(n: number | number[], joinString = '/') {
   }
 }
 
+export function stringSlashList(s: string | string[], joinString = '/') {
+  return arrayify(s).join(joinString);
+}
+
 /**
  * As formatNumberSlashList, but include spaces when joining, to directly match
  * how we handle attack damage values.

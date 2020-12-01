@@ -70,6 +70,7 @@ import {
   fixedNumberOrUnknown,
   formatNumberSlashList,
   numberOrUnknown,
+  stringSlashList,
   toMrPFixed,
   toMrPKilo,
 } from './util';
@@ -632,7 +633,7 @@ function processStatus(
     }
 
     if (toCharacter) {
-      description = toCharacter + ' ' + description;
+      description = stringSlashList(toCharacter) + ' ' + description;
     }
 
     if (isComplex) {

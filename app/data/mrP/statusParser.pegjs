@@ -303,16 +303,16 @@ AbilityDouble
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'abilityDouble' }, what); }
 
 Multicast
-  = count:MulticastVerb _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'multicast', count, chance: 100 }, what); }
+  = count:MulticastVerb "s" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'multicast', count, chance: 100 }, what); }
   / chance:Integer "% chance to" _ count:MulticastVerb _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'multicast', count, chance }, what); }
 
 MulticastAbility
-  = count:MulticastVerb _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") {
+  = count:MulticastVerb "s" _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") {
     return Object.assign({ type: 'multicastAbility', count }, what);
   }
 
 MulticastVerb
-  = count:Tuple "casts" { return count; }
+  = count:Tuple "cast" { return count; }
 
 NoAirTime
   = "Changes"i _ "the air time of Jump attacks to 0.01 seconds" { return { type: 'noAirTime' }; }
@@ -958,10 +958,9 @@ AbilityName
 CharacterName
   = UppercaseWord (_ (UppercaseWord / "of"))* (_ "(" [A-Z] [A-Za-z0-9-]+ ")")? { return text(); }
 
-// Character names, for "if X are in the party."  Return these as text so that
-// higher-level code can process them.
+// Character names, for "if X are in the party."
 CharacterNameList
-  = CharacterName ((_ "&" _ / "/" / _ "or" _) CharacterName)* { return text(); }
+  = head:CharacterName tail:((_ "&" _ / "/" / "," _ / _ "or" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
 
 // Any skill - burst commands, etc. ??? is referenced in one particular status.
 AnySkillName

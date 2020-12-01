@@ -6,7 +6,13 @@ import * as skillTypes from './skillTypes';
 import { describeEnlirStatus } from './status';
 import { displayStatusLevel, statusLevelAlias, statusLevelText, vsWeak } from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
-import { formatNumberSlashList, formatUseCount, formatUseNumber, orList } from './util';
+import {
+  formatNumberSlashList,
+  formatUseCount,
+  formatUseNumber,
+  orList,
+  stringSlashList,
+} from './util';
 
 export function formatThreshold(
   thresholdValues: number | number[],
@@ -130,11 +136,12 @@ export function describeCondition(condition: common.Condition, count?: number | 
           ' ' +
           formatNumberSlashList(condition.count) +
           ' of ' +
-          condition.character +
+          stringSlashList(condition.character) +
           what
         );
       } else {
-        return clause + ' ' + condition.character + what;
+        // With no counts given, assume it's "or".
+        return clause + ' ' + stringSlashList(condition.character, ' or ') + what;
       }
     case 'females':
       return formatCountCharacters(condition.count, 'females in party');

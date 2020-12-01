@@ -728,10 +728,9 @@ AbilityName
 CharacterName
   = UppercaseWord (_ (UppercaseWord / "of"))* (_ "(" [A-Z] [A-Za-z0-9-]+ ")")? { return text(); }
 
-// Character names, for "if X are in the party."  Return these as text so that
-// higher-level code can process them.
+// Character names, for "if X are in the party."
 CharacterNameList
-  = CharacterName ((_ "&" _ / "/" / "," _ / _ "or" _) CharacterName)* { return text(); }
+  = head:CharacterName tail:((_ "&" _ / "/" / "," _ / _ "or" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
 
 // Any skill - burst commands, etc. ??? is referenced in one particular status.
 AnySkillName
