@@ -94,7 +94,7 @@ export type Condition =
   | { type: 'scaleWithStatusLevel'; status: string }
   | { type: 'statusLevel'; status: string; value: number | number[] }
   | { type: 'ifDoomed' }
-  | { type: 'status'; status: string; who: 'self' | 'target'; any: boolean }
+  | { type: 'status'; status: string | string[]; who: 'self' | 'target'; any: boolean }
   | { type: 'conditionalEnElement'; element: EnlirElement | EnlirElement[] }
   | { type: 'scaleUseCount'; useCount: number | number[] }
   | { type: 'scaleWithUses' }
@@ -103,7 +103,7 @@ export type Condition =
   | { type: 'alliesAlive' }
   | {
       type: 'characterAlive';
-      character: string | string[];
+      character: string | string[] | undefined; // undefined means a pronoun, hopefully with toCharacter
       count?: number | number[];
       withoutWith?: boolean;
     }

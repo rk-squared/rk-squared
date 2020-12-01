@@ -444,8 +444,8 @@ CounterWithImmune
 // Note that we allow triggerable effects to appear after the trigger, to
 // accommodate statuses like Cyan's AASB.
 TriggeredEffect
-  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? tail2:("," _ BareTriggerableEffect)* onceOnly:("," _ OnceOnly)? {
-    return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: !!onceOnly }, condition);
+  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? tail2:("," _ BareTriggerableEffect)* onceOnly:("," _ o:OnceOnly { return o; })? {
+    return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly }, condition);
   }
   // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
   / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ TriggerDetail? {
@@ -586,9 +586,9 @@ RemovedUnlessStatus
   = "Removed"i _ ("if" / "when") _ "the"? _ "user" _ ("hasn't" / "doesn't have") _ any:"any"? _ status:StatusNameNoBrackets { return { type: 'removedUnlessStatus', any: !!any, status }; }
 
 // This is only processed as part of a TriggeredEffect, since it arguably
-// applies to the trigger itself.
+// applies to the trigger itself.  As such, it does not get its own type.
 OnceOnly
-  = "Removed"i _ "after triggering" { return { type: 'onceOnly' }; }
+  = "Removed"i _ "after triggering" _ count:Occurrence { return count || true; }
 
 RemovedAfterTrigger
   = "Removed"i _ trigger:Trigger { return { type: 'removedAfterTrigger', trigger }; }
@@ -705,8 +705,8 @@ Trigger
   / "by"i _ skillType:SkillType _ "attacks" { return { type: 'damaged', skillType }; }
   / "upon"i _ "dealing damage" { return { type: 'dealDamage' }; }
   / "when"i _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
-  / "when"i _ "any"? _ status:StatusNameNoBrackets _ "is removed" { return { type: 'loseStatus', status }; }
-  / ("when"i _ / "after"i) _ "using" _ skill:AnySkillName _ count:Occurrence? {
+  / ("when"i / "after"i) _ "any"? _ status:StatusNameNoBrackets _ "is removed" { return { type: 'loseStatus', status }; }
+  / ("when"i / "after"i) _ "using" _ skill:AnySkillName _ count:Occurrence? {
     // Hack: "or" is a valid skill name, but in this context, assume it's separating synchro commands.
     if (skill.match(/ or /)) {
       skill = skill.split(/ or /);
@@ -827,7 +827,7 @@ Condition
 
   // General status.
   // TODO: I think the database is trying to standardize on brackets?
-  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusNameNoBrackets (OrList StatusNameNoBrackets)* { return text(); }) {
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(head:StatusNameNoBrackets tail:(OrList StatusNameNoBrackets)* { return util.pegList(head, tail, 1, true); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
@@ -835,7 +835,7 @@ Condition
       any: !!any
     };
   }
-  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:StatusName {
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(head:StatusName tail:(OrList StatusName)* { return util.pegList(head, tail, 1, true); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
@@ -864,8 +864,8 @@ Condition
 
   // Beginning of attack-specific conditions
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
-  / "if" _ character:CharacterNameList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
-  / "if" _ character:CharacterNameList _ "is not alive/alive" { return { type: 'characterAlive', character, withoutWith: true }; }
+  / "if" _ character:CharacterNameListOrPronoun _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
+  / "if" _ character:CharacterNameListOrPronoun _ "is not alive/alive" { return { type: 'characterAlive', character, withoutWith: true }; }
   / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
@@ -961,6 +961,11 @@ CharacterName
 // Character names, for "if X are in the party."
 CharacterNameList
   = head:CharacterName tail:((_ "&" _ / "/" / "," _ / _ "or" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+CharacterNameAndList
+  = head:CharacterName tail:((_ "&" _ / "/" / "," _ / _ "and" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+CharacterNameListOrPronoun
+  = CharacterNameList
+  / ("he" / "she" / "they") { return undefined; }
 
 // Any skill - burst commands, etc. ??? is referenced in one particular status.
 AnySkillName

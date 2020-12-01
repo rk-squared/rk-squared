@@ -1,18 +1,12 @@
 import * as _ from 'lodash';
 
-import { arrayifyLength, KeysOfType } from '../../utils/typeUtils';
+import { arrayify, arrayifyLength, KeysOfType } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import { describeEnlirStatus } from './status';
 import { displayStatusLevel, statusLevelAlias, statusLevelText, vsWeak } from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
-import {
-  formatNumberSlashList,
-  formatUseCount,
-  formatUseNumber,
-  orList,
-  stringSlashList,
-} from './util';
+import { formatNumberSlashList, formatUseCount, formatUseNumber, stringSlashList } from './util';
 
 export function formatThreshold(
   thresholdValues: number | number[],
@@ -101,20 +95,23 @@ export function describeCondition(condition: common.Condition, count?: number | 
         if (condition.status === 'Retaliate or High Retaliate') {
           return 'if Retaliate';
         }
-        const m = condition.status.match(/^(.*) ((?:\d+\/)+\d+)/);
+        const m =
+          typeof condition.status === 'string' && condition.status.match(/^(.*) ((?:\d+\/)+\d+)/);
         if (m) {
           const status = m[1];
           return '@ ' + m[2] + ' ' + (statusLevelAlias[status] || describeEnlirStatus(status));
         }
         return (
-          'if ' + (statusLevelAlias[condition.status] || describeEnlirStatus(condition.status))
+          'if ' +
+          arrayify(condition.status)
+            .map(i => statusLevelAlias[i] || describeEnlirStatus(i))
+            .join(' or ')
         );
       } else {
         // If we have one status, show it.  Otherwise, in practice, this is always
         // the same status ailments that the attack itself inflicts, so omit
         // details to save space.
-        const status = condition.status.split(orList);
-        return status.length === 1 ? 'vs. ' + status[0] : 'vs. status';
+        return typeof condition.status === 'string' ? 'vs. ' + condition.status : 'vs. status';
       }
     case 'scaleUseCount':
       return 'w/ ' + formatNumberSlashList(condition.useCount) + ' uses';
@@ -135,13 +132,16 @@ export function describeCondition(condition: common.Condition, count?: number | 
           clause +
           ' ' +
           formatNumberSlashList(condition.count) +
-          ' of ' +
-          stringSlashList(condition.character) +
+          (condition.character == null ? '' : ' of ' + stringSlashList(condition.character)) +
           what
         );
       } else {
         // With no counts given, assume it's "or".
-        return clause + ' ' + stringSlashList(condition.character, ' or ') + what;
+        return (
+          clause +
+          (condition.character == null ? '' : ' ' + stringSlashList(condition.character, ' or ')) +
+          what
+        );
       }
     case 'females':
       return formatCountCharacters(condition.count, 'females in party');

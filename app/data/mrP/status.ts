@@ -775,7 +775,9 @@ function formatGrantOrConditionalStatus(
 }
 
 function getPrereqStatus(condition: common.Condition | undefined): string | undefined {
-  return condition && condition.type === 'status' ? condition.status : undefined;
+  return condition && condition.type === 'status' && typeof condition.status === 'string'
+    ? condition.status
+    : undefined;
 }
 
 function formatTriggerableEffect(
@@ -854,14 +856,14 @@ function formatTriggeredEffect(
   if (isFinisher) {
     return 'Finisher: ' + effects + condition;
   } else {
+    const onceOnly =
+      effect.onceOnly === true
+        ? ' (once only)'
+        : effect.onceOnly
+        ? ` (${effect.onceOnly}x only)`
+        : '';
     return (
-      '(' +
-      formatTrigger(effect.trigger, source) +
-      ' ⤇ ' +
-      effects +
-      condition +
-      (effect.onceOnly ? ' (once only)' : '') +
-      ')'
+      '(' + formatTrigger(effect.trigger, source) + ' ⤇ ' + effects + condition + onceOnly + ')'
     );
   }
 }
@@ -1249,8 +1251,6 @@ function describeStatusEffect(
       } else {
         return null;
       }
-    case 'onceOnly':
-      return 'once only'; // Handled at the trigger level
     case 'removedAfterTrigger':
       return getTriggerPreposition(effect.trigger) + ' ' + formatTrigger(effect.trigger, source);
     case 'changeStatusLevel':

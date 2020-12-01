@@ -78,7 +78,6 @@ export type EffectClause =
   | AbilityBerserk
   | TurnDuration
   | RemovedUnlessStatus
-  | OnceOnly
   | RemovedAfterTrigger
   | TrackStatusLevel
   | ChangeStatusLevel
@@ -520,7 +519,7 @@ export interface TriggeredEffect {
   effects: TriggerableEffect | TriggerableEffect[];
   trigger: Trigger;
   condition?: common.Condition;
-  onceOnly?: boolean;
+  onceOnly?: boolean | number; // A number indicates twice, 3x, etc.
 }
 
 export type TriggerableEffect =
@@ -662,9 +661,7 @@ export interface RemovedUnlessStatus {
   status: string;
 }
 
-export interface OnceOnly {
-  type: 'onceOnly';
-}
+// onceOnly is merged into TriggeredEffect rather than getting its own type.
 
 export interface RemovedAfterTrigger {
   type: 'removedAfterTrigger';

@@ -74,8 +74,11 @@ export const statusLevelAlias: _.Dictionary<string> = {
   'Heavy Charge': 'Hvy Charge',
   'Damage Reduction Barrier': 'Dmg barrier',
 
-  // Soul break-specific status levels that are given their own text for
-  // historical reasons.
+  // Observed in some synchro effects.  Should we standardize?
+  'Dual Blink 1 or Dual Blink 2': 'PM blink 1/2',
+
+  // Soul break-specific status levels that were given their own text for
+  // historical reasons.  We no longer do this.
   // Ingredients: 'ingred.',
 };
 

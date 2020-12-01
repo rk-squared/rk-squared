@@ -457,7 +457,7 @@ StatusClause
   = _ clause:(
     duration:Duration { return { duration }; }
     / who:Who { return { who }; }
-    / "to" _ toCharacter:CharacterNameList { return { toCharacter }; }
+    / "to" _ toCharacter:CharacterNameAndList { return { toCharacter }; }
     / perUses:PerUses { return { perUses }; }
     / "if" _ "successful" { return { ifSuccessful: true }; }
     / "to" _ "undeads" { return { ifUndead: true }; }
@@ -597,7 +597,7 @@ Condition
 
   // General status.
   // TODO: I think the database is trying to standardize on brackets?
-  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusNameNoBrackets (OrList StatusNameNoBrackets)* { return text(); }) {
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(head:StatusNameNoBrackets tail:(OrList StatusNameNoBrackets)* { return util.pegList(head, tail, 1, true); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
@@ -605,7 +605,7 @@ Condition
       any: !!any
     };
   }
-  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:StatusName {
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(head:StatusName tail:(OrList StatusName)* { return util.pegList(head, tail, 1, true); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
@@ -634,8 +634,8 @@ Condition
 
   // Beginning of attack-specific conditions
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
-  / "if" _ character:CharacterNameList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
-  / "if" _ character:CharacterNameList _ "is not alive/alive" { return { type: 'characterAlive', character, withoutWith: true }; }
+  / "if" _ character:CharacterNameListOrPronoun _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
+  / "if" _ character:CharacterNameListOrPronoun _ "is not alive/alive" { return { type: 'characterAlive', character, withoutWith: true }; }
   / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
@@ -731,6 +731,11 @@ CharacterName
 // Character names, for "if X are in the party."
 CharacterNameList
   = head:CharacterName tail:((_ "&" _ / "/" / "," _ / _ "or" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+CharacterNameAndList
+  = head:CharacterName tail:((_ "&" _ / "/" / "," _ / _ "and" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+CharacterNameListOrPronoun
+  = CharacterNameList
+  / ("he" / "she" / "they") { return undefined; }
 
 // Any skill - burst commands, etc. ??? is referenced in one particular status.
 AnySkillName
