@@ -136,10 +136,11 @@ export function describeCondition(condition: common.Condition, count?: number | 
           what
         );
       } else {
-        // With no counts given, assume it's "or".
         return (
           clause +
-          (condition.character == null ? '' : ' ' + stringSlashList(condition.character, ' or ')) +
+          (condition.character == null
+            ? ''
+            : ' ' + stringSlashList(condition.character, condition.all ? ' & ' : ' or ')) +
           what
         );
       }

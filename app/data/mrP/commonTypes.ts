@@ -105,12 +105,14 @@ export type Condition =
       type: 'characterAlive';
       character: string | string[] | undefined; // undefined means a pronoun, hopefully with toCharacter
       count?: number | number[];
+      all?: boolean;
       withoutWith?: boolean;
     }
   | {
       type: 'characterInParty';
       character: string | string[];
       count?: number | number[];
+      all?: boolean;
       withoutWith?: boolean;
     }
   | { type: 'females'; count: number | number[] }

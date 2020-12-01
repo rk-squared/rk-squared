@@ -4191,7 +4191,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single ranged attack (6.00) capped at 99999 with additional 20% critical damage",
+    "effects": "One single ranged attack (6.00) capped at 99999, 20% additional critical damage",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

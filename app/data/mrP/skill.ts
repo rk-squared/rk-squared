@@ -65,6 +65,7 @@ import {
   DescribeOptions,
   getDescribeOptionsWithDefaults,
   getElementShortName,
+  whoText,
 } from './typeHelpers';
 import {
   fixedNumberOrUnknown,
@@ -634,7 +635,8 @@ function processStatus(
     }
 
     if (toCharacter) {
-      description = stringSlashList(toCharacter) + ' ' + description;
+      description =
+        (who ? whoText[who] + '/' : '') + stringSlashList(toCharacter) + ' ' + description;
     }
 
     if (isComplex) {
