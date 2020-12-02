@@ -531,7 +531,8 @@ export type TriggerableEffect =
   | Heal
   | RecoilHp
   | TriggerChance
-  | common.SmartEtherStatus;
+  | common.SmartEtherStatus
+  | common.DispelOrEsuna;
 
 export interface CastSkill {
   type: 'castSkill';
@@ -564,7 +565,7 @@ export interface DirectGrantStatus {
 interface Heal {
   type: 'heal';
   fixedHp: number;
-  who: common.Who;
+  who?: common.Who;
 }
 
 interface TriggerChance {

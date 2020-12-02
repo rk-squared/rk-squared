@@ -17,6 +17,16 @@ export type ValueOrPlaceholder<T> = T | Placeholder;
 export type SignedValueOrPlaceholder<T> = T | SignedPlaceholder;
 
 // --------------------------------------------------------------------------
+// Common effects
+
+export interface DispelOrEsuna {
+  type: 'dispelOrEsuna';
+  dispelOrEsuna: 'negative' | 'positive';
+  who?: Who;
+  perUses?: number;
+}
+
+// --------------------------------------------------------------------------
 // Lower-level game rules
 
 export type StatusVerb = 'grants' | 'causes' | 'removes' | "doesn't remove";

@@ -56,6 +56,7 @@ import {
   sortStatus,
 } from './status';
 import {
+  formatDispelOrEsuna,
   formatRandomEther,
   formatSmartEther,
   formatSpecialStatusItem,
@@ -1003,12 +1004,7 @@ export function convertEnlirSkillToMrP(
         // Omit - too detailed to include in this output
         break;
       case 'dispelOrEsuna':
-        other.push(
-          skill,
-          effect.who,
-          (effect.dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna') +
-            appendPerUses(effect.perUses),
-        );
+        other.push(skill, effect.who, formatDispelOrEsuna(effect));
         break;
       case 'randomEther':
         other.push(

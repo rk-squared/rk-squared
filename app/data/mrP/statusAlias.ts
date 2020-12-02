@@ -1,5 +1,5 @@
 import * as common from './commonTypes';
-import { formatSchoolOrAbilityList, getShortName } from './typeHelpers';
+import { appendPerUses, formatSchoolOrAbilityList, getShortName } from './typeHelpers';
 import {
   formatNumberSlashList,
   percentToMultiplier,
@@ -21,6 +21,10 @@ export const sbPointsBoosterAlias = (percent: string | number, s: string) =>
 export const lowHpAlias = (value: number) => `<${value}% HP`;
 export const vsWeak = 'vs. weak';
 export const statusLevelText = 'status lvl';
+
+export function formatDispelOrEsuna(effect: common.DispelOrEsuna) {
+  return (effect.dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna') + appendPerUses(effect.perUses);
+}
 
 export const formatRandomEther = (amount: string | number) =>
   'refill ' + amount + ' random abil. use';

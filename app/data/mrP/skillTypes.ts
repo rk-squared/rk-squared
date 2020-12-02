@@ -198,19 +198,14 @@ export interface DamagesUndead {
   type: 'damagesUndead';
 }
 
-export interface DispelOrEsuna {
-  type: 'dispelOrEsuna';
-  dispelOrEsuna: 'negative' | 'positive';
-  who?: common.Who;
-  perUses?: number;
-}
-
 export interface RandomEther {
   type: 'randomEther';
   amount: number;
   who?: common.Who;
   perUses?: number;
 }
+
+export type DispelOrEsuna = common.DispelOrEsuna;
 
 export interface SmartEther extends common.SmartEtherStatus {
   who?: common.Who;

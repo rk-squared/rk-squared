@@ -26,6 +26,7 @@ import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, describeRecoilHp, formatMrPSkill } from './skill';
 import {
   displayStatusLevel,
+  formatDispelOrEsuna,
   formatSmartEther,
   formatSpecialStatusItem,
   lowHpAlias,
@@ -858,7 +859,9 @@ function formatTriggerableEffect(
     case 'grantStatus':
       return formatGrantOrConditionalStatus(effect, trigger, enlirStatus, source);
     case 'heal':
-      return whoText[effect.who] + ' heal ' + toMrPKilo(effect.fixedHp) + ' HP';
+      return (
+        (effect.who ? whoText[effect.who] + ' ' : '') + 'heal ' + toMrPKilo(effect.fixedHp) + ' HP'
+      );
     case 'triggerChance':
       return (
         effect.chance +
@@ -869,6 +872,8 @@ function formatTriggerableEffect(
       return describeRecoilHp(effect);
     case 'smartEther':
       return formatSmartEther(effect.amount, effect.school);
+    case 'dispelOrEsuna':
+      return (effect.who ? whoText[effect.who] + ' ' : '') + formatDispelOrEsuna(effect);
   }
 }
 

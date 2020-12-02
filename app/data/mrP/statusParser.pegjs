@@ -58,7 +58,7 @@ StatMod
   }
 
 CritChance
-  = "Critical chance =" value:(IntegerSlashList / IntegerOrX)  "%" _ trigger:Trigger? _ TriggerDetail? {
+  = "Critical chance =" value:(PercentSlashList / PercentOrX)  _ trigger:Trigger? _ TriggerDetail? {
     const result = { type: 'critChance', trigger };
     if (typeof value === 'object' && !Array.isArray(value)) {
       Object.assign(result, value);
@@ -290,7 +290,7 @@ RankBoost
   = what:DamageUpType _ ("attacks" / "abilities") _ "deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5" { return Object.assign({ type: 'rankBoost' }, what); }
 
 DamageUp
-  = what:DamageUpType _ ("attacks" / "abilities") _ "deal" _ value:(PercentSlashList / v:IntegerSlashList "%" { return v; }) _ "more damage" _ trigger:Trigger? _ condition:Condition? {
+  = what:DamageUpType _ ("attacks" / "abilities") _ "deal" _ value:PercentSlashList _ "more damage" _ trigger:Trigger? _ condition:Condition? {
     return Object.assign({ type: 'damageUp', value, trigger, condition }, what);
   }
 
@@ -454,7 +454,7 @@ TriggeredEffect
   }
 
 TriggerableEffect
-  = CastSkill / RandomCastSkill / GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealChance / RecoilHp / SmartEtherStatus
+  = CastSkill / RandomCastSkill / GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealChance / RecoilHp / SmartEtherStatus / DispelOrEsuna
 
 BareTriggerableEffect
   = effect:TriggerableEffect ! (_ (Trigger / "and")) { return effect; }
@@ -494,7 +494,7 @@ DirectGrantStatus
   }
 
 Heal
-  = "restores"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'heal', fixedHp, who }; }
+  = "restores"i _ fixedHp:Integer _ "HP" _ who:Who? { return { type: 'heal', fixedHp, who }; }
 
 HealChance
   = chance:Integer "% chance to restore"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'triggerChance', chance, effect: { type: 'heal', fixedHp, who } }; }
@@ -508,6 +508,11 @@ RecoilHp
       damagePercent,
       maxOrCurrent,
     };
+  }
+
+DispelOrEsuna
+  = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? _ perUses:PerUses? {
+    return { type: 'dispelOrEsuna', dispelOrEsuna, who, perUses };
   }
 
 
@@ -1322,6 +1327,10 @@ IntegerOrX "integer or X"
 PercentInteger "percentage"
   = ([0-9]+ '%' / '?') { return parseInt(text(), 10); }
 
+PercentOrX "integer or X"
+  = value:PercentInteger { return { value }; }
+  / "X%" { return util.placeholder; }
+
 SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
 
@@ -1342,6 +1351,7 @@ IntegerSlashList "slash-separated integers"
 
 PercentSlashList "slash-separated percent integers"
   = head:PercentInteger tail:('/' PercentInteger)* { return util.pegSlashList(head, tail); }
+  / list:IntegerSlashList "%" { return list; }
 
 // An IntegerSlashList with support for ranges like 1/2-3/4
 IntegerRangeSlashList "slash-separated integer ranges"
