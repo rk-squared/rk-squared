@@ -1,5 +1,5 @@
 {
-  let parsedNumberString = null;
+  let parsedNumberResult = null;
   let statusLevelMatch = null;
 
   // Hack: Suppress warnings about unused functions.
@@ -622,7 +622,7 @@ RemovedUnlessStatus
 // code, so we'll drop it here rather than further complicating the parser.
 OnceOnly
   = "Removed"i _ "after triggering" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true }; }
-  / "Removed"i _ "after" _ skill:AnySkillName _ "is cast" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
+  / "Removed"i _ ("after" / "when") _ skill:AnySkillName _ "is cast" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
   / "Removed"i _ "after casting" _ skill:AnySkillName _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
   / "Removed"i _ "when effect is triggered" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true }; }
 
@@ -753,6 +753,23 @@ Trigger
   / "upon"i _ "dealing damage" { return { type: 'dealDamage' }; }
   / "when"i _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
   / ("when"i / "after"i) _ "any"? _ status:StatusNameNoBrackets _ "is removed" { return { type: 'loseStatus', status }; }
+
+  / "after using" _ skill:AnySkillName _ "times"
+  & {
+    // Hack: Generic skill names have to include number slash lists, so manually extract the number
+    // slash list.
+    parsedNumberResult = util.removeTrailingNumberSlashList(skill);
+    return parsedNumberResult != null;
+  }
+  {
+    // Hack: "or" is a valid skill name, but in this context, assume it's separating synchro commands.
+    skill = parsedNumberResult.skill;
+    if (skill.match(/ or /)) {
+      skill = skill.split(/ or /);
+    }
+    return { type: 'skill', skill, count: parsedNumberResult.count, plus: parsedNumberResult.plus };
+  }
+
   / ("when"i / "after"i) _ "using" _ skill:AnySkillName _ count:Occurrence? {
     // Hack: "or" is a valid skill name, but in this context, assume it's separating synchro commands.
     if (skill.match(/ or /)) {
@@ -760,6 +777,7 @@ Trigger
     }
     return { type: 'skill', skill, count };
   }
+
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
   / "if user has triggered" _ skill:AnySkillName _ count:NumberString _ "times" { return { type: 'skillTriggered', skill, count }; } // TASB variant
   / "after"i _ "using" _ count:NumberString _ "of" _ "either"? _ skill:Skill1Or2 { return { type: 'skill', skill, count }; }
@@ -1321,8 +1339,8 @@ StatusListConjunction
 
 NumberString "numeric text"
   = numberString:[a-zA-Z\-]+
-  & { parsedNumberString = util.parseNumberString(numberString.join('')); return parsedNumberString != null; }
-  { return parsedNumberString; }
+  & { parsedNumberResult = util.parseNumberString(numberString.join('')); return parsedNumberResult != null; }
+  { return parsedNumberResult; }
 
 ArticleOrNumberString
   = NumberString

@@ -776,7 +776,7 @@ export type Trigger =
   | { type: 'damaged'; skillType?: EnlirSkillType }
   | { type: 'dealDamage' }
   | { type: 'loseStatus'; status: string }
-  | { type: 'skill'; skill: string | string[]; count?: number }
+  | { type: 'skill'; skill: string | string[]; count?: number | number[]; plus?: number }
   | { type: 'skillTriggered'; skill: string; count: number; isSelfSkill?: boolean }
   | {
       type: 'damagedByAlly';

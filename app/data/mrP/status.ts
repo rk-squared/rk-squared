@@ -641,7 +641,7 @@ export function formatTrigger(trigger: statusTypes.Trigger, source?: EnlirSkill)
       return (statusLevelAlias[trigger.status] || trigger.status) + ' lost';
     case 'skill':
       return (
-        (trigger.count ? trigger.count + ' ' : '') +
+        (trigger.count ? numberSlashList(trigger.count) + (trigger.plus ? '+' : '') + ' ' : '') +
         arrayify(trigger.skill)
           .map(i => getTriggerSkillAlias(i, source))
           .join('/')

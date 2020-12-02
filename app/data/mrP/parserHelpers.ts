@@ -51,6 +51,15 @@ export function pegSlashList(head: any, tail: any): any[] {
   return pegList(head, tail, 1, true);
 }
 
+export function removeTrailingNumberSlashList(s: string) {
+  const m = s.match(/(.*) (\d+(?:\/\d+)*)(\+)?$/);
+  if (!m) {
+    return { count: undefined, plus: undefined };
+  } else {
+    return { skill: m[1], count: m[2].split('/').map(i => +i), plus: !!m[3] };
+  }
+}
+
 export function addCondition<T>(
   value: T,
   maybeCondition: any[] | common.Condition | null | undefined,
