@@ -20123,7 +20123,7 @@
   {
     "id": 51119,
     "name": "Tactless Mode Critical Chance",
-    "effects": " Critical chance =25%/50%/75%/100% after using Assault Eclipse or Triumphant Fist 1/2/3/4+ times, removed if user hasn't Tactless Mode",
+    "effects": "Critical chance =25%/50%/75%/100% after using Assault Eclipse or Triumphant Fist 1/2/3/4+ times, removed if user hasn't Tactless Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

@@ -776,7 +776,7 @@ GenericName
         / ("for" / "to" / "and") _ ("an" / "a")? _ GenericNameWord
 
         / [=*+-]? Integer ([%]? '/' [+-]? Integer)* [%+]?
-        / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) ')'
+        / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) _ "Only"? ')'
       )
     )*
   ) {

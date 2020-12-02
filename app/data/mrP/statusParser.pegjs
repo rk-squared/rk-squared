@@ -624,6 +624,7 @@ OnceOnly
   = "Removed"i _ "after triggering" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true }; }
   / "Removed"i _ "after" _ skill:AnySkillName _ "is cast" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
   / "Removed"i _ "after casting" _ skill:AnySkillName _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
+  / "Removed"i _ "when effect is triggered" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true }; }
 
 RemovedAfterTrigger
   = "Removed"i _ trigger:Trigger { return { type: 'removedAfterTrigger', trigger }; }
@@ -668,6 +669,7 @@ TrackUses
   = "Keeps"i _ "track of the" _ ("number of")? _ ("uses of" / "casts of") _ skill:AnySkillName { return { type: 'trackUses', skill }; }
   / "Used to determine the effect of" _ skill:AnySkillName { return { type: 'trackUses', skill }; }
   / "Used"i _ "for tracking" _ skill:AnySkillName _ "usage" { return { type: 'trackUses', skill }; }
+  / "Tracks"i _ skill:AnySkillName _ "casts" { return { type: 'trackUses', skill }; }
   / "Keeps"i _ "track of the number of" _ element:ElementAndList _ AbilityOrAttack _ "used" { return { type: 'trackUses', element }; }
   // TASB variant.  `skill` gives the TASB name.
   / "Keeps"i _ "track of" _ skill:AnySkillName _ "uses" { return { type: 'trackUses', skill }; }
@@ -685,7 +687,7 @@ BurstReset
   = "reset upon refreshing Burst Mode" { return { type: 'burstReset' }; }
 
 StatusReset
-  = "reset upon refreshing" _ status:StatusName { return { type: 'statusReset', status }; }
+  = "reset upon refreshing" _ status:StatusNameNoBrackets { return { type: 'statusReset', status }; }
 
 ReplaceAttack
   = "Replaces"i _ "the Attack command" { return null; }
@@ -1072,7 +1074,7 @@ GenericName
         / ("for" / "to" / "and") _ ("an" / "a")? _ GenericNameWord
 
         / [=*+-]? Integer ([%]? '/' [+-]? Integer)* [%+]?
-        / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) ')'
+        / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) _ "Only"? ')'
       )
     )*
   ) {
@@ -1391,7 +1393,7 @@ IntegerAndList "integers separated with commas and 'and'"
 Occurrence
   = "once" { return 1; }
   / "twice" { return 2; }
-  / count:NumberString _ "time" "s"? { return count; }
+  / count:(NumberString / Integer) _ "time" "s"? { return count; }
 
 
 Ordinal
