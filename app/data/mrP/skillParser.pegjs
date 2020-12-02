@@ -556,19 +556,23 @@ StatusLevel "status with level"
   = name:StatusNameNoBrackets _ "level" _ value:Integer {
     return { type:'statusLevel', name, value, set: true };
   }
-  / name:StatusNameNoBrackets _ "level" _ value:SignedInteger {
-    return { type:'statusLevel', name, value };
+  / name:StatusNameNoBrackets _ "level" _ value:SignedInteger _ max:StatusLevelMax? {
+    return { type:'statusLevel', name, value, max };
   }
-  / value:SignedInteger _ name:StatusNameNoBrackets
-      { return { type:'statusLevel', name, value }; }
+  / value:SignedInteger _ name:StatusNameNoBrackets _ max:StatusLevelMax?
+      { return { type:'statusLevel', name, value, max }; }
   / name:StatusNameNoBrackets
     & {
         statusLevelMatch = name.match(/(.*) ((?:[+-]?\d+)(?:\/[+-]?\d+)*)$/);
         return statusLevelMatch;
       }
-      { return { type:'statusLevel', name: statusLevelMatch[1], value: util.scalarify(statusLevelMatch[2].split('/').map(i => +i)) }; }
+      _ max:StatusLevelMax?
+      { return { type:'statusLevel', name: statusLevelMatch[1], value: util.scalarify(statusLevelMatch[2].split('/').map(i => +i)), max }; }
   / name:StatusNameNoBrackets
       { return { type:'statusLevel', name, value: 1, set: true }; }
+
+StatusLevelMax
+  = "(max" _ value:Integer _ ")" { return value; }
 
 StandardStatus
   = name:StatusName { return { type: 'standardStatus', name }; }

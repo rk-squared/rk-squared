@@ -35,10 +35,11 @@ export function formatStatusLevel(
   status: string,
   value: number | number[],
   set: boolean | undefined,
+  max?: number,
 ) {
   status = statusLevelAlias[status] || statusLevelText;
   if (!set) {
-    return status + ` ${signedNumberSlashList(value)}`;
+    return status + ` ${signedNumberSlashList(value)}` + (max != null ? ` (max ${max})` : '');
   } else if (value === 0) {
     return 'reset ' + status;
   } else {
@@ -56,7 +57,7 @@ export function formatSpecialStatusItem(
     if (overrideValue != null) {
       return formatStatusLevel(status.name, overrideValue, true);
     } else {
-      return formatStatusLevel(status.name, status.value, status.set);
+      return formatStatusLevel(status.name, status.value, status.set, status.max);
     }
   }
 }

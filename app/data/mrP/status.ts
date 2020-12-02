@@ -1315,12 +1315,15 @@ function describeStatusEffect(
         effect.trigger,
         source,
       );
-    case 'setStatusLevel':
+    case 'setStatusLevel': {
+      let result: string;
       if (effect.value) {
-        return displayStatusLevel(effect.status) + ' =' + effect.value;
+        result = displayStatusLevel(effect.status) + ' =' + effect.value;
       } else {
-        return 'reset ' + displayStatusLevel(effect.status);
+        result = 'reset ' + displayStatusLevel(effect.status);
       }
+      return addTrigger(result, effect.trigger, source);
+    }
     case 'statusLevelBooster':
       return `+${effect.value} to all ${displayStatusLevel(effect.status)} gains`;
     case 'burstToggle':

@@ -703,7 +703,7 @@ function processRandomStatus(
           } else if (s.type === 'smartEther') {
             return formatSmartEther(s.amount, s.school);
           } else {
-            return formatStatusLevel(s.name, s.value, s.set);
+            return formatStatusLevel(s.name, s.value, s.set, s.max);
           }
         })
         .join(' & ') + ` (${chance}%)`,

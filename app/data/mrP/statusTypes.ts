@@ -697,6 +697,7 @@ interface SetStatusLevel {
   type: 'setStatusLevel';
   status: string;
   value: number;
+  trigger?: Trigger;
 }
 
 interface StatusLevelBooster {

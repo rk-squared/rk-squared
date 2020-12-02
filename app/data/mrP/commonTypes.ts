@@ -25,6 +25,7 @@ export interface StatusLevel {
   type: 'statusLevel';
   name: string;
   value: number | number[];
+  max?: number;
   // If true, setting to value; if false, modifying by value.
   set?: boolean;
 }

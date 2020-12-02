@@ -625,7 +625,9 @@ ChangeStatusLevel
   }
 
 SetStatusLevel
-  = "Sets"i _ "the" _ status:StatusNameNoBrackets _ "level to" _ value:Integer _ "when set" { return { type: 'setStatusLevel', status, value }; }
+  = "Sets"i _ "the"? _ status:StatusNameNoBrackets _ "level to" _ value:Integer _ trigger:TriggerOrWhenSet {
+    return { type: 'setStatusLevel', status, value, trigger };
+  }
 
 StatusLevelBooster
   = "Increases"i _ "the" _ status:StatusNameNoBrackets _ "level by" _ value:Integer _ "when the" _ status2:StatusNameNoBrackets _ "level is increased"
@@ -698,7 +700,7 @@ Unknown
 // Triggers
 
 Trigger
-  = "after"i _ requiresDamage1:("using" / "dealing damage with" / "the user uses") _ count:TriggerCount _ requiresDamage2:"damaging"?
+  = "after"i _ requiresDamage1:("using" / "casting" / "dealing damage with" / "the user uses") _ count:TriggerCount _ requiresDamage2:"damaging"?
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
@@ -1333,7 +1335,7 @@ Tuple
   = "dual"i { return 2; }
   / "triple"i { return 3; }
   / "quad"i { return 4; }
-  / "penta"i { return 5; }
+  / "quint"i { return 5; }
   / "sext"i { return 6; }
 
 
