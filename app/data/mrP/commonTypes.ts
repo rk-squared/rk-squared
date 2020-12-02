@@ -93,7 +93,7 @@ export type Who =
 export type Condition =
   | { type: 'equipped'; article: string; equipped: string }
   | { type: 'scaleWithStatusLevel'; status: string }
-  | { type: 'statusLevel'; status: string; value: number | number[] }
+  | { type: 'statusLevel'; status: string; value: number | number[]; plus?: boolean }
   | { type: 'ifDoomed' }
   | { type: 'status'; status: string | string[]; who: 'self' | 'target'; any: boolean }
   | { type: 'conditionalEnElement'; element: EnlirElement | EnlirElement[] }

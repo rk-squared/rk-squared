@@ -861,7 +861,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.85/0.95 each) if 0/1+ of Gordon or Hilda are alive , grants [Buff Fire 10% (5s)] to all allies",
+    "effects": "Six single attacks (0.85/0.95 each) if 0/1+ of Gordon or Hilda are alive, grants [Buff Fire 10% (5s)] to all allies",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -5309,7 +5309,7 @@
   },
   {
     "character": "Shantotto",
-    "source": "Rough Skillchain: Thunder",
+    "source": "Chain Thunder Play",
     "name": "Lady's Thunder",
     "synchroAbilitySlot": 1,
     "synchroCondition": "Witch",
@@ -5333,7 +5333,7 @@
   },
   {
     "character": "Shantotto",
-    "source": "Rough Skillchain: Thunder",
+    "source": "Chain Thunder Play",
     "name": "Fastcast: Thunder",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Witch",

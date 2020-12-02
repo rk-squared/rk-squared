@@ -980,6 +980,26 @@ function patchEnlir() {
     },
   );
 
+  // Use the older, less verbose format for hybrid effects.
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23380003', // Shadowsmith - Soul of Nihility
+    "Ten single attacks (0.71 each), grants [Attach Dark], [Damage Cap +10000] and [Nihility Follow-Up] to the user, grants [PHY +30% Boost] to the user if user's ATK > MAG, grants or [Magical +30% Boost] to the user if user's MAG > ATK",
+    'Ten single attacks (0.71 each), grants [Attach Dark], [Damage Cap +10000] and [Nihility Follow-Up] to the user, grants [PHY +30% Boost] or [Magical +30% Boost] to the user',
+  );
+  applyEffectsPatch(
+    enlir.otherSkillsByName,
+    '...Work (Earth)',
+    'Grants [Attach Earth], grants [BLK +30% Boost 1]/[BLK +50% Boost 1] if MAG > ATK, otherwise grants [PHY +30% Boost 1]/[PHY +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
+    'Grants [Attach Earth], grants [PHY +30% Boost 1]/[PHY +50% Boost 1] or [BLK +30% Boost 1]/[BLK +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
+  );
+  applyEffectsPatch(
+    enlir.otherSkillsByName,
+    '...Work (Lightning)',
+    'Grants [Attach Lightning], grants [BLK +30% Boost 1]/[BLK +50% Boost 1] if MAG > ATK, otherwise grants [PHY +30% Boost 1]/[PHY +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
+    'Grants [Attach Lightning], grants [PHY +30% Boost 1]/[PHY +50% Boost 1] or [BLK +30% Boost 1]/[BLK +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
+  );
+
   // Try to consistently use brackets for actual statuses and no brackets for
   // status levels (such as are used for synchro commands).
   //

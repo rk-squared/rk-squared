@@ -7,8 +7,9 @@ import * as skillTypes from './skillTypes';
 import * as statusTypes from './statusTypes';
 import { parseNumberString } from './util';
 
+const flatten = _.flatten;
 const isEqual = _.isEqual;
-export { arrayify, parseNumberString, isEqual, scalarify };
+export { arrayify, flatten, isEqual, parseNumberString, scalarify };
 
 const placeholder = common.placeholder;
 const negativePlaceholder = common.negativePlaceholder;

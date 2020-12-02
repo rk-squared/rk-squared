@@ -41,7 +41,7 @@ EffectClause
   / Berserk / Rage / AbilityBerserk
   / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
-  / BurstToggle / TrackUses / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
+  / BurstToggle / TrackUses / SharedCount / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
   / ResetTarget / NoEffect / Persists / GameOver / Unknown
 
 
@@ -602,8 +602,10 @@ RemovedUnlessStatus
 
 // This is only processed as part of a TriggeredEffect, since it arguably
 // applies to the trigger itself.  As such, it does not get its own type.
+// Hack: "or if the user hasn't Synchro Mode" is omitted from our higher-level
+// code, so we'll drop it here rather than further complicating the parser.
 OnceOnly
-  = "Removed"i _ "after triggering" _ count:Occurrence? { return count || true; }
+  = "Removed"i _ "after triggering" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return count || true; }
 
 RemovedAfterTrigger
   = "Removed"i _ trigger:Trigger { return { type: 'removedAfterTrigger', trigger }; }
@@ -651,6 +653,9 @@ TrackUses
   / "Keeps"i _ "track of the number of" _ element:ElementAndList _ AbilityOrAttack _ "used" { return { type: 'trackUses', element }; }
   // TASB variant.  `skill` gives the TASB name.
   / "Keeps"i _ "track of" _ skill:AnySkillName _ "uses" { return { type: 'trackUses', skill }; }
+
+SharedCount
+  = "count is shared between" _ elements:ElementAndList _ "elements" { return null; }
 
 ModifiesSkill
   = "Modifies"i _ "behavior of" _ skill:AnySkillName { return { type: 'modifiesSkill', skill }; }
@@ -863,7 +868,7 @@ Condition
   // TODO: These two should be standardized
   / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
   / "at" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
-  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList plus:"+"? { return { type: 'statusLevel', status, value, plus: !!plus }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
 
   // If Doomed - overlaps with the general status support below
@@ -1018,7 +1023,11 @@ AnySkillName
   = GenericName / '???'
 
 AnySkillOrOptions
-  = head:AnySkillName tail:(_ "/" _ AnySkillName)+ { return { options: util.pegList(head, tail, 3) }; }
+  = head:AnySkillName tail:(_ ("/" / ",") _ AnySkillName)+ {
+    // Hack: Allow both slash-separated lists and comma-separated lists.  Assume
+    // that "or" is a separator, not part of the skill name.
+    return { options: util.flatten(util.pegList(head, tail, 3).map(i => i.split(/ or /))) };
+  }
   / skill:AnySkillName ! (_ "/") { return skill; }
 
 // Generic names.  Somewhat complex expression to match these.  Developed for
@@ -1030,6 +1039,7 @@ GenericName
       // "100%" doesn't get parsed as a status name by itself.
       / IntegerSlashList '%' !(_ "hit" _ "rate") _ GenericNameWord
       / SignedIntegerSlashList [%+]? _ GenericNameWord
+      / "..." GenericNameWord // Rude AASB. Sigh.
     )
     (_
       (

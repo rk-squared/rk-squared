@@ -31243,7 +31243,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single hybrid ranged attacks (0.60 or 1.50 each), grants [Awoken Taciturn Sunglasses], [Damage Cap +10000], [Awoken Taciturn Sunglasses], [Linked Materia Mode II (Earth/Lightning)] and [Silent Enforcer Mode] to the user",
+    "effects": "Fifteen single hybrid ranged attacks (0.60 or 1.50 each), grants [Awoken Taciturn Sunglasses], [Damage Cap +10000], [Linked Materia Mode II (Earth/Lightning)] and [Silent Enforcer Mode] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,

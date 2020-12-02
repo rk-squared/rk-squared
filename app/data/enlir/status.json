@@ -16053,7 +16053,7 @@
   {
     "id": 50741,
     "name": "Shadowhound Mode",
-    "effects": "Casts Midnight Passage when any Damage Reduction Barrier is removed, removed when Midnight Passage is cast 5 times",
+    "effects": "Casts Midnight Passage when any Damage Reduction Barrier is removed, removed after triggering five times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18634,7 +18634,7 @@
   {
     "id": 50981,
     "name": "Darkflame Reverse Mode",
-    "effects": "Grants [Overflow Fire Radiant Shield: 75%]/[Overflow Fire Radiant Shield: 125%]/[Overflow Fire Radiant Shield: 200%]/[Overflow Fire Radiant Shield: 300%] or [Overflow Dark Radiant Shield: 75%]/[Overflow Dark Radiant Shield: 125%]/[Overflow Dark Radiant Shield: 200%]/[Overflow Dark Radiant Shield: 300%] after using 1/2/3/4+ Dark or Fire attacks, count is shared between dark and fire elements",
+    "effects": "Grants [Overflow Fire Radiant Shield: 75%]/[Overflow Fire Radiant Shield: 125%]/[Overflow Fire Radiant Shield: 200%]/[Overflow Fire Radiant Shield: 300%] or [Overflow Dark Radiant Shield: 75%]/[Overflow Dark Radiant Shield: 125%]/[Overflow Dark Radiant Shield: 200%]/[Overflow Dark Radiant Shield: 300%] after using 1/2/3/4+ Dark or Fire attacks, count is shared between Dark and Fire elements",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20330,7 +20330,7 @@
   {
     "id": 51138,
     "name": "Maester Mode",
-    "effects": "Casts Dangerous Thoughts when any Damage Reduction Barrier is removed, removed after casting Dangerous Thoughts six times, removed if the user hasn't Synchro Mode",
+    "effects": "Casts Dangerous Thoughts when any Damage Reduction Barrier is removed, removed after triggering six times, removed if the user hasn't Synchro Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

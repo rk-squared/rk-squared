@@ -84,7 +84,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
       }
     }
     case 'statusLevel':
-      return formatThreshold(condition.value, statusLevelText);
+      return formatThreshold(condition.value, statusLevelText, condition.plus ? '+' : '');
     case 'ifDoomed':
       return 'if Doomed';
     case 'conditionalEnElement':
