@@ -120,7 +120,7 @@ RandomOneAttack
 AttackMultiplierGroup
   = randomAttackMultiplier:("randomly" _)?
     attackMultiplier:DecimalNumberSlashList
-    hybridMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
+    hybridMultiplier:(_ "or" _ n:DecimalNumberSlashList { return n; })?
     scaleToMultiplier:('~' n:DecimalNumber { return n; })?
     _ "each"?
     _ multiplierScaleType:MultiplierScaleType?

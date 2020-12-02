@@ -79,7 +79,7 @@ export interface RandomNumAttacks {
 export interface AttackMultiplierGroup {
   attackMultiplier: number | number[];
   isRandomAttackMultiplier?: boolean;
-  hybridMultiplier?: number;
+  hybridMultiplier?: number | number[];
   scaleToMultiplier?: number;
   multiplierScaleType?: MultiplierScaleType;
   overrideSkillType?: EnlirSkillType;
