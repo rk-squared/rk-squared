@@ -704,6 +704,11 @@ Trigger
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
+  / "if"i _ "the granting user has used" _ count:TriggerCount _ requiresDamage2:"damaging"?
+    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
+      // Tyro AASB variant
+      return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: !!requiresDamage2, requiresAttack };
+    }
   / "when"i _ "user triggers" _ count:TriggerCount _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack _ "during the status" {
       // TASB variant
       return { type: 'ability', element, school, count, jump: !!jump, requiresAttack };
@@ -729,13 +734,7 @@ Trigger
   }
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
   / "if user has triggered" _ skill:AnySkillName _ count:NumberString _ "times" { return { type: 'skillTriggered', skill, count }; } // TASB variant
-  / "after"i _ "using" _ count:NumberString _ "of" _ skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return { type: 'skill', skill: [skill1, skill2], count }; }
-  / "after"i _ "using" _ count:NumberString _ "of" _ skill1or2:AnySkillName
-    & {
-        // Variation for "or" instead of "and/or" - these may be part of a skill name themselves.
-        return (skill1or2.match(/ or /g) || []).length === 1;
-      }
-      { return { type: 'skill', skill: skill1or2.split(/ or /), count }; }
+  / "after"i _ "using" _ count:NumberString _ "of" _ "either"? _ skill:Skill1Or2 { return { type: 'skill', skill, count }; }
   / "after"i _ "taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
   / "after"i _ "using a single-target heal" { return { type: 'singleHeal' }; }
   / "when"i _ "the user's"? _ "HP fall" "s"? _ "below" _ value:Integer "%" { return { type: 'lowHp', value }; }
@@ -768,6 +767,16 @@ TriggerOrWhenSet
 TriggerDetail
   = "while under" _ status:StatusNameNoBrackets
   / "if the triggering ability is" _ element:ElementSlashList
+  / "if the triggering ability is" _ skill1or2:Skill1Or2  // Squall SASB.  Adequately covered by trigger and slash cast handling.
+
+Skill1Or2
+  = skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return [skill1, skill2]; }
+  / skill1or2:AnySkillName
+    & {
+        // Variation for "or" instead of "and/or" - these may be part of a skill name themselves.
+        return (skill1or2.match(/ or |\//g) || []).length === 1;
+      }
+      { return skill1or2.split(/ or |\//); }
 
 
 // --------------------------------------------------------------------------
@@ -799,19 +808,23 @@ StatusLevel "status with level"
   = name:StatusNameNoBrackets _ "level" _ value:Integer {
     return { type:'statusLevel', name, value, set: true };
   }
-  / name:StatusNameNoBrackets _ "level" _ value:SignedInteger {
-    return { type:'statusLevel', name, value };
+  / name:StatusNameNoBrackets _ "level" _ value:SignedInteger _ max:StatusLevelMax? {
+    return { type:'statusLevel', name, value, max };
   }
-  / value:SignedInteger _ name:StatusNameNoBrackets
-      { return { type:'statusLevel', name, value }; }
+  / value:SignedInteger _ name:StatusNameNoBrackets _ max:StatusLevelMax?
+      { return { type:'statusLevel', name, value, max }; }
   / name:StatusNameNoBrackets
     & {
         statusLevelMatch = name.match(/(.*) ((?:[+-]?\d+)(?:\/[+-]?\d+)*)$/);
         return statusLevelMatch;
       }
-      { return { type:'statusLevel', name: statusLevelMatch[1], value: util.scalarify(statusLevelMatch[2].split('/').map(i => +i)) }; }
+      _ max:StatusLevelMax?
+      { return { type:'statusLevel', name: statusLevelMatch[1], value: util.scalarify(statusLevelMatch[2].split('/').map(i => +i)), max }; }
   / name:StatusNameNoBrackets
       { return { type:'statusLevel', name, value: 1, set: true }; }
+
+StatusLevelMax
+  = "(max" _ value:Integer _ ")" { return value; }
 
 StandardStatus
   = name:StatusName { return { type: 'standardStatus', name }; }

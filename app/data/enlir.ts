@@ -81,6 +81,7 @@ export const allEnlirElements: EnlirElement[] = [
   'Poison',
   'NE',
 ];
+export const enlirPrismElementCount = 9; // 8 core + bio; exclude non-elemental
 export const isEnlirElement = (s: string): s is EnlirElement =>
   allEnlirElements.indexOf(s as EnlirElement) !== -1;
 

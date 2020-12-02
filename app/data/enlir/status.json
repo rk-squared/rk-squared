@@ -13746,7 +13746,7 @@
   {
     "id": 50517,
     "name": "Awoken Keeper Mode Critical Chance",
-    "effects": "Critical chance =60%/Critical chance =70%/Critical chance =80%/Critical chance =90%/Critical chance =100% if the granting user has used 1/2/3/4/5+ Support abilities",
+    "effects": "Critical chance =60/70/80/90/100% if the granting user has used 1/2/3/4/5+ Support abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17566,7 +17566,7 @@
   {
     "id": 50883,
     "name": "Revived Lion's Soul",
-    "effects": "Grants [Instant ATB 1], [Instant Cast 1] and Red Aura +1 (max 1) to the user when the user's HP falls below 20%, removes Revived Lion's Soul from the user",
+    "effects": "Grants [Instant ATB 1], [Instant Cast 1] and Red Aura +1 (max 1) to the user when the user's HP falls below 20%, removed after triggering",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19501,7 +19501,7 @@
   {
     "id": 51062,
     "name": "Rainbow Magic",
-    "effects": "Grants [Conditional Attach Element from Party] to the user after using three of Enlightening Teachings or Tome of Omniscience",
+    "effects": "Grants [Conditional Attach Element From Party] to the user after using three of Enlightening Teachings or Tome of Omniscience",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -26958,7 +26958,7 @@
   {
     "id": -2,
     "name": "Conditional Attach Element with Stacking",
-    "effects": "Grants [Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison] with Stacking if the user has [Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison]",
+    "effects": "Grants [Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison with Stacking] if the user has [Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison]",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

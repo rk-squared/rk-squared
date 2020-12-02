@@ -78,6 +78,9 @@ export const statusLevelAlias: _.Dictionary<string> = {
   // Observed in some synchro effects.  Should we standardize?
   'Dual Blink 1 or Dual Blink 2': 'PM blink 1/2',
 
+  // Conditional Attach Element.  See also getEnElementName
+  'Attach Fire/Ice/Lightning/Earth/Wind/Water/Holy/Dark/Poison': 'element infuse',
+
   // Soul break-specific status levels that were given their own text for
   // historical reasons.  We no longer do this.
   // Ingredients: 'ingred.',

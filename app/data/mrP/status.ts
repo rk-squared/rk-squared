@@ -5,6 +5,7 @@ import { arrayify, getAllSameValue, scalarify } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirElement,
+  enlirPrismElementCount,
   EnlirSchool,
   EnlirSkill,
   EnlirSkillType,
@@ -101,7 +102,8 @@ const uncertain = (isUncertain: boolean | undefined) => (isUncertain ? '?' : '')
 const getCastString = (value: number) =>
   value === 2 ? 'fast' : value === 3 ? 'hi fast' : value.toString() + 'x ';
 
-const memoizedParser = _.memoize((effects: string) => statusParser.parse(effects));
+const memoizedProcessor = (status: EnlirStatus) =>
+  preprocessStatus(statusParser.parse(status.effects), status);
 
 const failedStatusIds = new Set<number>();
 
@@ -133,6 +135,8 @@ function preprocessStatus(
           j.status = scalarify(mergeSimilarStatuses(resolveStatuses(arrayify(j.status), source)));
         }
       }
+    } else if (i.type === 'conditionalStatus') {
+      i.status = scalarify(mergeSimilarStatuses(resolveStatuses(arrayify(i.status), source)));
     }
   }
   return status;
@@ -140,7 +144,7 @@ function preprocessStatus(
 
 export function safeParseStatus(status: EnlirStatus): statusTypes.StatusEffect | null {
   try {
-    return preprocessStatus(memoizedParser(status.effects), status);
+    return memoizedProcessor(status);
   } catch (e) {
     if (!failedStatusIds.has(status.id)) {
       logger.error(`Failed to parse ${status.name}:`);
@@ -1018,6 +1022,11 @@ function makePlaceholderResolvers(placeholders: EnlirStatusPlaceholders | undefi
   };
 }
 
+const getEnElementName = (element: EnlirElement | EnlirElement[]) =>
+  Array.isArray(element) && element.length === enlirPrismElementCount
+    ? 'element' // Conditional Attach Element and similar statuses.  See also statusLevelAlias
+    : getElementShortName(element, '/');
+
 function describeStatusEffect(
   effect: statusTypes.EffectClause,
   enlirStatus: EnlirStatus,
@@ -1165,12 +1174,12 @@ function describeStatusEffect(
         ' vuln.'
       );
     case 'enElement':
-      return getElementShortName(effect.element, '/') + ' infuse';
+      return getEnElementName(effect.element) + ' infuse';
     case 'enElementStacking':
-      return getElementShortName(effect.element, '/') + ' infuse stacking';
+      return getEnElementName(effect.element) + ' infuse stacking';
     case 'enElementWithStacking':
       return (
-        getElementShortName(effect.element, '/') +
+        getEnElementName(effect.element) +
         ' infuse ' +
         (effect.level !== 1 ? effect.level + ' ' : '') +
         'w/ stacking'
