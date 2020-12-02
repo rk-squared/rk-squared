@@ -523,6 +523,7 @@ StatusClause
   = _ clause:(
     duration:Duration { return { duration }; }
     / who:Who ("," _ / _ "and") _ toCharacter:CharacterNameAndList { return { who, toCharacter }; } // See, e.g., Ward SASB
+    / who:WhoList { return { who }; }
     / who:Who { return { who }; }
     / "to" _ toCharacter:CharacterNameAndList { return { toCharacter }; }
     / perUses:PerUses { return { perUses }; }
@@ -647,7 +648,7 @@ Condition
   / "if" _ count:IntegerSlashList? _ character:CharacterNameAndList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count, all: true }; }
   / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
-  / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
+  / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive" / "members are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
   / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
   / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
 
@@ -819,17 +820,24 @@ NextClause
   )
 
 Who
-  = "to" _ "the"? _ "user" { return 'self'; }
-  / "from" _ "the"? _ "user" { return 'self'; }
-  / "to" _ "the" _ "target" { return 'target'; }
-  / "to" _ "all" _ "enemies" { return 'enemies'; }
-  / ("to" / "from") _ "all allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
+  = ("to" / "from") _ who:WhoClause { return who; }
+
+WhoClause
+  = "the"? _ "user" { return 'self'; }
+  / "the"? _ "user" { return 'self'; }
+  / "the" _ "target" { return 'target'; }
+  / "all" _ "enemies" { return 'enemies'; }
+  / "all allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
     return row || 'party';
   }
-  / "to" _ "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
-  / "to" _ "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
-  / "to" _ "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
-  / "to" _ "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
+  / "allies in the same row" { return 'sameRow'; }
+  / "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
+  / "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
+  / "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
+  / "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
+
+WhoList
+  = ("to" / "from") _ head:WhoClause _ tail:("/" WhoClause)+ { return util.pegList(head, tail, 1); }
 
 // Flexibility: Support both "two uses" and "second use"
 PerUses

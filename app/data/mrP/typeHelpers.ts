@@ -158,6 +158,10 @@ export const whoText: { [w in common.Who]: string } = {
   namedCharacter: 'specific character',
 };
 
+export function formatWho(who: common.Who | common.Who[]): string {
+  return Array.isArray(who) ? who.map(i => whoText[i]).join('/') : whoText[who];
+}
+
 export function appendPerUses(perUses: number | undefined) {
   return perUses ? ` per ${perUses} uses` : '';
 }

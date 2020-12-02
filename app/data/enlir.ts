@@ -946,7 +946,7 @@ function patchEnlir() {
     },
   );
 
-  // Some Synchro skills are weird and hard to parse:
+  // Some Synchro skills are complex and hard to parse:
   // Dk.Cecil's SASB chase is apparently trying to say that it's -1 Gloomshade
   // only if it's at Gloomshade levels 1 and 2, but it's simpler to avoid that.
   applyPatch(
@@ -978,6 +978,14 @@ function patchEnlir() {
       ability.effects =
         '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] to the user';
     },
+  );
+  // For Palom's sync, our parser isn't currently set up to handle "and" conditionals, and this
+  // format probably looks better regardless.
+  applyEffectsPatch(
+    enlir.synchroCommands,
+    '31540512',
+    'Restores HP (25), restores HP (85) and grants [Instant Cast 1] if the user has Mature Mode level 1, causes Mature Mode -1 to the user',
+    'Restores HP (25/85) if the user has Mature Mode level 0/1, grants [Instant Cast 1] if the user has Mature Mode level 1, causes Mature Mode -1 to the user',
   );
 
   // Use the older, less verbose format for hybrid effects.

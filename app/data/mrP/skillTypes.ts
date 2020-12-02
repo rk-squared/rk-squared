@@ -262,7 +262,7 @@ export interface StatusEffect {
   verb?: common.StatusVerb;
   statuses: common.StatusWithPercent[];
 
-  who?: common.Who;
+  who?: common.Who | common.Who[];
   toCharacter?: string | string[];
   perUses?: number;
   ifSuccessful?: boolean;

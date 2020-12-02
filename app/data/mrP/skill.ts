@@ -65,9 +65,9 @@ import {
 import {
   appendPerUses,
   DescribeOptions,
+  formatWho,
   getDescribeOptionsWithDefaults,
   getElementShortName,
-  whoText,
 } from './typeHelpers';
 import {
   fixedNumberOrUnknown,
@@ -638,7 +638,7 @@ function processStatus(
 
     if (toCharacter) {
       description =
-        (who ? whoText[who] + '/' : '') + stringSlashList(toCharacter) + ' ' + description;
+        (who ? formatWho(who) + '/' : '') + stringSlashList(toCharacter) + ' ' + description;
     }
 
     if (isComplex) {
@@ -750,13 +750,18 @@ class OtherDetail {
 
   push(
     skill: EnlirSkill,
-    who: skillTypes.Who | undefined,
+    who: common.Who | common.Who[] | undefined,
     description: string,
     options: OtherDetailOptions = {},
   ) {
-    const part = this.getPart(skill, who, options);
-    part.push(description);
-    return part;
+    if (Array.isArray(who)) {
+      this.namedCharacter.push(formatWho(who) + ' ' + description);
+      return this.namedCharacter;
+    } else {
+      const part = this.getPart(skill, who, options);
+      part.push(description);
+      return part;
+    }
   }
 
   combine(implicitlyTargetsEnemies: boolean, allowImplicitSelf: boolean): string | undefined {
