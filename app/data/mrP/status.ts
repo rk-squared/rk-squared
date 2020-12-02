@@ -58,6 +58,7 @@ import {
   signedNumber,
   signedNumberSlashList,
   slashMerge,
+  stringSlashList,
   toMrPFixed,
   toMrPKilo,
   tupleVerb,
@@ -781,7 +782,13 @@ function formatOneGrantOrConditionalStatus(
 }
 
 function formatGrantOrConditionalStatus(
-  { verb, status, who, condition }: statusTypes.GrantStatus | statusTypes.ConditionalStatus,
+  {
+    verb,
+    status,
+    who,
+    toCharacter,
+    condition,
+  }: statusTypes.GrantStatus | statusTypes.ConditionalStatus,
   trigger: statusTypes.Trigger | null,
   enlirStatus: EnlirStatus,
   source: EnlirSkill | undefined,
@@ -789,7 +796,9 @@ function formatGrantOrConditionalStatus(
   let result = '';
   result += verb === 'removes' ? 'remove ' : '';
 
-  if (who && who !== 'self' && who !== 'target') {
+  if (toCharacter) {
+    result += (who ? whoText[who] + '/' : '') + stringSlashList(toCharacter) + ' ';
+  } else if (who && who !== 'self' && who !== 'target') {
     result += whoText[who] + ' ';
   } else if (who === 'target' && trigger && trigger.type === 'singleHeal') {
     result += whoText['ally'] + ' ';

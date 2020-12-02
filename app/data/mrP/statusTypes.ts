@@ -543,13 +543,16 @@ export interface RandomCastSkill {
   skill: common.OrOptions<string>;
 }
 
+// Note: Significant overlap between skillTypes.StatusEffect and statusTypes.GrantStatus
 export interface GrantStatus {
   type: 'grantStatus';
   verb: common.StatusVerb;
   status: common.StatusWithPercent | common.StatusWithPercent[];
+
   who?: common.Who;
+  toCharacter?: string | string[];
+  ifUndead?: boolean;
   condition?: common.Condition;
-  duration?: common.Duration;
 }
 
 export interface DirectGrantStatus {
@@ -585,6 +588,7 @@ export interface ConditionalStatus {
   verb: common.StatusVerb;
   status: common.StatusWithPercent | common.StatusWithPercent[];
   who?: common.Who;
+  toCharacter?: string | string[];
   condition: common.Condition;
 }
 

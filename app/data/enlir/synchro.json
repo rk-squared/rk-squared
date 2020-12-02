@@ -6101,7 +6101,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each), 25/50/75/100% critical chance scaling with 0/1/2/3+ uses, grants [Monk +30% Boost 1] to the user",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each), 25/50/75/100% additional critical chance scaling with 0/1/2/3+ uses, grants [Monk +30% Boost 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

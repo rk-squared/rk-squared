@@ -471,10 +471,13 @@ SimpleRemoveStatus
   }
 
 GrantStatus
-  = verb:StatusVerb _ statuses:StatusList _ condition:Condition? _ who:Who? _ duration:Duration? {
-    const result = util.addCondition({ type: 'grantStatus', status: statuses, who, verb }, condition);
-    if (duration) {
-      util.applyDuration(result.status, duration);
+  = verb:StatusVerb _ statuses:StatusList statusClauses:StatusClause* {
+    const result = { type: 'grantStatus', status: statuses };
+    for (const i of statusClauses) {
+      Object.assign(result, i);
+    }
+    if (result.duration) {
+      util.applyDuration(result.status, result.duration);
     }
     return result;
   }
@@ -781,6 +784,20 @@ Skill1Or2
 
 // --------------------------------------------------------------------------
 // Common status logic (shared between skillParser and statusParser)
+
+StatusClause
+  = _ clause:(
+    duration:Duration { return { duration }; }
+    / who:Who ("," _ / _ "and") _ toCharacter:CharacterNameAndList ", if in the party," ? { return { who, toCharacter }; } // See, e.g., Ward SASB
+    / who:Who { return { who }; }
+    / "to" _ toCharacter:CharacterNameAndList { return { toCharacter }; }
+    // / perUses:PerUses { return { perUses }; } // Unimplemented for statusParser
+    // / "if" _ "successful" { return { ifSuccessful: true }; } // Does not apply for statusParser
+    / "to" _ "undeads" { return { ifUndead: true }; }
+    / condition:Condition { return { condition }; }
+  ) {
+    return clause;
+  }
 
 StatusList
   = head:StatusWithPercent tail:(conj:StatusListConjunction status:StatusWithPercent { return { ...status, conj }; })* {

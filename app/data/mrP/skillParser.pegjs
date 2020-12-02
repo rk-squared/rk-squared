@@ -453,20 +453,6 @@ StatusEffect
     return result;
   }
 
-StatusClause
-  = _ clause:(
-    duration:Duration { return { duration }; }
-    / who:Who ("," _ / _ "and") _ toCharacter:CharacterNameAndList { return { who, toCharacter }; } // See, e.g., Ward SASB
-    / who:Who { return { who }; }
-    / "to" _ toCharacter:CharacterNameAndList { return { toCharacter }; }
-    / perUses:PerUses { return { perUses }; }
-    / "if" _ "successful" { return { ifSuccessful: true }; }
-    / "to" _ "undeads" { return { ifUndead: true }; }
-    / condition:Condition { return { condition }; }
-  ) {
-    return clause;
-  }
-
 // Special case: Some Imperil soul breaks (e.g., Climhazzard Xeno, Ragnarok
 // Buster, Whirling Lance) and many stat mods omit "causes" or "grants".
 ImplicitStatusEffect
@@ -532,6 +518,20 @@ StandaloneAttackExtra
 
 // --------------------------------------------------------------------------
 // Common status logic (shared between skillParser and statusParser)
+
+StatusClause
+  = _ clause:(
+    duration:Duration { return { duration }; }
+    / who:Who ("," _ / _ "and") _ toCharacter:CharacterNameAndList { return { who, toCharacter }; } // See, e.g., Ward SASB
+    / who:Who { return { who }; }
+    / "to" _ toCharacter:CharacterNameAndList { return { toCharacter }; }
+    / perUses:PerUses { return { perUses }; }
+    / "if" _ "successful" { return { ifSuccessful: true }; }
+    / "to" _ "undeads" { return { ifUndead: true }; }
+    / condition:Condition { return { condition }; }
+  ) {
+    return clause;
+  }
 
 StatusList
   = head:StatusWithPercent tail:(!NextClause conj:StatusListConjunction status:StatusWithPercent { return { ...status, conj }; })* {

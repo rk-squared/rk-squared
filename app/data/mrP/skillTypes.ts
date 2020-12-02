@@ -256,6 +256,7 @@ export interface Mimic {
 // --------------------------------------------------------------------------
 // Status effects
 
+// Note: Significant overlap between skillTypes.StatusEffect and statusTypes.GrantStatus
 export interface StatusEffect {
   type: 'status';
   verb?: common.StatusVerb;
