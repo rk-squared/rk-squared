@@ -922,14 +922,17 @@ function formatTriggeredEffect(
   if (isFinisher) {
     return 'Finisher: ' + effects + condition;
   } else {
-    const onceOnly =
-      effect.onceOnly === true
-        ? ' (once only)'
-        : effect.onceOnly
-        ? ` (${effect.onceOnly}x only)`
-        : '';
+    const onceOnly = effect.onceOnly === true ? ' (once only)' : '';
+    const nextN = effect.onceOnly && effect.onceOnly !== true ? `next ${effect.onceOnly} ` : '';
     return (
-      '(' + formatTrigger(effect.trigger, source) + ' ⤇ ' + effects + condition + onceOnly + ')'
+      '(' +
+      nextN +
+      formatTrigger(effect.trigger, source) +
+      ' ⤇ ' +
+      effects +
+      condition +
+      onceOnly +
+      ')'
     );
   }
 }

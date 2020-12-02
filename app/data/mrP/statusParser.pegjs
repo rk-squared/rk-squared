@@ -58,7 +58,7 @@ StatMod
   }
 
 CritChance
-  = "Critical chance =" value:(PercentSlashList / PercentOrX)  _ trigger:Trigger? _ TriggerDetail? {
+  = "Critical chance =" value:(PercentSlashList / PercentOrX) _ trigger:Trigger? _ TriggerDetail? {
     const result = { type: 'critChance', trigger };
     if (typeof value === 'object' && !Array.isArray(value)) {
       Object.assign(result, value);
@@ -445,8 +445,19 @@ CounterWithImmune
 // Note that we allow triggerable effects to appear after the trigger, to
 // accommodate statuses like Cyan's AASB.
 TriggeredEffect
-  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? tail2:("," _ BareTriggerableEffect)* onceOnly:("," _ o:OnceOnly { return o; })? {
-    return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly }, condition);
+  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
+    onceOnly:("," _ o:OnceOnly { return o; })?
+  & {
+    // Validate that what we think is a "once only" effect actually is - if it refers to a
+    // different skill, then it's not actually "once only."
+    if (!onceOnly || !onceOnly.skill) {
+      return true;
+    }
+    const castSkill = head.type === 'castSkill' ? head : tail.find(i => i.type === 'castSkill');
+    return castSkill && castSkill.type === 'castSkill' && castSkill.skill === onceOnly.skill;
+  }
+  {
+    return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly }, condition);
   }
   // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
   / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ TriggerDetail? {
@@ -610,7 +621,9 @@ RemovedUnlessStatus
 // Hack: "or if the user hasn't Synchro Mode" is omitted from our higher-level
 // code, so we'll drop it here rather than further complicating the parser.
 OnceOnly
-  = "Removed"i _ "after triggering" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return count || true; }
+  = "Removed"i _ "after triggering" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true }; }
+  / "Removed"i _ "after" _ skill:AnySkillName _ "is cast" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
+  / "Removed"i _ "after casting" _ skill:AnySkillName _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
 
 RemovedAfterTrigger
   = "Removed"i _ trigger:Trigger { return { type: 'removedAfterTrigger', trigger }; }

@@ -5563,7 +5563,7 @@
   {
     "id": 282241,
     "name": "Dark/Poison Ability +30% Boost 1",
-    "effects": "Dark and Poison abilities deal 30% more damage, last for 1 turn",
+    "effects": "Dark and Poison abilities deal 30% more damage, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
