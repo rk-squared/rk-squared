@@ -9,6 +9,8 @@ import { displayStatusLevel, statusLevelAlias, statusLevelText, vsWeak } from '.
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import { formatNumberSlashList, formatUseCount, formatUseNumber, stringSlashList } from './util';
 
+export const ifWithClause = (withoutWith?: boolean) => (withoutWith ? 'w/o - w/' : 'if');
+
 export function formatThreshold(
   thresholdValues: number | number[],
   thresholdName: string,
@@ -109,11 +111,12 @@ export function describeCondition(condition: common.Condition, count?: number | 
       return 'if Doomed';
     case 'conditionalEnElement':
       return 'based on party element infuse';
-    case 'status':
+    case 'status': {
+      const clause = ifWithClause(condition.withoutWith);
       if (condition.who === 'self') {
         // Special case: We don't show "High Retaliate" to the user.
         if (condition.status === 'Retaliate or High Retaliate') {
-          return 'if Retaliate';
+          return `${clause} Retaliate`;
         }
         const m =
           typeof condition.status === 'string' && condition.status.match(/^(.*) ((?:\d+\/)+\d+)/);
@@ -122,7 +125,8 @@ export function describeCondition(condition: common.Condition, count?: number | 
           return '@ ' + m[2] + ' ' + describeStatusOrStatusAlias(status);
         }
         return (
-          'if ' +
+          clause +
+          ' ' +
           arrayify(condition.status)
             .map(describeStatusOrStatusAlias)
             .join(' or ')
@@ -133,6 +137,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
         // details to save space.
         return typeof condition.status === 'string' ? 'vs. ' + condition.status : 'vs. status';
       }
+    }
     case 'scaleUseCount':
       return 'w/ ' + formatNumberSlashList(condition.useCount) + ' uses';
     case 'scaleWithUses':
@@ -144,9 +149,9 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'alliesAlive':
       return 'if no allies KO';
     case 'characterAlive':
-    case 'characterInParty':
+    case 'characterInParty': {
       const what = condition.type === 'characterAlive' ? ' alive' : ' in party';
-      const clause = condition.withoutWith ? 'w/o - w/' : 'if';
+      const clause = ifWithClause(condition.withoutWith);
       if (condition.count) {
         return (
           clause +
@@ -164,6 +169,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
           what
         );
       }
+    }
     case 'femalesInParty':
       return formatCountCharacters(condition.count, 'females in party');
     case 'femalesAlive':

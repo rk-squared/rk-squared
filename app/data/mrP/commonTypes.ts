@@ -93,8 +93,6 @@ export type Who =
   | 'allyWithoutStatus'
   | 'allyWithNegativeStatus'
   | 'allyWithKO'
-  // Note: As of November 2019, 'ally' is used only for compatibility with
-  // EnlirTarget.  The parser doesn't output it directly.
   | 'ally'
   // Used in application code (not in the parser directly) to indicate specific
   // toCharacter values.
@@ -105,7 +103,13 @@ export type Condition =
   | { type: 'scaleWithStatusLevel'; status: string }
   | { type: 'statusLevel'; status: string; value: number | number[]; plus?: boolean }
   | { type: 'ifDoomed' }
-  | { type: 'status'; status: string | string[]; who: 'self' | 'target'; any: boolean }
+  | {
+      type: 'status';
+      status: string | string[];
+      who: 'self' | 'target';
+      any: boolean;
+      withoutWith?: boolean;
+    }
   | { type: 'conditionalEnElement'; element: EnlirElement | EnlirElement[] }
   | { type: 'scaleUseCount'; useCount: number | number[] }
   | { type: 'scaleWithUses' }

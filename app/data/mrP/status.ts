@@ -1191,7 +1191,14 @@ function describeStatusEffect(
     case 'switchDrawStacking':
       return formatSwitchDraw(effect.elements, true, effect.level);
     case 'elementAttack':
-      return signedNumber(effect.value) + '% ' + getElementShortName(effect.element, '/') + ' dmg';
+      return addTrigger(
+        signedNumberSlashList(effect.value) +
+          '% ' +
+          getElementShortName(effect.element, '/') +
+          ' dmg',
+        effect.trigger,
+        source,
+      );
     case 'elementResist':
       return (
         signedNumber(-resolve.x(effect.value)) +

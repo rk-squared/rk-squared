@@ -17309,7 +17309,7 @@
   {
     "id": 50861,
     "name": "Precise Guard Mode",
-    "effects": "Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times",
+    "effects": "Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

@@ -290,7 +290,8 @@ interface SwitchDrawStacking {
 interface ElementAttack {
   type: 'elementAttack';
   element: EnlirElement | EnlirElement[];
-  value: number;
+  value: number | number[];
+  trigger?: Trigger;
 }
 
 interface ElementResist {

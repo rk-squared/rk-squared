@@ -6586,7 +6586,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Removes positive effects, grants [ATK, DEF, MAG and RES +30% (25s)] and [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to all allies if 0-1/2-3/4+ FF3, grants [High Quick Cast 1] to all allies if Hilda or Scott are alive, grants [Awoken Devoted Prince] to the user",
+    "effects": "Removes positive effects, grants [ATK, DEF, MAG and RES +30% (25s)] and [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to all allies if 0-1/2-3/4+ FF2 characters are alive, grants [High Quick Cast 1] to all allies if Hilda or Scott are alive, grants [Awoken Devoted Prince] to the user",
     "counter": false,
     "autoTarget": "All enemies",
     "points": 500,

@@ -613,6 +613,7 @@ Condition
   / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
   / "at" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList plus:"+"? { return { type: 'statusLevel', status, value, plus: !!plus }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level >" _ value:Integer { return { type: 'statusLevel', status, value: value + 1, plus: true }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusNameNoBrackets { return { type: 'statusLevel', status, value }; }
 
   // If Doomed - overlaps with the general status support below
@@ -620,20 +621,22 @@ Condition
 
   // General status.
   // TODO: I think the database is trying to standardize on brackets?
-  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(head:StatusNameNoBrackets tail:(OrList StatusNameNoBrackets)* { return util.pegList(head, tail, 1, true); }) {
+  / "if" _ "the"? _ who:("user" / "target") _ has:HasOrHasNot _ any:"any"? _ status:(head:StatusNameNoBrackets tail:(OrList StatusNameNoBrackets)* { return util.pegList(head, tail, 1, true); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
       who: who === 'user' ? 'self' : 'target',
-      any: !!any
+      any: !!any,
+      withoutWith: has
     };
   }
-  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(head:StatusName tail:(OrList StatusName)* { return util.pegList(head, tail, 1, true); }) {
+  / "if" _ "the"? _ who:("user" / "target") _ has:HasOrHasNot _ any:"any"? _ status:(head:StatusName tail:(OrList StatusName)* { return util.pegList(head, tail, 1, true); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
       who: who === 'user' ? 'self' : 'target',
-      any: !!any
+      any: !!any,
+      withoutWith: has
     };
   }
 
@@ -651,7 +654,7 @@ Condition
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
-  / ("after" / "every") _ useCount:UseCount _ skill:AnySkillName? _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
+  / ("after" / "every") _ useCount:UseCount _ skill:AnySkillName? _ ("uses" / "activations") { return { type: 'afterUseCount', skill, useCount }; }
   / "on" _ "first" _ "use" { return { type: 'afterUseCount', useCount: { from: 1, to: 1 } }; }
   / "on" _ first:Integer "+" _ "use" "s"? { return { type: 'afterUseCount', useCount: { from: first } }; }
 
@@ -721,6 +724,9 @@ Condition
   // Stat thresholds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
+HasOrHasNot
+  = "hasn't/has" { return true; }
+  / "has" { return false; }
 
 // --------------------------------------------------------------------------
 // Lower-level game rules
@@ -845,6 +851,7 @@ WhoClause
   / "the"? _ "user" { return 'self'; }
   / "the" _ "target" { return 'target'; }
   / "all" _ "enemies" { return 'enemies'; }
+  / "a single ally" { return 'ally'; }
   / "all allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
     return row || 'party';
   }
