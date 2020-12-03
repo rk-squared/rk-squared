@@ -980,8 +980,19 @@ function patchEnlir() {
     'Restores HP (25), restores HP (85) and grants [Instant Cast 1] if the user has Mature Mode level 1, causes Mature Mode -1 to the user',
     'Restores HP (25/85) if the user has Mature Mode level 0/1, grants [Instant Cast 1] if the user has Mature Mode level 1, causes Mature Mode -1 to the user',
   );
+  // Simplify Kiros's synchro status.  The detail is useful for database but
+  // too much for us.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Blood Energy',
+    'Grants [Dark Ability +30% Boost 1]/[Ice Ability +30% Boost 1]/[Dark Ability +30% Boost 1] to all allies ' +
+      'after using two of Sixfolded Suffering or Endless Anguish that deals Dark/Ice/NE damage',
+    'Grants [Dark Ability +30% Boost 1]/[Ice Ability +30% Boost 1] to all allies ' +
+      'after using two of Sixfolded Suffering or Endless Anguish that deals Dark/Ice damage',
+  );
 
-  // Use the older, less verbose format for hybrid effects.
+  // Use the older, less verbose format for hybrid effects.  (Personally, I
+  // prefer this...)
   applyEffectsPatch(
     enlir.soulBreaks,
     '23380003', // Shadowsmith - Soul of Nihility

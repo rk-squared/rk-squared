@@ -460,7 +460,7 @@ function formatAnyType(type: AnyType, suffix?: string, physAbbrev?: string): str
   // may be displayed the same as a comma-separated list.
   if (type.element) {
     if (common.isOptions(type.element)) {
-      result.push(type.element.options.map(getElementAbbreviation).join('/'));
+      result.push(getElementAbbreviation(type.element.options, '/'));
     } else {
       result.push(formatSchoolOrAbilityList(type.element));
     }
@@ -613,7 +613,11 @@ function getTriggerSkillAlias(skill: string, source: EnlirSkill | undefined): st
   return skill;
 }
 
-export function formatTrigger(trigger: statusTypes.Trigger, source?: EnlirSkill): string {
+export function formatTrigger(
+  trigger: statusTypes.Trigger,
+  source?: EnlirSkill,
+  detail?: statusTypes.TriggerDetail,
+): string {
   switch (trigger.type) {
     case 'ability':
     case 'allyAbility':
@@ -649,7 +653,8 @@ export function formatTrigger(trigger: statusTypes.Trigger, source?: EnlirSkill)
         (trigger.count ? numberSlashList(trigger.count) + (trigger.plus ? '+' : '') + ' ' : '') +
         arrayify(trigger.skill)
           .map(i => getTriggerSkillAlias(i, source))
-          .join('/')
+          .join('/') +
+        (detail && detail.element ? ' ' + getElementAbbreviation(detail.element, '/') : '')
       );
     case 'skillTriggered':
       return (
@@ -932,7 +937,7 @@ function formatTriggeredEffect(
     return (
       '(' +
       nextN +
-      formatTrigger(effect.trigger, source) +
+      formatTrigger(effect.trigger, source, effect.triggerDetail) +
       ' ⤇ ' +
       effects +
       condition +
@@ -1778,6 +1783,7 @@ const valueMergeTypes = [
   'stoneskin',
 ] as const;
 const elementMergeTypes = [
+  'damageUp',
   'elementAttack',
   'elementResist',
   'enElement',
@@ -1846,7 +1852,9 @@ function tryToMergeEffects(
         if (
           a.type === type &&
           b.type === type &&
-          _.isEqual(_.omit(a, 'element'), _.omit(b, 'element'))
+          _.isEqual(_.omit(a, 'element'), _.omit(b, 'element')) &&
+          a.element != null &&
+          b.element != null
         ) {
           const valueA = resolveA.element(a.element);
           const valueB = resolveB.element(b.element);

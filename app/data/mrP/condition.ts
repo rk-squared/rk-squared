@@ -164,8 +164,10 @@ export function describeCondition(condition: common.Condition, count?: number | 
           what
         );
       }
-    case 'females':
+    case 'femalesInParty':
       return formatCountCharacters(condition.count, 'females in party');
+    case 'femalesAlive':
+      return formatCountCharacters(condition.count, 'females alive');
     case 'realmCharactersInParty':
       return formatCountCharacters(condition.count, condition.realm + ' chars. in party');
     case 'realmCharactersAlive':

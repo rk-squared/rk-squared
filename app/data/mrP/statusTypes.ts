@@ -520,6 +520,7 @@ export interface TriggeredEffect {
   type: 'triggeredEffect';
   effects: TriggerableEffect | TriggerableEffect[];
   trigger: Trigger;
+  triggerDetail?: TriggerDetail;
   condition?: common.Condition;
   onceOnly?: boolean | number; // A number indicates twice, 3x, etc.
 }
@@ -808,3 +809,7 @@ export type TriggerCount =
       values: number | number[];
       plus?: boolean;
     };
+
+export interface TriggerDetail {
+  element?: EnlirElement | EnlirElement[];
+}

@@ -87,11 +87,14 @@ export function getElementShortName(
     .replace(prismElementsShortName, 'prism');
 }
 
-export function getElementAbbreviation(element: EnlirElement | EnlirElement[]): string {
+export function getElementAbbreviation(
+  element: EnlirElement | EnlirElement[],
+  joinString = '+',
+): string {
   element = arrayify(element);
   return element
     .map(i => elementAbbreviation[i.toLowerCase()] || i[0].toLowerCase())
-    .join('+')
+    .join(joinString)
     .replace(prismElementsAbbreviation, 'prism');
 }
 

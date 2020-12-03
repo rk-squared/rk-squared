@@ -18,7 +18,7 @@ SkillEffect
   / "" { return []; }
 
 EffectClause = FixedAttack / Attack / RandomFixedAttack
-  / DrainHp / RecoilHp / HpAttack / GravityAttack
+  / DrainHp / RecoilHp / FixedRecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCastAbility / RandomCastOther / Chain / Mimic
   / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
@@ -314,6 +314,17 @@ RecoilHp
       damagePercent,
       maxOrCurrent,
     }, condition);
+  }
+
+// New effect in December 2020 - make it strict until we've seen more use.
+FixedRecoilHp
+  = "deals" _ value:Integer _ skillType:SkillType _ ("physical" / "magical") _ "damage" _ who:Who {
+    return {
+      type: 'fixedRecoilHp',
+      value,
+      skillType,
+      who,
+    };
   }
 
 GravityAttack
@@ -640,7 +651,7 @@ Condition
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
-  / "after" _ useCount:UseCount _ skill:AnySkillName? _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
+  / ("after" / "every") _ useCount:UseCount _ skill:AnySkillName? _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
   / "on" _ "first" _ "use" { return { type: 'afterUseCount', useCount: { from: 1, to: 1 } }; }
   / "on" _ first:Integer "+" _ "use" "s"? { return { type: 'afterUseCount', useCount: { from: first } }; }
 
@@ -652,10 +663,11 @@ Condition
   / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameAndList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count, all: true }; }
-  / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ count:IntegerSlashList _ "females are in the party" { return { type: 'femalesInParty', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ "females are alive" { return { type: 'femalesAlive', count }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive" / "members are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
-  / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ count:Integer _ "or more females are in the party" { return { type: 'femalesInParty', count }; }
   / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }

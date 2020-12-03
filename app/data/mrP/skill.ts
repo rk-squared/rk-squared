@@ -171,6 +171,11 @@ export function describeRecoilHp({
   );
 }
 
+export function describeFixedRecoilHp({ value }: skillTypes.FixedRecoilHp): string {
+  // Omit skillType; it seems unnecessary.
+  return `lose ${value} HP`;
+}
+
 function findOtherSkill(skill: EnlirSkill, otherSkills: EnlirSkill[] | undefined) {
   if (!otherSkills) {
     return null;
@@ -977,6 +982,9 @@ export function convertEnlirSkillToMrP(
         break;
       case 'recoilHp':
         other.self.push(describeRecoilHp(effect));
+        break;
+      case 'fixedRecoilHp':
+        other.push(skill, effect.who, describeFixedRecoilHp(effect));
         break;
       case 'gravityAttack':
         damage.push(describeGravityAttack(effect));

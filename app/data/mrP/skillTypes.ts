@@ -17,6 +17,7 @@ export type EffectClause =
   | RandomFixedAttack
   | DrainHp
   | RecoilHp
+  | FixedRecoilHp
   | HpAttack
   | GravityAttack
   | Revive
@@ -158,6 +159,13 @@ export interface RecoilHp {
   damagePercent: number | number[];
   maxOrCurrent: 'max' | 'curr';
   condition?: common.Condition;
+}
+
+export interface FixedRecoilHp {
+  type: 'fixedRecoilHp';
+  value: number;
+  skillType: EnlirSkillType;
+  who?: common.Who;
 }
 
 export interface GravityAttack {

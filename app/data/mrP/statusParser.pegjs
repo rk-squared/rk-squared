@@ -445,7 +445,7 @@ CounterWithImmune
 // Note that we allow triggerable effects to appear after the trigger, to
 // accommodate statuses like Cyan's AASB.
 TriggeredEffect
-  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
+  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ triggerDetail:TriggerDetail? _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
     onceOnly:("," _ o:OnceOnly { return o; })?
   & {
     // Validate that what we think is a "once only" effect actually is - if it refers to a
@@ -457,11 +457,11 @@ TriggeredEffect
     return castSkill && castSkill.type === 'castSkill' && castSkill.skill === onceOnly.skill;
   }
   {
-    return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly }, condition);
+    return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
   }
   // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
-  / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ TriggerDetail? {
-    return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2) };
+  / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
+    return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2), triggerDetail };
   }
 
 TriggerableEffect
@@ -817,11 +817,12 @@ TriggerOrWhenSet
   / "when set" { return undefined; }
 
 // Trigger details.  These seem redundant, so they're only added to rules where
-// we know they're needed, and they're not included in the final result.
+// we know they're needed, and most are not included in the final result.
 TriggerDetail
-  = "while under" _ status:StatusNameNoBrackets
-  / "if the triggering ability is" _ element:ElementSlashList
-  / "if the triggering ability is" _ skill1or2:Skill1Or2  // Squall SASB.  Adequately covered by trigger and slash cast handling.
+  = "while under" _ status:StatusNameNoBrackets { return null; }
+  / "if the triggering ability is" _ element:ElementSlashList { return { element }; }
+  / "if the triggering ability is" _ skill1or2:Skill1Or2 { return null; } // Squall SASB.  Adequately covered by trigger and slash cast handling.
+  / "that deals" _ element:ElementSlashList _ "damage" { return { element }; }
 
 Skill1Or2
   = skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return [skill1, skill2]; }
@@ -953,7 +954,7 @@ Condition
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
-  / "after" _ useCount:UseCount _ skill:AnySkillName? _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
+  / ("after" / "every") _ useCount:UseCount _ skill:AnySkillName? _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
   / "on" _ "first" _ "use" { return { type: 'afterUseCount', useCount: { from: 1, to: 1 } }; }
   / "on" _ first:Integer "+" _ "use" "s"? { return { type: 'afterUseCount', useCount: { from: first } }; }
 
@@ -965,10 +966,11 @@ Condition
   / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameAndList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count, all: true }; }
-  / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ count:IntegerSlashList _ "females are in the party" { return { type: 'femalesInParty', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ "females are alive" { return { type: 'femalesAlive', count }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive" / "members are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
-  / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ count:Integer _ "or more females are in the party" { return { type: 'femalesInParty', count }; }
   / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }

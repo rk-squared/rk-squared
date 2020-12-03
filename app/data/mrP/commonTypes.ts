@@ -126,7 +126,8 @@ export type Condition =
       all?: boolean;
       withoutWith?: boolean;
     }
-  | { type: 'females'; count: number | number[] }
+  | { type: 'femalesInParty'; count: number | number[] }
+  | { type: 'femalesAlive'; count: number | number[] }
   | { type: 'realmCharactersInParty'; realm: EnlirRealm; count: number | number[] }
   | { type: 'realmCharactersAlive'; realm: EnlirRealm; count: number | number[]; plus: boolean }
   | { type: 'charactersAlive'; count: number | number[] }
