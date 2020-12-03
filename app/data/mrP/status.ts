@@ -1873,10 +1873,18 @@ export function mergeSimilarStatuses(
 
   // Realm-based status lists are complex and use / as separators; trying to
   // merge across those is often a bad idea.
-  const isComplex =
+  let isComplex = false;
+  if (
     condition &&
-    (condition.type === 'realmCharactersAlive' || condition.type === 'realmCharactersInParty') &&
-    statuses.find(i => i.conj === 'and') != null;
+    (condition.type === 'realmCharactersAlive' || condition.type === 'realmCharactersInParty')
+  ) {
+    // As a heuristic, a complex status is marked by 'and' after '/'.
+    const firstSlash = statuses.findIndex(i => i.conj === '/');
+    const andInSlash = _.findIndex(statuses, i => i.conj === 'and', firstSlash + 1);
+    if (firstSlash !== -1 && andInSlash > firstSlash) {
+      isComplex = true;
+    }
+  }
 
   for (const i of statuses) {
     if (

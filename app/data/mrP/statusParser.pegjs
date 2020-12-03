@@ -798,8 +798,8 @@ Trigger
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'allyAbility', element, school, count, jump: !!jump, requiresDamage, requiresAttack };
     }
-  // This should go last to avoid parse conflicts.
-  / "after casting" _ skill:AnySkillName { return { type: 'skill', skill }; }
+  // These should go last to avoid parse conflicts.
+  / "after casting" _ skill:(Skill1Or2 / AnySkillName) { return { type: 'skill', skill }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }

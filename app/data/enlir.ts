@@ -803,17 +803,6 @@ function patchEnlir() {
         'grants [Awoken Cornelian Princess] to the user';
     },
   );
-  // Disambiguate Mog AASB2's status alternatives.
-  applyEffectsPatch(
-    enlir.soulBreaks,
-    '20900009',
-    'Grants [ATK, DEF, MAG and RES +30% (25s)], [Quick Cast] and ' +
-      '[Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] to all allies if 0-1/2-3/4+ FF6 allies are alive, ' +
-      'grants [Awoken Rhapsody] and [Mog Step] to the user',
-    'Grants [ATK, DEF, MAG and RES +30% (25s)], and [Quick Cast],' +
-      'grants [Weakness +9% Boost]/[Weakness +15% Boost]/[Weakness +30% Boost] if 0-1/2-3/4+ FF6 allies are alive,' +
-      'grants [Awoken Rhapsody] and [Mog Step] to the user',
-  );
 
   // Status cleanups.  These too should be fixed up.
   applyPatch(

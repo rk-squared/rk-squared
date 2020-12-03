@@ -1,5 +1,5 @@
 {
-  let parsedNumberString = null;
+  let parsedNumberResult = null;
   let lastDamageDuringStatus = NaN;
   let lastDamageDuringStatusElement = undefined;
   let statusLevelMatch = null;
@@ -112,6 +112,9 @@ RandomNumAttacks
     // with identical chances, or tuples of number of attacks with percent chance.
     return util.pegList(head, tail, 1);
   }
+  / "Randomly"i _ "deals" _ value:IntegerSlashList _ "(" chance:PercentSlashList ")"
+  & { return value.length === chance.length; }
+    { return value.map((v, i) => [v, chance[i]]); }
 
 RandomOneAttack
   = value:NumberString _ chance:("(" c:Integer "%)" { return c; }) { return [value, chance]; }
@@ -173,7 +176,10 @@ MultiplierScaleType
 
 
 AttackExtras
-  = extras:(","? _ AttackExtra)* {
+  = extras:(("," / _ "and")? _ AttackExtra)* {
+    // "and" likely means two clauses (e.g., AdditionalCrit and AdditionalCritDamage)
+    // that share a condition clause.  We do not currently attempt to capture this;
+    // our generated text makes it clear enough to a human.
     return extras.reduce((result, element) => Object.assign(result, element[2]), {});
   }
 
@@ -202,12 +208,12 @@ AttackExtra
 
 // Note: This goes before AdditionalCrit so that it can be greedy with matching "damage"
 AdditionalCritDamage
-  = additionalCritDamage:IntegerSlashList '%' _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'damage' condition:(_ Condition)? {
+  = additionalCritDamage:PercentSlashList _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'damage' condition:(_ Condition)? {
     return util.addCondition({ additionalCritDamage }, condition, 'additionalCritDamageCondition');
   }
 
 AdditionalCrit
-  = additionalCrit:IntegerSlashList '%' _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'chance'? condition:(_ Condition)? {
+  = additionalCrit:PercentSlashList _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'chance'? condition:(_ Condition)? {
     return util.addCondition({ additionalCrit }, condition, 'additionalCritCondition');
   }
 
@@ -978,8 +984,8 @@ StatusListConjunction
 
 NumberString "numeric text"
   = numberString:[a-zA-Z\-]+
-  & { parsedNumberString = util.parseNumberString(numberString.join('')); return parsedNumberString != null; }
-  { return parsedNumberString; }
+  & { parsedNumberResult = util.parseNumberString(numberString.join('')); return parsedNumberResult != null; }
+  { return parsedNumberResult; }
 
 
 DecimalNumber "decimal number"
@@ -987,6 +993,9 @@ DecimalNumber "decimal number"
 
 Integer "integer"
   = ([0-9]+ / '?') { return parseInt(text(), 10); }
+
+PercentInteger "percentage"
+  = ([0-9]+ '%' / '?') { return parseInt(text(), 10); }
 
 SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
@@ -1003,6 +1012,10 @@ DecimalNumberPercentSlashList "slash-separated decimal numbers"
 
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }
+
+PercentSlashList "slash-separated percent integers"
+  = head:PercentInteger tail:('/' PercentInteger)* { return util.pegSlashList(head, tail); }
+  / list:IntegerSlashList "%" { return list; }
 
 // An IntegerSlashList with support for ranges like 1/2-3/4
 IntegerRangeSlashList "slash-separated integer ranges"
@@ -1033,7 +1046,7 @@ IntegerAndList "integers separated with commas and 'and'"
 Occurrence
   = "once" { return 1; }
   / "twice" { return 2; }
-  / count:NumberString _ "time" "s"? { return count; }
+  / count:(NumberString / Integer) _ "time" "s"? { return count; }
 
 
 Ordinal
