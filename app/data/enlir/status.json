@@ -15778,7 +15778,7 @@
   {
     "id": 50714,
     "name": "Love Barrier Follow-Up",
-    "effects": "Casts Love Barrier after using three of Alabaster Blade and/or Azure Blade",
+    "effects": "Casts Love Barrier after using three of Achromatic Blade and/or Azure Arc Blade",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

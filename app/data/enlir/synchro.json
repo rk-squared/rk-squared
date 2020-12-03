@@ -5606,7 +5606,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.85/0.95 each) at Heavy Charge 0-1/2",
+    "effects": "Six single attacks (0.85/0.95 each) at Heavy Charge 0/2",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

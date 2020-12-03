@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 
 import { arrayify, arrayifyLength, KeysOfType } from '../../utils/typeUtils';
+import { getEnlirStatusByName } from '../enlir';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import { describeEnlirStatus } from './status';
@@ -58,6 +59,25 @@ function formatCountCharacters(
 }
 
 /**
+ * Helper for Condition.type === 'status' to accommodate the fact that, as of
+ * December 2020, it includes status levels, real statuses, and our own hacks /
+ * special cases
+ */
+function describeStatusOrStatusAlias(status: string) {
+  if (statusLevelAlias[status]) {
+    return statusLevelAlias[status];
+  } else if (status.endsWith(' stacks') || status.endsWith(' status')) {
+    // Accommodate hacks added by attack.ts
+    return status;
+  } else if (getEnlirStatusByName(status)) {
+    return describeEnlirStatus(status);
+  } else {
+    // Assume status level
+    return statusLevelText;
+  }
+}
+
+/**
  * Returns a text string describing the given Condition.
  *
  * @param condition
@@ -99,12 +119,12 @@ export function describeCondition(condition: common.Condition, count?: number | 
           typeof condition.status === 'string' && condition.status.match(/^(.*) ((?:\d+\/)+\d+)/);
         if (m) {
           const status = m[1];
-          return '@ ' + m[2] + ' ' + (statusLevelAlias[status] || describeEnlirStatus(status));
+          return '@ ' + m[2] + ' ' + describeStatusOrStatusAlias(status);
         }
         return (
           'if ' +
           arrayify(condition.status)
-            .map(i => statusLevelAlias[i] || describeEnlirStatus(i))
+            .map(describeStatusOrStatusAlias)
             .join(' or ')
         );
       } else {
