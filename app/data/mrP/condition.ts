@@ -185,7 +185,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'hpAtLeastPercent':
       return formatThreshold(condition.value, 'HP', '%', '≥ ');
     case 'soulBreakPoints':
-      return formatThreshold(condition.value, 'SB pts');
+      return formatThreshold(condition.value, 'SB pts', condition.plus ? '+' : '');
     case 'targetStatBreaks':
       return formatThreshold(condition.count, 'stats lowered');
     case 'targetStatusAilments':

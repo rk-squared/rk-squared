@@ -134,7 +134,7 @@ export type Condition =
   | { type: 'doomTimer'; value: number | number[] }
   | { type: 'hpBelowPercent'; value: number | number[] }
   | { type: 'hpAtLeastPercent'; value: number | number[] }
-  | { type: 'soulBreakPoints'; value: number | number[] }
+  | { type: 'soulBreakPoints'; value: number | number[]; plus?: boolean }
   | { type: 'targetStatBreaks'; count: number | number[] }
   | { type: 'targetStatusAilments'; count: number | number[] }
   | { type: 'vsWeak' }

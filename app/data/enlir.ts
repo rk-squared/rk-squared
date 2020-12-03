@@ -846,6 +846,14 @@ function patchEnlir() {
     "Increases Items level by 1 after using Potato Masher, removed if user hasn't Synchro Mode",
     'Increases Items level by 1 when set',
   );
+  applyEffectsPatch(
+    enlir.synchroCommands, // Kuja - Dark Flare Burst
+    '31540384',
+    '1/2 single attacks (16.40 each) capped at 99999 if the user has less than/greater than or equal to 1000 SB points, ' +
+      'causes [Soul Break Gauge -250] to the user if the user has 1000+ SB points',
+    '1/2 single attacks (16.40 each) capped at 99999 if the user has 0/1000 SB points, ' +
+      'causes [Soul Break Gauge -250] to the user if the user has 1000+ SB points',
+  );
 
   // Legend materia.  These, too, should be upstreamed if possible.
   applyPatch(

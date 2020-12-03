@@ -2076,7 +2076,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "3/6 single attacks (3.05 each) if Galuf isn't/is alive, grants [Quick Cast 2] to the user",
+    "effects": "3/6 single attacks (3.05 each) if Galuf is not alive/alive, grants [Quick Cast 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4137,7 +4137,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Three single attacks (0.80 each), grants [Quick Cast 1] to allies in the character's row",
+    "effects": "Three single attacks (0.80 each), grants [Quick Cast 1] to all allies in the character's row",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 60,
