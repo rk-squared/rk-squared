@@ -85,7 +85,7 @@ function preprocessSkill(
 ): skillTypes.SkillEffect {
   for (const i of skill) {
     if (i.type === 'status') {
-      i.statuses = mergeSimilarStatuses(resolveStatuses(i.statuses, source));
+      i.statuses = mergeSimilarStatuses(resolveStatuses(i.statuses, source), i.condition);
     }
   }
   return skill;

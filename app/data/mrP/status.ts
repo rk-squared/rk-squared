@@ -135,11 +135,15 @@ function preprocessStatus(
     if (i.type === 'triggeredEffect') {
       for (const j of arrayify(i.effects)) {
         if (j.type === 'grantStatus') {
-          j.status = scalarify(mergeSimilarStatuses(resolveStatuses(arrayify(j.status), source)));
+          j.status = scalarify(
+            mergeSimilarStatuses(resolveStatuses(arrayify(j.status), source), j.condition),
+          );
         }
       }
     } else if (i.type === 'conditionalStatus') {
-      i.status = scalarify(mergeSimilarStatuses(resolveStatuses(arrayify(i.status), source)));
+      i.status = scalarify(
+        mergeSimilarStatuses(resolveStatuses(arrayify(i.status), source), i.condition),
+      );
     }
   }
   return status;
@@ -1861,8 +1865,19 @@ function tryToMergeEffects(
   return result;
 }
 
-export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
+export function mergeSimilarStatuses(
+  statuses: common.StatusWithPercent[],
+  condition?: common.Condition,
+) {
   const newStatuses: common.StatusWithPercent[] = [];
+
+  // Realm-based status lists are complex and use / as separators; trying to
+  // merge across those is often a bad idea.
+  const isComplex =
+    condition &&
+    (condition.type === 'realmCharactersAlive' || condition.type === 'realmCharactersInParty') &&
+    statuses.find(i => i.conj === 'and') != null;
+
   for (const i of statuses) {
     if (
       i.status.type !== 'standardStatus' ||
@@ -1875,6 +1890,11 @@ export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
 
     const prev = newStatuses.length ? newStatuses[newStatuses.length - 1] : undefined;
     if (!prev || (prev.status.type !== 'standardStatus' || !prev.status.effects)) {
+      newStatuses.push(i);
+      continue;
+    }
+
+    if (isComplex && i.conj === '/') {
       newStatuses.push(i);
       continue;
     }
@@ -1911,7 +1931,8 @@ export function mergeSimilarStatuses(statuses: common.StatusWithPercent[]) {
 export function isComplexStatusList(statuses: common.StatusWithPercent[]): boolean {
   // TODO: This could use refinement.
   // The first conjunction is (nearly?) always null, so we're really just
-  // checking whether there's a slash, but it seems to work well in practice.
+  // checking whether there's a slash, but it seems to mostly work in practice.
+  // Compare with mergeSimilarStatuses.
   return statuses.find(i => i.conj === '/') != null && statuses.find(i => i.conj !== '/') != null;
 }
 
