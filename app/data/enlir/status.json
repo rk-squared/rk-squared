@@ -20068,7 +20068,7 @@
   {
     "id": 51114,
     "name": "Braveheart Mode",
-    "effects": "After using three of Stormspear of Ur, grants [Wind Ability +30% Boost 3], [Dualcast Wind 3] and [Instant Cast 3] to the user, grants [Damage Cap +10000 3] to the user if two or more FF3 allies are alive, removes Braveheart Mode from the user",
+    "effects": "After using Stormspear of Ur three times, grants [Wind Ability +30% Boost 3], [Dualcast Wind 3] and [Instant Cast 3] to the user, grants [Damage Cap +10000 3] to the user if 2+ FF3 allies are alive, removes Braveheart Mode from the user",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

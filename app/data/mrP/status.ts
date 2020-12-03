@@ -29,6 +29,7 @@ import {
   formatDispelOrEsuna,
   formatSmartEther,
   formatSpecialStatusItem,
+  lbPointsAlias,
   lowHpAlias,
   rankBoostAlias,
   rankCastSpeedAlias,
@@ -1306,6 +1307,8 @@ function describeStatusEffect(
         effect.value,
         effect.vsWeak ? vsWeak : formatElementOrSchoolList(effect),
       );
+    case 'gainLb':
+      return lbPointsAlias(effect.value);
     case 'taunt':
       return 'taunt ' + arrayify(effect.skillType).join('/');
     case 'runic':

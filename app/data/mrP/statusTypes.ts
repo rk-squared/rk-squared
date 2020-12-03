@@ -68,6 +68,7 @@ export type EffectClause =
   | DirectGrantStatus
   | GainSb
   | SbGainUp
+  | GainLb
   | Taunt
   | Runic
   | ImmuneAttacks
@@ -607,6 +608,11 @@ interface SbGainUp {
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
   vsWeak?: true;
+}
+
+export interface GainLb {
+  type: 'gainLb';
+  value: number;
 }
 
 // --------------------------------------------------------------------------

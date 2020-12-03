@@ -9,7 +9,8 @@ import {
 
 const rawSbPointsBoosterAlias = (multiplierString: string, s: string) =>
   // HACK: Special-case some strings to avoid redundant prepositions.
-  `${multiplierString}x SB gauge ` + (s === vsWeak ? s : `from ${formatSchoolOrAbilityList(s)}`);
+  `${multiplierString}x SB gauge` +
+  (s === '' ? '' : ' ' + (s === vsWeak ? s : `from ${formatSchoolOrAbilityList(s)}`));
 
 export const rankBoostAlias = (s: string) => `1.05-1.1-1.15-1.2-1.3x ${s} dmg @ rank 1-5`;
 export const rankCastSpeedAlias = (s: string) => `2-3x ${s} cast @ rank 1-5`;
@@ -18,6 +19,8 @@ export const sbPointsAlias = (s: string | number) =>
   (typeof s === 'number' ? signedNumber(s) : '+' + s) + ' SB pts';
 export const sbPointsBoosterAlias = (percent: string | number, s: string) =>
   rawSbPointsBoosterAlias(percentToMultiplier(percent), s);
+export const lbPointsAlias = (s: string | number) =>
+  (typeof s === 'number' ? signedNumber(s) : '+' + s) + ' LB pts';
 export const lowHpAlias = (value: number) => `<${value}% HP`;
 export const vsWeak = 'vs. weak';
 export const statusLevelText = 'status lvl';

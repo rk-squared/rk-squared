@@ -35,7 +35,7 @@ EffectClause
   / CounterWithImmune / Counter / RowCover
   / TriggeredEffect
   / ConditionalStatus
-  / GainSb / SbGainUp
+  / GainSb / SbGainUp / GainLb
   / DirectGrantStatus
   / Runic / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
@@ -477,7 +477,7 @@ RandomCastSkill
   = "randomly"i _ "casts" _ skill:AnySkillOrOptions  { return { type: 'randomCastSkill', skill }; }
 
 SimpleRemoveStatus
-  = "removes"i _ status:StatusNameNoBrackets {
+  = "removes"i _ status:StatusNameNoBrackets _ "from the user"? {
     return { type: 'grantStatus', status: { status: { type: 'standardStatus', name: status } }, verb: 'removes' };
   }
 
@@ -538,7 +538,7 @@ ConditionalStatus
 
 
 // --------------------------------------------------------------------------
-// Soul Break points
+// Soul Break and Limit Break points
 
 GainSb
   = "Grants"i _ value:Integer _ "SB points" _ "when set"? { return { type: 'gainSb', value }; }
@@ -547,6 +547,11 @@ GainSb
 SbGainUp
   = what:ElementOrSchoolList _ ("abilities" / "attacks") _ "grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
   / "Attacks"i _ "that exploit an elemental weakness grant" _ value:Integer _ "% more SB points" { return { type: 'sbGainUp', value, vsWeak: true }; }
+  / "Abilities"i _ "grant" _ value:Integer _ "% more SB points" { return { type: 'sbGainUp', value }; }
+
+GainLb
+  = "Grants"i _ value:Integer _ "LB points" _ "when set"? { return { type: 'gainLb', value }; }
+  / "Removes"i _ value:Integer _ "LB points" _ "when set"? { return { type: 'gainLb', value: -value }; }
 
 
 // --------------------------------------------------------------------------
@@ -793,6 +798,8 @@ Trigger
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'allyAbility', element, school, count, jump: !!jump, requiresDamage, requiresAttack };
     }
+  // This should go last to avoid parse conflicts.
+  / "after casting" _ skill:AnySkillName { return { type: 'skill', skill }; }
 
 AbilityOrAttack
   = ("ability" / "abilities") { return false; }
