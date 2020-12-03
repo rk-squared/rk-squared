@@ -17056,7 +17056,7 @@
   {
     "id": 50834,
     "name": "Awoken Lotus",
-    "effects": "White Magic and Support abilities don't consume uses, cast speed x3.00 for White Magic and Support abilities, casts Superior Light after White Magic and Support abilities",
+    "effects": "White Magic and Support abilities don't consume uses, cast speed x3.00 for White Magic and Support abilities, casts Superior Light after using a White Magic or Support ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17461,7 +17461,7 @@
   {
     "id": 50874,
     "name": "Eblan Unity",
-    "effects": "After using three of Eblan Surge or Eblan Struggle, If user has any [Attach Element], grants the same Attach Element to the user",
+    "effects": "After using three of Eblan Surge or Eblan Struggle, if user has any [Attach Element], grants the same Attach Element to the user",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17731,7 +17731,7 @@
   {
     "id": 50898,
     "name": "Awoken Viera Warrior",
-    "effects": "Ice and Lightning abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, casts Eruyt Feat after using Ice and Lightning abilities",
+    "effects": "Ice and Lightning abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, casts Eruyt Feat after using Ice or Lightning abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18196,7 +18196,7 @@
   {
     "id": 50938,
     "name": "Azure Dragoon Mode",
-    "effects": "Dragoon abilities deal 30% more damage, casts Azure Dragoon after casting Mirage Dive two times, removed if user hasn't Synchro Mode",
+    "effects": "Dragoon abilities deal 30% more damage, casts Azure Dragoon after casting Mirage Dive twice, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

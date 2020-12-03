@@ -3282,7 +3282,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with 0/1/2/3+ uses, 25/50/75/100% additional critical chance ",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with 0/1/2/3+ uses, 25/50/75/100% additional critical chance",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4372,7 +4372,7 @@
   },
   {
     "character": "Garnet",
-    "source": "Time of Reunion",
+    "source": "Time to Reunite",
     "name": "Power Within",
     "synchroAbilitySlot": 1,
     "synchroCondition": "Holy",
@@ -4397,7 +4397,7 @@
   },
   {
     "character": "Garnet",
-    "source": "Time of Reunion",
+    "source": "Time to Reunite",
     "name": "Distant Memory",
     "synchroAbilitySlot": 2,
     "synchroCondition": "Summoning, Bard",
@@ -4407,7 +4407,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Summoning +30% Boost 2] and Resilient Memories +2 (max 2), smart summoning ether 1",
+    "effects": "Grants [Summoning +30% Boost 2] and Resilient Memories +2 (max 2), Summoning smart ether 1",
     "counter": false,
     "autoTarget": "Self",
     "sb": 70,
@@ -6148,7 +6148,7 @@
       "NE"
     ],
     "time": 1.5,
-    "effects": "Six single ranged jump attacks (0.90 each), air time (2.50 sec), grants [Damage Cap +10000 1] to the user",
+    "effects": "Six single ranged jump attacks (0.90 each), air time (2.50 sec.), grants [Damage Cap +10000 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -8037,7 +8037,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Restores HP (25), grants Tone Cluster +1 if Tone Cluster < 3",
+    "effects": "Restores HP (25), grants Tone Cluster +1 (max 3)",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 100,

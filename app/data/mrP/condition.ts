@@ -5,7 +5,13 @@ import { getEnlirStatusByName } from '../enlir';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import { describeEnlirStatus } from './status';
-import { displayStatusLevel, statusLevelAlias, statusLevelText, vsWeak } from './statusAlias';
+import {
+  displayStatusLevel,
+  statusLevelAlias,
+  statusLevelText,
+  vsWeak,
+  vsWeakElement,
+} from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import { formatNumberSlashList, formatUseCount, formatUseNumber, stringSlashList } from './util';
 
@@ -199,7 +205,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'targetStatusAilments':
       return formatThreshold(condition.count, 'statuses');
     case 'vsWeak':
-      return vsWeak;
+      return condition.element ? vsWeakElement(condition.element) : vsWeak;
     case 'inFrontRow':
       return 'if in front row';
     case 'hitsTaken':

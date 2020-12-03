@@ -1,5 +1,11 @@
+import { EnlirElement } from '../enlir';
 import * as common from './commonTypes';
-import { appendPerUses, formatSchoolOrAbilityList, getShortName } from './typeHelpers';
+import {
+  appendPerUses,
+  formatSchoolOrAbilityList,
+  getElementAbbreviation,
+  getShortName,
+} from './typeHelpers';
 import {
   formatNumberSlashList,
   percentToMultiplier,
@@ -23,6 +29,8 @@ export const lbPointsAlias = (s: string | number) =>
   (typeof s === 'number' ? signedNumber(s) : '+' + s) + ' LB pts';
 export const lowHpAlias = (value: number) => `<${value}% HP`;
 export const vsWeak = 'vs. weak';
+export const vsWeakElement = (element: EnlirElement | EnlirElement[]) =>
+  'vs. ' + getElementAbbreviation(element, '/') + ' weak';
 export const statusLevelText = 'status lvl';
 
 export function formatDispelOrEsuna(effect: common.DispelOrEsuna) {

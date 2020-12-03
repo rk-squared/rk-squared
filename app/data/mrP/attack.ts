@@ -40,6 +40,7 @@ import {
   hyphenJoin,
   joinOr,
   toMrPFixed,
+  toMrPKilo,
 } from './util';
 
 // Source for convergent mechanics:
@@ -634,7 +635,9 @@ export function describeAttack(
     }
   }
 
-  damage += attack.isScalingOverstrike ? ' w/ 9k/19k/29k cap' : '';
+  damage += attack.scalingOverstrike
+    ? ' w/ ' + attack.scalingOverstrike.map(i => toMrPKilo(i - 999)).join('/') + ' cap'
+    : '';
 
   if (attack.followedBy && simpleFollowedBy) {
     damage += ', then ' + describeSimpleFollowedBy(skill, attack.followedBy) + ',';

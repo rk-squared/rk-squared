@@ -768,8 +768,8 @@ function patchEnlir() {
     },
   );
 
-  // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are pure
-  // madness.  I have no shame in whatever hacks it takes to process them.
+  // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are quite
+  // complex.  We'll do whatever hacks it takes to process them.
   applyPatch(
     enlir.soulBreaks,
     '22300009', // Sarah - Song of Reunion
@@ -853,6 +853,23 @@ function patchEnlir() {
       'causes [Soul Break Gauge -250] to the user if the user has 1000+ SB points',
     '1/2 single attacks (16.40 each) capped at 99999 if the user has 0/1000 SB points, ' +
       'causes [Soul Break Gauge -250] to the user if the user has 1000+ SB points',
+  );
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Gulp',
+    'Grants [100% Critical 1], [Damage Cap +10000 1] and Proficiency +1 to the user after using two Samurai or Knight abilities, ' +
+      'grants [Critical Damage +50% 1] to the user if Hilda is alive after using two Samurai or Knight abilities' +
+      ". Proficiency removed if user hasn't Synchro Mode",
+    // Remove text about removing status level - why should only this synchro
+    // status call that out?
+    'Grants [100% Critical 1], [Damage Cap +10000 1] and Proficiency +1 to the user after using two Samurai or Knight abilities, ' +
+      'grants [Critical Damage +50% 1] to the user if Hilda is alive after using two Samurai or Knight abilities',
+  );
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Eblan Unity',
+    'After using three of Eblan Surge or Eblan Struggle, if user has any [Attach Element], grants the same Attach Element to the user',
+    'Grants [Conditional Attach Element] to the user after using three of Eblan Surge or Eblan Struggle',
   );
 
   // Legend materia.  These, too, should be upstreamed if possible.

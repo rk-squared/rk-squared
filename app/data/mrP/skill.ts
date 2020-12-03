@@ -73,6 +73,7 @@ import {
 import {
   fixedNumberOrUnknown,
   formatNumberSlashList,
+  formatUseCount,
   numberOrUnknown,
   stringSlashList,
   toMrPFixed,
@@ -465,6 +466,7 @@ function checkStacking(
 
 function formatStatusDescription(
   parsed: ParsedEnlirStatusWithSlashes,
+  verb: common.StatusVerb | undefined,
   duration?: common.Duration,
   condition?: common.Condition,
   stacking: boolean = false,
@@ -484,7 +486,13 @@ function formatStatusDescription(
   const specialDuration = isBurstToggle ? 'until OFF' : parsed.specialDuration;
 
   if (isTrance) {
-    description = 'Trance: ' + description;
+    // For Garnet's Period Thunder - assume that at trance removal is part of a
+    // larger soul break that's already manipulating trances, so abbreviate it.
+    if (verb === 'removes') {
+      description = 'Trance';
+    } else {
+      description = 'Trance: ' + description;
+    }
   }
   if (stacking) {
     description = 'stacking ' + description;
@@ -495,16 +503,18 @@ function formatStatusDescription(
     description += appendCondition(condition, options);
   }
 
-  if (!duration && defaultDuration) {
-    duration = { value: defaultDuration, units: 'seconds' };
-  }
+  if (verb !== 'removes') {
+    if (!duration && defaultDuration) {
+      duration = { value: defaultDuration, units: 'seconds' };
+    }
 
-  if ((duration || specialDuration) && !isVariableDuration) {
-    const durationText = specialDuration || formatDuration(duration!);
-    if (isExLike) {
-      description = durationText + ': ' + description;
-    } else {
-      description = description + ' ' + durationText;
+    if ((duration || specialDuration) && !isVariableDuration) {
+      const durationText = specialDuration || formatDuration(duration!);
+      if (isExLike) {
+        description = durationText + ': ' + description;
+      } else {
+        description = description + ' ' + durationText;
+      }
     }
   }
 
@@ -587,10 +597,14 @@ function processStatus(
     if ('source' in skill && skill.source === status.name && removes) {
       // TODO: Some inconsistency here between "(once only)", "removes status", and "once only"
       // See, e.g., Enna Kros vs. Cloud vs. Cyan AASBs.
+      const onceOnly =
+        effect.condition && effect.condition.type === 'afterUseCount'
+          ? formatUseCount(effect.condition.useCount) + 'x only'
+          : 'once only';
       if (other.self.length) {
-        other.self.push('once only');
+        other.self.push(onceOnly);
       } else {
-        other.normal.push('once only');
+        other.normal.push(onceOnly);
       }
       return;
     }
@@ -617,6 +631,7 @@ function processStatus(
 
     let description = formatStatusDescription(
       parsed,
+      effect.verb,
       thisStatus.duration,
       isLast && !isComplex ? condition : undefined,
       stacking,
@@ -705,7 +720,7 @@ function processRandomStatus(
         .map(s => {
           if (s.type === 'standardStatus') {
             const parsed = parseEnlirStatus(s.name, skill);
-            return formatStatusDescription(parsed);
+            return formatStatusDescription(parsed, effect.verb);
           } else if (s.type === 'smartEther') {
             return formatSmartEther(s.amount, s.school);
           } else {

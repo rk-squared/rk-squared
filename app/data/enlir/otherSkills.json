@@ -2518,7 +2518,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Three single attacks (0.39 each), 35% chance to cause [Imperil Poison] 10% for 15 seconds, 100% hit rate",
+    "effects": "Three single attacks (0.39 each), 35% chance to cause [Imperil Poison 10%] for 15 seconds, 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,

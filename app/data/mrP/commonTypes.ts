@@ -142,7 +142,7 @@ export type Condition =
   | { type: 'soulBreakPoints'; value: number | number[]; plus?: boolean }
   | { type: 'targetStatBreaks'; count: number | number[] }
   | { type: 'targetStatusAilments'; count: number | number[] }
-  | { type: 'vsWeak' }
+  | { type: 'vsWeak'; element?: EnlirElement | EnlirElement[] }
   | { type: 'inFrontRow' }
   | { type: 'hitsTaken'; count: number | number[]; skillType: EnlirSkillType | EnlirSkillType[] }
   | { type: 'attacksTaken'; count: number | number[] }

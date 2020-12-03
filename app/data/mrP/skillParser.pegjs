@@ -39,21 +39,18 @@ SimpleAttack
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
     _ additionalCritDamage:('with additional' _ value:Integer '% critical damage' { return value; })?
     _ overstrike:(","? _ "capped at 99999")?
-    _ scalingOverstrike:(","? _ "capped at 9999/19999/29999")?
+    _ scalingOverstrike:(","? _ value:ScalingOverstrike { return value })?
     _ isPiercingDef:(_ "that ignores DEF")?
     _ isPiercingRes:(_ "that ignores RES")? {
     const result = Object.assign({
       type: 'attack',
       numAttacks,
-    }, attackMultiplierGroup || {});
+    }, attackMultiplierGroup || {}, scalingOverstrike || {});
     if (additionalCritDamage) {
       result.additionalCritDamage = additionalCritDamage;
     }
     if (overstrike) {
       result.isOverstrike = true;
-    }
-    if (scalingOverstrike) {
-      result.isScalingOverstrike = true;
     }
 
     // Alternate isPiercingDef / isPiercingRes format that's only used for
@@ -286,6 +283,9 @@ PiercingDefRes
 
 ScaleWithAtkAndDef
   = "damage" _ "scales" _ "with" _ "both" _ "ATK" _ "and" _ "DEF" { return { scalesWithAtkAndDef: true }; }
+
+ScalingOverstrike
+  = "capped at" _ head:DamageCapValue tail:("/" DamageCapValue)+ { return { scalingOverstrike: util.pegList(head, tail, 1) }; }
 
 SBMultiplier
   = "multiplier" _ verb:("increased" / "decreased") _ "by" _ value:DecimalNumber _ "for" _ "every" _ "SB" _ "point" {
@@ -650,11 +650,12 @@ Condition
   // Beginning of attacks and skills (like Passionate Salsa)
 
   // Scaling with uses - both specific counts and generically
-  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList "+"? _ "uses" { return { type: 'scaleUseCount', useCount }; }
+  / ("at" / "scaling with" / "after") _ useCount:IntegerSlashList "+"? _ ("uses" / "casts") { return { type: 'scaleUseCount', useCount }; }
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
   / ("after" / "every") _ useCount:UseCount _ skill:AnySkillName? _ ("uses" / "activations") { return { type: 'afterUseCount', skill, useCount }; }
+  / "after" _ count:NumberString _ "uses" { return { type: 'afterUseCount', useCount: { from: count, to: count } }; }
   / "on" _ "first" _ "use" { return { type: 'afterUseCount', useCount: { from: 1, to: 1 } }; }
   / "on" _ first:Integer "+" _ "use" "s"? { return { type: 'afterUseCount', useCount: { from: first } }; }
 
@@ -683,7 +684,8 @@ Condition
   / "if" _ count:IntegerSlashList _ "of" _ "the" _ "target's" _ "stats" _ "are" _ "lowered" { return { type: 'targetStatBreaks', count }; }
   / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
 
-  / "if" _ "exploiting" _ "elemental" _ "weakness" { return { type: 'vsWeak' }; }
+  / "if exploiting elemental weakness" { return { type: 'vsWeak' }; }
+  / "if exploiting" _ element:ElementList _ "weakness" { return { type: 'vsWeak', element }; }
   / "if" _ "the"? _ "user" _ "is" _ "in" _ "the"? _ "front" _ "row" { return { type: 'inFrontRow' }; }
 
   / "if" _ "the" _ "user" _ ("took" / "has" _ "taken") _ count:IntegerSlashList _ skillType:SkillTypeList _ "hits" { return { type: 'hitsTaken', count, skillType }; }
@@ -983,6 +985,8 @@ Realm "realm"
   / "FF7" { return 'VII'; }
   / "FF8" { return 'VIII'; }
   / "FF9" { return 'IX'; }
+
+DamageCapValue = ('9999' / [1-9] '9999') { return parseInt(text()); }
 
 
 // --------------------------------------------------------------------------

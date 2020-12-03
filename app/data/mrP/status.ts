@@ -768,7 +768,10 @@ function formatOneGrantOrConditionalStatus(
   }
 
   const parsed = parseEnlirStatusItem(item.status, source);
-  let thisResult = parsed.description;
+  // For Garnet's Period Thunder - assume that at granted or traditional trance
+  // is part of a larger soul break that's already manipulating trances, so
+  // abbreviate it.
+  let thisResult = parsed.isTrance ? 'Trance' : parsed.description;
 
   // Hack: Partial duplication of logic on when to append durations.
   // This is valuable to make Galuf AASB's instacast clear.
