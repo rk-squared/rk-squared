@@ -112,6 +112,11 @@ export type Condition =
       any: boolean;
       withoutWith?: WithoutWith;
     }
+  | {
+      type: 'statusList';
+      status: StatusWithPercent[];
+      who: 'self' | 'target';
+    }
   | { type: 'conditionalEnElement'; element: EnlirElement | EnlirElement[] }
   | { type: 'scaleUseCount'; useCount: number | number[] }
   | { type: 'scaleWithUses' }

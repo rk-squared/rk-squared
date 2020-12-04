@@ -1,10 +1,10 @@
 import * as _ from 'lodash';
 
 import { arrayify, arrayifyLength, KeysOfType } from '../../utils/typeUtils';
-import { getEnlirStatusByName } from '../enlir';
+import { enlir, getEnlirStatusByName } from '../enlir';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
-import { describeEnlirStatus } from './status';
+import { describeEnlirStatus, describeEnlirStatusAndDuration } from './status';
 import {
   displayStatusLevel,
   statusLevelAlias,
@@ -147,6 +147,25 @@ export function describeCondition(condition: common.Condition, count?: number | 
         // details to save space.
         return typeof condition.status === 'string' ? 'vs. ' + condition.status : 'vs. status';
       }
+    }
+    case 'statusList': {
+      // Assume that target means negative statuses.
+      const clause = condition.who === 'self' ? 'if ' : 'vs. ';
+      return (
+        clause +
+        condition.status
+          .map(i => {
+            const status = i.status as common.StandardStatus;
+            return describeEnlirStatusAndDuration(
+              status.name,
+              status.id == null
+                ? undefined
+                : { status: enlir.status[status.id], placeholders: status.placeholders },
+              status.effects,
+            )[0];
+          })
+          .join('/')
+      );
     }
     case 'scaleUseCount':
       return 'w/ ' + formatNumberSlashList(condition.useCount) + ' uses';

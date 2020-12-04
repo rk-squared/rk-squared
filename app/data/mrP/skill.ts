@@ -88,6 +88,11 @@ function preprocessSkill(
     if (i.type === 'status') {
       i.statuses = mergeSimilarStatuses(resolveStatuses(i.statuses, source), i.condition);
     }
+    if ('condition' in i && i.condition && i.condition.type === 'statusList') {
+      i.condition.status = mergeSimilarStatuses(
+        resolveStatuses(arrayify(i.condition.status), source),
+      );
+    }
   }
   return skill;
 }

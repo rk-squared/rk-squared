@@ -16412,7 +16412,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "4/6 single attacks (1.10 each) if the user has any 0/1+ Damage Reduction Barrier, grants [40% Damage Reduction Barrier 1] to the user",
+    "effects": "4/6 single attacks (1.10 each) if the user hasn't/has any Damage Reduction Barrier, grants [40% Damage Reduction Barrier 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

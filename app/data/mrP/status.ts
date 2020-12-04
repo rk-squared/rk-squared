@@ -133,6 +133,11 @@ function preprocessStatus(
   }
 
   for (const i of status) {
+    if ('condition' in i && i.condition && i.condition.type === 'statusList') {
+      i.condition.status = mergeSimilarStatuses(
+        resolveStatuses(arrayify(i.condition.status), source),
+      );
+    }
     if (i.type === 'triggeredEffect') {
       for (const j of arrayify(i.effects)) {
         if (j.type === 'grantStatus') {
@@ -1222,7 +1227,7 @@ function describeStatusEffect(
       );
     case 'elementResist':
       return (
-        signedNumber(-resolve.x(effect.value)) +
+        signedNumberSlashList(scalarify(arrayify(resolve.x(effect.value)).map(i => -i)), '/') +
         uncertain(resolve.isUncertain) +
         '% ' +
         getElementShortName(resolve.element(effect.element), '/') +
@@ -1805,6 +1810,7 @@ const valueMergeTypes = [
   'critChance',
   'damageBarrier',
   'damageUp',
+  'elementResist',
   'hpStock',
   'radiantShield',
   'statMod',
@@ -1833,6 +1839,12 @@ function tryToMergeEffects(
   const placeholdersEqual = _.isEqual(placeholdersA, placeholdersB);
   const resolveA = makePlaceholderResolvers(placeholdersA);
   const resolveB = makePlaceholderResolvers(placeholdersB);
+  const placeholdersValueEqual =
+    (placeholdersA ? placeholdersA.xValue : undefined) ===
+    (placeholdersB ? placeholdersB.xValue : undefined);
+  const placeholdersElementEqual =
+    (placeholdersA ? placeholdersA.element : undefined) ===
+    (placeholdersB ? placeholdersB.element : undefined);
 
   const result: statusTypes.StatusEffect = [];
   for (let i = 0; i < effectA.length; i++) {
@@ -1853,7 +1865,8 @@ function tryToMergeEffects(
         a.type === 'statMod' &&
         b.type === 'statMod' &&
         !a.hybridStats &&
-        _.isEqual(_.omit(a, 'stats'), _.omit(b, 'stats'))
+        _.isEqual(_.omit(a, 'stats'), _.omit(b, 'stats')) &&
+        placeholdersValueEqual
       ) {
         result.push({
           ...a,
@@ -1866,7 +1879,8 @@ function tryToMergeEffects(
         if (
           a.type === type &&
           b.type === type &&
-          _.isEqual(_.omit(a, 'value'), _.omit(b, 'value'))
+          _.isEqual(_.omit(a, 'value'), _.omit(b, 'value')) &&
+          placeholdersElementEqual
         ) {
           const valueA = resolveA.x(a.value);
           const valueB = resolveB.x(b.value);
@@ -1882,7 +1896,8 @@ function tryToMergeEffects(
           b.type === type &&
           _.isEqual(_.omit(a, 'element'), _.omit(b, 'element')) &&
           a.element != null &&
-          b.element != null
+          b.element != null &&
+          placeholdersValueEqual
         ) {
           const valueA = resolveA.element(a.element);
           const valueB = resolveB.element(b.element);

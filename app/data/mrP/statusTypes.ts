@@ -297,7 +297,7 @@ interface ElementAttack {
 interface ElementResist {
   type: 'elementResist';
   element: common.ValueOrPlaceholder<EnlirElement | EnlirElement[]>;
-  value: common.SignedValueOrPlaceholder<number>;
+  value: common.SignedValueOrPlaceholder<number | number[]>;
 }
 
 interface EnElement {

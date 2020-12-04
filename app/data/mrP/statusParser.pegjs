@@ -927,6 +927,15 @@ Condition
   // If Doomed - overlaps with the general status support below
   / ("if" _ "the" _ "user" _ "has" _ "any" _ ("[Doom]" / "Doom") / "with" _ "any" _ ("[Doom]" / "Doom")) { return { type: 'ifDoomed' }; }
 
+  // Specific processing for slash-separated named statuses
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ status:(head:StandardStatus tail:('/' StandardStatus)+ { return util.pegList(head, tail, 1); }) {
+    return {
+      type: 'statusList',
+      status: status.map(i => ({ status: i })), // Convert to StatusWithPercent[]
+      who: who === 'user' ? 'self' : 'target',
+    };
+  }
+
   // General status.
   // TODO: I think the database is trying to standardize on brackets?
   / "if" _ "the"? _ who:("user" / "target") _ withoutWith:WithoutWith _ any:"any"? _ status:(head:StatusNameNoBrackets tail:(OrList StatusNameNoBrackets)* { return util.pegList(head, tail, 1, true); }) {
