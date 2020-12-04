@@ -35,6 +35,12 @@ export type EnlirRealm =
   | 'XIII'
   | 'XIV'
   | 'XV';
+
+/**
+ * Actual realms, plus some entries we add to simplify processing
+ */
+export type EnlirAnyRealm = EnlirRealm | 'Core/Beyond';
+
 export const allEnlirRealms: EnlirRealm[] = [
   'I',
   'II',
@@ -804,6 +810,15 @@ function patchEnlir() {
     },
   );
 
+  // "and" vs. "or" is an apparent mistake in the database - and change
+  // terminology to match Runic Release.
+  applyEffectsPatch(
+    enlir.otherSkillsByName,
+    'Cross Shift',
+    'Six single attacks (2.41 each), grants [Buff Dark 10% (15s)] and [Buff Holy 10% (15s)] every second cast based on element of triggering ability',
+    "Six single attacks (2.41 each), grants [Buff Dark 10% (15s)] or [Buff Holy 10% (15s)] every second cast based on triggering ability's element",
+  );
+
   // Status cleanups.  These too should be fixed up.
   applyPatch(
     enlir.statusByName,
@@ -845,14 +860,6 @@ function patchEnlir() {
     'Items +1',
     "Increases Items level by 1 after using Potato Masher, removed if user hasn't Synchro Mode",
     'Increases Items level by 1 when set',
-  );
-  applyEffectsPatch(
-    enlir.synchroCommands, // Kuja - Dark Flare Burst
-    '31540384',
-    '1/2 single attacks (16.40 each) capped at 99999 if the user has less than/greater than or equal to 1000 SB points, ' +
-      'causes [Soul Break Gauge -250] to the user if the user has 1000+ SB points',
-    '1/2 single attacks (16.40 each) capped at 99999 if the user has 0/1000 SB points, ' +
-      'causes [Soul Break Gauge -250] to the user if the user has 1000+ SB points',
   );
   applyEffectsPatch(
     enlir.statusByName,
@@ -997,15 +1004,21 @@ function patchEnlir() {
     'Restores HP (25), restores HP (85) and grants [Instant Cast 1] if the user has Mature Mode level 1, causes Mature Mode -1 to the user',
     'Restores HP (25/85) if the user has Mature Mode level 0/1, grants [Instant Cast 1] if the user has Mature Mode level 1, causes Mature Mode -1 to the user',
   );
-  // Simplify Kiros's synchro status.  The detail is useful for database but
-  // too much for us.
+  // Use a more standard SB points format for Kuja.
+  applyEffectsPatch(
+    enlir.synchroCommands, // Kuja - Dark Flare Burst
+    '31540384',
+    '1/2 single attacks (16.40 each) capped at 99999 if the user has less than/greater than or equal to 1000 SB points, ' +
+      'causes [Soul Break Gauge -250] to the user if the user has 1000+ SB points',
+    '1/2 single attacks (16.40 each) capped at 99999 if the user has 0/1000 SB points, ' +
+      'causes [Soul Break Gauge -250] to the user if the user has 1000+ SB points',
+  );
+  // Make Raging Wind Mode follow a more common order.
   applyEffectsPatch(
     enlir.statusByName,
-    'Blood Energy',
-    'Grants [Dark Ability +30% Boost 1]/[Ice Ability +30% Boost 1]/[Dark Ability +30% Boost 1] to all allies ' +
-      'after using two of Sixfolded Suffering or Endless Anguish that deals Dark/Ice/NE damage',
-    'Grants [Dark Ability +30% Boost 1]/[Ice Ability +30% Boost 1] to all allies ' +
-      'after using two of Sixfolded Suffering or Endless Anguish that deals Dark/Ice damage',
+    'Raging Wind Mode',
+    'If user has any Damage Reduction Barrier, grants [200% ATB 1] to the user after using Violent Tornado or Whirlwind Form',
+    'After using Violent Tornado or Whirlwind Form, grants [200% ATB 1] to the user if user has any Damage Reduction Barrier',
   );
 
   // Use the older, less verbose format for hybrid effects.  (Personally, I

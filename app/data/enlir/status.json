@@ -19118,7 +19118,7 @@
   {
     "id": 51026,
     "name": "Dawn",
-    "effects": "Grants [Dark Ability +30% Boost 1]/[Holy Ability +30% Boost 1]/[Dark Ability +30% Boost 1] to all allies after casting two of Dark Marionette and Seraphic Phase if the triggering ability deals Dark/Holy/Non-Elemental damage",
+    "effects": "Grants [Dark Ability +30% Boost 1]/[Holy Ability +30% Boost 1]/[Dark Ability +30% Boost 1] to all allies after casting two of Dark Marionette or Seraphic Phase if the triggering ability deals Dark/Holy/Non-Elemental damage",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

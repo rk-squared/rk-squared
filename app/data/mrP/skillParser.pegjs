@@ -544,9 +544,10 @@ StatusClause
     / who:Who { return { who }; }
     / "to" _ toCharacter:CharacterNameAndList { return { toCharacter }; }
     / perUses:PerUses { return { perUses }; }
-    / "if" _ "successful" { return { ifSuccessful: true }; }
-    / "to" _ "undeads" { return { ifUndead: true }; }
+    / "if successful" { return { ifSuccessful: true }; }
+    / "to undeads" { return { ifUndead: true }; }
     / condition:Condition { return { condition }; }
+    / ConditionDetail { return {}; }
   ) {
     return clause;
   }
@@ -613,7 +614,7 @@ Condition
   / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
   / "at" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList plus:"+"? { return { type: 'statusLevel', status, value, plus: !!plus }; }
-  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level >" _ value:Integer { return { type: 'statusLevel', status, value: value + 1, plus: true }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level"? _ ">" _ value:Integer { return { type: 'statusLevel', status, value: value + 1, plus: true }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusNameNoBrackets { return { type: 'statusLevel', status, value }; }
 
   // If Doomed - overlaps with the general status support below
@@ -681,7 +682,8 @@ Condition
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "at" _ "least" _ value:IntegerSlashList "%" { return { type: 'hpAtLeastPercent', value }; }
   / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashList plus:"+"? _ SB _ "points" { return { type: 'soulBreakPoints', value, plus: !!plus }; }
 
-  / "if" _ count:IntegerSlashList _ "of" _ "the" _ "target's" _ "stats" _ "are" _ "lowered" { return { type: 'targetStatBreaks', count }; }
+  / "if" _ count:IntegerSlashList _ "of the target's stats are lowered" { return { type: 'targetStatBreaks', count }; }
+  / "if target has" _ count:IntegerSlashList _ "of ATK, DEF, MAG, RES or MND reduced" { return { type: 'targetStatBreaks', count }; }
   / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
 
   / "if exploiting elemental weakness" { return { type: 'vsWeak' }; }
@@ -729,6 +731,12 @@ Condition
 HasOrHasNot
   = "hasn't/has" { return true; }
   / "has" { return false; }
+
+// Condition details.  These seem redundant, so they're only added to rules where
+// we know they're needed, and most are not included in the final result.
+ConditionDetail
+  = "based on triggering ability's element"
+
 
 // --------------------------------------------------------------------------
 // Lower-level game rules
@@ -949,7 +957,10 @@ UseCountTerm
   = x:Integer "+" y:Integer "n" { return { x, y }; }
 
 Realm "realm"
-  = "Beyond"
+  // Added pseudorealms.
+  = "Core/Beyond"
+  // Normal realms
+  / "Beyond"
   / "Core"
   / "IX"
   / "IV"

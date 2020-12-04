@@ -26488,7 +26488,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Instant Cast 1] to the user/[Instant Cast 1] and [Weakness +15% Boost] to all allies/[Instant Cast 1] and [Weakness +30% Boost] to all allies if 1/2/4+ FF7 allies are alive, grants [Awoken Fire] and [Damage Cap +10000] to the user",
+    "effects": "Fifteen single ranged attacks (0.60 each), grants [ATK, DEF, MAG and RES +30% (25s)] to all allies, grants [Instant Cast 1]/[Instant Cast 1] and [Weakness +15% Boost]/[Instant Cast 1] and [Weakness +30% Boost] to the user/all allies/all allies if 1/2/4+ FF7 allies are alive, grants [Awoken Fire] and [Damage Cap +10000] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 500,
