@@ -98,6 +98,8 @@ export type Who =
   // toCharacter values.
   | 'namedCharacter';
 
+export type WithoutWith = 'without' | 'with' | 'withoutWith';
+
 export type Condition =
   | { type: 'equipped'; article: string; equipped: string }
   | { type: 'scaleWithStatusLevel'; status: string }
@@ -108,7 +110,7 @@ export type Condition =
       status: string | string[];
       who: 'self' | 'target';
       any: boolean;
-      withoutWith?: boolean;
+      withoutWith?: WithoutWith;
     }
   | { type: 'conditionalEnElement'; element: EnlirElement | EnlirElement[] }
   | { type: 'scaleUseCount'; useCount: number | number[] }
@@ -121,14 +123,14 @@ export type Condition =
       character: string | string[] | undefined; // undefined means a pronoun, hopefully with toCharacter
       count?: number | number[];
       all?: boolean;
-      withoutWith?: boolean;
+      withoutWith?: WithoutWith;
     }
   | {
       type: 'characterInParty';
       character: string | string[];
       count?: number | number[];
       all?: boolean;
-      withoutWith?: boolean;
+      withoutWith?: WithoutWith;
     }
   | { type: 'femalesInParty'; count: number | number[] }
   | { type: 'femalesAlive'; count: number | number[] }

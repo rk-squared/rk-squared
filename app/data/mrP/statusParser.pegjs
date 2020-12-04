@@ -929,22 +929,22 @@ Condition
 
   // General status.
   // TODO: I think the database is trying to standardize on brackets?
-  / "if" _ "the"? _ who:("user" / "target") _ has:HasOrHasNot _ any:"any"? _ status:(head:StatusNameNoBrackets tail:(OrList StatusNameNoBrackets)* { return util.pegList(head, tail, 1, true); }) {
+  / "if" _ "the"? _ who:("user" / "target") _ withoutWith:WithoutWith _ any:"any"? _ status:(head:StatusNameNoBrackets tail:(OrList StatusNameNoBrackets)* { return util.pegList(head, tail, 1, true); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
       who: who === 'user' ? 'self' : 'target',
       any: !!any,
-      withoutWith: has
+      withoutWith,
     };
   }
-  / "if" _ "the"? _ who:("user" / "target") _ has:HasOrHasNot _ any:"any"? _ status:(head:StatusName tail:(OrList StatusName)* { return util.pegList(head, tail, 1, true); }) {
+  / "if" _ "the"? _ who:("user" / "target") _ withoutWith:WithoutWith _ any:"any"? _ status:(head:StatusName tail:(OrList StatusName)* { return util.pegList(head, tail, 1, true); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
       who: who === 'user' ? 'self' : 'target',
       any: !!any,
-      withoutWith: has
+      withoutWith,
     };
   }
 
@@ -971,7 +971,7 @@ Condition
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
   / "if" _ character:CharacterNameListOrPronoun _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
   / "if" _ character:CharacterNameAndList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character, all: true }; }
-  / "if" _ character:CharacterNameListOrPronoun _ ("is" / "are") _ "not alive/alive" { return { type: 'characterAlive', character, withoutWith: true }; }
+  / "if" _ character:CharacterNameListOrPronoun _ ("is" / "are") _ "not alive/alive" { return { type: 'characterAlive', character, withoutWith: 'withoutWith' }; }
   / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameAndList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count, all: true }; }
@@ -1035,9 +1035,10 @@ Condition
   // Stat thresholds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
-HasOrHasNot
-  = "hasn't/has" { return true; }
-  / "has" { return false; }
+WithoutWith
+  = "hasn't/has" { return 'withoutWith'; }
+  / "hasn't" { return 'without'; }
+  / "has" { return undefined; } // default
 
 // Condition details.  These seem redundant, so they're only added to rules where
 // we know they're needed, and most are not included in the final result.

@@ -836,8 +836,12 @@ function formatGrantOrConditionalStatus(
   status = arrayify(status);
   if (!isComplexStatusList(status)) {
     result += status
-      .map(i => formatOneGrantOrConditionalStatus(verb, i, trigger, enlirStatus, source))
-      .join(', ');
+      .map(
+        i =>
+          (!i.conj ? '' : i.conj === 'or' ? ' or ' : ', ') +
+          formatOneGrantOrConditionalStatus(verb, i, trigger, enlirStatus, source),
+      )
+      .join('');
   } else {
     const statusLength = status.length;
     result += status

@@ -963,7 +963,7 @@ function patchEnlir() {
     },
   );
 
-  // Some Synchro skills are complex and hard to parse:
+  // Some Synchro skills and effects are complex and hard to parse:
   // Dk.Cecil's SASB chase is apparently trying to say that it's -1 Gloomshade
   // only if it's at Gloomshade levels 1 and 2, but it's simpler to avoid that.
   applyPatch(
@@ -1034,6 +1034,19 @@ function patchEnlir() {
     '31540074',
     'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate, removes [Sword Stance] from the user',
     'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate',
+  );
+  // Simplify Angeal; hopefully the "or" communicates well enough.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Dream Pioneer Mode',
+    'Grants [Dream Pioneer Wind Ability +15% Boost]/[Dream Pioneer Wind Ability +30% Boost]/[Dream Pioneer Wind Ability +50% Boost] ' +
+      'after using 1/2/3+ Wind abilities, ' +
+      'grants [Dream Pioneer Holy Ability +15% Boost]/[Dream Pioneer Holy Ability +30% Boost]/[Dream Pioneer Holy Ability +50% Boost] ' +
+      'after using 1/2/3+ Holy abilities. ' +
+      'Only one of these effects can trigger at a time',
+    'Grants [Dream Pioneer Wind Ability +15% Boost]/[Dream Pioneer Wind Ability +30% Boost]/[Dream Pioneer Wind Ability +50% Boost] ' +
+      'or [Dream Pioneer Holy Ability +15% Boost]/[Dream Pioneer Holy Ability +30% Boost]/[Dream Pioneer Holy Ability +50% Boost] ' +
+      'after using 1/2/3+ Wind or Holy abilities',
   );
 
   // Use the older, less verbose format for hybrid effects.  (Personally, I

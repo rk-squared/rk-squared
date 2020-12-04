@@ -15,7 +15,8 @@ import {
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
 import { formatNumberSlashList, formatUseCount, formatUseNumber, stringSlashList } from './util';
 
-export const ifWithClause = (withoutWith?: boolean) => (withoutWith ? 'w/o - w/' : 'if');
+export const withoutWithClause = (withoutWith: common.WithoutWith | undefined) =>
+  withoutWith === 'withoutWith' ? 'w/o - w/' : withoutWith === 'without' ? 'w/o' : 'if';
 
 export function formatThreshold(
   thresholdValues: number | number[],
@@ -118,8 +119,11 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'conditionalEnElement':
       return 'based on party element infuse';
     case 'status': {
-      const clause = ifWithClause(condition.withoutWith);
-      if (condition.who === 'self') {
+      const clause = withoutWithClause(condition.withoutWith);
+
+      // Hack: Assume that, if it's checking a simple status on someone else,
+      // then it's targeting a status ailment, so phrase as 'vs.'
+      if (condition.who === 'self' || condition.any || condition.withoutWith) {
         // Special case: We don't show "High Retaliate" to the user.
         if (condition.status === 'Retaliate or High Retaliate') {
           return `${clause} Retaliate`;
@@ -157,7 +161,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'characterAlive':
     case 'characterInParty': {
       const what = condition.type === 'characterAlive' ? ' alive' : ' in party';
-      const clause = ifWithClause(condition.withoutWith);
+      const clause = withoutWithClause(condition.withoutWith);
       if (condition.count) {
         return (
           clause +
