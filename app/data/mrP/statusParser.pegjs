@@ -1006,17 +1006,17 @@ Condition
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ school:SchoolList _ "abilities" _ "during" _ "the" _ "status" { return { type: 'abilitiesUsedDuringStatus', count, school }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ school:SchoolList _ "abilities" { return { type: 'abilitiesUsed', count, school }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ element:ElementList _ "attacks" _ "during" _ "the" _ "status" { return { type: 'attacksDuringStatus', count, element }; }
-  / "if" _ value:IntegerSlashList _ "damage" _ "was" _ "dealt" _ "during" _ "the" _ "status" {
+  / "if" _ value:IntegerSlashList _ "damage was dealt during the status" {
     lastDamageDuringStatus = util.lastValue(value);
     lastDamageDuringStatusElement = undefined;
     return { type: 'damageDuringStatus', value };
   }
-  / "if" _ "the" _ "user" _ "dealt" _ value:IntegerSlashList _ "damage" _ "during" _ "the" _ "status" {
+  / "if" _ "the"? _ "user dealt" _ value:IntegerSlashList _ "damage during the status" {
     lastDamageDuringStatus = util.lastValue(value);
     lastDamageDuringStatusElement = undefined;
     return { type: 'damageDuringStatus', value };
   }
-  / "if" _ "the" _ "user" _ "dealt" _ value:IntegerSlashList _ "damage" _ "with" _ element:ElementList _ "attacks" _ "during" _ "the" _ "status" {
+  / "if" _ "the"? _ "user dealt" _ value:IntegerSlashList _ "damage with" _ element:ElementList _ "attacks during the status" {
     lastDamageDuringStatus = util.lastValue(value);
     lastDamageDuringStatusElement = element;
     return { type: 'damageDuringStatus', value, element };

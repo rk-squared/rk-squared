@@ -17,6 +17,7 @@ import {
   getEnlirStatusByName,
   getEnlirStatusWithPlaceholders,
   isSoulBreak,
+  isSynchroCommand,
   isSynchroSoulBreak,
 } from '../enlir';
 import { describeDamage, describeDamageType } from './attack';
@@ -596,18 +597,27 @@ function getTriggerPreposition(trigger: statusTypes.Trigger): string {
 }
 
 function getTriggerSkillAlias(skill: string, source: EnlirSkill | undefined): string {
-  if (source && isSoulBreak(source) && isSynchroSoulBreak(source) && source.character) {
-    if (
-      enlir.synchroCommandsByCharacter[source.character] &&
-      enlir.synchroCommandsByCharacter[source.character][source.name]
-    ) {
-      const index = _.findIndex(
-        enlir.synchroCommandsByCharacter[source.character][source.name],
-        i => i.name.startsWith(skill),
-      );
-      if (index !== -1) {
-        return `cmd ` + (index + 1);
-      }
+  if (!source || !('character' in source) || !source.character) {
+    return skill;
+  }
+
+  const character = source.character;
+  const synchroName =
+    isSoulBreak(source) && isSynchroSoulBreak(source)
+      ? source.name
+      : isSynchroCommand(source)
+      ? source.source
+      : undefined;
+  if (
+    synchroName &&
+    enlir.synchroCommandsByCharacter[character] &&
+    enlir.synchroCommandsByCharacter[character][synchroName]
+  ) {
+    const index = _.findIndex(enlir.synchroCommandsByCharacter[character][synchroName], i =>
+      i.name.startsWith(skill),
+    );
+    if (index !== -1) {
+      return `cmd ` + (index + 1);
     }
   }
   return skill;
@@ -855,6 +865,10 @@ function getPrereqStatus(condition: common.Condition | undefined): string | unde
     : undefined;
 }
 
+function isCastSkill(effects: statusTypes.TriggerableEffect | statusTypes.TriggerableEffect[]) {
+  return !Array.isArray(effects) && effects.type === 'castSkill';
+}
+
 function formatTriggerableEffect(
   effect: statusTypes.TriggerableEffect,
   trigger: statusTypes.Trigger,
@@ -928,7 +942,7 @@ function formatTriggeredEffect(
   // the follow-up skill, so we don't need to list it separately.  (See, e.g.,
   // Edge's Chaotic Moon / Lurking Shadow.)
   const condition =
-    effect.condition && !getPrereqStatus(effect.condition)
+    effect.condition && (!getPrereqStatus(effect.condition) || !isCastSkill(effect.effects))
       ? ' ' + describeCondition(effect.condition)
       : '';
 

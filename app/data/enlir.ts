@@ -1020,6 +1020,21 @@ function patchEnlir() {
     'If user has any Damage Reduction Barrier, grants [200% ATB 1] to the user after using Violent Tornado or Whirlwind Form',
     'After using Violent Tornado or Whirlwind Form, grants [200% ATB 1] to the user if user has any Damage Reduction Barrier',
   );
+  // For Ayame's synchro, fix an apparent mistake in the skill name.  It's
+  // equivalent and fits our output format better to say "removed after triggering"
+  // than to say that cmd1 removes the status.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Sword Stance',
+    "Casts Sword Stance after using Tachi: Yukikaze, removed if user hasn't Synchro Mode",
+    "Casts Taichi Blossom after using Tachi: Yukikaze, removed after triggering or if user hasn't Synchro Mode",
+  );
+  applyEffectsPatch(
+    enlir.synchroCommands,
+    '31540074',
+    'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate, removes [Sword Stance] from the user',
+    'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate',
+  );
 
   // Use the older, less verbose format for hybrid effects.  (Personally, I
   // prefer this...)
