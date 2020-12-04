@@ -264,15 +264,19 @@ function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
 
   let result = '';
   let same = 0;
+  let sameChars = 0;
   let different = 0;
+  let differentChars = 0;
   for (let i = 0; i < minLength; i++) {
     if (isAllSame(optionParts, parts => parts[i])) {
       result += optionParts[0][i];
       same++;
+      sameChars += optionParts[0][i].length;
     } else {
       const mergeParts = optionParts.filter(parts => parts[i] !== undefined).map(parts => parts[i]);
       result += join(mergeParts);
       different++;
+      differentChars += _.max(mergeParts.map(p => p.length)) || 0;
     }
   }
 
@@ -292,7 +296,7 @@ function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
     different += maxLength - minLength;
   }
 
-  return { result, same, different };
+  return { result, same, sameChars, different, differentChars };
 }
 
 export function slashMergeWithDetails(options: string[], opt: SlashMergeOptions = {}) {
@@ -320,7 +324,11 @@ export function slashMergeWithDetails(options: string[], opt: SlashMergeOptions 
   // use slashes here?  Unfortunately, MrP isn't completely consistent - a lot
   // depends on whether the clauses we're separating use slashes or hyphens
   // internally.)
-  const mergeFailed = picked.same < picked.different;
+  //
+  // Add a character-count fudge factor to address issues like Squall SASB.
+  const mergeFailed =
+    picked.same < picked.different ||
+    (picked.sameChars * 1.5 < picked.differentChars && picked.differentChars > 20);
   if (mergeFailed) {
     result = options.join(enDashJoin);
   }

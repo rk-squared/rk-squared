@@ -774,6 +774,31 @@ function patchEnlir() {
     },
   );
 
+  // Reword Lasswell's AASB to avoid having to avoid invoking our slashMerge
+  // code, which handles it poorly.
+  // TODO: The update is misleading; it suggests that it refreshes retaliate.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Azure Oblivion Follow-Up',
+    "Casts Azure Oblivion 1/2 after using three Ice abilities if user hasn't/has Retaliate or High Retaliate",
+    'Casts Azure Oblivion 1 after using three Ice abilities',
+  );
+  applyPatch(
+    enlir.otherSkillsByName,
+    'Azure Oblivion 1',
+    skill =>
+      skill.effects ===
+        'One single attack (5.20) capped at 99999, causes [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] and [High Retaliate] to the user' &&
+      enlir.otherSkillsByName['Azure Oblivion 2'].effects ===
+        'One single attack (5.20) capped at 99999, causes [DEF, RES and MND -70% (8s)] and [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] to the user',
+    skill => {
+      skill.effects =
+        'One single attack (5.20) capped at 99999, ' +
+        'causes [DEF, RES and MND -70% (8s)] if the user has Retaliate or High Retaliate, ' +
+        'causes [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] and [High Retaliate] to the user';
+    },
+  );
+
   // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are quite
   // complex.  We'll do whatever hacks it takes to process them.
   applyPatch(

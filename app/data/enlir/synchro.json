@@ -8330,7 +8330,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.90 each), 100% additional critical chance if user has any retaliate, removes any retaliate from the user",
+    "effects": "Six single attacks (0.90 each), 100% additional critical chance if user has Retaliate or High Retaliate, removes Retaliate and High Retaliate from the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
