@@ -89,6 +89,7 @@ export const statusLevelAlias: _.Dictionary<string> = {
   Stoneskin: 'Neg. Dmg.',
   'Heavy Charge': 'Hvy Charge',
   'Damage Reduction Barrier': 'Dmg barrier',
+  'Retaliate and High Retaliate': 'Retaliate',
 
   // Observed in some synchro effects.  Should we standardize?
   'Dual Blink 1 or Dual Blink 2': 'PM blink 1/2',

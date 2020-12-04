@@ -34,6 +34,7 @@ export type EffectClause =
   | StatusEffect
   | SetStatusLevel
   | RandomStatusEffect
+  | RandomSkillEffect
   | Entrust
   | GainSBOnSuccess
   | GainSB
@@ -333,4 +334,9 @@ export interface CastTimePerUse {
 export interface StandaloneAttackExtra {
   type: 'attackExtra';
   extra: AttackExtras;
+}
+
+export interface RandomSkillEffect {
+  type: 'randomSkillEffect';
+  effects: Array<{ effect: Heal; chance: number }>;
 }

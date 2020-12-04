@@ -737,6 +737,29 @@ function processRandomStatus(
   other.push(skill, effect.who, choices.join(' or '));
 }
 
+/**
+ * Process a set of randomly chosen skills.  This is a much simpler version
+ * of convertEnlirSkillToMrP.
+ */
+function processRandomSkill(
+  skill: EnlirSkill,
+  effect: skillTypes.RandomSkillEffect,
+  other: OtherDetail,
+) {
+  const choices = effect.effects
+    .map(({ effect: i, chance }) => {
+      let description: string = '';
+      switch (i.type) {
+        case 'heal':
+          description = describeHeal(skill, i);
+          break;
+      }
+      return description + ` (${chance}%)`;
+    })
+    .join(' or ');
+  other.misc.push(choices);
+}
+
 interface StatusInfliction {
   description: string;
   chance: number | number[];
@@ -1110,6 +1133,9 @@ export function convertEnlirSkillToMrP(
         break;
       case 'castTimePerUse':
         other.misc.push('cast time ' + effect.castTimePerUse + 's per use');
+        break;
+      case 'randomSkillEffect':
+        processRandomSkill(skill, effect, other);
         break;
       default:
         return assertNever(effect);

@@ -24,6 +24,7 @@ EffectClause = FixedAttack / Attack / RandomFixedAttack
   / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
   / CastTime / CastTimePerUse / StandaloneAttackExtra
+  / RandomSkillEffect
 
 // --------------------------------------------------------------------------
 // Attacks
@@ -397,6 +398,7 @@ RandomEther
 SmartEther
   = status:SmartEtherStatus _ who:Who? _ perUses:PerUses? { return Object.assign({}, status, { who, perUses }); }
 
+
 // --------------------------------------------------------------------------
 // "Randomly casts"
 
@@ -531,6 +533,15 @@ CastTimePerUse
 // Hit rate not associated with an attack
 StandaloneAttackExtra
   = extra:AttackExtra { return { type: 'attackExtra', extra }; }
+
+// Arbitrary random skills.  Rather than updating our skill formatting to handle
+// everything, we individually list any we need to support.
+RandomSkillEffect
+  = "Randomly" _ head:RandomSkillEffectClause tail:(("," / _ "or") _ RandomSkillEffectClause)+ {
+    return { type: 'randomSkillEffect', effects: util.pegList(head, tail, 2) };
+  }
+
+RandomSkillEffectClause = effect:(Heal) _ "(" chance:Integer "%)" { return { effect, chance }; }
 
 
 // --------------------------------------------------------------------------

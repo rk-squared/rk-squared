@@ -618,11 +618,11 @@ function getTriggerSkillAlias(skill: string, source: EnlirSkill | undefined): st
     enlir.synchroCommandsByCharacter[character] &&
     enlir.synchroCommandsByCharacter[character][synchroName]
   ) {
-    const index = _.findIndex(enlir.synchroCommandsByCharacter[character][synchroName], i =>
+    const match = _.find(enlir.synchroCommandsByCharacter[character][synchroName], i =>
       i.name.startsWith(skill),
     );
-    if (index !== -1) {
-      return `cmd ` + (index + 1);
+    if (match) {
+      return `cmd ` + match.synchroAbilitySlot;
     }
   }
   return skill;
@@ -869,7 +869,10 @@ function formatGrantOrConditionalStatus(
 }
 
 function getPrereqStatus(condition: common.Condition | undefined): string | undefined {
-  return condition && condition.type === 'status' && typeof condition.status === 'string'
+  return condition &&
+    condition.type === 'status' &&
+    typeof condition.status === 'string' &&
+    !condition.withoutWith
     ? condition.status
     : undefined;
 }

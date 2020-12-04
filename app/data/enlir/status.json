@@ -17078,7 +17078,7 @@
   {
     "id": 50836,
     "name": "Azure Oblivion Follow-Up",
-    "effects": "Casts Azure Oblivion 1/2 after using three Ice abilities if user hasn't any retaliate/has any retaliate",
+    "effects": "Casts Azure Oblivion 1/2 after using three Ice abilities if user hasn't/has Retaliate or High Retaliate",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
