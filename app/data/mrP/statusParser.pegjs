@@ -249,8 +249,10 @@ SwitchDrawStacking
 // --------------------------------------------------------------------------
 // Element buffs and debuffs
 
+// "cumulable" indicates that this is for stackable levels of elemental damage.
+// Contrast with DamageUp / AltDamageUp.
 ElementAttack
-  = sign:IncreasesOrReduces _ element:Element _ "damage dealt by" _ value:IntegerSlashList _ "%" ", cumulable"? _ trigger:Trigger? {
+  = sign:IncreasesOrReduces _ element:Element _ "damage dealt by" _ value:PercentSlashList _ ", cumulable" _ trigger:Trigger? {
     return { type: 'elementAttack', element, value: util.scalarify(util.arrayify(value).map(i => i * sign)), trigger };
   }
 
@@ -298,7 +300,7 @@ DamageUp
 
 AltDamageUp
   = "Increases"i _ skillType:SkillType _ "damage dealt by" _ value:Integer "%" { return { type: 'damageUp', skillType, value }; }
-  / "Increases"i _ element:ElementAndList _ "damage dealt by" _ value:Integer "%" { return { type: 'damageUp', element, value }; }
+  / "Increases"i _ element:ElementAndList _ "damage dealt by" _ value:PercentSlashList _ trigger:Trigger? { return { type: 'damageUp', element, value, trigger }; }
   / "Increases"i _ "damage dealt by" _ value:Integer "% when exploiting elemental weaknesses" { return { type: 'damageUp', vsWeak: true, value }; }
   / "Increases"i _ "damage dealt by" _ value:Integer "%" { return { type: 'damageUp', value }; }
 
