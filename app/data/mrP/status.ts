@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 
 import { logException, logger } from '../../utils/logger';
-import { arrayify, getAllSameValue, scalarify } from '../../utils/typeUtils';
+import { arrayify, getAllSameValue, scalarify, simpleFilter } from '../../utils/typeUtils';
 import {
   enlir,
   EnlirElement,
@@ -946,6 +946,69 @@ function formatSwitchDraw(
   );
 }
 
+/**
+ * Support routine for isTriggerDetailEffect.  Given the many (too many) options
+ * supported for a trigger count, can they be resolved to a single value?
+ */
+function getSingleTriggerCountValue(
+  trigger: undefined | null | number | number[] | statusTypes.TriggerCount,
+) {
+  if (typeof trigger === 'number') {
+    return trigger;
+  } else if (trigger != null && typeof trigger === 'object' && !Array.isArray(trigger)) {
+    if ('values' in trigger && !Array.isArray(trigger.values) && !trigger.plus) {
+      return trigger.values;
+    } else if ('from' in trigger && 'to' in trigger && trigger.from === trigger.to) {
+      return trigger.from;
+    }
+  }
+  return undefined;
+}
+
+/**
+ * Some triggered statuses actually give the trigger details.  For example:
+ *
+ * - Soaring Knight Mode grants Soaring Knight Mode Critical Chance after
+ *   using lightning/dark.
+ * - Soaring Knight Mode Critical Chance gives critical chance % after using
+ *   N lightning/dark.
+ *
+ * This logic could probably be combined with the stacking-status logic.
+ */
+function isTriggerDetailEffect(
+  trigger: statusTypes.Trigger,
+  effects: statusTypes.TriggerableEffect[],
+) {
+  // For it to be a trigger detail, the top-level trigger must be every time.
+  // Unfortunately, our parser has a few ways of specifying that.
+  if ('count' in trigger) {
+    if (trigger.count != null && getSingleTriggerCountValue(trigger.count) !== 1) {
+      return false;
+    }
+  }
+  const bareTrigger = _.omit(trigger, 'count');
+
+  const statuses = _.flatten(
+    effects.map(i => (i.type === 'grantStatus' && !i.condition ? i.status : [])),
+  );
+  const statusEffects = _.flatten(
+    statuses.map(i =>
+      i.status.type === 'standardStatus' && i.status.effects != null ? i.status.effects : [],
+    ),
+  );
+  const triggers = simpleFilter(
+    statusEffects.map(i => (i.type === 'triggeredEffect' ? i.trigger : undefined)),
+  );
+
+  return !!triggers.find(
+    i =>
+      _.isEqual(_.omit(i, 'count', 'plus'), bareTrigger) &&
+      'count' in i &&
+      i.count != null &&
+      getSingleTriggerCountValue(i.count) !== 1,
+  );
+}
+
 function formatTriggeredEffect(
   effect: statusTypes.TriggeredEffect,
   enlirStatus: EnlirStatus,
@@ -955,7 +1018,8 @@ function formatTriggeredEffect(
 ): string {
   // Following MrP's example, finishers are displayed differently.
   const isFinisher = effect.trigger.type === 'whenRemoved';
-  const effects = arrayify(effect.effects)
+  const triggerableEffects = arrayify(effect.effects);
+  const effectsDescription = triggerableEffects
     .map(i =>
       formatTriggerableEffect(
         i,
@@ -970,6 +1034,15 @@ function formatTriggeredEffect(
     )
     .join(', ');
 
+  // For a trigger detail effect, the first trigger is redundant, so skip it.
+  if (
+    !effect.condition &&
+    !effect.onceOnly &&
+    isTriggerDetailEffect(effect.trigger, triggerableEffects)
+  ) {
+    return effectsDescription;
+  }
+
   // Hack: As of January 2020, any prerequisite status is always reflected in
   // the follow-up skill, so we don't need to list it separately.  (See, e.g.,
   // Edge's Chaotic Moon / Lurking Shadow.)
@@ -979,7 +1052,7 @@ function formatTriggeredEffect(
       : '';
 
   if (isFinisher) {
-    return 'Finisher: ' + effects + condition;
+    return 'Finisher: ' + effectsDescription + condition;
   } else {
     const onceOnly = effect.onceOnly === true ? ' (once only)' : '';
     const nextN = effect.onceOnly && effect.onceOnly !== true ? `next ${effect.onceOnly} ` : '';
@@ -988,7 +1061,7 @@ function formatTriggeredEffect(
       nextN +
       formatTrigger(effect.trigger, source, effect.triggerDetail) +
       ' ⤇ ' +
-      effects +
+      effectsDescription +
       condition +
       onceOnly +
       ')'
@@ -1007,7 +1080,7 @@ function formatCastSpeed(
   options: StatusOptions,
   resolve: PlaceholderResolvers,
 ) {
-  let cast: string = '';
+  let cast: string;
   // Skip checking valueIsUncertain; it doesn't seem to actually be used
   // in current statuses.
   if (Array.isArray(effect.value) || options.forceNumbers) {
