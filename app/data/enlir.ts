@@ -1073,6 +1073,20 @@ function patchEnlir() {
       'or [Dream Pioneer Holy Ability +15% Boost]/[Dream Pioneer Holy Ability +30% Boost]/[Dream Pioneer Holy Ability +50% Boost] ' +
       'after using 1/2/3+ Wind or Holy abilities',
   );
+  // Rain SASB is far too complex to communicate in our allotted space.  Throw
+  // away some detail.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Vagrant Knight Mode',
+    'Casts Vagrant Knight Alpha 1/2 at Vagrant Knight Alpha Level 2/3 and Vagrant Knight Beta Level 0 or 1, ' +
+      'casts Vagrant Knight Beta 1/2 at Vagrant Knight Beta Level 2/3 and Vagrant Knight Alpha Level 0 or 1, ' +
+      'casts Vagrant Knight Gamma 1/2 at Vagrant Knight Alpha Level 1 and Vagrant Knight Beta Level 1/' +
+      'Vagrant Knight Alpha Level 2+ and Vagrant Knight Beta Level 2+, ' +
+      'all follow-ups only triggered every other cast of either Crimson Charge or Crimson Break',
+    'Casts Vagrant Knight Alpha 1/2 after casting Crimson Charge or Crimson Break two times at Vagrant Knight Alpha level 2/3, ' +
+      'casts Vagrant Knight Beta 1/2 after casting Crimson Charge or Crimson Break two times at Vagrant Knight Beta level 2/3, ' +
+      'casts Vagrant Knight Gamma 1/2 after casting Crimson Charge or Crimson Break two times at Vagrant Knight Alpha & Beta level 1/2',
+  );
 
   // Use the older, less verbose format for hybrid effects.  (Personally, I
   // prefer this...)
