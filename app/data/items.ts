@@ -56,8 +56,8 @@ export const itemTypeDescription: { [t in ItemType]: string } = {
 function makeItemTypeLookup() {
   const result: { [s: string]: ItemType } = {};
   for (const i of Object.keys(ItemType)) {
-    result[ItemType[i as any]] = i as ItemType;
-    result[ItemType[i as any].toUpperCase()] = i as ItemType;
+    result[(ItemType as any)[i]] = i as ItemType;
+    result[(ItemType as any)[i].toUpperCase()] = i as ItemType;
   }
   return result;
 }

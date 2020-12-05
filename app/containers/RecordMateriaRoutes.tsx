@@ -25,6 +25,7 @@ export class RecordMateriaRoutes extends React.Component<RecordMateriaProps & Ro
   render() {
     const { match } = this.props;
 
+    // Tuples of text, subUrl, render
     const items: Array<[string, string, () => React.ReactNode]> = [
       ['All', '', this.renderAll],
       ['Stat Buffs', '/statBuffs', this.renderStatBuffs],
@@ -36,7 +37,7 @@ export class RecordMateriaRoutes extends React.Component<RecordMateriaProps & Ro
     return (
       <div className={styles.component}>
         <ul className="nav nav-tabs">
-          {items.map(([text, subUrl, render], index) => (
+          {items.map(([text, subUrl], index) => (
             <li className="nav-item" key={index}>
               <NavLink
                 exact
@@ -50,7 +51,7 @@ export class RecordMateriaRoutes extends React.Component<RecordMateriaProps & Ro
           ))}
         </ul>
 
-        {items.map(([text, subUrl, render], index) => (
+        {items.map(([, subUrl, render], index) => (
           <Route exact key={index} path={joinUrl(match.path, subUrl)} render={render} />
         ))}
       </div>

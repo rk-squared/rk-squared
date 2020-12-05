@@ -9,7 +9,6 @@ import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrP/skill';
 import { getShortName } from '../app/data/mrP/typeHelpers';
 import { logForCli } from '../app/utils/logger';
 
-// tslint:disable: no-console
 logForCli();
 
 const argv = yargs

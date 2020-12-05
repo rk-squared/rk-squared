@@ -185,7 +185,7 @@ export function toMrPFixed(n: number): string {
  *                   values.  Very subjective - it happens to work the way we
  *                   use it.
  */
-export function toMrPKilo(n: number | string, favorSmall: boolean = false): string {
+export function toMrPKilo(n: number | string, favorSmall = false): string {
   if (n === '?') {
     return '?';
   }

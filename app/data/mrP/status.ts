@@ -514,8 +514,8 @@ function formatElementOrSchoolList(
     element,
     school,
   }: { element?: EnlirElement | EnlirElement[]; school?: EnlirSchool | EnlirSchool[] },
-  prefix: string = '',
-  suffix: string = '',
+  prefix = '',
+  suffix = '',
 ): string {
   return (
     (element ? prefix + formatSchoolOrAbilityList(element) + suffix : '') +
@@ -635,7 +635,7 @@ export function formatTrigger(
 ): string {
   switch (trigger.type) {
     case 'ability':
-    case 'allyAbility':
+    case 'allyAbility': {
       const count = formatTriggerCount(trigger.count);
       let result: string = trigger.type === 'allyAbility' ? 'ally ' : '';
       if (!trigger.element && !trigger.school && !trigger.jump) {
@@ -648,6 +648,7 @@ export function formatTrigger(
         result += count + formatAnyType(trigger);
       }
       return result + (trigger.requiresDamage ? ' dmg' : '');
+    }
     case 'crit':
       return 'crit';
     case 'vsWeak':
@@ -1184,7 +1185,7 @@ function makePlaceholderResolvers(placeholders: EnlirStatusPlaceholders | undefi
           ? placeholders.element
           : 'NE'
         : value,
-    anyType: <T extends AnyType>(value: AnyTypeOrPlaceholder) => ({
+    anyType: (value: AnyTypeOrPlaceholder) => ({
       ...value,
       school:
         value.school === common.placeholder
@@ -1377,9 +1378,10 @@ function describeStatusEffect(
       return percentToMultiplier(effect.value) + 'x dmg by ' + effect.realm + ' chars.';
     case 'abilityDouble':
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
-    case 'multicast':
+    case 'multicast': {
       const chance = effect.chance === 100 ? '' : effect.chance + '% ';
       return chance + tupleVerb(effect.count, 'cast') + formatElementOrSchoolList(effect, ' ');
+    }
     case 'multicastAbility':
       return tupleVerb(effect.count, 'cast') + formatElementOrSchoolList(effect, ' ');
     case 'noAirTime':
@@ -1717,14 +1719,12 @@ export function parseEnlirStatusItem(
 ): ParsedEnlirStatus {
   let statusLevel: number | undefined;
   const enlirStatus = status.id == null ? undefined : enlir.status[status.id];
-  // tslint:disable: prefer-const
   let [description, specialDuration, statusEffects] = describeEnlirStatusAndDuration(
     status.name,
     enlirStatus && { status: enlirStatus, placeholders: status.placeholders },
     status.effects,
     source,
   );
-  // tslint:enable: prefer-const
 
   const isEx = isExStatus(status.name);
   const isAwoken = isAwokenStatus(status.name);

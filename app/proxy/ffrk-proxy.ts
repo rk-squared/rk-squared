@@ -16,6 +16,8 @@ import { Store } from 'redux';
 
 import * as _ from 'lodash';
 
+// TODO: Write a proper .d.ts type definition
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const transformerProxy = require('transformer-proxy');
 
 import battle from './battle';
@@ -106,7 +108,9 @@ function checkRequestBody(req: http.IncomingMessage) {
   proxyReq.body = proxyReq.bodyStream.getContentsAsString('utf8');
   try {
     proxyReq.body = JSON.parse(proxyReq.body);
-  } catch (e) {}
+  } catch (e) {
+    // Leave body as a string.
+  }
 }
 
 function recordRawCapturedData(data: any, req: http.IncomingMessage, extension: string) {
@@ -124,7 +128,7 @@ function recordRawCapturedData(data: any, req: http.IncomingMessage, extension: 
 }
 
 function recordCapturedData(data: any, req: http.IncomingMessage, res: http.ServerResponse) {
-  const { url, method, headers } = req; // tslint:disable-line no-shadowed-variable
+  const { url, method, headers } = req;
   const response = { headers: res.getHeaders() };
 
   const proxyReq = req as ProxyIncomingMessage;
@@ -139,7 +143,7 @@ function recordCapturedData(data: any, req: http.IncomingMessage, res: http.Serv
 
 const UTF8_BOM = 0xfeff;
 
-function extractJson($el: Cheerio) {
+function extractJson($el: cheerio.Cheerio) {
   const rawJson = $el.html();
   if (rawJson == null) {
     throw new Error('Failed to find data');
@@ -252,6 +256,7 @@ function handleFfrkStartupRequest(
     if (store.getState().options.saveTrafficCaptures) {
       // Optionally save full startup data.  Disabled by default; it's big and
       // hard to work with.
+      // eslint-disable-next-line no-constant-condition
       if (0) {
         recordRawCapturedData(decoded, req, '.html')
           .catch(err => logger.error(`Failed to save raw data capture: ${err}`))
@@ -356,7 +361,7 @@ function configureHttpsProxy(server: http.Server, store: Store<IState>, httpsPor
 
     let connected = false;
     const serverSocket = net
-      .connect(serverPort, serverUrl.hostname, () => {
+      .connect(serverPort, serverUrl.hostname!, () => {
         connected = true;
 
         clientSocket.write(

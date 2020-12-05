@@ -11,8 +11,6 @@ import * as _ from 'lodash';
 import * as github from 'octonode';
 import * as open from 'open';
 
-// tslint:disable no-console
-
 dotenv.config();
 
 function updatePackageJson(version: string): boolean {
@@ -40,7 +38,9 @@ function tagReleaseIfNeeded(tag: string): boolean {
     child_process.execSync(`git rev-parse --verify --quiet ${tag}`);
     console.log('Git tag already exists. Skipping.');
     return false;
-  } catch (e) {}
+  } catch (e) {
+    // Continue with tag operation.
+  }
 
   child_process.execSync(`git tag ${tag}`);
   child_process.execSync(`git push --tags`);

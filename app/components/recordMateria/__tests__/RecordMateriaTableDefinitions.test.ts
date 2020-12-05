@@ -56,7 +56,6 @@ function getMissingCharacters(): string[] {
     .filter(i => !rmCharacters.has(i));
 }
 
-// tslint:disable no-console
 describe('RecordMateriaTableDefinitions', () => {
   it('contains consistent and complete character information', () => {
     expect(getIncompleteCharacters()).toEqual([]);

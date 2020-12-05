@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import classNames from 'classnames';
-import * as _ from 'lodash';
 
 import { EnlirLimitBreak } from '../../data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';

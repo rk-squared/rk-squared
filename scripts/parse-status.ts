@@ -9,8 +9,6 @@ import { parseEnlirStatus } from '../app/data/mrP/status';
 import { parse, SyntaxError } from '../app/data/mrp/statusParser';
 import { StatusEffect } from '../app/data/mrP/statusTypes';
 
-// tslint:disable: no-console
-
 const argv = yargs
   .strict()
 

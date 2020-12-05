@@ -140,7 +140,7 @@ const sheetRenameReferences: { [tab: string]: SheetRenameReference } = {
   },
 };
 
-function nthElement<T>(items: T[], n: number, offset: number = 0): T[] {
+function nthElement<T>(items: T[], n: number, offset = 0): T[] {
   return items.filter((element, index) => index % n === offset);
 }
 
@@ -367,7 +367,7 @@ async function main() {
   const auth = await authorize(enlirCredentials, true);
   const sheets = google.sheets({ version: 'v4', auth });
 
-  // tslint:disable-next-line: no-unused-expression
+  // eslint-disable-next-line no-unused-expressions
   yargs
     .strict()
     .option('sheet', {
@@ -420,5 +420,4 @@ async function main() {
     ).argv;
 }
 
-// tslint:disable-next-line: no-console
 main().catch(e => console.error(e));

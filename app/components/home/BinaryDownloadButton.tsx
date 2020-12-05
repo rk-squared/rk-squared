@@ -28,7 +28,7 @@ export const BinaryDownloadButton = ({
     href={binaryDownloadUrl(version, platform)}
     className={classnames('btn btn-primary', className)}
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
   >
     <FontAwesomeIcon icon={['fab', icon[platform]]} /> Download for {description[platform]}
   </a>

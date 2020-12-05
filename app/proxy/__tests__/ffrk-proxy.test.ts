@@ -5,7 +5,7 @@ import { isFfrkStartupRequest } from '../ffrk-proxy';
 
 describe('dungeonScores proxy handler', () => {
   describe('isFfrkStartupRequest', () => {
-    function makeRequest(accept: string = 'text/html') {
+    function makeRequest(accept = 'text/html') {
       const req = new http.IncomingMessage(new net.Socket());
       req.headers['accept'] = accept;
       return req;

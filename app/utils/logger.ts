@@ -53,7 +53,7 @@ export function logForCli() {
  * results in an empty object.  Calling printf results in just the message, so
  * it loses the exception name and the stack trace.
  */
-export function logException(e: any, level: string = 'error') {
+export function logException(e: any, level = 'error') {
   // Exceptions are loud and can complicate comparing before/after results.
   // Allow suppressing via environment variable for command-line use.
   if (process.env.HIDE_EXCEPTIONS === '1') {

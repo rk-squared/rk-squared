@@ -63,7 +63,7 @@ export function recordMateria(
 ): RecordMateriaState {
   return produce(state, (draft: RecordMateriaState) => {
     switch (action.type) {
-      case getType(obtainRecordMateria):
+      case getType(obtainRecordMateria): {
         const ids = arrayify(action.payload.id);
 
         for (const i of ids) {
@@ -85,6 +85,7 @@ export function recordMateria(
         }
 
         return;
+      }
 
       case getType(setRecordMateria):
         draft.recordMateria = action.payload.recordMateria;

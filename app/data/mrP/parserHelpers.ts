@@ -20,7 +20,7 @@ export function lastValue(value: number | number[]): number {
   return value[value.length - 1];
 }
 
-export function pegList(head: any, tail: any, index: number, forceSingle: boolean = false): any[] {
+export function pegList(head: any, tail: any, index: number, forceSingle = false): any[] {
   if (forceSingle && !tail.length) {
     return head;
   }
@@ -33,7 +33,7 @@ export function pegList(head: any, tail: any, index: number, forceSingle: boolea
   );
 }
 
-export function pegMultiList(head: any, tails: [any, number], forceSingle: boolean = false): any {
+export function pegMultiList(head: any, tails: [any, number], forceSingle = false): any {
   const result: any[] = [head];
   for (const [tail, index] of tails) {
     for (const element of tail) {
@@ -63,7 +63,7 @@ export function removeTrailingNumberSlashList(s: string) {
 export function addCondition<T>(
   value: T,
   maybeCondition: any[] | common.Condition | null | undefined,
-  conditionProp: string = 'condition',
+  conditionProp = 'condition',
 ) {
   if (Array.isArray(maybeCondition)) {
     // maybeCondition is assumed to be whitespace plus Condition

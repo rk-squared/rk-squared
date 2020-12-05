@@ -516,7 +516,7 @@ function checkForUpdatedRealmDungeons(
   dispatch: Dispatch,
   now: number = Date.now(),
 ) {
-  const describe = (
+  const describeDungeons = (
     description: string,
     summary: { master_count: number; clear_count: number } | undefined,
   ) => (summary ? ` ${description} ${summary.master_count}/${summary.clear_count}/x,` : '');
@@ -531,8 +531,8 @@ function checkForUpdatedRealmDungeons(
     const newLength = w.dungeon_term_list.filter(i => +i.opened_at < now / 1000).length;
     logger.debug(
       `World ${w.name}:` +
-        describe('normal', summary1) +
-        describe('elite', summary2) +
+        describeDungeons('normal', summary1) +
+        describeDungeons('elite', summary2) +
         ` ${w.dungeon_term_list.length} total, ${newLength} current`,
     );
 

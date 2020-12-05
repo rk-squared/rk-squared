@@ -88,7 +88,7 @@ export function simpleFilter<T>(items: Array<T | null | undefined | false>): T[]
   return _.filter(items) as T[];
 }
 
-export function runningTotal(items: number[], start: number = 0): number[] {
+export function runningTotal(items: number[], start = 0): number[] {
   const result = [];
   let total = start;
   for (const i of items) {

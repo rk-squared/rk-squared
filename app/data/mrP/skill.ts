@@ -464,7 +464,7 @@ function checkStacking(
   const prereq = effect.condition.status;
   const isStacking =
     typeof prereq === 'string' &&
-    status.status.name.replace(/[0-9\/]+/, 'X') === prereq.replace(/[0-9\/]+/, 'X');
+    status.status.name.replace(/[0-9/]+/, 'X') === prereq.replace(/[0-9/]+/, 'X');
 
   return [status.status, isStacking];
 }
@@ -474,7 +474,7 @@ function formatStatusDescription(
   verb: common.StatusVerb | undefined,
   duration?: common.Duration,
   condition?: common.Condition,
-  stacking: boolean = false,
+  stacking = false,
 ) {
   const {
     isExLike,
@@ -544,9 +544,7 @@ function processStatus(
 
   const removes = effect.verb === 'removes';
   const statuses = effect.statuses.filter(shouldIncludeStatus(skill, effect)).sort(sortStatus);
-  // tslint:disable: prefer-const
   let { who, condition, perUses, ifSuccessful, toCharacter } = effect;
-  // tslint:enable: prefer-const
 
   if (
     toCharacter &&
@@ -748,7 +746,7 @@ function processRandomSkill(
 ) {
   const choices = effect.effects
     .map(({ effect: i, chance }) => {
-      let description: string = '';
+      let description = '';
       switch (i.type) {
         case 'heal':
           description = describeHeal(skill, i);

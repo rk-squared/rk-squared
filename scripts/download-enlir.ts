@@ -22,8 +22,6 @@ import { OAuth2Client } from 'google-auth-library';
 import { logger } from '../app/utils/logger';
 import { authorize, enlirSpreadsheetIds, loadEnlirCredentials, workPath } from './enlirClient';
 
-// tslint:disable no-console
-
 function logError(e: Error, rowNumber: number, colNumber: number, colName: string, row: string[]) {
   logger.error(`Error on row ${rowNumber + 1} ${colName}: ${e}`);
   logger.error(JSON.stringify(row, undefined, 2));
@@ -603,7 +601,7 @@ function convertRelics(rows: any[]): any[] {
  * commands, synchro commands, and "other" skills.  Abilities are more
  * complicated due to orb costs, so they're processed separately.
  */
-function convertSkills(rows: any[], notes?: NotesRowData[], requireId: boolean = true): any[] {
+function convertSkills(rows: any[], notes?: NotesRowData[], requireId = true): any[] {
   const skills: any[] = [];
 
   const idColumn = rows[0].indexOf('ID');

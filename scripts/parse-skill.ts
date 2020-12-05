@@ -9,8 +9,6 @@ import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrp/skill';
 import { parse, SyntaxError } from '../app/data/mrp/skillParser';
 import { SkillEffect } from '../app/data/mrP/skillTypes';
 
-// tslint:disable: no-console
-
 const argv = yargs
   .strict()
 

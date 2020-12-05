@@ -4,8 +4,6 @@ import * as probabilities from '../app/data/probabilities';
 
 import * as process from 'process';
 
-// tslint:disable: no-console
-
 if (!process.argv[2]) {
   console.error('Usage: probabilities.ts desiredCount [guaranteedCount]');
   process.exit(2);

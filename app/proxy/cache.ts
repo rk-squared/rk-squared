@@ -36,7 +36,6 @@ function recordCacheData(data: any, resourceUrl: string) {
   });
 }
 
-// tslint:disable max-line-length
 /**
  * Attempts to parse an incoming HTTP request as a request for FFRK's internal
  * cache.  If successful, it returns the URL fragment of the asset being
@@ -77,7 +76,6 @@ export function parseFfrkCacheRequest(req: http.IncomingMessage) {
 
   return querystring.parse(cacheUrl.query)['url'] as string;
 }
-// tslint:enable max-line-length
 
 // noinspection JSUnusedGlobalSymbols
 export function cacheTransformerFunction(

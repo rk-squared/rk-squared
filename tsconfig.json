@@ -5,7 +5,7 @@
     "module": "commonjs",
     "jsx": "react",
     "lib": ["dom", "es2017", "dom.iterable", "scripthost"],
-    "types": ["node"],
+    "types": ["node", "jest"],
 
     "alwaysStrict": true,
     "strictNullChecks": true,
@@ -28,7 +28,6 @@
     "scripts/*.ts",
     "test/**/*.ts",
     "test/**/*.tsx",
-    "node_modules/@types/**/*.d.ts",
     "types/**/*.d.ts"
   ],
   "exclude": ["dist"]
