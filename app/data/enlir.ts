@@ -728,6 +728,17 @@ function applyEffectsPatch<T extends { effects: string | undefined }>(
   applyPatch(lookup, name, item => item.effects === from, item => (item.effects = to));
 }
 
+function addPatch<T extends { [s: string]: { id: number; name: string } }>(
+  lookup: T,
+  newItem: Omit<T[string], 'id'>,
+) {
+  if (lookup[newItem.name]) {
+    logger.warn(`Failed to add ${newItem.name}: already exists`);
+    return;
+  }
+  lookup[newItem.name] = { ...newItem, id: NaN } as any;
+}
+
 /**
  * HACK: Patch Enlir data to make it easier for our text processing.
  */
@@ -903,6 +914,16 @@ function patchEnlir() {
     'After using three of Eblan Surge or Eblan Struggle, if user has any [Attach Element], grants the same Attach Element to the user',
     'Grants [Conditional Attach Element] to the user after using three of Eblan Surge or Eblan Struggle',
   );
+  addPatch(enlir.statusByName, {
+    name: 'Buff Fire 10% (5s)',
+    effects: 'Increases Fire damage dealt by 10%, cumulable',
+    defaultDuration: 5,
+    mndModifier: null,
+    mndModifierIsOpposed: false,
+    exclusiveStatus: null,
+    codedName: 'INCREASE_ELEMENT_ATK_FIRE_1_TIME_SHORT',
+    notes: null,
+  });
 
   // Legend materia.  These, too, should be upstreamed if possible.
   applyPatch(
