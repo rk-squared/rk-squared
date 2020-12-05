@@ -1108,6 +1108,15 @@ function patchEnlir() {
       'casts Vagrant Knight Beta 1/2 after casting Crimson Charge or Crimson Break two times at Vagrant Knight Beta level 2/3, ' +
       'casts Vagrant Knight Gamma 1/2 after casting Crimson Charge or Crimson Break two times at Vagrant Knight Alpha & Beta level 1/2',
   );
+  // Our code isn't set up to show otherSkills names, but that leaves no good
+  // way to handle otherSkills as triggers.  Reword Gladiolus's sync to avoid
+  // the issue.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Precise Guard Mode',
+    'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times',
+    'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% scaling with 0/1/2/3 uses',
+  );
 
   // Use the older, less verbose format for hybrid effects.  (Personally, I
   // prefer this...)

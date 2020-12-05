@@ -300,7 +300,7 @@ DamageUp
 
 AltDamageUp
   = "Increases"i _ skillType:SkillType _ "damage dealt by" _ value:Integer "%" { return { type: 'damageUp', skillType, value }; }
-  / "Increases"i _ element:ElementAndList _ "damage dealt by" _ value:PercentSlashList _ trigger:Trigger? { return { type: 'damageUp', element, value, trigger }; }
+  / "Increases"i _ element:ElementAndList _ "damage dealt by" _ value:PercentSlashList _ trigger:Trigger? _ condition:Condition?  { return { type: 'damageUp', element, value, trigger, condition }; }
   / "Increases"i _ "damage dealt by" _ value:Integer "% when exploiting elemental weaknesses" { return { type: 'damageUp', vsWeak: true, value }; }
   / "Increases"i _ "damage dealt by" _ value:PercentSlashList _ condition:Condition? { return { type: 'damageUp', value, condition }; }
 
