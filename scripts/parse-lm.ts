@@ -4,10 +4,10 @@ import * as _ from 'lodash';
 import * as process from 'process';
 import * as yargs from 'yargs';
 
-import { enlir, EnlirStatus } from '../app/data/enlir';
-import { parseEnlirStatus } from '../app/data/mrP/status';
+import { enlir, EnlirLegendMateria } from '../app/data/enlir';
 import { parse, SyntaxError } from '../app/data/mrp/statusParser';
 import { StatusEffect } from '../app/data/mrP/statusTypes';
+import { describeMrPLegendMateria } from '../app/data/mrP/legendMateria';
 
 const argv = yargs
   .strict()
@@ -36,50 +36,23 @@ const argv = yargs
 
 const jsonOutput: any[] = [];
 
-// Skip internal, bookkeeping, or otherwise special statuses.
-const skipStatuses = new Set<string>([
-  'Defend',
-  'General Set Status',
-  'General Remove Status',
-  'General Set Status While Synchro',
-  'General Value v2',
-  'Status Level in Synchro Mode',
-  'Increase Status Level',
-  'Decrease Status Level',
-  'Set Status Level',
-  'Attach Element',
-  'Max Attach Element Level',
-  'KO',
-  'Doom',
-  'Remove',
-  'Invisible',
-  'Stun',
-  // Description in Enlir is "Can't act" - that may be an error, or it may be internal only
-  'Reraise',
-]);
-
-function shouldAlwaysSkip(status: EnlirStatus) {
-  // Skip Nightmare statuses; these often have unique mechanics that aren't
-  // relevant for characters.
-  return skipStatuses.has(status.name) || status.name.startsWith('Nightmare ');
-}
-
-function processStatuses(): [number, number] {
-  const items = enlir.statusByName;
+function processLegendMateria(): [number, number] {
+  const items = _.sortBy(Object.values(enlir.legendMateria), ['character', 'id']);
   function shouldShow(parseResults: StatusEffect | undefined, parseError: SyntaxError | undefined) {
     return (parseResults && !argv.hideSuccesses) || (parseError && !argv.hideFailures);
   }
 
   function showText(
-    item: EnlirStatus,
+    item: EnlirLegendMateria,
+    parseText: string | null,
     parseResults: StatusEffect | undefined,
     parseError: SyntaxError | undefined,
   ) {
     console.log(item.id + ' - ' + item.name);
-    console.log(item.effects);
+    console.log(item.effect);
     if (parseResults) {
       console.dir(parseResults, { depth: null });
-      console.dir(parseEnlirStatus(item.name), { depth: null });
+      console.log(parseText);
     }
     if (parseError) {
       console.log(' '.repeat(parseError.location.start.offset) + '^');
@@ -89,11 +62,12 @@ function processStatuses(): [number, number] {
   }
 
   function showJson(
-    item: EnlirStatus,
+    item: EnlirLegendMateria,
+    parseText: string | null,
     parseResults: StatusEffect | undefined,
     parseError: SyntaxError | undefined,
   ) {
-    const mrPText = parseResults ? '' /*formatMrPSkill(convertEnlirSkillToMrP(item))*/ : undefined;
+    const mrPText = parseResults ? parseText : undefined;
     jsonOutput.push({
       ...item,
       detail: parseResults,
@@ -105,36 +79,34 @@ function processStatuses(): [number, number] {
   let successCount = 0;
   let totalCount = 0;
   _.forEach(items, i => {
-    if (
-      shouldAlwaysSkip(i) ||
-      (argv.filter && !i.name.match(argv.filter) && i.id.toString() !== argv.filter)
-    ) {
+    if (argv.filter && !i.name.match(argv.filter) && i.id.toString() !== argv.filter) {
       return;
     }
     let parseResults: StatusEffect | undefined;
     let parseError: SyntaxError | undefined;
     totalCount++;
     try {
-      parseResults = parse(i.effects);
+      parseResults = parse(i.effect, { startRule: 'LegendMateriaEffect' });
       successCount++;
     } catch (e) {
       if (e.name !== 'SyntaxError') {
         console.log(i.name);
-        console.log(i.effects);
+        console.log(i.effect);
         throw e;
       }
       parseError = e;
     }
 
     if (shouldShow(parseResults, parseError)) {
-      (argv.json ? showJson : showText)(i, parseResults, parseError);
+      const parseText = parseResults ? describeMrPLegendMateria(i) : null;
+      (argv.json ? showJson : showText)(i, parseText, parseResults, parseError);
     }
   });
   return [successCount, totalCount];
 }
 
 export function main() {
-  const result = [processStatuses()];
+  const result = [processLegendMateria()];
   if (argv.json) {
     console.log(JSON.stringify(jsonOutput, null, 2));
   }

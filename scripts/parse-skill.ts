@@ -218,26 +218,32 @@ function processLimitBreaks() {
   );
 }
 
-const result = [
-  processSoulBreaks(),
-  processBurst(),
-  processBrave(),
-  processSynchro(),
-  processOther(),
-  processAbilities(),
-  processLimitBreaks(),
-];
-if (argv.json) {
-  console.log(JSON.stringify(jsonOutput, null, 2));
+export function main() {
+  const result = [
+    processSoulBreaks(),
+    processBurst(),
+    processBrave(),
+    processSynchro(),
+    processOther(),
+    processAbilities(),
+    processLimitBreaks(),
+  ];
+  if (argv.json) {
+    console.log(JSON.stringify(jsonOutput, null, 2));
+  }
+  let grandTotalSuccessCount = 0;
+  let grandTotalCount = 0;
+  for (const [what, successCount, totalCount] of result) {
+    process.stderr.write(`Processed ${successCount} of ${totalCount} ${what}\n`);
+    grandTotalSuccessCount += successCount;
+    grandTotalCount += totalCount;
+  }
+  const grandTotalFailedCount = grandTotalCount - grandTotalSuccessCount;
+  process.stderr.write(
+    `Final counts: Processed ${grandTotalSuccessCount} of ${grandTotalCount}, failed to process ${grandTotalFailedCount}\n`,
+  );
 }
-let grandTotalSuccessCount = 0;
-let grandTotalCount = 0;
-for (const [what, successCount, totalCount] of result) {
-  process.stderr.write(`Processed ${successCount} of ${totalCount} ${what}\n`);
-  grandTotalSuccessCount += successCount;
-  grandTotalCount += totalCount;
+
+if (require.main === module) {
+  main();
 }
-const grandTotalFailedCount = grandTotalCount - grandTotalSuccessCount;
-process.stderr.write(
-  `Final counts: Processed ${grandTotalSuccessCount} of ${grandTotalCount}, failed to process ${grandTotalFailedCount}\n`,
-);
