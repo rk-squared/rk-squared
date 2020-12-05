@@ -120,7 +120,7 @@ export function numberSlashList(
 }
 
 export function signedNumberSlashList(n: number | number[], joinString = '/') {
-  const sign = getAllSameValue(arrayify(n).filter(i => i !== 0), getSign);
+  const sign = getAllSameValue(arrayify(n).filter(i => i !== 0 && !isNaN(i)), getSign);
   if (sign == null) {
     return numberSlashList(n, signedNumber, joinString);
   } else {

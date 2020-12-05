@@ -139,7 +139,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           Essence of Water
         </td>
         <td>
-          instant party h85, Regenga, -10% ice vuln. 15s, -10% water vuln. 15s, self fastcast 15s
+          instant party h85, Regenga, -10% ice/water vuln. 15s, self fastcast 15s
         </td>
       </tr>
       <tr
@@ -759,7 +759,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           Essence of Water
         </td>
         <td>
-          instant party h85, Regenga, -10% ice vuln. 15s, -10% water vuln. 15s, self fastcast 15s
+          instant party h85, Regenga, -10% ice/water vuln. 15s, self fastcast 15s
         </td>
         <td>
           1
@@ -1414,7 +1414,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           Essence of Water
         </td>
         <td>
-          instant party h85, Regenga, -10% ice vuln. 15s, -10% water vuln. 15s, self fastcast 15s
+          instant party h85, Regenga, -10% ice/water vuln. 15s, self fastcast 15s
         </td>
       </tr>
       <tr

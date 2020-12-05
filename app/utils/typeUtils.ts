@@ -39,7 +39,7 @@ export function isAllSame<T>(values: T[], iteratee?: (value: T) => any): boolean
 
 export function getAllSameValue<T>(values: T[], iteratee?: (value: T) => any): T | null {
   iteratee = iteratee || _.identity;
-  if (isAllSame(values, iteratee)) {
+  if (values.length && isAllSame(values, iteratee)) {
     return iteratee(values[0]);
   } else {
     return null;
