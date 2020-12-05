@@ -888,8 +888,15 @@ function formatTriggerableEffect(
   source: EnlirSkill | undefined,
   abbreviate: boolean,
   condition: common.Condition | undefined,
+  options: StatusOptions,
+  resolve: PlaceholderResolvers,
 ): string {
   switch (effect.type) {
+    case 'critChance':
+      return formatCritChance(effect, resolve);
+    case 'castSpeed':
+      return formatCastSpeed(effect, options, resolve);
+
     case 'castSkill':
     case 'randomCastSkill':
       return formatCastSkill(effect, enlirStatus, abbreviate, condition);
@@ -905,7 +912,16 @@ function formatTriggerableEffect(
       return (
         effect.chance +
         '% for ' +
-        formatTriggerableEffect(effect.effect, trigger, enlirStatus, source, abbreviate, condition)
+        formatTriggerableEffect(
+          effect.effect,
+          trigger,
+          enlirStatus,
+          source,
+          abbreviate,
+          condition,
+          options,
+          resolve,
+        )
       );
     case 'recoilHp':
       return describeRecoilHp(effect);
@@ -933,7 +949,9 @@ function formatSwitchDraw(
 function formatTriggeredEffect(
   effect: statusTypes.TriggeredEffect,
   enlirStatus: EnlirStatus,
-  source?: EnlirSkill,
+  source: EnlirSkill | undefined,
+  options: StatusOptions,
+  resolve: PlaceholderResolvers,
 ): string {
   // Following MrP's example, finishers are displayed differently.
   const isFinisher = effect.trigger.type === 'whenRemoved';
@@ -946,6 +964,8 @@ function formatTriggeredEffect(
         source,
         !isFinisher,
         effect.condition,
+        options,
+        resolve,
       ),
     )
     .join(', ');
@@ -974,6 +994,31 @@ function formatTriggeredEffect(
       ')'
     );
   }
+}
+
+function formatCritChance(effect: statusTypes.CritChance, resolve: PlaceholderResolvers) {
+  return (
+    'crit =' + arrayify(resolve.x(effect.value)).join('/') + uncertain(resolve.isUncertain) + '%'
+  );
+}
+
+function formatCastSpeed(
+  effect: statusTypes.CastSpeed,
+  options: StatusOptions,
+  resolve: PlaceholderResolvers,
+) {
+  let cast: string = '';
+  // Skip checking valueIsUncertain; it doesn't seem to actually be used
+  // in current statuses.
+  if (Array.isArray(effect.value) || options.forceNumbers) {
+    cast =
+      arrayify(resolve.x(effect.value))
+        .map(i => i.toString())
+        .join('/') + 'x ';
+  } else {
+    cast = getCastString(resolve.x(effect.value));
+  }
+  return formatAnyCast(resolve.anyType(effect), cast);
 }
 
 function formatCastSpeedBuildup({
@@ -1078,6 +1123,8 @@ function makePlaceholderResolvers(placeholders: EnlirStatusPlaceholders | undefi
   };
 }
 
+type PlaceholderResolvers = ReturnType<typeof makePlaceholderResolvers>;
+
 const getEnElementName = (element: EnlirElement | EnlirElement[]) =>
   Array.isArray(element) && element.length === enlirPrismElementCount
     ? 'element' // Conditional Attach Element and similar statuses.  See also statusLevelAlias
@@ -1102,14 +1149,7 @@ function describeStatusEffect(
         (effect.hybridStats ? ' or ' + describeStats(arrayify(effect.hybridStats)) : '')
       );
     case 'critChance':
-      return addTrigger(
-        'crit =' +
-          arrayify(resolve.x(effect.value)).join('/') +
-          uncertain(resolve.isUncertain) +
-          '%',
-        effect.trigger,
-        source,
-      );
+      return formatCritChance(effect, resolve);
     case 'critDamage':
       return signedNumber(resolve.x(effect.value)) + uncertain(resolve.isUncertain) + '% crit dmg';
     case 'hitRate':
@@ -1146,20 +1186,8 @@ function describeStatusEffect(
       return formatAnyCast(resolve.anyType(effect), 'insta');
     case 'castSpeedBuildup':
       return formatCastSpeedBuildup(effect);
-    case 'castSpeed': {
-      let cast: string = '';
-      // Skip checking valueIsUncertain; it doesn't seem to actually be used
-      // in current statuses.
-      if (Array.isArray(effect.value) || options.forceNumbers) {
-        cast =
-          arrayify(resolve.x(effect.value))
-            .map(i => i.toString())
-            .join('/') + 'x ';
-      } else {
-        cast = getCastString(resolve.x(effect.value));
-      }
-      return addTrigger(formatAnyCast(resolve.anyType(effect), cast), effect.trigger, source);
-    }
+    case 'castSpeed':
+      return formatCastSpeed(effect, options, resolve);
     case 'instantAtb':
       return 'instant ATB';
     case 'atbSpeed':
@@ -1334,7 +1362,7 @@ function describeStatusEffect(
         ` vs back row, taking ${percentToMultiplier(-effect.damageReduce)}x dmg`
       );
     case 'triggeredEffect':
-      return formatTriggeredEffect(effect, enlirStatus, source);
+      return formatTriggeredEffect(effect, enlirStatus, source, options, resolve);
     case 'conditionalStatus':
       return formatGrantOrConditionalStatus(effect, null, enlirStatus, source);
     case 'directGrantStatus':

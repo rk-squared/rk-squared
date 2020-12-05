@@ -18,22 +18,28 @@ StatusEffect
   }
   / "" { return []; }
 
+// Note: We have to list "composite" statuses like SwitchDraw, then TriggeredEffect
+// (to make sure that it can pick up effects like CritChance that may or may not be
+// triggered - otherwise, the regular effect's rule will eagerly parse the text then
+// prevent the trigger from being parsed), then regular effects.
 EffectClause
-  = StatMod / CritChance / CritDamage / HitRate
+  = SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
+
+  / TriggeredEffect
+
+  / StatMod / CritChance / CritDamage / HitRate
   / Ko / LastStand / Raise / Reraise
   / StatusChance / StatusStacking / PreventStatus
   / Speed / Instacast / SchoolCastSpeed / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
   / PhysicalBlink / MagicBlink / DualBlink / ElementBlink / Stoneskin / MagiciteStoneskin / FixedStoneskin / DamageBarrier
   / RadiantShield / Reflect
   / Awoken
-  / SwitchDraw / SwitchDrawAlt / SwitchDrawStacking
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
   / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Multicast / MulticastAbility / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal / EmpowerHeal
   / Doom / DoomTimer / DrainHp
   / CounterWithImmune / Counter / RowCover
-  / TriggeredEffect
   / ConditionalStatus
   / GainSb / SbGainUp / GainLb
   / DirectGrantStatus
@@ -58,8 +64,8 @@ StatMod
   }
 
 CritChance
-  = "Critical chance =" value:(PercentSlashList / PercentOrX) _ trigger:Trigger? _ TriggerDetail? {
-    const result = { type: 'critChance', trigger };
+  = "Critical chance =" value:(PercentSlashList / PercentOrX) {
+    const result = { type: 'critChance' };
     if (typeof value === 'object' && !Array.isArray(value)) {
       Object.assign(result, value);
     } else {
@@ -107,8 +113,8 @@ SchoolCastSpeed
   }
 
 CastSpeed
-  = "Cast"i _ "speed x" value:DecimalNumberSlashList _ forAbilities:ForAbilities? _ trigger:Trigger? { return Object.assign({ type: 'castSpeed', value, trigger }, forAbilities); }
-  / what:ElementOrSchoolList _ "cast speed x" value:DecimalNumberSlashList { return Object.assign({ type: 'castSpeed', value }, what); }
+  = "Cast"i _ "speed" _ value:MultiplierSlashList _ forAbilities:ForAbilities? { return Object.assign({ type: 'castSpeed', value }, forAbilities); }
+  / what:ElementOrSchoolList _ "cast speed" _ value:MultiplierSlashList { return Object.assign({ type: 'castSpeed', value }, what); }
 
 CastSpeedBuildup
   = "Cast"i _ "speed x" value:DecimalNumber _ "plus x" increment:DecimalNumber _ "for each" _ requiresAttack:AbilityOrAttack _ "used for the duration of the status, up to x" max:DecimalNumber {
@@ -470,6 +476,8 @@ TriggeredEffect
 
 TriggerableEffect
   = CastSkill / RandomCastSkill / GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealChance / RecoilHp / SmartEtherStatus / DispelOrEsuna
+  // Normal status effects that may also be triggered
+  / CritChance / CastSpeed
 
 BareTriggerableEffect
   = effect:TriggerableEffect ! (_ (Trigger / "and")) { return effect; }
@@ -1420,9 +1428,11 @@ SignedIntegerOrX "signed integer or X"
 IntegerWithNegatives "integer (optionally negative)"
   = sign:'-'? value:[0-9]+ { return parseInt(text(), 10); }
 
-
 DecimalNumberSlashList "slash-separated decimal numbers"
   = head:DecimalNumber tail:('/' DecimalNumber)* { return util.pegSlashList(head, tail); }
+
+MultiplierSlashList "slash-separated list of multipliers"
+  = 'x' head:DecimalNumber tail:(('/' 'x'?) DecimalNumber)* { return util.pegSlashList(head, tail); }
 
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }

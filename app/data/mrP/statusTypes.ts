@@ -112,7 +112,6 @@ export interface StatMod {
 export interface CritChance {
   type: 'critChance';
   value: common.ValueOrPlaceholder<number | number[]>;
-  trigger?: Trigger;
 }
 
 export interface CritDamage {
@@ -158,10 +157,9 @@ interface Instacast extends ForAbilities {
   type: 'instacast';
 }
 
-interface CastSpeed extends ForAbilities {
+export interface CastSpeed extends ForAbilities {
   type: 'castSpeed';
   value: common.ValueOrPlaceholder<number | number[]>;
-  trigger?: Trigger;
 }
 
 export interface CastSpeedBuildup {
@@ -535,7 +533,10 @@ export type TriggerableEffect =
   | RecoilHp
   | TriggerChance
   | common.SmartEtherStatus
-  | common.DispelOrEsuna;
+  | common.DispelOrEsuna
+  // Beginning of "regular" effects (may also be standalone)
+  | CritChance
+  | CastSpeed;
 
 export interface CastSkill {
   type: 'castSkill';
