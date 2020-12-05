@@ -35,7 +35,7 @@ EffectClause
   / RadiantShield / Reflect
   / Awoken
   / ElementAttack / ElementResist / EnElement / EnElementStacking / EnElementWithStacking / LoseEnElement / LoseAnyEnElement
-  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / AbilityDouble / Multicast / MulticastAbility / NoAirTime
+  / AbilityBuildup / RankBoost / DamageUp / AltDamageUp / RealmBoost / AbilityDouble / Multicast / MulticastAbility / NoAirTime
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal / EmpowerHeal
   / Doom / DoomTimer / DrainHp
@@ -309,6 +309,9 @@ AltDamageUp
   / "Increases"i _ element:ElementAndList _ "damage dealt by" _ value:PercentSlashList _ trigger:Trigger? _ condition:Condition?  { return { type: 'damageUp', element, value, trigger, condition }; }
   / "Increases"i _ "damage dealt by" _ value:Integer "% when exploiting elemental weaknesses" { return { type: 'damageUp', vsWeak: true, value }; }
   / "Increases"i _ "damage dealt by" _ value:PercentSlashList _ condition:Condition? { return { type: 'damageUp', value, condition }; }
+
+RealmBoost
+  = "Attacks dealt by" _ realm:Realm _ "realm members deal" _ value:Integer "% more damage" { return { type: 'realmBoost', realm, value }; }
 
 AbilityDouble
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'abilityDouble' }, what); }
@@ -1136,7 +1139,7 @@ GenericName
         / (('in' / 'or' / 'of' / 'the' / 'with' / '&' / 'a') & ' ')
         // "for" and "to" in particular needs extra logic to ensure that
         // they're part of status words instead of part of later clauses.
-        / ("for" / "to" / "and") _ ("an" / "a")? _ GenericNameWord
+        / ("for" / "to" / "and" / "by") _ ("an" / "a")? _ GenericNameWord
 
         / [=*+-]? Integer ([%]? '/' [+-]? Integer)* [%+]?
         / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) _ "Only"? ')'
@@ -1362,6 +1365,24 @@ Realm "realm"
   / "FF7" { return 'VII'; }
   / "FF8" { return 'VIII'; }
   / "FF9" { return 'IX'; }
+  // Even newer data, seen in realmBoost.  TODO: Standardize!
+  / "FF IX" { return "IX"; }
+  / "FF IV" { return "IV"; }
+  / "FF FFT" { return "FFT"; }
+  / "FF III" { return "III"; }
+  / "FF II" { return "II"; }
+  / "FF I" { return "I"; }
+  / "FF VIII" { return "VIII"; }
+  / "FF VII" { return "VII"; }
+  / "FF VI" { return "VI"; }
+  / "FF V" { return "V"; }
+  / "FF XV" { return "XV"; }
+  / "FF XIV" { return "XIV"; }
+  / "FF XIII" { return "XIII"; }
+  / "FF XII" { return "XII"; }
+  / "FF XI" { return "XI"; }
+  / "FF X" { return "X"; }
+  / "Tactics" { return "FFT"; }
 
 DamageCapValue = ('9999' / [1-9] '9999') { return parseInt(text()); }
 

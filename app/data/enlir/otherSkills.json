@@ -11732,7 +11732,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Three single hybrid attacks (2.81 or 2.98 each), summoning ether 1 to the user",
+    "effects": "Three single hybrid attacks (2.81 or 2.98 each), Summoning smart ether 1 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,

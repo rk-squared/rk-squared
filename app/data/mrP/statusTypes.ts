@@ -1,4 +1,4 @@
-import { EnlirElement, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
+import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
 import * as common from './commonTypes';
 
 export type StatusEffect = EffectClause[];
@@ -43,6 +43,7 @@ export type EffectClause =
   | AbilityBuildup
   | RankBoost
   | DamageUp
+  | RealmBoost
   | AbilityDouble
   | Multicast
   | MulticastAbility
@@ -340,6 +341,12 @@ interface DamageUp extends DamageUpType {
   value: number | number[];
   trigger?: Trigger;
   condition?: common.Condition;
+}
+
+interface RealmBoost {
+  type: 'realmBoost';
+  realm: EnlirRealm;
+  value: number;
 }
 
 interface AbilityDouble {

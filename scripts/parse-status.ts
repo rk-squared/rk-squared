@@ -48,6 +48,7 @@ const skipStatuses = new Set<string>([
   'Status Level in Synchro Mode',
   'Increase Status Level',
   'Decrease Status Level',
+  'Set Status Level',
   'Attach Element',
   'Max Attach Element Level',
   'KO',

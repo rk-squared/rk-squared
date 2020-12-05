@@ -828,7 +828,7 @@ GenericName
         / (('in' / 'or' / 'of' / 'the' / 'with' / '&' / 'a') & ' ')
         // "for" and "to" in particular needs extra logic to ensure that
         // they're part of status words instead of part of later clauses.
-        / ("for" / "to" / "and") _ ("an" / "a")? _ GenericNameWord
+        / ("for" / "to" / "and" / "by") _ ("an" / "a")? _ GenericNameWord
 
         / [=*+-]? Integer ([%]? '/' [+-]? Integer)* [%+]?
         / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) _ "Only"? ')'
@@ -1017,6 +1017,24 @@ Realm "realm"
   / "FF7" { return 'VII'; }
   / "FF8" { return 'VIII'; }
   / "FF9" { return 'IX'; }
+  // Even newer data, seen in realmBoost.  TODO: Standardize!
+  / "FF IX" { return "IX"; }
+  / "FF IV" { return "IV"; }
+  / "FF FFT" { return "FFT"; }
+  / "FF III" { return "III"; }
+  / "FF II" { return "II"; }
+  / "FF I" { return "I"; }
+  / "FF VIII" { return "VIII"; }
+  / "FF VII" { return "VII"; }
+  / "FF VI" { return "VI"; }
+  / "FF V" { return "V"; }
+  / "FF XV" { return "XV"; }
+  / "FF XIV" { return "XIV"; }
+  / "FF XIII" { return "XIII"; }
+  / "FF XII" { return "XII"; }
+  / "FF XI" { return "XI"; }
+  / "FF X" { return "X"; }
+  / "Tactics" { return "FFT"; }
 
 DamageCapValue = ('9999' / [1-9] '9999') { return parseInt(text()); }
 

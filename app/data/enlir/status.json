@@ -17942,7 +17942,7 @@
   {
     "id": 50916,
     "name": "Soaring Knight Mode Critical Chance",
-    "effects": "Critical chance =25/50/75/100% after using 1/2/3/4+ Lightning/Dark attacks while under Soaring Knight Mode, removed if user hasn't Soaring Knight Mode",
+    "effects": "Critical chance =25/50/75/100% after using 1/2/3/4+ Lightning or Dark attacks while under Soaring Knight Mode, removed if user hasn't Soaring Knight Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

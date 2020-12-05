@@ -973,7 +973,7 @@ function getSingleTriggerCountValue(
  * - Soaring Knight Mode Critical Chance gives critical chance % after using
  *   N lightning/dark.
  *
- * This logic could probably be combined with the stacking-status logic.
+ * This logic could probably be combined with the isStackingStatus logic.
  */
 function isTriggerDetailEffect(
   trigger: statusTypes.Trigger,
@@ -1373,6 +1373,8 @@ function describeStatusEffect(
           source,
         ) + (effect.condition ? ' ' + describeCondition(effect.condition) : '')
       );
+    case 'realmBoost':
+      return percentToMultiplier(effect.value) + 'x dmg by ' + effect.realm + ' chars.';
     case 'abilityDouble':
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
     case 'multicast':
