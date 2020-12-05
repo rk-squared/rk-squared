@@ -343,7 +343,7 @@ const isSoulBreakMode = ({ name, codedName }: EnlirStatus) =>
  * "Mode" statuses are, typically, character-specific trances or EX-like
  * statuses provided by a single Ultra or Awakening soul break.
  */
-function isModeStatus(enlirStatus: EnlirStatus): boolean {
+export function isModeStatus(enlirStatus: EnlirStatus): boolean {
   const { name, codedName, effects } = enlirStatus;
   if (isSoulBreakMode(enlirStatus)) {
     return false;
@@ -770,7 +770,7 @@ function formatOneGrantOrConditionalStatus(
   source: EnlirSkill | undefined,
 ) {
   if (item.status.type === 'standardStatus' && item.status.name === enlirStatus.name) {
-    return 'status';
+    return isModeStatus(enlirStatus) ? 'mode' : 'status';
   }
 
   if (item.status.type !== 'standardStatus') {

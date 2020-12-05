@@ -487,7 +487,7 @@ SimpleRemoveStatus
 
 GrantStatus
   = verb:StatusVerb _ statuses:StatusList statusClauses:StatusClause* {
-    const result = { type: 'grantStatus', status: statuses };
+    const result = { type: 'grantStatus', status: statuses, verb };
     for (const i of statusClauses) {
       Object.assign(result, i);
     }

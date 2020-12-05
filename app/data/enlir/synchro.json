@@ -6862,7 +6862,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (16.40) capped at 99999, grants [Quick Cast 1] to the user, summoning ether 1 to the user",
+    "effects": "One single attack (16.40) capped at 99999, grants [Quick Cast 1], Summoning smart ether 1 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

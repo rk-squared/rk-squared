@@ -1,10 +1,10 @@
 import * as _ from 'lodash';
 
 import { arrayify, arrayifyLength, KeysOfType } from '../../utils/typeUtils';
-import { enlir, getEnlirStatusByName } from '../enlir';
+import { enlir, EnlirStatus, getEnlirStatusByName } from '../enlir';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
-import { describeEnlirStatus, describeEnlirStatusAndDuration } from './status';
+import { describeEnlirStatus, describeEnlirStatusAndDuration, isModeStatus } from './status';
 import {
   displayStatusLevel,
   statusLevelAlias,
@@ -73,13 +73,21 @@ function formatCountCharacters(
  * special cases
  */
 function describeStatusOrStatusAlias(status: string) {
+  let enlirStatus: EnlirStatus | undefined;
   if (statusLevelAlias[status]) {
     return statusLevelAlias[status];
   } else if (status.endsWith(' stacks') || status.endsWith(' status')) {
     // Accommodate hacks added by attack.ts
     return status;
-  } else if (getEnlirStatusByName(status)) {
-    return describeEnlirStatus(status);
+  } else if ((enlirStatus = getEnlirStatusByName(status)) != null) {
+    // As a special case, to accommodate Ysayle's Shiva Possession Mode,
+    // abbreviate "mode" statuses.
+    //
+    // As a special case to the special case, Thunder God's Might is short and
+    // well-known, so don't abbreviate it.
+    return isModeStatus(enlirStatus) && enlirStatus.effects.length > 20
+      ? 'mode'
+      : describeEnlirStatus(status);
   } else {
     // Assume status level
     return statusLevelText;
