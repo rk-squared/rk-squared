@@ -26,6 +26,12 @@ export interface DispelOrEsuna {
   perUses?: number;
 }
 
+export interface HealPercent {
+  type: 'healPercent';
+  healPercent: number;
+  who?: Who;
+}
+
 // --------------------------------------------------------------------------
 // Lower-level game rules
 
@@ -173,7 +179,8 @@ export type Condition =
       element?: EnlirElement | EnlirElement[];
     }
   | { type: 'rankBased' }
-  | { type: 'statThreshold'; stat: EnlirStat; value: number | number[] };
+  | { type: 'statThreshold'; stat: EnlirStat; value: number | number[] }
+  | { type: 'battleStart' };
 
 export type UseCount =
   | {

@@ -57,6 +57,7 @@ import {
 } from './status';
 import {
   formatDispelOrEsuna,
+  formatHealPercent,
   formatRandomEther,
   formatSmartEther,
   formatSpecialStatusItem,
@@ -1044,7 +1045,7 @@ export function convertEnlirSkillToMrP(
         });
         break;
       case 'healPercent':
-        other.push(skill, effect.who, `heal ${effect.healPercent}% HP`, {
+        other.push(skill, effect.who, formatHealPercent(effect), {
           // See comments under 'heal'
           defaultToAlly: isSoulBreak(skill),
         });

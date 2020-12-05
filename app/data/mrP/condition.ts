@@ -276,6 +276,8 @@ export function describeCondition(condition: common.Condition, count?: number | 
       return '@ rank 1-5';
     case 'statThreshold':
       return formatThreshold(condition.value, condition.stat.toUpperCase());
+    case 'battleStart':
+      return 'at battle start';
   }
 }
 

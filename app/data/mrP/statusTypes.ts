@@ -529,6 +529,7 @@ export interface TriggeredEffect {
   triggerDetail?: TriggerDetail;
   condition?: common.Condition;
   onceOnly?: boolean | number; // A number indicates twice, 3x, etc.
+  chance?: number;
 }
 
 export type TriggerableEffect =
@@ -537,8 +538,8 @@ export type TriggerableEffect =
   | GainSb
   | GrantStatus
   | Heal
+  | common.HealPercent
   | RecoilHp
-  | TriggerChance
   | common.SmartEtherStatus
   | common.DispelOrEsuna
   // Beginning of "regular" effects (may also be standalone)
@@ -577,12 +578,6 @@ interface Heal {
   type: 'heal';
   fixedHp: number;
   who?: common.Who;
-}
-
-interface TriggerChance {
-  type: 'triggerChance';
-  chance: number;
-  effect: TriggerableEffect;
 }
 
 // duplicated in skillTypes.ts

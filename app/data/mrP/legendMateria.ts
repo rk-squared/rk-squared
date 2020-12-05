@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-import { logger } from '../../utils/logger';
+import { logException, logger } from '../../utils/logger';
 
 import { arrayify } from '../../utils/typeUtils';
 import {
@@ -15,11 +15,13 @@ import { formatThreshold } from './condition';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
 import {
   describeEnlirStatus,
+  describeEnlirStatusEffects,
   describeStats,
   formatDuration,
   formatGenericTrigger,
   hitWeaknessTriggerText,
   parseEnlirStatus,
+  preprocessStatus,
 } from './status';
 import { formatSmartEther, lowHpAlias, sbPointsAlias, vsWeak } from './statusAlias';
 import {
@@ -36,6 +38,8 @@ import {
   percentToMultiplier,
   toMrPKilo,
 } from './util';
+import * as statusParser from './statusParser';
+import * as statusTypes from './statusTypes';
 
 const parseUncertainEnlirStatus = handleUncertain(parseEnlirStatus);
 
@@ -200,7 +204,7 @@ const simpleSkillHandlers: HandlerList = [
   ],
 ];
 
-const legendMateriaHandlers: HandlerList = [
+export const legendMateriaHandlers: HandlerList = [
   // Dualcast!
   [
     [
@@ -529,19 +533,36 @@ const legendMateriaHandlers: HandlerList = [
   [/^$/, () => ''],
 ];
 
-export function describeMrPLegendMateria({
-  character,
-  name,
-  effect,
-}: EnlirLegendMateria): string | null {
-  const isUncertain = effect.endsWith('?');
-  const result = resolveWithHandlers(legendMateriaHandlers, effect.replace(/\?$/, ''));
-  if (!result && effect !== '?') {
-    logger.warn(`Failed to process legend materia: ${character} ${name}: ${effect}`);
+export function safeParseLegendMateria(lm: EnlirLegendMateria): statusTypes.StatusEffect | null {
+  try {
+    return preprocessStatus(
+      statusParser.parse(lm.effect, { startRule: 'LegendMateriaEffect' }),
+      lm,
+    );
+  } catch (e) {
+    logger.error(`Failed to process legend materia: ${lm.character} ${lm.name}: ${lm.effect}`);
+    logException(e);
+    if (e.name === 'SyntaxError') {
+      logger.debug(lm.effect);
+      logger.debug(' '.repeat(e.location.start.offset) + '^');
+      return null;
+    }
+    throw e;
   }
-  if (result && isUncertain) {
-    return result + '?';
-  } else {
-    return result;
+}
+
+export function describeEnlirLegendMateria(
+  lm: EnlirLegendMateria,
+): [string, statusTypes.StatusEffect | null] {
+  const statusEffects = safeParseLegendMateria(lm);
+  if (!statusEffects) {
+    return [lm.effect, null];
   }
+  const effects = describeEnlirStatusEffects(statusEffects, lm, undefined, undefined, {});
+  return [effects, statusEffects];
+}
+
+export function describeMrPLegendMateria(lm: EnlirLegendMateria): string | null {
+  const result = describeEnlirLegendMateria(lm);
+  return result[1] ? result[0] : null;
 }

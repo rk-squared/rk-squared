@@ -5,6 +5,7 @@ import { arrayify, getAllSameValue, scalarify, simpleFilter } from '../../utils/
 import {
   enlir,
   EnlirElement,
+  EnlirLegendMateria,
   enlirPrismElementCount,
   EnlirSchool,
   EnlirSkill,
@@ -16,6 +17,7 @@ import {
   getEnlirOtherSkill,
   getEnlirStatusByName,
   getEnlirStatusWithPlaceholders,
+  isEnlirStatus,
   isSoulBreak,
   isSynchroCommand,
   isSynchroSoulBreak,
@@ -28,6 +30,7 @@ import { convertEnlirSkillToMrP, describeRecoilHp, formatMrPSkill } from './skil
 import {
   displayStatusLevel,
   formatDispelOrEsuna,
+  formatHealPercent,
   formatSmartEther,
   formatSpecialStatusItem,
   lbPointsAlias,
@@ -111,9 +114,9 @@ const memoizedProcessor = (status: EnlirStatus) =>
 
 const failedStatusIds = new Set<number>();
 
-function preprocessStatus(
+export function preprocessStatus(
   status: statusTypes.StatusEffect,
-  source: EnlirStatus,
+  source: EnlirStatus | EnlirLegendMateria,
 ): statusTypes.StatusEffect {
   // To avoid complexities of mutating a list as we're iterating, we only check
   // for one directGrantStatus.
@@ -705,7 +708,7 @@ function addTrigger(
 
 function formatCastSkill(
   effect: statusTypes.CastSkill | statusTypes.RandomCastSkill,
-  enlirStatus: EnlirStatus,
+  enlirStatus: EnlirStatus | EnlirLegendMateria,
   abbreviate: boolean,
   condition: common.Condition | undefined,
 ): string {
@@ -767,10 +770,14 @@ function formatOneGrantOrConditionalStatus(
   verb: common.StatusVerb,
   item: common.StatusWithPercent,
   trigger: statusTypes.Trigger | null,
-  enlirStatus: EnlirStatus,
+  enlirStatus: EnlirStatus | EnlirLegendMateria,
   source: EnlirSkill | undefined,
 ) {
-  if (item.status.type === 'standardStatus' && item.status.name === enlirStatus.name) {
+  if (
+    isEnlirStatus(enlirStatus) &&
+    item.status.type === 'standardStatus' &&
+    item.status.name === enlirStatus.name
+  ) {
     return isModeStatus(enlirStatus) ? 'mode' : 'status';
   }
 
@@ -784,10 +791,13 @@ function formatOneGrantOrConditionalStatus(
   }
 
   const parsed = parseEnlirStatusItem(item.status, source);
-  // For Garnet's Period Thunder - assume that at granted or traditional trance
-  // is part of a larger soul break that's already manipulating trances, so
-  // abbreviate it.
-  let thisResult = parsed.isTrance ? 'Trance' : parsed.description;
+  // To accommodate Garnet's Period Thunder - if trance is granted or
+  // conditioned by a skill, then assume it's part of a larger soul break setup
+  // that's already manipulating trances, so abbreviate it.
+  let thisResult = parsed.description;
+  if (parsed.isTrance) {
+    thisResult = source ? 'Trance' : 'Trance: ' + thisResult;
+  }
 
   // Hack: Partial duplication of logic on when to append durations.
   // This is valuable to make Galuf AASB's instacast clear.
@@ -820,7 +830,7 @@ function formatGrantOrConditionalStatus(
     condition,
   }: statusTypes.GrantStatus | statusTypes.ConditionalStatus,
   trigger: statusTypes.Trigger | null,
-  enlirStatus: EnlirStatus,
+  enlirStatus: EnlirStatus | EnlirLegendMateria,
   source: EnlirSkill | undefined,
 ): string {
   let result = '';
@@ -885,7 +895,7 @@ function isCastSkill(effects: statusTypes.TriggerableEffect | statusTypes.Trigge
 function formatTriggerableEffect(
   effect: statusTypes.TriggerableEffect,
   trigger: statusTypes.Trigger,
-  enlirStatus: EnlirStatus,
+  enlirStatus: EnlirStatus | EnlirLegendMateria,
   source: EnlirSkill | undefined,
   abbreviate: boolean,
   condition: common.Condition | undefined,
@@ -897,7 +907,6 @@ function formatTriggerableEffect(
       return formatCritChance(effect, resolve);
     case 'castSpeed':
       return formatCastSpeed(effect, options, resolve);
-
     case 'castSkill':
     case 'randomCastSkill':
       return formatCastSkill(effect, enlirStatus, abbreviate, condition);
@@ -909,21 +918,8 @@ function formatTriggerableEffect(
       return (
         (effect.who ? whoText[effect.who] + ' ' : '') + 'heal ' + toMrPKilo(effect.fixedHp) + ' HP'
       );
-    case 'triggerChance':
-      return (
-        effect.chance +
-        '% for ' +
-        formatTriggerableEffect(
-          effect.effect,
-          trigger,
-          enlirStatus,
-          source,
-          abbreviate,
-          condition,
-          options,
-          resolve,
-        )
-      );
+    case 'healPercent':
+      return (effect.who ? whoText[effect.who] + ' ' : '') + formatHealPercent(effect);
     case 'recoilHp':
       return describeRecoilHp(effect);
     case 'smartEther':
@@ -1012,7 +1008,7 @@ function isTriggerDetailEffect(
 
 function formatTriggeredEffect(
   effect: statusTypes.TriggeredEffect,
-  enlirStatus: EnlirStatus,
+  enlirStatus: EnlirStatus | EnlirLegendMateria,
   source: EnlirSkill | undefined,
   options: StatusOptions,
   resolve: PlaceholderResolvers,
@@ -1062,6 +1058,7 @@ function formatTriggeredEffect(
       nextN +
       formatTrigger(effect.trigger, source, effect.triggerDetail) +
       ' ⤇ ' +
+      (effect.chance ? `${effect.chance}% for ` : '') +
       effectsDescription +
       condition +
       onceOnly +
@@ -1118,7 +1115,7 @@ function formatAbilityBuildup(effect: statusTypes.AbilityBuildup): string {
 
 function formatCounter(
   { skillType, chance, counter, enemyOnly }: statusTypes.Counter,
-  source?: EnlirStatus,
+  source?: EnlirStatus | EnlirLegendMateria,
 ): string {
   let counterText: string;
   let isSimple = skillType === 'PHY';
@@ -1206,7 +1203,7 @@ const getEnElementName = (element: EnlirElement | EnlirElement[]) =>
 
 function describeStatusEffect(
   effect: statusTypes.EffectClause,
-  enlirStatus: EnlirStatus,
+  enlirStatus: EnlirStatus | EnlirLegendMateria,
   placeholders: EnlirStatusPlaceholders | undefined,
   source: EnlirSkill | undefined,
   options: StatusOptions,
@@ -1245,7 +1242,7 @@ function describeStatusEffect(
     case 'statusStacking':
       return (statusLevelAlias[effect.status] || effect.status) + ' stacking';
     case 'preventStatus':
-      if (enlirStatus.name === 'Astra') {
+      if (enlirStatus && enlirStatus.name === 'Astra') {
         return 'Status blink 1';
       } else {
         return effect.status.join('/') + ' blink 1';
@@ -1538,9 +1535,12 @@ function describeStatusEffect(
   }
 }
 
-function describeEnlirStatusEffects(
+/**
+ * Mid-level function; exposed for sharing with legendMateria.ts.
+ */
+export function describeEnlirStatusEffects(
   statusEffects: statusTypes.StatusEffect,
-  enlirStatus: EnlirStatus,
+  enlirStatus: EnlirStatus | EnlirLegendMateria,
   placeholders: EnlirStatusPlaceholders | undefined,
   source: EnlirSkill | undefined,
   options: StatusOptions,
@@ -1850,7 +1850,7 @@ export function sortStatus(a: common.StatusWithPercent, b: common.StatusWithPerc
  */
 export function resolveStatuses(
   statuses: common.StatusWithPercent[],
-  source: EnlirSkill | EnlirStatus,
+  source: EnlirSkill | EnlirStatus | EnlirLegendMateria,
 ) {
   function update(
     item: common.StatusWithPercent,

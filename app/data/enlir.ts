@@ -1624,6 +1624,14 @@ export function isTrueArcane2nd(sb: EnlirSoulBreak): boolean {
   return sb.tier === 'TASB' && sb.points !== 0;
 }
 
+/**
+ * Some of our status-handling code is flexible enough to handle legend materia
+ * effects as well.  This function helps implement that.
+ */
+export function isEnlirStatus(status: EnlirStatus | EnlirLegendMateria): status is EnlirStatus {
+  return 'effects' in status;
+}
+
 function makeSkillAliases<
   TierT extends string,
   SkillT extends { id: number; character: string | null; tier: TierT }

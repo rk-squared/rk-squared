@@ -371,7 +371,7 @@ Heal
   }
 
 HealPercent
-  = "restores"i _ "HP" _ who:Who? _ "for" _ healPercent:Integer "%" _ "of" _ ("the" _ "user's" / "the" _ "target's" / "their") _ Maximum _ "HP" {
+  = "restores"i _ "HP" _ who:Who? _ "for" _ healPercent:Integer "% of" _ ("the user's" / "the target's" / "their") _ Maximum _ "HP" {
     return {
       type: 'healPercent',
       healPercent,
@@ -747,6 +747,9 @@ Condition
 
   // Stat thresholds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
+
+  // Legend materia
+  / "at the beginning of the battle" { return { type: 'battleStart' }; }
 
 WithoutWith
   = "hasn't/has" { return 'withoutWith'; }

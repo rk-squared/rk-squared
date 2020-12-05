@@ -1,6 +1,7 @@
 {
   let parsedNumberResult = null;
   let statusLevelMatch = null;
+  let wantInfinitive = false;
 
   // Hack: Suppress warnings about unused functions.
   location;
@@ -18,6 +19,15 @@ StatusEffect
   }
   / "" { return []; }
 
+LegendMateriaEffect
+  = head:LmEffectClause tail:((',' / '.') _ LmEffectClause)* {
+    const result = util.pegList(head, tail, 2).filter(i => i != null);
+    util.separateStatusAndSb(result);
+    util.checkSelfSkillTrigger(result);
+    return result;
+  }
+  / "" { return []; }
+
 // Note: We have to list "composite" statuses like SwitchDraw, then TriggeredEffect
 // (to make sure that it can pick up effects like CritChance that may or may not be
 // triggered - otherwise, the regular effect's rule will eagerly parse the text then
@@ -27,7 +37,27 @@ EffectClause
 
   / TriggeredEffect
 
-  / StatMod / CritChance / CritDamage / HitRate
+  / CommonEffectClause
+
+  / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
+  / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
+  / BurstToggle / TrackUses / SharedCount / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
+  / ResetTarget / NoEffect / Persists / GameOver / Unknown
+
+LmEffectClause
+  = TriggeredEffect
+  / CommonEffectClause
+  // Additional legend materia-specific variations and wording.  We keep these
+  // separate to try and keep the status effects section of the database a bit
+  // cleaner.
+  / MulticastLm
+
+// Effects common to statuses and legend materia.  Legend materia use very few
+// of these, but to simplify maintenance and keep things flexible, we'll only
+// omit status-only stuff if it obviously doesn't apply or otherwise causes
+// problems.
+CommonEffectClause
+  = StatMod / CritChance / CritDamage / HitRate
   / Ko / LastStand / Raise / Reraise
   / StatusChance / StatusStacking / PreventStatus
   / Speed / Instacast / SchoolCastSpeed / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
@@ -45,10 +75,6 @@ EffectClause
   / DirectGrantStatus
   / Runic / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
-  / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
-  / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
-  / BurstToggle / TrackUses / SharedCount / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
-  / ResetTarget / NoEffect / Persists / GameOver / Unknown
 
 
 // --------------------------------------------------------------------------
@@ -328,6 +354,9 @@ MulticastAbility
 MulticastVerb
   = count:Tuple "cast" { return count; }
 
+MulticastLm
+  = chance:Integer "% chance to" _ count:MulticastVerb _ "abilities that deal" _ element:ElementList _ ("damage") { return { type: 'multicast', count, chance, element }; }
+
 NoAirTime
   = "Changes"i _ "the air time of Jump attacks to 0.01 seconds" { return { type: 'noAirTime' }; }
 
@@ -458,9 +487,11 @@ CounterWithImmune
 // Note that we allow triggerable effects to appear after the trigger, to
 // accommodate statuses like Cyan's AASB.
 TriggeredEffect
-  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ triggerDetail:TriggerDetail? _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
+  = chance:TriggerChance? head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ triggerDetail:TriggerDetail? _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
     onceOnly:("," _ o:OnceOnly { return o; })?
   & {
+    wantInfinitive = false;
+
     // Validate that what we think is a "once only" effect actually is - if it refers to a
     // different skill, then it's not actually "once only."
     if (!onceOnly || !onceOnly.skill) {
@@ -470,15 +501,21 @@ TriggeredEffect
     return castSkill && castSkill.type === 'castSkill' && castSkill.skill === onceOnly.skill;
   }
   {
-    return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
+    return util.addCondition({ type: 'triggeredEffect', chance, effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
   }
   // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
   / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
     return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2), triggerDetail };
   }
 
+TriggerChance
+  = chance:Integer "% chance to" _ {
+    wantInfinitive = true;
+    return chance;
+  }
+
 TriggerableEffect
-  = CastSkill / RandomCastSkill / GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealChance / RecoilHp / SmartEtherStatus / DispelOrEsuna
+  = CastSkill / RandomCastSkill / GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealPercent / RecoilHp / SmartEtherStatus / DispelOrEsuna
   // Normal status effects that may also be triggered
   / CritChance / CastSpeed
 
@@ -520,10 +557,16 @@ DirectGrantStatus
   }
 
 Heal
-  = "restores"i _ fixedHp:Integer _ "HP" _ who:Who? { return { type: 'heal', fixedHp, who }; }
+  = "restore"i S _ fixedHp:Integer _ "HP" _ who:Who? { return { type: 'heal', fixedHp, who }; }
 
-HealChance
-  = chance:Integer "% chance to restore"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'triggerChance', chance, effect: { type: 'heal', fixedHp, who } }; }
+HealPercent
+  = "restore"i S _ "HP" _ who:Who? _ "for" _ healPercent:Integer "% of" _ ("the user's" / "the target's" / "their") _ Maximum _ "HP" {
+    return {
+      type: 'healPercent',
+      healPercent,
+      who,
+    }
+  }
 
 RecoilHp
   = "damages" _ "the" _ "user" _ "for" _ damagePercent:DecimalNumberSlashList "%"
@@ -1055,6 +1098,9 @@ Condition
   // Stat thresholds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
+  // Legend materia
+  / "at the beginning of the battle" { return { type: 'battleStart' }; }
+
 WithoutWith
   = "hasn't/has" { return 'withoutWith'; }
   / "hasn't" { return 'without'; }
@@ -1069,6 +1115,10 @@ ConditionDetail
 // --------------------------------------------------------------------------
 // Lower-level game rules
 
+// Verbs should end in S under normal use and should not if we want an infinitive.
+S = "s" & { return !wantInfinitive; }
+  / "" & { return wantInfinitive; }
+
 SmartEtherStatus
   = school:School? _ "smart"i _ "ether" _ amount:IntegerSlashList {
     const result = { type: 'smartEther', amount };
@@ -1079,8 +1129,12 @@ SmartEtherStatus
   }
 
 StatusVerb
-  = ("grants"i / "causes"i / "removes"i / "doesn't"i _ "remove") {
-    return text().toLowerCase().replace(/\s+/g, ' ');
+  = ("grant"i S / "cause"i S / "remove"i S / "doesn't"i _ "remove") {
+    let result = text().toLowerCase().replace(/\s+/g, ' ');
+    if (result !== 'doesn\'t remove' && !result.endsWith('s')) {
+      result += 's';
+    }
+    return result;
   }
 
 StatusName "status effect"

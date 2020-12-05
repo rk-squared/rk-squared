@@ -1,6 +1,10 @@
 import * as statusTypes from './statusTypes';
 
-export function parse(input: string): statusTypes.StatusEffect;
+interface StatusParserOptions {
+  startRule?: 'StatusEffect' | 'LegendMateriaEffect';
+}
+
+export function parse(input: string, options?: StatusParserOptions): statusTypes.StatusEffect;
 
 export class SyntaxError extends Error {
   name: 'SyntaxError';
