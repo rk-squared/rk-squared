@@ -1,5 +1,5 @@
 {
-  let parsedNumberString = null;
+  let parsedNumberResult = null;
   let lastDamageDuringStatus = NaN;
   let lastDamageDuringStatusElement = undefined;
   let statusLevelMatch = null;
@@ -18,12 +18,13 @@ SkillEffect
   / "" { return []; }
 
 EffectClause = FixedAttack / Attack / RandomFixedAttack
-  / DrainHp / RecoilHp / HpAttack / GravityAttack
+  / DrainHp / RecoilHp / FixedRecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCastAbility / RandomCastOther / Chain / Mimic
-  / StatMod / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
+  / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
   / CastTime / CastTimePerUse / StandaloneAttackExtra
+  / RandomSkillEffect
 
 // --------------------------------------------------------------------------
 // Attacks
@@ -37,13 +38,18 @@ Attack
 SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
-    _ overstrike:(","? _ "capped" _ "at" _ "99999")?
-    _ isPiercingDef:(_ "that" _ "ignores" _ "DEF")?
-    _ isPiercingRes:(_ "that" _ "ignores" _ "RES")? {
+    _ additionalCritDamage:('with additional' _ value:Integer '% critical damage' { return value; })?
+    _ overstrike:(","? _ "capped at 99999")?
+    _ scalingOverstrike:(","? _ value:ScalingOverstrike { return value })?
+    _ isPiercingDef:(_ "that ignores DEF")?
+    _ isPiercingRes:(_ "that ignores RES")? {
     const result = Object.assign({
       type: 'attack',
       numAttacks,
-    }, attackMultiplierGroup || {});
+    }, attackMultiplierGroup || {}, scalingOverstrike || {});
+    if (additionalCritDamage) {
+      result.additionalCritDamage = additionalCritDamage;
+    }
     if (overstrike) {
       result.isOverstrike = true;
     }
@@ -104,6 +110,9 @@ RandomNumAttacks
     // with identical chances, or tuples of number of attacks with percent chance.
     return util.pegList(head, tail, 1);
   }
+  / "Randomly"i _ "deals" _ value:IntegerSlashList _ "(" chance:PercentSlashList ")"
+  & { return value.length === chance.length; }
+    { return value.map((v, i) => [v, chance[i]]); }
 
 RandomOneAttack
   = value:NumberString _ chance:("(" c:Integer "%)" { return c; }) { return [value, chance]; }
@@ -112,7 +121,7 @@ RandomOneAttack
 AttackMultiplierGroup
   = randomAttackMultiplier:("randomly" _)?
     attackMultiplier:DecimalNumberSlashList
-    hybridMultiplier:(_ "or" _ n:DecimalNumber { return n; })?
+    hybridMultiplier:(_ "or" _ n:DecimalNumberSlashList { return n; })?
     scaleToMultiplier:('~' n:DecimalNumber { return n; })?
     _ "each"?
     _ multiplierScaleType:MultiplierScaleType?
@@ -160,12 +169,15 @@ MultiplierScaleType
   / "scaling" _ "with" _ "hits" _ "taken" { return { type: 'hitsTaken' }; }
   / "scaling" _ "with" _ school:School _ "abilities" _ "used" { return { type: 'abilitiesUsed', school }; }
   / "scaling" _ "with" _ element:Element _ "attacks" _ "used" { return { type: 'attacksUsed', element }; }
-  / "scaling" _ "with" _ "Doom" _ "timer," _ defaultMultiplier:DecimalNumber _ "default" { return { type: 'doomTimer', defaultMultiplier }; }
+  / "scaling" _ "with" _ ("[Doom]" / "Doom") _ "timer," _ defaultMultiplier:DecimalNumber _ "default" { return { type: 'doomTimer', defaultMultiplier }; }
   / "scaling with LB gauge and LB honing level" { return { type: 'limitBreak' }; }
 
 
 AttackExtras
-  = extras:(","? _ AttackExtra)* {
+  = extras:(("," / _ "and")? _ AttackExtra)* {
+    // "and" likely means two clauses (e.g., AdditionalCrit and AdditionalCritDamage)
+    // that share a condition clause.  We do not currently attempt to capture this;
+    // our generated text makes it clear enough to a human.
     return extras.reduce((result, element) => Object.assign(result, element[2]), {});
   }
 
@@ -194,12 +206,12 @@ AttackExtra
 
 // Note: This goes before AdditionalCrit so that it can be greedy with matching "damage"
 AdditionalCritDamage
-  = additionalCritDamage:IntegerSlashList '%' _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'damage' condition:(_ Condition)? {
+  = additionalCritDamage:PercentSlashList _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'damage' condition:(_ Condition)? {
     return util.addCondition({ additionalCritDamage }, condition, 'additionalCritDamageCondition');
   }
 
 AdditionalCrit
-  = additionalCrit:IntegerSlashList '%' _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'chance'? condition:(_ Condition)? {
+  = additionalCrit:PercentSlashList _ ('additional' / 'add.') _ ('critical' / 'crit.') _ 'chance'? condition:(_ Condition)? {
     return util.addCondition({ additionalCrit }, condition, 'additionalCritCondition');
   }
 
@@ -243,7 +255,8 @@ HitRate
   / "(" hitRate:Integer "%" _ "hit" _ "rate" _ "if" _ "triggered)" { return { hitRate }; }
 
 MinDamage
-  = ("minimum" _ "damage" / "min.") _ minDamage:Integer { return { minDamage }; }
+  // "SUM only" may be added for hybrid WHT/SUM skills, but it can be assumed, so we don't track it.
+  = ("minimum" _ "damage" / "min.") _ minDamage:Integer (_ "(SUM only)")? { return { minDamage }; }
 
 OrMultiplier
   = orMultiplier:DecimalNumberSlashList _ ("multiplier" / "mult." / "each") _ orMultiplierCondition:Condition {
@@ -261,16 +274,19 @@ OverrideElement
   }
 
 PiercingDef
-  = "ignores" _ "DEF" { return { isPiercingDef: true }; }
+  = "ignores DEF" { return { isPiercingDef: true }; }
 
 PiercingRes
-  = "ignores" _ "RES" { return { isPiercingRes: true }; }
+  = "ignores RES" { return { isPiercingRes: true }; }
 
 PiercingDefRes
-  = "ignores DEF/RES" { return { isPiercingDef: true, isPiercingRes: true }; }
+  = ("ignores DEF/RES" / "ignores DEF and RES") { return { isPiercingDef: true, isPiercingRes: true }; }
 
 ScaleWithAtkAndDef
   = "damage" _ "scales" _ "with" _ "both" _ "ATK" _ "and" _ "DEF" { return { scalesWithAtkAndDef: true }; }
+
+ScalingOverstrike
+  = "capped at" _ head:DamageCapValue tail:("/" DamageCapValue)+ { return { scalingOverstrike: util.pegList(head, tail, 1) }; }
 
 SBMultiplier
   = "multiplier" _ verb:("increased" / "decreased") _ "by" _ value:DecimalNumber _ "for" _ "every" _ "SB" _ "point" {
@@ -290,7 +306,7 @@ DrainHp
   }
 
 RecoilHp
-  = "damages" _ "the" _ "user" _ "for" _ damagePercent:DecimalNumberSlashList "%"
+  = "damages the user for" _ damagePercent:DecimalNumberPercentSlashList
   _ maxOrCurrent:((Maximum / "current") { return text().startsWith('max') ? 'max' : 'curr'; })
   _ "HP"
   _ condition:Condition? {
@@ -299,6 +315,17 @@ RecoilHp
       damagePercent,
       maxOrCurrent,
     }, condition);
+  }
+
+// New effect in December 2020 - make it strict until we've seen more use.
+FixedRecoilHp
+  = "deals" _ value:Integer _ skillType:SkillType _ ("physical" / "magical") _ "damage" _ who:Who {
+    return {
+      type: 'fixedRecoilHp',
+      value,
+      skillType,
+      who,
+    };
   }
 
 GravityAttack
@@ -320,7 +347,7 @@ HpAttack
 // Healing
 
 Revive
-  = "removes"i _ "KO" _ "(" percentHp:Integer "%" _ "HP)" _ who:Who? {
+  = "removes"i _ "KO" _ "[Raise:" _ percentHp:Integer "%]" _ who:Who? {
     const result = {
       type: 'revive',
       percentHp,
@@ -333,7 +360,7 @@ Revive
 
 Heal
   = "restores"i _ amount:(
-      "HP" _ "(" healFactor:IntegerSlashList ")" { return { healFactor }; }
+      "HP" _ "(" healFactor:DecimalNumberSlashList ")" { return { healFactor }; }
       / fixedHp:IntegerSlashList _ "HP" { return { fixedHp }; }
     ) _ who:Who? _ condition:Condition? {
     return util.addCondition({
@@ -359,17 +386,17 @@ DamagesUndead
   }
 
 DispelOrEsuna
-  = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? {
-    return { type: 'dispelOrEsuna', dispelOrEsuna, who };
+  = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? _ perUses:PerUses? {
+    return { type: 'dispelOrEsuna', dispelOrEsuna, who, perUses };
   }
 
 RandomEther
-  = "restores"i _ amount:Integer _ "consumed" _ "ability" _ "use" _ who:Who? {
-    return { type: 'randomEther', amount, who };
+  = "restores"i _ amount:Integer _ "consumed" _ "ability" _ "use" _ who:Who? _ perUses:PerUses? {
+    return { type: 'randomEther', amount, who, perUses };
   }
 
 SmartEther
-  = status:SmartEtherStatus _ who:Who? { return Object.assign({}, status, { who }); }
+  = status:SmartEtherStatus _ who:Who? _ perUses:PerUses? { return Object.assign({}, status, { who, perUses }); }
 
 
 // --------------------------------------------------------------------------
@@ -430,82 +457,38 @@ Mimic
 // Status effects
 
 StatusEffect
-  = verb:StatusVerb _ all:"all"? _ statuses:StatusList {
+  = verb:StatusVerb _ all:"all"? _ statuses:StatusList statusClauses:StatusClause* {
     const result = { type: 'status', verb, statuses };
     if (all) {
       result.all = true;
     }
-    return result;
-  }
-
-StatusList
-  = head:StatusWithPercent tail:(!NextClause AndList StatusWithPercent)* {
-    return util.pegList(head, tail, 2);
-  }
-
-StatusWithPercent
-  = status:StatusItem
-    chance:(_ '(' chanceValue:Integer '%)' { return chanceValue; } )?
-    statusClauses:StatusClause*
-  {
-    const result = {
-      status
-    };
-    if (chance) {
-      result.chance = chance;
-    }
     for (const i of statusClauses) {
       Object.assign(result, i);
     }
+    if (result.duration) {
+      util.applyDuration(result.statuses, result.duration);
+      delete result.duration;
+    }
     return result;
   }
 
-StatusLevel "status with level"
-  = status:StatusName _ "level" _ value:Integer {
-    return { type:'statusLevel', status, value, set: true };
-  }
-  / status:StatusName
-    & { return util.synchroStatusLevelAlias[status] != null; }
-      { return { type:'statusLevel', status, value: 1, set: true }; }
-  / value:SignedInteger _ status:StatusName
-    & { return util.synchroStatusLevelAlias[status] != null; }
-      { return { type:'statusLevel', status, value }; }
-  / status:StatusName
-    & {
-        statusLevelMatch = status.match(/(.*) ([+-]?\d)$/);
-        return statusLevelMatch && util.synchroStatusLevelAlias[statusLevelMatch[1]] != null;
-      }
-      { return { type:'statusLevel', status: statusLevelMatch[1], value: +statusLevelMatch[2] }; }
-
-StatusClause
-  = _ clause:(
-    duration:Duration { return { duration }; }
-    // As a special case, if who isn't followed by a duration, it may
-    // apparently apply to previous statuses (so previous statuses can look
-    // ahead to this one), while a who that is followed by a duration cannot.
-    // See, e.g., Desch SSB or Sarah BSB.
-    / who:Who ! (_ Duration) { return { who, whoAllowsLookahead: true }; }
-    / who:Who { return { who }; }
-    // Flexibility: Support both "two uses" and "second use"
-    / "on"? _ "every" _ ("two" _ "uses" / "second" _ "use") { return { perUses: 2 }; }
-    / "on"? _ "every" _ ("three" _ "uses" / "third" _ "use") { return { perUses: 3 }; }
-    / "if" _ "successful" { return { ifSuccessful: true }; }
-    / "to" _ "undeads" { return { ifUndead: true }; }
-    / condition:Condition { return { condition }; }
-  ) {
-    return clause;
-  }
-
-// Special case: Some Imperil soul breaks omit "causes".  See Climhazzard Xeno,
-// Ragnarok Buster, Whirling Lance.  Some atypical stat modifiers, like
-// Rikku's record board ability or Passionate Salsa, do as well.
+// Special case: Some Imperil soul breaks (e.g., Climhazzard Xeno, Ragnarok
+// Buster, Whirling Lance) and many stat mods omit "causes" or "grants".
 ImplicitStatusEffect
-  = & ("Imperil" / (StatModDuration1 _)? Stat) statuses:StatusList {
-    return { type: 'status', verb: 'causes', statuses };
+  = & "[" statuses:StatusList statusClauses:StatusClause* {
+    const result = { type: 'status', statuses };
+    for (const i of statusClauses) {
+      Object.assign(result, i);
+    }
+    if (result.duration) {
+      util.applyDuration(result.statuses, result.duration);
+      delete result.duration;
+    }
+    return result;
   }
 
 SetStatusLevel
-  = "set"i _ status:StatusName _ "level" _ "to" _ value:Integer {
+  = "set"i _ status:StatusNameNoBrackets _ "level" _ "to" _ value:Integer {
     return { type: 'setStatusLevel', status, value };
   }
 
@@ -517,46 +500,6 @@ RandomStatusEffect
 RandomStatusList
   = head:StatusItem tail:(AndList StatusItem)* _ "(" chance:Integer "%)" _ who:Who? {
     return { status: util.pegList(head, tail, 1, true), chance, who };
-  }
-
-StatusItem
-  = SmartEtherStatus / StatusLevel / StatusName
-
-
-// --------------------------------------------------------------------------
-// Stat mods
-
-StatMod
-  = stats:StatList _ percent:(SignedIntegerSlashList / [+-]? "?" { return NaN; }) '%' ! (_ StatModDuration2) statModClauses:StatModClause* {
-    const result = {
-      type: 'statMod',
-      stats,
-      percent,
-    };
-    for (const i of statModClauses) {
-      Object.assign(result, i);
-    }
-    return result;
-  }
-
-StatList
-  = HybridStatSet
-  / head:Stat tail:(AndList Stat)* {
-    return util.pegList(head, tail, 1);
-  }
-
-HybridStatSet
-  = stat1:Stat stat2:('/' Stat)* _ "or" _ stat3:Stat stat4:('/' Stat)* {
-    return [util.pegList(stat1, stat2, 1), util.pegList(stat3, stat4, 1)];
-  }
-
-StatModClause
-  = _ clause:(
-    duration:Duration { return { duration }; }
-    / who:Who { return { who }; }
-    / condition:Condition { return { condition }; }
-  ) {
-    return clause;
   }
 
 
@@ -591,6 +534,82 @@ CastTimePerUse
 StandaloneAttackExtra
   = extra:AttackExtra { return { type: 'attackExtra', extra }; }
 
+// Arbitrary random skills.  Rather than updating our skill formatting to handle
+// everything, we individually list any we need to support.
+RandomSkillEffect
+  = "Randomly" _ head:RandomSkillEffectClause tail:(("," / _ "or") _ RandomSkillEffectClause)+ {
+    return { type: 'randomSkillEffect', effects: util.pegList(head, tail, 2) };
+  }
+
+RandomSkillEffectClause = effect:(Heal) _ "(" chance:Integer "%)" { return { effect, chance }; }
+
+
+// --------------------------------------------------------------------------
+// Common status logic (shared between skillParser and statusParser)
+
+StatusClause
+  = _ clause:(
+    duration:Duration { return { duration }; }
+    / who:Who ("," _ / _ "and") _ toCharacter:CharacterNameAndList ", if in the party," ? { return { who, toCharacter }; } // See, e.g., Ward SASB
+    / who:WhoList { return { who }; }
+    / who:Who { return { who }; }
+    / "to" _ toCharacter:CharacterNameAndList { return { toCharacter }; }
+    / perUses:PerUses { return { perUses }; }
+    / "if successful" { return { ifSuccessful: true }; }
+    / "to undeads" { return { ifUndead: true }; }
+    / condition:Condition { return { condition }; }
+    / ConditionDetail { return {}; }
+  ) {
+    return clause;
+  }
+
+StatusList
+  = head:StatusWithPercent tail:(!NextClause conj:StatusListConjunction status:StatusWithPercent { return { ...status, conj }; })* {
+    return [head, ...tail];
+  }
+
+StatusWithPercent
+  = status:StatusItem _ chance:("(" n:Integer "%)" { return n; })? _ duration:Duration? {
+    const result = {
+      status
+    };
+    if (chance) {
+      result.chance = chance;
+    }
+    if (duration) {
+      result.duration = duration;
+    }
+    return result;
+  }
+
+StatusLevel "status with level"
+  = name:StatusNameNoBrackets _ "level" _ value:Integer {
+    return { type:'statusLevel', name, value, set: true };
+  }
+  / name:StatusNameNoBrackets _ "level" _ value:SignedInteger _ max:StatusLevelMax? {
+    return { type:'statusLevel', name, value, max };
+  }
+  / value:SignedInteger _ name:StatusNameNoBrackets _ max:StatusLevelMax?
+      { return { type:'statusLevel', name, value, max }; }
+  / name:StatusNameNoBrackets
+    & {
+        statusLevelMatch = name.match(/(.*) ((?:[+-]?\d+)(?:\/[+-]?\d+)*)$/);
+        return statusLevelMatch;
+      }
+      _ max:StatusLevelMax?
+      { return { type:'statusLevel', name: statusLevelMatch[1], value: util.scalarify(statusLevelMatch[2].split('/').map(i => +i)), max }; }
+  / name:StatusNameNoBrackets
+      { return { type:'statusLevel', name, value: 1, set: true }; }
+
+StatusLevelMax
+  = "(max" _ value:Integer _ ")" { return value; }
+
+StandardStatus
+  = name:StatusName { return { type: 'standardStatus', name }; }
+
+StatusItem
+  = SmartEtherStatus / StatusLevel / StandardStatus
+
 
 // --------------------------------------------------------------------------
 // Conditions
@@ -601,61 +620,94 @@ Condition
   // "Level-like" or "counter-like" statuses, as seen on newer moves like
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
-  / "scaling" _ "with" _ status:StatusName _ "level" { return { type: 'scaleWithStatusLevel', status }; }
-  / "at" _ status:StatusName _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
-  / "if" _ "the"? _ "user" _ "has" _ status:StatusName _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
-  / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusName { return { type: 'statusLevel', status, value }; }
+  / "scaling with" _ status:StatusNameNoBrackets _ "level" { return { type: 'scaleWithStatusLevel', status }; }
+  // TODO: These two should be standardized
+  / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
+  / "at" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList plus:"+"? { return { type: 'statusLevel', status, value, plus: !!plus }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level"? _ ">" _ value:Integer { return { type: 'statusLevel', status, value: value + 1, plus: true }; }
+  / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusNameNoBrackets { return { type: 'statusLevel', status, value }; }
 
   // If Doomed - overlaps with the general status support below
-  / ("if" _ "the" _ "user" _ "has" _ "any" _ "Doom" / "with" _ "any" _ "Doom") { return { type: 'ifDoomed' }; }
+  / ("if" _ "the" _ "user" _ "has" _ "any" _ ("[Doom]" / "Doom") / "with" _ "any" _ ("[Doom]" / "Doom")) { return { type: 'ifDoomed' }; }
 
-  // General status
-  / "if" _ "the"? _ who:("user" / "target") _ "has" _ any:"any"? _ status:(StatusName (OrList StatusName)* { return text(); }) {
+  // Specific processing for slash-separated named statuses
+  / "if" _ "the"? _ who:("user" / "target") _ "has" _ status:(head:StandardStatus tail:('/' StandardStatus)+ { return util.pegList(head, tail, 1); }) {
+    return {
+      type: 'statusList',
+      status: status.map(i => ({ status: i })), // Convert to StatusWithPercent[]
+      who: who === 'user' ? 'self' : 'target',
+    };
+  }
+
+  // General status.
+  // TODO: I think the database is trying to standardize on brackets?
+  / "if" _ "the"? _ who:("user" / "target") _ withoutWith:WithoutWith _ any:"any"? _ status:(head:StatusNameNoBrackets tail:(OrList StatusNameNoBrackets)* { return util.pegList(head, tail, 1, true); }) {
     return {
       type: 'status',
       status,  // In string form - callers must separate by comma, "or", etc.
       who: who === 'user' ? 'self' : 'target',
-      any: !!any
+      any: !!any,
+      withoutWith,
+    };
+  }
+  / "if" _ "the"? _ who:("user" / "target") _ withoutWith:WithoutWith _ any:"any"? _ status:(head:StatusName tail:(OrList StatusName)* { return util.pegList(head, tail, 1, true); }) {
+    return {
+      type: 'status',
+      status,  // In string form - callers must separate by comma, "or", etc.
+      who: who === 'user' ? 'self' : 'target',
+      any: !!any,
+      withoutWith,
     };
   }
 
-  / "if current number of combined Attach Element statuses on party members are a majority Attach" _ element:ElementSlashList _ ", in the case of ties the prior listed order is used to determine status granted" {
+  / "if current number of combined Attach Element statuses on party members are a majority Attach" _ element:ElementSlashList _ (
+    ", in the case of ties the prior listed order is used to determine status granted"
+    / ". Considers number of stacks on a character as well (Attach Fire at level 2 counts as 2). In the case of ties the prior listed order is used to determine status granted"
+  ) {
     return { type: 'conditionalEnElement', element };
   }
 
   // Beginning of attacks and skills (like Passionate Salsa)
 
   // Scaling with uses - both specific counts and generically
-  / ("at" / "scaling" _ "with") _ useCount:IntegerSlashList "+"? _ "uses" { return { type: 'scaleUseCount', useCount }; }
+  / ("at" / "scaling with" / "after") _ useCount:IntegerSlashList "+"? _ ("uses" / "casts") { return { type: 'scaleUseCount', useCount }; }
   / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
-  / "after" _ useCount:UseCount _ skill:AnySkillName? _ "uses" { return { type: 'afterUseCount', skill, useCount }; }
+  / ("after" / "every") _ useCount:UseCount _ skill:AnySkillName? _ ("uses" / "activations") { return { type: 'afterUseCount', skill, useCount }; }
+  / "after" _ count:NumberString _ "uses" { return { type: 'afterUseCount', useCount: { from: count, to: count } }; }
   / "on" _ "first" _ "use" { return { type: 'afterUseCount', useCount: { from: 1, to: 1 } }; }
   / "on" _ first:Integer "+" _ "use" "s"? { return { type: 'afterUseCount', useCount: { from: first } }; }
 
   // Beginning of attack-specific conditions
   / "if" _ "all" _ "allies" _ "are" _ "alive" { return { type: 'alliesAlive' }; }
-  / "if" _ character:CharacterNameList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
-  / "if" _ count:IntegerSlashList _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
+  / "if" _ character:CharacterNameListOrPronoun _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character }; }
+  / "if" _ character:CharacterNameAndList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character, all: true }; }
+  / "if" _ character:CharacterNameListOrPronoun _ ("is" / "are") _ "not alive/alive" { return { type: 'characterAlive', character, withoutWith: 'withoutWith' }; }
+  / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
-  / "if" _ count:IntegerSlashList _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ count:IntegerSlashList? _ character:CharacterNameAndList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count, all: true }; }
+  / "if" _ count:IntegerSlashList _ "females are in the party" { return { type: 'femalesInParty', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ "females are alive" { return { type: 'femalesAlive', count }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
-  / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
-  / "if" _ count:Integer _ "or" _ "more" _ "females" _ "are" _ "in" _ "the" _ "party" { return { type: 'females', count }; }
+  / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive" / "members are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
+  / "if" _ count:Integer _ "or more females are in the party" { return { type: 'femalesInParty', count }; }
   / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
 
-  / "if" _ "the" _ "user's" _ "Doom" _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
+  / "if" _ "the" _ "user's" _ ("[Doom]" / "Doom") _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "at" _ "least" _ value:IntegerSlashList "%" { return { type: 'hpAtLeastPercent', value }; }
-  / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashList _ SB _ "points" { return { type: 'soulBreakPoints', value }; }
+  / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashList plus:"+"? _ SB _ "points" { return { type: 'soulBreakPoints', value, plus: !!plus }; }
 
-  / "if" _ count:IntegerSlashList _ "of" _ "the" _ "target's" _ "stats" _ "are" _ "lowered" { return { type: 'targetStatBreaks', count }; }
+  / "if" _ count:IntegerSlashList _ "of the target's stats are lowered" { return { type: 'targetStatBreaks', count }; }
+  / "if target has" _ count:IntegerSlashList _ "of ATK, DEF, MAG, RES or MND reduced" { return { type: 'targetStatBreaks', count }; }
   / "if" _ "the" _ "target" _ "has" _ count:IntegerSlashList _ "ailments" { return { type: 'targetStatusAilments', count }; }
 
-  / "if" _ "exploiting" _ "elemental" _ "weakness" { return { type: 'vsWeak' }; }
+  / "if exploiting elemental weakness" { return { type: 'vsWeak' }; }
+  / "if exploiting" _ element:ElementList _ "weakness" { return { type: 'vsWeak', element }; }
   / "if" _ "the"? _ "user" _ "is" _ "in" _ "the"? _ "front" _ "row" { return { type: 'inFrontRow' }; }
 
   / "if" _ "the" _ "user" _ ("took" / "has" _ "taken") _ count:IntegerSlashList _ skillType:SkillTypeList _ "hits" { return { type: 'hitsTaken', count, skillType }; }
@@ -667,17 +719,17 @@ Condition
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ school:SchoolList _ "abilities" _ "during" _ "the" _ "status" { return { type: 'abilitiesUsedDuringStatus', count, school }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ school:SchoolList _ "abilities" { return { type: 'abilitiesUsed', count, school }; }
   / "if" _ "the" _ "user" _ "used" _ count:IntegerSlashList _ element:ElementList _ "attacks" _ "during" _ "the" _ "status" { return { type: 'attacksDuringStatus', count, element }; }
-  / "if" _ value:IntegerSlashList _ "damage" _ "was" _ "dealt" _ "during" _ "the" _ "status" {
+  / "if" _ value:IntegerSlashList _ "damage was dealt during the status" {
     lastDamageDuringStatus = util.lastValue(value);
     lastDamageDuringStatusElement = undefined;
     return { type: 'damageDuringStatus', value };
   }
-  / "if" _ "the" _ "user" _ "dealt" _ value:IntegerSlashList _ "damage" _ "during" _ "the" _ "status" {
+  / "if" _ "the"? _ "user dealt" _ value:IntegerSlashList _ "damage during the status" {
     lastDamageDuringStatus = util.lastValue(value);
     lastDamageDuringStatusElement = undefined;
     return { type: 'damageDuringStatus', value };
   }
-  / "if" _ "the" _ "user" _ "dealt" _ value:IntegerSlashList _ "damage" _ "with" _ element:ElementList _ "attacks" _ "during" _ "the" _ "status" {
+  / "if" _ "the"? _ "user dealt" _ value:IntegerSlashList _ "damage with" _ element:ElementList _ "attacks during the status" {
     lastDamageDuringStatus = util.lastValue(value);
     lastDamageDuringStatusElement = element;
     return { type: 'damageDuringStatus', value, element };
@@ -691,10 +743,20 @@ Condition
 
   // Alternate status phrasing.  For example, Stone Press:
   // "One single attack (3.00/4.00/7.00) capped at 99999 at Heavy Charge 0/1/2")
-  / "at" _ status:StatusName { return { type: 'status', status, who: 'self' }; }
+  / "at" _ status:StatusNameNoBrackets { return { type: 'status', status, who: 'self' }; }
 
   // Stat thresholds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
+
+WithoutWith
+  = "hasn't/has" { return 'withoutWith'; }
+  / "hasn't" { return 'without'; }
+  / "has" { return undefined; } // default
+
+// Condition details.  These seem redundant, so they're only added to rules where
+// we know they're needed, and most are not included in the final result.
+ConditionDetail
+  = "based on triggering ability's element"
 
 
 // --------------------------------------------------------------------------
@@ -715,23 +777,13 @@ StatusVerb
   }
 
 StatusName "status effect"
-  = (
-    StatModStatusName ("/" StatModStatusName)*
-  / GenericName
-  / "?"
-  ) {
-    return text();
-  }
+  = "[" name:[^\]]+ "]" { return name.join(''); }
+  / "?" { return text(); }
 
-// Stat mods in particular have a distinctive format.
-StatModStatusName
-  = (StatModDuration1 _)? ([A-Z] [a-z]+ _)? StatList _ (SignedInteger ("/" Integer)* / [+-]? "?") '%' (_ StatModDuration2)?
+StatusNameNoBrackets = GenericName
 
-StatModDuration1
-  = "Short" / "Medium" / "Long"
-
-StatModDuration2
-  = StatModDuration1 / _ "(" Integer "s)"
+StatModDuration
+  = _ "(" Integer "s)"
 
 // These probably don't cover all abilities and characters, but it works for now.
 AbilityName
@@ -739,10 +791,14 @@ AbilityName
 CharacterName
   = UppercaseWord (_ (UppercaseWord / "of"))* (_ "(" [A-Z] [A-Za-z0-9-]+ ")")? { return text(); }
 
-// Character names, for "if X are in the party."  Return these as text so that
-// higher-level code can process them.
+// Character names, for "if X are in the party."
 CharacterNameList
-  = CharacterName ((_ "&" _ / "/" / _ "or" _) CharacterName)* { return text(); }
+  = head:CharacterName tail:(("/" / "," _ / _ "or" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+CharacterNameAndList
+  = head:CharacterName tail:(("/" / "," _ / _ "and" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+CharacterNameListOrPronoun
+  = CharacterNameList
+  / ("he" / "she" / "they") { return undefined; }
 
 // Any skill - burst commands, etc. ??? is referenced in one particular status.
 AnySkillName
@@ -761,6 +817,7 @@ GenericName
       // "100%" doesn't get parsed as a status name by itself.
       / IntegerSlashList '%' !(_ "hit" _ "rate") _ GenericNameWord
       / SignedIntegerSlashList [%+]? _ GenericNameWord
+      / "..." GenericNameWord // Rude AASB. Sigh.
     )
     (_
       (
@@ -771,11 +828,10 @@ GenericName
         / (('in' / 'or' / 'of' / 'the' / 'with' / '&' / 'a') & ' ')
         // "for" and "to" in particular needs extra logic to ensure that
         // they're part of status words instead of part of later clauses.
-        / ("for" / "to") _ GenericNameWord
+        / ("for" / "to" / "and" / "by") _ ("an" / "a")? _ GenericNameWord
 
-        / SignedIntegerSlashList [%+]?
-        / [=*]? IntegerSlashList [%+]?
-        / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) ')'
+        / [=*+-]? Integer ([%]? '/' [+-]? Integer)* [%+]?
+        / '(' ("Black Magic" / "White Magic" / [A-Za-z-0-9/]+) _ "Only"? ')'
       )
     )*
   ) {
@@ -819,16 +875,30 @@ NextClause
   )
 
 Who
-  = "to" _ "the"? _ "user" { return 'self'; }
-  / "to" _ "the" _ "target" { return 'target'; }
-  / "to" _ "all" _ "enemies" { return 'enemies'; }
-  / "to" _ "all" _ "allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
+  = ("to" / "from") _ who:WhoClause { return who; }
+
+WhoClause
+  = "the"? _ "user" { return 'self'; }
+  / "the"? _ "user" { return 'self'; }
+  / "the" _ "target" { return 'target'; }
+  / "all" _ "enemies" { return 'enemies'; }
+  / "a single ally" { return 'ally'; }
+  / "all allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
     return row || 'party';
   }
-  / "to" _ "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
-  / "to" _ "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
-  / "to" _ "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
-  / "to" _ "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
+  / "allies in the same row" { return 'sameRow'; }
+  / "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
+  / "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
+  / "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
+  / "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
+
+WhoList
+  = ("to" / "from") _ head:WhoClause _ tail:("/" WhoClause)+ { return util.pegList(head, tail, 1); }
+
+// Flexibility: Support both "two uses" and "second use"
+PerUses
+  = "on"? _ "every" _ perUses:NumberString _ ("uses" / "activations" / "cast") { return perUses; }
+  / "on"? _ "every" _ perUses:Ordinal _ ("use" / "activation" / "cast") { return perUses; }
 
 SkillType "skill type"
   = "PHY"
@@ -892,11 +962,26 @@ SchoolList "school list"
 SB = "Soul" _ "Break" / "SB"
 Maximum = "maximum" / "max" "."?
 
-// "x + yn"
-UseCount = x:IntegerSlashList y:(_ "+" _ y:Integer _ "n" { return y; }) { return { x, y }; }
+// "x1+yn/x2+yn/x3+yn"
+UseCount
+  = head:UseCountTerm tail:('/' UseCountTerm)*
+  & { for (const i of tail) { if (i[1].y !== head.y) { return false; } }; return true; }
+  {
+    const list = util.pegList(head, tail, 1, false);
+    return { x: util.scalarify(list.map(i => i.x)), y: list[0].y };
+  }
+  / head:Integer tail:('/' Integer)* _? "+" _? y:Integer "n" {
+    return { x: util.pegList(head, tail, 1, true), y };
+  }
+
+UseCountTerm
+  = x:Integer "+" y:Integer "n" { return { x, y }; }
 
 Realm "realm"
-  = "Beyond"
+  // Added pseudorealms.
+  = "Core/Beyond"
+  // Normal realms
+  / "Beyond"
   / "Core"
   / "IX"
   / "IV"
@@ -917,6 +1002,12 @@ Realm "realm"
   / "KH"
   / "Type-0"
   // Newer Enlir data writes realms this way.  TODO: Standardize?
+  / "FF10" { return 'X'; }
+  / "FF11" { return 'XI'; }
+  / "FF12" { return 'XII'; }
+  / "FF13" { return 'XIII'; }
+  / "FF14" { return 'XIV'; }
+  / "FF15" { return 'XV'; }
   / "FF1" { return 'I'; }
   / "FF2" { return 'II'; }
   / "FF3" { return 'III'; }
@@ -926,12 +1017,26 @@ Realm "realm"
   / "FF7" { return 'VII'; }
   / "FF8" { return 'VIII'; }
   / "FF9" { return 'IX'; }
-  / "FF10" { return 'X'; }
-  / "FF11" { return 'XI'; }
-  / "FF12" { return 'XII'; }
-  / "FF13" { return 'XIII'; }
-  / "FF14" { return 'XIV'; }
-  / "FF15" { return 'XV'; }
+  // Even newer data, seen in realmBoost.  TODO: Standardize!
+  / "FF IX" { return "IX"; }
+  / "FF IV" { return "IV"; }
+  / "FF FFT" { return "FFT"; }
+  / "FF III" { return "III"; }
+  / "FF II" { return "II"; }
+  / "FF I" { return "I"; }
+  / "FF VIII" { return "VIII"; }
+  / "FF VII" { return "VII"; }
+  / "FF VI" { return "VI"; }
+  / "FF V" { return "V"; }
+  / "FF XV" { return "XV"; }
+  / "FF XIV" { return "XIV"; }
+  / "FF XIII" { return "XIII"; }
+  / "FF XII" { return "XII"; }
+  / "FF XI" { return "XI"; }
+  / "FF X" { return "X"; }
+  / "Tactics" { return "FFT"; }
+
+DamageCapValue = ('9999' / [1-9] '9999') { return parseInt(text()); }
 
 
 // --------------------------------------------------------------------------
@@ -943,10 +1048,17 @@ AndList
 OrList
   = (',' _ 'or'? _) / (_ 'or' _)
 
+StatusListConjunction
+  = ', and' _ { return 'and'; }
+  / _ 'and' _ { return 'and'; }
+  / _ 'or' _ { return 'or'; }
+  / ',' _ { return ','; }
+  / '/' { return '/'; }
+
 NumberString "numeric text"
   = numberString:[a-zA-Z\-]+
-  & { parsedNumberString = util.parseNumberString(numberString.join('')); return parsedNumberString != null; }
-  { return parsedNumberString; }
+  & { parsedNumberResult = util.parseNumberString(numberString.join('')); return parsedNumberResult != null; }
+  { return parsedNumberResult; }
 
 
 DecimalNumber "decimal number"
@@ -954,6 +1066,9 @@ DecimalNumber "decimal number"
 
 Integer "integer"
   = ([0-9]+ / '?') { return parseInt(text(), 10); }
+
+PercentInteger "percentage"
+  = ([0-9]+ '%' / '?') { return parseInt(text(), 10); }
 
 SignedInteger "signed integer"
   = sign:[+-] _ value:[0-9]+ { return parseInt(sign + value.join(''), 10); }
@@ -965,8 +1080,15 @@ IntegerWithNegatives "integer (optionally negative)"
 DecimalNumberSlashList "slash-separated decimal numbers"
   = head:DecimalNumber tail:('/' DecimalNumber)* { return util.pegSlashList(head, tail); }
 
+DecimalNumberPercentSlashList "slash-separated decimal numbers"
+  = head:DecimalNumber '%'? tail:('/' DecimalNumber '%'?)* { return util.pegSlashList(head, tail); }
+
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }
+
+PercentSlashList "slash-separated percent integers"
+  = head:PercentInteger tail:('/' PercentInteger)* { return util.pegSlashList(head, tail); }
+  / list:IntegerSlashList "%" { return list; }
 
 // An IntegerSlashList with support for ranges like 1/2-3/4
 IntegerRangeSlashList "slash-separated integer ranges"
@@ -997,7 +1119,15 @@ IntegerAndList "integers separated with commas and 'and'"
 Occurrence
   = "once" { return 1; }
   / "twice" { return 2; }
-  / count:NumberString _ "time" "s"? { return count; }
+  / count:(NumberString / Integer) _ "time" "s"? { return count; }
+
+
+Ordinal
+  = "first" { return 1; }
+  / "second" { return 2; }
+  / "third" { return 3; }
+  / "fourth" { return 4; }
+  / "fifth" { return 5; }
 
 
 UppercaseWord

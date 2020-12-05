@@ -90,7 +90,7 @@ export interface OrbCost {
 export function getOrbCosts(ability: EnlirAbility): OrbCost[] {
   return _.toPairs(ability.orbs)
     .filter(([i]) => i !== 'Ability Record' && !i.match(/Record Board/))
-    .sort(([orbName, costs]) => -costs[0])
+    .sort(([, costsA], [, costsB]) => costsB[0] - costsA[0])
     .map(([orbName, costs]) => {
       const [orbType, rarity] = parseOrb(orbName);
       const cost = orbCostLookup[_.sum(costs)] as CostType;

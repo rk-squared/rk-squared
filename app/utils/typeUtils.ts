@@ -26,7 +26,9 @@ export function compareWithUndefined<T>(compare: (a: T, b: T) => number) {
 }
 
 export function isAllSame<T>(values: T[], iteratee?: (value: T) => any): boolean {
-  if (!iteratee) {
+  if (!values.length) {
+    return true;
+  } else if (!iteratee) {
     const first = values[0];
     return _.every(values, i => i === first);
   } else {
@@ -37,11 +39,15 @@ export function isAllSame<T>(values: T[], iteratee?: (value: T) => any): boolean
 
 export function getAllSameValue<T>(values: T[], iteratee?: (value: T) => any): T | null {
   iteratee = iteratee || _.identity;
-  if (isAllSame(values, iteratee)) {
+  if (values.length && isAllSame(values, iteratee)) {
     return iteratee(values[0]);
   } else {
     return null;
   }
+}
+
+export function getSign(value: number): number {
+  return value === 0 ? 0 : value > 0 ? 1 : -1;
 }
 
 /**

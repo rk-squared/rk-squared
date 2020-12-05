@@ -19,8 +19,8 @@ import * as _ from 'lodash';
 // TypeScript warnings.
 import { OAuth2Client } from 'google-auth-library';
 
+import { logger } from '../app/utils/logger';
 import { authorize, enlirSpreadsheetIds, loadEnlirCredentials, workPath } from './enlirClient';
-import { logger } from './logger';
 
 // tslint:disable no-console
 
@@ -36,7 +36,7 @@ const toFloat = (value: string) =>
 const toString = (value: string) => (value === '' ? null : value);
 const checkToBool = (value: string) => value === '✓';
 const toDate = (value: string) => {
-  if (!value) {
+  if (!value || value === '?') {
     return null;
   }
   const m = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
@@ -52,6 +52,7 @@ function dashAs<TDash, TValue>(
 ): (value: string) => TValue | TDash {
   return (value: string) => (value === '-' ? dashValue : f(value));
 }
+const dashBlank = <T>(f: (value: string) => T) => dashAs('', f);
 const dashNull = <T>(f: (value: string) => T) => dashAs(null, f);
 function toCommaSeparatedArray<T>(f: (value: string | null) => T): (value: string) => T[] | null {
   return (value: string) => (value == null || value === '' ? null : value.split(', ').map(f));
@@ -103,7 +104,7 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Multiplier: toFloat,
   Element: dashAs([], toCommaSeparatedArray(toStringWithLookup(elementAbbreviations))),
   Time: toFloat,
-  Effects: toStringWithDecimals,
+  Effects: dashBlank(toStringWithDecimals),
   Counter: toBool,
   'Auto Target': toString,
   SB: toInt,
@@ -179,8 +180,8 @@ function convertAbilities(rows: any[], notes?: NotesRowData[]): any[] {
         // The spreadsheet used to have blank column names for orb costs.  Now,
         // it has columns 1-R1 through 4-R5.  We could perhaps simplify our code
         // by taking advantage of those numbers.
-        if (rows[i][j] && orb !== '-') {
-          if (rows[i][j] !== '-' && (orb == null || orb === '' || orb === '-')) {
+        if (rows[i][j] && orb !== '-' && orb !== null) {
+          if (rows[i][j] !== '-' && (orb === '' || orb === '-')) {
             throw new Error(`Got orb count with no orb at row ${i} column ${j}`);
           } else if (!item.orbs[orb].length && (rows[i][j] === '?' || rows[i][j] === '')) {
             // Record Board rank 1 has no orb costs, but the spreadsheet may
@@ -210,7 +211,10 @@ function convertAbilities(rows: any[], notes?: NotesRowData[]): any[] {
  * although it doesn't currently need it.
  */
 function postProcessAbilities(abilities: any[]) {
-  const recordBoardCharacterRegex = / \((.*) Only\)$/;
+  // We're looking for abilities ending in "(Character only)".  Allow a single
+  // pair of nested parenthesis but no more, so that we can handle names like
+  // "(Cecil (Paladin) Only)" and "Jump (III) (Luneth Only)".
+  const recordBoardCharacterRegex = / \(([^()]+(?:\([^()]+\))?) Only\)$/;
   _.forEach(abilities, ability => {
     const orbs = Object.keys(ability.orbs);
     const m = ability.name.match(recordBoardCharacterRegex);
@@ -386,7 +390,7 @@ function convertLegendMateria(rows: any[]): any[] {
       }
 
       const field = _.camelCase(col);
-      if (field === 'relic') {
+      if (field === 'relic' || field === 'tier') {
         item[field] = dashNull(toString)(rows[i][j]);
       } else if (isAnima(col)) {
         item['anima'] = toInt(rows[i][j]);

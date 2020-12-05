@@ -1,16 +1,19 @@
 import * as _ from 'lodash';
 
 import { logger } from '../../utils/logger';
-import { arrayify } from '../../utils/typeUtils';
+import { arrayify, scalarify } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import * as statusTypes from './statusTypes';
 import { parseNumberString } from './util';
 
+const flatten = _.flatten;
 const isEqual = _.isEqual;
-export { arrayify, parseNumberString, isEqual };
+export { arrayify, flatten, isEqual, parseNumberString, scalarify };
 
-export { synchroStatusLevelAlias } from './statusAlias';
+const placeholder = common.placeholder;
+const negativePlaceholder = common.negativePlaceholder;
+export { placeholder, negativePlaceholder };
 
 export function lastValue(value: number | number[]): number {
   value = arrayify(value);
@@ -46,6 +49,15 @@ export function pegMultiList(head: any, tails: [any, number], forceSingle: boole
 
 export function pegSlashList(head: any, tail: any): any[] {
   return pegList(head, tail, 1, true);
+}
+
+export function removeTrailingNumberSlashList(s: string) {
+  const m = s.match(/(.*) (\d+(?:\/\d+)*)(\+)?$/);
+  if (!m) {
+    return { count: undefined, plus: undefined };
+  } else {
+    return { skill: m[1], count: m[2].split('/').map(i => +i), plus: !!m[3] };
+  }
 }
 
 export function addCondition<T>(
@@ -109,11 +121,10 @@ export function mergeAttackExtras(
  * complicates higher-level code, so separate them out.
  */
 export function separateStatusAndSb(effects: statusTypes.EffectClause[]): void {
-  type RawStatusItem = statusTypes.StatusWithPercent | statusTypes.GainSb;
+  type RawStatusItem = common.StatusWithPercent | statusTypes.GainSb;
   const isGainSb = (item: RawStatusItem): item is statusTypes.GainSb =>
     typeof item === 'object' && 'type' in item && item.type === 'gainSb';
-  const isStatusItem = (item: RawStatusItem): item is statusTypes.StatusWithPercent =>
-    !isGainSb(item);
+  const isStatusItem = (item: RawStatusItem): item is common.StatusWithPercent => !isGainSb(item);
 
   for (const i of effects) {
     if (i.type === 'triggeredEffect') {
@@ -151,5 +162,16 @@ export function checkSelfSkillTrigger(effects: statusTypes.EffectClause[]): void
         }
       }
     }
+  }
+}
+
+export function applyDuration(
+  statuses: common.StatusWithPercent | common.StatusWithPercent[],
+  duration: common.Duration,
+) {
+  if (!Array.isArray(statuses)) {
+    statuses.duration = duration;
+  } else {
+    statuses[statuses.length - 1].duration = duration;
   }
 }

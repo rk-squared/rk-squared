@@ -1739,8 +1739,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Two group attacks (1.00 each), damages the user for 12.5% max HP",
-    "effectsNote": "[JP 7-12-19]\n12.5% max HP recoil  -> 10% max HP recoil",
+    "effects": "Two group attacks (1.00 each), damages the user for 10% max HP",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 50,
@@ -6132,7 +6131,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (0.56 each), [Desperate Madness] and [Radiant Shield 100%/125%/150%/175%/200%/225%/250%/275%/300%] to the user",
+    "effects": "Four single attacks (0.56 each), [Desperate Madness] and [Radiant Shield: 100%/125%/150%/175%/200%/225%/250%/275%/300%] scaling with uses to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 50,
@@ -6176,8 +6175,7 @@
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.51 each), damages the user for 12.5% max HP",
-    "effectsNote": "[JP 7-12-19]\n12.5% max HP recoil  -> 10% max HP recoil",
+    "effects": "Five single attacks (0.51 each), damages the user for 10% max HP",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 50,
@@ -11060,7 +11058,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "-",
+    "effects": "",
     "counter": false,
     "autoTarget": "Self",
     "sb": 180,

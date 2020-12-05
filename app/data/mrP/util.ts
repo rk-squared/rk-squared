@@ -9,7 +9,7 @@
 import * as _ from 'lodash';
 
 import { andJoin } from '../../utils/textUtils';
-import { arrayify, isAllSame } from '../../utils/typeUtils';
+import { arrayify, getAllSameValue, getSign, isAllSame } from '../../utils/typeUtils';
 import * as common from './commonTypes';
 import { allElementsShortName } from './typeHelpers';
 
@@ -49,6 +49,19 @@ const numbers: { [s: string]: number } = {
   ninety: 90,
 };
 
+const tuple: Array<string | undefined> = [
+  undefined,
+  undefined,
+  'dual',
+  'triple',
+  'quad',
+  'penta',
+  'hex',
+  'sext',
+];
+
+export const tupleVerb = (count: number, verb: string) => (tuple[count] || `${count}-`) + verb;
+
 export function isNumeric(s: string): boolean {
   return !isNaN(Number(s));
 }
@@ -58,6 +71,7 @@ export function lowerCaseFirst(s: string): string {
 }
 
 export const numberOrUnknown = (n: number) => (isNaN(n) ? '?' : n.toString());
+export const absNumberOrUnknown = (n: number) => (isNaN(n) ? '?' : Math.abs(n).toString());
 export const fixedNumberOrUnknown = (n: number, fractionDigits: number) =>
   isNaN(n) ? '?' : n.toFixed(fractionDigits);
 
@@ -80,6 +94,42 @@ export function formatSignedIntegerSlashList(n: number | number[]): string {
   // Explicitly join with slashes - using hyphens to join negative numbers
   // looks weird.
   return (n[0] < 0 ? '-' : '+') + n.map(i => (isNaN(i) ? '?' : Math.abs(i))).join('/');
+}
+
+/**
+ * Newer alternative to formatNumberSlashList. TODO - Clean up
+ * @param n
+ * @param converter
+ * @param joinString
+ */
+export function numberSlashList(
+  n: number | number[],
+  converter: (n: number) => string = numberOrUnknown,
+  joinString = '/',
+) {
+  const values = arrayify(n).map(converter);
+
+  if (values.length >= 8) {
+    // Hack: Abbreviate particularly long lists.
+    return (
+      values[0] + joinString + values[1] + joinString + '…' + joinString + values[values.length - 1]
+    );
+  } else {
+    return values.join(joinString);
+  }
+}
+
+export function signedNumberSlashList(n: number | number[], joinString = '/') {
+  const sign = getAllSameValue(arrayify(n).filter(i => i !== 0 && !isNaN(i)), getSign);
+  if (sign == null) {
+    return numberSlashList(n, signedNumber, joinString);
+  } else {
+    return (sign === -1 ? '-' : '+') + numberSlashList(n, absNumberOrUnknown, joinString);
+  }
+}
+
+export function stringSlashList(s: string | string[], joinString = '/') {
+  return arrayify(s).join(joinString);
 }
 
 /**
@@ -114,22 +164,6 @@ export function parseNumberString(s: string): number | null {
 
 export function parseThresholdValues(s: string): number[] {
   return s.split('/').map(parseFloat);
-}
-
-export function parsePercentageCounts(s: string): Array<[number, number]> | null {
-  const result: Array<[number, number]> = [];
-  for (const i of s.split(orList)) {
-    const m = i.match(/([A-Za-z\-]+) \((\d+)%\)/);
-    if (!m) {
-      return null;
-    }
-    const count = parseNumberString(m[1]);
-    if (count == null) {
-      return null;
-    }
-    result.push([count, +m[2]]);
-  }
-  return result;
 }
 
 export function toMrPFixed(n: number): string {
@@ -170,33 +204,11 @@ export function toMrPKilo(n: number | string, favorSmall: boolean = false): stri
   }
 }
 
-/**
- * General-purpose formatting for a term that might be number-like
- */
-export function toMrPGeneral(s: string): string {
-  if (!isNumeric(s)) {
-    return s;
-  } else {
-    let result: string;
-    if (s.indexOf('.') !== -1) {
-      result = toMrPFixed(+s);
-    } else {
-      result = s;
-    }
-    return (s.startsWith('+') ? '+' : '') + result;
-  }
-}
-
 export function signedNumber(x: number): string {
   if (isNaN(x)) {
     return '+?';
   }
   return (x >= 0 ? '+' : '') + x;
-}
-
-// https://stackoverflow.com/a/2901298/25507
-export function numberWithCommas(x: number): string {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 export function joinOr<T>(items: T[]): string {
@@ -252,15 +264,19 @@ function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
 
   let result = '';
   let same = 0;
+  let sameChars = 0;
   let different = 0;
+  let differentChars = 0;
   for (let i = 0; i < minLength; i++) {
     if (isAllSame(optionParts, parts => parts[i])) {
       result += optionParts[0][i];
       same++;
+      sameChars += optionParts[0][i].length;
     } else {
       const mergeParts = optionParts.filter(parts => parts[i] !== undefined).map(parts => parts[i]);
       result += join(mergeParts);
       different++;
+      differentChars += _.max(mergeParts.map(p => p.length)) || 0;
     }
   }
 
@@ -280,7 +296,7 @@ function rawSlashMerge(options: string[], opt: InternalSlashMergeOptions) {
     different += maxLength - minLength;
   }
 
-  return { result, same, different };
+  return { result, same, sameChars, different, differentChars };
 }
 
 export function slashMergeWithDetails(options: string[], opt: SlashMergeOptions = {}) {
@@ -308,7 +324,11 @@ export function slashMergeWithDetails(options: string[], opt: SlashMergeOptions 
   // use slashes here?  Unfortunately, MrP isn't completely consistent - a lot
   // depends on whether the clauses we're separating use slashes or hyphens
   // internally.)
-  const mergeFailed = picked.same < picked.different;
+  //
+  // Add a character-count fudge factor to address issues like Squall SASB.
+  const mergeFailed =
+    picked.same < picked.different ||
+    (picked.sameChars * 1.5 < picked.differentChars && picked.differentChars > 20);
   if (mergeFailed) {
     result = options.join(enDashJoin);
   }

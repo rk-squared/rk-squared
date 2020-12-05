@@ -1,4 +1,4 @@
-import { EnlirElement, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
+import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
 import * as common from './commonTypes';
 
 export type StatusEffect = EffectClause[];
@@ -10,6 +10,7 @@ export type EffectClause =
   | HitRate
   | Ko
   | LastStand
+  | Raise
   | Reraise
   | StatusChance
   | StatusStacking
@@ -42,9 +43,10 @@ export type EffectClause =
   | AbilityBuildup
   | RankBoost
   | DamageUp
+  | RealmBoost
   | AbilityDouble
-  | Dualcast
-  | DualcastAbility
+  | Multicast
+  | MulticastAbility
   | NoAirTime
   | BreakDamageCap
   | DamageCap
@@ -56,6 +58,7 @@ export type EffectClause =
   | Pain
   | DamageTaken
   | BarHeal
+  | EmpowerHeal
   | Doom
   | DoomTimer
   | DrainHp
@@ -63,8 +66,10 @@ export type EffectClause =
   | RowCover
   | TriggeredEffect
   | ConditionalStatus
+  | DirectGrantStatus
   | GainSb
   | SbGainUp
+  | GainLb
   | Taunt
   | Runic
   | ImmuneAttacks
@@ -76,7 +81,6 @@ export type EffectClause =
   | AbilityBerserk
   | TurnDuration
   | RemovedUnlessStatus
-  | OnceOnly
   | RemovedAfterTrigger
   | TrackStatusLevel
   | ChangeStatusLevel
@@ -89,30 +93,31 @@ export type EffectClause =
   | BurstReset
   | StatusReset
   | DisableAttacks
-  | Paralyze;
+  | Paralyze
+  | Stun;
 
 // --------------------------------------------------------------------------
 // Stat mods
 
 export interface StatMod {
   type: 'statMod';
-  stats: EnlirStat | EnlirStat[];
-  value: number;
-  valueIsUncertain?: boolean;
+  stats: common.ValueOrPlaceholder<EnlirStat | EnlirStat[]>;
+
+  // Special case: Alternative status for hybrid effects, merged by mergeSimilarStatuses
+  hybridStats: EnlirStat | EnlirStat[];
+
+  value: common.SignedValueOrPlaceholder<number | number[]>;
   ignoreBuffCap?: boolean;
 }
 
 export interface CritChance {
   type: 'critChance';
-  value: number | number[];
-  valueIsUncertain?: boolean;
-  trigger?: Trigger;
+  value: common.ValueOrPlaceholder<number | number[]>;
 }
 
 export interface CritDamage {
   type: 'critDamage';
-  value: number;
-  valueIsUncertain?: boolean;
+  value: common.ValueOrPlaceholder<number>;
 }
 
 export interface HitRate {
@@ -125,20 +130,19 @@ export interface HitRate {
 
 export interface StatusChance {
   type: 'statusChance';
-  value: number;
-  valueIsUncertain?: boolean;
-  status?: common.StatusName;
+  value: common.ValueOrPlaceholder<number>;
+  status?: string;
 }
 
 export interface StatusStacking {
   type: 'statusStacking';
-  status: common.StatusName;
+  status: string;
   level: number;
 }
 
 export interface PreventStatus {
   type: 'preventStatus';
-  status: common.StatusName[];
+  status: string[];
 }
 
 // --------------------------------------------------------------------------
@@ -154,11 +158,9 @@ interface Instacast extends ForAbilities {
   type: 'instacast';
 }
 
-interface CastSpeed extends ForAbilities {
+export interface CastSpeed extends ForAbilities {
   type: 'castSpeed';
-  value: number | number[];
-  valueIsUncertain?: boolean;
-  trigger?: Trigger;
+  value: common.ValueOrPlaceholder<number | number[]>;
 }
 
 export interface CastSpeedBuildup {
@@ -179,7 +181,8 @@ interface AtbSpeed {
 }
 
 interface ForAbilities {
-  school?: EnlirSchool | EnlirSchool[];
+  // As of November 2020, only CastSpeed (SchoolCastSpeed) uses a placeholder.
+  school?: common.ValueOrPlaceholder<EnlirSchool | EnlirSchool[]>;
   element?: EnlirElement | EnlirElement[];
   magical?: boolean;
   jump?: boolean;
@@ -214,13 +217,13 @@ interface ElementBlink {
 interface Stoneskin {
   type: 'stoneskin';
   element?: EnlirElement;
-  percentHp: number;
+  value: number | number[]; // percent HP
 }
 
 interface MagiciteStoneskin {
   type: 'magiciteStoneskin';
   element: EnlirElement;
-  percentHp: number;
+  value: number; // percent HP
 }
 
 interface FixedStoneskin {
@@ -229,23 +232,23 @@ interface FixedStoneskin {
   damage: number;
 }
 
-interface DamageBarrier {
+export interface DamageBarrier {
   type: 'damageBarrier';
-  value: number;
+  value: number | number[];
   attackCount: number;
 }
 
 // --------------------------------------------------------------------------
 // Radiant shield, reflect
 
-interface RadiantShield {
+export interface RadiantShield {
   type: 'radiantShield';
-  value: number;
+  value: number | number[];
   element?: EnlirElement;
   overflow: boolean;
 }
 
-interface Reflect {
+export interface Reflect {
   type: 'reflect';
 }
 
@@ -285,30 +288,30 @@ interface SwitchDrawStacking {
 
 interface ElementAttack {
   type: 'elementAttack';
-  element: EnlirElement;
-  value: number;
+  element: EnlirElement | EnlirElement[];
+  value: number | number[];
+  trigger?: Trigger;
 }
 
 interface ElementResist {
   type: 'elementResist';
-  element: EnlirElement;
-  value: number;
-  valueIsUncertain?: boolean;
+  element: common.ValueOrPlaceholder<EnlirElement | EnlirElement[]>;
+  value: common.SignedValueOrPlaceholder<number | number[]>;
 }
 
 interface EnElement {
   type: 'enElement';
-  element: EnlirElement;
+  element: EnlirElement | EnlirElement[];
 }
 
 interface EnElementStacking {
   type: 'enElementStacking';
-  element: EnlirElement;
+  element: EnlirElement | EnlirElement[];
 }
 
 interface EnElementWithStacking {
   type: 'enElementWithStacking';
-  element: EnlirElement;
+  element: EnlirElement | EnlirElement[];
   level: number;
 }
 
@@ -337,6 +340,13 @@ interface DamageUp extends DamageUpType {
   type: 'damageUp';
   value: number | number[];
   trigger?: Trigger;
+  condition?: common.Condition;
+}
+
+interface RealmBoost {
+  type: 'realmBoost';
+  realm: EnlirRealm;
+  value: number;
 }
 
 interface AbilityDouble {
@@ -345,15 +355,17 @@ interface AbilityDouble {
   school: EnlirSchool | EnlirSchool[];
 }
 
-interface Dualcast {
-  type: 'dualcast';
+interface Multicast {
+  type: 'multicast';
+  count: number;
   chance: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
 }
 
-interface DualcastAbility {
-  type: 'dualcastAbility';
+interface MulticastAbility {
+  type: 'multicastAbility';
+  count: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
 }
@@ -391,8 +403,7 @@ interface DamageCap {
 
 interface HpStock {
   type: 'hpStock';
-  value: number;
-  valueIsUncertain?: boolean;
+  value: common.ValueOrPlaceholder<number | number[]>;
 }
 
 interface Regen {
@@ -418,6 +429,7 @@ interface HealUp {
   type: 'healUp';
   value: number;
   school?: EnlirSchool | EnlirSchool[];
+  skillType?: EnlirSkillType;
 }
 
 interface Pain {
@@ -435,6 +447,11 @@ interface BarHeal {
   value: number;
 }
 
+interface EmpowerHeal {
+  type: 'empowerHeal';
+  value: number;
+}
+
 // --------------------------------------------------------------------------
 // Inflict / resist KO
 
@@ -444,6 +461,11 @@ interface Ko {
 
 interface LastStand {
   type: 'lastStand';
+}
+
+interface Raise {
+  type: 'raise';
+  value: number;
 }
 
 interface Reraise {
@@ -504,8 +526,9 @@ export interface TriggeredEffect {
   type: 'triggeredEffect';
   effects: TriggerableEffect | TriggerableEffect[];
   trigger: Trigger;
+  triggerDetail?: TriggerDetail;
   condition?: common.Condition;
-  onceOnly?: boolean;
+  onceOnly?: boolean | number; // A number indicates twice, 3x, etc.
 }
 
 export type TriggerableEffect =
@@ -516,7 +539,11 @@ export type TriggerableEffect =
   | Heal
   | RecoilHp
   | TriggerChance
-  | common.SmartEtherStatus;
+  | common.SmartEtherStatus
+  | common.DispelOrEsuna
+  // Beginning of "regular" effects (may also be standalone)
+  | CritChance
+  | CastSpeed;
 
 export interface CastSkill {
   type: 'castSkill';
@@ -528,19 +555,28 @@ export interface RandomCastSkill {
   skill: common.OrOptions<string>;
 }
 
+// Note: Significant overlap between skillTypes.StatusEffect and statusTypes.GrantStatus
 export interface GrantStatus {
   type: 'grantStatus';
   verb: common.StatusVerb;
-  status: StatusWithPercent | StatusWithPercent[];
+  status: common.StatusWithPercent | common.StatusWithPercent[];
+
   who?: common.Who;
-  duration?: common.Duration;
+  toCharacter?: string | string[];
+  ifUndead?: boolean;
   condition?: common.Condition;
+}
+
+export interface DirectGrantStatus {
+  type: 'directGrantStatus';
+  status: common.StatusWithPercent | common.StatusWithPercent[];
+  duration?: common.Duration;
 }
 
 interface Heal {
   type: 'heal';
   fixedHp: number;
-  who: common.Who;
+  who?: common.Who;
 }
 
 interface TriggerChance {
@@ -556,21 +592,15 @@ export interface RecoilHp {
   maxOrCurrent: 'max' | 'curr';
 }
 
-// Note: Compatible with, but simpler than, skillTypes.StatusWithPercent
-export interface StatusWithPercent {
-  status: common.StatusName;
-  chance?: number;
-}
-
 // --------------------------------------------------------------------------
 // Conditional status
 
 export interface ConditionalStatus {
   type: 'conditionalStatus';
   verb: common.StatusVerb;
-  status: StatusWithPercent | StatusWithPercent[];
+  status: common.StatusWithPercent | common.StatusWithPercent[];
   who?: common.Who;
-  duration?: common.Duration;
+  toCharacter?: string | string[];
   condition: common.Condition;
 }
 
@@ -587,6 +617,12 @@ interface SbGainUp {
   value: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
+  vsWeak?: true;
+}
+
+export interface GainLb {
+  type: 'gainLb';
+  value: number;
 }
 
 // --------------------------------------------------------------------------
@@ -621,8 +657,7 @@ interface EvadeAll {
 
 interface MultiplyDamage {
   type: 'multiplyDamage';
-  value: number;
-  valueIsUncertain?: boolean;
+  value: common.ValueOrPlaceholder<number>;
 }
 
 // --------------------------------------------------------------------------
@@ -652,12 +687,10 @@ export interface TurnDuration {
 export interface RemovedUnlessStatus {
   type: 'removedUnlessStatus';
   any: boolean;
-  status: common.StatusName;
+  status: string;
 }
 
-export interface OnceOnly {
-  type: 'onceOnly';
-}
+// onceOnly is merged into TriggeredEffect rather than getting its own type.
 
 export interface RemovedAfterTrigger {
   type: 'removedAfterTrigger';
@@ -669,27 +702,28 @@ export interface RemovedAfterTrigger {
 
 interface TrackStatusLevel {
   type: 'trackStatusLevel';
-  status: common.StatusName;
-  max: number;
-  current: number;
+  status: string;
+  max?: number;
+  current?: common.ValueOrPlaceholder<number>;
 }
 
-interface ChangeStatusLevel {
+export interface ChangeStatusLevel {
   type: 'changeStatusLevel';
-  status: common.StatusName;
+  status: string;
   value: number;
   trigger?: Trigger;
 }
 
 interface SetStatusLevel {
   type: 'setStatusLevel';
-  status: common.StatusName;
+  status: string;
   value: number;
+  trigger?: Trigger;
 }
 
 interface StatusLevelBooster {
   type: 'statusLevelBooster';
-  status: common.StatusName;
+  status: string;
   value: number;
 }
 
@@ -702,7 +736,8 @@ interface BurstToggle {
 
 interface TrackUses {
   type: 'trackUses';
-  skill: string;
+  skill?: string;
+  element?: EnlirElement | EnlirElement[];
 }
 
 interface ModifiesSkill {
@@ -720,7 +755,7 @@ interface BurstReset {
 
 interface StatusReset {
   type: 'statusReset';
-  status: common.StatusName;
+  status: string;
 }
 
 interface DisableAttacks {
@@ -731,6 +766,10 @@ interface DisableAttacks {
 
 interface Paralyze {
   type: 'paralyze';
+}
+
+interface Stun {
+  type: 'stun';
 }
 
 // --------------------------------------------------------------------------
@@ -752,8 +791,8 @@ export type Trigger =
   | { type: 'auto'; interval: number }
   | { type: 'damaged'; skillType?: EnlirSkillType }
   | { type: 'dealDamage' }
-  | { type: 'loseStatus'; status: common.StatusName }
-  | { type: 'skill'; skill: string | string[]; count?: number }
+  | { type: 'loseStatus'; status: string }
+  | { type: 'skill'; skill: string | string[]; count?: number | number[]; plus?: number }
   | { type: 'skillTriggered'; skill: string; count: number; isSelfSkill?: boolean }
   | {
       type: 'damagedByAlly';
@@ -761,7 +800,17 @@ export type Trigger =
       element: common.OrOptions<EnlirElement>;
     }
   | { type: 'singleHeal' }
-  | { type: 'lowHp'; value: number };
+  | { type: 'lowHp'; value: number }
+  | { type: 'damageDuringStatus'; value: number | number[] }
+  | {
+      type: 'allyAbility';
+      element?: common.OrOptions<EnlirElement>;
+      school?: EnlirSchool | EnlirSchool[];
+      count: TriggerCount;
+      jump: boolean;
+      requiresDamage: boolean;
+      requiresAttack: boolean;
+    };
 
 export type TriggerCount =
   | common.UseCount
@@ -769,3 +818,7 @@ export type TriggerCount =
       values: number | number[];
       plus?: boolean;
     };
+
+export interface TriggerDetail {
+  element?: EnlirElement | EnlirElement[];
+}

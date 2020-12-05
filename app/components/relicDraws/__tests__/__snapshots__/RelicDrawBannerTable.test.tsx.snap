@@ -72,6 +72,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -106,6 +112,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -127,7 +139,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           Essence of Water
         </td>
         <td>
-          instant party h85, Regenga, -10% ice vuln. 15s, -10% water vuln. 15s, self fastcast 15s
+          instant party h85, Regenga, -10% ice/water vuln. 15s, self fastcast 15s
         </td>
       </tr>
       <tr
@@ -137,6 +149,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           rowSpan={2}
         >
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td
           rowSpan={2}
@@ -179,6 +197,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -213,6 +237,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Bartz
+          <br />
         </td>
         <td>
           <img
@@ -247,6 +272,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Krile
+          <br />
         </td>
         <td>
           <img
@@ -281,6 +307,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -315,6 +347,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -344,6 +382,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -373,6 +417,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -402,6 +452,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -435,6 +491,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -468,6 +530,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -501,6 +569,12 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 1 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -610,384 +684,29 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
     </thead>
     <tbody>
       <tr
-        className="legendMateria"
-      >
-        <td>
-          Lenna
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Hat"
-          />
-           
-          Laurel Crown
-        </td>
-        <td
-          className="tier"
-        >
-          <span
-            className="legendMateriaTier"
-          >
-            LMR
-          </span>
-        </td>
-        <td
-          className="name"
-        >
-          Impartial Kindness
-        </td>
-        <td>
-          (W.Mag ⤇ 25% for party h25)
-        </td>
-        <td>
-          13
-          %
-        </td>
-      </tr>
-      <tr
-        className="legendMateria"
+        className="ultra"
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
             className="relicType"
             src="test-file-stub"
-            title="Shield"
+            title="Axe"
           />
            
-          Golden Shield+
-        </td>
-        <td
-          className="tier"
-        >
-          <span
-            className="legendMateriaTier"
-          >
-            LMR2
-          </span>
-        </td>
-        <td
-          className="name"
-        >
-          Hereditary Skill
-        </td>
-        <td>
-          1.25x Spellblade dmg if using a sword
-        </td>
-        <td>
-          12
-          %
-        </td>
-      </tr>
-      <tr
-        className="legendMateria"
-      >
-        <td>
-          Krile
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Light Armor"
-          />
-           
-          Minerva Bustier
-        </td>
-        <td
-          className="tier"
-        >
-          <span
-            className="legendMateriaTier"
-          >
-            LMR3
-          </span>
-        </td>
-        <td
-          className="name"
-        >
-          Innate Cheer
-        </td>
-        <td>
-          earth infuse at battle start
-        </td>
-        <td>
-          11
-          %
-        </td>
-      </tr>
-      <tr
-        className="legendMateria"
-      >
-        <td>
-          Faris
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Spear"
-          />
-           
-          Longinus
-        </td>
-        <td
-          className="tier"
-        >
-          <span
-            className="legendMateriaTier"
-          >
-            LMR2
-          </span>
-        </td>
-        <td
-          className="name"
-        >
-          Rabble Wrangler
-        </td>
-        <td>
-          25% dualcast Thief
-        </td>
-        <td>
-          10
-          %
-        </td>
-      </tr>
-      <tr
-        className="glint"
-      >
-        <td>
-          Krile
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Staff"
-          />
-           
-          Seraphim's Mace
-        </td>
-        <td
-          className="tier"
-        >
-          G2
-        </td>
-        <td
-          className="name"
-        >
-          Cloud of Dust
-        </td>
-        <td>
-          instant earth infuse stacking 25s, earth infuse 25s, self hi fastcast 2
-        </td>
-        <td>
-          9
-          %
-        </td>
-      </tr>
-      <tr
-        className="glint"
-      >
-        <td>
-          Faris
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Bracer"
-          />
-           
-          Rune Armlet
-        </td>
-        <td
-          className="tier"
-        >
-          G1
-        </td>
-        <td
-          className="name"
-        >
-          Faithful Sea Dog
-        </td>
-        <td>
-          instant AoE phys 2.64/6 wind+fire rngd, -40% ATK/MAG 15s
-        </td>
-        <td>
-          8
-          %
-        </td>
-      </tr>
-      <tr
-        className="glint"
-      >
-        <td>
-          Lenna
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Robe"
-          />
-           
-          White Robe
-        </td>
-        <td
-          className="tier"
-        >
-          G
-        </td>
-        <td
-          className="name"
-        >
-          Greatest Love
-        </td>
-        <td>
-          instant party h55
-        </td>
-        <td>
-          7
-          %
-        </td>
-      </tr>
-      <tr
-        className="glint"
-      >
-        <td>
-          Bartz
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Bracer"
-          />
-           
-          Bartz's Bracers
-          <div
-            className="relicEffect"
-          >
-            +fire dmg
-          </div>
-        </td>
-        <td
-          className="tier"
-        >
-          G1
-        </td>
-        <td
-          className="name"
-        >
-          Master Spellblade
-        </td>
-        <td>
-          instant Spellblade hi fastcast 15s, 1.05-1.1-1.15-1.2-1.3x Spellblade dmg @ rank 1-5 15s
-        </td>
-        <td>
-          6
-          %
-        </td>
-      </tr>
-      <tr
-        className="overstrike"
-      >
-        <td>
-          Krile
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Light Armor"
-          />
-           
-          Beastmaster's Guise
-          <div
-            className="relicEffect"
-          >
-            +fire dmg
-          </div>
-        </td>
-        <td
-          className="tier"
-        >
-          AO1
-        </td>
-        <td
-          className="name"
-        >
-          Raging Hellfire
-        </td>
-        <td>
-          magic 36.4/20, then 26.5 overstrike, fire (SUM)
-        </td>
-        <td>
-          5
-          %
-        </td>
-      </tr>
-      <tr
-        className="overstrike"
-      >
-        <td>
-          Bartz
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Dagger"
-          />
-           
-          Man-Eater
+          Hammerhead
           <div
             className="relicEffect"
           >
             +wind dmg
-          </div>
-        </td>
-        <td
-          className="tier"
-        >
-          AO
-        </td>
-        <td
-          className="name"
-        >
-          Crystalline Focus
-        </td>
-        <td>
-          phys 24.0/3 wind+water+fire+earth overstrike
-        </td>
-        <td>
-          4
-          %
-        </td>
-      </tr>
-      <tr
-        className="ultra"
-      >
-        <td>
-          Krile
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Rod"
-          />
-           
-          Gaia Rod
-          <div
-            className="relicEffect"
-          >
-            +earth dmg
           </div>
         </td>
         <td
@@ -998,13 +717,52 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         <td
           className="name"
         >
-          Gift of Hope
+          Essence of Wind
         </td>
         <td>
-          magic 17.0/10 earth+non, earth infuse 25s, self fastcast 1, 15s: (earth ⤇ fastcast 1), 15s: (earth ⤇ m8.08/4 e+n B.Mag, or m10.1/5 if Galuf alive)
+          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (1/2/3 +3n wind ⤇ front row phys hi fastcast 1, p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
         </td>
         <td>
-          3
+          0
+          %
+        </td>
+      </tr>
+      <tr
+        className="ultra"
+      >
+        <td>
+          Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Rod"
+          />
+           
+          Holy Rod
+        </td>
+        <td
+          className="tier"
+        >
+          U3
+        </td>
+        <td
+          className="name"
+        >
+          Essence of Water
+        </td>
+        <td>
+          instant party h85, Regenga, -10% ice/water vuln. 15s, self fastcast 15s
+        </td>
+        <td>
+          1
           %
         </td>
       </tr>
@@ -1015,6 +773,12 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           rowSpan={2}
         >
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td
           rowSpan={2}
@@ -1062,7 +826,13 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         className="ultra"
       >
         <td>
-          Lenna
+          Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1071,44 +841,11 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
             title="Rod"
           />
            
-          Holy Rod
-        </td>
-        <td
-          className="tier"
-        >
-          U3
-        </td>
-        <td
-          className="name"
-        >
-          Essence of Water
-        </td>
-        <td>
-          instant party h85, Regenga, -10% ice vuln. 15s, -10% water vuln. 15s, self fastcast 15s
-        </td>
-        <td>
-          1
-          %
-        </td>
-      </tr>
-      <tr
-        className="ultra"
-      >
-        <td>
-          Bartz
-        </td>
-        <td>
-          <img
-            className="relicType"
-            src="test-file-stub"
-            title="Axe"
-          />
-           
-          Hammerhead
+          Gaia Rod
           <div
             className="relicEffect"
           >
-            +wind dmg
+            +earth dmg
           </div>
         </td>
         <td
@@ -1119,13 +856,424 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         <td
           className="name"
         >
-          Essence of Wind
+          Gift of Hope
         </td>
         <td>
-          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (1/2/3 +3n wind ⤇ front row phys hi fastcast 1, p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
+          magic 17.0/10 earth+non, earth infuse 25s, self fastcast 1, 15s: (earth ⤇ fastcast 1), 15s: (earth ⤇ m8.08/4 e+n B.Mag, or m10.1/5 if Galuf alive)
         </td>
         <td>
-          0
+          3
+          %
+        </td>
+      </tr>
+      <tr
+        className="overstrike"
+      >
+        <td>
+          Bartz
+          <br />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Dagger"
+          />
+           
+          Man-Eater
+          <div
+            className="relicEffect"
+          >
+            +wind dmg
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          AO
+        </td>
+        <td
+          className="name"
+        >
+          Crystalline Focus
+        </td>
+        <td>
+          phys 24.0/3 wind+water+fire+earth overstrike
+        </td>
+        <td>
+          4
+          %
+        </td>
+      </tr>
+      <tr
+        className="overstrike"
+      >
+        <td>
+          Krile
+          <br />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Light Armor"
+          />
+           
+          Beastmaster's Guise
+          <div
+            className="relicEffect"
+          >
+            +fire dmg
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          AO1
+        </td>
+        <td
+          className="name"
+        >
+          Raging Hellfire
+        </td>
+        <td>
+          magic 36.4/20, then 26.5 overstrike, fire (SUM)
+        </td>
+        <td>
+          5
+          %
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bracer"
+          />
+           
+          Bartz's Bracers
+          <div
+            className="relicEffect"
+          >
+            +fire dmg
+          </div>
+        </td>
+        <td
+          className="tier"
+        >
+          G1
+        </td>
+        <td
+          className="name"
+        >
+          Master Spellblade
+        </td>
+        <td>
+          instant Spellblade hi fastcast 15s, 1.05-1.1-1.15-1.2-1.3x Spellblade dmg @ rank 1-5 15s
+        </td>
+        <td>
+          6
+          %
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Robe"
+          />
+           
+          White Robe
+        </td>
+        <td
+          className="tier"
+        >
+          G
+        </td>
+        <td
+          className="name"
+        >
+          Greatest Love
+        </td>
+        <td>
+          instant party h55
+        </td>
+        <td>
+          7
+          %
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Bracer"
+          />
+           
+          Rune Armlet
+        </td>
+        <td
+          className="tier"
+        >
+          G1
+        </td>
+        <td
+          className="name"
+        >
+          Faithful Sea Dog
+        </td>
+        <td>
+          instant AoE phys 2.64/6 wind+fire rngd, -40% ATK/MAG 15s
+        </td>
+        <td>
+          8
+          %
+        </td>
+      </tr>
+      <tr
+        className="glint"
+      >
+        <td>
+          Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Staff"
+          />
+           
+          Seraphim's Mace
+        </td>
+        <td
+          className="tier"
+        >
+          G2
+        </td>
+        <td
+          className="name"
+        >
+          Cloud of Dust
+        </td>
+        <td>
+          instant earth infuse stacking 25s, earth infuse 25s, self hi fastcast 2
+        </td>
+        <td>
+          9
+          %
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Spear"
+          />
+           
+          Longinus
+        </td>
+        <td
+          className="tier"
+        >
+          <span
+            className="legendMateriaTier"
+          >
+            LMR2
+          </span>
+        </td>
+        <td
+          className="name"
+        >
+          Rabble Wrangler
+        </td>
+        <td>
+          25% dualcast Thief
+        </td>
+        <td>
+          10
+          %
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Light Armor"
+          />
+           
+          Minerva Bustier
+        </td>
+        <td
+          className="tier"
+        >
+          <span
+            className="legendMateriaTier"
+          >
+            LMR3
+          </span>
+        </td>
+        <td
+          className="name"
+        >
+          Innate Cheer
+        </td>
+        <td>
+          earth infuse at battle start
+        </td>
+        <td>
+          11
+          %
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Shield"
+          />
+           
+          Golden Shield+
+        </td>
+        <td
+          className="tier"
+        >
+          <span
+            className="legendMateriaTier"
+          >
+            LMR2
+          </span>
+        </td>
+        <td
+          className="name"
+        >
+          Hereditary Skill
+        </td>
+        <td>
+          1.25x Spellblade dmg if using a sword
+        </td>
+        <td>
+          12
+          %
+        </td>
+      </tr>
+      <tr
+        className="legendMateria"
+      >
+        <td>
+          Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 1 (currently available)"
+          />
+        </td>
+        <td>
+          <img
+            className="relicType"
+            src="test-file-stub"
+            title="Hat"
+          />
+           
+          Laurel Crown
+        </td>
+        <td
+          className="tier"
+        >
+          <span
+            className="legendMateriaTier"
+          >
+            LMR
+          </span>
+        </td>
+        <td
+          className="name"
+        >
+          Impartial Kindness
+        </td>
+        <td>
+          (W.Mag ⤇ 25% for party h25)
+        </td>
+        <td>
+          13
           %
         </td>
       </tr>
@@ -1199,6 +1347,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1233,6 +1387,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1254,7 +1414,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           Essence of Water
         </td>
         <td>
-          instant party h85, Regenga, -10% ice vuln. 15s, -10% water vuln. 15s, self fastcast 15s
+          instant party h85, Regenga, -10% ice/water vuln. 15s, self fastcast 15s
         </td>
       </tr>
       <tr
@@ -1264,6 +1424,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           rowSpan={2}
         >
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td
           rowSpan={2}
@@ -1306,6 +1472,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1340,6 +1512,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Bartz
+          <br />
         </td>
         <td>
           <img
@@ -1374,6 +1547,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Krile
+          <br />
         </td>
         <td>
           <img
@@ -1408,6 +1582,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1442,6 +1622,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1471,6 +1657,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1500,6 +1692,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 3 (currently available)"
+          />
         </td>
         <td>
           <img
@@ -1529,6 +1727,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Faris
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -1562,6 +1766,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Krile
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -1595,6 +1805,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Bartz
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 4 (estimated December 2020)"
+          />
         </td>
         <td>
           <img
@@ -1628,6 +1844,12 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
       >
         <td>
           Lenna
+          <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 1 (currently available)"
+          />
         </td>
         <td>
           <img

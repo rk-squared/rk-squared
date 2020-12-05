@@ -3,12 +3,12 @@ import { google } from 'googleapis';
 import * as path from 'path';
 import * as readline from 'readline';
 
-import { logger } from './logger';
-
 // This is equivalent to `typeof google.auth.OAuth2`, but importing it directly
 // (and listing it as a dev. dependency) appears to be necessary to silence
 // TypeScript warnings.
 import { OAuth2Client } from 'google-auth-library';
+
+import { logger } from '../app/utils/logger';
 
 // tslint:disable no-console
 

@@ -4,8 +4,10 @@ import * as _ from 'lodash';
 
 import { enlir, limitBreakTierOrder } from '../app/data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrP/skill';
+import { logForCli } from '../app/utils/logger';
 
 // tslint:disable: no-console
+logForCli();
 
 const onlyLimitBreaks = process.argv.slice(2);
 

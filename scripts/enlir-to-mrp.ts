@@ -3,12 +3,14 @@
 import * as _ from 'lodash';
 import * as yargs from 'yargs';
 
-import { enlir, soulBreakTierOrder } from '../app/data/enlir';
+import { enlir, isLimitBreak, limitBreakTierOrder, soulBreakTierOrder } from '../app/data/enlir';
 import { formatBraveCommands } from '../app/data/mrP/brave';
 import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrP/skill';
 import { getShortName } from '../app/data/mrP/typeHelpers';
+import { logForCli } from '../app/utils/logger';
 
 // tslint:disable: no-console
+logForCli();
 
 const argv = yargs
   .option('brave', {
@@ -26,11 +28,14 @@ const onlySoulBreaks = process.argv.slice(2);
 
 const startTime = process.hrtime();
 
-for (const sb of _.sortBy(Object.values(enlir.soulBreaks), [
-  i => i.character || '-',
-  i => soulBreakTierOrder[i.tier],
-  'id',
-])) {
+for (const sb of _.sortBy(
+  [...enlir.allSoulBreaks, ...Object.values(enlir.limitBreaks)],
+  [
+    i => i.character || '-',
+    i => (isLimitBreak(i) ? limitBreakTierOrder[i.tier] : soulBreakTierOrder[i.tier] + 1000),
+    'id',
+  ],
+)) {
   if (sb.tier === 'RW') {
     continue;
   }

@@ -6,6 +6,7 @@ import {
   EnlirSynchroCommand,
   isEnlirElement,
   isEnlirSchool,
+  isNonElemental,
 } from '../enlir';
 import * as common from './commonTypes';
 import { andOrList } from './util';
@@ -75,19 +76,25 @@ const shortAliases: { [s: string]: string } = {
   'non-elemental': 'non-elem',
 };
 
-export function getElementShortName(element: EnlirElement | EnlirElement[]): string {
+export function getElementShortName(
+  element: EnlirElement | EnlirElement[],
+  joinString = '+',
+): string {
   element = arrayify(element);
   return element
     .map(i => elementShortName[i.toLowerCase()] || i.toLowerCase())
-    .join('+')
+    .join(joinString)
     .replace(prismElementsShortName, 'prism');
 }
 
-export function getElementAbbreviation(element: EnlirElement | EnlirElement[]): string {
+export function getElementAbbreviation(
+  element: EnlirElement | EnlirElement[],
+  joinString = '+',
+): string {
   element = arrayify(element);
   return element
     .map(i => elementAbbreviation[i.toLowerCase()] || i[0].toLowerCase())
-    .join('+')
+    .join(joinString)
     .replace(prismElementsAbbreviation, 'prism');
 }
 
@@ -107,7 +114,7 @@ export function appendElement(
   element: EnlirElement[] | null,
   f: (element: EnlirElement[]) => string,
 ): string {
-  return element && element.length ? ' ' + f(element) : '';
+  return element && element.length && !isNonElemental(element) ? ' ' + f(element) : '';
 }
 
 // Hack: Handle damage versions (which JP has started calling "prismatic") and
@@ -151,4 +158,13 @@ export const whoText: { [w in common.Who]: string } = {
   allyWithNegativeStatus: 'ally',
   allyWithKO: 'ally',
   ally: 'ally',
+  namedCharacter: 'specific character',
 };
+
+export function formatWho(who: common.Who | common.Who[]): string {
+  return Array.isArray(who) ? who.map(i => whoText[i]).join('/') : whoText[who];
+}
+
+export function appendPerUses(perUses: number | undefined) {
+  return perUses ? ` per ${perUses} uses` : '';
+}

@@ -17,6 +17,7 @@ export type EffectClause =
   | RandomFixedAttack
   | DrainHp
   | RecoilHp
+  | FixedRecoilHp
   | HpAttack
   | GravityAttack
   | Revive
@@ -30,10 +31,10 @@ export type EffectClause =
   | RandomCastOther
   | Chain
   | Mimic
-  | StatMod
   | StatusEffect
   | SetStatusLevel
   | RandomStatusEffect
+  | RandomSkillEffect
   | Entrust
   | GainSBOnSuccess
   | GainSB
@@ -50,6 +51,7 @@ export interface Attack extends Partial<AttackMultiplierGroup>, AttackExtras {
   type: 'attack';
   numAttacks: NumAttacks;
   isOverstrike?: boolean;
+  scalingOverstrike?: number[]; // For TASB.  Separate from isOverstrike.
   scaleType?: AttackScaleType;
   isAoE?: boolean;
   isHybrid?: boolean;
@@ -79,7 +81,7 @@ export interface RandomNumAttacks {
 export interface AttackMultiplierGroup {
   attackMultiplier: number | number[];
   isRandomAttackMultiplier?: boolean;
-  hybridMultiplier?: number;
+  hybridMultiplier?: number | number[];
   scaleToMultiplier?: number;
   multiplierScaleType?: MultiplierScaleType;
   overrideSkillType?: EnlirSkillType;
@@ -112,7 +114,7 @@ export interface AttackExtras {
   atkUpWithLowHp?: boolean;
 
   status?: {
-    status: common.StatusName;
+    status: string;
     chance: number | number[];
     duration?: common.Duration;
     condition?: common.Condition;
@@ -160,6 +162,13 @@ export interface RecoilHp {
   condition?: common.Condition;
 }
 
+export interface FixedRecoilHp {
+  type: 'fixedRecoilHp';
+  value: number;
+  skillType: EnlirSkillType;
+  who?: common.Who;
+}
+
 export interface GravityAttack {
   type: 'gravityAttack';
   damagePercent: number;
@@ -198,20 +207,18 @@ export interface DamagesUndead {
   type: 'damagesUndead';
 }
 
-export interface DispelOrEsuna {
-  type: 'dispelOrEsuna';
-  dispelOrEsuna: 'negative' | 'positive';
-  who?: common.Who;
-}
-
 export interface RandomEther {
   type: 'randomEther';
   amount: number;
   who?: common.Who;
+  perUses?: number;
 }
+
+export type DispelOrEsuna = common.DispelOrEsuna;
 
 export interface SmartEther extends common.SmartEtherStatus {
   who?: common.Who;
+  perUses?: number;
 }
 
 // --------------------------------------------------------------------------
@@ -253,30 +260,14 @@ export interface Mimic {
 // --------------------------------------------------------------------------
 // Status effects
 
+// Note: Significant overlap between skillTypes.StatusEffect and statusTypes.GrantStatus
 export interface StatusEffect {
   type: 'status';
-  verb: common.StatusVerb;
-  statuses: StatusWithPercent[];
-}
+  verb?: common.StatusVerb;
+  statuses: common.StatusWithPercent[];
 
-// Note: Compatible with, but more complex than, skillTypes.StatusWithPercent
-export interface StatusWithPercent extends StatusClause {
-  status: StatusItem;
-  chance?: number;
-}
-
-export interface StatusLevel {
-  type: 'statusLevel';
-  status: common.StatusName;
-  value: number;
-  // If true, setting to value; if false, modifying by value.
-  set?: boolean;
-}
-
-export interface StatusClause {
-  duration?: common.Duration;
-  who?: common.Who;
-  whoAllowsLookahead?: boolean;
+  who?: common.Who | common.Who[];
+  toCharacter?: string | string[];
   perUses?: number;
   ifSuccessful?: boolean;
   ifUndead?: boolean;
@@ -285,36 +276,15 @@ export interface StatusClause {
 
 export interface SetStatusLevel {
   type: 'setStatusLevel';
-  status: common.StatusName;
+  status: string;
   value: number;
 }
 
 export interface RandomStatusEffect {
   type: 'randomStatus';
   verb: common.StatusVerb;
-  statuses: Array<{ status: StatusItem[]; chance: number }>;
+  statuses: Array<{ status: common.StatusItem[]; chance: number }>;
   who?: common.Who;
-}
-
-type StatusItem = common.SmartEtherStatus | StatusLevel | common.StatusName;
-
-// --------------------------------------------------------------------------
-// Stat mods
-
-export interface StatMod extends StatModClause {
-  type: 'statMod';
-  stats: StatSet;
-  percent: number | number[];
-}
-
-export type StatSet = HybridStatSet | EnlirStat[];
-
-export type HybridStatSet = [EnlirStat[], EnlirStat[]];
-
-export interface StatModClause {
-  duration?: common.Duration;
-  who?: common.Who;
-  condition?: common.Condition;
 }
 
 // --------------------------------------------------------------------------
@@ -364,4 +334,9 @@ export interface CastTimePerUse {
 export interface StandaloneAttackExtra {
   type: 'attackExtra';
   extra: AttackExtras;
+}
+
+export interface RandomSkillEffect {
+  type: 'randomSkillEffect';
+  effects: Array<{ effect: Heal; chance: number }>;
 }

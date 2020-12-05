@@ -8,14 +8,20 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirSkillType,
+  EnlirSoulBreak,
+  getEnlirTrueArcaneTracker,
+  hasSkillType,
   isBurstCommand,
   isNat,
   isSoulBreak,
+  isTrueArcane2nd,
 } from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
 import { describeRageEffects } from './rage';
 import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
 import * as skillTypes from './skillTypes';
+import { formatTrigger, safeParseStatus } from './status';
+import * as statusTypes from './statusTypes';
 import {
   appendElement,
   damageTypeAbbreviation,
@@ -34,6 +40,7 @@ import {
   hyphenJoin,
   joinOr,
   toMrPFixed,
+  toMrPKilo,
 } from './util';
 
 // Source for convergent mechanics:
@@ -326,6 +333,10 @@ function describeSimpleFollowedBy(skill: EnlirSkill, attack: skillTypes.Attack) 
     damage += attackDamage.hybridDamage;
   }
 
+  if (attack.additionalCritDamage) {
+    damage += ' @ +' + hyphenJoin(attack.additionalCritDamage) + '% crit dmg';
+  }
+
   // Skip element, isRanged, isJump, school, no miss - these are assumed to be
   // the same as the parent.
   damage += attack.isOverstrike ? ' overstrike' : '';
@@ -346,7 +357,9 @@ function checkAttackPrereqStatus(
 
   // If an attack scales with its own prerequisite status, then we can filter
   // level 0 from this attack.
-  const m = attack.scaleType.status.match(/^(.*) (0\/(?:(\d+\/)+\d+))$/);
+  const m =
+    typeof attack.scaleType.status === 'string' &&
+    attack.scaleType.status.match(/^(.*) (0\/(?:(\d+\/)+\d+))$/);
   if (!m) {
     return attack;
   }
@@ -382,6 +395,29 @@ function checkAttackPrereqStatus(
   }
 
   return attack;
+}
+
+function describeTrueArcaneCondition(sb: EnlirSoulBreak) {
+  const status = getEnlirTrueArcaneTracker(sb);
+  if (!status) {
+    logger.warn(`Failed to find TASB ability tracker for ${sb.name}`);
+    return undefined;
+  }
+
+  const parsed = safeParseStatus(status);
+  if (!parsed) {
+    return undefined; // Errors were already logged
+  }
+
+  const change = parsed.find(i => i.type === 'changeStatusLevel') as
+    | statusTypes.ChangeStatusLevel
+    | undefined;
+  if (!change || !change.trigger) {
+    logger.warn(`Unexpected contents for TASB ability tracker for ${sb.name}`);
+    return undefined;
+  }
+
+  return '@ ' + formatTrigger(change.trigger, sb);
 }
 
 /**
@@ -444,6 +480,9 @@ function describeAttackDamage(
     hybridDamage = describeDamage(hybridMultiplier, numAttacks[1]);
   } else if (Array.isArray(numAttacks) || Array.isArray(attackMultiplier)) {
     damage = describeThresholdDamage(numAttacks, attackMultiplier);
+    if (attack.isHybrid && hybridMultiplier != null) {
+      hybridDamage = describeThresholdDamage(numAttacks, hybridMultiplier);
+    }
   } else if (attack.isHybrid && hybridMultiplier != null) {
     damage = describeDamage(attackMultiplier, numAttacks);
     hybridDamage = describeDamage(hybridMultiplier, numAttacks);
@@ -491,6 +530,12 @@ function describeAttackDamage(
       scaleType = describeMultiplierScaleType(attack.multiplierScaleType);
     } else if (attack.scaleType) {
       scaleType = describeCondition(attack.scaleType, getAttackCount(attack));
+
+      // Special case: Every TASB scales with status level.  Try to resolve the
+      // status that manages that status level.
+      if (attack.scaleType.type === 'statusLevel' && isSoulBreak(skill) && isTrueArcane2nd(skill)) {
+        scaleType = describeTrueArcaneCondition(skill);
+      }
     }
     if (attack.scaleToMultiplier && !isRandomNumAttacks(numAttacks)) {
       // Omit number of attacks - it's always the same as the main attack.
@@ -563,12 +608,36 @@ export function describeAttack(
   damage += isPiercing(skill, attack) ? '^' : '';
   damage += attackDamage.damage;
 
+  // Hack: Insert (SUM) if needed for hybrid attacks.
+  if (
+    attack.isHybrid &&
+    skill.typeDetails &&
+    skill.typeDetails[0] === 'SUM' &&
+    school !== 'Summoning'
+  ) {
+    damage += ' (SUM)';
+  }
+
   if (hybridDamageType) {
     damage += ' or ';
     damage += formatDamageType(hybridDamageType, abbreviate);
     damage += isHybridPiercing(skill, attack) ? '^' : '';
     damage += attackDamage.hybridDamage;
+
+    // Hack: Insert (SUM) if needed for hybrid attacks.
+    if (
+      attack.isHybrid &&
+      skill.typeDetails &&
+      skill.typeDetails[1] === 'SUM' &&
+      school !== 'Summoning'
+    ) {
+      damage += ' (SUM)';
+    }
   }
+
+  damage += attack.scalingOverstrike
+    ? ' w/ ' + attack.scalingOverstrike.map(i => toMrPKilo(i - 999)).join('/') + ' cap'
+    : '';
 
   if (attack.followedBy && simpleFollowedBy) {
     damage += ', then ' + describeSimpleFollowedBy(skill, attack.followedBy) + ',';
@@ -624,7 +693,8 @@ export function describeAttack(
       ', default ' + damageTypeAbbreviation(attackDamage.damageType) + attackDamage.defaultDamage;
   }
   if (attack.minDamage && attack.minDamage > 1) {
-    damage += `, min dmg ${attack.minDamage}`;
+    const caption = attack.isHybrid ? 'min dmg (SUM)' : 'min dmg';
+    damage += `, ${caption} ${attack.minDamage}`;
   }
   if (attack.damageModifier) {
     const damageModifier = arrayify(attack.damageModifier);
@@ -644,8 +714,10 @@ export function describeAttack(
       ', air time ' + formatNumberSlashList(attack.airTime, i => fixedNumberOrUnknown(i, 2)) + 's';
     damage += appendCondition(attack.airTimeCondition, attack.airTime);
   }
-  // Omit ' (SUM)' for Summoning school; it seems redundant.
-  damage += skill.type === 'SUM' && school !== 'Summoning' ? ' (SUM)' : '';
+  // Omit ' (SUM)' for Summoning school; it seems redundant.  Hybrid is handled
+  // above.
+  damage +=
+    hasSkillType(skill, 'SUM') && school !== 'Summoning' && !attack.isHybrid ? ' (SUM)' : '';
   damage += isNat(skill) && !attack.isHybrid ? ' (NAT)' : '';
 
   if (attack.followedBy && !simpleFollowedBy) {

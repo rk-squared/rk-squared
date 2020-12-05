@@ -8,9 +8,13 @@
 import * as _ from 'lodash';
 
 import { enlir, EnlirOtherSkill, EnlirSkill } from '../enlir';
+import * as common from './commonTypes';
 import { convertEnlirSkillToMrP, formatMrPSkill, safeParseSkill } from './skill';
 import * as skillTypes from './skillTypes';
 import { describeChances, enDashJoin } from './util';
+
+const isRageStatus = (item: common.StatusWithPercent) =>
+  item.status.type === 'standardStatus' && item.status.name === 'Rage';
 
 export function getRageSkills(source: EnlirSkill | string): EnlirOtherSkill[] {
   const name = typeof source === 'string' ? source : source.name;
@@ -87,7 +91,7 @@ export function checkPureRage(
 ): [number, skillTypes.SkillEffect] | undefined {
   const effectIndex = _.findIndex(
     skillEffects,
-    i => i.type === 'status' && i.statuses.find(j => j.status === 'Rage') != null,
+    i => i.type === 'status' && i.statuses.find(isRageStatus) != null,
   );
   if (effectIndex === -1) {
     // Normal case - no Rage status.
@@ -95,7 +99,7 @@ export function checkPureRage(
   }
   const effect = skillEffects[effectIndex] as skillTypes.StatusEffect;
 
-  const statusIndex = _.findIndex(effect.statuses, i => i.status === 'Rage');
+  const statusIndex = _.findIndex(effect.statuses, isRageStatus);
   const status = effect.statuses[statusIndex];
   if (!status.duration || status.duration.units !== 'turns') {
     // There's a Rage status, but it has no duration.  This should never

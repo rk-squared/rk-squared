@@ -46,13 +46,21 @@ const dmg = (isDamageTrigger: string | null | boolean) =>
     : '';
 const whenDescription = (when: string | null) => (when ? ` if using ${when}` : '');
 
+function removeStatusBrackets(status: string) {
+  return status.replace(/^\[/, '').replace(/]$/, '');
+}
+
 function describeBattleStart(statuses: string) {
   return (
     statuses
       .split(andList)
-      .map(i => describeEnlirStatus(i))
+      .map(i => describeEnlirStatus(removeStatusBrackets(i)))
       .join(', ') + ' at battle start'
   );
+}
+
+function formatCount(countText: string) {
+  return countText === 'two' ? '2 ' : countText === 'three' ? '3 ' : '';
 }
 
 const hitOrAbilityAbbrev: _.Dictionary<string> = {
@@ -119,7 +127,7 @@ const simpleSkillHandlers: HandlerList = [
 
   // Attacks
   [
-    /^(PHY|BLK|WHT|PHY|\?)(?:\/(NIN))?: (single|random|group), (?:(\d+)x )?([0-9\.]+|\?) (ranged )?(physical|magical|hybrid)(?: ([^,]+))?(, .*)?$/,
+    /^(PHY|BLK|WHT|NAT|\?)(?:\/(NIN))?: (single|random|group), (?:(\d+)x )?([0-9.]+|\?) (ranged )?(physical|magical|hybrid)(?: ([^,]+))?(, .*)?$/,
     ([
       type,
       hybridType,
@@ -171,13 +179,13 @@ const simpleSkillHandlers: HandlerList = [
 
   // Statuses
   [
-    /^NAT: group, causes (.*) for (\d+|\?) seconds$/,
-    ([status, duration]) => {
+    /^NAT: (single|group), causes (.*) for (\d+|\?) seconds$/,
+    ([attackType, status, duration]) => {
       return (
-        'AoE ' +
+        (attackType === 'group' ? 'AoE ' : '') +
         status
           .split(andList)
-          .map(i => describeEnlirStatus(i))
+          .map(i => describeEnlirStatus(removeStatusBrackets(i)))
           .join(', ') +
         ' ' +
         duration +
@@ -186,8 +194,9 @@ const simpleSkillHandlers: HandlerList = [
     },
   ],
   [
-    /^NAT: group, ((?:[A-Z]{3}\/)*[A-Z]{3}) -(\d+|\?)%$/,
-    ([stats, percent]) => `AoE -${percent}% ` + describeStats(stats.split('/')),
+    /^NAT: (single|group), ((?:[A-Z]{3}\/)*[A-Z]{3}) -(\d+|\?)%$/,
+    ([attackType, stats, percent]) =>
+      (attackType === 'group' ? 'AoE ' : '') + `-${percent}% ` + describeStats(stats.split('/')),
   ],
 ];
 
@@ -284,7 +293,7 @@ const legendMateriaHandlers: HandlerList = [
 
   // Unique variations of starting statuses.
   [
-    /^Grants (.*) at the beginning of the battle, grants (.*) to the user when Reraise is triggered$/,
+    /^Grants (.*) at the beginning of the battle, grants \[(.*)] to the user when Reraise is triggered$/,
     ([statuses, reraiseStatus]) =>
       describeBattleStart(statuses) +
       ', ' +
@@ -297,8 +306,8 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered self statuses
   [
-    /^(?:(\d+\??|\?)% chance (?:of|to grant)|[Gg]rants) (.*?)(?: for (\d+) seconds)? to the user after (?:using an? (.*) (?:ability|attack)|(dealing a critical hit)|(taking damage from an enemy))$/,
-    ([percent, statusName, duration, schoolOrElement, critical, takeDamage]) => {
+    /^(?:(\d+\??|\?)% chance (?:of|to grant)|[Gg]rants) (.*?)(?: for (\d+) seconds)? (?:to the user )?after (?:using (an?|two|three) (.*) (?:ability|abilities|attacks?)|(dealing a critical hit)|(taking damage from an enemy))$/,
+    ([percent, statusName, duration, count, schoolOrElement, critical, takeDamage]) => {
       // TODO: Consolidate trigger logic with status.ts?
       const trigger = schoolOrElement
         ? formatSchoolOrAbilityList(schoolOrElement)
@@ -309,11 +318,11 @@ const legendMateriaHandlers: HandlerList = [
       if (m) {
         return formatGenericTrigger(trigger, formatSmartEther(m[1]), percent);
       } else {
-        const status = parseEnlirStatus(statusName);
+        const status = parseEnlirStatus(removeStatusBrackets(statusName));
         // Note that we simplify specialDuration's display (no colon, etc.)
         // compared to the full skill + status code.
         return formatGenericTrigger(
-          trigger,
+          formatCount(count) + trigger,
           status.description +
             (duration ? ' ' + duration + 's' : '') +
             (status.specialDuration ? ' ' + status.specialDuration : ''),
@@ -332,7 +341,7 @@ const legendMateriaHandlers: HandlerList = [
 
   // Single-target white magic bonus effects
   [
-    /^(\d+\??|\?)% chance to grant (.*) to the target after using a single-target White Magic ability that restores HP on an ally$/,
+    /^(\d+\??|\?)% chance to grant \[?(.*?)]? to the target after using a single-target White Magic ability that restores HP on an ally$/,
     ([percent, status]) =>
       formatGenericTrigger('ally W.Mag heal', 'ally ' + describeEnlirStatus(status), percent),
   ],
@@ -404,7 +413,7 @@ const legendMateriaHandlers: HandlerList = [
 
   // Triggered status ailments (imperils)
   [
-    /^(\d+\??|\?)% chance to cause (.*) to the target after (using|dealing damage with) an? (.*) (?:ability|attack) on an enemy(?: when equipping (.*))?$/,
+    /^(\d+\??|\?)% chance to cause \[(.*)] to the target after (using|dealing damage with) an? (.*) (?:ability|attack) on an enemy(?: when equipping (.*))?$/,
     ([percent, status, isDamageTrigger, schoolOrAbility, when]) => {
       const trigger =
         formatSchoolOrAbilityList(schoolOrAbility) + dmg(isDamageTrigger) + whenDescription(when);
@@ -416,7 +425,9 @@ const legendMateriaHandlers: HandlerList = [
   [
     /^(Restores HP for 100% of the user's maximum HP(?:, grants (\d+|\?) SB points)? and )?[Gg]rants (.*?)(?: for (\d+) seconds)? when HP falls? below 20%$/,
     ([isHeal, bonusSb, statusNames, duration]) => {
-      const status = statusNames.split(andList).map(i => parseUncertainEnlirStatus(i));
+      const status = statusNames
+        .split(andList)
+        .map(i => parseUncertainEnlirStatus(removeStatusBrackets(i)));
 
       // Process duration from the last status - it's more likely to be interesting.
       const lastStatus = status[status.length - 1];
@@ -448,11 +459,11 @@ const legendMateriaHandlers: HandlerList = [
     ([selfStatus, healPercent, partyStatus]) => {
       const selfStatusDescription = selfStatus
         .split(andList)
-        .map(i => describeEnlirStatus(i))
+        .map(i => describeEnlirStatus(removeStatusBrackets(i)))
         .join(', ');
       const partyStatusDescription = partyStatus
         .split(andList)
-        .map(i => describeEnlirStatus(i))
+        .map(i => describeEnlirStatus(removeStatusBrackets(i)))
         .join(', ');
       return formatGenericTrigger(
         tranceTriggerText,

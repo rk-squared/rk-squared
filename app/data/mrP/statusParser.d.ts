@@ -1,7 +1,6 @@
-import { EnlirElement, EnlirSchool, EnlirStat, EnlirStatusPlaceholders } from '../enlir';
 import * as statusTypes from './statusTypes';
 
-export function parse(input: string, options?: EnlirStatusPlaceholders): statusTypes.StatusEffect;
+export function parse(input: string): statusTypes.StatusEffect;
 
 export class SyntaxError extends Error {
   name: 'SyntaxError';

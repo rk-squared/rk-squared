@@ -35,6 +35,12 @@ export type EnlirRealm =
   | 'XIII'
   | 'XIV'
   | 'XV';
+
+/**
+ * Actual realms, plus some entries we add to simplify processing
+ */
+export type EnlirAnyRealm = EnlirRealm | 'Core/Beyond';
+
 export const allEnlirRealms: EnlirRealm[] = [
   'I',
   'II',
@@ -81,6 +87,7 @@ export const allEnlirElements: EnlirElement[] = [
   'Poison',
   'NE',
 ];
+export const enlirPrismElementCount = 9; // 8 core + bio; exclude non-elemental
 export const isEnlirElement = (s: string): s is EnlirElement =>
   allEnlirElements.indexOf(s as EnlirElement) !== -1;
 
@@ -103,6 +110,8 @@ export type EnlirEventType =
 // Note: Hybrid BLK/WHT or SUM/WHT skills may use Magical instead of Hybrid.
 // See, e.g., Exdeath's Double Hole record board ability.
 export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
+
+export type EnlirLegendMateriaTier = 'LMR' | 'LMR+';
 
 export type EnlirLimitBreakTier = 'OLB' | 'GLB';
 
@@ -202,6 +211,7 @@ export type EnlirSoulBreakTier =
   | 'AASB'
   | 'Glint+'
   | 'SASB'
+  | 'TASB'
   | 'RW'
   | 'Shared';
 
@@ -340,6 +350,7 @@ export interface EnlirLegendMateria {
   realm: EnlirRealm;
   character: string;
   name: string;
+  tier: EnlirLegendMateriaTier | null;
   effect: string;
   master: string | null;
   relic: string | null;
@@ -458,7 +469,8 @@ export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
   USB: 8,
   AASB: 9,
   SASB: 10,
-  CSB: 11,
+  TASB: 11,
+  CSB: 12,
   RW: 100,
   Shared: 101,
 };
@@ -553,7 +565,11 @@ interface RelicMapType {
 }
 
 /**
- * Maps from relic IDs (equipment IDs) to soul breaks or legend materia.
+ * Maps from relic IDs (equipment IDs) to soul breaks, limit breaks, or legend
+ * materia.
+ *
+ * The altItems parameter lets us handle the fact that relics "Soul Break" field
+ * maps to two different tables.
  */
 function makeRelicMap<T extends RelicMapType>(
   relics: EnlirRelic[],
@@ -562,28 +578,37 @@ function makeRelicMap<T extends RelicMapType>(
   altItems?: RelicMapType[][],
 ): { [relicId: number]: T } {
   const key = (character: string | null, name: any) => (character || '-') + ':' + name;
+  const relicNameMatches = (item: RelicMapType, name: string) =>
+    item.relic &&
+    (item.relic.replace(/ \([^()]+\)$/, '') === name ||
+      item.relic.replace(/ \(.*\)$/, '') === name);
+
   const result: { [relicId: number]: T } = {};
+
   const indexedItems = _.keyBy(items, i => key(i.character, i.name));
-  const indexedAltItems = new Set<string>(
-    altItems ? _.flatten(altItems).map(i => key(i.character, i.name)) : [],
-  );
+  const indexedAltItems = altItems
+    ? _.keyBy(_.flatten(altItems), i => key(i.character, i.name))
+    : {};
+
   for (const i of relics) {
     if (i[prop]) {
       const found = indexedItems[key(i.character, i[prop])];
+      const altFound = indexedAltItems[key(i.character, i[prop])];
+
+      if (altFound && relicNameMatches(altFound, i.name)) {
+        continue;
+      }
+
       if (found) {
         result[i.id] = found;
-        if (
-          i.character && // Skip shared soul breaks - these don't have 1-to-1 mappings.
-          found.relic &&
-          found.relic.replace(/ \([^()]+\)$/, '') !== i.name &&
-          found.relic.replace(/ \(.*\)$/, '') !== i.name
-        ) {
+        // Don't warn for shared soul breaks; these don't have 1-to-1 mappings.
+        if (i.character && !relicNameMatches(found, i.name)) {
           logger.warn(
             `Name mismatch: relic lists name as ${i.name}, ` +
               `${prop} ${found.name} lists name as ${found.relic}`,
           );
         }
-      } else if (!indexedAltItems.has(key(i.character, i[prop]))) {
+      } else if (!altFound) {
         logger.warn(`Failed to find ${prop} for ${i.character} - ${i.name} - ${i[prop]}`);
       }
     }
@@ -654,6 +679,12 @@ export const enlir = {
     (i: EnlirSoulBreak) => i.sortOrder,
   ]),
 
+  allSoulBreaks: rawData.soulBreaks,
+  // True Arcane Soul Breaks result in two entries with the same ID.  The second
+  // activation will be under soulBreaks; add the first activation here.
+  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isTrueArcane1st), 'id'),
+
+  status: _.keyBy(rawData.status, 'id'),
   statusByName: _.keyBy(rawData.status, 'name'),
 
   synchroCommands: makeIdMultimap(rawData.synchroCommands),
@@ -686,6 +717,26 @@ function applyPatch<T>(
       apply(item);
     }
   }
+}
+
+function applyEffectsPatch<T extends { effects: string | undefined }>(
+  lookup: { [s: string]: T | T[] },
+  name: string,
+  from: string,
+  to: string,
+) {
+  applyPatch(lookup, name, item => item.effects === from, item => (item.effects = to));
+}
+
+function addPatch<T extends { [s: string]: { id: number; name: string } }>(
+  lookup: T,
+  newItem: Omit<T[string], 'id'>,
+) {
+  if (lookup[newItem.name]) {
+    logger.warn(`Failed to add ${newItem.name}: already exists`);
+    return;
+  }
+  lookup[newItem.name] = { ...newItem, id: NaN } as any;
 }
 
 /**
@@ -734,22 +785,47 @@ function patchEnlir() {
     },
   );
 
-  // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are pure
-  // madness.  I have no shame in whatever hacks it takes to process them.
+  // Reword Lasswell's AASB to avoid having to avoid invoking our slashMerge
+  // code, which handles it poorly.
+  // TODO: The update is misleading; it suggests that it refreshes retaliate.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Azure Oblivion Follow-Up',
+    "Casts Azure Oblivion 1/2 after using three Ice abilities if user hasn't/has Retaliate or High Retaliate",
+    'Casts Azure Oblivion 1 after using three Ice abilities',
+  );
+  applyPatch(
+    enlir.otherSkillsByName,
+    'Azure Oblivion 1',
+    skill =>
+      skill.effects ===
+        'One single attack (5.20) capped at 99999, causes [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] and [High Retaliate] to the user' &&
+      enlir.otherSkillsByName['Azure Oblivion 2'].effects ===
+        'One single attack (5.20) capped at 99999, causes [DEF, RES and MND -70% (8s)] and [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] to the user',
+    skill => {
+      skill.effects =
+        'One single attack (5.20) capped at 99999, ' +
+        'causes [DEF, RES and MND -70% (8s)] if the user has Retaliate or High Retaliate, ' +
+        'causes [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] and [High Retaliate] to the user';
+    },
+  );
+
+  // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are quite
+  // complex.  We'll do whatever hacks it takes to process them.
   applyPatch(
     enlir.soulBreaks,
-    '22300009',
+    '22300009', // Sarah - Song of Reunion
     aria =>
       aria.effects ===
-      'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
-        'grants Minor Buff Holy/Dark if Warrior of Light/Garland is in the party, ' +
-        'grants Medium Buff Holy/Dark if both are in the party',
+      'Restores HP (85), grants [Regenga], grants [Quick Cast] to the user, ' +
+        'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] if Warrior of Light/Garland is in the party, ' +
+        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if both are in the party',
     aria => {
       aria.effects =
-        'Restores HP (85), grants Regenga, grants Quick Cast to the user, ' +
-        'grants Minor Buff Holy if Warrior of Light is in the party, ' +
-        'grants Minor Buff Dark if Garland is in the party, ' +
-        'grants Medium Buff Holy/Dark if Warrior of Light & Garland are in the party';
+        'Restores HP (85), grants [Regenga], grants [Quick Cast] to the user, ' +
+        'grants [Buff Holy 10% (15s)] if Warrior of Light is in the party, ' +
+        'grants [Buff Dark 10% (15s)] if Garland is in the party, ' +
+        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if Warrior of Light and Garland are in the party';
     },
   );
   applyPatch(
@@ -757,80 +833,35 @@ function patchEnlir() {
     '22300011',
     song =>
       song.effects ===
-      'Restores HP (105), removes KO (100% HP), grants Last Stand, Haste, High Quick Cast 2, ' +
-        'grants Minor Buff Holy/Dark and HP Stock (2000) if Warrior of Light/Garland is in the party, ' +
-        'grants Medium Buff Holy/Dark and HP Stock (2000) if both are in the party, ' +
-        'grants Awoken Princess Cornelia to the user',
+      'Restores HP (105), removes KO [Raise: 100%], grants [Last Stand], [Haste], [High Quick Cast 2], ' +
+        'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] and [HP Stock (2000)] if Warrior of Light/Garland is in the party, ' +
+        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] and [HP Stock (2000)] if both are in the party, ' +
+        'grants [Awoken Cornelian Princess] to the user',
     song => {
       song.effects =
-        'Restores HP (105), removes KO (100% HP), grants Last Stand, Haste, High Quick Cast 2, ' +
-        'grants Minor Buff Holy/Dark and HP Stock (2000) if Warrior of Light/Garland is in the party, ' +
-        'grants Medium Buff Holy/Dark and HP Stock (2000) if Warrior of Light & Garland are in the party, ' +
-        'grants Awoken Princess Cornelia to the user';
-    },
-  );
-  applyPatch(
-    enlir.soulBreaks,
-    '23160005',
-    strike =>
-      strike.effects ===
-      'Fifteen single attacks (0.60 each), grants Major Buff Ice, Major Buff Earth, Major Buff Lightning, Awoken Spellblade, Damage Cap +10000 to the user, grants 50% Critical to all allies, grants High Quick Cast 1/High Quick Cast 2/Extended 100% Critical, Critical Damage +50% and High Quick Cast 2 if 1/2/3 of Kelger, Galuf or Dorgann are alive to all allies',
-    strike => {
-      strike.effects =
-        'Fifteen single attacks (0.60 each), grants Major Buff Ice, Major Buff Earth, Major Buff Lightning, Awoken Spellblade, Damage Cap +10000 to the user, grants 50% Critical to all allies, grants High Quick Cast 1/2/2 to all allies if 1/2/3 of Kelger/Galuf/Dorgann are alive, grants Extended 100% Critical and Critical Damage +50% to all allies if Kelger & Galuf & Dorgann are alive';
-    },
-  );
-  applyPatch(
-    enlir.soulBreaks,
-    '23070005',
-    marcus =>
-      marcus.effects ===
-      'Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, ' +
-        'causes Minor Imperil Wind (15s) and Minor Imperil Poison (15s)/Medium Imperil Wind (25s) and Medium Imperil Poison (25s) if 1/2+ IX characters are alive, ' +
-        'grants Instant Cast 1/grants Instant Cast 1 and Weakness +30% Boost to all allies if 3/4+ IX characters are alive',
-    marcus => {
-      marcus.effects =
-        'Fifteen single attacks (0.60 each), grants Awoken Tantalus, Damage Cap +10000 and Twin Element Mode (Wind/Poison) to the user, ' +
-        'causes Minor Imperil Wind/Poison (15s) if 1 IX character is alive, causes Medium Imperil Wind/Poison (25s) if 2+ IX characters are alive, ' +
-        'grants Instant Cast 1 to all allies if 3+ IX characters are alive, grants Weakness +30% Boost to all allies if 4+ IX characters are alive';
+        'Restores HP (105), removes KO [Raise: 100%], grants [Last Stand], [Haste], [High Quick Cast 2], ' +
+        'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] and [HP Stock (2000)] if Warrior of Light/Garland is in the party, ' +
+        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] and [HP Stock (2000)] if Warrior of Light and Garland are in the party, ' +
+        'grants [Awoken Cornelian Princess] to the user';
     },
   );
 
-  // Abbreviations - I don't know if it's best to update Enlir to remove these
-  // or not.  Where possible, we update our code to handle abbreviations, but
-  // some are too hard.  If we had an actual parser, it would help.
-  // Wol - Howl of Hell
-  applyPatch(
-    enlir.burstCommands,
-    '30512822',
-    heavyBreak =>
-      heavyBreak.effects ===
-      'Four single attacks (0.58 each), ATK and MAG -20/30/50% for 15 seconds at Heavy Charge 0/1/2, Heavy Charge =0 to the user',
-    heavyBreak => {
-      // Insert 'causes' - it's too big to fit on one line, but too much of our
-      // processing keys off of it.
-      heavyBreak.effects =
-        'Four single attacks (0.58 each), ATK and MAG -20/30/50% for 15 seconds at Heavy Charge 0/1/2, causes Heavy Charge =0 to the user';
-    },
-  );
-  // Seifer - Sorceress's Knight
-  applyPatch(
-    enlir.burstCommands,
-    '30510911',
-    desperateMadness =>
-      desperateMadness.effects ===
-      'Four single attacks (0.56 each), Desperate Madness and Radiant Shield 100/125/150/175/200/225/250/275/300% to the user',
-    desperateMadness => {
-      desperateMadness.effects =
-        'Four single attacks (0.56 each), grants Desperate Madness and Radiant Shield: 100/125/150/175/200/225/250/275/300% to the user scaling with uses';
-    },
+  // "and" vs. "or" is an apparent mistake in the database - and change
+  // terminology to match Runic Release.
+  applyEffectsPatch(
+    enlir.otherSkillsByName,
+    'Cross Shift',
+    'Six single attacks (2.41 each), grants [Buff Dark 10% (15s)] and [Buff Holy 10% (15s)] every second cast based on element of triggering ability',
+    "Six single attacks (2.41 each), grants [Buff Dark 10% (15s)] or [Buff Holy 10% (15s)] every second cast based on triggering ability's element",
   );
 
   // Status cleanups.  These too should be fixed up.
   applyPatch(
     enlir.statusByName,
     'Windborn Swiftness Mode',
-    mode => mode.effects === 'Grants Windborn Swiftness 0/1/2/3 after using a Monk ability',
+    mode =>
+      mode.effects ===
+      'Grants [Windborn Swiftness 0]/[Windborn Swiftness 1]/[Windborn Swiftness 2]/[Windborn Swiftness 3] after using a Monk ability',
     mode => {
       // Adequately covered by Windborn Swiftness 0/1/2/3
       mode.effects = '';
@@ -840,11 +871,11 @@ function patchEnlir() {
     applyPatch(
       enlir.statusByName,
       `Windborn Swiftness ${i}`,
-      mode => mode.effects.match(/[Gg]rants Windborn Swiftness (\d+),/) != null,
+      mode => mode.effects.match(/[Gg]rants \[Windborn Swiftness (\d+)],/) != null,
       mode => {
         mode.effects = mode.effects.replace(
-          /([Gg]rants) Windborn Swiftness (\d+),/,
-          (match, p1, p2) => `${p1} Windborn Swiftness ${p2} after using a Monk ability,`,
+          /([Gg]rants) \[Windborn Swiftness (\d+)],/,
+          (match, p1, p2) => `${p1} \[Windborn Swiftness ${p2}] after using a Monk ability,`,
         );
       },
     );
@@ -854,23 +885,45 @@ function patchEnlir() {
     'Awoken Guardian',
     mode =>
       mode.effects ===
-      "White Magic abilities don't consume uses and single target heals grant Stoneskin: 30/40/50/60/70% to target at ability rank 1/2/3/4/5, dualcasts White Magic abilities",
+      "White Magic abilities don't consume uses and single target heals grant [Stoneskin: 30/40/50/60/70%] to target at ability rank 1/2/3/4/5, dualcasts White Magic abilities",
     mode => {
       mode.effects =
-        "White Magic abilities don't consume uses, grants Stoneskin: 30/40/50/60/70% at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities";
+        "White Magic abilities don't consume uses, grants [Stoneskin: 30/40/50/60/70%] at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities";
     },
   );
-  applyPatch(
+  applyEffectsPatch(
     enlir.statusByName,
-    'Technical Bravo! Follow-Up',
-    mode =>
-      mode.effects ===
-      'Causes Minor Imperil Poison (15s)/Fire/Lightning after using two Poison/Fire/Lightning attacks',
-    mode => {
-      mode.effects =
-        'Causes Minor Imperil Poison/Fire/Lightning (15s) after using two Poison/Fire/Lightning attacks';
-    },
+    'Items +1',
+    "Increases Items level by 1 after using Potato Masher, removed if user hasn't Synchro Mode",
+    'Increases Items level by 1 when set',
   );
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Gulp',
+    'Grants [100% Critical 1], [Damage Cap +10000 1] and Proficiency +1 to the user after using two Samurai or Knight abilities, ' +
+      'grants [Critical Damage +50% 1] to the user if Hilda is alive after using two Samurai or Knight abilities' +
+      ". Proficiency removed if user hasn't Synchro Mode",
+    // Remove text about removing status level - why should only this synchro
+    // status call that out?
+    'Grants [100% Critical 1], [Damage Cap +10000 1] and Proficiency +1 to the user after using two Samurai or Knight abilities, ' +
+      'grants [Critical Damage +50% 1] to the user if Hilda is alive after using two Samurai or Knight abilities',
+  );
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Eblan Unity',
+    'After using three of Eblan Surge or Eblan Struggle, if user has any [Attach Element], grants the same Attach Element to the user',
+    'Grants [Conditional Attach Element] to the user after using three of Eblan Surge or Eblan Struggle',
+  );
+  addPatch(enlir.statusByName, {
+    name: 'Buff Fire 10% (5s)',
+    effects: 'Increases Fire damage dealt by 10%, cumulable',
+    defaultDuration: 5,
+    mndModifier: null,
+    mndModifierIsOpposed: false,
+    exclusiveStatus: null,
+    codedName: 'INCREASE_ELEMENT_ATK_FIRE_1_TIME_SHORT',
+    notes: null,
+  });
 
   // Legend materia.  These, too, should be upstreamed if possible.
   applyPatch(
@@ -878,33 +931,10 @@ function patchEnlir() {
     '201070504',
     legendMateria =>
       legendMateria.effect ===
-      'Grants Quick Cast, grants Lingering Spirit for 25 seconds when HP fall below 20%',
+      'Grants [Quick Cast], grants [Lingering Spirit] for 25 seconds when HP fall below 20%',
     legendMateria => {
       legendMateria.effect =
-        'Grants Quick Cast and Lingering Spirit for 25 seconds when HP fall below 20%';
-    },
-  );
-
-  // Paine's AASB. It seems odd for a status to directly grant a status.
-  applyPatch(
-    enlir.statusByName,
-    'Respect Point Mode',
-    mode => mode.effects === 'Cast speed x2.00, grants Respect Counter Critical',
-    mode => {
-      mode.effects = 'Cast speed x2.00';
-    },
-  );
-  applyPatch(
-    enlir.soulBreaks,
-    '22420008',
-    combo =>
-      combo.effects ===
-      'Fifteen single attacks (0.60 each), grants Attach Water, Awoken Water, ' +
-        'Damage Cap +10000 and Respect Point Mode to the user',
-    combo => {
-      combo.effects =
-        'Fifteen single attacks (0.60 each), grants Attach Water, Awoken Water, ' +
-        'Damage Cap +10000, Respect Point Mode, and Respect Counter Critical to the user';
+        'Grants [Quick Cast] and [Lingering Spirit] for 25 seconds when HP fall below 20%';
     },
   );
 
@@ -914,10 +944,10 @@ function patchEnlir() {
     '20140018',
     tyroAasb =>
       tyroAasb.effects ===
-      'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode and Unraveled History Follow-Up to the user',
+      'Grants [50% Critical] and [Haste], [ATK and DEF +30%] for 25 seconds, grants [Awoken Keeper Mode] and [Unraveled History Follow-Up] to the user',
     tyroAasb => {
       tyroAasb.effects =
-        'Grants 50% Critical and Haste, ATK and DEF +30% for 25 seconds, grants Awoken Keeper Mode, Awoken Keeper Mode Critical Chance and Unraveled History Follow-Up to the user';
+        'Grants [50% Critical] and [Haste], [ATK and DEF +30%] for 25 seconds, grants [Awoken Keeper Mode], [Awoken Keeper Mode Critical Chance] and [Unraveled History Follow-Up] to the user';
     },
   );
   applyPatch(
@@ -925,7 +955,8 @@ function patchEnlir() {
     'Awoken Keeper Mode',
     scholar =>
       scholar.effects ===
-      "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, grants Awoken Keeper Mode Critical Chance to all allies",
+      "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, " +
+        'casts Awoken Keeper Mode Critical after using a Support ability',
     scholar => {
       scholar.effects =
         "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5";
@@ -951,17 +982,17 @@ function patchEnlir() {
     'Odin',
     ability =>
       ability.effects ===
-      'If not resisted, causes Instant KO (100%), otherwise, two group attacks (6.00 each), Different DEF and RES -20% for 25 seconds',
+      'If not resisted, causes [Instant KO] (100%), otherwise, two group attacks (6.00 each), minimum damage 2500, causes [DEF and RES -20%] for 25 seconds',
     ability =>
       (ability.effects =
-        'Two group attacks (6.00 each), causes Instant KO (100%) and Different DEF and RES -20% for 25 seconds'),
+        'Two group attacks (6.00 each), minimum damage 2500, causes [Instant KO] (100%) and [DEF and RES -20%] for 25 seconds'),
   );
   // Make Steal Time match a more common word order.
   applyPatch(
     enlir.abilitiesByName,
     'Steal Time',
-    ability => ability.effects === 'Causes Slow (50%), if successful grants Haste to the user',
-    ability => (ability.effects = 'Causes Slow (50%), grants Haste to the user if successful'),
+    ability => ability.effects === 'Causes [Slow] (50%), if successful grants [Haste] to the user',
+    ability => (ability.effects = 'Causes [Slow] (50%), grants [Haste] to the user if successful'),
   );
 
   // Patch Bahamut (VI) to have an orb cost for rank 1.
@@ -978,22 +1009,22 @@ function patchEnlir() {
     },
   );
 
-  // Some Synchro skills are weird and hard to parse:
-  // Dk.Cecil's SASB chase is apparently trying to say that it's -1 Gehenna
-  // only if it's at Gehenna levels 1 and 2, but it's simpler to avoid that.
+  // Some Synchro skills and effects are complex and hard to parse:
+  // Dk.Cecil's SASB chase is apparently trying to say that it's -1 Gloomshade
+  // only if it's at Gloomshade levels 1 and 2, but it's simpler to avoid that.
   applyPatch(
     enlir.otherSkillsByName,
     'Shadow Chaser',
     ability =>
       ability.effects ===
       'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
-        'heals the user for 20% of the damage dealt at Gehenna levels 1 and 2 ' +
-        'and causes -1 Gehenna to the user, 100% hit rate',
+        'heals the user for 20% of the damage dealt at Gloomshade levels 1 and 2 ' +
+        'and causes -1 Gloomshade to the user, 100% hit rate',
     ability => {
       ability.effects =
         'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
-        'heals the user for 20% of the damage dealt at Gehenna levels 1 and 2,' +
-        'causes -1 Gehenna to the user, 100% hit rate';
+        'heals the user for 20% of the damage dealt at Gloomshade levels 1 and 2,' +
+        'causes -1 Gloomshade to the user, 100% hit rate';
     },
   );
   // Shadow's command is very unique and flavorful, but it becomes much simpler
@@ -1004,11 +1035,402 @@ function patchEnlir() {
     '30549323',
     ability =>
       ability.effects ===
-      '1 ranged or 4/8 single attacks (0.80 each) and grants Physical Blink 1/1/0 if the user has Physical Blink 0/1/2, 100% hit rate at Physical Blink 0',
+      '1/4/8 single ranged/single/single attacks (0.80 each) if the user Physical Blink 0/1/2, ' +
+        'grants [Physical Blink 1]/[Physical Blink 1] if the user has Physical Blink 0/1+, 100% hit rate at Physical Blink 0',
     ability => {
       ability.effects =
-        '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants Physical Blink 1 to the user';
+        '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] to the user';
     },
+  );
+  // For Palom's sync, our parser isn't currently set up to handle "and" conditionals, and this
+  // format probably looks better regardless.
+  applyEffectsPatch(
+    enlir.synchroCommands,
+    '31540512',
+    'Restores HP (25), restores HP (85) and grants [Instant Cast 1] if the user has Mature Mode level 1, causes Mature Mode -1 to the user',
+    'Restores HP (25/85) if the user has Mature Mode level 0/1, grants [Instant Cast 1] if the user has Mature Mode level 1, causes Mature Mode -1 to the user',
+  );
+  // Use a more standard SB points format for Kuja.
+  applyEffectsPatch(
+    enlir.synchroCommands, // Kuja - Dark Flare Burst
+    '31540384',
+    '1/2 single attacks (16.40 each) capped at 99999 if the user has less than/greater than or equal to 1000 SB points, ' +
+      'causes [Soul Break Gauge -250] to the user if the user has 1000+ SB points',
+    '1/2 single attacks (16.40 each) capped at 99999 if the user has 0/1000 SB points, ' +
+      'causes [Soul Break Gauge -250] to the user if the user has 1000+ SB points',
+  );
+  // Make Raging Wind Mode follow a more common order.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Raging Wind Mode',
+    'If user has any Damage Reduction Barrier, grants [200% ATB 1] to the user after using Violent Tornado or Whirlwind Form',
+    'After using Violent Tornado or Whirlwind Form, grants [200% ATB 1] to the user if user has any Damage Reduction Barrier',
+  );
+  // For Ayame's synchro, fix an apparent mistake in the skill name.  It's
+  // equivalent and fits our output format better to say "removed after triggering"
+  // than to say that cmd1 removes the status.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Sword Stance',
+    "Casts Sword Stance after using Tachi: Yukikaze, removed if user hasn't Synchro Mode",
+    "Casts Taichi Blossom after using Tachi: Yukikaze, removed after triggering or if user hasn't Synchro Mode",
+  );
+  applyEffectsPatch(
+    enlir.synchroCommands,
+    '31540074',
+    'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate, removes [Sword Stance] from the user',
+    'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate',
+  );
+  // Simplify Angeal; hopefully the "or" communicates well enough.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Dream Pioneer Mode',
+    'Grants [Dream Pioneer Wind Ability +15% Boost]/[Dream Pioneer Wind Ability +30% Boost]/[Dream Pioneer Wind Ability +50% Boost] ' +
+      'after using 1/2/3+ Wind abilities, ' +
+      'grants [Dream Pioneer Holy Ability +15% Boost]/[Dream Pioneer Holy Ability +30% Boost]/[Dream Pioneer Holy Ability +50% Boost] ' +
+      'after using 1/2/3+ Holy abilities. ' +
+      'Only one of these effects can trigger at a time',
+    'Grants [Dream Pioneer Wind Ability +15% Boost]/[Dream Pioneer Wind Ability +30% Boost]/[Dream Pioneer Wind Ability +50% Boost] ' +
+      'or [Dream Pioneer Holy Ability +15% Boost]/[Dream Pioneer Holy Ability +30% Boost]/[Dream Pioneer Holy Ability +50% Boost] ' +
+      'after using 1/2/3+ Wind or Holy abilities',
+  );
+  // Rain SASB is far too complex to communicate in our allotted space.  Throw
+  // away some detail.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Vagrant Knight Mode',
+    'Casts Vagrant Knight Alpha 1/2 at Vagrant Knight Alpha Level 2/3 and Vagrant Knight Beta Level 0 or 1, ' +
+      'casts Vagrant Knight Beta 1/2 at Vagrant Knight Beta Level 2/3 and Vagrant Knight Alpha Level 0 or 1, ' +
+      'casts Vagrant Knight Gamma 1/2 at Vagrant Knight Alpha Level 1 and Vagrant Knight Beta Level 1/' +
+      'Vagrant Knight Alpha Level 2+ and Vagrant Knight Beta Level 2+, ' +
+      'all follow-ups only triggered every other cast of either Crimson Charge or Crimson Break',
+    'Casts Vagrant Knight Alpha 1/2 after casting Crimson Charge or Crimson Break two times at Vagrant Knight Alpha level 2/3, ' +
+      'casts Vagrant Knight Beta 1/2 after casting Crimson Charge or Crimson Break two times at Vagrant Knight Beta level 2/3, ' +
+      'casts Vagrant Knight Gamma 1/2 after casting Crimson Charge or Crimson Break two times at Vagrant Knight Alpha & Beta level 1/2',
+  );
+  // Our code isn't set up to show otherSkills names, but that leaves no good
+  // way to handle otherSkills as triggers.  Reword Gladiolus's sync to avoid
+  // the issue.
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Precise Guard Mode',
+    'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times',
+    'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% scaling with 0/1/2/3 uses',
+  );
+
+  // Use the older, less verbose format for hybrid effects.  (Personally, I
+  // prefer this...)
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23380003', // Shadowsmith - Soul of Nihility
+    "Ten single attacks (0.71 each), grants [Attach Dark], [Damage Cap +10000] and [Nihility Follow-Up] to the user, grants [PHY +30% Boost] to the user if user's ATK > MAG, grants or [Magical +30% Boost] to the user if user's MAG > ATK",
+    'Ten single attacks (0.71 each), grants [Attach Dark], [Damage Cap +10000] and [Nihility Follow-Up] to the user, grants [PHY +30% Boost] or [Magical +30% Boost] to the user',
+  );
+  applyEffectsPatch(
+    enlir.otherSkillsByName,
+    '...Work (Earth)',
+    'Grants [Attach Earth], grants [BLK +30% Boost 1]/[BLK +50% Boost 1] if MAG > ATK, otherwise grants [PHY +30% Boost 1]/[PHY +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
+    'Grants [Attach Earth], grants [PHY +30% Boost 1]/[PHY +50% Boost 1] or [BLK +30% Boost 1]/[BLK +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
+  );
+  applyEffectsPatch(
+    enlir.otherSkillsByName,
+    '...Work (Lightning)',
+    'Grants [Attach Lightning], grants [BLK +30% Boost 1]/[BLK +50% Boost 1] if MAG > ATK, otherwise grants [PHY +30% Boost 1]/[PHY +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
+    'Grants [Attach Lightning], grants [PHY +30% Boost 1]/[PHY +50% Boost 1] or [BLK +30% Boost 1]/[BLK +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
+  );
+
+  // Try to consistently use brackets for actual statuses and no brackets for
+  // status levels (such as are used for synchro commands).
+  //
+  // We also smooth out tiered effects to make them look nicer.
+  applyEffectsPatch(
+    enlir.synchroCommands,
+    '31540523',
+    'Grants [Fire Ability +10% Boost 1]/[Fire Ability +15% Boost 1]/[Fire Ability +30% Boost 1]/' +
+      '[Fire Ability +50% Boost 1] and [Damage Cap +10000 1] if the user has Chakra level 0/1/2/3, ' +
+      'removes [Chakra] from the user',
+    'Grants [Fire Ability +10% Boost 1]/[Fire Ability +15% Boost 1]/[Fire Ability +30% Boost 1]/' +
+      '[Fire Ability +50% Boost 1] if the user has Chakra level 0/1/2/3, ' +
+      'grants [Damage Cap +10000 1] if the user has Chakra level 3, ' +
+      'removes Chakra from the user',
+  );
+
+  // Apparent mistakes from adding brackets to status names.  Should be
+  // upstreamed.  We also add a few explicit "grants" and "causes" verbs - see
+  // below.
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20210005', // Celes - Maria's Song
+    'ATK and MAG +30% to all allies for 25 seconds, grants [Haste], [Attach Holy] and [Burst Mode] to the user',
+    '[ATK and MAG +30%] to all allies for 25 seconds, grants [Haste], [Attach Holy] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22070002', // Kefka - Magic Infusion
+    'MAG +20% for 25 seconds, grants [Haste]',
+    '[MAG +20%] for 25 seconds, grants [Haste]',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22500004', // Angeal - Idle Rage
+    'Ten single attacks (0.71 each), grants 100% Critical to the user, ' +
+      'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
+    'Ten single attacks (0.71 each), grants [100% Critical] to the user, ' +
+      'grants [50% Damage Reduction Barrier 2] and [Regenga] to all allies',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22100007', // Laguna - Ragnarok Buster
+    'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants ATK and RES +30%, [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
+    'Seven group ranged attacks (0.75 each), [Imperil Ice 20%] for 25 seconds, grants [ATK and RES +30%], [High Quick Cast 1] and [Ice High Quick Cycle] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23000002', // Ward - Wordless Promise
+    'ATK +50% for 25 seconds, grants [Last Stand]',
+    '[ATK +50%] for 25 seconds, grants [Last Stand]',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20860003', // Zidane - Rumble Rush
+    'Four single attacks (1.28 each), ATK -50% for 25 seconds, [ATK +35%] to the user for 25 seconds',
+    'Four single attacks (1.28 each), [ATK -50%] for 25 seconds, grants [ATK +35%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20860004', // Zidane - Shift Break
+    'Four group ranged attacks (1.50 each), ATK -50% for 25 seconds, ATK +35% to the user for 25 seconds',
+    'Four group ranged attacks (1.50 each), [ATK -50%] for 25 seconds, grants [ATK +35%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20840006', // Quina - Culinary Curiosity
+    'ATK +50% for 25 seconds, grants [Protect], [Shell] and [Haste]',
+    '[ATK +50%] for 25 seconds, grants [Protect], [Shell] and [Haste]',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20690002', // Auron - Dragon Fang
+    'One group attack (3.20), ATK -50% for 25 seconds',
+    'One group attack (3.20), [ATK -50%] for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22880006', // Aphmau - Imperial Heal
+    'Causes Imperil Holy 20%, restores HP (85) to all allies, grants [Imperial Heal] and [Glimpse of Divinity Follow-Up] to the user',
+    'Causes [Imperil Holy 20%], restores HP (85) to all allies, grants [Imperial Heal] and [Glimpse of Divinity Follow-Up] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23200002', // Ignis - Stalwart Cook
+    'ATK and RES +30% for 25 seconds, grants [Haste], grants [Ingredients +2] and [Burst Mode] to the user',
+    '[ATK and RES +30%] for 25 seconds, grants [Haste], grants [Ingredients +2] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22700004', // Rapha - Miracle of Scorpio
+    'MAG +30% for 25 seconds, grants [Haste] and [Magical Quick Cast 3], grants [Attach Lightning] to the user',
+    '[MAG +30%] for 25 seconds, grants [Haste] and [Magical Quick Cast 3], grants [Attach Lightning] to the user',
+  );
+  applyEffectsPatch(
+    enlir.abilitiesByName,
+    'Mug Bloodlust',
+    'Two single attacks (1.60 each), ATK and DEF -30% for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds',
+    'Two single attacks (1.60 each), [ATK and DEF -30%] for 20 seconds, grants [ATK and DEF +30%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.abilitiesByName,
+    'Quadruple Foul',
+    'Four random hybrid ranged attacks (1.00 or 3.33), causes Poison (26%), Sleep (26%), Blind (26%) and Silence (26%)',
+    'Four random hybrid ranged attacks (1.00 or 3.33), causes [Poison] (26%), [Sleep] (26%), [Blind] (26%) and [Silence] (26%)',
+  );
+  applyEffectsPatch(
+    enlir.abilities,
+    '30121431', // Sarah HA - Sacred Prayer
+    'Restores 1500 HP and grants [10% Damage Reduction Barrier 1]',
+    'Restores 1500 HP, grants [10% Damage Reduction Barrier 1]',
+  );
+
+  // Add explicit "grants" and "causes" verbs.  This greatly simplifies parsing.
+  applyEffectsPatch(
+    enlir.abilitiesByName,
+    'Steal Defense',
+    '[DEF -40%] for 20 seconds, [DEF +50%] to the user for 20 seconds',
+    '[DEF -40%] for 20 seconds, grants [DEF +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.abilitiesByName,
+    'Steal Power',
+    '[ATK -40%] for 20 seconds, [ATK +50%] to the user for 20 seconds',
+    '[ATK -40%] for 20 seconds, grants [ATK +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22300005', // Sarah - Age-old Hymn
+    'Restores HP (55), grants [Magical Blink 1], [RES and MND +30%] to the user for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Restores HP (55), grants [Magical Blink 1], grants [RES and MND +30%] to the user for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22130003', // Leila - Pirate's Knives
+    'Six single attacks (1.27 each), [ATK and RES -50%] for 25 seconds, [ATK and RES +30%] to the user for 25 seconds',
+    'Six single attacks (1.27 each), [ATK and RES -50%] for 25 seconds, grants [ATK and RES +30%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22230004', // Desch - Roiling Memories
+    'Six random attacks (2.94 each), causes [Imperil Lightning 20%] for 25 seconds, [MAG +30%] to the user for 25 seconds',
+    'Six random attacks (2.94 each), causes [Imperil Lightning 20%] for 25 seconds, grants [MAG +30%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20070016', // Cecil (Paladin) - Shining Crescent
+    'Fifteen single hybrid attacks (0.60 or 1.60 each), grants [Attach Holy], [Awoken Holy], [Damage Cap +10000] to the user and [75% Damage Reduction Barrier 3] to all allies',
+    'Fifteen single hybrid attacks (0.60 or 1.60 each), grants [Attach Holy], [Awoken Holy], [Damage Cap +10000] to the user, grants [75% Damage Reduction Barrier 3] to all allies',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22350003', // Edward - Whisperweed Ballad
+    'Causes [Imperil Holy 20%] for 25 seconds, [ATK +50%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Causes [Imperil Holy 20%] for 25 seconds, grants [ATK +50%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20730003', // Fusoya - Lunarian Might
+    'Causes [Imperil Dark 20%] for 25 seconds, [MAG and MND +30%] to all allies for 25 seconds',
+    'Causes [Imperil Dark 20%] for 25 seconds, grants [MAG and MND +30%] to all allies for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20200007', // Lenna - Phoenix of Tycoon
+    'Restores HP (55), grants [Reraise: 40%], [RES and MND +30%] to the user for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Restores HP (55), grants [Reraise: 40%], grants [RES and MND +30%] to the user for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22510002', // Dorgan - Shiradori
+    '[DEF -15%] for 25 seconds, [ATK +15%] to the user for 25 seconds',
+    '[DEF -15%] for 25 seconds, grants [ATK +15%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22510003', // Dorgan - Uncharted Lands
+    'Causes [Imperil Earth 20%] for 25 seconds, [ATK and DEF +30%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Causes [Imperil Earth 20%] for 25 seconds, grants [ATK and DEF +30%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20360007', // Garnet - Trial by Lightning
+    'Causes [Imperil Lightning 20%] for 25 seconds, [ATK and MAG +30%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Causes [Imperil Lightning 20%] for 25 seconds, grants [ATK and MAG +30%] to all allies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20970004', // Rikku - Machina Sabotage
+    'Four single attacks (1.29 each), [ATK -50%] for 25 seconds, [ATK +50%] to the user for 25 seconds',
+    'Four single attacks (1.29 each), [ATK -50%] for 25 seconds, grants [ATK +50%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20970006', // Rikku - Master Thief
+    'Six single attacks (1.28 each), [ATK and RES -50%] for 25 seconds, [ATK and RES +30%] to the user for 25 seconds',
+    'Six single attacks (1.28 each), [ATK and RES -50%] for 25 seconds, grants [ATK and RES +30%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23350002', // Lilisette - Vivifying Waltz
+    'Grants [HP Stock (2000)], [ATK, DEF, MAG and RES -40%] to all enemies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+    'Grants [HP Stock (2000)], causes [ATK, DEF, MAG and RES -40%] to all enemies for 25 seconds, grants [Haste] and [Burst Mode] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20700004', // Vaan - Pyroclasm
+    'Four group ranged attacks (1.50 each), [ATK -50%] for 25 seconds, [ATK +50%] to the user for 25 seconds',
+    'Four group ranged attacks (1.50 each), [ATK -50%] for 25 seconds, grants [ATK +50%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '20700009', // Vaan - Cruelest Azure
+    'Ten random attacks (0.70 each), [ATK and RES -50%] for 25 seconds, [ATK and RES +30%] to the user for 25 seconds, grants [EX: Sky Pirate] to the user',
+    'Ten random attacks (0.70 each), [ATK and RES -50%] for 25 seconds, grants [ATK and RES +30%] to the user for 25 seconds, grants [EX: Sky Pirate] to the user',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22320001', // Yda - Twin Snake Dragon Kick
+    'Six single attacks (1.30 each), [DEF -50%] for 25 seconds, [ATK +30%] to all allies for 25 seconds',
+    'Six single attacks (1.30 each), [DEF -50%] for 25 seconds, grants [ATK +30%] to all allies for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '22320005', // Yda - True Demolition
+    'Four group attacks (1.39 each), [DEF and RES -50%] for 25 seconds, [ATK and DEF +30%] to the user for 25 seconds',
+    'Four group attacks (1.39 each), [DEF and RES -50%] for 25 seconds, grants [ATK and DEF +30%] to the user for 25 seconds',
+  );
+  applyEffectsPatch(
+    enlir.soulBreaks,
+    '23330001', // Orran - Celestial Stasis
+    'Grants [Magical Blink 1] and [Instant Cast 1], [ATK, DEF, MAG and RES -70%] to all enemies for 8 seconds',
+    'Grants [Magical Blink 1] and [Instant Cast 1], causes [ATK, DEF, MAG and RES -70%] to all enemies for 8 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30511102', // Leila - Poison Cloud XVI
+    'Two single attacks (0.86 each), [ATK and MND -20%] for 20 seconds, [ATK and MND +20%] to the user for 20 seconds',
+    'Two single attacks (0.86 each), [ATK and MND -20%] for 20 seconds, grants [ATK and MND +20%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30511441', // Bartz - Woken Water
+    'One single attack (2.00), [ATK -40%] for 20 seconds, [ATK +50%] to the user for 20 seconds',
+    'One single attack (2.00), [ATK -40%] for 20 seconds, grants [ATK +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30510221', // Locke - Mirage Phoenix
+    'One single attack (2.00), [ATK and MAG -20%] for 20 seconds, [ATK and MAG +20%] to the user for 20 seconds',
+    'One single attack (2.00), [ATK and MAG -20%] for 20 seconds, grants [ATK and MAG +20%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30512222', // Locke - On the Hunt
+    'Two single ranged attacks (0.86 each), [ATK -50%] for 20 seconds, [ATK +50%] to the user for 20 seconds',
+    'Two single ranged attacks (0.86 each), [ATK -50%] for 20 seconds, grants [ATK +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30510622', // Yuffie - Guardian of Wutai
+    'Two single ranged attacks (0.86 each), [ATK and DEF -20%] for 20 seconds, [ATK and DEF +20%] to the user for 20 seconds',
+    'Two single ranged attacks (0.86 each), [ATK and DEF -20%] for 20 seconds, grants [ATK and DEF +20%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30511672', // Rinoa - Angel Wing Ice Shards
+    '[MAG -40%] for 20 seconds, [MAG +30%] to the user for 20 seconds',
+    '[MAG -40%] for 20 seconds, grants [MAG +30%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30510131', // Zidane - Stellar Circle 5
+    'One single attack (2.00), [ATK -40%] for 20 seconds, [ATK +50%] to the user for 20 seconds',
+    'One single attack (2.00), [ATK -40%] for 20 seconds, grants [ATK +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30510132', // Zidane - Stellar Circle 5
+    'One single attack (2.00), [DEF -40%] for 20 seconds, [DEF +50%] to the user for 20 seconds',
+    'One single attack (2.00), [DEF -40%] for 20 seconds, grants [DEF +50%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30510272', // Rikku - Machinations
+    'Two single ranged attacks (1.00 each), [ATK and DEF -20%] for 20 seconds, [ATK and DEF +20%] to the user for 20 seconds',
+    'Two single ranged attacks (1.00 each), [ATK and DEF -20%] for 20 seconds, grants [ATK and DEF +20%] to the user for 20 seconds',
+  );
+  applyEffectsPatch(
+    enlir.burstCommands,
+    '30512452', // Rikku - Team Bomb
+    'Two single ranged attacks (0.86 each), [ATK -50%] for 20 seconds, [ATK +50%] to the user for 20 seconds',
+    'Two single ranged attacks (0.86 each), [ATK -50%] for 20 seconds, grants [ATK +50%] to the user for 20 seconds',
   );
 }
 patchEnlir();
@@ -1026,20 +1448,6 @@ export function isCoreJob(character: EnlirCharacter): boolean {
     character.id < enlir.charactersByName['Elarra'].id
   );
 }
-
-/**
- * Handle statuses for which the FFRK Community spreadsheet is inconsistent.
- *
- * NOTE: These are unconfirmed.  (If they were confirmed, we'd just update
- * the spreadsheet.)  Some may be intentional abbreviations.
- *
- * TODO: Try to clean up alternate status names.
- */
-export const enlirStatusAltName: { [status: string]: EnlirStatus } = {
-  'B. M.': enlir.statusByName['Burst Mode'],
-  IC1: enlir.statusByName['Instant Cast 1'],
-  'Critical 100%': enlir.statusByName['100% Critical'],
-};
 
 export interface EnlirStatusPlaceholders {
   xValue?: number;
@@ -1063,10 +1471,6 @@ export function getEnlirStatusWithPlaceholders(
 ): EnlirStatusWithPlaceholders | undefined {
   if (enlir.statusByName[status]) {
     return { status: enlir.statusByName[status] };
-  }
-
-  if (enlirStatusAltName[status]) {
-    return { status: enlirStatusAltName[status] };
   }
 
   const placeholders: EnlirStatusPlaceholders = {};
@@ -1123,6 +1527,30 @@ export function getEnlirStatusWithPlaceholders(
 export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
   const result = getEnlirStatusWithPlaceholders(status);
   return result ? result.status : undefined;
+}
+
+const getTrueArcaneBaseName = (sb: EnlirSoulBreak) =>
+  // To accommodate Rydia's Gaia's Rage, we have to remove realm suffixes as
+  // well as "(Release)".
+  sb.name.replace(/ \(Release\)$/, '').replace(/ \([IV]+\)$/, '');
+
+/**
+ * For a true arcane soul break (TASB), gets the associated status that
+ * increments the level.
+ */
+export function getEnlirTrueArcaneTracker(sb: EnlirSoulBreak): EnlirStatus | undefined {
+  const name = getTrueArcaneBaseName(sb);
+  return (
+    enlir.statusByName[name + ' Ability Tracker'] || enlir.statusByName[name + ' Damage Tracker']
+  );
+}
+
+/**
+ * For a true arcane soul break (TASB), gets the associated status that
+ * tracks the level.
+ */
+export function getEnlirTrueArcaneLevel(sb: EnlirSoulBreak): EnlirStatus | undefined {
+  return enlir.statusByName[getTrueArcaneBaseName(sb) + ' Level'];
 }
 
 /**
@@ -1186,6 +1614,14 @@ export function isSharedSoulBreak(sb: EnlirSoulBreak): boolean {
 
 export function isLimitBreak(skill: EnlirSkill): skill is EnlirLimitBreak {
   return 'minimumLbPoints' in skill;
+}
+
+export function isTrueArcane1st(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'TASB' && sb.points === 0;
+}
+
+export function isTrueArcane2nd(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'TASB' && sb.points !== 0;
 }
 
 function makeSkillAliases<
@@ -1259,7 +1695,7 @@ export function makeLegendMateriaAliases(
 ): { [id: number]: string } {
   const total: { [key: string]: number } = {};
   const seen: { [key: string]: number } = {};
-  const makeKey = ({ character, relic }: EnlirLegendMateria) => character + (relic ? '-R' : '-LD');
+  const makeKey = ({ character, tier }: EnlirLegendMateria) => character + (tier || '');
   _.forEach(legendMateria, lm => {
     const key = makeKey(lm);
     total[key] = total[key] || 0;
@@ -1273,8 +1709,8 @@ export function makeLegendMateriaAliases(
     seen[key]++;
 
     let alias: string;
-    if (lm.relic) {
-      alias = 'LMR';
+    if (lm.tier) {
+      alias = lm.tier;
     } else {
       alias = 'LM';
     }
@@ -1349,16 +1785,33 @@ export const normalSBPoints = {
   },
 };
 
+/**
+ * Checks whether the given element property is "truly" elemental (not purely
+ * non-elemental).
+ */
+export function isNonElemental(element: EnlirElement[]) {
+  return element.length === 1 && element[0] === 'NE';
+}
+
 export function getNormalSBPoints(ability: EnlirAbility): number {
   const isFast = ability.time && ability.time <= 1.2;
-  const isElemental = ability.element && ability.element.length;
+  const isElemental = ability.element && ability.element.length && !isNonElemental(ability.element);
   const checkSpeed = isFast ? normalSBPoints.fast : normalSBPoints;
   const checkElemental = isElemental ? checkSpeed.elemental : checkSpeed.nonElemental;
   return checkElemental[ability.rarity];
 }
 
 export function isNat(skill: EnlirSkill): boolean {
-  // NOTE: This does not detect the case where a hybrid WHT/BLK or WHT/SUM
-  // skill lists its formula as Magical; see comments on EnlirFormula.
-  return skill.type === 'NAT' && skill.formula !== null && skill.formula !== 'Hybrid';
+  return (
+    skill.type === 'NAT' &&
+    skill.formula !== null &&
+    skill.formula !== 'Hybrid' &&
+    !(skill.typeDetails && skill.typeDetails.length === 2)
+  );
+}
+
+export function hasSkillType(skill: EnlirGenericSkill, type: EnlirSkillType): boolean {
+  return (
+    skill.type === type || (skill.typeDetails != null && skill.typeDetails.indexOf(type) !== -1)
+  );
 }

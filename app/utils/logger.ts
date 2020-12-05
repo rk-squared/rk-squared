@@ -2,30 +2,50 @@ import * as winston from 'winston';
 
 import { simpleFilter } from './typeUtils';
 
-function makeLogFormat(colorize: boolean) {
+function makeLogFormat({ colorize, timestamp }: { colorize: boolean; timestamp: boolean }) {
   return winston.format.combine(
     ...simpleFilter([
-      winston.format.timestamp(),
-
+      timestamp ? winston.format.timestamp() : null,
       colorize ? winston.format.colorize() : null,
-      winston.format.printf(info => `${info.timestamp} ${info.level}: ${info.message}`),
+      winston.format.printf(
+        info => `${timestamp ? info.timestamp + ' ' : ''}${info.level}: ${info.message}`,
+      ),
       // Or use winston.format.json() for pure JSON.
     ]),
   );
 }
 
+const defaultTransport = new winston.transports.Console({
+  format: makeLogFormat({ colorize: true, timestamp: true }),
+});
+
 const logger = winston.createLogger({
   level: 'debug',
-  transports: [new winston.transports.Console({ format: makeLogFormat(true) })],
+  transports: [defaultTransport],
 });
 
 export function logToFile(filename: string) {
   logger.add(
     new winston.transports.File({
       filename,
-      format: makeLogFormat(false),
+      format: makeLogFormat({ colorize: false, timestamp: true }),
     }),
   );
+}
+
+/**
+ * Configure the logger for command-line scripts.  In particular, remove
+ * timestamps, to cut down on clutter and to make the output easier to diff.
+ */
+export function logForCli() {
+  logger.configure({
+    level: 'debug',
+    transports: [
+      new winston.transports.Console({
+        format: makeLogFormat({ colorize: true, timestamp: false }),
+      }),
+    ],
+  });
 }
 
 /**
@@ -34,6 +54,12 @@ export function logToFile(filename: string) {
  * it loses the exception name and the stack trace.
  */
 export function logException(e: any, level: string = 'error') {
+  // Exceptions are loud and can complicate comparing before/after results.
+  // Allow suppressing via environment variable for command-line use.
+  if (process.env.HIDE_EXCEPTIONS === '1') {
+    return;
+  }
+
   if (e.message && e.name && e.stack) {
     logger.log(level, `${e.name}: ${e.message}\n${e.stack}`, {
       ...e,

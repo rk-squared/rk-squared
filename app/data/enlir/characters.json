@@ -2863,7 +2863,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -2990,7 +2990,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3117,7 +3117,7 @@
       "mnd": 15,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bug Catching Strategy",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -3371,7 +3371,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Destined Time",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3625,7 +3625,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "The Journey of Light",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3668,7 +3668,7 @@
       "dragoon": 3,
       "monk": 4,
       "thief": 4,
-      "knight": null,
+      "knight": 5,
       "samurai": 4,
       "ninja": null,
       "bard": null,
@@ -3752,7 +3752,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "The Journey of Light",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4641,7 +4641,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Towering Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Grand Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4768,7 +4768,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Ultimate Magic",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5276,7 +5276,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (II)",
+    "introducingEventRecordBoards": "Chaotic Memories (II)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5807,14 +5807,14 @@
       "gamblingGear": false,
       "doll": false,
       "keyblade": false,
-      "shield": false,
+      "shield": true,
       "hat": false,
-      "helm": false,
-      "lightArmor": false,
-      "heavyArmor": false,
-      "robe": false,
-      "bracer": false,
-      "accessory": false
+      "helm": true,
+      "lightArmor": true,
+      "heavyArmor": true,
+      "robe": true,
+      "bracer": true,
+      "accessory": true
     },
     "skills": {
       "blackMagic": 3,
@@ -5911,7 +5911,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Traveling Soldier's Hidden Feelings",
+    "introducingEventRecordBoards": "Journey of Growth",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6038,7 +6038,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (III)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6165,7 +6165,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Traveling Soldier's Hidden Feelings",
+    "introducingEventRecordBoards": "Journey of Growth",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6292,7 +6292,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Traveling Soldier's Hidden Feelings",
+    "introducingEventRecordBoards": "Journey of Growth",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6673,7 +6673,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (III)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6800,7 +6800,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (III)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7435,7 +7435,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Bloomfest",
+    "introducingEventRecordBoards": "Autumn Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7689,7 +7689,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Towering Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Grand Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7816,7 +7816,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Bloomfest",
+    "introducingEventRecordBoards": "Autumn Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8197,7 +8197,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": "Bloomfest",
+    "introducingEventRecordBoards": "Autumn Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8578,7 +8578,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Shocking Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Shocking Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8959,7 +8959,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Towering Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Grand Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9086,7 +9086,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Pride Wakens",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9340,7 +9340,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "A New Dawn Rising",
+    "introducingEventRecordBoards": "Rays of Dawn",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9467,7 +9467,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (V)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9848,7 +9848,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Bonds of Friendship",
+    "introducingEventRecordBoards": "Unbreakable Bond",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -9975,7 +9975,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (V)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10356,7 +10356,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (V)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10483,7 +10483,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (V)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10991,7 +10991,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Separated Friends",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11118,7 +11118,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Separated Friends",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -11626,7 +11626,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (VI)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12007,7 +12007,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Separated Friends",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12388,7 +12388,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Bloomfest",
+    "introducingEventRecordBoards": "Autumn Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12515,7 +12515,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (VI)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -12769,7 +12769,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Crisis Before the Star",
+    "introducingEventRecordBoards": "Planet in Peril",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13023,7 +13023,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Crisis Before the Star",
+    "introducingEventRecordBoards": "Planet in Peril",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13150,7 +13150,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Bloomfest",
+    "introducingEventRecordBoards": "Autumn Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13277,7 +13277,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Crisis Before the Star",
+    "introducingEventRecordBoards": "Planet in Peril",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13531,7 +13531,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Bloomfest",
+    "introducingEventRecordBoards": "Autumn Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13785,7 +13785,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14293,7 +14293,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: Radiant Magicites",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14420,7 +14420,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Enduring Transparent",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -15182,7 +15182,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Clashing Lion and Knight",
+    "introducingEventRecordBoards": "Lion and Knight",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15563,7 +15563,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Clashing Lion and Knight",
+    "introducingEventRecordBoards": "Lion and Knight",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15611,7 +15611,7 @@
       "ninja": null,
       "bard": null,
       "dancer": null,
-      "machinist": null,
+      "machinist": 5,
       "darkness": null,
       "sharpshooter": 6,
       "witch": null,
@@ -15817,7 +15817,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Clashing Lion and Knight",
+    "introducingEventRecordBoards": "Lion and Knight",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -15944,7 +15944,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Faeries from the Future",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16833,7 +16833,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Shocking Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Shocking Forgery",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16867,7 +16867,7 @@
     },
     "skills": {
       "blackMagic": null,
-      "whiteMagic": 4,
+      "whiteMagic": 5,
       "combat": null,
       "support": 2,
       "celerity": null,
@@ -17214,7 +17214,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Recalling the Blue Light",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17595,7 +17595,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Recalling the Blue Light",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17849,7 +17849,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18230,7 +18230,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18611,7 +18611,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (X)",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18992,7 +18992,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (X)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19627,7 +19627,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Lady Plays Rough",
+    "introducingEventRecordBoards": "A Demanding Mistress",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19881,7 +19881,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Lady Plays Rough",
+    "introducingEventRecordBoards": "A Demanding Mistress",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20389,7 +20389,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": "The Lady Plays Rough",
+    "introducingEventRecordBoards": "A Demanding Mistress",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20897,7 +20897,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Armor of Vengence",
+    "introducingEventRecordBoards": "Clad in Hatred",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -21278,7 +21278,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Armor of Vengence",
+    "introducingEventRecordBoards": "Clad in Hatred",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -21405,7 +21405,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Armor of Vengence",
+    "introducingEventRecordBoards": "Clad in Hatred",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22040,7 +22040,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Breaking Misfortune, Indomitable Fist",
+    "introducingEventRecordBoards": "Striking Back at Fate",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22167,7 +22167,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Breaking Misfortune, Indomitable Fist",
+    "introducingEventRecordBoards": "Striking Back at Fate",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22548,7 +22548,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Breaking Misfortune, Indomitable Fist",
+    "introducingEventRecordBoards": "Striking Back at Fate",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22675,7 +22675,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22929,7 +22929,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Confounded Memories (XIII)",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23183,7 +23183,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Conquest Against the Primals",
+    "introducingEventRecordBoards": "Vanquish the Primals",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -23216,7 +23216,7 @@
       "accessory": true
     },
     "skills": {
-      "blackMagic": 3,
+      "blackMagic": 5,
       "whiteMagic": 5,
       "combat": null,
       "support": 4,
@@ -23234,7 +23234,7 @@
       "machinist": null,
       "darkness": null,
       "sharpshooter": null,
-      "witch": null,
+      "witch": 6,
       "heavy": null
     },
     "id": 11400100,
@@ -23310,7 +23310,7 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Thrills and Treats",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23437,7 +23437,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Thrills and Treats",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23564,7 +23564,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -23818,7 +23818,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Conquest Against the Primals",
+    "introducingEventRecordBoards": "Vanquish the Primals",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23945,7 +23945,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Thrills and Treats",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24072,7 +24072,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24199,7 +24199,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Conquest Against the Primals",
+    "introducingEventRecordBoards": "Vanquish the Primals",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24386,7 +24386,7 @@
   {
     "realm": "XIV",
     "name": "Alisaie",
-    "introducingEventLv50": "Conquest Against the Primals",
+    "introducingEventLv50": "Vanquish the Primals",
     "lv50": {
       "hp": 2997,
       "atk": 86,
@@ -24398,7 +24398,7 @@
       "eva": 22,
       "spd": 118
     },
-    "introducingEventLv65": "Conquest Against the Primals",
+    "introducingEventLv65": "Vanquish the Primals",
     "lv65": {
       "hp": 3860,
       "atk": 110,
@@ -24410,7 +24410,7 @@
       "eva": 23,
       "spd": 127
     },
-    "introducingEventLv80": "Conquest Against the Primals",
+    "introducingEventLv80": "Vanquish the Primals",
     "lv80": {
       "hp": 4723,
       "atk": 133,
@@ -24422,7 +24422,7 @@
       "eva": 24,
       "spd": 136
     },
-    "introducingEventLv99": "Conquest Against the Primals",
+    "introducingEventLv99": "Vanquish the Primals",
     "lv99": {
       "hp": 5816,
       "atk": 164,
@@ -24434,7 +24434,7 @@
       "eva": 25,
       "spd": 149
     },
-    "introducingEventRecordSpheres": "Conquest Against the Primals",
+    "introducingEventRecordSpheres": "Vanquish the Primals",
     "recordSpheres": {
       "hp": 470,
       "atk": 5,
@@ -24443,7 +24443,7 @@
       "res": 8,
       "mnd": 15
     },
-    "introducingEventLegendSpheres": "Conquest Against the Primals",
+    "introducingEventLegendSpheres": "Vanquish the Primals",
     "legendSpheres": {
       "hp": 500,
       "atk": 0,
@@ -24453,7 +24453,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Conquest Against the Primals",
+    "introducingEventRecordBoards": "Vanquish the Primals",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24508,7 +24508,7 @@
       "heavy": null
     },
     "id": 11401200,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
@@ -24707,7 +24707,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Bloomfest",
+    "introducingEventRecordBoards": "Autumn Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24834,7 +24834,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Summer Sun Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -24961,7 +24961,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Future King's Journey",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -25088,7 +25088,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Future King's Journey",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -25377,9 +25377,9 @@
     "skills": {
       "blackMagic": null,
       "whiteMagic": null,
-      "combat": 6,
+      "combat": 5,
       "support": null,
-      "celerity": 6,
+      "celerity": 5,
       "summoning": null,
       "spellblade": null,
       "dragoon": null,
@@ -25525,6 +25525,133 @@
     },
     "id": 11500900,
     "gl": true
+  },
+  {
+    "realm": "XV",
+    "name": "Ardyn",
+    "introducingEventLv50": "Future King's Journey",
+    "lv50": {
+      "hp": 4420,
+      "atk": 111,
+      "def": 91,
+      "mag": 72,
+      "res": 78,
+      "mnd": 70,
+      "acc": 23,
+      "eva": 22,
+      "spd": 123
+    },
+    "introducingEventLv65": "Future King's Journey",
+    "lv65": {
+      "hp": 5495,
+      "atk": 141,
+      "def": 113,
+      "mag": 95,
+      "res": 99,
+      "mnd": 93,
+      "acc": 24,
+      "eva": 23,
+      "spd": 131
+    },
+    "introducingEventLv80": "Future King's Journey",
+    "lv80": {
+      "hp": 6534,
+      "atk": 172,
+      "def": 133,
+      "mag": 118,
+      "res": 120,
+      "mnd": 116,
+      "acc": 24,
+      "eva": 24,
+      "spd": 139
+    },
+    "introducingEventLv99": "Future King's Journey",
+    "lv99": {
+      "hp": 7810,
+      "atk": 211,
+      "def": 159,
+      "mag": 149,
+      "res": 148,
+      "mnd": 146,
+      "acc": 26,
+      "eva": 25,
+      "spd": 149
+    },
+    "introducingEventRecordSpheres": "Future King's Journey",
+    "recordSpheres": {
+      "hp": 940,
+      "atk": 32,
+      "def": 10,
+      "mag": 0,
+      "res": 1,
+      "mnd": 0
+    },
+    "introducingEventLegendSpheres": "Future King's Journey",
+    "legendSpheres": {
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
+    },
+    "introducingEventRecordBoards": "Future King's Journey",
+    "equipment": {
+      "dagger": true,
+      "sword": true,
+      "katana": true,
+      "axe": true,
+      "hammer": true,
+      "spear": true,
+      "fist": false,
+      "rod": false,
+      "staff": true,
+      "bow": true,
+      "instrument": false,
+      "whip": false,
+      "thrown": true,
+      "gun": true,
+      "book": false,
+      "blitzball": false,
+      "hairpin": false,
+      "gunArm": false,
+      "gamblingGear": false,
+      "doll": false,
+      "keyblade": false,
+      "shield": true,
+      "hat": true,
+      "helm": false,
+      "lightArmor": true,
+      "heavyArmor": false,
+      "robe": false,
+      "bracer": true,
+      "accessory": true
+    },
+    "skills": {
+      "blackMagic": 3,
+      "whiteMagic": null,
+      "combat": 5,
+      "support": null,
+      "celerity": 5,
+      "summoning": null,
+      "spellblade": null,
+      "dragoon": 5,
+      "monk": null,
+      "thief": null,
+      "knight": null,
+      "samurai": 5,
+      "ninja": null,
+      "bard": null,
+      "dancer": null,
+      "machinist": 4,
+      "darkness": 6,
+      "sharpshooter": null,
+      "witch": null,
+      "heavy": 6
+    },
+    "id": 11501000,
+    "gl": false
   },
   {
     "realm": "FFT",
@@ -25723,7 +25850,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Heroes of Ivalice",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25850,7 +25977,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "6th Anniversary Festival",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25977,7 +26104,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Heroes of Ivalice",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -26231,7 +26358,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Heroes of Ivalice",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26358,7 +26485,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Heroes of Ivalice",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26866,7 +26993,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "New Year Party 2020",
+    "introducingEventRecordBoards": "Heroes of Ivalice",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -27120,7 +27247,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "6th Anniversary Festival",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27247,7 +27374,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Bloomfest",
+    "introducingEventRecordBoards": "Autumn Festival 2020",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27283,7 +27410,7 @@
       "blackMagic": 4,
       "whiteMagic": 5,
       "combat": null,
-      "support": null,
+      "support": 4,
       "celerity": null,
       "summoning": null,
       "spellblade": null,
@@ -27628,7 +27755,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Gambler's Message",
+    "introducingEventRecordBoards": "Dear-Bought Message",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -27755,7 +27882,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: A Towering Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Grand Forgery",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28644,7 +28771,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Gambler's Message",
+    "introducingEventRecordBoards": "Dear-Bought Message",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -29025,7 +29152,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Gambler's Message",
+    "introducingEventRecordBoards": "Dear-Bought Message",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29660,7 +29787,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29787,7 +29914,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -29914,7 +30041,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30041,7 +30168,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30168,7 +30295,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30295,7 +30422,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30422,7 +30549,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30549,7 +30676,7 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Core Torment",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30609,7 +30736,7 @@
   {
     "realm": "Beyond",
     "name": "Rain",
-    "introducingEventLv50": "Grandshelt Knight",
+    "introducingEventLv50": "Knights of Grandshelt",
     "lv50": {
       "hp": 3836,
       "atk": 110,
@@ -30621,7 +30748,7 @@
       "eva": 22,
       "spd": 123
     },
-    "introducingEventLv65": "Grandshelt Knight",
+    "introducingEventLv65": "Knights of Grandshelt",
     "lv65": {
       "hp": 4769,
       "atk": 140,
@@ -30633,7 +30760,7 @@
       "eva": 23,
       "spd": 131
     },
-    "introducingEventLv80": "Grandshelt Knight",
+    "introducingEventLv80": "Knights of Grandshelt",
     "lv80": {
       "hp": 5670,
       "atk": 170,
@@ -30645,7 +30772,7 @@
       "eva": 24,
       "spd": 139
     },
-    "introducingEventLv99": "Grandshelt Knight",
+    "introducingEventLv99": "Knights of Grandshelt",
     "lv99": {
       "hp": 6777,
       "atk": 209,
@@ -30657,7 +30784,7 @@
       "eva": 25,
       "spd": 149
     },
-    "introducingEventRecordSpheres": "Grandshelt Knight",
+    "introducingEventRecordSpheres": "Knights of Grandshelt",
     "recordSpheres": {
       "hp": 850,
       "atk": 31,
@@ -30666,7 +30793,7 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Grandshelt Knight",
+    "introducingEventLegendSpheres": "Knights of Grandshelt",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -30676,7 +30803,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Grandshelt Knight",
+    "introducingEventRecordBoards": "Knights of Grandshelt",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30731,12 +30858,12 @@
       "heavy": null
     },
     "id": 19003300,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "name": "Fina",
-    "introducingEventLv50": "Grandshelt Knight",
+    "introducingEventLv50": "Knights of Grandshelt",
     "lv50": {
       "hp": 2679,
       "atk": 64,
@@ -30748,7 +30875,7 @@
       "eva": 22,
       "spd": 118
     },
-    "introducingEventLv65": "Grandshelt Knight",
+    "introducingEventLv65": "Knights of Grandshelt",
     "lv65": {
       "hp": 3451,
       "atk": 82,
@@ -30760,7 +30887,7 @@
       "eva": 23,
       "spd": 127
     },
-    "introducingEventLv80": "Grandshelt Knight",
+    "introducingEventLv80": "Knights of Grandshelt",
     "lv80": {
       "hp": 4222,
       "atk": 99,
@@ -30772,7 +30899,7 @@
       "eva": 24,
       "spd": 136
     },
-    "introducingEventLv99": "Grandshelt Knight",
+    "introducingEventLv99": "Knights of Grandshelt",
     "lv99": {
       "hp": 5199,
       "atk": 122,
@@ -30784,7 +30911,7 @@
       "eva": 25,
       "spd": 149
     },
-    "introducingEventRecordSpheres": "Grandshelt Knight",
+    "introducingEventRecordSpheres": "Knights of Grandshelt",
     "recordSpheres": {
       "hp": 510,
       "atk": 0,
@@ -30793,7 +30920,7 @@
       "res": 20,
       "mnd": 29
     },
-    "introducingEventLegendSpheres": "Grandshelt Knight",
+    "introducingEventLegendSpheres": "Knights of Grandshelt",
     "legendSpheres": {
       "hp": 500,
       "atk": 0,
@@ -30803,7 +30930,7 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Grandshelt Knight",
+    "introducingEventRecordBoards": "Knights of Grandshelt",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30858,12 +30985,12 @@
       "heavy": null
     },
     "id": 19003400,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Beyond",
     "name": "Lasswell",
-    "introducingEventLv50": "Grandshelt Knight",
+    "introducingEventLv50": "Knights of Grandshelt",
     "lv50": {
       "hp": 3571,
       "atk": 111,
@@ -30875,7 +31002,7 @@
       "eva": 22,
       "spd": 122
     },
-    "introducingEventLv65": "Grandshelt Knight",
+    "introducingEventLv65": "Knights of Grandshelt",
     "lv65": {
       "hp": 4600,
       "atk": 141,
@@ -30887,7 +31014,7 @@
       "eva": 23,
       "spd": 131
     },
-    "introducingEventLv80": "Grandshelt Knight",
+    "introducingEventLv80": "Knights of Grandshelt",
     "lv80": {
       "hp": 5628,
       "atk": 172,
@@ -30899,7 +31026,7 @@
       "eva": 24,
       "spd": 139
     },
-    "introducingEventLv99": "Grandshelt Knight",
+    "introducingEventLv99": "Knights of Grandshelt",
     "lv99": {
       "hp": 6930,
       "atk": 211,
@@ -30911,7 +31038,7 @@
       "eva": 25,
       "spd": 151
     },
-    "introducingEventRecordSpheres": "Grandshelt Knight",
+    "introducingEventRecordSpheres": "Knights of Grandshelt",
     "recordSpheres": {
       "hp": 800,
       "atk": 38,
@@ -30920,7 +31047,7 @@
       "res": 0,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Grandshelt Knight",
+    "introducingEventLegendSpheres": "Knights of Grandshelt",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -30930,7 +31057,7 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Grandshelt Knight",
+    "introducingEventRecordBoards": "Knights of Grandshelt",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30985,6 +31112,6 @@
       "heavy": null
     },
     "id": 19003500,
-    "gl": false
+    "gl": true
   }
 ]

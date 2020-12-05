@@ -1,12 +1,22 @@
 import * as _ from 'lodash';
 
-import { arrayifyLength, KeysOfType } from '../../utils/typeUtils';
+import { arrayify, arrayifyLength, KeysOfType } from '../../utils/typeUtils';
+import { enlir, EnlirStatus, getEnlirStatusByName } from '../enlir';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
-import { describeEnlirStatus } from './status';
-import { statusLevelAlias, statusLevelText, vsWeak } from './statusAlias';
+import { describeEnlirStatus, describeEnlirStatusAndDuration, isModeStatus } from './status';
+import {
+  displayStatusLevel,
+  statusLevelAlias,
+  statusLevelText,
+  vsWeak,
+  vsWeakElement,
+} from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
-import { formatNumberSlashList, formatUseCount, formatUseNumber, orList } from './util';
+import { formatNumberSlashList, formatUseCount, formatUseNumber, stringSlashList } from './util';
+
+export const withoutWithClause = (withoutWith: common.WithoutWith | undefined) =>
+  withoutWith === 'withoutWith' ? 'w/o - w/' : withoutWith === 'without' ? 'w/o' : 'if';
 
 export function formatThreshold(
   thresholdValues: number | number[],
@@ -58,6 +68,33 @@ function formatCountCharacters(
 }
 
 /**
+ * Helper for Condition.type === 'status' to accommodate the fact that, as of
+ * December 2020, it includes status levels, real statuses, and our own hacks /
+ * special cases
+ */
+function describeStatusOrStatusAlias(status: string) {
+  let enlirStatus: EnlirStatus | undefined;
+  if (statusLevelAlias[status]) {
+    return statusLevelAlias[status];
+  } else if (status.endsWith(' stacks') || status.endsWith(' status')) {
+    // Accommodate hacks added by attack.ts
+    return status;
+  } else if ((enlirStatus = getEnlirStatusByName(status)) != null) {
+    // As a special case, to accommodate Ysayle's Shiva Possession Mode,
+    // abbreviate "mode" statuses.
+    //
+    // As a special case to the special case, Thunder God's Might is short and
+    // well-known, so don't abbreviate it.
+    return isModeStatus(enlirStatus) && enlirStatus.effects.length > 20
+      ? 'mode'
+      : describeEnlirStatus(status);
+  } else {
+    // Assume status level
+    return statusLevelText;
+  }
+}
+
+/**
  * Returns a text string describing the given Condition.
  *
  * @param condition
@@ -74,7 +111,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
           : condition.article + ' ' + condition.equipped)
       );
     case 'scaleWithStatusLevel': {
-      const status = statusLevelAlias[condition.status] || condition.status;
+      const status = displayStatusLevel(condition.status);
       if (!count) {
         return 'w/ ' + status;
       } else {
@@ -84,32 +121,60 @@ export function describeCondition(condition: common.Condition, count?: number | 
       }
     }
     case 'statusLevel':
-      return formatThreshold(condition.value, statusLevelText);
+      return formatThreshold(condition.value, statusLevelText, condition.plus ? '+' : '');
     case 'ifDoomed':
       return 'if Doomed';
     case 'conditionalEnElement':
       return 'based on party element infuse';
-    case 'status':
-      if (condition.who === 'self') {
+    case 'status': {
+      const clause = withoutWithClause(condition.withoutWith);
+
+      // Hack: Assume that, if it's checking a simple status on someone else,
+      // then it's targeting a status ailment, so phrase as 'vs.'
+      if (condition.who === 'self' || condition.any || condition.withoutWith) {
         // Special case: We don't show "High Retaliate" to the user.
         if (condition.status === 'Retaliate or High Retaliate') {
-          return 'if Retaliate';
+          return `${clause} Retaliate`;
         }
-        const m = condition.status.match(/^(.*) ((?:\d+\/)+\d+)/);
+        const m =
+          typeof condition.status === 'string' && condition.status.match(/^(.*) ((?:\d+\/)+\d+)/);
         if (m) {
           const status = m[1];
-          return '@ ' + m[2] + ' ' + (statusLevelAlias[status] || describeEnlirStatus(status));
+          return '@ ' + m[2] + ' ' + describeStatusOrStatusAlias(status);
         }
         return (
-          'if ' + (statusLevelAlias[condition.status] || describeEnlirStatus(condition.status))
+          clause +
+          ' ' +
+          arrayify(condition.status)
+            .map(describeStatusOrStatusAlias)
+            .join(' or ')
         );
       } else {
         // If we have one status, show it.  Otherwise, in practice, this is always
         // the same status ailments that the attack itself inflicts, so omit
         // details to save space.
-        const status = condition.status.split(orList);
-        return status.length === 1 ? 'vs. ' + status[0] : 'vs. status';
+        return typeof condition.status === 'string' ? 'vs. ' + condition.status : 'vs. status';
       }
+    }
+    case 'statusList': {
+      // Assume that target means negative statuses.
+      const clause = condition.who === 'self' ? 'if ' : 'vs. ';
+      return (
+        clause +
+        condition.status
+          .map(i => {
+            const status = i.status as common.StandardStatus;
+            return describeEnlirStatusAndDuration(
+              status.name,
+              status.id == null
+                ? undefined
+                : { status: enlir.status[status.id], placeholders: status.placeholders },
+              status.effects,
+            )[0];
+          })
+          .join('/')
+      );
+    }
     case 'scaleUseCount':
       return 'w/ ' + formatNumberSlashList(condition.useCount) + ' uses';
     case 'scaleWithUses':
@@ -121,15 +186,31 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'alliesAlive':
       return 'if no allies KO';
     case 'characterAlive':
-    case 'characterInParty':
+    case 'characterInParty': {
       const what = condition.type === 'characterAlive' ? ' alive' : ' in party';
+      const clause = withoutWithClause(condition.withoutWith);
       if (condition.count) {
-        return 'if ' + formatNumberSlashList(condition.count) + ' of ' + condition.character + what;
+        return (
+          clause +
+          ' ' +
+          formatNumberSlashList(condition.count) +
+          (condition.character == null ? '' : ' of ' + stringSlashList(condition.character)) +
+          what
+        );
       } else {
-        return 'if ' + condition.character + what;
+        return (
+          clause +
+          (condition.character == null
+            ? ''
+            : ' ' + stringSlashList(condition.character, condition.all ? ' & ' : ' or ')) +
+          what
+        );
       }
-    case 'females':
+    }
+    case 'femalesInParty':
       return formatCountCharacters(condition.count, 'females in party');
+    case 'femalesAlive':
+      return formatCountCharacters(condition.count, 'females alive');
     case 'realmCharactersInParty':
       return formatCountCharacters(condition.count, condition.realm + ' chars. in party');
     case 'realmCharactersAlive':
@@ -149,13 +230,13 @@ export function describeCondition(condition: common.Condition, count?: number | 
     case 'hpAtLeastPercent':
       return formatThreshold(condition.value, 'HP', '%', '≥ ');
     case 'soulBreakPoints':
-      return formatThreshold(condition.value, 'SB pts');
+      return formatThreshold(condition.value, 'SB pts', condition.plus ? '+' : '');
     case 'targetStatBreaks':
       return formatThreshold(condition.count, 'stats lowered');
     case 'targetStatusAilments':
       return formatThreshold(condition.count, 'statuses');
     case 'vsWeak':
-      return vsWeak;
+      return condition.element ? vsWeakElement(condition.element) : vsWeak;
     case 'inFrontRow':
       return 'if in front row';
     case 'hitsTaken':
@@ -256,13 +337,6 @@ export function visitCondition(f: ConditionVisitor, effects: skillTypes.SkillEff
         }
         break;
       case 'status':
-        for (const status of i.statuses) {
-          if (!visitEffectCondition(f, status, ['condition'])) {
-            return;
-          }
-        }
-        break;
-      case 'statMod':
         if (!visitEffectCondition(f, i, ['condition'])) {
           return;
         }
