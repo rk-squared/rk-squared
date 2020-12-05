@@ -112,7 +112,7 @@ export function itemImage(lang: LangType, id: number, type: ItemType): string {
     }
     case ItemType.Character:
       return characterImage(lang, id);
-    case ItemType.DressRecord:
+    case ItemType.DressRecord: {
       // Dress record URLs embed the character ID, but tracking and passing
       // that through to here would complicate the code, so we instead maintain
       // a list of known dress record IDs.
@@ -121,6 +121,7 @@ export function itemImage(lang: LangType, id: number, type: ItemType): string {
       // This will fail but will avoid an error.
       const buddyId = dressRecordsById[id] ? dressRecordsById[id].characterId : id;
       return url(lang, `image/buddy/${buddyId}/${id}/${id}.png`);
+    }
     case ItemType.RecordMateria:
       return recordMateriaImage(lang, id);
     case ItemType.DropItem:

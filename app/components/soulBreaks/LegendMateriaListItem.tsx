@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import classNames from 'classnames';
-import * as _ from 'lodash';
 
 import { EnlirLegendMateria } from '../../data/enlir';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';

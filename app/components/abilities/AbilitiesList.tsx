@@ -107,12 +107,14 @@ const abilitySortHandlers: { [s in AbilitySortType]: AbilitySortHandler } = {
   [AbilitySortType.BySchool]: {
     getter: getAbilitiesBySchool,
     categories: sortedSchools,
-    categoryRenderer: (school: string) => (
-      <>
-        <img src={schoolIcons[school as EnlirSchool]} alt="" className={styles.schoolIcon} />
-        {school}
-      </>
-    ),
+    categoryRenderer(school: string) {
+      return (
+        <>
+          <img src={schoolIcons[school as EnlirSchool]} alt="" className={styles.schoolIcon} />
+          {school}
+        </>
+      );
+    },
   },
   [AbilitySortType.ByRealm]: {
     getter: getAbilitiesByRealm,

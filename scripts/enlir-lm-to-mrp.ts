@@ -6,10 +6,9 @@ import { enlir, makeLegendMateriaAliases } from '../app/data/enlir';
 import { describeMrPLegendMateria } from '../app/data/mrP/legendMateria';
 import { logForCli } from '../app/utils/logger';
 
-// tslint:disable: no-console
 logForCli();
 
-let lastCharacter: string = '';
+let lastCharacter = '';
 
 let totalCount = 0;
 let handledCount = 0;

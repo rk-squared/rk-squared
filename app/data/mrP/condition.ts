@@ -21,8 +21,8 @@ export const withoutWithClause = (withoutWith: common.WithoutWith | undefined) =
 export function formatThreshold(
   thresholdValues: number | number[],
   thresholdName: string,
-  units: string = '',
-  prefix: string = '',
+  units = '',
+  prefix = '',
 ): string {
   return '@ ' + prefix + formatNumberSlashList(thresholdValues) + units + ' ' + thresholdName;
 }
@@ -349,7 +349,7 @@ export function findCondition(
   effects: skillTypes.SkillEffect,
   filter: (condition: skillTypes.Condition) => boolean,
 ): boolean {
-  let result: boolean = false;
+  let result = false;
   visitCondition((condition: skillTypes.Condition) => {
     if (filter(condition)) {
       result = true;

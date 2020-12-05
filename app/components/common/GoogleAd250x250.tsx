@@ -17,7 +17,7 @@ export class GoogleAd250x250 extends React.Component {
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {
-        // tslint:disable-next-line: no-console
+        // eslint-disable-next-line no-console
         console.log(e);
       }
     }

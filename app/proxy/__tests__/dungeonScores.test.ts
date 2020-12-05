@@ -89,8 +89,7 @@ describe('dungeonScores proxy handler', () => {
       // Magicite dungeon IDs happen to correspond to world ID + a 2 digit number.
       const worldId = Math.floor(dungeonId / 100);
 
-      // Hack: Declare enough state for the test to pass, even if it's not all valid...
-      // tslint:disable-next-line: no-object-literal-type-assertion
+      // HACK: Declare enough state for the test to pass, even if it's not all valid...
       const initialState = {
         dungeons: {
           byWorld: {

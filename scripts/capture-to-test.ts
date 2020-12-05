@@ -9,8 +9,6 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as process from 'process';
 
-// tslint:disable no-console
-
 const repoDir = path.normalize(path.join(__dirname, '..'));
 
 function convertFile(filename: string) {
@@ -18,7 +16,7 @@ function convertFile(filename: string) {
   if (newFilename.endsWith('_dff_.json')) {
     newFilename = 'startup.json';
   } else {
-    newFilename = newFilename.replace(/^[0-9\-]+_dff_/, '');
+    newFilename = newFilename.replace(/^[0-9-]+_dff_/, '');
   }
   newFilename = path.join(repoDir, 'app', 'proxy', '__tests__', 'data', newFilename);
   console.log(newFilename);

@@ -8,8 +8,6 @@ import { initialState as initialPrefsState } from '../app/reducers/prefs';
 
 const { build } = require('../package.json');
 
-// tslint:disable no-console
-
 const homeDir = process.env.HOME;
 if (homeDir == null) {
   console.error('$HOME is not defined; unable to continue');

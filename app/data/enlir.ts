@@ -875,7 +875,7 @@ function patchEnlir() {
       mode => {
         mode.effects = mode.effects.replace(
           /([Gg]rants) \[Windborn Swiftness (\d+)],/,
-          (match, p1, p2) => `${p1} \[Windborn Swiftness ${p2}] after using a Monk ability,`,
+          (match, p1, p2) => `${p1} [Windborn Swiftness ${p2}] after using a Monk ability,`,
         );
       },
     );

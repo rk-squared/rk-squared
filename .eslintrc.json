@@ -1,0 +1,44 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
+    "plugin:react-hooks/recommended"
+    // TODO: Add "plugin:jsx-a11y/recommended",
+  ],
+  "rules": {
+    // These are probably good ideas, but RK Squared isn't written to
+    // accommodate.
+    // TODO: Enable these as possible
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-var-requires": "off",
+
+    // TODO: Replace allowShortCircuit with TypeScript 3.7's optional chaining
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
+
+    "no-console": "warn",
+    "prefer-const": ["error", { "destructuring": "all" }],
+    "react/no-unescaped-entities": "off",
+    "@typescript-eslint/explicit-member-accessibility": ["error", { "accessibility": "no-public" }],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/member-ordering": "warn",
+    "@typescript-eslint/no-unused-vars": ["warn", { "ignoreRestSiblings": true }]
+  }
+}

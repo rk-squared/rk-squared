@@ -15,6 +15,7 @@ interface Props {
   showItemType: { [t in ItemType]: boolean };
   isAnonymous?: boolean;
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   [s: string]: any;
 }
 
@@ -34,6 +35,7 @@ interface StateProps {
 interface OwnProps {
   dungeons: Dungeon[];
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   [s: string]: any;
 }
 

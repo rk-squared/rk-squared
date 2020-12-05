@@ -10,8 +10,6 @@ import { OAuth2Client } from 'google-auth-library';
 
 import { logger } from '../app/utils/logger';
 
-// tslint:disable no-console
-
 function questionAsync(r: readline.ReadLine, query: string): Promise<string> {
   return new Promise<string>(resolve => {
     r.question(query, resolve);

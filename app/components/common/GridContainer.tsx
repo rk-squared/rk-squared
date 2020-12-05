@@ -4,6 +4,7 @@ interface Props {
   className?: string;
   children: any;
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   [s: string]: any;
 }
 

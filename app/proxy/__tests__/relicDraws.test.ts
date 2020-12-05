@@ -82,7 +82,7 @@ describe('gacha proxy handler', () => {
           .sort();
 
       const archiveBanners = _.filter(banners, i => i.group === 'archive');
-      expect(_.every(archiveBanners, i => i.pullLimit === 1));
+      expect(_.every(archiveBanners, i => i.pullLimit === 1)).toEqual(true);
       // Acolyte Archives are 9 banners starting at ID 7001.
       expect(filteredIds(archiveBanners)).toEqual(_.times(9, i => i + 7001));
       // All Acolyte Archive banners have been pulled.
@@ -92,7 +92,7 @@ describe('gacha proxy handler', () => {
 
       const luckOfTheRealms = _.filter(banners, i => i.group === 'group4');
       // This capture was taken when all 17 banners were available.
-      expect(_.every(luckOfTheRealms, i => i.pullLimit === 1));
+      expect(_.every(luckOfTheRealms, i => i.pullLimit === 1)).toEqual(true);
       expect(filteredIds(luckOfTheRealms)).toEqual(_.times(17, i => i + 805));
       // All but FF1 have been used.
       expect(filteredIds(luckOfTheRealms, i => i.canPull)).toEqual([821]);

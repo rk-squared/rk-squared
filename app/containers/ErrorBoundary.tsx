@@ -15,21 +15,21 @@ interface State {
 }
 
 export class ErrorBoundary extends React.Component<Props, State> {
+  unlisten?: () => void;
+
+  constructor(props: Props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
   static getDerivedStateFromError(error: Error): State {
-    // tslint:disable-next-line: no-console
+    // eslint-disable-next-line no-console
     console.error(error);
     // Update state so the next render will show the fallback UI.
     return {
       hasError: true,
       error,
     };
-  }
-
-  unlisten?: () => void;
-
-  constructor(props: Props) {
-    super(props);
-    this.state = { hasError: false };
   }
 
   componentDidMount() {
@@ -46,6 +46,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // FIXME: Log to an error reporting service
   }

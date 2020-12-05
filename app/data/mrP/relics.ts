@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import * as XRegExp from 'xregexp';
 
 import { formatSchoolOrAbilityList, XRegExpNamedGroups } from './typeHelpers';

@@ -307,6 +307,7 @@ const legendMateriaHandlers: HandlerList = [
   // Triggered self statuses
   [
     /^(?:(\d+\??|\?)% chance (?:of|to grant)|[Gg]rants) (.*?)(?: for (\d+) seconds)? (?:to the user )?after (?:using (an?|two|three) (.*) (?:ability|abilities|attacks?)|(dealing a critical hit)|(taking damage from an enemy))$/,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ([percent, statusName, duration, count, schoolOrElement, critical, takeDamage]) => {
       // TODO: Consolidate trigger logic with status.ts?
       const trigger = schoolOrElement
@@ -347,6 +348,7 @@ const legendMateriaHandlers: HandlerList = [
   ],
   [
     /^(\d+\??|\?)% chance to remove negative effects to the target after using a single-target White Magic ability that restores HP on an ally$/,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ([percent, status]) => formatGenericTrigger('ally W.Mag heal', 'ally Esuna'),
   ],
 
@@ -354,6 +356,7 @@ const legendMateriaHandlers: HandlerList = [
   [
     /^(\d+\??|\?)% chance to cast (?:an ability \((.*)\)|(.*)) after (?:(using|dealing damage with) a (.*) (?:ability|attack)|(taking damage from an enemy)|using an ability that deals (.*) damage)(, can trigger on dualcasts)?$/,
     ([
+      /* eslint-disable @typescript-eslint/no-unused-vars */
       percent,
       effect,
       skillName,
@@ -362,6 +365,7 @@ const legendMateriaHandlers: HandlerList = [
       takeDamage,
       damageAbility,
       triggersOnDualcasts,
+      /* eslint-enable @typescript-eslint/no-unused-vars */
     ]) => {
       let description: string | null = null;
       if (effect) {
@@ -512,6 +516,7 @@ const legendMateriaHandlers: HandlerList = [
   ],
   [
     /^(\d+|\?)% chance to increase Gil gained at the end of battle by (\d+|\?)% when equipping (.*)$/,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ([percentChance, percentBonus, when]) =>
       `${percentBonus}% for bonus ${percentBonus}% Gil${whenDescription(when)}`,
   ],

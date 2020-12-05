@@ -81,7 +81,7 @@ export class DungeonCategoryList extends React.PureComponent<Props> {
     if (bySubcategory == null) {
       return null;
     }
-    const categoryWorlds = _.flatten(bySubcategory.map(([subcategory, subWorlds]) => subWorlds));
+    const categoryWorlds = _.flatten(bySubcategory.map(([, subWorlds]) => subWorlds));
     const id = `dungeon-category-${category}`;
     return (
       <CollapsibleCard

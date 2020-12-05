@@ -5,8 +5,6 @@ const { Application } = require('spectron');
 
 const delay = (time: number) => new Promise(resolve => setTimeout(resolve, time));
 
-// tslint:disable no-console
-
 describe('main window', function spec() {
   let app: any;
   beforeAll(async () => {

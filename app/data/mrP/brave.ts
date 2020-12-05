@@ -66,7 +66,6 @@ function filterBraveLevels(allParts: string[]) {
 }
 
 function getBraveDamage(mrP: MrPSkill[]): string {
-  // tslint:disable-next-line prefer-const
   let { parts, firstLevel, lastLevel } = filterBraveLevels(mrP.map(i => i.damage || ''));
   const overstrike = parts.map(i => i.match('overstrike') != null);
 

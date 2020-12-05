@@ -355,21 +355,6 @@ describe('mrP', () => {
       });
     });
 
-    it('converts stat changes', () => {
-      expect(describeSoulBreak('Strago - Lore')).toEqual({
-        damage: 'AoE magic 11.62/7 water+wind+earth',
-        other: 'water infuse 25s',
-        burstCommands: [
-          {
-            damage: 'm8.68/4 wa+e',
-            other: 'ally Magic blink 1',
-            school: 'Black Magic',
-          },
-          { damage: 'm^46.0/2 wa+wi', other: undefined, school: 'Black Magic' },
-        ],
-      });
-    });
-
     it('converts multiple status effects', () => {
       // Deviation: MrP lists some recoil as fractions instead of percents.
       expect(describeSoulBreak('Cecil (Dark Knight) - Dark Flame')).toEqual({
@@ -1771,7 +1756,7 @@ describe('mrP', () => {
       });
     });
 
-    it('converts status ailments', () => {
+    it('converts more status ailments', () => {
       expect(describeSoulBreak('Maria - Meteor XVI')).toEqual({
         damage: 'magic 15.04/8 earth+non',
         other: 'earth infuse 25s',
@@ -2783,6 +2768,7 @@ describe('mrP', () => {
     // Sample for doing a snapshot test of all of the soul breaks.  For now,
     // we'll use the review-mrp-updates.sh script instead; it's easier to work
     // with.
+    // eslint-disable-next-line jest/no-commented-out-tests
     /*
     it('converts all soul breaks', () => {
       // Exclude roaming warriors - event soul breaks like Haunted or Zoma's

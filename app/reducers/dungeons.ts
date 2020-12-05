@@ -48,7 +48,7 @@ export function getWorldIdForDungeon(state: DungeonState, dungeonId: number): nu
 export function dungeons(state: DungeonState = initialState, action: DungeonsAction): DungeonState {
   return produce(state, (draft: DungeonState) => {
     switch (action.type) {
-      case getType(addWorldDungeons):
+      case getType(addWorldDungeons): {
         const newDungeons: { [id: number]: Dungeon } = { ...state.dungeons };
         for (const i of action.payload.dungeons) {
           newDungeons[i.id] = i;
@@ -58,6 +58,7 @@ export function dungeons(state: DungeonState = initialState, action: DungeonsAct
         draft.byWorld[action.payload.worldId] = action.payload.dungeons.map((i: Dungeon) => i.id);
 
         return;
+      }
 
       case getType(finishWorldDungeons): {
         const { worldId, isComplete, isMaster } = action.payload;

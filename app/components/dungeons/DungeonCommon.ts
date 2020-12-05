@@ -23,7 +23,7 @@ interface DungeonProcessor {
 }
 
 export const anonymousProcessor: DungeonProcessor = {
-  getInfo(dungeon: Dungeon) {
+  getInfo() {
     return {
       hasPrizes: true,
       completed: false,

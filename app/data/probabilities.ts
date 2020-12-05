@@ -81,11 +81,11 @@ export function chanceOfDesiredDrawProp5(
   { drawCount, guaranteedCount }: RelicDrawPullParams,
   rareChancePerRelic: number,
   desiredChancePerRelic: number,
-  desiredNonRareChancePerRelic: number = 0,
+  desiredNonRareChancePerRelic = 0,
 ): RelicDrawBannerChances {
-  // If x is the percentage of getting a 5* or better
-  // and y is the percentage of getting what you care about,
-  // then an 11 draw has the following possible outcomes:
+  // If x is the percentage of getting a rare (5* or better) and y is the
+  // percentage of getting what you care about, then an 11 draw has the
+  // following possible outcomes:
   // - x chance of getting rare plus 10 * x rares
   // - (1 - x) * x chance of getting rare plus 9 * x rares
   // - (1 - x) ^ 2 * x chance of getting rare + 8 * x rares

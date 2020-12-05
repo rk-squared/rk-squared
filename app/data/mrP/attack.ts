@@ -107,7 +107,7 @@ function addNumAttacks(numAttacks: number) {
 export function describeDamage(
   attackMultiplier: number | number[],
   numAttacks: number | number[],
-  includeNumAttacks: boolean = true,
+  includeNumAttacks = true,
 ) {
   attackMultiplier = forceScalar(attackMultiplier, 'describeDamage attackMultiplier');
   numAttacks = forceScalar(numAttacks, 'describeDamage numAttacks');
@@ -366,7 +366,7 @@ function checkAttackPrereqStatus(
   const scaleStatus = m[1];
   let scaleCount = m[2];
 
-  const isOwnStatusThreshold = 'source' in skill && skill.source.replace(/ [0-9\/]+$/, '') === m[1];
+  const isOwnStatusThreshold = 'source' in skill && skill.source.replace(/ [0-9/]+$/, '') === m[1];
   if (isOwnStatusThreshold || scaleStatus === prereqStatus) {
     const removeFirst = <T>(n: number[] | T) => (Array.isArray(n) ? n.slice(1) : n);
     scaleCount = scaleCount.replace(/^0\//, '');

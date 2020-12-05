@@ -23,7 +23,7 @@ const RecordBoardSortRadio: React.FC<RadioProps> = ({
   selected,
   onSetSort,
   children,
-}) => (
+}: RadioProps) => (
   <div className="form-check form-check-inline mr-3">
     <input
       type="radio"

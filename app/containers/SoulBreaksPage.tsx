@@ -26,7 +26,7 @@ export class SoulBreaksPage extends React.Component<{}, State> {
     this.setState({ showSearch: show });
   };
 
-  // tslint:disable-next-line member-ordering
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   handleSetSearchFilter = _.debounce((search: string) => {
     this.setState({ searchFilter: search });
   }, 400);
