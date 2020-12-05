@@ -19,7 +19,7 @@ export function getIpAddresses() {
   const result: string[] = [];
 
   Object.keys(interfaces).forEach(ifname => {
-    interfaces[ifname].forEach(iface => {
+    interfaces[ifname]!.forEach(iface => {
       if ('IPv4' !== iface.family || iface.internal) {
         // skip over internal (i.e. 127.0.0.1) and non-IPv4 addresses
         return;

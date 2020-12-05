@@ -160,7 +160,7 @@
   "homepage": "https://www.rk-squared.com/",
   "devDependencies": {
     "@babel/core": "^7.3.4",
-    "@types/cheerio": "^0.22.7",
+    "@types/cheerio": "^0.22.22",
     "@types/classnames": "^2.2.7",
     "@types/connect": "^3.4.31",
     "@types/cookie": "^0.3.1",

@@ -143,7 +143,7 @@ function recordCapturedData(data: any, req: http.IncomingMessage, res: http.Serv
 
 const UTF8_BOM = 0xfeff;
 
-function extractJson($el: Cheerio) {
+function extractJson($el: cheerio.Cheerio) {
   const rawJson = $el.html();
   if (rawJson == null) {
     throw new Error('Failed to find data');
@@ -361,7 +361,7 @@ function configureHttpsProxy(server: http.Server, store: Store<IState>, httpsPor
 
     let connected = false;
     const serverSocket = net
-      .connect(serverPort, serverUrl.hostname, () => {
+      .connect(serverPort, serverUrl.hostname!, () => {
         connected = true;
 
         clientSocket.write(

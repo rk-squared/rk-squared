@@ -22,7 +22,7 @@ import { ItemType } from '../data/items';
 export type PrefsState = Prefs;
 
 export const initialState: PrefsState = {
-  showItemType: _.fromPairs(Object.keys(ItemType).map(i => [ItemType[i as any], true])) as {
+  showItemType: _.fromPairs(Object.keys(ItemType).map(i => [(ItemType as any)[i], true])) as {
     [t in ItemType]: boolean;
   },
   showSoulBreaks: ShowSoulBreaksType.All,

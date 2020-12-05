@@ -7,7 +7,7 @@ import { logger } from '../utils/logger';
 // Based on https://github.com/jaysoo/example-redux-saga/blob/master/src/timer/saga.js
 
 const wait = (milliseconds: number) =>
-  new Promise(resolve => {
+  new Promise<void>(resolve => {
     setTimeout(() => resolve(), milliseconds);
   });
 
