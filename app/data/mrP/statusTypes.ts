@@ -125,6 +125,8 @@ export interface StatBuildup {
 
   damaged?: boolean;
   school?: EnlirSchool;
+  skillType?: EnlirSkillType;
+  requiresDamage?: boolean;
 }
 
 export interface StatModDurationUp {
@@ -375,7 +377,8 @@ interface DamageUp extends DamageUpType {
 
 interface DamageResist {
   type: 'damageResist';
-  element: EnlirElement | EnlirElement[];
+  element?: EnlirElement | EnlirElement[];
+  skillType?: EnlirSkillType;
   value: number;
 }
 

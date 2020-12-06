@@ -94,6 +94,8 @@ StatBuildupLm
     { return { type: 'statBuildup', stat, increment, max, damaged: true }; }
   / stat:Stat _ "+" increment:Integer "% for each hit dealt with" _ school:School _ "abilities, up to +" max:Integer "%"
     { return { type: 'statBuildup', stat, increment, max, school }; }
+  / stat:Stat _ "+" increment:Integer "% for each hit dealt with damaging" _ skillType:SkillType _ "attacks, up to +" max:Integer "%"
+    { return { type: 'statBuildup', stat, increment, max, skillType, requiresDamage: true }; }
 
 StatModDurationUpLm
   = "Increases the duration of stat" _ what:("buffs" / "debuffs") _ "by" _ value:Integer "%" {
@@ -353,7 +355,8 @@ AltDamageUp
 
 // Permanent damage resistance (e.g., elemental resist) from legend materia
 DamageResistLm
-  = "Reduces damage taken by" _ element:ElementSlashList _ "attacks by" _ value:Integer "%" { return { type: 'damageResist', element, value }; }
+  = "Reduces damage taken by" _ element:ElementSlashList _ "attacks by" _ value:Integer "%" { return { type: 'damageResist', value, element }; }
+  / "Reduces damage taken by" _ skillType:SkillType _ "attacks by" _ value:Integer "%" { return { type: 'damageResist', value, skillType }; }
 
 RealmBoost
   = "Attacks dealt by" _ realm:Realm _ "realm members deal" _ value:Integer "% more damage" { return { type: 'realmBoost', realm, value }; }

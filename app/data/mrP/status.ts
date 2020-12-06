@@ -1238,10 +1238,12 @@ function describeStatusEffect(
       let result = `+${effect.increment}% ${effect.stat.toUpperCase()} (max +${effect.max}%) `;
       if (effect.damaged) {
         result += 'per hit taken';
-      } else if (effect.school) {
-        result += 'per ' + getSchoolShortName(effect.school) + ' hit';
       } else {
-        result += 'per ?';
+        result +=
+          'per ' +
+          (effect.requiresDamage ? 'damaging ' : '') +
+          (formatAnyType(effect) || '?') +
+          ' hit';
       }
       return result;
     }
@@ -1406,9 +1408,7 @@ function describeStatusEffect(
         ) + (effect.condition ? ' ' + describeCondition(effect.condition) : '')
       );
     case 'damageResist':
-      return (
-        signedNumber(-effect.value) + '% ' + getElementShortName(effect.element, '/') + ' dmg taken'
-      );
+      return signedNumber(-effect.value) + '% ' + formatAnyType(effect) + ' dmg taken';
     case 'realmBoost':
       return percentToMultiplier(effect.value) + 'x dmg by ' + effect.realm + ' chars.';
     case 'abilityDouble':
