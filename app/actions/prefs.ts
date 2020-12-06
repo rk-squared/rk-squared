@@ -50,7 +50,7 @@ export interface Prefs {
   };
 }
 
-export function filterSoulBreaks(showSoulBreaks?: ShowSoulBreaksType, owned?: Set<number>) {
+export function makeSoulBreaksFilter(showSoulBreaks?: ShowSoulBreaksType, owned?: Set<number>) {
   if (showSoulBreaks == null) {
     showSoulBreaks = ShowSoulBreaksType.Default;
   }

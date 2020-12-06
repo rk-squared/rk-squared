@@ -23,12 +23,12 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
       </thead>
       <tbody>
         <tr
-          className=""
+          className="glint"
         >
           <td
             className="tier"
           >
-            LBG
+            𝐋𝐆
           </td>
           <td
             className="name"
@@ -411,7 +411,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="command"
           >
-            [p2.06/​2 l rngd, self no air time 2 turns]
+            p2.06/​2 l rngd, self no air time 2 turns
           </td>
         </tr>
         <tr
@@ -426,7 +426,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="command"
           >
-            [p2.06/​2 l rngd, self refill 1 abil. use]
+            p2.06/​2 l rngd, self refill 1 abil. use
           </td>
         </tr>
         <tr
@@ -649,12 +649,12 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
       </thead>
       <tbody>
         <tr
-          className=""
+          className="glint"
         >
           <td
             className="tier"
           >
-            LBG
+            𝐋𝐆
           </td>
           <td
             className="name"
@@ -1037,7 +1037,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="command"
           >
-            [p2.06/​2 l rngd, self no air time 2 turns]
+            p2.06/​2 l rngd, self no air time 2 turns
           </td>
         </tr>
         <tr
@@ -1052,7 +1052,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="command"
           >
-            [p2.06/​2 l rngd, self refill 1 abil. use]
+            p2.06/​2 l rngd, self refill 1 abil. use
           </td>
         </tr>
         <tr

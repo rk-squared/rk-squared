@@ -11,6 +11,8 @@ import {
   EnlirLimitBreakTier,
   EnlirSoulBreakOrLegendMateria,
   EnlirSoulBreakTier,
+  isSoulBreak2,
+  isTrueArcane1st,
   makeLegendMateriaAliases,
   makeLimitBreakAliases,
   makeSoulBreakAliases,
@@ -73,16 +75,21 @@ export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
 });
 export const soulBreakFullAliases = makeSoulBreakAliases(enlir.soulBreaks);
 export const limitBreakAbbrevAliases = makeLimitBreakAliases(enlir.limitBreaks, {
-  // As of December 2020, we'll try using a fancy character for the L to add
-  // some distinctiveness to limit breaks.
-  LBO: 'ḶO',
-  LBG: 'ḶG',
+  // As of December 2020, we'll try using fancy characters to add some
+  // distinctiveness to limit breaks.  Currently using Unicode's "MATHEMATICAL
+  // BOLD CAPITAL"; see https://unicode-search.net/unicode-namesearch.pl.
+  LBO: '𝐋𝐎',
+  LBG: '𝐋𝐆',
 });
 export const limitBreakFullAliases = makeLimitBreakAliases(enlir.limitBreaks);
 export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
 export function formatSoulBreakOrLegendMateriaName(item: EnlirSoulBreakOrLegendMateria): string {
-  return item.gl ? item.name : '“' + item.name + '”';
+  let name = item.name;
+  if (isSoulBreak2(item) && isTrueArcane1st(item)) {
+    name = name.replace(/ \(Release\)$/, '');
+  }
+  return item.gl ? name : '“' + name + '”';
 }
 
 function getSchoolName(command: MrPSkill): string {

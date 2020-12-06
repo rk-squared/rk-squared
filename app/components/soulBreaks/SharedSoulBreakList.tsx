@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import { ColDef, ICellRendererParams } from 'ag-grid';
 import { AgGridReact } from 'ag-grid-react';
 
-import { filterSoulBreaks, ShowSoulBreaksType } from '../../actions/prefs';
+import { makeSoulBreaksFilter, ShowSoulBreaksType } from '../../actions/prefs';
 import { enlir, EnlirSoulBreak, SharedSoulBreak } from '../../data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import { IState } from '../../reducers';
@@ -79,7 +79,7 @@ export class SharedSoulBreakList extends React.PureComponent<Props> {
 
   render() {
     const { showSoulBreaks, ownedSoulBreaks } = this.props;
-    const filter = filterSoulBreaks(showSoulBreaks, ownedSoulBreaks);
+    const filter = makeSoulBreaksFilter(showSoulBreaks, ownedSoulBreaks);
     return (
       <GridContainer style={{ height: '500px', width: '100%' }}>
         <AgGridReact

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import classNames from 'classnames';
 
-import { EnlirSoulBreak } from '../../data/enlir';
+import { enlir, EnlirSoulBreak, isTrueArcane1st, isTrueArcane2nd } from '../../data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import { breakHyphensAndSlashes } from '../../utils/textUtils';
 import {
@@ -20,7 +20,17 @@ interface Props {
   className?: string;
 }
 
-const mrPSoulBreaks: { [id: number]: MrPSkill } = {};
+// Cache parse results for performance
+const mrPSoulBreaks = new Map<EnlirSoulBreak, MrPSkill>();
+
+function getMemoizedMrP(soulBreak: EnlirSoulBreak) {
+  let mrP = mrPSoulBreaks.get(soulBreak);
+  if (!mrP) {
+    mrP = convertEnlirSkillToMrP(soulBreak);
+    mrPSoulBreaks.set(soulBreak, mrP);
+  }
+  return mrP;
+}
 
 export class SoulBreakListItem extends React.PureComponent<Props> {
   renderBraveCommands(mrP: MrPSkill, braveCommands: MrPSkill[]) {
@@ -65,14 +75,34 @@ export class SoulBreakListItem extends React.PureComponent<Props> {
     );
   }
 
+  renderTrueArcane2nd(trueArcane2nd: EnlirSoulBreak) {
+    const mrP = getMemoizedMrP(trueArcane2nd);
+    const text = formatMrPSkill(mrP);
+    return (
+      <tr className={classNames(this.props.className, styles.trueArcane2nd)}>
+        <td />
+        <td className={styles.school}>then</td>
+        <td>{text || '???'}</td>
+      </tr>
+    );
+  }
+
   render() {
-    const { soulBreak, className } = this.props;
+    let { soulBreak, className } = this.props;
 
-    if (!mrPSoulBreaks[soulBreak.id]) {
-      mrPSoulBreaks[soulBreak.id] = convertEnlirSkillToMrP(soulBreak);
+    // To handle TASBs: The second soul break is authoritative (see enlir.ts's
+    // enlir data structure for details), so if asked to render the 1st, do,
+    // nothing, and if asked to render the 2nd, show 1st and then 2nd.
+    let trueArcane2nd: EnlirSoulBreak | undefined;
+    if (isTrueArcane1st(soulBreak)) {
+      return null;
     }
-    const mrP = mrPSoulBreaks[soulBreak.id];
+    if (isTrueArcane2nd(soulBreak)) {
+      trueArcane2nd = soulBreak;
+      soulBreak = enlir.trueArcane1stSoulBreaks[soulBreak.id];
+    }
 
+    const mrP = getMemoizedMrP(soulBreak);
     const text = formatMrPSkill(mrP);
 
     let alias = soulBreakAbbrevAliases[soulBreak.id] || soulBreak.tier;
@@ -93,6 +123,7 @@ export class SoulBreakListItem extends React.PureComponent<Props> {
         {mrP.braveCommands && this.renderBraveCommands(mrP, mrP.braveCommands)}
         {mrP.burstCommands && this.renderBurstCommands(mrP.burstCommands)}
         {mrP.synchroCommands && this.renderSynchroCommands(mrP, mrP.synchroCommands)}
+        {trueArcane2nd && this.renderTrueArcane2nd(trueArcane2nd)}
       </>
     );
   }

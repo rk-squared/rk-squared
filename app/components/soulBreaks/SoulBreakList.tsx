@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as _ from 'lodash';
 
-import { filterSoulBreaks, ShowSoulBreaksType } from '../../actions/prefs';
+import { makeSoulBreaksFilter, ShowSoulBreaksType } from '../../actions/prefs';
 import { enlir, EnlirSoulBreakOrLegendMateria, isCoreJob } from '../../data/enlir';
 import { IState } from '../../reducers';
 import { getOwnedLegendMateria, getOwnedSoulBreaks } from '../../selectors/characters';
@@ -44,9 +44,9 @@ export class SoulBreakList extends React.Component<Props> {
       searchFilter,
     } = this.props;
 
-    const soulBreaksShowFilter = filterSoulBreaks(showSoulBreaks, ownedSoulBreaks);
-    const limitBreaksShowFilter = filterSoulBreaks(showSoulBreaks, ownedLimitBreaks);
-    const legendMateriaShowFilter = filterSoulBreaks(showSoulBreaks, ownedLegendMateria);
+    const soulBreaksShowFilter = makeSoulBreaksFilter(showSoulBreaks, ownedSoulBreaks);
+    const limitBreaksShowFilter = makeSoulBreaksFilter(showSoulBreaks, ownedLimitBreaks);
+    const legendMateriaShowFilter = makeSoulBreaksFilter(showSoulBreaks, ownedLegendMateria);
 
     let searchResults: SearchResults | undefined;
     let showCharacters: typeof characters;

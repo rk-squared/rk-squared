@@ -272,12 +272,7 @@ export interface EnlirGenericSkill {
 /**
  * A soul break, limit break, or legend materia
  */
-export interface EnlirSoulBreakOrLegendMateria {
-  id: number;
-  name: string;
-  anima?: number | null;
-  gl: boolean;
-}
+export type EnlirSoulBreakOrLegendMateria = EnlirSoulBreak | EnlirLimitBreak | EnlirLegendMateria;
 
 export interface EnlirAbility extends EnlirGenericSkill {
   school: EnlirSchool;
@@ -410,7 +405,7 @@ export interface EnlirSoulBreak extends EnlirGenericSkill {
   character: string | null;
   points: number;
   tier: EnlirSoulBreakTier;
-  soulbreakBonus: string | null; // Formerly 'master'
+  masteryBonus: string | null; // Formerly 'master', formerly 'soulbreakBonus'
   relic: string | null;
   nameJp: string;
   anima: number | null;
@@ -1568,6 +1563,10 @@ export function getEnlirOtherSkill(otherSkillName: string, sourceName?: string):
     // accommodate, allow falling back to looking up by name.
   }
   return enlir.otherSkillsByName[otherSkillName];
+}
+
+export function isSoulBreak2(item: EnlirSoulBreakOrLegendMateria): item is EnlirSoulBreak {
+  return 'points' in item;
 }
 
 export function isAbility(skill: EnlirSkill): skill is EnlirAbility {
