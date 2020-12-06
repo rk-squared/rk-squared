@@ -86,7 +86,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="school"
           >
-            [Dragoon], w/ Lightning, Dark
+            [Dragoon], w/ lgt/dark
           </td>
           <td
             className="command"
@@ -712,7 +712,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="school"
           >
-            [Dragoon], w/ Lightning, Dark
+            [Dragoon], w/ lgt/dark
           </td>
           <td
             className="command"

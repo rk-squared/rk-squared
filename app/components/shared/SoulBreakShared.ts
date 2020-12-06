@@ -105,7 +105,11 @@ export function getBraveColumns(mrP: MrPSkill, braveCommands: MrPSkill[]): [stri
 
 export function getBurstColumns(burstCommands: MrPSkill[]): Array<[string, string]> {
   return burstCommands.map(
-    cmd => ['[' + getSchoolName(cmd) + ']', '[' + formatMrPSkill(cmd) + ']'] as [string, string],
+    cmd =>
+      [
+        '[' + getSchoolName(cmd) + ']' + (cmd.commandDetail ? ' (' + cmd.commandDetail + ')' : ''),
+        '[' + formatMrPSkill(cmd) + ']',
+      ] as [string, string],
   );
 }
 
@@ -121,7 +125,8 @@ export function getSynchroColumns(
           ']' +
           (mrP.synchroCondition && mrP.synchroCondition[i]
             ? ', w/ ' + formatSchoolOrAbilityList(mrP.synchroCondition[i])
-            : ''),
+            : '') +
+          (cmd.commandDetail ? ' (' + cmd.commandDetail + ')' : ''),
         formatMrPSkill(cmd),
       ] as [string, string],
   );

@@ -14,6 +14,7 @@ import {
   isAbility,
   isBraveCommand,
   isBraveSoulBreak,
+  isBurstCommand,
   isBurstSoulBreak,
   isEnlirElement,
   isGlint,
@@ -48,6 +49,7 @@ import {
   appendComplexStatusDescription,
   formatDuration,
   isComplexStatusList,
+  isTranceStatus,
   mergeSimilarStatuses,
   ParsedEnlirStatusWithSlashes,
   parseEnlirStatus,
@@ -404,6 +406,38 @@ function checkSynchroCommands(skill: EnlirSkill, result: MrPSkill) {
       convertEnlirSkillToMrP(i, { abbreviate: true, includeSchool: false, synchroCommands }),
     );
   }
+}
+
+/**
+ * For burst and synchro commands that have multiple variants, like Ignis or
+ * Alphinaud, this identifies the particular version.
+ */
+export function getCommandDetail(skillName: string) {
+  let m = skillName.match(/\((.*)\)$/);
+  if (!m) {
+    return undefined;
+  }
+  const detail = m[1];
+
+  let status = enlir.statusByName[detail];
+  if (status && isTranceStatus(status)) {
+    return 'Trance';
+  }
+
+  if (detail.startsWith('No ')) {
+    status = enlir.statusByName[detail.replace(/^No /, '')];
+    if (status && isTranceStatus(status)) {
+      return 'no Trance';
+    }
+  }
+
+  m =
+    detail.match(/^([0-9/+]+) [A-Z][A-Za-z .]+$/) || detail.match(/^[A-Z][A-Za-z .]+ ([0-9/+]+)$/);
+  if (m) {
+    return m[1] + ' status lvl';
+  }
+
+  return undefined;
 }
 
 function shouldIncludeStatus(skill: EnlirSkill, effect: skillTypes.StatusEffect) {
@@ -969,6 +1003,12 @@ export interface MrPSkill {
    */
   burstToggle?: boolean;
 
+  /**
+   * For burst and synchro commands that have multiple variants, like Ignis or
+   * Alphinaud, this identifies the particular version.
+   */
+  commandDetail?: string;
+
   burstCommands?: MrPSkill[];
   braveCondition?: Array<EnlirElement | EnlirSchool>;
   braveCommands?: MrPSkill[];
@@ -1187,6 +1227,14 @@ export function convertEnlirSkillToMrP(
   checkBurstCommands(skill, result);
   checkBraveCommands(skill, result);
   checkSynchroCommands(skill, result);
+
+  if (
+    (isBurstCommand(skill) && enlir.burstCommands[skill.id].length > 1) ||
+    (isSynchroCommand(skill) && enlir.synchroCommands[skill.id].length > 1)
+  ) {
+    result.commandDetail = getCommandDetail(skill.name);
+  }
+
   return result;
 }
 

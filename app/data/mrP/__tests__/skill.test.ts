@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-import { convertEnlirSkillToMrP, formatMrPSkill } from '../skill';
+import { convertEnlirSkillToMrP, formatMrPSkill, getCommandDetail } from '../skill';
 
 import { enlir, EnlirSoulBreak, makeSoulBreakAliases } from '../../enlir';
 import { formatBraveCommands } from '../brave';
@@ -205,8 +205,21 @@ function describeSoulBreak(nameOrAlias: string) {
   return convertEnlirSkillToMrP(sb);
 }
 
-describe('mrP', () => {
-  describe('convertEnlirSkillToMrP', () => {
+describe('skill', () => {
+  describe(getCommandDetail, () => {
+    it('gets details for trance-related synchro commands', () => {
+      expect(getCommandDetail('Song of Memories (Garnet Trance)')).toEqual('Trance');
+      expect(getCommandDetail('Song of Memories (No Garnet Trance)')).toEqual('no Trance');
+    });
+
+    it('gets details for status level-related commands', () => {
+      expect(getCommandDetail('Supreme Strategy (3 Comp.)')).toEqual('3 status lvl');
+      expect(getCommandDetail('Relief Tactics (1/2 Aetherflow)')).toEqual('1/2 status lvl');
+      expect(getCommandDetail('Finishing Blow (Meat Dash 0)')).toEqual('0 status lvl');
+    });
+  });
+
+  describe(convertEnlirSkillToMrP, () => {
     it('converts piercing attacks', () => {
       expect(describeSoulBreak('Sephiroth - Reunion')).toEqual({
         damage: 'AoE phys 6.16/4',
@@ -876,9 +889,21 @@ describe('mrP', () => {
       expect(describeSoulBreak('Ignis - Stalwart Cook')).toEqual({
         burstCommands: [
           { damage: 'p1.92/3 f+l+i', other: 'self status lvl +1', school: 'Thief' },
-          { other: 'crit =100% 25s, self status lvl -1', school: 'Support' },
-          { other: 'heal 30% HP, +50% crit dmg 25s, self status lvl -1', school: 'Support' },
-          { other: 'heal 40% HP, instacast 1, self status lvl -1', school: 'Support' },
+          {
+            other: 'crit =100% 25s, self status lvl -1',
+            school: 'Support',
+            commandDetail: '2 status lvl',
+          },
+          {
+            other: 'heal 30% HP, +50% crit dmg 25s, self status lvl -1',
+            school: 'Support',
+            commandDetail: '1 status lvl',
+          },
+          {
+            other: 'heal 40% HP, instacast 1, self status lvl -1',
+            school: 'Support',
+            commandDetail: '0 status lvl',
+          },
         ],
         damage: undefined,
         other: 'party +30% ATK/RES 25s, Haste, self status lvl +2',

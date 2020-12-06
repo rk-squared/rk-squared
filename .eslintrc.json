@@ -33,6 +33,7 @@
     // TODO: Replace allowShortCircuit with TypeScript 3.7's optional chaining
     "no-unused-expressions": ["error", { "allowShortCircuit": true }],
 
+    "jest/valid-title": ["error", { "ignoreTypeOfDescribeName": true }],
     "no-console": "warn",
     "prefer-const": ["error", { "destructuring": "all" }],
     "react/no-unescaped-entities": "off",
