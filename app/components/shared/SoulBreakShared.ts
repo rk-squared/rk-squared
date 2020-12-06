@@ -42,8 +42,8 @@ export function makeTierStyleMap(
     'Glint+': cssStyles.glint,
     TASB: cssStyles.trueArcane,
 
-    OLB: cssStyles.overstrikeLimitBreak,
-    GLB: cssStyles.glint,
+    LBO: cssStyles.overstrikeLimitBreak,
+    LBG: cssStyles.glint,
 
     // Unused - placeholders
     Default: cssStyles.unique,
@@ -73,8 +73,10 @@ export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
 });
 export const soulBreakFullAliases = makeSoulBreakAliases(enlir.soulBreaks);
 export const limitBreakAbbrevAliases = makeLimitBreakAliases(enlir.limitBreaks, {
-  OLB: 'OL',
-  GLB: 'GL',
+  // As of December 2020, we'll try using a fancy character for the L to add
+  // some distinctiveness to limit breaks.
+  LBO: 'ḶO',
+  LBG: 'ḶG',
 });
 export const limitBreakFullAliases = makeLimitBreakAliases(enlir.limitBreaks);
 export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
@@ -108,7 +110,7 @@ export function getBurstColumns(burstCommands: MrPSkill[]): Array<[string, strin
     cmd =>
       [
         '[' + getSchoolName(cmd) + ']' + (cmd.commandDetail ? ' (' + cmd.commandDetail + ')' : ''),
-        '[' + formatMrPSkill(cmd) + ']',
+        formatMrPSkill(cmd),
       ] as [string, string],
   );
 }

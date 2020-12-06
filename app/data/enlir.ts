@@ -113,7 +113,7 @@ export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
 export type EnlirLegendMateriaTier = 'LMR' | 'LMR+';
 
-export type EnlirLimitBreakTier = 'OLB' | 'GLB';
+export type EnlirLimitBreakTier = 'LBO' | 'LBG';
 
 export type EnlirRelicType =
   | 'Accessory'
@@ -476,8 +476,8 @@ export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
 };
 
 export const limitBreakTierOrder: { [t in EnlirLimitBreakTier]: number } = {
-  OLB: 1,
-  GLB: 0,
+  LBO: 1,
+  LBG: 0,
 };
 
 const rawData = {

@@ -6,7 +6,7 @@ import { EnlirLimitBreak } from '../../data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import {
   formatSoulBreakOrLegendMateriaName,
-  limitBreakFullAliases,
+  limitBreakAbbrevAliases,
   styles,
   tierClass,
 } from '../shared/SoulBreakShared';
@@ -29,9 +29,7 @@ export class LimitBreakListItem extends React.PureComponent<Props> {
 
     const text = formatMrPSkill(mrP);
 
-    // As of January 2020, since limit breaks are still brand new and perhaps
-    // unfamiliar, we'll show the full alias instead of abbreviating.
-    const alias = limitBreakFullAliases[limitBreak.id] || limitBreak.tier;
+    const alias = limitBreakAbbrevAliases[limitBreak.id] || limitBreak.tier;
 
     const fullClassName = classNames(className, tierClass[limitBreak.tier], {
       [styles.jp]: !limitBreak.gl,
