@@ -1053,16 +1053,10 @@ function formatTriggeredEffect(
   } else {
     const onceOnly = effect.onceOnly === true ? ' (once only)' : '';
     const nextN = effect.onceOnly && effect.onceOnly !== true ? `next ${effect.onceOnly} ` : '';
-    return (
-      '(' +
-      nextN +
-      formatTrigger(effect.trigger, source, effect.triggerDetail) +
-      ' ⤇ ' +
-      (effect.chance ? `${effect.chance}% for ` : '') +
-      effectsDescription +
-      condition +
-      onceOnly +
-      ')'
+    return formatGenericTrigger(
+      nextN + formatTrigger(effect.trigger, source, effect.triggerDetail),
+      effectsDescription + condition + onceOnly,
+      effect.chance,
     );
   }
 }
@@ -1426,7 +1420,18 @@ function describeStatusEffect(
     case 'doomTimer':
       return effect.value + 's Doom';
     case 'drainHp':
-      return 'heal ' + effect.value + '% of' + formatElementOrSchoolList(effect, ' ') + ' dmg';
+      // For historical reasons, these are different.  (Legend materia used
+      // chance and followed trigger format, while regular statuses had no
+      // chance and developed their own stance.)
+      if (effect.chance) {
+        return formatGenericTrigger(
+          (effect.singleTarget ? 'single-target ' : '') + formatElementOrSchoolList(effect),
+          'heal ' + effect.value + '% of dmg',
+          effect.chance,
+        );
+      } else {
+        return 'heal ' + effect.value + '% of' + formatElementOrSchoolList(effect, ' ') + ' dmg';
+      }
     case 'counter':
       return formatCounter(effect, enlirStatus);
     case 'rowCover':

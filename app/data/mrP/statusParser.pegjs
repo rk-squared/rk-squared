@@ -50,7 +50,7 @@ LmEffectClause
   // Additional legend materia-specific variations and wording.  We keep these
   // separate to try and keep the status effects section of the database a bit
   // cleaner.
-  / MulticastLm
+  / MulticastLm / HealUpLm / DrainHpLm
 
 // Effects common to statuses and legend materia.  Legend materia use very few
 // of these, but to simplify maintenance and keep things flexible, we'll only
@@ -401,6 +401,9 @@ HealUp
   / "Increases"i _ "healing done by" _ school:(s:SchoolAndOrList _ "abilities by" { return s; })? _ value:Integer "%" { return { type: 'healUp', value, school }; }
   / "Increases"i _ "healing done by" _ skillType:SkillType _ "abilities and soulbreaks by" _ value:Integer "%" { return { type: 'healUp', value, skillType }; }
 
+HealUpLm
+  = skillType:SkillType _ "abilities restore" _ value:Integer "% more HP" { return { type: 'healUp', value, skillType }; }
+
 Pain
   = "Take" _ value:Integer "% more damage" { return { type: 'pain', value }; }
 
@@ -446,6 +449,11 @@ DoomTimer
 
 DrainHp
   = "Restores"i _ "HP for" _ value:Integer _ "% of the damage dealt with" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({type: 'drainHp', value }, what); }
+
+DrainHpLm
+  = chance:Integer "% chance of restoring HP to the user for" _ value:Integer _ "% of the damage dealt with" _ singleTarget:"single-target"? _ what:ElementOrSchoolList _ ("abilities" / "attacks") {
+    return Object.assign({type: 'drainHp', value, chance, singleTarget: !!singleTarget }, what);
+  }
 
 
 // --------------------------------------------------------------------------
@@ -792,7 +800,8 @@ Unknown
 
 Trigger
   = "after"i _ requiresDamage1:("using" / "casting" / "dealing damage with" / "the user uses") _ count:TriggerCount _ requiresDamage2:"damaging"?
-    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
+    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack _ "on an enemy"? {
+      // "on an enemy" has only been observed in legend materia.
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
   / "if"i _ "the granting user has used" _ count:TriggerCount _ requiresDamage2:"damaging"?

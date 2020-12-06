@@ -491,6 +491,8 @@ interface DrainHp {
   value: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
+  chance?: number;
+  singleTarget?: boolean;
 }
 
 // --------------------------------------------------------------------------
