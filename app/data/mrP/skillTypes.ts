@@ -137,7 +137,7 @@ export interface AttackExtras {
   orNumAttacks?: NumAttacks;
   orNumAttacksCondition?: common.Condition;
 
-  overrideElement?: EnlirElement;
+  overrideElement?: EnlirElement | EnlirElement[];
 
   isPiercingDef?: boolean;
   isPiercingRes?: boolean;

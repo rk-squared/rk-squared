@@ -663,7 +663,7 @@ export function formatTrigger(
     case 'auto':
       return describeAutoInterval(trigger.interval);
     case 'damaged':
-      return 'damaged';
+      return 'take dmg';
     case 'dealDamage':
       return 'next atk';
     case 'loseStatus':
@@ -769,7 +769,7 @@ function formatCastSkill(
 
 const simpleAttackOptions = getDescribeOptionsWithDefaults({ abbreviate: true });
 
-function formatCastSimpleSkill({ skill }: statusTypes.CastSimpleSkill) {
+function formatSimpleSkillEffect(skill: statusTypes.SimpleSkillEffect) {
   switch (skill.type) {
     case 'attack':
       return describeAttack('simple', skill, simpleAttackOptions);
@@ -923,7 +923,7 @@ function formatTriggerableEffect(
     case 'randomCastSkill':
       return formatCastSkill(effect, enlirStatus, abbreviate, condition);
     case 'castSimpleSkill':
-      return formatCastSimpleSkill(effect);
+      return effect.skill.map(formatSimpleSkillEffect).join(', ');
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'grantStatus':
@@ -1227,6 +1227,11 @@ function describeStatusEffect(
         describeStats(arrayify(resolve.stat(effect.stats))) +
         (effect.hybridStats ? ' or ' + describeStats(arrayify(effect.hybridStats)) : '')
       );
+    case 'statBuildup':
+      return (
+        `+${effect.increment}% ${effect.stat.toUpperCase()} (max +${effect.max}%)` +
+        (effect.damaged ? ' per hit taken' : '')
+      );
     case 'statShare':
       return (
         'add ' +
@@ -1462,6 +1467,8 @@ function describeStatusEffect(
       );
     case 'triggeredEffect':
       return formatTriggeredEffect(effect, enlirStatus, source, options, resolve);
+    case 'autoCure':
+      return `${effect.chance}% for auto-cure ${arrayify(effect.status).join('/')}`;
     case 'conditionalStatus':
       return formatGrantOrConditionalStatus(effect, null, enlirStatus, source);
     case 'directGrantStatus':

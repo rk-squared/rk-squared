@@ -883,17 +883,17 @@ Who
 WhoClause
   = "the"? _ "user" { return 'self'; }
   / "the"? _ "user" { return 'self'; }
-  / "the" _ "target" { return 'target'; }
-  / "all" _ "enemies" { return 'enemies'; }
+  / "the target" { return 'target'; }
+  / "all enemies" { return 'enemies'; }
   / "a single ally" { return 'ally'; }
-  / "all allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
+  / "all allies" row:(_ "in the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
     return row || 'party';
   }
   / "allies in the same row" { return 'sameRow'; }
-  / "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
-  / "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
-  / "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
-  / "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
+  / "the lowest HP% ally" { return 'lowestHpAlly'; }
+  / "a random ally without status" { return 'allyWithoutStatus'; }
+  / "a random ally with negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
+  / "a random ally with KO" { return 'allyWithKO'; }
 
 WhoList
   = ("to" / "from") _ head:WhoClause _ tail:("/" WhoClause)+ { return util.pegList(head, tail, 1); }

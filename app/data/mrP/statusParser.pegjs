@@ -45,12 +45,12 @@ EffectClause
   / ResetTarget / NoEffect / Persists / GameOver / Unknown
 
 LmEffectClause
-  = TriggeredEffect
+  = AutoCureLm / TriggeredEffect
   / CommonEffectClause
   // Additional legend materia-specific variations and wording.  We keep these
   // separate to try and keep the status effects section of the database a bit
   // cleaner.
-  / StatShareLm / MulticastLm / HealUpLm / DrainHpLm
+  / StatBuildupLm / StatShareLm / MulticastLm / HealUpLm / DrainHpLm
 
 // Effects common to statuses and legend materia.  Legend materia use very few
 // of these, but to simplify maintenance and keep things flexible, we'll only
@@ -81,13 +81,17 @@ CommonEffectClause
 // Stat mods
 
 StatMod
-  = stats:StatListOrPlaceholder _ value:(SignedIntegerOrX / [+-]? "?" { return NaN; }) "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
+  = stats:StatListOrPlaceholder _ value:(SignedIntegerOrX / [+-]? "?" { return NaN; }) "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? !(_ "for") {
     const result = { type: 'statMod', stats, value };
     if (ignoreBuffCaps) {
       result.ignoreBuffCaps = true;
     }
     return result;
   }
+
+StatBuildupLm
+  = stat:Stat _ "+" increment:Integer "% for each hit taken by damaging attacks, up to +" max:Integer "%"
+    { return { type: 'statBuildup', stat, increment, max, damaged: true }; }
 
 StatShareLm
   = "Increases base" _ dest:Stat _ "by" _ value:Integer "% base" _ src:Stat { return { type: 'statShare', src, dest, value }; }
@@ -518,6 +522,13 @@ TriggeredEffect
   / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
     return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2), triggerDetail };
   }
+  // Triggered smart enther has a couple unique bits - a separate Who and different grammar for "chance of"
+  / chance:Integer "% chance of" _ status:SmartEtherStatus _ who:Who? _ trigger:Trigger
+  & { return !who || who === 'self'; }
+  {
+    return { type: 'triggeredEffect', chance, effects: [status], trigger };
+  }
+
 
 TriggerChance
   = chance:Integer "% chance to" _ {
@@ -597,6 +608,14 @@ DispelOrEsuna
   = 'remove'i S _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? _ perUses:PerUses? {
     return { type: 'dispelOrEsuna', dispelOrEsuna, who, perUses };
   }
+
+// A special case of triggered effect.  It has a unique trigger and gets its own
+// formatting.
+AutoCureLm
+  = chance:Integer "% chance to remove" _ status1:(StatusNameNoBrackets _ (AndList StatusNameNoBrackets)* { return text().trim().split(/, | and /); })
+    _ "to the user after being afflicted with" _ status2:(StatusNameNoBrackets _ (OrList StatusNameNoBrackets)* { return text().trim().split(/, | or /); })
+  & { return util.isEqual(status1, status2); }
+  { return { type: 'autoCure', chance, status: status1 }; }
 
 
 // --------------------------------------------------------------------------
@@ -873,6 +892,7 @@ Trigger
     }
   // For legend materia
   / "after using a single-target" _ school:School _ "ability that restores HP on an ally" { return { type: 'singleHeal', school }; }
+  / "after taking damage from an enemy" { return { type: 'damaged' }; }
   // These should go last to avoid parse conflicts.
   / "after casting" _ skill:(Skill1Or2 / AnySkillName) { return { type: 'skill', skill }; }
 
@@ -898,6 +918,7 @@ TriggerDetail
   / "if the triggering ability is" _ element:ElementSlashList { return { element }; }
   / "if the triggering ability is" _ skill1or2:Skill1Or2 { return null; } // Squall SASB.  Adequately covered by trigger and slash cast handling.
   / ("that deals" / "if the triggering ability deals") _ element:ElementSlashList _ "damage" { return { element }; }
+  / ", can trigger on dualcasts" { return null; }
 
 Skill1Or2
   = skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return [skill1, skill2]; }
@@ -912,12 +933,30 @@ Skill1Or2
 // --------------------------------------------------------------------------
 // "Simple skills" - inline effects used by legend materia
 
-SimpleSkill
-  = skillType:SkillType ": single," _ attackMultiplier:DecimalNumber _ "physical" _ element:Element {
-    return { type: 'attack', numAttacks: 1, attackMultiplier, overrideSkillType: skillType, overrideElement: element }
+SimpleSkill = head:SimpleSkillEffect tail:(',' _ SimpleSkillEffect)* { return util.pegList(head, tail, 2); }
+
+SimpleSkillEffect
+  = skillType:SkillType ": single" hybrid:(_ "hybrid")? ","
+    _ numAttacks:(n:Integer "x" { return n; })?
+    _ attackMultiplier:DecimalNumber
+    _ hybridMultiplier:("or" _ n:DecimalNumber { return n; })?
+    _ "physical"? _ element:ElementSlashList
+  {
+    return {
+      type: 'attack',
+      numAttacks: numAttacks || 1,
+      attackMultiplier,
+      hybridMultiplier,
+      overrideSkillType: skillType === 'NAT' ? 'PHY' : skillType,
+      overrideElement: element,
+      isHybrid: !!hybrid
+    };
   }
   / skillType:SkillType ": group, restores HP (" _ value:Integer _ ")" {
     return { type: 'heal', amount: { healFactor: value }, who: 'party', overrideSkillType: skillType };
+  }
+  / value:Integer _ "HP" _ who:Who {
+    return { type: 'heal', amount: { fixedHp: value }, who };
   }
 
 
@@ -1271,17 +1310,17 @@ Who
 WhoClause
   = "the"? _ "user" { return 'self'; }
   / "the"? _ "user" { return 'self'; }
-  / "the" _ "target" { return 'target'; }
-  / "all" _ "enemies" { return 'enemies'; }
+  / "the target" { return 'target'; }
+  / "all enemies" { return 'enemies'; }
   / "a single ally" { return 'ally'; }
-  / "all allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
+  / "all allies" row:(_ "in the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
     return row || 'party';
   }
   / "allies in the same row" { return 'sameRow'; }
-  / "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
-  / "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
-  / "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
-  / "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
+  / "the lowest HP% ally" { return 'lowestHpAlly'; }
+  / "a random ally without status" { return 'allyWithoutStatus'; }
+  / "a random ally with negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
+  / "a random ally with KO" { return 'allyWithKO'; }
 
 WhoList
   = ("to" / "from") _ head:WhoClause _ tail:("/" WhoClause)+ { return util.pegList(head, tail, 1); }

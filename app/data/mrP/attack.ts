@@ -232,13 +232,14 @@ function describeHybridDamageType(
   skill: EnlirSkill | SimpleSkill,
   attack: skillTypes.Attack,
 ): MrPDamageType | undefined {
-  if (skill === 'simple' || !attack.isHybrid) {
+  if (!attack.isHybrid) {
     return undefined;
-  } else if (skill.typeDetails && skill.typeDetails.length === 2) {
+  } else if (skill !== 'simple' && skill.typeDetails && skill.typeDetails.length === 2) {
     return describeDamageType('Magical', skill.typeDetails[1]);
   } else {
-    // Fall back to magical.  Hack: Don't warn for old burst commands.
-    if (!isBurstCommand(skill)) {
+    // Fall back to magical.  Hack: Don't warn for old burst commands or legend
+    // materia.
+    if (skill !== 'simple' && !isBurstCommand(skill)) {
       logger.warn(`Missing type details for hybrid skill ${skill.name}`);
     }
     return 'magic';
@@ -658,7 +659,11 @@ export function describeAttack(
   }
 
   damage += appendElement(
-    attack.overrideElement ? [attack.overrideElement] : skill !== 'simple' ? skill.element : null,
+    attack.overrideElement
+      ? arrayify(attack.overrideElement)
+      : skill !== 'simple'
+      ? skill.element
+      : null,
     opt.abbreviate ? getElementAbbreviation : getElementShortName,
   );
   damage += attack.isRanged && !attack.isJump ? ' rngd' : '';

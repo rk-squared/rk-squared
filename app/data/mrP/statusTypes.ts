@@ -6,6 +6,7 @@ export type StatusEffect = EffectClause[];
 
 export type EffectClause =
   | StatMod
+  | StatBuildup
   | StatShare
   | CritChance
   | CritDamage
@@ -67,6 +68,7 @@ export type EffectClause =
   | Counter
   | RowCover
   | TriggeredEffect
+  | AutoCure
   | ConditionalStatus
   | DirectGrantStatus
   | GainSb
@@ -110,6 +112,16 @@ export interface StatMod {
 
   value: common.SignedValueOrPlaceholder<number | number[]>;
   ignoreBuffCap?: boolean;
+}
+
+export interface StatBuildup {
+  type: 'statBuildup';
+  stat: EnlirStat;
+
+  increment: number;
+  max: number;
+
+  damaged?: boolean;
 }
 
 export interface StatShare {
@@ -570,8 +582,10 @@ export interface RandomCastSkill {
 
 export interface CastSimpleSkill {
   type: 'castSimpleSkill';
-  skill: skillTypes.Attack | skillTypes.Heal;
+  skill: SimpleSkillEffect[];
 }
+
+export type SimpleSkillEffect = skillTypes.Attack | skillTypes.Heal;
 
 // Note: Significant overlap between skillTypes.StatusEffect and statusTypes.GrantStatus
 export interface GrantStatus {
@@ -602,6 +616,12 @@ export interface RecoilHp {
   type: 'recoilHp';
   damagePercent: number | number[];
   maxOrCurrent: 'max' | 'curr';
+}
+
+interface AutoCure {
+  type: 'autoCure';
+  chance: number;
+  status: string | string[];
 }
 
 // --------------------------------------------------------------------------
