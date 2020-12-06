@@ -193,6 +193,7 @@ export interface Heal {
   amount: HealAmount;
   who?: common.Who;
   condition?: common.Condition;
+  overrideSkillType?: EnlirSkillType;
 }
 
 export type HealAmount = { healFactor: number | number[] } | { fixedHp: number | number[] };

@@ -50,7 +50,7 @@ LmEffectClause
   // Additional legend materia-specific variations and wording.  We keep these
   // separate to try and keep the status effects section of the database a bit
   // cleaner.
-  / MulticastLm / HealUpLm / DrainHpLm
+  / StatShareLm / MulticastLm / HealUpLm / DrainHpLm
 
 // Effects common to statuses and legend materia.  Legend materia use very few
 // of these, but to simplify maintenance and keep things flexible, we'll only
@@ -88,6 +88,9 @@ StatMod
     }
     return result;
   }
+
+StatShareLm
+  = "Increases base" _ dest:Stat _ "by" _ value:Integer "% base" _ src:Stat { return { type: 'statShare', src, dest, value }; }
 
 CritChance
   = "Critical chance =" value:(PercentSlashList / PercentOrX) {
@@ -523,7 +526,7 @@ TriggerChance
   }
 
 TriggerableEffect
-  = CastSkill / RandomCastSkill / GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealPercent / RecoilHp / SmartEtherStatus / DispelOrEsuna
+  = CastSkill / RandomCastSkill / CastSimpleSkill/ GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealPercent / RecoilHp / SmartEtherStatus / DispelOrEsuna
   // Normal status effects that may also be triggered
   / CritChance / CastSpeed
 
@@ -531,10 +534,13 @@ BareTriggerableEffect
   = effect:TriggerableEffect ! (_ (Trigger / "and")) { return effect; }
 
 CastSkill
-  = "casts"i _ skill:AnySkillOrOptions  { return { type: 'castSkill', skill }; }
+  = "cast"i S _ skill:AnySkillOrOptions { return { type: 'castSkill', skill }; }
 
 RandomCastSkill
   = "randomly"i _ "casts" _ skill:AnySkillOrOptions  { return { type: 'randomCastSkill', skill }; }
+
+CastSimpleSkill
+  = "cast"i S _ "an ability (" skill:SimpleSkill ")" { return { type: 'castSimpleSkill', skill }; }
 
 SimpleRemoveStatus
   = "removes"i _ status:StatusNameNoBrackets _ "from the user"? {
@@ -588,7 +594,7 @@ RecoilHp
   }
 
 DispelOrEsuna
-  = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? _ perUses:PerUses? {
+  = 'remove'i S _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? _ perUses:PerUses? {
     return { type: 'dispelOrEsuna', dispelOrEsuna, who, perUses };
   }
 
@@ -865,6 +871,8 @@ Trigger
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'allyAbility', element, school, count, jump: !!jump, requiresDamage, requiresAttack };
     }
+  // For legend materia
+  / "after using a single-target" _ school:School _ "ability that restores HP on an ally" { return { type: 'singleHeal', school }; }
   // These should go last to avoid parse conflicts.
   / "after casting" _ skill:(Skill1Or2 / AnySkillName) { return { type: 'skill', skill }; }
 
@@ -899,6 +907,18 @@ Skill1Or2
         return (skill1or2.match(/ or |\//g) || []).length === 1;
       }
       { return skill1or2.split(/ or |\//); }
+
+
+// --------------------------------------------------------------------------
+// "Simple skills" - inline effects used by legend materia
+
+SimpleSkill
+  = skillType:SkillType ": single," _ attackMultiplier:DecimalNumber _ "physical" _ element:Element {
+    return { type: 'attack', numAttacks: 1, attackMultiplier, overrideSkillType: skillType, overrideElement: element }
+  }
+  / skillType:SkillType ": group, restores HP (" _ value:Integer _ ")" {
+    return { type: 'heal', amount: { healFactor: value }, who: 'party', overrideSkillType: skillType };
+  }
 
 
 // --------------------------------------------------------------------------

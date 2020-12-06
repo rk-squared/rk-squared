@@ -22,11 +22,11 @@ import {
   isSynchroCommand,
   isSynchroSoulBreak,
 } from '../enlir';
-import { describeDamage, describeDamageType } from './attack';
+import { describeAttack, describeDamage, describeDamageType } from './attack';
 import * as common from './commonTypes';
 import { describeCondition, formatThreshold } from './condition';
 import { describeRageEffects } from './rage';
-import { convertEnlirSkillToMrP, describeRecoilHp, formatMrPSkill } from './skill';
+import { convertEnlirSkillToMrP, describeHeal, describeRecoilHp, formatMrPSkill } from './skill';
 import {
   displayStatusLevel,
   formatDispelOrEsuna,
@@ -48,6 +48,7 @@ import * as statusTypes from './statusTypes';
 import {
   damageTypeAbbreviation,
   formatSchoolOrAbilityList,
+  getDescribeOptionsWithDefaults,
   getElementAbbreviation,
   getElementShortName,
   getSchoolShortName,
@@ -684,7 +685,7 @@ export function formatTrigger(
     case 'damagedByAlly':
       return `take ${formatAnyType(trigger, ' ')}dmg from ally`;
     case 'singleHeal':
-      return 'ally heal';
+      return 'ally' + (trigger.school ? ' ' + getSchoolShortName(trigger.school) : '') + ' heal';
     case 'lowHp':
       return lowHpAlias(trigger.value);
     case 'damageDuringStatus':
@@ -764,6 +765,17 @@ function formatCastSkill(
     return slashMerge(result);
   });
   return skillText + (effect.type === 'randomCastSkill' ? ' (random)' : '');
+}
+
+const simpleAttackOptions = getDescribeOptionsWithDefaults({ abbreviate: true });
+
+function formatCastSimpleSkill({ skill }: statusTypes.CastSimpleSkill) {
+  switch (skill.type) {
+    case 'attack':
+      return describeAttack('simple', skill, simpleAttackOptions);
+    case 'heal':
+      return (skill.who ? whoText[skill.who] + ' ' : '') + describeHeal('simple', skill);
+  }
 }
 
 function formatOneGrantOrConditionalStatus(
@@ -910,6 +922,8 @@ function formatTriggerableEffect(
     case 'castSkill':
     case 'randomCastSkill':
       return formatCastSkill(effect, enlirStatus, abbreviate, condition);
+    case 'castSimpleSkill':
+      return formatCastSimpleSkill(effect);
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'grantStatus':
@@ -1213,6 +1227,12 @@ function describeStatusEffect(
         describeStats(arrayify(resolve.stat(effect.stats))) +
         (effect.hybridStats ? ' or ' + describeStats(arrayify(effect.hybridStats)) : '')
       );
+    case 'statShare':
+      return (
+        'add ' +
+        effect.value +
+        `% of base ${effect.src.toUpperCase()} to ${effect.dest.toUpperCase()}`
+      );
     case 'critChance':
       return formatCritChance(effect, resolve);
     case 'critDamage':
@@ -1401,8 +1421,8 @@ function describeStatusEffect(
       );
     case 'healUp':
       return (
-        signedNumber(effect.value) +
-        '% ' +
+        percentToMultiplier(effect.value) +
+        'x ' +
         (effect.skillType ? effect.skillType + ' ' : '') +
         (effect.school ? formatSchoolOrAbilityList(effect.school) + ' ' : '') +
         'healing'

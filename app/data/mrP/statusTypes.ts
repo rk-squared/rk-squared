@@ -1,10 +1,12 @@
 import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
 import * as common from './commonTypes';
+import * as skillTypes from './skillTypes';
 
 export type StatusEffect = EffectClause[];
 
 export type EffectClause =
   | StatMod
+  | StatShare
   | CritChance
   | CritDamage
   | HitRate
@@ -108,6 +110,13 @@ export interface StatMod {
 
   value: common.SignedValueOrPlaceholder<number | number[]>;
   ignoreBuffCap?: boolean;
+}
+
+export interface StatShare {
+  type: 'statShare';
+  src: EnlirStat;
+  dest: EnlirStat;
+  value: number;
 }
 
 export interface CritChance {
@@ -537,6 +546,7 @@ export interface TriggeredEffect {
 export type TriggerableEffect =
   | CastSkill
   | RandomCastSkill
+  | CastSimpleSkill
   | GainSb
   | GrantStatus
   | Heal
@@ -556,6 +566,11 @@ export interface CastSkill {
 export interface RandomCastSkill {
   type: 'randomCastSkill';
   skill: common.OrOptions<string>;
+}
+
+export interface CastSimpleSkill {
+  type: 'castSimpleSkill';
+  skill: skillTypes.Attack | skillTypes.Heal;
 }
 
 // Note: Significant overlap between skillTypes.StatusEffect and statusTypes.GrantStatus
@@ -796,7 +811,7 @@ export type Trigger =
       skillType: EnlirSkillType | EnlirSkillType[];
       element: common.OrOptions<EnlirElement>;
     }
-  | { type: 'singleHeal' }
+  | { type: 'singleHeal'; school?: EnlirSchool }
   | { type: 'lowHp'; value: number }
   | { type: 'damageDuringStatus'; value: number | number[] }
   | {

@@ -81,6 +81,10 @@ import {
   toMrPKilo,
 } from './util';
 
+// Support for "simple skills" - inline skill effects from legend materia that
+// don't have a full EnlirSkill object.
+export type SimpleSkill = 'simple';
+
 function preprocessSkill(
   skill: skillTypes.SkillEffect,
   source: EnlirSkill,
@@ -134,7 +138,10 @@ function describeDrainHp({ healPercent, condition }: skillTypes.DrainHp): string
   return `heal ${numberOrUnknown(healPercent)}% of dmg` + appendCondition(condition);
 }
 
-function describeHeal(skill: EnlirSkill, { amount, condition }: skillTypes.Heal): string {
+export function describeHeal(
+  skill: EnlirSkill | SimpleSkill,
+  { amount, condition, overrideSkillType }: skillTypes.Heal,
+): string {
   let heal: string;
   let count: number | number[] | undefined;
   if ('healFactor' in amount) {
@@ -144,7 +151,8 @@ function describeHeal(skill: EnlirSkill, { amount, condition }: skillTypes.Heal)
     heal = 'heal ' + formatNumberSlashList(amount.fixedHp, i => toMrPKilo(i, true));
     count = amount.fixedHp;
   }
-  if ('healFactor' in amount && skill.type === 'NAT') {
+  const skillType = overrideSkillType || (skill !== 'simple' && skill.type) || undefined;
+  if ('healFactor' in amount && skillType === 'NAT') {
     heal += ' (NAT)';
   }
   heal += appendCondition(condition, count);
