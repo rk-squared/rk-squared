@@ -770,15 +770,31 @@ function formatCastSkill(
 
 const simpleAttackOptions = getDescribeOptionsWithDefaults({ abbreviate: true });
 
-function formatSimpleSkillEffect(skill: statusTypes.SimpleSkillEffect) {
-  switch (skill.type) {
-    case 'attack':
-      return describeAttack('simple', skill, simpleAttackOptions);
-    case 'heal':
-      return (skill.who ? whoText[skill.who] + ' ' : '') + describeHeal('simple', skill);
+function formatSimpleSkillEffect(
+  skill: statusTypes.SimpleSkill,
+  effect: statusTypes.SimpleSkillEffect,
+) {
+  switch (effect.type) {
+    case 'attack': {
+      const overrideSkillType = effect.isHybrid ? 'PHY' : skill.skillType;
+      return describeAttack('simple', { ...effect, overrideSkillType }, simpleAttackOptions);
+    }
+    case 'heal': {
+      const who = effect.who ? effect.who : skill.isAoE ? 'party' : 'ally';
+      return whoText[who] + ' ' + describeHeal('simple', effect);
+    }
+    case 'healPercent': {
+      const who = effect.who ? effect.who : skill.isAoE ? 'party' : 'ally';
+      return whoText[who] + ' ' + formatHealPercent(effect);
+    }
     case 'statMod':
-      return formatStatMod(skill, makePlaceholderResolvers({}));
+      // Assume we can omit a target for now.
+      return formatStatMod(effect, makePlaceholderResolvers({}));
   }
+}
+
+function formatSimpleSkill(skill: statusTypes.SimpleSkill) {
+  return skill.effects.map(i => formatSimpleSkillEffect(skill, i)).join(', ');
 }
 
 function formatOneGrantOrConditionalStatus(
@@ -926,7 +942,7 @@ function formatTriggerableEffect(
     case 'randomCastSkill':
       return formatCastSkill(effect, enlirStatus, abbreviate, condition);
     case 'castSimpleSkill':
-      return effect.skill.map(formatSimpleSkillEffect).join(', ');
+      return formatSimpleSkill(effect.skill);
     case 'gainSb':
       return sbPointsAlias(effect.value);
     case 'grantStatus':

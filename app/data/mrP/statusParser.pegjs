@@ -94,8 +94,9 @@ StatBuildupLm
     { return { type: 'statBuildup', stat, increment, max, damaged: true }; }
   / stat:Stat _ "+" increment:Integer "% for each hit dealt with" _ school:School _ "abilities, up to +" max:Integer "%"
     { return { type: 'statBuildup', stat, increment, max, school }; }
-  / stat:Stat _ "+" increment:Integer "% for each hit dealt with damaging" _ skillType:SkillType _ "attacks, up to +" max:Integer "%"
-    { return { type: 'statBuildup', stat, increment, max, skillType, requiresDamage: true }; }
+  / stat:Stat _ "+" increment:Integer "% for each hit dealt with" _ requiresDamage:"damaging"? _ skillType:SkillType _ "attacks"
+    element:(_ "that deal" _ e:Element _ "damage" { return e; })? ", up to +" max:Integer "%"
+    { return { type: 'statBuildup', stat, increment, max, skillType, element, requiresDamage: !!requiresDamage }; }
 
 StatModDurationUpLm
   = "Increases the duration of stat" _ what:("buffs" / "debuffs") _ "by" _ value:Integer "%" {
@@ -952,10 +953,13 @@ Skill1Or2
 // --------------------------------------------------------------------------
 // "Simple skills" - inline effects used by legend materia
 
-SimpleSkill = head:SimpleSkillEffect tail:(',' _ SimpleSkillEffect)* { return util.pegList(head, tail, 2); }
+SimpleSkill
+  = skillType:SkillType ":" _ isAoE:("single" / "group") ","? _ head:SimpleSkillEffect tail:(',' _ SimpleSkillEffect)* {
+    return { skillType, isAoE: isAoE === 'group', effects: util.pegList(head, tail, 2) };
+  }
 
 SimpleSkillEffect
-  = skillType:SkillType ": single" hybrid:(_ "hybrid")? ","
+  = hybrid:(_ "hybrid")? ","?
     _ numAttacks:(n:Integer "x" { return n; })?
     _ attackMultiplier:DecimalNumber
     _ hybridMultiplier:("or" _ n:DecimalNumber { return n; })?
@@ -966,16 +970,18 @@ SimpleSkillEffect
       numAttacks: numAttacks || 1,
       attackMultiplier,
       hybridMultiplier,
-      overrideSkillType: skillType === 'NAT' ? 'PHY' : skillType,
       overrideElement: element,
       isHybrid: !!hybrid
     };
   }
-  / skillType:SkillType ": group, restores HP (" _ value:Integer _ ")" {
-    return { type: 'heal', amount: { healFactor: value }, who: 'party', overrideSkillType: skillType };
+  / "restores HP (" _ value:Integer _ ")" {
+    return { type: 'heal', amount: { healFactor: value } };
   }
-  / value:Integer _ "HP" _ who:Who {
+  / "restores"? _ value:Integer _ "HP" _ who:Who {
     return { type: 'heal', amount: { fixedHp: value }, who };
+  }
+  / "restores HP for" _ healPercent:Integer _ "% of the target's maximum HP" {
+    return { type: 'healPercent', healPercent };
   }
   / head:Stat _ tail:('/' Stat)* _ value:SignedIntegerOrX "%" {
     return { type: 'statMod', stats: util.pegList(head, tail, 1, true), value };

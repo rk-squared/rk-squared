@@ -125,6 +125,7 @@ export interface StatBuildup {
 
   damaged?: boolean;
   school?: EnlirSchool;
+  element?: EnlirElement;
   skillType?: EnlirSkillType;
   requiresDamage?: boolean;
 }
@@ -601,10 +602,16 @@ export interface RandomCastSkill {
 
 export interface CastSimpleSkill {
   type: 'castSimpleSkill';
-  skill: SimpleSkillEffect[];
+  skill: SimpleSkill;
 }
 
-export type SimpleSkillEffect = skillTypes.Attack | skillTypes.Heal | StatMod;
+export interface SimpleSkill {
+  skillType: EnlirSkillType;
+  isAoE: boolean;
+  effects: SimpleSkillEffect[];
+}
+
+export type SimpleSkillEffect = skillTypes.Attack | skillTypes.Heal | common.HealPercent | StatMod;
 
 // Note: Significant overlap between skillTypes.StatusEffect and statusTypes.GrantStatus
 export interface GrantStatus {
