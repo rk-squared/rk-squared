@@ -40,7 +40,6 @@ export type EffectClause =
   | SwitchDrawStacking
   | ElementAttack
   | ElementResist
-  | ElementDefense
   | EnElement
   | EnElementStacking
   | EnElementWithStacking
@@ -48,6 +47,7 @@ export type EffectClause =
   | AbilityBuildup
   | RankBoost
   | DamageUp
+  | DamageResist
   | RealmBoost
   | AbilityDouble
   | Multicast
@@ -124,6 +124,7 @@ export interface StatBuildup {
   max: number;
 
   damaged?: boolean;
+  school?: EnlirSchool;
 }
 
 export interface StatModDurationUp {
@@ -328,12 +329,6 @@ interface ElementResist {
   value: common.SignedValueOrPlaceholder<number | number[]>;
 }
 
-interface ElementDefense {
-  type: 'elementDefense';
-  element: EnlirElement | EnlirElement[];
-  value: number;
-}
-
 interface EnElement {
   type: 'enElement';
   element: EnlirElement | EnlirElement[];
@@ -378,6 +373,12 @@ interface DamageUp extends DamageUpType {
   condition?: common.Condition;
 }
 
+interface DamageResist {
+  type: 'damageResist';
+  element: EnlirElement | EnlirElement[];
+  value: number;
+}
+
 interface RealmBoost {
   type: 'realmBoost';
   realm: EnlirRealm;
@@ -394,6 +395,7 @@ interface Multicast {
   type: 'multicast';
   count: number;
   chance: number;
+  perUses?: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
 }
@@ -599,7 +601,7 @@ export interface CastSimpleSkill {
   skill: SimpleSkillEffect[];
 }
 
-export type SimpleSkillEffect = skillTypes.Attack | skillTypes.Heal;
+export type SimpleSkillEffect = skillTypes.Attack | skillTypes.Heal | StatMod;
 
 // Note: Significant overlap between skillTypes.StatusEffect and statusTypes.GrantStatus
 export interface GrantStatus {
@@ -824,12 +826,13 @@ interface Stun {
 export type Trigger =
   | {
       type: 'ability';
+      skillType?: EnlirSkillType;
       element?: common.OrOptions<EnlirElement>;
       school?: EnlirSchool | EnlirSchool[];
       count: TriggerCount;
-      jump: boolean;
-      requiresDamage: boolean;
-      requiresAttack: boolean;
+      jump?: boolean;
+      requiresDamage?: boolean;
+      requiresAttack?: boolean;
     }
   | { type: 'crit' }
   | { type: 'vsWeak' }
@@ -850,6 +853,7 @@ export type Trigger =
   | { type: 'damageDuringStatus'; value: number | number[] }
   | {
       type: 'allyAbility';
+      skillType?: EnlirSkillType;
       element?: common.OrOptions<EnlirElement>;
       school?: EnlirSchool | EnlirSchool[];
       count: TriggerCount;

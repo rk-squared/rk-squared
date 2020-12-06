@@ -50,7 +50,7 @@ LmEffectClause
   // Additional legend materia-specific variations and wording.  We keep these
   // separate to try and keep the status effects section of the database a bit
   // cleaner.
-  / StatBuildupLm / StatModDurationUpLm / StatShareLm / ElementDefenseLm / MulticastLm / HealUpLm / DrainHpLm
+  / StatBuildupLm / StatModDurationUpLm / StatShareLm / DamageResistLm / MulticastLm / HealUpLm / DrainHpLm
 
 // Effects common to statuses and legend materia.  Legend materia use very few
 // of these, but to simplify maintenance and keep things flexible, we'll only
@@ -92,6 +92,8 @@ StatMod
 StatBuildupLm
   = stat:Stat _ "+" increment:Integer "% for each hit taken by damaging attacks, up to +" max:Integer "%"
     { return { type: 'statBuildup', stat, increment, max, damaged: true }; }
+  / stat:Stat _ "+" increment:Integer "% for each hit dealt with" _ school:School _ "abilities, up to +" max:Integer "%"
+    { return { type: 'statBuildup', stat, increment, max, school }; }
 
 StatModDurationUpLm
   = "Increases the duration of stat" _ what:("buffs" / "debuffs") _ "by" _ value:Integer "%" {
@@ -300,13 +302,9 @@ ElementAttack
     return { type: 'elementAttack', element, value: util.scalarify(util.arrayify(value).map(i => i * sign)), trigger };
   }
 
-// Imperil and bar effects.  Contrast with elementDefense.
+// Imperil and bar effects.  Contrast with damageResist.
 ElementResist
   = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" ", cumulable"? { return { type: 'elementResist', element, value }; }
-
-// Permanent elemental defense from legend materia
-ElementDefenseLm
-  = "Reduces damage taken by" _ element:ElementSlashList _ "attacks by" _ value:Integer "%" { return { type: 'elementDefense', element, value }; }
 
 EnElement
   = "Replaces Attack command, increases" _ element:Element _ "damage dealt by 50/80/120% (abilities) or 80/100/120% (Soul Breaks)," _ element2:Element _ "resistance +20%" {
@@ -350,8 +348,12 @@ DamageUp
 AltDamageUp
   = "Increases"i _ skillType:SkillType _ "damage dealt by" _ value:Integer "%" { return { type: 'damageUp', skillType, value }; }
   / "Increases"i _ element:ElementAndList _ "damage dealt by" _ value:PercentSlashList _ trigger:Trigger? _ condition:Condition?  { return { type: 'damageUp', element, value, trigger, condition }; }
-  / "Increases"i _ "damage dealt by" _ value:Integer "% when exploiting elemental weaknesses" { return { type: 'damageUp', vsWeak: true, value }; }
+  / "Increases"i _ "damage dealt by" _ value:Integer "% when exploiting elemental weakness" "es"? { return { type: 'damageUp', vsWeak: true, value }; }
   / "Increases"i _ "damage dealt by" _ value:PercentSlashList _ condition:Condition? { return { type: 'damageUp', value, condition }; }
+
+// Permanent damage resistance (e.g., elemental resist) from legend materia
+DamageResistLm
+  = "Reduces damage taken by" _ element:ElementSlashList _ "attacks by" _ value:Integer "%" { return { type: 'damageResist', element, value }; }
 
 RealmBoost
   = "Attacks dealt by" _ realm:Realm _ "realm members deal" _ value:Integer "% more damage" { return { type: 'realmBoost', realm, value }; }
@@ -363,6 +365,10 @@ Multicast
   = count:MulticastVerb "s" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'multicast', count, chance: 100 }, what); }
   / chance:Integer "% chance to" _ count:MulticastVerb _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'multicast', count, chance }, what); }
 
+MulticastLm
+  = chance:Integer "% chance to" _ count:MulticastVerb _ "abilities that deal" _ element:ElementList _ ("damage") { return { type: 'multicast', count, chance, element }; }
+  / chance:Integer "% chance to" _ count:MulticastVerb _ "every" _ perUses:Ordinal _ what:ElementOrSchoolList _ "ability" { return Object.assign({ type: 'multicast', count, chance, perUses }, what); }
+
 MulticastAbility
   = count:MulticastVerb "s" _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") {
     return Object.assign({ type: 'multicastAbility', count }, what);
@@ -370,9 +376,6 @@ MulticastAbility
 
 MulticastVerb
   = count:Tuple "cast" { return count; }
-
-MulticastLm
-  = chance:Integer "% chance to" _ count:MulticastVerb _ "abilities that deal" _ element:ElementList _ ("damage") { return { type: 'multicast', count, chance, element }; }
 
 NoAirTime
   = "Changes"i _ "the air time of Jump attacks to 0.01 seconds" { return { type: 'noAirTime' }; }
@@ -835,9 +838,11 @@ Unknown
 
 Trigger
   = "after"i _ requiresDamage1:("using" / "casting" / "dealing damage with" / "the user uses") _ count:TriggerCount _ requiresDamage2:"damaging"?
-    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack _ "on an enemy"? {
-      // "on an enemy" has only been observed in legend materia.
-      return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
+    _ skillType:SkillType? _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack
+    _ "on an enemy"?  // "on an enemy" has only been observed in legend materia.
+    ! (_ "that")
+    {
+      return { type: 'ability', skillType, element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
     }
   / "if"i _ "the granting user has used" _ count:TriggerCount _ requiresDamage2:"damaging"?
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
@@ -903,6 +908,7 @@ Trigger
   // For legend materia
   / "after using a single-target" _ school:School _ "ability that restores HP on an ally" { return { type: 'singleHeal', school }; }
   / "after taking damage from an enemy" { return { type: 'damaged' }; }
+  / "after using an ability that deals" _ element:ElementList _ "damage" { return { type: 'ability', element, count: { values: 1 }, requiresDamage: true }; }
   // These should go last to avoid parse conflicts.
   / "after casting" _ skill:(Skill1Or2 / AnySkillName) { return { type: 'skill', skill }; }
 
@@ -950,7 +956,7 @@ SimpleSkillEffect
     _ numAttacks:(n:Integer "x" { return n; })?
     _ attackMultiplier:DecimalNumber
     _ hybridMultiplier:("or" _ n:DecimalNumber { return n; })?
-    _ "physical"? _ element:ElementSlashList
+    _ ("physical" / "magical")? _ element:ElementSlashList
   {
     return {
       type: 'attack',
@@ -967,6 +973,9 @@ SimpleSkillEffect
   }
   / value:Integer _ "HP" _ who:Who {
     return { type: 'heal', amount: { fixedHp: value }, who };
+  }
+  / head:Stat _ tail:('/' Stat)* _ value:SignedIntegerOrX "%" {
+    return { type: 'statMod', stats: util.pegList(head, tail, 1, true), value };
   }
 
 

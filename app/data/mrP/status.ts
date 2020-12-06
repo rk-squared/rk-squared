@@ -46,6 +46,7 @@ import {
 import * as statusParser from './statusParser';
 import * as statusTypes from './statusTypes';
 import {
+  appendPerUses,
   damageTypeAbbreviation,
   formatSchoolOrAbilityList,
   getDescribeOptionsWithDefaults,
@@ -642,7 +643,7 @@ export function formatTrigger(
     case 'allyAbility': {
       const count = formatTriggerCount(trigger.count);
       let result: string = trigger.type === 'allyAbility' ? 'ally ' : '';
-      if (!trigger.element && !trigger.school && !trigger.jump) {
+      if (!trigger.element && !trigger.school && !trigger.jump && !trigger.skillType) {
         if (trigger.requiresAttack) {
           result += !count ? 'any attack' : count + ' attacks';
         } else {
@@ -775,6 +776,8 @@ function formatSimpleSkillEffect(skill: statusTypes.SimpleSkillEffect) {
       return describeAttack('simple', skill, simpleAttackOptions);
     case 'heal':
       return (skill.who ? whoText[skill.who] + ' ' : '') + describeHeal('simple', skill);
+    case 'statMod':
+      return formatStatMod(skill, makePlaceholderResolvers({}));
   }
 }
 
@@ -1075,6 +1078,16 @@ function formatTriggeredEffect(
   }
 }
 
+function formatStatMod(effect: statusTypes.StatMod, resolve: PlaceholderResolvers) {
+  return (
+    signedNumberSlashList(resolve.x(effect.value)) +
+    uncertain(resolve.isUncertain) +
+    '% ' +
+    describeStats(arrayify(resolve.stat(effect.stats))) +
+    (effect.hybridStats ? ' or ' + describeStats(arrayify(effect.hybridStats)) : '')
+  );
+}
+
 function formatCritChance(effect: statusTypes.CritChance, resolve: PlaceholderResolvers) {
   return (
     'crit =' + arrayify(resolve.x(effect.value)).join('/') + uncertain(resolve.isUncertain) + '%'
@@ -1220,18 +1233,18 @@ function describeStatusEffect(
 
   switch (effect.type) {
     case 'statMod':
-      return (
-        signedNumberSlashList(resolve.x(effect.value)) +
-        uncertain(resolve.isUncertain) +
-        '% ' +
-        describeStats(arrayify(resolve.stat(effect.stats))) +
-        (effect.hybridStats ? ' or ' + describeStats(arrayify(effect.hybridStats)) : '')
-      );
-    case 'statBuildup':
-      return (
-        `+${effect.increment}% ${effect.stat.toUpperCase()} (max +${effect.max}%)` +
-        (effect.damaged ? ' per hit taken' : '')
-      );
+      return formatStatMod(effect, resolve);
+    case 'statBuildup': {
+      let result = `+${effect.increment}% ${effect.stat.toUpperCase()} (max +${effect.max}%) `;
+      if (effect.damaged) {
+        result += 'per hit taken';
+      } else if (effect.school) {
+        result += 'per ' + getSchoolShortName(effect.school) + ' hit';
+      } else {
+        result += 'per ?';
+      }
+      return result;
+    }
     case 'statModDurationUp':
       return percentToMultiplier(effect.value) + 'x stat ' + effect.what + ' duration';
     case 'statShare':
@@ -1356,10 +1369,6 @@ function describeStatusEffect(
         getElementShortName(resolve.element(effect.element), '/') +
         ' vuln.'
       );
-    case 'elementDefense':
-      return (
-        signedNumber(-effect.value) + '% ' + getElementShortName(effect.element, '/') + ' dmg taken'
-      );
     case 'enElement':
       return getEnElementName(effect.element) + ' infuse';
     case 'enElementStacking':
@@ -1396,13 +1405,22 @@ function describeStatusEffect(
           source,
         ) + (effect.condition ? ' ' + describeCondition(effect.condition) : '')
       );
+    case 'damageResist':
+      return (
+        signedNumber(-effect.value) + '% ' + getElementShortName(effect.element, '/') + ' dmg taken'
+      );
     case 'realmBoost':
       return percentToMultiplier(effect.value) + 'x dmg by ' + effect.realm + ' chars.';
     case 'abilityDouble':
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
     case 'multicast': {
       const chance = effect.chance === 100 ? '' : effect.chance + '% ';
-      return chance + tupleVerb(effect.count, 'cast') + formatElementOrSchoolList(effect, ' ');
+      return (
+        chance +
+        tupleVerb(effect.count, 'cast') +
+        formatElementOrSchoolList(effect, ' ') +
+        appendPerUses(effect.perUses)
+      );
     }
     case 'multicastAbility':
       return tupleVerb(effect.count, 'cast') + formatElementOrSchoolList(effect, ' ');
