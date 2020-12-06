@@ -973,7 +973,7 @@ export interface MrPSkill {
   braveCondition?: Array<EnlirElement | EnlirSchool>;
   braveCommands?: MrPSkill[];
   synchroCommands?: MrPSkill[];
-  synchroCondition?: Array<EnlirElement | EnlirSchool>;
+  synchroCondition?: Array<EnlirElement | EnlirSchool | 'Any'>[];
 }
 
 export function convertEnlirSkillToMrP(

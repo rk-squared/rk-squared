@@ -436,7 +436,7 @@ export interface EnlirSynchroCommand extends EnlirGenericSkill {
   character: string;
   source: string;
   synchroAbilitySlot: 1 | 2;
-  synchroCondition: EnlirElement | EnlirSchool;
+  synchroCondition: Array<EnlirElement | EnlirSchool | 'Any'>;
   sb: number | null;
   school: EnlirSchool;
   nameJp: string;

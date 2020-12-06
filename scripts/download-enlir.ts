@@ -109,6 +109,7 @@ const skillFields: { [col: string]: (value: string) => any } = {
   Points: toInt,
   Brave: toInt,
   'Brave Condition': toCommaSeparatedArray(toString),
+  'Synchro Condition': toCommaSeparatedArray(toString),
   'Soulbreak Bonus': toCommaSeparatedArray(toString),
   'Limit Break Bonus': toCommaSeparatedArray(toString),
   'Minimum LB Points': toInt,

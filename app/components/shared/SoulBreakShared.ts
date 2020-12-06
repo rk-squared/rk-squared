@@ -17,7 +17,11 @@ import {
 } from '../../data/enlir';
 import { formatBraveCommands } from '../../data/mrP/brave';
 import { formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
-import { getSchoolShortName, getShortName } from '../../data/mrP/typeHelpers';
+import {
+  formatSchoolOrAbilityList,
+  getSchoolShortName,
+  getShortName,
+} from '../../data/mrP/typeHelpers';
 
 export const styles = require('./SoulBreakShared.scss');
 
@@ -116,7 +120,7 @@ export function getSynchroColumns(
           getSchoolName(cmd) +
           ']' +
           (mrP.synchroCondition && mrP.synchroCondition[i]
-            ? ', w/ ' + getShortName(mrP.synchroCondition[i])
+            ? ', w/ ' + formatSchoolOrAbilityList(mrP.synchroCondition[i])
             : ''),
         formatMrPSkill(cmd),
       ] as [string, string],

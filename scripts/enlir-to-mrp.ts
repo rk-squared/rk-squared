@@ -6,7 +6,7 @@ import * as yargs from 'yargs';
 import { enlir, isLimitBreak, limitBreakTierOrder, soulBreakTierOrder } from '../app/data/enlir';
 import { formatBraveCommands } from '../app/data/mrP/brave';
 import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrP/skill';
-import { getShortName } from '../app/data/mrP/typeHelpers';
+import { formatSchoolOrAbilityList, getShortName } from '../app/data/mrP/typeHelpers';
 import { logForCli } from '../app/utils/logger';
 
 logForCli();
@@ -69,7 +69,7 @@ for (const sb of _.sortBy(
   }
   if (mrP.synchroCondition && mrP.synchroCommands) {
     for (let i = 0; i < mrP.synchroCommands.length; i++) {
-      console.log('    [' + getShortName(mrP.synchroCondition[i]) + ']');
+      console.log('    [' + formatSchoolOrAbilityList(mrP.synchroCondition[i]) + ']');
       console.log('    ' + formatMrPSkill(mrP.synchroCommands[i]));
     }
   }

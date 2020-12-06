@@ -68,6 +68,7 @@ const schoolShortName: { [school in EnlirSchool]?: string } = {
 const shortAliases: { [s: string]: string } = {
   jump: 'jump',
   physical: 'phys',
+  Any: 'any', // used for synchroCondition
 
   // Note the oddity: 'NE' as shown as an EnlirElement gets changed to 'non',
   // while 'Non-Elemental' in effect text gets changed to 'non-elem.'  (E.g.,
