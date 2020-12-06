@@ -50,7 +50,7 @@ LmEffectClause
   // Additional legend materia-specific variations and wording.  We keep these
   // separate to try and keep the status effects section of the database a bit
   // cleaner.
-  / StatBuildupLm / StatShareLm / MulticastLm / HealUpLm / DrainHpLm
+  / StatBuildupLm / StatModDurationUpLm / StatShareLm / ElementDefenseLm / MulticastLm / HealUpLm / DrainHpLm
 
 // Effects common to statuses and legend materia.  Legend materia use very few
 // of these, but to simplify maintenance and keep things flexible, we'll only
@@ -92,6 +92,11 @@ StatMod
 StatBuildupLm
   = stat:Stat _ "+" increment:Integer "% for each hit taken by damaging attacks, up to +" max:Integer "%"
     { return { type: 'statBuildup', stat, increment, max, damaged: true }; }
+
+StatModDurationUpLm
+  = "Increases the duration of stat" _ what:("buffs" / "debuffs") _ "by" _ value:Integer "%" {
+    return { type: 'statModDurationUp', what, value };
+  }
 
 StatShareLm
   = "Increases base" _ dest:Stat _ "by" _ value:Integer "% base" _ src:Stat { return { type: 'statShare', src, dest, value }; }
@@ -295,8 +300,13 @@ ElementAttack
     return { type: 'elementAttack', element, value: util.scalarify(util.arrayify(value).map(i => i * sign)), trigger };
   }
 
+// Imperil and bar effects.  Contrast with elementDefense.
 ElementResist
   = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" ", cumulable"? { return { type: 'elementResist', element, value }; }
+
+// Permanent elemental defense from legend materia
+ElementDefenseLm
+  = "Reduces damage taken by" _ element:ElementSlashList _ "attacks by" _ value:Integer "%" { return { type: 'elementDefense', element, value }; }
 
 EnElement
   = "Replaces Attack command, increases" _ element:Element _ "damage dealt by 50/80/120% (abilities) or 80/100/120% (Soul Breaks)," _ element2:Element _ "resistance +20%" {

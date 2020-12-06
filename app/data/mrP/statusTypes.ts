@@ -7,6 +7,7 @@ export type StatusEffect = EffectClause[];
 export type EffectClause =
   | StatMod
   | StatBuildup
+  | StatModDurationUp
   | StatShare
   | CritChance
   | CritDamage
@@ -39,6 +40,7 @@ export type EffectClause =
   | SwitchDrawStacking
   | ElementAttack
   | ElementResist
+  | ElementDefense
   | EnElement
   | EnElementStacking
   | EnElementWithStacking
@@ -122,6 +124,12 @@ export interface StatBuildup {
   max: number;
 
   damaged?: boolean;
+}
+
+export interface StatModDurationUp {
+  type: 'statModDurationUp';
+  what: 'buffs' | 'debuffs';
+  value: number;
 }
 
 export interface StatShare {
@@ -318,6 +326,12 @@ interface ElementResist {
   type: 'elementResist';
   element: common.ValueOrPlaceholder<EnlirElement | EnlirElement[]>;
   value: common.SignedValueOrPlaceholder<number | number[]>;
+}
+
+interface ElementDefense {
+  type: 'elementDefense';
+  element: EnlirElement | EnlirElement[];
+  value: number;
 }
 
 interface EnElement {

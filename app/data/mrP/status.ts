@@ -1232,6 +1232,8 @@ function describeStatusEffect(
         `+${effect.increment}% ${effect.stat.toUpperCase()} (max +${effect.max}%)` +
         (effect.damaged ? ' per hit taken' : '')
       );
+    case 'statModDurationUp':
+      return percentToMultiplier(effect.value) + 'x stat ' + effect.what + ' duration';
     case 'statShare':
       return (
         'add ' +
@@ -1353,6 +1355,10 @@ function describeStatusEffect(
         '% ' +
         getElementShortName(resolve.element(effect.element), '/') +
         ' vuln.'
+      );
+    case 'elementDefense':
+      return (
+        signedNumber(-effect.value) + '% ' + getElementShortName(effect.element, '/') + ' dmg taken'
       );
     case 'enElement':
       return getEnElementName(effect.element) + ' infuse';
