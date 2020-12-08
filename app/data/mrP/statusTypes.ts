@@ -129,6 +129,7 @@ export interface StatBuildup {
   element?: EnlirElement;
   skillType?: EnlirSkillType;
   requiresDamage?: boolean;
+  jump?: boolean;
 }
 
 export interface StatModDurationUp {

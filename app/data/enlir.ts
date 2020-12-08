@@ -934,12 +934,21 @@ function patchEnlir() {
     notes: null,
   });
 
-  // Legend materia.  These, too, should be upstreamed if possible.
+  // Legend materia.  To be consistent with statuses, use "and" to separate
+  // triggered effects, while commas separate completely distinct clauses.
+  // These, too, would ideally be upstreamed if possible if it's not a problem
+  // for others.
   applyEffectPatch(
     enlir.legendMateria,
     '201070504',
     'Grants [Quick Cast], grants [Lingering Spirit] for 25 seconds when HP fall below 20%',
     'Grants [Quick Cast] and [Lingering Spirit] for 25 seconds when HP fall below 20%',
+  );
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201090601',
+    "Restores HP for 100% of the user's maximum HP, grants 500 SB points and grants [Quina Trance] when HP fall below 20%",
+    "Restores HP for 100% of the user's maximum HP and grants 500 SB points and grants [Quina Trance] when HP fall below 20%",
   );
   // "Triplecast" is clearer than "dualcast twice," especially now that we have
   // triple/quad/etc. in statuses.

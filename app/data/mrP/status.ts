@@ -787,9 +787,19 @@ function formatSimpleSkillEffect(
       const who = effect.who ? effect.who : skill.isAoE ? 'party' : 'ally';
       return whoText[who] + ' ' + formatHealPercent(effect);
     }
-    case 'statMod':
-      // Assume we can omit a target for now.
-      return formatStatMod(effect, makePlaceholderResolvers({}));
+    case 'statMod': {
+      let who = '';
+      if (typeof effect.value === 'number') {
+        if (effect.value < 0) {
+          if (skill.isAoE && !skill.effects.find(i => i.type === 'attack')) {
+            who = 'AoE ';
+          }
+        } else {
+          who = whoText[skill.isAoE ? 'party' : 'ally'] + ' ';
+        }
+      }
+      return who + formatStatMod(effect, makePlaceholderResolvers({}));
+    }
   }
 }
 

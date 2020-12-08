@@ -94,9 +94,9 @@ StatBuildupLm
     { return { type: 'statBuildup', stat, increment, max, damaged: true }; }
   / stat:Stat _ "+" increment:Integer "% for each hit dealt with" _ school:School _ "abilities, up to +" max:Integer "%"
     { return { type: 'statBuildup', stat, increment, max, school }; }
-  / stat:Stat _ "+" increment:Integer "% for each hit dealt with" _ requiresDamage:"damaging"? _ skillType:SkillType _ "attacks"
+  / stat:Stat _ "+" increment:Integer "% for each hit dealt with" _ requiresDamage:"damaging"? _ skillType:SkillType? _ jump:"jump"? _ "attacks"
     element:(_ "that deal" _ e:Element _ "damage" { return e; })? ", up to +" max:Integer "%"
-    { return { type: 'statBuildup', stat, increment, max, skillType, element, requiresDamage: !!requiresDamage }; }
+    { return { type: 'statBuildup', stat, increment, max, skillType, element, requiresDamage: !!requiresDamage, jump: !!jump }; }
 
 StatModDurationUpLm
   = "Increases the duration of stat" _ what:("buffs" / "debuffs") _ "by" _ value:Integer "%" {
