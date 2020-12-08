@@ -176,6 +176,18 @@ export function safeParseStatus(status: EnlirStatus): statusTypes.StatusEffect |
   }
 }
 
+const formatChance = (chance: number | undefined, isUncertain?: boolean, preposition = 'for') => {
+  if (chance == null || chance === 100) {
+    return '';
+  } else if (isNaN(chance)) {
+    return '?% for ';
+  } else {
+    return (
+      chance.toString() + (isUncertain ? '?' : '') + '% ' + (preposition ? preposition + ' ' : '')
+    );
+  }
+};
+
 export function getDuration(
   statuses: common.StatusWithPercent | common.StatusWithPercent[],
 ): common.Duration | undefined {
@@ -187,16 +199,8 @@ export function getDuration(
 }
 const finisherText = 'Finisher: ';
 export const hitWeaknessTriggerText = 'hit weak';
-export const formatGenericTrigger = (
-  trigger: string,
-  description: string,
-  percent?: string | number,
-) => {
-  if (typeof percent === 'number' && isNaN(percent)) {
-    percent = '?';
-  }
-  return '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
-};
+export const formatGenericTrigger = (trigger: string, description: string, percent?: number) =>
+  '(' + trigger + ' ⤇ ' + formatChance(percent) + description + ')';
 
 export function describeStats(stats: string[]): string {
   return stats
@@ -1452,18 +1456,21 @@ function describeStatusEffect(
         ) + (effect.condition ? ' ' + describeCondition(effect.condition) : '')
       );
     case 'damageResist':
-      return signedNumber(-effect.value) + '% ' + formatAnyType(effect) + ' dmg taken';
+      return (
+        formatChance(effect.chance) +
+        signedNumber(-effect.value) +
+        '% ' +
+        formatAnyType(effect, ' ') +
+        'dmg taken' +
+        (effect.condition ? ' ' + describeCondition(effect.condition) : '')
+      );
     case 'realmBoost':
       return percentToMultiplier(effect.value) + 'x dmg by ' + effect.realm + ' chars.';
     case 'abilityDouble':
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
     case 'multicast': {
-      const chance =
-        effect.chance === 100 && !effect.chanceIsUncertain
-          ? ''
-          : effect.chance + (effect.chanceIsUncertain ? '?' : '') + '% ';
       return (
-        chance +
+        formatChance(effect.chance, effect.chanceIsUncertain, '') +
         tupleVerb(effect.count, 'cast') +
         formatElementOrSchoolList(effect, ' ') +
         appendPerUses(effect.perUses)
@@ -1539,7 +1546,7 @@ function describeStatusEffect(
     case 'triggeredEffect':
       return formatTriggeredEffect(effect, enlirStatus, source, options, resolve);
     case 'autoCure':
-      return `${effect.chance}% for auto-cure ${arrayify(effect.status).join('/')}`;
+      return formatChance(effect.chance) + `auto-cure ${arrayify(effect.status).join('/')}`;
     case 'conditionalStatus':
       return formatGrantOrConditionalStatus(effect, null, enlirStatus, source);
     case 'directGrantStatus':

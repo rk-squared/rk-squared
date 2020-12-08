@@ -384,9 +384,11 @@ interface DamageUp extends DamageUpType {
 
 interface DamageResist {
   type: 'damageResist';
+  chance?: number;
   element?: EnlirElement | EnlirElement[];
   skillType?: EnlirSkillType;
   value: number;
+  condition?: common.Condition;
 }
 
 interface RealmBoost {

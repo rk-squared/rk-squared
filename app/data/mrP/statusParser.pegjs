@@ -361,6 +361,7 @@ AltDamageUp
 DamageResistLm
   = "Reduces damage taken by" _ element:ElementAndList _ "attacks by" _ value:Integer "%" { return { type: 'damageResist', value, element }; }
   / "Reduces damage taken by" _ skillType:SkillType _ "attacks by" _ value:Integer "%" { return { type: 'damageResist', value, skillType }; }
+  / chance:Integer "% chance to reduce damage taken by" _ value:Integer "%" _ condition:Condition { return { type: 'damageResist', value, chance, condition }; }
 
 RealmBoost
   = "Attacks dealt by" _ realm:Realm _ "realm members deal" _ value:Integer "% more damage" { return { type: 'realmBoost', realm, value }; }
@@ -377,7 +378,7 @@ Multicast
 
 MulticastLm
   = chance:Integer "% chance to" _ count:MulticastVerb _ "abilities that deal" _ element:ElementList _ ("damage") { return { type: 'multicast', count, chance, element }; }
-  / chance:Integer "% chance to" _ count:MulticastVerb _ "every" _ perUses:Ordinal _ what:ElementOrSchoolList _ "ability" { return Object.assign({ type: 'multicast', count, chance, perUses }, what); }
+  / chance:Integer "% chance to" _ count:MulticastVerb _ "every" _ perUses:Ordinal _ what:ElementOrSchoolAndOrSlashList _ "ability" { return Object.assign({ type: 'multicast', count, chance, perUses }, what); }
 
 MulticastAbility
   = count:MulticastVerb "s" _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") {
@@ -958,7 +959,7 @@ Skill1Or2
 
 
 // --------------------------------------------------------------------------
-// "Simple skills" - inline effects used by legend materia
+// "Simple skills" - inline effects, listed in parentheses, used by legend materia
 
 SimpleSkill
   = skillType:SkillType ":" _ isAoE:("single" / "group") ","? _ head:SimpleSkillEffect tail:(',' _ SimpleSkillEffect)* {
@@ -984,7 +985,7 @@ SimpleSkillEffect
   / "restores HP (" _ value:Integer _ ")" {
     return { type: 'heal', amount: { healFactor: value } };
   }
-  / "restores" _ value:Integer _ "HP" _ who:Who {
+  / "restores" _ value:Integer _ "HP" _ who:Who? {
     return { type: 'heal', amount: { fixedHp: value }, who };
   }
   / "restores HP for" _ healPercent:Integer _ "% of the target's maximum HP" {
@@ -1414,6 +1415,9 @@ ElementAndOrList "element list"
 ElementSlashList "element list"
   = head:Element tail:("/" Element)* { return util.pegList(head, tail, 1, true); }
 
+ElementAndOrSlashList "element list"
+  = head:Element tail:((AndOrList / '/') Element)* { return util.pegList(head, tail, 1, true); }
+
 ElementListOrOptions "element list or slash-separated alternatives"
   = elements:ElementList ! "/" { return elements; }
   / elements:ElementSlashList { return { options: elements }; }
@@ -1458,7 +1462,7 @@ SchoolAndList "school list"
 SchoolAndOrList "school list"
   = head:School tail:(AndOrList School)* { return util.pegList(head, tail, 1, true); }
 
-// TODO: We should standardize - there's no reason for three options
+// TODO: We should standardize this and other AndOrSlashList - there's no reason for three options
 SchoolAndOrSlashList "school list"
   = head:School tail:((AndOrList / '/') School)* { return util.pegList(head, tail, 1, true); }
 
@@ -1483,6 +1487,10 @@ UseCountTerm
 ElementOrSchoolList
   = school:SchoolAndOrList { return { school }; }
   / element:ElementAndOrList { return { element }; }
+
+ElementOrSchoolAndOrSlashList
+  = school:SchoolAndOrSlashList { return { school }; }
+  / element:ElementAndOrSlashList { return { element }; }
 
 ElementSchoolOrSkillTypeList
   = school:SchoolAndOrList { return { school }; }
