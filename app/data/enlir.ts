@@ -728,6 +728,15 @@ function applyEffectsPatch<T extends { effects: string | undefined }>(
   applyPatch(lookup, name, item => item.effects === from, item => (item.effects = to));
 }
 
+function applyEffectPatch<T extends { effect: string | undefined }>(
+  lookup: { [s: string]: T | T[] },
+  name: string,
+  from: string,
+  to: string,
+) {
+  applyPatch(lookup, name, item => item.effect === from, item => (item.effect = to));
+}
+
 function addPatch<T extends { [s: string]: { id: number; name: string } }>(
   lookup: T,
   newItem: Omit<T[string], 'id'>,
@@ -787,7 +796,7 @@ function patchEnlir() {
 
   // Reword Lasswell's AASB to avoid having to avoid invoking our slashMerge
   // code, which handles it poorly.
-  // TODO: The update is misleading; it suggests that it refreshes retaliate.
+  // TODO: The patch is misleading; it suggests that it refreshes retaliate.
   applyEffectsPatch(
     enlir.statusByName,
     'Azure Oblivion Follow-Up',
@@ -926,16 +935,25 @@ function patchEnlir() {
   });
 
   // Legend materia.  These, too, should be upstreamed if possible.
-  applyPatch(
+  applyEffectPatch(
     enlir.legendMateria,
     '201070504',
-    legendMateria =>
-      legendMateria.effect ===
-      'Grants [Quick Cast], grants [Lingering Spirit] for 25 seconds when HP fall below 20%',
-    legendMateria => {
-      legendMateria.effect =
-        'Grants [Quick Cast] and [Lingering Spirit] for 25 seconds when HP fall below 20%';
-    },
+    'Grants [Quick Cast], grants [Lingering Spirit] for 25 seconds when HP fall below 20%',
+    'Grants [Quick Cast] and [Lingering Spirit] for 25 seconds when HP fall below 20%',
+  );
+  // "Triplecast" is clearer than "dualcast twice," especially now that we have
+  // triple/quad/etc. in statuses.
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201050102',
+    '10% chance to dualcast Spellblade abilities twice',
+    '10% chance to triplecast Spellblade abilities',
+  );
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201110102',
+    '10% chance to dualcast Witch abilities twice',
+    '10% chance to triplecast Witch abilities',
   );
 
   // Tyro AASB.  This is a mess in Enlir; how should it be explained?

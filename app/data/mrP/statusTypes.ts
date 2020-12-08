@@ -23,6 +23,7 @@ export type EffectClause =
   | Instacast
   | CastSpeedBuildup
   | CastSpeed
+  | FullAtbRoundStart
   | InstantAtb
   | AtbSpeed
   | PhysicalBlink
@@ -202,6 +203,10 @@ export interface CastSpeedBuildup {
   increment: number;
   max: number;
   requiresAttack: boolean;
+}
+
+interface FullAtbRoundStart {
+  type: 'fullAtbRoundStart';
 }
 
 interface InstantAtb {
@@ -399,6 +404,7 @@ interface Multicast {
   type: 'multicast';
   count: number;
   chance: number;
+  chanceIsUncertain?: boolean;
   perUses?: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];

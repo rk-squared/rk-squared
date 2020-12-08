@@ -1311,6 +1311,8 @@ function describeStatusEffect(
       return formatCastSpeedBuildup(effect);
     case 'castSpeed':
       return formatCastSpeed(effect, options, resolve);
+    case 'fullAtbRoundStart':
+      return 'full ATB at round start';
     case 'instantAtb':
       return 'instant ATB';
     case 'atbSpeed':
@@ -1430,7 +1432,10 @@ function describeStatusEffect(
     case 'abilityDouble':
       return 'double' + formatElementOrSchoolList(effect, ' ') + ' (uses extra hone)';
     case 'multicast': {
-      const chance = effect.chance === 100 ? '' : effect.chance + '% ';
+      const chance =
+        effect.chance === 100 && !effect.chanceIsUncertain
+          ? ''
+          : effect.chance + (effect.chanceIsUncertain ? '?' : '') + '% ';
       return (
         chance +
         tupleVerb(effect.count, 'cast') +
