@@ -32,6 +32,10 @@ export interface HealPercent {
   who?: Who;
 }
 
+export interface DamagesUndead {
+  type: 'damagesUndead';
+}
+
 // --------------------------------------------------------------------------
 // Lower-level game rules
 

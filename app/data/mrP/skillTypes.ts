@@ -200,9 +200,7 @@ export type HealAmount = { healFactor: number | number[] } | { fixedHp: number |
 
 export type HealPercent = common.HealPercent;
 
-export interface DamagesUndead {
-  type: 'damagesUndead';
-}
+export type DamagesUndead = common.DamagesUndead;
 
 export interface RandomEther {
   type: 'randomEther';

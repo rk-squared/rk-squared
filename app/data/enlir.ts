@@ -950,6 +950,12 @@ function patchEnlir() {
     "Restores HP for 100% of the user's maximum HP, grants 500 SB points and grants [Quina Trance] when HP fall below 20%",
     "Restores HP for 100% of the user's maximum HP and grants 500 SB points and grants [Quina Trance] when HP fall below 20%",
   );
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201020901',
+    'Causes [Doom: 15], restores HP to all allies for 55% max HP and grants [Last Stand] to all allies when HP fall below 20%',
+    'Causes [Doom: 15] to the user and restores HP to all allies for 55% of their max HP and grants [Last Stand] to all allies when HP fall below 20%',
+  );
   // "Triplecast" is clearer than "dualcast twice," especially now that we have
   // triple/quad/etc. in statuses.
   applyEffectPatch(
@@ -957,6 +963,12 @@ function patchEnlir() {
     '201050102',
     '10% chance to dualcast Spellblade abilities twice',
     '10% chance to triplecast Spellblade abilities',
+  );
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201060602',
+    '10% chance to dualcast Machinist abilities twice',
+    '10% chance to triplecast Machinist abilities',
   );
   applyEffectPatch(
     enlir.legendMateria,

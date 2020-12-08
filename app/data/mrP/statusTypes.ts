@@ -618,7 +618,12 @@ export interface SimpleSkill {
   effects: SimpleSkillEffect[];
 }
 
-export type SimpleSkillEffect = skillTypes.Attack | skillTypes.Heal | common.HealPercent | StatMod;
+export type SimpleSkillEffect =
+  | skillTypes.Attack
+  | skillTypes.Heal
+  | common.HealPercent
+  | common.DamagesUndead
+  | StatMod;
 
 // Note: Significant overlap between skillTypes.StatusEffect and statusTypes.GrantStatus
 export interface GrantStatus {
@@ -850,6 +855,7 @@ export type Trigger =
       jump?: boolean;
       requiresDamage?: boolean;
       requiresAttack?: boolean;
+      allowsSoulBreak?: boolean; // Can this trigger off of soul breaks as well as regular abilities?
     }
   | { type: 'crit' }
   | { type: 'vsWeak' }

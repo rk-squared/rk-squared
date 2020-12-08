@@ -525,7 +525,7 @@ CounterWithImmune
 // Note that we allow triggerable effects to appear after the trigger, to
 // accommodate statuses like Cyan's AASB.
 TriggeredEffect
-  = chance:TriggerChance? head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ triggerDetail:TriggerDetail? _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
+  = chance:TriggerChance? head:TriggerableEffect _ tail:(_ "and" _ TriggerableEffect)* _ trigger:Trigger _ triggerDetail:TriggerDetail? _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
     onceOnly:("," _ o:OnceOnly { return o; })?
   & {
     wantInfinitive = false;
@@ -539,7 +539,7 @@ TriggeredEffect
     return castSkill && castSkill.type === 'castSkill' && castSkill.skill === onceOnly.skill;
   }
   {
-    return util.addCondition({ type: 'triggeredEffect', chance, effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
+    return util.addCondition({ type: 'triggeredEffect', chance, effects: util.pegMultiList(head, [[tail, 3], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
   }
   // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
   / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
@@ -848,11 +848,12 @@ Unknown
 
 Trigger
   = "after"i _ requiresDamage1:("using" / "casting" / "dealing damage with" / "the user uses") _ count:TriggerCount _ requiresDamage2:"damaging"?
-    _ skillType:SkillType? _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack
+    _ skillType:SkillType? _ element:ElementListOrOptions? _ school:SchoolAndOrSlashList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack
+    _ allowsSoulBreak:"or soulbreak"?
     _ "on an enemy"?  // "on an enemy" has only been observed in legend materia.
     ! (_ "that")
     {
-      return { type: 'ability', skillType, element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
+      return { type: 'ability', skillType, element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack, allowsSoulBreak: allowsSoulBreak ? true : undefined };
     }
   / "if"i _ "the granting user has used" _ count:TriggerCount _ requiresDamage2:"damaging"?
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
@@ -983,7 +984,7 @@ SimpleSkillEffect
   / "restores HP (" _ value:Integer _ ")" {
     return { type: 'heal', amount: { healFactor: value } };
   }
-  / "restores"? _ value:Integer _ "HP" _ who:Who {
+  / "restores" _ value:Integer _ "HP" _ who:Who {
     return { type: 'heal', amount: { fixedHp: value }, who };
   }
   / "restores HP for" _ healPercent:Integer _ "% of the target's maximum HP" {
@@ -991,6 +992,9 @@ SimpleSkillEffect
   }
   / head:Stat _ tail:('/' Stat)* _ value:SignedIntegerOrX "%" {
     return { type: 'statMod', stats: util.pegList(head, tail, 1, true), value };
+  }
+  / "damages undeads" {
+    return { type: 'damagesUndead' };
   }
 
 
@@ -1453,6 +1457,10 @@ SchoolAndList "school list"
 
 SchoolAndOrList "school list"
   = head:School tail:(AndOrList School)* { return util.pegList(head, tail, 1, true); }
+
+// TODO: We should standardize - there's no reason for three options
+SchoolAndOrSlashList "school list"
+  = head:School tail:((AndOrList / '/') School)* { return util.pegList(head, tail, 1, true); }
 
 SB = "Soul" _ "Break" / "SB"
 Maximum = "maximum" / "max" "."?

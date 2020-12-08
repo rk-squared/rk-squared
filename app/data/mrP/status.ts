@@ -191,7 +191,12 @@ export const formatGenericTrigger = (
   trigger: string,
   description: string,
   percent?: string | number,
-) => '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
+) => {
+  if (typeof percent === 'number' && isNaN(percent)) {
+    percent = '?';
+  }
+  return '(' + trigger + ' ⤇ ' + (percent ? `${percent}% for ` : '') + description + ')';
+};
 
 export function describeStats(stats: string[]): string {
   return stats
@@ -777,7 +782,10 @@ function formatSimpleSkillEffect(
   switch (effect.type) {
     case 'attack': {
       const overrideSkillType = effect.isHybrid ? 'PHY' : skill.skillType;
-      return describeAttack('simple', { ...effect, overrideSkillType }, simpleAttackOptions);
+      return (
+        (skill.isAoE ? 'AoE ' : '') +
+        describeAttack('simple', { ...effect, overrideSkillType }, simpleAttackOptions)
+      );
     }
     case 'heal': {
       const who = effect.who ? effect.who : skill.isAoE ? 'party' : 'ally';
@@ -800,11 +808,16 @@ function formatSimpleSkillEffect(
       }
       return who + formatStatMod(effect, makePlaceholderResolvers({}));
     }
+    case 'damagesUndead':
+      return null;
   }
 }
 
 function formatSimpleSkill(skill: statusTypes.SimpleSkill) {
-  return skill.effects.map(i => formatSimpleSkillEffect(skill, i)).join(', ');
+  return skill.effects
+    .map(i => formatSimpleSkillEffect(skill, i))
+    .filter(i => i != null)
+    .join(', ');
 }
 
 function formatOneGrantOrConditionalStatus(
@@ -858,6 +871,9 @@ function formatOneGrantOrConditionalStatus(
   }
   if (item.duration) {
     thisResult += ' ' + formatDuration(item.duration);
+  }
+  if (parsed.specialDuration) {
+    thisResult += ' ' + parsed.specialDuration;
   }
   return thisResult;
 }
