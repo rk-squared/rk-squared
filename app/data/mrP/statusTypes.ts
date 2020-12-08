@@ -561,7 +561,8 @@ export interface Counter {
 
 type CounterResponse =
   | { type: 'skill'; skill: string }
-  | { type: 'attack'; numAttacks: 1; attackMultiplier: number; overrideSkillType: EnlirSkillType };
+  | { type: 'attack'; numAttacks: 1; attackMultiplier: number; overrideSkillType: EnlirSkillType }
+  | { type: 'simpleSkill'; simpleSkill: SimpleSkill };
 
 // Haurchefant Cover
 interface RowCover {
@@ -623,6 +624,7 @@ export interface SimpleSkill {
 export type SimpleSkillEffect =
   | skillTypes.Attack
   | skillTypes.Heal
+  | skillTypes.StatusEffect
   | common.HealPercent
   | common.DamagesUndead
   | StatMod;

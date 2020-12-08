@@ -26,7 +26,14 @@ import { describeAttack, describeDamage, describeDamageType } from './attack';
 import * as common from './commonTypes';
 import { describeCondition, formatThreshold } from './condition';
 import { describeRageEffects } from './rage';
-import { convertEnlirSkillToMrP, describeHeal, describeRecoilHp, formatMrPSkill } from './skill';
+import {
+  convertEnlirSkillToMrP,
+  describeHeal,
+  describeRecoilHp,
+  formatMrPSkill,
+  processSkillStatus,
+  OtherDetail,
+} from './skill';
 import {
   displayStatusLevel,
   formatDispelOrEsuna,
@@ -812,6 +819,11 @@ function formatSimpleSkillEffect(
       }
       return who + formatStatMod(effect, makePlaceholderResolvers({}));
     }
+    case 'status': {
+      const other = new OtherDetail();
+      processSkillStatus('simple', [effect], effect, other);
+      return other.combine(false, false);
+    }
     case 'damagesUndead':
       return null;
   }
@@ -1193,6 +1205,9 @@ function formatCounter(
       'Retaliate @' +
       damageTypeAbbreviation(describeDamageType(null, counter.overrideSkillType)) +
       describeDamage(counter.attackMultiplier, counter.numAttacks);
+  } else if (counter.type === 'simpleSkill') {
+    isSimple = false;
+    counterText = formatSimpleSkill(counter.simpleSkill);
   } else {
     isSimple = false;
     const skill = getEnlirOtherSkill(counter.skill, source ? source.name : undefined);

@@ -1,7 +1,7 @@
 {
   let parsedNumberResult = null;
   let statusLevelMatch = null;
-  let wantInfinitive = false;
+  let wantInfinitive = [false];
 
   // Hack: Suppress warnings about unused functions.
   location;
@@ -503,9 +503,14 @@ CounterWhen
 CounterResponse
   = "Attack" { return undefined; }
   / skill:AnySkillName { return { type: 'skill', skill }; }
+  // High Retaliate-style counterattacks.  These are common enough that we treat
+  // them separately, even though they could perhaps combine with SimpleSkill.
   / "an ability (single," _ attackMultiplier:DecimalNumber _ damageType:("physical" / "magical") _ ")" {
     const overrideSkillType = damageType === 'physical' ? 'PHY' : 'BLK';
     return { type: 'attack', numAttacks: 1, attackMultiplier, overrideSkillType };
+  }
+  / "an ability (" simpleSkill:SimpleSkill ")" {
+    return { type: 'simpleSkill', simpleSkill };
   }
 
 // Haurchefant Cover
@@ -529,7 +534,7 @@ TriggeredEffect
   = chance:TriggerChance? head:TriggerableEffect _ tail:(_ "and" _ TriggerableEffect)* _ trigger:Trigger _ triggerDetail:TriggerDetail? _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
     onceOnly:("," _ o:OnceOnly { return o; })?
   & {
-    wantInfinitive = false;
+    wantInfinitive[0] = false;
 
     // Validate that what we think is a "once only" effect actually is - if it refers to a
     // different skill, then it's not actually "once only."
@@ -556,7 +561,7 @@ TriggeredEffect
 
 TriggerChance
   = chance:Integer "% chance to" _ {
-    wantInfinitive = true;
+    wantInfinitive[0] = true;
     return chance;
   }
 
@@ -962,7 +967,10 @@ Skill1Or2
 // "Simple skills" - inline effects, listed in parentheses, used by legend materia
 
 SimpleSkill
-  = skillType:SkillType ":" _ isAoE:("single" / "group") ","? _ head:SimpleSkillEffect tail:(',' _ SimpleSkillEffect)* {
+  = skillType:SkillType ":" _ isAoE:("single" / "group") ","?
+  & { wantInfinitive.push(false); return true; }
+  _ head:SimpleSkillEffect tail:(',' _ SimpleSkillEffect)* {
+    wantInfinitive.pop();
     return { skillType, isAoE: isAoE === 'group', effects: util.pegList(head, tail, 2) };
   }
 
@@ -996,6 +1004,17 @@ SimpleSkillEffect
   }
   / "damages undeads" {
     return { type: 'damagesUndead' };
+  }
+  / verb:StatusVerb _ statuses:StatusList statusClauses:StatusClause* {
+    const result = { type: 'status', verb, statuses };
+    for (const i of statusClauses) {
+      Object.assign(result, i);
+    }
+    if (result.duration) {
+      util.applyDuration(result.statuses, result.duration);
+      delete result.duration;
+    }
+    return result;
   }
 
 
@@ -1223,8 +1242,8 @@ ConditionDetail
 // Lower-level game rules
 
 // Verbs should end in S under normal use and should not if we want an infinitive.
-S = "s" & { return !wantInfinitive; }
-  / "" & { return wantInfinitive; }
+S = "s" & { return !wantInfinitive[wantInfinitive.length - 1]; }
+  / "" & { return wantInfinitive[wantInfinitive.length - 1]; }
 
 SmartEtherStatus
   = school:School? _ "smart"i _ "ether" _ amount:IntegerSlashList {
