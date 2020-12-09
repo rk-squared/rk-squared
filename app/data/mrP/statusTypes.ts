@@ -119,7 +119,7 @@ export interface StatMod {
 
 export interface StatBuildup {
   type: 'statBuildup';
-  stat: EnlirStat;
+  stat: EnlirStat | EnlirStat[];
 
   increment: number;
   max: number;
@@ -430,6 +430,7 @@ interface DamageUpType {
   skillType?: EnlirSkillType | EnlirSkillType[];
   magical?: boolean;
   jump?: boolean;
+  mimic?: boolean;
   vsWeak?: boolean;
 }
 
@@ -584,6 +585,7 @@ export interface TriggeredEffect {
   condition?: common.Condition;
   onceOnly?: boolean | number; // A number indicates twice, 3x, etc.
   chance?: number;
+  chanceIsUncertain?: boolean;
 }
 
 export type TriggerableEffect =
@@ -858,6 +860,7 @@ export type Trigger =
       school?: EnlirSchool | EnlirSchool[];
       count: TriggerCount;
       jump?: boolean;
+      mimic?: boolean;
       requiresDamage?: boolean;
       requiresAttack?: boolean;
       allowsSoulBreak?: boolean; // Can this trigger off of soul breaks as well as regular abilities?
@@ -885,7 +888,8 @@ export type Trigger =
       element?: common.OrOptions<EnlirElement>;
       school?: EnlirSchool | EnlirSchool[];
       count: TriggerCount;
-      jump: boolean;
+      jump?: boolean;
+      mimic?: boolean;
       requiresDamage: boolean;
       requiresAttack: boolean;
     };

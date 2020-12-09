@@ -90,13 +90,13 @@ StatMod
   }
 
 StatBuildupLm
-  = stat:Stat _ "+" increment:Integer "% for each hit taken by damaging attacks, up to +" max:Integer "%"
+  = stat:StatList _ "+" increment:Integer "% for each hit taken by damaging attacks, up to +" max:Integer "%"
     { return { type: 'statBuildup', stat, increment, max, damaged: true }; }
-  / stat:Stat _ "+" increment:Integer "% for each hit dealt with" _ school:School _ "abilities, up to +" max:Integer "%"
+  / stat:StatList _ "+" increment:Integer "% for each hit dealt with" _ school:School _ "abilities, up to +" max:Integer "%"
     { return { type: 'statBuildup', stat, increment, max, school }; }
-  / stat:Stat _ "+" increment:Integer "% for each hit dealt with" _ requiresDamage:"damaging"? _ skillType:SkillType? _ jump:"jump"? _ "attacks"
+  / stat:StatList _ "+" increment:Integer "% for each hit dealt with" _ requiresDamage:"damaging"? _ skillType:SkillType? _ jump:"jump"? _ mimic:"Mimic"? _ "attacks"
     element:(_ "that deal" _ e:Element _ "damage" { return e; })? ", up to +" max:Integer "%"
-    { return { type: 'statBuildup', stat, increment, max, skillType, element, requiresDamage: !!requiresDamage, jump: !!jump }; }
+    { return { type: 'statBuildup', stat, increment, max, skillType, element, requiresDamage: !!requiresDamage, jump: !!jump, mimic: !!mimic }; }
 
 StatModDurationUpLm
   = "Increases the duration of stat" _ what:("buffs" / "debuffs") _ "by" _ value:Integer "%" {
@@ -396,6 +396,7 @@ DamageUpType
   / "physical"i { return { skillType: 'PHY' }; }
   / "magical"i { return { magical: true }; }
   / "jump"i { return { jump: true }; }
+  / "mimic"i { return { mimic: true }; }
 
 
 // --------------------------------------------------------------------------
@@ -549,7 +550,7 @@ TriggeredEffect
     return castSkill && castSkill.type === 'castSkill' && castSkill.skill === onceOnly.skill;
   }
   {
-    return util.addCondition({ type: 'triggeredEffect', chance, effects: util.pegMultiList(head, [[tail, 3], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
+    return util.addCondition({ type: 'triggeredEffect', ...chance, effects: util.pegMultiList(head, [[tail, 3], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
   }
   // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
   / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
@@ -564,9 +565,9 @@ TriggeredEffect
 
 
 TriggerChance
-  = chance:Integer "% chance to" _ {
+  = chance:Integer chanceIsUncertain:("?")? "% chance to" _ {
     wantInfinitive[0] = true;
-    return chance;
+    return { chance, chanceIsUncertain: chanceIsUncertain ? true : undefined };
   }
 
 TriggerableEffect
@@ -858,12 +859,12 @@ Unknown
 
 Trigger
   = "after"i _ requiresDamage1:("using" / "casting" / "dealing damage with" / "the user uses") _ count:TriggerCount _ requiresDamage2:"damaging"?
-    _ skillType:SkillType? _ element:ElementListOrOptions? _ school:SchoolAndOrSlashList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack
+    _ skillType:SkillType? _ element:ElementListOrOptions? _ school:SchoolAndOrSlashList? _ jump:"jump"? _ mimic:"Mimic"? _ requiresAttack:AbilityOrAttack
     _ allowsSoulBreak:"or soulbreak"?
     _ "on an enemy"?  // "on an enemy" has only been observed in legend materia.
     ! (_ "that")
     {
-      return { type: 'ability', skillType, element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack, allowsSoulBreak: allowsSoulBreak ? true : undefined };
+      return { type: 'ability', skillType, element, school, count, jump: jump ? true : undefined, mimic: mimic ? true : undefined, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack, allowsSoulBreak: allowsSoulBreak ? true : undefined };
     }
   / "if"i _ "the granting user has used" _ count:TriggerCount _ requiresDamage2:"damaging"?
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
@@ -971,10 +972,11 @@ Skill1Or2
 // "Simple skills" - inline effects, listed in parentheses, used by legend materia
 
 SimpleSkill
-  = skillType:SkillType ":" _ isAoE:("single" / "group") ","?
+  = skillType:SkillType ":" _ isAoE:("single" / "group" / "random") ","?
   & { wantInfinitive.push(false); return true; }
   _ head:SimpleSkillEffect tail:(',' _ SimpleSkillEffect)* {
     wantInfinitive.pop();
+    // We don't currently capture "random."
     return { skillType, isAoE: isAoE === 'group', effects: util.pegList(head, tail, 2) };
   }
 
@@ -1338,11 +1340,7 @@ GenericNameWord = ([A-Z] [a-zA-Z-'/]* (':' / '...' / '!' / '+')?)
 
 Duration
   = "for" _ value:Integer _ valueIsUncertain:("?")? _ units:DurationUnits {
-    const result = { value, units };
-    if (valueIsUncertain) {
-      result.valueIsUncertain = true;
-    }
-    return result;
+    return { value, units, valueIsUncertain: valueIsUncertain ? true : undefined };
   }
 
 DurationUnits
@@ -1410,6 +1408,9 @@ SkillTypeList "skill type list"
 
 SkillTypeAndList "skill type list"
   = head:SkillType tail:(AndList SkillType)* { return util.pegList(head, tail, 1, true); }
+
+SkillTypeAndOrList "skill type list"
+  = head:SkillType tail:(AndOrList SkillType)* { return util.pegList(head, tail, 1, true); }
 
 Element "element"
   = "Fire"
@@ -1520,7 +1521,7 @@ ElementOrSchoolAndOrSlashList
 ElementSchoolOrSkillTypeList
   = school:SchoolAndOrList { return { school }; }
   / element:ElementAndOrList { return { element }; }
-  / skillType:SkillTypeList { return { skillType }; }
+  / skillType:SkillTypeAndOrList { return { skillType }; }
 
 Realm "realm"
   // Added pseudorealms.

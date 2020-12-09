@@ -206,8 +206,12 @@ export function getDuration(
 }
 const finisherText = 'Finisher: ';
 export const hitWeaknessTriggerText = 'hit weak';
-export const formatGenericTrigger = (trigger: string, description: string, percent?: number) =>
-  '(' + trigger + ' ⤇ ' + formatChance(percent) + description + ')';
+export const formatGenericTrigger = (
+  trigger: string,
+  description: string,
+  percent?: number,
+  percentIsUncertain?: boolean,
+) => '(' + trigger + ' ⤇ ' + formatChance(percent, percentIsUncertain) + description + ')';
 
 export function describeStats(stats: string[]): string {
   return stats
@@ -467,6 +471,7 @@ interface AnyType {
   ranged?: boolean;
   nonRanged?: boolean;
   jump?: boolean;
+  mimic?: boolean;
   magical?: boolean;
   skillType?: EnlirSkillType | EnlirSkillType[];
   skill?: string;
@@ -512,6 +517,9 @@ function formatAnyType(type: AnyType, suffix?: string, physAbbrev?: string): str
   }
   if (type.jump) {
     result.push('jump');
+  }
+  if (type.mimic) {
+    result.push('mimic');
   }
   if (type.skill) {
     result.push(type.skill);
@@ -659,7 +667,13 @@ export function formatTrigger(
     case 'allyAbility': {
       const count = formatTriggerCount(trigger.count);
       let result: string = trigger.type === 'allyAbility' ? 'ally ' : '';
-      if (!trigger.element && !trigger.school && !trigger.jump && !trigger.skillType) {
+      if (
+        !trigger.element &&
+        !trigger.school &&
+        !trigger.jump &&
+        !trigger.mimic &&
+        !trigger.skillType
+      ) {
         if (trigger.requiresAttack) {
           result += !count ? 'any attack' : count + ' attacks';
         } else {
@@ -1132,6 +1146,7 @@ function formatTriggeredEffect(
       nextN + formatTrigger(effect.trigger, source, effect.triggerDetail),
       effectsDescription + condition + onceOnly,
       effect.chance,
+      effect.chanceIsUncertain,
     );
   }
 }
@@ -1296,7 +1311,10 @@ function describeStatusEffect(
     case 'statMod':
       return formatStatMod(effect, resolve);
     case 'statBuildup': {
-      let result = `+${effect.increment}% ${effect.stat.toUpperCase()} (max +${effect.max}%) `;
+      const stats = arrayify(effect.stat)
+        .join('/')
+        .toUpperCase();
+      let result = `+${effect.increment}% ${stats} (max +${effect.max}%) `;
       if (effect.damaged) {
         result += 'per hit taken';
       } else {
