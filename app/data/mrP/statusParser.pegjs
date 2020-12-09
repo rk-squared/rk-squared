@@ -1,6 +1,7 @@
 {
   let parsedNumberResult = null;
   let statusLevelMatch = null;
+  let wantInfinitive = [false];
 
   // Hack: Suppress warnings about unused functions.
   location;
@@ -18,6 +19,15 @@ StatusEffect
   }
   / "" { return []; }
 
+LegendMateriaEffect
+  = head:LmEffectClause tail:((',' / '.') _ LmEffectClause)* {
+    const result = util.pegList(head, tail, 2).filter(i => i != null);
+    util.separateStatusAndSb(result);
+    util.checkSelfSkillTrigger(result);
+    return result;
+  }
+  / "" { return []; }
+
 // Note: We have to list "composite" statuses like SwitchDraw, then TriggeredEffect
 // (to make sure that it can pick up effects like CritChance that may or may not be
 // triggered - otherwise, the regular effect's rule will eagerly parse the text then
@@ -27,7 +37,27 @@ EffectClause
 
   / TriggeredEffect
 
-  / StatMod / CritChance / CritDamage / HitRate
+  / CommonEffectClause
+
+  / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
+  / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
+  / BurstToggle / TrackUses / SharedCount / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
+  / ResetTarget / NoEffect / Persists / GameOver / Unknown
+
+LmEffectClause
+  = AutoCureLm / TriggeredEffect
+  / CommonEffectClause
+  // Additional legend materia-specific variations and wording.  We keep these
+  // separate to try and keep the status effects section of the database a bit
+  // cleaner.
+  / StatBuildupLm / StatModDurationUpLm / StatShareLm / FullAtbRoundStartLm / DamageResistLm / MulticastLm / HealUpLm / DrainHpLm / GilUpLm
+
+// Effects common to statuses and legend materia.  Legend materia use very few
+// of these, but to simplify maintenance and keep things flexible, we'll only
+// omit status-only stuff if it obviously doesn't apply or otherwise causes
+// problems.
+CommonEffectClause
+  = StatMod / CritChance / CritDamage / HitRate
   / Ko / LastStand / Raise / Reraise
   / StatusChance / StatusStacking / PreventStatus
   / Speed / Instacast / SchoolCastSpeed / CastSpeedBuildup / CastSpeed / InstantAtb / AtbSpeed
@@ -39,29 +69,42 @@ EffectClause
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal / EmpowerHeal
   / Doom / DoomTimer / DrainHp
-  / CounterWithImmune / Counter / RowCover
+  / CounterWithImmune / Counter / Cover
   / ConditionalStatus
   / GainSb / SbGainUp / GainLb
   / DirectGrantStatus
   / Runic / Taunt / ImmuneAttackSkills / ImmuneAttacks / ZeroDamage / EvadeAll / MultiplyDamage
   / Berserk / Rage / AbilityBerserk
-  / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
-  / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
-  / BurstToggle / TrackUses / SharedCount / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
-  / ResetTarget / NoEffect / Persists / GameOver / Unknown
 
 
 // --------------------------------------------------------------------------
 // Stat mods
 
 StatMod
-  = stats:StatListOrPlaceholder _ value:(SignedIntegerOrX / [+-]? "?" { return NaN; }) "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? {
-    const result = { type: 'statMod', stats, value };
+  = stats:StatListOrPlaceholder _ value:(SignedIntegerOrX / [+-]? "?" { return NaN; }) "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? !(_ "for") _ condition:Condition? {
+    const result = { type: 'statMod', stats, value, condition };
     if (ignoreBuffCaps) {
       result.ignoreBuffCaps = true;
     }
     return result;
   }
+
+StatBuildupLm
+  = stat:StatList _ "+" increment:Integer "% for each hit taken by damaging attacks, up to +" max:Integer "%"
+    { return { type: 'statBuildup', stat, increment, max, damaged: true }; }
+  / stat:StatList _ "+" increment:Integer "% for each hit dealt with" _ school:School _ "abilities, up to +" max:Integer "%"
+    { return { type: 'statBuildup', stat, increment, max, school }; }
+  / stat:StatList _ "+" increment:Integer "% for each hit dealt with" _ requiresDamage:"damaging"? _ skillType:SkillType? _ jump:"jump"? _ mimic:"Mimic"? _ "attacks"
+    element:(_ "that deal" _ e:Element _ "damage" { return e; })? ", up to +" max:Integer "%"
+    { return { type: 'statBuildup', stat, increment, max, skillType, element, requiresDamage: !!requiresDamage, jump: !!jump, mimic: !!mimic }; }
+
+StatModDurationUpLm
+  = "Increases the duration of stat" _ what:("buffs" / "debuffs") _ "by" _ value:Integer "%" {
+    return { type: 'statModDurationUp', what, value };
+  }
+
+StatShareLm
+  = "Increases base" _ dest:Stat _ "by" _ value:Integer "% base" _ src:Stat { return { type: 'statShare', src, dest, value }; }
 
 CritChance
   = "Critical chance =" value:(PercentSlashList / PercentOrX) {
@@ -120,6 +163,9 @@ CastSpeedBuildup
   = "Cast"i _ "speed x" value:DecimalNumber _ "plus x" increment:DecimalNumber _ "for each" _ requiresAttack:AbilityOrAttack _ "used for the duration of the status, up to x" max:DecimalNumber {
     return { type: 'castSpeedBuildup', value, increment, max, requiresAttack };
   }
+
+FullAtbRoundStartLm
+  = "Begins"i _ "the round with full ATB gauge" { return { type: 'fullAtbRoundStart' }; }
 
 InstantAtb
   = "Increase"i _ "ATB charge speed by x999" "9"* { return { type: 'instantAtb' }; }
@@ -262,6 +308,7 @@ ElementAttack
     return { type: 'elementAttack', element, value: util.scalarify(util.arrayify(value).map(i => i * sign)), trigger };
   }
 
+// Imperil and bar effects.  Contrast with damageResist.
 ElementResist
   = element:ElementOrPlaceholder _ "Resistance"i _ value:SignedIntegerOrX "%" ", cumulable"? { return { type: 'elementResist', element, value }; }
 
@@ -307,8 +354,14 @@ DamageUp
 AltDamageUp
   = "Increases"i _ skillType:SkillType _ "damage dealt by" _ value:Integer "%" { return { type: 'damageUp', skillType, value }; }
   / "Increases"i _ element:ElementAndList _ "damage dealt by" _ value:PercentSlashList _ trigger:Trigger? _ condition:Condition?  { return { type: 'damageUp', element, value, trigger, condition }; }
-  / "Increases"i _ "damage dealt by" _ value:Integer "% when exploiting elemental weaknesses" { return { type: 'damageUp', vsWeak: true, value }; }
+  / "Increases"i _ "damage dealt by" _ value:Integer "% when exploiting elemental weakness" "es"? { return { type: 'damageUp', vsWeak: true, value }; }
   / "Increases"i _ "damage dealt by" _ value:PercentSlashList _ condition:Condition? { return { type: 'damageUp', value, condition }; }
+
+// Permanent damage resistance (e.g., elemental resist) from legend materia
+DamageResistLm
+  = "Reduces damage taken by" _ element:ElementAndList _ "attacks by" _ value:Integer "%" { return { type: 'damageResist', value, element }; }
+  / "Reduces damage taken by" _ skillType:SkillType _ "attacks by" _ value:Integer "%" { return { type: 'damageResist', value, skillType }; }
+  / chance:Integer "% chance to reduce damage taken by" _ value:Integer "%" _ condition:Condition { return { type: 'damageResist', value, chance, condition }; }
 
 RealmBoost
   = "Attacks dealt by" _ realm:Realm _ "realm members deal" _ value:Integer "% more damage" { return { type: 'realmBoost', realm, value }; }
@@ -316,9 +369,16 @@ RealmBoost
 AbilityDouble
   = "dualcasts"i _ what:ElementOrSchoolList _ ("abilities" / "attacks") _ "consuming an extra ability use" { return Object.assign({ type: 'abilityDouble' }, what); }
 
+// Dualcast, triplecast, etc.
 Multicast
   = count:MulticastVerb "s" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'multicast', count, chance: 100 }, what); }
-  / chance:Integer "% chance to" _ count:MulticastVerb _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({ type: 'multicast', count, chance }, what); }
+  / chance:Integer chanceIsUncertain:("?")? "% chance to" _ count:MulticastVerb _ what:ElementOrSchoolList _ ("abilities" / "attacks") {
+    return Object.assign({ type: 'multicast', count, chance }, what, chanceIsUncertain ? { chanceIsUncertain: true } : undefined);
+  }
+
+MulticastLm
+  = chance:Integer "% chance to" _ count:MulticastVerb _ "abilities that deal" _ element:ElementList _ ("damage") { return { type: 'multicast', count, chance, element }; }
+  / chance:Integer "% chance to" _ count:MulticastVerb _ "every" _ perUses:Ordinal _ what:ElementOrSchoolAndOrSlashList _ "ability" { return Object.assign({ type: 'multicast', count, chance, perUses }, what); }
 
 MulticastAbility
   = count:MulticastVerb "s" _ "the next" _ what:ElementOrSchoolList _ ("ability" / "abilities") {
@@ -336,6 +396,7 @@ DamageUpType
   / "physical"i { return { skillType: 'PHY' }; }
   / "magical"i { return { magical: true }; }
   / "jump"i { return { jump: true }; }
+  / "mimic"i { return { mimic: true }; }
 
 
 // --------------------------------------------------------------------------
@@ -371,6 +432,9 @@ HealUp
   = "Abilities"i _ "restore" _ value:Integer "% more HP" { return { type: 'healUp', value }; }
   / "Increases"i _ "healing done by" _ school:(s:SchoolAndOrList _ "abilities by" { return s; })? _ value:Integer "%" { return { type: 'healUp', value, school }; }
   / "Increases"i _ "healing done by" _ skillType:SkillType _ "abilities and soulbreaks by" _ value:Integer "%" { return { type: 'healUp', value, skillType }; }
+
+HealUpLm
+  = skillType:SkillType _ "abilities restore" _ value:Integer "% more HP" { return { type: 'healUp', value, skillType }; }
 
 Pain
   = "Take" _ value:Integer "% more damage" { return { type: 'pain', value }; }
@@ -418,6 +482,11 @@ DoomTimer
 DrainHp
   = "Restores"i _ "HP for" _ value:Integer _ "% of the damage dealt with" _ what:ElementOrSchoolList _ ("abilities" / "attacks") { return Object.assign({type: 'drainHp', value }, what); }
 
+DrainHpLm
+  = chance:Integer "% chance of restoring HP to the user for" _ value:Integer _ "% of the damage dealt with" _ singleTarget:"single-target"? _ what:ElementOrSchoolList _ ("abilities" / "attacks") {
+    return Object.assign({type: 'drainHp', value, chance, singleTarget: !!singleTarget }, what);
+  }
+
 
 // --------------------------------------------------------------------------
 // Counter and cover
@@ -435,16 +504,25 @@ CounterWhen
 CounterResponse
   = "Attack" { return undefined; }
   / skill:AnySkillName { return { type: 'skill', skill }; }
+  // High Retaliate-style counterattacks.  These are common enough that we treat
+  // them separately, even though they could perhaps combine with SimpleSkill.
   / "an ability (single," _ attackMultiplier:DecimalNumber _ damageType:("physical" / "magical") _ ")" {
     const overrideSkillType = damageType === 'physical' ? 'PHY' : 'BLK';
     return { type: 'attack', numAttacks: 1, attackMultiplier, overrideSkillType };
   }
-
-// Haurchefant Cover
-RowCover
-  = "While front row," _ chance:Integer "% chance to cover" _ skillType:SkillTypeAndList _ "attacks that target back row allies, reducing damage taken by" _ damageReduce:Integer "%" {
-    return { type: 'rowCover', chance, skillType, damageReduce };
+  / "an ability (" simpleSkill:SimpleSkill ")" {
+    return { type: 'simpleSkill', simpleSkill };
   }
+
+// Includes Haurchefant Cover and regular covers
+Cover
+  = needsFront:"While front row,"? _ chance:Integer "% chance to cover" _ skillType:SkillTypeAndList _ "attacks that target" _ who:CoverWho ", reducing damage taken by" _ damageReduce:Integer "%" {
+    return { type: 'cover', chance, skillType, damageReduce, who, needsFront: needsFront ? true : undefined };
+  }
+
+CoverWho
+  = "allies" { return undefined; }
+  / "back row allies" { return 'backRow'; }
 
 CounterWithImmune
   = immune:ImmuneAttackSkills "," _ counter:Counter
@@ -458,9 +536,11 @@ CounterWithImmune
 // Note that we allow triggerable effects to appear after the trigger, to
 // accommodate statuses like Cyan's AASB.
 TriggeredEffect
-  = head:TriggerableEffect _ tail:("and" _ TriggerableEffect)* _ trigger:Trigger _ triggerDetail:TriggerDetail? _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
+  = chance:TriggerChance? head:TriggerableEffect _ tail:(_ "and" _ TriggerableEffect)* _ trigger:Trigger _ triggerDetail:TriggerDetail? _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
     onceOnly:("," _ o:OnceOnly { return o; })?
   & {
+    wantInfinitive[0] = false;
+
     // Validate that what we think is a "once only" effect actually is - if it refers to a
     // different skill, then it's not actually "once only."
     if (!onceOnly || !onceOnly.skill) {
@@ -470,15 +550,28 @@ TriggeredEffect
     return castSkill && castSkill.type === 'castSkill' && castSkill.skill === onceOnly.skill;
   }
   {
-    return util.addCondition({ type: 'triggeredEffect', effects: util.pegMultiList(head, [[tail, 2], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
+    return util.addCondition({ type: 'triggeredEffect', ...chance, effects: util.pegMultiList(head, [[tail, 3], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
   }
   // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
   / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
     return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2), triggerDetail };
   }
+  // Triggered smart enther has a couple unique bits - a separate Who and different grammar for "chance of"
+  / chance:Integer "% chance of" _ status:SmartEtherStatus _ who:Who? _ trigger:Trigger
+  & { return !who || who === 'self'; }
+  {
+    return { type: 'triggeredEffect', chance, effects: [status], trigger };
+  }
+
+
+TriggerChance
+  = chance:Integer chanceIsUncertain:("?")? "% chance to" _ {
+    wantInfinitive[0] = true;
+    return { chance, chanceIsUncertain: chanceIsUncertain ? true : undefined };
+  }
 
 TriggerableEffect
-  = CastSkill / RandomCastSkill / GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealChance / RecoilHp / SmartEtherStatus / DispelOrEsuna
+  = CastSkill / RandomCastSkill / CastSimpleSkill/ GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealPercent / RecoilHp / SmartEtherStatus / DispelOrEsuna
   // Normal status effects that may also be triggered
   / CritChance / CastSpeed
 
@@ -486,10 +579,13 @@ BareTriggerableEffect
   = effect:TriggerableEffect ! (_ (Trigger / "and")) { return effect; }
 
 CastSkill
-  = "casts"i _ skill:AnySkillOrOptions  { return { type: 'castSkill', skill }; }
+  = "cast"i S _ skill:AnySkillOrOptions { return { type: 'castSkill', skill }; }
 
 RandomCastSkill
   = "randomly"i _ "casts" _ skill:AnySkillOrOptions  { return { type: 'randomCastSkill', skill }; }
+
+CastSimpleSkill
+  = "cast"i S _ "an ability (" skill:SimpleSkill ")" { return { type: 'castSimpleSkill', skill }; }
 
 SimpleRemoveStatus
   = "removes"i _ status:StatusNameNoBrackets _ "from the user"? {
@@ -520,10 +616,16 @@ DirectGrantStatus
   }
 
 Heal
-  = "restores"i _ fixedHp:Integer _ "HP" _ who:Who? { return { type: 'heal', fixedHp, who }; }
+  = "restore"i S _ fixedHp:Integer _ "HP" _ who:Who? { return { type: 'heal', fixedHp, who }; }
 
-HealChance
-  = chance:Integer "% chance to restore"i _ fixedHp:Integer _ "HP" _ who:Who { return { type: 'triggerChance', chance, effect: { type: 'heal', fixedHp, who } }; }
+HealPercent
+  = "restore"i S _ "HP" _ who:Who? _ "for" _ healPercent:Integer "% of" _ ("the user's" / "the target's" / "their") _ Maximum _ "HP" {
+    return {
+      type: 'healPercent',
+      healPercent,
+      who,
+    }
+  }
 
 RecoilHp
   = "damages" _ "the" _ "user" _ "for" _ damagePercent:DecimalNumberSlashList "%"
@@ -537,9 +639,17 @@ RecoilHp
   }
 
 DispelOrEsuna
-  = 'removes'i _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? _ perUses:PerUses? {
+  = 'remove'i S _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? _ perUses:PerUses? {
     return { type: 'dispelOrEsuna', dispelOrEsuna, who, perUses };
   }
+
+// A special case of triggered effect.  It has a unique trigger and gets its own
+// formatting.
+AutoCureLm
+  = chance:Integer "% chance to remove" _ status1:(StatusNameNoBrackets _ (AndList StatusNameNoBrackets)* { return text().trim().split(/, | and /); })
+    _ "to the user after being afflicted with" _ status2:(StatusNameNoBrackets _ (OrList StatusNameNoBrackets)* { return text().trim().split(/, | or /); })
+  & { return util.isEqual(status1, status2); }
+  { return { type: 'autoCure', chance, status: status1 }; }
 
 
 // --------------------------------------------------------------------------
@@ -563,6 +673,8 @@ SbGainUp
   = what:ElementOrSchoolList _ ("abilities" / "attacks") _ "grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
   / "Attacks"i _ "that exploit an elemental weakness grant" _ value:Integer _ "% more SB points" { return { type: 'sbGainUp', value, vsWeak: true }; }
   / "Abilities"i _ "grant" _ value:Integer _ "% more SB points" { return { type: 'sbGainUp', value }; }
+  // LM variant
+  / "Exploiting"i _ "elemental weakness grants" _ value:Integer _ "% more Soul Break points (additive with the default 50% bonus)" { return { type: 'sbGainUp', value, vsWeak: true }; }
 
 GainLb
   = "Grants"i _ value:Integer _ "LB points" _ "when set"? { return { type: 'gainLb', value }; }
@@ -743,14 +855,22 @@ GameOver
 Unknown
   = "?" { return null; }
 
+GilUpLm
+  = chance:Integer "% chance to increase Gil gained at the end of battle by" _ value:Integer "%" _ condition:Condition? {
+    return { type: 'gilUp', chance, value, condition };
+  }
 
 // --------------------------------------------------------------------------
 // Triggers
 
 Trigger
   = "after"i _ requiresDamage1:("using" / "casting" / "dealing damage with" / "the user uses") _ count:TriggerCount _ requiresDamage2:"damaging"?
-    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
-      return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack };
+    _ skillType:SkillType? _ element:ElementListOrOptions? _ school:SchoolAndOrSlashList? _ jump:"jump"? _ mimic:"Mimic"? _ requiresAttack:AbilityOrAttack
+    _ allowsSoulBreak:"or soulbreak"?
+    _ "on an enemy"?  // "on an enemy" has only been observed in legend materia.
+    ! (_ "that")
+    {
+      return { type: 'ability', skillType, element, school, count, jump: jump ? true : undefined, mimic: mimic ? true : undefined, requiresDamage: requiresDamage1 === 'dealing damage with' || !!requiresDamage2, requiresAttack, allowsSoulBreak: allowsSoulBreak ? true : undefined };
     }
   / "if"i _ "the granting user has used" _ count:TriggerCount _ requiresDamage2:"damaging"?
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
@@ -771,6 +891,7 @@ Trigger
   / "upon"i _ "taking damage" skillType:(_ "by" _ s:SkillType _ "attack" { return s; })? { return { type: 'damaged', skillType }; }
   / "by"i _ skillType:SkillType _ "attacks" { return { type: 'damaged', skillType }; }
   / "upon"i _ "dealing damage" { return { type: 'dealDamage' }; }
+  / "when Reraise is triggered" { return { type: 'triggerStatus', status: 'Reraise' }; }
   / "when"i _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
   / ("when"i / "after"i) _ "any"? _ status:StatusNameNoBrackets _ "is removed" { return { type: 'loseStatus', status }; }
 
@@ -813,6 +934,10 @@ Trigger
     _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
       return { type: 'allyAbility', element, school, count, jump: !!jump, requiresDamage, requiresAttack };
     }
+  // For legend materia
+  / "after using a single-target" _ school:School _ "ability that restores HP on an ally" { return { type: 'singleHeal', school }; }
+  / "after taking damage from an enemy" { return { type: 'damaged' }; }
+  / "after using" _ count:TriggerCount _ ("ability that deals" / "abilities that deal") _ element:ElementList _ "damage" { return { type: 'ability', element, count, requiresDamage: true }; }
   // These should go last to avoid parse conflicts.
   / "after casting" _ skill:(Skill1Or2 / AnySkillName) { return { type: 'skill', skill }; }
 
@@ -838,6 +963,7 @@ TriggerDetail
   / "if the triggering ability is" _ element:ElementSlashList { return { element }; }
   / "if the triggering ability is" _ skill1or2:Skill1Or2 { return null; } // Squall SASB.  Adequately covered by trigger and slash cast handling.
   / ("that deals" / "if the triggering ability deals") _ element:ElementSlashList _ "damage" { return { element }; }
+  / ", can trigger on dualcasts" { return null; }
 
 Skill1Or2
   = skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return [skill1, skill2]; }
@@ -847,6 +973,71 @@ Skill1Or2
         return (skill1or2.match(/ or |\//g) || []).length === 1;
       }
       { return skill1or2.split(/ or |\//); }
+
+
+// --------------------------------------------------------------------------
+// "Simple skills" - inline effects, listed in parentheses, used by legend materia
+
+SimpleSkill
+  = skillType:SkillTypeSlashList ":" _ isAoE:("single" / "group" / "random") ","?
+  & { wantInfinitive.push(false); return true; }
+  _ head:SimpleSkillEffect tail:(',' _ SimpleSkillEffect)* {
+    wantInfinitive.pop();
+    // We don't currently capture "random."
+    return { skillType, isAoE: isAoE === 'group', effects: util.pegList(head, tail, 2) };
+  }
+
+SimpleSkillEffect
+  = hybrid:(_ "hybrid")? ","?
+    _ numAttacks:(n:Integer "x" { return n; })?
+    _ attackMultiplier:DecimalNumber
+    _ hybridMultiplier:("or" _ n:DecimalNumber { return n; })?
+    _ ranged:"ranged"?
+    _ ("physical" / "magical")? _ element:ElementSlashList?
+  {
+    return {
+      type: 'attack',
+      numAttacks: numAttacks || 1,
+      attackMultiplier,
+      hybridMultiplier,
+      overrideElement: element,
+      isRanged: !!ranged,
+      isHybrid: !!hybrid
+    };
+  }
+  / "restores HP (" _ value:Integer _ ")" {
+    return { type: 'heal', amount: { healFactor: value } };
+  }
+  / "restores" _ value:Integer _ "HP" _ who:Who? {
+    return { type: 'heal', amount: { fixedHp: value }, who };
+  }
+  / "restores HP for" _ healPercent:Integer _ "% of the target's maximum HP" {
+    return { type: 'healPercent', healPercent };
+  }
+  / head:Stat _ tail:('/' Stat)* _ value:SignedIntegerOrX "%" {
+    return { type: 'statMod', stats: util.pegList(head, tail, 1, true), value };
+  }
+  / "damages undeads" {
+    return { type: 'damagesUndead' };
+  }
+  / verb:StatusVerb _ statuses:StatusList statusClauses:StatusClause* {
+    const result = { type: 'status', verb, statuses };
+    for (const i of statusClauses) {
+      Object.assign(result, i);
+    }
+    if (result.duration) {
+      util.applyDuration(result.statuses, result.duration);
+      delete result.duration;
+    }
+    return result;
+  }
+  / smartEther:SmartEtherStatus _ who:Who? {
+    return { type: 'status', who, statuses: [{ status: smartEther }] };
+  }
+  / ("heals" _ "to"? / "restores HP to") _ "the user for" _ healPercent:Integer "% of the damage dealt" {
+    return { type: 'drainHp', healPercent };
+  }
+
 
 
 // --------------------------------------------------------------------------
@@ -922,7 +1113,7 @@ StatusItem
 // Conditions
 
 Condition
-  = "when" _ "equipping" _ article:("a" "n"? { return text(); }) _ equipped:[a-z- ]+ { return { type: 'equipped', article, equipped: equipped.join('') }; }
+  = "when" _ "equipping" _ article:("a" "n"? { return text(); })? _ equipped:[a-z- ]+ { return { type: 'equipped', article, equipped: equipped.join('') }; }
 
   // "Level-like" or "counter-like" statuses, as seen on newer moves like
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
@@ -1055,6 +1246,9 @@ Condition
   // Stat thresholds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
+  // Legend materia
+  / "at the beginning of the battle" { return { type: 'battleStart' }; }
+
 WithoutWith
   = "hasn't/has" { return 'withoutWith'; }
   / "hasn't" { return 'without'; }
@@ -1069,6 +1263,10 @@ ConditionDetail
 // --------------------------------------------------------------------------
 // Lower-level game rules
 
+// Verbs should end in S under normal use and should not if we want an infinitive.
+S = "s" & { return !wantInfinitive[wantInfinitive.length - 1]; }
+  / "" & { return wantInfinitive[wantInfinitive.length - 1]; }
+
 SmartEtherStatus
   = school:School? _ "smart"i _ "ether" _ amount:IntegerSlashList {
     const result = { type: 'smartEther', amount };
@@ -1079,8 +1277,12 @@ SmartEtherStatus
   }
 
 StatusVerb
-  = ("grants"i / "causes"i / "removes"i / "doesn't"i _ "remove") {
-    return text().toLowerCase().replace(/\s+/g, ' ');
+  = ("grant"i S / "cause"i S / "remove"i S / "doesn't"i _ "remove") {
+    let result = text().toLowerCase().replace(/\s+/g, ' ');
+    if (result !== 'doesn\'t remove' && !result.endsWith('s')) {
+      result += 's';
+    }
+    return result;
   }
 
 StatusName "status effect"
@@ -1152,11 +1354,7 @@ GenericNameWord = ([A-Z] [a-zA-Z-'/]* (':' / '...' / '!' / '+')?)
 
 Duration
   = "for" _ value:Integer _ valueIsUncertain:("?")? _ units:DurationUnits {
-    const result = { value, units };
-    if (valueIsUncertain) {
-      result.valueIsUncertain = true;
-    }
-    return result;
+    return { value, units, valueIsUncertain: valueIsUncertain ? true : undefined };
   }
 
 DurationUnits
@@ -1188,17 +1386,17 @@ Who
 WhoClause
   = "the"? _ "user" { return 'self'; }
   / "the"? _ "user" { return 'self'; }
-  / "the" _ "target" { return 'target'; }
-  / "all" _ "enemies" { return 'enemies'; }
+  / "the target" { return 'target'; }
+  / "all enemies" { return 'enemies'; }
   / "a single ally" { return 'ally'; }
-  / "all allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
+  / "all allies" row:(_ "in the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
     return row || 'party';
   }
   / "allies in the same row" { return 'sameRow'; }
-  / "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
-  / "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
-  / "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
-  / "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
+  / "the lowest HP% ally" { return 'lowestHpAlly'; }
+  / "a random ally without status" { return 'allyWithoutStatus'; }
+  / "a random ally with negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
+  / "a random ally with KO" { return 'allyWithKO'; }
 
 WhoList
   = ("to" / "from") _ head:WhoClause _ tail:("/" WhoClause)+ { return util.pegList(head, tail, 1); }
@@ -1224,6 +1422,12 @@ SkillTypeList "skill type list"
 
 SkillTypeAndList "skill type list"
   = head:SkillType tail:(AndList SkillType)* { return util.pegList(head, tail, 1, true); }
+
+SkillTypeAndOrList "skill type list"
+  = head:SkillType tail:(AndOrList SkillType)* { return util.pegList(head, tail, 1, true); }
+
+SkillTypeSlashList "skill type list"
+  = head:SkillType tail:('/' SkillType)* { return util.pegList(head, tail, 1, true); }
 
 Element "element"
   = "Fire"
@@ -1253,6 +1457,9 @@ ElementAndOrList "element list"
 
 ElementSlashList "element list"
   = head:Element tail:("/" Element)* { return util.pegList(head, tail, 1, true); }
+
+ElementAndOrSlashList "element list"
+  = head:Element tail:((AndOrList / '/') Element)* { return util.pegList(head, tail, 1, true); }
 
 ElementListOrOptions "element list or slash-separated alternatives"
   = elements:ElementList ! "/" { return elements; }
@@ -1298,6 +1505,10 @@ SchoolAndList "school list"
 SchoolAndOrList "school list"
   = head:School tail:(AndOrList School)* { return util.pegList(head, tail, 1, true); }
 
+// TODO: We should standardize this and other AndOrSlashList - there's no reason for three options
+SchoolAndOrSlashList "school list"
+  = head:School tail:((AndOrList / '/') School)* { return util.pegList(head, tail, 1, true); }
+
 SB = "Soul" _ "Break" / "SB"
 Maximum = "maximum" / "max" "."?
 
@@ -1320,10 +1531,14 @@ ElementOrSchoolList
   = school:SchoolAndOrList { return { school }; }
   / element:ElementAndOrList { return { element }; }
 
+ElementOrSchoolAndOrSlashList
+  = school:SchoolAndOrSlashList { return { school }; }
+  / element:ElementAndOrSlashList { return { element }; }
+
 ElementSchoolOrSkillTypeList
   = school:SchoolAndOrList { return { school }; }
   / element:ElementAndOrList { return { element }; }
-  / skillType:SkillTypeList { return { skillType }; }
+  / skillType:SkillTypeAndOrList { return { skillType }; }
 
 Realm "realm"
   // Added pseudorealms.

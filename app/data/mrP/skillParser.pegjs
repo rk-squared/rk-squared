@@ -298,7 +298,7 @@ SBMultiplier
 // Drain HP, recoil HP, HP-based attacks
 
 DrainHp
-  = ("heals" _ "to"? / "restores" _ "HP" _ "to") _ "the" _ "user" _ "for" _ healPercent:Integer "%" _ "of" _ "the" _ "damage" _ "dealt" _ condition:Condition? {
+  = ("heals" _ "to"? / "restores HP to") _ "the user for" _ healPercent:Integer "% of the damage dealt" _ condition:Condition? {
     return util.addCondition({
       type: 'drainHp',
       healPercent,
@@ -371,7 +371,7 @@ Heal
   }
 
 HealPercent
-  = "restores"i _ "HP" _ who:Who? _ "for" _ healPercent:Integer "%" _ "of" _ ("the" _ "user's" / "the" _ "target's" / "their") _ Maximum _ "HP" {
+  = "restores"i _ "HP" _ who:Who? _ "for" _ healPercent:Integer "% of" _ ("the user's" / "the target's" / "their") _ Maximum _ "HP" {
     return {
       type: 'healPercent',
       healPercent,
@@ -748,6 +748,9 @@ Condition
   // Stat thresholds (e.g., Tiamat, Guardbringer)
   / "at" _ value:IntegerSlashList _ stat:Stat { return { type: 'statThreshold', stat, value }; }
 
+  // Legend materia
+  / "at the beginning of the battle" { return { type: 'battleStart' }; }
+
 WithoutWith
   = "hasn't/has" { return 'withoutWith'; }
   / "hasn't" { return 'without'; }
@@ -880,17 +883,17 @@ Who
 WhoClause
   = "the"? _ "user" { return 'self'; }
   / "the"? _ "user" { return 'self'; }
-  / "the" _ "target" { return 'target'; }
-  / "all" _ "enemies" { return 'enemies'; }
+  / "the target" { return 'target'; }
+  / "all enemies" { return 'enemies'; }
   / "a single ally" { return 'ally'; }
-  / "all allies" row:(_ "in" _ "the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
+  / "all allies" row:(_ "in the" _ row:("front" / "back" / "character's") _ "row" { return row === "character's" ? 'sameRow' : row + 'Row'; })? {
     return row || 'party';
   }
   / "allies in the same row" { return 'sameRow'; }
-  / "the" _ "lowest" _ "HP%" _ "ally" { return 'lowestHpAlly'; }
-  / "a" _ "random" _ "ally" _ "without" _ "status" { return 'allyWithoutStatus'; }
-  / "a" _ "random" _ "ally" _ "with" _ "negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
-  / "a" _ "random" _ "ally" _ "with" _ "KO" { return 'allyWithKO'; }
+  / "the lowest HP% ally" { return 'lowestHpAlly'; }
+  / "a random ally without status" { return 'allyWithoutStatus'; }
+  / "a random ally with negative" _ "status"? _ "effects" { return 'allyWithNegativeStatus'; }
+  / "a random ally with KO" { return 'allyWithKO'; }
 
 WhoList
   = ("to" / "from") _ head:WhoClause _ tail:("/" WhoClause)+ { return util.pegList(head, tail, 1); }

@@ -18,7 +18,7 @@ import {
 } from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
 import { describeRageEffects } from './rage';
-import { convertEnlirSkillToMrP, formatMrPSkill } from './skill';
+import { convertEnlirSkillToMrP, formatMrPSkill, SimpleSkill } from './skill';
 import * as skillTypes from './skillTypes';
 import { formatTrigger, safeParseStatus } from './status';
 import * as statusTypes from './statusTypes';
@@ -229,16 +229,20 @@ export function describeDamageType(
 }
 
 function describeHybridDamageType(
-  skill: EnlirSkill,
+  skill: EnlirSkill | SimpleSkill,
   attack: skillTypes.Attack,
+  typeDetails?: EnlirSkillType[],
 ): MrPDamageType | undefined {
   if (!attack.isHybrid) {
     return undefined;
-  } else if (skill.typeDetails && skill.typeDetails.length === 2) {
+  } else if (typeDetails && typeDetails.length === 2) {
+    return describeDamageType('Magical', typeDetails[1]);
+  } else if (skill !== 'simple' && skill.typeDetails && skill.typeDetails.length === 2) {
     return describeDamageType('Magical', skill.typeDetails[1]);
   } else {
-    // Fall back to magical.  Hack: Don't warn for old burst commands.
-    if (!isBurstCommand(skill)) {
+    // Fall back to magical.  Hack: Don't warn for old burst commands or legend
+    // materia.
+    if (skill !== 'simple' && !isBurstCommand(skill)) {
       logger.warn(`Missing type details for hybrid skill ${skill.name}`);
     }
     return 'magic';
@@ -255,7 +259,11 @@ function isPiercingByType(attack: skillTypes.Attack, type: EnlirSkillType): bool
   }
 }
 
-function isPiercing(skill: EnlirSkill, attack: skillTypes.Attack): boolean {
+function isPiercing(skill: EnlirSkill | SimpleSkill, attack: skillTypes.Attack): boolean {
+  if (skill === 'simple') {
+    // Without skill information, assume that we can just trust isPiercing...
+    return !!attack.isPiercingDef || !!attack.isPiercingRes;
+  }
   const type = skill.typeDetails ? skill.typeDetails[0] : skill.type;
   if (!type) {
     return false;
@@ -264,7 +272,10 @@ function isPiercing(skill: EnlirSkill, attack: skillTypes.Attack): boolean {
   }
 }
 
-function isHybridPiercing(skill: EnlirSkill, attack: skillTypes.Attack): boolean {
+function isHybridPiercing(skill: EnlirSkill | SimpleSkill, attack: skillTypes.Attack): boolean {
+  if (skill === 'simple') {
+    return false;
+  }
   const type =
     skill.typeDetails != null && skill.typeDetails.length === 2 ? skill.typeDetails[1] : null;
   return type ? isPiercingByType(attack, type) : false;
@@ -309,7 +320,7 @@ function isSimpleFollowedBy(attack: skillTypes.Attack) {
   );
 }
 
-function describeSimpleFollowedBy(skill: EnlirSkill, attack: skillTypes.Attack) {
+function describeSimpleFollowedBy(skill: EnlirSkill | SimpleSkill, attack: skillTypes.Attack) {
   const attackDamage = describeAttackDamage(skill, attack, {});
   if (!attackDamage) {
     return '???';
@@ -347,7 +358,7 @@ function describeSimpleFollowedBy(skill: EnlirSkill, attack: skillTypes.Attack) 
  * Modify an attack to reflect prerequisite statuses.
  */
 function checkAttackPrereqStatus(
-  skill: EnlirSkill,
+  skill: EnlirSkill | SimpleSkill,
   attack: skillTypes.Attack,
   prereqStatus: string | undefined,
 ): skillTypes.Attack {
@@ -366,7 +377,8 @@ function checkAttackPrereqStatus(
   const scaleStatus = m[1];
   let scaleCount = m[2];
 
-  const isOwnStatusThreshold = 'source' in skill && skill.source.replace(/ [0-9/]+$/, '') === m[1];
+  const isOwnStatusThreshold =
+    skill !== 'simple' && 'source' in skill && skill.source.replace(/ [0-9/]+$/, '') === m[1];
   if (isOwnStatusThreshold || scaleStatus === prereqStatus) {
     const removeFirst = <T>(n: number[] | T) => (Array.isArray(n) ? n.slice(1) : n);
     scaleCount = scaleCount.replace(/^0\//, '');
@@ -424,7 +436,7 @@ function describeTrueArcaneCondition(sb: EnlirSoulBreak) {
  * Helper function for describeAttack
  */
 function describeAttackDamage(
-  skill: EnlirSkill,
+  skill: EnlirSkill | SimpleSkill,
   attack: skillTypes.Attack,
   {
     prereqStatus,
@@ -438,7 +450,11 @@ function describeAttackDamage(
   let { attackMultiplier, hybridMultiplier } = attack;
 
   if (!(finisherPercentDamage != null && finisherPercentCriteria) && attackMultiplier == null) {
-    logger.error(`Skill ${skill.name}: Missing both multiplier and finisher damage`);
+    logger.error(
+      `Skill ${
+        skill === 'simple' ? skill : skill.name
+      }: Missing both multiplier and finisher damage`,
+    );
     return null;
   }
   // Set something to avoid type errors.
@@ -504,7 +520,7 @@ function describeAttackDamage(
     scaleType = '@ 6 SB bars';
     if (numAttacks) {
       scaleToDamage = numAttacks ? describeDamage(maxSbMultiplier, numAttacks, false) : undefined;
-      if ('points' in skill) {
+      if (skill !== 'simple' && 'points' in skill) {
         // Re-adjust the displayed number to reflect actual SB.
         damage = describeDamage(multiplier + skill.points * attack.sbMultiplierChange, numAttacks);
       }
@@ -517,7 +533,10 @@ function describeAttackDamage(
     !isRandomNumAttacks(numAttacks) &&
     isConvergent(attack)
   ) {
-    const scaleFactor = isSoulBreak(skill) ? sbConvergentScaleFactor : otherConvergentScaleFactor;
+    const scaleFactor =
+      skill !== 'simple' && isSoulBreak(skill)
+        ? sbConvergentScaleFactor
+        : otherConvergentScaleFactor;
     damage = describeConvergentDamage(
       forceScalar(attack.attackMultiplier, 'convergent attackMultiplier'),
       attack.scaleToMultiplier,
@@ -533,7 +552,12 @@ function describeAttackDamage(
 
       // Special case: Every TASB scales with status level.  Try to resolve the
       // status that manages that status level.
-      if (attack.scaleType.type === 'statusLevel' && isSoulBreak(skill) && isTrueArcane2nd(skill)) {
+      if (
+        attack.scaleType.type === 'statusLevel' &&
+        skill !== 'simple' &&
+        isSoulBreak(skill) &&
+        isTrueArcane2nd(skill)
+      ) {
         scaleType = describeTrueArcaneCondition(skill);
       }
     }
@@ -558,7 +582,9 @@ function describeAttackDamage(
   return {
     damageType: attack.overrideSkillType
       ? describeDamageType(null, attack.overrideSkillType)
-      : describeSkillDamageType(skill, attack),
+      : skill !== 'simple'
+      ? describeSkillDamageType(skill, attack)
+      : '?',
 
     numAttacks,
     attackMultiplier,
@@ -587,11 +613,11 @@ function describeAttackDamage(
  *   attack formatting
  */
 export function describeAttack(
-  skill: EnlirSkill,
+  skill: EnlirSkill | SimpleSkill,
   attack: skillTypes.Attack,
   opt: DescribeOptions,
 ): string {
-  const school = getSchool(skill);
+  const school = skill !== 'simple' ? getSchool(skill) : undefined;
   const attackDamage = describeAttackDamage(skill, attack, { prereqStatus: opt.prereqStatus });
   if (!attackDamage) {
     return '???';
@@ -599,7 +625,10 @@ export function describeAttack(
 
   let damage = '';
 
-  const hybridDamageType = describeHybridDamageType(skill, attack);
+  const typeDetails =
+    attack.overrideSkillTypeDetails ||
+    (attack.isHybrid && skill !== 'simple' && skill.typeDetails ? skill.typeDetails : undefined);
+  const hybridDamageType = describeHybridDamageType(skill, attack, typeDetails);
   const abbreviate = opt.abbreviate || opt.abbreviateDamageType || !!hybridDamageType;
   const simpleFollowedBy = attack.followedBy && isSimpleFollowedBy(attack);
   damage += attack.isAoE ? 'AoE ' : '';
@@ -609,12 +638,7 @@ export function describeAttack(
   damage += attackDamage.damage;
 
   // Hack: Insert (SUM) if needed for hybrid attacks.
-  if (
-    attack.isHybrid &&
-    skill.typeDetails &&
-    skill.typeDetails[0] === 'SUM' &&
-    school !== 'Summoning'
-  ) {
+  if (typeDetails && typeDetails[0] === 'SUM' && school !== 'Summoning') {
     damage += ' (SUM)';
   }
 
@@ -625,12 +649,7 @@ export function describeAttack(
     damage += attackDamage.hybridDamage;
 
     // Hack: Insert (SUM) if needed for hybrid attacks.
-    if (
-      attack.isHybrid &&
-      skill.typeDetails &&
-      skill.typeDetails[1] === 'SUM' &&
-      school !== 'Summoning'
-    ) {
+    if (typeDetails && typeDetails[1] === 'SUM' && school !== 'Summoning') {
       damage += ' (SUM)';
     }
   }
@@ -644,7 +663,11 @@ export function describeAttack(
   }
 
   damage += appendElement(
-    attack.overrideElement ? [attack.overrideElement] : skill.element,
+    attack.overrideElement
+      ? arrayify(attack.overrideElement)
+      : skill !== 'simple'
+      ? skill.element
+      : null,
     opt.abbreviate ? getElementAbbreviation : getElementShortName,
   );
   damage += attack.isRanged && !attack.isJump ? ' rngd' : '';
@@ -717,8 +740,10 @@ export function describeAttack(
   // Omit ' (SUM)' for Summoning school; it seems redundant.  Hybrid is handled
   // above.
   damage +=
-    hasSkillType(skill, 'SUM') && school !== 'Summoning' && !attack.isHybrid ? ' (SUM)' : '';
-  damage += isNat(skill) && !attack.isHybrid ? ' (NAT)' : '';
+    skill !== 'simple' && hasSkillType(skill, 'SUM') && school !== 'Summoning' && !attack.isHybrid
+      ? ' (SUM)'
+      : '';
+  damage += skill !== 'simple' && isNat(skill) && !attack.isHybrid ? ' (NAT)' : '';
 
   if (attack.followedBy && !simpleFollowedBy) {
     damage += ', then ' + describeAttack(skill, attack.followedBy, opt);

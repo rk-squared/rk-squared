@@ -85,6 +85,7 @@ export interface AttackMultiplierGroup {
   scaleToMultiplier?: number;
   multiplierScaleType?: MultiplierScaleType;
   overrideSkillType?: EnlirSkillType;
+  overrideSkillTypeDetails?: EnlirSkillType[];
 }
 
 export type AttackScaleType = common.Condition;
@@ -137,7 +138,7 @@ export interface AttackExtras {
   orNumAttacks?: NumAttacks;
   orNumAttacksCondition?: common.Condition;
 
-  overrideElement?: EnlirElement;
+  overrideElement?: EnlirElement | EnlirElement[];
 
   isPiercingDef?: boolean;
   isPiercingRes?: boolean;
@@ -193,19 +194,14 @@ export interface Heal {
   amount: HealAmount;
   who?: common.Who;
   condition?: common.Condition;
+  overrideSkillType?: EnlirSkillType;
 }
 
 export type HealAmount = { healFactor: number | number[] } | { fixedHp: number | number[] };
 
-export interface HealPercent {
-  type: 'healPercent';
-  healPercent: number;
-  who?: common.Who;
-}
+export type HealPercent = common.HealPercent;
 
-export interface DamagesUndead {
-  type: 'damagesUndead';
-}
+export type DamagesUndead = common.DamagesUndead;
 
 export interface RandomEther {
   type: 'randomEther';

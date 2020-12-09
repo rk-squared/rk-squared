@@ -26,6 +26,16 @@ export interface DispelOrEsuna {
   perUses?: number;
 }
 
+export interface HealPercent {
+  type: 'healPercent';
+  healPercent: number;
+  who?: Who;
+}
+
+export interface DamagesUndead {
+  type: 'damagesUndead';
+}
+
 // --------------------------------------------------------------------------
 // Lower-level game rules
 
@@ -101,7 +111,7 @@ export type Who =
 export type WithoutWith = 'without' | 'with' | 'withoutWith';
 
 export type Condition =
-  | { type: 'equipped'; article: string; equipped: string }
+  | { type: 'equipped'; article?: string; equipped: string }
   | { type: 'scaleWithStatusLevel'; status: string }
   | { type: 'statusLevel'; status: string; value: number | number[]; plus?: boolean }
   | { type: 'ifDoomed' }
@@ -173,7 +183,8 @@ export type Condition =
       element?: EnlirElement | EnlirElement[];
     }
   | { type: 'rankBased' }
-  | { type: 'statThreshold'; stat: EnlirStat; value: number | number[] };
+  | { type: 'statThreshold'; stat: EnlirStat; value: number | number[] }
+  | { type: 'battleStart' };
 
 export type UseCount =
   | {

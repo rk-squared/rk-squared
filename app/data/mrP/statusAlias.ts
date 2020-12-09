@@ -37,6 +37,10 @@ export function formatDispelOrEsuna(effect: common.DispelOrEsuna) {
   return (effect.dispelOrEsuna === 'positive' ? 'Dispel' : 'Esuna') + appendPerUses(effect.perUses);
 }
 
+export function formatHealPercent(effect: common.HealPercent) {
+  return `heal ${effect.healPercent}% HP`;
+}
+
 export const formatRandomEther = (amount: string | number) =>
   'refill ' + amount + ' random abil. use';
 export const formatSmartEther = (amount: string | number | number[], type?: string | undefined) => {

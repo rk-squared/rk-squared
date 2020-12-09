@@ -1,10 +1,14 @@
 import { EnlirElement, EnlirRealm, EnlirSchool, EnlirSkillType, EnlirStat } from '../enlir';
 import * as common from './commonTypes';
+import * as skillTypes from './skillTypes';
 
 export type StatusEffect = EffectClause[];
 
 export type EffectClause =
   | StatMod
+  | StatBuildup
+  | StatModDurationUp
+  | StatShare
   | CritChance
   | CritDamage
   | HitRate
@@ -19,6 +23,7 @@ export type EffectClause =
   | Instacast
   | CastSpeedBuildup
   | CastSpeed
+  | FullAtbRoundStart
   | InstantAtb
   | AtbSpeed
   | PhysicalBlink
@@ -43,6 +48,7 @@ export type EffectClause =
   | AbilityBuildup
   | RankBoost
   | DamageUp
+  | DamageResist
   | RealmBoost
   | AbilityDouble
   | Multicast
@@ -63,8 +69,9 @@ export type EffectClause =
   | DoomTimer
   | DrainHp
   | Counter
-  | RowCover
+  | Cover
   | TriggeredEffect
+  | AutoCure
   | ConditionalStatus
   | DirectGrantStatus
   | GainSb
@@ -94,7 +101,8 @@ export type EffectClause =
   | StatusReset
   | DisableAttacks
   | Paralyze
-  | Stun;
+  | Stun
+  | GilUp;
 
 // --------------------------------------------------------------------------
 // Stat mods
@@ -108,6 +116,36 @@ export interface StatMod {
 
   value: common.SignedValueOrPlaceholder<number | number[]>;
   ignoreBuffCap?: boolean;
+
+  condition?: common.Condition;
+}
+
+export interface StatBuildup {
+  type: 'statBuildup';
+  stat: EnlirStat | EnlirStat[];
+
+  increment: number;
+  max: number;
+
+  damaged?: boolean;
+  school?: EnlirSchool;
+  element?: EnlirElement;
+  skillType?: EnlirSkillType;
+  requiresDamage?: boolean;
+  jump?: boolean;
+}
+
+export interface StatModDurationUp {
+  type: 'statModDurationUp';
+  what: 'buffs' | 'debuffs';
+  value: number;
+}
+
+export interface StatShare {
+  type: 'statShare';
+  src: EnlirStat;
+  dest: EnlirStat;
+  value: number;
 }
 
 export interface CritChance {
@@ -169,6 +207,10 @@ export interface CastSpeedBuildup {
   increment: number;
   max: number;
   requiresAttack: boolean;
+}
+
+interface FullAtbRoundStart {
+  type: 'fullAtbRoundStart';
 }
 
 interface InstantAtb {
@@ -343,6 +385,15 @@ interface DamageUp extends DamageUpType {
   condition?: common.Condition;
 }
 
+interface DamageResist {
+  type: 'damageResist';
+  chance?: number;
+  element?: EnlirElement | EnlirElement[];
+  skillType?: EnlirSkillType;
+  value: number;
+  condition?: common.Condition;
+}
+
 interface RealmBoost {
   type: 'realmBoost';
   realm: EnlirRealm;
@@ -359,6 +410,8 @@ interface Multicast {
   type: 'multicast';
   count: number;
   chance: number;
+  chanceIsUncertain?: boolean;
+  perUses?: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
 }
@@ -380,6 +433,7 @@ interface DamageUpType {
   skillType?: EnlirSkillType | EnlirSkillType[];
   magical?: boolean;
   jump?: boolean;
+  mimic?: boolean;
   vsWeak?: boolean;
 }
 
@@ -491,6 +545,8 @@ interface DrainHp {
   value: number;
   element?: EnlirElement | EnlirElement[];
   school?: EnlirSchool | EnlirSchool[];
+  chance?: number;
+  singleTarget?: boolean;
 }
 
 // --------------------------------------------------------------------------
@@ -509,13 +565,15 @@ export interface Counter {
 
 type CounterResponse =
   | { type: 'skill'; skill: string }
-  | { type: 'attack'; numAttacks: 1; attackMultiplier: number; overrideSkillType: EnlirSkillType };
+  | { type: 'attack'; numAttacks: 1; attackMultiplier: number; overrideSkillType: EnlirSkillType }
+  | { type: 'simpleSkill'; simpleSkill: SimpleSkill };
 
-// Haurchefant Cover
-interface RowCover {
-  type: 'rowCover';
+interface Cover {
+  type: 'cover';
   chance: number;
+  needsFront?: boolean;
   skillType: EnlirSkillType | EnlirSkillType[];
+  who?: common.Who;
   damageReduce: number;
 }
 
@@ -529,16 +587,19 @@ export interface TriggeredEffect {
   triggerDetail?: TriggerDetail;
   condition?: common.Condition;
   onceOnly?: boolean | number; // A number indicates twice, 3x, etc.
+  chance?: number;
+  chanceIsUncertain?: boolean;
 }
 
 export type TriggerableEffect =
   | CastSkill
   | RandomCastSkill
+  | CastSimpleSkill
   | GainSb
   | GrantStatus
   | Heal
+  | common.HealPercent
   | RecoilHp
-  | TriggerChance
   | common.SmartEtherStatus
   | common.DispelOrEsuna
   // Beginning of "regular" effects (may also be standalone)
@@ -554,6 +615,26 @@ export interface RandomCastSkill {
   type: 'randomCastSkill';
   skill: common.OrOptions<string>;
 }
+
+export interface CastSimpleSkill {
+  type: 'castSimpleSkill';
+  skill: SimpleSkill;
+}
+
+export interface SimpleSkill {
+  skillType: EnlirSkillType | EnlirSkillType[];
+  isAoE: boolean;
+  effects: SimpleSkillEffect[];
+}
+
+export type SimpleSkillEffect =
+  | skillTypes.Attack
+  | skillTypes.Heal
+  | skillTypes.StatusEffect
+  | skillTypes.DrainHp
+  | common.HealPercent
+  | common.DamagesUndead
+  | StatMod;
 
 // Note: Significant overlap between skillTypes.StatusEffect and statusTypes.GrantStatus
 export interface GrantStatus {
@@ -579,17 +660,17 @@ interface Heal {
   who?: common.Who;
 }
 
-interface TriggerChance {
-  type: 'triggerChance';
-  chance: number;
-  effect: TriggerableEffect;
-}
-
 // duplicated in skillTypes.ts
 export interface RecoilHp {
   type: 'recoilHp';
   damagePercent: number | number[];
   maxOrCurrent: 'max' | 'curr';
+}
+
+interface AutoCure {
+  type: 'autoCure';
+  chance: number;
+  status: string | string[];
 }
 
 // --------------------------------------------------------------------------
@@ -772,18 +853,28 @@ interface Stun {
   type: 'stun';
 }
 
+interface GilUp {
+  type: 'gilUp';
+  chance: number;
+  value: number;
+  condition?: common.Condition;
+}
+
 // --------------------------------------------------------------------------
 // Triggers
 
 export type Trigger =
   | {
       type: 'ability';
+      skillType?: EnlirSkillType;
       element?: common.OrOptions<EnlirElement>;
       school?: EnlirSchool | EnlirSchool[];
       count: TriggerCount;
-      jump: boolean;
-      requiresDamage: boolean;
-      requiresAttack: boolean;
+      jump?: boolean;
+      mimic?: boolean;
+      requiresDamage?: boolean;
+      requiresAttack?: boolean;
+      allowsSoulBreak?: boolean; // Can this trigger off of soul breaks as well as regular abilities?
     }
   | { type: 'crit' }
   | { type: 'vsWeak' }
@@ -792,6 +883,7 @@ export type Trigger =
   | { type: 'damaged'; skillType?: EnlirSkillType }
   | { type: 'dealDamage' }
   | { type: 'loseStatus'; status: string }
+  | { type: 'triggerStatus'; status: string }
   | { type: 'skill'; skill: string | string[]; count?: number | number[]; plus?: number }
   | { type: 'skillTriggered'; skill: string; count: number; isSelfSkill?: boolean }
   | {
@@ -799,15 +891,17 @@ export type Trigger =
       skillType: EnlirSkillType | EnlirSkillType[];
       element: common.OrOptions<EnlirElement>;
     }
-  | { type: 'singleHeal' }
+  | { type: 'singleHeal'; school?: EnlirSchool }
   | { type: 'lowHp'; value: number }
   | { type: 'damageDuringStatus'; value: number | number[] }
   | {
       type: 'allyAbility';
+      skillType?: EnlirSkillType;
       element?: common.OrOptions<EnlirElement>;
       school?: EnlirSchool | EnlirSchool[];
       count: TriggerCount;
-      jump: boolean;
+      jump?: boolean;
+      mimic?: boolean;
       requiresDamage: boolean;
       requiresAttack: boolean;
     };

@@ -108,7 +108,7 @@ export function describeCondition(condition: common.Condition, count?: number | 
         'if using ' +
         (condition.equipped === 'ranged weapon'
           ? 'a rngd wpn'
-          : condition.article + ' ' + condition.equipped)
+          : (condition.article ? condition.article + ' ' : '') + condition.equipped)
       );
     case 'scaleWithStatusLevel': {
       const status = displayStatusLevel(condition.status);
@@ -276,6 +276,8 @@ export function describeCondition(condition: common.Condition, count?: number | 
       return '@ rank 1-5';
     case 'statThreshold':
       return formatThreshold(condition.value, condition.stat.toUpperCase());
+    case 'battleStart':
+      return 'at battle start';
   }
 }
 

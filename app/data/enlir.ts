@@ -723,6 +723,15 @@ function applyEffectsPatch<T extends { effects: string | undefined }>(
   applyPatch(lookup, name, item => item.effects === from, item => (item.effects = to));
 }
 
+function applyEffectPatch<T extends { effect: string | undefined }>(
+  lookup: { [s: string]: T | T[] },
+  name: string,
+  from: string,
+  to: string,
+) {
+  applyPatch(lookup, name, item => item.effect === from, item => (item.effect = to));
+}
+
 function addPatch<T extends { [s: string]: { id: number; name: string } }>(
   lookup: T,
   newItem: Omit<T[string], 'id'>,
@@ -782,7 +791,7 @@ function patchEnlir() {
 
   // Reword Lasswell's AASB to avoid having to avoid invoking our slashMerge
   // code, which handles it poorly.
-  // TODO: The update is misleading; it suggests that it refreshes retaliate.
+  // TODO: The patch is misleading; it suggests that it refreshes retaliate.
   applyEffectsPatch(
     enlir.statusByName,
     'Azure Oblivion Follow-Up',
@@ -920,17 +929,57 @@ function patchEnlir() {
     notes: null,
   });
 
-  // Legend materia.  These, too, should be upstreamed if possible.
-  applyPatch(
+  // Legend materia.  To be consistent with statuses, use "and" to separate
+  // triggered effects, while commas separate completely distinct clauses.
+  // These, too, would ideally be upstreamed if possible if it's not a problem
+  // for others.
+  applyEffectPatch(
     enlir.legendMateria,
     '201070504',
-    legendMateria =>
-      legendMateria.effect ===
-      'Grants [Quick Cast], grants [Lingering Spirit] for 25 seconds when HP fall below 20%',
-    legendMateria => {
-      legendMateria.effect =
-        'Grants [Quick Cast] and [Lingering Spirit] for 25 seconds when HP fall below 20%';
-    },
+    'Grants [Quick Cast], grants [Lingering Spirit] for 25 seconds when HP fall below 20%',
+    'Grants [Quick Cast] and [Lingering Spirit] for 25 seconds when HP fall below 20%',
+  );
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201090601',
+    "Restores HP for 100% of the user's maximum HP, grants 500 SB points and grants [Quina Trance] when HP fall below 20%",
+    "Restores HP for 100% of the user's maximum HP and grants 500 SB points and grants [Quina Trance] when HP fall below 20%",
+  );
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201020901',
+    'Causes [Doom: 15], restores HP to all allies for 55% max HP and grants [Last Stand] to all allies when HP fall below 20%',
+    'Causes [Doom: 15] to the user and restores HP to all allies for 55% of their max HP and grants [Last Stand] to all allies when HP fall below 20%',
+  );
+  // More consistent syntax for hybrid and ether.  I have not confirmed that
+  // this actually is smart ether.
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201030205',
+    '35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Water/Holy/NE, summoning ether 1 to the user) ' +
+      'after dealing damage with a Water or Holy ability',
+    '35% chance to cast an ability (SUM/WHT: single, hybrid 3x 2.81 or 2.98 magical Water/Holy/NE, Summoning smart ether 1 to the user) ' +
+      'after dealing damage with a Water or Holy ability',
+  );
+  // "Triplecast" is clearer than "dualcast twice," especially now that we have
+  // triple/quad/etc. in statuses.
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201050102',
+    '10% chance to dualcast Spellblade abilities twice',
+    '10% chance to triplecast Spellblade abilities',
+  );
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201060602',
+    '10% chance to dualcast Machinist abilities twice',
+    '10% chance to triplecast Machinist abilities',
+  );
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201110102',
+    '10% chance to dualcast Witch abilities twice',
+    '10% chance to triplecast Witch abilities',
   );
 
   // Tyro AASB.  This is a mess in Enlir; how should it be explained?
@@ -1621,6 +1670,14 @@ export function isTrueArcane1st(sb: EnlirSoulBreak): boolean {
 
 export function isTrueArcane2nd(sb: EnlirSoulBreak): boolean {
   return sb.tier === 'TASB' && sb.points !== 0;
+}
+
+/**
+ * Some of our status-handling code is flexible enough to handle legend materia
+ * effects as well.  This function helps implement that.
+ */
+export function isEnlirStatus(status: EnlirStatus | EnlirLegendMateria): status is EnlirStatus {
+  return 'effects' in status;
 }
 
 function makeSkillAliases<

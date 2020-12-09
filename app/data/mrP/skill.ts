@@ -59,6 +59,7 @@ import {
 } from './status';
 import {
   formatDispelOrEsuna,
+  formatHealPercent,
   formatRandomEther,
   formatSmartEther,
   formatSpecialStatusItem,
@@ -81,6 +82,10 @@ import {
   toMrPFixed,
   toMrPKilo,
 } from './util';
+
+// Support for "simple skills" - inline skill effects from legend materia that
+// don't have a full EnlirSkill object.
+export type SimpleSkill = 'simple';
 
 function preprocessSkill(
   skill: skillTypes.SkillEffect,
@@ -131,11 +136,14 @@ function describeChain({ chainType, fieldBonus, max }: skillTypes.Chain): string
   return chain;
 }
 
-function describeDrainHp({ healPercent, condition }: skillTypes.DrainHp): string {
+export function describeDrainHp({ healPercent, condition }: skillTypes.DrainHp): string {
   return `heal ${numberOrUnknown(healPercent)}% of dmg` + appendCondition(condition);
 }
 
-function describeHeal(skill: EnlirSkill, { amount, condition }: skillTypes.Heal): string {
+export function describeHeal(
+  skill: EnlirSkill | SimpleSkill,
+  { amount, condition, overrideSkillType }: skillTypes.Heal,
+): string {
   let heal: string;
   let count: number | number[] | undefined;
   if ('healFactor' in amount) {
@@ -145,7 +153,8 @@ function describeHeal(skill: EnlirSkill, { amount, condition }: skillTypes.Heal)
     heal = 'heal ' + formatNumberSlashList(amount.fixedHp, i => toMrPKilo(i, true));
     count = amount.fixedHp;
   }
-  if ('healFactor' in amount && skill.type === 'NAT') {
+  const skillType = overrideSkillType || (skill !== 'simple' && skill.type) || undefined;
+  if ('healFactor' in amount && skillType === 'NAT') {
     heal += ' (NAT)';
   }
   heal += appendCondition(condition, count);
@@ -440,8 +449,8 @@ export function getCommandDetail(skillName: string) {
   return undefined;
 }
 
-function shouldIncludeStatus(skill: EnlirSkill, effect: skillTypes.StatusEffect) {
-  const isBurst = isSoulBreak(skill) && isBurstSoulBreak(skill);
+function shouldIncludeStatus(skill: EnlirSkill | SimpleSkill, effect: skillTypes.StatusEffect) {
+  const isBurst = skill !== 'simple' && isSoulBreak(skill) && isBurstSoulBreak(skill);
   return ({ status, chance }: common.StatusWithPercent): boolean => {
     if (status.type !== 'standardStatus') {
       return true;
@@ -459,7 +468,7 @@ function shouldIncludeStatus(skill: EnlirSkill, effect: skillTypes.StatusEffect)
     if (
       isBurst &&
       status.name === 'Haste' &&
-      (effect.who === 'self' || (!effect.who && skill.target === 'Self'))
+      (effect.who === 'self' || (!effect.who && skill !== 'simple' && skill.target === 'Self'))
     ) {
       // All burst soul breaks provide Haste, so listing it is redundant.
       return false;
@@ -563,8 +572,8 @@ function formatStatusDescription(
 /**
  * Process a status, and return whether this is a burst toggle.
  */
-function processStatus(
-  skill: EnlirSkill,
+export function processSkillStatus(
+  sourceSkill: EnlirSkill | SimpleSkill,
   skillEffects: skillTypes.SkillEffect,
   effect: skillTypes.StatusEffect,
   other: OtherDetail,
@@ -574,10 +583,13 @@ function processStatus(
     return;
   }
 
-  let burstToggle: boolean | undefined;
+  let burstToggle: boolean | undefined = undefined;
 
+  const skill = sourceSkill === 'simple' ? undefined : sourceSkill;
   const removes = effect.verb === 'removes';
-  const statuses = effect.statuses.filter(shouldIncludeStatus(skill, effect)).sort(sortStatus);
+  const statuses = effect.statuses
+    .filter(shouldIncludeStatus(sourceSkill, effect))
+    .sort(sortStatus);
   let { who, condition, perUses, ifSuccessful, toCharacter } = effect;
 
   if (
@@ -607,14 +619,14 @@ function processStatus(
     const isLast = thisStatusIndex + 1 === statuses.length;
 
     // Special case: Since every TASB clears its associated mode, omit that.
-    if (who === 'self' && removes && isSoulBreak(skill) && isTrueArcane2nd(skill)) {
+    if (who === 'self' && removes && skill && isSoulBreak(skill) && isTrueArcane2nd(skill)) {
       return;
     }
 
     if (status.type !== 'standardStatus') {
       // Status levels are always self.
       other.push(
-        skill,
+        sourceSkill,
         status.type === 'statusLevel' ? 'self' : who,
         formatSpecialStatusItem(status, removes ? 0 : undefined),
       );
@@ -623,7 +635,7 @@ function processStatus(
 
     // Special case: Omit / simplify some TASB details, and handle others via
     // describeTrueArcaneCondition.
-    if (isSoulBreak(skill) && isTrueArcane1st(skill)) {
+    if (skill && isSoulBreak(skill) && isTrueArcane1st(skill)) {
       const tracker = getEnlirTrueArcaneTracker(skill);
       const level = getEnlirTrueArcaneLevel(skill);
       if ((tracker && tracker.id === status.id) || (level && level.id === status.id)) {
@@ -631,7 +643,7 @@ function processStatus(
       }
     }
 
-    if ('source' in skill && skill.source === status.name && removes) {
+    if (skill && 'source' in skill && skill.source === status.name && removes) {
       // TODO: Some inconsistency here between "(once only)", "removes status", and "once only"
       // See, e.g., Enna Kros vs. Cloud vs. Cyan AASBs.
       const onceOnly =
@@ -709,12 +721,12 @@ function processStatus(
     } else if (thisStatus.conj === 'or') {
       if (!lastItem || !lastItem.length) {
         logger.warn('Got an "or" status with no valid previous item');
-        other.push(skill, who, description);
+        other.push(sourceSkill, who, description);
       } else {
         lastItem[lastItem.length - 1] += ' or ' + description;
       }
     } else if (toCharacter) {
-      lastItem = other.push(skill, 'namedCharacter', description);
+      lastItem = other.push(sourceSkill, 'namedCharacter', description);
     } else if (thisStatus.chance && who !== 'self') {
       const chanceDescription = formatAttackStatusChance(
         thisStatus.chance,
@@ -730,13 +742,13 @@ function processStatus(
       other.detail.push(description);
       lastItem = other.detail;
     } else {
-      lastItem = other.push(skill, who, description);
+      lastItem = other.push(sourceSkill, who, description);
     }
   });
 
   if (complex) {
     const options = _.times(complexCount, i => i);
-    other.push(skill, who, complex + appendCondition(condition, options));
+    other.push(sourceSkill, who, complex + appendCondition(condition, options));
   }
 
   return burstToggle;
@@ -744,7 +756,7 @@ function processStatus(
 
 /**
  * Process a set of randomly chosen statuses.  This is a much simpler version
- * of processStatus.
+ * of processSkillStatus.
  */
 function processRandomStatus(
   skill: EnlirSkill,
@@ -813,7 +825,7 @@ interface OtherDetailOptions {
  * this so that we can sort general items (e.g., elemental infuse), then
  * self statuses, then party statuses, then "details" (e.g., EX modes).
  */
-class OtherDetail {
+export class OtherDetail {
   normal: string[] = [];
   statusInfliction: StatusInfliction[] = [];
   aoe: string[] = [];
@@ -830,7 +842,7 @@ class OtherDetail {
   namedCharacter: string[] = [];
 
   push(
-    skill: EnlirSkill,
+    skill: EnlirSkill | SimpleSkill,
     who: common.Who | common.Who[] | undefined,
     description: string,
     options: OtherDetailOptions = {},
@@ -897,11 +909,15 @@ class OtherDetail {
   }
 
   private getPart(
-    skill: EnlirSkill,
+    skill: EnlirSkill | SimpleSkill,
     who: skillTypes.Who | undefined,
     options: OtherDetailOptions,
   ): string[] {
-    return who ? this.getWhoPart(who) : this.getTargetPart(skill.target, options);
+    return who
+      ? this.getWhoPart(who)
+      : skill === 'simple'
+      ? this.normal
+      : this.getTargetPart(skill.target, options);
   }
 
   private getTargetPart(target: EnlirTarget | null, options: OtherDetailOptions): string[] {
@@ -1084,7 +1100,7 @@ export function convertEnlirSkillToMrP(
         });
         break;
       case 'healPercent':
-        other.push(skill, effect.who, `heal ${effect.healPercent}% HP`, {
+        other.push(skill, effect.who, formatHealPercent(effect), {
           // See comments under 'heal'
           defaultToAlly: isSoulBreak(skill),
         });
@@ -1131,7 +1147,7 @@ export function convertEnlirSkillToMrP(
         other.normal.push(describeMimic(skill, effect));
         break;
       case 'status': {
-        const thisBurstToggle = processStatus(skill, skillEffects, effect, other);
+        const thisBurstToggle = processSkillStatus(skill, skillEffects, effect, other);
         if (thisBurstToggle != null) {
           burstToggle = thisBurstToggle;
         }
