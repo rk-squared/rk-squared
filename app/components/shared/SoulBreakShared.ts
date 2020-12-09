@@ -92,21 +92,22 @@ export function formatSoulBreakOrLegendMateriaName(item: EnlirSoulBreakOrLegendM
   return item.gl ? name : '“' + name + '”';
 }
 
-function getSchoolName(command: MrPSkill): string {
+function formatSchoolName(command: MrPSkill): string {
+  let result: string;
   if (command.schoolDetails) {
-    return command.schoolDetails.map(getSchoolShortName).join('/');
+    result = command.schoolDetails.map(getSchoolShortName).join('/');
   } else if (command.school) {
-    return getSchoolShortName(command.school);
+    result = getSchoolShortName(command.school);
   } else {
-    return '?';
+    result = '?';
   }
+  return `[${result}]`;
 }
 
 export function getBraveColumns(mrP: MrPSkill, braveCommands: MrPSkill[]): [string, string] {
   return [
-    '[' +
-      getSchoolName(braveCommands[0]) +
-      '], +1 on ' +
+    formatSchoolName(braveCommands[0]) +
+      ', +1 on ' +
       mrP.braveCondition!.map(getShortName).join('/'),
     formatBraveCommands(braveCommands),
   ];
@@ -116,7 +117,7 @@ export function getBurstColumns(burstCommands: MrPSkill[]): Array<[string, strin
   return burstCommands.map(
     cmd =>
       [
-        '[' + getSchoolName(cmd) + ']' + (cmd.commandDetail ? ' (' + cmd.commandDetail + ')' : ''),
+        formatSchoolName(cmd) + (cmd.commandDetail ? ' (' + cmd.commandDetail + ')' : ''),
         formatMrPSkill(cmd),
       ] as [string, string],
   );
@@ -129,9 +130,7 @@ export function getSynchroColumns(
   return synchroCommands.map(
     (cmd, i) =>
       [
-        '[' +
-          getSchoolName(cmd) +
-          ']' +
+        formatSchoolName(cmd) +
           (mrP.synchroCondition && mrP.synchroCondition[i]
             ? ', w/ ' + formatSchoolOrAbilityList(mrP.synchroCondition[i])
             : '') +

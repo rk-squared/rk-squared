@@ -31,7 +31,7 @@ for (const sb of _.sortBy(
   [...enlir.allSoulBreaks, ...Object.values(enlir.limitBreaks)],
   [
     i => i.character || '-',
-    i => (isLimitBreak(i) ? limitBreakTierOrder[i.tier] : soulBreakTierOrder[i.tier] + 1000),
+    i => (isLimitBreak(i) ? limitBreakTierOrder[i.tier] + 1000 : soulBreakTierOrder[i.tier]),
     'id',
   ],
 )) {

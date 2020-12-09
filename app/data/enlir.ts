@@ -750,15 +750,11 @@ function patchEnlir() {
   // Two different follow-up attacks for Gladiolus's AASB is hard.  For now,
   // we'll try rewording it to resemble Squall's.
   // TODO: It's possible that Squall's and Gladiolus's are the same internally and that these should be made consistent
-  applyPatch(
+  applyEffectsPatch(
     enlir.statusByName,
     'Break Arts Mode',
-    mode =>
-      mode.effects ===
-      'Casts Heavy Strike / Heavy Strike+ / Heavy Strike++ and Orbital Edge after using three Earth attacks if 0/72001/240001 damage was dealt during the status, removed after triggering',
-    mode => {
-      mode.effects = 'Casts Heavy Strike after using three Earth attacks, removed after triggering';
-    },
+    'Casts Heavy Strike / Heavy Strike+ / Heavy Strike++ and Orbital Edge after using three Earth attacks if 0/72001/240001 damage was dealt during the status, removed after triggering',
+    'Casts Heavy Strike after using three Earth attacks, removed after triggering',
   );
   applyPatch(
     enlir.otherSkillsByName,
@@ -777,16 +773,11 @@ function patchEnlir() {
         'Additional ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999 if 240001 damage was dealt during the status';
     },
   );
-  applyPatch(
+  applyEffectsPatch(
     enlir.otherSkillsByName,
     'Orbital Edge',
-    edge =>
-      edge.effects ===
-      'Ten single attacks (0.50 each) and one single attack (5.00) capped at 99999, 100% hit rate',
-    edge => {
-      edge.effects =
-        'Ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999, 100% hit rate';
-    },
+    'Ten single attacks (0.50 each) and one single attack (5.00) capped at 99999, 100% hit rate',
+    'Ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999, 100% hit rate',
   );
 
   // Reword Lasswell's AASB to avoid having to avoid invoking our slashMerge
@@ -816,38 +807,28 @@ function patchEnlir() {
 
   // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are quite
   // complex.  We'll do whatever hacks it takes to process them.
-  applyPatch(
+  applyEffectsPatch(
     enlir.soulBreaks,
     '22300009', // Sarah - Song of Reunion
-    aria =>
-      aria.effects ===
-      'Restores HP (85), grants [Regenga], grants [Quick Cast] to the user, ' +
-        'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] if Warrior of Light/Garland is in the party, ' +
-        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if both are in the party',
-    aria => {
-      aria.effects =
-        'Restores HP (85), grants [Regenga], grants [Quick Cast] to the user, ' +
-        'grants [Buff Holy 10% (15s)] if Warrior of Light is in the party, ' +
-        'grants [Buff Dark 10% (15s)] if Garland is in the party, ' +
-        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if Warrior of Light and Garland are in the party';
-    },
+    'Restores HP (85), grants [Regenga], grants [Quick Cast] to the user, ' +
+      'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] if Warrior of Light/Garland is in the party, ' +
+      'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if both are in the party',
+    'Restores HP (85), grants [Regenga], grants [Quick Cast] to the user, ' +
+      'grants [Buff Holy 10% (15s)] if Warrior of Light is in the party, ' +
+      'grants [Buff Dark 10% (15s)] if Garland is in the party, ' +
+      'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] if Warrior of Light and Garland are in the party',
   );
-  applyPatch(
+  applyEffectsPatch(
     enlir.soulBreaks,
     '22300011',
-    song =>
-      song.effects ===
-      'Restores HP (105), removes KO [Raise: 100%], grants [Last Stand], [Haste], [High Quick Cast 2], ' +
-        'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] and [HP Stock (2000)] if Warrior of Light/Garland is in the party, ' +
-        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] and [HP Stock (2000)] if both are in the party, ' +
-        'grants [Awoken Cornelian Princess] to the user',
-    song => {
-      song.effects =
-        'Restores HP (105), removes KO [Raise: 100%], grants [Last Stand], [Haste], [High Quick Cast 2], ' +
-        'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] and [HP Stock (2000)] if Warrior of Light/Garland is in the party, ' +
-        'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] and [HP Stock (2000)] if Warrior of Light and Garland are in the party, ' +
-        'grants [Awoken Cornelian Princess] to the user';
-    },
+    'Restores HP (105), removes KO [Raise: 100%], grants [Last Stand], [Haste], [High Quick Cast 2], ' +
+      'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] and [HP Stock (2000)] if Warrior of Light/Garland is in the party, ' +
+      'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] and [HP Stock (2000)] if both are in the party, ' +
+      'grants [Awoken Cornelian Princess] to the user',
+    'Restores HP (105), removes KO [Raise: 100%], grants [Last Stand], [Haste], [High Quick Cast 2], ' +
+      'grants [Buff Holy 10% (15s)]/[Buff Dark 10% (15s)] and [HP Stock (2000)] if Warrior of Light/Garland is in the party, ' +
+      'grants [Buff Holy 20% (15s)] and [Buff Dark 20% (15s)] and [HP Stock (2000)] if Warrior of Light and Garland are in the party, ' +
+      'grants [Awoken Cornelian Princess] to the user',
   );
 
   // "and" vs. "or" is an apparent mistake in the database - and change
@@ -860,16 +841,12 @@ function patchEnlir() {
   );
 
   // Status cleanups.  These too should be fixed up.
-  applyPatch(
+  applyEffectsPatch(
     enlir.statusByName,
     'Windborn Swiftness Mode',
-    mode =>
-      mode.effects ===
-      'Grants [Windborn Swiftness 0]/[Windborn Swiftness 1]/[Windborn Swiftness 2]/[Windborn Swiftness 3] after using a Monk ability',
-    mode => {
-      // Adequately covered by Windborn Swiftness 0/1/2/3
-      mode.effects = '';
-    },
+    'Grants [Windborn Swiftness 0]/[Windborn Swiftness 1]/[Windborn Swiftness 2]/[Windborn Swiftness 3] after using a Monk ability',
+    // Adequately covered by Windborn Swiftness 0/1/2/3
+    '',
   );
   for (let i = 0; i <= 3; i++) {
     applyPatch(
@@ -884,16 +861,11 @@ function patchEnlir() {
       },
     );
   }
-  applyPatch(
+  applyEffectsPatch(
     enlir.statusByName,
     'Awoken Guardian',
-    mode =>
-      mode.effects ===
-      "White Magic abilities don't consume uses and single target heals grant [Stoneskin: 30/40/50/60/70%] to target at ability rank 1/2/3/4/5, dualcasts White Magic abilities",
-    mode => {
-      mode.effects =
-        "White Magic abilities don't consume uses, grants [Stoneskin: 30/40/50/60/70%] at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities";
-    },
+    "White Magic abilities don't consume uses and single target heals grant [Stoneskin: 30/40/50/60/70%] to target at ability rank 1/2/3/4/5, dualcasts White Magic abilities",
+    "White Magic abilities don't consume uses, grants [Stoneskin: 30/40/50/60/70%] at rank 1/2/3/4/5 of the triggering ability to the target after using a single-target heal, dualcasts White Magic abilities",
   );
   applyEffectsPatch(
     enlir.statusByName,
@@ -982,61 +954,44 @@ function patchEnlir() {
     '10% chance to triplecast Witch abilities',
   );
 
-  // Tyro AASB.  This is a mess in Enlir; how should it be explained?
-  applyPatch(
+  // Tyro AASB.  We patch it to simplify the soul break -> status -> triggered
+  // other skill -> status setup.
+  applyEffectsPatch(
     enlir.soulBreaks,
     '20140018',
-    tyroAasb =>
-      tyroAasb.effects ===
-      'Grants [50% Critical] and [Haste], [ATK and DEF +30%] for 25 seconds, grants [Awoken Keeper Mode] and [Unraveled History Follow-Up] to the user',
-    tyroAasb => {
-      tyroAasb.effects =
-        'Grants [50% Critical] and [Haste], [ATK and DEF +30%] for 25 seconds, grants [Awoken Keeper Mode], [Awoken Keeper Mode Critical Chance] and [Unraveled History Follow-Up] to the user';
-    },
+    'Grants [50% Critical] and [Haste], [ATK and DEF +30%] for 25 seconds, grants [Awoken Keeper Mode] and [Unraveled History Follow-Up] to the user',
+    'Grants [50% Critical] and [Haste], [ATK and DEF +30%] for 25 seconds, grants [Awoken Keeper Mode], [Awoken Keeper Mode Critical Chance] and [Unraveled History Follow-Up] to the user',
   );
-  applyPatch(
+  applyEffectsPatch(
     enlir.statusByName,
     'Awoken Keeper Mode',
-    scholar =>
-      scholar.effects ===
-      "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, " +
-        'casts Awoken Keeper Mode Critical after using a Support ability',
-    scholar => {
-      scholar.effects =
-        "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5";
-    },
+    "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5, " +
+      'casts Awoken Keeper Mode Critical after using a Support ability',
+    "Support abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Support abilities at ability rank 1/2/3/4/5",
   );
 
   // Missing / inconsistent data within Enlir - but don't update until we can
   // confirm.
-  applyPatch(
+  applyEffectsPatch(
     enlir.burstCommands,
     '30511811',
-    guyBurstCommand =>
-      guyBurstCommand.effects ===
-      "Four single attacks (0.14 each), multiplier increases with user's ATK",
-    guyBurstCommand => {
-      guyBurstCommand.effects = 'Four single attacks (0.14~0.65 each scaling with ATK)';
-    },
+    "Four single attacks (0.14 each), multiplier increases with user's ATK",
+    'Four single attacks (0.14~0.65 each scaling with ATK)',
   );
 
   // Make the Odin 4* ability resemble a more standard status ailment.
-  applyPatch(
+  applyEffectsPatch(
     enlir.abilitiesByName,
     'Odin',
-    ability =>
-      ability.effects ===
-      'If not resisted, causes [Instant KO] (100%), otherwise, two group attacks (6.00 each), minimum damage 2500, causes [DEF and RES -20%] for 25 seconds',
-    ability =>
-      (ability.effects =
-        'Two group attacks (6.00 each), minimum damage 2500, causes [Instant KO] (100%) and [DEF and RES -20%] for 25 seconds'),
+    'If not resisted, causes [Instant KO] (100%), otherwise, two group attacks (6.00 each), minimum damage 2500, causes [DEF and RES -20%] for 25 seconds',
+    'Two group attacks (6.00 each), minimum damage 2500, causes [Instant KO] (100%) and [DEF and RES -20%] for 25 seconds',
   );
   // Make Steal Time match a more common word order.
-  applyPatch(
+  applyEffectsPatch(
     enlir.abilitiesByName,
     'Steal Time',
-    ability => ability.effects === 'Causes [Slow] (50%), if successful grants [Haste] to the user',
-    ability => (ability.effects = 'Causes [Slow] (50%), grants [Haste] to the user if successful'),
+    'Causes [Slow] (50%), if successful grants [Haste] to the user',
+    'Causes [Slow] (50%), grants [Haste] to the user if successful',
   );
 
   // Patch Bahamut (VI) to have an orb cost for rank 1.
@@ -1056,35 +1011,25 @@ function patchEnlir() {
   // Some Synchro skills and effects are complex and hard to parse:
   // Dk.Cecil's SASB chase is apparently trying to say that it's -1 Gloomshade
   // only if it's at Gloomshade levels 1 and 2, but it's simpler to avoid that.
-  applyPatch(
+  applyEffectsPatch(
     enlir.otherSkillsByName,
     'Shadow Chaser',
-    ability =>
-      ability.effects ===
-      'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
-        'heals the user for 20% of the damage dealt at Gloomshade levels 1 and 2 ' +
-        'and causes -1 Gloomshade to the user, 100% hit rate',
-    ability => {
-      ability.effects =
-        'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
-        'heals the user for 20% of the damage dealt at Gloomshade levels 1 and 2,' +
-        'causes -1 Gloomshade to the user, 100% hit rate';
-    },
+    'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
+      'heals the user for 20% of the damage dealt at Gloomshade levels 1 and 2 ' +
+      'and causes -1 Gloomshade to the user, 100% hit rate',
+    'One single attack (4.00~7.00 scaling with current HP%) capped at 99999, ' +
+      'heals the user for 20% of the damage dealt at Gloomshade levels 1 and 2,' +
+      'causes -1 Gloomshade to the user, 100% hit rate',
   );
   // Shadow's command is very unique and flavorful, but it becomes much simpler
   // if we omit the special effects at 0 blinks; those have little in-game
   // effect.
-  applyPatch(
+  applyEffectsPatch(
     enlir.synchroCommands,
     '30549323',
-    ability =>
-      ability.effects ===
-      '1/4/8 single ranged/single/single attacks (0.80 each) if the user Physical Blink 0/1/2, ' +
-        'grants [Physical Blink 1]/[Physical Blink 1] if the user has Physical Blink 0/1+, 100% hit rate at Physical Blink 0',
-    ability => {
-      ability.effects =
-        '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] to the user';
-    },
+    '1/4/8 single ranged/single/single attacks (0.80 each) if the user Physical Blink 0/1/2, ' +
+      'grants [Physical Blink 1]/[Physical Blink 1] if the user has Physical Blink 0/1+, 100% hit rate at Physical Blink 0',
+    '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] to the user',
   );
   // For Palom's sync, our parser isn't currently set up to handle "and" conditionals, and this
   // format probably looks better regardless.
