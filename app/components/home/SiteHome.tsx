@@ -20,8 +20,9 @@ export class SiteHome extends React.PureComponent {
         <p>
           Information about the game, gathered and presented with help from the{' '}
           <SiteExternalLink href={ffrkCommunityUrl}>FFRK Community Database</SiteExternalLink>,{' '}
-          <SiteExternalLink href={misterPUrl}>MisterP's PDF</SiteExternalLink>, and{' '}
-          <SiteExternalLink href={redditUrl}>Reddit</SiteExternalLink>.
+          <SiteExternalLink href={misterPUrl}>MisterP's PDF</SiteExternalLink>,{' '}
+          <SiteExternalLink href={redditUrl}>Reddit</SiteExternalLink>, and the developer's own data
+          mining.
         </p>
 
         <h3>The application</h3>

@@ -24,16 +24,7 @@ function AbilitiesTab({ match }: RouteComponentProps<{ rarity: string }>) {
 }
 
 function RecordBoardAbilitiesTab({ recordBoardSort }: { recordBoardSort?: AbilitySortType }) {
-  return (
-    <>
-      <div className="alert alert-secondary">
-        The Hero Board is a new feature added for 5th Anniversary (September 2019 for JP, March 2020
-        for GL). It allows you to unlock various character-specific bonuses, including new
-        character-specific abilities.
-      </div>
-      <AbilitiesList rarity={6} showRecordBoard={true} key={'6RB'} sort={recordBoardSort} />
-    </>
-  );
+  return <AbilitiesList rarity={6} showRecordBoard={true} key={'6RB'} sort={recordBoardSort} />;
 }
 
 export class AbilitiesPage extends React.PureComponent<Props & RouteComponentProps> {

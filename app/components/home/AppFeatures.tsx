@@ -14,12 +14,12 @@ export const AppFeatures = () => (
       inventory and should be stashed
     </li>
     <li>
-      <strong>Score tracker</strong> - view all your torment progress and magicite completion times
+      <strong>Score tracker</strong> - view all your Cardia progress and magicite completion times
       on a single page to help you see where to focus next
     </li>
     <li>
-      <strong>Soul breaks and legend materia</strong> - view all of the soul breaks and legend
-      materia that you own in a convenient two-column format
+      <strong>Soul breaks and legend materia</strong> - view all of the soul breaks, limit breaks,
+      and legend materia that you own in a convenient two-column format
     </li>
     <li>
       <strong>Relic draws</strong> - including currently open relic draws, unused Wondrous Draw and
@@ -28,7 +28,7 @@ export const AppFeatures = () => (
       draw simulator lets you try your virtual luck.
     </li>
     <li>
-      <strong>Game options</strong> - always show timer
+      <strong>Game options</strong> - optionally hide Roaming Warrior accolades for a cleaner UI
     </li>
   </ul>
 );
