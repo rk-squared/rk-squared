@@ -31,10 +31,11 @@ interface Props {
   className?: string;
   abilitiesTooltipId?: string;
   orbCostsTooltipId?: string;
+  allowGrouping?: boolean;
 }
 
 interface GroupedEnlirAbility extends EnlirAbility {
-  groupWithNext: boolean;
+  groupWithNext?: boolean;
 }
 
 const forcedGroups: Array<Set<string>> = [
@@ -105,6 +106,10 @@ export class AbilitiesTable extends React.PureComponent<Props> {
         <td data-tip={id} data-for={abilitiesTooltipId} className={styles.name}>
           <RecordBoardCharacterIcon character={ability.recordBoardCharacter} />
           {name}
+          {ability.recordBoardCharacter && (
+            // A simplistic way of allowing searching (at least from a browser)
+            <span className="sr-only">({ability.recordBoardCharacter})</span>
+          )}
         </td>
         <td className={styles.effects}>
           {/* Omit tooltip here - it's too big of an area to have a big distracting text box */}
@@ -118,7 +123,10 @@ export class AbilitiesTable extends React.PureComponent<Props> {
   }
 
   renderAbilityList(abilities: EnlirAbility[]) {
-    return groupAbilities(abilities).map((ability, j) => this.renderRow(ability, j));
+    if (this.props.allowGrouping !== false) {
+      abilities = groupAbilities(abilities);
+    }
+    return abilities.map((ability, j) => this.renderRow(ability, j));
   }
 
   render() {

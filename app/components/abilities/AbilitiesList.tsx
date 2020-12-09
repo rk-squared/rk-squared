@@ -137,10 +137,11 @@ export class AbilitiesList extends React.PureComponent<Props> {
   }
 
   render() {
-    const { rarity, showRecordBoard, sort } = this.props;
+    let { rarity, showRecordBoard, sort } = this.props;
     const abilitiesTooltipId = `abilities-${rarity}-tooltips`;
     const orbCostsTooltipId = `orbCosts-${rarity}-tooltips`;
-    const handler = abilitySortHandlers[sort || AbilitySortType.BySchool];
+    sort = sort == null ? AbilitySortType.BySchool : sort;
+    const handler = abilitySortHandlers[sort];
     const abilities = handler.getter(rarity, showRecordBoard);
     return (
       <>
@@ -152,6 +153,7 @@ export class AbilitiesList extends React.PureComponent<Props> {
           showRecordBoard={showRecordBoard}
           abilitiesTooltipId={abilitiesTooltipId}
           orbCostsTooltipId={orbCostsTooltipId}
+          allowGrouping={sort !== AbilitySortType.ByCharacter}
         />
         <AbilityTooltip id={abilitiesTooltipId} />
         <OrbCostsTooltip id={orbCostsTooltipId} />

@@ -9,6 +9,7 @@ import { produce } from 'immer';
 import * as _ from 'lodash';
 
 import {
+  AbilitySortType,
   Prefs,
   PrefsAction,
   setLastFilename,
@@ -26,6 +27,7 @@ export const initialState: PrefsState = {
     [t in ItemType]: boolean;
   },
   showSoulBreaks: ShowSoulBreaksType.All,
+  recordBoardSort: AbilitySortType.ByRealm,
 };
 
 export function prefs(state: PrefsState = initialState, action: PrefsAction): PrefsState {
