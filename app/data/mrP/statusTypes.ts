@@ -69,7 +69,7 @@ export type EffectClause =
   | DoomTimer
   | DrainHp
   | Counter
-  | RowCover
+  | Cover
   | TriggeredEffect
   | AutoCure
   | ConditionalStatus
@@ -564,11 +564,12 @@ type CounterResponse =
   | { type: 'attack'; numAttacks: 1; attackMultiplier: number; overrideSkillType: EnlirSkillType }
   | { type: 'simpleSkill'; simpleSkill: SimpleSkill };
 
-// Haurchefant Cover
-interface RowCover {
-  type: 'rowCover';
+interface Cover {
+  type: 'cover';
   chance: number;
+  needsFront?: boolean;
   skillType: EnlirSkillType | EnlirSkillType[];
+  who?: common.Who;
   damageReduce: number;
 }
 

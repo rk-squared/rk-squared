@@ -69,7 +69,7 @@ CommonEffectClause
   / BreakDamageCapAll / BreakDamageCap / DamageCap
   / HpStock / Regen / FixedHpRegen / Poison / HealUp / Pain / DamageTaken / BarHeal / EmpowerHeal
   / Doom / DoomTimer / DrainHp
-  / CounterWithImmune / Counter / RowCover
+  / CounterWithImmune / Counter / Cover
   / ConditionalStatus
   / GainSb / SbGainUp / GainLb
   / DirectGrantStatus
@@ -513,11 +513,15 @@ CounterResponse
     return { type: 'simpleSkill', simpleSkill };
   }
 
-// Haurchefant Cover
-RowCover
-  = "While front row," _ chance:Integer "% chance to cover" _ skillType:SkillTypeAndList _ "attacks that target back row allies, reducing damage taken by" _ damageReduce:Integer "%" {
-    return { type: 'rowCover', chance, skillType, damageReduce };
+// Includes Haurchefant Cover and regular covers
+Cover
+  = needsFront:"While front row,"? _ chance:Integer "% chance to cover" _ skillType:SkillTypeAndList _ "attacks that target" _ who:CoverWho ", reducing damage taken by" _ damageReduce:Integer "%" {
+    return { type: 'cover', chance, skillType, damageReduce, who, needsFront: needsFront ? true : undefined };
   }
+
+CoverWho
+  = "allies" { return undefined; }
+  / "back row allies" { return 'backRow'; }
 
 CounterWithImmune
   = immune:ImmuneAttackSkills "," _ counter:Counter
@@ -979,6 +983,7 @@ SimpleSkillEffect
     _ numAttacks:(n:Integer "x" { return n; })?
     _ attackMultiplier:DecimalNumber
     _ hybridMultiplier:("or" _ n:DecimalNumber { return n; })?
+    _ ranged:"ranged"?
     _ ("physical" / "magical")? _ element:ElementSlashList?
   {
     return {
@@ -987,6 +992,7 @@ SimpleSkillEffect
       attackMultiplier,
       hybridMultiplier,
       overrideElement: element,
+      isRanged: !!ranged,
       isHybrid: !!hybrid
     };
   }

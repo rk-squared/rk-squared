@@ -1552,11 +1552,13 @@ function describeStatusEffect(
       }
     case 'counter':
       return formatCounter(effect, enlirStatus);
-    case 'rowCover':
+    case 'cover':
       return (
-        `if in front, ${effect.chance}% cover ` +
+        (effect.needsFront ? 'if in front, ' : '') +
+        `${effect.chance}% cover ` +
         arrayify(effect.skillType).join() +
-        ` vs back row, taking ${percentToMultiplier(-effect.damageReduce)}x dmg`
+        (effect.who ? ` vs ${whoText[effect.who]}` : '') +
+        `, taking ${-effect.damageReduce}% dmg`
       );
     case 'triggeredEffect':
       return formatTriggeredEffect(effect, enlirStatus, source, options, resolve);
