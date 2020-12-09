@@ -6,7 +6,14 @@ import classNames from 'classnames';
 import * as _ from 'lodash';
 
 import { RelicDrawProbabilities, wantRelic } from '../../actions/relicDraws';
-import { enlir, EnlirLegendMateria, EnlirRealm, EnlirSoulBreak, SbOrLm } from '../../data/enlir';
+import {
+  enlir,
+  EnlirLegendMateria,
+  EnlirLimitBreak,
+  EnlirRealm,
+  EnlirSoulBreak,
+  SbOrLm,
+} from '../../data/enlir';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
 import { describeRelicEffect } from '../../data/mrP/relics';
 import { convertEnlirSkillToMrP, formatMrPSkill } from '../../data/mrP/skill';
@@ -22,6 +29,7 @@ import {
   getBurstColumns,
   getSynchroColumns,
   legendMateriaAliases,
+  limitBreakAbbrevAliases,
   soulBreakAbbrevAliases,
   styles as soulBreakStyles,
   tierClass,
@@ -101,9 +109,11 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
     }
   };
 
-  renderAlias(sb?: EnlirSoulBreak, lm?: EnlirLegendMateria) {
+  renderAlias(sb?: EnlirSoulBreak, lb?: EnlirLimitBreak, lm?: EnlirLegendMateria) {
     if (sb) {
       return soulBreakAbbrevAliases[sb.id];
+    } else if (lb) {
+      return limitBreakAbbrevAliases[lb.id];
     } else if (lm) {
       return (
         <span className={soulBreakStyles.legendMateriaTier}>{legendMateriaAliases[lm.id]}</span>
@@ -133,24 +143,33 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
           <td>???</td>
           <td>???</td>
           {showProbability && <td>{probabilities!.byRelic[relicId]}%</td>}
-          {allowSelect && <td></td>}
-          {getStatusAndCss && <td className="sr-only"></td>}
+          {allowSelect && <td />}
+          {getStatusAndCss && <td className="sr-only" />}
         </tr>
       );
     }
     const { character, name, type, effect } = relic;
     const sb = enlir.relicSoulBreaks[relicId];
+    const lb = enlir.relicLimitBreaks[relicId];
     const lm = enlir.relicLegendMateria[relicId];
 
-    const tierClassName = sb ? tierClass[sb.tier] : lm ? soulBreakStyles.legendMateria : undefined;
+    const tierClassName = sb
+      ? tierClass[sb.tier]
+      : lb
+      ? tierClass[lb.tier]
+      : lm
+      ? soulBreakStyles.legendMateria
+      : undefined;
     const [status, rowClassName] = getStatusAndCss
       ? sb
         ? getStatusAndCss(sb.id, SbOrLm.SoulBreak)
+        : lb
+        ? getStatusAndCss(lb.id, SbOrLm.SoulBreak)
         : lm
         ? getStatusAndCss(lm.id, SbOrLm.LegendMateria)
         : ['', '']
       : ['', ''];
-    const mrP = sb ? convertEnlirSkillToMrP(sb) : null;
+    const mrP = sb ? convertEnlirSkillToMrP(sb) : lb ? convertEnlirSkillToMrP(lb) : null;
 
     const commandColumns: Array<[string, string]> = [];
     if (mrP && mrP.braveCommands) {
@@ -195,9 +214,11 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
             {effect && <div className={styles.relicEffect}>{describeRelicEffect(effect)}</div>}
           </td>
           <td rowSpan={rowSpan} className={soulBreakStyles.tier}>
-            {this.renderAlias(sb, lm)}
+            {this.renderAlias(sb, lb, lm)}
           </td>
-          <td className={soulBreakStyles.name}>{sb ? sb.name : lm ? lm.name : undefined}</td>
+          <td className={soulBreakStyles.name}>
+            {sb ? sb.name : lb ? lb.name : lm ? lm.name : undefined}
+          </td>
           <td>{mrP ? formatMrPSkill(mrP) : lm ? describeMrPLegendMateria(lm) : undefined}</td>
           {showProbability && <td rowSpan={rowSpan}>{probabilities!.byRelic[relicId]}%</td>}
           {allowSelect && (
