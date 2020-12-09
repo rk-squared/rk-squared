@@ -33,6 +33,7 @@ import {
   formatMrPSkill,
   processSkillStatus,
   OtherDetail,
+  describeDrainHp,
 } from './skill';
 import {
   displayStatusLevel,
@@ -838,6 +839,8 @@ function formatSimpleSkillEffect(
       processSkillStatus('simple', [effect], effect, other);
       return other.combine(false, false);
     }
+    case 'drainHp':
+      return describeDrainHp(effect);
     case 'damagesUndead':
       return null;
   }
@@ -1309,7 +1312,10 @@ function describeStatusEffect(
 
   switch (effect.type) {
     case 'statMod':
-      return formatStatMod(effect, resolve);
+      return (
+        formatStatMod(effect, resolve) +
+        (effect.condition ? ' ' + describeCondition(effect.condition) : '')
+      );
     case 'statBuildup': {
       const stats = arrayify(effect.stat)
         .join('/')
@@ -1677,6 +1683,12 @@ function describeStatusEffect(
       return "can't act";
     case 'stun':
       return 'stun';
+    case 'gilUp':
+      return (
+        formatChance(effect.chance) +
+        `bonus ${effect.value}% Gil` +
+        (effect.condition ? ' ' + describeCondition(effect.condition) : '')
+      );
   }
 }
 

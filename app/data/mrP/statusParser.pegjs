@@ -50,7 +50,7 @@ LmEffectClause
   // Additional legend materia-specific variations and wording.  We keep these
   // separate to try and keep the status effects section of the database a bit
   // cleaner.
-  / StatBuildupLm / StatModDurationUpLm / StatShareLm / FullAtbRoundStartLm / DamageResistLm / MulticastLm / HealUpLm / DrainHpLm
+  / StatBuildupLm / StatModDurationUpLm / StatShareLm / FullAtbRoundStartLm / DamageResistLm / MulticastLm / HealUpLm / DrainHpLm / GilUpLm
 
 // Effects common to statuses and legend materia.  Legend materia use very few
 // of these, but to simplify maintenance and keep things flexible, we'll only
@@ -81,8 +81,8 @@ CommonEffectClause
 // Stat mods
 
 StatMod
-  = stats:StatListOrPlaceholder _ value:(SignedIntegerOrX / [+-]? "?" { return NaN; }) "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? !(_ "for") {
-    const result = { type: 'statMod', stats, value };
+  = stats:StatListOrPlaceholder _ value:(SignedIntegerOrX / [+-]? "?" { return NaN; }) "%" ignoreBuffCaps:(_ "(ignoring the buff stacking caps)")? !(_ "for") _ condition:Condition? {
+    const result = { type: 'statMod', stats, value, condition };
     if (ignoreBuffCaps) {
       result.ignoreBuffCaps = true;
     }
@@ -673,6 +673,8 @@ SbGainUp
   = what:ElementOrSchoolList _ ("abilities" / "attacks") _ "grant" _ value:Integer _ "% more SB points" { return Object.assign({ type: 'sbGainUp', value }, what); }
   / "Attacks"i _ "that exploit an elemental weakness grant" _ value:Integer _ "% more SB points" { return { type: 'sbGainUp', value, vsWeak: true }; }
   / "Abilities"i _ "grant" _ value:Integer _ "% more SB points" { return { type: 'sbGainUp', value }; }
+  // LM variant
+  / "Exploiting"i _ "elemental weakness grants" _ value:Integer _ "% more Soul Break points (additive with the default 50% bonus)" { return { type: 'sbGainUp', value, vsWeak: true }; }
 
 GainLb
   = "Grants"i _ value:Integer _ "LB points" _ "when set"? { return { type: 'gainLb', value }; }
@@ -853,6 +855,10 @@ GameOver
 Unknown
   = "?" { return null; }
 
+GilUpLm
+  = chance:Integer "% chance to increase Gil gained at the end of battle by" _ value:Integer "%" _ condition:Condition? {
+    return { type: 'gilUp', chance, value, condition };
+  }
 
 // --------------------------------------------------------------------------
 // Triggers
@@ -1024,6 +1030,13 @@ SimpleSkillEffect
     }
     return result;
   }
+  / "smart ether" _ amount:Integer _ who:Who? {
+    return { type: 'status', who, statuses: [{ status: { type: 'smartEther', amount } }] };
+  }
+  / ("heals" _ "to"? / "restores HP to") _ "the user for" _ healPercent:Integer "% of the damage dealt" {
+    return { type: 'drainHp', healPercent };
+  }
+
 
 
 // --------------------------------------------------------------------------
@@ -1099,7 +1112,7 @@ StatusItem
 // Conditions
 
 Condition
-  = "when" _ "equipping" _ article:("a" "n"? { return text(); }) _ equipped:[a-z- ]+ { return { type: 'equipped', article, equipped: equipped.join('') }; }
+  = "when" _ "equipping" _ article:("a" "n"? { return text(); })? _ equipped:[a-z- ]+ { return { type: 'equipped', article, equipped: equipped.join('') }; }
 
   // "Level-like" or "counter-like" statuses, as seen on newer moves like
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need

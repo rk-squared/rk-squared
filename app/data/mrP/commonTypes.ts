@@ -111,7 +111,7 @@ export type Who =
 export type WithoutWith = 'without' | 'with' | 'withoutWith';
 
 export type Condition =
-  | { type: 'equipped'; article: string; equipped: string }
+  | { type: 'equipped'; article?: string; equipped: string }
   | { type: 'scaleWithStatusLevel'; status: string }
   | { type: 'statusLevel'; status: string; value: number | number[]; plus?: boolean }
   | { type: 'ifDoomed' }

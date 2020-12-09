@@ -101,7 +101,8 @@ export type EffectClause =
   | StatusReset
   | DisableAttacks
   | Paralyze
-  | Stun;
+  | Stun
+  | GilUp;
 
 // --------------------------------------------------------------------------
 // Stat mods
@@ -115,6 +116,8 @@ export interface StatMod {
 
   value: common.SignedValueOrPlaceholder<number | number[]>;
   ignoreBuffCap?: boolean;
+
+  condition?: common.Condition;
 }
 
 export interface StatBuildup {
@@ -628,6 +631,7 @@ export type SimpleSkillEffect =
   | skillTypes.Attack
   | skillTypes.Heal
   | skillTypes.StatusEffect
+  | skillTypes.DrainHp
   | common.HealPercent
   | common.DamagesUndead
   | StatMod;
@@ -847,6 +851,13 @@ interface Paralyze {
 
 interface Stun {
   type: 'stun';
+}
+
+interface GilUp {
+  type: 'gilUp';
+  chance: number;
+  value: number;
+  condition?: common.Condition;
 }
 
 // --------------------------------------------------------------------------

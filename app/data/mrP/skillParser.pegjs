@@ -298,7 +298,7 @@ SBMultiplier
 // Drain HP, recoil HP, HP-based attacks
 
 DrainHp
-  = ("heals" _ "to"? / "restores" _ "HP" _ "to") _ "the" _ "user" _ "for" _ healPercent:Integer "%" _ "of" _ "the" _ "damage" _ "dealt" _ condition:Condition? {
+  = ("heals" _ "to"? / "restores HP to") _ "the user for" _ healPercent:Integer "% of the damage dealt" _ condition:Condition? {
     return util.addCondition({
       type: 'drainHp',
       healPercent,

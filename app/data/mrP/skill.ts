@@ -134,7 +134,7 @@ function describeChain({ chainType, fieldBonus, max }: skillTypes.Chain): string
   return chain;
 }
 
-function describeDrainHp({ healPercent, condition }: skillTypes.DrainHp): string {
+export function describeDrainHp({ healPercent, condition }: skillTypes.DrainHp): string {
   return `heal ${numberOrUnknown(healPercent)}% of dmg` + appendCondition(condition);
 }
 
