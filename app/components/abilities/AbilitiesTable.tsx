@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import * as classNames from 'classnames';
+import { distance } from 'fastest-levenshtein';
 
 import { EnlirAbility } from '../../data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
@@ -72,18 +73,15 @@ export function groupAbilities(abilities: EnlirAbility[]): GroupedEnlirAbility[]
     const found = forcedGroups.find(group => group.has(ability.name));
     if (found) {
       addGroup(i, ab => found.has(ab.name));
-      continue;
+    } else {
+      addGroup(
+        i,
+        ab =>
+          ab.multiplier === ability.multiplier &&
+          ab.time === ability.time &&
+          distance(ab.effects, ability.effects) <= 15,
+      );
     }
-
-    if (ability.multiplier) {
-      addGroup(i, ab => ab.multiplier === ability.multiplier);
-      continue;
-    }
-
-    result.push({
-      ...ability,
-      groupWithNext: false,
-    });
   }
   return result;
 }
