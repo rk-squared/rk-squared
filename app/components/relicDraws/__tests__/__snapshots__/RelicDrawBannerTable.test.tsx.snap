@@ -522,7 +522,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           Innate Cheer
         </td>
         <td>
-          earth infuse at battle start
+          earth infuse 25s at battle start
         </td>
       </tr>
       <tr
@@ -1184,7 +1184,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           Innate Cheer
         </td>
         <td>
-          earth infuse at battle start
+          earth infuse 25s at battle start
         </td>
         <td>
           11
@@ -1797,7 +1797,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           Innate Cheer
         </td>
         <td>
-          earth infuse at battle start
+          earth infuse 25s at battle start
         </td>
       </tr>
       <tr

@@ -583,7 +583,7 @@ describe('skill', () => {
       expect(describeSoulBreak('Haurchefant - Live to Serve')).toEqual({
         other:
           'self Autoheal 6k, +100% DEF/RES, +50% MND 25s, ' +
-          '15s: if in front, 100% cover PHY,BLK,WHT,BLU,SUM vs back row, taking 0.5x dmg',
+          '15s: if in front, 100% cover PHY,BLK,WHT,BLU,SUM vs back row, taking -50% dmg',
       });
       expect(describeSoulBreak('Paine - Rushing Steel')).toEqual({
         damage: 'phys 7.1/10 water+non',
@@ -924,7 +924,7 @@ describe('skill', () => {
         burstCommands: [
           {
             damage: 'p2.32/4 f+n',
-            other: 'until damaged: stacking +15/30/50/50% ATK, 1.33/2/4/4x cast',
+            other: 'until take dmg: stacking +15/30/50/50% ATK, 1.33/2/4/4x cast',
             school: 'Monk',
           },
           { damage: undefined, other: 'self Negate dmg 30%', school: 'Monk' },

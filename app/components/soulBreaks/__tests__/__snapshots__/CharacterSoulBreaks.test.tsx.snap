@@ -548,7 +548,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="effects"
           >
-            lgt infuse at battle start
+            lgt infuse 25s at battle start
           </td>
         </tr>
         <tr
@@ -1174,7 +1174,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="effects"
           >
-            lgt infuse at battle start
+            lgt infuse 25s at battle start
           </td>
         </tr>
         <tr
