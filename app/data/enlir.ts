@@ -262,6 +262,7 @@ export interface EnlirGenericSkill {
   element: EnlirElement[] | null;
   time: number | null;
   effects: string;
+  patchedEffects?: string; // Overridden effects from patchEnlir
   effectsNote?: string;
   counter: boolean;
   autoTarget: string;
@@ -347,6 +348,7 @@ export interface EnlirLegendMateria {
   name: string;
   tier: EnlirLegendMateriaTier | null;
   effect: string;
+  patchedEffect?: string; // Overridden effect from patchEnlir
   master: string | null;
   relic: string | null;
   nameJp: string;
@@ -419,6 +421,7 @@ export interface EnlirStatus {
   id: number;
   name: string;
   effects: string; // May be the empty string; to simplify code, we use '' instead of null
+  patchedEffects?: string; // Overridden effects from patchEnlir
   defaultDuration: number | null;
   mndModifier: number | null;
   mndModifierIsOpposed: boolean;
@@ -714,21 +717,23 @@ function applyPatch<T>(
   }
 }
 
-function applyEffectsPatch<T extends { effects: string | undefined }>(
-  lookup: { [s: string]: T | T[] },
-  name: string,
-  from: string,
-  to: string,
-) {
-  applyPatch(lookup, name, item => item.effects === from, item => (item.effects = to));
+export function getEffects(item: EnlirGenericSkill | EnlirStatus) {
+  return item.patchedEffects != null ? item.patchedEffects : item.effects;
 }
 
-function applyEffectPatch<T extends { effect: string | undefined }>(
-  lookup: { [s: string]: T | T[] },
-  name: string,
-  from: string,
-  to: string,
-) {
+export function getEffect(item: EnlirLegendMateria) {
+  return item.patchedEffect != null ? item.patchedEffect : item.effect;
+}
+
+function applyEffectsPatch<
+  T extends { effects: string | undefined; patchedEffects?: string | undefined }
+>(lookup: { [s: string]: T | T[] }, name: string, from: string, to: string) {
+  applyPatch(lookup, name, item => item.effects === from, item => (item.patchedEffects = to));
+}
+
+function applyEffectPatch<
+  T extends { effect: string | undefined; patchedEffects?: string | undefined }
+>(lookup: { [s: string]: T | T[] }, name: string, from: string, to: string) {
   applyPatch(lookup, name, item => item.effect === from, item => (item.effect = to));
 }
 
@@ -768,7 +773,7 @@ function patchEnlir() {
       enlir.otherSkillsByName['Orbital Edge'].effects ===
         'Ten single attacks (0.50 each) and one single attack (5.00) capped at 99999, 100% hit rate',
     strike => {
-      strike.effects =
+      strike.patchedEffects =
         '3/5/5 single attacks (0.52 each) if 0/72001/240001 damage was dealt during the status. ' +
         'Additional ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999 if 240001 damage was dealt during the status';
     },
@@ -798,7 +803,7 @@ function patchEnlir() {
       enlir.otherSkillsByName['Azure Oblivion 2'].effects ===
         'One single attack (5.20) capped at 99999, causes [DEF, RES and MND -70% (8s)] and [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] to the user',
     skill => {
-      skill.effects =
+      skill.patchedEffects =
         'One single attack (5.20) capped at 99999, ' +
         'causes [DEF, RES and MND -70% (8s)] if the user has Retaliate or High Retaliate, ' +
         'causes [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] and [High Retaliate] to the user';
@@ -854,7 +859,7 @@ function patchEnlir() {
       `Windborn Swiftness ${i}`,
       mode => mode.effects.match(/[Gg]rants \[Windborn Swiftness (\d+)],/) != null,
       mode => {
-        mode.effects = mode.effects.replace(
+        mode.patchedEffects = mode.effects.replace(
           /([Gg]rants) \[Windborn Swiftness (\d+)],/,
           (match, p1, p2) => `${p1} [Windborn Swiftness ${p2}] after using a Monk ability,`,
         );

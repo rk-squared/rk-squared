@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import * as process from 'process';
 import * as yargs from 'yargs';
 
-import { enlir, EnlirSkill, soulBreakTierOrder } from '../app/data/enlir';
+import { enlir, EnlirSkill, getEffects, soulBreakTierOrder } from '../app/data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrp/skill';
 import { parse, SyntaxError } from '../app/data/mrp/skillParser';
 import { SkillEffect } from '../app/data/mrP/skillTypes';
@@ -95,7 +95,7 @@ function processEffects<T extends EnlirSkill>(
     parseError: SyntaxError | undefined,
   ) {
     console.log(getName(item));
-    console.log(item.effects);
+    console.log(getEffects(item));
     if (parseResults) {
       console.dir(parseResults, { depth: null });
       const mrP = convertEnlirSkillToMrP(item);
@@ -139,7 +139,7 @@ function processEffects<T extends EnlirSkill>(
     } catch (e) {
       if (e.name !== 'SyntaxError') {
         console.log(getName(i));
-        console.log(i.effects);
+        console.log(getEffects(i));
         throw e;
       }
       parseError = e;

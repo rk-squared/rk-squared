@@ -14,6 +14,7 @@ import {
   EnlirStatus,
   EnlirStatusPlaceholders,
   EnlirStatusWithPlaceholders,
+  getEffects,
   getEnlirOtherSkill,
   getEnlirStatusByName,
   getEnlirStatusWithPlaceholders,
@@ -120,7 +121,7 @@ const getCastString = (value: number) =>
   value === 2 ? 'fast' : value === 3 ? 'hi fast' : value.toString() + 'x ';
 
 const memoizedProcessor = (status: EnlirStatus) =>
-  preprocessStatus(statusParser.parse(status.effects), status);
+  preprocessStatus(statusParser.parse(getEffects(status)), status);
 
 const failedStatusIds = new Set<number>();
 
@@ -370,11 +371,12 @@ const isSoulBreakMode = ({ name, codedName }: EnlirStatus) =>
  * statuses provided by a single Ultra or Awakening soul break.
  */
 export function isModeStatus(enlirStatus: EnlirStatus): boolean {
-  const { name, codedName, effects } = enlirStatus;
+  const { name, codedName } = enlirStatus;
   if (isSoulBreakMode(enlirStatus)) {
     return false;
   } else {
     const codedNameString = codedName || '';
+    const effects = getEffects(enlirStatus);
     return (
       !!codedNameString.match(/_MODE/) ||
       name.endsWith(' Mode') ||
@@ -427,8 +429,8 @@ function forceDetail({ name }: EnlirStatus) {
   );
 }
 
-function isBurstToggle({ effects }: EnlirStatus) {
-  return effects.match(/affects certain burst commands/i) != null;
+function isBurstToggle(status: EnlirStatus) {
+  return getEffects(status).match(/affects certain burst commands/i) != null;
 }
 
 export const allTranceStatus = new Set(
@@ -462,8 +464,10 @@ export function isTranceStatus({ name }: EnlirStatus) {
  * here; it's easier to special case those within describeEnlirStatus than to
  * make describeEffects smart enough to handle them.
  */
-const isCustomStatMod = ({ name, codedName, effects }: EnlirStatus) =>
-  (codedName && codedName.startsWith('CUSTOM_PARAM_') && !effects.match(/, lasts for \d+ turn/)) ||
+const isCustomStatMod = ({ name, codedName, effects, patchedEffects }: EnlirStatus) =>
+  (codedName &&
+    codedName.startsWith('CUSTOM_PARAM_') &&
+    !(patchedEffects || effects).match(/, lasts for \d+ turn/)) ||
   name === 'Advance';
 
 interface AnyType {

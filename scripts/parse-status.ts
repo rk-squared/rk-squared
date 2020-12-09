@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import * as process from 'process';
 import * as yargs from 'yargs';
 
-import { enlir, EnlirStatus } from '../app/data/enlir';
+import { enlir, EnlirStatus, getEffects } from '../app/data/enlir';
 import { parseEnlirStatus } from '../app/data/mrP/status';
 import { parse, SyntaxError } from '../app/data/mrp/statusParser';
 import { StatusEffect } from '../app/data/mrP/statusTypes';
@@ -76,7 +76,7 @@ function processStatuses(): [number, number] {
     parseError: SyntaxError | undefined,
   ) {
     console.log(item.id + ' - ' + item.name);
-    console.log(item.effects);
+    console.log(getEffects(item));
     if (parseResults) {
       console.dir(parseResults, { depth: null });
       console.dir(parseEnlirStatus(item.name), { depth: null });

@@ -8,6 +8,7 @@ import {
   EnlirSchool,
   EnlirSkill,
   EnlirTarget,
+  getEffects,
   getEnlirTrueArcaneLevel,
   getEnlirTrueArcaneTracker,
   getNormalSBPoints,
@@ -106,7 +107,7 @@ function preprocessSkill(
 
 export function safeParseSkill(skill: EnlirSkill): skillTypes.SkillEffect | null {
   try {
-    return preprocessSkill(skillParser.parse(skill.effects), skill);
+    return preprocessSkill(skillParser.parse(getEffects(skill)), skill);
   } catch (e) {
     logger.error(`Failed to parse ${skill.name}:`);
     logException(e);

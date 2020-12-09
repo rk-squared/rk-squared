@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 
 import { arrayify, arrayifyLength, KeysOfType } from '../../utils/typeUtils';
-import { enlir, EnlirStatus, getEnlirStatusByName } from '../enlir';
+import { enlir, EnlirStatus, getEffects, getEnlirStatusByName } from '../enlir';
 import * as common from './commonTypes';
 import * as skillTypes from './skillTypes';
 import { describeEnlirStatus, describeEnlirStatusAndDuration, isModeStatus } from './status';
@@ -85,7 +85,7 @@ function describeStatusOrStatusAlias(status: string) {
     //
     // As a special case to the special case, Thunder God's Might is short and
     // well-known, so don't abbreviate it.
-    return isModeStatus(enlirStatus) && enlirStatus.effects.length > 20
+    return isModeStatus(enlirStatus) && getEffects(enlirStatus).length > 20
       ? 'mode'
       : describeEnlirStatus(status);
   } else {
