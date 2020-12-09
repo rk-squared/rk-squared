@@ -231,9 +231,12 @@ export function describeDamageType(
 function describeHybridDamageType(
   skill: EnlirSkill | SimpleSkill,
   attack: skillTypes.Attack,
+  typeDetails?: EnlirSkillType[],
 ): MrPDamageType | undefined {
   if (!attack.isHybrid) {
     return undefined;
+  } else if (typeDetails && typeDetails.length === 2) {
+    return describeDamageType('Magical', typeDetails[1]);
   } else if (skill !== 'simple' && skill.typeDetails && skill.typeDetails.length === 2) {
     return describeDamageType('Magical', skill.typeDetails[1]);
   } else {
@@ -622,9 +625,10 @@ export function describeAttack(
 
   let damage = '';
 
-  const hybridDamageType = describeHybridDamageType(skill, attack);
   const typeDetails =
-    attack.isHybrid && skill !== 'simple' && skill.typeDetails ? skill.typeDetails : undefined;
+    attack.overrideSkillTypeDetails ||
+    (attack.isHybrid && skill !== 'simple' && skill.typeDetails ? skill.typeDetails : undefined);
+  const hybridDamageType = describeHybridDamageType(skill, attack, typeDetails);
   const abbreviate = opt.abbreviate || opt.abbreviateDamageType || !!hybridDamageType;
   const simpleFollowedBy = attack.followedBy && isSimpleFollowedBy(attack);
   damage += attack.isAoE ? 'AoE ' : '';

@@ -622,7 +622,7 @@ export interface CastSimpleSkill {
 }
 
 export interface SimpleSkill {
-  skillType: EnlirSkillType;
+  skillType: EnlirSkillType | EnlirSkillType[];
   isAoE: boolean;
   effects: SimpleSkillEffect[];
 }
@@ -883,6 +883,7 @@ export type Trigger =
   | { type: 'damaged'; skillType?: EnlirSkillType }
   | { type: 'dealDamage' }
   | { type: 'loseStatus'; status: string }
+  | { type: 'triggerStatus'; status: string }
   | { type: 'skill'; skill: string | string[]; count?: number | number[]; plus?: number }
   | { type: 'skillTriggered'; skill: string; count: number; isSelfSkill?: boolean }
   | {

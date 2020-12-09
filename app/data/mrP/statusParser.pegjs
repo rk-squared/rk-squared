@@ -891,6 +891,7 @@ Trigger
   / "upon"i _ "taking damage" skillType:(_ "by" _ s:SkillType _ "attack" { return s; })? { return { type: 'damaged', skillType }; }
   / "by"i _ skillType:SkillType _ "attacks" { return { type: 'damaged', skillType }; }
   / "upon"i _ "dealing damage" { return { type: 'dealDamage' }; }
+  / "when Reraise is triggered" { return { type: 'triggerStatus', status: 'Reraise' }; }
   / "when"i _ "any"? _ status:StatusName _ "is removed" { return { type: 'loseStatus', status }; }
   / ("when"i / "after"i) _ "any"? _ status:StatusNameNoBrackets _ "is removed" { return { type: 'loseStatus', status }; }
 
@@ -978,7 +979,7 @@ Skill1Or2
 // "Simple skills" - inline effects, listed in parentheses, used by legend materia
 
 SimpleSkill
-  = skillType:SkillType ":" _ isAoE:("single" / "group" / "random") ","?
+  = skillType:SkillTypeSlashList ":" _ isAoE:("single" / "group" / "random") ","?
   & { wantInfinitive.push(false); return true; }
   _ head:SimpleSkillEffect tail:(',' _ SimpleSkillEffect)* {
     wantInfinitive.pop();
@@ -1030,8 +1031,8 @@ SimpleSkillEffect
     }
     return result;
   }
-  / "smart ether" _ amount:Integer _ who:Who? {
-    return { type: 'status', who, statuses: [{ status: { type: 'smartEther', amount } }] };
+  / smartEther:SmartEtherStatus _ who:Who? {
+    return { type: 'status', who, statuses: [{ status: smartEther }] };
   }
   / ("heals" _ "to"? / "restores HP to") _ "the user for" _ healPercent:Integer "% of the damage dealt" {
     return { type: 'drainHp', healPercent };
@@ -1424,6 +1425,9 @@ SkillTypeAndList "skill type list"
 
 SkillTypeAndOrList "skill type list"
   = head:SkillType tail:(AndOrList SkillType)* { return util.pegList(head, tail, 1, true); }
+
+SkillTypeSlashList "skill type list"
+  = head:SkillType tail:('/' SkillType)* { return util.pegList(head, tail, 1, true); }
 
 Element "element"
   = "Fire"

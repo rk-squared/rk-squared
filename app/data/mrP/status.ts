@@ -700,6 +700,8 @@ export function formatTrigger(
       return 'next atk';
     case 'loseStatus':
       return (statusLevelAlias[trigger.status] || trigger.status) + ' lost';
+    case 'triggerStatus':
+      return statusLevelAlias[trigger.status] || trigger.status;
     case 'skill':
       return (
         (trigger.count ? numberSlashList(trigger.count) + (trigger.plus ? '+' : '') + ' ' : '') +
@@ -807,10 +809,25 @@ function formatSimpleSkillEffect(
 ) {
   switch (effect.type) {
     case 'attack': {
-      const overrideSkillType = effect.isHybrid ? 'PHY' : skill.skillType;
+      let overrideSkillType: EnlirSkillType;
+      let overrideSkillTypeDetails: EnlirSkillType[] | undefined;
+      if (Array.isArray(skill.skillType)) {
+        overrideSkillType = skill.skillType[0];
+        overrideSkillTypeDetails = skill.skillType;
+      } else if (effect.isHybrid) {
+        // By convention / default for older abilities, the first ability in a
+        // hybrid is PHY.
+        overrideSkillType = 'PHY';
+      } else {
+        overrideSkillType = skill.skillType;
+      }
       return (
         (skill.isAoE ? 'AoE ' : '') +
-        describeAttack('simple', { ...effect, overrideSkillType }, simpleAttackOptions)
+        describeAttack(
+          'simple',
+          { ...effect, overrideSkillType, overrideSkillTypeDetails },
+          simpleAttackOptions,
+        )
       );
     }
     case 'heal': {

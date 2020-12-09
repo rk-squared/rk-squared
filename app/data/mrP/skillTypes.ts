@@ -85,6 +85,7 @@ export interface AttackMultiplierGroup {
   scaleToMultiplier?: number;
   multiplierScaleType?: MultiplierScaleType;
   overrideSkillType?: EnlirSkillType;
+  overrideSkillTypeDetails?: EnlirSkillType[];
 }
 
 export type AttackScaleType = common.Condition;
