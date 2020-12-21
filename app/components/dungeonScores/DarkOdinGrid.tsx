@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ColDef } from 'ag-grid';
+import { ColDef } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 import { connect } from 'react-redux';
 

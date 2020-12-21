@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ColDef, GridApi, GridReadyEvent, RowNode } from 'ag-grid';
+import { ColDef, GridApi, GridReadyEvent, RowNode } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 import * as ReactTooltip from 'react-tooltip';
 
@@ -34,7 +34,7 @@ function compareByNumberField(fieldName: string): Comparator {
 export class RecordMateriaGrid extends React.Component<Props, State> {
   columnDefs: ColDef[];
   objectValues = _.memoize(_.values);
-  api: GridApi | undefined;
+  api: GridApi | null | undefined;
 
   constructor(props: Props) {
     super(props);
@@ -78,7 +78,9 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
 
   handleGridReady = ({ api }: GridReadyEvent) => {
     this.api = api;
-    this.setState({ count: api.getDisplayedRowCount() });
+    if (api) {
+      this.setState({ count: api.getDisplayedRowCount() });
+    }
   };
 
   handleFilter = (e: React.FormEvent<HTMLInputElement>) => {

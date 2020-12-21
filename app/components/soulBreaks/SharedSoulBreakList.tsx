@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as _ from 'lodash';
 
-import { ColDef, ICellRendererParams } from 'ag-grid';
+import { ColDef, ICellRendererParams } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 
 import { makeSoulBreaksFilter, ShowSoulBreaksType } from '../../actions/prefs';
