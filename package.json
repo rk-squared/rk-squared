@@ -124,7 +124,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "concurrently \"lint-staged\" \"yarn-deduplicate --list --fail\""
     }
   },
   "reactSnap": {
@@ -255,7 +255,8 @@
     "webpack-hot-middleware": "^2.13.2",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.1.1",
-    "workbox-webpack-plugin": "^4.1.1"
+    "workbox-webpack-plugin": "^4.1.1",
+    "yarn-deduplicate": "^3.1.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.7.1",
@@ -267,8 +268,8 @@
     "@types/lodash": "^4.14.106",
     "@types/lodash-es": "^4.17.3",
     "@types/sprintf-js": "^1.1.1",
-    "ag-grid-community": "^19.0.0",
-    "ag-grid-react": "^19.0.0",
+    "ag-grid-community": "^21.0.0",
+    "ag-grid-react": "^21.0.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.0",
     "cheerio": "^1.0.0-rc.2",
