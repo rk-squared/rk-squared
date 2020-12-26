@@ -201,6 +201,12 @@ export const dressRecords: DressRecord[] = [
   },
 
   {
+    name: 'Ministerial Vestiture',
+    id: 121100100,
+    characterId: 11100100,
+  },
+
+  {
     name: 'Knight of Etro',
     id: 121300100,
     characterId: 11300100,
@@ -236,6 +242,12 @@ export const dressRecords: DressRecord[] = [
     name: 'Knight Delita',
     id: 125000200,
     characterId: 15000300,
+  },
+
+  {
+    name: 'Combat Overcoat',
+    id: 126000100,
+    characterId: 16000100,
   },
 
   {
