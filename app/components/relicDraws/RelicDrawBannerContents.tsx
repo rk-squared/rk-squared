@@ -41,19 +41,26 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
     if (!banner.selections || !banner.selections.length) {
       return null;
     }
+    const allowCollapse = banner.selections.length > 1;
     return (
-      <RelicDrawBannerTable
-        title={'Available Selections'}
-        relics={banner.selections}
-        isAnonymous={isAnonymous}
-        groupBySeries={true}
-        allowSelect={true}
-        includeAvailability={true}
-        prefsMenu={() => <RelicSelectionPrefsMenu isAnonymous={isAnonymous} />}
-        filter={(id: number) =>
-          !visibleExchangeShopSelections || visibleExchangeShopSelections.has(id)
-        }
-      />
+      <>
+        {banner.selections.map((selections, i) => (
+          <RelicDrawBannerTable
+            key={i}
+            title={'Available Selections' + (selections.name ? ` (${selections.name})` : '')}
+            relics={selections.ids}
+            isAnonymous={isAnonymous}
+            groupBySeries={true}
+            allowSelect={true}
+            allowCollapse={allowCollapse}
+            includeAvailability={true}
+            prefsMenu={() => <RelicSelectionPrefsMenu isAnonymous={isAnonymous} />}
+            filter={(id: number) =>
+              !visibleExchangeShopSelections || visibleExchangeShopSelections.has(id)
+            }
+          />
+        ))}
+      </>
     );
   }
 
@@ -124,10 +131,21 @@ export class RelicDrawBannerContents extends React.PureComponent<Props> {
   }
 
   render() {
+    const { banner } = this.props;
+
+    // If there's one selectable group, then assume that it's a Dream select,
+    // or draw 2 + pick AASB, or similar, where the focus is the selection.
+    //
+    // If there are multiple selectable groups, then assume it's, e.g., a Fest
+    // banner with a stamp sheet, where the focus is the featured relics.
+    const primarySelections = banner.selections && banner.selections.length === 1;
+    const secondarySelections = banner.selections && banner.selections.length > 1;
+
     return (
       <>
-        {this.renderSelections()}
+        {primarySelections && this.renderSelections()}
         {this.renderFeatured()}
+        {secondarySelections && this.renderSelections()}
         {this.renderAll()}
         {this.renderOffBanner()}
         {this.renderFallback()}

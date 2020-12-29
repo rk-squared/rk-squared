@@ -92,6 +92,7 @@ export interface GachaSeriesList {
     disp_order: number;
     required_item_num: number;
     exchange_shop_id: NumberAsString;
+    button_type_name?: string;
   }>;
 
   show_closed_at_flg: boolean;

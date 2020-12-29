@@ -8,6 +8,7 @@ import {
   RelicDrawBanner,
   RelicDrawGroup,
   RelicDrawProbabilities,
+  getBannerExchangeShopIds,
 } from '../actions/relicDraws';
 import { getRelicAnimaWave } from '../data/anima';
 import { enlir } from '../data/enlir';
@@ -17,6 +18,7 @@ import { RelicDrawState } from '../reducers/relicDraws';
 import { difference } from '../utils/setUtils';
 import { isClosed } from '../utils/timeUtils';
 import { getOwnedLegendMateria, getOwnedRelics, getOwnedSoulBreaks } from './characters';
+import { simpleFilter } from '../utils/typeUtils';
 
 export interface RelicDrawBannerDetails extends RelicDrawBanner {
   /**
@@ -32,7 +34,7 @@ export interface RelicDrawBannerDetails extends RelicDrawBanner {
    */
   dupeCount?: number;
 
-  selections?: ExchangeShopSelections;
+  selections?: Array<{ name?: string; ids: ExchangeShopSelections }>;
 }
 
 export interface RelicDrawGroupDetails extends RelicDrawGroup {
@@ -76,6 +78,24 @@ export interface RelicDrawBannersAndGroups {
   [group: string]: RelicDrawBannerOrGroup[];
 }
 
+function getOneBannerSelections(
+  { exchangeShopId }: RelicDrawBanner,
+  allSelections: { [exchangeShopId: number]: ExchangeShopSelections },
+) {
+  if (!exchangeShopId) {
+    return undefined;
+  } else if (typeof exchangeShopId === 'number') {
+    return allSelections[exchangeShopId] ? [{ ids: allSelections[exchangeShopId] }] : undefined;
+  } else {
+    const result = simpleFilter(
+      _.toPairs(exchangeShopId).map(([id, name]) =>
+        allSelections[+id] ? { name, ids: allSelections[+id] } : undefined,
+      ),
+    );
+    return result.length ? result : undefined;
+  }
+}
+
 function getOneBannerDetails(
   banner: RelicDrawBanner,
   probabilities: RelicDrawProbabilities | undefined,
@@ -84,8 +104,7 @@ function getOneBannerDetails(
   ownedLegendMateria: Set<number> | undefined,
   currentTime: number,
 ): RelicDrawBannerDetails {
-  const selections =
-    banner.exchangeShopId && allSelections ? allSelections[banner.exchangeShopId] : undefined;
+  const selections = getOneBannerSelections(banner, allSelections);
   const closed = isClosed(banner, currentTime);
 
   const result = {
@@ -196,14 +215,15 @@ export const getMissingBanners = createSelector<IState, RelicDrawState, number, 
         .map(i => +i),
     );
 
-    // Remove banner IDs for which we have probabilities and don't need selections.
-    // Checking selections != null is to accommodate in-development stores that
-    // lacked `selections`.
-    const needsSelection = (bannerId: number) =>
-      banners[bannerId] &&
-      banners[bannerId].exchangeShopId != null &&
-      selections != null &&
-      !selections[banners[bannerId].exchangeShopId!];
+    // Remove banner IDs for which we have probabilities and don't need
+    // selections. Checking selections != null is to accommodate in-development
+    // stores that lacked `selections`.
+    const needsSelection = (bannerId: number) => {
+      const exchangeShopIds = banners[bannerId]
+        ? getBannerExchangeShopIds(banners[bannerId])
+        : undefined;
+      return selections == null || _.some(exchangeShopIds, i => !selections[i]);
+    };
     _.keys(probabilities)
       .filter(i => !needsSelection(+i))
       .forEach(i => missing.delete(+i));
@@ -222,9 +242,13 @@ export const getNewExchangeShopSelections = createSelector<
   (state: IState) => state.timeState.currentTime,
   ({ banners, selections }, currentTime) => {
     const openShopIds = new Set<number>(
-      _.values(banners)
-        .filter(i => !isClosed(i, currentTime) && i.exchangeShopId)
-        .map(i => i.exchangeShopId!),
+      _.flatten(
+        simpleFilter(
+          _.values(banners)
+            .filter(i => !isClosed(i, currentTime))
+            .map(getBannerExchangeShopIds),
+        ),
+      ),
     );
 
     function getSelections(wantOpen: boolean): Set<number> {

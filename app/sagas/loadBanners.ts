@@ -11,6 +11,7 @@ import {
   setExchangeShopSelections,
   setRelicDrawBannersAndGroups,
   setRelicDrawProbabilities,
+  getBannerExchangeShopIds,
 } from '../actions/relicDraws';
 import { getLang } from '../actions/session';
 import * as apiUrls from '../api/apiUrls';
@@ -82,23 +83,24 @@ export function* doLoadBanners(action: ReturnType<typeof loadBanners>) {
       (state: IState) => state.relicDraws,
     )) as RelicDrawState;
     if (banners[bannerId]) {
-      const exchangeShopId = banners[bannerId].exchangeShopId;
-      if (exchangeShopId && !selections[exchangeShopId]) {
-        logger.info(`Getting selections for banner ${bannerId} (shop ID ${exchangeShopId})...`);
+      for (const exchangeShopId of getBannerExchangeShopIds(banners[bannerId]) || []) {
+        if (!selections[exchangeShopId]) {
+          logger.info(`Getting selections for banner ${bannerId} (shop ID ${exchangeShopId})...`);
 
-        const selectionsResult = yield callApi(
-          apiUrls.exchangeShopPrizeList(lang, exchangeShopId),
-          session,
-          (response: AxiosResponse) => {
-            // FIXME: Validate data
-            const shopSelections = convertExchangeShopSelections(
-              response.data as gachaSchemas.ExchangeShopPrizeList,
-            );
-            return setExchangeShopSelections(exchangeShopId, shopSelections);
-          },
-        );
-        if (selectionsResult != null) {
-          yield put(selectionsResult);
+          const selectionsResult = yield callApi(
+            apiUrls.exchangeShopPrizeList(lang, exchangeShopId),
+            session,
+            (response: AxiosResponse) => {
+              // FIXME: Validate data
+              const shopSelections = convertExchangeShopSelections(
+                response.data as gachaSchemas.ExchangeShopPrizeList,
+              );
+              return setExchangeShopSelections(exchangeShopId, shopSelections);
+            },
+          );
+          if (selectionsResult != null) {
+            yield put(selectionsResult);
+          }
         }
       }
     }

@@ -57,11 +57,33 @@ function parseRiseMessage(riseMessage: string) {
   };
 }
 
-function getExchangeShopId(gacha: gachaSchemas.GachaSeriesList) {
+function getExchangeShopName(name: string | undefined, index: number) {
+  const exchangeShopNames: { [s: string]: string } = {
+    ULTRA: 'USBs',
+    SENGI_OR_LEGEND_MATERIA: 'Glints and LMRs',
+    SYNCHRO: 'Syncs',
+  };
+  if (name && exchangeShopNames[name]) {
+    return exchangeShopNames[name];
+  } else if (name) {
+    return _.upperFirst(_.lowerCase(name));
+  } else {
+    return `Group ${index + 1}`;
+  }
+}
+
+function getExchangeShopIds(gacha: gachaSchemas.GachaSeriesList) {
   if (gacha.exchange_shop_id != null && +gacha.exchange_shop_id !== 0) {
     return +gacha.exchange_shop_id;
-  } else if (gacha.exchange_shop_info != null && gacha.exchange_shop_info.length) {
+  } else if (gacha.exchange_shop_info != null && gacha.exchange_shop_info.length === 1) {
     return +gacha.exchange_shop_info[0].exchange_shop_id;
+  } else if (gacha.exchange_shop_info != null && gacha.exchange_shop_info.length > 1) {
+    return _.fromPairs(
+      gacha.exchange_shop_info.map<[number, string]>((info, i) => [
+        +info.exchange_shop_id,
+        getExchangeShopName(info.button_type_name, i),
+      ]),
+    );
   } else {
     return undefined;
   }
@@ -74,7 +96,7 @@ export function convertBanner(
 ): RelicDrawBanner {
   const entryPoints = _.flatten(gacha.box_list.map(i => i.entry_point_list));
   const { guaranteedRarity, guaranteedCount } = parseRiseMessage(gacha.rise_message);
-  const exchangeShopId = getExchangeShopId(gacha);
+  const exchangeShopId = getExchangeShopIds(gacha);
   return {
     id: gacha.series_id,
     openedAt: gacha.opened_at,

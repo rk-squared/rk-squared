@@ -47,7 +47,10 @@ export interface RelicDrawBanner {
   canSelect: boolean;
   pullLimit?: number;
 
-  exchangeShopId?: number;
+  /**
+   * Either a single ID, or a set of IDs and names.
+   */
+  exchangeShopId?: number | { [id: number]: string };
 
   group?: string;
 
@@ -75,6 +78,16 @@ export interface RelicDrawProbabilities {
 }
 
 export type ExchangeShopSelections = number[][];
+
+export function getBannerExchangeShopIds(banner: RelicDrawBanner): number[] | undefined {
+  if (!banner.exchangeShopId) {
+    return undefined;
+  } else if (typeof banner.exchangeShopId === 'number') {
+    return [banner.exchangeShopId];
+  } else {
+    return _.keys(banner.exchangeShopId).map(i => +i);
+  }
+}
 
 export function getOffBannerRelics(
   banner: RelicDrawBanner,
