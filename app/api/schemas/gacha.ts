@@ -31,16 +31,18 @@ interface GachaConfig {
   pay_cost_011_half: number;
   // Cost in gems for a full-price 1x pull
   pay_cost_001: number;
+  mythril_pay_cost_011_half?: number;
 }
 
 /**
- * Used to group together the series happy draws (realms on parade)
+ * Used to group together Realms on Parade/Luck of the REalms, Elemental Lucky
+ * Relic Draws, and Realm Relic Draws.
  */
 export interface GachaGroup {
   priority: number;
   closed_at: number;
   line_up_image_path: string;
-  content_series_ids: number[];
+  content_series_ids: number[]; // maps to GachaSeriesList.series_id
   series_id: number;
   opened_at: number;
   tab_type_list: number[];
@@ -73,7 +75,7 @@ export interface GachaSeriesList {
   additional_appeal_type: number;
   bgm: string;
   rise_image_path: RelativeUrlPath;
-  series_name: string;
+  series_name: string; // describes the banner; often in Japanese
   tab_type_list: number[];
   bgm_id: number;
   total_executable_num: number; // 1 for a one-time banner (Realm Dungeon Lucky Draw), 0 otherwise

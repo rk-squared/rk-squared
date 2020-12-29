@@ -35,11 +35,12 @@
     margin-bottom: 10px;
     // Duplicated from <small>
     font-size: 80%;
+    display: flex;
   }
 
   span.count {
     display: inline-block;
-    width: 60%;
+    flex-grow: 1;
   }
 
   .mythrilCost {
@@ -54,7 +55,7 @@
 
   span.openedClosedAt {
     display: inline-block;
-    width: 40%;
+    flex-grow: 1;
     text-align: right;
   }
 }
