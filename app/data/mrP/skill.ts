@@ -429,6 +429,10 @@ export function getCommandDetail(skillName: string) {
   }
   const detail = m[1];
 
+  if (detail === 'S') {
+    return 'if ON';
+  }
+
   let status = enlir.statusByName[detail];
   if (status && isTranceStatus(status)) {
     return 'Trance';
