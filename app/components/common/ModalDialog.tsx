@@ -18,12 +18,21 @@ interface Props {
 export class ModalDialog extends React.Component<Props> {
   render() {
     const { isOpen, onClose, title, className, children } = this.props;
+
+    const overlayStyles = {
+      backgroundColor: 'rgba(0, 0, 0, 0.50)',
+      overflowY: 'auto',
+      // Ensure that the overlay appears on top of anything else using z-index
+      // (e.g., RelicDrawBannerTable).
+      zIndex: 100,
+    };
+
     return (
       <Modal
         isOpen={isOpen}
         onRequestClose={onClose}
         className={classNames('modal-dialog', className)}
-        style={{ overlay: { backgroundColor: 'rgba(0, 0, 0, 0.50)', overflowY: 'auto' } }}
+        style={{ overlay: overlayStyles }}
       >
         <div className="modal-content">
           {title && (

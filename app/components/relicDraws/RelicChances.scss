@@ -3,6 +3,9 @@
 
 :local {
   .component {
+    // Ensure that this appears on top of RelicDrawBannerTable's withPrefsMenu headers.
+    z-index: 20;
+
     > :global(.card-body) {
       padding: 0.5rem 0.75rem;
     }

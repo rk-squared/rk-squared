@@ -47,15 +47,20 @@
     // benefit from .table-responsive due to generally poor mobile support.
     div.container {
       overflow-x: visible;
+
+      // Don't let the drop-down menu appear under later sticky headers.  Use
+      // descending z-index to accomplish this.
+      // https://stackoverflow.com/a/36609688/25507
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) th.sectionHead.withPrefsMenu {
+          z-index: #{10 - $i};
+        }
+      }
     }
 
     th.sectionHead {
       position: sticky;
       top: 0;
-    }
-    th.sectionHead.withPrefsMenu {
-      // Don't let the drop-down menu appear under later sticky headers.
-      z-index: 10;
     }
 
     col.characterColumn {
