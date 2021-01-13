@@ -48,7 +48,8 @@ export interface RelicDrawBanner {
   pullLimit?: number;
 
   /**
-   * Either a single ID, or a set of IDs and names.
+   * Either a single ID (for dream selections, special sets, etc.), or a set of
+   * IDs and names (for stamp sheets).
    */
   exchangeShopId?: number | { [id: number]: string };
 

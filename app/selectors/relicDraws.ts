@@ -250,19 +250,23 @@ export const getNewExchangeShopSelections = createSelector<
         ),
       ),
     );
+    // Stamp sheet shop IDs. Because one fest banner's stamp sheet selection
+    // may close while the next fest banner is open, evaluating them will cause
+    // us to miss new relics.
+    const stampShopIds = new Set<number>(
+      _.flatten(
+        simpleFilter(_.values(banners).map(getBannerExchangeShopIds)).filter(i => i.length > 1),
+      ),
+    );
 
-    function getSelections(wantOpen: boolean): Set<number> {
+    function getSelections(f: (id: number) => boolean): Set<number> {
       return new Set<number>(
-        _.flatten(
-          _.filter(selections, (items, id) => openShopIds.has(+id) === wantOpen).map(items =>
-            _.flatten(items),
-          ),
-        ),
+        _.flatten(_.filter(selections, (items, id) => f(+id)).map(items => _.flatten(items))),
       );
     }
 
-    const closedSelections = getSelections(false);
-    const openSelections = getSelections(true);
+    const closedSelections = getSelections(id => !openShopIds.has(id) && !stampShopIds.has(id));
+    const openSelections = getSelections(id => openShopIds.has(id));
 
     return difference(openSelections, closedSelections);
   },
