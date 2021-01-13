@@ -232,6 +232,11 @@ export const dressRecords: DressRecord[] = [
     id: 121400200,
     characterId: 11400600,
   },
+  {
+    name: 'Iceheart',
+    id: 121400300,
+    characterId: 11401100,
+  },
 
   {
     name: 'Seeker of Truth',
