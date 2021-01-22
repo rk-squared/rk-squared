@@ -194,7 +194,9 @@ export const getDreambreakerScores = createSelector<
       getWorlds(worldsState, WorldCategory.Dreambreaker).map(w =>
         getDungeonsWithScoreForWorld(dungeonsState, scoresState, w),
       ),
-    ).map(i => i[0]), // Each dreambreaker has one dungeon
+    )
+      .filter(i => i.length > 0) // Exclude dungeons that haven't yet been loaded.
+      .map(i => i[0]), // Each dreambreaker has one dungeon.
 );
 
 export const getCardiaScores = createSelector<
