@@ -33,7 +33,12 @@ export function getEventText(eventName: string): string {
     result = eventName;
   }
   if (event && event.realm) {
-    result += ` (${event.realm})`;
+    const realmSuffix = ` (${event.realm})`;
+    // Check for Confounded Memories / Chaotic Memories that already have a
+    // realm description as part of the name.
+    if (!result.endsWith(realmSuffix)) {
+      result += realmSuffix;
+    }
   }
   if (event && event.heroRecords) {
     result += ', with ' + andJoin(event.heroRecords, true);
