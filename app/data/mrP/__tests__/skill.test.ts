@@ -716,6 +716,7 @@ describe('skill', () => {
             damage: 'p3.42/6 h+wi @ +50% crit dmg',
             burstToggle: false,
             school: 'Knight',
+            commandDetail: 'if ON',
           },
           {
             damage: 'p2.28/4 h+wi',
@@ -724,6 +725,7 @@ describe('skill', () => {
           {
             damage: 'p2.85/5 h+wi',
             school: 'Knight',
+            commandDetail: 'if ON',
           },
         ],
       });
@@ -748,9 +750,15 @@ describe('skill', () => {
             damage: 'w10.48/4 l+n',
             other: 'ally h60',
             school: 'White Magic',
+            commandDetail: 'if ON',
           },
           { other: 'party h25', school: 'White Magic' },
-          { damage: 'w10.28/2 l+n', other: 'party h25', school: 'White Magic' },
+          {
+            damage: 'w10.28/2 l+n',
+            other: 'party h25',
+            school: 'White Magic',
+            commandDetail: 'if ON',
+          },
         ],
       });
       expect(heal.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
@@ -769,9 +777,20 @@ describe('skill', () => {
             other: "self Magic blink 1, until OFF: (foe's PHY atk ⤇ 50% for AoE m4.85 f+n B.Mag)",
             school: 'Black Magic',
           },
-          { burstToggle: false, damage: 'm8.84/4 f+n', other: undefined, school: 'Black Magic' },
+          {
+            burstToggle: false,
+            damage: 'm8.84/4 f+n',
+            other: undefined,
+            school: 'Black Magic',
+            commandDetail: 'if ON',
+          },
           { damage: 'AoE m5.9/2 f+n', other: undefined, school: 'Black Magic' },
-          { damage: 'AoE m8.85/3 f+n', other: undefined, school: 'Black Magic' },
+          {
+            damage: 'AoE m8.85/3 f+n',
+            other: undefined,
+            school: 'Black Magic',
+            commandDetail: 'if ON',
+          },
         ],
         damage: 'AoE magic 11.94/6 fire+non',
         other: 'fire infuse 25s',
@@ -866,23 +885,23 @@ describe('skill', () => {
         ],
       });
       expect(describeSoulBreak("Seifer - Sorceress's Knight")).toMatchInlineSnapshot(`
-                                                        Object {
-                                                          "burstCommands": Array [
-                                                            Object {
-                                                              "damage": "p2.24/4 d+n",
-                                                              "other": "self -50% DEF, -25% RES 30s, Reflect Dmg 100/125/…/300% w/ 1…9 uses 30s",
-                                                              "school": "Darkness",
-                                                            },
-                                                            Object {
-                                                              "damage": "p2.2 d+n",
-                                                              "other": "self heal 20% of dmg",
-                                                              "school": "Darkness",
-                                                            },
-                                                          ],
-                                                          "damage": "phys 7.68/8 dark+non",
-                                                          "other": "taunt PHY/BLK, +200% DEF 25s",
-                                                        }
-                                          `);
+                                                                Object {
+                                                                  "burstCommands": Array [
+                                                                    Object {
+                                                                      "damage": "p2.24/4 d+n",
+                                                                      "other": "self -50% DEF, -25% RES 30s, Reflect Dmg 100/125/…/300% w/ 1…9 uses 30s",
+                                                                      "school": "Darkness",
+                                                                    },
+                                                                    Object {
+                                                                      "damage": "p2.2 d+n",
+                                                                      "other": "self heal 20% of dmg",
+                                                                      "school": "Darkness",
+                                                                    },
+                                                                  ],
+                                                                  "damage": "phys 7.68/8 dark+non",
+                                                                  "other": "taunt PHY/BLK, +200% DEF 25s",
+                                                                }
+                                                `);
     });
 
     it('handles complex burst modes', () => {
@@ -1303,36 +1322,36 @@ describe('skill', () => {
         other: '+20% wind vuln. 25s, self +30% ATK/DEF 25s, fastcast 1, 15s: (wind ⤇ fastcast 1)',
       });
       expect(describeSoulBreak('Squall - Double Junction')).toMatchInlineSnapshot(`
-                                                        Object {
-                                                          "braveCommands": Array [
-                                                            Object {
-                                                              "damage": "p1.92 i+f",
-                                                              "other": undefined,
-                                                              "school": "Spellblade",
-                                                            },
-                                                            Object {
-                                                              "damage": "p3.2 i+f overstrike",
-                                                              "other": undefined,
-                                                              "school": "Spellblade",
-                                                            },
-                                                            Object {
-                                                              "damage": "p6.4 i+f overstrike",
-                                                              "other": undefined,
-                                                              "school": "Spellblade",
-                                                            },
-                                                            Object {
-                                                              "damage": "p10.0 i+f overstrike",
-                                                              "other": undefined,
-                                                              "school": "Spellblade",
-                                                            },
-                                                          ],
-                                                          "braveCondition": Array [
-                                                            "Spellblade",
-                                                          ],
-                                                          "damage": "phys 7.1/10 ice+fire",
-                                                          "other": "self hi fastcast 15s, 15s: (0-8 fire/ice Spellblade ⤇ 1.3-1.35-1.4-1.45-1.5-1.55-1.6-1.65-1.7x Spellblade dmg)",
-                                                        }
-                                          `);
+                                                                Object {
+                                                                  "braveCommands": Array [
+                                                                    Object {
+                                                                      "damage": "p1.92 i+f",
+                                                                      "other": undefined,
+                                                                      "school": "Spellblade",
+                                                                    },
+                                                                    Object {
+                                                                      "damage": "p3.2 i+f overstrike",
+                                                                      "other": undefined,
+                                                                      "school": "Spellblade",
+                                                                    },
+                                                                    Object {
+                                                                      "damage": "p6.4 i+f overstrike",
+                                                                      "other": undefined,
+                                                                      "school": "Spellblade",
+                                                                    },
+                                                                    Object {
+                                                                      "damage": "p10.0 i+f overstrike",
+                                                                      "other": undefined,
+                                                                      "school": "Spellblade",
+                                                                    },
+                                                                  ],
+                                                                  "braveCondition": Array [
+                                                                    "Spellblade",
+                                                                  ],
+                                                                  "damage": "phys 7.1/10 ice+fire",
+                                                                  "other": "self hi fastcast 15s, 15s: (0-8 fire/ice Spellblade ⤇ 1.3-1.35-1.4-1.45-1.5-1.55-1.6-1.65-1.7x Spellblade dmg)",
+                                                                }
+                                                `);
     });
 
     it('converts auto skills', () => {
@@ -1417,8 +1436,8 @@ describe('skill', () => {
       expect(describeSoulBreak('Bartz - Essence of Wind')).toEqual({
         damage: 'phys 7.1/10 wind+non',
         other:
-          'wind infuse 25s, 15s: EX: (1/2/3 +3n wind ⤇ front row phys hi fastcast 1, ' +
-          'p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)',
+          'wind infuse 25s, 15s: EX: (wind ⤇ front row phys hi fastcast 1), ' +
+          '(1/2/3 +3n wind ⤇ p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)',
       });
       expect(describeSoulBreak("Ricard - Wyvern's Roar")).toEqual({
         damage: 'phys 7.1/10 wind+lgt jump',
@@ -1433,8 +1452,8 @@ describe('skill', () => {
       expect(describeSoulBreak('Lightning - Dangerous Beauty')).toEqual({
         damage: 'phys 7.1/10 holy+lgt',
         other:
-          'holy infuse 25s, 15s: EX: (1/2/3 +3n holy ⤇ front row phys hi fastcast 1, ' +
-          'p0.3 – p1.5/5 – p4.5/15 h+l+n Knight)',
+          'holy infuse 25s, 15s: EX: (holy ⤇ front row phys hi fastcast 1), ' +
+          '(1/2/3 +3n holy ⤇ p0.3 – p1.5/5 – p4.5/15 h+l+n Knight)',
       });
       expect(describeSoulBreak('Steiner - USB2')).toEqual({
         damage: 'phys 6.9/10 fire+lgt+ice+non',
@@ -1484,9 +1503,15 @@ describe('skill', () => {
             damage: 'AoE m5.4/2 l+n, min dmg 1100',
             other: 'party heal 30% HP',
             school: 'Summoning',
+            commandDetail: 'if ON',
           },
           { damage: 'm10.48/4 l+n, min dmg 1100', other: undefined, school: 'Summoning' },
-          { damage: 'm13.1/5 l+n, min dmg 1100', other: undefined, school: 'Summoning' },
+          {
+            damage: 'm13.1/5 l+n, min dmg 1100',
+            other: undefined,
+            school: 'Summoning',
+            commandDetail: 'if ON',
+          },
         ],
       });
 
@@ -1503,9 +1528,15 @@ describe('skill', () => {
             damage: 'AoE m17.2/4 d, min dmg 1100',
             other: undefined,
             school: 'Summoning',
+            commandDetail: 'if ON',
           },
           { damage: 'm10.2/4 d', other: undefined, school: 'Black Magic' },
-          { damage: 'm10.2/4 d', other: 'self heal 20% of dmg', school: 'Black Magic' },
+          {
+            damage: 'm10.2/4 d',
+            other: 'self heal 20% of dmg',
+            school: 'Black Magic',
+            commandDetail: 'if ON',
+          },
         ],
         damage: 'magic 17.43/7 dark+non',
         other: 'self +30% MAG 25s, taunt PHY/BLK, +200% DEF 25s',
@@ -2432,18 +2463,18 @@ describe('skill', () => {
           '(ally heal ⤇ ally Negate dmg 30/40/50/60/70% @ rank 1-5), dualcast W.Mag',
       });
       expect(describeSoulBreak('Cait Sith - AASB')).toMatchInlineSnapshot(`
-                                                Object {
-                                                  "damage": undefined,
-                                                  "instant": true,
-                                                  "other": "party Haste, +50% MAG/MND 25s, hi fastzap 2, 1.3x mag dmg 15s, 15s: Awoken Fortune-Teller: Dancer/Bard inf. hones, 2-3x Dancer/Bard cast @ rank 1-5, (Dancer/Bard ⤇ party Autoheal 1.5k (50%) or Autoheal 3k & refill 1 abil. use (50%))",
-                                                }
-                                    `);
+                                                        Object {
+                                                          "damage": undefined,
+                                                          "instant": true,
+                                                          "other": "party Haste, +50% MAG/MND 25s, hi fastzap 2, 1.3x mag dmg 15s, 15s: Awoken Fortune-Teller: Dancer/Bard inf. hones, 2-3x Dancer/Bard cast @ rank 1-5, (Dancer/Bard ⤇ party Autoheal 1.5k (50%) or Autoheal 3k & refill 1 abil. use (50%))",
+                                                        }
+                                          `);
       expect(describeSoulBreak('Gaffgarion - AASB')).toMatchInlineSnapshot(`
-        Object {
-          "damage": "phys 9.0/15 dark+non",
-          "other": "dark infuse 25s, self dmg cap +10k 15s, 15s: (2 dark ⤇ p3.04/4 d+n Darkness, -50% ATK/MAG 8s, self +50% ATK/MAG 8s, phys hi fastcast 2 – p3.04/4 d+n Darkness, self heal 20% of dmg, phys fastcast 2 – p3.04/4 d+n Darkness, self heal 20% of dmg @ ≥ 100-80-0% HP), 15s: Awoken Dark: dark inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast",
-        }
-      `);
+                Object {
+                  "damage": "phys 9.0/15 dark+non",
+                  "other": "dark infuse 25s, self dmg cap +10k 15s, 15s: (2 dark ⤇ p3.04/4 d+n Darkness, -50% ATK/MAG 8s, self +50% ATK/MAG 8s, phys hi fastcast 2 – p3.04/4 d+n Darkness, self heal 20% of dmg, phys fastcast 2 – p3.04/4 d+n Darkness, self heal 20% of dmg @ ≥ 100-80-0% HP), 15s: Awoken Dark: dark inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast",
+                }
+            `);
     });
 
     it('handles synchro soul breaks', () => {
@@ -2464,55 +2495,63 @@ describe('skill', () => {
             school: 'Monk',
           },
         ],
-        synchroCondition: ['Earth', 'Monk'],
+        synchroCondition: [['Earth'], ['Monk']],
       });
 
       expect(describeSoulBreak('Orlandeau - SASB')).toMatchInlineSnapshot(`
-                Object {
-                  "damage": "phys 9.0/15 holy+non",
-                  "other": "holy infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 25s: hi fastcast, 15s: (2 cmd 1 ⤇ instacast 1, instant ATB 1 if hi fastcast, remove hi fastcast)",
-                  "synchroCommands": Array [
-                    Object {
-                      "damage": "p5.16/6 - 5.34/6 - 5.52/6 - 5.7/6 h+n @ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses",
-                      "other": undefined,
-                      "school": "Knight",
-                    },
-                    Object {
-                      "damage": undefined,
-                      "other": "25s: hi fastcast",
-                      "school": "Knight",
-                    },
-                  ],
-                  "synchroCondition": Array [
-                    "Holy",
-                    "Knight",
-                  ],
-                }
-            `);
+        Object {
+          "damage": "phys 9.0/15 holy+non",
+          "other": "holy infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 25s: hi fastcast, 15s: (2 cmd 1 ⤇ instacast 1, instant ATB 1 if hi fastcast, remove hi fastcast)",
+          "synchroCommands": Array [
+            Object {
+              "damage": "p5.16/6 - 5.34/6 - 5.52/6 - 5.7/6 h+n @ +25 - 50 - 75 - 100% crit w/ 0-1-2-3 uses",
+              "other": undefined,
+              "school": "Knight",
+            },
+            Object {
+              "damage": undefined,
+              "other": "25s: hi fastcast",
+              "school": "Knight",
+            },
+          ],
+          "synchroCondition": Array [
+            Array [
+              "Holy",
+            ],
+            Array [
+              "Knight",
+            ],
+          ],
+        }
+      `);
 
       expect(describeSoulBreak('Tyro - SASB')).toMatchInlineSnapshot(`
-                                Object {
-                                  "damage": undefined,
-                                  "instant": true,
-                                  "other": "element infuse 25s based on party element infuse, self +10/20/30/40/50% A/D/M/R/MND if 1-2-3-4-5 chars. alive 25s, 1.5x elem dmg 15s, dmg cap +10k 15s",
-                                  "synchroCommands": Array [
-                                    Object {
-                                      "damage": "p3.24/4 or m11.0/4 prism+n rngd",
-                                      "other": "self hi fastcast 1",
-                                      "school": "Support",
-                                    },
-                                    Object {
-                                      "damage": undefined,
-                                      "other": "element infuse 25s based on party element infuse, self hi fastcast 1, +180 SB pts",
-                                      "school": "Support",
-                                    },
-                                  ],
-                                  "synchroCondition": Array [
-                                    "Any",
-                                    "Any",
-                                  ],
-                                }
-                        `);
+        Object {
+          "damage": undefined,
+          "instant": true,
+          "other": "element infuse 25s based on party element infuse, self +10/20/30/40/50% A/D/M/R/MND if 1-2-3-4-5 chars. alive 25s, 1.5x elem dmg 15s, dmg cap +10k 15s",
+          "synchroCommands": Array [
+            Object {
+              "damage": "p3.24/4 or m11.0/4 prism+n rngd",
+              "other": "self hi fastcast 1",
+              "school": "Support",
+            },
+            Object {
+              "damage": undefined,
+              "other": "element infuse 25s based on party element infuse, self hi fastcast 1, +180 SB pts",
+              "school": "Support",
+            },
+          ],
+          "synchroCondition": Array [
+            Array [
+              "Any",
+            ],
+            Array [
+              "Any",
+            ],
+          ],
+        }
+      `);
     });
 
     it('handles turn-limited effects', () => {

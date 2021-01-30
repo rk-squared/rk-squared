@@ -737,6 +737,8 @@ function applyEffectPatch<
   applyPatch(lookup, name, item => item.effect === from, item => (item.effect = to));
 }
 
+// Not currently needed, but there are times when it's been helpeful.
+/*
 function addPatch<T extends { [s: string]: { id: number; name: string } }>(
   lookup: T,
   newItem: Omit<T[string], 'id'>,
@@ -747,6 +749,7 @@ function addPatch<T extends { [s: string]: { id: number; name: string } }>(
   }
   lookup[newItem.name] = { ...newItem, id: NaN } as any;
 }
+*/
 
 /**
  * HACK: Patch Enlir data to make it easier for our text processing.
@@ -895,16 +898,6 @@ function patchEnlir() {
     'After using three of Eblan Surge or Eblan Struggle, if user has any [Attach Element], grants the same Attach Element to the user',
     'Grants [Conditional Attach Element] to the user after using three of Eblan Surge or Eblan Struggle',
   );
-  addPatch(enlir.statusByName, {
-    name: 'Buff Fire 10% (5s)',
-    effects: 'Increases Fire damage dealt by 10%, cumulable',
-    defaultDuration: 5,
-    mndModifier: null,
-    mndModifierIsOpposed: false,
-    exclusiveStatus: null,
-    codedName: 'INCREASE_ELEMENT_ATK_FIRE_1_TIME_SHORT',
-    notes: null,
-  });
 
   // Legend materia.  To be consistent with statuses, use "and" to separate
   // triggered effects, while commas separate completely distinct clauses.
@@ -1060,19 +1053,18 @@ function patchEnlir() {
     'If user has any Damage Reduction Barrier, grants [200% ATB 1] to the user after using Violent Tornado or Whirlwind Form',
     'After using Violent Tornado or Whirlwind Form, grants [200% ATB 1] to the user if user has any Damage Reduction Barrier',
   );
-  // For Ayame's synchro, fix an apparent mistake in the skill name.  It's
-  // equivalent and fits our output format better to say "removed after triggering"
-  // than to say that cmd1 removes the status.
+  // For Ayame's synchro, it's equivalent and fits our output format better to
+  // say "removed after triggering" than to say that cmd1 removes the status.
   applyEffectsPatch(
     enlir.statusByName,
-    'Sword Stance',
-    "Casts Sword Stance after using Tachi: Yukikaze, removed if user hasn't Synchro Mode",
-    "Casts Taichi Blossom after using Tachi: Yukikaze, removed after triggering or if user hasn't Synchro Mode",
+    'Blade Drawn',
+    "Casts Tachi: Kasha after using Tachi: Yukikaze, removed if user hasn't Synchro Mode",
+    "Casts Tachi: Kasha after using Tachi: Yukikaze, removed after triggering or if user hasn't Synchro Mode",
   );
   applyEffectsPatch(
     enlir.synchroCommands,
     '31540074',
-    'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate, removes [Sword Stance] from the user',
+    'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate, removes [Blade Drawn] from the user',
     'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate',
   );
   // Simplify Angeal; hopefully the "or" communicates well enough.
@@ -1104,16 +1096,17 @@ function patchEnlir() {
   );
   // Our code isn't set up to show otherSkills names, but that leaves no good
   // way to handle otherSkills as triggers.  Reword Gladiolus's sync to avoid
-  // the issue.
+  // the issue.  Also fix "increases X damage" to "increases X damage dealt" for
+  // consistency with other statuses.
   applyEffectsPatch(
     enlir.statusByName,
     'Precise Guard Mode',
-    'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times',
+    'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times',
     'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% scaling with 0/1/2/3 uses',
   );
 
-  // Use the older, less verbose format for hybrid effects.  (Personally, I
-  // prefer this...)
+  // Use the older, less verbose format for hybrid effects, since that's all our
+  // parser supports.  (Personally, I prefer the older format anyway...)
   applyEffectsPatch(
     enlir.soulBreaks,
     '23380003', // Shadowsmith - Soul of Nihility
@@ -1122,13 +1115,13 @@ function patchEnlir() {
   );
   applyEffectsPatch(
     enlir.otherSkillsByName,
-    '...Work (Earth)',
+    "Let's Get to Work (Earth)",
     'Grants [Attach Earth], grants [BLK +30% Boost 1]/[BLK +50% Boost 1] if MAG > ATK, otherwise grants [PHY +30% Boost 1]/[PHY +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
     'Grants [Attach Earth], grants [PHY +30% Boost 1]/[PHY +50% Boost 1] or [BLK +30% Boost 1]/[BLK +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
   );
   applyEffectsPatch(
     enlir.otherSkillsByName,
-    '...Work (Lightning)',
+    "Let's Get to Work (Lightning)",
     'Grants [Attach Lightning], grants [BLK +30% Boost 1]/[BLK +50% Boost 1] if MAG > ATK, otherwise grants [PHY +30% Boost 1]/[PHY +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
     'Grants [Attach Lightning], grants [PHY +30% Boost 1]/[PHY +50% Boost 1] or [BLK +30% Boost 1]/[BLK +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
   );
@@ -1229,7 +1222,7 @@ function patchEnlir() {
   applyEffectsPatch(
     enlir.abilitiesByName,
     'Mug Bloodlust',
-    'Two single attacks (1.60 each), ATK and DEF -30% for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds',
+    'Two single attacks (1.60 each), [ATK and DEF -30%] for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds',
     'Two single attacks (1.60 each), [ATK and DEF -30%] for 20 seconds, grants [ATK and DEF +30%] to the user for 20 seconds',
   );
   applyEffectsPatch(
