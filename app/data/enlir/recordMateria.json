@@ -6562,32 +6562,32 @@
   {
     "realm": "XV",
     "character": "Ardyn",
-    "name": "King of the Empire",
+    "name": "Imperial Chancellor",
     "effect": "PHY attacks deal 10% more damage when equipping a hat",
     "unlockCriteria": "Use Ardyn's Memory Crystal",
     "nameJp": "帝国の宰相",
     "id": 111150100,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
     "character": "Ardyn",
-    "name": "Fearless Appearance",
+    "name": "Fearless Demeanor",
     "effect": "Attack turns into an ability (PHY: group, 1.00 physical Dark)",
     "unlockCriteria": "Use Ardyn's Memory Crystal II, chance to obtain with Ardyn in party",
     "nameJp": "不敵な佇まい",
     "id": 111150101,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
     "character": "Ardyn",
-    "name": "Odd Stranger",
+    "name": "Elusive Misfit",
     "effect": "Restores HP for 100% of the user's maximum HP when HP fall below 10%",
     "unlockCriteria": "Bring Ardyn to level 99",
     "nameJp": "神出鬼没な奇人",
     "id": 111150102,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -7834,7 +7834,7 @@
     "character": "Fina",
     "name": "Girl from the Crystal",
     "effect": "MND +20% when equipping a bow",
-    "unlockCriteria": "Use Fina's Memory Crystal II, chance to obtain with Fina in party",
+    "unlockCriteria": "Use Fina's Memory Crystal II, chance to obtain with Rain in party",
     "nameJp": "クリスタルより現れし少女",
     "id": 111900341,
     "gl": true

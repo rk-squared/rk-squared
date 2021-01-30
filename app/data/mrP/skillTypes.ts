@@ -51,7 +51,7 @@ export interface Attack extends Partial<AttackMultiplierGroup>, AttackExtras {
   type: 'attack';
   numAttacks: NumAttacks;
   isOverstrike?: boolean;
-  scalingOverstrike?: number[]; // For TASB.  Separate from isOverstrike.
+  scalingOverstrike?: number[]; // For ADSB.  Separate from isOverstrike.
   scaleType?: AttackScaleType;
   isAoE?: boolean;
   isHybrid?: boolean;

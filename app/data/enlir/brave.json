@@ -416,7 +416,7 @@
   {
     "character": "Ricard",
     "source": "Last Dragoon",
-    "name": "Pride of Deist",
+    "name": "Deist's Pride",
     "brave": 0,
     "type": "NAT",
     "target": "All allies",
@@ -434,12 +434,12 @@
     ],
     "nameJp": "ディストの誇り",
     "id": 31540048,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ricard",
     "source": "Last Dragoon",
-    "name": "Pride of Deist",
+    "name": "Deist's Pride",
     "brave": 1,
     "type": "NAT",
     "target": "All allies",
@@ -457,12 +457,12 @@
     ],
     "nameJp": "ディストの誇り",
     "id": 31540049,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ricard",
     "source": "Last Dragoon",
-    "name": "Pride of Deist",
+    "name": "Deist's Pride",
     "brave": 2,
     "type": "NAT",
     "target": "All allies",
@@ -480,12 +480,12 @@
     ],
     "nameJp": "ディストの誇り",
     "id": 31540050,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ricard",
     "source": "Last Dragoon",
-    "name": "Pride of Deist",
+    "name": "Deist's Pride",
     "brave": 3,
     "type": "NAT",
     "target": "All allies",
@@ -503,7 +503,7 @@
     ],
     "nameJp": "ディストの誇り",
     "id": 31540051,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Arc",
@@ -1027,7 +1027,7 @@
       "White Magic"
     ],
     "nameJp": "癒しの魔法陣",
-    "id": null,
+    "id": 31540515,
     "gl": false
   },
   {
@@ -1050,7 +1050,7 @@
       "White Magic"
     ],
     "nameJp": "癒しの魔法陣",
-    "id": null,
+    "id": 31540516,
     "gl": false
   },
   {
@@ -1073,7 +1073,7 @@
       "White Magic"
     ],
     "nameJp": "癒しの魔法陣",
-    "id": null,
+    "id": 31540517,
     "gl": false
   },
   {
@@ -1096,7 +1096,7 @@
       "White Magic"
     ],
     "nameJp": "癒しの魔法陣",
-    "id": null,
+    "id": 31540518,
     "gl": false
   },
   {
@@ -2110,6 +2110,110 @@
     "nameJp": "なんでもものまね",
     "id": 30545119,
     "gl": true
+  },
+  {
+    "character": "Strago",
+    "source": "Magic Tempest",
+    "name": "Secret of Thamasa",
+    "brave": 0,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.92), grants [Instant Cast 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "サマサの秘伝",
+    "id": 31540790,
+    "gl": false
+  },
+  {
+    "character": "Strago",
+    "source": "Magic Tempest",
+    "name": "Secret of Thamasa",
+    "brave": 1,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 11.8,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (11.80) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "サマサの秘伝",
+    "id": 31540791,
+    "gl": false
+  },
+  {
+    "character": "Strago",
+    "source": "Magic Tempest",
+    "name": "Secret of Thamasa",
+    "brave": 2,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 20.5,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (20.50) capped at 99999, grants [Buff Wind 10% (15s)] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "サマサの秘伝",
+    "id": 31540792,
+    "gl": false
+  },
+  {
+    "character": "Strago",
+    "source": "Magic Tempest",
+    "name": "Secret of Thamasa",
+    "brave": 3,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 34.6,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (34.60) capped at 99999, grants [Buff Wind 30% (15s)] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Black Magic",
+    "braveCondition": [
+      "Wind"
+    ],
+    "nameJp": "サマサの秘伝",
+    "id": 31540793,
+    "gl": false
   },
   {
     "character": "Vincent",
@@ -3306,7 +3410,7 @@
   {
     "character": "Quina",
     "source": "Midnight Snack",
-    "name": "Gourmand's Curiosity",
+    "name": "Culinary Training",
     "brave": 0,
     "type": "PHY",
     "target": "Single enemy",
@@ -3329,12 +3433,12 @@
     ],
     "nameJp": "食の修行",
     "id": 31540106,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Quina",
     "source": "Midnight Snack",
-    "name": "Gourmand's Curiosity",
+    "name": "Culinary Training",
     "brave": 1,
     "type": "PHY",
     "target": "Single enemy",
@@ -3357,12 +3461,12 @@
     ],
     "nameJp": "食の修行",
     "id": 31540107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Quina",
     "source": "Midnight Snack",
-    "name": "Gourmand's Curiosity",
+    "name": "Culinary Training",
     "brave": 2,
     "type": "PHY",
     "target": "Single enemy",
@@ -3385,12 +3489,12 @@
     ],
     "nameJp": "食の修行",
     "id": 31540108,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Quina",
     "source": "Midnight Snack",
-    "name": "Gourmand's Curiosity",
+    "name": "Culinary Training",
     "brave": 3,
     "type": "PHY",
     "target": "Single enemy",
@@ -3413,7 +3517,7 @@
     ],
     "nameJp": "食の修行",
     "id": 31540109,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Garnet",

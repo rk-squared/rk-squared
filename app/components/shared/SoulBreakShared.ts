@@ -12,7 +12,7 @@ import {
   EnlirSoulBreakOrLegendMateria,
   EnlirSoulBreakTier,
   isSoulBreak2,
-  isTrueArcane1st,
+  isArcaneDyad1st,
   makeLegendMateriaAliases,
   makeLimitBreakAliases,
   makeSoulBreakAliases,
@@ -42,7 +42,7 @@ export function makeTierStyleMap(
     SASB: cssStyles.synchro,
     Glint: cssStyles.glint,
     'Glint+': cssStyles.glint,
-    TASB: cssStyles.trueArcane,
+    ADSB: cssStyles.arcaneDyad,
 
     LBO: cssStyles.overstrikeLimitBreak,
     LBG: cssStyles.glint,
@@ -69,7 +69,7 @@ export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   CSB: 'C',
   AASB: 'AA',
   SASB: 'SA',
-  TASB: 'TA',
+  ADSB: 'AD',
   RW: '-',
   Shared: '-',
 });
@@ -86,7 +86,7 @@ export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria
 
 export function formatSoulBreakOrLegendMateriaName(item: EnlirSoulBreakOrLegendMateria): string {
   let name = item.name;
-  if (isSoulBreak2(item) && isTrueArcane1st(item)) {
+  if (isSoulBreak2(item) && isArcaneDyad1st(item)) {
     name = name.replace(/ \(Release\)$/, '');
   }
   return item.gl ? name : '“' + name + '”';

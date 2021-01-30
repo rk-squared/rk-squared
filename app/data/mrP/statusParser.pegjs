@@ -772,7 +772,7 @@ TrackStatusLevel
   // The second is used for tracking stacking effects of 6* healer HAs and is
   // mostly internal.  It may be better to treat these as distinct types.
   //
-  // TASB variant:
+  // Arcane Dyad variant:
   / "Keeps"i _ "track of" _ status:StatusNameNoBrackets _ "level, initially set at level" _ current:Integer _ "with a maximum level of" _ max:Integer { return { type: 'trackStatusLevel', status, max, current }; }
 
 ChangeStatusLevel
@@ -803,7 +803,7 @@ TrackUses
   / "Used"i _ "for tracking" _ skill:AnySkillName _ "usage" { return { type: 'trackUses', skill }; }
   / "Tracks"i _ skill:AnySkillName _ "casts" { return { type: 'trackUses', skill }; }
   / "Keeps"i _ "track of the number of" _ element:ElementAndList _ AbilityOrAttack _ "used" { return { type: 'trackUses', element }; }
-  // TASB variant.  `skill` gives the TASB name.
+  // Arcane Dyad variant.  `skill` gives the Arcane Dyad name.
   / "Keeps"i _ "track of" _ skill:AnySkillName _ "uses" { return { type: 'trackUses', skill }; }
 
 SharedCount
@@ -878,7 +878,7 @@ Trigger
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: !!requiresDamage2, requiresAttack };
     }
   / "when"i _ "user triggers" _ count:TriggerCount _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack _ "during the status" {
-      // TASB variant
+      // Arcane Dyad variant
       return { type: 'ability', element, school, count, jump: !!jump, requiresAttack };
     }
   / "every"i _ count:Ordinal _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
@@ -920,14 +920,14 @@ Trigger
   }
 
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
-  / "if user has triggered" _ skill:AnySkillName _ count:NumberString _ "times" { return { type: 'skillTriggered', skill, count }; } // TASB variant
+  / "if user has triggered" _ skill:AnySkillName _ count:NumberString _ "times" { return { type: 'skillTriggered', skill, count }; } // Arcane Dyad variant
   / "after"i _ ("using" / "casting") _ count:NumberString _ "of" _ "either"? _ skill:Skill1Or2 { return { type: 'skill', skill, count }; }
   / "after casting" _ skill:Skill1Or2 _ count:NumberString _ "times" { return { type: 'skill', skill, count }; }
   / "after"i _ "taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
   / "after"i _ "using a single-target heal" { return { type: 'singleHeal' }; }
   / "when"i _ "the user's"? _ "HP fall" "s"? _ "below" _ value:Integer "%" { return { type: 'lowHp', value }; }
   / "when"i _ "user crosses" _ value1:Integer _ "and" _ value2:Integer _ "damage dealt during the status" {
-      // For TASBs
+      // For ADSBs
       return { type: 'damageDuringStatus', value: [value1, value2] };
     }
   / "after"i _ "an ally uses" _ count:TriggerCount _ requiresDamage:"damaging"?
@@ -947,7 +947,7 @@ AbilityOrAttack
 
 TriggerCount
   = useCount:UseCount { return useCount; }
-  / value1:Integer _ "or" _ value2:Integer { return { values: [value1, value2] }; }  // TASB variant. We may someday generalize.
+  / value1:Integer _ "or" _ value2:Integer { return { values: [value1, value2] }; }  // Arcane Dyad variant. We may someday generalize.
   / values:(ArticleOrNumberString / Integer) ! "/" { return { values }; }
   / values:IntegerSlashList plus:"+"? { return { values, plus: !!plus }; }
   / "" { return { values: 1 }; }

@@ -9,12 +9,12 @@ import {
   EnlirSkill,
   EnlirSkillType,
   EnlirSoulBreak,
-  getEnlirTrueArcaneTracker,
+  getEnlirArcaneDyadTracker,
   hasSkillType,
   isBurstCommand,
   isNat,
   isSoulBreak,
-  isTrueArcane2nd,
+  isArcaneDyad2nd,
 } from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
 import { describeRageEffects } from './rage';
@@ -409,10 +409,10 @@ function checkAttackPrereqStatus(
   return attack;
 }
 
-function describeTrueArcaneCondition(sb: EnlirSoulBreak) {
-  const status = getEnlirTrueArcaneTracker(sb);
+function describeArcaneDyadCondition(sb: EnlirSoulBreak) {
+  const status = getEnlirArcaneDyadTracker(sb);
   if (!status) {
-    logger.warn(`Failed to find TASB ability tracker for ${sb.name}`);
+    logger.warn(`Failed to find ADSB ability tracker for ${sb.name}`);
     return undefined;
   }
 
@@ -425,7 +425,7 @@ function describeTrueArcaneCondition(sb: EnlirSoulBreak) {
     | statusTypes.ChangeStatusLevel
     | undefined;
   if (!change || !change.trigger) {
-    logger.warn(`Unexpected contents for TASB ability tracker for ${sb.name}`);
+    logger.warn(`Unexpected contents for ADSB ability tracker for ${sb.name}`);
     return undefined;
   }
 
@@ -550,15 +550,15 @@ function describeAttackDamage(
     } else if (attack.scaleType) {
       scaleType = describeCondition(attack.scaleType, getAttackCount(attack));
 
-      // Special case: Every TASB scales with status level.  Try to resolve the
+      // Special case: Every ADSB scales with status level.  Try to resolve the
       // status that manages that status level.
       if (
         attack.scaleType.type === 'statusLevel' &&
         skill !== 'simple' &&
         isSoulBreak(skill) &&
-        isTrueArcane2nd(skill)
+        isArcaneDyad2nd(skill)
       ) {
-        scaleType = describeTrueArcaneCondition(skill);
+        scaleType = describeArcaneDyadCondition(skill);
       }
     }
     if (attack.scaleToMultiplier && !isRandomNumAttacks(numAttacks)) {

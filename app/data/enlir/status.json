@@ -4418,6 +4418,17 @@
     "notes": null
   },
   {
+    "id": 28215,
+    "name": "Overflow Ice Radiant Shield: 500% (8s)",
+    "effects": "Returns 500% of the damage taken to the attacker as Ice damage capped at 99999",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "RADIANT_SHIELD_ICE_500_ENABLE_OVERFLOW_TIME_SMALL_8000",
+    "notes": null
+  },
+  {
     "id": 282101,
     "name": "Darkness +30% Boost",
     "effects": "Darkness abilities deal 30% more damage",
@@ -5102,7 +5113,7 @@
   {
     "id": 282163,
     "name": "PHY +30% Boost 1",
-    "effects": "Physical attacks deal 30% more damage, lasts for 1 turn",
+    "effects": "PHY attacks deal 30% more damage, lasts for 1 turn",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -5163,6 +5174,61 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_BLACK_MAGIC_ATTACK_LARGE_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282169,
+    "name": "Guardian Summon +5% Boost",
+    "effects": "Attacks deal 5% more damage, removed if the user hasn't Guardian Summon Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_SOULSTRIKE_FOR_ULTIMATE_SUMMON_EXTRA_SMALL_105",
+    "notes": null
+  },
+  {
+    "id": 282170,
+    "name": "Guardian Summon +10% Boost",
+    "effects": "Attacks deal 10% more damage, removed if the user hasn't Guardian Summon Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_SOULSTRIKE_FOR_ULTIMATE_SUMMON_EXTRA_SMALL",
+    "notes": null
+  },
+  {
+    "id": 282171,
+    "name": "Guardian Summon +15% Boost",
+    "effects": "Attacks deal 15% more damage, removed if the user hasn't Guardian Summon Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_SOULSTRIKE_FOR_ULTIMATE_SUMMON_SMALL",
+    "notes": null
+  },
+  {
+    "id": 282172,
+    "name": "Guardian Summon +20% Boost",
+    "effects": "Attacks deal 20% more damage, removed if the user hasn't Guardian Summon Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_SOULSTRIKE_FOR_ULTIMATE_SUMMON_SMALL_120",
+    "notes": null
+  },
+  {
+    "id": 282173,
+    "name": "Guardian Summon +25% Boost",
+    "effects": "Attacks deal 25% more damage, removed if the user hasn't Guardian Summon Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_SOULSTRIKE_FOR_ULTIMATE_SUMMON_SMALL_125_",
     "notes": null
   },
   {
@@ -5693,6 +5759,17 @@
     "notes": null
   },
   {
+    "id": 282254,
+    "name": "Lightning Ability +30% Boost 2",
+    "effects": "Lightning abilities deal 30% more damage, lasts for 2 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_LIGHTNING_MEDIUM_TURN_2",
+    "notes": null
+  },
+  {
     "id": 282255,
     "name": "Wind Ability +30% Boost 1",
     "effects": "Wind abilities deal 30% more damage, lasts for 1 turn",
@@ -5781,6 +5858,17 @@
     "notes": null
   },
   {
+    "id": 282264,
+    "name": "Dark Ability +30% Boost 2",
+    "effects": "Dark abilities deal 30% more damage, lasts for 2 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_MEDIUM_TURN_2",
+    "notes": null
+  },
+  {
     "id": 282265,
     "name": "PHY +15% Boost 1",
     "effects": "PHY attacks deal 15% more damage, lasts for 1 turn",
@@ -5803,6 +5891,17 @@
     "notes": null
   },
   {
+    "id": 282267,
+    "name": "Lightning Ability +30% Boost 3",
+    "effects": "Lightning abilities deal 30% more damage, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_LIGHTNING_MEDIUM_TURN_3",
+    "notes": null
+  },
+  {
     "id": 282268,
     "name": "Wind/Poison Ability +30% Boost 2",
     "effects": "Wind and Poison abilities deal 30% more damage, lasts for 2 turns",
@@ -5822,6 +5921,83 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_EARTH_LARGE_TURN_3",
+    "notes": null
+  },
+  {
+    "id": 282270,
+    "name": "Fire/Ice/Wind/Earth Ability +30% Boost 2",
+    "effects": "Fire, Ice, Wind and Earth abilities deal 30% more damage, lasts for 2 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_FIRE_ICE_WIND_EARTH_MEDIUM_TURN_2",
+    "notes": null
+  },
+  {
+    "id": 282271,
+    "name": "Water Ability +30% Boost 2",
+    "effects": "Water abilities deal 30% more damage, lasts for 2 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_WATER_MEDIUM_TURN_2",
+    "notes": null
+  },
+  {
+    "id": 282272,
+    "name": "Lightning Ability +20% Boost 1",
+    "effects": "Lightning abilities deal 20% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_LIGHTNING_SMALL_120_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282273,
+    "name": "Lightning Ability +10% Boost 1",
+    "effects": "Lightning abilities deal 10% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_LIGHTNING_EXTRA_SMALL_110_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282274,
+    "name": "Earth Ability +30% Boost",
+    "effects": "Earth abilities deal 30% more damage",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_EARTH_MEDIUM_TIME_15000",
+    "notes": null
+  },
+  {
+    "id": 282275,
+    "name": "Lightning Ability +15% Boost 1",
+    "effects": "Lightning abilities deal 15% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_LIGHTNING_SMALL_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 282276,
+    "name": "Black Magic +30% Boost 1",
+    "effects": "Black Magic abilities deal 30% more damage, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_BLACK_MAGIC_MEDIUM_TURN_1",
     "notes": null
   },
   {
@@ -7108,6 +7284,28 @@
     "notes": null
   },
   {
+    "id": 30121,
+    "name": "Pain -1",
+    "effects": "Decreases Pain level by 1",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DECREASE_PAIN_LEVEL_1",
+    "notes": null
+  },
+  {
+    "id": 30122,
+    "name": "Pain -2",
+    "effects": "Decreases Pain level by 2",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DECREASE_PAIN_LEVEL_2",
+    "notes": null
+  },
+  {
     "id": 3013,
     "name": "Dualcast Summoning 1",
     "effects": "Dualcasts the next Summoning ability, lasts for 1 turn",
@@ -7402,6 +7600,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "SEQ_ABILITY_REPEAT_5_TIMES_FOR_ELEMENT_EARTH_HOLY_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3040,
+    "name": "Dualcast Ice/Lightning 1",
+    "effects": "Dualcasts the next Ice or Lightning ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_REPEAT_1_TIMES_FOR_ELEMENT_ICE_LIGHTNING_BY_TURN_1",
     "notes": null
   },
   {
@@ -7906,6 +8115,17 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "SEQ_ABILITY_REPEAT_3_TIMES_FOR_ELEMENT_FIRE_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 3504,
+    "name": "Quadcast Lightning 1",
+    "effects": "Quadcasts the next Lightning ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "SEQ_ABILITY_REPEAT_3_TIMES_FOR_ELEMENT_LIGHTNING_BY_TURN_1",
     "notes": null
   },
   {
@@ -11688,7 +11908,7 @@
   {
     "id": 50321,
     "name": "EX: Essence of Wind",
-    "effects": "Grants [Physical High Quick Cast 1] to all allies in the front row and casts Inherited Swordplay 1/2/3 after using 1+3n/2+3n/3+3n Wind attacks",
+    "effects": "Grants [Physical High Quick Cast 1] to all allies in the front row after using a Wind ability, casts Inherited Swordplay 1/2/3 after using 1+3n/2+3n/3+3n Wind attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -12138,7 +12358,7 @@
   },
   {
     "id": 50366,
-    "name": "Struggle Within",
+    "name": "Beast Stream",
     "effects": "Grants [Quick Cast 1] to all allies in the character's row and casts Beast Stream after using a Dark attack",
     "defaultDuration": null,
     "mndModifier": null,
@@ -12326,7 +12546,7 @@
   {
     "id": 50384,
     "name": "EX: Knight of Etro",
-    "effects": "Grants [Physical High Quick Cast 1] to all allies in the front row and casts Divine Edge 1/2/3 after using 1+3n/2+3n/3+3n Holy attacks",
+    "effects": "Grants [Physical High Quick Cast 1] to all allies in the front row after using a Holy ability, casts Divine Edge 1/2/3 after using 1+3n/2+3n/3+3n Holy attacks",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17056,7 +17276,7 @@
   {
     "id": 50834,
     "name": "Awoken Lotus",
-    "effects": "White Magic and Support abilities don't consume uses, cast speed x3.00 for White Magic and Support abilities, casts Superior Light after using a White Magic or Support ability",
+    "effects": "White Magic and Support abilities don't consume uses, cast speed x3.00 for White Magic and Support abilities, casts Superior Light after using a White Magic and Support ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17309,7 +17529,7 @@
   {
     "id": 50861,
     "name": "Precise Guard Mode",
-    "effects": "Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times",
+    "effects": "Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17809,7 +18029,7 @@
   },
   {
     "id": 50904,
-    "name": "Awoken Tranquility",
+    "name": "Awoken Talent",
     "effects": "Lightning and Ice abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Lightning and Ice abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -17842,7 +18062,7 @@
   },
   {
     "id": 50907,
-    "name": "Federation Devil Mode",
+    "name": "Federation Blackblood Mode",
     "effects": "Grants [Instant ATB 1] and [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering five times or if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
@@ -17853,8 +18073,8 @@
   },
   {
     "id": 50908,
-    "name": "Sword Stance",
-    "effects": "Casts Sword Stance after using Tachi: Yukikaze, removed if user hasn't Synchro Mode",
+    "name": "Blade Drawn",
+    "effects": "Casts Tachi: Kasha after using Tachi: Yukikaze, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17875,8 +18095,8 @@
   },
   {
     "id": 50910,
-    "name": "Mayakov Dance Mode (Dancer/Support)",
-    "effects": "Causes [DEF, RES and MND -70% (8s)] to all enemies after using two Dancer abilities, grants [ATK, DEF, MAG and RES +30% (8s)] to all allies after using two Support abilities",
+    "name": "Troupe Mayakov Mode (Dancer/Support)",
+    "effects": "After using two Dancer/Support abilities, causes/grants [DEF, RES and MND -70% (8s)]/[ATK, DEF, MAG and RES +30% (8s)]  to all enemies/allies based on triggering ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -17963,8 +18183,8 @@
   },
   {
     "id": 50918,
-    "name": "Combo Mode",
-    "effects": "After using two Fire/Lightning/Ice abilities, grants [Attach Fire]/[Attach Lightning]/[Attach Ice] if the triggering ability is Fire/Lightning/Ice",
+    "name": "Combine Mode",
+    "effects": "After using two Fire/Lightning/Ice abilities, grants [Attach Fire]/[Attach Lightning]/[Attach Ice] if the triggering ability is Fire/Lightning/Ice, grants Vivi the same status if he is alive",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18018,8 +18238,8 @@
   },
   {
     "id": 50923,
-    "name": "Eidolon Promise Mode",
-    "effects": "Grants [Eidolon Promise +20% Boost] and [Eidolon Promise Quick Cast 200%]/[Eidolon Promise +30% Boost] and [Eidolon Promise Quick Cast 300%] to the user after using 1/2+ Summoning abilities",
+    "name": "Feymarch Oath Mode",
+    "effects": "Grants [Feymarch Oath +20% Boost] and [Feymarch Oath Quick Cast 200%]/[Feymarch Oath +30% Boost] and [Feymarch Oath Quick Cast 300%] to the user after using 1/2+ Summoning abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18040,7 +18260,7 @@
   },
   {
     "id": 50925,
-    "name": "Mascot Collector Mode",
+    "name": "Costume Collector Mode",
     "effects": "Grants [Soul Break Gauge +250] and [Instant Cast 1] to the user after using three Water abilities, removed after triggering",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18062,78 +18282,78 @@
   },
   {
     "id": 50927,
-    "name": "Eidolon Promise +10% Boost",
-    "effects": "Summoning abilities deal 10% more damage, removed if user hasn't Eidolon Promise Mode",
+    "name": "Feymarch Oath +10% Boost",
+    "effects": "Summoning abilities deal 10% more damage, removed if user hasn't Feymarch Oath Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All \"Eidolon Promise +X% Boost\""
+      "All \"Feymarch Oath +X% Boost\""
     ],
     "codedName": "INCREASE_EXECUTED_DAMAGE_EXTRA_SMALL_110_PHANTOM_WORLD_OF_VOW_MODE",
     "notes": null
   },
   {
     "id": 50928,
-    "name": "Eidolon Promise +20% Boost",
-    "effects": "Summoning abilities deal 20% more damage, removed if user hasn't Eidolon Promise Mode",
+    "name": "Feymarch Oath +20% Boost",
+    "effects": "Summoning abilities deal 20% more damage, removed if user hasn't Feymarch Oath Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All \"Eidolon Promise +X% Boost\""
+      "All \"Feymarch Oath +X% Boost\""
     ],
     "codedName": "INCREASE_EXECUTED_DAMAGE_SMALL_120_PHANTOM_WORLD_OF_VOW_MODE",
     "notes": null
   },
   {
     "id": 50929,
-    "name": "Eidolon Promise +30% Boost",
-    "effects": "Summoning abilities deal 30% more damage, removed if user hasn't Eidolon Promise Mode",
+    "name": "Feymarch Oath +30% Boost",
+    "effects": "Summoning abilities deal 30% more damage, removed if user hasn't Feymarch Oath Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All \"Eidolon Promise +X% Boost\""
+      "All \"Feymarch Oath +X% Boost\""
     ],
     "codedName": "INCREASE_EXECUTED_DAMAGE_MEDIUM_PHANTOM_WORLD_OF_VOW_MODE",
     "notes": null
   },
   {
     "id": 50930,
-    "name": "Eidolon Promise Quick Cast 150%",
-    "effects": "Cast speed x1.50 for Summoning abilities, removed if user hasn't Eidolon Promise Mode",
+    "name": "Feymarch Oath Quick Cast 150%",
+    "effects": "Cast speed x1.50 for Summoning abilities, removed if user hasn't Feymarch Oath Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All \"Eidolon Promise Quick Cast X%\""
+      "All \"Feymarch Oath Quick Cast X%\""
     ],
     "codedName": "CHANGE_CAST_TIME_SMALL_WHILE_PHANTOM_WORLD_OF_VOW",
     "notes": null
   },
   {
     "id": 50931,
-    "name": "Eidolon Promise Quick Cast 200%",
-    "effects": "Cast speed x2.00 for Summoning abilities, removed if user hasn't Eidolon Promise Mode",
+    "name": "Feymarch Oath Quick Cast 200%",
+    "effects": "Cast speed x2.00 for Summoning abilities, removed if user hasn't Feymarch Oath Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All \"Eidolon Promise Quick Cast X%\""
+      "All \"Feymarch Oath Quick Cast X%\""
     ],
     "codedName": "CHANGE_CAST_TIME_MEDIUM_WHILE_PHANTOM_WORLD_OF_VOW",
     "notes": null
   },
   {
     "id": 50932,
-    "name": "Eidolon Promise Quick Cast 300%",
-    "effects": "Cast speed x3.00 for Summoning abilities, removed if user hasn't Eidolon Promise Mode",
+    "name": "Feymarch Oath Quick Cast 300%",
+    "effects": "Cast speed x3.00 for Summoning abilities, removed if user hasn't Feymarch Oath Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All \"Eidolon Promise Quick Cast X%\""
+      "All \"Feymarch Oath Quick Cast X%\""
     ],
     "codedName": "CHANGE_CAST_TIME_LARGE_WHILE_PHANTOM_WORLD_OF_VOW",
     "notes": null
@@ -18151,8 +18371,8 @@
   },
   {
     "id": 50934,
-    "name": "Critical Link: Gladiolus",
-    "effects": "Grants [Critical Link: Gladiolus Critical Chance and CT] to the user after using Heavy Impact or Tempest Charge",
+    "name": "Critical Link G",
+    "effects": "Grants [Critical Link G Critical Chance and CT] to the user after using Heavy Impact or Tempest Charge",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18162,7 +18382,7 @@
   },
   {
     "id": 50935,
-    "name": "Critical Link: Gladiolus Follow-Up",
+    "name": "Critical Link G Follow-Up",
     "effects": "Grants [Attach Earth] to the user after using three of Heavy Impact or Tempest Charge",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18173,8 +18393,8 @@
   },
   {
     "id": 50936,
-    "name": "Puppetmaster Mode",
-    "effects": "Casts Puppetmaster when the user's HP falls below 20%, removed if user hasn't Synchro Mode",
+    "name": "Royal Puppeteer Mode",
+    "effects": "Casts Royal Puppetmaster when the user's HP falls below 20%, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18196,7 +18416,7 @@
   {
     "id": 50938,
     "name": "Azure Dragoon Mode",
-    "effects": "Dragoon abilities deal 30% more damage, casts Azure Dragoon after casting Mirage Dive twice, removed if user hasn't Synchro Mode",
+    "effects": "Dragoon abilities deal 30% more damage, casts Geirskogul after casting Mirage Dive twice, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18206,8 +18426,8 @@
   },
   {
     "id": 50939,
-    "name": "Left Eye of Nidhogg Mode",
-    "effects": "Dragoon abilities deal 50% more damage, casts Left Eye of Nidhogg after casting High Jump (XIV), removed if user hasn't Synchro Mode",
+    "name": "Crimson Dragoon Mode",
+    "effects": "Dragoon abilities deal 50% more damage, casts Nastrond after casting High Jump (XIV), removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18228,8 +18448,8 @@
   },
   {
     "id": 50941,
-    "name": "Magitek Lance",
-    "effects": "Critical chance =100%, casts Magitek Lance after using a Wind/Dark ability, removed after casting Magitek Lance three times",
+    "name": "Skybreaker's Might",
+    "effects": "Critical chance =100%, casts Nidhogg Skybreaker after using a Wind/Dark ability, removed after casting Nidhogg Skybreaker three times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18273,7 +18493,7 @@
   {
     "id": 50945,
     "name": "Awoken Whistle",
-    "effects": "White Magic and Summoning abilities don't consume uses, cast speed x3.00 for White Magic and Summoning abilities, casts Whistle Practice after using a White Magic or Summoning ability",
+    "effects": "White Magic and Summoning abilities don't consume uses, cast speed x3.00 for White Magic and Summoning abilities, casts Practiced Smile after using a White Magic or Summoning ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18283,8 +18503,8 @@
   },
   {
     "id": 50946,
-    "name": "Revival Mode (Ardyn)",
-    "effects": "Grants [Instant ATB 2], [Instant Cast 2] and [100% Critical 2] to the user when the user's HP falls below 20%, removes Revival Mode (Ardyn)",
+    "name": "Revived Vengeance Mode",
+    "effects": "Grants [Instant ATB 2], [Instant Cast 2] and [100% Critical 2] to the user when the user's HP falls below 20%, removes Revived Vengeance Mode",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18317,7 +18537,7 @@
   {
     "id": 50949,
     "name": "Innocent Prism Follow-Up",
-    "effects": "Casts Innocent Prism after using Luminous Ray or Bright Gospel two times",
+    "effects": "Casts Innocent Prism after using Luminous Ray or Pearly Wisdom two times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18349,7 +18569,7 @@
   },
   {
     "id": 50952,
-    "name": "Awoken Lord of Darkness",
+    "name": "Awoken Shadow King",
     "effects": "Dark and Fire abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dark and Fire abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18371,8 +18591,8 @@
   },
   {
     "id": 50954,
-    "name": "Dark Armiger Mode",
-    "effects": "Cast speed x9999999, casts Dark Armiger after using a Dark or Fire ability, removed after casting Dark Armiger three times",
+    "name": "Dark Phantom Mode",
+    "effects": "Cast speed x9999999, casts Destruction after using a Dark or Fire ability, removed after casting Destruction three times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18427,7 +18647,7 @@
   {
     "id": 50960,
     "name": "Rookie Mode",
-    "effects": "Casts Turks Combo after an ally uses a Fire or Lightning ability, removed after casting Turks Combo six times",
+    "effects": "Casts Turks Flurry after an ally uses a Fire or Lightning ability, removed after casting Turks Flurry six times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18437,7 +18657,7 @@
   },
   {
     "id": 50961,
-    "name": "Awoken Taciturn Sunglasses",
+    "name": "Awoken Stoic Sunglasses",
     "effects": "Earth and Lightning abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Earth and Lightning abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18448,8 +18668,8 @@
   },
   {
     "id": 50962,
-    "name": "Silent Enforcer Mode",
-    "effects": "After using two Earth/Lightning abilities, casts ...Work (Earth)/...Work (Lightning) if the triggering ability is Earth/Lightning",
+    "name": "Deeds Not Words Mode",
+    "effects": "After using two Earth/Lightning abilities, casts Let's Get to Work (Earth)/Let's Get to Work (Lightning) if the triggering ability is Earth/Lightning",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18459,7 +18679,7 @@
   },
   {
     "id": 50963,
-    "name": "Electromagnetic Mode",
+    "name": "Electrostatic Mode",
     "effects": "Grants [Overflow Lightning Radiant Shield: 125%]/[Overflow Lightning Radiant Shield: 200%]/[Overflow Lightning Radiant Shield: 300%] after using 1/2/3+ Lightning attacks",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18481,8 +18701,8 @@
   },
   {
     "id": 50965,
-    "name": "Land Mine Mode",
-    "effects": "Grants Land Mine +1 after using three Machinist abilities",
+    "name": "Magicite Mine Mode",
+    "effects": "Grants Magicite +1 after using three Machinist abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18570,7 +18790,7 @@
   {
     "id": 50975,
     "name": "Limit Combo Follow-Up",
-    "effects": "Grants Earth Limit +1 after using Ground Break two times, removed if user hasn't Synchro Mode",
+    "effects": "Grants Earth Limit Form +1 after using Grand Break two times, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18591,49 +18811,49 @@
   },
   {
     "id": 50978,
-    "name": "Acoustic 1",
-    "effects": "Used for tracking Acoustic level",
+    "name": "Performance 1",
+    "effects": "Used for tracking Performance level",
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "Acoustic 2",
-      "Acoustic 3"
+      "Performance 2",
+      "Performance 3"
     ],
     "codedName": "WHITE_SERENADE_MODE_1",
     "notes": null
   },
   {
     "id": 50979,
-    "name": "Acoustic 2",
-    "effects": "Used for tracking Acoustic level",
+    "name": "Performance 2",
+    "effects": "Used for tracking Performance level",
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "Acoustic 1",
-      "Acoustic 3"
+      "Performance 1",
+      "Performance 3"
     ],
     "codedName": "WHITE_SERENADE_MODE_2",
     "notes": null
   },
   {
     "id": 50980,
-    "name": "Acoustic 3",
-    "effects": "Used for tracking Acoustic level",
+    "name": "Performance 3",
+    "effects": "Used for tracking Performance level",
     "defaultDuration": 10,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "Acoustic 1",
-      "Acoustic 2"
+      "Performance 1",
+      "Performance 2"
     ],
     "codedName": "WHITE_SERENADE_MODE_3",
     "notes": null
   },
   {
     "id": 50981,
-    "name": "Darkflame Reverse Mode",
+    "name": "Shadowflame Reversal Mode",
     "effects": "Grants [Overflow Fire Radiant Shield: 75%]/[Overflow Fire Radiant Shield: 125%]/[Overflow Fire Radiant Shield: 200%]/[Overflow Fire Radiant Shield: 300%] or [Overflow Dark Radiant Shield: 75%]/[Overflow Dark Radiant Shield: 125%]/[Overflow Dark Radiant Shield: 200%]/[Overflow Dark Radiant Shield: 300%] after using 1/2/3/4+ Dark or Fire attacks, count is shared between Dark and Fire elements",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18644,8 +18864,8 @@
   },
   {
     "id": 50982,
-    "name": "Crimson Resolve Mode",
-    "effects": "Grants Firelight +1/-1 after using Vibrant Slash if user has Firelight 0/1, removed if user hasn't Synchro Mode",
+    "name": "Crimson Steel Mode",
+    "effects": "Grants Firelight Shadows +1/-1 after using Mottled Chroma if user has Firelight Shadows 0/1, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18655,7 +18875,7 @@
   },
   {
     "id": 50983,
-    "name": "Awoken Azure Ashes",
+    "name": "Awoken Ex-Azure Dragoon",
     "effects": "Dragoon abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dragoon abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18667,7 +18887,7 @@
   {
     "id": 50984,
     "name": "Mist Charge Mode",
-    "effects": "Casts Mist Charge after using Empyrean Thunderclap or Nethicite's Gleam four times",
+    "effects": "Casts North Star Bolt after using Dancing Thunder or Exorcising Flash four times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18677,8 +18897,8 @@
   },
   {
     "id": 50985,
-    "name": "Revival Mode",
-    "effects": "Casts Storyteller when the user's HP falls below 20%, removed if user hasn't Synchro Mode",
+    "name": "Revived Storyteller's Spirit Mode",
+    "effects": "Casts Revived Storyteller's Spirit when the user's HP falls below 20%, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18688,8 +18908,8 @@
   },
   {
     "id": 50986,
-    "name": "Connecting Hearts Mode",
-    "effects": "Casts Borrowed Time after using Meaning of Life, sets Borrowed Time level to 0 after casting a Fire ability",
+    "name": "Heart to Heart Mode",
+    "effects": "Casts Time Permitted after using Reason to Live, sets Time Permitted level to 0 after casting a Fire ability",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18710,8 +18930,8 @@
   },
   {
     "id": 50988,
-    "name": "Bonds of Friendship Follow-Up",
-    "effects": "Casts Bonds of Friendship after using Wind Assault or Flame Assault four times",
+    "name": "Solid Bond Follow-Up",
+    "effects": "Casts Solid Bond after using Wind Assault or Flame Assault four times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18721,8 +18941,8 @@
   },
   {
     "id": 50989,
-    "name": "Guiding Flame Mode",
-    "effects": "Casts Guiding Flame when any Damage Reduction Barrier is removed, removed after casting Guiding Flame two times",
+    "name": "Path of Flame Mode",
+    "effects": "Casts Master Pyroblade when any Damage Reduction Barrier is removed, removed after casting Path of Flame two times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18754,8 +18974,8 @@
   },
   {
     "id": 50992,
-    "name": "Critical Link: Gladiolus Critical Chance and CT",
-    "effects": "Critical chance =50%/75%/100% and cast speed x1.33/x2.00/x3.00 after using Heavy Impact or Tempest Charge 1/2/3+ times, removed if user hasn't Critical Link: Gladiolus",
+    "name": "Critical Link G Critical Chance and CT",
+    "effects": "Critical chance =50%/75%/100% and cast speed x1.33/x2.00/x3.00 after using Heavy Impact or Tempest Charge 1/2/3+ times, removed if user hasn't Critical Link G",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18777,7 +18997,7 @@
   {
     "id": 50994,
     "name": "Mental Collapse Mode",
-    "effects": "Casts Mental Collapse when any Damage Reduction Barrier is removed, removed after casting Mental Collapse five times or if user hasn't Synchro Mode",
+    "effects": "Casts Hyperdrive Kick when any Damage Reduction Barrier is removed, removed after casting Hyperdrive Kick five times or if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18787,7 +19007,7 @@
   },
   {
     "id": 50995,
-    "name": "Mayakov Dance Mode (Celerity)",
+    "name": "Troupe Mayakov Mode (Celerity)",
     "effects": "Grants [40% Damage Reduction Barrier 1] to all allies after using Celerity abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -18809,8 +19029,8 @@
   },
   {
     "id": 50997,
-    "name": "Runic Release Follow-Up",
-    "effects": "Casts Runic Release after using two Ice or Holy abilities",
+    "name": "Unleashed Runic Blade Follow-Up",
+    "effects": "Casts Unleashed Runic Blade after using two Ice or Holy abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18853,7 +19073,7 @@
   },
   {
     "id": 51000,
-    "name": "True Arcane Augment Mode: Tifa",
+    "name": "Arcane Dyad Empowered: Tifa",
     "effects": "Keeps track of Final Heaven uses, removed if user has triggered Final Heaven two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -18865,7 +19085,7 @@
   {
     "id": 51001,
     "name": "Final Heaven Damage Tracker",
-    "effects": "Increases Final Heaven level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Tifa",
+    "effects": "Increases Final Heaven level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Tifa",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18876,7 +19096,7 @@
   {
     "id": 51002,
     "name": "Final Heaven Level",
-    "effects": "Keeps track of Final Heaven level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Tifa",
+    "effects": "Keeps track of Final Heaven level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Tifa",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18886,7 +19106,7 @@
   },
   {
     "id": 51003,
-    "name": "True Arcane Augment Mode: Lightning",
+    "name": "Arcane Dyad Empowered: Lightning",
     "effects": "Keeps track of Zantetsuken uses, removed if user has triggered Zantetsuken two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -18898,7 +19118,7 @@
   {
     "id": 51004,
     "name": "Zantetsuken Ability Tracker",
-    "effects": "Increases Zantetsuken level by 1 when user triggers 5 or 8 Lightning abilities during the status, removed if user hasn't True Arcane Augment Mode: Lightning",
+    "effects": "Increases Zantetsuken level by 1 when user triggers 5 or 8 Lightning abilities during the status, removed if user hasn't Arcane Dyad Empowered: Lightning",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18909,7 +19129,7 @@
   {
     "id": 51005,
     "name": "Zantetsuken Level",
-    "effects": "Keeps track of Zantetsuken level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Lightning",
+    "effects": "Keeps track of Zantetsuken level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Lightning",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18930,7 +19150,7 @@
   },
   {
     "id": 51007,
-    "name": "True Arcane Augment Mode: Cecil (Paladin)",
+    "name": "Arcane Dyad Empowered: Cecil (Paladin)",
     "effects": "Keeps track of Soul Shift uses, removed if user has triggered Soul Shift two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -18942,7 +19162,7 @@
   {
     "id": 51008,
     "name": "Soul Shift Damage Tracker",
-    "effects": "Increases Soul Shift level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Cecil (Paladin)",
+    "effects": "Increases Soul Shift level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Cecil (Paladin)",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18953,7 +19173,7 @@
   {
     "id": 51009,
     "name": "Soul Shift Level",
-    "effects": "Keeps track of Soul Shift level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Cecil (Paladin)",
+    "effects": "Keeps track of Soul Shift level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Cecil (Paladin)",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18963,8 +19183,8 @@
   },
   {
     "id": 51010,
-    "name": "True Arcane Augment Mode: Celes",
-    "effects": "Keeps track of Supreme Spinning Edge uses, removed if user has triggered Supreme Spinning Edge two times",
+    "name": "Arcane Dyad Empowered: Celes",
+    "effects": "Keeps track of Apex Spinning Edge uses, removed if user has triggered Apex Spinning Edge two times",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18974,8 +19194,8 @@
   },
   {
     "id": 51011,
-    "name": "Supreme Spinning Edge Ability Tracker",
-    "effects": "Increases Supreme Spinning Edge level by 1 when user triggers 5 or 8 Ice abilities during the status, removed if user hasn't True Arcane Augment Mode: Celes",
+    "name": "Apex Spinning Edge Ability Tracker",
+    "effects": "Increases Apex Spinning Edge level by 1 when user triggers 5 or 8 Ice abilities during the status, removed if user hasn't Arcane Dyad Empowered: Celes",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -18985,8 +19205,8 @@
   },
   {
     "id": 51012,
-    "name": "Supreme Spinning Edge Level",
-    "effects": "Keeps track of Supreme Spinning Edge level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Celes",
+    "name": "Apex Spinning Edge Level",
+    "effects": "Keeps track of Apex Spinning Edge level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Celes",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19007,8 +19227,8 @@
   },
   {
     "id": 51014,
-    "name": "True Arcane Augment Mode: Garland",
-    "effects": "Keeps track of Ultimate Soul of Chaos uses, removed if user has triggered Ultimate Soul of Chaos two times",
+    "name": "Arcane Dyad Empowered: Garland",
+    "effects": "Keeps track of Apex Soul of Chaos uses, removed if user has triggered Apex Soul of Chaos two times",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19018,8 +19238,8 @@
   },
   {
     "id": 51015,
-    "name": "Ultimate Soul of Chaos Damage Tracker",
-    "effects": "Increases Ultimate Soul of Chaos level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Garland",
+    "name": "Apex Soul of Chaos Damage Tracker",
+    "effects": "Increases Apex Soul of Chaos level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Garland",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19029,8 +19249,8 @@
   },
   {
     "id": 51016,
-    "name": "Ultimate Soul of Chaos Level",
-    "effects": "Keeps track of Ultimate Soul of Chaos level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Garland",
+    "name": "Apex Soul of Chaos Level",
+    "effects": "Keeps track of Apex Soul of Chaos level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Garland",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19040,8 +19260,8 @@
   },
   {
     "id": 51017,
-    "name": "Portent of Darkness",
-    "effects": "Grants [Dark +30% Boost 1] to all allies after casting two of Dual Aura Ball or Aura Ball Charge",
+    "name": "Dark Portent",
+    "effects": "Grants [Dark +30% Boost 1] to all allies after casting two of Chain Aura Ball or Deceit Aura Ball",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19051,7 +19271,7 @@
   },
   {
     "id": 51018,
-    "name": "Chaos Rebirth Mode",
+    "name": "Chaos Reborn Mode",
     "effects": "Casts Chaos Rebirth when any Damage Reduction Barrier is removed",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -19073,7 +19293,7 @@
   },
   {
     "id": 51020,
-    "name": "Word of Sorrow",
+    "name": "Blessed Shower",
     "effects": "Grants [Holy Ability +30% Boost 1]/[Water Ability +30% Boost 1] and [Attach Holy]/[Attach Water] to the user after using two Holy/Water abilities",
     "defaultDuration": 15,
     "mndModifier": null,
@@ -19117,8 +19337,8 @@
   },
   {
     "id": 51026,
-    "name": "Dawn",
-    "effects": "Grants [Dark Ability +30% Boost 1]/[Holy Ability +30% Boost 1]/[Dark Ability +30% Boost 1] to all allies after casting two of Dark Marionette or Seraphic Phase if the triggering ability deals Dark/Holy/Non-Elemental damage",
+    "name": "Dawning Light",
+    "effects": "Grants [Dark Ability +30% Boost 1]/[Holy Ability +30% Boost 1]/[Dark Ability +30% Boost 1] to all allies after casting two of Dark Marionette and Seraphic Phase if the triggering ability deals Dark/Holy/Non-Elemental damage",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19216,8 +19436,8 @@
   },
   {
     "id": 51036,
-    "name": "True Arcane Augment Mode: Rinoa",
-    "effects": "Keeps track of Angel Wing Zenith uses, removed if user has triggered Angel Wing Zenith two times",
+    "name": "Arcane Dyad Empowered: Rinoa",
+    "effects": "Keeps track of Angel Wing Extreme uses, removed if user has triggered Angel Wing Extreme two times",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19227,8 +19447,8 @@
   },
   {
     "id": 51037,
-    "name": "Angel Wing Zenith Damage Tracker",
-    "effects": "Increases Angel Wing Zenith level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Rinoa",
+    "name": "Angel Wing Extreme Damage Tracker",
+    "effects": "Increases Angel Wing Extreme level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Rinoa",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19238,8 +19458,8 @@
   },
   {
     "id": 51038,
-    "name": "Angel Wing Zenith Level",
-    "effects": "Keeps track of Angel Wing Zenith level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Rinoa",
+    "name": "Angel Wing Extreme Level",
+    "effects": "Keeps track of Angel Wing Extreme level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Rinoa",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19522,7 +19742,7 @@
   },
   {
     "id": 51064,
-    "name": "True Arcane Augment Mode: Vincent",
+    "name": "Arcane Dyad Empowered: Vincent",
     "effects": "Keeps track of Satan Slam uses, removed if user has triggered Satan Slam two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -19534,7 +19754,7 @@
   {
     "id": 51065,
     "name": "Satan Slam Damage Tracker",
-    "effects": "Increases Satan Slam level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Vincent",
+    "effects": "Increases Satan Slam level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Vincent",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19545,7 +19765,7 @@
   {
     "id": 51066,
     "name": "Satan Slam Level",
-    "effects": "Keeps track of Satan Slam level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Vincent",
+    "effects": "Keeps track of Satan Slam level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Vincent",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19621,39 +19841,39 @@
   },
   {
     "id": 51073,
-    "name": "Chaos Rebirth +15% Boost",
-    "effects": "Dark abilities deal 15% more damage, removed if user hasn't Chaos Rebirth Mode",
+    "name": "Chaos Reborn +15% Boost",
+    "effects": "Dark abilities deal 15% more damage, removed if user hasn't Chaos Reborn Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All \"Chaos Rebirth +X% Boost\""
+      "All \"Chaos Reborn +X% Boost\""
     ],
     "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_SMALL_WHILE_REINCARNATION_MODE",
     "notes": null
   },
   {
     "id": 51074,
-    "name": "Chaos Rebirth +30% Boost",
-    "effects": "Dark abilities deal 30% more damage, removed if user hasn't Chaos Rebirth Mode",
+    "name": "Chaos Reborn +30% Boost",
+    "effects": "Dark abilities deal 30% more damage, removed if user hasn't Chaos Reborn Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All \"Chaos Rebirth +X% Boost\""
+      "All \"Chaos Reborn +X% Boost\""
     ],
     "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_MEDIUM_WHILE_REINCARNATION_MODE",
     "notes": null
   },
   {
     "id": 51075,
-    "name": "Chaos Rebirth +50% Boost",
-    "effects": "Dark abilities deal 50% more damage, removed if user hasn't Chaos Rebirth Mode",
+    "name": "Chaos Reborn +50% Boost",
+    "effects": "Dark abilities deal 50% more damage, removed if user hasn't Chaos Reborn Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": [
-      "All \"Chaos Rebirth +X% Boost\""
+      "All \"Chaos Reborn +X% Boost\""
     ],
     "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_DARK_LARGE_WHILE_REINCARNATION_MODE",
     "notes": null
@@ -19693,7 +19913,7 @@
   },
   {
     "id": 51081,
-    "name": "True Arcane Augment Mode: Zidane",
+    "name": "Arcane Dyad Empowered: Zidane",
     "effects": "Keeps track of Grand Lethal uses, removed if user has triggered Grand Lethal two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -19705,7 +19925,7 @@
   {
     "id": 51082,
     "name": "Ultimate Grand Lethal Ability Tracker",
-    "effects": "Increases Ultimate Grand Lethal level by 1 when user triggers 5 or 8 Wind abilities during the status, removed if user hasn't True Arcane Augment Mode: Zidane",
+    "effects": "Increases Ultimate Grand Lethal level by 1 when user triggers 5 or 8 Wind abilities during the status, removed if user hasn't Arcane Dyad Empowered: Zidane",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19716,7 +19936,7 @@
   {
     "id": 51083,
     "name": "Ultimate Grand Lethal Level",
-    "effects": "Keeps track of Ultimate Grand Lethal level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Zidane",
+    "effects": "Keeps track of Ultimate Grand Lethal level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Zidane",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19726,7 +19946,7 @@
   },
   {
     "id": 51084,
-    "name": "True Arcane Augment Mode: Warrior of Light",
+    "name": "Arcane Dyad Empowered: Warrior of Light",
     "effects": "Keeps track of Holy Chain uses, removed if user has triggered Holy Chain two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -19738,7 +19958,7 @@
   {
     "id": 51085,
     "name": "Holy Chain Damage Tracker",
-    "effects": "Increases Holy Chain level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Warrior of Light",
+    "effects": "Increases Holy Chain level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Warrior of Light",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19749,7 +19969,7 @@
   {
     "id": 51086,
     "name": "Holy Chain Level",
-    "effects": "Keeps track of Holy Chain level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Warrior of Light",
+    "effects": "Keeps track of Holy Chain level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Warrior of Light",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19759,7 +19979,7 @@
   },
   {
     "id": 51087,
-    "name": "True Arcane Augment Mode: Bartz",
+    "name": "Arcane Dyad Empowered: Bartz",
     "effects": "Keeps track of Job Mastered: Earth uses, removed if user has triggered Job Mastered: Earth two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -19771,7 +19991,7 @@
   {
     "id": 51088,
     "name": "Job Mastered: Earth Damage Tracker",
-    "effects": "Increases Job Mastered: Earth level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Bartz",
+    "effects": "Increases Job Mastered: Earth level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Bartz",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19782,7 +20002,7 @@
   {
     "id": 51089,
     "name": "Job Mastered: Earth Level",
-    "effects": "Keeps track of Job Mastered: Earth level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Bartz",
+    "effects": "Keeps track of Job Mastered: Earth level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Bartz",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19814,7 +20034,7 @@
   },
   {
     "id": 51092,
-    "name": "True Arcane Augment Mode: Onion Knight",
+    "name": "Arcane Dyad Empowered: Onion Knight",
     "effects": "Keeps track of Spirit Surge uses, removed if user has triggered Spirit Surge two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -19826,7 +20046,7 @@
   {
     "id": 51093,
     "name": "Spirit Surge Damage Tracker",
-    "effects": "Increases Spirit Surge level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Onion Knight",
+    "effects": "Increases Spirit Surge level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Onion Knight",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19837,7 +20057,7 @@
   {
     "id": 51094,
     "name": "Spirit Surge Level",
-    "effects": "Keeps track of Spirit Surge level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Onion Knight",
+    "effects": "Keeps track of Spirit Surge level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Onion Knight",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19869,7 +20089,7 @@
   },
   {
     "id": 51097,
-    "name": "True Arcane Augment Mode: Locke",
+    "name": "Arcane Dyad Empowered: Locke",
     "effects": "Keeps track of Ultimate Mirage Dive uses, removed if user has triggered Ultimate Mirage Dive two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -19881,7 +20101,7 @@
   {
     "id": 51098,
     "name": "Ultimate Mirage Dive Ability Tracker",
-    "effects": "Increases Ultimate Mirage Dive level by 1 when user triggers 5 or 8 Fire abilities during the status, removed if user hasn't True Arcane Augment Mode: Locke",
+    "effects": "Increases Ultimate Mirage Dive level by 1 when user triggers 5 or 8 Fire abilities during the status, removed if user hasn't Arcane Dyad Empowered: Locke",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19892,7 +20112,7 @@
   {
     "id": 51099,
     "name": "Ultimate Mirage Dive Level",
-    "effects": "Keeps track of Ultimate Mirage Dive level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Locke",
+    "effects": "Keeps track of Ultimate Mirage Dive level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Locke",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19913,7 +20133,7 @@
   },
   {
     "id": 51100,
-    "name": "True Arcane Augment Mode: Cloud",
+    "name": "Arcane Dyad Empowered: Cloud",
     "effects": "Keeps track of Omnislash uses, removed if user has triggered Omnislash two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -19925,7 +20145,7 @@
   {
     "id": 51101,
     "name": "Omnislash Damage Tracker",
-    "effects": "Increases Omnislash level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Cloud",
+    "effects": "Increases Omnislash level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Cloud",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19936,7 +20156,7 @@
   {
     "id": 51102,
     "name": "Omnislash Level",
-    "effects": "Keeps track of Omnislash level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Cloud",
+    "effects": "Keeps track of Omnislash level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Cloud",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19946,7 +20166,7 @@
   },
   {
     "id": 51103,
-    "name": "True Arcane Augment Mode: Tidus",
+    "name": "Arcane Dyad Empowered: Tidus",
     "effects": "Keeps track of Overdrive Blitz Ace uses, removed if user has triggered Overdrive Blitz Ace two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -19958,7 +20178,7 @@
   {
     "id": 51104,
     "name": "Overdrive Blitz Ace Ability Tracker",
-    "effects": "Increases Overdrive Blitz Ace level by 1 when user triggers 5 or 8 Water abilities during the status, removed if user hasn't True Arcane Augment Mode: Tidus",
+    "effects": "Increases Overdrive Blitz Ace level by 1 when user triggers 5 or 8 Water abilities during the status, removed if user hasn't Arcane Dyad Empowered: Tidus",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19969,7 +20189,7 @@
   {
     "id": 51105,
     "name": "Overdrive Blitz Ace Level",
-    "effects": "Keeps track of Overdrive Blitz Ace level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Tidus",
+    "effects": "Keeps track of Overdrive Blitz Ace level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Tidus",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19979,7 +20199,7 @@
   },
   {
     "id": 51106,
-    "name": "True Arcane Augment Mode: Ashe",
+    "name": "Arcane Dyad Empowered: Ashe",
     "effects": "Keeps track of Empyrean Heaven's Wrath uses, removed if user has triggered Empyrean Heaven's Wrath two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -19991,7 +20211,7 @@
   {
     "id": 51107,
     "name": "Empyrean Heaven's Wrath Damage Tracker",
-    "effects": "Increases Empyrean Heaven's Wrath level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Ashe",
+    "effects": "Increases Empyrean Heaven's Wrath level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Ashe",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20002,7 +20222,7 @@
   {
     "id": 51108,
     "name": "Empyrean Heaven's Wrath Level",
-    "effects": "Keeps track of Empyrean Heaven's Wrath level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Ashe",
+    "effects": "Keeps track of Empyrean Heaven's Wrath level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Ashe",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20034,7 +20254,7 @@
   },
   {
     "id": 51111,
-    "name": "True Arcane Augment Mode: Beatrix",
+    "name": "Arcane Dyad Empowered: Beatrix",
     "effects": "Keeps track of Seiken Fatal Shock uses, removed if user has triggered Seiken Fatal Shock two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -20046,7 +20266,7 @@
   {
     "id": 51112,
     "name": "Seiken Fatal Shock Damage Tracker",
-    "effects": "Increases Seiken Fatal Shock level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Beatrix",
+    "effects": "Increases Seiken Fatal Shock level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Beatrix",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20057,7 +20277,7 @@
   {
     "id": 51113,
     "name": "Seiken Fatal Shock Level",
-    "effects": "Keeps track of Seiken Fatal Shock level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Beatrix",
+    "effects": "Keeps track of Seiken Fatal Shock level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Beatrix",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20133,7 +20353,7 @@
   },
   {
     "id": 51120,
-    "name": "True Arcane Augment Mode: Tyro",
+    "name": "Arcane Dyad Empowered: Tyro",
     "effects": "Keeps track of Our Fantasy Unbound uses, removed if user has triggered Our Fantasy Unbound two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -20145,7 +20365,7 @@
   {
     "id": 51121,
     "name": "Our Fantasy Unbound Ability Tracker",
-    "effects": "Increases Our Fantasy Unbound level by 1 when user triggers 6 or 10 abilities during the status, removed if user hasn't True Arcane Augment Mode: Tyro",
+    "effects": "Increases Our Fantasy Unbound level by 1 when user triggers 6 or 10 abilities during the status, removed if user hasn't Arcane Dyad Empowered: Tyro",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20156,7 +20376,7 @@
   {
     "id": 51122,
     "name": "Our Fantasy Unbound Level",
-    "effects": "Keeps track of Our Fantasy Unbound level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Tyro",
+    "effects": "Keeps track of Our Fantasy Unbound level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Tyro",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20448,7 +20668,7 @@
   },
   {
     "id": 51148,
-    "name": "True Arcane Augment Mode: Rydia",
+    "name": "Arcane Dyad Empowered: Rydia",
     "effects": "Keeps track of Gaia's Rage (IV) uses, removed if user has triggered Gaia's Rage (IV) two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -20460,7 +20680,7 @@
   {
     "id": 51149,
     "name": "Gaia's Rage Damage Tracker",
-    "effects": "Increases Gaia's Rage level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Rydia",
+    "effects": "Increases Gaia's Rage level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Rydia",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20471,7 +20691,7 @@
   {
     "id": 51150,
     "name": "Gaia's Rage Level",
-    "effects": "Keeps track of Gaia's Rage level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Rydia",
+    "effects": "Keeps track of Gaia's Rage level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Rydia",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20662,7 +20882,7 @@
   },
   {
     "id": 51167,
-    "name": "True Arcane Augment Mode: Shadow",
+    "name": "Arcane Dyad Empowered: Shadow",
     "effects": "Keeps track of Ultimate Shadow Fang uses, removed if user has triggered Ultimate Shadow Fang two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -20674,7 +20894,7 @@
   {
     "id": 51168,
     "name": "Ultimate Shadow Fang Ability Tracker",
-    "effects": "Increases Ultimate Shadow Fang level by 1 when user triggers 5 or 8 Dark abilities during the status, removed if user hasn't True Arcane Augment Mode: Shadow",
+    "effects": "Increases Ultimate Shadow Fang level by 1 when user triggers 5 or 8 Dark abilities during the status, removed if user hasn't Arcane Dyad Empowered: Shadow",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20685,7 +20905,7 @@
   {
     "id": 51169,
     "name": "Ultimate Shadow Fang Level",
-    "effects": "Keeps track of Ultimate Shadow Fang level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Shadow",
+    "effects": "Keeps track of Ultimate Shadow Fang level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Shadow",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20707,7 +20927,7 @@
   {
     "id": 51171,
     "name": "Feral Child Mode",
-    "effects": "Grants [Feral Child Wind Ability +15% Boost]/[Feral Child Wind Ability +30% Boost]/[Feral Child Wind Ability +50% Boost] to the user after using 1/2/3+ Wind abilities, grants [Feral Child Lightning Ability +15% Boost]/[Feral Child Lightning Ability +30% Boost]/[Feral Child Lightning Ability +50% Boost] to the user after using 1/2/3+ Lightning abilities",
+    "effects": "Grants [Feral Child Wind Ability +15% Boost]/[Feral Child Wind Ability +30% Boost]/[Feral Child Wind Ability +50% Boost] to the user after using 1/2/3+ Wind abilities, grants [Feral Child Lightning Ability +15% Boost]/[Feral Child Lightning Ability +30% Boost]/[Feral Child Lightning Ability +50% Boost] to the user after using 1/2/3+ Lightning abilities. Only one of these effects can trigger at a time",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20781,7 +21001,7 @@
   },
   {
     "id": 51178,
-    "name": "True Arcane Augment Mode: Alphinaud",
+    "name": "Arcane Dyad Empowered: Alphinaud",
     "effects": "Keeps track of Final Disaster uses, removed if user has triggered Final Disaster two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -20793,7 +21013,7 @@
   {
     "id": 51179,
     "name": "Final Disaster Damage Tracker",
-    "effects": "Increases Final Disaster level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Alphinaud",
+    "effects": "Increases Final Disaster level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Alphinaud",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20804,7 +21024,7 @@
   {
     "id": 51180,
     "name": "Final Disaster Level",
-    "effects": "Keeps track of Final Disaster level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Alphinaud",
+    "effects": "Keeps track of Final Disaster level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Alphinaud",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20825,7 +21045,7 @@
   },
   {
     "id": 51182,
-    "name": "True Arcane Augment Mode: Minwu",
+    "name": "Arcane Dyad Empowered: Minwu",
     "effects": "Keeps track of Ultima CXXVIII uses, removed if user has triggered Ultima CXXVIII two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -20837,7 +21057,7 @@
   {
     "id": 51183,
     "name": "Ultima CXXVIII Damage Tracker",
-    "effects": "Increases Ultima CXXVIII level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Minwu",
+    "effects": "Increases Ultima CXXVIII level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Minwu",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20848,7 +21068,7 @@
   {
     "id": 51184,
     "name": "Ultima CXXVIII Level",
-    "effects": "Keeps track of Ultima CXXVIII level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Minwu",
+    "effects": "Keeps track of Ultima CXXVIII level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Minwu",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20913,7 +21133,7 @@
   },
   {
     "id": 51190,
-    "name": "True Arcane Augment Mode: Seifer",
+    "name": "Arcane Dyad Empowered: Seifer",
     "effects": "Keeps track of Zantetsuken Payback uses, removed if user has triggered Zantetsuken Payback two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -20925,7 +21145,7 @@
   {
     "id": 51191,
     "name": "Zantetsuken Payback Damage Tracker",
-    "effects": "Increases Zantetsuken Payback level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Seifer",
+    "effects": "Increases Zantetsuken Payback level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Seifer",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20936,7 +21156,7 @@
   {
     "id": 51192,
     "name": "Zantetsuken Payback Level",
-    "effects": "Keeps track of Zantetsuken Payback level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Seifer",
+    "effects": "Keeps track of Zantetsuken Payback level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Seifer",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -20969,7 +21189,7 @@
   {
     "id": 51196,
     "name": "Revived Mode",
-    "effects": "Grants [Instant ATB 1], [Instant Cast 1], [Damage Cap +10000 1] and Resilient Memories +2 (max 2) to the user when the user's HP falls below 20%, removes Revived Mode from the user",
+    "effects": "Grants [Instant ATB 1], [Instant Cast 1], [Damage Cap +10000 1] and Resilient Memories +1 (max 2) to the user when the user's HP falls below 20%, removes Revived Mode from the user",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -21086,6 +21306,61 @@
     "notes": null
   },
   {
+    "id": 51209,
+    "name": "Arcane Dyad Empowered: Vaan",
+    "effects": "Keeps track of Pyroclasm Inferno uses, removed if user has triggered Pyroclasm Inferno two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_VAAN",
+    "notes": null
+  },
+  {
+    "id": 51210,
+    "name": "Pyroclasm Inferno Ability Tracker",
+    "effects": "Increases Pyroclasm Inferno level by 1 when user triggers 5 or 8 Wind abilities during the status, removed if user hasn't Arcane Dyad Empowered: Vaan",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_PYROCLASM",
+    "notes": null
+  },
+  {
+    "id": 51211,
+    "name": "Pyroclasm Inferno Level",
+    "effects": "Keeps track of Pyroclasm Inferno level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Vaan",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_VAAN",
+    "notes": null
+  },
+  {
+    "id": 51212,
+    "name": "Rising Dynast Mode",
+    "effects": "Restores HP for 100% of the user's maximum HP when HP fall below 20%, grants [Last Stand] and casts Dark Sephira when HP fall below 20%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "YOUNG_POLITICIAN_MODE",
+    "notes": null
+  },
+  {
+    "id": 51213,
+    "name": "Awoken Striving Politician",
+    "effects": "Dark abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Dark abilities at ability rank 1/2/3/4/5, casts Writ of Archadia after using Dark abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_POLITICAL_AMBITIO",
+    "notes": null
+  },
+  {
     "id": 51214,
     "name": "Bystander of the World Mode",
     "effects": "Casts Bystander of the World every 3.00 seconds",
@@ -21188,7 +21463,7 @@
   },
   {
     "id": 51223,
-    "name": "True Arcane Augment Mode: Enna Kros",
+    "name": "Arcane Dyad Empowered: Enna Kros",
     "effects": "Keeps track of Fickle Geocrush uses, removed if user has triggered Fickle Geocrush two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -21200,22 +21475,165 @@
   {
     "id": 51224,
     "name": "Fickle Geocrush Damage Tracker",
-    "effects": "Increases Fickle Geocrush level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't True Arcane Augment Mode: Enna Kros",
+    "effects": "Increases Fickle Geocrush level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Enna Kros",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "CHASE_MODE_FOR_AS_THE_CREATOR"
+    "codedName": "CHASE_MODE_FOR_AS_THE_CREATOR",
+    "notes": null
   },
   {
     "id": 51225,
     "name": "Fickle Geocrush Level",
-    "effects": "Keeps track of Fickle Geocrush level, initially set at level 0 with a maximum level of 2, removed if user hasn't True Arcane Augment Mode: Enna Kros",
+    "effects": "Keeps track of Fickle Geocrush level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Enna Kros",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
-    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_ENA_KURO"
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_ENA_KURO",
+    "notes": null
+  },
+  {
+    "id": 51226,
+    "name": "Arcane Dyad Empowered: Noctis",
+    "effects": "Keeps track of Steel Pirouette Inferno uses, removed if user has triggered Steel Pirouette Inferno two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_NOCTIS",
+    "notes": null
+  },
+  {
+    "id": 51227,
+    "name": "Steel Pirouette Inferno Ability Tracker",
+    "effects": "Increases Steel Pirouette Inferno level by 1 when user triggers 5 or 8 Fire abilities during the status, removed if user hasn't Arcane Dyad Empowered: Noctis",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SHIFT_CYCLONE_F",
+    "notes": null
+  },
+  {
+    "id": 51228,
+    "name": "Steel Pirouette Inferno Level",
+    "effects": "Keeps track of Steel Pirouette Inferno level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Noctis",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_NOCTIS",
+    "notes": null
+  },
+  {
+    "id": 51229,
+    "name": "Arcane Dyad Empowered: Aranea",
+    "effects": "Keeps track of Air Supremacy uses, removed if user has triggered Air Supremacy two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_ARANEA",
+    "notes": null
+  },
+  {
+    "id": 51230,
+    "name": "Air Supremacy Damage Tracker",
+    "effects": "Increases Air Supremacy level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Aranea",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_AIR_SUPERIORITY_EXTREMELY",
+    "notes": null
+  },
+  {
+    "id": 51231,
+    "name": "Air Supremacy Level",
+    "effects": "Keeps track of Air Supremacy level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Aranea",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_ARANEA",
+    "notes": null
+  },
+  {
+    "id": 51232,
+    "name": "Astral Communion Mode",
+    "effects": "Grants [Oracle's Destiny Summoning +15% Boost]/[Oracle's Destiny Summoning +30% Boost]/[Oracle's Destiny Summoning +50% Boost] to the user after using 1/2/3+ of Hydraean's Mercy or Oath of Covenant, grants [Damage Cap +10000 3] to the user after using three of Hydraean's Mercy or Oath of Covenant",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SHIFT_CONVERSATIONS_WITH_GOD",
+    "notes": null
+  },
+  {
+    "id": 51233,
+    "name": "Airborne Unit Mode",
+    "effects": "Casts Airborne Spear after using three of Magitek Jump or Power Boost",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHACE_MODE_FOR_AIR_MOBILITY_DIVISION",
+    "notes": null
+  },
+  {
+    "id": 51235,
+    "name": "Oracle's Destiny Summoning +15% Boost",
+    "effects": "Summoning attacks deal 15% more damage, removed if the user hasn't Astral Communion Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Oracle's Destiny Summoning +30% Boost",
+      "Oracle's Destiny Summoning +50% Boost"
+    ],
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SUMMON_SMALL_WHILE_CONVERSATIONS_WITH_GOD_MODE",
+    "notes": null
+  },
+  {
+    "id": 51236,
+    "name": "Oracle's Destiny Summoning +30% Boost",
+    "effects": "Summoning attacks deal 30% more damage, removed if the user hasn't Astral Communion Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Oracle's Destiny Summoning +15% Boost",
+      "Oracle's Destiny Summoning +50% Boost"
+    ],
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SUMMON_MEDIUM_WHILE_CONVERSATIONS_WITH_GOD_MODE",
+    "notes": null
+  },
+  {
+    "id": 51237,
+    "name": "Oracle's Destiny Summoning +50% Boost",
+    "effects": "Summoning attacks deal 50% more damage, removed if the user hasn't Astral Communion Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Oracle's Destiny Summoning +15% Boost",
+      "Oracle's Destiny Summoning +30% Boost"
+    ],
+    "codedName": "INCREASE_EXECUTED_DAMAGE_BY_ABILITY_SUMMON_LARGE_WHILE_CONVERSATIONS_WITH_GOD_MODE",
+    "notes": null
+  },
+  {
+    "id": 51238,
+    "name": "The Immortal Mode",
+    "effects": "Triggers the following effects when the user's HP falls below 20%: Restores HP for 100% of the user's maximum HP, grants [ATK and DEF +50% (25s)] and [High Quick Cast 3] to the user, grants [PHY +50% Boost 1] to Ignis, Gladiolus and the user if Ignis is alive, removes [The Immortal Mode] from the user",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHACE_MODE_FOR_IMMORTAL_GENERAL",
+    "notes": null
   },
   {
     "id": 51239,
@@ -21261,7 +21679,7 @@
   },
   {
     "id": 51242,
-    "name": "True Arcane Augment Mode: Eiko",
+    "name": "Arcane Dyad Empowered: Eiko",
     "effects": "Keeps track of Trance Terra Homing uses, removed if user has triggered Trance Terra Homing two times",
     "defaultDuration": null,
     "mndModifier": null,
@@ -21273,7 +21691,7 @@
   {
     "id": 51243,
     "name": "Trance Terra Homing Ability Tracker",
-    "effects": "Increases Trance Terra Homing level by 1 when user triggers 7 Summoning or White Magic abilities during the status, removed if user hasn't True Arcane Augment Mode: Eiko",
+    "effects": "Increases Trance Terra Homing level by 1 when user triggers 7 Summoning or White Magic abilities during the status, removed if user hasn't Arcane Dyad Empowered: Eiko",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -21284,7 +21702,7 @@
   {
     "id": 51244,
     "name": "Trance Terra Homing Level",
-    "effects": "Keeps track of Trance Terra Homing level, initially set at level 0 with a maximum level of 1, removed if user hasn't True Arcane Augment Mode: Eiko",
+    "effects": "Keeps track of Trance Terra Homing level, initially set at level 0 with a maximum level of 1, removed if user hasn't Arcane Dyad Empowered: Eiko",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -21306,7 +21724,7 @@
   {
     "id": 51246,
     "name": "Payback Mode",
-    "effects": "Casts Eye for an Eye when any Damage Reduction Barrier is removed, removed when Eye for an Eye is cast 6 times",
+    "effects": "Casts Eye for an Eye when any Damage Reduction Barrier is removed, removed when Eye for an Eye is cast 6 times, removed if the user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -21323,6 +21741,149 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "CHASE_MODE_FOR_POISON_TRICK_IX",
+    "notes": null
+  },
+  {
+    "id": 51248,
+    "name": "Change Machinery Mode III",
+    "effects": "Grants [Attach Poison 2 with Stacking]/[Attach Fire 2 with Stacking]/[Attach Lightning 2 with Stacking] after using a Poison/Fire/Lightning ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_MACHINERY_MODE_III_POISON_FIRE_LIGHTNING",
+    "notes": null
+  },
+  {
+    "id": 51249,
+    "name": "Bravo Shot Follow-Up",
+    "effects": "Casts Bravo Shot after using three of Hexaboost or Royal Bravery",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TRINITY_FULL_BOOST",
+    "notes": null
+  },
+  {
+    "id": 51250,
+    "name": "Protean Mode III",
+    "effects": "Grants [Attach Fire 2 with Stacking]/[Attach Ice 2 with Stacking]/[Attach Wind 2 with Stacking]/[Attach Earth 2 with Stacking] after using a Fire/Ice/Wind/Earth ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHAMELEON_MODE_III",
+    "notes": null
+  },
+  {
+    "id": 51251,
+    "name": "Figaro Fighter Mode",
+    "effects": "Casts Figaro Fighter (Righteous)/Figaro Fighter (Assist)/Figaro Fighter (Other) after using two of Ardent Fist or Ghostly Charge if the user has Righteous Power level 2/Assist Power level 2/Righteous Power and Assist Power level less than 2, removed if user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_FIERY_FLAME_BROTHERHOOD_BOND",
+    "notes": null
+  },
+  {
+    "id": 51252,
+    "name": "Mimicry Mode",
+    "effects": "Casts the last ability used by an ally after an ally uses a Fire, Ice, Wind or Earth ability, removed after triggering three times",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_WHOSE_MIMIC_MODE",
+    "notes": null
+  },
+  {
+    "id": 51253,
+    "name": "Awoken Magic Mimicry",
+    "effects": "Black Magic abilities don't consume uses, cast speed x2.00/2.25/2.50/2.75/3.00 for Black Magic abilities at ability rank 1/2/3/4/5, grants [Quick Cast 1] to all allies after using Black Magic abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_MIMIC_MAGIC",
+    "notes": null
+  },
+  {
+    "id": 51254,
+    "name": "Mimic Hero Mode",
+    "effects": "Mimicked abilities deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SALVATION_MIMIC",
+    "notes": null
+  },
+  {
+    "id": 51255,
+    "name": "Change Machinery Mode II",
+    "effects": "Grants [Attach Poison with Stacking]/[Attach Fire with Stacking]/[Attach Lightning with Stacking] after using a Poison/Fire/Lightning ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHANGE_MACHINERY_MODE_II_POISON_FIRE_LIGHTNING",
+    "notes": null
+  },
+  {
+    "id": 51256,
+    "name": "Arcane Dyad Empowered: Terra",
+    "effects": "Keeps track of Riot Bladeburst uses, removed if user has triggered Riot Bladeburst two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_TINA",
+    "notes": null
+  },
+  {
+    "id": 51257,
+    "name": "Riot Bladeburst Damage Tracker",
+    "effects": "Increases Riot Bladeburst level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Terra",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_RIOT_BLADE",
+    "notes": null
+  },
+  {
+    "id": 51258,
+    "name": "Riot Bladeburst Level",
+    "effects": "Keeps track of Riot Bladeburst level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Terra",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_TINA",
+    "notes": null
+  },
+  {
+    "id": 51259,
+    "name": "Damage Cap +20000 3",
+    "effects": "Increases the damage/healing cap by 20000, lasts for 3 turns",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_DAMAGE_THRESHOLD_LV_2_TURN_3",
+    "notes": null
+  },
+  {
+    "id": 51260,
+    "name": "One-Eyed Swordswoman Mode",
+    "effects": "Grants Temple Knight +1 (max 2) to the user after using Savage Blade or Angelwing three times, removes [One-Eyed Swordswoman Mode] from the user, removed if the user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ONEEYED_WOMAN_SWORDSMAN_MODE",
     "notes": null
   },
   {
@@ -21348,6 +21909,160 @@
     "notes": null
   },
   {
+    "id": 51263,
+    "name": "Last Resort Mode",
+    "effects": "ATK +25% and DEF -25%, grants [125% ATB (Synchro)]/[200% ATB (Synchro)] and [Quick Cast (Synchro)]/[High Quick Cast (Synchro)] to the user after using 1/2+ Dark abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "LAST_RESORT_MODE",
+    "notes": null
+  },
+  {
+    "id": 51264,
+    "name": "Chieftain Daugther Revival Mode",
+    "effects": "Grants [Instant ATB 1], [Instant Cast 1] and [100% Critical 1] to the user when the user's HP falls below 20%, removes Chieftain Daugther Revival Mode from the user",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "REVIVAL_MODE_FOR_MANDALIC_STAB",
+    "notes": null
+  },
+  {
+    "id": 51265,
+    "name": "Arcane Dyad Empowered: Ayame",
+    "effects": "Keeps track of Skillchain: Absolute uses, removed if user has triggered Skillchain: Absolute two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_AYAME",
+    "notes": null
+  },
+  {
+    "id": 51266,
+    "name": "Skillchain: Absolute Damage Tracker",
+    "effects": "Increases Skillchain: Absolute level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Ayame",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_WAZARENKEI_KYOKU",
+    "notes": null
+  },
+  {
+    "id": 51267,
+    "name": "Skillchain: Absolute Level",
+    "effects": "Keeps track of Skillchain: Absolute level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Ayame",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_AYAME",
+    "notes": null
+  },
+  {
+    "id": 51269,
+    "name": "Arcane Dyad Empowered: Desch",
+    "effects": "Keeps track of Violet Storm uses, removed if user has triggered Violet Storm two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_DESCH",
+    "notes": null
+  },
+  {
+    "id": 51270,
+    "name": "Violet Storm Ability Tracker",
+    "effects": "Increases Violet Storm level by 1 when user triggers 5 or 8 Lightning abilities during the status, removed if user hasn't Arcane Dyad Empowered: Desch",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_PURPLE_LIGHTNING_EXTREMELY",
+    "notes": null
+  },
+  {
+    "id": 51271,
+    "name": "Violet Storm Level",
+    "effects": "Keeps track of Violet Storm level, initially set at level 0 with a maximum level of 1, removed if user hasn't Arcane Dyad Empowered: Desch",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_DESCH",
+    "notes": null
+  },
+  {
+    "id": 51272,
+    "name": "Tower Guardian Mode",
+    "effects": "Grants [Lightning Ability +10% Boost 1]/[Lightning Ability +20% Boost 1]/[Lightning Ability +30% Boost 1] to all allies after using 1/2/3 of Electric Devotion, removed after triggering three times, removed if the user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_WARDEN_OF_TOWER_MODE",
+    "notes": null
+  },
+  {
+    "id": 51273,
+    "name": "Dire Fulmination Mode",
+    "effects": "Grants [Dualcast Lightning 1]/[Triplecast Lightning 1]/[Quadcast Lightning 1] after using Electric Devotion if the user has Bolt level 1/2/3, removed after using a Lightning ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DEADLY_THUNDERSTORM_MODE",
+    "notes": null
+  },
+  {
+    "id": 51274,
+    "name": "Awoken Flash Lightning",
+    "effects": "Lightning abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, cast speed x9999999 for Lightning abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_MOMENTARY_THUNDERSTORM",
+    "notes": null
+  },
+  {
+    "id": 51275,
+    "name": "Ancient's Heir Mode",
+    "effects": "Grants [Soul Break Gauge +250] and [Instant Cast 1] to the user after using five Lightning abilities, removes Ancient's Heir Mode from the user",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DESCENDANTS_OF_ANCIENT",
+    "notes": null
+  },
+  {
+    "id": 51276,
+    "name": "Blazing Strike Follow-Up",
+    "effects": "Casts Blazing Strike after using two of Crimson Hexapalm or Blazing Ascension",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_LOVE_FLAME_CIRCLE",
+    "notes": null
+  },
+  {
+    "id": 51277,
+    "name": "Pulverizing Blast Follow-Up",
+    "effects": "Casts Pulverizing Blast after using a Fire ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_BURSTING_SCATTERING",
+    "notes": null
+  },
+  {
     "id": 51268,
     "name": "Twin Element Mode III (Wind/Poison)",
     "effects": "Grants [Attach Wind 2 with Stacking]/[Attach Poison 2 with Stacking] after using a Wind/Poison ability, lasts for 1 turn",
@@ -21370,6 +22085,237 @@
     "notes": null
   },
   {
+    "id": 51279,
+    "name": "Freewheeling Ascension Follow-Up",
+    "effects": "Casts Freewheeling Ascension after using Breaking Image or Earthen Leap three times",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_MY_STYLE_BOUNDARY_CRUSH",
+    "notes": null
+  },
+  {
+    "id": 51280,
+    "name": "Gaia Wisdom Mode",
+    "effects": "Randomly casts Gaia's Blessing, Tellah's Faith or Gaia's Recollection after using an Earth ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EARTH_VORTEX",
+    "notes": null
+  },
+  {
+    "id": 51281,
+    "name": "Gaia Wisdom Instant Cast",
+    "effects": "Cast speed x9999999 for Earth abilities, removed if the user hasn't Gaia Wisdom Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EARTH_VORTEX_OF_CAST_TIME",
+    "notes": null
+  },
+  {
+    "id": 51282,
+    "name": "Gaia Wisdom Follow-Up",
+    "effects": "Casts Gaia Wisdom after using three Earth abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EARTH_VORTEX2",
+    "notes": null
+  },
+  {
+    "id": 51283,
+    "name": "Monolith Sword",
+    "effects": "Grants [Earth Ability +30% Boost 1] to all allies after using two Earth abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_MONOLITH_SWORD",
+    "notes": null
+  },
+  {
+    "id": 51284,
+    "name": "Arcane Dyad Empowered: Gladiolus",
+    "effects": "Keeps track of Dual Master uses, removed if user has triggered Dual Master two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_GLADIOLUS",
+    "notes": null
+  },
+  {
+    "id": 51285,
+    "name": "Dual Master Damage Tracker",
+    "effects": "Increases Dual Master level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Gladiolus",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TWO_HEAVENLY_LEADERS",
+    "notes": null
+  },
+  {
+    "id": 51286,
+    "name": "Dual Master Level",
+    "effects": "Keeps track of Dual Master level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Gladiolus",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_GLADIOLUS",
+    "notes": null
+  },
+  {
+    "id": 51287,
+    "name": "Arcane Dyad Empowered: Rikku",
+    "effects": "Keeps track of Mix Overdrive uses, removed if user has triggered Mix Overdrive two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_RIKKU",
+    "notes": null
+  },
+  {
+    "id": 51288,
+    "name": "Mix Overdrive Ability Tracker",
+    "effects": "Increases Mix Overdrive level by 1 when user triggers 8 Thief or Dancer abilities during the status, removed if user hasn't Arcane Dyad Empowered: Rikku",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_MIXING",
+    "notes": null
+  },
+  {
+    "id": 51289,
+    "name": "Mix Overdrive Level",
+    "effects": "Keeps track of Mix Overdrive level, initially set at level 0 with a maximum level of 1, removed if user hasn't Arcane Dyad Empowered: Rikku",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_RIKKU",
+    "notes": null
+  },
+  {
+    "id": 51290,
+    "name": "Aria Mode",
+    "effects": "Grants [Instant ATB 2] to the user after using four Spellblade abilities, removed after the using four Spellblade abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_ARIA_MODE",
+    "notes": null
+  },
+  {
+    "id": 51291,
+    "name": "Searching for Friends Mode",
+    "effects": "Casts Metamorphosis after using Serene Runeblade, removed after casting Metamorphosis",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SEEKING_MATE_MODE",
+    "notes": null
+  },
+  {
+    "id": 51292,
+    "name": "Soul Break Gauge -500",
+    "effects": "Removes 500 SB points when set",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "DECREASE_SS_POINT_WHEN_SET_GAUGE_2",
+    "notes": null
+  },
+  {
+    "id": 51293,
+    "name": "Arcane Dyad Empowered: Ultimecia",
+    "effects": "Keeps track of Arcane Maelstrom uses, removed if user has triggered Arcane Maelstrom two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_ULTIMECIA",
+    "notes": null
+  },
+  {
+    "id": 51294,
+    "name": "Arcane Maelstrom Damage Tracker",
+    "effects": "Increases Arcane Maelstrom level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Ultimecia",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_MEILSTROM_EXTREMELY",
+    "notes": null
+  },
+  {
+    "id": 51295,
+    "name": "Arcane Maelstrom Level",
+    "effects": "Keeps track of Arcane Maelstrom level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Ultimecia",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_ULTIMECIA",
+    "notes": null
+  },
+  {
+    "id": 51296,
+    "name": "Time Kompression Mode",
+    "effects": "Triplecasts Dark abilities, cast speed x9999999 for Dark abilities, casts Time Kompression after using two Dark abilities, removed if the user hasn't Synchro Mode",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_TIME_COMPRESSION_MODE",
+    "notes": null
+  },
+  {
+    "id": 51297,
+    "name": "Blessing of Light",
+    "effects": "Grants [Weakness +50% Boost 1] to all allies after using three Support abilities, removed if the user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_WILL_OF_LIGHT",
+    "notes": null
+  },
+  {
+    "id": 51298,
+    "name": "Unerring Pikes Follow-Up",
+    "effects": "Casts Unerring Pikes after using a Dark ability",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INDOMITABLE_SPEAR",
+    "notes": null
+  },
+  {
+    "id": 51299,
+    "name": "Arcane Dyad Empowered: Sephiroth",
+    "effects": "Keeps track of Super Nova uses, removed if user has triggered Super Nova two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_SEPHIROTH",
+    "notes": null
+  },
+  {
     "id": 513,
     "name": "Advance",
     "effects": "ATK +150%, DEF -50%",
@@ -21378,6 +22324,728 @@
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
     "codedName": "RAID",
+    "notes": null
+  },
+  {
+    "id": 51300,
+    "name": "Super Nova Damage Tracker",
+    "effects": "Increases Super Nova level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Sephiroth",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SUPER_NOVA",
+    "notes": null
+  },
+  {
+    "id": 51301,
+    "name": "Super Nova Level",
+    "effects": "Keeps track of Super Nova level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Sephiroth",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_SEPHIROTH",
+    "notes": null
+  },
+  {
+    "id": 51302,
+    "name": "Arcane Dyad Empowered: Shantotto",
+    "effects": "Keeps track of Salvation Scythe uses, removed if user has triggered Salvation Scythe two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_SHANTOTTO",
+    "notes": null
+  },
+  {
+    "id": 51303,
+    "name": "Salvation Scythe Ability Tracker",
+    "effects": "Increases Salvation Scythe level by 1 when user triggers 5 or 8 Lightning abilities during the status, removed if user hasn't Arcane Dyad Empowered: Shantotto",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SHADOW_SALVATION_SIZE",
+    "notes": null
+  },
+  {
+    "id": 51304,
+    "name": "Salvation Scythe Level",
+    "effects": "Keeps track of Salvation Scythe level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Shantotto",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_SHANTOTTO",
+    "notes": null
+  },
+  {
+    "id": 51305,
+    "name": "Arcane Dyad Empowered: Squall",
+    "effects": "Keeps track of Lion Heart uses, removed if user has triggered Lion Heart two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_SQUALL",
+    "notes": null
+  },
+  {
+    "id": 51306,
+    "name": "Lion Heart Damage Tracker",
+    "effects": "Increases Lion Heart level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Squall",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_END_OF_HEART",
+    "notes": null
+  },
+  {
+    "id": 51307,
+    "name": "Lion Heart Level",
+    "effects": "Keeps track of Lion Heart level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Squall",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_SQUALL",
+    "notes": null
+  },
+  {
+    "id": 51308,
+    "name": "Channel Earth",
+    "effects": "Grants Earth Magus +1 to the user after using three of Synchrospell Earth or Breachspell Earth, removed if the user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_EARTHS_POTENTIAL_MAGIC",
+    "notes": null
+  },
+  {
+    "id": 51309,
+    "name": "Torrential Bond",
+    "effects": "Grants [Resist Fire 10% (15s)] to the user after using three of Barrage: Waterga Blade or Dance of Streams",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_WATER_TIES",
+    "notes": null
+  },
+  {
+    "id": 51310,
+    "name": "Devotion Mode",
+    "effects": "Water abilities deal 10/20/30% more damage under Resist Fire 10/20/30+%, cast speed x1.50/x2.00/x3.00 for Water abilities under Resist Fire 10/20/30+%, removed if the user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CARE_MODE",
+    "notes": null
+  },
+  {
+    "id": 51311,
+    "name": "Arcane Dyad Empowered: Y'shtola",
+    "effects": "Keeps track of Spiritual Ray uses, removed if user has triggered Spiritual Ray two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_YSHTOLA",
+    "notes": null
+  },
+  {
+    "id": 51312,
+    "name": "Spiritual Ray Damage Tracker",
+    "effects": "Increases Spiritual Ray level by 1 when user crosses 100001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Y'shtola",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SPIRITUAL_RAY",
+    "notes": null
+  },
+  {
+    "id": 51313,
+    "name": "Spiritual Ray Level",
+    "effects": "Keeps track of Spiritual Ray level, initially set at level 0 with a maximum level of 1, removed if user hasn't Arcane Dyad Empowered: Y'shtola",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_YSHTOLA",
+    "notes": null
+  },
+  {
+    "id": 51314,
+    "name": "Frostflash Advent",
+    "effects": "Grants [Dualcast Ice/Lightning 1] to the user after using two Black Magic abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_COMING_ICE_THUNDER",
+    "notes": null
+  },
+  {
+    "id": 51315,
+    "name": "Crystal Tear Mode",
+    "effects": "Cast speed x0.70, DEF and RES +30%, casts Apocalyptic Dream after using three of Metamorph Shot or Star Arrow, removed if the user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_CRYSTAL_TEARDROP_MODE",
+    "notes": null
+  },
+  {
+    "id": 51318,
+    "name": "SB Gauge +50% Boost 1",
+    "effects": "Abilities grant 50% more SB points, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ATK_SS_POINT_FACTOR_FOR_ALL_ABILITY_LARGE_BY_TURN_1",
+    "notes": null
+  },
+  {
+    "id": 51319,
+    "name": "10% Damage Reduction Barrier 1 Follow-Up",
+    "effects": "Grants [10% Damage Reduction Barrier 1] to the user after using an attack, removed after triggering one time",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DAMAGE_BARRIER_FOR_ALL_ABILITY_WITH_SMALL_10_1",
+    "notes": null
+  },
+  {
+    "id": 51320,
+    "name": "20% Damage Reduction Barrier 1 Follow-Up",
+    "effects": "Grants [20% Damage Reduction Barrier 1] to the user after using an attack, removed after triggering one time",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DAMAGE_BARRIER_FOR_ALL_ABILITY_WITH_SMALL_20_1",
+    "notes": null
+  },
+  {
+    "id": 51321,
+    "name": "30% Damage Reduction Barrier 1 Follow-Up",
+    "effects": "Grants [30% Damage Reduction Barrier 1] to the user after using an attack, removed after triggering one time",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DAMAGE_BARRIER_FOR_ALL_ABILITY_WITH_SMALL_30_1",
+    "notes": null
+  },
+  {
+    "id": 51322,
+    "name": "40% Damage Reduction Barrier 1 Follow-Up",
+    "effects": "Grants [40% Damage Reduction Barrier 1] to the user after using an attack, removed after triggering one time",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DAMAGE_BARRIER_FOR_ALL_ABILITY_WITH_MEDIUM_1",
+    "notes": null
+  },
+  {
+    "id": 51323,
+    "name": "Imperil Fire 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Fire 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_FIRE_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51324,
+    "name": "Imperil Ice 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Ice 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_ICE_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51325,
+    "name": "Imperil Lightning 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Lightning 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_LIGHTNING_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51326,
+    "name": "Imperil Earth 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Earth 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_EARTH_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51327,
+    "name": "Imperil Wind 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Wind 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_WIND_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51328,
+    "name": "Imperil Water 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Water 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_WATER_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51329,
+    "name": "Imperil Holy 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Holy 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_HOLY_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51330,
+    "name": "Imperil Dark 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Dark 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_DARK_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51331,
+    "name": "Imperil Poison 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Poison 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_POISON_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51332,
+    "name": "Imperil Ice/Lightning 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Ice 10% (15s)] and [Imperil Lightning 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_ICE_LIGHTNING_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51333,
+    "name": "Imperil Fire/Ice/Lightning 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Fire 10% (15s)], [Imperil Ice 10% (15s)] and [Imperil Lightning 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_FIRE_ICE_LIGHTNING_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51334,
+    "name": "Imperil Fire/Earth/Wind/Poison 10% (15s) (Machinist)",
+    "effects": "Causes [Imperil Fire 10% (15s)], [Imperil Earth 10% (15s)], [Imperil Wind 10% (15s)] and [Imperil Poison 10% (15s)] to the target after using a Machinist ability, removed after using a Machinist ability",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_INCREASE_ELEMENT_DEF_FIRE_EARTH_WIND_POISON_M1_IF_MACHINIST_CATEGORY",
+    "notes": null
+  },
+  {
+    "id": 51335,
+    "name": "Arcane Dyad Empowered: Queen",
+    "effects": "Keeps track of Fiendish Devastation uses, removed if user has triggered Fiendish Devastation two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_QUEEN",
+    "notes": null
+  },
+  {
+    "id": 51336,
+    "name": "Fiendish Devastation Ability Tracker",
+    "effects": "Increases Fiendish Devastation level by 1 when user triggers 5 or 8 Lightning abilities during the status, removed if user hasn't Arcane Dyad Empowered: Queen",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_RAKSHASA_MODE",
+    "notes": null
+  },
+  {
+    "id": 51337,
+    "name": "Fiendish Devastation Level",
+    "effects": "Keeps track of Fiendish Devastation level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Queen",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_QUEEN",
+    "notes": null
+  },
+  {
+    "id": 51338,
+    "name": "Awakened Farseer Mode",
+    "effects": "Dualcasts Water abilities, cast speed x2.00 for Water abilities, Water abilities deal 30% more damage, casts Etro's Interference after using a Water ability, removed if the user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_AWAKENING_TIME_POEM_MODE",
+    "notes": null
+  },
+  {
+    "id": 51339,
+    "name": "Heroic Stormcall",
+    "effects": "Grants [Heroic Stormcall Critical Chance 60%]/[Heroic Stormcall Critical Chance 80%]/[Heroic Stormcall Critical Chance 100%] and [Lightning Ability +15% Boost 1]/[Lightning Ability +30% Boost 1]/[Lightning Ability +50% Boost 1] to all allies after using 2/4/6+2n Lightning abilities",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_THUNDERSTORM_INVASION",
+    "notes": null
+  },
+  {
+    "id": 51340,
+    "name": "Heroic Stormcall Critical Chance 60%",
+    "effects": "Critical chance =60%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Heroic Stormcall Critical Chance 80%",
+      "Heroic Stormcall Critical Chance 100%"
+    ],
+    "codedName": "THUNDERSTORM_INVASION_CRITICAL_RATE_GRADE_1",
+    "notes": null
+  },
+  {
+    "id": 51341,
+    "name": "Heroic Stormcall Critical Chance 80%",
+    "effects": "Critical chance =80%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Heroic Stormcall Critical Chance 60%",
+      "Heroic Stormcall Critical Chance 100%"
+    ],
+    "codedName": "THUNDERSTORM_INVASION_CRITICAL_RATE_GRADE_2",
+    "notes": null
+  },
+  {
+    "id": 51342,
+    "name": "Heroic Stormcall Critical Chance 100%",
+    "effects": "Critical chance =100%",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Heroic Stormcall Critical Chance 60%",
+      "Heroic Stormcall Critical Chance 80%"
+    ],
+    "codedName": "THUNDERSTORM_INVASION_CRITICAL_RATE_GRADE_3",
+    "notes": null
+  },
+  {
+    "id": 51343,
+    "name": "Plasma Snipe Mode",
+    "effects": "Triplecasts Lightning abilities, casts Plasma Snipe after using two Lightning abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_PLASMA_SNIPE_MODE",
+    "notes": null
+  },
+  {
+    "id": 51344,
+    "name": "Firearms Expert Mode",
+    "effects": "Grants [Firearms Expert Critical Chance] to the user after using Machinist abilities, casts Firearms Expert when removed",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_PLASMA_KING",
+    "notes": null
+  },
+  {
+    "id": 51345,
+    "name": "FIrearms Expert Critical Chance",
+    "effects": "Critical chance =30%/50%/75%/100% after using 1/2/3/4+ Machinist abilities, removed if the user hasn't Firearms Expert Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "PLASMA_KING_MODE_FOR_CRITICAL",
+    "notes": null
+  },
+  {
+    "id": 51355,
+    "name": "Twin Element Mode II (Water/Wind)",
+    "effects": "Grants [Attach Water with Stacking]/[Attach Wind with Stacking] after using a Water/Wind ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_II_WATER_AND_WIND",
+    "notes": null
+  },
+  {
+    "id": 51356,
+    "name": "Elemental Costume Mode",
+    "effects": "Grants [Attach Water]/[Attach Wind] to the user after using four Water/Wind abilities if the triggering ability is Water/Wind, removes Elemental Costume Mode after triggering",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "KIGURUMI_ELEMENT_MODE_WATER_AND_WIND",
+    "notes": null
+  },
+  {
+    "id": 51357,
+    "name": "Wind Rhapsody Follow-Up",
+    "effects": "Casts Wind Rhapsody after using Whisperwind or Pixie Lullaby",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_SELF_PROCLAIMED_MASCOT_SPECIALTIES",
+    "notes": null
+  },
+  {
+    "id": 51358,
+    "name": "Six Dragons Chase Follow-Up",
+    "effects": "Casts Six Dragons Chase after using after using two of Six Dragons or Dance of Fertility",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_WIND_DANCE_ON_THE_CLIFFS",
+    "notes": null
+  },
+  {
+    "id": 51359,
+    "name": "Arcane Dyad Empowered: Bartz (Wind)",
+    "effects": "Keeps track of Job Mastered: Wind uses, removed if user has triggered Job Mastered: Wind two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_BUTZ_WIND",
+    "notes": null
+  },
+  {
+    "id": 51360,
+    "name": "Job Mastered: Wind Damage Tracker",
+    "effects": "Increases Job Mastered: Wind level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Bartz (Wind)",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_JOB_MASTER_WIND",
+    "notes": null
+  },
+  {
+    "id": 51361,
+    "name": "Job Mastered: Wind Level",
+    "effects": "Keeps track of Job Mastered: Wind level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Bartz (Wind)",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_BUTZ_WIND",
+    "notes": null
+  },
+  {
+    "id": 51362,
+    "name": "Awoken Dragon",
+    "effects": "Dragoon and Dancer abilities don't consume uses and deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, casts Dragon Sword after using Dragoon and Dancer abilities",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "AWAKE_MODE_DRAGON_TECHNIQUE",
+    "notes": null
+  },
+  {
+    "id": 51363,
+    "name": "Twin Element Mode III (Water/Wind)",
+    "effects": "Grants [Attach Water 2 with Stacking]/[Attach Wind 2 with Stacking] after using a Water/Wind ability, lasts for 1 turn",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "TWIN_ELEMENT_MODE_III_WATER_AND_WIND",
+    "notes": null
+  },
+  {
+    "id": 51364,
+    "name": "Struggle Mode 1",
+    "effects": "Used for tracking Struggle Mode level",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Struggle Mode 2",
+      "Struggle Mode 3"
+    ],
+    "codedName": "STRUGGLE_MODE_1",
+    "notes": null
+  },
+  {
+    "id": 51365,
+    "name": "Struggle Mode 2",
+    "effects": "Used for tracking Struggle Mode level",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Struggle Mode 1",
+      "Struggle Mode 3"
+    ],
+    "codedName": "STRUGGLE_MODE_2",
+    "notes": null
+  },
+  {
+    "id": 51366,
+    "name": "Struggle Mode 3",
+    "effects": "Used for tracking Struggle Mode level",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "Struggle Mode 1",
+      "Struggle Mode 2"
+    ],
+    "codedName": "STRUGGLE_MODE_3",
+    "notes": null
+  },
+  {
+    "id": 51367,
+    "name": "Sovereign Barrier",
+    "effects": "Grants [Overflow Ice Radiant Shield: 500% (8s)] to the user after using three Ice abilities, removed after using three Ice abilities or if the user hasn't Synchro Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DIAMOND_FISUTO",
+    "notes": null
+  },
+  {
+    "id": 51370,
+    "name": "Extroverted Pilot Mode",
+    "effects": "Casts Extroverted Pilot after an ally casts an ability that deals elemental damage (excluding NE), removed after casting Extroverted Pilot six times",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_DUAL_ASSAULT",
+    "notes": null
+  },
+  {
+    "id": 51371,
+    "name": "Arcane Dyad Empowered: Snow",
+    "effects": "Keeps track of Hoarfrost Sanction uses, removed if user has triggered Hoarfrost Sanction two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_SNOW",
+    "notes": null
+  },
+  {
+    "id": 51372,
+    "name": "Hoarfrost Sanction Damage Tracker",
+    "effects": "Increases Hoarfrost Sanction level by 1 when user crosses 100001 and 300001 damage dealt during the status, removed if user hasn't Arcane Dyad Empowered: Snow",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_FROST_SANCTION",
+    "notes": null
+  },
+  {
+    "id": 51373,
+    "name": "Hoarfrost Sanction Level",
+    "effects": "Keeps track of Hoarfrost Sanction level, initially set at level 0 with a maximum level of 2, removed if user hasn't Arcane Dyad Empowered: Snow",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_SNOW",
+    "notes": null
+  },
+  {
+    "id": 51374,
+    "name": "Arcane Dyad Empowered: Sazh",
+    "effects": "Keeps track of Cold Blood uses, removed if user has triggered Cold Blood two times",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ENHANCE_SHIN_OUGI_FOR_SAZH",
+    "notes": null
+  },
+  {
+    "id": 51375,
+    "name": "Cold Blood Ability Tracker",
+    "effects": "Increases Cold Blood level by 1 when user triggers 7 Machinist or Support abilities during the status, removed if user hasn't Arcane Dyad Empowered: Sazh",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "CHASE_MODE_FOR_VERY_DESPERADO",
+    "notes": null
+  },
+  {
+    "id": 51376,
+    "name": "Cold Blood Level",
+    "effects": "Keeps track of Cold Blood level, initially set at level 0 with a maximum level of 1, removed if user hasn't Arcane Dyad Empowered: Sazh",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "STATE_LEVEL_BY_GENERAL_VALUE_WHILE_ENHANCE_SHIN_OUGI_FOR_SAZH",
     "notes": null
   },
   {
@@ -22212,6 +23880,28 @@
     "notes": null
   },
   {
+    "id": 59001,
+    "name": "Guardian Summon Mode",
+    "effects": "Used to track whether a Guardian Summon is active, removed after duration expires, Guardian Summon's HP is fully depleted or the associated Guardian Summon Finisher ability is triggered",
+    "defaultDuration": 5,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ULTIMATE_SUMMON_MODE",
+    "notes": null
+  },
+  {
+    "id": 59002,
+    "name": "Guardian Summon Party Hide",
+    "effects": "Temporarily removes the party from the battle while Guardian Summon Mode is active, removed if the party hasn't Guardian Summon Mode",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INVISIBLE_DURING_ULTIMATE_SUMMONING",
+    "notes": null
+  },
+  {
     "id": 591,
     "name": "EX: Twinstrike",
     "effects": "MAG +30%, dualcasts Witch abilities consuming an extra ability use",
@@ -22398,8 +24088,62 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"MAG\""
+    ],
     "codedName": "CUSTOM_MATK",
+    "notes": null
+  },
+  {
+    "id": 601000,
+    "name": "MAG +10% (8s)",
+    "effects": "MAG +10%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"MAG\""
+    ],
+    "codedName": "CUSTOM_MATK_10_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 601010,
+    "name": "MAG +20% (8s)",
+    "effects": "MAG +20%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"MAG\""
+    ],
+    "codedName": "CUSTOM_MATK_20_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 601020,
+    "name": "MAG +30% (8s)",
+    "effects": "MAG +30%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"MAG\""
+    ],
+    "codedName": "CUSTOM_MATK_30_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 601030,
+    "name": "MAG +40% (8s)",
+    "effects": "MAG +40%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"MAG\""
+    ],
+    "codedName": "CUSTOM_MATK_40_WITH_DURATION_SMALL_8000",
     "notes": null
   },
   {
@@ -22519,8 +24263,62 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"MND\""
+    ],
     "codedName": "CUSTOM_MND",
+    "notes": null
+  },
+  {
+    "id": 602000,
+    "name": "MND +10% (8s)",
+    "effects": "MND +10%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"MND\""
+    ],
+    "codedName": "CUSTOM_MND_10_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 602010,
+    "name": "MND +20% (8s)",
+    "effects": "MND +20%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"MND\""
+    ],
+    "codedName": "CUSTOM_MND_20_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 602020,
+    "name": "MND +30% (8s)",
+    "effects": "MND +30%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"MND\""
+    ],
+    "codedName": "CUSTOM_MND_30_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 602030,
+    "name": "MND +40% (8s)",
+    "effects": "MND +40%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"MND\""
+    ],
+    "codedName": "CUSTOM_MND_40_WITH_DURATION_SMALL_8000",
     "notes": null
   },
   {
@@ -22660,8 +24458,62 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK\""
+    ],
     "codedName": "CUSTOM_ATK",
+    "notes": null
+  },
+  {
+    "id": 603000,
+    "name": "ATK +10% (8s)",
+    "effects": "ATK +10%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK\""
+    ],
+    "codedName": "CUSTOM_ATK_10_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 603010,
+    "name": "ATK +20% (8s)",
+    "effects": "ATK +20%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK\""
+    ],
+    "codedName": "CUSTOM_ATK_20_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 603020,
+    "name": "ATK +30% (8s)",
+    "effects": "ATK +30%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK\""
+    ],
+    "codedName": "CUSTOM_ATK_30_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 603030,
+    "name": "ATK +40% (8s)",
+    "effects": "ATK +40%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK\""
+    ],
+    "codedName": "CUSTOM_ATK_40_WITH_DURATION_SMALL_8000",
     "notes": null
   },
   {
@@ -22752,6 +24604,58 @@
       "All other \"DEF\""
     ],
     "codedName": "CUSTOM_DEF",
+    "notes": null
+  },
+  {
+    "id": 604000,
+    "name": "DEF +10% (8s)",
+    "effects": "DEF +10%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"DEF\""
+    ],
+    "codedName": "CUSTOM_DEF_10_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 604010,
+    "name": "DEF +20% (8s)",
+    "effects": "DEF +20%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"DEF\""
+    ],
+    "codedName": "CUSTOM_DEF_20_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 604020,
+    "name": "DEF +30% (8s)",
+    "effects": "DEF +30%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"DEF\""
+    ],
+    "codedName": "CUSTOM_DEF_30_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 604030,
+    "name": "DEF +40% (8s)",
+    "effects": "DEF +40%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"DEF\""
+    ],
+    "codedName": "CUSTOM_DEF_40_WITH_DURATION_SMALL_8000",
     "notes": null
   },
   {
@@ -22846,7 +24750,7 @@
     "id": 6048,
     "name": "100% Critical (25s) Custom Param",
     "effects": "Critical chance =100%",
-    "defaultDuration": null,
+    "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
     "exclusiveStatus": null,
@@ -22915,6 +24819,58 @@
     "notes": null
   },
   {
+    "id": 607000,
+    "name": "RES +10% (8s)",
+    "effects": "RES +10%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"RES\""
+    ],
+    "codedName": "CUSTOM_MDEF_10_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 607010,
+    "name": "RES +20% (8s)",
+    "effects": "RES +20%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"RES\""
+    ],
+    "codedName": "CUSTOM_MDEF_20_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 607020,
+    "name": "RES +30% (8s)",
+    "effects": "RES +30%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"RES\""
+    ],
+    "codedName": "CUSTOM_MDEF_30_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
+    "id": 607030,
+    "name": "RES +40% (8s)",
+    "effects": "RES +40%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"RES\""
+    ],
+    "codedName": "CUSTOM_MDEF_40_WITH_DURATION_SMALL_8000",
+    "notes": null
+  },
+  {
     "id": 607122,
     "name": "RES -30%",
     "effects": "RES -30%",
@@ -22954,6 +24910,19 @@
     "notes": null
   },
   {
+    "id": 608001,
+    "name": "DEF and RES +200% (25s)",
+    "effects": "DEF and RES +200%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"DEF and RES\""
+    ],
+    "codedName": "CUSTOM_DEF_MDEF_200_WITH_DURATION_LARGE",
+    "notes": null
+  },
+  {
     "id": 608131,
     "name": "DEF and RES -50% (8s)",
     "effects": "DEF and RES -50%",
@@ -22979,6 +24948,21 @@
       "MAG and RES\""
     ],
     "codedName": "CUSTOM_ATK_DEF_MATK_MDEF",
+    "notes": null
+  },
+  {
+    "id": 609011,
+    "name": "ATK, DEF, MAG and RES +15% (8s)",
+    "effects": "ATK, DEF, MAG and RES +15%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF",
+      "MAG and RES\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MATK_MDEF_15_WITH_DURATION_SMALL_8000",
     "notes": null
   },
   {
@@ -23145,6 +25129,19 @@
       "All other \"ATK and DEF\""
     ],
     "codedName": "CUSTOM_ATK_DEF_M50_WITH_DURATION_MEDIUM_15000",
+    "notes": null
+  },
+  {
+    "id": 611133,
+    "name": "ATK and DEF +50% (25s)",
+    "effects": "ATK and MAG +50%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK and DEF\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_50_WITH_DURATION_LARGE",
     "notes": null
   },
   {
@@ -23435,6 +25432,19 @@
       "All other \"DEF and MAG\""
     ],
     "codedName": "CUSTOM_DEF_MATK_30_WHTH_DURATION_LARGE",
+    "notes": null
+  },
+  {
+    "id": 620033,
+    "name": "DEF and MAG +50% (25s)",
+    "effects": "DEF and MAG +50%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"DEF and MAG\""
+    ],
+    "codedName": "CUSTOM_DEF_MATK_50_WHTH_DURATION_LARGE",
     "notes": null
   },
   {
@@ -23836,13 +25846,30 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "MAG and RES\""
+    ],
     "codedName": "CUSTOM_ATK_MATK_MDEF",
     "notes": null
   },
   {
+    "id": 634023,
+    "name": "ATK, MAG and RES +30% (25s)",
+    "effects": "ATK, MAG and RES +30%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "MAG and RES\""
+    ],
+    "codedName": "CUSTOM_ATK_MATK_MDEF_30_WITH_DURATION_LARGE",
+    "notes": null
+  },
+  {
     "id": 635,
-    "name": "Crash +X%",
+    "name": "Crushed DEF and RES +X%",
     "effects": "DEF and RES +X%",
     "defaultDuration": null,
     "mndModifier": null,
@@ -23869,8 +25896,25 @@
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF and RES\""
+    ],
     "codedName": "CUSTOM_ATK_DEF_MDEF",
+    "notes": null
+  },
+  {
+    "id": 637031,
+    "name": "ATK, DEF and RES +50% (8s)",
+    "effects": "ATK, DEF and RES +50%",
+    "defaultDuration": 8,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"ATK",
+      "DEF and RES\""
+    ],
+    "codedName": "CUSTOM_ATK_DEF_MDEF_50_WITH_DURATION_SMALL_8000",
     "notes": null
   },
   {
@@ -23941,8 +25985,25 @@
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
-    "exclusiveStatus": null,
+    "exclusiveStatus": [
+      "All other \"MAG",
+      "RES and MND\""
+    ],
     "codedName": "CUSTOM_MATK_MDEF_MND",
+    "notes": null
+  },
+  {
+    "id": 642023,
+    "name": "MAG, RES and MND +30% (25s)",
+    "effects": "MAG, RES and MND +30%",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All other \"MAG",
+      "RES and MND\""
+    ],
+    "codedName": "CUSTOM_MATK_MDEF_MND_30_WITH_DURATION_LARGE",
     "notes": null
   },
   {
@@ -24191,6 +26252,19 @@
     "notes": null
   },
   {
+    "id": 654046,
+    "name": "Struggle Mode ATK and MAG +5%",
+    "effects": "ATK and MAG +5%",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All \"Struggle Mode ATK and MAG +X%\""
+    ],
+    "codedName": "CUSTOM_ATK_MATK_5_STRUGGLE_MODE",
+    "notes": null
+  },
+  {
     "id": 654055,
     "name": "Hymn of Healing ATK and MAG +10%",
     "effects": "ATK and MAG +10%",
@@ -24201,6 +26275,19 @@
       "All \"Hymn of Healing ATK and MAG +X%\""
     ],
     "codedName": "CUSTOM_ATK_MATK_10_WHITE_SERENADE",
+    "notes": null
+  },
+  {
+    "id": 654046,
+    "name": "Struggle Mode ATK and MAG +10%",
+    "effects": "ATK and MAG +10%",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All \"Struggle Mode ATK and MAG +X%\""
+    ],
+    "codedName": "CUSTOM_ATK_MATK_10_STRUGGLE_MODE",
     "notes": null
   },
   {
@@ -24217,6 +26304,19 @@
     "notes": null
   },
   {
+    "id": 654066,
+    "name": "Struggle Mode ATK and MAG +20%",
+    "effects": "ATK and MAG +20%",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All \"Struggle Mode ATK and MAG +X%\""
+    ],
+    "codedName": "CUSTOM_ATK_MATK_20_STRUGGLE_MODE",
+    "notes": null
+  },
+  {
     "id": 654075,
     "name": "Hymn of Healing ATK and MAG +30%",
     "effects": "ATK and MAG +30%",
@@ -24227,6 +26327,19 @@
       "All \"Hymn of Healing ATK and MAG +X%\""
     ],
     "codedName": "CUSTOM_ATK_MATK_30_WHITE_SERENADE",
+    "notes": null
+  },
+  {
+    "id": 654076,
+    "name": "Struggle Mode ATK and MAG +30%",
+    "effects": "ATK and MAG +30%",
+    "defaultDuration": 10,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": [
+      "All \"Struggle Mode ATK and MAG +X%\""
+    ],
+    "codedName": "CUSTOM_ATK_MATK_30_STRUGGLE_MODE",
     "notes": null
   },
   {
@@ -25668,6 +27781,17 @@
     "notes": null
   },
   {
+    "id": 8125,
+    "name": "Buff Fire 10% (5s)",
+    "effects": "Increases Fire damage dealt by 10%, cumulable",
+    "defaultDuration": 5,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_ATK_FIRE_1_TIME_SMALL_5000",
+    "notes": null
+  },
+  {
     "id": 813,
     "name": "Attach Dark",
     "effects": "Replaces Attack command, increases Dark damage dealt by 50/80/120% (abilities) or 80/100/120% (Soul Breaks), Dark resistance +20%",
@@ -26932,6 +29056,182 @@
     "notes": null
   },
   {
+    "id": 909,
+    "name": "Imperil Holy 30% (15s)",
+    "effects": "Holy Resistance -30%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_HOLY_M3_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 910,
+    "name": "Imperil Dark 30% (15s)",
+    "effects": "Dark Resistance -30%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_DARK_M3_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 911,
+    "name": "Imperil Fire 30% (15s)",
+    "effects": "Fire Resistance -30%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_FIRE_M3_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 912,
+    "name": "Imperil Wind 30% (15s)",
+    "effects": "Wind Resistance -30%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_WIND_M3_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 913,
+    "name": "Imperil Lightning 30% (15s)",
+    "effects": "Lightning Resistance -30%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_LIGHTNING_M3_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 914,
+    "name": "Imperil Water 30% (15s)",
+    "effects": "Water Resistance -30%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_WATER_M3_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 915,
+    "name": "Imperil Ice 30% (15s)",
+    "effects": "Ice Resistance -30%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_ICE_M3_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 916,
+    "name": "Imperil Earth 30% (15s)",
+    "effects": "Earth Resistance -30%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_EARTH_M3_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 917,
+    "name": "Imperil Poison 30% (15s)",
+    "effects": "Poison Resistance -30%, cumulable",
+    "defaultDuration": 15,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_POISON_M3_TIME_MEDIUM",
+    "notes": null
+  },
+  {
+    "id": 918,
+    "name": "Imperil Lightning 10% (25s)",
+    "effects": "Lightning Resistance -10%, cumulable",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_LIGHTNING_M1_TIME_LARGE",
+    "notes": null
+  },
+  {
+    "id": 919,
+    "name": "Imperil Holy 10% (25s)",
+    "effects": "Holy Resistance -10%, cumulable",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_HOLY_M1_TIME_LARGE",
+    "notes": null
+  },
+  {
+    "id": 920,
+    "name": "Imperil Dark 10% (25s)",
+    "effects": "Dark Resistance -10%, cumulable",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_DARK_M1_TIME_LARGE",
+    "notes": null
+  },
+  {
+    "id": 921,
+    "name": "Imperil Fire 10% (25s)",
+    "effects": "Fire Resistance -10%, cumulable",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_FIRE_M1_TIME_LARGE",
+    "notes": null
+  },
+  {
+    "id": 922,
+    "name": "Imperil Water 10% (25s)",
+    "effects": "Water Resistance -10%, cumulable",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_WATER_M1_TIME_LARGE",
+    "notes": null
+  },
+  {
+    "id": 923,
+    "name": "Imperil Ice 10% (25s)",
+    "effects": "Ice Resistance -10%, cumulable",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_ICE_M1_TIME_LARGE",
+    "notes": null
+  },
+  {
+    "id": 924,
+    "name": "Imperil Earth 10% (25s)",
+    "effects": "Earth Resistance -10%, cumulable",
+    "defaultDuration": 25,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "INCREASE_ELEMENT_DEF_EARTH_M1_TIME_LARGE",
+    "notes": null
+  },
+  {
     "id": 999,
     "name": "KO",
     "effects": "KO'd, can't act, persists after battle",
@@ -26943,6 +29243,17 @@
     ],
     "codedName": "DEATH",
     "notes": null
+  },
+  {
+    "id": 999997,
+    "name": "Stop ATB",
+    "effects": "Sets ATB charge speed to 0, lasts until removed",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "ATB_GAUGE_STOP",
+    "notes": "Used during Guardian Summon Mode"
   },
   {
     "id": -1,
@@ -27053,5 +29364,27 @@
     "exclusiveStatus": null,
     "codedName": "-",
     "notes": "Placeholder status for database purposes, in-game the logic of what to grant isn't controlled through a status but through a if/else set of sub conditions"
+  },
+  {
+    "id": -11,
+    "name": "Imperil Prismatic 10% (15s)",
+    "effects": "Causes [Imperil Holy 10% (15s)], [Imperil Dark 10% (15s)], [Imperil Fire 10% (15s)], [Imperil Wind 10% (15s)], [Imperil Lightning 10% (15s)], [Imperil Water 10% (15s)], [Imperil Ice 10% (15s)], [Imperil Earth 10% (15s)], [Imperil Poison 10% (15s)]",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "-",
+    "notes": "Placeholder status for database simplification purposes. When used the game is actually applying all of the underlying imperil statuses individually"
+  },
+  {
+    "id": -12,
+    "name": "Imperil Prismatic 30% (15s)",
+    "effects": "Causes [Imperil Holy 30% (15s)], [Imperil Dark 30% (15s)], [Imperil Fire 30% (15s)], [Imperil Wind 30% (15s)], [Imperil Lightning 30% (15s)], [Imperil Water 30% (15s)], [Imperil Ice 30% (15s)], [Imperil Earth 30% (15s)], [Imperil Poison 30% (15s)]",
+    "defaultDuration": null,
+    "mndModifier": null,
+    "mndModifierIsOpposed": false,
+    "exclusiveStatus": null,
+    "codedName": "-",
+    "notes": "Placeholder status for database simplification purposes. When used the game is actually applying all of the underlying imperil statuses individually"
   }
 ]

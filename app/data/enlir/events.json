@@ -9649,7 +9649,7 @@
     "realm": null,
     "glDate": "2019-08-01",
     "jpDate": "2019-01-25",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -9878,7 +9878,7 @@
     "realm": null,
     "glDate": "2019-09-05",
     "jpDate": "2019-03-01",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -10058,7 +10058,7 @@
     "realm": null,
     "glDate": "2019-10-17",
     "jpDate": "2019-04-05",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -10163,7 +10163,7 @@
     "realm": null,
     "glDate": "2019-11-14",
     "jpDate": "2019-04-30",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -10305,7 +10305,7 @@
     "realm": null,
     "glDate": "2019-12-04",
     "jpDate": "2019-05-31",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -10492,7 +10492,7 @@
     "realm": null,
     "glDate": "2020-01-23",
     "jpDate": "2019-07-05",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": [
       "Ceodore",
       "Beatrix",
@@ -10643,7 +10643,7 @@
     "realm": null,
     "glDate": "2020-02-27",
     "jpDate": "2019-08-02",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -10791,7 +10791,7 @@
     "realm": null,
     "glDate": "2020-04-02",
     "jpDate": "2019-09-06",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -11076,7 +11076,7 @@
     "realm": null,
     "glDate": "2020-05-28",
     "jpDate": "2019-11-08",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -11128,7 +11128,7 @@
     "realm": null,
     "glDate": "2020-06-18",
     "jpDate": "2019-11-30",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -11260,7 +11260,7 @@
   {
     "eventName": "Dungeon Update #70 (X-2, XV)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2021-01-12",
     "jpDate": null,
     "type": "Dungeons Update",
     "heroRecords": null,
@@ -11587,7 +11587,7 @@
     "realm": null,
     "glDate": "2020-10-22",
     "jpDate": "2020-04-03",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -11626,7 +11626,7 @@
     "realm": null,
     "glDate": "2020-11-05",
     "jpDate": "2020-04-16",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -11728,12 +11728,24 @@
   {
     "eventName": "Echo Amongst the Ruins",
     "realm": "IX",
-    "glDate": null,
+    "glDate": "2020-11-26",
     "jpDate": "2020-05-08",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Steiner",
+      "Eiko",
+      "Quina"
+    ],
+    "memoryCrystals1": [
+      "Steiner",
+      "Eiko",
+      "Quina"
+    ],
+    "memoryCrystals2": [
+      "Steiner",
+      "Eiko",
+      "Quina"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -11741,7 +11753,7 @@
   {
     "eventName": "Magicite: Odin (Water)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-12-07",
     "jpDate": "2020-05-12",
     "type": "Magicite Dungeon",
     "heroRecords": null,
@@ -11754,7 +11766,7 @@
   {
     "eventName": "A Demanding Mistress",
     "realm": "XI",
-    "glDate": null,
+    "glDate": "2020-12-03",
     "jpDate": "2020-05-15",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -11767,9 +11779,9 @@
   {
     "eventName": "Fat Black Chocobo: Soggy Forgery",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-12-10",
     "jpDate": "2020-05-22",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -11778,27 +11790,51 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Confounded Memories (Type-0)",
+    "eventName": "Chaotic Memories (Type-0)",
     "realm": "Type-0",
-    "glDate": null,
+    "glDate": "2020-12-17",
     "jpDate": "2020-05-29",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Eight",
+      "Cater",
+      "Rem"
+    ],
+    "memoryCrystals1": [
+      "Eight",
+      "Cater",
+      "Rem"
+    ],
+    "memoryCrystals2": [
+      "Eight",
+      "Cater",
+      "Rem"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
   },
   {
-    "eventName": "The Start of Our Story",
+    "eventName": "Our Story",
     "realm": "X",
-    "glDate": null,
+    "glDate": "2020-12-23",
     "jpDate": "2020-05-31",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Paine",
+      "Yuna",
+      "Tidus"
+    ],
+    "memoryCrystals1": [
+      "Paine",
+      "Yuna",
+      "Tidus"
+    ],
+    "memoryCrystals2": [
+      "Paine",
+      "Yuna",
+      "Tidus"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -11806,8 +11842,8 @@
   {
     "eventName": "Magicite: Odin (Fire)",
     "realm": null,
-    "glDate": null,
-    "jpDate": "2020-06-01",
+    "glDate": "2021-01-05",
+    "jpDate": "2020-05-31",
     "type": "Magicite Dungeon",
     "heroRecords": null,
     "memoryCrystals1": null,
@@ -11817,27 +11853,48 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Confounded Memories (VII)",
+    "eventName": "Chaotic Memories (VII)",
     "realm": "VII",
-    "glDate": null,
+    "glDate": "2020-12-27",
     "jpDate": "2020-06-05",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Reno",
+      "Elena",
+      "Rude"
+    ],
+    "memoryCrystals1": [
+      "Reno",
+      "Elena",
+      "Rude"
+    ],
+    "memoryCrystals2": [
+      "Reno",
+      "Elena",
+      "Rude"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Fat Black Chocobo: Blazing Forgery",
+    "eventName": "Fat Black Chocobo: Fiery Forgery",
     "realm": null,
-    "glDate": null,
-    "jpDate": "2020-06-11",
-    "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "glDate": "2021-01-04",
+    "jpDate": "2020-06-12",
+    "type": "Collection Event",
+    "heroRecords": [
+      "Cloud",
+      "Genesis"
+    ],
+    "memoryCrystals1": [
+      "Cloud",
+      "Genesis"
+    ],
+    "memoryCrystals2": [
+      "Cloud",
+      "Genesis"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -11858,7 +11915,7 @@
   {
     "eventName": "Glory Fest 2020",
     "realm": null,
-    "glDate": null,
+    "glDate": "2020-12-28",
     "jpDate": "2020-06-19",
     "type": "Festival",
     "heroRecords": null,
@@ -11869,9 +11926,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Future King's Journey",
+    "eventName": "King in Waiting (2021)",
     "realm": "XV",
-    "glDate": null,
+    "glDate": "2020-01-14",
     "jpDate": "2020-06-26",
     "type": "Challenge Event",
     "heroRecords": [
@@ -11907,40 +11964,82 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Separated Friends",
+    "eventName": "Long-Lost Friends",
     "realm": "VI",
-    "glDate": null,
+    "glDate": "2021-01-21",
     "jpDate": "2020-06-30",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Celes",
+      "Relm",
+      "Mog",
+      "Kefka"
+    ],
+    "memoryCrystals1": [
+      "Celes",
+      "Relm",
+      "Mog",
+      "Kefka"
+    ],
+    "memoryCrystals2": [
+      "Celes",
+      "Relm",
+      "Mog",
+      "Kefka"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Confounded Memories (III)",
+    "eventName": "Chaotic Memories (III)",
     "realm": "III",
-    "glDate": null,
+    "glDate": "2021-01-08",
     "jpDate": "2020-07-03",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Aria",
+      "Cloud of Darkness",
+      "Arc",
+      "Ingus"
+    ],
+    "memoryCrystals1": [
+      "Aria",
+      "Cloud of Darkness",
+      "Arc",
+      "Ingus"
+    ],
+    "memoryCrystals2": [
+      "Aria",
+      "Cloud of Darkness",
+      "Arc",
+      "Ingus"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
   },
   {
-    "eventName": "The Destined Time",
+    "eventName": "The Hour of Fate",
     "realm": "I",
-    "glDate": null,
+    "glDate": "2021-01-28",
     "jpDate": "2020-07-10",
     "type": "Challenge Event",
-    "heroRecords": null,
-    "memoryCrystals1": null,
-    "memoryCrystals2": null,
+    "heroRecords": [
+      "Garland",
+      "Sarah",
+      "Warrior of Light"
+    ],
+    "memoryCrystals1": [
+      "Garland",
+      "Sarah",
+      "Warrior of Light"
+    ],
+    "memoryCrystals2": [
+      "Garland",
+      "Sarah",
+      "Warrior of Light"
+    ],
     "memoryCrystals3": null,
     "wardrobeRecords": null,
     "abilitiesAwarded": null
@@ -11959,7 +12058,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Confounded Memories (XIII)",
+    "eventName": "Chaotic Memories (XIII)",
     "realm": "XIII",
     "glDate": null,
     "jpDate": "2020-07-17",
@@ -11976,7 +12075,7 @@
     "realm": null,
     "glDate": null,
     "jpDate": "2020-07-24",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -11990,6 +12089,19 @@
     "glDate": null,
     "jpDate": "2020-07-31",
     "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Magicite: Odin (Wind)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-07-31",
+    "type": "Magicite Dungeon",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -12024,7 +12136,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Confounded Memories (V)",
+    "eventName": "Chaotic Memories (V)",
     "realm": "V",
     "glDate": null,
     "jpDate": "2020-08-21",
@@ -12063,7 +12175,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Confounded Memories (X)",
+    "eventName": "Chaotic Memories (X)",
     "realm": "X",
     "glDate": null,
     "jpDate": "2020-09-04",
@@ -12145,7 +12257,7 @@
     "realm": null,
     "glDate": null,
     "jpDate": "2020-09-26",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -12171,7 +12283,7 @@
     "realm": null,
     "glDate": null,
     "jpDate": "2020-10-02",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -12180,7 +12292,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Confounded Memories (VI)",
+    "eventName": "Chaotic Memories (VI)",
     "realm": "VI",
     "glDate": null,
     "jpDate": "2020-10-09",
@@ -12236,7 +12348,7 @@
     "realm": null,
     "glDate": null,
     "jpDate": "2020-11-07",
-    "type": "Challenge Event",
+    "type": "Collection Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
@@ -12262,6 +12374,135 @@
     "realm": "IX",
     "glDate": null,
     "jpDate": "2020-11-21",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Chaotic Memories (XII)",
+    "realm": "XII",
+    "glDate": null,
+    "jpDate": "2020-11-27",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Vayne",
+      "Vaan",
+      "Reks"
+    ],
+    "memoryCrystals1": [
+      "Vayne",
+      "Vaan",
+      "Reks"
+    ],
+    "memoryCrystals2": [
+      "Vayne",
+      "Vaan",
+      "Reks"
+    ],
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "The Deserted Kingdom",
+    "realm": "VI",
+    "glDate": null,
+    "jpDate": "2020-11-30",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Chaotic Memories II (III)",
+    "realm": "III",
+    "glDate": null,
+    "jpDate": "2020-12-04",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "A Sword to Sheathe",
+    "realm": "XI",
+    "glDate": null,
+    "jpDate": "2020-12-11",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Fat Black Chocobo: Shocking Magicites",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-12-18",
+    "type": "Collection Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Extreme Fest 2020",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-12-26",
+    "type": "Festival",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Chaotic Memories (XV)",
+    "realm": "XV",
+    "glDate": null,
+    "jpDate": "2020-12-31",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Fat Black Chocobo: Soggy Magicites",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2020-01-08",
+    "type": "Collection Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Chaotic Memories II (XIII)",
+    "realm": "XIII",
+    "glDate": null,
+    "jpDate": "2020-01-22",
     "type": "Challenge Event",
     "heroRecords": null,
     "memoryCrystals1": null,

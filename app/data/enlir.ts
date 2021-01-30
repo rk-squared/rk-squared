@@ -211,7 +211,7 @@ export type EnlirSoulBreakTier =
   | 'AASB'
   | 'Glint+'
   | 'SASB'
-  | 'TASB'
+  | 'ADSB'
   | 'RW'
   | 'Shared';
 
@@ -467,7 +467,7 @@ export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
   AOSB: 8,
   AASB: 9,
   SASB: 10,
-  TASB: 11,
+  ADSB: 11,
   CSB: 12,
   RW: 100,
   Shared: 101,
@@ -680,7 +680,7 @@ export const enlir = {
   allSoulBreaks: rawData.soulBreaks,
   // True Arcane Soul Breaks result in two entries with the same ID.  The second
   // activation will be under soulBreaks; add the first activation here.
-  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isTrueArcane1st), 'id'),
+  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isArcaneDyad1st), 'id'),
 
   status: _.keyBy(rawData.status, 'id'),
   statusByName: _.keyBy(rawData.status, 'name'),
@@ -1523,28 +1523,28 @@ export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
   return result ? result.status : undefined;
 }
 
-const getTrueArcaneBaseName = (sb: EnlirSoulBreak) =>
+const getArcaneDyadBaseName = (sb: EnlirSoulBreak) =>
   // To accommodate Rydia's Gaia's Rage, we have to remove realm suffixes as
-  // well as "(Release)".
-  sb.name.replace(/ \(Release\)$/, '').replace(/ \([IV]+\)$/, '');
+  // well as "(Engaged)".
+  sb.name.replace(/ \(Engaged\)$/, '').replace(/ \([IV]+\)$/, '');
 
 /**
- * For a true arcane soul break (TASB), gets the associated status that
+ * For an arcane dyad soul break (ADSB), gets the associated status that
  * increments the level.
  */
-export function getEnlirTrueArcaneTracker(sb: EnlirSoulBreak): EnlirStatus | undefined {
-  const name = getTrueArcaneBaseName(sb);
+export function getEnlirArcaneDyadTracker(sb: EnlirSoulBreak): EnlirStatus | undefined {
+  const name = getArcaneDyadBaseName(sb);
   return (
     enlir.statusByName[name + ' Ability Tracker'] || enlir.statusByName[name + ' Damage Tracker']
   );
 }
 
 /**
- * For a true arcane soul break (TASB), gets the associated status that
+ * For an arcane dyad soul break (ADSB), gets the associated status that
  * tracks the level.
  */
-export function getEnlirTrueArcaneLevel(sb: EnlirSoulBreak): EnlirStatus | undefined {
-  return enlir.statusByName[getTrueArcaneBaseName(sb) + ' Level'];
+export function getEnlirArcaneDyadLevel(sb: EnlirSoulBreak): EnlirStatus | undefined {
+  return enlir.statusByName[getArcaneDyadBaseName(sb) + ' Level'];
 }
 
 /**
@@ -1614,12 +1614,12 @@ export function isLimitBreak(skill: EnlirSkill): skill is EnlirLimitBreak {
   return 'minimumLbPoints' in skill;
 }
 
-export function isTrueArcane1st(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'TASB' && sb.points === 0;
+export function isArcaneDyad1st(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'ADSB' && sb.points === 0;
 }
 
-export function isTrueArcane2nd(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'TASB' && sb.points !== 0;
+export function isArcaneDyad2nd(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'ADSB' && sb.points !== 0;
 }
 
 /**

@@ -9,8 +9,8 @@ import {
   EnlirSkill,
   EnlirTarget,
   getEffects,
-  getEnlirTrueArcaneLevel,
-  getEnlirTrueArcaneTracker,
+  getEnlirArcaneDyadLevel,
+  getEnlirArcaneDyadTracker,
   getNormalSBPoints,
   isAbility,
   isBraveCommand,
@@ -22,8 +22,8 @@ import {
   isSoulBreak,
   isSynchroCommand,
   isSynchroSoulBreak,
-  isTrueArcane1st,
-  isTrueArcane2nd,
+  isArcaneDyad1st,
+  isArcaneDyad2nd,
 } from '../enlir';
 import {
   describeAttack,
@@ -623,8 +623,8 @@ export function processSkillStatus(
     // effect.
     const isLast = thisStatusIndex + 1 === statuses.length;
 
-    // Special case: Since every TASB clears its associated mode, omit that.
-    if (who === 'self' && removes && skill && isSoulBreak(skill) && isTrueArcane2nd(skill)) {
+    // Special case: Since every ADSB clears its associated mode, omit that.
+    if (who === 'self' && removes && skill && isSoulBreak(skill) && isArcaneDyad2nd(skill)) {
       return;
     }
 
@@ -638,11 +638,11 @@ export function processSkillStatus(
       return;
     }
 
-    // Special case: Omit / simplify some TASB details, and handle others via
+    // Special case: Omit / simplify some ADSB details, and handle others via
     // describeTrueArcaneCondition.
-    if (skill && isSoulBreak(skill) && isTrueArcane1st(skill)) {
-      const tracker = getEnlirTrueArcaneTracker(skill);
-      const level = getEnlirTrueArcaneLevel(skill);
+    if (skill && isSoulBreak(skill) && isArcaneDyad1st(skill)) {
+      const tracker = getEnlirArcaneDyadTracker(skill);
+      const level = getEnlirArcaneDyadLevel(skill);
       if ((tracker && tracker.id === status.id) || (level && level.id === status.id)) {
         return;
       }
