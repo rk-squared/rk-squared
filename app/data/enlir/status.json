@@ -18942,7 +18942,7 @@
   {
     "id": 50989,
     "name": "Path of Flame Mode",
-    "effects": "Casts Master Pyroblade when any Damage Reduction Barrier is removed, removed after casting Path of Flame two times",
+    "effects": "Casts Master Pyroblade when any Damage Reduction Barrier is removed, removed after casting Master Pyroblade two times",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -19272,7 +19272,7 @@
   {
     "id": 51018,
     "name": "Chaos Reborn Mode",
-    "effects": "Casts Chaos Rebirth when any Damage Reduction Barrier is removed",
+    "effects": "Casts Chaos Reborn when any Damage Reduction Barrier is removed",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -22208,7 +22208,7 @@
   {
     "id": 51290,
     "name": "Aria Mode",
-    "effects": "Grants [Instant ATB 2] to the user after using four Spellblade abilities, removed after the using four Spellblade abilities",
+    "effects": "Grants [Instant ATB 2] to the user after using four Spellblade abilities, removed after using four Spellblade abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

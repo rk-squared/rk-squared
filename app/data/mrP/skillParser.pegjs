@@ -18,7 +18,7 @@ SkillEffect
   / "" { return []; }
 
 EffectClause = FixedAttack / Attack / RandomFixedAttack
-  / DrainHp / RecoilHp / FixedRecoilHp / HpAttack / GravityAttack
+  / DrainHp / RecoilHp / RecoilSetHp / FixedRecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
   / RandomCastAbility / RandomCastOther / Chain / Mimic
   / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
@@ -315,6 +315,11 @@ RecoilHp
       damagePercent,
       maxOrCurrent,
     }, condition);
+  }
+
+RecoilSetHp
+  = "sets the user's HP to" _ hp:Integer _ condition:Condition? {
+    return util.addCondition({ type: 'recoilSetHp', hp }, condition);
   }
 
 // New effect in December 2020 - make it strict until we've seen more use.

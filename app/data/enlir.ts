@@ -992,7 +992,8 @@ function patchEnlir() {
     'Causes [Slow] (50%), grants [Haste] to the user if successful',
   );
 
-  // Patch Bahamut (VI) to have an orb cost for rank 1.
+  // Patch Bahamut (VI) to have an orb cost for rank 1 to make it easier for our
+  // ability code to display orb costs.
   const bahamutOrbs = ['Major Summon', 'Major Non-Elemental', 'Major Dark'];
   applyPatch(
     enlir.abilitiesByName,

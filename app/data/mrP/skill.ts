@@ -189,6 +189,10 @@ export function describeRecoilHp({
   );
 }
 
+export function describeRecoilSetHp({ hp, condition }: skillTypes.RecoilSetHp): string {
+  return `HP to ${hp}` + appendCondition(condition);
+}
+
 export function describeFixedRecoilHp({ value }: skillTypes.FixedRecoilHp): string {
   // Omit skillType; it seems unnecessary.
   return `lose ${value} HP`;
@@ -1099,6 +1103,9 @@ export function convertEnlirSkillToMrP(
         break;
       case 'recoilHp':
         other.self.push(describeRecoilHp(effect));
+        break;
+      case 'recoilSetHp':
+        other.self.push(describeRecoilSetHp(effect));
         break;
       case 'fixedRecoilHp':
         other.push(skill, effect.who, describeFixedRecoilHp(effect));

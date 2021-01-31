@@ -3530,7 +3530,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Searching for Friends Mode",
-    "name": "Metamorphosis ",
+    "name": "Metamorphosis",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",

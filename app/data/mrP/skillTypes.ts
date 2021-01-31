@@ -17,6 +17,7 @@ export type EffectClause =
   | RandomFixedAttack
   | DrainHp
   | RecoilHp
+  | RecoilSetHp
   | FixedRecoilHp
   | HpAttack
   | GravityAttack
@@ -160,6 +161,12 @@ export interface RecoilHp {
   type: 'recoilHp';
   damagePercent: number | number[];
   maxOrCurrent: 'max' | 'curr';
+  condition?: common.Condition;
+}
+
+export interface RecoilSetHp {
+  type: 'recoilSetHp';
+  hp: number;
   condition?: common.Condition;
 }
 
