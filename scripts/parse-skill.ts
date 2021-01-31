@@ -134,7 +134,7 @@ function processEffects<T extends EnlirSkill>(
     let parseError: SyntaxError | undefined;
     totalCount++;
     try {
-      parseResults = parse(i.effects);
+      parseResults = parse(i.patchedEffects || i.effects);
       successCount++;
     } catch (e) {
       if (e.name !== 'SyntaxError') {

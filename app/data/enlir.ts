@@ -732,12 +732,12 @@ function applyEffectsPatch<
 }
 
 function applyEffectPatch<
-  T extends { effect: string | undefined; patchedEffects?: string | undefined }
+  T extends { effect: string | undefined; patchedEffect?: string | undefined }
 >(lookup: { [s: string]: T | T[] }, name: string, from: string, to: string) {
-  applyPatch(lookup, name, item => item.effect === from, item => (item.effect = to));
+  applyPatch(lookup, name, item => item.effect === from, item => (item.patchedEffect = to));
 }
 
-// Not currently needed, but there are times when it's been helpeful.
+// Not currently needed, but there are times when it's been helpful.
 /*
 function addPatch<T extends { [s: string]: { id: number; name: string } }>(
   lookup: T,
@@ -1116,6 +1116,28 @@ function patchEnlir() {
       'causes [Soul Break Gauge -500] if the user has 1000+ SB points',
     'One single attack (6.00) capped at 99999, grants [Quick Cast 1] to the user if the user has 750-999 SB points, ' +
       'grants [Instant Cast 1], [Dualcast Spellblade 1], and [Soul Break Gauge -500] to the user if the user has 1000+ SB points',
+  );
+  // Try to add some consistency to status level conditions.
+  applyEffectsPatch(
+    enlir.synchroCommands,
+    '31540666',
+    'Three single attacks (0.80 each), grants [Quick Cast 2] to the user, ' +
+      'grants [ATK, DEF and RES +50% (8s)] to all allies if the user has Temple Knight level 1 or 2, ' +
+      'causes Temple Knight -1 to the user',
+    'Three single attacks (0.80 each), grants [Quick Cast 2] to the user, ' +
+      'grants [ATK, DEF and RES +50% (8s)] to all allies if the user has Temple Knight level 1+, ' +
+      'causes Temple Knight -1 to the user',
+  );
+  // Try to add some consistency to integer slash lists.
+  applyEffectsPatch(
+    enlir.otherSkillsByName,
+    'Gentle Thunder',
+    '4/4/4/6 single attacks (1.32 each) if 0-1/2/3/4 female allies are alive, ' +
+      "grants [Quick Cast 1] to all allies in the character's row if 2 or more female allies are alive, " +
+      'grants [Buff Lightning 10% (15s)] to all allies if 3 or more female allies are alive',
+    '4/6 single attacks (1.32 each) if 0/4 female allies are alive, ' +
+      "grants [Quick Cast 1] to all allies in the character's row if 2 or more female allies are alive, " +
+      'grants [Buff Lightning 10% (15s)] to all allies if 3 or more female allies are alive',
   );
 
   // Use the older, less verbose format for hybrid effects, since that's all our

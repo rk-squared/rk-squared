@@ -148,7 +148,7 @@ export type Condition =
       withoutWith?: WithoutWith;
     }
   | { type: 'femalesInParty'; count: number | number[] }
-  | { type: 'femalesAlive'; count: number | number[] }
+  | { type: 'femalesAlive'; count: number | number[]; plus?: boolean }
   | { type: 'realmCharactersInParty'; realm: EnlirAnyRealm; count: number | number[] }
   | { type: 'realmCharactersAlive'; realm: EnlirAnyRealm; count: number | number[]; plus: boolean }
   | { type: 'charactersAlive'; count: number | number[] }
