@@ -617,6 +617,21 @@ export function processSkillStatus(
 
   let lastItem: string[] | undefined;
   statuses.forEach((thisStatus, thisStatusIndex) => {
+    // Special case: "Retaliate and High Retaliate" are common enough that
+    // we simplify them by omitting "High Retaliate."
+    if (
+      effect.who === 'self' &&
+      removes &&
+      thisStatus.status.type === 'standardStatus' &&
+      thisStatus.status.name === 'High Retaliate' &&
+      thisStatusIndex > 0
+    ) {
+      const prevStatus = statuses[thisStatusIndex - 1];
+      if (prevStatus.status.type === 'standardStatus' && prevStatus.status.name === 'Retaliate') {
+        return;
+      }
+    }
+
     const [status, stacking] = checkStacking(effect, thisStatus);
 
     // If this is the last status, then append details of the whole status

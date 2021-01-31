@@ -132,8 +132,9 @@ export function describeCondition(condition: common.Condition, count?: number | 
       // Hack: Assume that, if it's checking a simple status on someone else,
       // then it's targeting a status ailment, so phrase as 'vs.'
       if (condition.who === 'self' || condition.any || condition.withoutWith) {
-        // Special case: We don't show "High Retaliate" to the user.
-        if (condition.status === 'Retaliate or High Retaliate') {
+        // Special case: "Retaliate and High Retaliate" are common enough that
+        // we simplify them by omitting "High Retaliate."
+        if (_.isEqual(condition.status, ['Retaliate', 'High Retaliate'])) {
           return `${clause} Retaliate`;
         }
         const m =

@@ -27713,7 +27713,7 @@
       "Dark"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (1.10 or 3.50 each)",
+    "effects": "Six single hybrid attacks (1.10 or 3.50 each)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
