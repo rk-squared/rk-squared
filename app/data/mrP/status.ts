@@ -1432,7 +1432,7 @@ function describeStatusEffect(
     case 'instantAtb':
       return 'instant ATB';
     case 'atbSpeed':
-      return effect.value + 'x ATB';
+      return numberSlashList(effect.value) + 'x ATB';
     case 'physicalBlink':
       return 'Phys blink ' + effect.level;
     case 'magicBlink':
@@ -2119,6 +2119,7 @@ export function resolveStatuses(
 }
 
 const valueMergeTypes = [
+  'atbSpeed',
   'castSpeed',
   'critChance',
   'damageBarrier',

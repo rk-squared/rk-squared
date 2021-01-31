@@ -219,7 +219,7 @@ interface InstantAtb {
 
 interface AtbSpeed {
   type: 'atbSpeed';
-  value: number;
+  value: number | number[];
 }
 
 interface ForAbilities {

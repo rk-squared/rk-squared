@@ -25134,7 +25134,7 @@
   {
     "id": 611133,
     "name": "ATK and DEF +50% (25s)",
-    "effects": "ATK and MAG +50%",
+    "effects": "ATK and DEF +50%",
     "defaultDuration": 25,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
