@@ -18272,7 +18272,7 @@
   {
     "id": 50926,
     "name": "Marine Edge Follow-Up",
-    "effects": "Casts Marine Edge after using Watery Bite or Aquatic Damage",
+    "effects": "Casts Marine Edge after using Water Bite or Aqua Harm",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -22810,7 +22810,7 @@
   },
   {
     "id": 51345,
-    "name": "FIrearms Expert Critical Chance",
+    "name": "Firearms Expert Critical Chance",
     "effects": "Critical chance =30%/50%/75%/100% after using 1/2/3/4+ Machinist abilities, removed if the user hasn't Firearms Expert Mode",
     "defaultDuration": null,
     "mndModifier": null,
@@ -22855,7 +22855,7 @@
   {
     "id": 51358,
     "name": "Six Dragons Chase Follow-Up",
-    "effects": "Casts Six Dragons Chase after using after using two of Six Dragons or Dance of Fertility",
+    "effects": "Casts Six Dragons Chase after using two of Six Dragons or Dance of Fertility",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

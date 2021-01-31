@@ -808,9 +808,16 @@ function patchEnlir() {
     skill => {
       skill.patchedEffects =
         'One single attack (5.20) capped at 99999, ' +
-        'causes [DEF, RES and MND -70% (8s)] if the user has Retaliate or High Retaliate, ' +
+        'causes [DEF, RES and MND -70% (8s)] if the user has [Retaliate] or [High Retaliate], ' +
         'causes [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] and [High Retaliate] to the user';
     },
+  );
+  // Make Lasswell's Retaliate text consistent with other Retaliate users.
+  applyEffectsPatch(
+    enlir.synchroCommands,
+    '30549310',
+    'Six single attacks (0.90 each), 100% additional critical chance if user has any retaliate, removes any retaliate from the user',
+    'Six single attacks (0.90 each), 100% additional critical chance if user has [Retaliate] or [High Retaliate], removes [Retaliate] and [High Retaliate] from the user',
   );
 
   // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are quite

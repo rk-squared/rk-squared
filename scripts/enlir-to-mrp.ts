@@ -69,7 +69,10 @@ for (const sb of _.sortBy(
   }
   if (mrP.synchroCondition && mrP.synchroCommands) {
     for (let i = 0; i < mrP.synchroCommands.length; i++) {
-      console.log('    [' + formatSchoolOrAbilityList(mrP.synchroCondition[i]) + ']');
+      const detail = mrP.synchroCommands[i].commandDetail
+        ? ', ' + mrP.synchroCommands[i].commandDetail
+        : '';
+      console.log('    [' + formatSchoolOrAbilityList(mrP.synchroCondition[i]) + ']' + detail);
       console.log('    ' + formatMrPSkill(mrP.synchroCommands[i]));
     }
   }

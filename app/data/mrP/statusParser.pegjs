@@ -926,6 +926,7 @@ Trigger
   / "if user has triggered" _ skill:AnySkillName _ count:NumberString _ "times" { return { type: 'skillTriggered', skill, count }; } // Arcane Dyad variant
   / "after"i _ ("using" / "casting") _ count:NumberString _ "of" _ "either"? _ skill:Skill1Or2 { return { type: 'skill', skill, count }; }
   / "after casting" _ skill:Skill1Or2 _ count:NumberString _ "times" { return { type: 'skill', skill, count }; }
+  / "after using" _ count:IntegerSlashList _ "of" _ skill:AnySkillName { return { type: 'skill', skill, count }; }
   / "after"i _ "taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
   / "after"i _ "using a single-target heal" { return { type: 'singleHeal' }; }
   / "when"i _ "the user's"? _ "HP fall" "s"? _ "below" _ value:Integer "%" { return { type: 'lowHp', value }; }
@@ -1174,7 +1175,7 @@ Condition
 
   // Scaling with uses - both specific counts and generically
   / ("at" / "scaling with" / "after") _ useCount:IntegerSlashList "+"? _ ("uses" / "casts") { return { type: 'scaleUseCount', useCount }; }
-  / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
+  / "scaling with" _ ("uses" / "activations") { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
   / ("after" / "every") _ useCount:UseCount _ skill:AnySkillName? _ ("uses" / "activations") { return { type: 'afterUseCount', skill, useCount }; }

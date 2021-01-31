@@ -367,11 +367,12 @@ Heal
   = "restores"i _ amount:(
       "HP" _ "(" healFactor:DecimalNumberSlashList ")" { return { healFactor }; }
       / fixedHp:IntegerSlashList _ "HP" { return { fixedHp }; }
-    ) _ who:Who? _ condition:Condition? {
+    ) _ who:Who? _ condition:Condition? _ perUses:PerUses? {
     return util.addCondition({
       type: 'heal',
       amount,
       who,
+      perUses,
     }, condition);
   }
 
@@ -677,7 +678,7 @@ Condition
 
   // Scaling with uses - both specific counts and generically
   / ("at" / "scaling with" / "after") _ useCount:IntegerSlashList "+"? _ ("uses" / "casts") { return { type: 'scaleUseCount', useCount }; }
-  / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
+  / "scaling with" _ ("uses" / "activations") { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
   / ("after" / "every") _ useCount:UseCount _ skill:AnySkillName? _ ("uses" / "activations") { return { type: 'afterUseCount', skill, useCount }; }

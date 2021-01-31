@@ -143,7 +143,7 @@ export function describeDrainHp({ healPercent, condition }: skillTypes.DrainHp):
 
 export function describeHeal(
   skill: EnlirSkill | SimpleSkill,
-  { amount, condition, overrideSkillType }: skillTypes.Heal,
+  { amount, condition, overrideSkillType, perUses }: skillTypes.Heal,
 ): string {
   let heal: string;
   let count: number | number[] | undefined;
@@ -159,6 +159,7 @@ export function describeHeal(
     heal += ' (NAT)';
   }
   heal += appendCondition(condition, count);
+  heal += appendPerUses(perUses);
   return heal;
 }
 
