@@ -438,7 +438,15 @@ function describeArcaneDyadCondition(sb: EnlirSoulBreak) {
     return undefined;
   }
 
-  return '@ ' + formatTrigger(change.trigger, sb);
+  // Hack: Dyad conditions mark when the status increments.  Insert a '0' to
+  // indicate the base condition, too, to match our other triggers.
+  let trigger = formatTrigger(change.trigger, sb);
+  if (trigger.match(/^[0-9]+([/ ])/)) {
+    trigger = '0/' + trigger;
+  } else if (trigger.match(/^[0-9]+k?([- ])/)) {
+    trigger = '0-' + trigger;
+  }
+  return '@ ' + trigger;
 }
 
 /**

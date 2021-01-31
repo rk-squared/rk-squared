@@ -329,12 +329,17 @@ export interface CastTimePerUse {
   castTimePerUse: number;
 }
 
-// Special case: This exists during parsing but is merged by mergeAttackExtras, so
-// higher-level code never sees it as part of EffectClause
+// Special case: These exist during parsing but is merged by
+// mergeAttackExtrasAndClauses, so higher-level code never sees it as part of
+// EffectClause.
 export interface StandaloneAttackExtra {
   type: 'attackExtra';
   extra: AttackExtras;
 }
+
+export type AndEffectClause = EffectClause & {
+  andEffect: true;
+};
 
 export interface RandomSkillEffect {
   type: 'randomSkillEffect';

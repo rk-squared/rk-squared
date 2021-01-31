@@ -941,8 +941,8 @@ Trigger
 
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
   / "if user has triggered" _ skill:AnySkillName _ count:NumberString _ "times" { return { type: 'skillTriggered', skill, count }; } // Arcane Dyad variant
+  / "after"i _ ("using" / "casting") _ count:(NumberString / IntegerSlashList) plus:"+"? _ "of" _ "either"? _ skill:Skill1Or2 { return { type: 'skill', skill, count, plus: !!plus }; }
   / "after"i _ ("using" / "casting") _ count:NumberString _ "of" _ "either"? _ skill:Skill1Or2 { return { type: 'skill', skill, count }; }
-  / "after casting" _ skill:Skill1Or2 _ count:NumberString _ "times" { return { type: 'skill', skill, count }; }
   / "after using" _ count:IntegerSlashList _ "of" _ skill:AnySkillName { return { type: 'skill', skill, count }; }
   / "after"i _ "taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
   / "after"i _ "using a single-target heal" { return { type: 'singleHeal' }; }
@@ -951,8 +951,15 @@ Trigger
       // For ADSBs
       return { type: 'damageDuringStatus', value: [value1, value2] };
     }
-  / "after"i _ "an ally uses" _ count:TriggerCount _ requiresDamage:"damaging"?
-    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
+  / "when"i _ "user crosses" _ value1:Integer _ "damage dealt during the status" {
+      // For ADSBs
+      return { type: 'damageDuringStatus', value: [value1] };
+    }
+  / "after"i _ "an ally" _ ("uses" / "casts") _ count:TriggerCount _ requiresDamage:"damaging"?
+    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack _ anyElemental:("that deals elemental damage (excluding NE)")? {
+      if (anyElemental) {
+        element = ['Fire', 'Ice', 'Lightning', 'Earth', 'Wind', 'Water', 'Holy', 'Dark', 'Poison'];
+      }
       return { type: 'allyAbility', element, school, count, jump: !!jump, requiresDamage, requiresAttack };
     }
   // For legend materia

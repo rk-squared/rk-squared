@@ -913,6 +913,12 @@ function patchEnlir() {
     'Mimic attacks deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
       'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
   );
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Pain -2', // It still seems odd to me that one status can grant another.  "when set" is already used elsewhere.
+    'Decreases Pain level by 2',
+    'Decreases Pain level by 2 when set',
+  );
 
   // Legend materia.  To be consistent with statuses, use "and" to separate
   // triggered effects, while commas separate completely distinct clauses.

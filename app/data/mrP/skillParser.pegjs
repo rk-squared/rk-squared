@@ -12,8 +12,15 @@
 }
 
 SkillEffect
-  = head:EffectClause tail:((',' / '.' _ ('Also' / 'Additional')) _ EffectClause)* {
-    return util.mergeAttackExtras(util.pegList(head, tail, 2));
+  = head:EffectClause tail:(conj:(',' / '.' _ ('Also' / 'Additional') / 'and') _ effect:EffectClause { return [conj, effect]; })* {
+    const effects = [head];
+    for (let [conj, effect] of tail) {
+      if (conj === 'and') {
+        effect.andEffect = true;
+      }
+      effects.push(effect);
+    }
+    return util.mergeAttackExtrasAndEffects(effects);
   }
   / "" { return []; }
 
@@ -494,7 +501,7 @@ ImplicitStatusEffect
   }
 
 SetStatusLevel
-  = "set"i _ status:StatusNameNoBrackets _ "level" _ "to" _ value:Integer {
+  = "set"i "s"? _ ("the user's")? _ status:StatusNameNoBrackets _ "level" _ "to" _ value:Integer {
     return { type: 'setStatusLevel', status, value };
   }
 

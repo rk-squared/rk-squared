@@ -65455,7 +65455,7 @@
       "NE"
     ],
     "time": 2.5,
-    "effects": "Twenty single attacks (1.00/1.10/1.20 each) capped at 9999/19999/29999, followed by one single attack (10.00/11.00/12.00) capped at 99999 at Fiendish Devastation level 0/1/2, removes Arcane Dyad Empowered: Queenfrom the user",
+    "effects": "Twenty single attacks (1.00/1.10/1.20 each) capped at 9999/19999/29999, followed by one single attack (10.00/11.00/12.00) capped at 99999 at Fiendish Devastation level 0/1/2, removes Arcane Dyad Empowered: Queen from the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "points": 750,
