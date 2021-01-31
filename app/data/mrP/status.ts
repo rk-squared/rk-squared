@@ -1629,7 +1629,10 @@ function describeStatusEffect(
         `, taking ${-effect.damageReduce}% dmg`
       );
     case 'triggeredEffect':
-      return formatTriggeredEffect(effect, enlirStatus, source, options, resolve);
+      return (
+        (effect.exclusive ? 'or ' : '') +
+        formatTriggeredEffect(effect, enlirStatus, source, options, resolve)
+      );
     case 'autoCure':
       return formatChance(effect.chance) + `auto-cure ${arrayify(effect.status).join('/')}`;
     case 'conditionalStatus':

@@ -21911,7 +21911,7 @@
   {
     "id": 51263,
     "name": "Last Resort Mode",
-    "effects": "ATK +25% and DEF -25%, grants [125% ATB (Synchro)]/[200% ATB (Synchro)] and [Quick Cast (Synchro)]/[High Quick Cast (Synchro)] to the user after using 1/2+ Dark abilities",
+    "effects": "ATK +25%, DEF -25%, grants [125% ATB (Synchro)]/[200% ATB (Synchro)] and [Quick Cast (Synchro)]/[High Quick Cast (Synchro)] to the user after using 1/2+ Dark abilities",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -22833,7 +22833,7 @@
   {
     "id": 51356,
     "name": "Elemental Costume Mode",
-    "effects": "Grants [Attach Water]/[Attach Wind] to the user after using four Water/Wind abilities if the triggering ability is Water/Wind, removes Elemental Costume Mode after triggering",
+    "effects": "Grants [Attach Water]/[Attach Wind] to the user after using four Water/Wind abilities if the triggering ability is Water/Wind, removed after triggering",
     "defaultDuration": 15,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

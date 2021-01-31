@@ -157,22 +157,30 @@ function describeThresholdDamage(
     .join(thresholdJoin);
 }
 
-function describeOr(attack: skillTypes.Attack): [string | undefined, string | undefined] {
+function describeOr(
+  attack: skillTypes.Attack,
+): [string | undefined, string | undefined, string | undefined] {
   if (
     !attack.orMultiplier &&
     !attack.orNumAttacks &&
     !attack.orMultiplierCondition &&
     !attack.orNumAttacksCondition
   ) {
-    return [undefined, undefined];
+    return [undefined, undefined, undefined];
   }
 
   const numAttacks = attack.numAttacks;
   let orDamage: string | undefined;
+  let orHybridDamage: string | undefined;
   if (attack.orMultiplier && !isRandomNumAttacks(numAttacks)) {
     orDamage = arrayify(attack.orMultiplier)
       .map(i => describeDamage(i, numAttacks))
       .join(thresholdJoin);
+    if (attack.orHybridMultiplier) {
+      orHybridDamage = arrayify(attack.orHybridMultiplier)
+        .map(i => describeDamage(i, numAttacks))
+        .join(thresholdJoin);
+    }
   } else if (
     attack.orNumAttacks &&
     attack.attackMultiplier &&
@@ -183,6 +191,7 @@ function describeOr(attack: skillTypes.Attack): [string | undefined, string | un
 
   return [
     orDamage,
+    orHybridDamage,
     describeCondition((attack.orMultiplierCondition || attack.orNumAttacksCondition)!),
   ];
 }
@@ -506,7 +515,7 @@ function describeAttackDamage(
     damage = describeDamage(attackMultiplier, numAttacks!);
   }
 
-  const [orDamage, orCondition] = describeOr(attack);
+  const [orDamage, orHybridDamage, orCondition] = describeOr(attack);
 
   let scaleType: string | undefined;
   let scaleToDamage: string | undefined;
@@ -593,6 +602,7 @@ function describeAttackDamage(
     defaultDamage,
 
     orDamage,
+    orHybridDamage,
     orCondition,
 
     scaleToDamage,
@@ -699,6 +709,9 @@ export function describeAttack(
       ', or ' +
       damageTypeAbbreviation(attackDamage.damageType) +
       attackDamage.orDamage +
+      (attackDamage.orHybridDamage && hybridDamageType
+        ? ' or ' + formatDamageType(hybridDamageType, abbreviate) + attackDamage.orHybridDamage
+        : '') +
       ' ' +
       attackDamage.orCondition;
   }

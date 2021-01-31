@@ -589,6 +589,7 @@ export interface TriggeredEffect {
   onceOnly?: boolean | number; // A number indicates twice, 3x, etc.
   chance?: number;
   chanceIsUncertain?: boolean;
+  exclusive?: boolean; // This trigger and any previous are mutually exclusive.
 }
 
 export type TriggerableEffect =

@@ -537,7 +537,7 @@ CounterWithImmune
 // accommodate statuses like Cyan's AASB.
 TriggeredEffect
   = chance:TriggerChance? head:TriggerableEffect _ tail:(_ "and" _ TriggerableEffect)* _ trigger:Trigger _ triggerDetail:TriggerDetail? _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
-    onceOnly:("," _ o:OnceOnly { return o; })?
+    onceOnly:("," _ o:OnceOnly { return o; })? exclusive:(". Only one of these effects can trigger at a time")?
   & {
     wantInfinitive[0] = false;
 
@@ -550,7 +550,15 @@ TriggeredEffect
     return castSkill && castSkill.type === 'castSkill' && castSkill.skill === onceOnly.skill;
   }
   {
-    return util.addCondition({ type: 'triggeredEffect', ...chance, effects: util.pegMultiList(head, [[tail, 3], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
+    return util.addCondition({
+      type: 'triggeredEffect',
+      ...chance,
+      effects: util.pegMultiList(head, [[tail, 3], [tail2, 2]], true),
+      trigger,
+      onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly,
+      triggerDetail,
+      exclusive: !!exclusive
+    }, condition);
   }
   // Alternate forms for complex effects - used by, e.g., Orlandeau's SASB or Cor's SASB
   / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
@@ -1124,10 +1132,11 @@ Condition
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
   / "scaling with" _ status:StatusNameNoBrackets _ "level" { return { type: 'scaleWithStatusLevel', status }; }
-  // TODO: These two should be standardized
+  // TODO: These all should be standardized
   / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
   / "at" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList plus:"+"? { return { type: 'statusLevel', status, value, plus: !!plus }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "=" _ value:Integer { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level"? _ ">" _ value:Integer { return { type: 'statusLevel', status, value: value + 1, plus: true }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusNameNoBrackets { return { type: 'statusLevel', status, value }; }
 

@@ -259,8 +259,8 @@ MinDamage
   = ("minimum" _ "damage" / "min.") _ minDamage:Integer (_ "(SUM only)")? { return { minDamage }; }
 
 OrMultiplier
-  = orMultiplier:DecimalNumberSlashList _ ("multiplier" / "mult." / "each") _ orMultiplierCondition:Condition {
-    return { orMultiplier, orMultiplierCondition };
+  = orMultiplier:DecimalNumberSlashList _ orHybridMultiplier:("or" _ m:DecimalNumberSlashList { return m; })? _ ("multiplier" / "mult." / "each") _ orMultiplierCondition:Condition {
+    return { orMultiplier, orHybridMultiplier, orMultiplierCondition };
   }
 
 OrNumAttacks
@@ -627,10 +627,11 @@ Condition
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
   / "scaling with" _ status:StatusNameNoBrackets _ "level" { return { type: 'scaleWithStatusLevel', status }; }
-  // TODO: These two should be standardized
+  // TODO: These all should be standardized
   / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
   / "at" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList plus:"+"? { return { type: 'statusLevel', status, value, plus: !!plus }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "=" _ value:Integer { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level"? _ ">" _ value:Integer { return { type: 'statusLevel', status, value: value + 1, plus: true }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusNameNoBrackets { return { type: 'statusLevel', status, value }; }
 

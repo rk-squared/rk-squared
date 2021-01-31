@@ -134,6 +134,7 @@ export interface AttackExtras {
   minDamage?: number;
 
   orMultiplier?: number | number[];
+  orHybridMultiplier?: number | number[];
   orMultiplierCondition?: common.Condition;
 
   orNumAttacks?: NumAttacks;
