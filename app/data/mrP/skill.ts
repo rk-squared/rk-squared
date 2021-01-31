@@ -163,13 +163,16 @@ export function describeHeal(
   return heal;
 }
 
-function describeMimic(skill: EnlirSkill, { chance, count }: skillTypes.Mimic): string {
+export function describeMimic(
+  skill: EnlirSkill | undefined,
+  { chance, count }: skillTypes.Mimic,
+): string {
   let description = 'Mimic';
 
   // For brave commands in particular, we'll want to compare with other
   // numbers, so always include the count.
   count = count || 1;
-  if (count > 1 || isBraveCommand(skill)) {
+  if (count > 1 || (skill && isBraveCommand(skill))) {
     description += ` ${count || 1}x`;
   }
 

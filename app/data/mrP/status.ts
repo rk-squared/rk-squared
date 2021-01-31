@@ -35,6 +35,7 @@ import {
   processSkillStatus,
   OtherDetail,
   describeDrainHp,
+  describeMimic,
 } from './skill';
 import {
   displayStatusLevel,
@@ -1062,6 +1063,8 @@ function formatTriggerableEffect(
       return formatSmartEther(effect.amount, effect.school);
     case 'dispelOrEsuna':
       return (effect.who ? whoText[effect.who] + ' ' : '') + formatDispelOrEsuna(effect);
+    case 'mimic':
+      return describeMimic(undefined, effect);
   }
 }
 

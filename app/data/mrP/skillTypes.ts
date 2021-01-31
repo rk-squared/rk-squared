@@ -254,13 +254,7 @@ export interface Chain {
   fieldBonus: number;
 }
 
-export interface Mimic {
-  type: 'mimic';
-  count?: number;
-  chance?: number;
-  defaultPower: number;
-  defaultCritChance?: number;
-}
+export type Mimic = common.Mimic;
 
 // --------------------------------------------------------------------------
 // Status effects

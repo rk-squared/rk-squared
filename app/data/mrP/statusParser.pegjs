@@ -582,7 +582,7 @@ TriggerChance
   }
 
 TriggerableEffect
-  = CastSkill / RandomCastSkill / CastSimpleSkill/ GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealPercent / RecoilHp / SmartEtherStatus / DispelOrEsuna
+  = CastSkill / RandomCastSkill / CastSimpleSkill/ GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealPercent / RecoilHp / SmartEtherStatus / DispelOrEsuna / Mimic
   // Normal status effects that may also be triggered
   / CritChance / CastSpeed
 
@@ -652,6 +652,14 @@ RecoilHp
 DispelOrEsuna
   = 'remove'i S _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? _ perUses:PerUses? {
     return { type: 'dispelOrEsuna', dispelOrEsuna, who, perUses };
+  }
+
+Mimic
+  = "casts"i _ "the last ability used by an ally" _ occurrence:Occurrence? {
+    return {
+      type: 'mimic',
+      count: occurrence,
+    };
   }
 
 // A special case of triggered effect.  It has a unique trigger and gets its own
@@ -763,8 +771,9 @@ RemovedUnlessStatus
 // applies to the trigger itself.  As such, it does not get its own type.
 // Hack: "or if the user hasn't Synchro Mode" is omitted from our higher-level
 // code, so we'll drop it here rather than further complicating the parser.
+// TODO: Clean these up?
 OnceOnly
-  = "Removed"i _ "after triggering" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true }; }
+  = "Removed"i _ "after triggering" _ count:Occurrence? _ ("or if" _ "the"? _ "user hasn't Synchro Mode")? { return { onceOnly: count || true }; }
   / "Removed"i _ ("after" / "when") _ skill:AnySkillName _ "is cast" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
   / "Removed"i _ "after casting" _ skill:AnySkillName _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
   / "Removed"i _ "when effect is triggered" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true }; }
@@ -1198,6 +1207,7 @@ Condition
   / "if" _ character:CharacterNameAndList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character, all: true }; }
   / "if" _ character:CharacterNameListOrPronoun _ ("is" / "are") _ "not alive/alive" { return { type: 'characterAlive', character, withoutWith: 'withoutWith' }; }
   / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
+  / "if" _ character:CharacterNameAndList _ ("is" / "are") _ "not alive" { return { type: 'characterAlive', character, withoutWith: 'without' }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameAndList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count, all: true }; }
   / "if" _ count:IntegerSlashList _ "females are in the party" { return { type: 'femalesInParty', count }; }
@@ -1206,7 +1216,7 @@ Condition
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive" / "members are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
   / "if" _ count:Integer _ "or more females are in the party" { return { type: 'femalesInParty', count }; }
-  / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ ("party members" / "allies") _ "are alive" { return { type: 'charactersAlive', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
 

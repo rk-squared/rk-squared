@@ -115,12 +115,12 @@ function processStatuses(): [number, number] {
     let parseError: SyntaxError | undefined;
     totalCount++;
     try {
-      parseResults = parse(i.effects);
+      parseResults = parse(i.patchedEffects || i.effects);
       successCount++;
     } catch (e) {
       if (e.name !== 'SyntaxError') {
         console.log(i.name);
-        console.log(i.effects);
+        console.log(i.patchedEffects || i.effects);
         throw e;
       }
       parseError = e;

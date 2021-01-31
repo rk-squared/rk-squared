@@ -603,6 +603,7 @@ export type TriggerableEffect =
   | RecoilHp
   | common.SmartEtherStatus
   | common.DispelOrEsuna
+  | common.Mimic
   // Beginning of "regular" effects (may also be standalone)
   | CritChance
   | CastSpeed;

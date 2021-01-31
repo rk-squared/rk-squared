@@ -36,6 +36,14 @@ export interface DamagesUndead {
   type: 'damagesUndead';
 }
 
+export interface Mimic {
+  type: 'mimic';
+  count?: number;
+  chance?: number;
+  defaultPower: number;
+  defaultCritChance?: number;
+}
+
 // --------------------------------------------------------------------------
 // Lower-level game rules
 

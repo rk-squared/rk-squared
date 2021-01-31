@@ -905,6 +905,14 @@ function patchEnlir() {
     'After using three of Eblan Surge or Eblan Struggle, if user has any [Attach Element], grants the same Attach Element to the user',
     'Grants [Conditional Attach Element] to the user after using three of Eblan Surge or Eblan Struggle',
   );
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Mimic Hero Mode', // Match 'Mimic attacks' from, e.g., legend materia
+    'Mimicked abilities deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
+      'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
+    'Mimic attacks deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
+      'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
+  );
 
   // Legend materia.  To be consistent with statuses, use "and" to separate
   // triggered effects, while commas separate completely distinct clauses.
@@ -1075,19 +1083,6 @@ function patchEnlir() {
     'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate, removes [Blade Drawn] from the user',
     'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate',
   );
-  // Simplify Angeal; hopefully the "or" communicates well enough.
-  applyEffectsPatch(
-    enlir.statusByName,
-    'Dream Pioneer Mode',
-    'Grants [Dream Pioneer Wind Ability +15% Boost]/[Dream Pioneer Wind Ability +30% Boost]/[Dream Pioneer Wind Ability +50% Boost] ' +
-      'after using 1/2/3+ Wind abilities, ' +
-      'grants [Dream Pioneer Holy Ability +15% Boost]/[Dream Pioneer Holy Ability +30% Boost]/[Dream Pioneer Holy Ability +50% Boost] ' +
-      'after using 1/2/3+ Holy abilities. ' +
-      'Only one of these effects can trigger at a time',
-    'Grants [Dream Pioneer Wind Ability +15% Boost]/[Dream Pioneer Wind Ability +30% Boost]/[Dream Pioneer Wind Ability +50% Boost] ' +
-      'or [Dream Pioneer Holy Ability +15% Boost]/[Dream Pioneer Holy Ability +30% Boost]/[Dream Pioneer Holy Ability +50% Boost] ' +
-      'after using 1/2/3+ Wind or Holy abilities',
-  );
   // Rain SASB is far too complex to communicate in our allotted space.  Throw
   // away some detail.
   applyEffectsPatch(
@@ -1145,6 +1140,16 @@ function patchEnlir() {
     '4/6 single attacks (1.32 each) if 0/4 female allies are alive, ' +
       "grants [Quick Cast 1] to all allies in the character's row if 2 or more female allies are alive, " +
       'grants [Buff Lightning 10% (15s)] to all allies if 3 or more female allies are alive',
+  );
+  // Removed after triggering is simpler for humans and easier for our code than
+  // duplicating the trigger.  (See Celes' SASB2 as well.)
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Sovereign Barrier',
+    'Grants [Overflow Ice Radiant Shield: 500% (8s)] to the user after using three Ice abilities, ' +
+      "removed after using three Ice abilities or if the user hasn't Synchro Mode",
+    'Grants [Overflow Ice Radiant Shield: 500% (8s)] to the user after using three Ice abilities, ' +
+      "removed after triggering or if user hasn't Synchro Mode",
   );
 
   // Use the older, less verbose format for hybrid effects, since that's all our
