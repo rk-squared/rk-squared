@@ -156,7 +156,7 @@ export type Condition =
   | { type: 'doomTimer'; value: number | number[] }
   | { type: 'hpBelowPercent'; value: number | number[] }
   | { type: 'hpAtLeastPercent'; value: number | number[] }
-  | { type: 'soulBreakPoints'; value: number | number[]; plus?: boolean }
+  | { type: 'soulBreakPoints'; value: number | number[] | SimpleRange; plus?: boolean }
   | { type: 'targetStatBreaks'; count: number | number[] }
   | { type: 'targetStatusAilments'; count: number | number[] }
   | { type: 'vsWeak'; element?: EnlirElement | EnlirElement[] }
@@ -205,6 +205,11 @@ export type UseCount =
 export interface Fraction {
   numerator: number;
   denominator: number;
+}
+
+export interface SimpleRange {
+  from: number;
+  to: number;
 }
 
 export type OrOptions<T> = T | T[] | { options: T[] };

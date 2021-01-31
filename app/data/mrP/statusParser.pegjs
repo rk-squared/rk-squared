@@ -552,8 +552,11 @@ TriggeredEffect
   {
     return util.addCondition({ type: 'triggeredEffect', ...chance, effects: util.pegMultiList(head, [[tail, 3], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
   }
-  // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
+  // Alternate forms for complex effects - used by, e.g., Orlandeau's SASB or Cor's SASB
   / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
+    return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2), triggerDetail };
+  }
+  / "Triggers the following effects" _ trigger:Trigger ":" _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
     return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2), triggerDetail };
   }
   // Triggered smart enther has a couple unique bits - a separate Who and different grammar for "chance of"
@@ -607,7 +610,7 @@ GrantStatus
 // Some statuses are listed as directly granting other statuses.  To avoid parser
 // ambiguities, this should go after TriggeredEffect and GainSb.
 DirectGrantStatus
-  = "Grants"i _ statuses:StatusList _ duration:Duration? {
+  = ("Grants"i / "Causes"i) _ statuses:StatusList _ duration:Duration? {
     const result = { type: 'directGrantStatus', status: statuses };
     if (duration) {
       util.applyDuration(result.status, duration);
@@ -969,10 +972,11 @@ Skill1Or2
   = skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return [skill1, skill2]; }
   / skill1or2:AnySkillName
     & {
-        // Variation for "or" instead of "and/or" - these may be part of a skill name themselves.
-        return (skill1or2.match(/ or |\//g) || []).length === 1;
+        // Variation for "or" or "and" instead of "and/or" - these may be part of a skill name themselves.
+        // TODO: Consistently using and/or would be better.
+        return (skill1or2.match(/ (?:or|and) |\//g) || []).length === 1;
       }
-      { return skill1or2.split(/ or |\//); }
+      { return skill1or2.split(/ (?:or|and) |\//); }
 
 
 // --------------------------------------------------------------------------
@@ -1198,7 +1202,7 @@ Condition
   / "if" _ "the" _ "user's" _ ("[Doom]" / "Doom") _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "at" _ "least" _ value:IntegerSlashList "%" { return { type: 'hpAtLeastPercent', value }; }
-  / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashList plus:"+"? _ SB _ "points" { return { type: 'soulBreakPoints', value, plus: !!plus }; }
+  / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashListOrRange plus:"+"? _ SB _ "points" { return { type: 'soulBreakPoints', value, plus: !!plus }; }
 
   / "if" _ count:IntegerSlashList _ "of the target's stats are lowered" { return { type: 'targetStatBreaks', count }; }
   / "if target has" _ count:IntegerSlashList _ "of ATK, DEF, MAG, RES or MND reduced" { return { type: 'targetStatBreaks', count }; }
@@ -1299,12 +1303,15 @@ AbilityName
   = UppercaseWord (_ UppercaseWord)* { return text(); }
 CharacterName
   = UppercaseWord (_ (UppercaseWord / "of"))* (_ "(" [A-Z] [A-Za-z0-9-]+ ")")? { return text(); }
+CharacterNameOrSelf  // Hack: Accomodate the regular who: 'self' as part of a character
+  = CharacterName
+  / "the user" { return 'self'; }
 
 // Character names, for "if X are in the party."
 CharacterNameList
-  = head:CharacterName tail:(("/" / "," _ / _ "or" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+  = head:CharacterName tail:(("/" / "," _ / _ "or" _) CharacterNameOrSelf)* { return util.pegList(head, tail, 1, true); }
 CharacterNameAndList
-  = head:CharacterName tail:(("/" / "," _ / _ "and" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+  = head:CharacterName tail:(("/" / "," _ / _ "and" _) CharacterNameOrSelf)* { return util.pegList(head, tail, 1, true); }
 CharacterNameListOrPronoun
   = CharacterNameList
   / ("he" / "she" / "they") { return undefined; }
@@ -1672,6 +1679,10 @@ MultiplierSlashList "slash-separated list of multipliers"
 
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }
+
+IntegerSlashListOrRange "slash-separated integers or range"
+  = from:Integer "-" to:Integer { return { from, to }; }
+  / IntegerSlashList
 
 PercentSlashList "slash-separated percent integers"
   = head:PercentInteger tail:('/' PercentInteger)* { return util.pegSlashList(head, tail); }

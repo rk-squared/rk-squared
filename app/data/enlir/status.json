@@ -29368,7 +29368,7 @@
   {
     "id": -11,
     "name": "Imperil Prismatic 10% (15s)",
-    "effects": "Causes [Imperil Holy 10% (15s)], [Imperil Dark 10% (15s)], [Imperil Fire 10% (15s)], [Imperil Wind 10% (15s)], [Imperil Lightning 10% (15s)], [Imperil Water 10% (15s)], [Imperil Ice 10% (15s)], [Imperil Earth 10% (15s)], [Imperil Poison 10% (15s)]",
+    "effects": "Causes [Imperil Fire 10% (15s)], [Imperil Ice 10% (15s)], [Imperil Lightning 10% (15s)], [Imperil Earth 10% (15s)], [Imperil Wind 10% (15s)], [Imperil Water 10% (15s)], [Imperil Holy 10% (15s)], [Imperil Dark 10% (15s)], [Imperil Poison 10% (15s)]",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,
@@ -29379,7 +29379,7 @@
   {
     "id": -12,
     "name": "Imperil Prismatic 30% (15s)",
-    "effects": "Causes [Imperil Holy 30% (15s)], [Imperil Dark 30% (15s)], [Imperil Fire 30% (15s)], [Imperil Wind 30% (15s)], [Imperil Lightning 30% (15s)], [Imperil Water 30% (15s)], [Imperil Ice 30% (15s)], [Imperil Earth 30% (15s)], [Imperil Poison 30% (15s)]",
+    "effects": "Causes [Imperil Fire 30% (15s)], [Imperil Ice 30% (15s)], [Imperil Lightning 30% (15s)], [Imperil Earth 30% (15s)], [Imperil Wind 30% (15s)], [Imperil Water 30% (15s)], [Imperil Holy 30% (15s)], [Imperil Dark 30% (15s)], [Imperil Poison 30% (15s)]",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

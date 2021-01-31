@@ -82,10 +82,14 @@ export function getElementShortName(
   joinString = '+',
 ): string {
   element = arrayify(element);
-  return element
-    .map(i => elementShortName[i.toLowerCase()] || i.toLowerCase())
-    .join(joinString)
-    .replace(prismElementsShortName, 'prism');
+  return (
+    element
+      .map(i => elementShortName[i.toLowerCase()] || i.toLowerCase())
+      .join(joinString)
+      // I'm not sure if using 'prism' for allElementsShortName is correct; we'll
+      // try it for now.
+      .replace(joinString === '/' ? allElementsShortName : prismElementsShortName, 'prism')
+  );
 }
 
 export function getElementAbbreviation(

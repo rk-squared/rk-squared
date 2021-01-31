@@ -81,12 +81,19 @@ export const fixedNumberOrUnknown = (n: number, fractionDigits: number) =>
  * attack damage, because attack damage values contain slashes themselves, so
  * using hyphens for conditions and supporting values has the advantage of
  * matching.)
+ *
+ * As of January 2021, we also support simple ranges.  Awkwardly, these also use
+ * hyphens.  We should fix that someday.
  */
 export function formatNumberSlashList(
-  n: number | number[],
+  n: number | number[] | common.SimpleRange,
   converter: (n: number) => string = numberOrUnknown,
 ): string {
-  return typeof n === 'number' ? converter(n) : n.map(converter).join('-');
+  return typeof n === 'number'
+    ? converter(n)
+    : Array.isArray(n)
+    ? n.map(converter).join('-')
+    : n.from + '-' + n.to;
 }
 
 export function formatSignedIntegerSlashList(n: number | number[]): string {

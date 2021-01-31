@@ -25,7 +25,7 @@ export const withoutWithClause = (withoutWith: common.WithoutWith | undefined) =
   withoutWith === 'withoutWith' ? 'w/o - w/' : withoutWith === 'without' ? 'w/o' : 'if';
 
 export function formatThreshold(
-  thresholdValues: number | number[],
+  thresholdValues: number | number[] | common.SimpleRange,
   thresholdName: string,
   units = '',
   prefix = '',

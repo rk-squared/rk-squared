@@ -1105,6 +1105,18 @@ function patchEnlir() {
     'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times',
     'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% scaling with 0/1/2/3 uses',
   );
+  // The convention is that "causes [Status]" applies to the skill's target.
+  // Make Celes' SB points effect explicit.  Combining the "grants" and "causes"
+  // helps our output look nicer.
+  applyEffectsPatch(
+    enlir.otherSkillsByName,
+    'Metamorphosis',
+    'One single attack (6.00) capped at 99999, grants [Quick Cast 1] to the user if the user has 750-999 SB points, ' +
+      'grants [Instant Cast 1] and [Dualcast Spellblade 1] to the user if the user has 1000+ SB points, ' +
+      'causes [Soul Break Gauge -500] if the user has 1000+ SB points',
+    'One single attack (6.00) capped at 99999, grants [Quick Cast 1] to the user if the user has 750-999 SB points, ' +
+      'grants [Instant Cast 1], [Dualcast Spellblade 1], and [Soul Break Gauge -500] to the user if the user has 1000+ SB points',
+  );
 
   // Use the older, less verbose format for hybrid effects, since that's all our
   // parser supports.  (Personally, I prefer the older format anyway...)
