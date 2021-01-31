@@ -114,7 +114,8 @@ export type Who =
   | 'ally'
   // Used in application code (not in the parser directly) to indicate specific
   // toCharacter values.
-  | 'namedCharacter';
+  | 'namedCharacter'
+  | 'summonCharacter';
 
 export type WithoutWith = 'without' | 'with' | 'withoutWith';
 

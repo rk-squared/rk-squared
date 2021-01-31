@@ -590,6 +590,7 @@ export function processSkillStatus(
   skillEffects: skillTypes.SkillEffect,
   effect: skillTypes.StatusEffect,
   other: OtherDetail,
+  summonName?: string,
 ): boolean | undefined {
   // Confuse Shell doesn't remove Confuse - this is a special case, skip.
   if (effect.verb === "doesn't remove") {
@@ -734,7 +735,7 @@ export function processSkillStatus(
       }
     }
 
-    if (toCharacter) {
+    if (toCharacter && toCharacter !== summonName) {
       description =
         (who ? formatWho(who) + '/' : '') + stringSlashList(toCharacter) + ' ' + description;
     }
@@ -754,7 +755,11 @@ export function processSkillStatus(
         lastItem[lastItem.length - 1] += ' or ' + description;
       }
     } else if (toCharacter) {
-      lastItem = other.push(sourceSkill, 'namedCharacter', description);
+      lastItem = other.push(
+        sourceSkill,
+        toCharacter === summonName ? 'summonCharacter' : 'namedCharacter',
+        description,
+      );
     } else if (thisStatus.chance && who !== 'self') {
       const chanceDescription = formatAttackStatusChance(
         thisStatus.chance,
@@ -868,6 +873,7 @@ export class OtherDetail {
   misc: string[] = [];
   detail: string[] = [];
   namedCharacter: string[] = [];
+  summonCharacter: string[] = [];
 
   push(
     skill: EnlirSkill | SimpleSkill,
@@ -931,6 +937,7 @@ export class OtherDetail {
         ...this.makeGroup(this.self, 'self'),
         ...this.misc,
         ...this.makeGroup(this.detail),
+        // Don't include this.summonCharacter; that's handled separately
       ];
     }
     return result.length ? result.join(', ') : undefined;
@@ -1001,6 +1008,8 @@ export class OtherDetail {
         return this.ally;
       case 'namedCharacter':
         return this.namedCharacter;
+      case 'summonCharacter':
+        return this.summonCharacter;
     }
   }
 
@@ -1071,6 +1080,9 @@ export function convertEnlirSkillToMrP(
   let chain: string | undefined;
 
   let burstToggle: boolean | undefined;
+
+  let summon: string | undefined;
+  let summonName: string | undefined;
 
   // The components of MrPSkill.other, as lists.  We break them up like
   // this so that we can sort general items (e.g., elemental infuse), then
@@ -1177,8 +1189,12 @@ export function convertEnlirSkillToMrP(
       case 'mimic':
         other.normal.push(describeMimic(skill, effect));
         break;
+      case 'summon':
+        summon = 'summon ' + effect.name + ' ' + formatDuration(effect.duration);
+        summonName = effect.name;
+        break;
       case 'status': {
-        const thisBurstToggle = processSkillStatus(skill, skillEffects, effect, other);
+        const thisBurstToggle = processSkillStatus(skill, skillEffects, effect, other, summonName);
         if (thisBurstToggle != null) {
           burstToggle = thisBurstToggle;
         }
@@ -1227,6 +1243,12 @@ export function convertEnlirSkillToMrP(
       default:
         return assertNever(effect);
     }
+  }
+
+  if (summon) {
+    other.misc.push(
+      summon + (other.summonCharacter.length ? ' w/ ' + other.summonCharacter.join(', ') : ''),
+    );
   }
 
   {

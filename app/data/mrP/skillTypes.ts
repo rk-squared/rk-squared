@@ -32,6 +32,7 @@ export type EffectClause =
   | RandomCastOther
   | Chain
   | Mimic
+  | Summon
   | StatusEffect
   | SetStatusLevel
   | RandomStatusEffect
@@ -255,6 +256,12 @@ export interface Chain {
 }
 
 export type Mimic = common.Mimic;
+
+export interface Summon {
+  type: 'summon';
+  name: string;
+  duration: common.Duration;
+}
 
 // --------------------------------------------------------------------------
 // Status effects

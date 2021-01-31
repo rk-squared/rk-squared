@@ -27,7 +27,7 @@ SkillEffect
 EffectClause = FixedAttack / Attack / RandomFixedAttack
   / DrainHp / RecoilHp / RecoilSetHp / FixedRecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
-  / RandomCastAbility / RandomCastOther / Chain / Mimic
+  / RandomCastAbility / RandomCastOther / Chain / Mimic / Summon
   / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
   / CastTime / CastTimePerUse / StandaloneAttackExtra
@@ -464,6 +464,9 @@ Mimic
     }
     return result;
   }
+
+Summon
+  = "Summons"i _ name:CharacterName _ "for" _ duration:Integer _ "seconds" { return { type: 'summon', name, duration: { value: duration, units: 'seconds' } }; }
 
 
 // --------------------------------------------------------------------------
