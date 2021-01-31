@@ -729,7 +729,7 @@ export function formatTrigger(
     case 'damageDuringStatus':
       // Hack: Conditions (which formatThreshold expects) have prepositions, but
       // triggers don't.
-      return formatThreshold(trigger.value, 'dmg dealt').replace(/^@ /, '');
+      return formatThreshold(trigger.value, 'dmg dealt', '', '', toMrPKilo).replace(/^@ /, '');
   }
 }
 

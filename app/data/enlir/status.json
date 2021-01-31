@@ -18394,7 +18394,7 @@
   {
     "id": 50936,
     "name": "Royal Puppeteer Mode",
-    "effects": "Casts Royal Puppetmaster when the user's HP falls below 20%, removed if user hasn't Synchro Mode",
+    "effects": "Casts Royal Puppeteer when the user's HP falls below 20%, removed if user hasn't Synchro Mode",
     "defaultDuration": null,
     "mndModifier": null,
     "mndModifierIsOpposed": false,

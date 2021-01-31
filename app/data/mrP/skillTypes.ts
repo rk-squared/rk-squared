@@ -288,6 +288,7 @@ export interface RandomStatusEffect {
 
 export interface Entrust {
   type: 'entrust';
+  max?: number;
 }
 
 export interface GainSB {

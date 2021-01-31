@@ -1179,9 +1179,11 @@ export function convertEnlirSkillToMrP(
       case 'setStatusLevel':
         other.self.push(formatStatusLevel(effect.status, effect.value, true));
         break;
-      case 'entrust':
-        other.normal.push('donate SB pts to target');
+      case 'entrust': {
+        const max = effect.max || 'all';
+        other.normal.push(`donate ${max} SB pts to target`);
         break;
+      }
       case 'gainSB':
         other.push(skill, effect.who, sbPointsAlias(effect.points), { defaultToAlly: true });
         break;

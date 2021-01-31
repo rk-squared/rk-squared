@@ -197,9 +197,14 @@ export function toMrPKilo(n: number | string, favorSmall = false): string {
     n = parseFloat(n);
   }
 
-  if (favorSmall && n < 1000) {
+  if ((n === 0 || favorSmall) && n < 1000) {
     return n + suffix;
   } else {
+    // Damage thresholds like 100001 can reasonably be rounded.
+    if (n % 1000 === 1) {
+      n--;
+    }
+
     return +n / 1000 + 'k' + suffix;
   }
 }

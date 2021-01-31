@@ -13,7 +13,13 @@ import {
   vsWeakElement,
 } from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
-import { formatNumberSlashList, formatUseCount, formatUseNumber, stringSlashList } from './util';
+import {
+  formatNumberSlashList,
+  formatUseCount,
+  formatUseNumber,
+  stringSlashList,
+  toMrPKilo,
+} from './util';
 
 export const withoutWithClause = (withoutWith: common.WithoutWith | undefined) =>
   withoutWith === 'withoutWith' ? 'w/o - w/' : withoutWith === 'without' ? 'w/o' : 'if';
@@ -23,8 +29,11 @@ export function formatThreshold(
   thresholdName: string,
   units = '',
   prefix = '',
+  converter?: (n: number) => string,
 ): string {
-  return '@ ' + prefix + formatNumberSlashList(thresholdValues) + units + ' ' + thresholdName;
+  return (
+    '@ ' + prefix + formatNumberSlashList(thresholdValues, converter) + units + ' ' + thresholdName
+  );
 }
 
 export function describeMultiplierScaleType(scaleType: skillTypes.MultiplierScaleType): string {
@@ -272,6 +281,9 @@ export function describeCondition(condition: common.Condition, count?: number | 
       return formatThreshold(
         condition.value,
         (condition.element ? formatSchoolOrAbilityList(condition.element) + ' ' : '') + 'dmg dealt',
+        '',
+        '',
+        toMrPKilo,
       );
     case 'rankBased':
       return '@ rank 1-5';

@@ -507,7 +507,7 @@ RandomStatusList
 // Miscellaneous
 
 Entrust
-  = "transfers"i _ "the" _ "user's" _ SB _ "points" _ "to" _ "the" _ "target" { return { type: 'entrust' }; }
+  = "transfers"i _ "the user's" _ SB _ "points to the target" max:(" (maximum of" _ max:Integer _ "Soul Break points)" { return max; })?{ return { type: 'entrust', max }; }
 
 GainSB
   = "grants"i _ points:Integer _ SB _ "points" _ who:Who? { return { type: 'gainSB', points, who }; }
