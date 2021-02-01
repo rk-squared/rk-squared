@@ -44,17 +44,27 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
         headerName: 'Series',
         width: 65,
         field: 'characterId',
+        sortable: true,
+        resizable: true,
         valueGetter: ({ data }: { data: RecordMateriaDetail }) =>
           series.short[data.seriesId as SeriesId],
         comparator: compareByNumberField('characterId'),
       },
-      { headerName: 'Character', width: 115, field: 'characterName' },
-      { headerName: 'RM', width: 45, field: 'order' },
-      { headerName: 'Name', width: 175, field: 'name' },
+      {
+        headerName: 'Character',
+        width: 115,
+        field: 'characterName',
+        sortable: true,
+        resizable: true,
+      },
+      { headerName: 'RM', width: 45, field: 'order', sortable: true, resizable: true },
+      { headerName: 'Name', width: 175, field: 'name', sortable: true, resizable: true },
       {
         headerName: 'Description',
         width: 330,
         field: 'description',
+        sortable: true,
+        resizable: true,
         valueGetter: ({ data }: { data: RecordMateriaDetail }) =>
           data.description.replace('<br>', ' '),
         cellRendererFramework: DescriptionCell,
@@ -116,8 +126,6 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
           />
         </div>
         <AgGridReact
-          enableSorting={true}
-          enableColResize={true}
           columnDefs={this.columnDefs}
           rowData={this.objectValues(recordMateria)}
           quickFilterText={this.state.filter}

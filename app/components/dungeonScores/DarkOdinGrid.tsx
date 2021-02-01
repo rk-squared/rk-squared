@@ -28,6 +28,8 @@ export class MagiciteGrid extends React.Component<Props> {
         headerName: 'Element',
         width: 300,
         field: 'element',
+        sortable: true,
+        resizable: true,
         cellRendererFramework: DarkOdinElementCellRenderer,
         cellRendererParams: { hideElementText: true },
       },
@@ -35,6 +37,8 @@ export class MagiciteGrid extends React.Component<Props> {
         headerName: 'Completed',
         width: 90,
         field: 'isComplete',
+        sortable: true,
+        resizable: true,
         cellClass: 'text-center',
         cellRendererFramework: CheckIconCellRenderer,
         valueGetter: ({ data }: { data: MagiciteDungeonWithScore }) =>

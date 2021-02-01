@@ -28,11 +28,13 @@ interface Props {
 
 // TODO: Tooltips break if a tooltip is up while the score updates
 
-const dColumnDef = {
+const dColumnDef: ColDef = {
   width: 90,
   cellRendererFramework: CardiaScoreCellRenderer,
   cellClass: 'text-right',
   comparator: compareDungeonsWithScore,
+  sortable: true,
+  resizable: true,
 };
 
 const formatName = ({ value }: { value: string | undefined }) =>
@@ -51,12 +53,16 @@ export class CardiaGrid extends React.Component<Props> {
         width: 65,
         field: 'seriesId',
         valueFormatter: ({ value }: { value: SeriesId }) => series.short[value],
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: 'Torment',
         width: 165,
         field: 'torment.name',
         valueFormatter: formatName,
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: 'D240',
@@ -78,6 +84,8 @@ export class CardiaGrid extends React.Component<Props> {
         width: 165,
         field: 'dreambreaker.name',
         valueFormatter: formatName,
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: 'D580',
@@ -101,8 +109,6 @@ export class CardiaGrid extends React.Component<Props> {
     return (
       <GridContainer>
         <AgGridReact
-          enableSorting={true}
-          enableColResize={true}
           columnDefs={this.columnDefs}
           rowData={this.objectValues(cardiaScores)}
           deltaRowDataMode={true}
