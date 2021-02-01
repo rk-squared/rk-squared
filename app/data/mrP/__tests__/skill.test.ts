@@ -2265,8 +2265,8 @@ describe('skill', () => {
         damage: 'phys 9.0/15 earth+non',
         other:
           'earth infuse 25s, self 1.3x PHY dmg 15s, dmg cap +10k 15s, ' +
-          '15s: (3 earth ⤇ p1.56/3 - 2.6/5 - 2.6/5 e+n Knight @ 0-72001-240001 dmg dealt, ' +
-          'then p5.0/10, then 5.0 overstrike, e+n Knight @ 240001 dmg dealt (once only)), ' +
+          '15s: (3 earth ⤇ p1.56/3 - 2.6/5 - 2.6/5 e+n Knight @ 0-72k-240k dmg dealt, ' +
+          'then p5.0/10, then 5.0 overstrike, e+n Knight @ 240k dmg dealt (once only)), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2324,8 +2324,8 @@ describe('skill', () => {
         damage: 'magic 22.5/15 earth+holy+non',
         other:
           'earth infuse 25s, self dmg cap +10k 15s, fastcast 15s, ' +
-          '15s: (3 earth ⤇ m3.6/3 - 6.0/5 - 18.0/15 e+h+n B.Mag @ 0-72001-240001 earth dmg dealt, ' +
-          'then m17.3 e+h+n overstrike B.Mag @ 240001 earth dmg dealt, once only), ' +
+          '15s: (3 earth ⤇ m3.6/3 - 6.0/5 - 18.0/15 e+h+n B.Mag @ 0-72k-240k earth dmg dealt, ' +
+          'then m17.3 e+h+n overstrike B.Mag @ 240k earth dmg dealt, once only), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2360,9 +2360,9 @@ describe('skill', () => {
         damage: 'magic 22.5/15 lgt+non',
         other:
           'lgt infuse 25s, self dmg cap +10k 15s, ' +
-          '15s: (lgt ⤇ m5.28/4 - 5.28/4 - 5.28/4 - 7.92/6 l+n B.Mag if 1-2-3-4 females in party, ' +
-          'same row fastcast 1 if ≥2 females in party, ' +
-          'party +10% lgt dmg if ≥3 females in party 15s), ' +
+          '15s: (lgt ⤇ m5.28/4 - 7.92/6 l+n B.Mag if 0-4 females alive, ' +
+          'same row fastcast 1 if ≥2 females alive, ' +
+          'party +10% lgt dmg if ≥3 females alive 15s), ' +
           '15s: Awoken Lightning: lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 

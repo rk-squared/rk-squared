@@ -293,7 +293,7 @@ Array [
   Object {
     "character": "Arc",
     "description": "(water/holy dmg ⤇ 35% for m8.43/3 (SUM) or w8.94/3 wa+h+n, self refill 1 Summon abil. use)",
-    "effect": "35% chance to cast an ability (SUM/WHT: single, hybrid 3x 2.81 or 2.98 magical Water/Holy/NE, Summoning smart ether 1 to the user) after dealing damage with a Water or Holy ability",
+    "effect": "35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Water/Holy/NE, summoning ether 1 to the user) after dealing damage with a Water or Holy ability",
     "name": "Onslaught (Arc)",
   },
   Object {
@@ -521,7 +521,7 @@ Array [
   Object {
     "character": "Bartz",
     "description": "10% triplecast Spellblade",
-    "effect": "10% chance to triplecast Spellblade abilities",
+    "effect": "10% chance to dualcast Spellblade abilities twice",
     "name": "Fragments of Grace",
   },
   Object {
@@ -1283,7 +1283,7 @@ Array [
   Object {
     "character": "Edgar",
     "description": "10% triplecast Machinist",
-    "effect": "10% chance to triplecast Machinist abilities",
+    "effect": "10% chance to dualcast Machinist abilities twice",
     "name": "Master of Machines",
   },
   Object {
@@ -2393,7 +2393,7 @@ Array [
   Object {
     "character": "Josef",
     "description": "(<20% HP ⤇ Doom 15s, party heal 55% HP, party Last stand)",
-    "effect": "Causes [Doom: 15] to the user and restores HP to all allies for 55% of their max HP and grants [Last Stand] to all allies when HP fall below 20%",
+    "effect": "Causes [Doom: 15], restores HP to all allies for 55% max HP and grants [Last Stand] to all allies when HP fall below 20%",
     "name": "Fitting End",
   },
   Object {
@@ -3767,7 +3767,7 @@ Array [
   Object {
     "character": "Quina",
     "description": "(<20% HP ⤇ heal 100% HP, +500 SB pts, Trance: +15% A/D/M/R/MND 25s)",
-    "effect": "Restores HP for 100% of the user's maximum HP and grants 500 SB points and grants [Quina Trance] when HP fall below 20%",
+    "effect": "Restores HP for 100% of the user's maximum HP, grants 500 SB points and grants [Quina Trance] when HP fall below 20%",
     "name": "Qu Banquet",
   },
   Object {
@@ -3917,7 +3917,7 @@ Array [
   Object {
     "character": "Red XIII",
     "description": "(<20% HP ⤇ fastcast 15s, +30% MAG, -30% RES 25s)",
-    "effect": "Grants [Quick Cast] and [Lingering Spirit] for 25 seconds when HP fall below 20%",
+    "effect": "Grants [Quick Cast], grants [Lingering Spirit] for 25 seconds when HP fall below 20%",
     "name": "Warrior's Talisman",
   },
   Object {
@@ -4709,7 +4709,7 @@ Array [
   Object {
     "character": "Shantotto",
     "description": "10% triplecast Witch",
-    "effect": "10% chance to triplecast Witch abilities",
+    "effect": "10% chance to dualcast Witch abilities twice",
     "name": "Master Caster",
   },
   Object {
