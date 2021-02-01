@@ -113,7 +113,7 @@ export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
 export type EnlirLegendMateriaTier = 'LMR' | 'LMR+';
 
-export type EnlirLimitBreakTier = 'LBO' | 'LBG';
+export type EnlirLimitBreakTier = 'LBO' | 'LBG' | 'LBGS';
 
 export type EnlirRelicType =
   | 'Accessory'
@@ -342,6 +342,15 @@ export interface EnlirEvent {
   abilitiesAwarded: string[] | null;
 }
 
+export interface EnlirGuardianCommand extends EnlirGenericSkill {
+  character: string;
+  source: string;
+  guardianAbilitySlot: '1' | '2' | 'Finisher';
+  sb: number;
+  school: EnlirSchool;
+  nameJp: string;
+}
+
 export interface EnlirLegendMateria {
   realm: EnlirRealm;
   character: string;
@@ -445,6 +454,7 @@ export type EnlirSkill =
   | EnlirAbility
   | EnlirBraveCommand
   | EnlirBurstCommand
+  | EnlirGuardianCommand
   | EnlirOtherSkill
   | EnlirSynchroCommand
   | EnlirSoulBreak
@@ -474,8 +484,9 @@ export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
 };
 
 export const limitBreakTierOrder: { [t in EnlirLimitBreakTier]: number } = {
-  LBO: 1,
   LBG: 0,
+  LBO: 1,
+  LBGS: 2,
 };
 
 const rawData = {
@@ -484,6 +495,7 @@ const rawData = {
   burstCommands: require('./enlir/burst.json') as EnlirBurstCommand[],
   characters: require('./enlir/characters.json') as EnlirCharacter[],
   events: require('./enlir/events.json') as EnlirEvent[],
+  guardianCommands: require('./enlir/guardianCommands.json') as EnlirGuardianCommand[],
   legendMateria: require('./enlir/legendMateria.json') as EnlirLegendMateria[],
   limitBreaks: require('./enlir/limitBreaks.json') as EnlirLimitBreak[],
   magicite: require('./enlir/magicite.json'),
@@ -645,6 +657,9 @@ export const enlir = {
   charactersByName: _.keyBy(rawData.characters, 'name'),
 
   events: _.keyBy(rawData.events, 'eventName'),
+
+  guardianCommands: _.keyBy(rawData.guardianCommands, 'id'),
+  guardianCommandsByCharacter: makeCommandsMap(rawData.guardianCommands),
 
   legendMateria: _.keyBy(rawData.legendMateria, 'id'),
   legendMateriaByCharacter: makeCharacterMap(rawData.legendMateria, [
@@ -1640,7 +1655,11 @@ export function isSynchroSoulBreak(sb: EnlirSoulBreak): boolean {
 
 export function isBurstCommand(skill: EnlirSkill): skill is EnlirBurstCommand {
   return (
-    'character' in skill && 'source' in skill && !isBraveCommand(skill) && !isSynchroCommand(skill)
+    'character' in skill &&
+    'source' in skill &&
+    !isBraveCommand(skill) &&
+    !isSynchroCommand(skill) &&
+    !isGuardianCommand(skill)
   );
 }
 
@@ -1648,8 +1667,12 @@ export function isBraveCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
   return 'brave' in skill;
 }
 
-export function isSynchroCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
+export function isSynchroCommand(skill: EnlirSkill): skill is EnlirSynchroCommand {
   return 'synchroAbilitySlot' in skill;
+}
+
+export function isGuardianCommand(skill: EnlirSkill): skill is EnlirGuardianCommand {
+  return 'guardianAbilitySlot' in skill;
 }
 
 export function isSharedSoulBreak(sb: EnlirSoulBreak): boolean {

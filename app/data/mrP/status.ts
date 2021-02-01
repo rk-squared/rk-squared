@@ -1724,6 +1724,8 @@ function describeStatusEffect(
     case 'trackUses':
     case 'burstOnly':
     case 'burstReset':
+    case 'trackGuardian':
+    case 'guardianReset':
     case 'statusReset':
       // Internal details; omit from descriptions.
       return null;

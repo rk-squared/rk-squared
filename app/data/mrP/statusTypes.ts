@@ -98,6 +98,8 @@ export type EffectClause =
   | ModifiesSkill
   | BurstOnly
   | BurstReset
+  | TrackGuardian
+  | GuardianReset
   | StatusReset
   | DisableAttacks
   | Paralyze
@@ -834,6 +836,14 @@ interface BurstOnly {
 
 interface BurstReset {
   type: 'burstReset';
+}
+
+interface TrackGuardian {
+  type: 'trackGuardian';
+}
+
+interface GuardianReset {
+  type: 'guardianReset';
 }
 
 interface StatusReset {

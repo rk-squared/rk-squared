@@ -41,7 +41,7 @@ EffectClause
 
   / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
-  / BurstToggle / TrackUses / SharedCount / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
+  / BurstToggle / TrackUses / SharedCount / ModifiesSkill / BurstOnly / BurstReset / TrackGuardian / GuardianReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
   / ResetTarget / NoEffect / Persists / GameOver / Unknown
 
 LmEffectClause
@@ -840,6 +840,12 @@ BurstReset
 
 StatusReset
   = "reset upon refreshing" _ status:StatusNameNoBrackets { return { type: 'statusReset', status }; }
+
+TrackGuardian
+  = "Used to track whether a Guardian Summon is active" { return { type: 'trackGuardian' }; }
+
+GuardianReset
+  = "removed after duration expires, Guardian Summon's HP is fully depleted or the associated Guardian Summon Finisher ability is triggered" { return { type: 'guardianReset' }; }
 
 ReplaceAttack
   = "Replaces"i _ "the Attack command" { return null; }

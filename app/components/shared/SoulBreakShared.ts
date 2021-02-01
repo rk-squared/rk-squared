@@ -46,6 +46,7 @@ export function makeTierStyleMap(
 
     LBO: cssStyles.overstrikeLimitBreak,
     LBG: cssStyles.glint,
+    LBGS: cssStyles.guardianSummon,
 
     // Unused - placeholders
     Default: cssStyles.unique,
@@ -80,6 +81,7 @@ export const limitBreakAbbrevAliases = makeLimitBreakAliases(enlir.limitBreaks, 
   // BOLD CAPITAL"; see https://unicode-search.net/unicode-namesearch.pl.
   LBO: '𝐋𝐎',
   LBG: '𝐋𝐆',
+  LBGS: '𝐋𝐆𝐒',
 });
 export const limitBreakFullAliases = makeLimitBreakAliases(enlir.limitBreaks);
 export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
@@ -135,6 +137,19 @@ export function getSynchroColumns(
             ? ', w/ ' + formatSchoolOrAbilityList(mrP.synchroCondition[i])
             : '') +
           (cmd.commandDetail ? ' (' + cmd.commandDetail + ')' : ''),
+        formatMrPSkill(cmd),
+      ] as [string, string],
+  );
+}
+
+export function getGuardianColumns(
+  mrP: MrPSkill,
+  guardianCommands: MrPSkill[],
+): Array<[string, string]> {
+  return guardianCommands.map(
+    (cmd, i) =>
+      [
+        i === guardianCommands.length - 1 ? 'Finisher' : formatSchoolName(cmd),
         formatMrPSkill(cmd),
       ] as [string, string],
   );

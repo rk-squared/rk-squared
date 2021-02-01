@@ -76,6 +76,11 @@ for (const sb of _.sortBy(
       console.log('    ' + formatMrPSkill(mrP.synchroCommands[i]));
     }
   }
+  if (mrP.guardianCommands) {
+    for (const i of mrP.guardianCommands) {
+      console.log('    ' + formatMrPSkill(i));
+    }
+  }
   console.log();
 }
 

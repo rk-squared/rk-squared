@@ -24,6 +24,7 @@ import {
   isSynchroSoulBreak,
   isArcaneDyad1st,
   isArcaneDyad2nd,
+  isLimitBreak,
 } from '../enlir';
 import {
   describeAttack,
@@ -422,6 +423,21 @@ function checkSynchroCommands(skill: EnlirSkill, result: MrPSkill) {
     result.synchroCondition = synchroCommands.map(i => i.synchroCondition);
     result.synchroCommands = synchroCommands.map(i =>
       convertEnlirSkillToMrP(i, { abbreviate: true, includeSchool: false, synchroCommands }),
+    );
+  }
+}
+
+function checkGuardianCommands(skill: EnlirSkill, result: MrPSkill) {
+  if (
+    isLimitBreak(skill) &&
+    skill.tier === 'LBGS' &&
+    skill.character &&
+    enlir.guardianCommandsByCharacter[skill.character] &&
+    enlir.guardianCommandsByCharacter[skill.character][skill.name]
+  ) {
+    const guardianCommands = enlir.guardianCommandsByCharacter[skill.character][skill.name];
+    result.guardianCommands = guardianCommands.map(i =>
+      convertEnlirSkillToMrP(i, { abbreviate: true, includeSchool: false, includeSbPoints: false }),
     );
   }
 }
@@ -1067,6 +1083,7 @@ export interface MrPSkill {
   braveCommands?: MrPSkill[];
   synchroCommands?: MrPSkill[];
   synchroCondition?: Array<EnlirElement | EnlirSchool | 'Any'>[];
+  guardianCommands?: MrPSkill[];
 }
 
 export function convertEnlirSkillToMrP(
@@ -1298,6 +1315,7 @@ export function convertEnlirSkillToMrP(
   checkBurstCommands(skill, result);
   checkBraveCommands(skill, result);
   checkSynchroCommands(skill, result);
+  checkGuardianCommands(skill, result);
 
   if (
     (isBurstCommand(skill) && enlir.burstCommands[skill.id].length > 1) ||

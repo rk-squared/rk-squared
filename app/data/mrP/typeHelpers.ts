@@ -164,6 +164,7 @@ export const whoText: { [w in common.Who]: string } = {
   allyWithKO: 'ally',
   ally: 'ally',
   namedCharacter: 'specific character',
+  summonCharacter: 'guardian',
 };
 
 export function formatWho(who: common.Who | common.Who[]): string {
